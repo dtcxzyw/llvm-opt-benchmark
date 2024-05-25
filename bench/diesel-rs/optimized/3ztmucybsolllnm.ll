@@ -1525,7 +1525,7 @@ tailrecurse:                                      ; preds = %72, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   br i1 %84, label %87, label %86
 
-default.unreachable:                              ; preds = %.thread261
+default.unreachable:                              ; preds = %182, %.thread261
   unreachable
 
 86:                                               ; preds = %80
@@ -1856,7 +1856,7 @@ common.resume:                                    ; preds = %403, %390, %380, %3
   %184 = load i64, ptr %183, align 8, !range !306, !noundef !5
   %185 = add i64 %184, 9223372036854775807
   %186 = tail call i64 @llvm.umin.i64(i64 %185, i64 7)
-  switch i64 %186, label %187 [
+  switch i64 %186, label %default.unreachable [
     i64 0, label %190
     i64 1, label %192
     i64 2, label %194
@@ -1864,6 +1864,7 @@ common.resume:                                    ; preds = %403, %390, %380, %3
     i64 4, label %198
     i64 5, label %200
     i64 6, label %202
+    i64 7, label %187
   ]
 
 187:                                              ; preds = %182

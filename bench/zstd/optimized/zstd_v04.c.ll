@@ -1097,10 +1097,11 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = load i8, ptr %src, align 1
   %2 = and i8 %1, 3
-  switch i8 %2, label %return [
+  switch i8 %2, label %default.unreachable [
     i8 0, label %sw.bb.i
     i8 1, label %sw.bb7.i
     i8 2, label %sw.bb39.i
+    i8 3, label %return
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
@@ -1254,6 +1255,9 @@ if.end48.i:                                       ; preds = %sw.bb39.i
   %litSize56.i = getelementptr inbounds i8, ptr %dctx, i64 10352
   store i64 %conv44.i, ptr %litSize56.i, align 8
   br label %if.end3
+
+default.unreachable:                              ; preds = %if.end.i
+  unreachable
 
 ZSTD_decodeLiteralsBlock.exit.thread45:           ; preds = %sw.bb.i, %if.end.i.i, %HUF_decompress.exit.thread13.i.i, %HUF_decompress.exit.i.i
   %litPtr.i48 = getelementptr inbounds i8, ptr %dctx, i64 10344

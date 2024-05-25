@@ -45447,7 +45447,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Exp
   %3 = add nsw i64 %2, -6
   %4 = icmp ult i64 %3, 64
   %5 = select i1 %4, i64 %3, i64 44
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %8
     i64 1, label %10
     i64 2, label %12
@@ -45511,7 +45511,11 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Exp
     i64 60, label %130
     i64 61, label %132
     i64 62, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17hc18085fcbb1bfbf4E.exit38"
+    i64 63, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -45835,7 +45839,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Exp
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17hdbf83e78118fc0d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %133)
           to label %431 unwind label %428
 
-"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17hc18085fcbb1bfbf4E.exit38": ; preds = %412, %408, %365, %361, %342, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17hbb54163f617f3f76E.exit49", %321, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17hbb54163f617f3f76E.exit42", %257, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$sqlparser..ast..data_type..DataType$GT$$GT$17h6f2d30020bb3a910E.exit36", %431, %426, %421, %416, %389, %384, %379, %374, %369, %299, %294, %289, %278, %267, %233, %222, %211, %206, %201, %196, %191, %180, %169, %164, %159, %154, %149, %144, %137, %130, %128, %120, %118, %116, %114, %112, %110, %108, %106, %104, %96, %88, %86, %74, %72, %70, %58, %30, %28, %26, %24, %22, %20, %18, %16, %10, %8, %6, %1
+"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17hc18085fcbb1bfbf4E.exit38": ; preds = %412, %408, %365, %361, %342, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17hbb54163f617f3f76E.exit49", %321, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17hbb54163f617f3f76E.exit42", %257, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$sqlparser..ast..data_type..DataType$GT$$GT$17h6f2d30020bb3a910E.exit36", %1, %431, %426, %421, %416, %389, %384, %379, %374, %369, %299, %294, %289, %278, %267, %233, %222, %211, %206, %201, %196, %191, %180, %169, %164, %159, %154, %149, %144, %137, %130, %128, %120, %118, %116, %114, %112, %110, %108, %106, %104, %96, %88, %86, %74, %72, %70, %58, %30, %28, %26, %24, %22, %20, %18, %16, %10, %8, %6
   ret void
 
 134:                                              ; preds = %12
@@ -49306,11 +49310,15 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..Cop
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !3394, !noundef !5
-  switch i64 %4, label %5 [
+  switch i64 %4, label %default.unreachable3 [
     i64 0, label %15
     i64 1, label %15
     i64 2, label %16
+    i64 3, label %5
   ]
+
+default.unreachable3:                             ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -49336,7 +49344,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..Cop
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !12792
   br label %15
 
-15:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit2", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit", %1, %1
+15:                                               ; preds = %1, %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit2", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit"
   ret void
 
 16:                                               ; preds = %1
@@ -50919,11 +50927,15 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$sqlparser..ast..que
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !3394, !noundef !5
-  switch i64 %4, label %5 [
+  switch i64 %4, label %default.unreachable4 [
     i64 0, label %18
     i64 1, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h31288729c6b754d0E.exit"
     i64 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h31288729c6b754d0E.exit"
+    i64 3, label %5
   ]
+
+default.unreachable4:                             ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -53420,15 +53432,19 @@ common.resume:                                    ; preds = %.body, %174, %44, %
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$sqlparser..ast..HiveDistributionStyle$GT$17hefc74d6a607f0a90E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !12452, !noundef !5
-  switch i8 %2, label %4 [
+  switch i8 %2, label %default.unreachable2 [
     i8 0, label %.sink.split
     i8 1, label %5
     i8 2, label %7
+    i8 3, label %4
   ]
 
+default.unreachable2:                             ; preds = %1
+  unreachable
+
 .sink.split:                                      ; preds = %7, %5, %1
-  %.sink2 = phi i64 [ 8, %1 ], [ 32, %5 ], [ 32, %7 ]
-  %3 = getelementptr inbounds i8, ptr %0, i64 %.sink2
+  %.sink3 = phi i64 [ 8, %1 ], [ 32, %5 ], [ 32, %7 ]
+  %3 = getelementptr inbounds i8, ptr %0, i64 %.sink3
   tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..ddl..ColumnDef$GT$$GT$17hbab922e73badbf7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   br label %4
 
@@ -53853,7 +53869,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$deltalake_core..ker
   %4 = add nsw i64 %3, -2
   %5 = icmp ult i64 %4, 8
   %6 = select i1 %5, i64 %4, i64 2
-  switch i64 %6, label %7 [
+  switch i64 %6, label %.unreachabledefault [
     i64 0, label %9
     i64 1, label %11
     i64 2, label %13
@@ -53861,7 +53877,11 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$deltalake_core..ker
     i64 4, label %16
     i64 5, label %18
     i64 6, label %28
+    i64 7, label %7
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -56812,11 +56832,15 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$datafusion_expr..ex
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$datafusion_expr..expr..WindowFunctionDefinition$GT$17h6027bd8c0094a5edE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 8, !range !12452, !noundef !5
-  switch i8 %2, label %3 [
+  switch i8 %2, label %default.unreachable1 [
     i8 0, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$datafusion_expr..udwf..WindowUDF$GT$$GT$17h960a7fdc9906ab48E.exit"
     i8 1, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$datafusion_expr..udwf..WindowUDF$GT$$GT$17h960a7fdc9906ab48E.exit"
     i8 2, label %9
+    i8 3, label %3
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -56853,11 +56877,15 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$datafusion_expr..ex
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$deltalake_core..kernel..models..schema..DataType$GT$17h46a60cf0b40c344aE"(i8 %.0.val, ptr %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  switch i8 %.0.val, label %2 [
+  switch i8 %.0.val, label %default.unreachable [
     i8 0, label %6
     i8 1, label %7
     i8 2, label %25
+    i8 3, label %2
   ]
+
+default.unreachable:                              ; preds = %0
+  unreachable
 
 2:                                                ; preds = %0
   invoke void @"_ZN4core3ptr68drop_in_place$LT$deltalake_core..kernel..models..schema..MapType$GT$17h3307a2d94522ebaaE"(ptr noalias noundef align 8 dereferenceable(64) %.8.val)
@@ -58236,7 +58264,7 @@ define internal fastcc void @"_ZN4core3ptr86drop_in_place$LT$core..option..Optio
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15185)
-  switch i64 %2, label %5 [
+  switch i64 %2, label %default.unreachable1.i [
     i64 0, label %"_ZN4core3ptr58drop_in_place$LT$parquet..file..statistics..Statistics$GT$17h08f6ddae5efd6262E.exit"
     i64 1, label %"_ZN4core3ptr58drop_in_place$LT$parquet..file..statistics..Statistics$GT$17h08f6ddae5efd6262E.exit"
     i64 2, label %"_ZN4core3ptr58drop_in_place$LT$parquet..file..statistics..Statistics$GT$17h08f6ddae5efd6262E.exit"
@@ -58244,7 +58272,11 @@ define internal fastcc void @"_ZN4core3ptr86drop_in_place$LT$core..option..Optio
     i64 4, label %"_ZN4core3ptr58drop_in_place$LT$parquet..file..statistics..Statistics$GT$17h08f6ddae5efd6262E.exit"
     i64 5, label %"_ZN4core3ptr58drop_in_place$LT$parquet..file..statistics..Statistics$GT$17h08f6ddae5efd6262E.exit"
     i64 6, label %53
+    i64 7, label %5
   ]
+
+default.unreachable1.i:                           ; preds = %4
+  unreachable
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -58328,8 +58360,8 @@ common.resume.i:                                  ; preds = %78, %74, %69, %30, 
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17h1536bbbf0b621630E.exit.sink.split.i": ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17h4379f95b37f788c0E.llvm.4057250340930679409.exit.i.i", %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17h1772854b82e3b98fE.llvm.4057250340930679409.exit.i.i"
-  %.sink6.i = phi ptr [ %42, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17h1772854b82e3b98fE.llvm.4057250340930679409.exit.i.i" ], [ %90, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17h4379f95b37f788c0E.llvm.4057250340930679409.exit.i.i" ]
-  %46 = getelementptr inbounds i8, ptr %.sink6.i, i64 24
+  %.sink7.i = phi ptr [ %42, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17h1772854b82e3b98fE.llvm.4057250340930679409.exit.i.i" ], [ %90, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17h4379f95b37f788c0E.llvm.4057250340930679409.exit.i.i" ]
+  %46 = getelementptr inbounds i8, ptr %.sink7.i, i64 24
   %47 = load ptr, ptr %46, align 8, !noalias !5, !nonnull !5, !noundef !5
   %48 = getelementptr inbounds i8, ptr %0, i64 80
   %49 = getelementptr inbounds i8, ptr %0, i64 64

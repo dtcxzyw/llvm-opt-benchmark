@@ -48944,13 +48944,16 @@ _ZN4stdx4rand7shuffle17he4a035d56c5306e9E.exit:   ; preds = %_ZN4stdx4rand7shuff
   %183 = load i8, ptr %.sroa.0226.0334, align 8, !range !1764, !alias.scope !12478, !noalias !12475, !noundef !16
   %184 = add nsw i8 %183, -24
   %narrow.i = call i8 @llvm.umin.i8(i8 %184, i8 2)
-  switch i8 %narrow.i, label %default.unreachable [
+  switch i8 %narrow.i, label %.unreachabledefault [
     i8 0, label %185
     i8 1, label %191
     i8 2, label %194
   ]
 
-default.unreachable:                              ; preds = %334, %275, %179
+.unreachabledefault:                              ; preds = %179
+  unreachable
+
+default.unreachable:                              ; preds = %334, %275
   unreachable
 
 185:                                              ; preds = %179

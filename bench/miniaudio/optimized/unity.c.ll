@@ -127348,10 +127348,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i, %entry
   %h1.0.lcssa.i = phi i32 [ 42, %entry ], [ %add.i, %for.body.i ]
   %and.i = and i32 %conv, 3
-  switch i32 %and.i, label %ma_hash_32.exit [
+  switch i32 %and.i, label %default.unreachable [
     i32 3, label %sw.bb.i
     i32 2, label %sw.bb10.i
     i32 1, label %sw.bb15.i
+    i32 0, label %ma_hash_32.exit
   ]
 
 sw.bb.i:                                          ; preds = %for.end.i
@@ -127382,6 +127383,9 @@ sw.bb15.i:                                        ; preds = %sw.bb10.i, %for.end
   %mul21.i = mul i32 %or.i.i, 461845907
   %xor22.i = xor i32 %mul21.i, %h1.0.lcssa.i
   br label %ma_hash_32.exit
+
+default.unreachable:                              ; preds = %for.end.i
+  unreachable
 
 ma_hash_32.exit:                                  ; preds = %for.end.i, %sw.bb15.i
   %h1.1.i = phi i32 [ %h1.0.lcssa.i, %for.end.i ], [ %xor22.i, %sw.bb15.i ]

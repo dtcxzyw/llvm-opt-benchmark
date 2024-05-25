@@ -2573,7 +2573,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..ex
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !876, !noundef !4
-  switch i8 %2, label %3 [
+  switch i8 %2, label %default.unreachable [
     i8 0, label %8
     i8 1, label %14
     i8 2, label %20
@@ -2581,7 +2581,11 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..ex
     i8 4, label %33
     i8 5, label %39
     i8 6, label %71
+    i8 7, label %3
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2590,8 +2594,8 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..ex
   invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef align 8 dereferenceable(56) %5)
           to label %"_ZN4core3ptr100drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h7b7494aaec35de1dE.llvm.11290379560268722015.exit" unwind label %6, !noalias !1509
 
-common.resume:                                    ; preds = %.body, %.body4, %67, %80, %6
-  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %81, %80 ], [ %57, %67 ], [ %57, %.body4 ], [ %74, %.body ]
+common.resume:                                    ; preds = %.body, %.body5, %67, %80, %6
+  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %81, %80 ], [ %57, %67 ], [ %57, %.body5 ], [ %74, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 6:                                                ; preds = %3
@@ -2667,7 +2671,7 @@ common.resume:                                    ; preds = %.body, %.body4, %67
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %"_ZN4core3ptr77drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..VarRef$GT$17h0f594534f76d02feE.llvm.11290379560268722015.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17had4a60fe904b7722E.exit.sink.split.i"
 
-"_ZN4core3ptr77drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..VarRef$GT$17h0f594534f76d02feE.llvm.11290379560268722015.exit": ; preds = %69, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95614576c810846aE.exit.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i1", %33, %29, %25, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17had4a60fe904b7722E.exit.sink.split.i", %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i", %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i.i", %8, %"_ZN4core3ptr100drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h7b7494aaec35de1dE.llvm.11290379560268722015.exit2", %"_ZN4core3ptr100drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h7b7494aaec35de1dE.llvm.11290379560268722015.exit", %1
+"_ZN4core3ptr77drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..VarRef$GT$17h0f594534f76d02feE.llvm.11290379560268722015.exit": ; preds = %69, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95614576c810846aE.exit.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i1", %33, %29, %25, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17had4a60fe904b7722E.exit.sink.split.i", %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i", %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i.i", %8, %1, %"_ZN4core3ptr100drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h7b7494aaec35de1dE.llvm.11290379560268722015.exit2", %"_ZN4core3ptr100drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h7b7494aaec35de1dE.llvm.11290379560268722015.exit"
   ret void
 
 33:                                               ; preds = %1
@@ -2725,7 +2729,7 @@ common.resume:                                    ; preds = %.body, %.body4, %67
 54:                                               ; preds = %58, %56
   %.1.i = phi i64 [ %53, %56 ], [ %60, %58 ]
   %55 = icmp eq i64 %.1.i, %48
-  br i1 %55, label %.body4, label %58
+  br i1 %55, label %.body5, label %58
 
 56:                                               ; preds = %51
   %57 = landingpad { ptr, i32 }
@@ -2750,13 +2754,13 @@ common.resume:                                    ; preds = %.body, %.body4, %67
   %64 = icmp eq i64 %.val1.i, 0
   br i1 %64, label %"_ZN4core3ptr77drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..VarRef$GT$17h0f594534f76d02feE.llvm.11290379560268722015.exit", label %69
 
-.body4:                                           ; preds = %54
+.body5:                                           ; preds = %54
   %65 = getelementptr inbounds i8, ptr %0, i64 40
   %.val3.i = load i64, ptr %65, align 8, !alias.scope !1633, !noundef !4
   %66 = icmp eq i64 %.val3.i, 0
   br i1 %66, label %common.resume, label %67
 
-67:                                               ; preds = %.body4
+67:                                               ; preds = %.body5
   %68 = mul nuw i64 %.val3.i, 56
   tail call void @__rust_dealloc(ptr noundef nonnull %46, i64 noundef %68, i64 noundef 8) #13, !noalias !1633
   br label %common.resume

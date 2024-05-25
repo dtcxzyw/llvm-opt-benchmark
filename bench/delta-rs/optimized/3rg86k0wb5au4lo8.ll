@@ -1169,11 +1169,15 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$deltalake_mount..error..Erro
   %4 = load i64, ptr %0, align 8, !range !189, !noundef !9
   %5 = add nsw i64 %4, -16
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 3)
-  switch i64 %6, label %7 [
+  switch i64 %6, label %default.unreachable [
     i64 0, label %8
     i64 1, label %17
     i64 2, label %26
+    i64 3, label %7
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   tail call void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h3183bb69bec89e65E.llvm.6422842959179203572"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
@@ -1221,7 +1225,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$deltalake_mount..error..Erro
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !199
   br label %26
 
-26:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit2", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit", %7, %1
+26:                                               ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit2", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit", %7
   ret void
 }
 

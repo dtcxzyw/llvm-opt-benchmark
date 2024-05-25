@@ -12013,10 +12013,11 @@ _ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_
 
 if.end:                                           ; preds = %entry
   %and4 = and i32 %l_flags, 3
-  switch i32 %and4, label %sw.default [
+  switch i32 %and4, label %default.unreachable11 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb8
     i32 2, label %sw.bb10
+    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -12134,6 +12135,9 @@ sw.bb10:                                          ; preds = %if.end
   %m_parser_proc11.repack69 = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %m_parser_proc11.repack69, align 8, !tbaa !322
   br label %sw.epilog
+
+default.unreachable11:                            ; preds = %if.end
+  unreachable
 
 sw.default:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #26

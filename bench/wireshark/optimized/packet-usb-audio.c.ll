@@ -3260,10 +3260,11 @@ has_data_stage.exit.i:                            ; preds = %87
   br i1 %.not.i, label %97, label %dissect_v2_control_cur_range.exit
 
 97:                                               ; preds = %has_data_stage.exit.i
-  switch i32 %.0100117131.i, label %113 [
+  switch i32 %.0100117131.i, label %default.unreachable [
     i32 1, label %98
     i32 2, label %103
     i32 3, label %108
+    i32 0, label %113
   ]
 
 98:                                               ; preds = %97
@@ -3287,10 +3288,13 @@ has_data_stage.exit.i:                            ; preds = %87
   %112 = load i32, ptr @hf_parameter_dres, align 4
   br label %113
 
+default.unreachable:                              ; preds = %97
+  unreachable
+
 113:                                              ; preds = %108, %103, %98, %97
   %.096.i = phi ptr [ @.str.788, %108 ], [ @.str.787, %103 ], [ @.str.786, %98 ], [ @.str.789, %97 ]
   %.not108.i = phi i1 [ false, %108 ], [ false, %103 ], [ false, %98 ], [ true, %97 ]
-  %.095.i = phi i32 [ 4, %108 ], [ 2, %103 ], [ 1, %98 ], [ 0, %97 ]
+  %.095.i = phi i32 [ 4, %108 ], [ 2, %103 ], [ 1, %98 ], [ %.0100117131.i, %97 ]
   %.094.i = phi i32 [ %109, %108 ], [ %104, %103 ], [ %99, %98 ], [ undef, %97 ]
   %.093.i = phi i32 [ %110, %108 ], [ %105, %103 ], [ %100, %98 ], [ undef, %97 ]
   %.092.i = phi i32 [ %111, %108 ], [ %106, %103 ], [ %101, %98 ], [ undef, %97 ]

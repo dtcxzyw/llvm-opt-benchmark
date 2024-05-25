@@ -12879,10 +12879,11 @@ define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr nocaptur
   %85 = lshr i32 %82, 4
   %86 = and i32 %85, 1
   %87 = icmp eq i32 %86, 0
-  switch i32 %84, label %106 [
+  switch i32 %84, label %default.unreachable24 [
     i32 1, label %88
     i32 2, label %94
     i32 3, label %100
+    i32 0, label %106
   ]
 
 88:                                               ; preds = %78
@@ -12935,6 +12936,9 @@ define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr nocaptur
 105:                                              ; preds = %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(3) %63, ptr noundef align 1 dereferenceable(3) %64, i64 3, i1 false)
   br label %112
+
+default.unreachable24:                            ; preds = %78
+  unreachable
 
 106:                                              ; preds = %78
   br i1 %87, label %110, label %107

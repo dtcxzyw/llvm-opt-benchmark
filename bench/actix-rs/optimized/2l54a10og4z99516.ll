@@ -3337,11 +3337,15 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$all
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h913c0795b75189e1E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !438, !noundef !4
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %14
     i64 1, label %15
     i64 2, label %17
+    i64 3, label %3
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3373,7 +3377,7 @@ define internal fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payloa
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4e461bf965e07609E.llvm.14998522591088738574"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %14
 
-14:                                               ; preds = %17, %15, %"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h4ff4c0206e9133ffE.exit", %1
+14:                                               ; preds = %1, %17, %15, %"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h4ff4c0206e9133ffE.exit"
   ret void
 
 15:                                               ; preds = %1
@@ -9446,11 +9450,15 @@ define void @_ZN10actix_http4test11TestRequest6finish17h34917f898d062358E(ptr no
 
 86:                                               ; preds = %84
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1077)
-  switch i64 %83, label %87 [
+  switch i64 %83, label %default.unreachable1.i [
     i64 0, label %"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h913c0795b75189e1E.exit"
     i64 1, label %96
     i64 2, label %97
+    i64 3, label %87
   ]
+
+default.unreachable1.i:                           ; preds = %86
+  unreachable
 
 87:                                               ; preds = %86
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1080)

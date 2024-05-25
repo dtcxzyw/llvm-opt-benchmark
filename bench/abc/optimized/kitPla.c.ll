@@ -853,10 +853,11 @@ define ptr @Kit_PlaFromIsop(ptr nocapture noundef %0, i32 noundef %1, ptr nocapt
   %14 = shl nuw i32 %.02471, 1
   %15 = ashr i32 %13, %14
   %16 = and i32 %15, 3
-  switch i32 %16, label %90 [
+  switch i32 %16, label %default.unreachable [
     i32 1, label %17
     i32 2, label %40
     i32 0, label %63
+    i32 3, label %90
   ]
 
 17:                                               ; preds = %.lr.ph
@@ -1020,6 +1021,9 @@ Vec_StrGrow.exit.i41:                             ; preds = %73, %71
   store ptr %85, ptr %.phi.trans.insert.i37, align 8
   store i32 %77, ptr %0, align 8
   br label %.sink.split
+
+default.unreachable:                              ; preds = %.lr.ph
+  unreachable
 
 .sink.split:                                      ; preds = %84, %Vec_StrGrow.exit.i41, %.Vec_StrGrow.exit10_crit_edge.i36, %61, %Vec_StrGrow.exit.i34, %.Vec_StrGrow.exit10_crit_edge.i29, %38, %Vec_StrGrow.exit.i, %.Vec_StrGrow.exit10_crit_edge.i
   %.sink78 = phi ptr [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %39, %38 ], [ %29, %Vec_StrGrow.exit.i ], [ %.pre.i31, %.Vec_StrGrow.exit10_crit_edge.i29 ], [ %62, %61 ], [ %52, %Vec_StrGrow.exit.i34 ], [ %.pre.i38, %.Vec_StrGrow.exit10_crit_edge.i36 ], [ %85, %84 ], [ %75, %Vec_StrGrow.exit.i41 ]

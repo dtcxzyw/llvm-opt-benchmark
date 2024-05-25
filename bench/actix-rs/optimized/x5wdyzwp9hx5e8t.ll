@@ -10198,11 +10198,15 @@ define hidden void @"_ZN4core3ptr238drop_in_place$LT$core..iter..adapters..Gener
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E.llvm.11632439649900387884"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1134, !noundef !5
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h4f8e6697dfccd265E.exit"
     i64 1, label %24
     i64 2, label %26
+    i64 3, label %3
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10248,7 +10252,7 @@ define hidden void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payloa
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2d60daded9cd689eE.llvm.11632439649900387884.exit.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i.i.i", %9
   resume { ptr, i32 } %10
 
-"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h4f8e6697dfccd265E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i", %17, %26, %24, %1
+"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h4f8e6697dfccd265E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1.i.i", %17, %1, %26, %24
   ret void
 
 24:                                               ; preds = %1
@@ -10549,11 +10553,15 @@ common.resume:                                    ; preds = %.body.i.i, %9, %"_Z
 define hidden void @"_ZN4core3ptr255drop_in_place$LT$actix_http..requests..request..Request$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17he92522628c7f25b1E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3465)
   %2 = load i64, ptr %0, align 8, !range !1134, !alias.scope !3465, !noundef !5
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E.llvm.11632439649900387884.exit"
     i64 1, label %24
     i64 2, label %26
+    i64 3, label %3
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11140,11 +11148,15 @@ define internal fastcc void @"_ZN4core3ptr273drop_in_place$LT$core..option..Opti
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3596)
-  switch i64 %2, label %5 [
+  switch i64 %2, label %default.unreachable1.i [
     i64 0, label %"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E.llvm.11632439649900387884.exit"
     i64 1, label %26
     i64 2, label %28
+    i64 3, label %5
   ]
+
+default.unreachable1.i:                           ; preds = %4
+  unreachable
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11798,11 +11810,15 @@ define hidden void @"_ZN4core3ptr291drop_in_place$LT$actix_http..encoding..decod
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$actix_http..encoding..decoder..ContentDecoder$GT$$GT$17h213feb47f9a3e284E.llvm.11632439649900387884.exit": ; preds = %1, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3709)
   %8 = load i64, ptr %0, align 8, !range !1134, !alias.scope !3709, !noundef !5
-  switch i64 %8, label %9 [
+  switch i64 %8, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E.llvm.11632439649900387884.exit"
     i64 1, label %30
     i64 2, label %32
+    i64 3, label %9
   ]
+
+default.unreachable:                              ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$actix_http..encoding..decoder..ContentDecoder$GT$$GT$17h213feb47f9a3e284E.llvm.11632439649900387884.exit"
+  unreachable
 
 9:                                                ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$actix_http..encoding..decoder..ContentDecoder$GT$$GT$17h213feb47f9a3e284E.llvm.11632439649900387884.exit"
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20565,11 +20581,15 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$actix_web..service..ServiceR
 "_ZN4core3ptr52drop_in_place$LT$actix_web..request..HttpRequest$GT$17hb7abd36fecedf4b1E.exit": ; preds = %16, %.noexc, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7487)
   %21 = load i64, ptr %0, align 8, !range !1134, !alias.scope !7487, !noundef !5
-  switch i64 %21, label %22 [
+  switch i64 %21, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E.llvm.11632439649900387884.exit"
     i64 1, label %43
     i64 2, label %45
+    i64 3, label %22
   ]
+
+default.unreachable:                              ; preds = %"_ZN4core3ptr52drop_in_place$LT$actix_web..request..HttpRequest$GT$17hb7abd36fecedf4b1E.exit"
+  unreachable
 
 22:                                               ; preds = %"_ZN4core3ptr52drop_in_place$LT$actix_web..request..HttpRequest$GT$17hb7abd36fecedf4b1E.exit"
   %23 = getelementptr inbounds i8, ptr %0, i64 8
@@ -25100,7 +25120,7 @@ common.resume:                                    ; preds = %.body, %42, %"_ZN63
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr62drop_in_place$LT$actix_web..middleware..logger..FormatText$GT$17hf3839ad75e8d115aE.llvm.11632439649900387884"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !9165, !noundef !5
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable19 [
     i64 0, label %9
     i64 1, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdbe1298128667ae0E.exit10"
     i64 2, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdbe1298128667ae0E.exit10"
@@ -25116,7 +25136,11 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$actix_web..middleware..logge
     i64 12, label %27
     i64 13, label %39
     i64 14, label %45
+    i64 15, label %3
   ]
+
+default.unreachable19:                            ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -26728,11 +26752,15 @@ define hidden void @"_ZN4core3ptr664drop_in_place$LT$core..option..IntoIter$LT$c
 define hidden void @"_ZN4core3ptr66drop_in_place$LT$actix_http..encoding..decoder..ContentDecoder$GT$17h7ca8d0b9ce5c42fcE.llvm.11632439649900387884"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1134, !noundef !5
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %8
     i64 1, label %12
     i64 2, label %13
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9841)

@@ -5858,8 +5858,8 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @g_strcmp0(ptr noundef %19, ptr noundef nonnull @.str.34) #15
-  %.not110 = icmp eq i32 %20, 0
-  br i1 %.not110, label %24, label %21
+  %.not111 = icmp eq i32 %20, 0
+  br i1 %.not111, label %24, label %21
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr @stderr, align 8
@@ -5910,63 +5910,63 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
   br label %45
 
 45:                                               ; preds = %.thread, %35, %38
-  %or.cond153 = phi i1 [ false, %.thread ], [ false, %35 ], [ true, %38 ]
+  %or.cond154 = phi i1 [ false, %.thread ], [ false, %35 ], [ true, %38 ]
   %46 = phi i1 [ false, %.thread ], [ %37, %35 ], [ %37, %38 ]
   %47 = phi i1 [ false, %.thread ], [ %36, %35 ], [ %36, %38 ]
-  %.not111201209231 = icmp eq ptr %25, null
-  br i1 %.not111201209231, label %.loopexit158, label %.lr.ph.lr.ph
+  %.not112208216238 = icmp eq ptr %25, null
+  br i1 %.not112208216238, label %.loopexit159, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %45, %.outer.backedge
-  %.0.ph234 = phi ptr [ %.0.ph.be, %.outer.backedge ], [ %25, %45 ]
-  %.0102.ph233 = phi i32 [ %.0102.ph156210, %.outer.backedge ], [ 0, %45 ]
-  %.ph232 = phi i1 [ %217, %.outer.backedge ], [ %46, %45 ]
+  %.0.ph241 = phi ptr [ %.0.ph.be, %.outer.backedge ], [ %25, %45 ]
+  %.0103.ph240 = phi i32 [ %.0103.ph157217, %.outer.backedge ], [ 0, %45 ]
+  %.ph239 = phi i1 [ %219, %.outer.backedge ], [ %46, %45 ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer155.backedge
-  %.0.ph157211 = phi ptr [ %.0.ph234, %.lr.ph.lr.ph ], [ %.0.ph157.be, %.outer155.backedge ]
-  %.0102.ph156210 = phi i32 [ %.0102.ph233, %.lr.ph.lr.ph ], [ %56, %.outer155.backedge ]
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer156.backedge
+  %.0.ph158218 = phi ptr [ %.0.ph241, %.lr.ph.lr.ph ], [ %.0.ph158.be, %.outer156.backedge ]
+  %.0103.ph157217 = phi i32 [ %.0103.ph240, %.lr.ph.lr.ph ], [ %56, %.outer156.backedge ]
   br label %48
 
 48:                                               ; preds = %.lr.ph, %60
-  %.0202 = phi ptr [ %.0.ph157211, %.lr.ph ], [ %61, %60 ]
-  %49 = getelementptr inbounds i8, ptr %.0202, i64 8
+  %.0209 = phi ptr [ %.0.ph158218, %.lr.ph ], [ %61, %60 ]
+  %49 = getelementptr inbounds i8, ptr %.0209, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 @g_strcmp0(ptr noundef %50, ptr noundef nonnull @.str.34) #15
-  %.not112 = icmp eq i32 %51, 0
-  br i1 %.not112, label %.outer155.backedge, label %52
+  %.not113 = icmp eq i32 %51, 0
+  br i1 %.not113, label %.outer156.backedge, label %52
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr %49, align 8
   %54 = call i32 @g_strcmp0(ptr noundef %53, ptr noundef nonnull @.str.75) #15
-  %.not113 = icmp eq i32 %54, 0
-  br i1 %.not113, label %55, label %57
+  %.not114 = icmp eq i32 %54, 0
+  br i1 %.not114, label %55, label %57
 
 55:                                               ; preds = %52
-  %.not114 = icmp eq i32 %.0102.ph156210, 0
-  br i1 %.not114, label %.loopexit158, label %.outer155.backedge
+  %.not115 = icmp eq i32 %.0103.ph157217, 0
+  br i1 %.not115, label %.loopexit159, label %.outer156.backedge
 
-.outer155.backedge:                               ; preds = %48, %55
+.outer156.backedge:                               ; preds = %48, %55
   %.sink = phi i32 [ -1, %55 ], [ 1, %48 ]
-  %56 = add i32 %.0102.ph156210, %.sink
-  %.0.ph157.be = load ptr, ptr %.0202, align 8
-  %.not111201 = icmp eq ptr %.0.ph157.be, null
-  br i1 %.not111201, label %.loopexit158, label %.lr.ph, !llvm.loop !42
+  %56 = add i32 %.0103.ph157217, %.sink
+  %.0.ph158.be = load ptr, ptr %.0209, align 8
+  %.not112208 = icmp eq ptr %.0.ph158.be, null
+  br i1 %.not112208, label %.loopexit159, label %.lr.ph, !llvm.loop !42
 
 57:                                               ; preds = %52
   %58 = load ptr, ptr %49, align 8
   %59 = call i32 @g_strcmp0(ptr noundef %58, ptr noundef nonnull @.str.25) #15
-  %.not118 = icmp eq i32 %59, 0
-  br i1 %.not118, label %60, label %62
+  %.not119 = icmp eq i32 %59, 0
+  br i1 %.not119, label %60, label %62
 
 60:                                               ; preds = %57
-  %61 = call fastcc ptr @parsebrackets(ptr noundef nonnull %.0202, ptr noundef nonnull %2)
-  %.not111 = icmp eq ptr %61, null
-  br i1 %.not111, label %.loopexit158, label %48, !llvm.loop !42
+  %61 = call fastcc ptr @parsebrackets(ptr noundef nonnull %.0209, ptr noundef nonnull %2)
+  %.not112 = icmp eq ptr %61, null
+  br i1 %.not112, label %.loopexit159, label %48, !llvm.loop !42
 
 62:                                               ; preds = %57
   %63 = load ptr, ptr %2, align 8
-  %.not119 = icmp eq ptr %63, null
-  br i1 %.not119, label %64, label %67
+  %.not120 = icmp eq ptr %63, null
+  br i1 %.not120, label %64, label %67
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr @stderr, align 8
@@ -5980,8 +5980,8 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
 67:                                               ; preds = %62
   %68 = load i32, ptr %63, align 8
   %69 = and i32 %68, -125
-  %.not120 = icmp eq i32 %69, 0
-  br i1 %.not120, label %73, label %70
+  %.not121 = icmp eq i32 %69, 0
+  br i1 %.not121, label %73, label %70
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr @stderr, align 8
@@ -5994,8 +5994,8 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
 
 73:                                               ; preds = %67
   %74 = and i32 %68, 12
-  %.not121 = icmp eq i32 %74, 0
-  br i1 %.not121, label %75, label %78
+  %.not122 = icmp eq i32 %74, 0
+  br i1 %.not122, label %75, label %78
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr @stderr, align 8
@@ -6009,8 +6009,8 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
 78:                                               ; preds = %73
   %79 = load ptr, ptr %49, align 8
   %80 = call fastcc ptr @find_type(ptr noundef %79)
-  %.not122 = icmp eq ptr %80, null
-  br i1 %.not122, label %81, label %.preheader
+  %.not123 = icmp eq ptr %80, null
+  br i1 %.not123, label %81, label %.preheader
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr @stderr, align 8
@@ -6023,15 +6023,15 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
   unreachable
 
 .preheader:                                       ; preds = %78, %.preheader
-  %.099 = phi i32 [ %88, %.preheader ], [ 0, %78 ]
-  %.1.in = phi ptr [ %.1, %.preheader ], [ %.0202, %78 ]
+  %.0100 = phi i32 [ %88, %.preheader ], [ 0, %78 ]
+  %.1.in = phi ptr [ %.1, %.preheader ], [ %.0209, %78 ]
   %.1 = load ptr, ptr %.1.in, align 8
   %85 = getelementptr inbounds i8, ptr %.1, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = call i32 @g_strcmp0(ptr noundef %86, ptr noundef nonnull @.str.257) #15
-  %.not123 = icmp eq i32 %87, 0
-  %88 = add i32 %.099, 1
-  br i1 %.not123, label %.preheader, label %89, !llvm.loop !43
+  %.not124 = icmp eq i32 %87, 0
+  %88 = add i32 %.0100, 1
+  br i1 %.not124, label %.preheader, label %89, !llvm.loop !43
 
 89:                                               ; preds = %.preheader
   %90 = getelementptr inbounds i8, ptr %.1, i64 8
@@ -6041,13 +6041,13 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
   br i1 %.not23.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %89
-  %.014.lcssa.i = phi i32 [ %.099, %89 ], [ %spec.select.i, %.lr.ph.i ]
+  %.014.lcssa.i = phi i32 [ %.0100, %89 ], [ %spec.select.i, %.lr.ph.i ]
   %.not1926.i = icmp eq i32 %.014.lcssa.i, 0
   br i1 %.not1926.i, label %prepend_pointer_list.exit, label %.lr.ph28.i
 
 .lr.ph.i:                                         ; preds = %89, %.lr.ph.i
   %.025.i = phi ptr [ %93, %.lr.ph.i ], [ %92, %89 ]
-  %.01424.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ %.099, %89 ]
+  %.01424.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ %.0100, %89 ]
   %spec.select.i = call i32 @llvm.usub.sat.i32(i32 %.01424.i, i32 1)
   %93 = load ptr, ptr %.025.i, align 8
   %.not.i = icmp eq ptr %93, null
@@ -6112,8 +6112,8 @@ prepend_pointer_list.exit:                        ; preds = %97, %.preheader.i
 126:                                              ; preds = %127, %104
   %.0.in.i = phi ptr [ @dissector_param_list, %104 ], [ %.0.i, %127 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  %.not.i136 = icmp eq ptr %.0.i, null
-  br i1 %.not.i136, label %.loopexit154, label %127
+  %.not.i137 = icmp eq ptr %.0.i, null
+  br i1 %.not.i137, label %.loopexit155, label %127
 
 127:                                              ; preds = %126
   %128 = getelementptr inbounds i8, ptr %.0.i, i64 8
@@ -6125,9 +6125,9 @@ prepend_pointer_list.exit:                        ; preds = %97, %.preheader.i
 131:                                              ; preds = %127
   %132 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %133 = load ptr, ptr %132, align 8
-  br label %.loopexit154
+  br label %.loopexit155
 
-.loopexit154:                                     ; preds = %126, %131
+.loopexit155:                                     ; preds = %126, %131
   %.06.i = phi ptr [ %133, %131 ], [ @.str.98, %126 ]
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %125, ptr noundef nonnull @.str.318, ptr noundef %.06.i)
   %134 = load ptr, ptr @eth_code, align 8
@@ -6141,291 +6141,298 @@ prepend_pointer_list.exit:                        ; preds = %97, %.preheader.i
   %139 = load ptr, ptr @eth_code, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %139, ptr noundef nonnull @.str.72)
   %140 = load i32, ptr %63, align 8
-  %141 = and i32 %140, 48
-  switch i32 %141, label %143 [
-    i32 0, label %155
-    i32 48, label %.sink.split
-    i32 16, label %142
+  %141 = lshr i32 %140, 4
+  %142 = and i32 %141, 3
+  switch i32 %142, label %default.unreachable [
+    i32 0, label %156
+    i32 3, label %.sink.split
+    i32 1, label %143
+    i32 2, label %144
   ]
 
-142:                                              ; preds = %.loopexit154
+143:                                              ; preds = %.loopexit155
   br label %.sink.split
 
-143:                                              ; preds = %.loopexit154
-  %144 = load ptr, ptr @stderr, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %144, ptr noundef nonnull @.str.386)
+default.unreachable:                              ; preds = %184, %.loopexit155
+  unreachable
+
+144:                                              ; preds = %.loopexit155
   %145 = load ptr, ptr @stderr, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %145, ptr noundef nonnull @.str.74)
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %145, ptr noundef nonnull @.str.386)
+  %146 = load ptr, ptr @stderr, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %146, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
   call void @exit(i32 noundef 10) #14
   unreachable
 
-.sink.split:                                      ; preds = %.loopexit154, %142
-  %.str.281.sink = phi ptr [ @.str.277, %142 ], [ @.str.281, %.loopexit154 ]
-  %.str.384.sink = phi ptr [ @.str.385, %142 ], [ @.str.384, %.loopexit154 ]
-  %146 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull %.str.281.sink, ptr noundef %108) #15
-  %147 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %147, ptr noundef nonnull @.str.152)
+.sink.split:                                      ; preds = %.loopexit155, %143
+  %.str.281.sink = phi ptr [ @.str.277, %143 ], [ @.str.281, %.loopexit155 ]
+  %.str.384.sink = phi ptr [ @.str.385, %143 ], [ @.str.384, %.loopexit155 ]
+  %147 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull %.str.281.sink, ptr noundef %108) #15
   %148 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %148, ptr noundef nonnull @.str.265, ptr noundef nonnull %3)
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %148, ptr noundef nonnull @.str.152)
   %149 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %149, ptr noundef nonnull @.str.154)
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %149, ptr noundef nonnull @.str.265, ptr noundef nonnull %3)
   %150 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %150, ptr noundef nonnull %.str.384.sink, ptr noundef %108)
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %150, ptr noundef nonnull @.str.154)
   %151 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %151, ptr noundef nonnull @.str.156)
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %151, ptr noundef nonnull %.str.384.sink, ptr noundef %108)
   %152 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %152, ptr noundef nonnull @.str.157)
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %152, ptr noundef nonnull @.str.156)
   %153 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %153, ptr noundef nonnull @.str.72)
-  %154 = call noalias ptr @g_strdup(ptr noundef nonnull %3) #15
-  br label %155
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %153, ptr noundef nonnull @.str.157)
+  %154 = load ptr, ptr @eth_code, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %154, ptr noundef nonnull @.str.72)
+  %155 = call noalias ptr @g_strdup(ptr noundef nonnull %3) #15
+  br label %156
 
-155:                                              ; preds = %.sink.split, %.loopexit154
-  %.0103 = phi ptr [ %108, %.loopexit154 ], [ %154, %.sink.split ]
-  %.not125220 = icmp eq i32 %.099, 0
-  br i1 %.not125220, label %.loopexit, label %.lr.ph223
+156:                                              ; preds = %.sink.split, %.loopexit155
+  %.0104 = phi ptr [ %108, %.loopexit155 ], [ %155, %.sink.split ]
+  %.not126227 = icmp eq i32 %.0100, 0
+  br i1 %.not126227, label %.loopexit, label %.lr.ph230
 
-.lr.ph223:                                        ; preds = %155, %ptr_to_define.exit
-  %.in = phi i32 [ %156, %ptr_to_define.exit ], [ %.099, %155 ]
-  %.097222 = phi ptr [ %159, %ptr_to_define.exit ], [ %.2.lcssa.i, %155 ]
-  %.1104221 = phi ptr [ %176, %ptr_to_define.exit ], [ %.0103, %155 ]
-  %156 = add i32 %.in, -1
-  %157 = getelementptr inbounds i8, ptr %.097222, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %159 = load ptr, ptr %.097222, align 8
-  %160 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.270, ptr noundef %158, ptr noundef %.1104221) #15
-  %161 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %161, ptr noundef nonnull @.str.152)
+.lr.ph230:                                        ; preds = %156, %ptr_to_define.exit
+  %.in = phi i32 [ %157, %ptr_to_define.exit ], [ %.0100, %156 ]
+  %.098229 = phi ptr [ %160, %ptr_to_define.exit ], [ %.2.lcssa.i, %156 ]
+  %.1105228 = phi ptr [ %177, %ptr_to_define.exit ], [ %.0104, %156 ]
+  %157 = add i32 %.in, -1
+  %158 = getelementptr inbounds i8, ptr %.098229, i64 8
+  %159 = load ptr, ptr %158, align 8
+  %160 = load ptr, ptr %.098229, align 8
+  %161 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.270, ptr noundef %159, ptr noundef %.1105228) #15
   %162 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %162, ptr noundef nonnull @.str.265, ptr noundef nonnull %3)
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %162, ptr noundef nonnull @.str.152)
   %163 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %163, ptr noundef nonnull @.str.154)
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %163, ptr noundef nonnull @.str.265, ptr noundef nonnull %3)
   %164 = load ptr, ptr @eth_code, align 8
-  %165 = call i32 @g_strcmp0(ptr noundef %158, ptr noundef nonnull @.str.83) #15
-  %.not.i138 = icmp eq i32 %165, 0
-  br i1 %.not.i138, label %ptr_to_define.exit, label %166
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %164, ptr noundef nonnull @.str.154)
+  %165 = load ptr, ptr @eth_code, align 8
+  %166 = call i32 @g_strcmp0(ptr noundef %159, ptr noundef nonnull @.str.83) #15
+  %.not.i139 = icmp eq i32 %166, 0
+  br i1 %.not.i139, label %ptr_to_define.exit, label %167
 
-166:                                              ; preds = %.lr.ph223
-  %167 = call i32 @g_strcmp0(ptr noundef %158, ptr noundef nonnull @.str.147) #15
-  %.not5.i = icmp eq i32 %167, 0
-  br i1 %.not5.i, label %ptr_to_define.exit, label %168
+167:                                              ; preds = %.lr.ph230
+  %168 = call i32 @g_strcmp0(ptr noundef %159, ptr noundef nonnull @.str.147) #15
+  %.not5.i = icmp eq i32 %168, 0
+  br i1 %.not5.i, label %ptr_to_define.exit, label %169
 
-168:                                              ; preds = %166
-  %169 = call i32 @g_strcmp0(ptr noundef %158, ptr noundef nonnull @.str.84) #15
-  %.not6.i = icmp eq i32 %169, 0
-  br i1 %.not6.i, label %ptr_to_define.exit, label %170
+169:                                              ; preds = %167
+  %170 = call i32 @g_strcmp0(ptr noundef %159, ptr noundef nonnull @.str.84) #15
+  %.not6.i = icmp eq i32 %170, 0
+  br i1 %.not6.i, label %ptr_to_define.exit, label %171
 
-170:                                              ; preds = %168
-  %171 = load ptr, ptr @stderr, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %171, ptr noundef nonnull @.str.295, ptr noundef %158)
+171:                                              ; preds = %169
+  %172 = load ptr, ptr @stderr, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %172, ptr noundef nonnull @.str.295, ptr noundef %159)
   call void @exit(i32 noundef 10) #14
   unreachable
 
-ptr_to_define.exit:                               ; preds = %.lr.ph223, %166, %168
-  %.0.i139 = phi ptr [ @.str.292, %.lr.ph223 ], [ @.str.293, %166 ], [ @.str.294, %168 ]
-  %172 = load ptr, ptr %90, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %164, ptr noundef nonnull @.str.387, ptr noundef %.1104221, ptr noundef nonnull %.0.i139, ptr noundef %172)
-  %173 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %173, ptr noundef nonnull @.str.156)
+ptr_to_define.exit:                               ; preds = %.lr.ph230, %167, %169
+  %.0.i140 = phi ptr [ @.str.292, %.lr.ph230 ], [ @.str.293, %167 ], [ @.str.294, %169 ]
+  %173 = load ptr, ptr %90, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %165, ptr noundef nonnull @.str.387, ptr noundef %.1105228, ptr noundef nonnull %.0.i140, ptr noundef %173)
   %174 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %174, ptr noundef nonnull @.str.157)
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %174, ptr noundef nonnull @.str.156)
   %175 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %175, ptr noundef nonnull @.str.72)
-  %176 = call noalias ptr @g_strdup(ptr noundef nonnull %3) #15
-  %.not125 = icmp eq i32 %156, 0
-  br i1 %.not125, label %.loopexit, label %.lr.ph223, !llvm.loop !44
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %175, ptr noundef nonnull @.str.157)
+  %176 = load ptr, ptr @eth_code, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %176, ptr noundef nonnull @.str.72)
+  %177 = call noalias ptr @g_strdup(ptr noundef nonnull %3) #15
+  %.not126 = icmp eq i32 %157, 0
+  br i1 %.not126, label %.loopexit, label %.lr.ph230, !llvm.loop !44
 
-.loopexit:                                        ; preds = %ptr_to_define.exit, %155, %prepend_pointer_list.exit
-  %.2101 = phi i32 [ %.099, %prepend_pointer_list.exit ], [ -1, %155 ], [ -1, %ptr_to_define.exit ]
-  %.198 = phi ptr [ %.2.lcssa.i, %prepend_pointer_list.exit ], [ %.2.lcssa.i, %155 ], [ %159, %ptr_to_define.exit ]
-  br i1 %or.cond153, label %177, label %216
+.loopexit:                                        ; preds = %ptr_to_define.exit, %156, %prepend_pointer_list.exit
+  %.2102 = phi i32 [ %.0100, %prepend_pointer_list.exit ], [ -1, %156 ], [ -1, %ptr_to_define.exit ]
+  %.199 = phi ptr [ %.2.lcssa.i, %prepend_pointer_list.exit ], [ %.2.lcssa.i, %156 ], [ %160, %ptr_to_define.exit ]
+  br i1 %or.cond154, label %178, label %218
 
-177:                                              ; preds = %.loopexit
-  %178 = load ptr, ptr @ifname, align 8
-  %179 = load ptr, ptr %90, align 8
-  %180 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.263, ptr noundef %178, ptr noundef %16, ptr noundef %179) #15
-  %181 = call noalias ptr @g_strdup(ptr noundef nonnull %3) #15
-  %182 = load ptr, ptr %2, align 8
-  %.not126 = icmp eq ptr %182, null
-  br i1 %.not126, label %192, label %183
+178:                                              ; preds = %.loopexit
+  %179 = load ptr, ptr @ifname, align 8
+  %180 = load ptr, ptr %90, align 8
+  %181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.263, ptr noundef %179, ptr noundef %16, ptr noundef %180) #15
+  %182 = call noalias ptr @g_strdup(ptr noundef nonnull %3) #15
+  %183 = load ptr, ptr %2, align 8
+  %.not127 = icmp eq ptr %183, null
+  br i1 %.not127, label %194, label %184
 
-183:                                              ; preds = %177
-  %184 = load i32, ptr %182, align 8
-  %185 = and i32 %184, 48
-  switch i32 %185, label %187 [
-    i32 0, label %192
-    i32 48, label %.sink.split340
-    i32 16, label %186
+184:                                              ; preds = %178
+  %185 = load i32, ptr %183, align 8
+  %186 = lshr i32 %185, 4
+  %187 = and i32 %186, 3
+  switch i32 %187, label %default.unreachable [
+    i32 0, label %194
+    i32 3, label %.sink.split356
+    i32 1, label %188
+    i32 2, label %189
   ]
 
-186:                                              ; preds = %183
-  br label %.sink.split340
+188:                                              ; preds = %184
+  br label %.sink.split356
 
-187:                                              ; preds = %183
-  %188 = load ptr, ptr @stderr, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %188, ptr noundef nonnull @.str.386)
-  %189 = load ptr, ptr @stderr, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %189, ptr noundef nonnull @.str.74)
+189:                                              ; preds = %184
+  %190 = load ptr, ptr @stderr, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %190, ptr noundef nonnull @.str.386)
+  %191 = load ptr, ptr @stderr, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %191, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
   call void @exit(i32 noundef 10) #14
   unreachable
 
-.sink.split340:                                   ; preds = %183, %186
-  %.str.281.sink341 = phi ptr [ @.str.277, %186 ], [ @.str.281, %183 ]
-  %190 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull %.str.281.sink341, ptr noundef %181) #15
-  %191 = call noalias ptr @g_strdup(ptr noundef nonnull %3) #15
-  br label %192
+.sink.split356:                                   ; preds = %184, %188
+  %.str.281.sink357 = phi ptr [ @.str.277, %188 ], [ @.str.281, %184 ]
+  %192 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull %.str.281.sink357, ptr noundef %182) #15
+  %193 = call noalias ptr @g_strdup(ptr noundef nonnull %3) #15
+  br label %194
 
-192:                                              ; preds = %.sink.split340, %183, %177
-  %.2105 = phi ptr [ %181, %183 ], [ %181, %177 ], [ %191, %.sink.split340 ]
-  %.not127225 = icmp eq i32 %.2101, 0
-  br i1 %.not127225, label %._crit_edge, label %.lr.ph229
+194:                                              ; preds = %.sink.split356, %184, %178
+  %.2106 = phi ptr [ %182, %184 ], [ %182, %178 ], [ %193, %.sink.split356 ]
+  %.not128232 = icmp eq i32 %.2102, 0
+  br i1 %.not128232, label %._crit_edge, label %.lr.ph236
 
-.lr.ph229:                                        ; preds = %192, %.lr.ph229
-  %.2228 = phi ptr [ %196, %.lr.ph229 ], [ %.198, %192 ]
-  %.3227 = phi i32 [ %193, %.lr.ph229 ], [ %.2101, %192 ]
-  %.3106226 = phi ptr [ %198, %.lr.ph229 ], [ %.2105, %192 ]
-  %193 = add i32 %.3227, -1
-  %194 = getelementptr inbounds i8, ptr %.2228, i64 8
-  %195 = load ptr, ptr %194, align 8
-  %196 = load ptr, ptr %.2228, align 8
-  %197 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.270, ptr noundef %195, ptr noundef %.3106226) #15
-  %198 = call noalias ptr @g_strdup(ptr noundef nonnull %3) #15
-  %.not127 = icmp eq i32 %193, 0
-  br i1 %.not127, label %._crit_edge, label %.lr.ph229, !llvm.loop !45
+.lr.ph236:                                        ; preds = %194, %.lr.ph236
+  %.2235 = phi ptr [ %198, %.lr.ph236 ], [ %.199, %194 ]
+  %.3234 = phi i32 [ %195, %.lr.ph236 ], [ %.2102, %194 ]
+  %.3107233 = phi ptr [ %200, %.lr.ph236 ], [ %.2106, %194 ]
+  %195 = add i32 %.3234, -1
+  %196 = getelementptr inbounds i8, ptr %.2235, i64 8
+  %197 = load ptr, ptr %196, align 8
+  %198 = load ptr, ptr %.2235, align 8
+  %199 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.270, ptr noundef %197, ptr noundef %.3107233) #15
+  %200 = call noalias ptr @g_strdup(ptr noundef nonnull %3) #15
+  %.not128 = icmp eq i32 %195, 0
+  br i1 %.not128, label %._crit_edge, label %.lr.ph236, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %.lr.ph229, %192
-  %.3106.lcssa = phi ptr [ %.2105, %192 ], [ %198, %.lr.ph229 ]
-  br i1 %47, label %199, label %207
+._crit_edge:                                      ; preds = %.lr.ph236, %194
+  %.3107.lcssa = phi ptr [ %.2106, %194 ], [ %200, %.lr.ph236 ]
+  br i1 %47, label %201, label %209
 
-199:                                              ; preds = %._crit_edge
-  %200 = load ptr, ptr %2, align 8
-  %201 = load i32, ptr %200, align 8
-  %202 = and i32 %201, 4
-  %.not128 = icmp eq i32 %202, 0
-  br i1 %.not128, label %207, label %203
+201:                                              ; preds = %._crit_edge
+  %202 = load ptr, ptr %2, align 8
+  %203 = load i32, ptr %202, align 8
+  %204 = and i32 %203, 4
+  %.not129 = icmp eq i32 %204, 0
+  br i1 %.not129, label %209, label %205
 
-203:                                              ; preds = %199
-  %204 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %204, ptr noundef nonnull @.str.327, ptr noundef %.3106.lcssa)
-  %205 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %205, ptr noundef nonnull @.str.388)
+205:                                              ; preds = %201
   %206 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %206, ptr noundef nonnull @.str.72)
-  br label %207
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %206, ptr noundef nonnull @.str.327, ptr noundef %.3107.lcssa)
+  %207 = load ptr, ptr @eth_code, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %207, ptr noundef nonnull @.str.388)
+  %208 = load ptr, ptr @eth_code, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %208, ptr noundef nonnull @.str.72)
+  br label %209
 
-207:                                              ; preds = %203, %199, %._crit_edge
-  br i1 %.ph232, label %208, label %216
+209:                                              ; preds = %205, %201, %._crit_edge
+  br i1 %.ph239, label %210, label %218
 
-208:                                              ; preds = %207
-  %209 = load ptr, ptr %2, align 8
-  %210 = load i32, ptr %209, align 8
-  %211 = and i32 %210, 8
-  %.not129 = icmp eq i32 %211, 0
-  br i1 %.not129, label %216, label %212
+210:                                              ; preds = %209
+  %211 = load ptr, ptr %2, align 8
+  %212 = load i32, ptr %211, align 8
+  %213 = and i32 %212, 8
+  %.not130 = icmp eq i32 %213, 0
+  br i1 %.not130, label %218, label %214
 
-212:                                              ; preds = %208
-  %213 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %213, ptr noundef nonnull @.str.327, ptr noundef %.3106.lcssa)
-  %214 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %214, ptr noundef nonnull @.str.388)
+214:                                              ; preds = %210
   %215 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %215, ptr noundef nonnull @.str.72)
-  br label %216
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %215, ptr noundef nonnull @.str.327, ptr noundef %.3107.lcssa)
+  %216 = load ptr, ptr @eth_code, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %216, ptr noundef nonnull @.str.388)
+  %217 = load ptr, ptr @eth_code, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %217, ptr noundef nonnull @.str.72)
+  br label %218
 
-216:                                              ; preds = %207, %208, %212, %.loopexit
-  %217 = phi i1 [ false, %207 ], [ true, %208 ], [ true, %212 ], [ %.ph232, %.loopexit ]
-  %218 = load ptr, ptr %.1, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 8
-  %220 = load ptr, ptr %219, align 8
-  %221 = call i32 @g_strcmp0(ptr noundef %220, ptr noundef nonnull @.str.123) #15
-  %.not130 = icmp eq i32 %221, 0
-  br i1 %.not130, label %222, label %.outer.backedge
+218:                                              ; preds = %209, %210, %214, %.loopexit
+  %219 = phi i1 [ false, %209 ], [ true, %210 ], [ true, %214 ], [ %.ph239, %.loopexit ]
+  %220 = load ptr, ptr %.1, align 8
+  %221 = getelementptr inbounds i8, ptr %220, i64 8
+  %222 = load ptr, ptr %221, align 8
+  %223 = call i32 @g_strcmp0(ptr noundef %222, ptr noundef nonnull @.str.123) #15
+  %.not131 = icmp eq i32 %223, 0
+  br i1 %.not131, label %224, label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %216, %222
-  %.0.ph.be = phi ptr [ %223, %222 ], [ %218, %216 ]
-  %.not111201209 = icmp eq ptr %.0.ph.be, null
-  br i1 %.not111201209, label %.loopexit158, label %.lr.ph.lr.ph, !llvm.loop !42
+.outer.backedge:                                  ; preds = %218, %224
+  %.0.ph.be = phi ptr [ %225, %224 ], [ %220, %218 ]
+  %.not112208216 = icmp eq ptr %.0.ph.be, null
+  br i1 %.not112208216, label %.loopexit159, label %.lr.ph.lr.ph, !llvm.loop !42
 
-222:                                              ; preds = %216
-  %223 = load ptr, ptr %218, align 8
+224:                                              ; preds = %218
+  %225 = load ptr, ptr %220, align 8
   br label %.outer.backedge
 
-.loopexit158:                                     ; preds = %.outer.backedge, %55, %.outer155.backedge, %60, %45
-  %.ph200 = phi i1 [ %46, %45 ], [ %.ph232, %60 ], [ %.ph232, %.outer155.backedge ], [ %.ph232, %55 ], [ %217, %.outer.backedge ]
-  %.0167 = phi ptr [ null, %45 ], [ null, %60 ], [ %.0202, %55 ], [ null, %.outer155.backedge ], [ null, %.outer.backedge ]
-  %.not111163 = phi i1 [ true, %45 ], [ true, %60 ], [ false, %55 ], [ true, %.outer155.backedge ], [ true, %.outer.backedge ]
-  br i1 %or.cond153, label %224, label %232
+.loopexit159:                                     ; preds = %.outer.backedge, %55, %.outer156.backedge, %60, %45
+  %.ph207 = phi i1 [ %46, %45 ], [ %.ph239, %60 ], [ %.ph239, %.outer156.backedge ], [ %.ph239, %55 ], [ %219, %.outer.backedge ]
+  %.0168 = phi ptr [ null, %45 ], [ null, %60 ], [ %.0209, %55 ], [ null, %.outer156.backedge ], [ null, %.outer.backedge ]
+  %.not112164 = phi i1 [ true, %45 ], [ true, %60 ], [ false, %55 ], [ true, %.outer156.backedge ], [ true, %.outer.backedge ]
+  br i1 %or.cond154, label %226, label %234
 
-224:                                              ; preds = %.loopexit158
-  br i1 %.ph200, label %225, label %228
+226:                                              ; preds = %.loopexit159
+  br i1 %.ph207, label %227, label %230
 
-225:                                              ; preds = %224
-  %226 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %226, ptr noundef nonnull @.str.389, ptr noundef nonnull @hf_status)
-  %227 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %227, ptr noundef nonnull @.str.72)
-  br label %228
-
-228:                                              ; preds = %225, %224
+227:                                              ; preds = %226
+  %228 = load ptr, ptr @eth_code, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %228, ptr noundef nonnull @.str.389, ptr noundef nonnull @hf_status)
   %229 = load ptr, ptr @eth_code, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %229, ptr noundef nonnull @.str.72)
-  %230 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %230, ptr noundef nonnull @.str.330)
+  br label %230
+
+230:                                              ; preds = %227, %226
   %231 = load ptr, ptr @eth_code, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %231, ptr noundef nonnull @.str.157)
-  br label %232
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %231, ptr noundef nonnull @.str.72)
+  %232 = load ptr, ptr @eth_code, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %232, ptr noundef nonnull @.str.330)
+  %233 = load ptr, ptr @eth_code, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %233, ptr noundef nonnull @.str.157)
+  br label %234
 
-232:                                              ; preds = %.loopexit158, %228
-  br i1 %.ph200, label %233, label %252
+234:                                              ; preds = %.loopexit159, %230
+  br i1 %.ph207, label %235, label %254
 
-233:                                              ; preds = %232
-  br i1 %.not111163, label %238, label %234
+235:                                              ; preds = %234
+  br i1 %.not112164, label %240, label %236
 
-234:                                              ; preds = %233
-  %235 = getelementptr inbounds i8, ptr %.0167, i64 8
-  %236 = load ptr, ptr %235, align 8
-  %237 = call i32 @g_strcmp0(ptr noundef %236, ptr noundef nonnull @.str.75) #15
-  %.not115 = icmp eq i32 %237, 0
-  br i1 %.not115, label %241, label %238
+236:                                              ; preds = %235
+  %237 = getelementptr inbounds i8, ptr %.0168, i64 8
+  %238 = load ptr, ptr %237, align 8
+  %239 = call i32 @g_strcmp0(ptr noundef %238, ptr noundef nonnull @.str.75) #15
+  %.not116 = icmp eq i32 %239, 0
+  br i1 %.not116, label %243, label %240
 
-238:                                              ; preds = %234, %233
-  %239 = load ptr, ptr @stderr, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %239, ptr noundef nonnull @.str.391)
-  %240 = load ptr, ptr @stderr, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %240, ptr noundef nonnull @.str.74)
+240:                                              ; preds = %236, %235
+  %241 = load ptr, ptr @stderr, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %241, ptr noundef nonnull @.str.391)
+  %242 = load ptr, ptr @stderr, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %242, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
   call void @exit(i32 noundef 10) #14
   unreachable
 
-241:                                              ; preds = %234
-  %242 = load ptr, ptr %.0167, align 8
-  %.not116 = icmp eq ptr %242, null
-  br i1 %.not116, label %247, label %243
+243:                                              ; preds = %236
+  %244 = load ptr, ptr %.0168, align 8
+  %.not117 = icmp eq ptr %244, null
+  br i1 %.not117, label %249, label %245
 
-243:                                              ; preds = %241
-  %244 = getelementptr inbounds i8, ptr %242, i64 8
-  %245 = load ptr, ptr %244, align 8
-  %246 = call i32 @g_strcmp0(ptr noundef %245, ptr noundef nonnull @.str.214) #15
-  %.not117 = icmp eq i32 %246, 0
-  br i1 %.not117, label %250, label %247
+245:                                              ; preds = %243
+  %246 = getelementptr inbounds i8, ptr %244, i64 8
+  %247 = load ptr, ptr %246, align 8
+  %248 = call i32 @g_strcmp0(ptr noundef %247, ptr noundef nonnull @.str.214) #15
+  %.not118 = icmp eq i32 %248, 0
+  br i1 %.not118, label %252, label %249
 
-247:                                              ; preds = %243, %241
-  %248 = load ptr, ptr @stderr, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %248, ptr noundef nonnull @.str.392)
-  %249 = load ptr, ptr @stderr, align 8
-  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %249, ptr noundef nonnull @.str.74)
+249:                                              ; preds = %245, %243
+  %250 = load ptr, ptr @stderr, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %250, ptr noundef nonnull @.str.392)
+  %251 = load ptr, ptr @stderr, align 8
+  call void (ptr, ptr, ...) @FPRINTF(ptr noundef %251, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
   call void @exit(i32 noundef 10) #14
   unreachable
 
-250:                                              ; preds = %243
-  %251 = load ptr, ptr %242, align 8
-  store ptr %251, ptr @token_list, align 8
-  br label %252
+252:                                              ; preds = %245
+  %253 = load ptr, ptr %244, align 8
+  store ptr %253, ptr @token_list, align 8
+  br label %254
 
-252:                                              ; preds = %250, %232
+254:                                              ; preds = %252, %234
   ret void
 }
 

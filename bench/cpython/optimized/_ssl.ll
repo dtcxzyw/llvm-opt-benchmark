@@ -11513,10 +11513,11 @@ entry:
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call i32 @SSL_CTX_get_verify_mode(ptr noundef %0) #11
   %and = and i32 %call, 3
-  switch i32 %and, label %sw.epilog [
+  switch i32 %and, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb2
     i32 3, label %sw.bb4
+    i32 2, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -11530,6 +11531,9 @@ sw.bb2:                                           ; preds = %entry
 sw.bb4:                                           ; preds = %entry
   %call5 = tail call ptr @PyLong_FromLong(i64 noundef 2) #11
   br label %return
+
+default.unreachable:                              ; preds = %entry
+  unreachable
 
 sw.epilog:                                        ; preds = %entry
   %state = getelementptr inbounds i8, ptr %self, i64 88

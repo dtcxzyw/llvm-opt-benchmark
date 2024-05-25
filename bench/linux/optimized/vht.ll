@@ -1456,10 +1456,11 @@ define dso_local void @ieee80211_get_vht_mask_from_cap(i16 noundef zeroext %0, p
   %8 = lshr i32 %3, %7
   %9 = and i32 %8, 3
   %10 = getelementptr i16, ptr %1, i64 %5
-  switch i32 %9, label %13 [
+  switch i32 %9, label %default.unreachable1 [
     i32 0, label %14
     i32 1, label %11
     i32 2, label %12
+    i32 3, label %13
   ]
 
 11:                                               ; preds = %4
@@ -1468,10 +1469,13 @@ define dso_local void @ieee80211_get_vht_mask_from_cap(i16 noundef zeroext %0, p
 12:                                               ; preds = %4
   br label %14
 
+default.unreachable1:                             ; preds = %4
+  unreachable
+
 13:                                               ; preds = %4
   br label %14
 
-14:                                               ; preds = %13, %12, %11, %4
+14:                                               ; preds = %4, %13, %12, %11
   %15 = phi i16 [ 511, %11 ], [ 1023, %12 ], [ 0, %13 ], [ 255, %4 ]
   store i16 %15, ptr %10, align 2
   %16 = add nuw nsw i64 %5, 1

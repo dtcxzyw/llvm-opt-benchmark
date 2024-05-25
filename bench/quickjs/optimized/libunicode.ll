@@ -1279,40 +1279,40 @@ define dso_local i32 @unicode_normalize(ptr nocapture noundef writeonly %0, ptr 
   %26 = lshr i64 %25, 2
   %27 = trunc i64 %26 to i32
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph83.preheader.i, label %sort_cc.exit.thread
+  br i1 %28, label %.lr.ph87.preheader.i, label %sort_cc.exit.thread
 
-.lr.ph83.preheader.i:                             ; preds = %22
+.lr.ph87.preheader.i:                             ; preds = %22
   %29 = and i64 %26, 2147483647
-  br label %.lr.ph83.i
+  br label %.lr.ph87.i
 
-.lr.ph83.i:                                       ; preds = %unicode_get_cc.exit.thread.i, %.lr.ph83.preheader.i
-  %.081.i = phi i32 [ %196, %unicode_get_cc.exit.thread.i ], [ 0, %.lr.ph83.preheader.i ]
-  %30 = sext i32 %.081.i to i64
+.lr.ph87.i:                                       ; preds = %unicode_get_cc.exit.thread.i, %.lr.ph87.preheader.i
+  %.085.i = phi i32 [ %196, %unicode_get_cc.exit.thread.i ], [ 0, %.lr.ph87.preheader.i ]
+  %30 = sext i32 %.085.i to i64
   %31 = getelementptr i32, ptr %23, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = call fastcc i32 @unicode_get_cc(i32 noundef %32)
   %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %unicode_get_cc.exit.thread.i, label %.preheader65.i
+  br i1 %.not.i, label %unicode_get_cc.exit.thread.i, label %.preheader66.i
 
-.preheader65.i:                                   ; preds = %.lr.ph83.i
-  %.02970.i = add nsw i32 %.081.i, 1
-  %34 = icmp slt i32 %.02970.i, %27
-  br i1 %34, label %.lr.ph73.preheader.i, label %unicode_get_cc.exit.thread.i
+.preheader66.i:                                   ; preds = %.lr.ph87.i
+  %.02974.i = add nsw i32 %.085.i, 1
+  %34 = icmp slt i32 %.02974.i, %27
+  br i1 %34, label %.lr.ph77.preheader.i, label %unicode_get_cc.exit.thread.i
 
-.lr.ph73.preheader.i:                             ; preds = %.preheader65.i
-  %35 = sext i32 %.02970.i to i64
-  br label %.lr.ph73.i
+.lr.ph77.preheader.i:                             ; preds = %.preheader66.i
+  %35 = sext i32 %.02974.i to i64
+  br label %.lr.ph77.i
 
-.lr.ph73.i:                                       ; preds = %unicode_get_cc.exit63._crit_edge.i, %.lr.ph73.preheader.i
-  %indvars.iv.i = phi i64 [ %35, %.lr.ph73.preheader.i ], [ %indvars.iv.next.i, %unicode_get_cc.exit63._crit_edge.i ]
-  %.029.in71.i = phi i32 [ %.081.i, %.lr.ph73.preheader.i ], [ %39, %unicode_get_cc.exit63._crit_edge.i ]
+.lr.ph77.i:                                       ; preds = %unicode_get_cc.exit64._crit_edge.i, %.lr.ph77.preheader.i
+  %indvars.iv.i = phi i64 [ %35, %.lr.ph77.preheader.i ], [ %indvars.iv.next.i, %unicode_get_cc.exit64._crit_edge.i ]
+  %.029.in75.i = phi i32 [ %.085.i, %.lr.ph77.preheader.i ], [ %39, %unicode_get_cc.exit64._crit_edge.i ]
   %36 = getelementptr i32, ptr %23, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4
   %38 = icmp ult i32 %37, 845
   %39 = trunc nsw i64 %indvars.iv.i to i32
   br i1 %38, label %get_index_pos.exit.thread41.i.i, label %40
 
-40:                                               ; preds = %.lr.ph73.i
+40:                                               ; preds = %.lr.ph77.i
   %.not.i.i.i = icmp ult i32 %37, 125259
   br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %unicode_get_cc.exit.thread.i
 
@@ -1358,9 +1358,9 @@ get_index_pos.exit.i.i:                           ; preds = %.lr.ph.i.i.i
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %unicode_get_cc.exit.thread.i, label %get_index_pos.exit.thread41.i.i
 
-get_index_pos.exit.thread41.i.i:                  ; preds = %get_index_pos.exit.i.i, %.lr.ph73.i
-  %.0.i45.i.i = phi i32 [ %65, %get_index_pos.exit.i.i ], [ 0, %.lr.ph73.i ]
-  %.03744.i.i = phi i32 [ %61, %get_index_pos.exit.i.i ], [ 0, %.lr.ph73.i ]
+get_index_pos.exit.thread41.i.i:                  ; preds = %get_index_pos.exit.i.i, %.lr.ph77.i
+  %.0.i45.i.i = phi i32 [ %65, %get_index_pos.exit.i.i ], [ 0, %.lr.ph77.i ]
+  %.03744.i.i = phi i32 [ %61, %get_index_pos.exit.i.i ], [ 0, %.lr.ph77.i ]
   %67 = zext nneg i32 %.0.i45.i.i to i64
   %68 = getelementptr i8, ptr @unicode_cc_table, i64 %67
   br label %69
@@ -1420,10 +1420,11 @@ get_index_pos.exit.thread41.i.i:                  ; preds = %get_index_pos.exit.
 
 99:                                               ; preds = %94
   %100 = lshr i32 %72, 6
-  switch i32 %100, label %.preheader.i [
+  switch i32 %100, label %.unreachabledefault [
     i32 0, label %101
     i32 1, label %105
     i32 2, label %unicode_get_cc.exit.thread.i
+    i32 3, label %.preheader.i
   ]
 
 101:                                              ; preds = %99
@@ -1440,19 +1441,25 @@ get_index_pos.exit.thread41.i.i:                  ; preds = %get_index_pos.exit.
   %110 = add i32 %109, %108
   br label %unicode_get_cc.exit.i
 
+.unreachabledefault:                              ; preds = %99
+  unreachable
+
+default.unreachable:                              ; preds = %175
+  unreachable
+
 unicode_get_cc.exit.i:                            ; preds = %105, %101
   %.029.i.i = phi i32 [ %110, %105 ], [ %104, %101 ]
   %111 = icmp eq i32 %.029.i.i, 0
   br i1 %111, label %unicode_get_cc.exit.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %unicode_get_cc.exit.i, %99
-  %.029.i89.i = phi i32 [ %.029.i.i, %unicode_get_cc.exit.i ], [ 230, %99 ]
-  %.not3367.i = icmp slt i32 %.029.in71.i, %.081.i
-  br i1 %.not3367.i, label %unicode_get_cc.exit63._crit_edge.i, label %.lr.ph.i
+  %.029.i93.i = phi i32 [ %.029.i.i, %unicode_get_cc.exit.i ], [ 230, %99 ]
+  %.not3371.i = icmp slt i32 %.029.in75.i, %.085.i
+  br i1 %.not3371.i, label %unicode_get_cc.exit64._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %188
-  %.03068.i = phi i32 [ %192, %188 ], [ %.029.in71.i, %.preheader.i ]
-  %112 = sext i32 %.03068.i to i64
+  %.03072.i = phi i32 [ %192, %188 ], [ %.029.in75.i, %.preheader.i ]
+  %112 = sext i32 %.03072.i to i64
   %113 = getelementptr i32, ptr %23, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = icmp ult i32 %114, 845
@@ -1460,7 +1467,7 @@ unicode_get_cc.exit.i:                            ; preds = %105, %101
 
 116:                                              ; preds = %.lr.ph.i
   %.not.i.i35.i = icmp ult i32 %114, 125259
-  br i1 %.not.i.i35.i, label %.lr.ph.i.i37.i, label %unicode_get_cc.exit63.i
+  br i1 %.not.i.i35.i, label %.lr.ph.i.i37.i, label %unicode_get_cc.exit64.i
 
 .lr.ph.i.i37.i:                                   ; preds = %116, %.lr.ph.i.i37.i
   %.02741.i.i38.i = phi i32 [ %..027.i.i44.i, %.lr.ph.i.i37.i ], [ 28, %116 ]
@@ -1502,7 +1509,7 @@ get_index_pos.exit.i45.i:                         ; preds = %.lr.ph.i.i37.i
   %140 = lshr i32 %135, 5
   %141 = or disjoint i32 %140, %139
   %142 = icmp slt i32 %141, 0
-  br i1 %142, label %unicode_get_cc.exit63.i, label %get_index_pos.exit.thread41.i49.i
+  br i1 %142, label %unicode_get_cc.exit64.i, label %get_index_pos.exit.thread41.i49.i
 
 get_index_pos.exit.thread41.i49.i:                ; preds = %get_index_pos.exit.i45.i, %.lr.ph.i
   %.0.i45.i50.i = phi i32 [ %141, %get_index_pos.exit.i45.i ], [ 0, %.lr.ph.i ]
@@ -1566,17 +1573,18 @@ get_index_pos.exit.thread41.i49.i:                ; preds = %get_index_pos.exit.
 
 175:                                              ; preds = %170
   %176 = lshr i32 %148, 6
-  switch i32 %176, label %187 [
+  switch i32 %176, label %default.unreachable [
     i32 0, label %177
     i32 1, label %181
-    i32 2, label %unicode_get_cc.exit63.i
+    i32 2, label %unicode_get_cc.exit64.i
+    i32 3, label %187
   ]
 
 177:                                              ; preds = %175
   %178 = getelementptr i8, ptr %spec.select.i62.i, i64 -1
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
-  br label %unicode_get_cc.exit63.i
+  br label %unicode_get_cc.exit64.i
 
 181:                                              ; preds = %175
   %182 = getelementptr i8, ptr %spec.select.i62.i, i64 -1
@@ -1584,40 +1592,40 @@ get_index_pos.exit.thread41.i49.i:                ; preds = %get_index_pos.exit.
   %184 = zext i8 %183 to i32
   %185 = sub i32 %114, %.138.i52.i
   %186 = add i32 %185, %184
-  br label %unicode_get_cc.exit63.i
+  br label %unicode_get_cc.exit64.i
 
 187:                                              ; preds = %175
-  br label %unicode_get_cc.exit63.i
+  br label %unicode_get_cc.exit64.i
 
-unicode_get_cc.exit63.i:                          ; preds = %187, %181, %177, %175, %get_index_pos.exit.i45.i, %116
+unicode_get_cc.exit64.i:                          ; preds = %187, %181, %177, %175, %get_index_pos.exit.i45.i, %116
   %.029.i36.i = phi i32 [ 0, %get_index_pos.exit.i45.i ], [ 230, %187 ], [ %186, %181 ], [ %180, %177 ], [ 0, %175 ], [ 0, %116 ]
-  %.not34.i = icmp sgt i32 %.029.i36.i, %.029.i89.i
-  br i1 %.not34.i, label %188, label %unicode_get_cc.exit63._crit_edge.i
+  %.not34.i = icmp sgt i32 %.029.i36.i, %.029.i93.i
+  br i1 %.not34.i, label %188, label %unicode_get_cc.exit64._crit_edge.i
 
-188:                                              ; preds = %unicode_get_cc.exit63.i
-  %189 = add i32 %.03068.i, 1
+188:                                              ; preds = %unicode_get_cc.exit64.i
+  %189 = add i32 %.03072.i, 1
   %190 = sext i32 %189 to i64
   %191 = getelementptr i32, ptr %23, i64 %190
   store i32 %114, ptr %191, align 4
-  %192 = add i32 %.03068.i, -1
-  %.not33.i = icmp slt i32 %192, %.081.i
-  br i1 %.not33.i, label %unicode_get_cc.exit63._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  %192 = add i32 %.03072.i, -1
+  %.not33.i = icmp slt i32 %192, %.085.i
+  br i1 %.not33.i, label %unicode_get_cc.exit64._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
-unicode_get_cc.exit63._crit_edge.i:               ; preds = %188, %unicode_get_cc.exit63.i, %.preheader.i
-  %.030.lcssa.i = phi i32 [ %.029.in71.i, %.preheader.i ], [ %192, %188 ], [ %.03068.i, %unicode_get_cc.exit63.i ]
+unicode_get_cc.exit64._crit_edge.i:               ; preds = %188, %unicode_get_cc.exit64.i, %.preheader.i
+  %.030.lcssa.i = phi i32 [ %.029.in75.i, %.preheader.i ], [ %192, %188 ], [ %.03072.i, %unicode_get_cc.exit64.i ]
   %193 = add i32 %.030.lcssa.i, 1
   %194 = sext i32 %193 to i64
   %195 = getelementptr i32, ptr %23, i64 %194
   store i32 %37, ptr %195, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %29
-  br i1 %exitcond.not.i, label %unicode_get_cc.exit.thread.i, label %.lr.ph73.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %unicode_get_cc.exit.thread.i, label %.lr.ph77.i, !llvm.loop !16
 
-unicode_get_cc.exit.thread.i:                     ; preds = %unicode_get_cc.exit63._crit_edge.i, %unicode_get_cc.exit.i, %99, %get_index_pos.exit.i.i, %40, %.preheader65.i, %.lr.ph83.i
-  %.1.i = phi i32 [ %.081.i, %.lr.ph83.i ], [ %.02970.i, %.preheader65.i ], [ %39, %40 ], [ %39, %99 ], [ %39, %get_index_pos.exit.i.i ], [ %27, %unicode_get_cc.exit63._crit_edge.i ], [ %39, %unicode_get_cc.exit.i ]
+unicode_get_cc.exit.thread.i:                     ; preds = %unicode_get_cc.exit64._crit_edge.i, %unicode_get_cc.exit.i, %99, %get_index_pos.exit.i.i, %40, %.preheader66.i, %.lr.ph87.i
+  %.1.i = phi i32 [ %.085.i, %.lr.ph87.i ], [ %.02974.i, %.preheader66.i ], [ %39, %40 ], [ %39, %99 ], [ %39, %get_index_pos.exit.i.i ], [ %27, %unicode_get_cc.exit64._crit_edge.i ], [ %39, %unicode_get_cc.exit.i ]
   %196 = add i32 %.1.i, 1
   %197 = icmp slt i32 %196, %27
-  br i1 %197, label %.lr.ph83.i, label %sort_cc.exit, !llvm.loop !17
+  br i1 %197, label %.lr.ph87.i, label %sort_cc.exit, !llvm.loop !17
 
 sort_cc.exit:                                     ; preds = %unicode_get_cc.exit.thread.i
   %198 = icmp ne i32 %27, 1
@@ -2014,10 +2022,11 @@ get_index_pos.exit.thread41:                      ; preds = %1, %get_index_pos.e
 
 62:                                               ; preds = %57
   %63 = lshr i32 %35, 6
-  switch i32 %63, label %74 [
+  switch i32 %63, label %default.unreachable [
     i32 0, label %64
     i32 1, label %68
     i32 2, label %get_index_pos.exit.thread
+    i32 3, label %74
   ]
 
 64:                                               ; preds = %62
@@ -2033,6 +2042,9 @@ get_index_pos.exit.thread41:                      ; preds = %1, %get_index_pos.e
   %72 = sub i32 %0, %.138
   %73 = add i32 %72, %71
   br label %get_index_pos.exit.thread
+
+default.unreachable:                              ; preds = %62
+  unreachable
 
 74:                                               ; preds = %62
   br label %get_index_pos.exit.thread

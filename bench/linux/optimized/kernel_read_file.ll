@@ -100,7 +100,7 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
   %11 = icmp ne ptr %10, null
   %12 = icmp ne ptr %4, null
   %13 = and i1 %12, %11
-  br i1 %13, label %14, label %.loopexit
+  br i1 %13, label %14, label %.loopexit9
 
 14:                                               ; preds = %9, %6
   store i64 0, ptr %7, align 8, !annotation !5
@@ -109,13 +109,13 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, -4096
   %19 = icmp eq i16 %18, -32768
-  br i1 %19, label %20, label %.loopexit
+  br i1 %19, label %20, label %.loopexit9
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds i8, ptr %16, i64 336
   %22 = load volatile i32, ptr %21, align 4
   %23 = icmp slt i32 %22, 1
-  br i1 %23, label %.lr.ph, label %.loopexit, !prof !6
+  br i1 %23, label %.lr.ph, label %.loopexit9, !prof !6
 
 .lr.ph:                                           ; preds = %20, %30
   %24 = phi i32 [ %31, %30 ], [ %22, %20 ]
@@ -130,7 +130,7 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
 30:                                               ; preds = %.lr.ph
   %31 = extractvalue { i8, i32 } %26, 1
   %32 = icmp slt i32 %31, 1
-  br i1 %32, label %.lr.ph, label %.loopexit, !prof !9, !llvm.loop !10
+  br i1 %32, label %.lr.ph, label %.loopexit9, !prof !9, !llvm.loop !10
 
 33:                                               ; preds = %.lr.ph
   %34 = load ptr, ptr %15, align 8
@@ -199,43 +199,44 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
   %75 = select i1 %70, i32 5, i32 %73
   %76 = call i64 @llvm.smax.i64(i64 %69, i64 0)
   %77 = add i64 %76, %60
-  switch i32 %75, label %.loopexit [
+  switch i32 %75, label %.unreachabledefault [
     i32 0, label %58
     i32 4, label %78
-    i32 5, label %.loopexit9
+    i32 5, label %.loopexit
+    i32 1, label %.loopexit9
   ], !llvm.loop !13
 
 78:                                               ; preds = %62, %58
   %79 = phi i32 [ %74, %62 ], [ %59, %58 ]
   %80 = phi i64 [ %77, %62 ], [ %60, %58 ]
-  br i1 %45, label %81, label %.loopexit9
+  br i1 %45, label %81, label %.loopexit
 
 81:                                               ; preds = %78
   %82 = load i64, ptr %7, align 8
   %83 = icmp eq i64 %82, %36
-  br i1 %83, label %84, label %.loopexit9
+  br i1 %83, label %84, label %.loopexit
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %2, align 8
   %86 = call i32 @security_kernel_post_read_file(ptr noundef %0, ptr noundef %85, i64 noundef %36, i32 noundef %5) #7
-  br label %.loopexit9
+  br label %.loopexit
 
-.loopexit9:                                       ; preds = %62, %84, %81, %78
+.loopexit:                                        ; preds = %62, %84, %81, %78
   %87 = phi i32 [ %86, %84 ], [ %79, %78 ], [ -5, %81 ], [ %74, %62 ]
   %88 = phi i64 [ %80, %84 ], [ %80, %78 ], [ %80, %81 ], [ %77, %62 ]
   %89 = icmp slt i32 %87, 0
   %90 = and i1 %57, %89
   br i1 %90, label %91, label %93
 
-91:                                               ; preds = %.loopexit9
+91:                                               ; preds = %.loopexit
   %92 = load ptr, ptr %2, align 8
   call void @vfree(ptr noundef %92) #7
   store ptr null, ptr %2, align 8
   br label %93
 
-93:                                               ; preds = %91, %.loopexit9, %53, %43, %38, %33
-  %94 = phi i32 [ %46, %43 ], [ %87, %91 ], [ %87, %.loopexit9 ], [ -22, %33 ], [ -27, %38 ], [ -12, %53 ]
-  %95 = phi i64 [ 0, %43 ], [ %88, %91 ], [ %88, %.loopexit9 ], [ 0, %33 ], [ 0, %38 ], [ 0, %53 ]
+93:                                               ; preds = %91, %.loopexit, %53, %43, %38, %33
+  %94 = phi i32 [ %46, %43 ], [ %87, %91 ], [ %87, %.loopexit ], [ -22, %33 ], [ -27, %38 ], [ -12, %53 ]
+  %95 = phi i64 [ 0, %43 ], [ %88, %91 ], [ %88, %.loopexit ], [ 0, %33 ], [ 0, %38 ], [ 0, %53 ]
   %96 = icmp eq ptr %0, null
   br i1 %96, label %100, label %97
 
@@ -249,9 +250,12 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
   %101 = icmp eq i32 %94, 0
   %102 = sext i32 %94 to i64
   %103 = select i1 %101, i64 %95, i64 %102
-  br label %.loopexit
+  br label %.loopexit9
 
-.loopexit:                                        ; preds = %30, %62, %20, %100, %14, %9
+.unreachabledefault:                              ; preds = %62
+  unreachable
+
+.loopexit9:                                       ; preds = %30, %62, %20, %100, %14, %9
   %104 = phi i64 [ %103, %100 ], [ -22, %9 ], [ -22, %14 ], [ -26, %20 ], [ undef, %62 ], [ -26, %30 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   ret i64 %104

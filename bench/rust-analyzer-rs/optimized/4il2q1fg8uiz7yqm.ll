@@ -2056,11 +2056,15 @@ define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$chalk_ir..DomainGoa
   %6 = add nsw i64 %5, -2
   %7 = icmp ult i64 %6, 4
   %8 = select i1 %7, i64 %6, i64 1
-  switch i64 %8, label %9 [
+  switch i64 %8, label %.unreachabledefault.i [
     i64 0, label %11
     i64 1, label %27
     i64 2, label %28
+    i64 3, label %9
   ]
+
+.unreachabledefault.i:                            ; preds = %3
+  unreachable
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 16

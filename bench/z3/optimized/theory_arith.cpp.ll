@@ -4776,7 +4776,6 @@ $_ZTIZN3smt12theory_arithINS_7inf_extEE17branch_nl_int_varEiEUlvE_ = comdat any
 @_ZTSZN3smt12theory_arithINS_7inf_extEE17branch_nl_int_varEiEUlvE_ = linkonce_odr hidden constant [62 x i8] c"ZN3smt12theory_arithINS_7inf_extEE17branch_nl_int_varEiEUlvE_\00", comdat, align 1
 @_ZTIZN3smt12theory_arithINS_7inf_extEE17branch_nl_int_varEiEUlvE_ = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZN3smt12theory_arithINS_7inf_extEE17branch_nl_int_varEiEUlvE_ }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_theory_arith.cpp, ptr null }]
-@switch.table._ZNK3smt12theory_arithINS_7inf_extEE11display_varERSoi = private unnamed_addr constant [3 x ptr] [ptr @.str.107, ptr @.str.109, ptr @.str.108], align 8
 
 @_ZN3smt12theory_arithINS_6mi_extEE15linear_monomialC1Ev = weak_odr hidden unnamed_addr alias void (ptr), ptr @_ZN3smt12theory_arithINS_6mi_extEE15linear_monomialC2Ev
 @_ZN3smt12theory_arithINS_6mi_extEE15linear_monomialC1ERK8rationali = weak_odr hidden unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN3smt12theory_arithINS_6mi_extEE15linear_monomialC2ERK8rationali
@@ -30693,10 +30692,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bf.load.i.i = load i32, ptr %arrayidx.i.i26, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  switch i32 %bf.clear.i.i, label %sw.epilog [
+  switch i32 %bf.clear.i.i, label %default.unreachable [
     i32 2, label %sw.epilog.sink.split
     i32 1, label %sw.bb5
     i32 0, label %sw.bb10
+    i32 3, label %sw.epilog
   ]
 
 sw.bb5:                                           ; preds = %while.body
@@ -30793,6 +30793,9 @@ if.then13:                                        ; preds = %_ZNK3smt12theory_ar
   tail call void @_ZN3smt12theory_arithINS_6mi_extEE5pivotILb0EEEviiRK8rationalb(ptr noundef nonnull align 8 dereferenceable(1640) %this, i32 noundef %13, i32 noundef %dec, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i39, i1 noundef zeroext false)
   br label %sw.epilog.sink.split.sink.split
 
+default.unreachable:                              ; preds = %while.body
+  unreachable
+
 sw.epilog.sink.split.sink.split:                  ; preds = %if.then13, %if.then8
   %.pre = load ptr, ptr %m_data.i, align 8
   %arrayidx.i.i32.phi.trans.insert = getelementptr inbounds %"struct.smt::theory_arith<smt::mi_ext>::var_data", ptr %.pre, i64 %idxprom.i.i
@@ -30805,7 +30808,7 @@ sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.spli
   tail call void @_ZN3smt12theory_arithINS_6mi_extEE7del_rowEj(ptr noundef nonnull align 8 dereferenceable(1640) %this, i32 noundef %bf.clear.i44)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end.i, %_ZNK3smt12theory_arithINS_6mi_extEE6column11end_entriesEv.exit.i, %if.end24.i, %for.end.i, %sw.epilog.sink.split, %sw.bb10, %while.body
+sw.epilog:                                        ; preds = %if.end.i, %_ZNK3smt12theory_arithINS_6mi_extEE6column11end_entriesEv.exit.i, %if.end24.i, %for.end.i, %sw.epilog.sink.split, %while.body, %sw.bb10
   %20 = load i32, ptr %m_in_update_trail_stack, align 8
   %21 = load ptr, ptr %m_timestamps.i, align 8
   %arrayidx.i.i46 = getelementptr inbounds i32, ptr %21, i64 %idxprom.i.i
@@ -41570,10 +41573,11 @@ if.end12:                                         ; preds = %land.lhs.true8, %if
   %bf.load.i.i = load i32, ptr %arrayidx.i.i27, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  switch i32 %bf.clear.i.i, label %sw.epilog [
+  switch i32 %bf.clear.i.i, label %default.unreachable [
     i32 2, label %sw.bb
     i32 1, label %sw.bb15
     i32 0, label %sw.bb23
+    i32 3, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.end12
@@ -41581,7 +41585,7 @@ sw.bb:                                            ; preds = %if.end12
   tail call void @_ZN3smt12theory_arithINS_6mi_extEE23quasi_base_row2base_rowEj(ptr noundef nonnull align 8 dereferenceable(1640) %this, i32 noundef %bf.clear.i)
   br label %sw.bb15
 
-sw.bb15:                                          ; preds = %sw.bb, %if.end12
+sw.bb15:                                          ; preds = %if.end12, %sw.bb
   %m_to_patch = getelementptr inbounds i8, ptr %this, i64 864
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 872
   %6 = load ptr, ptr %m_value2indices.i, align 8
@@ -41749,7 +41753,10 @@ if.then26:                                        ; preds = %_ZNK3smt12theory_ar
   tail call void @_ZN3smt12theory_arithINS_6mi_extEE9set_valueEiRK12inf_rational(ptr noundef nonnull align 8 dereferenceable(1640) %this, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %m_value.i)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZNK3smt12theory_arithINS_6mi_extEE9get_valueEi.exit58, %if.then26, %_ZNK4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE8containsEi.exit, %_ZNK3smt12theory_arithINS_6mi_extEE9get_valueEi.exit, %_ZN4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE6insertEi.exit, %if.end12
+default.unreachable:                              ; preds = %if.end12
+  unreachable
+
+sw.epilog:                                        ; preds = %if.end12, %_ZNK3smt12theory_arithINS_6mi_extEE9get_valueEi.exit58, %if.then26, %_ZNK4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE8containsEi.exit, %_ZNK3smt12theory_arithINS_6mi_extEE9get_valueEi.exit, %_ZN4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE6insertEi.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %m_bound_trail.i = getelementptr inbounds i8, ptr %this, i64 1040
   call void @_ZN3smt12theory_arithINS_6mi_extEE11bound_trailC1EiPNS2_5boundEb(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef %0, ptr noundef %4, i1 noundef zeroext false)
@@ -42266,10 +42273,11 @@ if.end12:                                         ; preds = %land.lhs.true8, %if
   %bf.load.i.i = load i32, ptr %arrayidx.i.i27, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  switch i32 %bf.clear.i.i, label %sw.epilog [
+  switch i32 %bf.clear.i.i, label %default.unreachable [
     i32 2, label %sw.bb
     i32 1, label %sw.bb15
     i32 0, label %sw.bb23
+    i32 3, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.end12
@@ -42277,7 +42285,7 @@ sw.bb:                                            ; preds = %if.end12
   tail call void @_ZN3smt12theory_arithINS_6mi_extEE23quasi_base_row2base_rowEj(ptr noundef nonnull align 8 dereferenceable(1640) %this, i32 noundef %bf.clear.i)
   br label %sw.bb15
 
-sw.bb15:                                          ; preds = %sw.bb, %if.end12
+sw.bb15:                                          ; preds = %if.end12, %sw.bb
   %m_to_patch = getelementptr inbounds i8, ptr %this, i64 864
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 872
   %6 = load ptr, ptr %m_value2indices.i, align 8
@@ -42445,7 +42453,10 @@ if.then26:                                        ; preds = %_ZNK3smt12theory_ar
   tail call void @_ZN3smt12theory_arithINS_6mi_extEE9set_valueEiRK12inf_rational(ptr noundef nonnull align 8 dereferenceable(1640) %this, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %m_value.i)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZNK3smt12theory_arithINS_6mi_extEE9get_valueEi.exit58, %if.then26, %_ZNK4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE8containsEi.exit, %_ZNK3smt12theory_arithINS_6mi_extEE9get_valueEi.exit, %_ZN4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE6insertEi.exit, %if.end12
+default.unreachable:                              ; preds = %if.end12
+  unreachable
+
+sw.epilog:                                        ; preds = %if.end12, %_ZNK3smt12theory_arithINS_6mi_extEE9get_valueEi.exit58, %if.then26, %_ZNK4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE8containsEi.exit, %_ZNK3smt12theory_arithINS_6mi_extEE9get_valueEi.exit, %_ZN4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE6insertEi.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %m_bound_trail.i = getelementptr inbounds i8, ptr %this, i64 1040
   call void @_ZN3smt12theory_arithINS_6mi_extEE11bound_trailC1EiPNS2_5boundEb(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef %0, ptr noundef %2, i1 noundef zeroext true)
@@ -104933,61 +104944,72 @@ _ZNK6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE4sizeEv.exit: ; preds 
   %bf.load.i.i = load i32, ptr %arrayidx.i.i82, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  %.not = icmp eq i32 %bf.clear.i.i, 3
-  br i1 %.not, label %sw.epilog, label %switch.lookup
+  switch i32 %bf.clear.i.i, label %default.unreachable [
+    i32 0, label %sw.epilog.sink.split
+    i32 2, label %sw.bb71
+    i32 1, label %sw.bb73
+    i32 3, label %sw.epilog
+  ]
 
-switch.lookup:                                    ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE4sizeEv.exit
-  %22 = zext nneg i32 %bf.clear.i.i to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK3smt12theory_arithINS_7inf_extEE11display_varERSoi, i64 0, i64 %22
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %call74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %switch.load)
+sw.bb71:                                          ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE4sizeEv.exit
+  br label %sw.epilog.sink.split
+
+sw.bb73:                                          ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE4sizeEv.exit
+  br label %sw.epilog.sink.split
+
+default.unreachable:                              ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE4sizeEv.exit
+  unreachable
+
+sw.epilog.sink.split:                             ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE4sizeEv.exit, %sw.bb71, %sw.bb73
+  %.str.109.sink = phi ptr [ @.str.109, %sw.bb73 ], [ @.str.108, %sw.bb71 ], [ @.str.107, %_ZNK6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE4sizeEv.exit ]
+  %call74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %.str.109.sink)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE4sizeEv.exit, %switch.lookup
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZNK6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE4sizeEv.exit
   %call75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.110)
   %ctx.i = getelementptr inbounds i8, ptr %this, i64 16
-  %23 = load ptr, ptr %ctx.i, align 8
-  %24 = load ptr, ptr %m_var2enode.i, align 8
-  %arrayidx.i.i85 = getelementptr inbounds ptr, ptr %24, i64 %idxprom.i.i
-  %25 = load ptr, ptr %arrayidx.i.i85, align 8
-  %call78 = call noundef zeroext i1 @_ZNK3smt7context9is_sharedEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(11616) %23, ptr noundef %25)
+  %22 = load ptr, ptr %ctx.i, align 8
+  %23 = load ptr, ptr %m_var2enode.i, align 8
+  %arrayidx.i.i85 = getelementptr inbounds ptr, ptr %23, i64 %idxprom.i.i
+  %24 = load ptr, ptr %arrayidx.i.i85, align 8
+  %call78 = call noundef zeroext i1 @_ZNK3smt7context9is_sharedEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(11616) %22, ptr noundef %24)
   %call79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call75, i1 noundef zeroext %call78)
   %call80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.111)
   %m_unassigned_atoms = getelementptr inbounds i8, ptr %this, i64 704
-  %26 = load ptr, ptr %m_unassigned_atoms, align 8
-  %arrayidx.i87 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i.i
-  %27 = load i32, ptr %arrayidx.i87, align 4
-  %call82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call80, i32 noundef %27)
+  %25 = load ptr, ptr %m_unassigned_atoms, align 8
+  %arrayidx.i87 = getelementptr inbounds i32, ptr %25, i64 %idxprom.i.i
+  %26 = load i32, ptr %arrayidx.i87, align 4
+  %call82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call80, i32 noundef %26)
   %call83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.112)
-  %28 = load ptr, ptr %ctx.i, align 8
-  %29 = load ptr, ptr %m_var2enode.i, align 8
-  %arrayidx.i.i91 = getelementptr inbounds ptr, ptr %29, i64 %idxprom.i.i
-  %30 = load ptr, ptr %arrayidx.i.i91, align 8
-  %31 = load ptr, ptr %30, align 8
-  %call.i.i.i = call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(11616) %28)
+  %27 = load ptr, ptr %ctx.i, align 8
+  %28 = load ptr, ptr %m_var2enode.i, align 8
+  %arrayidx.i.i91 = getelementptr inbounds ptr, ptr %28, i64 %idxprom.i.i
+  %29 = load ptr, ptr %arrayidx.i.i91, align 8
+  %30 = load ptr, ptr %29, align 8
+  %call.i.i.i = call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(11616) %27)
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %sw.epilog
-  %m_relevancy_propagator.i.i.i = getelementptr inbounds i8, ptr %28, i64 7512
-  %32 = load ptr, ptr %m_relevancy_propagator.i.i.i, align 8
-  %vtable.i.i.i = load ptr, ptr %32, align 8
+  %m_relevancy_propagator.i.i.i = getelementptr inbounds i8, ptr %27, i64 7512
+  %31 = load ptr, ptr %m_relevancy_propagator.i.i.i, align 8
+  %vtable.i.i.i = load ptr, ptr %31, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 56
-  %33 = load ptr, ptr %vfn.i.i.i, align 8
-  %call2.i.i.i = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %31)
+  %32 = load ptr, ptr %vfn.i.i.i, align 8
+  %call2.i.i.i = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef %30)
   br label %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit
 
 _ZNK3smt7context11is_relevantEPNS_5enodeE.exit:   ; preds = %sw.epilog, %lor.rhs.i.i
-  %34 = phi i1 [ true, %sw.epilog ], [ %call2.i.i.i, %lor.rhs.i.i ]
-  %call87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call83, i1 noundef zeroext %34)
+  %33 = phi i1 [ true, %sw.epilog ], [ %call2.i.i.i, %lor.rhs.i.i ]
+  %call87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call83, i1 noundef zeroext %33)
   %call88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.113)
-  %35 = load ptr, ptr %m_var2enode.i, align 8
-  %arrayidx.i.i94 = getelementptr inbounds ptr, ptr %35, i64 %idxprom.i.i
-  %36 = load ptr, ptr %arrayidx.i.i94, align 8
-  %37 = load ptr, ptr %ctx.i, align 8
-  store ptr %37, ptr %ref.tmp, align 8
+  %34 = load ptr, ptr %m_var2enode.i, align 8
+  %arrayidx.i.i94 = getelementptr inbounds ptr, ptr %34, i64 %idxprom.i.i
+  %35 = load ptr, ptr %arrayidx.i.i94, align 8
+  %36 = load ptr, ptr %ctx.i, align 8
+  store ptr %36, ptr %ref.tmp, align 8
   %n3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %36, ptr %n3.i, align 8
+  store ptr %35, ptr %n3.i, align 8
   %call90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smtlsERSoRKNS_8enode_ppE(ptr noundef nonnull align 8 dereferenceable(8) %call88, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %call91 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.10)
   ret void
@@ -133479,10 +133501,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bf.load.i.i = load i32, ptr %arrayidx.i.i26, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  switch i32 %bf.clear.i.i, label %sw.epilog [
+  switch i32 %bf.clear.i.i, label %default.unreachable [
     i32 2, label %sw.epilog.sink.split
     i32 1, label %sw.bb5
     i32 0, label %sw.bb10
+    i32 3, label %sw.epilog
   ]
 
 sw.bb5:                                           ; preds = %while.body
@@ -133579,6 +133602,9 @@ if.then13:                                        ; preds = %_ZNK3smt12theory_ar
   tail call void @_ZN3smt12theory_arithINS_5i_extEE5pivotILb0EEEviiRK8rationalb(ptr noundef nonnull align 8 dereferenceable(1544) %this, i32 noundef %13, i32 noundef %dec, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i39, i1 noundef zeroext false)
   br label %sw.epilog.sink.split.sink.split
 
+default.unreachable:                              ; preds = %while.body
+  unreachable
+
 sw.epilog.sink.split.sink.split:                  ; preds = %if.then13, %if.then8
   %.pre = load ptr, ptr %m_data.i, align 8
   %arrayidx.i.i32.phi.trans.insert = getelementptr inbounds %"struct.smt::theory_arith<smt::i_ext>::var_data", ptr %.pre, i64 %idxprom.i.i
@@ -133591,7 +133617,7 @@ sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.spli
   tail call void @_ZN3smt12theory_arithINS_5i_extEE7del_rowEj(ptr noundef nonnull align 8 dereferenceable(1544) %this, i32 noundef %bf.clear.i44)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end.i, %_ZNK3smt12theory_arithINS_5i_extEE6column11end_entriesEv.exit.i, %if.end24.i, %for.end.i, %sw.epilog.sink.split, %sw.bb10, %while.body
+sw.epilog:                                        ; preds = %if.end.i, %_ZNK3smt12theory_arithINS_5i_extEE6column11end_entriesEv.exit.i, %if.end24.i, %for.end.i, %sw.epilog.sink.split, %while.body, %sw.bb10
   %20 = load i32, ptr %m_in_update_trail_stack, align 8
   %21 = load ptr, ptr %m_timestamps.i, align 8
   %arrayidx.i.i46 = getelementptr inbounds i32, ptr %21, i64 %idxprom.i.i
@@ -144577,10 +144603,11 @@ if.end12:                                         ; preds = %if.then.i.i.i.i.i.i
   %bf.load.i.i = load i32, ptr %arrayidx.i.i32, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  switch i32 %bf.clear.i.i, label %sw.epilog [
+  switch i32 %bf.clear.i.i, label %default.unreachable [
     i32 2, label %sw.bb
     i32 1, label %sw.bb15
     i32 0, label %sw.bb23
+    i32 3, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.end12
@@ -144588,7 +144615,7 @@ sw.bb:                                            ; preds = %if.end12
   tail call void @_ZN3smt12theory_arithINS_5i_extEE23quasi_base_row2base_rowEj(ptr noundef nonnull align 8 dereferenceable(1544) %this, i32 noundef %bf.clear.i)
   br label %sw.bb15
 
-sw.bb15:                                          ; preds = %sw.bb, %if.end12
+sw.bb15:                                          ; preds = %if.end12, %sw.bb
   %m_to_patch = getelementptr inbounds i8, ptr %this, i64 800
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 808
   %20 = load ptr, ptr %m_value2indices.i, align 8
@@ -144884,7 +144911,10 @@ _ZN3smt12theory_arithINS_5i_extEE9set_valueEiRK8rational.exit: ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then.i.i.i.i103, %if.else.i.i80, %if.then.i.i.i.i48, %if.else.i.i, %_ZltRK8rationalS1_.exit105, %_ZN3smt12theory_arithINS_5i_extEE9set_valueEiRK8rational.exit, %_ZNK4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE8containsEi.exit, %_ZltRK8rationalS1_.exit, %_ZN4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE6insertEi.exit, %if.end12
+default.unreachable:                              ; preds = %if.end12
+  unreachable
+
+sw.epilog:                                        ; preds = %if.end12, %if.then.i.i.i.i103, %if.else.i.i80, %if.then.i.i.i.i48, %if.else.i.i, %_ZltRK8rationalS1_.exit105, %_ZN3smt12theory_arithINS_5i_extEE9set_valueEiRK8rational.exit, %_ZNK4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE8containsEi.exit, %_ZltRK8rationalS1_.exit, %_ZN4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE6insertEi.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i110)
   %m_bound_trail.i = getelementptr inbounds i8, ptr %this, i64 944
   call void @_ZN3smt12theory_arithINS_5i_extEE11bound_trailC1EiPNS2_5boundEb(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i110, i32 noundef %0, ptr noundef %4, i1 noundef zeroext false)
@@ -145455,10 +145485,11 @@ if.end12:                                         ; preds = %if.then.i.i.i.i.i, 
   %bf.load.i.i = load i32, ptr %arrayidx.i.i32, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  switch i32 %bf.clear.i.i, label %sw.epilog [
+  switch i32 %bf.clear.i.i, label %default.unreachable [
     i32 2, label %sw.bb
     i32 1, label %sw.bb15
     i32 0, label %sw.bb23
+    i32 3, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.end12
@@ -145466,7 +145497,7 @@ sw.bb:                                            ; preds = %if.end12
   tail call void @_ZN3smt12theory_arithINS_5i_extEE23quasi_base_row2base_rowEj(ptr noundef nonnull align 8 dereferenceable(1544) %this, i32 noundef %bf.clear.i)
   br label %sw.bb15
 
-sw.bb15:                                          ; preds = %sw.bb, %if.end12
+sw.bb15:                                          ; preds = %if.end12, %sw.bb
   %m_to_patch = getelementptr inbounds i8, ptr %this, i64 800
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 808
   %20 = load ptr, ptr %m_value2indices.i, align 8
@@ -145762,7 +145793,10 @@ _ZN3smt12theory_arithINS_5i_extEE9set_valueEiRK8rational.exit: ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then.i.i.i.i.i126, %if.else.i.i.i103, %if.then.i.i.i.i.i70, %if.else.i.i.i47, %_ZgtRK8rationalS1_.exit128, %_ZN3smt12theory_arithINS_5i_extEE9set_valueEiRK8rational.exit, %_ZNK4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE8containsEi.exit, %_ZgtRK8rationalS1_.exit, %_ZN4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE6insertEi.exit, %if.end12
+default.unreachable:                              ; preds = %if.end12
+  unreachable
+
+sw.epilog:                                        ; preds = %if.end12, %if.then.i.i.i.i.i126, %if.else.i.i.i103, %if.then.i.i.i.i.i70, %if.else.i.i.i47, %_ZgtRK8rationalS1_.exit128, %_ZN3smt12theory_arithINS_5i_extEE9set_valueEiRK8rational.exit, %_ZNK4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE8containsEi.exit, %_ZgtRK8rationalS1_.exit, %_ZN4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE6insertEi.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i133)
   %m_bound_trail.i = getelementptr inbounds i8, ptr %this, i64 944
   call void @_ZN3smt12theory_arithINS_5i_extEE11bound_trailC1EiPNS2_5boundEb(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i133, i32 noundef %0, ptr noundef %2, i1 noundef zeroext true)
@@ -205812,61 +205846,72 @@ _ZNK6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE4sizeEv.exit: ; preds =
   %bf.load.i.i = load i32, ptr %arrayidx.i.i82, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  %.not = icmp eq i32 %bf.clear.i.i, 3
-  br i1 %.not, label %sw.epilog, label %switch.lookup
+  switch i32 %bf.clear.i.i, label %default.unreachable [
+    i32 0, label %sw.epilog.sink.split
+    i32 2, label %sw.bb71
+    i32 1, label %sw.bb73
+    i32 3, label %sw.epilog
+  ]
 
-switch.lookup:                                    ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE4sizeEv.exit
-  %25 = zext nneg i32 %bf.clear.i.i to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK3smt12theory_arithINS_7inf_extEE11display_varERSoi, i64 0, i64 %25
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %call74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %switch.load)
+sw.bb71:                                          ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE4sizeEv.exit
+  br label %sw.epilog.sink.split
+
+sw.bb73:                                          ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE4sizeEv.exit
+  br label %sw.epilog.sink.split
+
+default.unreachable:                              ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE4sizeEv.exit
+  unreachable
+
+sw.epilog.sink.split:                             ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE4sizeEv.exit, %sw.bb71, %sw.bb73
+  %.str.109.sink = phi ptr [ @.str.109, %sw.bb73 ], [ @.str.108, %sw.bb71 ], [ @.str.107, %_ZNK6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE4sizeEv.exit ]
+  %call74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %.str.109.sink)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE4sizeEv.exit, %switch.lookup
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZNK6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE4sizeEv.exit
   %call75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.110)
   %ctx.i = getelementptr inbounds i8, ptr %this, i64 16
-  %26 = load ptr, ptr %ctx.i, align 8
-  %27 = load ptr, ptr %m_var2enode.i, align 8
-  %arrayidx.i.i85 = getelementptr inbounds ptr, ptr %27, i64 %idxprom.i.i
-  %28 = load ptr, ptr %arrayidx.i.i85, align 8
-  %call78 = call noundef zeroext i1 @_ZNK3smt7context9is_sharedEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(11616) %26, ptr noundef %28)
+  %25 = load ptr, ptr %ctx.i, align 8
+  %26 = load ptr, ptr %m_var2enode.i, align 8
+  %arrayidx.i.i85 = getelementptr inbounds ptr, ptr %26, i64 %idxprom.i.i
+  %27 = load ptr, ptr %arrayidx.i.i85, align 8
+  %call78 = call noundef zeroext i1 @_ZNK3smt7context9is_sharedEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(11616) %25, ptr noundef %27)
   %call79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call75, i1 noundef zeroext %call78)
   %call80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.111)
   %m_unassigned_atoms = getelementptr inbounds i8, ptr %this, i64 640
-  %29 = load ptr, ptr %m_unassigned_atoms, align 8
-  %arrayidx.i87 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i.i
-  %30 = load i32, ptr %arrayidx.i87, align 4
-  %call82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call80, i32 noundef %30)
+  %28 = load ptr, ptr %m_unassigned_atoms, align 8
+  %arrayidx.i87 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i.i
+  %29 = load i32, ptr %arrayidx.i87, align 4
+  %call82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call80, i32 noundef %29)
   %call83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.112)
-  %31 = load ptr, ptr %ctx.i, align 8
-  %32 = load ptr, ptr %m_var2enode.i, align 8
-  %arrayidx.i.i91 = getelementptr inbounds ptr, ptr %32, i64 %idxprom.i.i
-  %33 = load ptr, ptr %arrayidx.i.i91, align 8
-  %34 = load ptr, ptr %33, align 8
-  %call.i.i.i = call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(11616) %31)
+  %30 = load ptr, ptr %ctx.i, align 8
+  %31 = load ptr, ptr %m_var2enode.i, align 8
+  %arrayidx.i.i91 = getelementptr inbounds ptr, ptr %31, i64 %idxprom.i.i
+  %32 = load ptr, ptr %arrayidx.i.i91, align 8
+  %33 = load ptr, ptr %32, align 8
+  %call.i.i.i = call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(11616) %30)
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %sw.epilog
-  %m_relevancy_propagator.i.i.i = getelementptr inbounds i8, ptr %31, i64 7512
-  %35 = load ptr, ptr %m_relevancy_propagator.i.i.i, align 8
-  %vtable.i.i.i = load ptr, ptr %35, align 8
+  %m_relevancy_propagator.i.i.i = getelementptr inbounds i8, ptr %30, i64 7512
+  %34 = load ptr, ptr %m_relevancy_propagator.i.i.i, align 8
+  %vtable.i.i.i = load ptr, ptr %34, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 56
-  %36 = load ptr, ptr %vfn.i.i.i, align 8
-  %call2.i.i.i = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef %34)
+  %35 = load ptr, ptr %vfn.i.i.i, align 8
+  %call2.i.i.i = call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef %33)
   br label %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit
 
 _ZNK3smt7context11is_relevantEPNS_5enodeE.exit:   ; preds = %sw.epilog, %lor.rhs.i.i
-  %37 = phi i1 [ true, %sw.epilog ], [ %call2.i.i.i, %lor.rhs.i.i ]
-  %call87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call83, i1 noundef zeroext %37)
+  %36 = phi i1 [ true, %sw.epilog ], [ %call2.i.i.i, %lor.rhs.i.i ]
+  %call87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call83, i1 noundef zeroext %36)
   %call88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.113)
-  %38 = load ptr, ptr %m_var2enode.i, align 8
-  %arrayidx.i.i94 = getelementptr inbounds ptr, ptr %38, i64 %idxprom.i.i
-  %39 = load ptr, ptr %arrayidx.i.i94, align 8
-  %40 = load ptr, ptr %ctx.i, align 8
-  store ptr %40, ptr %ref.tmp, align 8
+  %37 = load ptr, ptr %m_var2enode.i, align 8
+  %arrayidx.i.i94 = getelementptr inbounds ptr, ptr %37, i64 %idxprom.i.i
+  %38 = load ptr, ptr %arrayidx.i.i94, align 8
+  %39 = load ptr, ptr %ctx.i, align 8
+  store ptr %39, ptr %ref.tmp, align 8
   %n3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %39, ptr %n3.i, align 8
+  store ptr %38, ptr %n3.i, align 8
   %call90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smtlsERSoRKNS_8enode_ppE(ptr noundef nonnull align 8 dereferenceable(8) %call88, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %call91 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.10)
   ret void
@@ -234268,10 +234313,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bf.load.i.i = load i32, ptr %arrayidx.i.i26, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  switch i32 %bf.clear.i.i, label %sw.epilog [
+  switch i32 %bf.clear.i.i, label %default.unreachable [
     i32 2, label %sw.epilog.sink.split
     i32 1, label %sw.bb5
     i32 0, label %sw.bb10
+    i32 3, label %sw.epilog
   ]
 
 sw.bb5:                                           ; preds = %while.body
@@ -234368,6 +234414,9 @@ if.then13:                                        ; preds = %_ZNK3smt12theory_ar
   tail call void @_ZN3smt12theory_arithINS_7inf_extEE5pivotILb0EEEviiRK8rationalb(ptr noundef nonnull align 8 dereferenceable(1736) %this, i32 noundef %13, i32 noundef %dec, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i39, i1 noundef zeroext false)
   br label %sw.epilog.sink.split.sink.split
 
+default.unreachable:                              ; preds = %while.body
+  unreachable
+
 sw.epilog.sink.split.sink.split:                  ; preds = %if.then13, %if.then8
   %.pre = load ptr, ptr %m_data.i, align 8
   %arrayidx.i.i32.phi.trans.insert = getelementptr inbounds %"struct.smt::theory_arith<smt::inf_ext>::var_data", ptr %.pre, i64 %idxprom.i.i
@@ -234380,7 +234429,7 @@ sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.spli
   tail call void @_ZN3smt12theory_arithINS_7inf_extEE7del_rowEj(ptr noundef nonnull align 8 dereferenceable(1736) %this, i32 noundef %bf.clear.i44)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end.i, %_ZNK3smt12theory_arithINS_7inf_extEE6column11end_entriesEv.exit.i, %if.end24.i, %for.end.i, %sw.epilog.sink.split, %sw.bb10, %while.body
+sw.epilog:                                        ; preds = %if.end.i, %_ZNK3smt12theory_arithINS_7inf_extEE6column11end_entriesEv.exit.i, %if.end24.i, %for.end.i, %sw.epilog.sink.split, %while.body, %sw.bb10
   %20 = load i32, ptr %m_in_update_trail_stack, align 8
   %21 = load ptr, ptr %m_timestamps.i, align 8
   %arrayidx.i.i46 = getelementptr inbounds i32, ptr %21, i64 %idxprom.i.i
@@ -245356,10 +245405,11 @@ if.end12:                                         ; preds = %land.lhs.true8, %if
   %bf.load.i.i = load i32, ptr %arrayidx.i.i27, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  switch i32 %bf.clear.i.i, label %sw.epilog [
+  switch i32 %bf.clear.i.i, label %default.unreachable [
     i32 2, label %sw.bb
     i32 1, label %sw.bb15
     i32 0, label %sw.bb23
+    i32 3, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.end12
@@ -245367,7 +245417,7 @@ sw.bb:                                            ; preds = %if.end12
   tail call void @_ZN3smt12theory_arithINS_7inf_extEE23quasi_base_row2base_rowEj(ptr noundef nonnull align 8 dereferenceable(1736) %this, i32 noundef %bf.clear.i)
   br label %sw.bb15
 
-sw.bb15:                                          ; preds = %sw.bb, %if.end12
+sw.bb15:                                          ; preds = %if.end12, %sw.bb
   %m_to_patch = getelementptr inbounds i8, ptr %this, i64 928
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 936
   %6 = load ptr, ptr %m_value2indices.i, align 8
@@ -245551,7 +245601,10 @@ _ZN3smt12theory_arithINS_7inf_extEE9set_valueEiRK16inf_eps_rationalI12inf_ration
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp.i)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit58, %_ZN3smt12theory_arithINS_7inf_extEE9set_valueEiRK16inf_eps_rationalI12inf_rationalE.exit, %_ZNK4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE8containsEi.exit, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit, %_ZN4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE6insertEi.exit, %if.end12
+default.unreachable:                              ; preds = %if.end12
+  unreachable
+
+sw.epilog:                                        ; preds = %if.end12, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit58, %_ZN3smt12theory_arithINS_7inf_extEE9set_valueEiRK16inf_eps_rationalI12inf_rationalE.exit, %_ZNK4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE8containsEi.exit, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit, %_ZN4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE6insertEi.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i62)
   %m_bound_trail.i = getelementptr inbounds i8, ptr %this, i64 1136
   call void @_ZN3smt12theory_arithINS_7inf_extEE11bound_trailC1EiPNS2_5boundEb(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i62, i32 noundef %0, ptr noundef %4, i1 noundef zeroext false)
@@ -246053,10 +246106,11 @@ if.end12:                                         ; preds = %land.lhs.true8, %if
   %bf.load.i.i = load i32, ptr %arrayidx.i.i27, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  switch i32 %bf.clear.i.i, label %sw.epilog [
+  switch i32 %bf.clear.i.i, label %default.unreachable [
     i32 2, label %sw.bb
     i32 1, label %sw.bb15
     i32 0, label %sw.bb23
+    i32 3, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.end12
@@ -246064,7 +246118,7 @@ sw.bb:                                            ; preds = %if.end12
   tail call void @_ZN3smt12theory_arithINS_7inf_extEE23quasi_base_row2base_rowEj(ptr noundef nonnull align 8 dereferenceable(1736) %this, i32 noundef %bf.clear.i)
   br label %sw.bb15
 
-sw.bb15:                                          ; preds = %sw.bb, %if.end12
+sw.bb15:                                          ; preds = %if.end12, %sw.bb
   %m_to_patch = getelementptr inbounds i8, ptr %this, i64 928
   %m_value2indices.i = getelementptr inbounds i8, ptr %this, i64 936
   %6 = load ptr, ptr %m_value2indices.i, align 8
@@ -246248,7 +246302,10 @@ _ZN3smt12theory_arithINS_7inf_extEE9set_valueEiRK16inf_eps_rationalI12inf_ration
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp.i)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit58, %_ZN3smt12theory_arithINS_7inf_extEE9set_valueEiRK16inf_eps_rationalI12inf_rationalE.exit, %_ZNK4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE8containsEi.exit, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit, %_ZN4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE6insertEi.exit, %if.end12
+default.unreachable:                              ; preds = %if.end12
+  unreachable
+
+sw.epilog:                                        ; preds = %if.end12, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit58, %_ZN3smt12theory_arithINS_7inf_extEE9set_valueEiRK16inf_eps_rationalI12inf_rationalE.exit, %_ZNK4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE8containsEi.exit, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit, %_ZN4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE6insertEi.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i63)
   %m_bound_trail.i = getelementptr inbounds i8, ptr %this, i64 1136
   call void @_ZN3smt12theory_arithINS_7inf_extEE11bound_trailC1EiPNS2_5boundEb(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i63, i32 noundef %0, ptr noundef %2, i1 noundef zeroext true)
@@ -305098,61 +305155,72 @@ _ZNK6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE4sizeEv.exit: ; preds
   %bf.load.i.i = load i32, ptr %arrayidx.i.i82, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 28
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 3
-  %.not = icmp eq i32 %bf.clear.i.i, 3
-  br i1 %.not, label %sw.epilog, label %switch.lookup
+  switch i32 %bf.clear.i.i, label %default.unreachable [
+    i32 0, label %sw.epilog.sink.split
+    i32 2, label %sw.bb71
+    i32 1, label %sw.bb73
+    i32 3, label %sw.epilog
+  ]
 
-switch.lookup:                                    ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE4sizeEv.exit
-  %22 = zext nneg i32 %bf.clear.i.i to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK3smt12theory_arithINS_7inf_extEE11display_varERSoi, i64 0, i64 %22
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %call74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %switch.load)
+sw.bb71:                                          ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE4sizeEv.exit
+  br label %sw.epilog.sink.split
+
+sw.bb73:                                          ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE4sizeEv.exit
+  br label %sw.epilog.sink.split
+
+default.unreachable:                              ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE4sizeEv.exit
+  unreachable
+
+sw.epilog.sink.split:                             ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE4sizeEv.exit, %sw.bb71, %sw.bb73
+  %.str.109.sink = phi ptr [ @.str.109, %sw.bb73 ], [ @.str.108, %sw.bb71 ], [ @.str.107, %_ZNK6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE4sizeEv.exit ]
+  %call74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %.str.109.sink)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZNK6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE4sizeEv.exit, %switch.lookup
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZNK6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE4sizeEv.exit
   %call75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.110)
   %ctx.i = getelementptr inbounds i8, ptr %this, i64 16
-  %23 = load ptr, ptr %ctx.i, align 8
-  %24 = load ptr, ptr %m_var2enode.i, align 8
-  %arrayidx.i.i85 = getelementptr inbounds ptr, ptr %24, i64 %idxprom.i.i
-  %25 = load ptr, ptr %arrayidx.i.i85, align 8
-  %call78 = call noundef zeroext i1 @_ZNK3smt7context9is_sharedEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(11616) %23, ptr noundef %25)
+  %22 = load ptr, ptr %ctx.i, align 8
+  %23 = load ptr, ptr %m_var2enode.i, align 8
+  %arrayidx.i.i85 = getelementptr inbounds ptr, ptr %23, i64 %idxprom.i.i
+  %24 = load ptr, ptr %arrayidx.i.i85, align 8
+  %call78 = call noundef zeroext i1 @_ZNK3smt7context9is_sharedEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(11616) %22, ptr noundef %24)
   %call79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call75, i1 noundef zeroext %call78)
   %call80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.111)
   %m_unassigned_atoms = getelementptr inbounds i8, ptr %this, i64 768
-  %26 = load ptr, ptr %m_unassigned_atoms, align 8
-  %arrayidx.i87 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i.i
-  %27 = load i32, ptr %arrayidx.i87, align 4
-  %call82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call80, i32 noundef %27)
+  %25 = load ptr, ptr %m_unassigned_atoms, align 8
+  %arrayidx.i87 = getelementptr inbounds i32, ptr %25, i64 %idxprom.i.i
+  %26 = load i32, ptr %arrayidx.i87, align 4
+  %call82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call80, i32 noundef %26)
   %call83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.112)
-  %28 = load ptr, ptr %ctx.i, align 8
-  %29 = load ptr, ptr %m_var2enode.i, align 8
-  %arrayidx.i.i91 = getelementptr inbounds ptr, ptr %29, i64 %idxprom.i.i
-  %30 = load ptr, ptr %arrayidx.i.i91, align 8
-  %31 = load ptr, ptr %30, align 8
-  %call.i.i.i = call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(11616) %28)
+  %27 = load ptr, ptr %ctx.i, align 8
+  %28 = load ptr, ptr %m_var2enode.i, align 8
+  %arrayidx.i.i91 = getelementptr inbounds ptr, ptr %28, i64 %idxprom.i.i
+  %29 = load ptr, ptr %arrayidx.i.i91, align 8
+  %30 = load ptr, ptr %29, align 8
+  %call.i.i.i = call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(11616) %27)
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %sw.epilog
-  %m_relevancy_propagator.i.i.i = getelementptr inbounds i8, ptr %28, i64 7512
-  %32 = load ptr, ptr %m_relevancy_propagator.i.i.i, align 8
-  %vtable.i.i.i = load ptr, ptr %32, align 8
+  %m_relevancy_propagator.i.i.i = getelementptr inbounds i8, ptr %27, i64 7512
+  %31 = load ptr, ptr %m_relevancy_propagator.i.i.i, align 8
+  %vtable.i.i.i = load ptr, ptr %31, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 56
-  %33 = load ptr, ptr %vfn.i.i.i, align 8
-  %call2.i.i.i = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %31)
+  %32 = load ptr, ptr %vfn.i.i.i, align 8
+  %call2.i.i.i = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef %30)
   br label %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit
 
 _ZNK3smt7context11is_relevantEPNS_5enodeE.exit:   ; preds = %sw.epilog, %lor.rhs.i.i
-  %34 = phi i1 [ true, %sw.epilog ], [ %call2.i.i.i, %lor.rhs.i.i ]
-  %call87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call83, i1 noundef zeroext %34)
+  %33 = phi i1 [ true, %sw.epilog ], [ %call2.i.i.i, %lor.rhs.i.i ]
+  %call87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call83, i1 noundef zeroext %33)
   %call88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.113)
-  %35 = load ptr, ptr %m_var2enode.i, align 8
-  %arrayidx.i.i94 = getelementptr inbounds ptr, ptr %35, i64 %idxprom.i.i
-  %36 = load ptr, ptr %arrayidx.i.i94, align 8
-  %37 = load ptr, ptr %ctx.i, align 8
-  store ptr %37, ptr %ref.tmp, align 8
+  %34 = load ptr, ptr %m_var2enode.i, align 8
+  %arrayidx.i.i94 = getelementptr inbounds ptr, ptr %34, i64 %idxprom.i.i
+  %35 = load ptr, ptr %arrayidx.i.i94, align 8
+  %36 = load ptr, ptr %ctx.i, align 8
+  store ptr %36, ptr %ref.tmp, align 8
   %n3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %36, ptr %n3.i, align 8
+  store ptr %35, ptr %n3.i, align 8
   %call90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smtlsERSoRKNS_8enode_ppE(ptr noundef nonnull align 8 dereferenceable(8) %call88, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %call91 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.10)
   ret void

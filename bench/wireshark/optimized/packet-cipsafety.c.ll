@@ -2455,10 +2455,11 @@ define internal range(i32 0, 2) i32 @dissect_class_svalidator_heur(ptr noundef %
 
 25:                                               ; preds = %21
   %26 = and i32 %23, 3
-  switch i32 %26, label %.thread [
+  switch i32 %26, label %default.unreachable39 [
     i32 0, label %27
     i32 1, label %30
     i32 2, label %33
+    i32 3, label %.thread
   ]
 
 27:                                               ; preds = %25
@@ -2478,6 +2479,9 @@ define internal range(i32 0, 2) i32 @dissect_class_svalidator_heur(ptr noundef %
 34:                                               ; preds = %33
   %35 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4) #6
   br label %36
+
+default.unreachable39:                            ; preds = %25
+  unreachable
 
 36:                                               ; preds = %34, %30, %27
   %.032 = phi i32 [ %35, %34 ], [ %32, %30 ], [ %29, %27 ]

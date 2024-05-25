@@ -1622,7 +1622,7 @@ define hidden noundef zeroext i1 @"_ZN51_$LT$syn..lit..Lit$u20$as$u20$syn..token
   %9 = load i64, ptr %7, align 8, !range !307, !alias.scope !308, !noundef !4
   %10 = add i64 %9, 9223372036854775807
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 7)
-  switch i64 %11, label %12 [
+  switch i64 %11, label %default.unreachable [
     i64 0, label %22
     i64 1, label %24
     i64 2, label %26
@@ -1630,7 +1630,11 @@ define hidden noundef zeroext i1 @"_ZN51_$LT$syn..lit..Lit$u20$as$u20$syn..token
     i64 4, label %30
     i64 5, label %39
     i64 6, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$syn..lit..Lit$C$syn..error..Error$GT$$GT$17h554606593b2e616fE.exit"
+    i64 7, label %12
   ]
+
+default.unreachable:                              ; preds = %8
+  unreachable
 
 12:                                               ; preds = %8
   %13 = icmp eq i64 %9, -9223372036854775808

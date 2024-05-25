@@ -1216,7 +1216,7 @@ define internal range(i32 0, 2) i32 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr 
   %or.cond = icmp ult i32 %7, -144
   %8 = icmp ult i32 %6, 5
   %or.cond43 = select i1 %or.cond, i1 true, i1 %8
-  br i1 %or.cond43, label %36, label %9
+  br i1 %or.cond43, label %35, label %9
 
 9:                                                ; preds = %4
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
@@ -1226,73 +1226,69 @@ define internal range(i32 0, 2) i32 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr 
   %13 = and i8 %10, 32
   %.not.not = icmp eq i8 %13, 0
   %or.cond44 = or i1 %switch, %.not.not
-  br i1 %or.cond44, label %36, label %14
+  br i1 %or.cond44, label %35, label %14
 
 14:                                               ; preds = %9
   %15 = icmp eq i8 %12, 3
-  switch i8 %12, label %31 [
-    i8 3, label %16
-    i8 1, label %16
-    i8 2, label %26
-  ]
+  %switch46 = icmp eq i8 %12, 2
+  %16 = icmp eq i32 %6, 5
+  br i1 %switch46, label %26, label %17
 
-16:                                               ; preds = %14, %14
-  %17 = icmp eq i32 %6, 5
-  br i1 %17, label %36, label %18
+17:                                               ; preds = %14
+  br i1 %16, label %35, label %18
 
-18:                                               ; preds = %16
+18:                                               ; preds = %17
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #6
   %20 = add i8 %19, -4
   %or.cond7 = icmp ult i8 %20, -68
-  br i1 %or.cond7, label %36, label %21
+  br i1 %or.cond7, label %35, label %21
 
 21:                                               ; preds = %18
-  br i1 %15, label %22, label %31
+  br i1 %15, label %22, label %30
 
 22:                                               ; preds = %21
   %23 = icmp ult i32 %6, 8
-  br i1 %23, label %36, label %24
+  br i1 %23, label %35, label %24
 
 24:                                               ; preds = %22
   %25 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6) #6
-  switch i16 %25, label %36 [
-    i16 1, label %31
-    i16 2, label %31
-    i16 3, label %31
-    i16 4, label %31
-    i16 5, label %31
-    i16 6, label %31
-    i16 7, label %31
-    i16 -15, label %31
-    i16 -14, label %31
-    i16 -13, label %31
+  switch i16 %25, label %35 [
+    i16 1, label %30
+    i16 2, label %30
+    i16 3, label %30
+    i16 4, label %30
+    i16 5, label %30
+    i16 6, label %30
+    i16 7, label %30
+    i16 -15, label %30
+    i16 -14, label %30
+    i16 -13, label %30
   ]
 
 26:                                               ; preds = %14
-  %27 = icmp eq i32 %6, 5
-  br i1 %27, label %36, label %28
+  br i1 %16, label %35, label %27
 
-28:                                               ; preds = %26
+27:                                               ; preds = %26
   %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %29, label %31
+  br i1 %.not, label %28, label %30
 
-29:                                               ; preds = %28
-  %30 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #6
-  %.off41 = add i8 %30, -1
+28:                                               ; preds = %27
+  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #6
+  %.off41 = add i8 %29, -1
   %switch42 = icmp ult i8 %.off41, 8
-  br i1 %switch42, label %31, label %36
+  br i1 %switch42, label %30, label %35
 
-31:                                               ; preds = %29, %14, %28, %21, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
-  %33 = load ptr, ptr %32, align 8
-  tail call void @col_set_str(ptr noundef %33, i32 noundef 34, ptr noundef nonnull @.str.187) #6
-  %34 = load ptr, ptr %32, align 8
-  tail call void @col_clear(ptr noundef %34, i32 noundef 25) #6
-  %35 = tail call i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %36
+30:                                               ; preds = %28, %27, %21, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24
+  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = load ptr, ptr %31, align 8
+  tail call void @col_set_str(ptr noundef %32, i32 noundef 34, ptr noundef nonnull @.str.187) #6
+  %33 = load ptr, ptr %31, align 8
+  tail call void @col_clear(ptr noundef %33, i32 noundef 25) #6
+  %34 = tail call i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
+  br label %35
 
-36:                                               ; preds = %4, %29, %26, %24, %22, %18, %16, %9, %31
-  %.0 = phi i32 [ 1, %31 ], [ 0, %9 ], [ 0, %16 ], [ 0, %18 ], [ 0, %22 ], [ 0, %24 ], [ 0, %26 ], [ 0, %29 ], [ 0, %4 ]
+35:                                               ; preds = %4, %28, %26, %24, %22, %18, %17, %9, %30
+  %.0 = phi i32 [ 1, %30 ], [ 0, %9 ], [ 0, %17 ], [ 0, %18 ], [ 0, %22 ], [ 0, %24 ], [ 0, %26 ], [ 0, %28 ], [ 0, %4 ]
   ret i32 %.0
 }
 

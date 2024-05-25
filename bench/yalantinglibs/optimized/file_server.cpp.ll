@@ -29336,7 +29336,7 @@ sw.bb1.i:                                         ; preds = %.noexc
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
   %8 = load i64, ptr %_M_string_length.i.i, align 8
   %9 = lshr exact i8 %retval.i.sroa.10.1, 3
-  switch i8 %9, label %sw.default.i.i [
+  switch i8 %9, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
     i8 3, label %sw.bb7.i.i
@@ -29356,7 +29356,7 @@ sw.bb7.i.i:                                       ; preds = %sw.bb1.i
   store i64 %8, ptr %add.ptr.i.i24.i, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES8_EEvRKT2_.exit.i
 
-sw.default.i.i:                                   ; preds = %sw.bb1.i
+default.unreachable.i.i:                          ; preds = %sw.bb1.i
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES8_EEvRKT2_.exit.i: ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i
@@ -45279,7 +45279,7 @@ sw.bb1.i:                                         ; preds = %.noexc
   store i8 %retval.i.sroa.10.1, ptr %add.ptr.i.i.i, align 1
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
   %118 = lshr exact i8 %retval.i.sroa.10.1, 3
-  switch i8 %118, label %sw.default.i.i [
+  switch i8 %118, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
     i8 3, label %sw.bb7.i.i
@@ -45299,7 +45299,7 @@ sw.bb7.i.i:                                       ; preds = %sw.bb1.i
   store i64 %115, ptr %add.ptr.i.i.i.i, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
 
-sw.default.i.i:                                   ; preds = %sw.bb1.i
+default.unreachable.i.i:                          ; preds = %sw.bb1.i
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i: ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i

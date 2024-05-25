@@ -8196,7 +8196,7 @@ define hidden void @"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$17schedule_write
   call void @"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$8try_send17h89a57920116a2eaeE"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %12 = load i64, ptr %8, align 8, !range !156, !noundef !14
-  switch i64 %12, label %default.unreachable29 [
+  switch i64 %12, label %.noexc.us.unreachabledefault [
     i64 2, label %.split19.us
     i64 0, label %13
     i64 1, label %.split21.us
@@ -8225,6 +8225,12 @@ define hidden void @"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$17schedule_write
   %lpad.thr_comm.us = landingpad { ptr, i32 }
           cleanup
   br label %.thread
+
+.noexc.us.unreachabledefault:                     ; preds = %.noexc.us
+  unreachable
+
+default.unreachable:                              ; preds = %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$28apply_reads_writes_if_needed17h028050853de150d7E.exit"
+  unreachable
 
 .split23.us:                                      ; preds = %13
   %18 = landingpad { ptr, i32 }
@@ -8273,14 +8279,11 @@ define hidden void @"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$17schedule_write
   call void @"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$8try_send17h89a57920116a2eaeE"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %31 = load i64, ptr %8, align 8, !range !156, !noundef !14
-  switch i64 %31, label %default.unreachable29 [
+  switch i64 %31, label %default.unreachable [
     i64 2, label %.split19.us
     i64 0, label %37
     i64 1, label %.split21.us
   ]
-
-default.unreachable29:                            ; preds = %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$28apply_reads_writes_if_needed17h028050853de150d7E.exit", %.noexc.us
-  unreachable
 
 .split19.us:                                      ; preds = %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$28apply_reads_writes_if_needed17h028050853de150d7E.exit", %.noexc.us
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)

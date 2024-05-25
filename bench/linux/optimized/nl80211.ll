@@ -37777,7 +37777,7 @@ define internal i32 @nl80211_vendor_cmd_dump(ptr noundef %0, ptr noundef %1) #0 
   %305 = load i32, ptr %304, align 8
   br label %.thread36
 
-.thread36:                                        ; preds = %.thread82, %277, %271, %8, %32, %144, %166, %171, %186, %.loopexit, %.thread41, %182
+.thread36:                                        ; preds = %.thread82, %277, %271, %8, %32, %182, %.thread41, %.loopexit, %186, %171, %166, %144
   %306 = phi i32 [ %146, %144 ], [ %305, %.loopexit ], [ -22, %166 ], [ -22, %171 ], [ -100, %186 ], [ %.ph40, %.thread41 ], [ -100, %182 ], [ -19, %8 ], [ -12, %32 ], [ %252, %271 ], [ %252, %277 ], [ -95, %.thread82 ]
   call void @rtnl_unlock() #25
   ret i32 %306
@@ -44636,7 +44636,7 @@ define internal fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr nocapture noundef 
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(360) %3, i8 0, i64 360, i1 false)
-  br i1 %4, label %12, label %.loopexit27
+  br i1 %4, label %12, label %.loopexit29
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %11, i64 1272
@@ -44664,7 +44664,7 @@ define internal fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr nocapture noundef 
   %29 = getelementptr inbounds i8, ptr %19, i64 52
   %30 = load i8, ptr %29, align 4, !range !60, !noundef !61
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %.loopexit26, label %32
+  br i1 %31, label %.loopexit28, label %32
 
 32:                                               ; preds = %21
   %33 = getelementptr inbounds i8, ptr %19, i64 64
@@ -44677,10 +44677,11 @@ define internal fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr nocapture noundef 
   %38 = phi i16 [ %34, %32 ], [ %47, %44 ]
   %39 = trunc i16 %38 to i8
   %40 = and i8 %39, 3
-  switch i8 %40, label %44 [
+  switch i8 %40, label %.unreachabledefault [
     i8 2, label %43
     i8 0, label %41
     i8 1, label %42
+    i8 3, label %44
   ]
 
 41:                                               ; preds = %36
@@ -44692,28 +44693,34 @@ define internal fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr nocapture noundef 
 43:                                               ; preds = %36
   br label %44
 
-44:                                               ; preds = %43, %42, %41, %36
+.unreachabledefault:                              ; preds = %36
+  unreachable
+
+default.unreachable115:                           ; preds = %101, %285, %376
+  unreachable
+
+44:                                               ; preds = %36, %43, %42, %41
   %45 = phi i16 [ 0, %36 ], [ 511, %42 ], [ 255, %41 ], [ 1023, %43 ]
   %46 = getelementptr i16, ptr %35, i64 %37
   store i16 %45, ptr %46, align 2
   %47 = lshr i16 %38, 2
   %48 = add nuw nsw i64 %37, 1
   %49 = icmp eq i64 %48, 8
-  br i1 %49, label %.loopexit26, label %36, !llvm.loop !678
+  br i1 %49, label %.loopexit28, label %36, !llvm.loop !678
 
-.loopexit26:                                      ; preds = %44, %21
+.loopexit28:                                      ; preds = %44, %21
   %50 = load i32, ptr %14, align 8
   %51 = trunc i32 %50 to i8
   %52 = icmp ugt i8 %51, 11
   br i1 %52, label %53, label %54, !prof !13
 
-53:                                               ; preds = %.loopexit26
+53:                                               ; preds = %.loopexit28
   tail call void asm sideeffect "542: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 542b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 542) #25, !srcloc !679
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 626, i32 2305, i64 12) #25, !srcloc !680
   tail call void asm sideeffect "543: nop\0A\09.pushsection .discard.instr_end\0A\09.long 543b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 543) #25, !srcloc !681
   br label %.thread1
 
-54:                                               ; preds = %.loopexit26
+54:                                               ; preds = %.loopexit28
   %55 = getelementptr inbounds i8, ptr %19, i64 96
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %19, i64 92
@@ -44784,7 +44791,7 @@ define internal fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr nocapture noundef 
   %103 = phi i16 [ %99, %96 ], [ %112, %109 ]
   %104 = trunc i16 %103 to i8
   %105 = and i8 %104, 3
-  switch i8 %105, label %.unreachabledefault [
+  switch i8 %105, label %default.unreachable115 [
     i8 3, label %109
     i8 0, label %106
     i8 1, label %107
@@ -44799,12 +44806,6 @@ define internal fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr nocapture noundef 
 
 108:                                              ; preds = %101
   br label %109
-
-.unreachabledefault:                              ; preds = %101
-  unreachable
-
-default.unreachable107:                           ; preds = %376
-  unreachable
 
 109:                                              ; preds = %108, %107, %106, %101
   %110 = phi i16 [ 4095, %108 ], [ 1023, %107 ], [ 255, %106 ], [ 0, %101 ]
@@ -44825,16 +44826,16 @@ default.unreachable107:                           ; preds = %376
 .thread1:                                         ; preds = %73, %54, %53, %78, %76, %115, %16
   %118 = add nuw nsw i64 %17, 1
   %exitcond.not = icmp eq i64 %118, 6
-  br i1 %exitcond.not, label %.loopexit27, label %16, !llvm.loop !684
+  br i1 %exitcond.not, label %.loopexit29, label %16, !llvm.loop !684
 
-.loopexit27:                                      ; preds = %.thread1, %6
+.loopexit29:                                      ; preds = %.thread1, %6
   %119 = zext nneg i32 %2 to i64
   %120 = getelementptr ptr, ptr %1, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
   br i1 %122, label %.thread3, label %123
 
-123:                                              ; preds = %.loopexit27
+123:                                              ; preds = %.loopexit29
   %124 = load i16, ptr %121, align 2
   %125 = add i16 %124, -4
   %126 = getelementptr inbounds i8, ptr %11, i64 1272
@@ -45007,9 +45008,9 @@ default.unreachable107:                           ; preds = %376
   %242 = zext i8 %241 to i32
   %243 = and i32 %233, %242
   %244 = icmp eq i32 %243, 0
-  br i1 %244, label %.thread3, label %.preheader20
+  br i1 %244, label %.thread3, label %.preheader21
 
-245:                                              ; preds = %.preheader20
+245:                                              ; preds = %.preheader21
   %246 = getelementptr i8, ptr %219, i64 %271
   %247 = load i8, ptr %246, align 1
   %248 = icmp ugt i8 %247, 79
@@ -45030,9 +45031,9 @@ default.unreachable107:                           ; preds = %376
   %261 = zext i8 %260 to i32
   %262 = and i32 %252, %261
   %263 = icmp eq i32 %262, 0
-  br i1 %263, label %273, label %.preheader20, !llvm.loop !687
+  br i1 %263, label %273, label %.preheader21, !llvm.loop !687
 
-.preheader20:                                     ; preds = %229, %249
+.preheader21:                                     ; preds = %229, %249
   %264 = phi i64 [ %258, %249 ], [ %239, %229 ]
   %265 = phi i32 [ %252, %249 ], [ %233, %229 ]
   %266 = phi i64 [ %271, %249 ], [ 0, %229 ]
@@ -45049,7 +45050,7 @@ default.unreachable107:                           ; preds = %376
   %.not15 = icmp ult i64 %271, %230
   br i1 %.not15, label %.thread3, label %.critedge
 
-.critedge:                                        ; preds = %.preheader20, %218, %273, %215
+.critedge:                                        ; preds = %.preheader21, %218, %273, %215
   %274 = load ptr, ptr %130, align 8
   %275 = icmp eq ptr %274, null
   br i1 %275, label %311, label %276
@@ -45075,10 +45076,11 @@ default.unreachable107:                           ; preds = %376
   %287 = phi i16 [ %281, %284 ], [ %296, %293 ]
   %288 = trunc i16 %287 to i8
   %289 = and i8 %288, 3
-  switch i8 %289, label %293 [
+  switch i8 %289, label %default.unreachable115 [
     i8 2, label %292
     i8 0, label %290
     i8 1, label %291
+    i8 3, label %293
   ]
 
 290:                                              ; preds = %285
@@ -45090,7 +45092,7 @@ default.unreachable107:                           ; preds = %376
 292:                                              ; preds = %285
   br label %293
 
-293:                                              ; preds = %292, %291, %290, %285
+293:                                              ; preds = %285, %292, %291, %290
   %294 = phi i16 [ 0, %285 ], [ 511, %291 ], [ 255, %290 ], [ 1023, %292 ]
   %295 = getelementptr i16, ptr %8, i64 %286
   store i16 %294, ptr %295, align 2
@@ -45226,7 +45228,7 @@ default.unreachable107:                           ; preds = %376
   %378 = phi i16 [ %375, %372 ], [ %387, %384 ]
   %379 = trunc i16 %378 to i8
   %380 = and i8 %379, 3
-  switch i8 %380, label %default.unreachable107 [
+  switch i8 %380, label %default.unreachable115 [
     i8 3, label %384
     i8 0, label %381
     i8 1, label %382
@@ -45400,8 +45402,8 @@ default.unreachable107:                           ; preds = %376
   %478 = icmp sgt i32 %475, 3
   br i1 %478, label %.lr.ph, label %.thread3, !llvm.loop !693
 
-.thread3:                                         ; preds = %.lr.ph, %470, %145, %150, %155, %212, %273, %314, %225, %229, %444, %454, %462, %459, %123, %469, %.thread9, %468, %467, %432, %.loopexit27
-  %479 = phi i32 [ 0, %.loopexit27 ], [ -22, %469 ], [ -22, %.thread9 ], [ -22, %468 ], [ -22, %467 ], [ -22, %432 ], [ 0, %123 ], [ 0, %462 ], [ -22, %459 ], [ 0, %454 ], [ 0, %444 ], [ 0, %.lr.ph ], [ 0, %470 ], [ -22, %145 ], [ -22, %150 ], [ %160, %155 ], [ -22, %212 ], [ -22, %273 ], [ -22, %314 ], [ -22, %225 ], [ -22, %229 ]
+.thread3:                                         ; preds = %.lr.ph, %470, %145, %150, %155, %212, %273, %314, %225, %229, %444, %454, %462, %459, %123, %469, %.thread9, %468, %467, %432, %.loopexit29
+  %479 = phi i32 [ 0, %.loopexit29 ], [ -22, %469 ], [ -22, %.thread9 ], [ -22, %468 ], [ -22, %467 ], [ -22, %432 ], [ 0, %123 ], [ 0, %462 ], [ -22, %459 ], [ 0, %454 ], [ 0, %444 ], [ 0, %.lr.ph ], [ 0, %470 ], [ -22, %145 ], [ -22, %150 ], [ %160, %155 ], [ -22, %212 ], [ -22, %273 ], [ -22, %314 ], [ -22, %225 ], [ -22, %229 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #25
   ret i32 %479
 }

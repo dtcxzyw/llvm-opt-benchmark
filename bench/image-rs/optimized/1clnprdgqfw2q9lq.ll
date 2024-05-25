@@ -28583,11 +28583,15 @@ define internal fastcc void @"_ZN4core3ptr38drop_in_place$LT$exr..error..Error$G
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = load i64, ptr %0, align 8, !range !4158, !noundef !4
-  switch i64 %5, label %6 [
+  switch i64 %5, label %default.unreachable4 [
     i64 0, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hdc9ba116fd99661dE.exit"
     i64 1, label %12
     i64 2, label %24
+    i64 3, label %6
   ]
+
+default.unreachable4:                             ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -28610,7 +28614,7 @@ define internal fastcc void @"_ZN4core3ptr38drop_in_place$LT$exr..error..Error$G
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !5813
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hdc9ba116fd99661dE.exit"
 
-"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hdc9ba116fd99661dE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit.i2", %24, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit.i", %12, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit", %1
+"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hdc9ba116fd99661dE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit.i2", %24, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E.exit.i", %12, %1, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit"
   ret void
 
 12:                                               ; preds = %1
@@ -28915,11 +28919,15 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$exr..block..chunk..
   %4 = load i64, ptr %0, align 8, !range !34, !noundef !4
   %5 = xor i64 %4, -9223372036854775808
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 3)
-  switch i64 %6, label %7 [
+  switch i64 %6, label %default.unreachable [
     i64 0, label %8
     i64 1, label %17
     i64 2, label %26
+    i64 3, label %7
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   tail call void @"_ZN4core3ptr63drop_in_place$LT$exr..block..chunk..CompressedDeepTileBlock$GT$17h02e29ded5d44237eE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0)

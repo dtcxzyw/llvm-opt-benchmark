@@ -2314,7 +2314,7 @@ define internal noundef range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef r
   %59 = icmp eq i32 %58, 1
   %60 = mul nsw i32 %52, 10
   %61 = select i1 %59, i32 %60, i32 %52
-  switch i32 %42, label %111 [
+  switch i32 %42, label %default.unreachable4 [
     i32 0, label %62
     i32 1, label %66
     i32 2, label %70
@@ -2322,6 +2322,7 @@ define internal noundef range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef r
     i32 4, label %78
     i32 5, label %82
     i32 6, label %87
+    i32 7, label %111
   ]
 
 62:                                               ; preds = %51
@@ -2400,7 +2401,10 @@ define internal noundef range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef r
   call fastcc void @_display_offset(i64 noundef %105, i32 noundef %109, ptr %110)
   br label %111
 
-111:                                              ; preds = %102, %93, %51
+default.unreachable4:                             ; preds = %51
+  unreachable
+
+111:                                              ; preds = %51, %102, %93
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
   br label %112
 

@@ -253,10 +253,11 @@ define void @aginitcb(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) l
   tail call void @aginitcb(ptr noundef %0, ptr noundef %1, ptr noundef %7)
   %8 = load i32, ptr %1, align 8
   %9 = and i32 %8, 3
-  switch i32 %9, label %.thread [
+  switch i32 %9, label %default.unreachable16 [
     i32 0, label %10
     i32 1, label %12
     i32 2, label %15
+    i32 3, label %.thread
   ]
 
 10:                                               ; preds = %5
@@ -272,6 +273,9 @@ define void @aginitcb(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) l
   %16 = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 48
   br label %18
+
+default.unreachable16:                            ; preds = %5
+  unreachable
 
 18:                                               ; preds = %15, %12, %10
   %.0.in = phi ptr [ %17, %15 ], [ %14, %12 ], [ %11, %10 ]
@@ -310,26 +314,37 @@ define void @agupdcb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   tail call void @agupdcb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8)
   %9 = load i32, ptr %1, align 8
   %10 = and i32 %9, 3
-  %.not19 = icmp eq i32 %10, 3
-  br i1 %.not19, label %.thread, label %switch.lookup
+  switch i32 %10, label %default.unreachable18 [
+    i32 0, label %13
+    i32 1, label %11
+    i32 2, label %12
+    i32 3, label %.thread
+  ]
 
-switch.lookup:                                    ; preds = %6
-  %narrow = mul nuw nsw i32 %10, 24
-  %11 = load ptr, ptr %3, align 8
-  %12 = zext nneg i32 %narrow to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %.0 = load ptr, ptr %14, align 8
+11:                                               ; preds = %6
+  br label %13
+
+12:                                               ; preds = %6
+  br label %13
+
+default.unreachable18:                            ; preds = %6
+  unreachable
+
+13:                                               ; preds = %6, %12, %11
+  %.sink19 = phi i64 [ 56, %12 ], [ 32, %11 ], [ 8, %6 ]
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 %.sink19
+  %.0 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.thread, label %15
+  br i1 %.not, label %.thread, label %16
 
-15:                                               ; preds = %switch.lookup
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
-  %17 = load ptr, ptr %16, align 8
-  tail call void %.0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %17, ptr noundef %2) #4
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = load ptr, ptr %17, align 8
+  tail call void %.0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %2) #4
   br label %.thread
 
-.thread:                                          ; preds = %6, %4, %15, %switch.lookup
+.thread:                                          ; preds = %6, %4, %16, %13
   ret void
 }
 
@@ -354,26 +369,37 @@ define void @agdelcb(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) lo
   tail call void @agdelcb(ptr noundef %0, ptr noundef %1, ptr noundef %7)
   %8 = load i32, ptr %1, align 8
   %9 = and i32 %8, 3
-  %.not17 = icmp eq i32 %9, 3
-  br i1 %.not17, label %.thread, label %switch.lookup
+  switch i32 %9, label %default.unreachable16 [
+    i32 0, label %12
+    i32 1, label %10
+    i32 2, label %11
+    i32 3, label %.thread
+  ]
 
-switch.lookup:                                    ; preds = %5
-  %narrow = mul nuw nsw i32 %9, 24
-  %10 = load ptr, ptr %2, align 8
-  %11 = zext nneg i32 %narrow to i64
-  %12 = getelementptr inbounds i8, ptr %10, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %.0 = load ptr, ptr %13, align 8
+10:                                               ; preds = %5
+  br label %12
+
+11:                                               ; preds = %5
+  br label %12
+
+default.unreachable16:                            ; preds = %5
+  unreachable
+
+12:                                               ; preds = %5, %11, %10
+  %.sink17 = phi i64 [ 64, %11 ], [ 40, %10 ], [ 16, %5 ]
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 %.sink17
+  %.0 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.thread, label %14
+  br i1 %.not, label %.thread, label %15
 
-14:                                               ; preds = %switch.lookup
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8
-  tail call void %.0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16) #4
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = load ptr, ptr %16, align 8
+  tail call void %.0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %17) #4
   br label %.thread
 
-.thread:                                          ; preds = %5, %3, %14, %switch.lookup
+.thread:                                          ; preds = %5, %3, %15, %12
   ret void
 }
 

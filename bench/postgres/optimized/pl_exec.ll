@@ -2188,10 +2188,11 @@ define hidden ptr @plpgsql_exec_trigger(ptr noundef %0, ptr noundef %1) local_un
 
 37:                                               ; preds = %2
   %38 = and i32 %35, 3
-  switch i32 %38, label %74 [
+  switch i32 %38, label %default.unreachable [
     i32 0, label %39
     i32 2, label %41
     i32 1, label %.loopexit.sink.split
+    i32 3, label %74
   ]
 
 39:                                               ; preds = %37
@@ -2259,6 +2260,9 @@ define hidden ptr @plpgsql_exec_trigger(ptr noundef %0, ptr noundef %1) local_un
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next.pre-phi, %72
   br i1 %73, label %61, label %.loopexit, !llvm.loop !8
+
+default.unreachable:                              ; preds = %37
+  unreachable
 
 74:                                               ; preds = %37
   %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
@@ -10201,25 +10205,25 @@ define internal fastcc void @plpgsql_fulfill_promise(ptr nocapture noundef reado
   %5 = getelementptr inbounds i8, ptr %1, i64 68
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %225, label %8
+  br i1 %7, label %226, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 120
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  switch i32 %6, label %220 [
+  switch i32 %6, label %221 [
     i32 1, label %12
     i32 2, label %26
-    i32 3, label %43
-    i32 4, label %60
-    i32 5, label %75
-    i32 6, label %88
-    i32 7, label %103
-    i32 8, label %120
-    i32 9, label %133
-    i32 10, label %195
-    i32 11, label %207
+    i32 3, label %44
+    i32 4, label %61
+    i32 5, label %76
+    i32 6, label %89
+    i32 7, label %104
+    i32 8, label %121
+    i32 9, label %134
+    i32 10, label %196
+    i32 11, label %208
   ]
 
 12:                                               ; preds = %8
@@ -10243,7 +10247,7 @@ define internal fastcc void @plpgsql_fulfill_promise(ptr nocapture noundef reado
   %24 = ptrtoint ptr %23 to i64
   %25 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %24) #11
   tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %25, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %224
+  br label %225
 
 26:                                               ; preds = %8
   %27 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10261,365 +10265,367 @@ define internal fastcc void @plpgsql_fulfill_promise(ptr nocapture noundef reado
 33:                                               ; preds = %26
   %34 = getelementptr inbounds i8, ptr %28, i64 4
   %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 24
-  switch i32 %36, label %40 [
-    i32 8, label %37
-    i32 0, label %38
-    i32 16, label %39
+  %36 = lshr i32 %35, 3
+  %37 = and i32 %36, 3
+  switch i32 %37, label %default.unreachable [
+    i32 1, label %38
+    i32 0, label %39
+    i32 2, label %40
+    i32 3, label %41
   ]
 
-37:                                               ; preds = %33
-  tail call fastcc void @assign_text_var(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.74)
-  br label %224
-
 38:                                               ; preds = %33
-  tail call fastcc void @assign_text_var(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.75)
-  br label %224
+  tail call fastcc void @assign_text_var(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.74)
+  br label %225
 
 39:                                               ; preds = %33
-  tail call fastcc void @assign_text_var(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.76)
-  br label %224
+  tail call fastcc void @assign_text_var(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.75)
+  br label %225
 
 40:                                               ; preds = %33
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.77) #11
+  tail call fastcc void @assign_text_var(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.76)
+  br label %225
+
+default.unreachable:                              ; preds = %68, %33
+  unreachable
+
+41:                                               ; preds = %33
+  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
+  tail call void @llvm.assume(i1 %42)
+  %43 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.77) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1409, ptr noundef nonnull @__func__.plpgsql_fulfill_promise) #11
   unreachable
 
-43:                                               ; preds = %8
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %50
+44:                                               ; preds = %8
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %51
 
-47:                                               ; preds = %43
-  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
-  tail call void @llvm.assume(i1 %48)
-  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
+48:                                               ; preds = %44
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
+  tail call void @llvm.assume(i1 %49)
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1414, ptr noundef nonnull @__func__.plpgsql_fulfill_promise) #11
   unreachable
 
-50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %45, i64 4
-  %52 = load i32, ptr %51, align 4
-  %53 = and i32 %52, 4
-  %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %57, label %54
+51:                                               ; preds = %44
+  %52 = getelementptr inbounds i8, ptr %46, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = and i32 %53, 4
+  %.not = icmp eq i32 %54, 0
+  br i1 %.not, label %58, label %55
 
-54:                                               ; preds = %50
-  %55 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.78) #11
-  %56 = ptrtoint ptr %55 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %56, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %224
+55:                                               ; preds = %51
+  %56 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.78) #11
+  %57 = ptrtoint ptr %56 to i64
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %57, i1 noundef zeroext false, i1 noundef zeroext true)
+  br label %225
 
-57:                                               ; preds = %50
-  %58 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.79) #11
-  %59 = ptrtoint ptr %58 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %59, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %224
+58:                                               ; preds = %51
+  %59 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.79) #11
+  %60 = ptrtoint ptr %59 to i64
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %60, i1 noundef zeroext false, i1 noundef zeroext true)
+  br label %225
 
-60:                                               ; preds = %8
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %67
+61:                                               ; preds = %8
+  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %68
 
-64:                                               ; preds = %60
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
-  tail call void @llvm.assume(i1 %65)
-  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
+65:                                               ; preds = %61
+  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
+  tail call void @llvm.assume(i1 %66)
+  %67 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1425, ptr noundef nonnull @__func__.plpgsql_fulfill_promise) #11
   unreachable
 
-67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %62, i64 4
-  %69 = load i32, ptr %68, align 4
-  %70 = and i32 %69, 3
-  switch i32 %70, label %default.unreachable [
-    i32 0, label %71
-    i32 2, label %72
-    i32 1, label %73
-    i32 3, label %74
+68:                                               ; preds = %61
+  %69 = getelementptr inbounds i8, ptr %63, i64 4
+  %70 = load i32, ptr %69, align 4
+  %71 = and i32 %70, 3
+  switch i32 %71, label %default.unreachable [
+    i32 0, label %72
+    i32 2, label %73
+    i32 1, label %74
+    i32 3, label %75
   ]
 
-71:                                               ; preds = %67
+72:                                               ; preds = %68
   tail call fastcc void @assign_text_var(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.81)
-  br label %224
+  br label %225
 
-72:                                               ; preds = %67
+73:                                               ; preds = %68
   tail call fastcc void @assign_text_var(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.82)
-  br label %224
+  br label %225
 
-73:                                               ; preds = %67
+74:                                               ; preds = %68
   tail call fastcc void @assign_text_var(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.83)
-  br label %224
+  br label %225
 
-74:                                               ; preds = %67
+75:                                               ; preds = %68
   tail call fastcc void @assign_text_var(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.84)
-  br label %224
+  br label %225
 
-default.unreachable:                              ; preds = %67
-  unreachable
+76:                                               ; preds = %8
+  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %83
 
-75:                                               ; preds = %8
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %79, label %82
-
-79:                                               ; preds = %75
-  %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
-  tail call void @llvm.assume(i1 %80)
-  %81 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
+80:                                               ; preds = %76
+  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
+  tail call void @llvm.assume(i1 %81)
+  %82 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1440, ptr noundef nonnull @__func__.plpgsql_fulfill_promise) #11
   unreachable
 
-82:                                               ; preds = %75
-  %83 = getelementptr inbounds i8, ptr %77, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 72
-  %86 = load i32, ptr %85, align 8
-  %87 = zext i32 %86 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %87, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %224
+83:                                               ; preds = %76
+  %84 = getelementptr inbounds i8, ptr %78, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 72
+  %87 = load i32, ptr %86, align 8
+  %88 = zext i32 %87 to i64
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %88, i1 noundef zeroext false, i1 noundef zeroext false)
+  br label %225
 
-88:                                               ; preds = %8
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %92, label %95
+89:                                               ; preds = %8
+  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %93, label %96
 
-92:                                               ; preds = %88
-  %93 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
-  tail call void @llvm.assume(i1 %93)
-  %94 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
+93:                                               ; preds = %89
+  %94 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
+  tail call void @llvm.assume(i1 %94)
+  %95 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1448, ptr noundef nonnull @__func__.plpgsql_fulfill_promise) #11
   unreachable
 
-95:                                               ; preds = %88
-  %96 = getelementptr inbounds i8, ptr %90, i64 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 56
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
-  %101 = ptrtoint ptr %100 to i64
-  %102 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %101) #11
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %102, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %224
+96:                                               ; preds = %89
+  %97 = getelementptr inbounds i8, ptr %91, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 56
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %102 = ptrtoint ptr %101 to i64
+  %103 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %102) #11
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %103, i1 noundef zeroext false, i1 noundef zeroext true)
+  br label %225
 
-103:                                              ; preds = %8
-  %104 = getelementptr inbounds i8, ptr %0, i64 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %110
+104:                                              ; preds = %8
+  %105 = getelementptr inbounds i8, ptr %0, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %108, label %111
 
-107:                                              ; preds = %103
-  %108 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
-  tail call void @llvm.assume(i1 %108)
-  %109 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
+108:                                              ; preds = %104
+  %109 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
+  tail call void @llvm.assume(i1 %109)
+  %110 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1457, ptr noundef nonnull @__func__.plpgsql_fulfill_promise) #11
   unreachable
 
-110:                                              ; preds = %103
-  %111 = getelementptr inbounds i8, ptr %105, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 56
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 68
-  %116 = load i32, ptr %115, align 4
-  %117 = tail call ptr @get_namespace_name(i32 noundef %116) #11
-  %118 = ptrtoint ptr %117 to i64
-  %119 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %118) #11
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %119, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %224
+111:                                              ; preds = %104
+  %112 = getelementptr inbounds i8, ptr %106, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 56
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 68
+  %117 = load i32, ptr %116, align 4
+  %118 = tail call ptr @get_namespace_name(i32 noundef %117) #11
+  %119 = ptrtoint ptr %118 to i64
+  %120 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %119) #11
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %120, i1 noundef zeroext false, i1 noundef zeroext true)
+  br label %225
 
-120:                                              ; preds = %8
-  %121 = getelementptr inbounds i8, ptr %0, i64 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %124, label %127
+121:                                              ; preds = %8
+  %122 = getelementptr inbounds i8, ptr %0, i64 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %125, label %128
 
-124:                                              ; preds = %120
-  %125 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
-  tail call void @llvm.assume(i1 %125)
-  %126 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
+125:                                              ; preds = %121
+  %126 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
+  tail call void @llvm.assume(i1 %126)
+  %127 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1466, ptr noundef nonnull @__func__.plpgsql_fulfill_promise) #11
   unreachable
 
-127:                                              ; preds = %120
-  %128 = getelementptr inbounds i8, ptr %122, i64 32
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 42
-  %131 = load i16, ptr %130, align 2
-  %132 = sext i16 %131 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %132, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %224
+128:                                              ; preds = %121
+  %129 = getelementptr inbounds i8, ptr %123, i64 32
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 42
+  %132 = load i16, ptr %131, align 2
+  %133 = sext i16 %132 to i64
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %133, i1 noundef zeroext false, i1 noundef zeroext false)
+  br label %225
 
-133:                                              ; preds = %8
-  %134 = getelementptr inbounds i8, ptr %0, i64 8
-  %135 = load ptr, ptr %134, align 8
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %137, label %140
+134:                                              ; preds = %8
+  %135 = getelementptr inbounds i8, ptr %0, i64 8
+  %136 = load ptr, ptr %135, align 8
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %138, label %141
 
-137:                                              ; preds = %133
-  %138 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
-  tail call void @llvm.assume(i1 %138)
-  %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
+138:                                              ; preds = %134
+  %139 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
+  tail call void @llvm.assume(i1 %139)
+  %140 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1474, ptr noundef nonnull @__func__.plpgsql_fulfill_promise) #11
   unreachable
 
-140:                                              ; preds = %133
-  %141 = getelementptr inbounds i8, ptr %135, i64 32
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 42
-  %144 = load i16, ptr %143, align 2
-  %145 = sext i16 %144 to i32
-  %146 = icmp sgt i16 %144, 0
-  br i1 %146, label %147, label %165
+141:                                              ; preds = %134
+  %142 = getelementptr inbounds i8, ptr %136, i64 32
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 42
+  %145 = load i16, ptr %144, align 2
+  %146 = sext i16 %145 to i32
+  %147 = icmp sgt i16 %145, 0
+  br i1 %147, label %148, label %166
 
-147:                                              ; preds = %140
-  %148 = shl nuw nsw i32 %145, 3
-  %149 = zext nneg i32 %148 to i64
-  %150 = tail call ptr @palloc(i64 noundef %149) #11
-  %wide.trip.count = zext nneg i32 %145 to i64
-  br label %151
+148:                                              ; preds = %141
+  %149 = shl nuw nsw i32 %146, 3
+  %150 = zext nneg i32 %149 to i64
+  %151 = tail call ptr @palloc(i64 noundef %150) #11
+  %wide.trip.count = zext nneg i32 %146 to i64
+  br label %152
 
-151:                                              ; preds = %147, %151
-  %indvars.iv = phi i64 [ 0, %147 ], [ %indvars.iv.next, %151 ]
-  %152 = load ptr, ptr %134, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 32
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 56
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr ptr, ptr %156, i64 %indvars.iv
-  %158 = load ptr, ptr %157, align 8
-  %159 = tail call ptr @cstring_to_text(ptr noundef %158) #11
-  %160 = ptrtoint ptr %159 to i64
-  %161 = getelementptr i64, ptr %150, i64 %indvars.iv
-  store i64 %160, ptr %161, align 8
+152:                                              ; preds = %148, %152
+  %indvars.iv = phi i64 [ 0, %148 ], [ %indvars.iv.next, %152 ]
+  %153 = load ptr, ptr %135, align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 32
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 56
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr ptr, ptr %157, i64 %indvars.iv
+  %159 = load ptr, ptr %158, align 8
+  %160 = tail call ptr @cstring_to_text(ptr noundef %159) #11
+  %161 = ptrtoint ptr %160 to i64
+  %162 = getelementptr i64, ptr %151, i64 %indvars.iv
+  store i64 %161, ptr %162, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %162, label %151, !llvm.loop !18
+  br i1 %exitcond.not, label %163, label %152, !llvm.loop !18
 
-162:                                              ; preds = %151
-  store i32 %145, ptr %3, align 4
+163:                                              ; preds = %152
+  store i32 %146, ptr %3, align 4
   store i32 0, ptr %4, align 4
-  %163 = call ptr @construct_md_array(ptr noundef nonnull %150, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 25, i32 noundef -1, i1 noundef zeroext false, i8 noundef signext 105) #11
-  %164 = ptrtoint ptr %163 to i64
-  call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %164, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %224
+  %164 = call ptr @construct_md_array(ptr noundef nonnull %151, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 25, i32 noundef -1, i1 noundef zeroext false, i8 noundef signext 105) #11
+  %165 = ptrtoint ptr %164 to i64
+  call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %165, i1 noundef zeroext false, i1 noundef zeroext true)
+  br label %225
 
-165:                                              ; preds = %140
-  %166 = getelementptr inbounds i8, ptr %1, i64 65
-  %167 = load i8, ptr %166, align 1
-  %168 = trunc i8 %167 to i1
-  br i1 %168, label %169, label %assign_simple_var.exit
+166:                                              ; preds = %141
+  %167 = getelementptr inbounds i8, ptr %1, i64 65
+  %168 = load i8, ptr %167, align 1
+  %169 = trunc i8 %168 to i1
+  br i1 %169, label %170, label %assign_simple_var.exit
 
-169:                                              ; preds = %165
-  %170 = getelementptr inbounds i8, ptr %1, i64 64
-  %171 = load i8, ptr %170, align 8
-  %172 = trunc i8 %171 to i1
-  br i1 %172, label %189, label %173
+170:                                              ; preds = %166
+  %171 = getelementptr inbounds i8, ptr %1, i64 64
+  %172 = load i8, ptr %171, align 8
+  %173 = trunc i8 %172 to i1
+  br i1 %173, label %190, label %174
 
-173:                                              ; preds = %169
-  %174 = getelementptr inbounds i8, ptr %1, i64 32
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 16
-  %177 = load i16, ptr %176, align 8
-  %.not.i = icmp eq i16 %177, -1
-  br i1 %.not.i, label %178, label %189
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds i8, ptr %1, i64 32
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds i8, ptr %176, i64 16
+  %178 = load i16, ptr %177, align 8
+  %.not.i = icmp eq i16 %178, -1
+  br i1 %.not.i, label %179, label %190
 
-178:                                              ; preds = %173
-  %179 = getelementptr inbounds i8, ptr %1, i64 56
-  %180 = load i64, ptr %179, align 8
-  %181 = inttoptr i64 %180 to ptr
-  %182 = load i8, ptr %181, align 1
-  %183 = icmp eq i8 %182, 1
-  br i1 %183, label %184, label %189
+179:                                              ; preds = %174
+  %180 = getelementptr inbounds i8, ptr %1, i64 56
+  %181 = load i64, ptr %180, align 8
+  %182 = inttoptr i64 %181 to ptr
+  %183 = load i8, ptr %182, align 1
+  %184 = icmp eq i8 %183, 1
+  br i1 %184, label %185, label %190
 
-184:                                              ; preds = %178
-  %185 = getelementptr inbounds i8, ptr %181, i64 1
-  %186 = load i8, ptr %185, align 1
-  %187 = icmp eq i8 %186, 3
-  br i1 %187, label %188, label %189
+185:                                              ; preds = %179
+  %186 = getelementptr inbounds i8, ptr %182, i64 1
+  %187 = load i8, ptr %186, align 1
+  %188 = icmp eq i8 %187, 3
+  br i1 %188, label %189, label %190
 
-188:                                              ; preds = %184
-  tail call void @DeleteExpandedObject(i64 noundef %180) #11
+189:                                              ; preds = %185
+  tail call void @DeleteExpandedObject(i64 noundef %181) #11
   br label %assign_simple_var.exit
 
-189:                                              ; preds = %184, %178, %173, %169
-  %190 = getelementptr inbounds i8, ptr %1, i64 56
-  %191 = load i64, ptr %190, align 8
-  %192 = inttoptr i64 %191 to ptr
-  tail call void @pfree(ptr noundef %192) #11
+190:                                              ; preds = %185, %179, %174, %170
+  %191 = getelementptr inbounds i8, ptr %1, i64 56
+  %192 = load i64, ptr %191, align 8
+  %193 = inttoptr i64 %192 to ptr
+  tail call void @pfree(ptr noundef %193) #11
   br label %assign_simple_var.exit
 
-assign_simple_var.exit:                           ; preds = %165, %188, %189
-  %193 = getelementptr inbounds i8, ptr %1, i64 56
-  store i64 0, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %1, i64 64
-  store i8 1, ptr %194, align 8
-  store i8 0, ptr %166, align 1
+assign_simple_var.exit:                           ; preds = %166, %189, %190
+  %194 = getelementptr inbounds i8, ptr %1, i64 56
+  store i64 0, ptr %194, align 8
+  %195 = getelementptr inbounds i8, ptr %1, i64 64
+  store i8 1, ptr %195, align 8
+  store i8 0, ptr %167, align 1
   store i32 0, ptr %5, align 4
-  br label %224
+  br label %225
 
-195:                                              ; preds = %8
-  %196 = getelementptr inbounds i8, ptr %0, i64 16
-  %197 = load ptr, ptr %196, align 8
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %199, label %202
+196:                                              ; preds = %8
+  %197 = getelementptr inbounds i8, ptr %0, i64 16
+  %198 = load ptr, ptr %197, align 8
+  %199 = icmp eq ptr %198, null
+  br i1 %199, label %200, label %203
 
-199:                                              ; preds = %195
-  %200 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
-  tail call void @llvm.assume(i1 %200)
-  %201 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.86) #11
+200:                                              ; preds = %196
+  %201 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
+  tail call void @llvm.assume(i1 %201)
+  %202 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.86) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1508, ptr noundef nonnull @__func__.plpgsql_fulfill_promise) #11
   unreachable
 
-202:                                              ; preds = %195
-  %203 = getelementptr inbounds i8, ptr %197, i64 8
-  %204 = load ptr, ptr %203, align 8
-  %205 = tail call ptr @cstring_to_text(ptr noundef %204) #11
-  %206 = ptrtoint ptr %205 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %206, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %224
+203:                                              ; preds = %196
+  %204 = getelementptr inbounds i8, ptr %198, i64 8
+  %205 = load ptr, ptr %204, align 8
+  %206 = tail call ptr @cstring_to_text(ptr noundef %205) #11
+  %207 = ptrtoint ptr %206 to i64
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %207, i1 noundef zeroext false, i1 noundef zeroext true)
+  br label %225
 
-207:                                              ; preds = %8
-  %208 = getelementptr inbounds i8, ptr %0, i64 16
-  %209 = load ptr, ptr %208, align 8
-  %210 = icmp eq ptr %209, null
-  br i1 %210, label %211, label %214
+208:                                              ; preds = %8
+  %209 = getelementptr inbounds i8, ptr %0, i64 16
+  %210 = load ptr, ptr %209, align 8
+  %211 = icmp eq ptr %210, null
+  br i1 %211, label %212, label %215
 
-211:                                              ; preds = %207
-  %212 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
-  tail call void @llvm.assume(i1 %212)
-  %213 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.86) #11
+212:                                              ; preds = %208
+  %213 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
+  tail call void @llvm.assume(i1 %213)
+  %214 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.86) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1514, ptr noundef nonnull @__func__.plpgsql_fulfill_promise) #11
   unreachable
 
-214:                                              ; preds = %207
-  %215 = getelementptr inbounds i8, ptr %209, i64 24
-  %216 = load i32, ptr %215, align 8
-  %217 = tail call ptr @GetCommandTagName(i32 noundef %216) #11
-  %218 = tail call ptr @cstring_to_text(ptr noundef %217) #11
-  %219 = ptrtoint ptr %218 to i64
-  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %219, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %224
+215:                                              ; preds = %208
+  %216 = getelementptr inbounds i8, ptr %210, i64 24
+  %217 = load i32, ptr %216, align 8
+  %218 = tail call ptr @GetCommandTagName(i32 noundef %217) #11
+  %219 = tail call ptr @cstring_to_text(ptr noundef %218) #11
+  %220 = ptrtoint ptr %219 to i64
+  tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i64 noundef %220, i1 noundef zeroext false, i1 noundef zeroext true)
+  br label %225
 
-220:                                              ; preds = %8
-  %221 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
-  tail call void @llvm.assume(i1 %221)
-  %222 = load i32, ptr %5, align 4
-  %223 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.87, i32 noundef %222) #11
+221:                                              ; preds = %8
+  %222 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
+  tail call void @llvm.assume(i1 %222)
+  %223 = load i32, ptr %5, align 4
+  %224 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.87, i32 noundef %223) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1519, ptr noundef nonnull @__func__.plpgsql_fulfill_promise) #11
   unreachable
 
-224:                                              ; preds = %162, %assign_simple_var.exit, %71, %73, %74, %72, %54, %57, %37, %39, %38, %214, %202, %127, %110, %95, %82, %19
+225:                                              ; preds = %163, %assign_simple_var.exit, %72, %74, %75, %73, %55, %58, %38, %40, %39, %215, %203, %128, %111, %96, %83, %19
   store ptr %11, ptr @CurrentMemoryContext, align 8
-  br label %225
+  br label %226
 
-225:                                              ; preds = %2, %224
+226:                                              ; preds = %2, %225
   ret void
 }
 

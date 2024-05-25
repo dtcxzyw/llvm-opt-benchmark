@@ -15,7 +15,7 @@ define hidden void @PMurHash128x86_Result(ptr nocapture noundef readonly %0, ptr
   %12 = getelementptr inbounds i8, ptr %1, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 15
-  switch i32 %14, label %68 [
+  switch i32 %14, label %default.unreachable [
     i32 1, label %15
     i32 2, label %15
     i32 3, label %15
@@ -31,6 +31,7 @@ define hidden void @PMurHash128x86_Result(ptr nocapture noundef readonly %0, ptr
     i32 13, label %32
     i32 14, label %32
     i32 15, label %32
+    i32 0, label %68
   ]
 
 15:                                               ; preds = %4, %4, %4, %4
@@ -108,6 +109,9 @@ define hidden void @PMurHash128x86_Result(ptr nocapture noundef readonly %0, ptr
   %66 = mul i32 %65, -1425107063
   %67 = xor i32 %66, %5
   br label %68
+
+default.unreachable:                              ; preds = %4
+  unreachable
 
 68:                                               ; preds = %4, %61
   %.1129 = phi i32 [ %7, %4 ], [ %.0128, %61 ]

@@ -2220,22 +2220,22 @@ define hidden void @"_ZN80_$LT$zstd..stream..zio..reader..Reader$LT$R$C$D$GT$$u2
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = getelementptr inbounds i8, ptr %1, i64 24
   %19 = load i8, ptr %7, align 8, !range !132, !noundef !4
-  switch i8 %19, label %default.unreachable100 [
+  switch i8 %19, label %default.unreachable [
     i8 0, label %.thread
     i8 1, label %.split.us
     i8 2, label %.split74.us
   ]
 
+default.unreachable:                              ; preds = %.outer.split.split, %.outer
+  unreachable
+
 .outer.split.split:                               ; preds = %.outer.split.split.preheader, %33
   %20 = phi i8 [ %.pre, %.outer.split.split.preheader ], [ 1, %33 ]
-  switch i8 %20, label %default.unreachable100 [
+  switch i8 %20, label %default.unreachable [
     i8 0, label %21
     i8 1, label %.split.us
     i8 2, label %.split74.us
   ]
-
-default.unreachable100:                           ; preds = %.outer.split.split, %.outer
-  unreachable
 
 21:                                               ; preds = %.outer.split.split
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !133
@@ -2362,9 +2362,9 @@ default.unreachable100:                           ; preds = %.outer.split.split,
   br label %30
 
 58:                                               ; preds = %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17hf2ad75e0bb1f0283E.exit", %39
-  %.lcssa105.sink = phi ptr [ %40, %39 ], [ %38, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17hf2ad75e0bb1f0283E.exit" ]
+  %.lcssa104.sink = phi ptr [ %40, %39 ], [ %38, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17hf2ad75e0bb1f0283E.exit" ]
   %59 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.lcssa105.sink, ptr %59, align 8
+  store ptr %.lcssa104.sink, ptr %59, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)

@@ -1235,16 +1235,13 @@ define internal fastcc void @skl_dram_get_dimm_info(ptr noundef readonly %0, ptr
   br i1 %13, label %40, label %14
 
 14:                                               ; preds = %9
-  %15 = and i16 %4, 384
-  switch i16 %15, label %20 [
-    i16 0, label %16
-    i16 128, label %16
-    i16 256, label %16
-  ]
+  %15 = lshr i16 %4, 7
+  %16 = and i16 %15, 3
+  %switch.not = icmp eq i16 %16, 3
+  br i1 %switch.not, label %20, label %17
 
-16:                                               ; preds = %14, %14, %14
-  %17 = lshr exact i16 %15, 7
-  %18 = trunc nuw nsw i16 %17 to i8
+17:                                               ; preds = %14
+  %18 = trunc nuw nsw i16 %16 to i8
   %19 = shl nuw nsw i8 8, %18
   br label %.thread
 
@@ -1267,16 +1264,13 @@ define internal fastcc void @skl_dram_get_dimm_info(ptr noundef readonly %0, ptr
   br i1 %26, label %40, label %27
 
 27:                                               ; preds = %22
-  %28 = and i16 %4, 768
-  switch i16 %28, label %33 [
-    i16 0, label %29
-    i16 256, label %29
-    i16 512, label %29
-  ]
+  %28 = lshr i16 %4, 8
+  %29 = and i16 %28, 3
+  %switch5.not = icmp eq i16 %29, 3
+  br i1 %switch5.not, label %33, label %30
 
-29:                                               ; preds = %27, %27, %27
-  %30 = lshr exact i16 %28, 8
-  %31 = trunc nuw nsw i16 %30 to i8
+30:                                               ; preds = %27
+  %31 = trunc nuw nsw i16 %29 to i8
   %32 = shl nuw nsw i8 8, %31
   br label %.thread
 
@@ -1290,15 +1284,15 @@ define internal fastcc void @skl_dram_get_dimm_info(ptr noundef readonly %0, ptr
   tail call void asm sideeffect "537: nop\0A\09.pushsection .discard.instr_end\0A\09.long 537b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 537) #8, !srcloc !57
   br label %.thread
 
-.thread:                                          ; preds = %20, %16, %33, %29
-  %.ph = phi i8 [ %32, %29 ], [ 0, %33 ], [ %19, %16 ], [ 0, %20 ]
-  %.ph3 = phi i16 [ 10, %29 ], [ 10, %33 ], [ 9, %16 ], [ 9, %20 ]
-  %.ph4 = phi i8 [ 1, %29 ], [ 1, %33 ], [ 3, %16 ], [ 3, %20 ]
+.thread:                                          ; preds = %20, %17, %33, %30
+  %.ph = phi i8 [ %32, %30 ], [ 0, %33 ], [ %19, %17 ], [ 0, %20 ]
+  %.ph6 = phi i16 [ 10, %30 ], [ 10, %33 ], [ 9, %17 ], [ 9, %20 ]
+  %.ph7 = phi i8 [ 1, %30 ], [ 1, %33 ], [ 3, %17 ], [ 3, %20 ]
   %35 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %.ph, ptr %35, align 2
-  %36 = lshr i16 %4, %.ph3
+  %36 = lshr i16 %4, %.ph6
   %37 = trunc nuw nsw i16 %36 to i8
-  %38 = and i8 %.ph4, %37
+  %38 = and i8 %.ph7, %37
   %39 = add nuw nsw i8 %38, 1
   br label %42
 

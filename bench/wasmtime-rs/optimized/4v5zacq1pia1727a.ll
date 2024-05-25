@@ -815,7 +815,7 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02
   call void @llvm.assume(i1 %17)
   %29 = load i16, ptr %3, align 2, !range !11, !noundef !3
   %30 = load i16, ptr %18, align 2, !noundef !3
-  switch i16 %29, label %default.unreachable [
+  switch i16 %29, label %.unreachabledefault [
     i16 0, label %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit"
     i16 1, label %32
     i16 2, label %37
@@ -825,7 +825,10 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val12, i64 %24, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.14) #10
   unreachable
 
-default.unreachable:                              ; preds = %26, %45
+.unreachabledefault:                              ; preds = %26
+  unreachable
+
+default.unreachable:                              ; preds = %45
   unreachable
 
 32:                                               ; preds = %26

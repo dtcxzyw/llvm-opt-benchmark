@@ -1650,10 +1650,11 @@ define internal i32 @dissect_rtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %21, label %22, label %58
 
 22:                                               ; preds = %4
-  switch i32 %19, label %83 [
+  switch i32 %19, label %default.unreachable [
     i32 0, label %23
     i32 1, label %42
     i32 3, label %48
+    i32 2, label %83
   ]
 
 23:                                               ; preds = %22
@@ -1762,7 +1763,10 @@ define internal i32 @dissect_rtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %82 = call i32 @tvb_captured_length(ptr noundef %0) #11
   br label %764
 
-83:                                               ; preds = %58, %60, %77, %36, %42, %50, %48, %22
+default.unreachable:                              ; preds = %22
+  unreachable
+
+83:                                               ; preds = %22, %58, %60, %77, %36, %42, %50, %48
   %84 = getelementptr inbounds i8, ptr %1, i64 408
   %85 = load ptr, ptr %84, align 8
   %86 = call noalias ptr @wmem_alloc0(ptr noundef %85, i64 noundef 120) #11

@@ -12312,10 +12312,11 @@ if.end11.i.i.i.us:                                ; preds = %if.end7.i.i.i.us
   br i1 %cmp.i.i.i.us, label %for.body.i.i.i.us, label %for.end.loopexit.i.i.i.us, !llvm.loop !175
 
 for.end.loopexit.i.i.i.us:                        ; preds = %if.end11.i.i.i.us
-  switch i64 %sub.ptr.div16.i.i.i.us, label %land.lhs.true.us [
+  switch i64 %sub.ptr.div16.i.i.i.us, label %for.end.loopexit.i.i.i.us.unreachabledefault [
     i64 3, label %sw.bb.i.i.i.us
     i64 2, label %sw.bb21.i.i.i.us
     i64 1, label %sw.bb26.i.i.i.us
+    i64 0, label %land.lhs.true.us
   ]
 
 sw.bb.i.i.i.us:                                   ; preds = %for.end.loopexit.i.i.i.us
@@ -12358,7 +12359,10 @@ _ZSt4findIPKPKN4llvh2cl14OptionCategoryEPS2_ET_S8_S8_RKT0_.exit.us: ; preds = %f
   %or.cond = or i1 %cmp.us, %cmp12.not.us
   br i1 %or.cond, label %while.cond.i.i.us.preheader, label %if.then.us
 
-land.lhs.true.us:                                 ; preds = %sw.bb26.i.i.i.us, %for.end.loopexit.i.i.i.us
+for.end.loopexit.i.i.i.us.unreachabledefault:     ; preds = %for.end.loopexit.i.i.i.us
+  unreachable
+
+land.lhs.true.us:                                 ; preds = %for.end.loopexit.i.i.i.us, %sw.bb26.i.i.i.us
   %cmp12.not.us.old = icmp eq ptr %6, @_ZL15GenericCategory
   br i1 %cmp12.not.us.old, label %while.cond.i.i.us.preheader, label %if.then.us
 

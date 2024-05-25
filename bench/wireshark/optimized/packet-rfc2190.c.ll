@@ -112,6 +112,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.69 = private unnamed_addr constant [8 x i8] c"MODE A \00", align 1
 @.str.70 = private unnamed_addr constant [8 x i8] c"MODE B \00", align 1
 @.str.71 = private unnamed_addr constant [8 x i8] c"MODE C \00", align 1
+@switch.table.dissect_rfc2190 = private unnamed_addr constant [4 x i32] [i32 4, i32 8, i32 12, i32 0], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_rfc2190() local_unnamed_addr #0 {
@@ -178,7 +179,7 @@ define internal i32 @dissect_rfc2190(ptr noundef %0, ptr noundef %1, ptr noundef
 13:                                               ; preds = %.sink.split, %10
   %.0 = phi i32 [ 0, %10 ], [ %.0.ph, %.sink.split ]
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %81, label %14
+  br i1 %.not, label %switch.lookup, label %14
 
 14:                                               ; preds = %13
   %15 = load i32, ptr @proto_rfc2190, align 4
@@ -214,7 +215,7 @@ define internal i32 @dissect_rfc2190(ptr noundef %0, ptr noundef %1, ptr noundef
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %42, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %44 = load i32, ptr @hf_rfc2190_tr, align 4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %44, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
-  br label %83
+  br label %82
 
 46:                                               ; preds = %14
   %47 = load i32, ptr @hf_rfc2190_quant, align 4
@@ -242,7 +243,7 @@ define internal i32 @dissect_rfc2190(ptr noundef %0, ptr noundef %1, ptr noundef
   %69 = load i32, ptr @hf_rfc2190_vmv2, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %69, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
   %71 = icmp eq i8 %6, 3
-  br i1 %71, label %72, label %83
+  br i1 %71, label %72, label %82
 
 72:                                               ; preds = %46
   %73 = load i32, ptr @hf_rfc2190_rr, align 4
@@ -253,25 +254,21 @@ define internal i32 @dissect_rfc2190(ptr noundef %0, ptr noundef %1, ptr noundef
   %78 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %77, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
   %79 = load i32, ptr @hf_rfc2190_tr, align 4
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %79, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #2
-  br label %83
+  br label %82
 
-81:                                               ; preds = %13
-  %.not130 = icmp eq i8 %6, 3
-  br i1 %.not130, label %83, label %switch.lookup
+switch.lookup:                                    ; preds = %13
+  %81 = zext nneg i8 %6 to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_rfc2190, i64 0, i64 %81
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %82
 
-switch.lookup:                                    ; preds = %81
-  %82 = shl nuw nsw i8 %6, 2
-  %narrow = add nuw nsw i8 %82, 4
-  %switch.offset = zext nneg i8 %narrow to i32
-  br label %83
-
-83:                                               ; preds = %switch.lookup, %81, %29, %72, %46
-  %.0127 = phi i32 [ 4, %29 ], [ 12, %72 ], [ 8, %46 ], [ 0, %81 ], [ %switch.offset, %switch.lookup ]
-  %84 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0127) #2
-  %85 = load ptr, ptr @h263_handle, align 8
-  %86 = tail call i32 @call_dissector(ptr noundef %85, ptr noundef %84, ptr noundef nonnull %1, ptr noundef %2) #2
-  %87 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %87
+82:                                               ; preds = %switch.lookup, %29, %72, %46
+  %.0127 = phi i32 [ 4, %29 ], [ 12, %72 ], [ 8, %46 ], [ %switch.load, %switch.lookup ]
+  %83 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0127) #2
+  %84 = load ptr, ptr @h263_handle, align 8
+  %85 = tail call i32 @call_dissector(ptr noundef %84, ptr noundef %83, ptr noundef nonnull %1, ptr noundef %2) #2
+  %86 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %86
 }
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1

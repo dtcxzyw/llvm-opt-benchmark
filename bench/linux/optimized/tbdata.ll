@@ -65,10 +65,11 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_tb_acquire_table(ptr nocaptur
   %5 = getelementptr inbounds i8, ptr %0, i64 26
   %6 = load i8, ptr %5, align 2
   %7 = and i8 %6, 3
-  switch i8 %7, label %.thread [
+  switch i8 %7, label %default.unreachable1 [
     i8 1, label %8
     i8 2, label %14
     i8 0, label %14
+    i8 3, label %.thread
   ]
 
 8:                                                ; preds = %4
@@ -83,6 +84,9 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_tb_acquire_table(ptr nocaptur
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %17
+
+default.unreachable1:                             ; preds = %4
+  unreachable
 
 17:                                               ; preds = %14, %8
   %18 = phi ptr [ %16, %14 ], [ %13, %8 ]
@@ -133,10 +137,11 @@ declare dso_local void @acpi_os_unmap_memory(ptr noundef, i64 noundef) local_unn
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_acquire_temp_table(ptr nocapture noundef writeonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   %5 = and i8 %2, 3
-  switch i8 %5, label %.thread4 [
+  switch i8 %5, label %default.unreachable5 [
     i8 1, label %6
     i8 2, label %10
     i8 0, label %10
+    i8 3, label %.thread4
   ]
 
 6:                                                ; preds = %4
@@ -195,7 +200,10 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_acquire_temp_table(ptr 
   tail call void @acpi_os_unmap_memory(ptr noundef nonnull %.ph, i64 noundef 36) #8
   br label %.thread4
 
-.thread4:                                         ; preds = %12, %20, %30, %22, %10, %7, %4
+default.unreachable5:                             ; preds = %4
+  unreachable
+
+.thread4:                                         ; preds = %12, %20, %4, %30, %22, %10, %7
   %31 = phi i32 [ 4, %7 ], [ 4097, %10 ], [ 4, %4 ], [ 0, %30 ], [ 0, %22 ], [ 0, %20 ], [ 0, %12 ]
   ret i32 %31
 }
@@ -283,8 +291,8 @@ define dso_local range(i32 0, 5) i32 @acpi_tb_validate_table(ptr nocapture nound
   %6 = getelementptr inbounds i8, ptr %0, i64 26
   %7 = load i8, ptr %6, align 2
   %8 = and i8 %7, 3
-  %cond = icmp eq i8 %8, 1
-  br i1 %cond, label %9, label %.thread
+  %switch = icmp eq i8 %8, 1
+  br i1 %switch, label %9, label %.thread
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 16
@@ -327,8 +335,8 @@ define dso_local range(i32 0, 5) i32 @acpi_tb_validate_temp_table(ptr nocapture 
   %12 = getelementptr inbounds i8, ptr %0, i64 26
   %13 = load i8, ptr %12, align 2
   %14 = and i8 %13, 3
-  %cond = icmp eq i8 %14, 1
-  br i1 %cond, label %15, label %.thread2
+  %switch = icmp eq i8 %14, 1
+  br i1 %switch, label %15, label %.thread2
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 16
@@ -371,8 +379,11 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   %14 = getelementptr inbounds i8, ptr %0, i64 26
   %15 = load i8, ptr %14, align 2
   %16 = and i8 %15, 3
-  %cond = icmp eq i8 %16, 1
-  br i1 %cond, label %17, label %.thread12
+  %switch = icmp eq i8 %16, 1
+  br i1 %switch, label %17, label %.thread13
+
+default.unreachable26:                            ; preds = %60
+  unreachable
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 16
@@ -381,7 +392,7 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   %21 = zext i32 %20 to i64
   %22 = tail call ptr @acpi_os_map_memory(i64 noundef %19, i64 noundef %21) #8
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread12, label %23
+  br i1 %.not, label %.thread13, label %23
 
 23:                                               ; preds = %17
   store ptr %22, ptr %4, align 8
@@ -406,7 +417,7 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
 33:                                               ; preds = %27, %24
   %34 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %.thread12, label %36
+  br i1 %35, label %.thread13, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %0, i64 16
@@ -432,25 +443,26 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   %52 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %53 = icmp eq i32 %52, 0
   %or.cond = select i1 %51, i1 true, i1 %53
-  br i1 %or.cond, label %.thread18, label %.preheader
+  br i1 %or.cond, label %.thread19, label %.preheader
 
-.preheader:                                       ; preds = %50, %.thread16
-  %54 = phi i64 [ %102, %.thread16 ], [ 0, %50 ]
+.preheader:                                       ; preds = %50, %.thread17
+  %54 = phi i64 [ %102, %.thread17 ], [ 0, %50 ]
   %55 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %56 = getelementptr %struct.acpi_table_desc, ptr %55, i64 %54, i32 5
   %57 = load i8, ptr %56, align 2
   %58 = and i8 %57, 4
   %59 = icmp eq i8 %58, 0
-  br i1 %59, label %.thread16, label %60
+  br i1 %59, label %.thread17, label %60
 
 60:                                               ; preds = %.preheader
   %61 = getelementptr %struct.acpi_table_desc, ptr %55, i64 %54
   %62 = getelementptr inbounds i8, ptr %61, i64 26
   %63 = and i8 %57, 3
-  switch i8 %63, label %.thread16 [
+  switch i8 %63, label %default.unreachable26 [
     i8 1, label %64
     i8 2, label %70
     i8 0, label %70
+    i8 3, label %.thread17
   ]
 
 64:                                               ; preds = %60
@@ -469,7 +481,7 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
 73:                                               ; preds = %70, %64
   %74 = phi ptr [ %72, %70 ], [ %69, %64 ]
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread16, label %76
+  br i1 %75, label %.thread17, label %76
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %61, i64 16
@@ -500,7 +512,7 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
 
 94:                                               ; preds = %92, %90
   %95 = icmp eq i8 %91, 0
-  br i1 %95, label %.thread16, label %96
+  br i1 %95, label %.thread17, label %96
 
 96:                                               ; preds = %94
   %97 = load ptr, ptr @acpi_gbl_root_table_list, align 8
@@ -510,12 +522,12 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   %101 = icmp eq i8 %100, 0
   br i1 %101, label %106, label %108
 
-.thread16:                                        ; preds = %73, %60, %94, %.preheader
+.thread17:                                        ; preds = %73, %60, %94, %.preheader
   %102 = add nuw nsw i64 %54, 1
   %103 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %104 = zext i32 %103 to i64
   %105 = icmp ult i64 %102, %104
-  br i1 %105, label %.preheader, label %.thread18, !llvm.loop !5
+  br i1 %105, label %.preheader, label %.thread19, !llvm.loop !5
 
 106:                                              ; preds = %96
   %107 = trunc i64 %54 to i32
@@ -534,18 +546,18 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 548, i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef %112, i32 noundef %115, i32 noundef %116) #8
   br label %120
 
-.thread18:                                        ; preds = %.thread16, %50
+.thread19:                                        ; preds = %.thread17, %50
   %117 = getelementptr inbounds i8, ptr %0, i64 26
   %118 = load i8, ptr %117, align 2
   %119 = or i8 %118, 4
   store i8 %119, ptr %117, align 2
-  br label %.thread12
+  br label %.thread13
 
 120:                                              ; preds = %106, %108, %41, %32
   %121 = phi i32 [ %39, %41 ], [ 7, %108 ], [ 8193, %32 ], [ 16387, %106 ]
   %122 = load ptr, ptr %4, align 8
   %123 = icmp eq ptr %122, null
-  br i1 %123, label %.thread12, label %124
+  br i1 %123, label %.thread13, label %124
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds i8, ptr %0, i64 26
@@ -566,14 +578,14 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   %134 = phi i8 [ %.pre, %129 ], [ %126, %124 ]
   %135 = and i8 %134, 3
   %136 = icmp eq i8 %135, 1
-  br i1 %136, label %137, label %.thread12
+  br i1 %136, label %137, label %.thread13
 
 137:                                              ; preds = %133
   store ptr null, ptr %4, align 8
-  br label %.thread12
+  br label %.thread13
 
-.thread12:                                        ; preds = %13, %17, %137, %133, %120, %.thread18, %33
-  %138 = phi i32 [ 0, %.thread18 ], [ 0, %33 ], [ %121, %120 ], [ %121, %133 ], [ %121, %137 ], [ 4, %17 ], [ 4, %13 ]
+.thread13:                                        ; preds = %13, %17, %137, %133, %120, %.thread19, %33
+  %138 = phi i32 [ 0, %.thread19 ], [ 0, %33 ], [ %121, %120 ], [ %121, %133 ], [ %121, %137 ], [ 4, %17 ], [ 4, %13 ]
   ret i32 %138
 }
 

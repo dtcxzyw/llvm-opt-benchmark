@@ -4948,11 +4948,15 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$chalk_ir..WhereClause$LT$hir
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %8
     i64 1, label %25
     i64 2, label %26
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21787,13 +21791,16 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5643)
   %21 = load i64, ptr %20, align 8, !range !69, !alias.scope !5640, !noalias !5645, !noundef !11
   %22 = getelementptr inbounds i8, ptr %20, i64 8
-  switch i64 %21, label %default.unreachable [
+  switch i64 %21, label %.unreachabledefault [
     i64 0, label %23
     i64 1, label %26
     i64 2, label %29
   ]
 
-default.unreachable:                              ; preds = %18, %42
+.unreachabledefault:                              ; preds = %18
+  unreachable
+
+default.unreachable:                              ; preds = %42
   unreachable
 
 23:                                               ; preds = %18

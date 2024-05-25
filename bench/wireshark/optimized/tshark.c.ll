@@ -4726,12 +4726,12 @@ process_cap_file_single_pass.exit:                ; preds = %.thread.i, %502
   br label %503
 
 503:                                              ; preds = %process_cap_file_second_pass.exit, %process_cap_file_single_pass.exit
-  %.sink69 = phi i64 [ %239, %process_cap_file_second_pass.exit ], [ %125, %process_cap_file_single_pass.exit ]
+  %.sink68 = phi i64 [ %239, %process_cap_file_second_pass.exit ], [ %125, %process_cap_file_single_pass.exit ]
   %tshark_elapsed.9.sink = phi ptr [ @tshark_elapsed.9, %process_cap_file_second_pass.exit ], [ @tshark_elapsed.5, %process_cap_file_single_pass.exit ]
   %.058 = phi i32 [ %spec.select.i, %process_cap_file_second_pass.exit ], [ 0, %process_cap_file_single_pass.exit ]
   %.057 = phi i32 [ %.0.i87, %process_cap_file_second_pass.exit ], [ %.1.i, %process_cap_file_single_pass.exit ]
   %504 = call i64 @g_get_monotonic_time() #22
-  %505 = sub i64 %504, %.sink69
+  %505 = sub i64 %504, %.sink68
   store i64 %505, ptr %tshark_elapsed.9.sink, align 8
   %506 = or i32 %.057, %.058
   %or.cond.not = icmp eq i32 %506, 0
@@ -4796,10 +4796,11 @@ process_cap_file_single_pass.exit:                ; preds = %.thread.i, %502
 
 535:                                              ; preds = %534, %530, %529
   %.060 = phi i32 [ 0, %529 ], [ 2, %530 ], [ 3, %534 ]
-  switch i32 %.0578, label %541 [
+  switch i32 %.0578, label %default.unreachable [
     i32 3, label %540
     i32 1, label %536
     i32 2, label %.thread46
+    i32 0, label %541
   ]
 
 536:                                              ; preds = %535
@@ -4812,8 +4813,10 @@ process_cap_file_single_pass.exit:                ; preds = %.thread.i, %502
 540:                                              ; preds = %535
   br label %541
 
+default.unreachable:                              ; preds = %535
+  unreachable
+
 541:                                              ; preds = %535, %536, %540, %503
-  %.0579 = phi i32 [ %.0578, %535 ], [ 1, %536 ], [ 3, %540 ], [ 0, %503 ]
   %.161 = phi i32 [ %.060, %535 ], [ 2, %536 ], [ 3, %540 ], [ 0, %503 ]
   br i1 %.not, label %561, label %545
 
@@ -4823,41 +4826,37 @@ process_cap_file_single_pass.exit:                ; preds = %.thread.i, %502
   %544 = load ptr, ptr %20, align 8
   %.0..0..0. = load volatile i32, ptr %22, align 4
   call void @cfile_write_failure_message(ptr noundef %542, ptr noundef %0, i32 noundef %543, ptr noundef %544, i32 noundef %.0..0..0., i32 noundef %1) #22
-  br i1 %.not, label %561, label %.thread52
+  br i1 %.not, label %561, label %558
 
 545:                                              ; preds = %541
-  %.not73 = icmp eq i32 %.0579, 2
-  br i1 %.not73, label %.thread52, label %546
+  %546 = icmp ne ptr %.1, null
+  %547 = icmp ne i32 %2, 0
+  %or.cond5 = and i1 %547, %546
+  br i1 %or.cond5, label %548, label %553
 
-546:                                              ; preds = %545
-  %547 = icmp ne ptr %.1, null
-  %548 = icmp ne i32 %2, 0
-  %or.cond5 = and i1 %548, %547
-  br i1 %or.cond5, label %549, label %554
+548:                                              ; preds = %545
+  %549 = call ptr @get_addrinfo_list() #22
+  %550 = call i32 @wtap_dump_set_addrinfo_list(ptr noundef nonnull %.1, ptr noundef %549) #22
+  %.not74 = icmp eq i32 %550, 0
+  br i1 %.not74, label %551, label %553
 
-549:                                              ; preds = %546
-  %550 = call ptr @get_addrinfo_list() #22
-  %551 = call i32 @wtap_dump_set_addrinfo_list(ptr noundef nonnull %.1, ptr noundef %550) #22
-  %.not74 = icmp eq i32 %551, 0
-  br i1 %.not74, label %552, label %554
+551:                                              ; preds = %548
+  %552 = call ptr @wtap_file_type_subtype_name(i32 noundef %1) #22
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.320, ptr noundef %552) #22
+  br label %553
 
-552:                                              ; preds = %549
-  %553 = call ptr @wtap_file_type_subtype_name(i32 noundef %1) #22
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.320, ptr noundef %553) #22
-  br label %554
+553:                                              ; preds = %548, %551, %545
+  %554 = call i32 @wtap_dump_close(ptr noundef %.1, ptr noundef null, ptr noundef nonnull %18, ptr noundef nonnull %20) #22
+  %.not75 = icmp eq i32 %554, 0
+  br i1 %.not75, label %555, label %show_print_file_io_error.exit
 
-554:                                              ; preds = %549, %552, %546
-  %555 = call i32 @wtap_dump_close(ptr noundef %.1, ptr noundef null, ptr noundef nonnull %18, ptr noundef nonnull %20) #22
-  %.not75 = icmp eq i32 %555, 0
-  br i1 %.not75, label %556, label %show_print_file_io_error.exit
-
-556:                                              ; preds = %554
-  %557 = load i32, ptr %18, align 4
-  %558 = load ptr, ptr %20, align 8
-  call void @cfile_close_failure_message(ptr noundef nonnull %0, i32 noundef %557, ptr noundef %558) #22
+555:                                              ; preds = %553
+  %556 = load i32, ptr %18, align 4
+  %557 = load ptr, ptr %20, align 8
+  call void @cfile_close_failure_message(ptr noundef nonnull %0, i32 noundef %556, ptr noundef %557) #22
   br label %show_print_file_io_error.exit
 
-.thread52:                                        ; preds = %.thread46, %545
+558:                                              ; preds = %.thread46
   %559 = call i32 @wtap_dump_close(ptr noundef %.1, ptr noundef null, ptr noundef nonnull %18, ptr noundef nonnull %20) #22
   %560 = load ptr, ptr %20, align 8
   call void @g_free(ptr noundef %560) #22
@@ -4953,8 +4952,8 @@ write_finale.exit:                                ; preds = %564, %571, %575, %5
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.323, ptr noundef %592) #22
   br label %show_print_file_io_error.exit
 
-show_print_file_io_error.exit:                    ; preds = %562, %591, %590, %589, %586, %110, %109, %108, %105, %554, %556, %.thread52, %write_finale.exit, %561, %73
-  %.2 = phi i32 [ 1, %73 ], [ %.161, %554 ], [ 2, %556 ], [ 2, %.thread52 ], [ %.16151, %write_finale.exit ], [ %.16151, %561 ], [ 1, %105 ], [ 1, %108 ], [ 1, %109 ], [ 1, %110 ], [ 2, %586 ], [ 2, %589 ], [ 2, %590 ], [ 2, %591 ], [ %.16151, %562 ]
+show_print_file_io_error.exit:                    ; preds = %562, %591, %590, %589, %586, %110, %109, %108, %105, %553, %555, %558, %write_finale.exit, %561, %73
+  %.2 = phi i32 [ 1, %73 ], [ %.161, %553 ], [ 2, %555 ], [ 2, %558 ], [ %.16151, %write_finale.exit ], [ %.16151, %561 ], [ 1, %105 ], [ 1, %108 ], [ 1, %109 ], [ 1, %110 ], [ 2, %586 ], [ 2, %589 ], [ 2, %590 ], [ 2, %591 ], [ %.16151, %562 ]
   %593 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   call void @wtap_close(ptr noundef %593) #22
   store ptr null, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8

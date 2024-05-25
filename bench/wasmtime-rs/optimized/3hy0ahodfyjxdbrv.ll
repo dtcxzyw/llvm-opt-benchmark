@@ -30869,11 +30869,15 @@ define internal fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower130_$LT
 
 21:                                               ; preds = %"_ZN17cranelift_codegen8machinst5vcode22VRegAllocator$LT$I$GT$25alloc_with_deferred_error17h9d53a12b599149a4E.exit"
   %22 = and i32 %.sroa.04.0.extract.trunc.i, 3
-  switch i32 %22, label %23 [
+  switch i32 %22, label %default.unreachable [
     i32 0, label %25
     i32 1, label %24
     i32 2, label %24
+    i32 3, label %23
   ]
+
+default.unreachable:                              ; preds = %21
+  unreachable
 
 23:                                               ; preds = %21
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750) #72

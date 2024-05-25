@@ -281,10 +281,11 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
 103:                                              ; preds = %96
   %104 = getelementptr inbounds i8, ptr %89, i64 28
   store i32 %94, ptr %104, align 4
-  switch i32 %.019.i8496, label %nstrace_set_start_time.exit.threadthread-pre-split [
+  switch i32 %.019.i8496, label %default.unreachable [
     i32 0, label %105
     i32 1, label %nstrace_set_start_time.exit
     i32 2, label %nstrace_set_start_time.exit
+    i32 3, label %nstrace_set_start_time.exit.threadthread-pre-split
   ]
 
 105:                                              ; preds = %103
@@ -415,6 +416,9 @@ nstrace_set_start_time.exit:                      ; preds = %103, %103
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %nstrace_set_start_time.exit.threadthread-pre-split, label %183
 
+default.unreachable:                              ; preds = %103
+  unreachable
+
 nstrace_set_start_time.exit.threadthread-pre-split.sink.split: ; preds = %136, %116, %122
   %.str.8.sink = phi ptr [ @.str.9, %122 ], [ @.str.9, %116 ], [ @.str.8, %136 ]
   store i32 -13, ptr %1, align 4
@@ -422,7 +426,7 @@ nstrace_set_start_time.exit.threadthread-pre-split.sink.split: ; preds = %136, %
   store ptr %170, ptr %2, align 8
   br label %nstrace_set_start_time.exit.threadthread-pre-split
 
-nstrace_set_start_time.exit.threadthread-pre-split: ; preds = %._crit_edge.i.i, %nstrace_set_start_time.exit.threadthread-pre-split.sink.split, %nstrace_set_start_time.exit, %103
+nstrace_set_start_time.exit.threadthread-pre-split: ; preds = %._crit_edge.i.i, %nstrace_set_start_time.exit.threadthread-pre-split.sink.split, %103, %nstrace_set_start_time.exit
   %.pr = load i32, ptr %1, align 4
   br label %nstrace_set_start_time.exit.thread
 

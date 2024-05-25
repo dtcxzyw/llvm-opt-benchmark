@@ -686,10 +686,11 @@ do.end119:                                        ; preds = %if.then102
 if.end125:                                        ; preds = %do.end119, %do.end101
   %windowSize.0 = phi i64 [ 0, %do.end101 ], [ %add124, %do.end119 ]
   %pos.0 = phi i64 [ %cond.i, %do.end101 ], [ %inc, %do.end119 ]
-  switch i32 %and77, label %sw.epilog [
+  switch i32 %and77, label %default.unreachable [
     i32 3, label %sw.bb135
     i32 1, label %sw.bb126
     i32 2, label %sw.bb130
+    i32 0, label %sw.epilog
   ]
 
 sw.bb126:                                         ; preds = %if.end125
@@ -712,13 +713,17 @@ sw.bb135:                                         ; preds = %if.end125
   %add138 = add nuw nsw i64 %pos.0, 4
   br label %sw.epilog
 
+default.unreachable:                              ; preds = %sw.epilog, %if.end125
+  unreachable
+
 sw.epilog:                                        ; preds = %if.end125, %sw.bb135, %sw.bb130, %sw.bb126
-  %dictID.0 = phi i32 [ 0, %if.end125 ], [ %conv133, %sw.bb130 ], [ %conv128, %sw.bb126 ], [ %add.ptr136.val, %sw.bb135 ]
+  %dictID.0 = phi i32 [ %and77, %if.end125 ], [ %conv133, %sw.bb130 ], [ %conv128, %sw.bb126 ], [ %add.ptr136.val, %sw.bb135 ]
   %pos.1 = phi i64 [ %pos.0, %if.end125 ], [ %add134, %sw.bb130 ], [ %inc129, %sw.bb126 ], [ %add138, %sw.bb135 ]
-  switch i32 %shr84, label %sw.bb140 [
+  switch i32 %shr84, label %default.unreachable [
     i32 3, label %sw.bb156
     i32 1, label %sw.bb146
     i32 2, label %sw.bb152
+    i32 0, label %sw.bb140
   ]
 
 sw.bb140:                                         ; preds = %sw.epilog

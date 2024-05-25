@@ -917,10 +917,11 @@ define noundef ptr @Abc_NtkIvyAfter(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.val129.i = load i32, ptr %63, align 8
   %64 = lshr i32 %.val129.i, 9
   %65 = and i32 %64, 3
-  switch i32 %65, label %69 [
+  switch i32 %65, label %default.unreachable [
     i32 3, label %.sink.split.i
     i32 2, label %66
     i32 1, label %67
+    i32 0, label %69
   ]
 
 66:                                               ; preds = %62
@@ -928,6 +929,9 @@ define noundef ptr @Abc_NtkIvyAfter(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 67:                                               ; preds = %62
   br label %.sink.split.i
+
+default.unreachable:                              ; preds = %62
+  unreachable
 
 .sink.split.i:                                    ; preds = %67, %66, %62, %58
   %.sink.i = phi ptr [ inttoptr (i64 2 to ptr), %66 ], [ inttoptr (i64 1 to ptr), %67 ], [ inttoptr (i64 3 to ptr), %62 ], [ inttoptr (i64 3 to ptr), %58 ]

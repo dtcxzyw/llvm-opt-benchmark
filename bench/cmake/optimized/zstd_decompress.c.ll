@@ -427,15 +427,15 @@ define dso_local i64 @ZSTD_getFrameHeader_advanced(ptr nocapture noundef writeon
 13:                                               ; preds = %11
   store i32 -47205080, ptr %.sroa.0, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0, ptr align 1 %1, i64 %2, i1 false)
-  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val107 = load i32, ptr %.sroa.0, align 4
-  %.not100 = icmp eq i32 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val107, -47205080
+  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val108 = load i32, ptr %.sroa.0, align 4
+  %.not100 = icmp eq i32 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val108, -47205080
   br i1 %.not100, label %16, label %14
 
 14:                                               ; preds = %13
   store i32 407710288, ptr %.sroa.0, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0, ptr align 1 %1, i64 %2, i1 false)
-  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val106 = load i32, ptr %.sroa.0, align 4
-  %15 = and i32 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val106, -16
+  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val107 = load i32, ptr %.sroa.0, align 4
+  %15 = and i32 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val107, -16
   %.not101 = icmp eq i32 %15, 407710288
   br i1 %.not101, label %16, label %116
 
@@ -448,17 +448,17 @@ define dso_local i64 @ZSTD_getFrameHeader_advanced(ptr nocapture noundef writeon
   br i1 %.not, label %ZSTD_frameHeaderSize_internal.exit, label %18
 
 18:                                               ; preds = %17
-  %.val105 = load i32, ptr %1, align 1
-  %.not97 = icmp eq i32 %.val105, -47205080
-  br i1 %.not97, label %ZSTD_frameHeaderSize_internal.exit113, label %21
+  %.val106 = load i32, ptr %1, align 1
+  %.not97 = icmp eq i32 %.val106, -47205080
+  br i1 %.not97, label %ZSTD_frameHeaderSize_internal.exit114, label %21
 
-ZSTD_frameHeaderSize_internal.exit113:            ; preds = %18
+ZSTD_frameHeaderSize_internal.exit114:            ; preds = %18
   %19 = getelementptr i8, ptr %1, i64 %6
   %20 = getelementptr i8, ptr %19, i64 -1
   br label %ZSTD_frameHeaderSize_internal.exit
 
 21:                                               ; preds = %18
-  %22 = and i32 %.val105, -16
+  %22 = and i32 %.val106, -16
   %23 = icmp eq i32 %22, 407710288
   br i1 %23, label %24, label %116
 
@@ -468,16 +468,16 @@ ZSTD_frameHeaderSize_internal.exit113:            ; preds = %18
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %1, i64 4
-  %.val103 = load i32, ptr %27, align 1
-  %28 = zext i32 %.val103 to i64
+  %.val104 = load i32, ptr %27, align 1
+  %28 = zext i32 %.val104 to i64
   store i64 %28, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 1, ptr %29, align 4
   br label %116
 
-ZSTD_frameHeaderSize_internal.exit:               ; preds = %17, %ZSTD_frameHeaderSize_internal.exit113
-  %.sink = phi ptr [ %20, %ZSTD_frameHeaderSize_internal.exit113 ], [ %1, %17 ]
-  %.sink119 = phi i64 [ %6, %ZSTD_frameHeaderSize_internal.exit113 ], [ 1, %17 ]
+ZSTD_frameHeaderSize_internal.exit:               ; preds = %17, %ZSTD_frameHeaderSize_internal.exit114
+  %.sink = phi ptr [ %20, %ZSTD_frameHeaderSize_internal.exit114 ], [ %1, %17 ]
+  %.sink120 = phi i64 [ %6, %ZSTD_frameHeaderSize_internal.exit114 ], [ 1, %17 ]
   %30 = load i8, ptr %.sink, align 1
   %31 = zext i8 %30 to i32
   %32 = and i32 %31, 3
@@ -495,7 +495,7 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %17, %ZSTD_frameHead
   %.not.i = icmp ult i8 %30, 64
   %44 = and i1 %.not.i, %35
   %45 = zext i1 %44 to i64
-  %46 = add i64 %40, %.sink119
+  %46 = add i64 %40, %.sink120
   %47 = add i64 %46, %43
   %48 = add i64 %47, %37
   %49 = add i64 %48, %45
@@ -545,10 +545,11 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %17, %ZSTD_frameHead
 80:                                               ; preds = %68, %63
   %.089 = phi i64 [ 0, %63 ], [ %79, %68 ]
   %.086 = phi i64 [ %6, %63 ], [ %72, %68 ]
-  switch i32 %58, label %93 [
+  switch i32 %58, label %default.unreachable [
     i32 3, label %90
     i32 1, label %81
     i32 2, label %86
+    i32 0, label %93
   ]
 
 81:                                               ; preds = %80
@@ -560,24 +561,28 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %17, %ZSTD_frameHead
 
 86:                                               ; preds = %80
   %87 = getelementptr inbounds i8, ptr %1, i64 %.086
-  %.val108 = load i16, ptr %87, align 1
-  %88 = zext i16 %.val108 to i32
+  %.val109 = load i16, ptr %87, align 1
+  %88 = zext i16 %.val109 to i32
   %89 = add nuw nsw i64 %.086, 2
   br label %93
 
 90:                                               ; preds = %80
   %91 = getelementptr inbounds i8, ptr %1, i64 %.086
-  %.val102 = load i32, ptr %91, align 1
+  %.val103 = load i32, ptr %91, align 1
   %92 = add nuw nsw i64 %.086, 4
   br label %93
 
+default.unreachable:                              ; preds = %93, %80
+  unreachable
+
 93:                                               ; preds = %80, %90, %86, %81
-  %.088 = phi i32 [ 0, %80 ], [ %88, %86 ], [ %84, %81 ], [ %.val102, %90 ]
+  %.088 = phi i32 [ %58, %80 ], [ %88, %86 ], [ %84, %81 ], [ %.val103, %90 ]
   %.1 = phi i64 [ %.086, %80 ], [ %89, %86 ], [ %85, %81 ], [ %92, %90 ]
-  switch i32 %61, label %94 [
+  switch i32 %61, label %default.unreachable [
     i32 3, label %106
     i32 1, label %99
     i32 2, label %103
+    i32 0, label %94
   ]
 
 94:                                               ; preds = %93
@@ -591,8 +596,8 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %17, %ZSTD_frameHead
 
 99:                                               ; preds = %93
   %100 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %.val109 = load i16, ptr %100, align 1
-  %101 = zext i16 %.val109 to i64
+  %.val110 = load i16, ptr %100, align 1
+  %101 = zext i16 %.val110 to i64
   %102 = add nuw nsw i64 %101, 256
   br label %108
 
@@ -604,11 +609,11 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %17, %ZSTD_frameHead
 
 106:                                              ; preds = %93
   %107 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %.val110 = load i64, ptr %107, align 1
+  %.val111 = load i64, ptr %107, align 1
   br label %108
 
 108:                                              ; preds = %94, %95, %106, %103, %99
-  %.087 = phi i64 [ %98, %95 ], [ -1, %94 ], [ %105, %103 ], [ %102, %99 ], [ %.val110, %106 ]
+  %.087 = phi i64 [ %98, %95 ], [ -1, %94 ], [ %105, %103 ], [ %102, %99 ], [ %.val111, %106 ]
   %spec.select = select i1 %.not99, i64 %.089, i64 %.087
   %109 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %109, align 4

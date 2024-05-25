@@ -205,10 +205,11 @@ define internal i32 @dissect_link16(ptr noundef %0, ptr nocapture noundef readon
 
 23:                                               ; preds = %13, %6
   %.0 = phi ptr [ %15, %13 ], [ null, %6 ]
-  switch i8 %10, label %56 [
+  switch i8 %10, label %default.unreachable [
     i8 0, label %24
     i8 2, label %34
     i8 1, label %46
+    i8 3, label %56
   ]
 
 24:                                               ; preds = %23
@@ -259,7 +260,10 @@ define internal i32 @dissect_link16(ptr noundef %0, ptr nocapture noundef readon
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0, ptr noundef nonnull @.str.49, i32 noundef %54, i32 noundef %55, i32 noundef %49) #3
   br label %56
 
-56:                                               ; preds = %46, %34, %24, %23
+default.unreachable:                              ; preds = %23
+  unreachable
+
+56:                                               ; preds = %23, %46, %34, %24
   %57 = getelementptr inbounds i8, ptr %3, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = shl i32 %58, 5

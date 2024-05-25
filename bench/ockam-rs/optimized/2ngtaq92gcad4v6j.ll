@@ -20932,15 +20932,12 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   %9 = lshr i64 %.0, 2
   %10 = and i64 %9, 562949953421311
   %11 = and i64 %.0, 3
-  switch i64 %11, label %12 [
-    i64 0, label %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit"
-    i64 1, label %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit"
-    i64 3, label %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit"
-  ]
+  %switch.i = icmp eq i64 %11, 2
+  br i1 %switch.i, label %12, label %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit"
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store i64 %11, ptr %5, align 8
+  store i64 2, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
@@ -20972,7 +20969,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed2e7ead179bdc95021733a770984391.477) #44
   unreachable
 
-"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit": ; preds = %8, %8, %8
+"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit": ; preds = %8
   %19 = icmp eq i64 %10, 1
   %20 = icmp eq i64 %11, 1
   %.015 = and i1 %20, %19
@@ -21029,15 +21026,12 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot22InitGuard$LT$T$C
   %.pn22 = phi { i64, i1 } [ %30, %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit" ], [ %18, %10 ]
   %.sroa.07.0.i.pn = extractvalue { i64, i1 } %.pn22, 0
   %19 = and i64 %.sroa.07.0.i.pn, 3
-  switch i64 %19, label %20 [
-    i64 0, label %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit"
-    i64 1, label %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit"
-    i64 3, label %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit"
-  ]
+  %switch.i = icmp eq i64 %19, 2
+  br i1 %switch.i, label %20, label %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit"
 
 20:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store i64 %19, ptr %6, align 8
+  store i64 2, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %6, ptr %4, align 8
@@ -21069,7 +21063,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot22InitGuard$LT$T$C
   call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed2e7ead179bdc95021733a770984391.477) #44
   unreachable
 
-"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit": ; preds = %.preheader, %.preheader, %.preheader
+"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h620f7c7ecc8d07d5E.llvm.2498697912442943783.exit": ; preds = %.preheader
   %27 = load i64, ptr %11, align 8, !noundef !4
   %28 = and i64 %27, -2251799813685248
   %29 = or disjoint i64 %28, 3
@@ -21503,11 +21497,15 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !3089)
   %114 = load i64, ptr %14, align 8, !range !12, !alias.scope !3089, !noundef !4
-  switch i64 %114, label %"_ZN4core3ptr57drop_in_place$LT$opentelemetry..metrics..MetricsError$GT$17h4b39fb7a50f1ee13E.exit" [
+  switch i64 %114, label %default.unreachable [
     i64 0, label %115
     i64 1, label %121
     i64 2, label %127
+    i64 3, label %"_ZN4core3ptr57drop_in_place$LT$opentelemetry..metrics..MetricsError$GT$17h4b39fb7a50f1ee13E.exit"
   ]
+
+default.unreachable:                              ; preds = %113
+  unreachable
 
 115:                                              ; preds = %113
   call void @llvm.experimental.noalias.scope.decl(metadata !3092)
@@ -22089,11 +22087,15 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !3197)
   %114 = load i64, ptr %14, align 8, !range !12, !alias.scope !3197, !noundef !4
-  switch i64 %114, label %"_ZN4core3ptr57drop_in_place$LT$opentelemetry..metrics..MetricsError$GT$17h4b39fb7a50f1ee13E.exit" [
+  switch i64 %114, label %default.unreachable [
     i64 0, label %115
     i64 1, label %121
     i64 2, label %127
+    i64 3, label %"_ZN4core3ptr57drop_in_place$LT$opentelemetry..metrics..MetricsError$GT$17h4b39fb7a50f1ee13E.exit"
   ]
+
+default.unreachable:                              ; preds = %113
+  unreachable
 
 115:                                              ; preds = %113
   call void @llvm.experimental.noalias.scope.decl(metadata !3200)
@@ -45150,11 +45152,15 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %3 = add nsw i64 %.sroa.0.0.copyload, -4
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault.i.i.i [
     i64 0, label %9
     i64 1, label %42
     i64 2, label %65
+    i64 3, label %6
   ]
+
+.unreachabledefault.i.i.i:                        ; preds = %2
+  unreachable
 
 6:                                                ; preds = %2
   %7 = icmp eq i64 %.sroa.3.0.copyload, 0
@@ -45240,11 +45246,15 @@ common.resume.i:                                  ; preds = %86, %70, %53, %30, 
   br label %_ZN4core3ops8function6FnOnce9call_once17h9c7e67f812b79469E.exit
 
 42:                                               ; preds = %2
-  switch i64 %.sroa.0.0.copyload, label %_ZN4core3ops8function6FnOnce9call_once17h9c7e67f812b79469E.exit [
+  switch i64 %.sroa.0.0.copyload, label %default.unreachable4.i.i [
     i64 0, label %43
     i64 1, label %46
     i64 2, label %49
+    i64 3, label %_ZN4core3ops8function6FnOnce9call_once17h9c7e67f812b79469E.exit
   ]
+
+default.unreachable4.i.i:                         ; preds = %42
+  unreachable
 
 43:                                               ; preds = %42
   %44 = icmp eq i64 %.sroa.3.0.copyload, 0
@@ -64018,7 +64028,7 @@ common.resume:                                    ; preds = %39, %10
 define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$17h94e4d1f3591a787eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i64, ptr %0, align 8, !range !14408, !noundef !4
-  switch i64 %3, label %4 [
+  switch i64 %3, label %default.unreachable26 [
     i64 0, label %31
     i64 1, label %47
     i64 2, label %63
@@ -64034,7 +64044,11 @@ define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..E
     i64 12, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.exit"
     i64 13, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.exit"
     i64 14, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.exit"
+    i64 15, label %4
   ]
+
+default.unreachable26:                            ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -64242,7 +64256,7 @@ common.resume:                                    ; preds = %144, %129, %113, %7
   tail call void @__rust_dealloc(ptr noundef nonnull %90, i64 noundef %87, i64 noundef 1) #31, !noalias !14447
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.exit"
 
-"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.exit": ; preds = %155, %147, %140, %132, %124, %116, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i17", %97, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i15", %91, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i", %85, %84, %76, %62, %54, %46, %38, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17heea5a0a3c15bd406E.exit", %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$sqlx_core..migrate..error..MigrateError$GT$$GT$17h1cda7762a9e14e56E.exit", %1, %1, %1, %1, %1
+"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.exit": ; preds = %155, %147, %140, %132, %124, %116, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i17", %97, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i15", %91, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i", %85, %84, %76, %62, %54, %46, %38, %1, %1, %1, %1, %1, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17heea5a0a3c15bd406E.exit", %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$sqlx_core..migrate..error..MigrateError$GT$$GT$17h1cda7762a9e14e56E.exit"
   ret void
 
 91:                                               ; preds = %1
@@ -65355,11 +65369,15 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$tokio..net..addr..s
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$opentelemetry..metrics..MetricsError$GT$17h4b39fb7a50f1ee13E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !12, !noundef !4
-  switch i64 %2, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit" [
+  switch i64 %2, label %default.unreachable4 [
     i64 0, label %3
     i64 1, label %9
     i64 2, label %15
+    i64 3, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit"
   ]
+
+default.unreachable4:                             ; preds = %1
+  unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit": ; preds = %30, %22, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i2", %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i", %3, %1
   ret void
@@ -66226,11 +66244,15 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$opentelemetry..glob
   %3 = add nsw i64 %2, -4
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %12
     i64 1, label %14
     i64 2, label %15
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15162)
@@ -95195,15 +95217,12 @@ define hidden noundef range(i64 0, 4) i64 @"_ZN92_$LT$sharded_slab..page..slot..
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca i64, align 8
   %6 = and i64 %0, 3
-  switch i64 %6, label %7 [
-    i64 0, label %14
-    i64 1, label %14
-    i64 3, label %14
-  ]
+  %switch = icmp eq i64 %6, 2
+  br i1 %switch, label %7, label %14
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store i64 %6, ptr %5, align 8
+  store i64 2, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
@@ -95235,7 +95254,7 @@ define hidden noundef range(i64 0, 4) i64 @"_ZN92_$LT$sharded_slab..page..slot..
   call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed2e7ead179bdc95021733a770984391.477) #44
   unreachable
 
-14:                                               ; preds = %1, %1, %1
+14:                                               ; preds = %1
   ret i64 %6
 }
 
@@ -105766,11 +105785,15 @@ define internal void @"_ZN9ockam_api4logs5setup24set_global_error_handler28_$u7b
   %4 = add nsw i64 %3, -4
   %5 = icmp ult i64 %4, 4
   %6 = select i1 %5, i64 %4, i64 1
-  switch i64 %6, label %7 [
+  switch i64 %6, label %.unreachabledefault.i [
     i64 0, label %13
     i64 1, label %15
     i64 2, label %16
+    i64 3, label %7
   ]
+
+.unreachabledefault.i:                            ; preds = %2
+  unreachable
 
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20459)
@@ -105841,11 +105864,15 @@ define internal void @"_ZN9ockam_api4logs5setup24set_global_error_handler28_$u7b
   %14 = add nsw i64 %13, -4
   %15 = icmp ult i64 %14, 4
   %16 = select i1 %15, i64 %14, i64 1
-  switch i64 %16, label %17 [
+  switch i64 %16, label %.unreachabledefault.i [
     i64 0, label %23
     i64 1, label %25
     i64 2, label %26
+    i64 3, label %17
   ]
+
+.unreachabledefault.i:                            ; preds = %12
+  unreachable
 
 17:                                               ; preds = %12
   call void @llvm.experimental.noalias.scope.decl(metadata !20486)
@@ -106072,11 +106099,15 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %80 = add nsw i64 %79, -4
   %81 = icmp ult i64 %80, 4
   %82 = select i1 %81, i64 %80, i64 1
-  switch i64 %82, label %83 [
+  switch i64 %82, label %.unreachabledefault.i [
     i64 0, label %89
     i64 1, label %91
     i64 2, label %92
+    i64 3, label %83
   ]
+
+.unreachabledefault.i:                            ; preds = %78
+  unreachable
 
 83:                                               ; preds = %78
   call void @llvm.experimental.noalias.scope.decl(metadata !20513)

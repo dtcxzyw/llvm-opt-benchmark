@@ -4146,7 +4146,7 @@ define ptr @colorx(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonl
     i32 0, label %51
     i32 1, label %99
     i32 3, label %110
-    i32 2, label %.thread260
+    i32 2, label %.thread288
   ]
 
 51:                                               ; preds = %50
@@ -4219,7 +4219,7 @@ rgb2hsv.exit.i:                                   ; preds = %94, %91, %51
   %96 = fdiv double %.1.i.i, 3.600000e+02
   %97 = insertelement <2 x double> poison, double %96, i64 0
   %98 = insertelement <2 x double> %97, double %.0.i.i, i64 1
-  br label %.thread266
+  br label %.thread260
 
 99:                                               ; preds = %50
   %100 = load i32, ptr %8, align 4
@@ -4227,15 +4227,15 @@ rgb2hsv.exit.i:                                   ; preds = %94, %91, %51
   %102 = shl i32 %101, 8
   %103 = and i32 %102, 65280
   %104 = and i32 %100, 255
-  %.sroa.0.1.insert.insert170311 = or disjoint i32 %103, %104
+  %.sroa.0.1.insert.insert170313 = or disjoint i32 %103, %104
   %105 = load i32, ptr %10, align 4
   %106 = shl i32 %105, 16
   %107 = load i32, ptr %11, align 4
   %108 = shl i32 %107, 24
-  %.masked313 = and i32 %106, 16711680
-  %109 = or disjoint i32 %.sroa.0.1.insert.insert170311, %.masked313
-  %.sroa.0.3.insert.insert232314 = or disjoint i32 %109, %108
-  br label %.thread277
+  %.masked315 = and i32 %106, 16711680
+  %109 = or disjoint i32 %.sroa.0.1.insert.insert170313, %.masked315
+  %.sroa.0.3.insert.insert232316 = or disjoint i32 %109, %108
+  br label %.thread271
 
 110:                                              ; preds = %50
   %111 = load i32, ptr %8, align 4
@@ -4257,9 +4257,9 @@ rgb2hsv.exit.i:                                   ; preds = %94, %91, %51
   %127 = insertelement <2 x double> poison, double %125, i64 0
   %128 = shufflevector <2 x double> %127, <2 x double> poison, <2 x i32> zeroinitializer
   %129 = fsub <2 x double> %121, %128
-  br label %.thread285
+  br label %.thread279
 
-default.unreachable:                              ; preds = %thread-pre-split.thread.i, %176, %50
+default.unreachable:                              ; preds = %424, %thread-pre-split.thread.i, %176, %50
   unreachable
 
 .thread187.i:                                     ; preds = %..thread187_crit_edge.i, %34, %.thread.i
@@ -4493,9 +4493,9 @@ hsv2rgb.exit.i:                                   ; preds = %212, %211, %210, %2
   %228 = shl i32 %227, 24
   %.masked = and i32 %225, 16711680
   %229 = or disjoint i32 %222, %228
-  %.sroa.0.1.insert.insert160302 = or disjoint i32 %229, %221
-  %.sroa.0.3.insert.insert222304 = or disjoint i32 %.sroa.0.1.insert.insert160302, %.masked
-  %.sroa.0.3.insert.insert222 = zext i32 %.sroa.0.3.insert.insert222304 to i64
+  %.sroa.0.1.insert.insert160304 = or disjoint i32 %229, %221
+  %.sroa.0.3.insert.insert222306 = or disjoint i32 %.sroa.0.1.insert.insert160304, %.masked
+  %.sroa.0.3.insert.insert222 = zext i32 %.sroa.0.3.insert.insert222306 to i64
   %230 = bitcast i64 %.sroa.0.3.insert.insert222 to double
   %231 = insertelement <4 x double> <double 0.000000e+00, double 0.000000e+00, double 0.000000e+00, double poison>, double %230, i64 3
   br label %312
@@ -4564,18 +4564,18 @@ hsv2rgb.exit128.i:                                ; preds = %253, %252, %251, %2
   %265 = fptosi double %262 to i32
   %266 = sub i32 0, %265
   %267 = fptosi double %263 to i32
-  %.neg296 = mul i32 %267, 65280
-  %268 = and i32 %.neg296, 65280
+  %.neg298 = mul i32 %267, 65280
+  %268 = and i32 %.neg298, 65280
   %269 = and i32 %266, 255
   %270 = fptosi double %264 to i32
-  %.neg298 = mul i32 %270, 16711680
+  %.neg300 = mul i32 %270, 16711680
   %271 = fptosi double %261 to i32
-  %.neg300 = mul i32 %271, -16777216
-  %.neg298.masked = and i32 %.neg298, 16711680
-  %272 = or disjoint i32 %269, %.neg300
-  %.sroa.0.1.insert.insert155297 = or disjoint i32 %272, %268
-  %.sroa.0.3.insert.insert217301 = or disjoint i32 %.sroa.0.1.insert.insert155297, %.neg298.masked
-  %.sroa.0.3.insert.insert217 = zext i32 %.sroa.0.3.insert.insert217301 to i64
+  %.neg302 = mul i32 %271, -16777216
+  %.neg300.masked = and i32 %.neg300, 16711680
+  %272 = or disjoint i32 %269, %.neg302
+  %.sroa.0.1.insert.insert155299 = or disjoint i32 %272, %268
+  %.sroa.0.3.insert.insert217303 = or disjoint i32 %.sroa.0.1.insert.insert155299, %.neg300.masked
+  %.sroa.0.3.insert.insert217 = zext i32 %.sroa.0.3.insert.insert217303 to i64
   %273 = bitcast i64 %.sroa.0.3.insert.insert217 to double
   %274 = insertelement <4 x double> <double 0.000000e+00, double 0.000000e+00, double 0.000000e+00, double poison>, double %273, i64 3
   br label %312
@@ -4815,7 +4815,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
     i32 0, label %374
     i32 1, label %386
     i32 3, label %389
-    i32 2, label %.thread260
+    i32 2, label %.thread288
   ]
 
 374:                                              ; preds = %thread-pre-split.thread.i
@@ -4830,12 +4830,12 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %383 = getelementptr inbounds i8, ptr %373, i64 14
   %384 = load i8, ptr %383, align 2
   %385 = uitofp i8 %384 to double
-  br label %.thread266
+  br label %.thread260
 
 386:                                              ; preds = %thread-pre-split.thread.i
   %387 = getelementptr inbounds i8, ptr %373, i64 11
   %388 = load i32, ptr %387, align 1
-  br label %.thread277
+  br label %.thread271
 
 389:                                              ; preds = %thread-pre-split.thread.i
   %390 = getelementptr inbounds i8, ptr %373, i64 11
@@ -4856,7 +4856,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %405 = insertelement <2 x double> poison, double %403, i64 0
   %406 = shufflevector <2 x double> %405, <2 x double> poison, <2 x i32> zeroinitializer
   %407 = fsub <2 x double> %399, %406
-  br label %.thread285
+  br label %.thread279
 
 colorxlate.exit:                                  ; preds = %thread-pre-split.i, %resolveColor.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -4870,20 +4870,7 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   br label %agxbfree.exit
 
-.thread260:                                       ; preds = %thread-pre-split.thread.i, %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  br label %agxbsizeof.exit.i.i26
-
-.thread266:                                       ; preds = %rgb2hsv.exit.i, %374
+.thread260:                                       ; preds = %rgb2hsv.exit.i, %374
   %.sroa.63.1.ph.ph = phi double [ %66, %rgb2hsv.exit.i ], [ %382, %374 ]
   %.sroa.67.1.ph.ph.in = phi double [ %62, %rgb2hsv.exit.i ], [ %385, %374 ]
   %408 = phi <2 x double> [ %98, %rgb2hsv.exit.i ], [ %378, %374 ]
@@ -4904,10 +4891,10 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   %412 = insertelement <4 x double> %411, double %.sroa.63.1.ph.ph, i64 2
   br label %426
 
-.thread277:                                       ; preds = %99, %386
-  %.sroa.0.1.ph.ph276.in.in = phi i32 [ %.sroa.0.3.insert.insert232314, %99 ], [ %388, %386 ]
-  %.sroa.0.1.ph.ph276.in = zext i32 %.sroa.0.1.ph.ph276.in.in to i64
-  %.sroa.0.1.ph.ph276 = bitcast i64 %.sroa.0.1.ph.ph276.in to double
+.thread271:                                       ; preds = %99, %386
+  %.sroa.0.1.ph.ph270.in.in = phi i32 [ %.sroa.0.3.insert.insert232316, %99 ], [ %388, %386 ]
+  %.sroa.0.1.ph.ph270.in = zext i32 %.sroa.0.1.ph.ph270.in.in to i64
+  %.sroa.0.1.ph.ph270 = bitcast i64 %.sroa.0.1.ph.ph270.in to double
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -4920,25 +4907,25 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   br label %433
 
-.thread285:                                       ; preds = %110, %389
+.thread279:                                       ; preds = %110, %389
   %.sink = phi double [ %126, %110 ], [ %404, %389 ]
-  %.sink324 = phi double [ %125, %110 ], [ %403, %389 ]
+  %.sink326 = phi double [ %125, %110 ], [ %403, %389 ]
   %413 = phi <2 x double> [ %129, %110 ], [ %407, %389 ]
   %414 = fptosi double %.sink to i32
   %415 = sub i32 0, %414
   %416 = fptosi <2 x double> %413 to <2 x i32>
   %417 = and i32 %415, 255
-  %418 = fptosi double %.sink324 to i32
-  %.neg309 = mul i32 %418, -16777216
+  %418 = fptosi double %.sink326 to i32
+  %.neg311 = mul i32 %418, -16777216
   %419 = mul <2 x i32> %416, <i32 65280, i32 16711680>
   %420 = and <2 x i32> %419, <i32 65280, i32 16711680>
-  %421 = or disjoint i32 %417, %.neg309
+  %421 = or disjoint i32 %417, %.neg311
   %422 = extractelement <2 x i32> %420, i64 0
-  %.sroa.0.1.insert.insert165306 = or disjoint i32 %421, %422
+  %.sroa.0.1.insert.insert165308 = or disjoint i32 %421, %422
   %423 = extractelement <2 x i32> %420, i64 1
-  %.sroa.0.3.insert.insert227310 = or disjoint i32 %.sroa.0.1.insert.insert165306, %423
-  %.sroa.0.1.ph.ph284.in = zext i32 %.sroa.0.3.insert.insert227310 to i64
-  %.sroa.0.1.ph.ph284 = bitcast i64 %.sroa.0.1.ph.ph284.in to double
+  %.sroa.0.3.insert.insert227312 = or disjoint i32 %.sroa.0.1.insert.insert165308, %423
+  %.sroa.0.1.ph.ph278.in = zext i32 %.sroa.0.3.insert.insert227312 to i64
+  %.sroa.0.1.ph.ph278 = bitcast i64 %.sroa.0.1.ph.ph278.in to double
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -4950,6 +4937,19 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   br label %442
+
+.thread288:                                       ; preds = %thread-pre-split.thread.i, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
+  br label %agxbsizeof.exit.i.i26
 
 424:                                              ; preds = %312, %314
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -4963,14 +4963,15 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   %425 = extractelement <4 x double> %313, i64 3
-  switch i32 %.016, label %agxbsizeof.exit.i.i26 [
+  switch i32 %.016, label %default.unreachable [
     i32 0, label %426
     i32 1, label %433
     i32 3, label %442
+    i32 2, label %agxbsizeof.exit.i.i26
   ]
 
-426:                                              ; preds = %.thread266, %424
-  %427 = phi <4 x double> [ %412, %.thread266 ], [ %313, %424 ]
+426:                                              ; preds = %.thread260, %424
+  %427 = phi <4 x double> [ %412, %.thread260 ], [ %313, %424 ]
   %428 = extractelement <4 x double> %427, i64 1
   %429 = extractelement <4 x double> %427, i64 2
   %430 = extractelement <4 x double> %427, i64 3
@@ -4982,9 +4983,9 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %13, ptr noundef nonnull @.str.34, double noundef %432)
   br label %agxbsizeof.exit.i.i26
 
-433:                                              ; preds = %.thread277, %424
-  %.sroa.0.1.ph282 = phi double [ %.sroa.0.1.ph.ph276, %.thread277 ], [ %425, %424 ]
-  %434 = bitcast double %.sroa.0.1.ph282 to i64
+433:                                              ; preds = %.thread271, %424
+  %.sroa.0.1.ph276 = phi double [ %.sroa.0.1.ph.ph270, %.thread271 ], [ %425, %424 ]
+  %434 = bitcast double %.sroa.0.1.ph276 to i64
   %.sroa.0.0.extract.trunc = trunc i64 %434 to i32
   %435 = and i32 %.sroa.0.0.extract.trunc, 255
   %436 = lshr i32 %.sroa.0.0.extract.trunc, 8
@@ -4999,9 +5000,9 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %13, ptr noundef nonnull @.str.36, i32 noundef %441)
   br label %agxbsizeof.exit.i.i26
 
-442:                                              ; preds = %.thread285, %424
-  %.sroa.0.1.ph290 = phi double [ %.sroa.0.1.ph.ph284, %.thread285 ], [ %425, %424 ]
-  %443 = bitcast double %.sroa.0.1.ph290 to i64
+442:                                              ; preds = %.thread279, %424
+  %.sroa.0.1.ph284 = phi double [ %.sroa.0.1.ph.ph278, %.thread279 ], [ %425, %424 ]
+  %443 = bitcast double %.sroa.0.1.ph284 to i64
   %.sroa.0.0.extract.trunc110 = trunc i64 %443 to i32
   %444 = and i32 %.sroa.0.0.extract.trunc110, 255
   %445 = lshr i32 %.sroa.0.0.extract.trunc110, 8
@@ -5012,7 +5013,7 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %13, ptr noundef nonnull @.str.37, i32 noundef %444, i32 noundef %446, i32 noundef %448, i32 noundef %449)
   br label %agxbsizeof.exit.i.i26
 
-agxbsizeof.exit.i.i26:                            ; preds = %.thread260, %424, %433, %440, %426, %431, %442
+agxbsizeof.exit.i.i26:                            ; preds = %.thread288, %424, %433, %440, %426, %431, %442
   %450 = getelementptr inbounds i8, ptr %13, i64 31
   %.val.i.i.i24 = load i8, ptr %450, align 1
   %.not.i.i.i25 = icmp eq i8 %.val.i.i.i24, -1

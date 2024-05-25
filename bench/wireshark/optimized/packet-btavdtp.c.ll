@@ -978,7 +978,7 @@ define internal i32 @dissect_btavdtp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 45:                                               ; preds = %4
   tail call void @col_set_str(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.484) #6
-  br label %.thread597
+  br label %.thread598
 
 46:                                               ; preds = %4, %44
   %.str.483.sink = phi ptr [ @.str.483, %44 ], [ @.str.482, %4 ]
@@ -1076,11 +1076,11 @@ define internal i32 @dissect_btavdtp(ptr noundef %0, ptr noundef %1, ptr noundef
 ._crit_edge:                                      ; preds = %93
   %.phi.trans.insert = getelementptr inbounds i8, ptr %76, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre620 = load i32, ptr %.pre, align 4
+  %.pre621 = load i32, ptr %.pre, align 4
   br label %94
 
 94:                                               ; preds = %._crit_edge, %90
-  %95 = phi i32 [ %.pre620, %._crit_edge ], [ %85, %90 ]
+  %95 = phi i32 [ %.pre621, %._crit_edge ], [ %85, %90 ]
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %159, label %97
 
@@ -1146,8 +1146,8 @@ define internal i32 @dissect_btavdtp(ptr noundef %0, ptr noundef %1, ptr noundef
   %136 = load i32, ptr %115, align 4
   %137 = icmp eq i32 %136, 0
   %138 = icmp eq i32 %112, 0
-  %or.cond609 = select i1 %137, i1 true, i1 %138
-  br i1 %or.cond609, label %139, label %157
+  %or.cond610 = select i1 %137, i1 true, i1 %138
+  br i1 %or.cond610, label %139, label %157
 
 139:                                              ; preds = %135, %132, %129, %.thread
   store i32 1, ptr %70, align 16
@@ -1206,7 +1206,7 @@ define internal i32 @dissect_btavdtp(ptr noundef %0, ptr noundef %1, ptr noundef
   %167 = getelementptr inbounds i8, ptr %.0503, i64 4
   %168 = load i32, ptr %167, align 4
   %169 = icmp eq i32 %166, %168
-  br i1 %169, label %.thread596.thread, label %170
+  br i1 %169, label %.thread597.thread, label %170
 
 170:                                              ; preds = %164, %159
   %171 = getelementptr inbounds i8, ptr %.0503, i64 8
@@ -1224,7 +1224,7 @@ define internal i32 @dissect_btavdtp(ptr noundef %0, ptr noundef %1, ptr noundef
   %179 = getelementptr inbounds i8, ptr %.0503, i64 12
   %180 = load i32, ptr %179, align 4
   %181 = icmp eq i32 %178, %180
-  br i1 %181, label %.thread587, label %441
+  br i1 %181, label %.thread588, label %441
 
 182:                                              ; preds = %170
   %183 = getelementptr inbounds i8, ptr %1, i64 80
@@ -1233,11 +1233,11 @@ define internal i32 @dissect_btavdtp(ptr noundef %0, ptr noundef %1, ptr noundef
   %186 = load i16, ptr %185, align 2
   %187 = and i16 %186, 8
   %.not551 = icmp eq i16 %187, 0
-  br i1 %.not551, label %189, label %.thread589
+  br i1 %.not551, label %189, label %.thread590
 
-.thread587:                                       ; preds = %176
+.thread588:                                       ; preds = %176
   %188 = getelementptr inbounds i8, ptr %1, i64 80
-  br label %.thread589
+  br label %.thread590
 
 189:                                              ; preds = %182
   store i32 %161, ptr %171, align 8
@@ -1245,16 +1245,16 @@ define internal i32 @dissect_btavdtp(ptr noundef %0, ptr noundef %1, ptr noundef
   %191 = load i32, ptr %190, align 8
   %192 = getelementptr inbounds i8, ptr %.0503, i64 12
   store i32 %191, ptr %192, align 4
-  br label %.thread589
+  br label %.thread590
 
-.thread589:                                       ; preds = %.thread587, %189, %182
-  %193 = phi ptr [ %183, %189 ], [ %183, %182 ], [ %188, %.thread587 ]
+.thread590:                                       ; preds = %.thread588, %189, %182
+  %193 = phi ptr [ %183, %189 ], [ %183, %182 ], [ %188, %.thread588 ]
   %194 = getelementptr inbounds i8, ptr %.0503, i64 56
   %195 = load ptr, ptr %194, align 8
   %.not552 = icmp eq ptr %195, null
   br i1 %.not552, label %196, label %206
 
-196:                                              ; preds = %.thread589
+196:                                              ; preds = %.thread590
   %197 = load i32, ptr @proto_btavdtp, align 4
   %198 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %197, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %199 = load i32, ptr @ett_btavdtp, align 4
@@ -1267,7 +1267,7 @@ define internal i32 @dissect_btavdtp(ptr noundef %0, ptr noundef %1, ptr noundef
   %205 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %204, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   br label %439
 
-206:                                              ; preds = %.thread589
+206:                                              ; preds = %.thread590
   %207 = load ptr, ptr %39, align 8
   %208 = load i8, ptr %195, align 8
   %209 = zext i8 %208 to i32
@@ -1379,13 +1379,13 @@ get_sep_media_type.exit:                          ; preds = %206, %228, %230
   store ptr null, ptr %253, align 8
   %254 = load ptr, ptr @sep_list, align 8
   %255 = call ptr @wmem_tree_lookup32_array(ptr noundef %254, ptr noundef nonnull %10) #6
-  %.not.i583 = icmp eq ptr %255, null
-  br i1 %.not.i583, label %get_sep_type.exit, label %256
+  %.not.i584 = icmp eq ptr %255, null
+  br i1 %.not.i584, label %get_sep_type.exit, label %256
 
 256:                                              ; preds = %get_sep_media_type.exit
   %257 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %255, i32 noundef %242) #6
-  %.not7.i584 = icmp eq ptr %257, null
-  br i1 %.not7.i584, label %get_sep_type.exit, label %258
+  %.not7.i585 = icmp eq ptr %257, null
+  br i1 %.not7.i585, label %get_sep_type.exit, label %258
 
 258:                                              ; preds = %256
   %259 = getelementptr inbounds i8, ptr %257, i64 1
@@ -1395,14 +1395,14 @@ get_sep_media_type.exit:                          ; preds = %206, %228, %230
   br label %get_sep_type.exit
 
 get_sep_type.exit:                                ; preds = %get_sep_media_type.exit, %256, %258
-  %.0.i585 = phi ptr [ %262, %258 ], [ @.str.497, %256 ], [ @.str.497, %get_sep_media_type.exit ]
+  %.0.i586 = phi ptr [ %262, %258 ], [ @.str.497, %256 ], [ @.str.497, %get_sep_media_type.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %207, i32 noundef 25, ptr noundef nonnull @.str.489, i32 noundef %209, ptr noundef %.0.i, ptr noundef %.0.i585) #6
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %207, i32 noundef 25, ptr noundef nonnull @.str.489, i32 noundef %209, ptr noundef %.0.i, ptr noundef %.0.i586) #6
   %263 = load ptr, ptr %194, align 8
   %264 = getelementptr inbounds i8, ptr %263, i64 2
   %265 = load i8, ptr %264, align 2
@@ -1471,11 +1471,11 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %305 = load i16, ptr %304, align 2
   %306 = and i16 %305, 8
   %.not555 = icmp eq i16 %306, 0
-  br i1 %.not555, label %307, label %._crit_edge621
+  br i1 %.not555, label %307, label %._crit_edge622
 
-._crit_edge621:                                   ; preds = %301
-  %.phi.trans.insert622 = getelementptr inbounds i8, ptr %292, i64 4
-  %.pre623 = load i32, ptr %.phi.trans.insert622, align 4
+._crit_edge622:                                   ; preds = %301
+  %.phi.trans.insert623 = getelementptr inbounds i8, ptr %292, i64 4
+  %.pre624 = load i32, ptr %.phi.trans.insert623, align 4
   br label %310
 
 307:                                              ; preds = %301
@@ -1484,8 +1484,8 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   store i32 %308, ptr %309, align 4
   br label %310
 
-310:                                              ; preds = %._crit_edge621, %307
-  %311 = phi i32 [ %.pre623, %._crit_edge621 ], [ %308, %307 ]
+310:                                              ; preds = %._crit_edge622, %307
+  %311 = phi i32 [ %.pre624, %._crit_edge622 ], [ %308, %307 ]
   store i32 %302, ptr %280, align 8
   store i32 %311, ptr %281, align 4
   br label %314
@@ -1514,13 +1514,13 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %318 = load ptr, ptr @btavrcp_song_positions, align 8
   %319 = call ptr @wmem_tree_lookup32_array(ptr noundef %318, ptr noundef nonnull %17) #6
   %.not556 = icmp eq ptr %319, null
-  br i1 %.not556, label %.thread590, label %320
+  br i1 %.not556, label %.thread591, label %320
 
 320:                                              ; preds = %314
   %321 = load i32, ptr %24, align 4
   %322 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %319, i32 noundef %321) #6
   %.not557 = icmp eq ptr %322, null
-  br i1 %.not557, label %.thread590, label %323
+  br i1 %.not557, label %.thread591, label %323
 
 323:                                              ; preds = %320
   %324 = getelementptr inbounds i8, ptr %322, i64 4
@@ -1529,7 +1529,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %327 = load i32, ptr %24, align 4
   %328 = icmp eq i32 %325, %327
   %or.cond = select i1 %326, i1 true, i1 %328
-  br i1 %or.cond, label %329, label %.thread590
+  br i1 %or.cond, label %329, label %.thread591
 
 329:                                              ; preds = %323
   %330 = load i32, ptr %322, align 4
@@ -1539,33 +1539,33 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %334 = load i16, ptr %333, align 2
   %335 = and i16 %334, 8
   %.not558 = icmp eq i16 %335, 0
-  br i1 %.not558, label %336, label %.thread590
+  br i1 %.not558, label %336, label %.thread591
 
 336:                                              ; preds = %329
   store i32 %327, ptr %324, align 4
-  br label %.thread590
+  br label %.thread591
 
-.thread590:                                       ; preds = %314, %323, %329, %336, %320
+.thread591:                                       ; preds = %314, %323, %329, %336, %320
   %.0501 = phi double [ %331, %329 ], [ %331, %336 ], [ -1.000000e+00, %320 ], [ -1.000000e+00, %323 ], [ -1.000000e+00, %314 ]
   store i32 1, ptr %66, align 16
   store ptr %20, ptr %67, align 8
   %337 = load ptr, ptr @media_packet_times, align 8
   %338 = call ptr @wmem_tree_lookup32_array(ptr noundef %337, ptr noundef nonnull %17) #6
   %.not559 = icmp eq ptr %338, null
-  br i1 %.not559, label %.thread592, label %339
+  br i1 %.not559, label %.thread593, label %339
 
-339:                                              ; preds = %.thread590
+339:                                              ; preds = %.thread591
   %340 = load i32, ptr %24, align 4
   %341 = add i32 %340, -1
   %342 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %338, i32 noundef %341) #6
   %.not560 = icmp eq ptr %342, null
-  br i1 %.not560, label %.thread592, label %343
+  br i1 %.not560, label %.thread593, label %343
 
 343:                                              ; preds = %339
   %344 = getelementptr inbounds i8, ptr %342, i64 48
   %345 = load i32, ptr %344, align 8
   %346 = icmp eq i32 %345, %315
-  br i1 %346, label %347, label %.thread592
+  br i1 %346, label %347, label %.thread593
 
 347:                                              ; preds = %343
   %348 = getelementptr inbounds i8, ptr %30, i64 48
@@ -1586,7 +1586,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   store double %.0501, ptr %353, align 8
   br label %366
 
-.thread592:                                       ; preds = %.thread590, %343, %339
+.thread593:                                       ; preds = %.thread591, %343, %339
   %357 = fcmp oeq double %.0501, -1.000000e+00
   %.1 = select i1 %357, double 0.000000e+00, double %.0501
   %358 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1606,9 +1606,9 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   store i32 %315, ptr %365, align 8
   br label %366
 
-366:                                              ; preds = %354, %356, %.thread592
-  %.0502 = phi double [ %351, %354 ], [ %351, %356 ], [ 0.000000e+00, %.thread592 ]
-  %.2 = phi double [ %355, %354 ], [ %.0501, %356 ], [ %.1, %.thread592 ]
+366:                                              ; preds = %354, %356, %.thread593
+  %.0502 = phi double [ %351, %354 ], [ %351, %356 ], [ 0.000000e+00, %.thread593 ]
+  %.2 = phi double [ %355, %354 ], [ %.0501, %356 ], [ %.1, %.thread593 ]
   %367 = load ptr, ptr %193, align 8
   %368 = getelementptr inbounds i8, ptr %367, i64 50
   %369 = load i16, ptr %368, align 2
@@ -1647,21 +1647,21 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %384 = load ptr, ptr @media_packet_times, align 8
   %385 = call ptr @wmem_tree_lookup32_array(ptr noundef %384, ptr noundef nonnull %17) #6
   %.not562 = icmp eq ptr %385, null
-  br i1 %.not562, label %.thread594, label %386
+  br i1 %.not562, label %.thread595, label %386
 
 386:                                              ; preds = %383
   %387 = load i32, ptr %24, align 4
   %388 = call ptr @wmem_tree_lookup32(ptr noundef nonnull %385, i32 noundef %387) #6
   %.not563 = icmp eq ptr %388, null
-  br i1 %.not563, label %.thread594, label %389
+  br i1 %.not563, label %.thread595, label %389
 
-.thread594:                                       ; preds = %383, %386
+.thread595:                                       ; preds = %383, %386
   br label %389
 
-389:                                              ; preds = %386, %.thread594
-  %.sink630 = phi ptr [ null, %.thread594 ], [ %388, %386 ]
+389:                                              ; preds = %386, %.thread595
+  %.sink631 = phi ptr [ null, %.thread595 ], [ %388, %386 ]
   %390 = getelementptr inbounds i8, ptr %30, i64 56
-  store ptr %.sink630, ptr %390, align 8
+  store ptr %.sink631, ptr %390, align 8
   %391 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #6
   %392 = load ptr, ptr @bta2dp_handle, align 8
   %393 = call i32 @call_dissector_with_data(ptr noundef %392, ptr noundef %391, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %30) #6
@@ -1738,17 +1738,17 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   br label %857
 
 441:                                              ; preds = %176, %174
-  br i1 %163, label %.thread596, label %443
+  br i1 %163, label %.thread597, label %443
 
-.thread596:                                       ; preds = %441
-  %.phi.trans.insert624 = getelementptr inbounds i8, ptr %3, i64 56
-  %.pre625 = load i32, ptr %.phi.trans.insert624, align 8
-  %.phi.trans.insert626 = getelementptr inbounds i8, ptr %.0503, i64 4
-  %.pre627 = load i32, ptr %.phi.trans.insert626, align 4
-  %442 = icmp eq i32 %.pre625, %.pre627
-  br i1 %442, label %.thread596.thread, label %443
+.thread597:                                       ; preds = %441
+  %.phi.trans.insert625 = getelementptr inbounds i8, ptr %3, i64 56
+  %.pre626 = load i32, ptr %.phi.trans.insert625, align 8
+  %.phi.trans.insert627 = getelementptr inbounds i8, ptr %.0503, i64 4
+  %.pre628 = load i32, ptr %.phi.trans.insert627, align 4
+  %442 = icmp eq i32 %.pre626, %.pre628
+  br i1 %442, label %.thread597.thread, label %443
 
-443:                                              ; preds = %.thread596, %441
+443:                                              ; preds = %.thread597, %441
   %444 = load i32, ptr @proto_btavdtp, align 4
   %445 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %444, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %446 = load i32, ptr @ett_btavdtp, align 4
@@ -1762,7 +1762,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %453 = call i32 @tvb_reported_length(ptr noundef %0) #6
   br label %857
 
-.thread596.thread:                                ; preds = %164, %.thread596
+.thread597.thread:                                ; preds = %164, %.thread597
   %454 = load i32, ptr @proto_btavdtp, align 4
   %455 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %454, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %456 = load i32, ptr @ett_btavdtp, align 4
@@ -1786,16 +1786,16 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %474 = call ptr @proto_tree_add_item(ptr noundef %468, i32 noundef %473, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
   br i1 %464, label %475, label %478
 
-475:                                              ; preds = %.thread596.thread
+475:                                              ; preds = %.thread597.thread
   %476 = load i32, ptr @hf_btavdtp_number_of_signal_packets, align 4
   %477 = call ptr @proto_tree_add_item(ptr noundef %468, i32 noundef %476, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
   br label %478
 
-478:                                              ; preds = %475, %.thread596.thread
-  %.0504 = phi i32 [ 1, %475 ], [ 0, %.thread596.thread ]
+478:                                              ; preds = %475, %.thread597.thread
+  %.0504 = phi i32 [ 1, %475 ], [ 0, %.thread597.thread ]
   %479 = and i8 %461, 8
   %or.cond.not = icmp eq i8 %479, 0
-  br i1 %or.cond.not, label %480, label %.thread597
+  br i1 %or.cond.not, label %480, label %.thread598
 
 480:                                              ; preds = %478
   %481 = add nuw nsw i32 %.0504, 1
@@ -1815,10 +1815,10 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %491, i32 noundef 25, ptr noundef nonnull @.str.494, ptr noundef %492, ptr noundef %493) #6
   %494 = or disjoint i32 %.0504, 2
   %.not564 = icmp eq i8 %459, 1
-  br i1 %.not564, label %.thread597, label %495
+  br i1 %.not564, label %.thread598, label %495
 
 495:                                              ; preds = %480
-  switch i8 %487, label %.thread597 [
+  switch i8 %487, label %.thread598 [
     i8 1, label %496
     i8 2, label %506
     i8 12, label %506
@@ -1836,7 +1836,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
 
 496:                                              ; preds = %495
   switch i8 %459, label %501 [
-    i8 0, label %.thread597
+    i8 0, label %.thread598
     i8 3, label %497
   ]
 
@@ -1844,14 +1844,14 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %498 = load i32, ptr @hf_btavdtp_error_code, align 4
   %499 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %498, ptr noundef %0, i32 noundef %494, i32 noundef 1, i32 noundef 0) #6
   %500 = add nuw nsw i32 %.0504, 3
-  br label %.thread597
+  br label %.thread598
 
 501:                                              ; preds = %496
   %502 = load i32, ptr %18, align 4
   %503 = load i32, ptr %19, align 4
   %504 = load i32, ptr %20, align 4
   %505 = call fastcc i32 @dissect_sep(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %457, i32 noundef %494, i32 noundef %502, i32 noundef %503, i32 noundef %504)
-  br label %.thread597
+  br label %.thread598
 
 506:                                              ; preds = %495, %495
   switch i8 %459, label %517 [
@@ -1865,20 +1865,20 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %510 = load i32, ptr %20, align 4
   %511 = load i32, ptr %24, align 4
   %512 = call fastcc i32 @dissect_seid(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %457, i32 noundef %494, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef %508, i32 noundef %509, i32 noundef %510, i32 noundef %511)
-  br label %.thread597
+  br label %.thread598
 
 513:                                              ; preds = %506
   %514 = load i32, ptr @hf_btavdtp_error_code, align 4
   %515 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %514, ptr noundef %0, i32 noundef %494, i32 noundef 1, i32 noundef 0) #6
   %516 = add nuw nsw i32 %.0504, 3
-  br label %.thread597
+  br label %.thread598
 
 517:                                              ; preds = %506
   %518 = call fastcc i32 @dissect_capabilities(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %457, i32 noundef %494, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  br label %.thread597
+  br label %.thread598
 
 519:                                              ; preds = %495
-  switch i8 %459, label %.thread597 [
+  switch i8 %459, label %.thread598 [
     i8 0, label %520
     i8 3, label %575
   ]
@@ -1901,7 +1901,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %535 = load i16, ptr %534, align 2
   %536 = and i16 %535, 8
   %.not578 = icmp eq i16 %536, 0
-  br i1 %.not578, label %537, label %.thread597
+  br i1 %.not578, label %537, label %.thread598
 
 537:                                              ; preds = %520
   store i32 1, ptr %17, align 16
@@ -1921,13 +1921,13 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %540 = load ptr, ptr @sep_list, align 8
   %541 = call ptr @wmem_tree_lookup32_array(ptr noundef %540, ptr noundef nonnull %17) #6
   %.not579 = icmp eq ptr %541, null
-  br i1 %.not579, label %.thread597, label %542
+  br i1 %.not579, label %.thread598, label %542
 
 542:                                              ; preds = %537
   %543 = load i32, ptr %24, align 4
   %544 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %541, i32 noundef %543) #6
   %.not580 = icmp eq ptr %544, null
-  br i1 %.not580, label %.thread597, label %545
+  br i1 %.not580, label %.thread598, label %545
 
 545:                                              ; preds = %542
   %546 = load i32, ptr %26, align 4
@@ -1994,7 +1994,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   store ptr null, ptr %573, align 8
   %574 = load ptr, ptr @sep_list, align 8
   call void @wmem_tree_insert32_array(ptr noundef %574, ptr noundef nonnull %17, ptr noundef nonnull %544) #6
-  br label %.thread597
+  br label %.thread598
 
 575:                                              ; preds = %519
   %576 = load i32, ptr @hf_btavdtp_service_category, align 4
@@ -2003,7 +2003,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %579 = load i32, ptr @hf_btavdtp_error_code, align 4
   %580 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %579, ptr noundef %0, i32 noundef %578, i32 noundef 1, i32 noundef 0) #6
   %581 = or disjoint i32 %.0504, 4
-  br label %.thread597
+  br label %.thread598
 
 582:                                              ; preds = %495
   switch i8 %459, label %593 [
@@ -2017,20 +2017,20 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %586 = load i32, ptr %20, align 4
   %587 = load i32, ptr %24, align 4
   %588 = call fastcc i32 @dissect_seid(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %457, i32 noundef %494, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef %584, i32 noundef %585, i32 noundef %586, i32 noundef %587)
-  br label %.thread597
+  br label %.thread598
 
 589:                                              ; preds = %582
   %590 = load i32, ptr @hf_btavdtp_error_code, align 4
   %591 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %590, ptr noundef %0, i32 noundef %494, i32 noundef 1, i32 noundef 0) #6
   %592 = add nuw nsw i32 %.0504, 3
-  br label %.thread597
+  br label %.thread598
 
 593:                                              ; preds = %582
   %594 = call fastcc i32 @dissect_capabilities(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %457, i32 noundef %494, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  br label %.thread597
+  br label %.thread598
 
 595:                                              ; preds = %495
-  switch i8 %459, label %.thread597 [
+  switch i8 %459, label %.thread598 [
     i8 0, label %596
     i8 3, label %634
   ]
@@ -2048,7 +2048,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %606 = load i16, ptr %605, align 2
   %607 = and i16 %606, 8
   %.not574 = icmp eq i16 %607, 0
-  br i1 %.not574, label %608, label %.thread597
+  br i1 %.not574, label %608, label %.thread598
 
 608:                                              ; preds = %596
   store i32 1, ptr %17, align 16
@@ -2068,13 +2068,13 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %611 = load ptr, ptr @sep_list, align 8
   %612 = call ptr @wmem_tree_lookup32_array(ptr noundef %611, ptr noundef nonnull %17) #6
   %.not575 = icmp eq ptr %612, null
-  br i1 %.not575, label %.thread597, label %613
+  br i1 %.not575, label %.thread598, label %613
 
 613:                                              ; preds = %608
   %614 = load i32, ptr %24, align 4
   %615 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %612, i32 noundef %614) #6
   %.not576 = icmp eq ptr %615, null
-  br i1 %.not576, label %.thread597, label %616
+  br i1 %.not576, label %.thread598, label %616
 
 616:                                              ; preds = %613
   %617 = load i32, ptr %26, align 4
@@ -2091,7 +2091,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   store i32 %623, ptr %624, align 8
   %625 = load i8, ptr %29, align 1
   %.not577 = icmp eq i8 %625, 0
-  br i1 %.not577, label %.thread597, label %626
+  br i1 %.not577, label %.thread598, label %626
 
 626:                                              ; preds = %616
   %627 = getelementptr inbounds i8, ptr %615, i64 14
@@ -2103,7 +2103,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %632 = call ptr @tvb_memdup(ptr noundef %628, ptr noundef %0, i32 noundef %629, i64 noundef %631) #6
   %633 = getelementptr inbounds i8, ptr %615, i64 16
   store ptr %632, ptr %633, align 8
-  br label %.thread597
+  br label %.thread598
 
 634:                                              ; preds = %595
   %635 = load i32, ptr @hf_btavdtp_service_category, align 4
@@ -2112,13 +2112,14 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %638 = load i32, ptr @hf_btavdtp_error_code, align 4
   %639 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %638, ptr noundef %0, i32 noundef %637, i32 noundef 1, i32 noundef 0) #6
   %640 = or disjoint i32 %.0504, 4
-  br label %.thread597
+  br label %.thread598
 
 641:                                              ; preds = %495
-  switch i8 %459, label %.thread597 [
+  switch i8 %459, label %default.unreachable [
     i8 0, label %642
     i8 3, label %664
     i8 2, label %668
+    i8 1, label %.thread598
   ]
 
 642:                                              ; preds = %641
@@ -2133,7 +2134,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %651 = load i16, ptr %650, align 2
   %652 = and i16 %651, 8
   %.not571 = icmp eq i16 %652, 0
-  br i1 %.not571, label %653, label %.thread597
+  br i1 %.not571, label %653, label %.thread598
 
 653:                                              ; preds = %642
   store i32 1, ptr %17, align 16
@@ -2153,13 +2154,13 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %656 = load ptr, ptr @sep_list, align 8
   %657 = call ptr @wmem_tree_lookup32_array(ptr noundef %656, ptr noundef nonnull %17) #6
   %.not572 = icmp eq ptr %657, null
-  br i1 %.not572, label %.thread597, label %658
+  br i1 %.not572, label %.thread598, label %658
 
 658:                                              ; preds = %653
   %659 = load i32, ptr %24, align 4
   %660 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %657, i32 noundef %659) #6
   %.not573 = icmp eq ptr %660, null
-  br i1 %.not573, label %.thread597, label %661
+  br i1 %.not573, label %.thread598, label %661
 
 661:                                              ; preds = %658
   %662 = getelementptr inbounds i8, ptr %660, i64 28
@@ -2170,13 +2171,13 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   store ptr null, ptr %71, align 8
   %663 = load ptr, ptr @sep_open, align 8
   call void @wmem_tree_insert32_array(ptr noundef %663, ptr noundef nonnull %17, ptr noundef nonnull %660) #6
-  br label %.thread597
+  br label %.thread598
 
 664:                                              ; preds = %641
   %665 = load i32, ptr @hf_btavdtp_error_code, align 4
   %666 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %665, ptr noundef %0, i32 noundef %494, i32 noundef 1, i32 noundef 0) #6
   %667 = add nuw nsw i32 %.0504, 3
-  br label %.thread597
+  br label %.thread598
 
 668:                                              ; preds = %641
   %669 = getelementptr inbounds i8, ptr %1, i64 80
@@ -2185,7 +2186,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %672 = load i16, ptr %671, align 2
   %673 = and i16 %672, 8
   %.not568 = icmp eq i16 %673, 0
-  br i1 %.not568, label %674, label %.thread597
+  br i1 %.not568, label %674, label %.thread598
 
 674:                                              ; preds = %668
   store i32 1, ptr %17, align 16
@@ -2199,50 +2200,51 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %675 = load ptr, ptr @sep_open, align 8
   %676 = call ptr @wmem_tree_lookup32_array(ptr noundef %675, ptr noundef nonnull %17) #6
   %.not569 = icmp eq ptr %676, null
-  br i1 %.not569, label %.thread597, label %677
+  br i1 %.not569, label %.thread598, label %677
 
 677:                                              ; preds = %674
   %678 = load i32, ptr %24, align 4
   %679 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %676, i32 noundef %678) #6
   %.not570 = icmp eq ptr %679, null
-  br i1 %.not570, label %.thread597, label %680
+  br i1 %.not570, label %.thread598, label %680
 
 680:                                              ; preds = %677
   %681 = getelementptr inbounds i8, ptr %679, i64 28
   %682 = load i32, ptr %681, align 4
   %683 = icmp eq i32 %682, 1
-  br i1 %683, label %684, label %.thread597
+  br i1 %683, label %684, label %.thread598
 
 684:                                              ; preds = %680
   store i32 2, ptr %681, align 4
   %685 = getelementptr inbounds i8, ptr %.0503, i64 56
   store ptr %679, ptr %685, align 8
-  br label %.thread597
+  br label %.thread598
 
 686:                                              ; preds = %495
-  switch i8 %459, label %.thread597 [
+  switch i8 %459, label %default.unreachable [
     i8 0, label %.preheader
     i8 3, label %697
     i8 2, label %706
+    i8 1, label %.thread598
   ]
 
 .preheader:                                       ; preds = %686
   %687 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %494) #6
   %688 = icmp sgt i32 %687, 0
-  br i1 %688, label %.lr.ph616, label %.thread597
+  br i1 %688, label %.lr.ph617, label %.thread598
 
-.lr.ph616:                                        ; preds = %.preheader, %.lr.ph616
-  %.1505615 = phi i32 [ %693, %.lr.ph616 ], [ %494, %.preheader ]
-  %.0508614 = phi i32 [ %694, %.lr.ph616 ], [ 1, %.preheader ]
+.lr.ph617:                                        ; preds = %.preheader, %.lr.ph617
+  %.1505616 = phi i32 [ %693, %.lr.ph617 ], [ %494, %.preheader ]
+  %.0508615 = phi i32 [ %694, %.lr.ph617 ], [ 1, %.preheader ]
   %689 = load i32, ptr %18, align 4
   %690 = load i32, ptr %19, align 4
   %691 = load i32, ptr %20, align 4
   %692 = load i32, ptr %24, align 4
-  %693 = call fastcc i32 @dissect_seid(ptr noundef %0, ptr noundef %1, ptr noundef %457, i32 noundef %.1505615, i32 noundef 0, i32 noundef %.0508614, ptr noundef null, i32 noundef %689, i32 noundef %690, i32 noundef %691, i32 noundef %692)
-  %694 = add i32 %.0508614, 1
+  %693 = call fastcc i32 @dissect_seid(ptr noundef %0, ptr noundef %1, ptr noundef %457, i32 noundef %.1505616, i32 noundef 0, i32 noundef %.0508615, ptr noundef null, i32 noundef %689, i32 noundef %690, i32 noundef %691, i32 noundef %692)
+  %694 = add i32 %.0508615, 1
   %695 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %693) #6
   %696 = icmp sgt i32 %695, 0
-  br i1 %696, label %.lr.ph616, label %.thread597, !llvm.loop !4
+  br i1 %696, label %.lr.ph617, label %.thread598, !llvm.loop !4
 
 697:                                              ; preds = %686
   %698 = load i32, ptr %18, align 4
@@ -2253,7 +2255,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %703 = load i32, ptr @hf_btavdtp_error_code, align 4
   %704 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %703, ptr noundef %0, i32 noundef %702, i32 noundef 1, i32 noundef 0) #6
   %705 = add i32 %702, 1
-  br label %.thread597
+  br label %.thread598
 
 706:                                              ; preds = %686
   %707 = getelementptr inbounds i8, ptr %1, i64 80
@@ -2262,7 +2264,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %710 = load i16, ptr %709, align 2
   %711 = and i16 %710, 8
   %.not565 = icmp eq i16 %711, 0
-  br i1 %.not565, label %712, label %.thread597
+  br i1 %.not565, label %712, label %.thread598
 
 712:                                              ; preds = %706
   %713 = getelementptr inbounds i8, ptr %.0503, i64 16
@@ -2312,7 +2314,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %741 = load ptr, ptr %713, align 8
   %742 = load i32, ptr %24, align 4
   call void @wmem_tree_insert32(ptr noundef %741, i32 noundef %742, ptr noundef nonnull %737) #6
-  br label %.thread597
+  br label %.thread598
 
 743:                                              ; preds = %495
   switch i8 %459, label %754 [
@@ -2326,13 +2328,13 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %747 = load i32, ptr %20, align 4
   %748 = load i32, ptr %24, align 4
   %749 = call fastcc i32 @dissect_seid(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %457, i32 noundef %494, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef %745, i32 noundef %746, i32 noundef %747, i32 noundef %748)
-  br label %.thread597
+  br label %.thread598
 
 750:                                              ; preds = %743
   %751 = load i32, ptr @hf_btavdtp_error_code, align 4
   %752 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %751, ptr noundef %0, i32 noundef %494, i32 noundef 1, i32 noundef 0) #6
   %753 = add nuw nsw i32 %.0504, 3
-  br label %.thread597
+  br label %.thread598
 
 754:                                              ; preds = %743
   %755 = getelementptr inbounds i8, ptr %1, i64 80
@@ -2343,42 +2345,42 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %760 = icmp eq i16 %759, 0
   %761 = icmp eq i8 %459, 2
   %or.cond3 = select i1 %760, i1 %761, i1 false
-  br i1 %or.cond3, label %762, label %.thread597
+  br i1 %or.cond3, label %762, label %.thread598
 
 762:                                              ; preds = %754
   %763 = getelementptr inbounds i8, ptr %.0503, i64 24
   %764 = load i32, ptr %763, align 8
   %765 = load i32, ptr %61, align 4
   %766 = icmp ugt i32 %764, %765
-  br i1 %766, label %767, label %.thread597
+  br i1 %766, label %767, label %.thread598
 
 767:                                              ; preds = %762
   store i32 %765, ptr %763, align 8
-  br label %.thread597
+  br label %.thread598
 
 768:                                              ; preds = %495
-  switch i8 %459, label %.thread597 [
-    i8 0, label %.preheader610
+  switch i8 %459, label %.thread598 [
+    i8 0, label %.preheader611
     i8 3, label %779
   ]
 
-.preheader610:                                    ; preds = %768
+.preheader611:                                    ; preds = %768
   %769 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %494) #6
   %770 = icmp sgt i32 %769, 0
-  br i1 %770, label %.lr.ph, label %.thread597
+  br i1 %770, label %.lr.ph, label %.thread598
 
-.lr.ph:                                           ; preds = %.preheader610, %.lr.ph
-  %.2506613 = phi i32 [ %775, %.lr.ph ], [ %494, %.preheader610 ]
-  %.1509612 = phi i32 [ %776, %.lr.ph ], [ 1, %.preheader610 ]
+.lr.ph:                                           ; preds = %.preheader611, %.lr.ph
+  %.2506614 = phi i32 [ %775, %.lr.ph ], [ %494, %.preheader611 ]
+  %.1509613 = phi i32 [ %776, %.lr.ph ], [ 1, %.preheader611 ]
   %771 = load i32, ptr %18, align 4
   %772 = load i32, ptr %19, align 4
   %773 = load i32, ptr %20, align 4
   %774 = load i32, ptr %24, align 4
-  %775 = call fastcc i32 @dissect_seid(ptr noundef %0, ptr noundef %1, ptr noundef %457, i32 noundef %.2506613, i32 noundef 0, i32 noundef %.1509612, ptr noundef null, i32 noundef %771, i32 noundef %772, i32 noundef %773, i32 noundef %774)
-  %776 = add i32 %.1509612, 1
+  %775 = call fastcc i32 @dissect_seid(ptr noundef %0, ptr noundef %1, ptr noundef %457, i32 noundef %.2506614, i32 noundef 0, i32 noundef %.1509613, ptr noundef null, i32 noundef %771, i32 noundef %772, i32 noundef %773, i32 noundef %774)
+  %776 = add i32 %.1509613, 1
   %777 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %775) #6
   %778 = icmp sgt i32 %777, 0
-  br i1 %778, label %.lr.ph, label %.thread597, !llvm.loop !6
+  br i1 %778, label %.lr.ph, label %.thread598, !llvm.loop !6
 
 779:                                              ; preds = %768
   %780 = load i32, ptr %18, align 4
@@ -2389,7 +2391,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %785 = load i32, ptr @hf_btavdtp_error_code, align 4
   %786 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %785, ptr noundef %0, i32 noundef %784, i32 noundef 1, i32 noundef 0) #6
   %787 = add i32 %784, 1
-  br label %.thread597
+  br label %.thread598
 
 788:                                              ; preds = %495
   switch i8 %459, label %799 [
@@ -2403,13 +2405,13 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %792 = load i32, ptr %20, align 4
   %793 = load i32, ptr %24, align 4
   %794 = call fastcc i32 @dissect_seid(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %457, i32 noundef %494, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef %790, i32 noundef %791, i32 noundef %792, i32 noundef %793)
-  br label %.thread597
+  br label %.thread598
 
 795:                                              ; preds = %788
   %796 = load i32, ptr @hf_btavdtp_error_code, align 4
   %797 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %796, ptr noundef %0, i32 noundef %494, i32 noundef 1, i32 noundef 0) #6
   %798 = add nuw nsw i32 %.0504, 3
-  br label %.thread597
+  br label %.thread598
 
 799:                                              ; preds = %788
   %800 = getelementptr inbounds i8, ptr %1, i64 80
@@ -2420,18 +2422,18 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %805 = icmp eq i16 %804, 0
   %806 = icmp eq i8 %459, 2
   %or.cond5 = select i1 %805, i1 %806, i1 false
-  br i1 %or.cond5, label %807, label %.thread597
+  br i1 %or.cond5, label %807, label %.thread598
 
 807:                                              ; preds = %799
   %808 = getelementptr inbounds i8, ptr %.0503, i64 24
   %809 = load i32, ptr %808, align 8
   %810 = load i32, ptr %61, align 4
   %811 = icmp ugt i32 %809, %810
-  br i1 %811, label %812, label %.thread597
+  br i1 %811, label %812, label %.thread598
 
 812:                                              ; preds = %807
   store i32 %810, ptr %808, align 8
-  br label %.thread597
+  br label %.thread598
 
 813:                                              ; preds = %495
   switch i8 %459, label %828 [
@@ -2449,23 +2451,23 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %821 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %820, ptr noundef %0, i32 noundef %819, i32 noundef -1, i32 noundef 0) #6
   %822 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %819) #6
   %823 = add i32 %822, %819
-  br label %.thread597
+  br label %.thread598
 
 824:                                              ; preds = %813
   %825 = load i32, ptr @hf_btavdtp_error_code, align 4
   %826 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %825, ptr noundef %0, i32 noundef %494, i32 noundef 1, i32 noundef 0) #6
   %827 = add nuw nsw i32 %.0504, 3
-  br label %.thread597
+  br label %.thread598
 
 828:                                              ; preds = %813
   %829 = load i32, ptr @hf_btavdtp_data, align 4
   %830 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %829, ptr noundef %0, i32 noundef %494, i32 noundef -1, i32 noundef 0) #6
   %831 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %494) #6
   %832 = add i32 %831, %494
-  br label %.thread597
+  br label %.thread598
 
 833:                                              ; preds = %495
-  switch i8 %459, label %.thread597 [
+  switch i8 %459, label %.thread598 [
     i8 0, label %834
     i8 3, label %848
   ]
@@ -2477,8 +2479,8 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %838 = udiv i16 %836, 10
   %.zext = zext nneg i16 %838 to i32
   %839 = urem i16 %836, 10
-  %.zext606 = zext nneg i16 %839 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %837, i32 noundef 25, ptr noundef nonnull @.str.495, i32 noundef %.zext, i32 noundef %.zext606) #6
+  %.zext607 = zext nneg i16 %839 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %837, i32 noundef 25, ptr noundef nonnull @.str.495, i32 noundef %.zext, i32 noundef %.zext607) #6
   %840 = load i32, ptr %18, align 4
   %841 = load i32, ptr %19, align 4
   %842 = load i32, ptr %20, align 4
@@ -2488,28 +2490,31 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %846 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %845, ptr noundef %0, i32 noundef %844, i32 noundef 2, i32 noundef 0) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %846, ptr noundef nonnull @.str.496) #6
   %847 = add i32 %844, 2
-  br label %.thread597
+  br label %.thread598
 
 848:                                              ; preds = %833
   %849 = load i32, ptr @hf_btavdtp_error_code, align 4
   %850 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %849, ptr noundef %0, i32 noundef %494, i32 noundef 1, i32 noundef 0) #6
   %851 = add nuw nsw i32 %.0504, 3
-  br label %.thread597
+  br label %.thread598
 
-.thread597:                                       ; preds = %.lr.ph, %.lr.ph616, %.preheader610, %.preheader, %674, %653, %608, %537, %833, %768, %686, %641, %595, %519, %496, %480, %799, %807, %812, %754, %762, %767, %706, %730, %668, %684, %680, %677, %642, %661, %658, %596, %616, %626, %613, %520, %571, %542, %848, %834, %828, %824, %814, %795, %789, %779, %750, %744, %697, %664, %634, %593, %589, %583, %575, %517, %513, %507, %501, %497, %495, %478, %45
-  %.3507 = phi i32 [ 0, %45 ], [ %.0504, %478 ], [ %494, %495 ], [ %847, %834 ], [ %851, %848 ], [ %823, %814 ], [ %827, %824 ], [ %832, %828 ], [ %794, %789 ], [ %798, %795 ], [ %494, %812 ], [ %494, %807 ], [ %494, %799 ], [ %787, %779 ], [ %749, %744 ], [ %753, %750 ], [ %494, %767 ], [ %494, %762 ], [ %494, %754 ], [ %705, %697 ], [ %494, %706 ], [ %494, %730 ], [ %647, %642 ], [ %647, %661 ], [ %647, %658 ], [ %667, %664 ], [ %494, %668 ], [ %494, %684 ], [ %494, %680 ], [ %494, %677 ], [ %602, %596 ], [ %602, %626 ], [ %602, %616 ], [ %602, %613 ], [ %640, %634 ], [ %588, %583 ], [ %592, %589 ], [ %594, %593 ], [ %531, %520 ], [ %531, %571 ], [ %531, %542 ], [ %581, %575 ], [ %512, %507 ], [ %516, %513 ], [ %518, %517 ], [ %494, %496 ], [ %500, %497 ], [ %505, %501 ], [ %494, %480 ], [ %494, %519 ], [ %494, %595 ], [ %494, %641 ], [ %494, %686 ], [ %494, %768 ], [ %494, %833 ], [ %531, %537 ], [ %602, %608 ], [ %647, %653 ], [ %494, %674 ], [ %494, %.preheader ], [ %494, %.preheader610 ], [ %693, %.lr.ph616 ], [ %775, %.lr.ph ]
-  %.0500 = phi ptr [ null, %45 ], [ %457, %478 ], [ %457, %495 ], [ %457, %834 ], [ %457, %848 ], [ %457, %814 ], [ %457, %824 ], [ %457, %828 ], [ %457, %789 ], [ %457, %795 ], [ %457, %812 ], [ %457, %807 ], [ %457, %799 ], [ %457, %779 ], [ %457, %744 ], [ %457, %750 ], [ %457, %767 ], [ %457, %762 ], [ %457, %754 ], [ %457, %697 ], [ %457, %706 ], [ %457, %730 ], [ %457, %642 ], [ %457, %661 ], [ %457, %658 ], [ %457, %664 ], [ %457, %668 ], [ %457, %684 ], [ %457, %680 ], [ %457, %677 ], [ %457, %596 ], [ %457, %626 ], [ %457, %616 ], [ %457, %613 ], [ %457, %634 ], [ %457, %583 ], [ %457, %589 ], [ %457, %593 ], [ %457, %520 ], [ %457, %571 ], [ %457, %542 ], [ %457, %575 ], [ %457, %507 ], [ %457, %513 ], [ %457, %517 ], [ %457, %496 ], [ %457, %497 ], [ %457, %501 ], [ %457, %480 ], [ %457, %519 ], [ %457, %595 ], [ %457, %641 ], [ %457, %686 ], [ %457, %768 ], [ %457, %833 ], [ %457, %537 ], [ %457, %608 ], [ %457, %653 ], [ %457, %674 ], [ %457, %.preheader ], [ %457, %.preheader610 ], [ %457, %.lr.ph616 ], [ %457, %.lr.ph ]
+default.unreachable:                              ; preds = %686, %641
+  unreachable
+
+.thread598:                                       ; preds = %.lr.ph, %.lr.ph617, %.preheader611, %.preheader, %674, %653, %608, %537, %686, %641, %833, %768, %595, %519, %496, %480, %799, %807, %812, %754, %762, %767, %706, %730, %668, %684, %680, %677, %642, %661, %658, %596, %616, %626, %613, %520, %571, %542, %848, %834, %828, %824, %814, %795, %789, %779, %750, %744, %697, %664, %634, %593, %589, %583, %575, %517, %513, %507, %501, %497, %495, %478, %45
+  %.3507 = phi i32 [ 0, %45 ], [ %.0504, %478 ], [ %494, %495 ], [ %847, %834 ], [ %851, %848 ], [ %823, %814 ], [ %827, %824 ], [ %832, %828 ], [ %794, %789 ], [ %798, %795 ], [ %494, %812 ], [ %494, %807 ], [ %494, %799 ], [ %787, %779 ], [ %749, %744 ], [ %753, %750 ], [ %494, %767 ], [ %494, %762 ], [ %494, %754 ], [ %705, %697 ], [ %494, %706 ], [ %494, %730 ], [ %647, %642 ], [ %647, %661 ], [ %647, %658 ], [ %667, %664 ], [ %494, %668 ], [ %494, %684 ], [ %494, %680 ], [ %494, %677 ], [ %602, %596 ], [ %602, %626 ], [ %602, %616 ], [ %602, %613 ], [ %640, %634 ], [ %588, %583 ], [ %592, %589 ], [ %594, %593 ], [ %531, %520 ], [ %531, %571 ], [ %531, %542 ], [ %581, %575 ], [ %512, %507 ], [ %516, %513 ], [ %518, %517 ], [ %494, %496 ], [ %500, %497 ], [ %505, %501 ], [ %494, %480 ], [ %494, %519 ], [ %494, %595 ], [ %494, %641 ], [ %494, %686 ], [ %494, %768 ], [ %494, %833 ], [ %531, %537 ], [ %602, %608 ], [ %647, %653 ], [ %494, %674 ], [ %494, %.preheader ], [ %494, %.preheader611 ], [ %693, %.lr.ph617 ], [ %775, %.lr.ph ]
+  %.0500 = phi ptr [ null, %45 ], [ %457, %478 ], [ %457, %495 ], [ %457, %834 ], [ %457, %848 ], [ %457, %814 ], [ %457, %824 ], [ %457, %828 ], [ %457, %789 ], [ %457, %795 ], [ %457, %812 ], [ %457, %807 ], [ %457, %799 ], [ %457, %779 ], [ %457, %744 ], [ %457, %750 ], [ %457, %767 ], [ %457, %762 ], [ %457, %754 ], [ %457, %697 ], [ %457, %706 ], [ %457, %730 ], [ %457, %642 ], [ %457, %661 ], [ %457, %658 ], [ %457, %664 ], [ %457, %668 ], [ %457, %684 ], [ %457, %680 ], [ %457, %677 ], [ %457, %596 ], [ %457, %626 ], [ %457, %616 ], [ %457, %613 ], [ %457, %634 ], [ %457, %583 ], [ %457, %589 ], [ %457, %593 ], [ %457, %520 ], [ %457, %571 ], [ %457, %542 ], [ %457, %575 ], [ %457, %507 ], [ %457, %513 ], [ %457, %517 ], [ %457, %496 ], [ %457, %497 ], [ %457, %501 ], [ %457, %480 ], [ %457, %519 ], [ %457, %595 ], [ %457, %641 ], [ %457, %686 ], [ %457, %768 ], [ %457, %833 ], [ %457, %537 ], [ %457, %608 ], [ %457, %653 ], [ %457, %674 ], [ %457, %.preheader ], [ %457, %.preheader611 ], [ %457, %.lr.ph617 ], [ %457, %.lr.ph ]
   %852 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3507) #6
   %853 = icmp sgt i32 %852, 0
   br i1 %853, label %854, label %857
 
-854:                                              ; preds = %.thread597
+854:                                              ; preds = %.thread598
   %855 = load i32, ptr @hf_btavdtp_data, align 4
   %856 = call ptr @proto_tree_add_item(ptr noundef %.0500, i32 noundef %855, ptr noundef %0, i32 noundef %.3507, i32 noundef -1, i32 noundef 0) #6
   br label %857
 
-857:                                              ; preds = %.thread597, %854, %443, %439
-  %.0 = phi i32 [ %453, %443 ], [ %440, %439 ], [ %.3507, %854 ], [ %.3507, %.thread597 ]
+857:                                              ; preds = %.thread598, %854, %443, %439
+  %.0 = phi i32 [ %453, %443 ], [ %440, %439 ], [ %.3507, %854 ], [ %.3507, %.thread598 ]
   ret i32 %.0
 }
 

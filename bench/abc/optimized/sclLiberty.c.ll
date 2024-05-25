@@ -11173,10 +11173,11 @@ Scl_LibertyItem.exit679:                          ; preds = %Scl_LibertyReadCell
 632:                                              ; preds = %628
   %633 = trunc nuw nsw i64 %indvars.iv850 to i32
   %634 = and i32 %633, 3
-  switch i32 %634, label %639 [
+  switch i32 %634, label %default.unreachable [
     i32 0, label %.sink.split
     i32 2, label %635
     i32 3, label %635
+    i32 1, label %639
   ]
 
 635:                                              ; preds = %632, %632
@@ -11188,6 +11189,9 @@ Scl_LibertyItem.exit679:                          ; preds = %Scl_LibertyReadCell
 638:                                              ; preds = %635
   tail call void @free(ptr noundef nonnull %637) #29
   br label %.sink.split
+
+default.unreachable:                              ; preds = %632
+  unreachable
 
 .sink.split:                                      ; preds = %638, %635, %632
   tail call void @free(ptr noundef nonnull %630) #29

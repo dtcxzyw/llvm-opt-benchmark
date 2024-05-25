@@ -1557,11 +1557,15 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$thrift..errors..Err
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = load i64, ptr %0, align 8, !range !381, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %5, label %7 [
+  switch i64 %5, label %default.unreachable4 [
     i64 0, label %29
     i64 1, label %37
     i64 2, label %45
+    i64 3, label %7
   ]
+
+default.unreachable4:                             ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   %.val = load ptr, ptr %6, align 8, !noundef !4

@@ -316,7 +316,7 @@ define internal void @"_ZN4core3ptr43drop_in_place$LT$uu_mktemp..MkTempError$GT$
   %11 = load i64, ptr %10, align 8, !range !6, !noundef !5
   %12 = xor i64 %11, -9223372036854775808
   %13 = tail call i64 @llvm.umin.i64(i64 %12, i64 7)
-  switch i64 %13, label %14 [
+  switch i64 %13, label %default.unreachable [
     i64 0, label %23
     i64 1, label %32
     i64 2, label %41
@@ -324,7 +324,11 @@ define internal void @"_ZN4core3ptr43drop_in_place$LT$uu_mktemp..MkTempError$GT$
     i64 4, label %59
     i64 5, label %68
     i64 6, label %77
+    i64 7, label %14
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 14:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !7
@@ -486,7 +490,7 @@ define internal void @"_ZN4core3ptr43drop_in_place$LT$uu_mktemp..MkTempError$GT$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !66
   br label %77
 
-77:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit12", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit10", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit8", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit6", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit4", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit2", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h03eaba53e25aec39E.exit", %1
+77:                                               ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit12", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit10", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit8", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit6", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit4", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h79f35fd72712ee8bE.exit2", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h03eaba53e25aec39E.exit"
   ret void
 
 78:                                               ; preds = %14

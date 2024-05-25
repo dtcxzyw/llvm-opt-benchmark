@@ -5689,7 +5689,7 @@ if.end.i.i:                                       ; preds = %while.body10.i.i, %
   %pos.2.i.i = phi ptr [ %0, %while.cond.preheader.i.i ], [ %0, %while.cond8.preheader.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ], [ %incdec.ptr11.i.i, %while.body10.i.i ]
   %h.2.i.i = phi i64 [ %xor.i.i, %while.cond.preheader.i.i ], [ %xor.i.i, %while.cond8.preheader.i.i ], [ %mul7.i.i, %while.body.i.i ], [ %mul19.i.i, %while.body10.i.i ]
   %and21.i.i = and i64 %conv, 7
-  switch i64 %and21.i.i, label %_ZL10fasthash32PKvmj.exit [
+  switch i64 %and21.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i
     i64 6, label %sw.bb23.i.i
     i64 5, label %sw.bb28.i.i
@@ -5697,6 +5697,7 @@ if.end.i.i:                                       ; preds = %while.body10.i.i, %
     i64 3, label %sw.bb38.i.i
     i64 2, label %sw.bb43.i.i
     i64 1, label %sw.bb48.i.i
+    i64 0, label %_ZL10fasthash32PKvmj.exit
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
@@ -5764,6 +5765,9 @@ sw.bb48.i.i:                                      ; preds = %sw.bb43.i.i, %if.en
   %xor57.i.i = xor i64 %15, %mul54.i.i
   %mul58.i.i = mul i64 %xor57.i.i, -8645972361240307355
   br label %_ZL10fasthash32PKvmj.exit
+
+default.unreachable:                              ; preds = %if.end.i.i
+  unreachable
 
 _ZL10fasthash32PKvmj.exit:                        ; preds = %if.end.i.i, %sw.bb48.i.i
   %h.3.i.i = phi i64 [ %h.2.i.i, %if.end.i.i ], [ %mul58.i.i, %sw.bb48.i.i ]

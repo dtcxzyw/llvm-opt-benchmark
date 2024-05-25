@@ -267,11 +267,15 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$serde_plain..error..Error$
   %5 = xor i64 %4, -9223372036854775808
   %6 = icmp ult i64 %5, 4
   %7 = select i1 %6, i64 %5, i64 2
-  switch i64 %7, label %8 [
+  switch i64 %7, label %.unreachabledefault [
     i64 0, label %18
     i64 1, label %18
     i64 2, label %19
+    i64 3, label %8
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -297,7 +301,7 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$serde_plain..error..Error$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !25
   br label %18
 
-18:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8b0b401650d5ef36E.exit2", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8b0b401650d5ef36E.exit", %1, %1
+18:                                               ; preds = %1, %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8b0b401650d5ef36E.exit2", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8b0b401650d5ef36E.exit"
   ret void
 
 19:                                               ; preds = %1

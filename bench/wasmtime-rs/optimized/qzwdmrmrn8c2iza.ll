@@ -36281,15 +36281,19 @@ common.resume:                                    ; preds = %.body, %84, %15, %2
   br i1 %60, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8244fd1e12f4e79eE.llvm.5456684732158232753.exit.i", label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i"
-  %.0.i7 = phi i64 [ %62, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i" ], [ 0, %54 ]
-  %61 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %57, i64 0, i64 %.0.i7
-  %62 = add nuw i64 %.0.i7, 1
+  %.0.i8 = phi i64 [ %62, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i" ], [ 0, %54 ]
+  %61 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %57, i64 0, i64 %.0.i8
+  %62 = add nuw i64 %.0.i8, 1
   %63 = load i64, ptr %61, align 8, !range !890, !alias.scope !14781, !noalias !14775, !noundef !4
-  switch i64 %63, label %64 [
+  switch i64 %63, label %default.unreachable17 [
     i64 0, label %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i"
     i64 1, label %66
     i64 2, label %68
+    i64 3, label %64
   ]
+
+default.unreachable17:                            ; preds = %.lr.ph
+  unreachable
 
 64:                                               ; preds = %.lr.ph
   %65 = getelementptr inbounds i8, ptr %61, i64 8
@@ -38377,15 +38381,19 @@ common.resume:                                    ; preds = %.body116, %412, %.b
   br i1 %302, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8244fd1e12f4e79eE.llvm.5456684732158232753.exit.i", label %.lr.ph
 
 .lr.ph:                                           ; preds = %296, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i"
-  %.0.i126 = phi i64 [ %304, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i" ], [ 0, %296 ]
-  %303 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %299, i64 0, i64 %.0.i126
-  %304 = add nuw i64 %.0.i126, 1
+  %.0.i127 = phi i64 [ %304, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i" ], [ 0, %296 ]
+  %303 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %299, i64 0, i64 %.0.i127
+  %304 = add nuw i64 %.0.i127, 1
   %305 = load i64, ptr %303, align 8, !range !890, !alias.scope !15682, !noalias !15676, !noundef !4
-  switch i64 %305, label %306 [
+  switch i64 %305, label %default.unreachable164 [
     i64 0, label %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i"
     i64 1, label %308
     i64 2, label %310
+    i64 3, label %306
   ]
+
+default.unreachable164:                           ; preds = %.lr.ph
+  unreachable
 
 306:                                              ; preds = %.lr.ph
   %307 = getelementptr inbounds i8, ptr %303, i64 8
@@ -39858,11 +39866,15 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..SpecialNa
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753"(ptr noalias noundef align 8 dereferenceable(128) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !890, !noundef !4
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$cpp_demangle..ast..TemplateArg$GT$$GT$17h4457de8e8ea7fa48E.exit"
     i64 1, label %37
     i64 2, label %39
+    i64 3, label %3
   ]
+
+default.unreachable:                              ; preds = %.lr.ph, %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -39875,14 +39887,15 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateA
   br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8244fd1e12f4e79eE.llvm.5456684732158232753.exit.i", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i"
-  %.0.i1 = phi i64 [ %11, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i" ], [ 0, %3 ]
-  %10 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %6, i64 0, i64 %.0.i1
-  %11 = add nuw i64 %.0.i1, 1
+  %.0.i2 = phi i64 [ %11, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i" ], [ 0, %3 ]
+  %10 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %6, i64 0, i64 %.0.i2
+  %11 = add nuw i64 %.0.i2, 1
   %12 = load i64, ptr %10, align 8, !range !890, !alias.scope !16283, !noalias !16277, !noundef !4
-  switch i64 %12, label %13 [
+  switch i64 %12, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i"
     i64 1, label %15
     i64 2, label %17
+    i64 3, label %13
   ]
 
 13:                                               ; preds = %.lr.ph
@@ -39953,7 +39966,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateA
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %36, i64 noundef 8) #34, !noalias !16311
   br label %"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$cpp_demangle..ast..TemplateArg$GT$$GT$17h4457de8e8ea7fa48E.exit"
 
-"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$cpp_demangle..ast..TemplateArg$GT$$GT$17h4457de8e8ea7fa48E.exit": ; preds = %43, %39, %35, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8244fd1e12f4e79eE.llvm.5456684732158232753.exit.i", %37, %1
+"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$cpp_demangle..ast..TemplateArg$GT$$GT$17h4457de8e8ea7fa48E.exit": ; preds = %43, %39, %35, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8244fd1e12f4e79eE.llvm.5456684732158232753.exit.i", %1, %37
   ret void
 
 37:                                               ; preds = %1
@@ -45798,15 +45811,19 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$$u5b$cpp_demangle..ast..Temp
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit"
-  %.09 = phi i64 [ %5, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %0, i64 0, i64 %.09
-  %5 = add nuw i64 %.09, 1
+  %.010 = phi i64 [ %5, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit" ], [ 0, %2 ]
+  %4 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %0, i64 0, i64 %.010
+  %5 = add nuw i64 %.010, 1
   %6 = load i64, ptr %4, align 8, !range !890, !alias.scope !19067, !noundef !4
-  switch i64 %6, label %7 [
+  switch i64 %6, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit"
     i64 1, label %9
     i64 2, label %11
+    i64 3, label %7
   ]
+
+default.unreachable:                              ; preds = %.lr.ph
+  unreachable
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds i8, ptr %4, i64 8
@@ -57328,15 +57345,19 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$cpp_deman
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8244fd1e12f4e79eE.llvm.5456684732158232753.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i"
-  %.0.i2 = phi i64 [ %8, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %3, i64 0, i64 %.0.i2
-  %8 = add nuw i64 %.0.i2, 1
+  %.0.i3 = phi i64 [ %8, %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %3, i64 0, i64 %.0.i3
+  %8 = add nuw i64 %.0.i3, 1
   %9 = load i64, ptr %7, align 8, !range !890, !alias.scope !25259, !noundef !4
-  switch i64 %9, label %10 [
+  switch i64 %9, label %default.unreachable12 [
     i64 0, label %"_ZN4core3ptr51drop_in_place$LT$cpp_demangle..ast..TemplateArg$GT$17hfd37ad5845e29be7E.llvm.5456684732158232753.exit.i"
     i64 1, label %12
     i64 2, label %14
+    i64 3, label %10
   ]
+
+default.unreachable12:                            ; preds = %.lr.ph
+  unreachable
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds i8, ptr %7, i64 8

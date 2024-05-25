@@ -20549,9 +20549,9 @@ if.end3:                                          ; preds = %if.end13.i, %entry
   store i32 0, ptr %code_buffer, align 8
   %hit_zeof_once = getelementptr inbounds i8, ptr %a, i64 20
   store i32 0, ptr %hit_zeof_once, align 4
+  %zbuffer_end.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %z_length = getelementptr inbounds i8, ptr %a, i64 60
   %z_distance = getelementptr inbounds i8, ptr %a, i64 2080
-  %zbuffer_end.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 8
   br label %do.body
 
 do.bodythread-pre-split:                          ; preds = %do.cond
@@ -20660,10 +20660,11 @@ stbi__zreceive.exit41:                            ; preds = %stbi__zget8.exit.i.
   store i32 %shr.i22, ptr %code_buffer, align 8
   %sub3.i23 = add nsw i32 %24, -2
   store i32 %sub3.i23, ptr %num_bits, align 8
-  switch i32 %and.i21, label %if.else24 [
+  switch i32 %and.i21, label %default.unreachable [
     i32 0, label %if.then6
     i32 3, label %return
     i32 1, label %if.then15
+    i32 2, label %if.else24
   ]
 
 if.then6:                                         ; preds = %stbi__zreceive.exit41
@@ -20681,6 +20682,9 @@ if.end19:                                         ; preds = %if.then15
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %if.end29
 
+default.unreachable:                              ; preds = %stbi__zreceive.exit41
+  unreachable
+
 if.else24:                                        ; preds = %stbi__zreceive.exit41
   %call25 = tail call i32 @stbi__compute_huffman_codes(ptr noundef nonnull %a)
   %tobool26.not = icmp eq i32 %call25, 0
@@ -20695,7 +20699,7 @@ do.cond:                                          ; preds = %if.then6, %if.end29
   %tobool36.not = icmp eq i32 %and.i1463, 0
   br i1 %tobool36.not, label %do.bodythread-pre-split, label %return, !llvm.loop !174
 
-return:                                           ; preds = %do.cond, %if.end29, %if.else24, %if.end19, %if.then15, %stbi__zreceive.exit41, %if.then6, %stbi__parse_zlib_header.exit.thread
+return:                                           ; preds = %stbi__zreceive.exit41, %do.cond, %if.end29, %if.else24, %if.end19, %if.then15, %if.then6, %stbi__parse_zlib_header.exit.thread
   %retval.0 = phi i32 [ 0, %stbi__parse_zlib_header.exit.thread ], [ 1, %do.cond ], [ 0, %if.end29 ], [ 0, %if.else24 ], [ 0, %if.end19 ], [ 0, %if.then15 ], [ 0, %stbi__zreceive.exit41 ], [ 0, %if.then6 ]
   ret i32 %retval.0
 }

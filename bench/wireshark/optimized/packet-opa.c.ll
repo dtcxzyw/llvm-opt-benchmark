@@ -632,10 +632,11 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %73, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %1, i64 224
   store ptr null, ptr %78, align 8
-  switch i8 %55, label %.critedge [
+  switch i8 %55, label %default.unreachable [
     i8 3, label %79
     i8 2, label %104
     i8 1, label %203
+    i8 0, label %.critedge
   ]
 
 79:                                               ; preds = %28
@@ -1087,6 +1088,9 @@ find_next_header_sequence.exit.thread..critedge_crit_edge: ; preds = %.lr.ph.i75
   %242 = tail call i32 @call_dissector(ptr noundef %241, ptr noundef %240, ptr noundef %1, ptr noundef %38) #5
   %243 = add i32 %.0191, %233
   br label %.critedge
+
+default.unreachable:                              ; preds = %28
+  unreachable
 
 .critedge:                                        ; preds = %find_next_header_sequence.exit.thread..critedge_crit_edge, %28, %203, %79, %239, %.thread
   %244 = phi i32 [ %.pre, %find_next_header_sequence.exit.thread..critedge_crit_edge ], [ 8, %28 ], [ %209, %203 ], [ 48, %79 ], [ %243, %239 ], [ %233, %.thread ]

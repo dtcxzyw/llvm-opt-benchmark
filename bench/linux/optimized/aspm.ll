@@ -343,20 +343,20 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
 
 157:                                              ; preds = %144
   %158 = icmp eq i16 %153, 0
-  br i1 %158, label %169, label %.preheader10.i
+  br i1 %158, label %169, label %.preheader16.i
 
-.preheader10.i:                                   ; preds = %157, %162
+.preheader16.i:                                   ; preds = %157, %162
   %159 = phi ptr [ %160, %162 ], [ %138, %157 ]
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, %138
-  br i1 %161, label %.loopexit11.i, label %162
+  br i1 %161, label %.loopexit17.i, label %162
 
-162:                                              ; preds = %.preheader10.i
+162:                                              ; preds = %.preheader16.i
   %163 = call i32 @pcie_capability_read_word(ptr noundef %160, i32 noundef 16, ptr noundef nonnull %12) #14
   %164 = load i16, ptr %12, align 2
   %165 = and i16 %164, 64
   %166 = icmp eq i16 %165, 0
-  br i1 %166, label %167, label %.preheader10.i, !llvm.loop !13
+  br i1 %166, label %167, label %.preheader16.i, !llvm.loop !13
 
 167:                                              ; preds = %162
   %168 = getelementptr inbounds i8, ptr %135, i64 184
@@ -367,10 +367,10 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %170 = phi i16 [ 64, %167 ], [ 64, %157 ], [ 0, %144 ]
   %171 = load ptr, ptr %138, align 8
   %172 = icmp eq ptr %171, %138
-  br i1 %172, label %.loopexit9.i, label %.preheader8.i
+  br i1 %172, label %.loopexit15.i, label %.preheader14.i
 
-.preheader8.i:                                    ; preds = %169, %.preheader8.i
-  %173 = phi ptr [ %183, %.preheader8.i ], [ %171, %169 ]
+.preheader14.i:                                   ; preds = %169, %.preheader14.i
+  %173 = phi ptr [ %183, %.preheader14.i ], [ %171, %169 ]
   %174 = call i32 @pcie_capability_read_word(ptr noundef %173, i32 noundef 16, ptr noundef nonnull %12) #14
   %175 = load i16, ptr %12, align 2
   %176 = and i16 %175, 64
@@ -383,24 +383,24 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %182 = call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %173, i32 noundef 16, i16 noundef zeroext 64, i16 noundef zeroext %170) #14
   %183 = load ptr, ptr %173, align 8
   %184 = icmp eq ptr %183, %138
-  br i1 %184, label %.loopexit9.i, label %.preheader8.i, !llvm.loop !14
+  br i1 %184, label %.loopexit15.i, label %.preheader14.i, !llvm.loop !14
 
-.loopexit9.i:                                     ; preds = %.preheader8.i, %169
+.loopexit15.i:                                    ; preds = %.preheader14.i, %169
   %185 = call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %135, i32 noundef 16, i16 noundef zeroext 64, i16 noundef zeroext %170) #14
   %186 = load ptr, ptr %73, align 8
   %187 = call i32 @pcie_retrain_link(ptr noundef %186, i1 noundef zeroext true) #14
   %188 = icmp eq i32 %187, 0
-  br i1 %188, label %.loopexit11.i, label %189
+  br i1 %188, label %.loopexit17.i, label %189
 
-189:                                              ; preds = %.loopexit9.i
+189:                                              ; preds = %.loopexit15.i
   %190 = getelementptr inbounds i8, ptr %135, i64 184
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %190, ptr noundef nonnull @.str.5) #15
   %191 = load ptr, ptr %138, align 8
   %192 = icmp eq ptr %191, %138
-  br i1 %192, label %.loopexit7.i, label %.preheader6.i
+  br i1 %192, label %.loopexit13.i, label %.preheader12.i
 
-.preheader6.i:                                    ; preds = %189, %.preheader6.i
-  %193 = phi ptr [ %201, %.preheader6.i ], [ %191, %189 ]
+.preheader12.i:                                   ; preds = %189, %.preheader12.i
+  %193 = phi ptr [ %201, %.preheader12.i ], [ %191, %189 ]
   %194 = getelementptr inbounds i8, ptr %193, i64 56
   %195 = load i32, ptr %194, align 8
   %196 = and i32 %195, 7
@@ -410,13 +410,13 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %200 = call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %193, i32 noundef 16, i16 noundef zeroext 64, i16 noundef zeroext %199) #14
   %201 = load ptr, ptr %193, align 8
   %202 = icmp eq ptr %201, %138
-  br i1 %202, label %.loopexit7.i, label %.preheader6.i, !llvm.loop !15
+  br i1 %202, label %.loopexit13.i, label %.preheader12.i, !llvm.loop !15
 
-.loopexit7.i:                                     ; preds = %.preheader6.i, %189
+.loopexit13.i:                                    ; preds = %.preheader12.i, %189
   %203 = call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %135, i32 noundef 16, i16 noundef zeroext 64, i16 noundef zeroext %153) #14
-  br label %.loopexit11.i
+  br label %.loopexit17.i
 
-.loopexit11.i:                                    ; preds = %.preheader10.i, %.loopexit7.i, %.loopexit9.i
+.loopexit17.i:                                    ; preds = %.preheader16.i, %.loopexit13.i, %.loopexit15.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #14
   %204 = call i32 @pcie_capability_read_dword(ptr noundef %116, i32 noundef 12, ptr noundef nonnull %14) #14
@@ -430,14 +430,14 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %217, label %213
 
-213:                                              ; preds = %.loopexit11.i
+213:                                              ; preds = %.loopexit17.i
   %214 = getelementptr inbounds i8, ptr %73, i64 48
   %215 = load i32, ptr %214, align 8
   %216 = or i32 %215, 3
   store i32 %216, ptr %214, align 8
   br label %217
 
-217:                                              ; preds = %213, %.loopexit11.i
+217:                                              ; preds = %213, %.loopexit17.i
   %218 = load i16, ptr %17, align 2
   %219 = and i16 %218, 1
   %220 = icmp eq i16 %219, 0
@@ -656,28 +656,28 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %347 = and i32 %332, 2
   %348 = icmp eq i32 %347, 0
   %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %73, i64 48
-  %.pre12.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 8
+  %.pre18.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 8
   br i1 %348, label %._crit_edge12, label %349
 
 349:                                              ; preds = %346
-  %350 = or i32 %.pre12.i.pre, 4096
+  %350 = or i32 %.pre18.i.pre, 4096
   store i32 %350, ptr %.phi.trans.insert.i.phi.trans.insert, align 8
   br label %._crit_edge12
 
 ._crit_edge12:                                    ; preds = %346, %349
-  %.pre12.i = phi i32 [ %350, %349 ], [ %.pre12.i.pre, %346 ]
+  %.pre18.i = phi i32 [ %350, %349 ], [ %.pre18.i.pre, %346 ]
   %351 = and i32 %332, 1
   %352 = icmp eq i32 %351, 0
   br i1 %352, label %._crit_edge.i, label %353
 
 353:                                              ; preds = %._crit_edge12
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %73, i64 48
-  %354 = or i32 %.pre12.i, 8192
+  %354 = or i32 %.pre18.i, 8192
   store i32 %354, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %353, %._crit_edge12
-  %355 = phi i32 [ %354, %353 ], [ %.pre12.i, %._crit_edge12 ]
+  %355 = phi i32 [ %354, %353 ], [ %.pre18.i, %._crit_edge12 ]
   %356 = and i32 %355, 80
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %512, label %358
@@ -708,10 +708,11 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %373 = and i32 %372, 31
   %374 = lshr i32 %360, 16
   %375 = and i32 %374, 3
-  switch i32 %371, label %382 [
+  switch i32 %371, label %default.unreachable [
     i32 0, label %376
     i32 1, label %378
     i32 2, label %380
+    i32 3, label %382
   ]
 
 376:                                              ; preds = %358
@@ -726,17 +727,21 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %381 = mul nuw nsw i32 %369, 100
   br label %384
 
+default.unreachable:                              ; preds = %409, %397, %384, %358
+  unreachable
+
 382:                                              ; preds = %358
   %383 = getelementptr inbounds i8, ptr %362, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %383, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef %371) #15
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %383, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
   br label %384
 
 384:                                              ; preds = %382, %380, %378, %376
   %385 = phi i32 [ 0, %382 ], [ %381, %380 ], [ %379, %378 ], [ %377, %376 ]
-  switch i32 %375, label %392 [
+  switch i32 %375, label %default.unreachable [
     i32 0, label %386
     i32 1, label %388
     i32 2, label %390
+    i32 3, label %392
   ]
 
 386:                                              ; preds = %384
@@ -753,7 +758,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
 
 392:                                              ; preds = %384
   %393 = getelementptr inbounds i8, ptr %361, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %393, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef %375) #15
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %393, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
   br label %394
 
 394:                                              ; preds = %392, %390, %388, %386
@@ -765,10 +770,11 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %398 = shl nuw nsw i32 %368, 3
   %399 = and i32 %398, 248
   %400 = or disjoint i32 %399, %371
-  switch i32 %371, label %407 [
+  switch i32 %371, label %default.unreachable [
     i32 0, label %401
     i32 1, label %403
     i32 2, label %405
+    i32 3, label %407
   ]
 
 401:                                              ; preds = %397
@@ -785,17 +791,18 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
 
 407:                                              ; preds = %397
   %408 = getelementptr inbounds i8, ptr %362, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %408, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef %371) #15
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %408, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
   br label %421
 
 409:                                              ; preds = %394
   %410 = shl nuw nsw i32 %372, 3
   %411 = and i32 %410, 248
   %412 = or disjoint i32 %411, %375
-  switch i32 %375, label %419 [
+  switch i32 %375, label %default.unreachable [
     i32 0, label %413
     i32 1, label %415
     i32 2, label %417
+    i32 3, label %419
   ]
 
 413:                                              ; preds = %409
@@ -812,7 +819,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
 
 419:                                              ; preds = %409
   %420 = getelementptr inbounds i8, ptr %361, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %420, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef %375) #15
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %420, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
   br label %421
 
 421:                                              ; preds = %419, %417, %415, %413, %407, %405, %403, %401

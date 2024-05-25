@@ -2937,7 +2937,7 @@ for.body.i:                                       ; preds = %invoke.cont44.i
   %conv51.i = sext i32 %div.i to i64
   %ySampling.i = getelementptr inbounds i8, ptr %c.sroa.0.0.i, i64 296
   %23 = load i32, ptr %ySampling.i, align 4
-  switch i32 %rem.i, label %default.unreachable [
+  switch i32 %rem.i, label %for.body.i.unreachabledefault [
     i32 0, label %invoke.cont46.i
     i32 1, label %invoke.cont62.i
     i32 2, label %invoke.cont81.i
@@ -3009,7 +3009,10 @@ invoke.cont97.invoke.i:                           ; preds = %invoke.cont81.i, %i
   invoke void @_ZN7Imf_3_211FrameBuffer6insertEPKcRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %i.i, ptr noundef nonnull %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(50) %30)
           to label %sw.epilog.i unwind label %lpad31.loopexit.split-lp.loopexit.i
 
-default.unreachable:                              ; preds = %for.body.i, %for.body.i113
+for.body.i.unreachabledefault:                    ; preds = %for.body.i
+  unreachable
+
+default.unreachable:                              ; preds = %for.body.i113
   unreachable
 
 sw.epilog.i:                                      ; preds = %invoke.cont97.invoke.i
@@ -6381,7 +6384,7 @@ invoke.cont73:                                    ; preds = %invoke.cont60
   invoke void @_ZN7Imf_3_211FrameBuffer6insertEPKcRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %i, ptr noundef nonnull %_M_storage.i.i.i73, ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp62)
           to label %invoke.cont76 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit
 
-invoke.cont76:                                    ; preds = %for.body, %invoke.cont73
+invoke.cont76:                                    ; preds = %invoke.cont73, %for.body
   %xSampling81 = getelementptr inbounds i8, ptr %c.sroa.0.0, i64 292
   %17 = load i32, ptr %xSampling81, align 4
   %div8238 = sdiv i32 %1, %17

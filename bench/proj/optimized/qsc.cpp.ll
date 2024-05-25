@@ -852,10 +852,11 @@ _ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit: ; preds = %_ZL26qsc_shi
   %188 = fsub double 1.000000e+00, %187
   %189 = fdiv double %183, %188
   %190 = tail call double @sqrt(double noundef %189) #8
-  switch i32 %.4, label %197 [
+  switch i32 %.4, label %default.unreachable [
     i32 1, label %191
     i32 2, label %193
     i32 3, label %195
+    i32 0, label %197
   ]
 
 191:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
@@ -869,6 +870,9 @@ _ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit: ; preds = %_ZL26qsc_shi
 195:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
   %196 = fadd double %177, 0x4012D97C7F3321D2
   br label %197
+
+default.unreachable:                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
+  unreachable
 
 197:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, %193, %195, %191
   %.095 = phi double [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %177, %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit ]

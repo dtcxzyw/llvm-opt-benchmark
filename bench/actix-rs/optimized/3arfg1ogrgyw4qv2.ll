@@ -1278,11 +1278,15 @@ define internal void @"_ZN4core3ptr58drop_in_place$LT$http..header..name..Invali
 define hidden void @"_ZN4core3ptr66drop_in_place$LT$actix_http..encoding..decoder..ContentDecoder$GT$17h7ca8d0b9ce5c42fcE.llvm.926505738866763462"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !12, !noundef !11
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %8
     i64 1, label %12
     i64 2, label %16
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)

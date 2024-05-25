@@ -534,10 +534,11 @@ define dso_local i64 @ZSTD_getFrameHeader_advanced(ptr nocapture noundef writeon
 78:                                               ; preds = %.thread, %61
   %79 = phi i64 [ %6, %61 ], [ %67, %.thread ]
   %80 = phi i64 [ 0, %61 ], [ %77, %.thread ]
-  switch i32 %55, label %95 [
+  switch i32 %55, label %default.unreachable8 [
     i32 3, label %91
     i32 1, label %81
     i32 2, label %86
+    i32 0, label %95
   ]
 
 81:                                               ; preds = %78
@@ -560,13 +561,17 @@ define dso_local i64 @ZSTD_getFrameHeader_advanced(ptr nocapture noundef writeon
   %94 = add nuw nsw i64 %79, 4
   br label %95
 
-95:                                               ; preds = %91, %86, %81, %78
+default.unreachable8:                             ; preds = %95, %78
+  unreachable
+
+95:                                               ; preds = %78, %91, %86, %81
   %96 = phi i64 [ %79, %78 ], [ %90, %86 ], [ %85, %81 ], [ %94, %91 ]
-  %97 = phi i32 [ 0, %78 ], [ %89, %86 ], [ %84, %81 ], [ %93, %91 ]
-  switch i32 %58, label %98 [
+  %97 = phi i32 [ %55, %78 ], [ %89, %86 ], [ %84, %81 ], [ %93, %91 ]
+  switch i32 %58, label %default.unreachable8 [
     i32 3, label %112
     i32 1, label %103
     i32 2, label %108
+    i32 0, label %98
   ]
 
 98:                                               ; preds = %95

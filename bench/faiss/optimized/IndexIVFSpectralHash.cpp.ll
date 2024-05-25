@@ -7166,7 +7166,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 7
-  switch i32 %6, label %7 [
+  switch i32 %6, label %default.unreachable92 [
     i32 7, label %21
     i32 6, label %32
     i32 5, label %43
@@ -7174,12 +7174,16 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
     i32 3, label %65
     i32 2, label %76
     i32 1, label %87
+    i32 0, label %7
   ]
+
+default.unreachable92:                            ; preds = %2
+  unreachable
 
 7:                                                ; preds = %2, %87
   %.083 = phi i32 [ %5, %2 ], [ %.790, %87 ]
-  %.075 = phi i32 [ 0, %2 ], [ %97, %87 ]
-  %.0 = phi i32 [ 0, %2 ], [ %96, %87 ]
+  %.075 = phi i32 [ %6, %2 ], [ %97, %87 ]
+  %.0 = phi i32 [ %6, %2 ], [ %96, %87 ]
   %8 = icmp sgt i32 %.083, 7
   br i1 %8, label %9, label %98
 
@@ -7197,7 +7201,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %20 = add nsw i32 %.075, 1
   br label %21
 
-21:                                               ; preds = %9, %2
+21:                                               ; preds = %2, %9
   %.184 = phi i32 [ %10, %9 ], [ %5, %2 ]
   %.176 = phi i32 [ %20, %9 ], [ 0, %2 ]
   %.1 = phi i32 [ %19, %9 ], [ 0, %2 ]
@@ -7213,7 +7217,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %31 = add nsw i32 %.176, 1
   br label %32
 
-32:                                               ; preds = %21, %2
+32:                                               ; preds = %2, %21
   %.285 = phi i32 [ %.184, %21 ], [ %5, %2 ]
   %.277 = phi i32 [ %31, %21 ], [ 0, %2 ]
   %.2 = phi i32 [ %30, %21 ], [ 0, %2 ]
@@ -7229,7 +7233,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %42 = add nsw i32 %.277, 1
   br label %43
 
-43:                                               ; preds = %32, %2
+43:                                               ; preds = %2, %32
   %.386 = phi i32 [ %.285, %32 ], [ %5, %2 ]
   %.378 = phi i32 [ %42, %32 ], [ 0, %2 ]
   %.3 = phi i32 [ %41, %32 ], [ 0, %2 ]
@@ -7245,7 +7249,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %53 = add nsw i32 %.378, 1
   br label %54
 
-54:                                               ; preds = %43, %2
+54:                                               ; preds = %2, %43
   %.487 = phi i32 [ %.386, %43 ], [ %5, %2 ]
   %.479 = phi i32 [ %53, %43 ], [ 0, %2 ]
   %.4 = phi i32 [ %52, %43 ], [ 0, %2 ]
@@ -7261,7 +7265,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %64 = add nsw i32 %.479, 1
   br label %65
 
-65:                                               ; preds = %54, %2
+65:                                               ; preds = %2, %54
   %.588 = phi i32 [ %.487, %54 ], [ %5, %2 ]
   %.580 = phi i32 [ %64, %54 ], [ 0, %2 ]
   %.5 = phi i32 [ %63, %54 ], [ 0, %2 ]
@@ -7277,7 +7281,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %75 = add nsw i32 %.580, 1
   br label %76
 
-76:                                               ; preds = %65, %2
+76:                                               ; preds = %2, %65
   %.689 = phi i32 [ %.588, %65 ], [ %5, %2 ]
   %.681 = phi i32 [ %75, %65 ], [ 0, %2 ]
   %.6 = phi i32 [ %74, %65 ], [ 0, %2 ]
@@ -7293,7 +7297,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %86 = add nsw i32 %.681, 1
   br label %87
 
-87:                                               ; preds = %76, %2
+87:                                               ; preds = %2, %76
   %.790 = phi i32 [ %.689, %76 ], [ %5, %2 ]
   %.782 = phi i32 [ %86, %76 ], [ 0, %2 ]
   %.7 = phi i32 [ %85, %76 ], [ 0, %2 ]

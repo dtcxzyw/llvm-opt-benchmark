@@ -79,10 +79,11 @@ for.end:                                          ; preds = %for.body, %entry
   %mul27 = ashr exact i64 %sext, 30
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %mul27
   %and = and i64 %len, 3
-  switch i64 %and, label %sw.epilog [
+  switch i64 %and, label %default.unreachable48 [
     i64 3, label %sw.bb
     i64 2, label %sw.bb32
     i64 1, label %sw.bb37
+    i64 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -92,7 +93,7 @@ sw.bb:                                            ; preds = %for.end
   %shl30 = shl nsw i32 %conv29, 16
   br label %sw.bb32
 
-sw.bb32:                                          ; preds = %sw.bb, %for.end
+sw.bb32:                                          ; preds = %for.end, %sw.bb
   %k1.0 = phi i32 [ 0, %for.end ], [ %shl30, %sw.bb ]
   %arrayidx33 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   %9 = load i8, ptr %arrayidx33, align 1
@@ -101,7 +102,7 @@ sw.bb32:                                          ; preds = %sw.bb, %for.end
   %xor36 = xor i32 %shl35, %k1.0
   br label %sw.bb37
 
-sw.bb37:                                          ; preds = %sw.bb32, %for.end
+sw.bb37:                                          ; preds = %for.end, %sw.bb32
   %k1.1 = phi i32 [ 0, %for.end ], [ %xor36, %sw.bb32 ]
   %10 = load i8, ptr %add.ptr, align 1
   %conv39 = sext i8 %10 to i32
@@ -112,7 +113,10 @@ sw.bb37:                                          ; preds = %sw.bb32, %for.end
   %xor45 = xor i32 %mul44, %seed.addr.0.lcssa
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb37, %for.end
+default.unreachable48:                            ; preds = %for.end
+  unreachable
+
+sw.epilog:                                        ; preds = %for.end, %sw.bb37
   %seed.addr.1 = phi i32 [ %seed.addr.0.lcssa, %for.end ], [ %xor45, %sw.bb37 ]
   %conv46 = trunc i64 %len to i32
   %xor47 = xor i32 %seed.addr.1, %conv46
@@ -181,10 +185,11 @@ for.end.i:                                        ; preds = %for.body.i, %entry
   %mul27.i = ashr exact i64 %sext.i, 30
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %mul27.i
   %and.i = and i64 %len, 3
-  switch i64 %and.i, label %murmur3_seeded.exit [
+  switch i64 %and.i, label %default.unreachable [
     i64 3, label %sw.bb.i
     i64 2, label %sw.bb32.i
     i64 1, label %sw.bb37.i
+    i64 0, label %murmur3_seeded.exit
   ]
 
 sw.bb.i:                                          ; preds = %for.end.i
@@ -214,6 +219,9 @@ sw.bb37.i:                                        ; preds = %sw.bb32.i, %for.end
   %xor45.i = xor i32 %mul44.i, %seed.addr.0.lcssa.i
   br label %murmur3_seeded.exit
 
+default.unreachable:                              ; preds = %for.end.i11, %for.end.i
+  unreachable
+
 murmur3_seeded.exit:                              ; preds = %for.end.i, %sw.bb37.i
   %seed.addr.1.i = phi i32 [ %seed.addr.0.lcssa.i, %for.end.i ], [ %xor45.i, %sw.bb37.i ]
   %conv46.i = trunc i64 %len to i32
@@ -226,54 +234,55 @@ murmur3_seeded.exit:                              ; preds = %for.end.i, %sw.bb37
   %mul52.i = mul i32 %xor51.i, -1028477387
   %shr53.i = lshr i32 %mul52.i, 16
   %xor54.i = xor i32 %shr53.i, %mul52.i
-  br i1 %cmp39.i, label %for.body.preheader.i46, label %for.end.i11
+  br i1 %cmp39.i, label %for.body.preheader.i47, label %for.end.i11
 
-for.body.preheader.i46:                           ; preds = %murmur3_seeded.exit
-  %wide.trip.count.i47 = and i64 %div36.i, 2147483647
-  br label %for.body.i48
+for.body.preheader.i47:                           ; preds = %murmur3_seeded.exit
+  %wide.trip.count.i48 = and i64 %div36.i, 2147483647
+  br label %for.body.i49
 
-for.body.i48:                                     ; preds = %for.body.i48, %for.body.preheader.i46
-  %indvars.iv.i49 = phi i64 [ 0, %for.body.preheader.i46 ], [ %indvars.iv.next.i72, %for.body.i48 ]
-  %seed.addr.041.i50 = phi i32 [ 2120511020, %for.body.preheader.i46 ], [ %add25.i71, %for.body.i48 ]
-  %11 = shl nsw i64 %indvars.iv.i49, 2
-  %arrayidx.i51 = getelementptr inbounds i8, ptr %data, i64 %11
-  %12 = load i8, ptr %arrayidx.i51, align 1
-  %conv2.i52 = sext i8 %12 to i32
+for.body.i49:                                     ; preds = %for.body.i49, %for.body.preheader.i47
+  %indvars.iv.i50 = phi i64 [ 0, %for.body.preheader.i47 ], [ %indvars.iv.next.i73, %for.body.i49 ]
+  %seed.addr.041.i51 = phi i32 [ 2120511020, %for.body.preheader.i47 ], [ %add25.i72, %for.body.i49 ]
+  %11 = shl nsw i64 %indvars.iv.i50, 2
+  %arrayidx.i52 = getelementptr inbounds i8, ptr %data, i64 %11
+  %12 = load i8, ptr %arrayidx.i52, align 1
+  %conv2.i53 = sext i8 %12 to i32
   %13 = or disjoint i64 %11, 1
-  %arrayidx5.i53 = getelementptr inbounds i8, ptr %data, i64 %13
-  %14 = load i8, ptr %arrayidx5.i53, align 1
-  %conv6.i54 = sext i8 %14 to i32
-  %shl.i55 = shl nsw i32 %conv6.i54, 8
+  %arrayidx5.i54 = getelementptr inbounds i8, ptr %data, i64 %13
+  %14 = load i8, ptr %arrayidx5.i54, align 1
+  %conv6.i55 = sext i8 %14 to i32
+  %shl.i56 = shl nsw i32 %conv6.i55, 8
   %15 = or disjoint i64 %11, 2
-  %arrayidx10.i56 = getelementptr inbounds i8, ptr %data, i64 %15
-  %16 = load i8, ptr %arrayidx10.i56, align 1
-  %conv11.i57 = sext i8 %16 to i32
-  %shl12.i58 = shl nsw i32 %conv11.i57, 16
+  %arrayidx10.i57 = getelementptr inbounds i8, ptr %data, i64 %15
+  %16 = load i8, ptr %arrayidx10.i57, align 1
+  %conv11.i58 = sext i8 %16 to i32
+  %shl12.i59 = shl nsw i32 %conv11.i58, 16
   %17 = or disjoint i64 %11, 3
-  %arrayidx16.i59 = getelementptr inbounds i8, ptr %data, i64 %17
-  %18 = load i8, ptr %arrayidx16.i59, align 1
-  %conv17.i60 = sext i8 %18 to i32
-  %shl18.i61 = shl nsw i32 %conv17.i60, 24
-  %or.i62 = or i32 %shl.i55, %conv2.i52
-  %or19.i63 = or i32 %or.i62, %shl12.i58
-  %or20.i64 = or i32 %or19.i63, %shl18.i61
-  %mul21.i65 = mul i32 %or20.i64, -862048943
-  %or.i.i66 = tail call noundef i32 @llvm.fshl.i32(i32 %mul21.i65, i32 %mul21.i65, i32 15)
-  %mul22.i67 = mul i32 %or.i.i66, 461845907
-  %xor.i68 = xor i32 %mul22.i67, %seed.addr.041.i50
-  %or.i37.i69 = tail call noundef i32 @llvm.fshl.i32(i32 %xor.i68, i32 %xor.i68, i32 13)
-  %mul24.i70 = mul i32 %or.i37.i69, 5
-  %add25.i71 = add i32 %mul24.i70, -430675100
-  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i49, 1
-  %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i47
-  br i1 %exitcond.not.i73, label %for.end.i11, label %for.body.i48, !llvm.loop !5
+  %arrayidx16.i60 = getelementptr inbounds i8, ptr %data, i64 %17
+  %18 = load i8, ptr %arrayidx16.i60, align 1
+  %conv17.i61 = sext i8 %18 to i32
+  %shl18.i62 = shl nsw i32 %conv17.i61, 24
+  %or.i63 = or i32 %shl.i56, %conv2.i53
+  %or19.i64 = or i32 %or.i63, %shl12.i59
+  %or20.i65 = or i32 %or19.i64, %shl18.i62
+  %mul21.i66 = mul i32 %or20.i65, -862048943
+  %or.i.i67 = tail call noundef i32 @llvm.fshl.i32(i32 %mul21.i66, i32 %mul21.i66, i32 15)
+  %mul22.i68 = mul i32 %or.i.i67, 461845907
+  %xor.i69 = xor i32 %mul22.i68, %seed.addr.041.i51
+  %or.i37.i70 = tail call noundef i32 @llvm.fshl.i32(i32 %xor.i69, i32 %xor.i69, i32 13)
+  %mul24.i71 = mul i32 %or.i37.i70, 5
+  %add25.i72 = add i32 %mul24.i71, -430675100
+  %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i50, 1
+  %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i73, %wide.trip.count.i48
+  br i1 %exitcond.not.i74, label %for.end.i11, label %for.body.i49, !llvm.loop !5
 
-for.end.i11:                                      ; preds = %for.body.i48, %murmur3_seeded.exit
-  %seed.addr.0.lcssa.i12 = phi i32 [ 2120511020, %murmur3_seeded.exit ], [ %add25.i71, %for.body.i48 ]
-  switch i64 %and.i, label %murmur3_seeded.exit74 [
+for.end.i11:                                      ; preds = %for.body.i49, %murmur3_seeded.exit
+  %seed.addr.0.lcssa.i12 = phi i32 [ 2120511020, %murmur3_seeded.exit ], [ %add25.i72, %for.body.i49 ]
+  switch i64 %and.i, label %default.unreachable [
     i64 3, label %sw.bb.i42
     i64 2, label %sw.bb32.i36
-    i64 1, label %sw.bb37.i17
+    i64 1, label %sw.bb37.i28
+    i64 0, label %murmur3_seeded.exit75
   ]
 
 sw.bb.i42:                                        ; preds = %for.end.i11
@@ -290,43 +299,43 @@ sw.bb32.i36:                                      ; preds = %sw.bb.i42, %for.end
   %conv34.i39 = sext i8 %20 to i32
   %shl35.i40 = shl nsw i32 %conv34.i39, 8
   %xor36.i41 = xor i32 %shl35.i40, %k1.0.i37
-  br label %sw.bb37.i17
+  br label %sw.bb37.i28
 
-sw.bb37.i17:                                      ; preds = %sw.bb32.i36, %for.end.i11
-  %k1.1.i18 = phi i32 [ 0, %for.end.i11 ], [ %xor36.i41, %sw.bb32.i36 ]
+sw.bb37.i28:                                      ; preds = %sw.bb32.i36, %for.end.i11
+  %k1.1.i29 = phi i32 [ 0, %for.end.i11 ], [ %xor36.i41, %sw.bb32.i36 ]
   %21 = load i8, ptr %add.ptr.i, align 1
-  %conv39.i19 = sext i8 %21 to i32
-  %xor41.i20 = xor i32 %k1.1.i18, %conv39.i19
-  %mul42.i21 = mul i32 %xor41.i20, -862048943
-  %or.i38.i22 = tail call noundef i32 @llvm.fshl.i32(i32 %mul42.i21, i32 %mul42.i21, i32 15)
-  %mul44.i23 = mul i32 %or.i38.i22, 461845907
-  %xor45.i24 = xor i32 %mul44.i23, %seed.addr.0.lcssa.i12
-  br label %murmur3_seeded.exit74
+  %conv39.i30 = sext i8 %21 to i32
+  %xor41.i31 = xor i32 %k1.1.i29, %conv39.i30
+  %mul42.i32 = mul i32 %xor41.i31, -862048943
+  %or.i38.i33 = tail call noundef i32 @llvm.fshl.i32(i32 %mul42.i32, i32 %mul42.i32, i32 15)
+  %mul44.i34 = mul i32 %or.i38.i33, 461845907
+  %xor45.i35 = xor i32 %mul44.i34, %seed.addr.0.lcssa.i12
+  br label %murmur3_seeded.exit75
 
-murmur3_seeded.exit74:                            ; preds = %for.end.i11, %sw.bb37.i17
-  %seed.addr.1.i25 = phi i32 [ %seed.addr.0.lcssa.i12, %for.end.i11 ], [ %xor45.i24, %sw.bb37.i17 ]
-  %xor47.i27 = xor i32 %seed.addr.1.i25, %conv46.i
-  %shr.i28 = lshr i32 %xor47.i27, 16
-  %xor48.i29 = xor i32 %shr.i28, %xor47.i27
-  %mul49.i30 = mul i32 %xor48.i29, -2048144789
-  %shr50.i31 = lshr i32 %mul49.i30, 13
-  %xor51.i32 = xor i32 %shr50.i31, %mul49.i30
-  %mul52.i33 = mul i32 %xor51.i32, -1028477387
-  %shr53.i34 = lshr i32 %mul52.i33, 16
-  %xor54.i35 = xor i32 %shr53.i34, %mul52.i33
+murmur3_seeded.exit75:                            ; preds = %for.end.i11, %sw.bb37.i28
+  %seed.addr.1.i17 = phi i32 [ %seed.addr.0.lcssa.i12, %for.end.i11 ], [ %xor45.i35, %sw.bb37.i28 ]
+  %xor47.i19 = xor i32 %seed.addr.1.i17, %conv46.i
+  %shr.i20 = lshr i32 %xor47.i19, 16
+  %xor48.i21 = xor i32 %shr.i20, %xor47.i19
+  %mul49.i22 = mul i32 %xor48.i21, -2048144789
+  %shr50.i23 = lshr i32 %mul49.i22, 13
+  %xor51.i24 = xor i32 %shr50.i23, %mul49.i22
+  %mul52.i25 = mul i32 %xor51.i24, -1028477387
+  %shr53.i26 = lshr i32 %mul52.i25, 16
+  %xor54.i27 = xor i32 %shr53.i26, %mul52.i25
   %num_hashes = getelementptr inbounds i8, ptr %settings, i64 4
   %22 = load i32, ptr %num_hashes, align 4
   %conv = zext i32 %22 to i64
   %call2 = tail call ptr @xcalloc(i64 noundef %conv, i64 noundef 4) #14
   store ptr %call2, ptr %key, align 8
   %23 = load i32, ptr %num_hashes, align 4
-  %cmp75.not = icmp eq i32 %23, 0
-  br i1 %cmp75.not, label %for.end, label %for.body
+  %cmp76.not = icmp eq i32 %23, 0
+  br i1 %cmp76.not, label %for.end, label %for.body
 
-for.body:                                         ; preds = %murmur3_seeded.exit74, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %murmur3_seeded.exit74 ]
+for.body:                                         ; preds = %murmur3_seeded.exit75, %for.body
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %murmur3_seeded.exit75 ]
   %24 = trunc nuw nsw i64 %indvars.iv to i32
-  %mul = mul i32 %xor54.i35, %24
+  %mul = mul i32 %xor54.i27, %24
   %add = add i32 %mul, %xor54.i
   %25 = load ptr, ptr %key, align 8
   %arrayidx = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
@@ -337,7 +346,7 @@ for.body:                                         ; preds = %murmur3_seeded.exit
   %cmp = icmp ult i64 %indvars.iv.next, %27
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
-for.end:                                          ; preds = %for.body, %murmur3_seeded.exit74
+for.end:                                          ; preds = %for.body, %murmur3_seeded.exit75
   ret void
 }
 

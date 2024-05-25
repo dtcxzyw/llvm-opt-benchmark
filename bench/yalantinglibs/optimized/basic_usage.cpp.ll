@@ -278,7 +278,7 @@ sw.bb1.i:                                         ; preds = %.noexc548
   store i32 %4, ptr %add.ptr.i.i24.i, align 1
   %add.ptr.i.i.i7.i = getelementptr inbounds i8, ptr %1, i64 9
   %5 = lshr i8 %retval.i.i.sroa.10.1, 3
-  switch i8 %5, label %sw.default.i.i.i [
+  switch i8 %5, label %default.unreachable.i.i.i [
     i8 1, label %sw.bb.i.i.i
     i8 2, label %sw.bb5.i.i.i
     i8 3, label %sw.bb7.i.i.i
@@ -298,7 +298,7 @@ sw.bb7.i.i.i:                                     ; preds = %sw.bb1.i
   store i64 %0, ptr %add.ptr.i.i.i7.i, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i
 
-sw.default.i.i.i:                                 ; preds = %sw.bb1.i
+default.unreachable.i.i.i:                        ; preds = %sw.bb1.i
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i: ; preds = %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb.i.i.i
@@ -489,7 +489,7 @@ sw.bb1.i173:                                      ; preds = %.noexc
   %add.ptr.i.i.i7.i176 = getelementptr inbounds i8, ptr %add.ptr.i, i64 9
   %23 = load i64, ptr %_M_string_length.i.i.i, align 8
   %24 = lshr i8 %retval.i430.sroa.10.1, 3
-  switch i8 %24, label %sw.default.i.i.i190 [
+  switch i8 %24, label %default.unreachable.i.i.i190 [
     i8 1, label %sw.bb.i.i.i188
     i8 2, label %sw.bb5.i.i.i186
     i8 3, label %sw.bb7.i.i.i178
@@ -509,7 +509,7 @@ sw.bb7.i.i.i178:                                  ; preds = %sw.bb1.i173
   store i64 %23, ptr %add.ptr.i.i.i7.i176, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i179
 
-sw.default.i.i.i190:                              ; preds = %sw.bb1.i173
+default.unreachable.i.i.i190:                     ; preds = %sw.bb1.i173
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i179: ; preds = %sw.bb7.i.i.i178, %sw.bb5.i.i.i186, %sw.bb.i.i.i188
@@ -711,7 +711,7 @@ sw.bb1.i256:                                      ; preds = %.noexc154
   %add.ptr.i.i.i7.i259 = getelementptr inbounds i8, ptr %add.ptr.i151, i64 9
   %44 = load i64, ptr %_M_string_length.i.i.i, align 8
   %45 = lshr i8 %retval.i386.sroa.10.1, 3
-  switch i8 %45, label %sw.default.i.i.i273 [
+  switch i8 %45, label %default.unreachable.i.i.i273 [
     i8 1, label %sw.bb.i.i.i271
     i8 2, label %sw.bb5.i.i.i269
     i8 3, label %sw.bb7.i.i.i261
@@ -731,7 +731,7 @@ sw.bb7.i.i.i261:                                  ; preds = %sw.bb1.i256
   store i64 %44, ptr %add.ptr.i.i.i7.i259, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i262
 
-sw.default.i.i.i273:                              ; preds = %sw.bb1.i256
+default.unreachable.i.i.i273:                     ; preds = %sw.bb1.i256
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i262: ; preds = %sw.bb7.i.i.i261, %sw.bb5.i.i.i269, %sw.bb.i.i.i271
@@ -850,7 +850,7 @@ sw.bb1.i361:                                      ; preds = %.noexc722
   store i32 %55, ptr %add.ptr.i.i24.i363, align 1
   %add.ptr.i.i.i7.i364 = getelementptr inbounds i8, ptr %52, i64 11
   %56 = lshr i8 %retval.i.i669.sroa.10.1, 3
-  switch i8 %56, label %sw.default.i.i.i378 [
+  switch i8 %56, label %default.unreachable.i.i.i378 [
     i8 1, label %sw.bb.i.i.i376
     i8 2, label %sw.bb5.i.i.i374
     i8 3, label %sw.bb7.i.i.i366
@@ -870,7 +870,7 @@ sw.bb7.i.i.i366:                                  ; preds = %sw.bb1.i361
   store i64 %51, ptr %add.ptr.i.i.i7.i364, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i367
 
-sw.default.i.i.i378:                              ; preds = %sw.bb1.i361
+default.unreachable.i.i.i378:                     ; preds = %sw.bb1.i361
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i367: ; preds = %sw.bb7.i.i.i366, %sw.bb5.i.i.i374, %sw.bb.i.i.i376
@@ -968,7 +968,7 @@ sw.bb1.i424:                                      ; preds = %.noexc606
   store i32 %63, ptr %add.ptr.i.i24.i426, align 1
   %add.ptr.i.i.i7.i427 = getelementptr inbounds i8, ptr %60, i64 9
   %64 = lshr i8 %retval.i.i551.sroa.10.1, 3
-  switch i8 %64, label %sw.default.i.i.i441 [
+  switch i8 %64, label %default.unreachable.i.i.i441 [
     i8 1, label %sw.bb.i.i.i439
     i8 2, label %sw.bb5.i.i.i437
     i8 3, label %sw.bb7.i.i.i429
@@ -988,7 +988,7 @@ sw.bb7.i.i.i429:                                  ; preds = %sw.bb1.i424
   store i64 %59, ptr %add.ptr.i.i.i7.i427, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i430
 
-sw.default.i.i.i441:                              ; preds = %sw.bb1.i424
+default.unreachable.i.i.i441:                     ; preds = %sw.bb1.i424
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i430: ; preds = %sw.bb7.i.i.i429, %sw.bb5.i.i.i437, %sw.bb.i.i.i439
@@ -1108,7 +1108,7 @@ sw.bb3.i:                                         ; preds = %.noexc738
   store i32 %72, ptr %add.ptr.i.i.i.i505, align 1
   %add.ptr.i.i10.i = getelementptr inbounds i8, ptr %69, i64 9
   %73 = lshr i8 %retval.i851.sroa.10.1, 3
-  switch i8 %73, label %sw.default.i.i [
+  switch i8 %73, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
     i8 3, label %sw.bb7.i.i
@@ -1128,7 +1128,7 @@ sw.bb7.i.i:                                       ; preds = %sw.bb3.i
   store i64 %68, ptr %add.ptr.i.i10.i, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES9_EEvRKT2_.exit.i
 
-sw.default.i.i:                                   ; preds = %sw.bb3.i
+default.unreachable.i.i:                          ; preds = %sw.bb3.i
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerESt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES9_EEvRKT2_.exit.i: ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i
@@ -1280,7 +1280,7 @@ sw.bb1.i559:                                      ; preds = %.noexc665
   store i32 %86, ptr %add.ptr.i.i24.i561, align 1
   %add.ptr.i.i.i7.i562 = getelementptr inbounds i8, ptr %83, i64 9
   %87 = lshr i8 %retval.i.i610.sroa.10.1, 3
-  switch i8 %87, label %sw.default.i.i.i576 [
+  switch i8 %87, label %default.unreachable.i.i.i576 [
     i8 1, label %sw.bb.i.i.i574
     i8 2, label %sw.bb5.i.i.i572
     i8 3, label %sw.bb7.i.i.i564
@@ -1300,7 +1300,7 @@ sw.bb7.i.i.i564:                                  ; preds = %sw.bb1.i559
   store i64 %82, ptr %add.ptr.i.i.i7.i562, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i565
 
-sw.default.i.i.i576:                              ; preds = %sw.bb1.i559
+default.unreachable.i.i.i576:                     ; preds = %sw.bb1.i559
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerE6personE13serialize_oneILm2ELm18446744073709551615ELm0ES3_EEvRKT2_.exit.i565: ; preds = %sw.bb7.i.i.i564, %sw.bb5.i.i.i572, %sw.bb.i.i.i574
@@ -1789,7 +1789,7 @@ sw.bb3.i720:                                      ; preds = %.noexc754
   store i32 %143, ptr %add.ptr.i.i.i.i722, align 1
   %add.ptr.i.i10.i723 = getelementptr inbounds i8, ptr %140, i64 9
   %144 = lshr i8 %retval.i802.sroa.10.1, 3
-  switch i8 %144, label %sw.default.i.i736 [
+  switch i8 %144, label %default.unreachable.i.i736 [
     i8 1, label %sw.bb.i.i734
     i8 2, label %sw.bb5.i.i732
     i8 3, label %sw.bb7.i.i725
@@ -1809,7 +1809,7 @@ sw.bb7.i.i725:                                    ; preds = %sw.bb3.i720
   store i64 %139, ptr %add.ptr.i.i10.i723, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES9_EEvRKT2_.exit.i726
 
-sw.default.i.i736:                                ; preds = %sw.bb3.i720
+default.unreachable.i.i736:                       ; preds = %sw.bb3.i720
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerESt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES9_EEvRKT2_.exit.i726: ; preds = %sw.bb7.i.i725, %sw.bb5.i.i732, %sw.bb.i.i734
@@ -2120,7 +2120,7 @@ sw.bb3.i852:                                      ; preds = %.noexc771
   store i32 %180, ptr %add.ptr.i.i.i.i854, align 1
   %add.ptr.i.i10.i855 = getelementptr inbounds i8, ptr %177, i64 9
   %181 = lshr i8 %retval.i775.sroa.10.1, 3
-  switch i8 %181, label %sw.default.i.i868 [
+  switch i8 %181, label %default.unreachable.i.i868 [
     i8 1, label %sw.bb.i.i866
     i8 2, label %sw.bb5.i.i864
     i8 3, label %sw.bb7.i.i857
@@ -2140,7 +2140,7 @@ sw.bb7.i.i857:                                    ; preds = %sw.bb3.i852
   store i64 %176, ptr %add.ptr.i.i10.i855, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES9_EEvRKT2_.exit.i858
 
-sw.default.i.i868:                                ; preds = %sw.bb3.i852
+default.unreachable.i.i868:                       ; preds = %sw.bb3.i852
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerESt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES9_EEvRKT2_.exit.i858: ; preds = %sw.bb7.i.i857, %sw.bb5.i.i864, %sw.bb.i.i866

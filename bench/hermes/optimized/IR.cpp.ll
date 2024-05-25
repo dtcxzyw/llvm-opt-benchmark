@@ -4489,10 +4489,11 @@ for.end.loopexit.i.i.i.i:                         ; preds = %if.end12.i.i.i.i
 for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.i.i.i, %for.end
   %sub.ptr.sub16.pre-phi.i.i.i.i = phi i32 [ %19, %for.end.loopexit.i.i.i.i ], [ %16, %for.end ]
   %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %17, %for.end ]
-  switch i32 %sub.ptr.sub16.pre-phi.i.i.i.i, label %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_S8_.exit [
+  switch i32 %sub.ptr.sub16.pre-phi.i.i.i.i, label %for.end.i.i.i.i.unreachabledefault [
     i32 3, label %sw.bb.i.i.i.i
     i32 2, label %sw.bb22.i.i.i.i
     i32 1, label %sw.bb27.i.i.i.i
+    i32 0, label %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_S8_.exit
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
@@ -4504,7 +4505,7 @@ if.end20.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   %incdec.ptr21.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i.i, i64 16
   br label %sw.bb22.i.i.i.i
 
-sw.bb22.i.i.i.i:                                  ; preds = %if.end20.i.i.i.i, %for.end.i.i.i.i
+sw.bb22.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end20.i.i.i.i
   %__first.addr.1.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr21.i.i.i.i, %if.end20.i.i.i.i ]
   %__first.addr.1.val.i.i.i.i = load ptr, ptr %__first.addr.1.i.i.i.i, align 8
   %tobool.not.i.i38.i.i.i.i = icmp eq ptr %__first.addr.1.val.i.i.i.i, null
@@ -4514,7 +4515,7 @@ if.end25.i.i.i.i:                                 ; preds = %sw.bb22.i.i.i.i
   %incdec.ptr26.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i, i64 16
   br label %sw.bb27.i.i.i.i
 
-sw.bb27.i.i.i.i:                                  ; preds = %if.end25.i.i.i.i, %for.end.i.i.i.i
+sw.bb27.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end25.i.i.i.i
   %__first.addr.2.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr26.i.i.i.i, %if.end25.i.i.i.i ]
   %__first.addr.2.val.i.i.i.i = load ptr, ptr %__first.addr.2.i.i.i.i, align 8
   %tobool.not.i.i39.i.i.i.i = icmp eq ptr %__first.addr.2.val.i.i.i.i, null
@@ -4567,7 +4568,10 @@ _ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_S8_.exit.loopex
   %.pre29 = load ptr, ptr %Operands, align 8
   br label %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_S8_.exit
 
-_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_S8_.exit: ; preds = %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_S8_.exit.loopexit, %"_ZSt9__find_ifIPSt4pairIPN6hermes5ValueEjEN9__gnu_cxx5__ops10_Iter_predIZNS1_11Instruction12eraseOperandES3_E3$_0EEET_SC_SC_T0_.exit.i.i", %sw.bb27.i.i.i.i, %for.end.i.i.i.i
+for.end.i.i.i.i.unreachabledefault:               ; preds = %for.end.i.i.i.i
+  unreachable
+
+_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_S8_.exit: ; preds = %for.end.i.i.i.i, %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_S8_.exit.loopexit, %"_ZSt9__find_ifIPSt4pairIPN6hermes5ValueEjEN9__gnu_cxx5__ops10_Iter_predIZNS1_11Instruction12eraseOperandES3_E3$_0EEET_SC_SC_T0_.exit.i.i", %sw.bb27.i.i.i.i
   %22 = phi ptr [ %17, %"_ZSt9__find_ifIPSt4pairIPN6hermes5ValueEjEN9__gnu_cxx5__ops10_Iter_predIZNS1_11Instruction12eraseOperandES3_E3$_0EEET_SC_SC_T0_.exit.i.i" ], [ %17, %for.end.i.i.i.i ], [ %17, %sw.bb27.i.i.i.i ], [ %.pre29, %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_S8_.exit.loopexit ]
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i.i, %"_ZSt9__find_ifIPSt4pairIPN6hermes5ValueEjEN9__gnu_cxx5__ops10_Iter_predIZNS1_11Instruction12eraseOperandES3_E3$_0EEET_SC_SC_T0_.exit.i.i" ], [ %add.ptr.i19, %for.end.i.i.i.i ], [ %add.ptr.i19, %sw.bb27.i.i.i.i ], [ %__result.1.i.i, %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_S8_.exit.loopexit ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %retval.0.i.i to i64
@@ -4648,10 +4652,11 @@ for.end.loopexit.i.i.i:                           ; preds = %if.end11.i.i.i
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %entry
   %sub.ptr.sub15.pre-phi.i.i.i = phi i32 [ %11, %for.end.loopexit.i.i.i ], [ %1, %entry ]
   %__first.addr.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %for.end.loopexit.i.i.i ], [ %0, %entry ]
-  switch i32 %sub.ptr.sub15.pre-phi.i.i.i, label %sw.default.i.i.i [
+  switch i32 %sub.ptr.sub15.pre-phi.i.i.i, label %for.end.i.i.i.unreachabledefault [
     i32 3, label %sw.bb.i.i.i
     i32 2, label %sw.bb21.i.i.i
     i32 1, label %sw.bb26.i.i.i
+    i32 0, label %sw.default.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
@@ -4688,7 +4693,10 @@ sw.bb26.i.i.i:                                    ; preds = %for.end.i.i.i, %if.
   %cmp.i43.i.i.i = icmp eq ptr %spec.select.i42.i.i.i, %other
   br i1 %cmp.i43.i.i.i, label %_ZSt4findIPPN6hermes11InstructionEPNS0_5ValueEET_S6_S6_RKT0_.exit, label %sw.default.i.i.i
 
-sw.default.i.i.i:                                 ; preds = %sw.bb26.i.i.i, %for.end.i.i.i
+for.end.i.i.i.unreachabledefault:                 ; preds = %for.end.i.i.i
+  unreachable
+
+sw.default.i.i.i:                                 ; preds = %for.end.i.i.i, %sw.bb26.i.i.i
   br label %_ZSt4findIPPN6hermes11InstructionEPNS0_5ValueEET_S6_S6_RKT0_.exit
 
 _ZSt4findIPPN6hermes11InstructionEPNS0_5ValueEET_S6_S6_RKT0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i

@@ -16490,11 +16490,15 @@ define internal void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$t
 8:                                                ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2726)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2729)
-  switch i64 %2, label %9 [
+  switch i64 %2, label %default.unreachable.i.i.i [
     i64 0, label %"_ZN4core3ptr92drop_in_place$LT$typst..foundations..auto..Smart$LT$typst..math..cancel..CancelAngle$GT$$GT$17h17fd0e1f769a13f5E.exit"
     i64 1, label %"_ZN4core3ptr92drop_in_place$LT$typst..foundations..auto..Smart$LT$typst..math..cancel..CancelAngle$GT$$GT$17h17fd0e1f769a13f5E.exit"
     i64 2, label %15
+    i64 3, label %9
   ]
+
+default.unreachable.i.i.i:                        ; preds = %8
+  unreachable
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -17016,11 +17020,15 @@ define internal void @"_ZN4core3ptr150drop_in_place$LT$core..option..Option$LT$t
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2837)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2840)
   %30 = load i64, ptr %6, align 8, !range !2746, !alias.scope !2843, !noundef !4
-  switch i64 %30, label %31 [
+  switch i64 %30, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr122drop_in_place$LT$typst..layout..grid..layout..Celled$LT$core..option..Option$LT$typst..visualize..paint..Paint$GT$$GT$$GT$17h099033ad7e80a7e9E.exit"
     i64 1, label %"_ZN4core3ptr122drop_in_place$LT$typst..layout..grid..layout..Celled$LT$core..option..Option$LT$typst..visualize..paint..Paint$GT$$GT$$GT$17h099033ad7e80a7e9E.exit"
     i64 2, label %37
+    i64 3, label %31
   ]
+
+default.unreachable:                              ; preds = %29
+  unreachable
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17094,11 +17102,15 @@ define internal void @"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$t
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2877)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2880)
   %17 = load i64, ptr %10, align 8, !range !2746, !alias.scope !2883, !noundef !4
-  switch i64 %17, label %18 [
+  switch i64 %17, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.exit"
     i64 1, label %"_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.exit"
     i64 2, label %24
+    i64 3, label %18
   ]
+
+default.unreachable:                              ; preds = %16
+  unreachable
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17190,11 +17202,15 @@ define internal void @"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2921)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2924)
   %11 = load i64, ptr %10, align 8, !range !2746, !alias.scope !2927, !noundef !4
-  switch i64 %11, label %12 [
+  switch i64 %11, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$typst..model..outline..OutlineIndent$GT$$GT$$GT$17hd4157e8f98553151E.exit"
     i64 1, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$typst..model..outline..OutlineIndent$GT$$GT$$GT$17hd4157e8f98553151E.exit"
     i64 2, label %18
+    i64 3, label %12
   ]
+
+default.unreachable:                              ; preds = %9
+  unreachable
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17337,11 +17353,15 @@ define internal void @"_ZN4core3ptr162drop_in_place$LT$core..option..Option$LT$t
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2975)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2978)
   %18 = load i64, ptr %17, align 8, !range !2746, !alias.scope !2981, !noundef !4
-  switch i64 %18, label %19 [
+  switch i64 %18, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr134drop_in_place$LT$typst..layout..grid..layout..Celled$LT$typst..foundations..auto..Smart$LT$typst..layout..align..Alignment$GT$$GT$$GT$17hb2dd815679a51344E.exit"
     i64 1, label %"_ZN4core3ptr134drop_in_place$LT$typst..layout..grid..layout..Celled$LT$typst..foundations..auto..Smart$LT$typst..layout..align..Alignment$GT$$GT$$GT$17hb2dd815679a51344E.exit"
     i64 2, label %25
+    i64 3, label %19
   ]
+
+default.unreachable:                              ; preds = %16
+  unreachable
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17455,11 +17475,15 @@ define internal void @"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$t
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3006)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3009)
   %20 = load i64, ptr %19, align 8, !range !2746, !alias.scope !3012, !noundef !4
-  switch i64 %20, label %21 [
+  switch i64 %20, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr150drop_in_place$LT$typst..layout..grid..layout..Celled$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$typst..layout..rel..Rel$GT$$GT$$GT$$GT$17h13422de9d0580fd4E.exit"
     i64 1, label %"_ZN4core3ptr150drop_in_place$LT$typst..layout..grid..layout..Celled$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$typst..layout..rel..Rel$GT$$GT$$GT$$GT$17h13422de9d0580fd4E.exit"
     i64 2, label %27
+    i64 3, label %21
   ]
+
+default.unreachable:                              ; preds = %18
+  unreachable
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17562,11 +17586,15 @@ define internal void @"_ZN4core3ptr239drop_in_place$LT$core..option..Option$LT$t
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3031)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3034)
   %12 = load i64, ptr %11, align 8, !range !2746, !alias.scope !3037, !noundef !4
-  switch i64 %12, label %13 [
+  switch i64 %12, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr211drop_in_place$LT$typst..layout..grid..layout..Celled$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$$GT$$GT$17h2741bca65b11c24aE.exit"
     i64 1, label %"_ZN4core3ptr211drop_in_place$LT$typst..layout..grid..layout..Celled$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$$GT$$GT$17h2741bca65b11c24aE.exit"
     i64 2, label %19
+    i64 3, label %13
   ]
+
+default.unreachable:                              ; preds = %10
+  unreachable
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17694,11 +17722,15 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..It
   %4 = add nsw i64 %3, -8
   %5 = icmp ult i64 %4, 4
   %6 = select i1 %5, i64 %4, i64 1
-  switch i64 %6, label %7 [
+  switch i64 %6, label %.unreachabledefault [
     i64 0, label %25
     i64 1, label %26
     i64 2, label %27
+    i64 3, label %7
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3053)
@@ -17750,7 +17782,7 @@ common.resume:                                    ; preds = %29, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3063
   br label %25
 
-25:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17hc7a9fe1aee727d03E.exit", %26, %"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h09e692004b45d24fE.exit", %1
+25:                                               ; preds = %1, %"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17hc7a9fe1aee727d03E.exit", %26, %"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h09e692004b45d24fE.exit"
   ret void
 
 26:                                               ; preds = %1
@@ -18401,11 +18433,15 @@ define internal void @"_ZN4core3ptr51drop_in_place$LT$typst..model..list..ListMa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3208)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3211)
   %7 = load i64, ptr %4, align 8, !range !2746, !alias.scope !3214, !noundef !4
-  switch i64 %7, label %8 [
+  switch i64 %7, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
     i64 1, label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
     i64 2, label %14
+    i64 3, label %8
   ]
+
+default.unreachable:                              ; preds = %6
+  unreachable
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -18830,11 +18866,15 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..V
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3360)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3363)
   %75 = load i64, ptr %74, align 8, !range !2746, !alias.scope !3366, !noundef !4
-  switch i64 %75, label %76 [
+  switch i64 %75, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..value..Dynamic$GT$17hf842add98afcce69E.exit"
     i64 1, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..value..Dynamic$GT$17hf842add98afcce69E.exit"
     i64 2, label %82
+    i64 3, label %76
   ]
+
+default.unreachable:                              ; preds = %73
+  unreachable
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %0, i64 16
@@ -19190,18 +19230,22 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..Ca
   %3 = add nsw i8 %2, -30
   %4 = icmp ult i8 %3, 4
   %narrow = select i1 %4, i8 %3, i8 1
-  switch i8 %narrow, label %5 [
+  switch i8 %narrow, label %.unreachabledefault [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %7
+    i8 3, label %5
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$typst..foundations..cast..CastInfo$GT$$GT$17heb93532ecd1ef353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   br label %7
 
-7:                                                ; preds = %8, %5, %1, %1
+7:                                                ; preds = %1, %1, %8, %5
   ret void
 
 8:                                                ; preds = %1
@@ -19307,11 +19351,15 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$typst..model..numbe
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3468)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3471)
   %20 = load i64, ptr %0, align 8, !range !2746, !alias.scope !3474, !noundef !4
-  switch i64 %20, label %21 [
+  switch i64 %20, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr63drop_in_place$LT$typst..model..numbering_..NumberingPattern$GT$17h9b284622ed07ddf6E.exit"
     i64 1, label %"_ZN4core3ptr63drop_in_place$LT$typst..model..numbering_..NumberingPattern$GT$17h9b284622ed07ddf6E.exit"
     i64 2, label %27
+    i64 3, label %21
   ]
+
+default.unreachable:                              ; preds = %19
+  unreachable
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20088,11 +20136,15 @@ define internal void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ty
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3597)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3600)
   %9 = load i64, ptr %6, align 8, !range !2746, !alias.scope !3603, !noundef !4
-  switch i64 %9, label %10 [
+  switch i64 %9, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr51drop_in_place$LT$typst..model..list..ListMarker$GT$17hcfec35ef4084cec2E.exit"
     i64 1, label %"_ZN4core3ptr51drop_in_place$LT$typst..model..list..ListMarker$GT$17hcfec35ef4084cec2E.exit"
     i64 2, label %16
+    i64 3, label %10
   ]
+
+default.unreachable:                              ; preds = %8
+  unreachable
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
@@ -34309,13 +34361,17 @@ _ZN5serde2de7Visitor9visit_map17h282c767551949763E.exit.i66: ; preds = %.noexc67
   %194 = add nsw i64 %193, -8
   %195 = icmp ult i64 %194, 4
   %196 = select i1 %195, i64 %194, i64 1
-  switch i64 %196, label %197 [
+  switch i64 %196, label %.unreachabledefault [
     i64 1, label %198
     i64 2, label %201
     i64 3, label %202
+    i64 0, label %197
   ]
 
-197:                                              ; preds = %227, %225, %224, %222, %220, %218, %216, %214, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %.body
+.unreachabledefault:                              ; preds = %.body
+  unreachable
+
+197:                                              ; preds = %.body, %227, %225, %224, %222, %220, %218, %216, %214, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201
   resume { ptr, i32 } %.pn
 
 198:                                              ; preds = %.body
@@ -35068,13 +35124,17 @@ default.unreachable:                              ; preds = %46
   %202 = add nsw i64 %201, -8
   %203 = icmp ult i64 %202, 4
   %204 = select i1 %203, i64 %202, i64 1
-  switch i64 %204, label %205 [
+  switch i64 %204, label %.unreachabledefault [
     i64 1, label %206
     i64 2, label %209
     i64 3, label %210
+    i64 0, label %205
   ]
 
-205:                                              ; preds = %235, %233, %232, %230, %228, %226, %224, %222, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %.body
+.unreachabledefault:                              ; preds = %.body
+  unreachable
+
+205:                                              ; preds = %.body, %235, %233, %232, %230, %228, %226, %224, %222, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209
   resume { ptr, i32 } %.pn
 
 206:                                              ; preds = %.body
@@ -35759,13 +35819,17 @@ _ZN5serde2de9MapAccess10next_entry17hca9d0e185b18e323E.llvm.14728845296163125433
   %181 = add nsw i64 %180, -8
   %182 = icmp ult i64 %181, 4
   %183 = select i1 %182, i64 %181, i64 1
-  switch i64 %183, label %184 [
+  switch i64 %183, label %.unreachabledefault [
     i64 1, label %185
     i64 2, label %188
     i64 3, label %189
+    i64 0, label %184
   ]
 
-184:                                              ; preds = %214, %212, %211, %209, %207, %205, %203, %201, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %.body
+.unreachabledefault:                              ; preds = %.body
+  unreachable
+
+184:                                              ; preds = %.body, %214, %212, %211, %209, %207, %205, %203, %201, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188
   resume { ptr, i32 } %.pn
 
 185:                                              ; preds = %.body
@@ -37664,11 +37728,15 @@ _ZN5serde2de7Visitor10visit_bool17h119ae3a6d0b06397E.exit.i: ; preds = %423
   %438 = add nsw i64 %437, -8
   %439 = icmp ult i64 %438, 4
   %440 = select i1 %439, i64 %438, i64 1
-  switch i64 %440, label %.body.thread [
+  switch i64 %440, label %.unreachabledefault.i [
     i64 1, label %441
     i64 2, label %444
     i64 3, label %445
+    i64 0, label %.body.thread
   ]
+
+.unreachabledefault.i:                            ; preds = %.body.i
+  unreachable
 
 441:                                              ; preds = %.body.i
   %442 = add nsw i64 %437, -2
@@ -39305,11 +39373,15 @@ _ZN5serde2de7Visitor10visit_bool17h9a8e64c31629a631E.exit.i: ; preds = %387
   %402 = add nsw i64 %401, -8
   %403 = icmp ult i64 %402, 4
   %404 = select i1 %403, i64 %402, i64 1
-  switch i64 %404, label %.body.thread [
+  switch i64 %404, label %.unreachabledefault.i [
     i64 1, label %405
     i64 2, label %408
     i64 3, label %409
+    i64 0, label %.body.thread
   ]
+
+.unreachabledefault.i:                            ; preds = %.body.i
+  unreachable
 
 405:                                              ; preds = %.body.i
   %406 = add nsw i64 %401, -2
@@ -41002,11 +41074,15 @@ _ZN5serde2de7Visitor10visit_bool17h4a2fa28df4f02e9fE.exit.i: ; preds = %423
   %439 = add nsw i64 %438, -8
   %440 = icmp ult i64 %439, 4
   %441 = select i1 %440, i64 %439, i64 1
-  switch i64 %441, label %.body.thread [
+  switch i64 %441, label %.unreachabledefault.i [
     i64 1, label %442
     i64 2, label %445
     i64 3, label %446
+    i64 0, label %.body.thread
   ]
+
+.unreachabledefault.i:                            ; preds = %.body.i52
+  unreachable
 
 442:                                              ; preds = %.body.i52
   %443 = add nsw i64 %438, -2
@@ -50869,11 +50945,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h05969adea8c476de
   %15 = add nsw i8 %14, -30
   %16 = icmp ult i8 %15, 4
   %narrow.i = select i1 %16, i8 %15, i8 1
-  switch i8 %narrow.i, label %17 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %19
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %17
   ]
+
+.unreachabledefault.i:                            ; preds = %13
+  unreachable
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %7, i64 8
@@ -51029,11 +51109,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h2d5e4210e6509bd9
   %15 = add nsw i8 %14, -30
   %16 = icmp ult i8 %15, 4
   %narrow.i = select i1 %16, i8 %15, i8 1
-  switch i8 %narrow.i, label %17 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %19
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %17
   ]
+
+.unreachabledefault.i:                            ; preds = %13
+  unreachable
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %7, i64 8
@@ -51089,11 +51173,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h34d146d55a7478d4
   %12 = add nsw i8 %11, -30
   %13 = icmp ult i8 %12, 4
   %narrow.i = select i1 %13, i8 %12, i8 1
-  switch i8 %narrow.i, label %14 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %16
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %14
   ]
+
+.unreachabledefault.i:                            ; preds = %10
+  unreachable
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -51209,11 +51297,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h44a413ba165f29eb
   %12 = add nsw i8 %11, -30
   %13 = icmp ult i8 %12, 4
   %narrow.i = select i1 %13, i8 %12, i8 1
-  switch i8 %narrow.i, label %14 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %16
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %14
   ]
+
+.unreachabledefault.i:                            ; preds = %10
+  unreachable
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -51359,11 +51451,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h53b6e86e66d63ab7
   %12 = add nsw i8 %11, -30
   %13 = icmp ult i8 %12, 4
   %narrow.i = select i1 %13, i8 %12, i8 1
-  switch i8 %narrow.i, label %14 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %16
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %14
   ]
+
+.unreachabledefault.i:                            ; preds = %10
+  unreachable
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -51451,11 +51547,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h56ca04a59b5b773b
   %23 = add nsw i8 %22, -30
   %24 = icmp ult i8 %23, 4
   %narrow.i = select i1 %24, i8 %23, i8 1
-  switch i8 %narrow.i, label %25 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %27
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %25
   ]
+
+.unreachabledefault.i:                            ; preds = %21
+  unreachable
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %6, i64 8
@@ -51499,11 +51599,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h5da1f612c791ed55
   %8 = add nsw i8 %7, -30
   %9 = icmp ult i8 %8, 4
   %narrow.i = select i1 %9, i8 %8, i8 1
-  switch i8 %narrow.i, label %10 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %12
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %6
+  unreachable
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -51547,11 +51651,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h5df500b627b9df5c
   %8 = add nsw i8 %7, -30
   %9 = icmp ult i8 %8, 4
   %narrow.i = select i1 %9, i8 %8, i8 1
-  switch i8 %narrow.i, label %10 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %12
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %6
+  unreachable
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -51665,11 +51773,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h6567f6df838a9ccd
   %11 = add nsw i8 %10, -30
   %12 = icmp ult i8 %11, 4
   %narrow.i = select i1 %12, i8 %11, i8 1
-  switch i8 %narrow.i, label %13 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %15
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %13
   ]
+
+.unreachabledefault.i:                            ; preds = %9
+  unreachable
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %5, i64 8
@@ -51743,11 +51855,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h701db7c3f29c230c
   %8 = add nsw i8 %7, -30
   %9 = icmp ult i8 %8, 4
   %narrow.i = select i1 %9, i8 %8, i8 1
-  switch i8 %narrow.i, label %10 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %12
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %6
+  unreachable
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -51791,11 +51907,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h76cc4f51eaa97cc1
   %8 = add nsw i8 %7, -30
   %9 = icmp ult i8 %8, 4
   %narrow.i = select i1 %9, i8 %8, i8 1
-  switch i8 %narrow.i, label %10 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %12
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %6
+  unreachable
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -51851,11 +51971,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h7dc9cb46233856c2
   %12 = add nsw i8 %11, -30
   %13 = icmp ult i8 %12, 4
   %narrow.i = select i1 %13, i8 %12, i8 1
-  switch i8 %narrow.i, label %14 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %16
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %14
   ]
+
+.unreachabledefault.i:                            ; preds = %10
+  unreachable
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -51899,11 +52023,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h895989c6394d8bce
   %8 = add nsw i8 %7, -30
   %9 = icmp ult i8 %8, 4
   %narrow.i = select i1 %9, i8 %8, i8 1
-  switch i8 %narrow.i, label %10 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %12
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %6
+  unreachable
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -52019,11 +52147,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h8eb1485612c450ac
   %12 = add nsw i8 %11, -30
   %13 = icmp ult i8 %12, 4
   %narrow.i = select i1 %13, i8 %12, i8 1
-  switch i8 %narrow.i, label %14 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %16
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %14
   ]
+
+.unreachabledefault.i:                            ; preds = %10
+  unreachable
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -52067,11 +52199,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h964ed5bf265e853f
   %8 = add nsw i8 %7, -30
   %9 = icmp ult i8 %8, 4
   %narrow.i = select i1 %9, i8 %8, i8 1
-  switch i8 %narrow.i, label %10 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %12
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %6
+  unreachable
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -52137,11 +52273,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h9665ce119e14571d
   %15 = add nsw i8 %14, -30
   %16 = icmp ult i8 %15, 4
   %narrow.i = select i1 %16, i8 %15, i8 1
-  switch i8 %narrow.i, label %17 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %19
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %17
   ]
+
+.unreachabledefault.i:                            ; preds = %13
+  unreachable
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %7, i64 8
@@ -52267,11 +52407,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17ha67568666eb7a858
   %15 = add nsw i8 %14, -30
   %16 = icmp ult i8 %15, 4
   %narrow.i = select i1 %16, i8 %15, i8 1
-  switch i8 %narrow.i, label %17 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %19
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %17
   ]
+
+.unreachabledefault.i:                            ; preds = %13
+  unreachable
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %7, i64 8
@@ -52327,11 +52471,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17haa0f60ec2e2130ab
   %12 = add nsw i8 %11, -30
   %13 = icmp ult i8 %12, 4
   %narrow.i = select i1 %13, i8 %12, i8 1
-  switch i8 %narrow.i, label %14 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %16
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %14
   ]
+
+.unreachabledefault.i:                            ; preds = %10
+  unreachable
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -52465,11 +52613,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17hb81ff4dd71ed5e2f
   %8 = add nsw i8 %7, -30
   %9 = icmp ult i8 %8, 4
   %narrow.i = select i1 %9, i8 %8, i8 1
-  switch i8 %narrow.i, label %10 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %12
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %6
+  unreachable
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -52555,11 +52707,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17hbe85d6f5fb60ca1b
   %12 = add nsw i8 %11, -30
   %13 = icmp ult i8 %12, 4
   %narrow.i = select i1 %13, i8 %12, i8 1
-  switch i8 %narrow.i, label %14 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %16
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %14
   ]
+
+.unreachabledefault.i:                            ; preds = %10
+  unreachable
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -52603,11 +52759,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17hc3a3f753e30c6aa8
   %8 = add nsw i8 %7, -30
   %9 = icmp ult i8 %8, 4
   %narrow.i = select i1 %9, i8 %8, i8 1
-  switch i8 %narrow.i, label %10 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %12
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %6
+  unreachable
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -52693,11 +52853,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17hc6d6c070abf25376
   %21 = add nsw i8 %20, -30
   %22 = icmp ult i8 %21, 4
   %narrow.i = select i1 %22, i8 %21, i8 1
-  switch i8 %narrow.i, label %23 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %25
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %23
   ]
+
+.unreachabledefault.i:                            ; preds = %19
+  unreachable
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %11, i64 8
@@ -52801,11 +52965,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17he81320297eea49b1
   %8 = add nsw i8 %7, -30
   %9 = icmp ult i8 %8, 4
   %narrow.i = select i1 %9, i8 %8, i8 1
-  switch i8 %narrow.i, label %10 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
     i8 1, label %12
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.2456044669961016091.exit"
+    i8 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %6
+  unreachable
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 8

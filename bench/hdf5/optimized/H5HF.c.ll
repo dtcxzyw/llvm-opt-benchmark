@@ -534,11 +534,12 @@ define range(i32 -1, 1) i32 @H5HF_get_obj_len(ptr nocapture noundef readonly %0,
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 600
   store ptr %11, ptr %13, align 8
-  %14 = and i8 %4, 48
-  switch i8 %14, label %39 [
+  %14 = lshr i8 %4, 4
+  switch i8 %14, label %.unreachabledefault [
     i8 0, label %15
-    i8 16, label %23
-    i8 32, label %31
+    i8 1, label %23
+    i8 2, label %31
+    i8 3, label %39
   ]
 
 15:                                               ; preds = %9
@@ -576,6 +577,9 @@ define range(i32 -1, 1) i32 @H5HF_get_obj_len(ptr nocapture noundef readonly %0,
   %37 = load i64, ptr @H5E_CANTGET_g, align 8
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_get_obj_len, i32 noundef 411, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.17) #6
   br label %45
+
+.unreachabledefault:                              ; preds = %9
+  unreachable
 
 39:                                               ; preds = %9
   %40 = load ptr, ptr @stderr, align 8
@@ -617,11 +621,12 @@ define range(i32 -1, 1) i32 @H5HF_get_obj_off(ptr nocapture noundef readonly %0,
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 600
   store ptr %11, ptr %13, align 8
-  %14 = and i8 %4, 48
-  switch i8 %14, label %26 [
+  %14 = lshr i8 %4, 4
+  switch i8 %14, label %.unreachabledefault [
     i8 0, label %15
-    i8 16, label %17
-    i8 32, label %25
+    i8 1, label %17
+    i8 2, label %25
+    i8 3, label %26
   ]
 
 15:                                               ; preds = %9
@@ -644,6 +649,9 @@ define range(i32 -1, 1) i32 @H5HF_get_obj_off(ptr nocapture noundef readonly %0,
 25:                                               ; preds = %9
   store i64 0, ptr %2, align 8
   br label %32
+
+.unreachabledefault:                              ; preds = %9
+  unreachable
 
 26:                                               ; preds = %9
   %27 = load ptr, ptr @stderr, align 8
@@ -680,11 +688,12 @@ define range(i32 -1, 1) i32 @H5HF_read(ptr nocapture noundef readonly %0, ptr no
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 600
   store ptr %11, ptr %13, align 8
-  %14 = and i8 %4, 48
-  switch i8 %14, label %39 [
+  %14 = lshr i8 %4, 4
+  switch i8 %14, label %.unreachabledefault [
     i8 0, label %15
-    i8 16, label %23
-    i8 32, label %31
+    i8 1, label %23
+    i8 2, label %31
+    i8 3, label %39
   ]
 
 15:                                               ; preds = %9
@@ -723,6 +732,9 @@ define range(i32 -1, 1) i32 @H5HF_read(ptr nocapture noundef readonly %0, ptr no
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_read, i32 noundef 528, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.23) #6
   br label %45
 
+.unreachabledefault:                              ; preds = %9
+  unreachable
+
 39:                                               ; preds = %9
   %40 = load ptr, ptr @stderr, align 8
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.H5HF_read) #7
@@ -760,11 +772,12 @@ define range(i32 -1, 1) i32 @H5HF_write(ptr nocapture noundef readonly %0, ptr n
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 600
   store ptr %12, ptr %14, align 8
-  %15 = and i8 %5, 48
-  switch i8 %15, label %36 [
+  %15 = lshr i8 %5, 4
+  switch i8 %15, label %.unreachabledefault [
     i8 0, label %16
-    i8 16, label %24
-    i8 32, label %32
+    i8 1, label %24
+    i8 2, label %32
+    i8 3, label %36
   ]
 
 16:                                               ; preds = %10
@@ -796,6 +809,9 @@ define range(i32 -1, 1) i32 @H5HF_write(ptr nocapture noundef readonly %0, ptr n
   %34 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
   %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_write, i32 noundef 601, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.26) #6
   br label %42
+
+.unreachabledefault:                              ; preds = %10
+  unreachable
 
 36:                                               ; preds = %10
   %37 = load ptr, ptr @stderr, align 8
@@ -832,11 +848,12 @@ define range(i32 -1, 1) i32 @H5HF_op(ptr nocapture noundef readonly %0, ptr noun
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 600
   store ptr %12, ptr %14, align 8
-  %15 = and i8 %5, 48
-  switch i8 %15, label %40 [
+  %15 = lshr i8 %5, 4
+  switch i8 %15, label %.unreachabledefault [
     i8 0, label %16
-    i8 16, label %24
-    i8 32, label %32
+    i8 1, label %24
+    i8 2, label %32
+    i8 3, label %40
   ]
 
 16:                                               ; preds = %10
@@ -875,6 +892,9 @@ define range(i32 -1, 1) i32 @H5HF_op(ptr nocapture noundef readonly %0, ptr noun
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_op, i32 noundef 666, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.29) #6
   br label %46
 
+.unreachabledefault:                              ; preds = %10
+  unreachable
+
 40:                                               ; preds = %10
   %41 = load ptr, ptr @stderr, align 8
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.H5HF_op) #7
@@ -912,11 +932,12 @@ define range(i32 -1, 1) i32 @H5HF_remove(ptr nocapture noundef readonly %0, ptr 
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 600
   store ptr %10, ptr %12, align 8
-  %13 = and i8 %3, 48
-  switch i8 %13, label %38 [
+  %13 = lshr i8 %3, 4
+  switch i8 %13, label %.unreachabledefault [
     i8 0, label %14
-    i8 16, label %22
-    i8 32, label %30
+    i8 1, label %22
+    i8 2, label %30
+    i8 3, label %38
   ]
 
 14:                                               ; preds = %8
@@ -954,6 +975,9 @@ define range(i32 -1, 1) i32 @H5HF_remove(ptr nocapture noundef readonly %0, ptr 
   %36 = load i64, ptr @H5E_CANTREMOVE_g, align 8
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_remove, i32 noundef 726, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.32) #6
   br label %44
+
+.unreachabledefault:                              ; preds = %8
+  unreachable
 
 38:                                               ; preds = %8
   %39 = load ptr, ptr @stderr, align 8

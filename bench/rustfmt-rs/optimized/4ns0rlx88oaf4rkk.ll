@@ -6180,11 +6180,15 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$indexmap..Bucket$LT$toml_ed
   %9 = add nsw i64 %8, -8
   %10 = icmp ult i64 %9, 4
   %11 = select i1 %10, i64 %9, i64 1
-  switch i64 %11, label %12 [
+  switch i64 %11, label %.unreachabledefault.i [
     i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17ha7abb392ed042a7cE.llvm.17249484671449717553.exit"
     i64 1, label %28
     i64 2, label %29
+    i64 3, label %12
   ]
+
+.unreachabledefault.i:                            ; preds = %"_ZN4core3ptr63drop_in_place$LT$toml_edit..internal_string..InternalString$GT$17h9c6a73d0f0ac388aE.exit"
+  unreachable
 
 12:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$toml_edit..internal_string..InternalString$GT$17h9c6a73d0f0ac388aE.exit"
   %13 = getelementptr inbounds i8, ptr %0, i64 32
@@ -16036,7 +16040,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Toke
   %3 = xor i64 %2, -9223372036854775808
   %4 = icmp ult i64 %3, 8
   %5 = select i1 %4, i64 %3, i64 6
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$globset..glob..Tokens$GT$$GT$17h47f22095e676d329E.exit"
     i64 1, label %"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$globset..glob..Tokens$GT$$GT$17h47f22095e676d329E.exit"
     i64 2, label %"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$globset..glob..Tokens$GT$$GT$17h47f22095e676d329E.exit"
@@ -16044,7 +16048,11 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Toke
     i64 4, label %"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$globset..glob..Tokens$GT$$GT$17h47f22095e676d329E.exit"
     i64 5, label %"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$globset..glob..Tokens$GT$$GT$17h47f22095e676d329E.exit"
     i64 6, label %32
+    i64 7, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -18127,11 +18135,15 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17h
   %4 = add nsw i64 %3, -8
   %5 = icmp ult i64 %4, 4
   %6 = select i1 %5, i64 %4, i64 1
-  switch i64 %6, label %7 [
+  switch i64 %6, label %.unreachabledefault [
     i64 0, label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..item..Item$GT$$GT$17h56c9c34bd3825f7dE.llvm.17249484671449717553.exit"
     i64 1, label %23
     i64 2, label %24
+    i64 3, label %7
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -18173,7 +18185,7 @@ common.resume:                                    ; preds = %.body, %90, %62, %1
   tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %22, i64 noundef 8) #43, !noalias !7703
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..item..Item$GT$$GT$17h56c9c34bd3825f7dE.llvm.17249484671449717553.exit"
 
-"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..item..Item$GT$$GT$17h56c9c34bd3825f7dE.llvm.17249484671449717553.exit": ; preds = %92, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8440b49c572a1798E.llvm.17249484671449717553.exit.i", %21, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfbcc621e9d73340E.llvm.17249484671449717553.exit.i", %23, %1
+"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..item..Item$GT$$GT$17h56c9c34bd3825f7dE.llvm.17249484671449717553.exit": ; preds = %92, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8440b49c572a1798E.llvm.17249484671449717553.exit.i", %21, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfbcc621e9d73340E.llvm.17249484671449717553.exit.i", %1, %23
   ret void
 
 23:                                               ; preds = %1
@@ -19427,7 +19439,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$rustc_ast..ast..ModKind$GT$1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$rustc_ast..ast..PatKind$GT$17h21c00c9c9bdfe0e0E.llvm.17249484671449717553"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !8346, !noundef !5
-  switch i8 %2, label %3 [
+  switch i8 %2, label %default.unreachable45 [
     i8 0, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$$GT$17h6f9d46503c82d496E.exit"
     i8 1, label %24
     i8 2, label %31
@@ -19443,7 +19455,11 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$rustc_ast..ast..PatKind$GT$1
     i8 12, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$$GT$17h6f9d46503c82d496E.exit"
     i8 13, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$$GT$17h6f9d46503c82d496E.exit"
     i8 14, label %106
+    i8 15, label %3
   ]
+
+default.unreachable45:                            ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -19509,7 +19525,7 @@ common.resume:                                    ; preds = %.body27, %118, %114
   tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef 32, i64 noundef 8) #43, !noalias !8382
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$$GT$17h6f9d46503c82d496E.exit"
 
-"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$$GT$17h6f9d46503c82d496E.exit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Expr$GT$$GT$17hf3c9f1ef966cbd8bE.exit33", %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Expr$GT$$GT$$GT$17ha8f0e2ba58953498E.llvm.17249484671449717553.exit", %140, %136, %125, %121, %105, %101, %70, %66, %55, %51, %"_ZN4core3ptr65drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$17h389ea225e6236126E.exit23", %24, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..QSelf$GT$$GT$$GT$17h217ac043c123a9d6E.llvm.17249484671449717553.exit9", %"_ZN4core3ptr65drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$17h389ea225e6236126E.exit14", %"_ZN4core3ptr66drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Expr$GT$$GT$17hf3c9f1ef966cbd8bE.exit", %"_ZN4core3ptr65drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$17h389ea225e6236126E.exit11", %"_ZN4core3ptr65drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$17h389ea225e6236126E.exit", %"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$rustc_ast..ast..MacCall$GT$$GT$17h85f22d2244804156E.llvm.17249484671449717553.exit", %1, %1, %1
+"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$$GT$17h6f9d46503c82d496E.exit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Expr$GT$$GT$17hf3c9f1ef966cbd8bE.exit33", %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Expr$GT$$GT$$GT$17ha8f0e2ba58953498E.llvm.17249484671449717553.exit", %140, %136, %125, %121, %105, %101, %70, %66, %55, %51, %"_ZN4core3ptr65drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$17h389ea225e6236126E.exit23", %24, %1, %1, %1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..QSelf$GT$$GT$$GT$17h217ac043c123a9d6E.llvm.17249484671449717553.exit9", %"_ZN4core3ptr65drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$17h389ea225e6236126E.exit14", %"_ZN4core3ptr66drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Expr$GT$$GT$17hf3c9f1ef966cbd8bE.exit", %"_ZN4core3ptr65drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$17h389ea225e6236126E.exit11", %"_ZN4core3ptr65drop_in_place$LT$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$GT$17h389ea225e6236126E.exit", %"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$rustc_ast..ast..MacCall$GT$$GT$17h85f22d2244804156E.llvm.17249484671449717553.exit"
   ret void
 
 24:                                               ; preds = %1
@@ -28238,11 +28254,15 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$intl_pluralrules..PluralRule
 define hidden void @"_ZN4core3ptr50drop_in_place$LT$rustc_ast..ast..AssocItemKind$GT$17h3b9e526b1044d86cE.llvm.17249484671449717553"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !12596, !noundef !5
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %5
     i64 1, label %9
     i64 2, label %13
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$rustc_ast..ast..MacCall$GT$$GT$17h85f22d2244804156E.llvm.17249484671449717553"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
@@ -28770,18 +28790,22 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$toml_edit..item..Item$u
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17ha7abb392ed042a7cE.llvm.17249484671449717553.exit"
-  %.014 = phi i64 [ %5, %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17ha7abb392ed042a7cE.llvm.17249484671449717553.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { i64, [21 x i64] }], ptr %0, i64 0, i64 %.014
-  %5 = add nuw i64 %.014, 1
+  %.015 = phi i64 [ %5, %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17ha7abb392ed042a7cE.llvm.17249484671449717553.exit" ], [ 0, %2 ]
+  %4 = getelementptr inbounds [0 x { i64, [21 x i64] }], ptr %0, i64 0, i64 %.015
+  %5 = add nuw i64 %.015, 1
   %6 = load i64, ptr %4, align 8, !range !2085, !alias.scope !12766, !noundef !5
   %7 = add nsw i64 %6, -8
   %8 = icmp ult i64 %7, 4
   %9 = select i1 %8, i64 %7, i64 1
-  switch i64 %9, label %10 [
+  switch i64 %9, label %.unreachabledefault.i [
     i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17ha7abb392ed042a7cE.llvm.17249484671449717553.exit"
     i64 1, label %26
     i64 2, label %27
+    i64 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %.lr.ph
+  unreachable
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds i8, ptr %4, i64 32
@@ -28980,11 +29004,15 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$rustc_ast..ast..AssocConstra
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr52drop_in_place$LT$rustc_ast..ast..ForeignItemKind$GT$17h89ead4a6521ec119E.llvm.17249484671449717553"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !8, !noundef !5
-  switch i8 %2, label %3 [
+  switch i8 %2, label %default.unreachable1 [
     i8 0, label %5
     i8 1, label %10
     i8 2, label %15
+    i8 3, label %3
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -29922,11 +29950,15 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$toml_edit..table..TableKeyVa
   %4 = add nsw i64 %3, -8
   %5 = icmp ult i64 %4, 4
   %6 = select i1 %5, i64 %4, i64 1
-  switch i64 %6, label %7 [
+  switch i64 %6, label %.unreachabledefault.i [
     i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17ha7abb392ed042a7cE.llvm.17249484671449717553.exit"
     i64 1, label %35
     i64 2, label %36
+    i64 3, label %7
   ]
+
+.unreachabledefault.i:                            ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -41044,11 +41076,15 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std.
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr67drop_in_place$LT$fluent_bundle..resolver..errors..ReferenceKind$GT$17hab2a9087e9033872E.llvm.17249484671449717553"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !12596, !noundef !5
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable14 [
     i64 0, label %7
     i64 1, label %11
     i64 2, label %17
+    i64 3, label %3
   ]
+
+default.unreachable14:                            ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -41095,10 +41131,10 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$fluent_bundle..resolver..err
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit7"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.sink.split": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit7", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit5", %7, %3
-  %.sink14 = phi i64 [ %5, %3 ], [ %9, %7 ], [ %26, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit5" ], [ %28, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit7" ]
+  %.sink15 = phi i64 [ %5, %3 ], [ %9, %7 ], [ %26, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit5" ], [ %28, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit7" ]
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !5, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %.sink14, i64 noundef 1) #43, !noalias !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %.sink15, i64 noundef 1) #43, !noalias !5
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit7", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit7", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit5", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit5", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.sink.split", %7, %3

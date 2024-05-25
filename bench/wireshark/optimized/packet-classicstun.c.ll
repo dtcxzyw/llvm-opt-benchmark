@@ -344,10 +344,11 @@ define internal i32 @dissect_classicstun(ptr noundef %0, ptr noundef %1, ptr nou
   %87 = call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %86) #4
   %88 = lshr i32 %13, 4
   %89 = and i32 %88, 17
-  switch i32 %89, label %proto_item_set_generated.exit [
+  switch i32 %89, label %.unreachabledefault [
     i32 0, label %90
     i32 16, label %99
     i32 17, label %99
+    i32 1, label %proto_item_set_generated.exit
   ]
 
 90:                                               ; preds = %.thread
@@ -406,6 +407,9 @@ proto_item_set_generated.exit269:                 ; preds = %101, %104, %107
   %117 = load ptr, ptr %116, align 8
   %.not5.i271 = icmp eq ptr %117, null
   br i1 %.not5.i271, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
+
+.unreachabledefault:                              ; preds = %.thread
+  unreachable
 
 proto_item_set_generated.exit.sink.split:         ; preds = %115, %96
   %.sink302 = phi ptr [ %98, %96 ], [ %117, %115 ]

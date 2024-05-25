@@ -3706,10 +3706,11 @@ gv_strdup.exit141:                                ; preds = %190
 
 284:                                              ; preds = %279
   %285 = and i16 %200, 6
-  switch i16 %285, label %290 [
+  switch i16 %285, label %.unreachabledefault.i [
     i16 6, label %294
     i16 4, label %286
     i16 2, label %288
+    i16 0, label %290
   ]
 
 286:                                              ; preds = %284
@@ -3721,6 +3722,9 @@ gv_strdup.exit141:                                ; preds = %190
   %289 = fadd double %245, %282
   store double %289, ptr %4, align 8
   br label %294
+
+.unreachabledefault.i:                            ; preds = %284
+  unreachable
 
 290:                                              ; preds = %284
   %291 = fmul double %282, 5.000000e-01

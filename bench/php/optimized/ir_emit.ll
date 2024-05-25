@@ -725,10 +725,11 @@ define hidden void @dasm_put(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %111 = getelementptr inbounds i8, ptr %.0141.in.in, i64 2
   %112 = lshr i8 %100, 3
   %113 = and i8 %112, 3
-  switch i8 %113, label %.backedge.backedge [
+  switch i8 %113, label %default.unreachable186 [
     i8 3, label %114
     i8 2, label %118
     i8 1, label %122
+    i8 0, label %.backedge.backedge
   ]
 
 114:                                              ; preds = %106
@@ -737,14 +738,14 @@ define hidden void @dasm_put(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %117 = or i32 %116, %70
   br label %118
 
-118:                                              ; preds = %114, %106
+118:                                              ; preds = %106, %114
   %.0139 = phi i32 [ %70, %106 ], [ %117, %114 ]
   %119 = getelementptr i8, ptr %73, i64 -4
   %120 = load i32, ptr %119, align 4
   %121 = or i32 %120, %.0139
   br label %122
 
-122:                                              ; preds = %118, %106
+122:                                              ; preds = %106, %118
   %.1140 = phi i32 [ %70, %106 ], [ %121, %118 ]
   %123 = icmp slt i32 %.1140, 8
   br i1 %123, label %124, label %.backedge.backedge
@@ -754,6 +755,9 @@ define hidden void @dasm_put(ptr nocapture noundef readonly %0, i32 noundef %1, 
   store i32 %125, ptr %73, align 4
   %126 = add nsw i32 %.2147, -1
   br label %.backedge.backedge
+
+default.unreachable186:                           ; preds = %106
+  unreachable
 
 default.unreachable:                              ; preds = %127, %68
   unreachable

@@ -40,10 +40,11 @@ entry:
   %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
   %and = and i32 %0, 3
-  switch i32 %and, label %sw.default [
+  switch i32 %and, label %default.unreachable43 [
     i32 0, label %for.cond.i
     i32 1, label %sw.bb1
     i32 2, label %sw.epilog
+    i32 3, label %sw.default
   ]
 
 for.cond.i:                                       ; preds = %entry, %for.cond.i
@@ -68,6 +69,9 @@ sw.bb1:                                           ; preds = %sw.bb1.loopexit, %e
   %or.i = or disjoint i32 %and.i, 2
   store i32 %or.i, ptr %state, align 8
   br label %sw.epilog
+
+default.unreachable43:                            ; preds = %entry
+  unreachable
 
 sw.default:                                       ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 643, ptr noundef nonnull @__PRETTY_FUNCTION__.sf_parser_param) #7
@@ -497,10 +501,11 @@ entry:
   %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
   %and = and i32 %0, 3
-  switch i32 %and, label %sw.default16 [
+  switch i32 %and, label %default.unreachable48 [
     i32 0, label %sw.bb
     i32 1, label %for.cond.i
     i32 3, label %sw.bb5
+    i32 2, label %sw.default16
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -569,14 +574,17 @@ parser_discard_sp.exit34:                         ; preds = %land.rhs.i28thread-
   %cmp.i35.not = icmp eq ptr %incdec.ptr.i32, %sfp.val19
   br i1 %cmp.i35.not, label %return, label %sw.epilog17
 
+default.unreachable48:                            ; preds = %entry
+  unreachable
+
 sw.default16:                                     ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 746, ptr noundef nonnull @__PRETTY_FUNCTION__.sf_parser_inner_list) #7
   unreachable
 
 sw.epilog17:                                      ; preds = %parser_discard_sp.exit34, %parser_discard_sp.exit
   %.ph = phi ptr [ %sfp.val20, %parser_discard_sp.exit ], [ %incdec.ptr.i32, %parser_discard_sp.exit34 ]
-  %.pr48 = load i8, ptr %.ph, align 1
-  %cmp20 = icmp eq i8 %.pr48, 41
+  %.pr49 = load i8, ptr %.ph, align 1
+  %cmp20 = icmp eq i8 %.pr49, 41
   br i1 %cmp20, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %if.end9, %sw.epilog17
@@ -591,10 +599,10 @@ if.end24:                                         ; preds = %sw.epilog17
   br i1 %cmp26.not, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end24, %if.then22
-  %.sink50 = phi i32 [ -8, %if.then22 ], [ -4, %if.end24 ]
+  %.sink51 = phi i32 [ -8, %if.then22 ], [ -4, %if.end24 ]
   %retval.0.ph = phi i32 [ -2, %if.then22 ], [ 0, %if.end24 ]
   %6 = load i32, ptr %state, align 8
-  %and.i40 = and i32 %6, %.sink50
+  %and.i40 = and i32 %6, %.sink51
   %or.i41 = or disjoint i32 %and.i40, 1
   store i32 %or.i41, ptr %state, align 8
   br label %return

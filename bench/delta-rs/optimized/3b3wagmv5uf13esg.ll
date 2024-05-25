@@ -616,11 +616,15 @@ define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Resu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   %20 = add nsw i64 %17, -16
   %21 = tail call i64 @llvm.umin.i64(i64 %20, i64 3)
-  switch i64 %21, label %22 [
+  switch i64 %21, label %default.unreachable [
     i64 0, label %322
     i64 1, label %331
     i64 2, label %"_ZN4core3ptr50drop_in_place$LT$deltalake_mount..error..Error$GT$17h1507470878826f5eE.exit"
+    i64 3, label %22
   ]
+
+default.unreachable:                              ; preds = %19
+  unreachable
 
 22:                                               ; preds = %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)

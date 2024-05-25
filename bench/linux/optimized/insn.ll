@@ -1137,7 +1137,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr nocapture
 63:                                               ; preds = %60
   %64 = lshr i32 %15, 11
   %65 = and i32 %64, 7
-  switch i32 %65, label %140 [
+  switch i32 %65, label %default.unreachable13 [
     i32 1, label %66
     i32 2, label %76
     i32 3, label %86
@@ -1145,6 +1145,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr nocapture
     i32 5, label %110
     i32 6, label %113
     i32 7, label %116
+    i32 0, label %140
   ]
 
 66:                                               ; preds = %63
@@ -1271,7 +1272,10 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr nocapture
   store i8 1, ptr %3, align 4
   br label %140
 
-140:                                              ; preds = %139, %127, %116, %113, %110, %102, %95, %86, %76, %66, %63, %47, %40, %31, %21, %18, %10, %1
+default.unreachable13:                            ; preds = %63
+  unreachable
+
+140:                                              ; preds = %63, %139, %127, %116, %113, %110, %102, %95, %86, %76, %66, %47, %40, %31, %21, %18, %10, %1
   %141 = phi i32 [ 0, %139 ], [ 0, %1 ], [ %11, %10 ], [ -61, %127 ], [ -61, %63 ], [ -61, %116 ], [ -61, %113 ], [ -61, %110 ], [ -61, %102 ], [ -61, %95 ], [ -61, %86 ], [ -61, %76 ], [ -61, %66 ], [ -61, %18 ], [ -61, %21 ], [ -61, %31 ], [ -61, %40 ], [ -61, %47 ]
   ret i32 %141
 }

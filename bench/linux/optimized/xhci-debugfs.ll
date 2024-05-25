@@ -2152,7 +2152,7 @@ define internal noundef i32 @xhci_endpoint_context_show(ptr noundef %0, ptr noca
   %74 = and i32 %53, 255
   %75 = shl i32 125, %74
   %76 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %73, ptr noundef nonnull dereferenceable(1) @.str.139, i32 noundef %75, i32 noundef %48, i32 noundef %59) #14
-  switch i8 %62, label %83 [
+  switch i8 %62, label %default.unreachable1 [
     i8 1, label %84
     i8 2, label %77
     i8 3, label %78
@@ -2160,6 +2160,7 @@ define internal noundef i32 @xhci_endpoint_context_show(ptr noundef %0, ptr noca
     i8 5, label %80
     i8 6, label %81
     i8 7, label %82
+    i8 0, label %83
   ]
 
 77:                                               ; preds = %68
@@ -2180,10 +2181,13 @@ define internal noundef i32 @xhci_endpoint_context_show(ptr noundef %0, ptr noca
 82:                                               ; preds = %68
   br label %84
 
+default.unreachable1:                             ; preds = %68
+  unreachable
+
 83:                                               ; preds = %68
   br label %84
 
-84:                                               ; preds = %83, %82, %81, %80, %79, %78, %77, %68
+84:                                               ; preds = %68, %83, %82, %81, %80, %79, %78, %77
   %85 = phi ptr [ @.str.148, %83 ], [ @.str.155, %82 ], [ @.str.154, %81 ], [ @.str.153, %80 ], [ @.str.152, %79 ], [ @.str.151, %78 ], [ @.str.150, %77 ], [ @.str.149, %68 ]
   %86 = add i32 %76, %71
   %87 = sext i32 %86 to i64

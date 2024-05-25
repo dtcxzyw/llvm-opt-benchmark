@@ -26565,11 +26565,15 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$hashbrown..map..IntoIter$LT$
 define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$indicatif..draw_target..ProgressDrawTarget$GT$17hefbcfaf792a91f28E"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13209)
   %2 = load i64, ptr %0, align 8, !range !8491, !alias.scope !13209, !noundef !4
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable [
     i64 0, label %24
     i64 1, label %30
     i64 2, label %"_ZN4core3ptr55drop_in_place$LT$indicatif..draw_target..TargetKind$GT$17hd0533bc62136e2d8E.exit"
+    i64 3, label %3
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 16

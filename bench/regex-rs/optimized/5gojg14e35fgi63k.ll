@@ -4605,7 +4605,7 @@ define hidden void @_ZN14regex_automata4meta13reverse_inner7extract17h7208a998da
   %44 = add nsw i64 %42, -2
   %45 = icmp ult i64 %44, 8
   %46 = select i1 %45, i64 %44, i64 2
-  switch i64 %46, label %47 [
+  switch i64 %46, label %.unreachabledefault.i.i [
     i64 0, label %_ZN14regex_automata4meta13reverse_inner10top_concat17h24b77c9a94e08cdfE.exit.thread35
     i64 1, label %63
     i64 2, label %65
@@ -4613,7 +4613,11 @@ define hidden void @_ZN14regex_automata4meta13reverse_inner7extract17h7208a998da
     i64 4, label %84
     i64 5, label %86
     i64 6, label %96
+    i64 7, label %47
   ]
+
+.unreachabledefault.i.i:                          ; preds = %43
+  unreachable
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %9, i64 8

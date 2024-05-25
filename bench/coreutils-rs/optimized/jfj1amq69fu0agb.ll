@@ -4186,23 +4186,28 @@ define internal fastcc void @_ZN7uu_tail12bounded_tail17hdb3b4428fad77660E(ptr n
   %27 = alloca { i64, [1 x i64] }, align 8
   %28 = alloca { i64, [1 x i64] }, align 8
   %29 = load i64, ptr %1, align 8, !range !919, !noundef !4
-  switch i64 %29, label %_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit [
+  switch i64 %29, label %default.unreachable28 [
     i64 4, label %30
     i64 0, label %78
     i64 1, label %145
     i64 3, label %65
+    i64 2, label %_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit
   ]
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8, !range !920, !noundef !4
-  switch i64 %32, label %_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit [
+  switch i64 %32, label %default.unreachable28 [
     i64 0, label %35
     i64 1, label %61
     i64 3, label %65
+    i64 2, label %_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit
   ]
 
-_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit: ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3fea8703052bbfcE.exit30.i", %._crit_edge49.i, %145, %61, %2, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit11", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit14", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit17", %30
+default.unreachable28:                            ; preds = %30, %2
+  unreachable
+
+_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit: ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc3fea8703052bbfcE.exit30.i", %._crit_edge49.i, %145, %61, %2, %30, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit12", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit15", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit18"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   %33 = call noundef nonnull align 8 ptr @_ZN3std2io5stdio6stdout17h659a3b902d8b66feE()
   store ptr %33, ptr %19, align 8
@@ -4223,8 +4228,8 @@ _ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit: ; preds = %"_ZN4core3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !921)
   %37 = load i64, ptr %25, align 8, !range !382, !alias.scope !921, !noalias !924, !noundef !4
-  %trunc.i18 = trunc nuw i64 %37 to i1
-  br i1 %trunc.i18, label %38, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit20"
+  %trunc.i19 = trunc nuw i64 %37 to i1
+  br i1 %trunc.i19, label %38, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit21"
 
 38:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !926
@@ -4253,7 +4258,7 @@ common.resume:                                    ; preds = %.body, %169, %157, 
   %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %57, %56 ], [ %74, %73 ], [ %eh.lpad-body.i, %.body.i ], [ %158, %157 ], [ %170, %169 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit20": ; preds = %35
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit21": ; preds = %35
   %46 = getelementptr inbounds i8, ptr %25, i64 8
   %47 = load i64, ptr %46, align 8, !alias.scope !921, !noalias !924, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
@@ -4270,10 +4275,10 @@ common.resume:                                    ; preds = %.body, %169, %157, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !927)
   %52 = load i64, ptr %23, align 8, !range !382, !alias.scope !927, !noalias !930, !noundef !4
-  %trunc.i15 = trunc nuw i64 %52 to i1
-  br i1 %trunc.i15, label %53, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit17"
+  %trunc.i16 = trunc nuw i64 %52 to i1
+  br i1 %trunc.i16, label %53, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit18"
 
-53:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit20"
+53:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit21"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !932
   %54 = getelementptr inbounds i8, ptr %23, i64 8
   %55 = load ptr, ptr %54, align 8, !alias.scope !927, !noalias !930, !nonnull !4, !noundef !4
@@ -4296,7 +4301,7 @@ common.resume:                                    ; preds = %.body, %169, %157, 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22, !noalias !927
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit17": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit20"
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit18": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit21"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
   br label %_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit
 
@@ -4306,7 +4311,7 @@ common.resume:                                    ; preds = %.body, %169, %157, 
   %64 = icmp ugt i64 %63, 1
   br i1 %64, label %66, label %_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit
 
-65:                                               ; preds = %2, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h6679dcfdc5b10861E.exit", %30
+65:                                               ; preds = %2, %30, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h6679dcfdc5b10861E.exit"
   ret void
 
 66:                                               ; preds = %61
@@ -4320,8 +4325,8 @@ common.resume:                                    ; preds = %.body, %169, %157, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !933)
   %69 = load i64, ptr %21, align 8, !range !382, !alias.scope !933, !noalias !936, !noundef !4
-  %trunc.i12 = trunc nuw i64 %69 to i1
-  br i1 %trunc.i12, label %70, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit14"
+  %trunc.i13 = trunc nuw i64 %69 to i1
+  br i1 %trunc.i13, label %70, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit15"
 
 70:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !938
@@ -4346,7 +4351,7 @@ common.resume:                                    ; preds = %.body, %169, %157, 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22, !noalias !933
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit14": ; preds = %66
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit15": ; preds = %66
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   br label %_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit
 
@@ -4594,8 +4599,8 @@ common.resume:                                    ; preds = %.body, %169, %157, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !976)
   %165 = load i64, ptr %27, align 8, !range !382, !alias.scope !976, !noalias !979, !noundef !4
-  %trunc.i9 = trunc nuw i64 %165 to i1
-  br i1 %trunc.i9, label %166, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit11"
+  %trunc.i10 = trunc nuw i64 %165 to i1
+  br i1 %trunc.i10, label %166, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit12"
 
 166:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4216096705e4a5dfE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14), !noalias !981
@@ -4620,7 +4625,7 @@ common.resume:                                    ; preds = %.body, %169, %157, 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22, !noalias !976
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit11": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4216096705e4a5dfE.exit"
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit12": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4216096705e4a5dfE.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   br label %_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit
 
@@ -4637,8 +4642,8 @@ common.resume:                                    ; preds = %.body, %169, %157, 
 176:                                              ; preds = %_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !982)
   %177 = load i64, ptr %17, align 8, !range !382, !alias.scope !982, !noalias !985, !noundef !4
-  %trunc.i7 = trunc nuw i64 %177 to i1
-  br i1 %trunc.i7, label %178, label %186
+  %trunc.i8 = trunc nuw i64 %177 to i1
+  br i1 %trunc.i8, label %178, label %186
 
 178:                                              ; preds = %176
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !987

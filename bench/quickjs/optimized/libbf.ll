@@ -941,7 +941,7 @@ get_bit.exit.i:                                   ; preds = %58, %scan_bit_nz.ex
   %64 = or i64 %.0.i28.i, %.0.i113
   %.not.i = icmp eq i64 %64, 0
   %65 = trunc nuw nsw i64 %64 to i32
-  switch i32 %28, label %87 [
+  switch i32 %28, label %default.unreachable [
     i32 1, label %get_bit.exit32.i
     i32 0, label %66
     i32 2, label %78
@@ -949,6 +949,7 @@ get_bit.exit.i:                                   ; preds = %58, %scan_bit_nz.ex
     i32 5, label %84
     i32 4, label %85
     i32 6, label %85
+    i32 7, label %87
   ]
 
 66:                                               ; preds = %get_bit.exit.i
@@ -991,11 +992,14 @@ get_bit.exit.i:                                   ; preds = %58, %scan_bit_nz.ex
   %86 = trunc nuw nsw i64 %.0.i28.i to i32
   br label %get_bit.exit32.i
 
+default.unreachable:                              ; preds = %get_bit.exit.i
+  unreachable
+
 87:                                               ; preds = %get_bit.exit.i
   tail call void @abort() #18
   unreachable
 
-get_bit.exit32.i:                                 ; preds = %85, %84, %78, %71, %67, %66, %get_bit.exit.i
+get_bit.exit32.i:                                 ; preds = %get_bit.exit.i, %85, %84, %78, %71, %67, %66
   %.024.i = phi i32 [ %86, %85 ], [ %65, %84 ], [ %.mux.i, %66 ], [ 0, %get_bit.exit.i ], [ %spec.select.i, %78 ], [ %77, %71 ], [ 0, %67 ]
   %88 = or i32 %4, 16
   %spec.select = select i1 %.not.i, i32 %4, i32 %88
@@ -19624,7 +19628,7 @@ get_digit.exit.i:                                 ; preds = %79, %floor_div.exit
   %104 = or i64 %.0.i29.i, %.0.i94
   %105 = icmp ne i64 %104, 0
   %106 = zext i1 %105 to i32
-  switch i32 %27, label %158 [
+  switch i32 %27, label %default.unreachable [
     i32 1, label %159
     i32 0, label %107
     i32 2, label %148
@@ -19632,6 +19636,7 @@ get_digit.exit.i:                                 ; preds = %79, %floor_div.exit
     i32 4, label %154
     i32 6, label %154
     i32 5, label %157
+    i32 7, label %158
   ]
 
 107:                                              ; preds = %get_digit.exit.i
@@ -19715,11 +19720,14 @@ floor_div.exit.i30.i:                             ; preds = %115, %113
 157:                                              ; preds = %get_digit.exit.i
   br label %159
 
+default.unreachable:                              ; preds = %get_digit.exit.i
+  unreachable
+
 158:                                              ; preds = %get_digit.exit.i
   tail call void @abort() #18
   unreachable
 
-159:                                              ; preds = %157, %154, %148, %146, %get_digit.exit.i
+159:                                              ; preds = %get_digit.exit.i, %157, %154, %148, %146
   %.025.i = phi i32 [ %106, %157 ], [ %156, %154 ], [ 0, %get_digit.exit.i ], [ %spec.select.i, %146 ], [ %spec.select27.i, %148 ]
   %spec.select = select i1 %105, i32 16, i32 0
   br label %bfdec_get_rnd_add.exit

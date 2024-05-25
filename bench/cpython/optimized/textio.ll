@@ -5103,7 +5103,7 @@ if.end:                                           ; preds = %entry
   %bf.load = load i8, ptr %seennl, align 8
   %bf.lshr = lshr i8 %bf.load, 2
   %bf.clear = and i8 %bf.lshr, 7
-  switch i8 %bf.clear, label %return [
+  switch i8 %bf.clear, label %default.unreachable2 [
     i8 1, label %sw.bb
     i8 2, label %sw.bb1
     i8 4, label %sw.bb3
@@ -5111,6 +5111,7 @@ if.end:                                           ; preds = %entry
     i8 5, label %sw.bb7
     i8 6, label %sw.bb9
     i8 7, label %sw.bb11
+    i8 0, label %return
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -5140,6 +5141,9 @@ sw.bb9:                                           ; preds = %if.end
 sw.bb11:                                          ; preds = %if.end
   %call12 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #10
   br label %return
+
+default.unreachable2:                             ; preds = %if.end
+  unreachable
 
 return:                                           ; preds = %if.end, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb, %if.then
   %retval.0 = phi ptr [ null, %if.then ], [ %call12, %sw.bb11 ], [ %call10, %sw.bb9 ], [ %call8, %sw.bb7 ], [ %call6, %sw.bb5 ], [ %call4, %sw.bb3 ], [ %call2, %sw.bb1 ], [ %call, %sw.bb ], [ @_Py_NoneStruct, %if.end ]

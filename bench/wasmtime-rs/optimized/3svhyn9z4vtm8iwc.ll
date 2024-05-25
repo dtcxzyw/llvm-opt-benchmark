@@ -8476,11 +8476,15 @@ define void @"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..serialize..EvalStep
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load i16, ptr %14, align 8, !range !21, !noundef !3
-  switch i16 %15, label %"_ZN4core3ptr59drop_in_place$LT$cranelift_isle..serialize..ControlFlow$GT$17h09dad25429892094E.exit" [
+  switch i16 %15, label %default.unreachable [
     i16 0, label %16
     i16 1, label %18
     i16 2, label %20
+    i16 3, label %"_ZN4core3ptr59drop_in_place$LT$cranelift_isle..serialize..ControlFlow$GT$17h09dad25429892094E.exit"
   ]
+
+default.unreachable:                              ; preds = %13
+  unreachable
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 32
@@ -9525,13 +9529,17 @@ define void @"_ZN4core3ptr59drop_in_place$LT$cranelift_isle..serialize..ControlF
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = load i16, ptr %0, align 8, !range !21, !noundef !3
-  switch i16 %5, label %6 [
+  switch i16 %5, label %default.unreachable5 [
     i16 0, label %7
     i16 1, label %20
     i16 2, label %33
+    i16 3, label %6
   ]
 
-6:                                                ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..raw_vec..RawVec$LT$cranelift_isle..serialize..EvalStep$GT$$GT$17h799587b9e48b894fE.exit4", %"_ZN4core3ptr86drop_in_place$LT$alloc..raw_vec..RawVec$LT$cranelift_isle..serialize..EvalStep$GT$$GT$17h799587b9e48b894fE.exit", %"_ZN4core3ptr86drop_in_place$LT$alloc..raw_vec..RawVec$LT$cranelift_isle..serialize..MatchArm$GT$$GT$17h2eb765752ca31330E.exit", %1
+default.unreachable5:                             ; preds = %1
+  unreachable
+
+6:                                                ; preds = %1, %"_ZN4core3ptr86drop_in_place$LT$alloc..raw_vec..RawVec$LT$cranelift_isle..serialize..EvalStep$GT$$GT$17h799587b9e48b894fE.exit4", %"_ZN4core3ptr86drop_in_place$LT$alloc..raw_vec..RawVec$LT$cranelift_isle..serialize..EvalStep$GT$$GT$17h799587b9e48b894fE.exit", %"_ZN4core3ptr86drop_in_place$LT$alloc..raw_vec..RawVec$LT$cranelift_isle..serialize..MatchArm$GT$$GT$17h2eb765752ca31330E.exit"
   ret void
 
 7:                                                ; preds = %1

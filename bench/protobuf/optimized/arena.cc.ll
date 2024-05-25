@@ -1149,7 +1149,7 @@ entry:
   %add.i.i42 = add i64 %align, -1
   %not.i.i = sub i64 0, %align
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E, i64 0, i64 %retval.i67.0
-  %switch.gep67 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E, i64 0, i64 %retval.i67.0
+  %switch.gep75 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E, i64 0, i64 %retval.i67.0
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i, %entry
@@ -1158,14 +1158,14 @@ tailrecurse:                                      ; preds = %_ZN6google8protobuf
   %and.i37 = and i64 %sub.i36, -8
   %sub.i37 = add i64 %add.i36, %n.tr
   %cond.i = select i1 %cmp.i, i64 %and.i37, i64 %sub.i37
-  br i1 %cmp.i4, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit, label %cond.false.i5
+  br i1 %cmp.i4, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit, label %switch.lookup
 
-cond.false.i5:                                    ; preds = %tailrecurse
+switch.lookup:                                    ; preds = %tailrecurse
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit
 
-_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit: ; preds = %cond.false.i5, %tailrecurse
-  %cond.i8 = phi i64 [ 0, %tailrecurse ], [ %switch.load, %cond.false.i5 ]
+_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit: ; preds = %switch.lookup, %tailrecurse
+  %cond.i8 = phi i64 [ 0, %tailrecurse ], [ %switch.load, %switch.lookup ]
   %add = add i64 %cond.i8, %cond.i
   %0 = load atomic i64, ptr %head_.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %0 to ptr
@@ -1220,14 +1220,14 @@ _ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit: ; preds = %_
   %sub.i.i = add i64 %add.i.i42, %14
   %and.i.i43 = and i64 %sub.i.i, %not.i.i
   %add.i = add i64 %and.i.i43, %and.i37
-  br i1 %cmp.i4, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i, label %switch.lookup
+  br i1 %cmp.i4, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i, label %switch.lookup74
 
-switch.lookup:                                    ; preds = %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit
-  %switch.load68 = load i64, ptr %switch.gep67, align 8
+switch.lookup74:                                  ; preds = %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit
+  %switch.load76 = load i64, ptr %switch.gep75, align 8
   br label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
 
-_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i: ; preds = %switch.lookup, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit
-  %cond.i.i = phi i64 [ 0, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit ], [ %switch.load68, %switch.lookup ]
+_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i: ; preds = %switch.lookup74, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit
+  %cond.i.i = phi i64 [ 0, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit ], [ %switch.load76, %switch.lookup74 ]
   %add6.i = add i64 %cond.i.i, %add.i
   %15 = ptrtoint ptr %add.ptr.i.i.i to i64
   %cmp.i15 = icmp ugt i64 %add6.i, %15
@@ -1236,9 +1236,9 @@ _ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i: ; preds = %switch.looku
 if.end.i:                                         ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
   %16 = inttoptr i64 %add.i to ptr
   store atomic i64 %add.i, ptr %this monotonic, align 8
-  %switch.gep70 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E.7, i64 0, i64 %retval.i67.0
-  %switch.load71 = load i64, ptr %switch.gep70, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %switch.load71
+  %switch.gep78 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E.7, i64 0, i64 %retval.i67.0
+  %switch.load79 = load i64, ptr %switch.gep78, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %switch.load79
   store ptr %add.ptr.i, ptr %limit_.i39, align 8
   %cmp3.i87 = icmp sgt i64 %and.i.i, 24
   br i1 %cmp3.i87, label %if.then4.i88, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
@@ -1640,9 +1640,11 @@ while.body:                                       ; preds = %do.body, %_ZN6googl
   %it.015 = phi ptr [ %add.ptr, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit ], [ %4, %do.body ]
   %elem.i.0.copyload = load i64, ptr %it.015, align 1
   %and.i = and i64 %elem.i.0.copyload, 3
-  switch i64 %and.i, label %sw.default.i [
+  switch i64 %and.i, label %default.unreachable16 [
     i64 1, label %sw.bb.i
     i64 2, label %sw.bb1.i
+    i64 0, label %sw.default.i
+    i64 3, label %sw.default.i
   ]
 
 sw.bb.i:                                          ; preds = %while.body
@@ -1670,7 +1672,10 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   tail call void @__clang_call_terminate(ptr %10) #29
   unreachable
 
-sw.default.i:                                     ; preds = %while.body
+default.unreachable16:                            ; preds = %while.body
+  unreachable
+
+sw.default.i:                                     ; preds = %while.body, %while.body
   %destructor.i = getelementptr inbounds i8, ptr %it.015, i64 8
   %11 = load ptr, ptr %destructor.i, align 8
   %12 = inttoptr i64 %elem.i.0.copyload to ptr
@@ -2590,9 +2595,11 @@ while.body.i.i.i:                                 ; preds = %do.body.i.i.i, %_ZN
   %it.015.i.i.i = phi ptr [ %add.ptr.i.i.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i ], [ %11, %do.body.i.i.i ]
   %elem.i.0.copyload.i.i.i = load i64, ptr %it.015.i.i.i, align 1
   %and.i.i.i.i = and i64 %elem.i.0.copyload.i.i.i, 3
-  switch i64 %and.i.i.i.i, label %sw.default.i.i.i.i [
+  switch i64 %and.i.i.i.i, label %while.body.i.i.i.unreachabledefault [
     i64 1, label %sw.bb.i.i.i.i
     i64 2, label %sw.bb1.i.i.i.i
+    i64 0, label %sw.default.i.i.i.i
+    i64 3, label %sw.default.i.i.i.i
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %while.body.i.i.i
@@ -2620,7 +2627,13 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   tail call void @__clang_call_terminate(ptr %17) #29
   unreachable
 
-sw.default.i.i.i.i:                               ; preds = %while.body.i.i.i
+while.body.i.i.i.unreachabledefault:              ; preds = %while.body.i.i.i
+  unreachable
+
+default.unreachable:                              ; preds = %while.body.i4
+  unreachable
+
+sw.default.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i
   %destructor.i.i.i.i = getelementptr inbounds i8, ptr %it.015.i.i.i, i64 8
   %18 = load ptr, ptr %destructor.i.i.i.i, align 8
   %19 = inttoptr i64 %elem.i.0.copyload.i.i.i to ptr
@@ -2679,9 +2692,11 @@ while.body.i4:                                    ; preds = %do.body.i, %_ZN6goo
   %it.015.i = phi ptr [ %add.ptr.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i ], [ %26, %do.body.i ]
   %elem.i.0.copyload.i = load i64, ptr %it.015.i, align 1
   %and.i.i = and i64 %elem.i.0.copyload.i, 3
-  switch i64 %and.i.i, label %sw.default.i.i [
+  switch i64 %and.i.i, label %default.unreachable [
     i64 1, label %sw.bb.i.i
     i64 2, label %sw.bb1.i.i
+    i64 0, label %sw.default.i.i
+    i64 3, label %sw.default.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %while.body.i4
@@ -2709,7 +2724,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   tail call void @__clang_call_terminate(ptr %32) #29
   unreachable
 
-sw.default.i.i:                                   ; preds = %while.body.i4
+sw.default.i.i:                                   ; preds = %while.body.i4, %while.body.i4
   %destructor.i.i = getelementptr inbounds i8, ptr %it.015.i, i64 8
   %33 = load ptr, ptr %destructor.i.i, align 8
   %34 = inttoptr i64 %elem.i.0.copyload.i to ptr

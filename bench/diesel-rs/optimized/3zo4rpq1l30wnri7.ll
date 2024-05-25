@@ -21,11 +21,15 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..It
   %4 = add nsw i64 %3, -8
   %5 = icmp ult i64 %4, 4
   %6 = select i1 %5, i64 %4, i64 1
-  switch i64 %6, label %7 [
+  switch i64 %6, label %.unreachabledefault [
     i64 0, label %23
     i64 1, label %24
     i64 2, label %25
+    i64 3, label %7
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -73,7 +77,7 @@ common.resume:                                    ; preds = %27, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !16
   br label %23
 
-23:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17hc18ab13db2f0f07fE.exit", %24, %"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17hbf943bc9b72c32d3E.exit", %1
+23:                                               ; preds = %1, %"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17hc18ab13db2f0f07fE.exit", %24, %"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17hbf943bc9b72c32d3E.exit"
   ret void
 
 24:                                               ; preds = %1
@@ -1116,13 +1120,17 @@ _ZN5serde2de7Visitor9visit_seq17hab9c26b9feb4ac0aE.exit.i93: ; preds = %.noexc94
   %241 = add nsw i64 %240, -8
   %242 = icmp ult i64 %241, 4
   %243 = select i1 %242, i64 %241, i64 1
-  switch i64 %243, label %244 [
+  switch i64 %243, label %.unreachabledefault [
     i64 1, label %245
     i64 2, label %248
     i64 3, label %249
+    i64 0, label %244
   ]
 
-244:                                              ; preds = %274, %272, %271, %269, %267, %265, %263, %261, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %.body
+.unreachabledefault:                              ; preds = %.body
+  unreachable
+
+244:                                              ; preds = %.body, %274, %272, %271, %269, %267, %265, %263, %261, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248
   resume { ptr, i32 } %.pn
 
 245:                                              ; preds = %.body
@@ -1958,13 +1966,17 @@ _ZN5serde2de9SeqAccess12next_element17hc7a231401a9dfbd7E.llvm.127060411083477399
   %231 = add nsw i64 %230, -8
   %232 = icmp ult i64 %231, 4
   %233 = select i1 %232, i64 %231, i64 1
-  switch i64 %233, label %234 [
+  switch i64 %233, label %.unreachabledefault [
     i64 1, label %235
     i64 2, label %238
     i64 3, label %239
+    i64 0, label %234
   ]
 
-234:                                              ; preds = %264, %262, %261, %259, %257, %255, %253, %251, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %.body
+.unreachabledefault:                              ; preds = %.body
+  unreachable
+
+234:                                              ; preds = %.body, %264, %262, %261, %259, %257, %255, %253, %251, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238
   resume { ptr, i32 } %.pn
 
 235:                                              ; preds = %.body
@@ -3244,11 +3256,15 @@ _ZN5serde2de7Visitor10visit_bool17h71434c46869d24a2E.exit.i: ; preds = %"_ZN9tom
   %382 = add nsw i64 %381, -8
   %383 = icmp ult i64 %382, 4
   %384 = select i1 %383, i64 %382, i64 1
-  switch i64 %384, label %.body.thread [
+  switch i64 %384, label %.unreachabledefault.i [
     i64 1, label %385
     i64 2, label %388
     i64 3, label %389
+    i64 0, label %.body.thread
   ]
+
+.unreachabledefault.i:                            ; preds = %.body.i
+  unreachable
 
 385:                                              ; preds = %.body.i
   %386 = add nsw i64 %381, -2

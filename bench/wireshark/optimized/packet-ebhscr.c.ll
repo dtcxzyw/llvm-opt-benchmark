@@ -966,10 +966,11 @@ dissect_ebhscr_dio.exit:                          ; preds = %214, %219
   call void @proto_tree_add_bitmask_list(ptr noundef %226, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @flexray_channel_bits, i32 noundef 0) #3
   %227 = lshr i16 %23, 2
   %228 = and i16 %227, 3
-  switch i16 %228, label %319 [
+  switch i16 %228, label %default.unreachable [
     i16 0, label %229
     i16 1, label %266
     i16 2, label %297
+    i16 3, label %319
   ]
 
 229:                                              ; preds = %223
@@ -1107,6 +1108,9 @@ dissect_ebhscr_flexray_symbol_packet.exit.i:      ; preds = %290, %266
   %317 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %316, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
   %318 = call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %dissect_ebhscr_flexray.exit
+
+default.unreachable:                              ; preds = %223
+  unreachable
 
 319:                                              ; preds = %223
   %320 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 25) #3

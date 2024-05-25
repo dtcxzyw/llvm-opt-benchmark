@@ -2510,10 +2510,11 @@ cab_checksum_cfdata_4.exit.i.i:                   ; preds = %.lr.ph.i.i.i, %114
   %124 = and i64 %116, -4
   %125 = getelementptr inbounds i8, ptr %115, i64 %124
   %126 = and i64 %116, 3
-  switch i64 %126, label %cab_checksum_cfdata.exit.i [
+  switch i64 %126, label %default.unreachable [
     i64 3, label %127
     i64 2, label %132
     i64 1, label %138
+    i64 0, label %cab_checksum_cfdata.exit.i
   ]
 
 127:                                              ; preds = %cab_checksum_cfdata_4.exit.i.i
@@ -2541,6 +2542,9 @@ cab_checksum_cfdata_4.exit.i.i:                   ; preds = %.lr.ph.i.i.i, %114
   %141 = or i32 %.1.i.i, %140
   br label %cab_checksum_cfdata.exit.i
 
+default.unreachable:                              ; preds = %cab_checksum_cfdata_4.exit.i36.i, %cab_checksum_cfdata_4.exit.i.i
+  unreachable
+
 cab_checksum_cfdata.exit.i:                       ; preds = %138, %cab_checksum_cfdata_4.exit.i.i
   %.2.i.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i.i ], [ %141, %138 ]
   %142 = xor i32 %.2.i.i, %.0.lcssa.i.i.i
@@ -2566,7 +2570,7 @@ cab_checksum_cfdata.exit.i:                       ; preds = %138, %cab_checksum_
 
 .lr.ph.preheader.i.i30.i:                         ; preds = %147, %143
   %154 = phi i32 [ %153, %147 ], [ 1, %143 ]
-  %.046.i = phi i64 [ %151, %147 ], [ 4, %143 ]
+  %.047.i = phi i64 [ %151, %147 ], [ 4, %143 ]
   %.pn.in.i = getelementptr inbounds i8, ptr %108, i64 32
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
   %155 = getelementptr inbounds i8, ptr %.pn.i, i64 4
@@ -2586,13 +2590,14 @@ cab_checksum_cfdata.exit.i:                       ; preds = %138, %cab_checksum_
   br i1 %.not.i.i35.i, label %cab_checksum_cfdata_4.exit.i36.i, label %.lr.ph.i.i31.i, !llvm.loop !20
 
 cab_checksum_cfdata_4.exit.i36.i:                 ; preds = %.lr.ph.i.i31.i
-  %162 = and i64 %.046.i, -4
+  %162 = and i64 %.047.i, -4
   %163 = getelementptr inbounds i8, ptr %155, i64 %162
-  %164 = and i64 %.046.i, 3
-  switch i64 %164, label %cab_checksum_cfdata.exit43.i [
+  %164 = and i64 %.047.i, 3
+  switch i64 %164, label %default.unreachable [
     i64 3, label %165
     i64 2, label %170
     i64 1, label %176
+    i64 0, label %cab_checksum_cfdata.exit44.i
   ]
 
 165:                                              ; preds = %cab_checksum_cfdata_4.exit.i36.i
@@ -2613,21 +2618,21 @@ cab_checksum_cfdata_4.exit.i36.i:                 ; preds = %.lr.ph.i.i31.i
   br label %176
 
 176:                                              ; preds = %170, %cab_checksum_cfdata_4.exit.i36.i
-  %.116.i38.i = phi ptr [ %163, %cab_checksum_cfdata_4.exit.i36.i ], [ %171, %170 ]
-  %.1.i39.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %175, %170 ]
-  %177 = load i8, ptr %.116.i38.i, align 1
+  %.116.i39.i = phi ptr [ %163, %cab_checksum_cfdata_4.exit.i36.i ], [ %171, %170 ]
+  %.1.i40.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %175, %170 ]
+  %177 = load i8, ptr %.116.i39.i, align 1
   %178 = zext i8 %177 to i32
-  %179 = or i32 %.1.i39.i, %178
-  br label %cab_checksum_cfdata.exit43.i
+  %179 = or i32 %.1.i40.i, %178
+  br label %cab_checksum_cfdata.exit44.i
 
-cab_checksum_cfdata.exit43.i:                     ; preds = %176, %cab_checksum_cfdata_4.exit.i36.i
-  %.2.i40.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %179, %176 ]
-  %180 = xor i32 %.2.i40.i, %159
+cab_checksum_cfdata.exit44.i:                     ; preds = %176, %cab_checksum_cfdata_4.exit.i36.i
+  %.2.i38.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %179, %176 ]
+  %180 = xor i32 %.2.i38.i, %159
   store i32 %180, ptr %156, align 8
   %.not28.i = icmp eq i32 %180, %109
   br i1 %.not28.i, label %.thread, label %181
 
-181:                                              ; preds = %cab_checksum_cfdata.exit43.i
+181:                                              ; preds = %cab_checksum_cfdata.exit44.i
   %182 = getelementptr inbounds i8, ptr %106, i64 40
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 88
@@ -2639,8 +2644,8 @@ cab_checksum_cfdata.exit43.i:                     ; preds = %176, %cab_checksum_
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.25, i32 noundef %186, i32 noundef %109, i32 noundef %180, i32 noundef %189) #18
   br label %.thread
 
-.thread:                                          ; preds = %cab_checksum_cfdata.exit43.i, %104, %29, %181, %32, %cab_checksum_update.exit
-  %.0 = phi i64 [ %.165, %cab_checksum_update.exit ], [ %35, %32 ], [ -25, %181 ], [ %.045, %29 ], [ %.165, %104 ], [ %.165, %cab_checksum_cfdata.exit43.i ]
+.thread:                                          ; preds = %cab_checksum_cfdata.exit44.i, %104, %29, %181, %32, %cab_checksum_update.exit
+  %.0 = phi i64 [ %.165, %cab_checksum_update.exit ], [ %35, %32 ], [ -25, %181 ], [ %.045, %29 ], [ %.165, %104 ], [ %.165, %cab_checksum_cfdata.exit44.i ]
   ret i64 %.0
 }
 

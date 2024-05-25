@@ -45578,7 +45578,7 @@ sw.bb1.i:                                         ; preds = %.noexc
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 5
   %9 = load i64, ptr %_M_string_length.i.i, align 8
   %10 = lshr exact i8 %retval.i.sroa.10.1, 3
-  switch i8 %10, label %sw.default.i.i [
+  switch i8 %10, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
     i8 3, label %sw.bb7.i.i
@@ -45598,7 +45598,7 @@ sw.bb7.i.i:                                       ; preds = %sw.bb1.i
   store i64 %9, ptr %add.ptr.i.i24.i, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES8_EEvRKT2_.exit.i
 
-sw.default.i.i:                                   ; preds = %sw.bb1.i
+default.unreachable.i.i:                          ; preds = %sw.bb1.i
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES8_EEvRKT2_.exit.i: ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i
@@ -51982,13 +51982,13 @@ sw.bb1.i:                                         ; preds = %_ZN11struct_pack6de
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 5
   %14 = load i64, ptr %_M_string_length.i.i.i, align 8
   %15 = lshr i8 %retval.i.sroa.10.1, 3
-  switch i8 %15, label %sw.default.i.i.i [
+  switch i8 %15, label %default.unreachable.i.i.i [
     i8 1, label %sw.bb.i13.i.i
     i8 2, label %sw.bb5.i11.i.i
     i8 3, label %sw.bb7.i6.i.i
   ]
 
-sw.default.i.i.i:                                 ; preds = %sw.bb1.i
+default.unreachable.i.i.i:                        ; preds = %sw.bb1.i
   unreachable
 
 sw.bb.i13.i.i:                                    ; preds = %sw.bb1.i
@@ -53551,7 +53551,7 @@ sw.bb1.i:                                         ; preds = %_ZN11struct_pack6de
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 5
   %8 = load i64, ptr %_M_string_length.i.i, align 8
   %9 = lshr exact i8 %retval.i.sroa.10.1, 3
-  switch i8 %9, label %sw.default.i.i [
+  switch i8 %9, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
     i8 3, label %sw.bb7.i.i
@@ -53571,7 +53571,7 @@ sw.bb7.i.i:                                       ; preds = %sw.bb1.i
   store i64 %8, ptr %add.ptr.i.i24.i, align 1
   br label %_ZN11struct_pack6detail6packerINS0_13memory_writerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES8_EEvRKT2_.exit.i
 
-sw.default.i.i:                                   ; preds = %sw.bb1.i
+default.unreachable.i.i:                          ; preds = %sw.bb1.i
   unreachable
 
 _ZN11struct_pack6detail6packerINS0_13memory_writerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES8_EEvRKT2_.exit.i: ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i

@@ -1578,70 +1578,70 @@ declare dso_local i32 @init_utimes(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc i64 @xwrite(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 section ".init.text" align 16 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %.loopexit, label %.preheader
+  br i1 %4, label %.thread6, label %.preheader
 
-.preheader:                                       ; preds = %3, %33
-  %5 = phi i64 [ %.ph4, %33 ], [ 0, %3 ]
-  %6 = phi i64 [ %.ph3, %33 ], [ %2, %3 ]
-  %7 = phi ptr [ %.ph, %33 ], [ %1, %3 ]
+.preheader:                                       ; preds = %3, %34
+  %5 = phi i64 [ %.ph4, %34 ], [ 0, %3 ]
+  %6 = phi i64 [ %.ph3, %34 ], [ %2, %3 ]
+  %7 = phi ptr [ %.ph, %34 ], [ %1, %3 ]
   %8 = tail call i64 @kernel_write(ptr noundef %0, ptr noundef %7, i64 noundef %6, ptr noundef nonnull @wfile_pos) #21
   %9 = icmp slt i64 %8, 0
-  br i1 %9, label %10, label %13
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %.preheader
-  switch i64 %8, label %.thread6 [
-    i64 -4, label %33
-    i64 -11, label %33
+  switch i64 %8, label %31 [
+    i64 -4, label %34
+    i64 -11, label %34
   ], !llvm.loop !20
 
-.thread6:                                         ; preds = %10
-  %11 = icmp eq i64 %5, 0
-  %12 = select i1 %11, i64 %8, i64 %5
-  br label %.loopexit
+11:                                               ; preds = %.preheader
+  %12 = icmp eq i64 %8, 0
+  br i1 %12, label %.thread6, label %13
 
-13:                                               ; preds = %.preheader
-  %14 = icmp eq i64 %8, 0
-  br i1 %14, label %.loopexit, label %15
+13:                                               ; preds = %11
+  %14 = load i1, ptr @csum_present, align 1
+  br i1 %14, label %15, label %27
 
 15:                                               ; preds = %13
-  %16 = load i1, ptr @csum_present, align 1
-  br i1 %16, label %17, label %29
+  %16 = load i32, ptr @io_csum, align 4
+  br label %17
 
-17:                                               ; preds = %15
-  %18 = load i32, ptr @io_csum, align 4
-  br label %19
+17:                                               ; preds = %17, %15
+  %18 = phi i64 [ %24, %17 ], [ 0, %15 ]
+  %19 = phi i32 [ %23, %17 ], [ %16, %15 ]
+  %20 = getelementptr i8, ptr %7, i64 %18
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  %23 = add i32 %19, %22
+  %24 = add nuw nsw i64 %18, 1
+  %25 = icmp eq i64 %24, %8
+  br i1 %25, label %26, label %17, !llvm.loop !21
 
-19:                                               ; preds = %19, %17
-  %20 = phi i64 [ %26, %19 ], [ 0, %17 ]
-  %21 = phi i32 [ %25, %19 ], [ %18, %17 ]
-  %22 = getelementptr i8, ptr %7, i64 %20
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = add i32 %21, %24
-  %26 = add nuw nsw i64 %20, 1
-  %27 = icmp eq i64 %26, %8
-  br i1 %27, label %28, label %19, !llvm.loop !21
+26:                                               ; preds = %17
+  store i32 %23, ptr @io_csum, align 4
+  br label %27
 
-28:                                               ; preds = %19
-  store i32 %25, ptr @io_csum, align 4
-  br label %29
+27:                                               ; preds = %26, %13
+  %28 = getelementptr i8, ptr %7, i64 %8
+  %29 = add i64 %8, %5
+  %30 = sub i64 %6, %8
+  br label %34
 
-29:                                               ; preds = %28, %15
-  %30 = getelementptr i8, ptr %7, i64 %8
-  %31 = add i64 %8, %5
-  %32 = sub i64 %6, %8
-  br label %33
+31:                                               ; preds = %10
+  %32 = icmp eq i64 %5, 0
+  %33 = select i1 %32, i64 %8, i64 %5
+  br label %.thread6
 
-33:                                               ; preds = %29, %10, %10
-  %.ph = phi ptr [ %7, %10 ], [ %7, %10 ], [ %30, %29 ]
-  %.ph3 = phi i64 [ %6, %10 ], [ %6, %10 ], [ %32, %29 ]
-  %.ph4 = phi i64 [ %5, %10 ], [ %5, %10 ], [ %31, %29 ]
-  %34 = icmp eq i64 %.ph3, 0
-  br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !20
+34:                                               ; preds = %27, %10, %10
+  %.ph = phi ptr [ %7, %10 ], [ %7, %10 ], [ %28, %27 ]
+  %.ph3 = phi i64 [ %6, %10 ], [ %6, %10 ], [ %30, %27 ]
+  %.ph4 = phi i64 [ %5, %10 ], [ %5, %10 ], [ %29, %27 ]
+  %35 = icmp eq i64 %.ph3, 0
+  br i1 %35, label %.thread6, label %.preheader, !llvm.loop !20
 
-.loopexit:                                        ; preds = %33, %13, %.thread6, %3
-  %35 = phi i64 [ 0, %3 ], [ %12, %.thread6 ], [ %5, %13 ], [ %.ph4, %33 ]
-  ret i64 %35
+.thread6:                                         ; preds = %11, %34, %31, %3
+  %36 = phi i64 [ 0, %3 ], [ %33, %31 ], [ %5, %11 ], [ %.ph4, %34 ]
+  ret i64 %36
 }
 
 ; Function Attrs: null_pointer_is_valid

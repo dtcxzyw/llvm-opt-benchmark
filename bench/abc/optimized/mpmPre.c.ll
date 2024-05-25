@@ -820,10 +820,11 @@ define i64 @Ifd_ObjTruth_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %37 = load i32, ptr %14, align 4
   %38 = lshr i32 %37, 29
   %39 = and i32 %38, 3
-  switch i32 %39, label %52 [
+  switch i32 %39, label %default.unreachable [
     i32 1, label %40
     i32 2, label %42
     i32 3, label %44
+    i32 0, label %52
   ]
 
 40:                                               ; preds = %28
@@ -847,6 +848,9 @@ define i64 @Ifd_ObjTruth_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %50 = and i64 %32, %49
   %51 = or i64 %48, %50
   br label %52
+
+default.unreachable:                              ; preds = %28
+  unreachable
 
 52:                                               ; preds = %28, %44, %42, %40, %5
   %.035 = phi i64 [ %10, %5 ], [ %41, %40 ], [ %43, %42 ], [ %51, %44 ], [ -1, %28 ]

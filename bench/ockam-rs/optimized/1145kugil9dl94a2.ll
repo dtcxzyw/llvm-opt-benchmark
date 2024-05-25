@@ -60074,7 +60074,7 @@ common.resume:                                    ; preds = %39, %10
 define internal void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$17h94e4d1f3591a787eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i64, ptr %0, align 8, !range !14236, !noundef !7
-  switch i64 %3, label %4 [
+  switch i64 %3, label %default.unreachable12 [
     i64 0, label %31
     i64 1, label %47
     i64 2, label %63
@@ -60090,7 +60090,11 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT
     i64 12, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.9060417697508566391.exit"
     i64 13, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.9060417697508566391.exit"
     i64 14, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.9060417697508566391.exit"
+    i64 15, label %4
   ]
+
+default.unreachable12:                            ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -60289,7 +60293,7 @@ common.resume:                                    ; preds = %146, %131, %115, %7
   tail call void @__rust_dealloc(ptr noundef nonnull %90, i64 noundef %87, i64 noundef 1) #60, !noalias !14294
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.9060417697508566391.exit"
 
-"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.9060417697508566391.exit": ; preds = %155, %148, %140, %133, %124, %117, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i5", %97, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i3", %91, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i", %85, %84, %77, %62, %54, %46, %39, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17heea5a0a3c15bd406E.exit", %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$sqlx_core..migrate..error..MigrateError$GT$$GT$17h1cda7762a9e14e56E.exit", %1, %1, %1, %1, %1
+"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.9060417697508566391.exit": ; preds = %155, %148, %140, %133, %124, %117, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i5", %97, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i3", %91, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i", %85, %84, %77, %62, %54, %46, %39, %1, %1, %1, %1, %1, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17heea5a0a3c15bd406E.exit", %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$sqlx_core..migrate..error..MigrateError$GT$$GT$17h1cda7762a9e14e56E.exit"
   ret void
 
 91:                                               ; preds = %1
@@ -61038,11 +61042,15 @@ define hidden void @"_ZN4core3ptr579drop_in_place$LT$once_cell..imp..OnceCell$LT
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr57drop_in_place$LT$opentelemetry..metrics..MetricsError$GT$17h4b39fb7a50f1ee13E.llvm.9060417697508566391"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !7926, !noundef !7
-  switch i64 %2, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit" [
+  switch i64 %2, label %default.unreachable3 [
     i64 0, label %3
     i64 1, label %9
     i64 2, label %15
+    i64 3, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit"
   ]
+
+default.unreachable3:                             ; preds = %1
+  unreachable
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit": ; preds = %30, %23, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i1", %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.1425447921696267910.exit.i.i.i.i", %3, %1
   ret void
@@ -61249,11 +61257,15 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$opentelemetry..global..error
   %3 = add nsw i64 %2, -4
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %12
     i64 1, label %14
     i64 2, label %15
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14702)
@@ -105003,13 +105015,13 @@ define void @_ZN9ockam_api4logs5setup24set_global_error_handler17h3c499794477080
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %6 = getelementptr inbounds i8, ptr %0, i64 74
   %7 = load i8, ptr %6, align 2, !range !830, !alias.scope !25564, !noundef !7
-  switch i8 %7, label %default.unreachable7 [
+  switch i8 %7, label %default.unreachable8 [
     i8 0, label %8
     i8 1, label %9
     i8 2, label %10
   ]
 
-default.unreachable7:                             ; preds = %1
+default.unreachable8:                             ; preds = %1
   unreachable
 
 8:                                                ; preds = %1
@@ -105063,11 +105075,15 @@ default.unreachable7:                             ; preds = %1
   %23 = add nsw i64 %22, -4
   %24 = icmp ult i64 %23, 4
   %25 = select i1 %24, i64 %23, i64 1
-  switch i64 %25, label %26 [
+  switch i64 %25, label %.unreachabledefault.i [
     i64 0, label %32
     i64 1, label %34
     i64 2, label %35
+    i64 3, label %26
   ]
+
+.unreachabledefault.i:                            ; preds = %21
+  unreachable
 
 26:                                               ; preds = %21
   call void @llvm.experimental.noalias.scope.decl(metadata !25577)

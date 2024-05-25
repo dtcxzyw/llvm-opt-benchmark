@@ -1274,13 +1274,16 @@ _ZN14wasmtime_cache6worker12WorkerThread21lower_thread_priority17h9ae9f4840a594a
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %110), !noalias !174
   %387 = load i64, ptr %167, align 8, !range !102, !alias.scope !171, !noalias !179, !noundef !5
   %388 = load ptr, ptr %168, align 8, !alias.scope !171, !noalias !179, !noundef !5
-  switch i64 %387, label %default.unreachable [
+  switch i64 %387, label %.unreachabledefault [
     i64 0, label %389
     i64 1, label %390
     i64 2, label %391
   ]
 
-default.unreachable:                              ; preds = %386, %394
+.unreachabledefault:                              ; preds = %386
+  unreachable
+
+default.unreachable:                              ; preds = %394
   unreachable
 
 389:                                              ; preds = %386

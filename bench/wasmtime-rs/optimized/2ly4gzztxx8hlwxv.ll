@@ -4088,11 +4088,15 @@ define noundef zeroext i1 @"_ZN83_$LT$cranelift_codegen..ir..progpoint..ProgramP
 ; Function Attrs: nonlazybind uwtable
 define { i1, i8 } @"_ZN185_$LT$cranelift_codegen..isa..x64..inst..unwind..winx64..RegisterMapper$u20$as$u20$cranelift_codegen..isa..unwind..winx64..RegisterMapper$LT$cranelift_codegen..machinst..reg..Reg$GT$$GT$3map17h60c8707a69349f68E"(i32 noundef %0) unnamed_addr #2 {
   %2 = and i32 %0, 3
-  switch i32 %2, label %3 [
+  switch i32 %2, label %default.unreachable [
     i32 0, label %4
     i32 1, label %6
     i32 2, label %_ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit
+    i32 3, label %3
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750) #32
@@ -4136,7 +4140,7 @@ define noundef range(i8 3, 6) i8 @_ZN17cranelift_codegen3isa9call_conv8CallConv1
   %6 = load i16, ptr %5, align 8, !range !4, !alias.scope !752, !noundef !5
   switch i16 %6, label %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread [
     i16 0, label %7
-    i16 33, label %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit
+    i16 33, label %20
     i16 32, label %11
     i16 31, label %7
     i16 6, label %11
@@ -4151,38 +4155,38 @@ define noundef range(i8 3, 6) i8 @_ZN17cranelift_codegen3isa9call_conv8CallConv1
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i8, ptr %8, align 8, !range !6, !alias.scope !752, !noundef !5
   %10 = icmp eq i8 %9, 25
-  br i1 %10, label %15, label %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread
+  br i1 %10, label %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit, label %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread
 
 11:                                               ; preds = %1, %1, %1, %1, %1
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load i8, ptr %12, align 8, !range !6, !alias.scope !752, !noundef !5
   %14 = icmp eq i8 %13, 3
-  br i1 %14, label %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit, label %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread
+  br i1 %14, label %20, label %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread
 
 _ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread: ; preds = %11, %7, %1
-  br label %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit
+  br label %20
 
-15:                                               ; preds = %7
+_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit: ; preds = %7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 1, ptr %4, align 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr @"_ZN78_$LT$target_lexicon..triple..CallingConvention$u20$as$u20$core..fmt..Debug$GT$3fmt17h32f009a4bc25d0aaE.llvm.1715581770924364745", ptr %16, align 8
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @"_ZN78_$LT$target_lexicon..triple..CallingConvention$u20$as$u20$core..fmt..Debug$GT$3fmt17h32f009a4bc25d0aaE.llvm.1715581770924364745", ptr %15, align 8
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.132.llvm.1715581770924364745, ptr %3, align 8, !alias.scope !755, !noalias !758
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %17, align 8, !alias.scope !755, !noalias !758
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %18, align 8, !alias.scope !755, !noalias !758
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %2, ptr %19, align 8, !alias.scope !755, !noalias !758
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 1, ptr %20, align 8, !alias.scope !755, !noalias !758
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %16, align 8, !alias.scope !755, !noalias !758
+  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %17, align 8, !alias.scope !755, !noalias !758
+  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %2, ptr %18, align 8, !alias.scope !755, !noalias !758
+  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 1, ptr %19, align 8, !alias.scope !755, !noalias !758
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.134.llvm.1715581770924364745) #32
   unreachable
 
-_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit: ; preds = %1, %11, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread
+20:                                               ; preds = %1, %11, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread
   %.0 = phi i8 [ 3, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread ], [ 4, %1 ], [ 5, %11 ]
   ret i8 %.0
 }

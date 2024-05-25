@@ -19109,10 +19109,11 @@ sw.bb82.i:                                        ; preds = %sw.epilog.i
   %148 = load i8, ptr %arrayidx1.i218.i, align 1
   %conv.i219.i = zext i8 %148 to i64
   %and88.i = and i64 %conv.i219.i, 3
-  switch i64 %and88.i, label %while.end [
+  switch i64 %and88.i, label %default.unreachable350 [
     i64 0, label %sw.bb89.i
     i64 1, label %sw.bb100.i
     i64 2, label %sw.bb102.i
+    i64 3, label %while.end
   ]
 
 sw.bb89.i:                                        ; preds = %sw.bb82.i
@@ -19143,6 +19144,9 @@ sw.bb102.i:                                       ; preds = %sw.bb82.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val47.i, i8 noundef zeroext %153)
   br label %while.end
 
+default.unreachable350:                           ; preds = %if.end, %sw.bb190.i, %sw.bb163.i, %sw.bb136.i, %sw.bb109.i, %sw.bb82.i
+  unreachable
+
 sw.bb109.i:                                       ; preds = %sw.epilog.i
   %154 = load i64, ptr %buffer_.i37.i.i, align 8
   %and112.i = lshr i64 %154, 6
@@ -19159,10 +19163,11 @@ sw.bb109.i:                                       ; preds = %sw.epilog.i
   %158 = load i16, ptr %arrayidx4.i.i, align 2
   %conv.i235.i = zext i16 %158 to i64
   %and115.i = and i64 %conv.i235.i, 3
-  switch i64 %and115.i, label %while.end [
+  switch i64 %and115.i, label %default.unreachable350 [
     i64 0, label %sw.bb116.i
     i64 1, label %sw.bb118.i
     i64 2, label %sw.bb129.i
+    i64 3, label %while.end
   ]
 
 sw.bb116.i:                                       ; preds = %sw.bb109.i
@@ -19204,10 +19209,11 @@ sw.bb136.i:                                       ; preds = %sw.epilog.i
   %166 = load i8, ptr %arrayidx1.i251.i, align 1
   %conv.i252.i = zext i8 %166 to i64
   %and142.i = and i64 %conv.i252.i, 3
-  switch i64 %and142.i, label %while.end [
+  switch i64 %and142.i, label %default.unreachable350 [
     i64 0, label %sw.bb143.i
     i64 1, label %sw.bb145.i
     i64 2, label %sw.bb156.i
+    i64 3, label %while.end
   ]
 
 sw.bb143.i:                                       ; preds = %sw.bb136.i
@@ -19254,10 +19260,11 @@ sw.bb163.i:                                       ; preds = %sw.epilog.i
   %176 = load i16, ptr %arrayidx4.i271.i, align 2
   %conv.i272.i = zext i16 %176 to i64
   %and169.i = and i64 %conv.i272.i, 3
-  switch i64 %and169.i, label %while.end [
+  switch i64 %and169.i, label %default.unreachable350 [
     i64 0, label %sw.bb170.i
     i64 1, label %sw.bb172.i
     i64 2, label %sw.bb183.i
+    i64 3, label %while.end
   ]
 
 sw.bb170.i:                                       ; preds = %sw.bb163.i
@@ -19304,10 +19311,11 @@ sw.bb190.i:                                       ; preds = %sw.epilog.i
   %186 = load i16, ptr %arrayidx4.i291.i, align 2
   %conv.i292.i = zext i16 %186 to i64
   %and196.i = and i64 %conv.i292.i, 3
-  switch i64 %and196.i, label %while.end [
+  switch i64 %and196.i, label %default.unreachable350 [
     i64 0, label %sw.bb197.i
     i64 1, label %sw.bb199.i
     i64 2, label %sw.bb210.i
+    i64 3, label %while.end
   ]
 
 sw.bb197.i:                                       ; preds = %sw.bb190.i
@@ -22758,9 +22766,6 @@ sw.bb11.i1007.i:                                  ; preds = %if.end.i998.i
   store i32 0, ptr %buffer_len_.i, align 8
   br label %sw.epilog
 
-default.unreachable350:                           ; preds = %if.end
-  unreachable
-
 sw.epilog:                                        ; preds = %sw.bb11.i1007.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i1036.i, %if.then.i.i.i1014.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i76.i.i.i, %if.then.i.i53.i.i.i, %sw.bb40.i.i.i, %sw.bb33.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i41.i.i.i, %if.then.i.i18.i.i.i, %sw.bb24.i.i.i, %sw.bb17.i.i.i, %sw.bb14.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i988.i, %if.then.i.i.i.i965.i, %sw.bb7.i.i.i, %sw.bb.i5.i992.i, %if.then.i957.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i949.i, %if.then.i.i.i927.i, %sw.bb6.i.i909.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i905.i, %if.then.i.i.i.i882.i, %sw.bb.i5.i911.i, %if.then.i871.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i863.i, %if.then.i.i.i841.i, %sw.bb6.i.i823.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i819.i, %if.then.i.i.i.i796.i, %sw.bb.i5.i.i, %if.then.i787.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i778.i, %if.then.i.i.i755.i, %sw.bb.i4.i741.i, %if.then.i738.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i729.i, %if.then.i.i.i706.i, %sw.bb.i4.i689.i, %if.then.i687.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i679.i, %if.then.i.i.i657.i, %sw.bb6.i.i.i, %sw.bb5.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i, %if.then.i.i.i.i640.i, %if.then.i637.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i625.i, %if.then.i.i.i602.i, %if.then.i631.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i579.i, %if.then.i.i.i556.i, %if.then.i585.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i533.i, %if.then.i.i.i510.i, %if.then.i539.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i488.i, %if.then.i.i.i465.i, %if.then.i494.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i442.i, %if.then.i.i.i419.i, %if.then.i448.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i396.i, %if.then.i.i.i373.i, %if.then.i402.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i351.i, %if.then.i.i.i328.i, %if.then.i357.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i306.i, %if.then.i.i.i283.i, %if.then.i312.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i260.i, %if.then.i.i.i237.i, %if.then.i266.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i215.i, %if.then.i.i.i192.i, %if.then.i221.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i169.i, %if.then.i.i.i146.i, %if.then.i175.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i123.i, %if.then.i.i.i100.i, %if.then.i129.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i78.i, %if.then.i.i.i55.i, %if.then.i84.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i40.i, %if.then.i.i.i17.i, %if.then.i.i236, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i264, %if.then.i.i.i242, %if.end.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i76.i.i, %if.then.i.i53.i.i, %sw.bb39.i.i, %sw.bb32.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i41.i.i, %if.then.i.i18.i.i, %sw.bb23.i.i, %sw.bb16.i.i, %sw.bb14.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i, %if.then.i.i.i.i211, %sw.bb7.i.i208, %sw.bb.i5.i, %if.then.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i199, %if.then.i.i176, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i164, %if.then.i.i141, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i94, %if.then.i.i71
   %523 = load i8, ptr %done_, align 1
   %tobool = trunc i8 %523 to i1
@@ -24436,10 +24441,11 @@ sw.bb82.i:                                        ; preds = %sw.epilog.i
   %164 = load i8, ptr %arrayidx1.i223.i, align 1
   %conv.i224.i = zext i8 %164 to i64
   %and88.i = and i64 %conv.i224.i, 3
-  switch i64 %and88.i, label %while.end [
+  switch i64 %and88.i, label %default.unreachable383 [
     i64 0, label %sw.bb89.i
     i64 1, label %sw.bb100.i
     i64 2, label %sw.bb102.i
+    i64 3, label %while.end
   ]
 
 sw.bb89.i:                                        ; preds = %sw.bb82.i
@@ -24467,6 +24473,9 @@ sw.bb102.i:                                       ; preds = %sw.bb82.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %169)
   br label %while.end
 
+default.unreachable383:                           ; preds = %if.end, %sw.bb190.i, %sw.bb163.i, %sw.bb136.i, %sw.bb109.i, %sw.bb82.i
+  unreachable
+
 sw.bb109.i:                                       ; preds = %sw.epilog.i
   %170 = load i64, ptr %buffer_.i37.i.i, align 8
   %and112.i = lshr i64 %170, 6
@@ -24483,10 +24492,11 @@ sw.bb109.i:                                       ; preds = %sw.epilog.i
   %174 = load i16, ptr %arrayidx4.i.i, align 2
   %conv.i240.i = zext i16 %174 to i64
   %and115.i = and i64 %conv.i240.i, 3
-  switch i64 %and115.i, label %while.end [
+  switch i64 %and115.i, label %default.unreachable383 [
     i64 0, label %sw.bb116.i
     i64 1, label %sw.bb118.i
     i64 2, label %sw.bb129.i
+    i64 3, label %while.end
   ]
 
 sw.bb116.i:                                       ; preds = %sw.bb109.i
@@ -24525,10 +24535,11 @@ sw.bb136.i:                                       ; preds = %sw.epilog.i
   %182 = load i8, ptr %arrayidx1.i256.i, align 1
   %conv.i257.i = zext i8 %182 to i64
   %and142.i = and i64 %conv.i257.i, 3
-  switch i64 %and142.i, label %while.end [
+  switch i64 %and142.i, label %default.unreachable383 [
     i64 0, label %sw.bb143.i
     i64 1, label %sw.bb145.i
     i64 2, label %sw.bb156.i
+    i64 3, label %while.end
   ]
 
 sw.bb143.i:                                       ; preds = %sw.bb136.i
@@ -24572,10 +24583,11 @@ sw.bb163.i:                                       ; preds = %sw.epilog.i
   %192 = load i16, ptr %arrayidx4.i276.i, align 2
   %conv.i277.i = zext i16 %192 to i64
   %and169.i = and i64 %conv.i277.i, 3
-  switch i64 %and169.i, label %while.end [
+  switch i64 %and169.i, label %default.unreachable383 [
     i64 0, label %sw.bb170.i
     i64 1, label %sw.bb172.i
     i64 2, label %sw.bb183.i
+    i64 3, label %while.end
   ]
 
 sw.bb170.i:                                       ; preds = %sw.bb163.i
@@ -24619,10 +24631,11 @@ sw.bb190.i:                                       ; preds = %sw.epilog.i
   %202 = load i16, ptr %arrayidx4.i296.i, align 2
   %conv.i297.i = zext i16 %202 to i64
   %and196.i = and i64 %conv.i297.i, 3
-  switch i64 %and196.i, label %while.end [
+  switch i64 %and196.i, label %default.unreachable383 [
     i64 0, label %sw.bb197.i
     i64 1, label %sw.bb199.i
     i64 2, label %sw.bb210.i
+    i64 3, label %while.end
   ]
 
 sw.bb197.i:                                       ; preds = %sw.bb190.i
@@ -28557,9 +28570,6 @@ sw.bb11.i1060.i:                                  ; preds = %if.end.i1051.i
   store ptr %646, ptr %begin_.i106.i, align 8
   store i32 0, ptr %buffer_len_.i, align 8
   br label %sw.epilog
-
-default.unreachable383:                           ; preds = %if.end
-  unreachable
 
 sw.epilog:                                        ; preds = %sw.bb11.i1060.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i1088.i, %if.then.i.i14.i.i, %if.then3.i.i1095.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i82.i.i.i, %if.then.i.i59.i.i.i, %if.then3.i89.i.i.i, %sw.bb40.i.i.i, %sw.bb33.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i41.i.i.i, %if.then.i.i18.i.i.i, %if.then3.i48.i.i.i, %sw.bb24.i.i.i, %sw.bb17.i.i.i, %sw.bb14.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i1037.i, %if.then.i.i.i.i1014.i, %if.then3.i.i.i1044.i, %sw.bb7.i.i.i, %sw.bb.i5.i1045.i, %if.then.i1005.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i993.i, %if.then.i.i8.i.i, %if.then3.i.i1000.i, %sw.bb6.i.i954.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i948.i, %if.then.i.i.i.i925.i, %if.then3.i.i.i.i, %sw.bb.i5.i956.i, %if.then.i913.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i901.i, %if.then.i.i10.i.i, %if.then3.i.i908.i, %sw.bb6.i.i861.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i856.i, %if.then.i.i.i.i833.i, %sw.bb.i5.i.i, %if.then.i823.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i813.i, %if.then.i.i.i790.i, %sw.bb.i4.i776.i, %if.then.i773.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i763.i, %if.then.i.i.i740.i, %sw.bb.i4.i722.i, %if.then.i720.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i711.i, %if.then.i.i7.i.i, %sw.bb6.i.i.i, %sw.bb5.i.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i, %if.then.i.i.i.i672.i, %if.then.i669.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i656.i, %if.then.i.i.i633.i, %if.then.i663.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i608.i, %if.then.i.i.i585.i, %if.then.i615.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i560.i, %if.then.i.i.i537.i, %if.then.i567.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i513.i, %if.then.i.i.i490.i, %if.then.i520.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i465.i, %if.then.i.i.i442.i, %if.then.i472.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i417.i, %if.then.i.i.i394.i, %if.then.i424.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i370.i, %if.then.i.i.i347.i, %if.then.i377.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i323.i, %if.then.i.i.i300.i, %if.then.i330.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i275.i, %if.then.i.i.i252.i, %if.then.i282.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i228.i, %if.then.i.i.i205.i, %if.then.i235.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i180.i, %if.then.i.i.i157.i, %if.then.i187.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i132.i, %if.then.i.i.i109.i, %if.then.i139.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i85.i, %if.then.i.i.i62.i, %if.then.i92.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i44.i, %if.then.i.i.i21.i, %if.then.i49.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i293, %if.then.i.i10.i, %if.then3.i.i300, %if.end.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i80.i.i, %if.then.i.i57.i.i, %if.then3.i87.i.i, %sw.bb39.i.i, %sw.bb32.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i42.i.i, %if.then.i.i19.i.i, %if.then3.i.i.i, %sw.bb23.i.i, %sw.bb16.i.i, %sw.bb14.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i, %if.then.i.i.i.i240, %sw.bb7.i.i237, %sw.bb.i5.i, %if.then.i234, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i223, %if.then.i.i200, %if.then3.i230, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i182, %if.then.i.i159, %if.then3.i189, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i100, %if.then.i.i77, %if.then3.i107
   %647 = load i8, ptr %done_, align 1

@@ -2292,10 +2292,11 @@ define internal fastcc { i64, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Ch
   %.val11.i = load i64, ptr %0, align 8, !range !44, !alias.scope !1025, !noundef !4
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val12.i = load ptr, ptr %10, align 8, !alias.scope !1025
-  switch i64 %.val11.i, label %17 [
+  switch i64 %.val11.i, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h14ea1a6a5acdff99E.exit.i"
     i64 2, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h14ea1a6a5acdff99E.exit.i"
     i64 0, label %11
+    i64 1, label %17
   ]
 
 11:                                               ; preds = %9
@@ -2307,6 +2308,9 @@ define internal fastcc { i64, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Ch
   store i32 %15, ptr %13, align 4, !noalias !1028
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h17558924d2651826E.llvm.16532663377229269005.exit.sink.split.i.i.i.i.i.i", label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h14ea1a6a5acdff99E.exit.i"
+
+default.unreachable:                              ; preds = %9
+  unreachable
 
 17:                                               ; preds = %9
   %18 = icmp ne ptr %.val12.i, null
@@ -12817,13 +12821,16 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   %11 = load i64, ptr %7, align 8, !range !75, !alias.scope !4330, !noalias !4337, !noundef !4
   %12 = getelementptr inbounds i8, ptr %7, i64 8
-  switch i64 %11, label %default.unreachable [
+  switch i64 %11, label %.unreachabledefault [
     i64 0, label %13
     i64 1, label %15
     i64 2, label %17
   ]
 
-default.unreachable:                              ; preds = %9, %39
+.unreachabledefault:                              ; preds = %9
+  unreachable
+
+default.unreachable:                              ; preds = %39
   unreachable
 
 13:                                               ; preds = %9
@@ -19604,13 +19611,16 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   %11 = load i64, ptr %7, align 8, !range !75, !alias.scope !6353, !noalias !6360, !noundef !4
   %12 = getelementptr inbounds i8, ptr %7, i64 8
-  switch i64 %11, label %default.unreachable [
+  switch i64 %11, label %.unreachabledefault [
     i64 0, label %13
     i64 1, label %15
     i64 2, label %17
   ]
 
-default.unreachable:                              ; preds = %9, %39
+.unreachabledefault:                              ; preds = %9
+  unreachable
+
+default.unreachable:                              ; preds = %39
   unreachable
 
 13:                                               ; preds = %9
@@ -34132,11 +34142,15 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i.i: ; preds = %23, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11225)
   %38 = load i32, ptr %12, align 8, !range !9829, !alias.scope !11228, !noundef !4
-  switch i32 %38, label %39 [
+  switch i32 %38, label %default.unreachable [
     i32 0, label %46
     i32 1, label %53
     i32 2, label %60
+    i32 3, label %39
   ]
+
+default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h2c631d7cfb7da0d1E.exit.thread"
+  unreachable
 
 39:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h2c631d7cfb7da0d1E.exit.thread"
   %40 = getelementptr inbounds i8, ptr %12, i64 16
@@ -34412,11 +34426,15 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i.i: ; preds = %21, %18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11292)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11295)
   %38 = load i32, ptr %10, align 8, !range !9829, !alias.scope !11298, !noundef !4
-  switch i32 %38, label %39 [
+  switch i32 %38, label %default.unreachable [
     i32 0, label %46
     i32 1, label %53
     i32 2, label %60
+    i32 3, label %39
   ]
+
+default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h2c631d7cfb7da0d1E.exit.thread"
+  unreachable
 
 39:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h2c631d7cfb7da0d1E.exit.thread"
   %40 = getelementptr inbounds i8, ptr %10, i64 16

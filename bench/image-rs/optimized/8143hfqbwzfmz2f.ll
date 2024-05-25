@@ -10977,11 +10977,15 @@ define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$core..option..Opti
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2205)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2208)
-  switch i64 %5, label %8 [
+  switch i64 %5, label %default.unreachable.i [
     i64 0, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$exr..error..Error$GT$$GT$17h7731ab11501f438eE.exit"
     i64 1, label %14
     i64 2, label %26
+    i64 3, label %8
   ]
+
+default.unreachable.i:                            ; preds = %7
+  unreachable
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %0, i64 8

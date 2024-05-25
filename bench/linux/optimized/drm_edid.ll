@@ -5495,9 +5495,9 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   %379 = icmp eq i8 %378, 0
   %380 = getelementptr i8, ptr %369, i64 1
   %381 = load i8, ptr %380, align 1
-  br i1 %379, label %.thread118, label %382
+  br i1 %379, label %.thread119, label %382
 
-.thread118:                                       ; preds = %377
+.thread119:                                       ; preds = %377
   store i8 %381, ptr %316, align 1
   br label %396
 
@@ -5524,7 +5524,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %391, i32 noundef 2, ptr noundef nonnull @.str.35, i32 noundef %392, ptr noundef %393, i32 noundef %394, i32 noundef %395) #21
   br label %396
 
-396:                                              ; preds = %.thread118, %390, %382
+396:                                              ; preds = %.thread119, %390, %382
   store i32 1, ptr %10, align 4
   %397 = getelementptr i8, ptr %369, i64 3
   %398 = load i8, ptr %397, align 1
@@ -5731,19 +5731,19 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   store i8 %534, ptr %446, align 1
   %535 = load ptr, ptr %0, align 8
   %536 = icmp eq ptr %535, null
-  br i1 %536, label %.thread119, label %537
+  br i1 %536, label %.thread120, label %537
 
 537:                                              ; preds = %532
   %538 = getelementptr inbounds i8, ptr %535, i64 8
   %539 = load ptr, ptr %538, align 8
-  br label %.thread119
+  br label %.thread120
 
 540:                                              ; preds = %527
   %541 = and i8 %528, 64
   %542 = icmp eq i8 %541, 0
   br i1 %542, label %563, label %550
 
-.thread119:                                       ; preds = %532, %537
+.thread120:                                       ; preds = %532, %537
   %543 = phi ptr [ %539, %537 ], [ null, %532 ]
   %544 = load i32, ptr %317, align 8
   %545 = load ptr, ptr %318, align 8
@@ -5751,14 +5751,14 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
   %.pre110 = load i8, ptr %511, align 1
   %546 = and i8 %.pre110, 64
   %547 = icmp eq i8 %546, 0
-  br i1 %547, label %.thread120, label %550
+  br i1 %547, label %.thread121, label %550
 
-.thread120:                                       ; preds = %.thread119
+.thread121:                                       ; preds = %.thread120
   %548 = load ptr, ptr %0, align 8
   %549 = icmp eq ptr %548, null
   br i1 %549, label %580, label %575
 
-550:                                              ; preds = %.thread119, %540
+550:                                              ; preds = %.thread120, %540
   %551 = load i8, ptr %446, align 1
   %552 = or i8 %551, 64
   store i8 %552, ptr %446, align 1
@@ -5803,16 +5803,16 @@ drm_for_each_detailed_block.exit:                 ; preds = %161
 574:                                              ; preds = %563
   br i1 %565, label %580, label %575
 
-575:                                              ; preds = %.thread120, %.thread76, %574
-  %576 = phi i32 [ 16, %.thread76 ], [ %529, %574 ], [ 12, %.thread120 ]
-  %577 = phi ptr [ %561, %.thread76 ], [ %564, %574 ], [ %548, %.thread120 ]
+575:                                              ; preds = %.thread121, %.thread76, %574
+  %576 = phi i32 [ 16, %.thread76 ], [ %529, %574 ], [ 12, %.thread121 ]
+  %577 = phi ptr [ %561, %.thread76 ], [ %564, %574 ], [ %548, %.thread121 ]
   %578 = getelementptr inbounds i8, ptr %577, i64 8
   %579 = load ptr, ptr %578, align 8
   br label %580
 
-580:                                              ; preds = %.thread120, %.thread76, %575, %574
-  %581 = phi i32 [ %576, %575 ], [ %529, %574 ], [ 16, %.thread76 ], [ 12, %.thread120 ]
-  %582 = phi ptr [ %579, %575 ], [ null, %574 ], [ null, %.thread76 ], [ null, %.thread120 ]
+580:                                              ; preds = %.thread121, %.thread76, %575, %574
+  %581 = phi i32 [ %576, %575 ], [ %529, %574 ], [ 16, %.thread76 ], [ 12, %.thread121 ]
+  %582 = phi ptr [ %579, %575 ], [ null, %574 ], [ null, %.thread76 ], [ null, %.thread121 ]
   %583 = load i32, ptr %317, align 8
   %584 = load ptr, ptr %318, align 8
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %582, i32 noundef 2, ptr noundef nonnull @.str.41, i32 noundef %583, ptr noundef %584, i32 noundef %581) #21
@@ -6745,11 +6745,15 @@ thread-pre-split:                                 ; preds = %1010, %995
   %1102 = load i8, ptr %1101, align 1
   %1103 = lshr i8 %1102, 5
   %1104 = and i8 %1103, 3
-  switch i8 %1104, label %1105 [
+  switch i8 %1104, label %default.unreachable118 [
     i8 0, label %1116
     i8 1, label %.critedge
     i8 2, label %1115
+    i8 3, label %1105
   ]
+
+default.unreachable118:                           ; preds = %1100
+  unreachable
 
 1105:                                             ; preds = %1100
   %1106 = load ptr, ptr %0, align 8
@@ -6771,7 +6775,7 @@ thread-pre-split:                                 ; preds = %1010, %995
 1115:                                             ; preds = %1100
   br label %.critedge
 
-1116:                                             ; preds = %1111, %1100
+1116:                                             ; preds = %1100, %1111
   store i8 0, ptr %15, align 8
   store i8 0, ptr %16, align 1
   br label %1145

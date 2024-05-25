@@ -6453,11 +6453,15 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$lsp_types..window..MessageAc
   %3 = load i64, ptr %0, align 8, !range !1916, !noundef !5
   %4 = add i64 %3, 9223372036854775803
   %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 3)
-  switch i64 %5, label %6 [
+  switch i64 %5, label %default.unreachable [
     i64 0, label %7
     i64 1, label %17
     i64 2, label %17
+    i64 3, label %6
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   tail call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17ha0ac8ddd059f5d14E.llvm.9266542439947230232"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
@@ -6487,7 +6491,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$lsp_types..window..MessageAc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1917
   br label %17
 
-17:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit", %6, %1, %1
+17:                                               ; preds = %1, %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit", %6
   ret void
 }
 
@@ -8033,11 +8037,15 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$$LP$alloc..string..String$C$
   %17 = load i64, ptr %16, align 8, !range !1916, !alias.scope !2356, !noundef !5
   %18 = add i64 %17, 9223372036854775803
   %19 = tail call i64 @llvm.umin.i64(i64 %18, i64 3)
-  switch i64 %19, label %20 [
+  switch i64 %19, label %default.unreachable [
     i64 0, label %21
     i64 1, label %"_ZN4core3ptr65drop_in_place$LT$lsp_types..window..MessageActionItemProperty$GT$17hc75bdadfaeb70b14E.llvm.9266542439947230232.exit"
     i64 2, label %"_ZN4core3ptr65drop_in_place$LT$lsp_types..window..MessageActionItemProperty$GT$17hc75bdadfaeb70b14E.llvm.9266542439947230232.exit"
+    i64 3, label %20
   ]
+
+default.unreachable:                              ; preds = %15
+  unreachable
 
 20:                                               ; preds = %15
   tail call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17ha0ac8ddd059f5d14E.llvm.9266542439947230232"(ptr noalias noundef nonnull align 8 dereferenceable(72) %16)

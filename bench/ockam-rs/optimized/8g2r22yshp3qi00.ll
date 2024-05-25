@@ -54227,11 +54227,15 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$alloc..string..String$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17h379cdd7a3853392eE.llvm.6961039930124626028"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !89, !noundef !4
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %5
     i64 1, label %11
     i64 2, label %19
+    i64 3, label %3
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -54303,11 +54307,15 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Value
 
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11300)
-  switch i64 %2, label %6 [
+  switch i64 %2, label %default.unreachable1.i [
     i64 0, label %8
     i64 1, label %14
     i64 2, label %22
+    i64 3, label %6
   ]
+
+default.unreachable1.i:                           ; preds = %5
+  unreachable
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %0, i64 8

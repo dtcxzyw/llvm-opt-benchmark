@@ -195,10 +195,11 @@ define internal i32 @dissect_opus(ptr noundef %0, ptr noundef %1, ptr noundef %2
 17:                                               ; preds = %4
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %19 = and i8 %18, 3
-  switch i8 %19, label %64 [
+  switch i8 %19, label %default.unreachable285 [
     i8 0, label %20
     i8 1, label %24
     i8 2, label %36
+    i8 3, label %64
   ]
 
 20:                                               ; preds = %17
@@ -212,8 +213,8 @@ define internal i32 @dissect_opus(ptr noundef %0, ptr noundef %1, ptr noundef %2
 24:                                               ; preds = %17
   %25 = add nsw i32 %13, -1
   %26 = and i32 %25, 1
-  %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %29, label %27
+  %.not204 = icmp eq i32 %26, 0
+  br i1 %.not204, label %29, label %27
 
 27:                                               ; preds = %24
   %28 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %11, ptr noundef nonnull @ei_opus_err_r3) #4
@@ -288,6 +289,9 @@ parse_size_field.exit.thread:                     ; preds = %.split194, %parse_s
   store i16 -1, ptr %63, align 2
   br label %.loopexit243
 
+default.unreachable285:                           ; preds = %17
+  unreachable
+
 64:                                               ; preds = %17
   %65 = icmp ult i32 %13, 3
   br i1 %65, label %66, label %68
@@ -348,8 +352,8 @@ opus_packet_get_samples_per_frame.exit:           ; preds = %73, %81, %83, %87
 
 95:                                               ; preds = %opus_packet_get_samples_per_frame.exit
   %96 = and i32 %70, 64
-  %.not200 = icmp eq i32 %96, 0
-  br i1 %.not200, label %110, label %.preheader247
+  %.not = icmp eq i32 %96, 0
+  br i1 %.not, label %110, label %.preheader247
 
 .preheader247:                                    ; preds = %95, %99
   %.0188 = phi i32 [ %104, %99 ], [ 0, %95 ]
@@ -381,16 +385,16 @@ opus_packet_get_samples_per_frame.exit:           ; preds = %73, %81, %83, %87
   %.1189 = phi i32 [ %104, %105 ], [ 0, %95 ]
   %.1185 = phi i32 [ %100, %105 ], [ 2, %95 ]
   %.0183 = phi i32 [ %109, %105 ], [ %13, %95 ]
-  %.not202 = icmp slt i32 %.1185, %.0183
-  br i1 %.not202, label %113, label %111
+  %.not201 = icmp slt i32 %.1185, %.0183
+  br i1 %.not201, label %113, label %111
 
 111:                                              ; preds = %110
   %112 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %11, ptr noundef nonnull @ei_opus_err_r7) #4
   br label %.loopexit
 
 113:                                              ; preds = %110
-  %.not203 = icmp sgt i8 %69, -1
-  br i1 %.not203, label %148, label %.preheader245.preheader
+  %.not202 = icmp sgt i8 %69, -1
+  br i1 %.not202, label %148, label %.preheader245.preheader
 
 .preheader245.preheader:                          ; preds = %113
   %umax = tail call i32 @llvm.umax.i32(i32 %71, i32 1)
@@ -476,8 +480,8 @@ parse_size_field.exit223:                         ; preds = %.thread, %117, %125
   %149 = sub i32 %.0183, %.1185
   %150 = sdiv i32 %149, %71
   %151 = mul i32 %150, %71
-  %.not204 = icmp eq i32 %151, %149
-  br i1 %.not204, label %.preheader, label %153
+  %.not203 = icmp eq i32 %151, %149
+  br i1 %.not203, label %.preheader, label %153
 
 .preheader:                                       ; preds = %148
   %152 = trunc i32 %150 to i16

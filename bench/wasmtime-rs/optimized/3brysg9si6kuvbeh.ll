@@ -1462,11 +1462,15 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$wasmparser..validat
   %2 = load i64, ptr %0, align 8, !range !285, !noundef !4
   %3 = xor i64 %2, -9223372036854775808
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 3)
-  switch i64 %4, label %5 [
+  switch i64 %4, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..types..Types$GT$17h1ced473d8c7a19d0E.exit"
     i64 1, label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..types..Types$GT$17h1ced473d8c7a19d0E.exit"
     i64 2, label %23
+    i64 3, label %5
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$wasmparser..validator..types..TypeList$GT$17h6bc439bf9dbd3febE"(ptr noalias noundef nonnull align 8 dereferenceable(744) %0)

@@ -5749,15 +5749,19 @@ define internal fastcc i32 @proc_do_submiturb(ptr noundef %0, ptr nocapture noun
   %184 = getelementptr inbounds i8, ptr %115, i64 3
   %185 = load i8, ptr %184, align 1
   %186 = and i8 %185, 3
-  switch i8 %186, label %188 [
+  switch i8 %186, label %default.unreachable57 [
     i8 0, label %.thread
     i8 1, label %.thread
     i8 3, label %187
+    i8 2, label %188
   ]
 
 187:                                              ; preds = %182
   store i8 1, ptr %1, align 8
   br label %214
+
+default.unreachable57:                            ; preds = %182
+  unreachable
 
 188:                                              ; preds = %182
   %189 = load i32, ptr %15, align 8
@@ -6448,7 +6452,7 @@ define internal fastcc i32 @proc_do_submiturb(ptr noundef %0, ptr nocapture noun
   tail call fastcc void @free_async(ptr noundef nonnull %645)
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit45, %84, %77, %38, %34, %._crit_edge, %648, %.loopexit41, %632, %224, %219, %209, %182, %182, %128, %125, %120, %117, %.thread39, %92, %20, %14, %5
+.thread:                                          ; preds = %.loopexit45, %84, %77, %38, %34, %._crit_edge, %182, %182, %648, %.loopexit41, %632, %224, %219, %209, %128, %125, %120, %117, %.thread39, %92, %20, %14, %5
   %649 = phi i32 [ -22, %5 ], [ -22, %14 ], [ -22, %20 ], [ %100, %92 ], [ -2, %.thread39 ], [ -22, %120 ], [ -22, %125 ], [ -12, %128 ], [ -22, %182 ], [ -22, %182 ], [ -22, %209 ], [ -22, %219 ], [ -22, %224 ], [ -22, %117 ], [ 0, %632 ], [ %643, %648 ], [ %643, %.loopexit41 ], [ -2, %38 ], [ -3, %34 ], [ -22, %._crit_edge ], [ -22, %84 ], [ -113, %77 ], [ -2, %.loopexit45 ]
   ret i32 %649
 }

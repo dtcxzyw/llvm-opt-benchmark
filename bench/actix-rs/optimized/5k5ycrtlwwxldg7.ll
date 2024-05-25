@@ -2674,11 +2674,15 @@ common.resume:                                    ; preds = %19, %9
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !494, !noundef !9
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %14
     i64 1, label %15
     i64 2, label %17
+    i64 3, label %3
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2710,7 +2714,7 @@ define internal fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payloa
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2d60daded9cd689eE.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %14
 
-14:                                               ; preds = %17, %15, %"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h4f8e6697dfccd265E.exit", %1
+14:                                               ; preds = %1, %17, %15, %"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h4f8e6697dfccd265E.exit"
   ret void
 
 15:                                               ; preds = %1
@@ -7360,7 +7364,7 @@ define internal void @"_ZN9actix_web8resource8Resource3new28_$u7b$$u7b$closure$u
     i8 2, label %169
   ]
 
-default.unreachable125:                           ; preds = %3
+default.unreachable125:                           ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7dad37a64f6d18fdE.exit.i", %3
   unreachable
 
 24:                                               ; preds = %3
@@ -7709,10 +7713,11 @@ default.unreachable125:                           ; preds = %3
   %122 = load ptr, ptr %121, align 8, !alias.scope !1188, !noalias !1207, !nonnull !9, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !1208)
   %123 = load i64, ptr %19, align 8, !range !494, !alias.scope !1211, !noalias !1207, !noundef !9
-  switch i64 %123, label %124 [
+  switch i64 %123, label %default.unreachable125 [
     i64 0, label %141
     i64 1, label %134
     i64 2, label %136
+    i64 3, label %124
   ]
 
 124:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7dad37a64f6d18fdE.exit.i"
@@ -10464,11 +10469,15 @@ define internal fastcc void @_ZN9actix_web7service14ServiceRequest13into_respons
   store ptr null, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1788)
   %11 = load i64, ptr %1, align 8, !range !494, !alias.scope !1788, !noundef !9
-  switch i64 %11, label %12 [
+  switch i64 %11, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E.exit"
     i64 1, label %22
     i64 2, label %24
+    i64 3, label %12
   ]
+
+default.unreachable:                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h05519d294ed6b55fE.exit"
+  unreachable
 
 12:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h05519d294ed6b55fE.exit"
   %13 = getelementptr inbounds i8, ptr %1, i64 8

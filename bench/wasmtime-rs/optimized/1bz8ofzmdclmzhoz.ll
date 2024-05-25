@@ -582,8 +582,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he651aad6ed1ab103E.114" = private unnamed_addr constant [11 x ptr] [ptr @anon.93d33193ed412401645690e7206ea482.516, ptr @anon.93d33193ed412401645690e7206ea482.517, ptr @anon.93d33193ed412401645690e7206ea482.518, ptr @anon.93d33193ed412401645690e7206ea482.519, ptr @anon.93d33193ed412401645690e7206ea482.520, ptr @anon.93d33193ed412401645690e7206ea482.521, ptr @anon.93d33193ed412401645690e7206ea482.522, ptr @anon.93d33193ed412401645690e7206ea482.523, ptr @anon.93d33193ed412401645690e7206ea482.524, ptr @anon.93d33193ed412401645690e7206ea482.525, ptr @anon.93d33193ed412401645690e7206ea482.526], align 8
 @"switch.table._ZN76_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$core..fmt..Debug$GT$3fmt17ha98dc58360f2f4b5E" = private unnamed_addr constant [10 x i64] [i64 5, i64 8, i64 14, i64 24, i64 17, i64 21, i64 16, i64 26, i64 19, i64 23], align 8
 @"switch.table._ZN76_$LT$cranelift_codegen..ir..condcodes..IntCC$u20$as$u20$core..fmt..Debug$GT$3fmt17ha98dc58360f2f4b5E.115" = private unnamed_addr constant [10 x ptr] [ptr @anon.93d33193ed412401645690e7206ea482.506, ptr @anon.93d33193ed412401645690e7206ea482.507, ptr @anon.93d33193ed412401645690e7206ea482.508, ptr @anon.93d33193ed412401645690e7206ea482.509, ptr @anon.93d33193ed412401645690e7206ea482.510, ptr @anon.93d33193ed412401645690e7206ea482.511, ptr @anon.93d33193ed412401645690e7206ea482.512, ptr @anon.93d33193ed412401645690e7206ea482.513, ptr @anon.93d33193ed412401645690e7206ea482.514, ptr @anon.93d33193ed412401645690e7206ea482.515], align 8
-@"switch.table._ZN171_$LT$cranelift_codegen..machinst..reg..Writable$LT$cranelift_codegen..isa..x64..inst..args..Gpr$GT$$u20$as$u20$cranelift_codegen..isa..x64..inst..args..FromWritableReg$GT$17from_writable_reg17h385c09c33cb3fd6dE" = private unnamed_addr constant [3 x i32] [i32 1, i32 0, i32 0], align 4
-@"switch.table._ZN171_$LT$cranelift_codegen..machinst..reg..Writable$LT$cranelift_codegen..isa..x64..inst..args..Xmm$GT$$u20$as$u20$cranelift_codegen..isa..x64..inst..args..FromWritableReg$GT$17from_writable_reg17hacc3c340268161e0E" = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 0], align 4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1c9ec678e5ab077E.llvm.6890334928246803750"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 {
@@ -27701,16 +27699,29 @@ define { i32, i32 } @_ZN17cranelift_codegen8machinst3reg3Reg14to_virtual_reg17h2
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i8 0, 3) i8 @_ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE(i32 noundef %0) unnamed_addr #3 {
   %2 = and i32 %0, 3
-  %.not = icmp eq i32 %2, 3
-  br i1 %.not, label %3, label %switch.lookup
+  switch i32 %2, label %default.unreachable1 [
+    i32 0, label %6
+    i32 1, label %4
+    i32 2, label %5
+    i32 3, label %3
+  ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750) #40
   unreachable
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.cast = trunc nuw nsw i32 %2 to i8
-  ret i8 %switch.idx.cast
+4:                                                ; preds = %1
+  br label %6
+
+5:                                                ; preds = %1
+  br label %6
+
+6:                                                ; preds = %1, %5, %4
+  %.0 = phi i8 [ 2, %5 ], [ 1, %4 ], [ 0, %1 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -27889,16 +27900,29 @@ define noundef zeroext i1 @"_ZN78_$LT$cranelift_codegen..machinst..reg..RealReg$
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i8 0, 3) i8 @_ZN17cranelift_codegen8machinst3reg10VirtualReg5class17h09292356435835e6E(i32 noundef %0) unnamed_addr #3 {
   %2 = and i32 %0, 3
-  %.not = icmp eq i32 %2, 3
-  br i1 %.not, label %3, label %switch.lookup
+  switch i32 %2, label %default.unreachable1 [
+    i32 0, label %6
+    i32 1, label %4
+    i32 2, label %5
+    i32 3, label %3
+  ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750) #40
   unreachable
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.cast = trunc nuw nsw i32 %2 to i8
-  ret i8 %switch.idx.cast
+4:                                                ; preds = %1
+  br label %6
+
+5:                                                ; preds = %1
+  br label %6
+
+6:                                                ; preds = %1, %5, %4
+  %.0 = phi i8 [ 2, %5 ], [ 1, %4 ], [ 0, %1 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -40089,20 +40113,28 @@ define noundef i32 @"_ZN169_$LT$cranelift_codegen..machinst..reg..Writable$LT$cr
 ; Function Attrs: nonlazybind uwtable
 define { i32, i32 } @"_ZN171_$LT$cranelift_codegen..machinst..reg..Writable$LT$cranelift_codegen..isa..x64..inst..args..Gpr$GT$$u20$as$u20$cranelift_codegen..isa..x64..inst..args..FromWritableReg$GT$17from_writable_reg17h385c09c33cb3fd6dE"(i32 noundef %0) unnamed_addr #3 {
   %2 = and i32 %0, 3
-  %.not = icmp eq i32 %2, 3
-  br i1 %.not, label %3, label %switch.lookup
+  switch i32 %2, label %default.unreachable [
+    i32 0, label %_ZN17cranelift_codegen3isa3x644inst4args3Gpr3new17h6230d8f1533fb6e3E.exit
+    i32 1, label %4
+    i32 2, label %4
+    i32 3, label %3
+  ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750) #40
   unreachable
 
-switch.lookup:                                    ; preds = %1
-  %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @"switch.table._ZN171_$LT$cranelift_codegen..machinst..reg..Writable$LT$cranelift_codegen..isa..x64..inst..args..Gpr$GT$$u20$as$u20$cranelift_codegen..isa..x64..inst..args..FromWritableReg$GT$17from_writable_reg17h385c09c33cb3fd6dE", i64 0, i64 %4
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %5 = insertvalue { i32, i32 } poison, i32 %switch.load, 0
-  %6 = insertvalue { i32, i32 } %5, i32 %0, 1
-  ret { i32, i32 } %6
+_ZN17cranelift_codegen3isa3x644inst4args3Gpr3new17h6230d8f1533fb6e3E.exit: ; preds = %1
+  br label %4
+
+4:                                                ; preds = %1, %1, %_ZN17cranelift_codegen3isa3x644inst4args3Gpr3new17h6230d8f1533fb6e3E.exit
+  %5 = phi i32 [ 1, %_ZN17cranelift_codegen3isa3x644inst4args3Gpr3new17h6230d8f1533fb6e3E.exit ], [ 0, %1 ], [ 0, %1 ]
+  %6 = insertvalue { i32, i32 } poison, i32 %5, 0
+  %7 = insertvalue { i32, i32 } %6, i32 %0, 1
+  ret { i32, i32 } %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -40119,20 +40151,28 @@ define noundef i32 @"_ZN169_$LT$cranelift_codegen..machinst..reg..Writable$LT$cr
 ; Function Attrs: nonlazybind uwtable
 define { i32, i32 } @"_ZN171_$LT$cranelift_codegen..machinst..reg..Writable$LT$cranelift_codegen..isa..x64..inst..args..Xmm$GT$$u20$as$u20$cranelift_codegen..isa..x64..inst..args..FromWritableReg$GT$17from_writable_reg17hacc3c340268161e0E"(i32 noundef %0) unnamed_addr #3 {
   %2 = and i32 %0, 3
-  %.not = icmp eq i32 %2, 3
-  br i1 %.not, label %3, label %switch.lookup
+  switch i32 %2, label %default.unreachable [
+    i32 0, label %4
+    i32 1, label %_ZN17cranelift_codegen3isa3x644inst4args3Xmm3new17hd73f57af44f0b9f5E.exit
+    i32 2, label %4
+    i32 3, label %3
+  ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750) #40
   unreachable
 
-switch.lookup:                                    ; preds = %1
-  %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @"switch.table._ZN171_$LT$cranelift_codegen..machinst..reg..Writable$LT$cranelift_codegen..isa..x64..inst..args..Xmm$GT$$u20$as$u20$cranelift_codegen..isa..x64..inst..args..FromWritableReg$GT$17from_writable_reg17hacc3c340268161e0E", i64 0, i64 %4
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %5 = insertvalue { i32, i32 } poison, i32 %switch.load, 0
-  %6 = insertvalue { i32, i32 } %5, i32 %0, 1
-  ret { i32, i32 } %6
+_ZN17cranelift_codegen3isa3x644inst4args3Xmm3new17hd73f57af44f0b9f5E.exit: ; preds = %1
+  br label %4
+
+4:                                                ; preds = %1, %1, %_ZN17cranelift_codegen3isa3x644inst4args3Xmm3new17hd73f57af44f0b9f5E.exit
+  %5 = phi i32 [ 1, %_ZN17cranelift_codegen3isa3x644inst4args3Xmm3new17hd73f57af44f0b9f5E.exit ], [ 0, %1 ], [ 0, %1 ]
+  %6 = insertvalue { i32, i32 } poison, i32 %5, 0
+  %7 = insertvalue { i32, i32 } %6, i32 %0, 1
+  ret { i32, i32 } %7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

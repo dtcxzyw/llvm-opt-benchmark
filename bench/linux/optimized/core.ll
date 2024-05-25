@@ -2974,10 +2974,11 @@ define internal ptr @cmt_get_event_constraints(ptr nocapture noundef %0, i32 nou
 25:                                               ; preds = %9
   %26 = load i64, ptr %4, align 8
   %27 = and i64 %26, 3
-  switch i64 %27, label %30 [
+  switch i64 %27, label %default.unreachable1 [
     i64 1, label %31
     i64 2, label %28
     i64 3, label %29
+    i64 0, label %30
   ]
 
 28:                                               ; preds = %25
@@ -2986,10 +2987,13 @@ define internal ptr @cmt_get_event_constraints(ptr nocapture noundef %0, i32 nou
 29:                                               ; preds = %25
   br label %31
 
+default.unreachable1:                             ; preds = %25
+  unreachable
+
 30:                                               ; preds = %25
   br label %31
 
-31:                                               ; preds = %30, %29, %28, %25, %19, %3
+31:                                               ; preds = %25, %30, %29, %28, %19, %3
   %32 = phi ptr [ @emptyconstraint, %30 ], [ @counter0_1_constraint, %29 ], [ @counter1_constraint, %28 ], [ %24, %19 ], [ @counter0_constraint, %25 ], [ %4, %3 ]
   ret ptr %32
 }
@@ -4179,10 +4183,11 @@ define internal ptr @mtl_get_event_constraints(ptr nocapture noundef %0, i32 nou
 92:                                               ; preds = %76
   %93 = load i64, ptr %71, align 8
   %94 = and i64 %93, 3
-  switch i64 %94, label %97 [
+  switch i64 %94, label %default.unreachable1 [
     i64 1, label %99
     i64 2, label %95
     i64 3, label %96
+    i64 0, label %97
   ]
 
 95:                                               ; preds = %92
@@ -4190,6 +4195,9 @@ define internal ptr @mtl_get_event_constraints(ptr nocapture noundef %0, i32 nou
 
 96:                                               ; preds = %92
   br label %99
+
+default.unreachable1:                             ; preds = %92
+  unreachable
 
 97:                                               ; preds = %92
   br label %99
@@ -4200,7 +4208,7 @@ define internal ptr @mtl_get_event_constraints(ptr nocapture noundef %0, i32 nou
   tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_end\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #22, !srcloc !54
   br label %99
 
-99:                                               ; preds = %98, %97, %96, %95, %92, %86, %70, %60, %.thread, %53
+99:                                               ; preds = %92, %98, %97, %96, %95, %86, %70, %60, %.thread, %53
   %100 = phi ptr [ @emptyconstraint, %98 ], [ %55, %.thread ], [ %36, %53 ], [ %69, %60 ], [ @emptyconstraint, %97 ], [ @counter0_1_constraint, %96 ], [ @counter1_constraint, %95 ], [ %91, %86 ], [ @counter0_constraint, %92 ], [ %71, %70 ]
   ret ptr %100
 }

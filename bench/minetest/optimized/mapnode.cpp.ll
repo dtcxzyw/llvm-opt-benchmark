@@ -824,10 +824,11 @@ if.end:                                           ; preds = %_ZNK7MapNode8getLev
   ]
 
 sw.bb:                                            ; preds = %if.end
-  switch i8 %15, label %sw.epilog [
+  switch i8 %15, label %default.unreachable152 [
     i8 1, label %if.then24
     i8 2, label %if.then28
     i8 3, label %if.then35
+    i8 0, label %sw.epilog
   ]
 
 if.then24:                                        ; preds = %sw.bb
@@ -871,10 +872,11 @@ sw.bb43:                                          ; preds = %if.end
   %76 = fmul nsz <2 x double> %72, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
   %77 = fadd nsz <2 x double> %76, %71
   %78 = fptrunc <2 x double> %77 to <2 x float>
-  switch i8 %15, label %sw.epilog [
+  switch i8 %15, label %default.unreachable152 [
     i8 1, label %if.then49
     i8 2, label %if.then56
     i8 3, label %if.then63
+    i8 0, label %sw.epilog
   ]
 
 if.then49:                                        ; preds = %sw.bb43
@@ -917,10 +919,11 @@ sw.bb71:                                          ; preds = %if.end
   %106 = fmul nsz <2 x double> %103, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
   %107 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %102, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %106)
   %108 = fptrunc <2 x double> %107 to <2 x float>
-  switch i8 %15, label %sw.epilog [
+  switch i8 %15, label %default.unreachable152 [
     i8 1, label %if.then77
     i8 2, label %if.then84
     i8 3, label %if.then91
+    i8 0, label %sw.epilog
   ]
 
 if.then77:                                        ; preds = %sw.bb71
@@ -963,10 +966,11 @@ sw.bb99:                                          ; preds = %if.end
   %136 = fmul nsz <2 x double> %133, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
   %137 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %132, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %136)
   %138 = fptrunc <2 x double> %137 to <2 x float>
-  switch i8 %15, label %sw.epilog [
+  switch i8 %15, label %default.unreachable152 [
     i8 1, label %if.then105
     i8 2, label %if.then112
     i8 3, label %if.then119
+    i8 0, label %sw.epilog
   ]
 
 if.then105:                                       ; preds = %sw.bb99
@@ -1010,10 +1014,11 @@ sw.bb127:                                         ; preds = %if.end
   %167 = fmul nsz <2 x double> %163, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
   %168 = fadd nsz <2 x double> %167, %162
   %169 = fptrunc <2 x double> %168 to <2 x float>
-  switch i8 %15, label %sw.epilog [
+  switch i8 %15, label %default.unreachable152 [
     i8 1, label %if.then133
     i8 2, label %if.then140
     i8 3, label %if.then147
+    i8 0, label %sw.epilog
   ]
 
 if.then133:                                       ; preds = %sw.bb127
@@ -1057,10 +1062,11 @@ sw.bb155:                                         ; preds = %if.end
   %198 = fneg nsz <2 x double> %194
   %199 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %193, <2 x double> <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>, <2 x double> %198)
   %200 = fptrunc <2 x double> %199 to <2 x float>
-  switch i8 %15, label %sw.epilog [
+  switch i8 %15, label %default.unreachable152 [
     i8 1, label %if.then161
     i8 2, label %if.then168
     i8 3, label %if.then175
+    i8 0, label %sw.epilog
   ]
 
 if.then161:                                       ; preds = %sw.bb155
@@ -1095,7 +1101,10 @@ if.then175:                                       ; preds = %sw.bb155
   %223 = fptrunc <2 x double> %222 to <2 x float>
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then175, %if.then168, %if.then161, %sw.bb155, %if.then147, %if.then140, %if.then133, %sw.bb127, %if.then119, %if.then112, %if.then105, %sw.bb99, %if.then91, %if.then84, %if.then77, %sw.bb71, %if.then63, %if.then56, %if.then49, %sw.bb43, %if.then35, %if.then28, %if.then24, %sw.bb, %if.end
+default.unreachable152:                           ; preds = %sw.bb155, %sw.bb127, %sw.bb99, %sw.bb71, %sw.bb43, %sw.bb
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.bb155, %sw.bb127, %sw.bb99, %sw.bb71, %sw.bb43, %sw.bb, %if.then175, %if.then168, %if.then161, %if.then147, %if.then140, %if.then133, %if.then119, %if.then112, %if.then105, %if.then91, %if.then84, %if.then77, %if.then63, %if.then56, %if.then49, %if.then35, %if.then28, %if.then24, %if.end
   %224 = phi <2 x float> [ %43, %if.end ], [ %197, %sw.bb155 ], [ %220, %if.then175 ], [ %213, %if.then168 ], [ %205, %if.then161 ], [ %166, %sw.bb127 ], [ %166, %if.then147 ], [ %166, %if.then140 ], [ %166, %if.then133 ], [ %135, %sw.bb99 ], [ %135, %if.then119 ], [ %135, %if.then112 ], [ %135, %if.then105 ], [ %43, %sw.bb71 ], [ %128, %if.then91 ], [ %120, %if.then84 ], [ %112, %if.then77 ], [ %43, %sw.bb43 ], [ %98, %if.then63 ], [ %91, %if.then56 ], [ %83, %if.then49 ], [ %43, %sw.bb ], [ %67, %if.then35 ], [ %59, %if.then28 ], [ %51, %if.then24 ]
   %225 = phi <2 x float> [ %45, %if.end ], [ %45, %sw.bb155 ], [ %223, %if.then175 ], [ %216, %if.then168 ], [ %208, %if.then161 ], [ %45, %sw.bb127 ], [ %192, %if.then147 ], [ %184, %if.then140 ], [ %176, %if.then133 ], [ %45, %sw.bb99 ], [ %161, %if.then119 ], [ %154, %if.then112 ], [ %146, %if.then105 ], [ %108, %sw.bb71 ], [ %108, %if.then91 ], [ %108, %if.then84 ], [ %108, %if.then77 ], [ %78, %sw.bb43 ], [ %78, %if.then63 ], [ %78, %if.then56 ], [ %78, %if.then49 ], [ %45, %sw.bb ], [ %70, %if.then35 ], [ %62, %if.then28 ], [ %54, %if.then24 ]
   %226 = phi <2 x float> [ %47, %if.end ], [ %200, %sw.bb155 ], [ %200, %if.then175 ], [ %200, %if.then168 ], [ %200, %if.then161 ], [ %169, %sw.bb127 ], [ %189, %if.then147 ], [ %181, %if.then140 ], [ %173, %if.then133 ], [ %138, %sw.bb99 ], [ %158, %if.then119 ], [ %151, %if.then112 ], [ %143, %if.then105 ], [ %105, %sw.bb71 ], [ %131, %if.then91 ], [ %123, %if.then84 ], [ %115, %if.then77 ], [ %75, %sw.bb43 ], [ %101, %if.then63 ], [ %94, %if.then56 ], [ %86, %if.then49 ], [ %47, %sw.bb ], [ %47, %if.then35 ], [ %47, %if.then28 ], [ %47, %if.then24 ]

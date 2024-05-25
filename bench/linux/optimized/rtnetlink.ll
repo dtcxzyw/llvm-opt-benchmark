@@ -1117,13 +1117,13 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   %17 = select i1 %15, i1 true, i1 %16
   br i1 %17, label %82, label %.preheader
 
-.preheader:                                       ; preds = %7, %.thread8
-  %18 = phi i64 [ %46, %.thread8 ], [ 0, %7 ]
-  %19 = phi i32 [ %45, %.thread8 ], [ 0, %7 ]
+.preheader:                                       ; preds = %7, %.thread9
+  %18 = phi i64 [ %46, %.thread9 ], [ 0, %7 ]
+  %19 = phi i32 [ %45, %.thread9 ], [ 0, %7 ]
   %20 = getelementptr i32, ptr %1, i64 %18
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread8, label %23
+  br i1 %22, label %.thread9, label %23
 
 23:                                               ; preds = %.preheader
   %24 = trunc i64 %18 to i32
@@ -1137,11 +1137,11 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !47
   %26 = call ptr @tcp_ca_get_name_by_key(i32 noundef %21, ptr noundef nonnull %5) #18
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread5, label %28
+  br i1 %27, label %.thread6, label %28
 
-.thread5:                                         ; preds = %25
+.thread6:                                         ; preds = %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
-  br label %.thread8
+  br label %.thread9
 
 28:                                               ; preds = %25
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #18
@@ -1150,12 +1150,12 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   %32 = call i32 @nla_put(ptr noundef %0, i32 noundef 16, i32 noundef %31, ptr noundef nonnull %26) #18
   %33 = icmp eq i32 %32, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
-  br i1 %33, label %.thread7, label %.loopexit
+  br i1 %33, label %.thread8, label %.loopexit
 
 34:                                               ; preds = %23
   %35 = and i32 %21, 31
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.thread8, label %37
+  br i1 %36, label %.thread9, label %37
 
 37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
@@ -1163,7 +1163,7 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   %38 = call i32 @nla_put(ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.thread7, label %.loopexit
+  br i1 %39, label %.thread8, label %.loopexit
 
 40:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
@@ -1172,19 +1172,19 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   %42 = call i32 @nla_put(ptr noundef %0, i32 noundef %41, i32 noundef 4, ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.thread7, label %.loopexit
+  br i1 %43, label %.thread8, label %.loopexit
 
-.thread7:                                         ; preds = %28, %37, %40
+.thread8:                                         ; preds = %28, %37, %40
   %44 = add i32 %19, 1
-  br label %.thread8
+  br label %.thread9
 
-.thread8:                                         ; preds = %34, %.thread5, %.thread7, %.preheader
-  %45 = phi i32 [ %44, %.thread7 ], [ %19, %.preheader ], [ %19, %.thread5 ], [ %19, %34 ]
+.thread9:                                         ; preds = %34, %.thread6, %.thread8, %.preheader
+  %45 = phi i32 [ %44, %.thread8 ], [ %19, %.preheader ], [ %19, %.thread6 ], [ %19, %34 ]
   %46 = add nuw nsw i64 %18, 1
   %47 = icmp eq i64 %46, 17
   br i1 %47, label %48, label %.preheader, !llvm.loop !48
 
-48:                                               ; preds = %.thread8
+48:                                               ; preds = %.thread9
   %49 = icmp eq i32 %45, 0
   br i1 %49, label %50, label %61
 
@@ -1198,11 +1198,11 @@ define dso_local i32 @rtnetlink_put_metrics(ptr noundef %0, ptr noundef readonly
   call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
   call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
-  %.pre9 = load ptr, ptr %51, align 8
+  %.pre10 = load ptr, ptr %51, align 8
   br label %55
 
 55:                                               ; preds = %54, %50
-  %56 = phi ptr [ %.pre9, %54 ], [ %52, %50 ]
+  %56 = phi ptr [ %.pre10, %54 ], [ %52, %50 ]
   %57 = ptrtoint ptr %13 to i64
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58

@@ -2367,11 +2367,15 @@ define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$mini_lsm_mvcc..mani
 8:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !579)
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %6, label %10 [
+  switch i64 %6, label %default.unreachable4.i [
     i64 0, label %18
     i64 1, label %19
     i64 2, label %34
+    i64 3, label %10
   ]
+
+default.unreachable4.i:                           ; preds = %8
+  unreachable
 
 10:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !582

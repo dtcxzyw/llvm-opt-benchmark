@@ -1036,11 +1036,15 @@ define internal void @"_ZN4core3ptr43drop_in_place$LT$influxdb3_write..Error$GT$
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !69, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %3, label %5 [
+  switch i64 %3, label %default.unreachable1 [
     i64 0, label %18
     i64 1, label %26
     i64 2, label %27
+    i64 3, label %5
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   %6 = load i64, ptr %4, align 8, !range !70, !alias.scope !71, !noundef !4
@@ -1853,11 +1857,15 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$influxdb3_server..h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !327)
   %184 = load i64, ptr %183, align 8, !range !69, !alias.scope !327, !noundef !4
   %185 = getelementptr inbounds i8, ptr %0, i64 16
-  switch i64 %184, label %186 [
+  switch i64 %184, label %default.unreachable [
     i64 0, label %187
     i64 1, label %195
     i64 2, label %196
+    i64 3, label %186
   ]
+
+default.unreachable:                              ; preds = %182
+  unreachable
 
 186:                                              ; preds = %182
   tail call void @"_ZN4core3ptr52drop_in_place$LT$arrow_schema..error..ArrowError$GT$17h07e66ab687aa2743E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %185)
@@ -3175,11 +3183,15 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$influxdb3_server..query_ex
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !69, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %3, label %5 [
+  switch i64 %3, label %default.unreachable1 [
     i64 0, label %6
     i64 1, label %14
     i64 2, label %15
+    i64 3, label %5
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   tail call void @"_ZN4core3ptr52drop_in_place$LT$arrow_schema..error..ArrowError$GT$17h07e66ab687aa2743E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)

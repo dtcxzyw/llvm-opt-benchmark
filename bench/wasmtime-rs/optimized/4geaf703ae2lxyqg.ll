@@ -776,12 +776,12 @@ define range(i8 0, 3) i8 @_ZN14cranelift_isle10trie_again4Rule11may_overlap17h42
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit"
   %.pn = phi { ptr, ptr } [ %21, %.lr.ph.lr.ph ], [ %26, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
   %29 = phi ptr [ %22, %.lr.ph.lr.ph ], [ %27, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
-  %.1.ph21 = phi i8 [ %.015, %.lr.ph.lr.ph ], [ 0, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
+  %.1.ph22 = phi i8 [ %.015, %.lr.ph.lr.ph ], [ 0, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
   br label %31
 
 "_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer._crit_edge": ; preds = %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit", %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", %19
-  %.1.ph.lcssa19 = phi i8 [ %.015, %19 ], [ %.1.ph21, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ], [ 0, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
-  %30 = and i8 %.1.ph.lcssa19, 1
+  %.1.ph.lcssa20 = phi i8 [ %.015, %19 ], [ %.1.ph22, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ], [ 0, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
+  %30 = and i8 %.1.ph.lcssa20, 1
   br label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
 
 31:                                               ; preds = %.lr.ph, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge"
@@ -805,11 +805,15 @@ define range(i8 0, 3) i8 @_ZN14cranelift_isle10trie_again4Rule11may_overlap17h42
   br i1 %39, label %40, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
 
 40:                                               ; preds = %36
-  switch i8 %37, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" [
+  switch i8 %37, label %default.unreachable [
     i8 0, label %41
     i8 1, label %59
     i8 2, label %71
+    i8 3, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge"
   ]
+
+default.unreachable:                              ; preds = %40
+  unreachable
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds i8, ptr %33, i64 8
@@ -1138,11 +1142,15 @@ define internal fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14se
   br i1 %22, label %23, label %49
 
 23:                                               ; preds = %19
-  switch i8 %.sroa.03.0.copyload, label %_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.thread [
+  switch i8 %.sroa.03.0.copyload, label %default.unreachable.i [
     i8 0, label %24
     i8 1, label %32
     i8 2, label %40
+    i8 3, label %_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.thread
   ]
+
+default.unreachable.i:                            ; preds = %23
+  unreachable
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload.i, i64 -24
@@ -2075,15 +2083,19 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$cranelift_isle..trie_again..Constra
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  switch i8 %3, label %7 [
+  switch i8 %3, label %default.unreachable3 [
     i8 0, label %8
     i8 1, label %26
     i8 2, label %38
+    i8 3, label %7
   ]
 
 7:                                                ; preds = %26, %8, %14, %6, %2, %38, %32, %20
   %.0.shrunk = phi i1 [ %43, %38 ], [ %37, %32 ], [ %25, %20 ], [ false, %2 ], [ true, %6 ], [ false, %14 ], [ false, %8 ], [ false, %26 ]
   ret i1 %.0.shrunk
+
+default.unreachable3:                             ; preds = %6
+  unreachable
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2138,13 +2150,17 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$cranelift_isle..trie_again..Constra
 define hidden range(i8 -1, 2) i8 @"_ZN80_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5fde06ec686167f1E"(ptr nocapture readonly align 16 %0, ptr nocapture readonly align 16 %1) unnamed_addr #5 {
   %3 = load i8, ptr %0, align 16, !range !9, !noundef !3
   %4 = load i8, ptr %1, align 16, !range !9, !noundef !3
-  switch i8 %3, label %5 [
+  switch i8 %3, label %default.unreachable48 [
     i8 0, label %8
     i8 1, label %10
     i8 2, label %12
+    i8 3, label %5
   ]
 
-5:                                                ; preds = %12, %10, %8, %2
+default.unreachable48:                            ; preds = %2
+  unreachable
+
+5:                                                ; preds = %2, %12, %10, %8
   %6 = icmp ult i8 %3, %4
   %7 = icmp ne i8 %3, %4
   %.42 = zext i1 %7 to i8

@@ -2420,23 +2420,23 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ULMAP_IE(ptr n
   %37 = add nsw i32 %6, -1
   br label %39
 
-.loopexit:                                        ; preds = %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us, %UL_HARQ_Chase_Sub_Burst_IE.exit.us, %70
-  %.us-phi = phi i32 [ %80, %70 ], [ %149, %UL_HARQ_Chase_Sub_Burst_IE.exit.us ], [ %219, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us ], [ %292, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us ], [ %.3.us212, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211 ], [ %.3.us220, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219 ], [ %.3.us228, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227 ], [ %.3.us236, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235 ]
+.loopexit:                                        ; preds = %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us237, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us229, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us221, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us213, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us, %UL_HARQ_Chase_Sub_Burst_IE.exit.us, %70
+  %.us-phi = phi i32 [ %80, %70 ], [ %149, %UL_HARQ_Chase_Sub_Burst_IE.exit.us ], [ %219, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us ], [ %292, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us ], [ %.3.us214, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us213 ], [ %.3.us222, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us221 ], [ %.3.us230, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us229 ], [ %.3.us238, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us237 ]
   %38 = icmp slt i32 %.us-phi, %34
   br i1 %38, label %39, label %._crit_edge, !llvm.loop !11
 
 39:                                               ; preds = %.lr.ph, %.loopexit
-  %.0122240 = phi i32 [ %32, %.lr.ph ], [ %.us-phi, %.loopexit ]
-  %40 = sdiv i32 %.0122240, 8
+  %.0122250 = phi i32 [ %32, %.lr.ph ], [ %.us-phi, %.loopexit ]
+  %40 = sdiv i32 %.0122250, 8
   %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %40) #4
   %42 = zext i16 %41 to i32
-  %43 = srem i32 %.0122240, 8
+  %43 = srem i32 %.0122250, 8
   %44 = sub nsw i32 13, %43
   %45 = lshr i32 %42, %44
   %46 = and i32 %45, 7
   %47 = load i32, ptr @hf_ulmap_harq_ulmap_mode, align 4
-  %48 = tail call ptr @proto_tree_add_bits_item(ptr noundef %13, i32 noundef %47, ptr noundef %3, i32 noundef %.0122240, i32 noundef 3, i32 noundef 0) #4
-  %49 = add i32 %.0122240, 3
+  %48 = tail call ptr @proto_tree_add_bits_item(ptr noundef %13, i32 noundef %47, ptr noundef %3, i32 noundef %.0122250, i32 noundef 3, i32 noundef 0) #4
+  %49 = add i32 %.0122250, 3
   %50 = sdiv i32 %49, 8
   %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %50) #4
   %52 = zext i8 %51 to i32
@@ -2444,7 +2444,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ULMAP_IE(ptr n
   %54 = sub nsw i32 7, %53
   %55 = load i32, ptr @hf_ulmap_harq_ulmap_allocation_start_indication, align 4
   %56 = tail call ptr @proto_tree_add_bits_item(ptr noundef %13, i32 noundef %55, ptr noundef %3, i32 noundef %49, i32 noundef 1, i32 noundef 0) #4
-  %57 = add i32 %.0122240, 4
+  %57 = add i32 %.0122250, 4
   %58 = shl nuw nsw i32 1, %54
   %59 = and i32 %58, %52
   %.not125 = icmp eq i32 %59, 0
@@ -2453,13 +2453,13 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ULMAP_IE(ptr n
 60:                                               ; preds = %39
   %61 = load i32, ptr @hf_ulmap_harq_ulmap_ofdma_symbol_offset, align 4
   %62 = tail call ptr @proto_tree_add_bits_item(ptr noundef %13, i32 noundef %61, ptr noundef %3, i32 noundef %57, i32 noundef 8, i32 noundef 0) #4
-  %63 = add i32 %.0122240, 12
+  %63 = add i32 %.0122250, 12
   %64 = load i32, ptr @hf_ulmap_harq_ulmap_subchannel_offset, align 4
   %65 = tail call ptr @proto_tree_add_bits_item(ptr noundef %13, i32 noundef %64, ptr noundef %3, i32 noundef %63, i32 noundef 7, i32 noundef 0) #4
-  %66 = add i32 %.0122240, 19
+  %66 = add i32 %.0122250, 19
   %67 = load i32, ptr @hf_ulmap_reserved_uint, align 4
   %68 = tail call ptr @proto_tree_add_bits_item(ptr noundef %13, i32 noundef %67, ptr noundef %3, i32 noundef %66, i32 noundef 1, i32 noundef 0) #4
-  %69 = add i32 %.0122240, 20
+  %69 = add i32 %.0122250, 20
   br label %70
 
 70:                                               ; preds = %39, %60
@@ -2474,29 +2474,30 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ULMAP_IE(ptr n
   %78 = load i32, ptr @hf_ulmap_harq_ulmap_n_sub_burst, align 4
   %79 = tail call ptr @proto_tree_add_bits_item(ptr noundef %13, i32 noundef %78, ptr noundef %3, i32 noundef %.1, i32 noundef 4, i32 noundef 0) #4
   %80 = add i32 %.1, 4
-  switch i32 %46, label %.loopexit [
+  switch i32 %46, label %default.unreachable [
     i32 0, label %.split.us
-    i32 1, label %.split.us192
-    i32 2, label %.split.us200
-    i32 3, label %.split.us208
-    i32 4, label %.split.us216
-    i32 5, label %.split.us224
-    i32 6, label %.split.us232
+    i32 1, label %.split.us194
+    i32 2, label %.split.us202
+    i32 3, label %.split.us210
+    i32 4, label %.split.us218
+    i32 5, label %.split.us226
+    i32 6, label %.split.us234
+    i32 7, label %.loopexit
   ]
 
 .split.us:                                        ; preds = %70, %UL_HARQ_Chase_Sub_Burst_IE.exit.us
-  %.0191.us = phi i32 [ %150, %UL_HARQ_Chase_Sub_Burst_IE.exit.us ], [ %46, %70 ]
-  %.2190.us = phi i32 [ %149, %UL_HARQ_Chase_Sub_Burst_IE.exit.us ], [ %80, %70 ]
-  %81 = sdiv i32 %.2190.us, 8
-  %82 = srem i32 %.2190.us, 8
+  %.0193.us = phi i32 [ %150, %UL_HARQ_Chase_Sub_Burst_IE.exit.us ], [ %46, %70 ]
+  %.2192.us = phi i32 [ %149, %UL_HARQ_Chase_Sub_Burst_IE.exit.us ], [ %80, %70 ]
+  %81 = sdiv i32 %.2192.us, 8
+  %82 = srem i32 %.2192.us, 8
   %83 = add i32 %37, %82
   %84 = lshr i32 %83, 3
   %85 = add nuw nsw i32 %84, 1
   %86 = load i32, ptr @ett_302k, align 4
   %87 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %3, i32 noundef %81, i32 noundef %85, i32 noundef %86, ptr noundef null, ptr noundef nonnull @.str.532) #4
   %88 = load i32, ptr @RCID_Type, align 4
-  %89 = tail call i32 @RCID_IE(ptr noundef %87, i32 noundef %.2190.us, i32 noundef %6, ptr noundef %3, i32 noundef %88) #4
-  %90 = add i32 %89, %.2190.us
+  %89 = tail call i32 @RCID_IE(ptr noundef %87, i32 noundef %.2192.us, i32 noundef %6, ptr noundef %3, i32 noundef %88) #4
+  %90 = add i32 %89, %.2192.us
   %91 = sdiv i32 %90, 8
   %92 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %91) #4
   %93 = zext i8 %92 to i32
@@ -2566,23 +2567,23 @@ UL_HARQ_Chase_Sub_Burst_IE.exit.us:               ; preds = %122, %101, %.split.
   %147 = load i32, ptr @hf_ulmap_reserved_uint, align 4
   %148 = tail call ptr @proto_tree_add_bits_item(ptr noundef %87, i32 noundef %147, ptr noundef %3, i32 noundef %146, i32 noundef 1, i32 noundef 0) #4
   %149 = add i32 %.0.i.us, 23
-  %150 = add nuw nsw i32 %.0191.us, 1
-  %exitcond274.not = icmp eq i32 %.0191.us, %77
-  br i1 %exitcond274.not, label %.loopexit, label %.split.us, !llvm.loop !12
+  %150 = add nuw nsw i32 %.0193.us, 1
+  %exitcond285.not = icmp eq i32 %.0193.us, %77
+  br i1 %exitcond285.not, label %.loopexit, label %.split.us, !llvm.loop !12
 
-.split.us192:                                     ; preds = %70, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us
-  %.0191.us193 = phi i32 [ %220, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us ], [ 0, %70 ]
-  %.2190.us194 = phi i32 [ %219, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us ], [ %80, %70 ]
-  %151 = sdiv i32 %.2190.us194, 2
-  %152 = and i32 %.2190.us194, 1
+.split.us194:                                     ; preds = %70, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us
+  %.0193.us195 = phi i32 [ %220, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us ], [ 0, %70 ]
+  %.2192.us196 = phi i32 [ %219, %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us ], [ %80, %70 ]
+  %151 = sdiv i32 %.2192.us196, 2
+  %152 = and i32 %.2192.us196, 1
   %153 = add nuw nsw i32 %152, 1
   %154 = or disjoint i32 %153, %6
   %155 = lshr i32 %154, 1
   %156 = load i32, ptr @ett_302l, align 4
   %157 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %3, i32 noundef %151, i32 noundef %155, i32 noundef %156, ptr noundef null, ptr noundef nonnull @.str.534) #4
   %158 = load i32, ptr @RCID_Type, align 4
-  %159 = tail call i32 @RCID_IE(ptr noundef %157, i32 noundef %.2190.us194, i32 noundef %6, ptr noundef %3, i32 noundef %158) #4
-  %160 = add i32 %159, %.2190.us194
+  %159 = tail call i32 @RCID_IE(ptr noundef %157, i32 noundef %.2192.us196, i32 noundef %6, ptr noundef %3, i32 noundef %158) #4
+  %160 = add i32 %159, %.2192.us196
   %161 = sdiv i32 %160, 8
   %162 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %161) #4
   %163 = zext i8 %162 to i32
@@ -2596,7 +2597,7 @@ UL_HARQ_Chase_Sub_Burst_IE.exit.us:               ; preds = %122, %101, %.split.
   %.not.i127.us = icmp eq i32 %170, 0
   br i1 %.not.i127.us, label %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us, label %171
 
-171:                                              ; preds = %.split.us192
+171:                                              ; preds = %.split.us194
   %172 = sdiv i32 %168, 2
   %173 = and i32 %168, 1
   %174 = add nuw nsw i32 %173, 1
@@ -2629,8 +2630,8 @@ UL_HARQ_Chase_Sub_Burst_IE.exit.us:               ; preds = %122, %101, %.split.
   %198 = add i32 %160, 13
   br label %UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us
 
-UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us:              ; preds = %192, %171, %.split.us192
-  %.0.i128.us = phi i32 [ %168, %.split.us192 ], [ %198, %192 ], [ %189, %171 ]
+UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us:              ; preds = %192, %171, %.split.us194
+  %.0.i128.us = phi i32 [ %168, %.split.us194 ], [ %198, %192 ], [ %189, %171 ]
   %199 = load i32, ptr @hf_ulmap_harq_ir_ctc_nep, align 4
   %200 = tail call ptr @proto_tree_add_bits_item(ptr noundef %157, i32 noundef %199, ptr noundef %3, i32 noundef %.0.i128.us, i32 noundef 4, i32 noundef 0) #4
   %201 = add i32 %.0.i128.us, 4
@@ -2652,23 +2653,23 @@ UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us:              ; preds = %192, %171, %.split.
   %217 = load i32, ptr @hf_ulmap_reserved_uint, align 4
   %218 = tail call ptr @proto_tree_add_bits_item(ptr noundef %157, i32 noundef %217, ptr noundef %3, i32 noundef %216, i32 noundef 3, i32 noundef 0) #4
   %219 = add i32 %.0.i128.us, 19
-  %220 = add nuw nsw i32 %.0191.us193, 1
-  %exitcond273.not = icmp eq i32 %.0191.us193, %77
-  br i1 %exitcond273.not, label %.loopexit, label %.split.us192, !llvm.loop !12
+  %220 = add nuw nsw i32 %.0193.us195, 1
+  %exitcond284.not = icmp eq i32 %.0193.us195, %77
+  br i1 %exitcond284.not, label %.loopexit, label %.split.us194, !llvm.loop !12
 
-.split.us200:                                     ; preds = %70, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us
-  %.0191.us201 = phi i32 [ %293, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us ], [ 0, %70 ]
-  %.2190.us202 = phi i32 [ %292, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us ], [ %80, %70 ]
-  %221 = sdiv i32 %.2190.us202, 2
-  %222 = and i32 %.2190.us202, 1
+.split.us202:                                     ; preds = %70, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us
+  %.0193.us203 = phi i32 [ %293, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us ], [ 0, %70 ]
+  %.2192.us204 = phi i32 [ %292, %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us ], [ %80, %70 ]
+  %221 = sdiv i32 %.2192.us204, 2
+  %222 = and i32 %.2192.us204, 1
   %223 = add nuw nsw i32 %222, 1
   %224 = or disjoint i32 %223, %6
   %225 = lshr i32 %224, 1
   %226 = load i32, ptr @ett_302m, align 4
   %227 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %3, i32 noundef %221, i32 noundef %225, i32 noundef %226, ptr noundef null, ptr noundef nonnull @.str.535) #4
   %228 = load i32, ptr @RCID_Type, align 4
-  %229 = tail call i32 @RCID_IE(ptr noundef %227, i32 noundef %.2190.us202, i32 noundef %6, ptr noundef %3, i32 noundef %228) #4
-  %230 = add i32 %229, %.2190.us202
+  %229 = tail call i32 @RCID_IE(ptr noundef %227, i32 noundef %.2192.us204, i32 noundef %6, ptr noundef %3, i32 noundef %228) #4
+  %230 = add i32 %229, %.2192.us204
   %231 = sdiv i32 %230, 8
   %232 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %231) #4
   %233 = zext i8 %232 to i32
@@ -2682,7 +2683,7 @@ UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us:              ; preds = %192, %171, %.split.
   %.not.i130.us = icmp eq i32 %240, 0
   br i1 %.not.i130.us, label %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us, label %241
 
-241:                                              ; preds = %.split.us200
+241:                                              ; preds = %.split.us202
   %242 = sdiv i32 %238, 2
   %243 = and i32 %238, 1
   %244 = add nuw nsw i32 %243, 1
@@ -2715,8 +2716,8 @@ UL_HARQ_IR_CTC_Sub_Burst_IE.exit.us:              ; preds = %192, %171, %.split.
   %268 = add i32 %230, 13
   br label %UL_HARQ_IR_CC_Sub_Burst_IE.exit.us
 
-UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.us200
-  %.0.i131.us = phi i32 [ %238, %.split.us200 ], [ %268, %262 ], [ %259, %241 ]
+UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.us202
+  %.0.i131.us = phi i32 [ %238, %.split.us202 ], [ %268, %262 ], [ %259, %241 ]
   %269 = load i32, ptr @hf_ulmap_harq_ir_cc_uiuc, align 4
   %270 = tail call ptr @proto_tree_add_bits_item(ptr noundef %227, i32 noundef %269, ptr noundef %3, i32 noundef %.0.i131.us, i32 noundef 4, i32 noundef 0) #4
   %271 = add i32 %.0.i131.us, 4
@@ -2741,33 +2742,33 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %290 = load i32, ptr @hf_ulmap_reserved_uint, align 4
   %291 = tail call ptr @proto_tree_add_bits_item(ptr noundef %227, i32 noundef %290, ptr noundef %3, i32 noundef %289, i32 noundef 3, i32 noundef 0) #4
   %292 = add i32 %.0.i131.us, 27
-  %293 = add nuw nsw i32 %.0191.us201, 1
-  %exitcond272.not = icmp eq i32 %.0191.us201, %77
-  br i1 %exitcond272.not, label %.loopexit, label %.split.us200, !llvm.loop !12
+  %293 = add nuw nsw i32 %.0193.us203, 1
+  %exitcond283.not = icmp eq i32 %.0193.us203, %77
+  br i1 %exitcond283.not, label %.loopexit, label %.split.us202, !llvm.loop !12
 
-.split.us208:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211
-  %.0191.us209 = phi i32 [ %420, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211 ], [ 0, %70 ]
-  %.2190.us210 = phi i32 [ %.3.us212, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211 ], [ %80, %70 ]
-  %294 = sdiv i32 %.2190.us210, 2
-  %295 = and i32 %.2190.us210, 1
+.split.us210:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us213
+  %.0193.us211 = phi i32 [ %420, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us213 ], [ 0, %70 ]
+  %.2192.us212 = phi i32 [ %.3.us214, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us213 ], [ %80, %70 ]
+  %294 = sdiv i32 %.2192.us212, 2
+  %295 = and i32 %.2192.us212, 1
   %296 = add nuw nsw i32 %295, %36
   %297 = lshr i32 %296, 1
   %298 = load i32, ptr @ett_302n, align 4
   %299 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %3, i32 noundef %294, i32 noundef %297, i32 noundef %298, ptr noundef null, ptr noundef nonnull @.str.536) #4
-  %300 = sdiv i32 %.2190.us210, 8
+  %300 = sdiv i32 %.2192.us212, 8
   %301 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %300) #4
   %302 = zext i8 %301 to i32
-  %303 = srem i32 %.2190.us210, 8
+  %303 = srem i32 %.2192.us212, 8
   %304 = sub nsw i32 7, %303
   %305 = load i32, ptr @hf_ulmap_mimo_ul_chase_harq_mu_indicator, align 4
-  %306 = tail call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %305, ptr noundef %3, i32 noundef %.2190.us210, i32 noundef 1, i32 noundef 0) #4
-  %307 = add i32 %.2190.us210, 1
+  %306 = tail call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %305, ptr noundef %3, i32 noundef %.2192.us212, i32 noundef 1, i32 noundef 0) #4
+  %307 = add i32 %.2192.us212, 1
   %308 = sdiv i32 %307, 8
   %309 = srem i32 %307, 8
   %310 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %308) #4
   %311 = load i32, ptr @hf_ulmap_mimo_ul_chase_harq_dedicated_mimo_ulcontrol_indicator, align 4
   %312 = tail call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %311, ptr noundef %3, i32 noundef %307, i32 noundef 1, i32 noundef 0) #4
-  %313 = add i32 %.2190.us210, 2
+  %313 = add i32 %.2192.us212, 2
   %314 = sdiv i32 %313, 8
   %315 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %314) #4
   %316 = zext i8 %315 to i32
@@ -2775,19 +2776,19 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %318 = sub nsw i32 7, %317
   %319 = load i32, ptr @hf_ulmap_mimo_ul_chase_harq_ack_disable, align 4
   %320 = tail call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %319, ptr noundef %3, i32 noundef %313, i32 noundef 1, i32 noundef 0) #4
-  %321 = add i32 %.2190.us210, 3
+  %321 = add i32 %.2192.us212, 3
   %322 = shl nuw nsw i32 1, %304
   %323 = and i32 %322, %302
   %324 = icmp eq i32 %323, 0
   br i1 %324, label %329, label %325
 
-325:                                              ; preds = %.split.us208
+325:                                              ; preds = %.split.us210
   %326 = load i32, ptr @hf_ulmap_mimo_ul_chase_harq_matrix, align 4
   %327 = tail call ptr @proto_tree_add_bits_item(ptr noundef %299, i32 noundef %326, ptr noundef %3, i32 noundef %321, i32 noundef 1, i32 noundef 0) #4
-  %328 = add i32 %.2190.us210, 4
+  %328 = add i32 %.2192.us212, 4
   br label %357
 
-329:                                              ; preds = %.split.us208
+329:                                              ; preds = %.split.us210
   %330 = zext i8 %310 to i32
   %331 = sub nsw i32 7, %309
   %332 = load i32, ptr @RCID_Type, align 4
@@ -2828,7 +2829,7 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %360 = add i32 %.073.i.us, 10
   %361 = load i32, ptr @N_layer, align 4
   %362 = icmp sgt i32 %361, 0
-  br i1 %362, label %.lr.ph.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211
+  br i1 %362, label %.lr.ph.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us213
 
 .lr.ph.i.us:                                      ; preds = %357
   %363 = shl nuw nsw i32 1, %318
@@ -2855,7 +2856,7 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %375 = add nuw nsw i32 %.076.i.us, 1
   %376 = load i32, ptr @N_layer, align 4
   %377 = icmp slt i32 %375, %376
-  br i1 %377, label %.lr.ph.split.split.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !13
+  br i1 %377, label %.lr.ph.split.split.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us213, !llvm.loop !13
 
 .lr.ph.split.split.us.i.us:                       ; preds = %.lr.ph.split.i.us, %.lr.ph.split.split.us.i.us
   %.076.us77.i.us = phi i32 [ %384, %.lr.ph.split.split.us.i.us ], [ 0, %.lr.ph.split.i.us ]
@@ -2869,7 +2870,7 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %384 = add nuw nsw i32 %.076.us77.i.us, 1
   %385 = load i32, ptr @N_layer, align 4
   %386 = icmp slt i32 %384, %385
-  br i1 %386, label %.lr.ph.split.split.us.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !13
+  br i1 %386, label %.lr.ph.split.split.us.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us213, !llvm.loop !13
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us
   br i1 %324, label %.lr.ph.split.us.split.us.i.us, label %.lr.ph.split.us.split.i.us
@@ -2895,7 +2896,7 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %402 = add nuw nsw i32 %.076.us.i.us, 1
   %403 = load i32, ptr @N_layer, align 4
   %404 = icmp slt i32 %402, %403
-  br i1 %404, label %.lr.ph.split.us.split.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !13
+  br i1 %404, label %.lr.ph.split.us.split.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us213, !llvm.loop !13
 
 .lr.ph.split.us.split.us.i.us:                    ; preds = %.lr.ph.split.us.i.us, %.lr.ph.split.us.split.us.i.us
   %.076.us.us.i.us = phi i32 [ %417, %.lr.ph.split.us.split.us.i.us ], [ 0, %.lr.ph.split.us.i.us ]
@@ -2915,37 +2916,37 @@ UL_HARQ_IR_CC_Sub_Burst_IE.exit.us:               ; preds = %262, %241, %.split.
   %417 = add nuw nsw i32 %.076.us.us.i.us, 1
   %418 = load i32, ptr @N_layer, align 4
   %419 = icmp slt i32 %417, %418
-  br i1 %419, label %.lr.ph.split.us.split.us.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211, !llvm.loop !13
+  br i1 %419, label %.lr.ph.split.us.split.us.i.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us213, !llvm.loop !13
 
-MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.i.us, %.lr.ph.split.split.us.i.us, %.lr.ph.split.us.split.i.us, %.lr.ph.split.us.split.us.i.us, %357
-  %.3.us212 = phi i32 [ %360, %357 ], [ %416, %.lr.ph.split.us.split.us.i.us ], [ %401, %.lr.ph.split.us.split.i.us ], [ %383, %.lr.ph.split.split.us.i.us ], [ %374, %.lr.ph.split.split.i.us ]
-  %420 = add nuw nsw i32 %.0191.us209, 1
-  %exitcond271.not = icmp eq i32 %.0191.us209, %77
-  br i1 %exitcond271.not, label %.loopexit, label %.split.us208, !llvm.loop !12
+MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us213:       ; preds = %.lr.ph.split.split.i.us, %.lr.ph.split.split.us.i.us, %.lr.ph.split.us.split.i.us, %.lr.ph.split.us.split.us.i.us, %357
+  %.3.us214 = phi i32 [ %360, %357 ], [ %416, %.lr.ph.split.us.split.us.i.us ], [ %401, %.lr.ph.split.us.split.i.us ], [ %383, %.lr.ph.split.split.us.i.us ], [ %374, %.lr.ph.split.split.i.us ]
+  %420 = add nuw nsw i32 %.0193.us211, 1
+  %exitcond282.not = icmp eq i32 %.0193.us211, %77
+  br i1 %exitcond282.not, label %.loopexit, label %.split.us210, !llvm.loop !12
 
-.split.us216:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219
-  %.0191.us217 = phi i32 [ %541, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219 ], [ 0, %70 ]
-  %.2190.us218 = phi i32 [ %.3.us220, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219 ], [ %80, %70 ]
-  %421 = sdiv i32 %.2190.us218, 2
-  %422 = and i32 %.2190.us218, 1
+.split.us218:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us221
+  %.0193.us219 = phi i32 [ %541, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us221 ], [ 0, %70 ]
+  %.2192.us220 = phi i32 [ %.3.us222, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us221 ], [ %80, %70 ]
+  %421 = sdiv i32 %.2192.us220, 2
+  %422 = and i32 %.2192.us220, 1
   %423 = add nuw nsw i32 %422, %36
   %424 = lshr i32 %423, 1
   %425 = load i32, ptr @ett_302o, align 4
   %426 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %3, i32 noundef %421, i32 noundef %424, i32 noundef %425, ptr noundef null, ptr noundef nonnull @.str.538) #4
-  %427 = sdiv i32 %.2190.us218, 8
+  %427 = sdiv i32 %.2192.us220, 8
   %428 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %427) #4
   %429 = zext i8 %428 to i32
-  %430 = srem i32 %.2190.us218, 8
+  %430 = srem i32 %.2192.us220, 8
   %431 = sub nsw i32 7, %430
   %432 = load i32, ptr @hf_ulmap_mimo_ul_ir_harq_mu_indicator, align 4
-  %433 = tail call ptr @proto_tree_add_bits_item(ptr noundef %426, i32 noundef %432, ptr noundef %3, i32 noundef %.2190.us218, i32 noundef 1, i32 noundef 0) #4
-  %434 = add i32 %.2190.us218, 1
+  %433 = tail call ptr @proto_tree_add_bits_item(ptr noundef %426, i32 noundef %432, ptr noundef %3, i32 noundef %.2192.us220, i32 noundef 1, i32 noundef 0) #4
+  %434 = add i32 %.2192.us220, 1
   %435 = sdiv i32 %434, 8
   %436 = srem i32 %434, 8
   %437 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %435) #4
   %438 = load i32, ptr @hf_ulmap_mimo_ul_ir_harq_dedicated_mimo_ul_control_indicator, align 4
   %439 = tail call ptr @proto_tree_add_bits_item(ptr noundef %426, i32 noundef %438, ptr noundef %3, i32 noundef %434, i32 noundef 1, i32 noundef 0) #4
-  %440 = add i32 %.2190.us218, 2
+  %440 = add i32 %.2192.us220, 2
   %441 = sdiv i32 %440, 8
   %442 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %441) #4
   %443 = zext i8 %442 to i32
@@ -2953,19 +2954,19 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.
   %445 = sub nsw i32 7, %444
   %446 = load i32, ptr @hf_ulmap_mimo_ul_ir_harq_ack_disable, align 4
   %447 = tail call ptr @proto_tree_add_bits_item(ptr noundef %426, i32 noundef %446, ptr noundef %3, i32 noundef %440, i32 noundef 1, i32 noundef 0) #4
-  %448 = add i32 %.2190.us218, 3
+  %448 = add i32 %.2192.us220, 3
   %449 = shl nuw nsw i32 1, %431
   %450 = and i32 %449, %429
   %451 = icmp eq i32 %450, 0
   br i1 %451, label %456, label %452
 
-452:                                              ; preds = %.split.us216
+452:                                              ; preds = %.split.us218
   %453 = load i32, ptr @hf_ulmap_mimo_ul_ir_harq_matrix, align 4
   %454 = tail call ptr @proto_tree_add_bits_item(ptr noundef %426, i32 noundef %453, ptr noundef %3, i32 noundef %448, i32 noundef 1, i32 noundef 0) #4
-  %455 = add i32 %.2190.us218, 4
+  %455 = add i32 %.2192.us220, 4
   br label %484
 
-456:                                              ; preds = %.split.us216
+456:                                              ; preds = %.split.us218
   %457 = zext i8 %437 to i32
   %458 = sub nsw i32 7, %436
   %459 = load i32, ptr @RCID_Type, align 4
@@ -3006,7 +3007,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.
   %487 = add i32 %.073.i134.us, 4
   %488 = load i32, ptr @N_layer, align 4
   %489 = icmp sgt i32 %488, 0
-  br i1 %489, label %.lr.ph.i136.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219
+  br i1 %489, label %.lr.ph.i136.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us221
 
 .lr.ph.i136.us:                                   ; preds = %484
   %490 = shl nuw nsw i32 1, %445
@@ -3030,7 +3031,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.
   %499 = add nuw nsw i32 %.076.i140.us, 1
   %500 = load i32, ptr @N_layer, align 4
   %501 = icmp slt i32 %499, %500
-  br i1 %501, label %.lr.ph.split.split.i139.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !14
+  br i1 %501, label %.lr.ph.split.split.i139.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us221, !llvm.loop !14
 
 .lr.ph.split.split.us.i142.us:                    ; preds = %.lr.ph.split.i138.us, %.lr.ph.split.split.us.i142.us
   %.076.us77.i143.us = phi i32 [ %505, %.lr.ph.split.split.us.i142.us ], [ 0, %.lr.ph.split.i138.us ]
@@ -3041,7 +3042,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.
   %505 = add nuw nsw i32 %.076.us77.i143.us, 1
   %506 = load i32, ptr @N_layer, align 4
   %507 = icmp slt i32 %505, %506
-  br i1 %507, label %.lr.ph.split.split.us.i142.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !14
+  br i1 %507, label %.lr.ph.split.split.us.i142.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us221, !llvm.loop !14
 
 .lr.ph.split.us.i145.us:                          ; preds = %.lr.ph.i136.us
   br i1 %451, label %.lr.ph.split.us.split.us.i149.us, label %.lr.ph.split.us.split.i146.us
@@ -3067,7 +3068,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.
   %523 = add nuw nsw i32 %.076.us.i147.us, 1
   %524 = load i32, ptr @N_layer, align 4
   %525 = icmp slt i32 %523, %524
-  br i1 %525, label %.lr.ph.split.us.split.i146.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !14
+  br i1 %525, label %.lr.ph.split.us.split.i146.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us221, !llvm.loop !14
 
 .lr.ph.split.us.split.us.i149.us:                 ; preds = %.lr.ph.split.us.i145.us, %.lr.ph.split.us.split.us.i149.us
   %.076.us.us.i150.us = phi i32 [ %538, %.lr.ph.split.us.split.us.i149.us ], [ 0, %.lr.ph.split.us.i145.us ]
@@ -3087,37 +3088,37 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us211:       ; preds = %.lr.ph.split.split.
   %538 = add nuw nsw i32 %.076.us.us.i150.us, 1
   %539 = load i32, ptr @N_layer, align 4
   %540 = icmp slt i32 %538, %539
-  br i1 %540, label %.lr.ph.split.us.split.us.i149.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219, !llvm.loop !14
+  br i1 %540, label %.lr.ph.split.us.split.us.i149.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us221, !llvm.loop !14
 
-MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219:       ; preds = %.lr.ph.split.split.i139.us, %.lr.ph.split.split.us.i142.us, %.lr.ph.split.us.split.i146.us, %.lr.ph.split.us.split.us.i149.us, %484
-  %.3.us220 = phi i32 [ %487, %484 ], [ %537, %.lr.ph.split.us.split.us.i149.us ], [ %522, %.lr.ph.split.us.split.i146.us ], [ %504, %.lr.ph.split.split.us.i142.us ], [ %498, %.lr.ph.split.split.i139.us ]
-  %541 = add nuw nsw i32 %.0191.us217, 1
-  %exitcond270.not = icmp eq i32 %.0191.us217, %77
-  br i1 %exitcond270.not, label %.loopexit, label %.split.us216, !llvm.loop !12
+MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us221:       ; preds = %.lr.ph.split.split.i139.us, %.lr.ph.split.split.us.i142.us, %.lr.ph.split.us.split.i146.us, %.lr.ph.split.us.split.us.i149.us, %484
+  %.3.us222 = phi i32 [ %487, %484 ], [ %537, %.lr.ph.split.us.split.us.i149.us ], [ %522, %.lr.ph.split.us.split.i146.us ], [ %504, %.lr.ph.split.split.us.i142.us ], [ %498, %.lr.ph.split.split.i139.us ]
+  %541 = add nuw nsw i32 %.0193.us219, 1
+  %exitcond281.not = icmp eq i32 %.0193.us219, %77
+  br i1 %exitcond281.not, label %.loopexit, label %.split.us218, !llvm.loop !12
 
-.split.us224:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227
-  %.0191.us225 = phi i32 [ %658, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227 ], [ 0, %70 ]
-  %.2190.us226 = phi i32 [ %.3.us228, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227 ], [ %80, %70 ]
-  %542 = sdiv i32 %.2190.us226, 2
-  %543 = and i32 %.2190.us226, 1
+.split.us226:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us229
+  %.0193.us227 = phi i32 [ %658, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us229 ], [ 0, %70 ]
+  %.2192.us228 = phi i32 [ %.3.us230, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us229 ], [ %80, %70 ]
+  %542 = sdiv i32 %.2192.us228, 2
+  %543 = and i32 %.2192.us228, 1
   %544 = add nuw nsw i32 %543, %36
   %545 = lshr i32 %544, 1
   %546 = load i32, ptr @ett_302p, align 4
   %547 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %3, i32 noundef %542, i32 noundef %545, i32 noundef %546, ptr noundef null, ptr noundef nonnull @.str.539) #4
-  %548 = sdiv i32 %.2190.us226, 8
+  %548 = sdiv i32 %.2192.us228, 8
   %549 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %548) #4
   %550 = zext i8 %549 to i32
-  %551 = srem i32 %.2190.us226, 8
+  %551 = srem i32 %.2192.us228, 8
   %552 = sub nsw i32 7, %551
   %553 = load i32, ptr @hf_ulmap_mimo_ul_ir_harq_cc_mu_indicator, align 4
-  %554 = tail call ptr @proto_tree_add_bits_item(ptr noundef %547, i32 noundef %553, ptr noundef %3, i32 noundef %.2190.us226, i32 noundef 1, i32 noundef 0) #4
-  %555 = add i32 %.2190.us226, 1
+  %554 = tail call ptr @proto_tree_add_bits_item(ptr noundef %547, i32 noundef %553, ptr noundef %3, i32 noundef %.2192.us228, i32 noundef 1, i32 noundef 0) #4
+  %555 = add i32 %.2192.us228, 1
   %556 = sdiv i32 %555, 8
   %557 = srem i32 %555, 8
   %558 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %556) #4
   %559 = load i32, ptr @hf_ulmap_mimo_ul_ir_harq_cc_dedicated_mimo_ul_control_indicator, align 4
   %560 = tail call ptr @proto_tree_add_bits_item(ptr noundef %547, i32 noundef %559, ptr noundef %3, i32 noundef %555, i32 noundef 1, i32 noundef 0) #4
-  %561 = add i32 %.2190.us226, 2
+  %561 = add i32 %.2192.us228, 2
   %562 = sdiv i32 %561, 8
   %563 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %562) #4
   %564 = zext i8 %563 to i32
@@ -3125,19 +3126,19 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219:       ; preds = %.lr.ph.split.split.
   %566 = sub nsw i32 7, %565
   %567 = load i32, ptr @hf_ulmap_mimo_ul_ir_harq_cc_ack_disable, align 4
   %568 = tail call ptr @proto_tree_add_bits_item(ptr noundef %547, i32 noundef %567, ptr noundef %3, i32 noundef %561, i32 noundef 1, i32 noundef 0) #4
-  %569 = add i32 %.2190.us226, 3
+  %569 = add i32 %.2192.us228, 3
   %570 = shl nuw nsw i32 1, %552
   %571 = and i32 %570, %550
   %572 = icmp eq i32 %571, 0
   br i1 %572, label %577, label %573
 
-573:                                              ; preds = %.split.us224
+573:                                              ; preds = %.split.us226
   %574 = load i32, ptr @hf_ulmap_mimo_ul_ir_harq_cc_matrix, align 4
   %575 = tail call ptr @proto_tree_add_bits_item(ptr noundef %547, i32 noundef %574, ptr noundef %3, i32 noundef %569, i32 noundef 1, i32 noundef 0) #4
-  %576 = add i32 %.2190.us226, 4
+  %576 = add i32 %.2192.us228, 4
   br label %605
 
-577:                                              ; preds = %.split.us224
+577:                                              ; preds = %.split.us226
   %578 = zext i8 %558 to i32
   %579 = sub nsw i32 7, %557
   %580 = load i32, ptr @RCID_Type, align 4
@@ -3178,7 +3179,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219:       ; preds = %.lr.ph.split.split.
   %608 = add i32 %.077.i.us, 10
   %609 = load i32, ptr @N_layer, align 4
   %610 = icmp sgt i32 %609, 0
-  br i1 %610, label %.lr.ph.i154.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227
+  br i1 %610, label %.lr.ph.i154.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us229
 
 .lr.ph.i154.us:                                   ; preds = %605
   %611 = shl nuw nsw i32 1, %566
@@ -3205,7 +3206,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219:       ; preds = %.lr.ph.split.split.
   %623 = add nuw nsw i32 %.080.i.us, 1
   %624 = load i32, ptr @N_layer, align 4
   %625 = icmp slt i32 %623, %624
-  br i1 %625, label %.lr.ph.split.split.i156.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227, !llvm.loop !15
+  br i1 %625, label %.lr.ph.split.split.i156.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us229, !llvm.loop !15
 
 .lr.ph.split.split.us.i157.us:                    ; preds = %.lr.ph.split.i155.us, %.lr.ph.split.split.us.i157.us
   %.080.us81.i.us = phi i32 [ %632, %.lr.ph.split.split.us.i157.us ], [ 0, %.lr.ph.split.i155.us ]
@@ -3219,7 +3220,7 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219:       ; preds = %.lr.ph.split.split.
   %632 = add nuw nsw i32 %.080.us81.i.us, 1
   %633 = load i32, ptr @N_layer, align 4
   %634 = icmp slt i32 %632, %633
-  br i1 %634, label %.lr.ph.split.split.us.i157.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227, !llvm.loop !15
+  br i1 %634, label %.lr.ph.split.split.us.i157.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us229, !llvm.loop !15
 
 .lr.ph.split.us.i158.us:                          ; preds = %.lr.ph.i154.us, %639
   %.080.us.i.us = phi i32 [ %655, %639 ], [ 0, %.lr.ph.i154.us ]
@@ -3252,35 +3253,35 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us219:       ; preds = %.lr.ph.split.split.
   %655 = add nuw nsw i32 %.080.us.i.us, 1
   %656 = load i32, ptr @N_layer, align 4
   %657 = icmp slt i32 %655, %656
-  br i1 %657, label %.lr.ph.split.us.i158.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227, !llvm.loop !15
+  br i1 %657, label %.lr.ph.split.us.i158.us, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us229, !llvm.loop !15
 
-MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227:       ; preds = %.lr.ph.split.split.i156.us, %.lr.ph.split.split.us.i157.us, %639, %605
-  %.3.us228 = phi i32 [ %608, %605 ], [ %654, %639 ], [ %631, %.lr.ph.split.split.us.i157.us ], [ %622, %.lr.ph.split.split.i156.us ]
-  %658 = add nuw nsw i32 %.0191.us225, 1
-  %exitcond269.not = icmp eq i32 %.0191.us225, %77
-  br i1 %exitcond269.not, label %.loopexit, label %.split.us224, !llvm.loop !12
+MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us229:       ; preds = %.lr.ph.split.split.i156.us, %.lr.ph.split.split.us.i157.us, %639, %605
+  %.3.us230 = phi i32 [ %608, %605 ], [ %654, %639 ], [ %631, %.lr.ph.split.split.us.i157.us ], [ %622, %.lr.ph.split.split.i156.us ]
+  %658 = add nuw nsw i32 %.0193.us227, 1
+  %exitcond280.not = icmp eq i32 %.0193.us227, %77
+  br i1 %exitcond280.not, label %.loopexit, label %.split.us226, !llvm.loop !12
 
-.split.us232:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235
-  %.0191.us233 = phi i32 [ %721, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235 ], [ 0, %70 ]
-  %.2190.us234 = phi i32 [ %.3.us236, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235 ], [ %80, %70 ]
-  %659 = sdiv i32 %.2190.us234, 2
-  %660 = and i32 %.2190.us234, 1
+.split.us234:                                     ; preds = %70, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us237
+  %.0193.us235 = phi i32 [ %721, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us237 ], [ 0, %70 ]
+  %.2192.us236 = phi i32 [ %.3.us238, %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us237 ], [ %80, %70 ]
+  %659 = sdiv i32 %.2192.us236, 2
+  %660 = and i32 %.2192.us236, 1
   %661 = add nuw nsw i32 %660, 1
   %662 = or disjoint i32 %661, %6
   %663 = lshr i32 %662, 1
   %664 = load i32, ptr @ett_302q, align 4
   %665 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %3, i32 noundef %659, i32 noundef %663, i32 noundef %664, ptr noundef null, ptr noundef nonnull @.str.540) #4
-  %666 = sdiv i32 %.2190.us234, 8
+  %666 = sdiv i32 %.2192.us236, 8
   %667 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %666) #4
   %668 = zext i16 %667 to i32
-  %669 = srem i32 %.2190.us234, 8
+  %669 = srem i32 %.2192.us236, 8
   %670 = sub nsw i32 14, %669
   %671 = load i32, ptr @hf_ulmap_mimo_ul_stc_harq_tx_count, align 4
-  %672 = tail call ptr @proto_tree_add_bits_item(ptr noundef %665, i32 noundef %671, ptr noundef %3, i32 noundef %.2190.us234, i32 noundef 2, i32 noundef 0) #4
-  %673 = add i32 %.2190.us234, 2
+  %672 = tail call ptr @proto_tree_add_bits_item(ptr noundef %665, i32 noundef %671, ptr noundef %3, i32 noundef %.2192.us236, i32 noundef 2, i32 noundef 0) #4
+  %673 = add i32 %.2192.us236, 2
   %674 = load i32, ptr @hf_ulmap_mimo_ul_stc_harq_duration, align 4
   %675 = tail call ptr @proto_tree_add_bits_item(ptr noundef %665, i32 noundef %674, ptr noundef %3, i32 noundef %673, i32 noundef 10, i32 noundef 0) #4
-  %676 = add i32 %.2190.us234, 12
+  %676 = add i32 %.2192.us236, 12
   %677 = sdiv i32 %676, 8
   %678 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %677) #4
   %679 = zext i8 %678 to i32
@@ -3288,20 +3289,20 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227:       ; preds = %.lr.ph.split.split.
   %681 = sub nsw i32 7, %680
   %682 = load i32, ptr @hf_ulmap_mimo_ul_stc_harq_sub_burst_offset_indication, align 4
   %683 = tail call ptr @proto_tree_add_bits_item(ptr noundef %665, i32 noundef %682, ptr noundef %3, i32 noundef %676, i32 noundef 1, i32 noundef 0) #4
-  %684 = add i32 %.2190.us234, 13
+  %684 = add i32 %.2192.us236, 13
   %685 = shl nuw nsw i32 1, %681
   %686 = and i32 %685, %679
   %.not.i160.us = icmp eq i32 %686, 0
   br i1 %.not.i160.us, label %691, label %687
 
-687:                                              ; preds = %.split.us232
+687:                                              ; preds = %.split.us234
   %688 = load i32, ptr @hf_ulmap_mimo_ul_stc_harq_sub_burst_offset, align 4
   %689 = tail call ptr @proto_tree_add_bits_item(ptr noundef %665, i32 noundef %688, ptr noundef %3, i32 noundef %684, i32 noundef 8, i32 noundef 0) #4
-  %690 = add i32 %.2190.us234, 21
+  %690 = add i32 %.2192.us236, 21
   br label %691
 
-691:                                              ; preds = %687, %.split.us232
-  %.0.i161.us = phi i32 [ %690, %687 ], [ %684, %.split.us232 ]
+691:                                              ; preds = %687, %.split.us234
+  %.0.i161.us = phi i32 [ %690, %687 ], [ %684, %.split.us234 ]
   %692 = load i32, ptr @RCID_Type, align 4
   %693 = tail call i32 @RCID_IE(ptr noundef %665, i32 noundef %.0.i161.us, i32 noundef %6, ptr noundef %3, i32 noundef %692) #4
   %694 = add i32 %693, %.0.i161.us
@@ -3332,19 +3333,22 @@ MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us227:       ; preds = %.lr.ph.split.split.
   %714 = shl nuw nsw i32 1, %699
   %715 = and i32 %714, %697
   %716 = icmp eq i32 %715, 0
-  br i1 %716, label %717, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235
+  br i1 %716, label %717, label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us237
 
 717:                                              ; preds = %713
   %718 = load i32, ptr @hf_ulmap_mimo_ul_stc_harq_acid, align 4
   %719 = tail call ptr @proto_tree_add_bits_item(ptr noundef %665, i32 noundef %718, ptr noundef %3, i32 noundef %.1.i.us, i32 noundef 4, i32 noundef 0) #4
   %720 = add i32 %.1.i.us, 4
-  br label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235
+  br label %MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us237
 
-MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us235:       ; preds = %717, %713
-  %.3.us236 = phi i32 [ %720, %717 ], [ %.1.i.us, %713 ]
-  %721 = add nuw nsw i32 %.0191.us233, 1
-  %exitcond.not = icmp eq i32 %.0191.us233, %77
-  br i1 %exitcond.not, label %.loopexit, label %.split.us232, !llvm.loop !12
+MIMO_UL_Chase_HARQ_Sub_Burst_IE.exit.us237:       ; preds = %717, %713
+  %.3.us238 = phi i32 [ %720, %717 ], [ %.1.i.us, %713 ]
+  %721 = add nuw nsw i32 %.0193.us235, 1
+  %exitcond.not = icmp eq i32 %.0193.us235, %77
+  br i1 %exitcond.not, label %.loopexit, label %.split.us234, !llvm.loop !12
+
+default.unreachable:                              ; preds = %70
+  unreachable
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   %.0122.lcssa = phi i32 [ %32, %4 ], [ %.us-phi, %.loopexit ]
@@ -3440,18 +3444,18 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_SDMA_UL_IE(ptr 
   %39 = load i32, ptr @hf_ulmap_reserved_uint, align 4
   %40 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %39, ptr noundef %3, i32 noundef %38, i32 noundef 2, i32 noundef 0) #4
   %41 = add i32 %5, 20
-  %.not219 = icmp eq i32 %35, 0
-  br i1 %.not219, label %._crit_edge217, label %.lr.ph216
+  %.not221 = icmp eq i32 %35, 0
+  br i1 %.not221, label %._crit_edge219, label %.lr.ph218
 
-.lr.ph216:                                        ; preds = %4, %._crit_edge
-  %.0197214 = phi i32 [ %156, %._crit_edge ], [ 0, %4 ]
-  %.0198213 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %41, %4 ]
+.lr.ph218:                                        ; preds = %4, %._crit_edge
+  %.0197216 = phi i32 [ %156, %._crit_edge ], [ 0, %4 ]
+  %.0198215 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %41, %4 ]
   %42 = load i32, ptr @hf_ulmap_aas_sdma_slot_offset, align 4
-  %43 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %42, ptr noundef %3, i32 noundef %.0198213, i32 noundef 12, i32 noundef 0) #4
-  %44 = add i32 %.0198213, 12
+  %43 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %42, ptr noundef %3, i32 noundef %.0198215, i32 noundef 12, i32 noundef 0) #4
+  %44 = add i32 %.0198215, 12
   %45 = load i32, ptr @hf_ulmap_aas_sdma_slot_duration, align 4
   %46 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %45, ptr noundef %3, i32 noundef %44, i32 noundef 10, i32 noundef 0) #4
-  %47 = add i32 %.0198213, 22
+  %47 = add i32 %.0198215, 22
   %48 = sdiv i32 %47, 8
   %49 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %48) #4
   %50 = zext i16 %49 to i32
@@ -3461,19 +3465,19 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_SDMA_UL_IE(ptr 
   %54 = and i32 %53, 7
   %55 = load i32, ptr @hf_ulmap_aas_sdma_number_of_users, align 4
   %56 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %55, ptr noundef %3, i32 noundef %47, i32 noundef 3, i32 noundef 0) #4
-  %57 = add i32 %.0198213, 25
+  %57 = add i32 %.0198215, 25
   %58 = load i32, ptr @hf_ulmap_reserved_uint, align 4
   %59 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %58, ptr noundef %3, i32 noundef %57, i32 noundef 3, i32 noundef 0) #4
-  %60 = add i32 %.0198213, 28
-  %.not220 = icmp eq i32 %54, 0
-  br i1 %.not220, label %._crit_edge, label %.lr.ph
+  %60 = add i32 %.0198215, 28
+  %.not222 = icmp eq i32 %54, 0
+  br i1 %.not222, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph216, %154
-  %.0212 = phi i32 [ %155, %154 ], [ 0, %.lr.ph216 ]
-  %.1211 = phi i32 [ %.8, %154 ], [ %60, %.lr.ph216 ]
+.lr.ph:                                           ; preds = %.lr.ph218, %154
+  %.0214 = phi i32 [ %155, %154 ], [ 0, %.lr.ph218 ]
+  %.1213 = phi i32 [ %.8, %154 ], [ %60, %.lr.ph218 ]
   %61 = load i32, ptr @RCID_Type, align 4
-  %62 = tail call i32 @RCID_IE(ptr noundef %12, i32 noundef %.1211, i32 noundef %2, ptr noundef %3, i32 noundef %61) #4
-  %63 = add i32 %62, %.1211
+  %62 = tail call i32 @RCID_IE(ptr noundef %12, i32 noundef %.1213, i32 noundef %2, ptr noundef %3, i32 noundef %61) #4
+  %63 = add i32 %62, %.1213
   %64 = sdiv i32 %63, 8
   %65 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %64) #4
   %66 = zext i16 %65 to i32
@@ -3517,10 +3521,11 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_SDMA_UL_IE(ptr 
 99:                                               ; preds = %92, %.lr.ph
   %.3 = phi i32 [ %98, %92 ], [ %86, %.lr.ph ]
   %100 = add i32 %.3, 4
-  switch i32 %70, label %130 [
+  switch i32 %70, label %default.unreachable [
     i32 0, label %.thread
     i32 1, label %105
     i32 2, label %116
+    i32 3, label %130
   ]
 
 .thread:                                          ; preds = %99
@@ -3559,6 +3564,9 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_SDMA_UL_IE(ptr 
   %129 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %128, ptr noundef %3, i32 noundef %127, i32 noundef 1, i32 noundef 0) #4
   br label %.thread208
 
+default.unreachable:                              ; preds = %99
+  unreachable
+
 130:                                              ; preds = %99
   %131 = load i32, ptr @hf_ulmap_aas_sdma_diuc, align 4
   %132 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %131, ptr noundef %3, i32 noundef %.3, i32 noundef 4, i32 noundef 0) #4
@@ -3576,12 +3584,12 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_SDMA_UL_IE(ptr 
   br label %.thread208
 
 .thread208:                                       ; preds = %105, %.thread, %116, %130
-  %.sink225 = phi i32 [ 11, %105 ], [ 6, %.thread ], [ 15, %116 ], [ 13, %130 ]
-  %.sink224 = phi i32 [ 1, %105 ], [ 2, %.thread ], [ 1, %116 ], [ 3, %130 ]
+  %.sink227 = phi i32 [ 11, %105 ], [ 6, %.thread ], [ 15, %116 ], [ 13, %130 ]
+  %.sink226 = phi i32 [ 1, %105 ], [ 2, %.thread ], [ 1, %116 ], [ 3, %130 ]
   %.sink = phi i32 [ 12, %105 ], [ 8, %.thread ], [ 16, %116 ], [ 16, %130 ]
-  %144 = add i32 %.3, %.sink225
+  %144 = add i32 %.3, %.sink227
   %145 = load i32, ptr @hf_ulmap_reserved_uint, align 4
-  %146 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %145, ptr noundef %3, i32 noundef %144, i32 noundef %.sink224, i32 noundef 0) #4
+  %146 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %145, ptr noundef %3, i32 noundef %144, i32 noundef %.sink226, i32 noundef 0) #4
   %147 = add i32 %.3, %.sink
   %148 = shl nuw nsw i32 1, %78
   %149 = and i32 %148, %76
@@ -3596,32 +3604,32 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_SDMA_UL_IE(ptr 
 
 154:                                              ; preds = %.thread208, %150
   %.8 = phi i32 [ %153, %150 ], [ %147, %.thread208 ]
-  %155 = add nuw nsw i32 %.0212, 1
+  %155 = add nuw nsw i32 %.0214, 1
   %exitcond.not = icmp eq i32 %155, %54
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %154, %.lr.ph216
-  %.1.lcssa = phi i32 [ %60, %.lr.ph216 ], [ %.8, %154 ]
-  %156 = add nuw nsw i32 %.0197214, 1
-  %exitcond221.not = icmp eq i32 %156, %35
-  br i1 %exitcond221.not, label %._crit_edge217, label %.lr.ph216, !llvm.loop !17
+._crit_edge:                                      ; preds = %154, %.lr.ph218
+  %.1.lcssa = phi i32 [ %60, %.lr.ph218 ], [ %.8, %154 ]
+  %156 = add nuw nsw i32 %.0197216, 1
+  %exitcond223.not = icmp eq i32 %156, %35
+  br i1 %exitcond223.not, label %._crit_edge219, label %.lr.ph218, !llvm.loop !17
 
-._crit_edge217:                                   ; preds = %._crit_edge, %4
+._crit_edge219:                                   ; preds = %._crit_edge, %4
   %.0198.lcssa = phi i32 [ %41, %4 ], [ %.1.lcssa, %._crit_edge ]
   %157 = srem i32 %.0198.lcssa, 8
   %158 = sdiv i32 %.0198.lcssa, 8
   %.not = icmp eq i32 %157, 0
   br i1 %.not, label %164, label %159
 
-159:                                              ; preds = %._crit_edge217
+159:                                              ; preds = %._crit_edge219
   %160 = sub nsw i32 8, %157
   %161 = load i32, ptr @hf_ulmap_padding, align 4
   %162 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %12, i32 noundef %161, ptr noundef %3, i32 noundef %158, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.525, i32 noundef %160) #4
   %163 = add i32 %160, %.0198.lcssa
   br label %164
 
-164:                                              ; preds = %159, %._crit_edge217
-  %.9 = phi i32 [ %163, %159 ], [ %.0198.lcssa, %._crit_edge217 ]
+164:                                              ; preds = %159, %._crit_edge219
+  %.9 = phi i32 [ %163, %159 ], [ %.0198.lcssa, %._crit_edge219 ]
   %165 = sdiv i32 %.9, 4
   ret i32 %165
 }

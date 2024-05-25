@@ -12463,14 +12463,18 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ide_
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !2040, !noundef !4
-  switch i64 %4, label %5 [
+  switch i64 %4, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr69drop_in_place$LT$ide_db..syntax_helpers..format_string_exprs..Arg$GT$17h5ae6bcc497ea0df7E.llvm.4370348610037963988.exit"
     i64 0, label %"_ZN4core3ptr69drop_in_place$LT$ide_db..syntax_helpers..format_string_exprs..Arg$GT$17h5ae6bcc497ea0df7E.llvm.4370348610037963988.exit"
     i64 1, label %15
+    i64 2, label %5
   ]
 
 "_ZN4core3ptr69drop_in_place$LT$ide_db..syntax_helpers..format_string_exprs..Arg$GT$17h5ae6bcc497ea0df7E.llvm.4370348610037963988.exit": ; preds = %1, %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h119181ef79e31d9fE.exit2.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h119181ef79e31d9fE.exit.i"
   ret void
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -29216,14 +29220,18 @@ _ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.thread: ;
   br i1 %.not.i66, label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hece6b703b3fc3524E.exit.i", label %62
 
 62:                                               ; preds = %58
-  switch i8 %59, label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hece6b703b3fc3524E.exit.i" [
-    i8 6, label %93
+  switch i8 %59, label %default.unreachable.i.i [
+    i8 7, label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hece6b703b3fc3524E.exit.i"
     i8 1, label %63
     i8 2, label %69
     i8 3, label %75
     i8 4, label %81
     i8 5, label %87
+    i8 6, label %93
   ]
+
+default.unreachable.i.i:                          ; preds = %62
+  unreachable
 
 "_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h12a8f572f421d61cE.exit.sink.split.i.i": ; preds = %93, %87, %81, %75, %69, %63
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %61)
@@ -29294,7 +29302,7 @@ _ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.thread: ;
   br i1 %98, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h12a8f572f421d61cE.exit.sink.split.i.i", label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hece6b703b3fc3524E.exit.i"
 
 "_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hece6b703b3fc3524E.exit.i": ; preds = %93, %87, %81, %75, %69, %63, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h12a8f572f421d61cE.exit.sink.split.i._ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hece6b703b3fc3524E.exit_crit_edge.i", %62, %58
-  %99 = phi ptr [ %.pre.i, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h12a8f572f421d61cE.exit.sink.split.i._ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hece6b703b3fc3524E.exit_crit_edge.i" ], [ %47, %93 ], [ %47, %87 ], [ %47, %81 ], [ %47, %75 ], [ %47, %69 ], [ %47, %63 ], [ %47, %62 ], [ %47, %58 ]
+  %99 = phi ptr [ %.pre.i, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h12a8f572f421d61cE.exit.sink.split.i._ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hece6b703b3fc3524E.exit_crit_edge.i" ], [ %47, %62 ], [ %47, %93 ], [ %47, %87 ], [ %47, %81 ], [ %47, %75 ], [ %47, %69 ], [ %47, %63 ], [ %47, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !8730
   call void @llvm.experimental.noalias.scope.decl(metadata !8810)
   call void @llvm.experimental.noalias.scope.decl(metadata !8811)

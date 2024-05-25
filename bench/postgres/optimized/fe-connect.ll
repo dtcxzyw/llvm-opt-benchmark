@@ -1036,10 +1036,11 @@ define range(i32 0, 2) i32 @pqConnectDBComplete(ptr noundef %0) local_unnamed_ad
 
 .split.us:                                        ; preds = %.thread, %52
   %.033.us = phi i32 [ %53, %52 ], [ 2, %.thread ]
-  switch i32 %.033.us, label %.loopexit.sink.split [
+  switch i32 %.033.us, label %.split.us.unreachabledefault [
     i32 3, label %.loopexit
     i32 1, label %46
     i32 2, label %43
+    i32 0, label %.loopexit.sink.split
   ]
 
 43:                                               ; preds = %.split.us
@@ -1066,18 +1067,24 @@ define range(i32 0, 2) i32 @pqConnectDBComplete(ptr noundef %0) local_unnamed_ad
   %53 = tail call i32 @PQconnectPoll(ptr noundef nonnull %0)
   br label %.split.us
 
+.split.us.unreachabledefault:                     ; preds = %.split.us
+  unreachable
+
+default.unreachable:                              ; preds = %63
+  unreachable
+
 54:                                               ; preds = %36, %.split
-  %.02876 = phi i32 [ -2, %36 ], [ %.1, %.split ]
-  %.02975 = phi i32 [ -2, %36 ], [ %.130, %.split ]
-  %.03174 = phi i64 [ -1, %36 ], [ %.132, %.split ]
-  %.03373 = phi i32 [ 2, %36 ], [ %73, %.split ]
+  %.02878 = phi i32 [ -2, %36 ], [ %.1, %.split ]
+  %.02977 = phi i32 [ -2, %36 ], [ %.130, %.split ]
+  %.03176 = phi i64 [ -1, %36 ], [ %.132, %.split ]
+  %.03375 = phi i32 [ 2, %36 ], [ %73, %.split ]
   %55 = load i32, ptr %39, align 4
-  %.not40 = icmp eq i32 %55, %.02975
+  %.not40 = icmp eq i32 %55, %.02977
   br i1 %.not40, label %56, label %58
 
 56:                                               ; preds = %54
   %57 = load i32, ptr %40, align 4
-  %.not41 = icmp eq i32 %57, %.02876
+  %.not41 = icmp eq i32 %57, %.02878
   br i1 %.not41, label %63, label %58
 
 58:                                               ; preds = %56, %54
@@ -1088,12 +1095,13 @@ define range(i32 0, 2) i32 @pqConnectDBComplete(ptr noundef %0) local_unnamed_ad
   br label %63
 
 63:                                               ; preds = %58, %56
-  %.132 = phi i64 [ %60, %58 ], [ %.03174, %56 ]
-  %.130 = phi i32 [ %61, %58 ], [ %.02975, %56 ]
-  %.1 = phi i32 [ %62, %58 ], [ %.02876, %56 ]
-  switch i32 %.03373, label %.loopexit.sink.split [
-    i32 2, label %67
+  %.132 = phi i64 [ %60, %58 ], [ %.03176, %56 ]
+  %.130 = phi i32 [ %61, %58 ], [ %.02977, %56 ]
+  %.1 = phi i32 [ %62, %58 ], [ %.02878, %56 ]
+  switch i32 %.03375, label %default.unreachable [
+    i32 0, label %.loopexit.sink.split
     i32 1, label %64
+    i32 2, label %67
   ]
 
 64:                                               ; preds = %63
@@ -1118,8 +1126,8 @@ define range(i32 0, 2) i32 @pqConnectDBComplete(ptr noundef %0) local_unnamed_ad
 
 .split:                                           ; preds = %72, %70
   %73 = tail call i32 @PQconnectPoll(ptr noundef nonnull %0)
-  %.not57 = icmp eq i32 %73, 3
-  br i1 %.not57, label %.loopexit, label %54
+  %.not58 = icmp eq i32 %73, 3
+  br i1 %.not58, label %.loopexit, label %54
 
 .loopexit.sink.split:                             ; preds = %63, %67, %64, %.split.us, %43, %46, %.loopexit49
   store i32 1, ptr %5, align 8

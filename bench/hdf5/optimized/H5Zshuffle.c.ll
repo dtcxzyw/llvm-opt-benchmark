@@ -156,7 +156,7 @@ define internal noundef i64 @H5Z__filter_shuffle(i32 noundef %0, i64 noundef %1,
   %.0124172 = phi i64 [ %72, %71 ], [ 0, %32 ]
   %.0126171 = phi ptr [ %67, %71 ], [ %33, %32 ]
   %37 = getelementptr inbounds i8, ptr %21, i64 %.0124172
-  switch i64 %36, label %66 [
+  switch i64 %36, label %.split.unreachabledefault [
     i64 0, label %38
     i64 7, label %42
     i64 6, label %46
@@ -164,6 +164,7 @@ define internal noundef i64 @H5Z__filter_shuffle(i32 noundef %0, i64 noundef %1,
     i64 4, label %54
     i64 3, label %58
     i64 2, label %62
+    i64 1, label %66
   ]
 
 38:                                               ; preds = %.split, %66
@@ -236,6 +237,12 @@ define internal noundef i64 @H5Z__filter_shuffle(i32 noundef %0, i64 noundef %1,
   %65 = getelementptr inbounds i8, ptr %.7141, i64 %15
   br label %66
 
+.split.unreachabledefault:                        ; preds = %.split
+  unreachable
+
+default.unreachable:                              ; preds = %.preheader.split
+  unreachable
+
 66:                                               ; preds = %.split, %62
   %.8142 = phi ptr [ %37, %.split ], [ %65, %62 ]
   %.8 = phi ptr [ %.0126171, %.split ], [ %63, %62 ]
@@ -269,7 +276,7 @@ define internal noundef i64 @H5Z__filter_shuffle(i32 noundef %0, i64 noundef %1,
   %.9143173 = phi ptr [ %111, %114 ], [ %21, %.preheader ]
   %79 = load ptr, ptr %5, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 %.1125174
-  switch i64 %31, label %109 [
+  switch i64 %31, label %default.unreachable [
     i64 0, label %81
     i64 7, label %85
     i64 6, label %89
@@ -277,6 +284,7 @@ define internal noundef i64 @H5Z__filter_shuffle(i32 noundef %0, i64 noundef %1,
     i64 4, label %97
     i64 3, label %101
     i64 2, label %105
+    i64 1, label %109
   ]
 
 81:                                               ; preds = %.preheader.split, %109
@@ -379,8 +387,8 @@ define internal noundef i64 @H5Z__filter_shuffle(i32 noundef %0, i64 noundef %1,
 
 .sink.split:                                      ; preds = %74, %117
   %.sink = phi ptr [ %121, %117 ], [ %67, %74 ]
-  %.lcssa180.sink = phi ptr [ %111, %117 ], [ %78, %74 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.lcssa180.sink, ptr nonnull align 1 %.sink, i64 %17, i1 false)
+  %.lcssa181.sink = phi ptr [ %111, %117 ], [ %78, %74 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.lcssa181.sink, ptr nonnull align 1 %.sink, i64 %17, i1 false)
   br label %122
 
 122:                                              ; preds = %.sink.split, %116, %73

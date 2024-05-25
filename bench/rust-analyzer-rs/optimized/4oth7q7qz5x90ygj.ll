@@ -5118,7 +5118,7 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17hf37e28377d13df20E.llvm.9930132
 define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h2132fbb9cb5b581dE.llvm.9930132259409388476"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !1389, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
@@ -5134,7 +5134,11 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..node
     i64 12, label %82
     i64 13, label %88
     i64 14, label %94
+    i64 15, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1390)
@@ -6260,11 +6264,15 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$$LP$hir_expand..name..Name$C
 define hidden void @"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..GenericArg$GT$17hc72f9c6768e4dc49E.llvm.9930132259409388476"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !703, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2314)
@@ -7562,11 +7570,15 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$$LP$alloc..string..String$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2837)
   %16 = load i64, ptr %15, align 8, !range !703, !alias.scope !2837, !noundef !4
   %17 = getelementptr inbounds i8, ptr %0, i64 32
-  switch i64 %16, label %18 [
+  switch i64 %16, label %default.unreachable [
     i64 0, label %24
     i64 1, label %30
     i64 2, label %36
+    i64 3, label %18
   ]
+
+default.unreachable:                              ; preds = %14
+  unreachable
 
 18:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2840)
@@ -53712,11 +53724,15 @@ define hidden { i64, ptr } @"_ZN11ide_assists8handlers23generate_delegate_trait2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !13468)
   %94 = load i64, ptr %11, align 8, !range !703, !alias.scope !13468, !noundef !4
-  switch i64 %94, label %95 [
+  switch i64 %94, label %default.unreachable [
     i64 0, label %101
     i64 1, label %107
     i64 2, label %113
+    i64 3, label %95
   ]
+
+default.unreachable:                              ; preds = %93
+  unreachable
 
 95:                                               ; preds = %93
   call void @llvm.experimental.noalias.scope.decl(metadata !13471)

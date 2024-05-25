@@ -1875,7 +1875,7 @@ default.unreachable:                              ; preds = %93, %48
   br label %195
 
 195:                                              ; preds = %.split11.us, %.loopexit9
-  %196 = phi i32 [ 0, %.loopexit9 ], [ %122, %.split11.us ]
+  %196 = phi i32 [ %122, %.split11.us ], [ 0, %.loopexit9 ]
   br label %197
 
 197:                                              ; preds = %197, %195

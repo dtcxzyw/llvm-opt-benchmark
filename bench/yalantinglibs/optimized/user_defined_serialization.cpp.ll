@@ -255,7 +255,7 @@ sw.bb1.i:                                         ; preds = %.noexc34
   store i8 %retval.i.sroa.10.1, ptr %add.ptr.i.i, align 1
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %13, i64 5
   %19 = lshr exact i8 %retval.i.sroa.10.1, 3
-  switch i8 %19, label %sw.default.i.i [
+  switch i8 %19, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
     i8 3, label %sw.bb7.i.i
@@ -275,7 +275,7 @@ sw.bb7.i.i:                                       ; preds = %sw.bb1.i
   store i64 %sub.ptr.div.i.i, ptr %add.ptr.i.i24.i, align 1
   br label %sw.epilog.i.i
 
-sw.default.i.i:                                   ; preds = %sw.bb1.i
+default.unreachable.i.i:                          ; preds = %sw.bb1.i
   unreachable
 
 sw.epilog.i.i:                                    ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i

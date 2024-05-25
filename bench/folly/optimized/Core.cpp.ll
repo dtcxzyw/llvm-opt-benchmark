@@ -2177,10 +2177,11 @@ entry:
   %0 = load atomic i64, ptr %interrupt_ acquire, align 8
   %and = and i64 %0, -4
   %and2 = and i64 %0, 3
-  switch i64 %and2, label %sw.epilog [
+  switch i64 %and2, label %default.unreachable2 [
     i64 1, label %sw.bb
     i64 2, label %sw.bb3
     i64 3, label %sw.bb4
+    i64 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -2233,7 +2234,10 @@ delete.notnull.i14:                               ; preds = %if.then
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %delete.notnull.i14, %if.then, %sw.bb4, %_ZN5folly17exception_wrapperD2Ev.exit, %sw.bb3, %delete.notnull.i, %sw.bb, %entry
+default.unreachable2:                             ; preds = %entry
+  unreachable
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i14, %if.then, %sw.bb4, %_ZN5folly17exception_wrapperD2Ev.exit, %sw.bb3, %delete.notnull.i, %sw.bb
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 112
   %9 = load ptr, ptr %_M_refcount.i, align 16, !tbaa !163
   %cmp.not.i.i = icmp eq ptr %9, null

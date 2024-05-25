@@ -2477,10 +2477,11 @@ define dso_local void @_Z21rotateMeshBy6dFacedirPN3irr5scene5IMeshEi(ptr noundef
 entry:
   %shr = ashr i32 %facedir, 2
   %and = and i32 %facedir, 3
-  switch i32 %and, label %sw.epilog [
+  switch i32 %and, label %default.unreachable13 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb1
     i32 3, label %sw.bb2
+    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -2738,7 +2739,10 @@ for.body20.i.i.i83:                               ; preds = %for.body20.i.i.i83,
   %niter.ncmp.1 = icmp eq i64 %indvars.iv.next.i.i.i91.1, %unroll_iter
   br i1 %niter.ncmp.1, label %for.cond.cleanup19.i.i.i93.loopexit.unr-lcssa, label %for.body20.i.i.i83, !llvm.loop !120
 
-sw.epilog:                                        ; preds = %for.cond.cleanup19.i.i.i93, %for.cond.cleanup19.i.i.i53, %for.cond.cleanup19.i.i.i, %sw.bb2, %sw.bb1, %sw.bb, %entry
+default.unreachable13:                            ; preds = %entry
+  unreachable
+
+sw.epilog:                                        ; preds = %for.cond.cleanup19.i.i.i93, %for.cond.cleanup19.i.i.i53, %for.cond.cleanup19.i.i.i, %entry, %sw.bb2, %sw.bb1, %sw.bb
   switch i32 %shr, label %sw.epilog8 [
     i32 1, label %sw.bb3
     i32 2, label %sw.bb4

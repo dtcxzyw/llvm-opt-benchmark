@@ -6039,7 +6039,7 @@ if.end274.i:                                      ; preds = %sw.bb253.i, %sw.bb2
   %conv285.i = zext nneg i32 %add284.i to i64
   br label %if.end3
 
-default.unreachable:                              ; preds = %if.end.i
+default.unreachable:                              ; preds = %sw.epilog118.i.i, %sw.epilog.i.i, %if.end61.i.i, %if.end.i
   unreachable
 
 if.end3:                                          ; preds = %if.end274.i, %if.end224.i, %if.end209.i, %if.end151.i, %if.end94.i
@@ -6163,10 +6163,11 @@ if.end55.i.i:                                     ; preds = %if.end45.i.i, %if.e
   br i1 %cmp58.i.i, label %ZSTDv05_decodeSeqHeaders.exit.thread.i, label %if.end61.i.i
 
 if.end61.i.i:                                     ; preds = %if.end55.i.i
-  switch i32 %shr.i.i, label %sw.default.i.i [
+  switch i32 %shr.i.i, label %default.unreachable [
     i32 1, label %sw.bb.i.i
     i32 0, label %sw.bb63.i.i
     i32 2, label %sw.bb65.i.i
+    i32 3, label %sw.default.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end61.i.i
@@ -6231,10 +6232,11 @@ if.end78.i.i:                                     ; preds = %if.end74.i.i
 
 sw.epilog.i.i:                                    ; preds = %for.body.i.i.i, %if.end78.i.i, %sw.bb65.i.i, %sw.bb.i.i
   %ip.2.i.i = phi ptr [ %add.ptr79.i.i, %if.end78.i.i ], [ %add.ptr56.i.i, %sw.bb65.i.i ], [ %incdec.ptr62.i.i, %sw.bb.i.i ], [ %add.ptr56.i.i, %for.body.i.i.i ]
-  switch i32 %and.i.i, label %sw.default100.i.i [
+  switch i32 %and.i.i, label %default.unreachable [
     i32 1, label %sw.bb82.i.i
     i32 0, label %sw.bb93.i.i
     i32 2, label %sw.bb95.i.i
+    i32 3, label %sw.default100.i.i
   ]
 
 sw.bb82.i.i:                                      ; preds = %sw.epilog.i.i
@@ -6305,10 +6307,11 @@ if.end114.i.i:                                    ; preds = %if.end110.i.i
 
 sw.epilog118.i.i:                                 ; preds = %for.body.i77.i.i, %if.end114.i.i, %sw.bb95.i.i, %if.end87.i.i
   %ip.3.i.i = phi ptr [ %add.ptr115.i.i, %if.end114.i.i ], [ %ip.2.i.i, %sw.bb95.i.i ], [ %incdec.ptr88.i.i, %if.end87.i.i ], [ %ip.2.i.i, %for.body.i77.i.i ]
-  switch i32 %and24.i.i, label %sw.default134.i.i [
+  switch i32 %and24.i.i, label %default.unreachable [
     i32 1, label %sw.bb119.i.i
     i32 0, label %sw.bb127.i.i
     i32 2, label %sw.bb129.i.i
+    i32 3, label %sw.default134.i.i
   ]
 
 sw.bb119.i.i:                                     ; preds = %sw.epilog118.i.i

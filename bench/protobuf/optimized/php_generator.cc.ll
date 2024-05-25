@@ -17254,10 +17254,11 @@ if.then85:                                        ; preds = %if.else, %_ZNK6goog
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp9.i)
   %bf.lshr.i.i = lshr i8 %bf.load.i.i, 5
   %bf.clear.i.i = and i8 %bf.lshr.i.i, 3
-  switch i8 %bf.clear.i.i, label %sw.default.i [
+  switch i8 %bf.clear.i.i, label %default.unreachable [
     i8 1, label %sw.bb.i
     i8 2, label %sw.bb1.i
     i8 3, label %sw.bb5.i
+    i8 0, label %sw.default.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then85
@@ -17403,6 +17404,9 @@ lpad7.i:                                          ; preds = %call.i.noexc14.i, %
   %70 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.i
+
+default.unreachable:                              ; preds = %if.then85
+  unreachable
 
 sw.default.i:                                     ; preds = %if.then85
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9.i) #24, !noalias !486

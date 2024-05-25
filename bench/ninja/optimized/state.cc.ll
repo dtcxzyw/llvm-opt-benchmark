@@ -2928,10 +2928,11 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %.027.lcssa.i.i.i = phi i32 [ %4, %2 ], [ %11, %.lr.ph.i.i.i ]
   %.026.lcssa.i.i.i = phi ptr [ %.sroa.0.0.copyload.i, %2 ], [ %12, %.lr.ph.i.i.i ]
   %.0.lcssa.i.i.i = phi i64 [ %.sroa.2.0.copyload.i, %2 ], [ %13, %.lr.ph.i.i.i ]
-  switch i64 %.0.lcssa.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit [
+  switch i64 %.0.lcssa.i.i.i, label %._crit_edge.unreachabledefault.i.i.i [
     i64 3, label %15
     i64 2, label %21
     i64 1, label %27
+    i64 0, label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
   ]
 
 15:                                               ; preds = %._crit_edge.i.i.i
@@ -2958,6 +2959,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %30 = xor i32 %.2.i.i.i, %29
   %31 = mul i32 %30, 1540483477
   br label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
+
+._crit_edge.unreachabledefault.i.i.i:             ; preds = %._crit_edge.i.i.i
+  unreachable
 
 _ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit: ; preds = %._crit_edge.i.i.i, %27
   %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %31, %27 ]
@@ -3306,10 +3310,11 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1st
   %.027.lcssa.i.i.i = phi i32 [ %19, %17 ], [ %26, %.lr.ph.i.i.i ]
   %.026.lcssa.i.i.i = phi ptr [ %.sroa.0.0.copyload.i, %17 ], [ %27, %.lr.ph.i.i.i ]
   %.0.lcssa.i.i.i = phi i64 [ %.sroa.2.0.copyload.i, %17 ], [ %28, %.lr.ph.i.i.i ]
-  switch i64 %.0.lcssa.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit [
+  switch i64 %.0.lcssa.i.i.i, label %._crit_edge.unreachabledefault.i.i.i [
     i64 3, label %30
     i64 2, label %36
     i64 1, label %42
+    i64 0, label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
   ]
 
 30:                                               ; preds = %._crit_edge.i.i.i
@@ -3336,6 +3341,9 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1st
   %45 = xor i32 %.2.i.i.i, %44
   %46 = mul i32 %45, 1540483477
   br label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
+
+._crit_edge.unreachabledefault.i.i.i:             ; preds = %._crit_edge.i.i.i
+  unreachable
 
 _ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_P4NodeENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit: ; preds = %._crit_edge.i.i.i, %42
   %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %42 ]

@@ -1915,10 +1915,11 @@ dissect_passthrough.exit:                         ; preds = %743, %756
 
 829:                                              ; preds = %825
   %830 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 10) #4
-  switch i8 %821, label %proto_item_set_generated.exit.i [
+  switch i8 %821, label %default.unreachable [
     i8 1, label %831
     i8 2, label %881
     i8 3, label %953
+    i8 0, label %proto_item_set_generated.exit.i
   ]
 
 831:                                              ; preds = %829
@@ -2323,6 +2324,9 @@ thread-pre-split.i:                               ; preds = %1007, %996
   %1066 = or i32 %1065, 2
   store i32 %1066, ptr %1064, align 4
   br label %proto_item_set_generated.exit.i
+
+default.unreachable:                              ; preds = %829
+  unreachable
 
 proto_item_set_generated.exit.i:                  ; preds = %1063, %1060, %._crit_edge875.i, %thread-pre-split.i, %1000, %992, %987, %982, %977, %972, %953, %829
   %.0804.i = phi i32 [ 10, %thread-pre-split.i ], [ 10, %992 ], [ 10, %987 ], [ 10, %982 ], [ 10, %977 ], [ 10, %972 ], [ 10, %953 ], [ 10, %829 ], [ 0, %._crit_edge875.i ], [ 0, %1060 ], [ 0, %1063 ], [ 10, %1000 ]

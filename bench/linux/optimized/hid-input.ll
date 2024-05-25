@@ -2475,11 +2475,11 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   br label %53
 
 .thread.loopexit:                                 ; preds = %30
-  %.pre298 = zext i32 %3 to i64
+  %.pre299 = zext i32 %3 to i64
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %42, %33
-  %.pre291.pre-phi = phi i64 [ %.pre298, %.thread.loopexit ], [ %39, %42 ], [ %39, %33 ]
+  %.pre292.pre-phi = phi i64 [ %.pre299, %.thread.loopexit ], [ %39, %42 ], [ %39, %33 ]
   %49 = getelementptr inbounds i8, ptr %1, i64 132
   %50 = load i32, ptr %49, align 4
   %51 = shl i32 %50, 16
@@ -2487,7 +2487,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   br label %53
 
 53:                                               ; preds = %.thread, %46
-  %.pre-phi = phi i64 [ %.pre291.pre-phi, %.thread ], [ %39, %46 ]
+  %.pre-phi = phi i64 [ %.pre292.pre-phi, %.thread ], [ %39, %46 ]
   %54 = phi i32 [ %52, %.thread ], [ %48, %46 ]
   %55 = getelementptr inbounds i8, ptr %1, i64 64
   %56 = load ptr, ptr %55, align 8
@@ -2508,10 +2508,11 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   %68 = lshr i32 %66, 30
   %69 = and i32 %68, 2
   %70 = select i1 %67, i32 6, i32 %69
-  switch i32 %70, label %thread-pre-split280.thread [
+  switch i32 %70, label %.unreachabledefault [
     i32 0, label %71
     i32 6, label %555
     i32 2, label %708
+    i32 4, label %thread-pre-split281.thread
   ]
 
 71:                                               ; preds = %65, %53
@@ -2562,8 +2563,8 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   br label %555
 
 86:                                               ; preds = %74
-  %.val241 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val241, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef 240)
+  %.val242 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val242, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef 240)
   br label %555
 
 87:                                               ; preds = %71
@@ -2666,8 +2667,8 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
 
 138:                                              ; preds = %136, %134, %132, %130, %126, %124, %104, %102, %98, %96, %92
   %139 = phi i32 [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %125, %124 ], [ %127, %126 ], [ %103, %102 ], [ %105, %104 ], [ %97, %96 ], [ %99, %98 ], [ %93, %92 ]
-  %.val242 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val242, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef %139)
+  %.val243 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val243, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef %139)
   br label %555
 
 140:                                              ; preds = %71
@@ -2681,28 +2682,28 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   ]
 
 142:                                              ; preds = %140
-  %.val243 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val243, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 7)
+  %.val244 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val244, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 7)
   br label %555
 
 143:                                              ; preds = %140
-  %.val244 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val244, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 6)
+  %.val245 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val245, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 6)
   br label %555
 
 144:                                              ; preds = %140
-  %.val245 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val245, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 9)
+  %.val246 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val246, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 9)
   br label %555
 
 145:                                              ; preds = %140
-  %.val246 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val246, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 10)
+  %.val247 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val247, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 10)
   br label %555
 
 146:                                              ; preds = %140
-  %.val247 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val247, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 8)
+  %.val248 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val248, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 8)
   br label %555
 
 147:                                              ; preds = %71
@@ -2716,7 +2717,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
 
 150:                                              ; preds = %147
   %151 = and i32 %72, 15
-  switch i32 %151, label %537 [
+  switch i32 %151, label %default.unreachable304 [
     i32 1, label %152
     i32 2, label %153
     i32 3, label %154
@@ -2732,81 +2733,82 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
     i32 13, label %164
     i32 14, label %165
     i32 15, label %166
+    i32 0, label %537
   ]
 
 152:                                              ; preds = %150
-  %.val9 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val9, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 116)
+  %.val10 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val10, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 116)
   br label %555
 
 153:                                              ; preds = %150
-  %.val10 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val10, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 142)
+  %.val11 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val11, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 142)
   br label %555
 
 154:                                              ; preds = %150
-  %.val11 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val11, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 143)
+  %.val12 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val12, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 143)
   br label %555
 
 155:                                              ; preds = %150
-  %.val12 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val12, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 438)
+  %.val13 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val13, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 438)
   br label %555
 
 156:                                              ; preds = %150
-  %.val13 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val13, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 139)
+  %.val14 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val14, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 139)
   br label %555
 
 157:                                              ; preds = %150
-  %.val14 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val14, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 148)
+  %.val15 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val15, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 148)
   br label %555
 
 158:                                              ; preds = %150
-  %.val15 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val15, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 138)
+  %.val16 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val16, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 138)
   br label %555
 
 159:                                              ; preds = %150
-  %.val16 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val16, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 174)
+  %.val17 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val17, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 174)
   br label %555
 
 160:                                              ; preds = %150
-  %.val17 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val17, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 353)
+  %.val18 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val18, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 353)
   br label %555
 
 161:                                              ; preds = %150
-  %.val18 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val18, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 106)
+  %.val19 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val19, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 106)
   br label %555
 
 162:                                              ; preds = %150
-  %.val19 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val19, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 105)
+  %.val20 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val20, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 105)
   br label %555
 
 163:                                              ; preds = %150
-  %.val20 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val20, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 103)
+  %.val21 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val21, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 103)
   br label %555
 
 164:                                              ; preds = %150
-  %.val21 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val21, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 108)
+  %.val22 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val22, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 108)
   br label %555
 
 165:                                              ; preds = %150
-  %.val22 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val22, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 356)
+  %.val23 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val23, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 356)
   br label %555
 
 166:                                              ; preds = %150
-  %.val23 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val23, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 408)
+  %.val24 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val24, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 408)
   br label %555
 
 167:                                              ; preds = %147
@@ -2815,8 +2817,8 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   br i1 %169, label %170, label %708
 
 170:                                              ; preds = %167
-  %.val24 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val24, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 248)
+  %.val25 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val25, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 248)
   br label %555
 
 171:                                              ; preds = %147
@@ -2825,8 +2827,8 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   br i1 %173, label %174, label %708
 
 174:                                              ; preds = %171
-  %.val25 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val25, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 227)
+  %.val26 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val26, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 227)
   br label %555
 
 175:                                              ; preds = %147
@@ -2867,13 +2869,13 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
 
 191:                                              ; preds = %185
   %192 = zext i16 %189 to i32
-  %.val248 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val248, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef %192)
+  %.val249 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val249, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef %192)
   br label %708
 
 193:                                              ; preds = %185
-  %.val249 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val249, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 16)
+  %.val250 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val250, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 16)
   br label %555
 
 194:                                              ; preds = %179
@@ -2901,15 +2903,15 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
 
 199:                                              ; preds = %195
   %200 = and i32 %72, 15
-  %.val250 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val250, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 2, i32 noundef %200)
+  %.val251 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val251, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 2, i32 noundef %200)
   br label %555
 
 201:                                              ; preds = %195
   %202 = trunc i32 %72 to i16
   %203 = and i16 %202, 15
-  %.val26 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val26, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i16 noundef zeroext %203)
+  %.val27 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val27, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i16 noundef zeroext %203)
   br label %555
 
 204:                                              ; preds = %194
@@ -2921,13 +2923,13 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
 208:                                              ; preds = %204
   %209 = getelementptr i8, ptr %8, i64 145
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %209, i32 1, ptr elementtype(i8) %209) #11, !srcloc !53
-  %.val251 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val251, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 2, i32 noundef 11)
+  %.val252 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val252, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 2, i32 noundef 11)
   br label %555
 
 210:                                              ; preds = %204
-  %.val252 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val252, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 8)
+  %.val253 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val253, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 8)
   br label %555
 
 211:                                              ; preds = %194, %194
@@ -2935,15 +2937,15 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   %213 = and i32 %212, 4
   %214 = icmp eq i32 %213, 0
   %215 = and i32 %72, 15
-  %.val254 = load ptr, ptr %7, align 8
+  %.val255 = load ptr, ptr %7, align 8
   br i1 %214, label %217, label %216
 
 216:                                              ; preds = %211
-  call fastcc void @hid_map_usage(ptr %.val254, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 2, i32 noundef %215)
+  call fastcc void @hid_map_usage(ptr %.val255, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 2, i32 noundef %215)
   br label %555
 
 217:                                              ; preds = %211
-  call fastcc void @hid_map_usage(ptr %.val254, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef %215)
+  call fastcc void @hid_map_usage(ptr %.val255, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef %215)
   br label %555
 
 218:                                              ; preds = %194
@@ -2957,18 +2959,18 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   %225 = trunc i32 %224 to i8
   %226 = getelementptr inbounds i8, ptr %2, i64 18
   store i8 %225, ptr %226, align 2
-  %.val255 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val255, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 16)
+  %.val256 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val256, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 16)
   br label %555
 
 227:                                              ; preds = %194
-  %.val27 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val27, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 315)
+  %.val28 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val28, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 315)
   br label %555
 
 228:                                              ; preds = %194
-  %.val28 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val28, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 314)
+  %.val29 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val29, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 314)
   br label %555
 
 229:                                              ; preds = %194
@@ -2976,8 +2978,8 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   br i1 %230, label %231, label %537
 
 231:                                              ; preds = %229
-  %.val29 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val29, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 247)
+  %.val30 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val30, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 247)
   %232 = load i32, ptr %12, align 4
   %233 = or i32 %232, 4
   store i32 %233, ptr %12, align 4
@@ -3000,58 +3002,58 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   ]
 
 236:                                              ; preds = %234
-  %.val256 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val256, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 0)
+  %.val257 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val257, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 0)
   br label %555
 
 237:                                              ; preds = %234
-  %.val257 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val257, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 1)
+  %.val258 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val258, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 1)
   br label %555
 
 238:                                              ; preds = %234
-  %.val258 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val258, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 2)
+  %.val259 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val259, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 2)
   br label %555
 
 239:                                              ; preds = %234
-  %.val259 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val259, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 3)
+  %.val260 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val260, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 3)
   br label %555
 
 240:                                              ; preds = %234
-  %.val260 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val260, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 4)
+  %.val261 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val261, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 4)
   br label %555
 
 241:                                              ; preds = %234
-  %.val261 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val261, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 5)
+  %.val262 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val262, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 5)
   br label %555
 
 242:                                              ; preds = %234
-  %.val262 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val262, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 6)
+  %.val263 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val263, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 6)
   br label %555
 
 243:                                              ; preds = %234
-  %.val263 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val263, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 7)
+  %.val264 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val264, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 7)
   br label %555
 
 244:                                              ; preds = %234
-  %.val264 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val264, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 8)
+  %.val265 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val265, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 8)
   br label %555
 
 245:                                              ; preds = %234
-  %.val265 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val265, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 9)
+  %.val266 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val266, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 9)
   br label %555
 
 246:                                              ; preds = %234
-  %.val266 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val266, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 10)
+  %.val267 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val267, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 10)
   br label %555
 
 247:                                              ; preds = %71
@@ -3114,8 +3116,8 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   br label %269
 
 269:                                              ; preds = %263, %258
-  %.val30 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val30, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i16 noundef zeroext 24)
+  %.val31 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val31, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i16 noundef zeroext 24)
   br label %555
 
 270:                                              ; preds = %255
@@ -3127,57 +3129,57 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   ]
 
 272:                                              ; preds = %270
-  %.val267 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val267, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef 326)
+  %.val268 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val268, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef 326)
   br label %555
 
 273:                                              ; preds = %270
-  %.val268 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val268, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef 325)
+  %.val269 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val269, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef 325)
   br label %555
 
 274:                                              ; preds = %270
   %275 = load i32, ptr %248, align 8
   %276 = and i32 %275, -2
   %277 = icmp eq i32 %276, 851972
-  %.val31 = load ptr, ptr %7, align 8
+  %.val32 = load ptr, ptr %7, align 8
   br i1 %277, label %278, label %279
 
 278:                                              ; preds = %274
-  call fastcc void @hid_map_usage_clear(ptr %.val31, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 325)
+  call fastcc void @hid_map_usage_clear(ptr %.val32, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 325)
   br label %555
 
 279:                                              ; preds = %274
-  call fastcc void @hid_map_usage_clear(ptr %.val31, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 320)
+  call fastcc void @hid_map_usage_clear(ptr %.val32, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 320)
   br label %555
 
 280:                                              ; preds = %270
-  %.val269 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val269, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef 320)
+  %.val270 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val270, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef 320)
   br label %555
 
 281:                                              ; preds = %255
   %282 = getelementptr inbounds i8, ptr %2, i64 16
   store i8 22, ptr %282, align 4
-  br label %thread-pre-split280.thread
+  br label %thread-pre-split281.thread
 
 283:                                              ; preds = %255
   %284 = getelementptr inbounds i8, ptr %10, i64 7156
   %285 = load i32, ptr %284, align 4
   %286 = and i32 %285, -2097153
   store i32 %286, ptr %284, align 4
-  %.val33 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val33, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 321)
+  %.val34 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val34, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 321)
   br label %555
 
 287:                                              ; preds = %255
-  %.val34 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val34, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i16 noundef zeroext 26)
+  %.val35 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val35, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i16 noundef zeroext 26)
   br label %555
 
 288:                                              ; preds = %255
-  %.val35 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val35, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i16 noundef zeroext 27)
+  %.val36 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val36, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i16 noundef zeroext 27)
   br label %555
 
 289:                                              ; preds = %255, %255, %255
@@ -3185,13 +3187,13 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   %291 = load i32, ptr %290, align 4
   %292 = and i32 %291, -3
   store i32 %292, ptr %290, align 4
-  %.val36 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val36, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 330)
+  %.val37 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val37, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 330)
   br label %555
 
 293:                                              ; preds = %255
-  %.val37 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val37, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 331)
+  %.val38 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val38, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 331)
   br label %555
 
 294:                                              ; preds = %255
@@ -3210,18 +3212,18 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   br label %303
 
 303:                                              ; preds = %299, %294
-  %.val38 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val38, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 330)
+  %.val39 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val39, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 330)
   br label %555
 
 304:                                              ; preds = %255, %255
-  %.val39 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val39, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 332)
+  %.val40 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val40, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 332)
   br label %555
 
 305:                                              ; preds = %255, %255
-  %.val270 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val270, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 4, i32 noundef 0)
+  %.val271 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val271, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 4, i32 noundef 0)
   br label %555
 
 306:                                              ; preds = %71
@@ -3247,88 +3249,88 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   ]
 
 308:                                              ; preds = %306
-  %.val40 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val40, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 248)
+  %.val41 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val41, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 248)
   br label %555
 
 309:                                              ; preds = %306
-  %.val41 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val41, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 512)
+  %.val42 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val42, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 512)
   br label %555
 
 310:                                              ; preds = %306
-  %.val42 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val42, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 513)
+  %.val43 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val43, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 513)
   br label %555
 
 311:                                              ; preds = %306
-  %.val43 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val43, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 514)
+  %.val44 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val44, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 514)
   br label %555
 
 312:                                              ; preds = %306
-  %.val44 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val44, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 515)
+  %.val45 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val45, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 515)
   br label %555
 
 313:                                              ; preds = %306
-  %.val45 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val45, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 516)
+  %.val46 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val46, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 516)
   br label %555
 
 314:                                              ; preds = %306
-  %.val46 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val46, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 517)
+  %.val47 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val47, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 517)
   br label %555
 
 315:                                              ; preds = %306
-  %.val47 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val47, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 518)
+  %.val48 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val48, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 518)
   br label %555
 
 316:                                              ; preds = %306
-  %.val48 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val48, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 519)
+  %.val49 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val49, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 519)
   br label %555
 
 317:                                              ; preds = %306
-  %.val49 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val49, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 520)
+  %.val50 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val50, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 520)
   br label %555
 
 318:                                              ; preds = %306
-  %.val50 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val50, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 521)
+  %.val51 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val51, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 521)
   br label %555
 
 319:                                              ; preds = %306
-  %.val51 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val51, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 522)
+  %.val52 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val52, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 522)
   br label %555
 
 320:                                              ; preds = %306
-  %.val52 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val52, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 523)
+  %.val53 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val53, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 523)
   br label %555
 
 321:                                              ; preds = %306
-  %.val53 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val53, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 524)
+  %.val54 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val54, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 524)
   br label %555
 
 322:                                              ; preds = %306
-  %.val54 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val54, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 525)
+  %.val55 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val55, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 525)
   br label %555
 
 323:                                              ; preds = %306
-  %.val55 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val55, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 526)
+  %.val56 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val56, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 526)
   br label %555
 
 324:                                              ; preds = %306
-  %.val56 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val56, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 527)
+  %.val57 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val57, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 527)
   br label %555
 
 325:                                              ; preds = %71
@@ -3504,840 +3506,840 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   ]
 
 327:                                              ; preds = %325
-  %.val57 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val57, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 116)
+  %.val58 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val58, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 116)
   br label %555
 
 328:                                              ; preds = %325
-  %.val58 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val58, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 408)
+  %.val59 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val59, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 408)
   br label %555
 
 329:                                              ; preds = %325
-  %.val59 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val59, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 142)
-  br label %555
-
-330:                                              ; preds = %325
   %.val60 = load ptr, ptr %7, align 8
   call fastcc void @hid_map_usage_clear(ptr %.val60, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 142)
   br label %555
 
-331:                                              ; preds = %325
+330:                                              ; preds = %325
   %.val61 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val61, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 228)
+  call fastcc void @hid_map_usage_clear(ptr %.val61, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 142)
+  br label %555
+
+331:                                              ; preds = %325
+  %.val62 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val62, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 228)
   br label %555
 
 332:                                              ; preds = %325
-  %.val62 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val62, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 256)
+  %.val63 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val63, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 256)
   br label %555
 
 333:                                              ; preds = %325
-  %.val63 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val63, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 139)
+  %.val64 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val64, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 139)
   br label %555
 
 334:                                              ; preds = %325
-  %.val64 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val64, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 353)
+  %.val65 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val65, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 353)
   br label %555
 
 335:                                              ; preds = %325
-  %.val65 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val65, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 103)
+  %.val66 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val66, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 103)
   br label %555
 
 336:                                              ; preds = %325
-  %.val66 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val66, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 108)
+  %.val67 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val67, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 108)
   br label %555
 
 337:                                              ; preds = %325
-  %.val67 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val67, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 105)
+  %.val68 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val68, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 105)
   br label %555
 
 338:                                              ; preds = %325
-  %.val68 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val68, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 106)
+  %.val69 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val69, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 106)
   br label %555
 
 339:                                              ; preds = %325
-  %.val69 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val69, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 1)
+  %.val70 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val70, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 1)
   br label %555
 
 340:                                              ; preds = %325
-  %.val70 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val70, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 78)
+  %.val71 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val71, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 78)
   br label %555
 
 341:                                              ; preds = %325
-  %.val71 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val71, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 74)
+  %.val72 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val72, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 74)
   br label %555
 
 342:                                              ; preds = %325
-  %.val72 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val72, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 358)
+  %.val73 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val73, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 358)
   br label %555
 
 343:                                              ; preds = %325
-  %.val73 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val73, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 370)
+  %.val74 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val74, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 370)
   br label %555
 
 344:                                              ; preds = %325
-  %.val74 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val74, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 379)
+  %.val75 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val75, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 379)
   br label %555
 
 345:                                              ; preds = %325
-  %.val75 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val75, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 212)
+  %.val76 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val76, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 212)
   br label %555
 
 346:                                              ; preds = %325
-  %.val76 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val76, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 398)
+  %.val77 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val77, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 398)
   br label %555
 
 347:                                              ; preds = %325
-  %.val77 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val77, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 399)
+  %.val78 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val78, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 399)
   br label %555
 
 348:                                              ; preds = %325
-  %.val78 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val78, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 401)
+  %.val79 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val79, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 401)
   br label %555
 
 349:                                              ; preds = %325
-  %.val79 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val79, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 400)
+  %.val80 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val80, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 400)
   br label %555
 
 350:                                              ; preds = %325
-  %.val80 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val80, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 375)
+  %.val81 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val81, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 375)
   br label %555
 
 351:                                              ; preds = %325
-  %.val81 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val81, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 225)
+  %.val82 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val82, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 225)
   br label %555
 
 352:                                              ; preds = %325
-  %.val82 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val82, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 224)
+  %.val83 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val83, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 224)
   br label %555
 
 353:                                              ; preds = %325
-  %.val83 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val83, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 431)
+  %.val84 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val84, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 431)
   br label %555
 
 354:                                              ; preds = %325
-  %.val84 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val84, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 592)
+  %.val85 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val85, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 592)
   br label %555
 
 355:                                              ; preds = %325
-  %.val85 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val85, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 593)
+  %.val86 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val86, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 593)
   br label %555
 
 356:                                              ; preds = %325
-  %.val86 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val86, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 244)
+  %.val87 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val87, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 244)
   br label %555
 
 357:                                              ; preds = %325
-  %.val87 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val87, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 587)
+  %.val88 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val88, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 587)
   br label %555
 
 358:                                              ; preds = %325
-  %.val88 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val88, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 588)
+  %.val89 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val89, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 588)
   br label %555
 
 359:                                              ; preds = %325
-  %.val89 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val89, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 589)
+  %.val90 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val90, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 589)
   br label %555
 
 360:                                              ; preds = %325
-  %.val90 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val90, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 230)
+  %.val91 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val91, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 230)
   br label %555
 
 361:                                              ; preds = %325
-  %.val91 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val91, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 229)
+  %.val92 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val92, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 229)
   br label %555
 
 362:                                              ; preds = %325
-  %.val92 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val92, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 228)
+  %.val93 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val93, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 228)
   br label %555
 
 363:                                              ; preds = %325
-  %.val93 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val93, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 241)
+  %.val94 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val94, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 241)
   br label %555
 
 364:                                              ; preds = %325
-  %.val94 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val94, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 405)
+  %.val95 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val95, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 405)
   br label %555
 
 365:                                              ; preds = %325
-  %.val95 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val95, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 28)
+  %.val96 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val96, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 28)
   br label %555
 
 366:                                              ; preds = %325
-  %.val96 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val96, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 376)
+  %.val97 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val97, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 376)
   br label %555
 
 367:                                              ; preds = %325
-  %.val97 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val97, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 377)
+  %.val98 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val98, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 377)
   br label %555
 
 368:                                              ; preds = %325
-  %.val98 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val98, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 150)
+  %.val99 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val99, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 150)
   br label %555
 
 369:                                              ; preds = %325
-  %.val99 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val99, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 389)
+  %.val100 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val100, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 389)
   br label %555
 
 370:                                              ; preds = %325
-  %.val100 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val100, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 169)
+  %.val101 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val101, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 169)
   br label %555
 
 371:                                              ; preds = %325
-  %.val101 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val101, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 362)
+  %.val102 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val102, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 362)
   br label %555
 
 372:                                              ; preds = %325
-  %.val102 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val102, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 416)
+  %.val103 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val103, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 416)
   br label %555
 
 373:                                              ; preds = %325
-  %.val103 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val103, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 417)
+  %.val104 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val104, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 417)
   br label %555
 
 374:                                              ; preds = %325
-  %.val104 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val104, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 396)
+  %.val105 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val105, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 396)
   br label %555
 
 375:                                              ; preds = %325
-  %.val105 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val105, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 383)
+  %.val106 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val106, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 383)
   br label %555
 
 376:                                              ; preds = %325
-  %.val106 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val106, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 379)
+  %.val107 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val107, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 379)
   br label %555
 
 377:                                              ; preds = %325
-  %.val107 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val107, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 386)
+  %.val108 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val108, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 386)
   br label %555
 
 378:                                              ; preds = %325
-  %.val108 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val108, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 174)
+  %.val109 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val109, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 174)
   br label %555
 
 379:                                              ; preds = %325
-  %.val109 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val109, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 138)
+  %.val110 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val110, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 138)
   br label %555
 
 380:                                              ; preds = %325
-  %.val110 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val110, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 384)
+  %.val111 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val111, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 384)
   br label %555
 
 381:                                              ; preds = %325
-  %.val111 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val111, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 378)
+  %.val112 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val112, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 378)
   br label %555
 
 382:                                              ; preds = %325
-  %.val112 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val112, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 381)
+  %.val113 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val113, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 381)
   br label %555
 
 383:                                              ; preds = %325
-  %.val113 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val113, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 366)
+  %.val114 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val114, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 366)
   br label %555
 
 384:                                              ; preds = %325
-  %.val114 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val114, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 402)
+  %.val115 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val115, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 402)
   br label %555
 
 385:                                              ; preds = %325
-  %.val115 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val115, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 403)
+  %.val116 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val116, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 403)
   br label %555
 
 386:                                              ; preds = %325
-  %.val116 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val116, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 380)
+  %.val117 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val117, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 380)
   br label %555
 
 387:                                              ; preds = %325
-  %.val117 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val117, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 207)
+  %.val118 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val118, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 207)
   br label %555
 
 388:                                              ; preds = %325
-  %.val118 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val118, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 119)
+  %.val119 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val119, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 119)
   br label %555
 
 389:                                              ; preds = %325
-  %.val119 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val119, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 167)
+  %.val120 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val120, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 167)
   br label %555
 
 390:                                              ; preds = %325
-  %.val120 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val120, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 208)
+  %.val121 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val121, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 208)
   br label %555
 
 391:                                              ; preds = %325
-  %.val121 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val121, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 168)
+  %.val122 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val122, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 168)
   br label %555
 
 392:                                              ; preds = %325
-  %.val122 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val122, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 163)
+  %.val123 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val123, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 163)
   br label %555
 
 393:                                              ; preds = %325
-  %.val123 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val123, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 165)
+  %.val124 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val124, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 165)
   br label %555
 
 394:                                              ; preds = %325
-  %.val124 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val124, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 166)
+  %.val125 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val125, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 166)
   br label %555
 
 395:                                              ; preds = %325
-  %.val125 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val125, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 161)
+  %.val126 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val126, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 161)
   br label %555
 
 396:                                              ; preds = %325
-  %.val126 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val126, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 439)
+  %.val127 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val127, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 439)
   br label %555
 
 397:                                              ; preds = %325
-  %.val127 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val127, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 410)
+  %.val128 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val128, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 410)
   br label %555
 
 398:                                              ; preds = %325
-  %.val128 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val128, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 409)
+  %.val129 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val129, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 409)
   br label %555
 
 399:                                              ; preds = %325
-  %.val129 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val129, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 164)
+  %.val130 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val130, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 164)
   br label %555
 
 400:                                              ; preds = %325
-  %.val130 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val130, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 582)
+  %.val131 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val131, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 582)
   br label %555
 
 401:                                              ; preds = %325
-  %.val131 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val131, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 586)
+  %.val132 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val132, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 586)
   br label %555
 
 402:                                              ; preds = %325
-  %.val132 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val132, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 585)
+  %.val133 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val133, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 585)
   br label %555
 
 403:                                              ; preds = %325
-  %.val133 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val133, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i16 noundef zeroext 32)
+  %.val134 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val134, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i16 noundef zeroext 32)
   br label %555
 
 404:                                              ; preds = %325
-  %.val134 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val134, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 113)
+  %.val135 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val135, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 113)
   br label %555
 
 405:                                              ; preds = %325
-  %.val135 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val135, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 209)
+  %.val136 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val136, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 209)
   br label %555
 
 406:                                              ; preds = %325
-  %.val136 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val136, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 115)
+  %.val137 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val137, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 115)
   br label %555
 
 407:                                              ; preds = %325
-  %.val137 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val137, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 114)
+  %.val138 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val138, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 114)
   br label %555
 
 408:                                              ; preds = %325
-  %.val138 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val138, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 409)
+  %.val139 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val139, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 409)
   br label %555
 
 409:                                              ; preds = %325
-  %.val139 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val139, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 576)
+  %.val140 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val140, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 576)
   br label %555
 
 410:                                              ; preds = %325
-  %.val140 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val140, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 156)
+  %.val141 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val141, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 156)
   br label %555
 
 411:                                              ; preds = %325
-  %.val141 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val141, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 171)
+  %.val142 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val142, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 171)
   br label %555
 
 412:                                              ; preds = %325
-  %.val142 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val142, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 421)
+  %.val143 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val143, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 421)
   br label %555
 
 413:                                              ; preds = %325
-  %.val143 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val143, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 422)
+  %.val144 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val144, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 422)
   br label %555
 
 414:                                              ; preds = %325
-  %.val144 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val144, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 423)
+  %.val145 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val145, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 423)
   br label %555
 
 415:                                              ; preds = %325
-  %.val145 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val145, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 424)
+  %.val146 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val146, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 424)
   br label %555
 
 416:                                              ; preds = %325
-  %.val146 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val146, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 425)
+  %.val147 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val147, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 425)
   br label %555
 
 417:                                              ; preds = %325
-  %.val147 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val147, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 426)
+  %.val148 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val148, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 426)
   br label %555
 
 418:                                              ; preds = %325
-  %.val148 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val148, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 155)
+  %.val149 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val149, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 155)
   br label %555
 
 419:                                              ; preds = %325
-  %.val149 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val149, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 427)
+  %.val150 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val150, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 427)
   br label %555
 
 420:                                              ; preds = %325
-  %.val150 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val150, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 428)
+  %.val151 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val151, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 428)
   br label %555
 
 421:                                              ; preds = %325
-  %.val151 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val151, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 429)
+  %.val152 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val152, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 429)
   br label %555
 
 422:                                              ; preds = %325
-  %.val152 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val152, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 397)
+  %.val153 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val153, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 397)
   br label %555
 
 423:                                              ; preds = %325
-  %.val153 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val153, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 577)
+  %.val154 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val154, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 577)
   br label %555
 
 424:                                              ; preds = %325
-  %.val154 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val154, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 578)
+  %.val155 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val155, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 578)
   br label %555
 
 425:                                              ; preds = %325
-  %.val155 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val155, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 219)
+  %.val156 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val156, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 219)
   br label %555
 
 426:                                              ; preds = %325
-  %.val156 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val156, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 140)
+  %.val157 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val157, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 140)
   br label %555
 
 427:                                              ; preds = %325
-  %.val157 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val157, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 387)
+  %.val158 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val158, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 387)
   br label %555
 
 428:                                              ; preds = %325
-  %.val158 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val158, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 144)
+  %.val159 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val159, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 144)
   br label %555
 
 429:                                              ; preds = %325
-  %.val159 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val159, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 150)
+  %.val160 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val160, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 150)
   br label %555
 
 430:                                              ; preds = %325
-  %.val160 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val160, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 216)
+  %.val161 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val161, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 216)
   br label %555
 
 431:                                              ; preds = %325
-  %.val161 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val161, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 433)
+  %.val162 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val162, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 433)
   br label %555
 
 432:                                              ; preds = %325
-  %.val162 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val162, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 152)
+  %.val163 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val163, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 152)
   br label %555
 
 433:                                              ; preds = %325
-  %.val163 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val163, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 579)
+  %.val164 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val164, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 579)
   br label %555
 
 434:                                              ; preds = %325
-  %.val164 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val164, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 580)
+  %.val165 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val165, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 580)
   br label %555
 
 435:                                              ; preds = %325
-  %.val165 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val165, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 407)
+  %.val166 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val166, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 407)
   br label %555
 
 436:                                              ; preds = %325
-  %.val166 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val166, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 412)
+  %.val167 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val167, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 412)
   br label %555
 
 437:                                              ; preds = %325
-  %.val167 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val167, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 138)
+  %.val168 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val168, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 138)
   br label %555
 
 438:                                              ; preds = %325
-  %.val168 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val168, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 235)
+  %.val169 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val169, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 235)
   br label %555
 
 439:                                              ; preds = %325
-  %.val169 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val169, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 432)
+  %.val170 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val170, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 432)
   br label %555
 
 440:                                              ; preds = %325
-  %.val170 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val170, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 374)
+  %.val171 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val171, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 374)
   br label %555
 
 441:                                              ; preds = %325
-  %.val171 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val171, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 581)
+  %.val172 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val172, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 581)
   br label %555
 
 442:                                              ; preds = %325
-  %.val172 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val172, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 144)
+  %.val173 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val173, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 144)
   br label %555
 
 443:                                              ; preds = %325
-  %.val173 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val173, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 442)
+  %.val174 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val174, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 442)
   br label %555
 
 444:                                              ; preds = %325
-  %.val174 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val174, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 392)
+  %.val175 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val175, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 392)
   br label %555
 
 445:                                              ; preds = %325
-  %.val175 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val175, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 393)
+  %.val176 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val176, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 393)
   br label %555
 
 446:                                              ; preds = %325
-  %.val176 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val176, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 430)
+  %.val177 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val177, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 430)
   br label %555
 
 447:                                              ; preds = %325
-  %.val177 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val177, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 358)
+  %.val178 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val178, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 358)
   br label %555
 
 448:                                              ; preds = %325
-  %.val178 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val178, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 583)
+  %.val179 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val179, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 583)
   br label %555
 
 449:                                              ; preds = %325
-  %.val179 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val179, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 181)
+  %.val180 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val180, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 181)
   br label %555
 
 450:                                              ; preds = %325
-  %.val180 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val180, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 134)
+  %.val181 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val181, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 134)
   br label %555
 
 451:                                              ; preds = %325
-  %.val181 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val181, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 206)
+  %.val182 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val182, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 206)
   br label %555
 
 452:                                              ; preds = %325
-  %.val182 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val182, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 174)
+  %.val183 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val183, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 174)
   br label %555
 
 453:                                              ; preds = %325
-  %.val183 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val183, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 234)
+  %.val184 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val184, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 234)
   br label %555
 
 454:                                              ; preds = %325
-  %.val184 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val184, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 210)
+  %.val185 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val185, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 210)
   br label %555
 
 455:                                              ; preds = %325
-  %.val185 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val185, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 130)
+  %.val186 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val186, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 130)
   br label %555
 
 456:                                              ; preds = %325
-  %.val186 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val186, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 131)
+  %.val187 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val187, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 131)
   br label %555
 
 457:                                              ; preds = %325
-  %.val187 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val187, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 133)
+  %.val188 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val188, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 133)
   br label %555
 
 458:                                              ; preds = %325
-  %.val188 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val188, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 137)
+  %.val189 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val189, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 137)
   br label %555
 
 459:                                              ; preds = %325
-  %.val189 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val189, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 135)
+  %.val190 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val190, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 135)
   br label %555
 
 460:                                              ; preds = %325
-  %.val190 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val190, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 136)
+  %.val191 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val191, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 136)
   br label %555
 
 461:                                              ; preds = %325
-  %.val191 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val191, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 217)
+  %.val192 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val192, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 217)
   br label %555
 
 462:                                              ; preds = %325
-  %.val192 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val192, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 354)
+  %.val193 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val193, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 354)
   br label %555
 
 463:                                              ; preds = %325
-  %.val193 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val193, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 172)
+  %.val194 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val194, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 172)
   br label %555
 
 464:                                              ; preds = %325
-  %.val194 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val194, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 158)
+  %.val195 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val195, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 158)
   br label %555
 
 465:                                              ; preds = %325
-  %.val195 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val195, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 159)
+  %.val196 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val196, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 159)
   br label %555
 
 466:                                              ; preds = %325
-  %.val196 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val196, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 128)
+  %.val197 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val197, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 128)
   br label %555
 
 467:                                              ; preds = %325
-  %.val197 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val197, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 173)
+  %.val198 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val198, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 173)
   br label %555
 
 468:                                              ; preds = %325
-  %.val198 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val198, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 156)
+  %.val199 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val199, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 156)
   br label %555
 
 469:                                              ; preds = %325
-  %.val199 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val199, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 418)
+  %.val200 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val200, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 418)
   br label %555
 
 470:                                              ; preds = %325
-  %.val200 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val200, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 419)
+  %.val201 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val201, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 419)
   br label %555
 
 471:                                              ; preds = %325
-  %.val201 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val201, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 420)
+  %.val202 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val202, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 420)
   br label %555
 
 472:                                              ; preds = %325
-  %.val202 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val202, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 372)
+  %.val203 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val203, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 372)
   br label %555
 
 473:                                              ; preds = %325
-  %.val203 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val203, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 177)
+  %.val204 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val204, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 177)
   br label %555
 
 474:                                              ; preds = %325
-  %.val204 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val204, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 178)
+  %.val205 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val205, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 178)
   br label %555
 
 475:                                              ; preds = %325
   %476 = getelementptr inbounds i8, ptr %8, i64 144
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %476, i32 64, ptr elementtype(i8) %476) #11, !srcloc !53
-  %.val271 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage(ptr %.val271, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 2, i32 noundef 12)
+  %.val272 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage(ptr %.val272, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 2, i32 noundef 12)
   br label %555
 
 477:                                              ; preds = %325
-  %.val205 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val205, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 176)
+  %.val206 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val206, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 176)
   br label %555
 
 478:                                              ; preds = %325
-  %.val206 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val206, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 223)
+  %.val207 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val207, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 223)
   br label %555
 
 479:                                              ; preds = %325
-  %.val207 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val207, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 110)
+  %.val208 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val208, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 110)
   br label %555
 
 480:                                              ; preds = %325
-  %.val208 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val208, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 111)
+  %.val209 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val209, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 111)
   br label %555
 
 481:                                              ; preds = %325
-  %.val209 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val209, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 182)
+  %.val210 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val210, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 182)
   br label %555
 
 482:                                              ; preds = %325
-  %.val210 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val210, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 232)
+  %.val211 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val211, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 232)
   br label %555
 
 483:                                              ; preds = %325
-  %.val211 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val211, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 233)
+  %.val212 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val212, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 233)
   br label %555
 
 484:                                              ; preds = %325
-  %.val212 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val212, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 231)
+  %.val213 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val213, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 231)
   br label %555
 
 485:                                              ; preds = %325
-  %.val213 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val213, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 584)
+  %.val214 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val214, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 584)
   br label %555
 
 486:                                              ; preds = %325
-  %.val214 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val214, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 204)
+  %.val215 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val215, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 204)
   br label %555
 
 487:                                              ; preds = %325
-  %.val215 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val215, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 608)
+  %.val216 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val216, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 608)
   br label %555
 
 488:                                              ; preds = %325
-  %.val216 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val216, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 609)
+  %.val217 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val217, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 609)
   br label %555
 
 489:                                              ; preds = %325
-  %.val217 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val217, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 610)
+  %.val218 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val218, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 610)
   br label %555
 
 490:                                              ; preds = %325
-  %.val218 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val218, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 611)
+  %.val219 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val219, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 611)
   br label %555
 
 491:                                              ; preds = %325
-  %.val219 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val219, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 612)
+  %.val220 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val220, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 612)
   br label %555
 
 492:                                              ; preds = %325
-  %.val220 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val220, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 613)
+  %.val221 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val221, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 613)
   br label %555
 
 493:                                              ; preds = %325
-  %.val221 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val221, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 120)
+  %.val222 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val222, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 120)
   br label %555
 
 494:                                              ; preds = %325
-  %.val222 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val222, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 240)
+  %.val223 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val223, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 240)
   br label %555
 
 495:                                              ; preds = %71
@@ -4347,7 +4349,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
 497:                                              ; preds = %495
   %498 = getelementptr inbounds i8, ptr %2, i64 16
   store i8 22, ptr %498, align 4
-  br label %thread-pre-split280.thread
+  br label %thread-pre-split281.thread
 
 499:                                              ; preds = %71
   switch i32 %72, label %537 [
@@ -4358,12 +4360,12 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
 500:                                              ; preds = %499
   %501 = getelementptr inbounds i8, ptr %2, i64 16
   store i8 22, ptr %501, align 4
-  br label %thread-pre-split280.thread
+  br label %thread-pre-split281.thread
 
 502:                                              ; preds = %499
   %503 = getelementptr inbounds i8, ptr %2, i64 16
   store i8 22, ptr %503, align 4
-  br label %thread-pre-split280.thread
+  br label %thread-pre-split281.thread
 
 504:                                              ; preds = %71
   %505 = trunc i32 %72 to i16
@@ -4373,13 +4375,13 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   ]
 
 506:                                              ; preds = %504
-  %.val223 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val223, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 528)
+  %.val224 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val224, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 528)
   br label %555
 
 507:                                              ; preds = %504
-  %.val224 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val224, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 212)
+  %.val225 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val225, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 212)
   br label %555
 
 508:                                              ; preds = %71
@@ -4403,63 +4405,63 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   ]
 
 512:                                              ; preds = %508
-  %.val225 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val225, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 210)
+  %.val226 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val226, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 210)
   br label %555
 
 513:                                              ; preds = %508
-  %.val226 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val226, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 211)
+  %.val227 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val227, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 211)
   br label %555
 
 514:                                              ; preds = %508
-  %.val227 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val227, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 212)
+  %.val228 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val228, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 212)
   br label %555
 
 515:                                              ; preds = %508
-  %.val228 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val228, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 213)
+  %.val229 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val229, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 213)
   br label %555
 
 516:                                              ; preds = %508
-  %.val229 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val229, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 214)
+  %.val230 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val230, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 214)
   br label %555
 
 517:                                              ; preds = %508
-  %.val230 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val230, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 215)
+  %.val231 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val231, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 215)
   br label %555
 
 518:                                              ; preds = %508
-  %.val231 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val231, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 216)
+  %.val232 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val232, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 216)
   br label %555
 
 519:                                              ; preds = %508
-  %.val232 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val232, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 217)
+  %.val233 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val233, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 217)
   br label %555
 
 520:                                              ; preds = %508
-  %.val233 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val233, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 218)
+  %.val234 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val234, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 218)
   br label %555
 
 521:                                              ; preds = %508
-  %.val234 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val234, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 219)
+  %.val235 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val235, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 219)
   br label %555
 
 522:                                              ; preds = %508
-  %.val235 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val235, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 220)
+  %.val236 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val236, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 220)
   br label %555
 
 523:                                              ; preds = %508
-  %.val236 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val236, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 221)
+  %.val237 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val237, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 221)
   br label %555
 
 524:                                              ; preds = %71
@@ -4474,18 +4476,18 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   ]
 
 528:                                              ; preds = %524
-  %.val237 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val237, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 248)
+  %.val238 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val238, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 248)
   br label %555
 
 529:                                              ; preds = %524
-  %.val238 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val238, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 224)
+  %.val239 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val239, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 224)
   br label %555
 
 530:                                              ; preds = %524
-  %.val239 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val239, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 225)
+  %.val240 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val240, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 225)
   br label %555
 
 531:                                              ; preds = %71
@@ -4499,11 +4501,14 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   br i1 %535, label %536, label %708
 
 536:                                              ; preds = %533
-  %.val240 = load ptr, ptr %7, align 8
-  call fastcc void @hid_map_usage_clear(ptr %.val240, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 303)
+  %.val241 = load ptr, ptr %7, align 8
+  call fastcc void @hid_map_usage_clear(ptr %.val241, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i16 noundef zeroext 303)
   br label %555
 
-537:                                              ; preds = %499, %495, %255, %229, %194, %181, %150, %71
+default.unreachable304:                           ; preds = %150
+  unreachable
+
+537:                                              ; preds = %150, %499, %495, %255, %229, %194, %181, %71
   %538 = getelementptr inbounds i8, ptr %1, i64 36
   %539 = load i32, ptr %538, align 4
   %540 = icmp eq i32 %539, 1
@@ -4515,36 +4520,36 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   %544 = getelementptr inbounds i8, ptr %543, i64 52
   %545 = load i32, ptr %544, align 4
   %546 = icmp eq i32 %545, 1
-  %.val272 = load ptr, ptr %7, align 8
+  %.val273 = load ptr, ptr %7, align 8
   br i1 %546, label %547, label %548
 
 547:                                              ; preds = %541
-  call fastcc void @hid_map_usage(ptr %.val272, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 8)
+  call fastcc void @hid_map_usage(ptr %.val273, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 17, i32 noundef 8)
   br label %555
 
 548:                                              ; preds = %541
-  call fastcc void @hid_map_usage(ptr %.val272, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef 256)
+  call fastcc void @hid_map_usage(ptr %.val273, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 1, i32 noundef 256)
   br label %555
 
 549:                                              ; preds = %537
   %550 = load i32, ptr %12, align 4
   %551 = and i32 %550, 4
   %552 = icmp eq i32 %551, 0
-  %.val275 = load ptr, ptr %7, align 8
+  %.val276 = load ptr, ptr %7, align 8
   br i1 %552, label %554, label %553
 
 553:                                              ; preds = %549
-  call fastcc void @hid_map_usage(ptr %.val275, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 2, i32 noundef 9)
+  call fastcc void @hid_map_usage(ptr %.val276, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 2, i32 noundef 9)
   br label %555
 
 554:                                              ; preds = %549
-  call fastcc void @hid_map_usage(ptr %.val275, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 40)
+  call fastcc void @hid_map_usage(ptr %.val276, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext 3, i32 noundef 40)
   br label %555
 
-555:                                              ; preds = %554, %553, %548, %547, %536, %530, %529, %528, %523, %522, %521, %520, %519, %518, %517, %516, %515, %514, %513, %512, %507, %506, %494, %493, %492, %491, %490, %489, %488, %487, %486, %485, %484, %483, %482, %481, %480, %479, %478, %477, %475, %474, %473, %472, %471, %470, %469, %468, %467, %466, %465, %464, %463, %462, %461, %460, %459, %458, %457, %456, %455, %454, %453, %452, %451, %450, %449, %448, %447, %446, %445, %444, %443, %442, %441, %440, %439, %438, %437, %436, %435, %434, %433, %432, %431, %430, %429, %428, %427, %426, %425, %424, %423, %422, %421, %420, %419, %418, %417, %416, %415, %414, %413, %412, %411, %410, %409, %408, %407, %406, %405, %404, %403, %402, %401, %400, %399, %398, %397, %396, %395, %394, %393, %392, %391, %390, %389, %388, %387, %386, %385, %384, %383, %382, %381, %380, %379, %378, %377, %376, %375, %374, %373, %372, %371, %370, %369, %368, %367, %366, %365, %364, %363, %362, %361, %360, %359, %358, %357, %356, %355, %354, %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %305, %304, %303, %293, %289, %288, %287, %283, %280, %279, %278, %273, %272, %269, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %231, %228, %227, %218, %217, %216, %210, %208, %201, %199, %193, %174, %170, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %146, %145, %144, %143, %142, %138, %86, %81, %65
+555:                                              ; preds = %65, %554, %553, %548, %547, %536, %530, %529, %528, %523, %522, %521, %520, %519, %518, %517, %516, %515, %514, %513, %512, %507, %506, %494, %493, %492, %491, %490, %489, %488, %487, %486, %485, %484, %483, %482, %481, %480, %479, %478, %477, %475, %474, %473, %472, %471, %470, %469, %468, %467, %466, %465, %464, %463, %462, %461, %460, %459, %458, %457, %456, %455, %454, %453, %452, %451, %450, %449, %448, %447, %446, %445, %444, %443, %442, %441, %440, %439, %438, %437, %436, %435, %434, %433, %432, %431, %430, %429, %428, %427, %426, %425, %424, %423, %422, %421, %420, %419, %418, %417, %416, %415, %414, %413, %412, %411, %410, %409, %408, %407, %406, %405, %404, %403, %402, %401, %400, %399, %398, %397, %396, %395, %394, %393, %392, %391, %390, %389, %388, %387, %386, %385, %384, %383, %382, %381, %380, %379, %378, %377, %376, %375, %374, %373, %372, %371, %370, %369, %368, %367, %366, %365, %364, %363, %362, %361, %360, %359, %358, %357, %356, %355, %354, %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %305, %304, %303, %293, %289, %288, %287, %283, %280, %279, %278, %273, %272, %269, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %231, %228, %227, %218, %217, %216, %210, %208, %201, %199, %193, %174, %170, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %146, %145, %144, %143, %142, %138, %86, %81
   %556 = load ptr, ptr %6, align 8
   %557 = icmp eq ptr %556, null
-  br i1 %557, label %thread-pre-split280.thread, label %558
+  br i1 %557, label %thread-pre-split281.thread, label %558
 
 558:                                              ; preds = %555
   %559 = load ptr, ptr %60, align 8
@@ -4556,7 +4561,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
 563:                                              ; preds = %558
   %564 = call i32 %561(ptr noundef %10, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   %565 = icmp slt i32 %564, 0
-  br i1 %565, label %thread-pre-split280.thread, label %566
+  br i1 %565, label %thread-pre-split281.thread, label %566
 
 566:                                              ; preds = %563, %558
   %567 = getelementptr inbounds i8, ptr %2, i64 16
@@ -4569,7 +4574,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   %573 = zext i16 %572 to i32
   %574 = load i32, ptr %5, align 4
   %575 = icmp slt i32 %574, %573
-  br i1 %575, label %.loopexit282, label %576
+  br i1 %575, label %.loopexit283, label %576
 
 576:                                              ; preds = %566
   %577 = getelementptr inbounds i8, ptr %10, i64 7156
@@ -4583,12 +4588,12 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   %583 = icmp ult i8 %582, 2
   call void @llvm.assume(i1 %583)
   %584 = icmp eq i8 %582, 0
-  br i1 %584, label %..loopexit282.loopexit_crit_edge, label %585
+  br i1 %584, label %..loopexit283.loopexit_crit_edge, label %585
 
-..loopexit282.loopexit_crit_edge:                 ; preds = %578
-  %.pre292.pre = load i16, ptr %571, align 2
-  %.pre293.pre = load i32, ptr %5, align 4
-  br label %.loopexit282.loopexit
+..loopexit283.loopexit_crit_edge:                 ; preds = %578
+  %.pre293.pre = load i16, ptr %571, align 2
+  %.pre294.pre = load i32, ptr %5, align 4
+  br label %.loopexit283.loopexit
 
 585:                                              ; preds = %578
   %586 = load i32, ptr %577, align 4
@@ -4610,7 +4615,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   %599 = and i32 %598, 65535
   %600 = load i32, ptr %5, align 4
   %601 = icmp slt i32 %600, %599
-  br i1 %601, label %.loopexit282.loopexit, label %578, !llvm.loop !56
+  br i1 %601, label %.loopexit283.loopexit, label %578, !llvm.loop !56
 
 602:                                              ; preds = %585
   %603 = getelementptr inbounds i8, ptr %10, i64 7144
@@ -4619,23 +4624,23 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   store i64 %605, ptr %603, align 8
   br label %708
 
-.loopexit282.loopexit:                            ; preds = %589, %..loopexit282.loopexit_crit_edge
-  %.pre293 = phi i32 [ %.pre293.pre, %..loopexit282.loopexit_crit_edge ], [ %600, %589 ]
-  %.pre292 = phi i16 [ %.pre292.pre, %..loopexit282.loopexit_crit_edge ], [ %597, %589 ]
-  %.pre299 = zext i16 %.pre292 to i32
-  br label %.loopexit282
+.loopexit283.loopexit:                            ; preds = %589, %..loopexit283.loopexit_crit_edge
+  %.pre294 = phi i32 [ %.pre294.pre, %..loopexit283.loopexit_crit_edge ], [ %600, %589 ]
+  %.pre293 = phi i16 [ %.pre293.pre, %..loopexit283.loopexit_crit_edge ], [ %597, %589 ]
+  %.pre300 = zext i16 %.pre293 to i32
+  br label %.loopexit283
 
-.loopexit282:                                     ; preds = %.loopexit282.loopexit, %566
-  %.pre-phi300 = phi i32 [ %.pre299, %.loopexit282.loopexit ], [ %573, %566 ]
-  %606 = phi i32 [ %.pre293, %.loopexit282.loopexit ], [ %574, %566 ]
-  %607 = phi i16 [ %.pre292, %.loopexit282.loopexit ], [ %572, %566 ]
-  %608 = icmp slt i32 %606, %.pre-phi300
+.loopexit283:                                     ; preds = %.loopexit283.loopexit, %566
+  %.pre-phi301 = phi i32 [ %.pre300, %.loopexit283.loopexit ], [ %573, %566 ]
+  %606 = phi i32 [ %.pre294, %.loopexit283.loopexit ], [ %574, %566 ]
+  %607 = phi i16 [ %.pre293, %.loopexit283.loopexit ], [ %572, %566 ]
+  %608 = icmp slt i32 %606, %.pre-phi301
   br i1 %608, label %708, label %609
 
-609:                                              ; preds = %.loopexit282
+609:                                              ; preds = %.loopexit283
   %610 = load i8, ptr %567, align 4
   %611 = icmp eq i8 %610, 3
-  br i1 %611, label %612, label %thread-pre-split280
+  br i1 %611, label %612, label %thread-pre-split281
 
 612:                                              ; preds = %609
   %613 = getelementptr inbounds i8, ptr %1, i64 72
@@ -4653,12 +4658,12 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
 623:                                              ; preds = %612
   store i32 0, ptr %613, align 8
   store i32 255, ptr %615, align 4
-  %.pre294 = load i16, ptr %571, align 2
-  %.pre301 = zext i16 %.pre294 to i32
+  %.pre295 = load i16, ptr %571, align 2
+  %.pre302 = zext i16 %.pre295 to i32
   br label %624
 
 624:                                              ; preds = %623, %612
-  %.pre-phi302 = phi i32 [ %.pre301, %623 ], [ %.pre-phi300, %612 ]
+  %.pre-phi303 = phi i32 [ %.pre302, %623 ], [ %.pre-phi301, %612 ]
   %625 = phi i32 [ 0, %623 ], [ %614, %612 ]
   %626 = phi i32 [ 255, %623 ], [ %616, %612 ]
   %627 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4671,11 +4676,11 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   %632 = sub i32 %626, %625
   %633 = ashr i32 %632, 8
   %634 = ashr i32 %632, 4
-  call void @input_set_abs_params(ptr noundef %8, i32 noundef %.pre-phi302, i32 noundef %625, i32 noundef %626, i32 noundef %633, i32 noundef %634) #11
+  call void @input_set_abs_params(ptr noundef %8, i32 noundef %.pre-phi303, i32 noundef %625, i32 noundef %626, i32 noundef %633, i32 noundef %634) #11
   br label %636
 
 635:                                              ; preds = %624
-  call void @input_set_abs_params(ptr noundef %8, i32 noundef %.pre-phi302, i32 noundef %625, i32 noundef %626, i32 noundef 0, i32 noundef 0) #11
+  call void @input_set_abs_params(ptr noundef %8, i32 noundef %.pre-phi303, i32 noundef %625, i32 noundef %626, i32 noundef 0, i32 noundef 0) #11
   br label %636
 
 636:                                              ; preds = %635, %631
@@ -4711,7 +4716,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
 653:                                              ; preds = %652, %648, %645
   %.pr = load i8, ptr %567, align 4
   %654 = icmp eq i8 %.pr, 3
-  br i1 %654, label %655, label %thread-pre-split280
+  br i1 %654, label %655, label %thread-pre-split281
 
 655:                                              ; preds = %653
   %656 = getelementptr inbounds i8, ptr %2, i64 17
@@ -4773,47 +4778,50 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   br label %693
 
 693:                                              ; preds = %692, %688, %.loopexit, %661
-  %.pr278 = load i8, ptr %567, align 4
-  %694 = icmp eq i8 %.pr278, 3
-  br i1 %694, label %695, label %thread-pre-split280
+  %.pr279 = load i8, ptr %567, align 4
+  %694 = icmp eq i8 %.pr279, 3
+  br i1 %694, label %695, label %thread-pre-split281
 
 695:                                              ; preds = %693
   %696 = load i32, ptr %12, align 4
   %697 = and i32 %696, 4
   %698 = icmp eq i32 %697, 0
-  br i1 %698, label %thread-pre-split280.thread, label %699
+  br i1 %698, label %thread-pre-split281.thread, label %699
 
 699:                                              ; preds = %695
   %700 = load i16, ptr %571, align 2
   %701 = icmp eq i16 %700, 32
-  br i1 %701, label %702, label %thread-pre-split280.thread
+  br i1 %701, label %702, label %thread-pre-split281.thread
 
 702:                                              ; preds = %699
   %703 = getelementptr i8, ptr %8, i64 62
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %703, i32 8, ptr elementtype(i8) %703) #11, !srcloc !53
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %703, i32 4, ptr elementtype(i8) %703) #11, !srcloc !53
-  %.pr281.pre = load i8, ptr %567, align 4
-  br label %thread-pre-split280
+  %.pr282.pre = load i8, ptr %567, align 4
+  br label %thread-pre-split281
 
-thread-pre-split280:                              ; preds = %702, %653, %609, %693
-  %704 = phi i8 [ %.pr278, %693 ], [ %610, %609 ], [ %.pr, %653 ], [ %.pr281.pre, %702 ]
+thread-pre-split281:                              ; preds = %702, %653, %609, %693
+  %704 = phi i8 [ %.pr279, %693 ], [ %610, %609 ], [ %.pr, %653 ], [ %.pr282.pre, %702 ]
   %705 = icmp eq i8 %704, 1
-  br i1 %705, label %706, label %thread-pre-split280.thread
+  br i1 %705, label %706, label %thread-pre-split281.thread
 
-706:                                              ; preds = %thread-pre-split280
+706:                                              ; preds = %thread-pre-split281
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %568, i32 16, ptr elementtype(i8) %568) #11, !srcloc !53
   %707 = getelementptr inbounds i8, ptr %8, i64 160
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %707, i32 16, ptr elementtype(i8) %707) #11, !srcloc !53
-  br label %thread-pre-split280.thread
+  br label %thread-pre-split281.thread
 
-708:                                              ; preds = %20, %.loopexit282, %602, %533, %531, %524, %508, %504, %325, %306, %255, %234, %191, %175, %171, %167, %140, %79, %71, %71, %71, %71, %71, %65, %16, %4
+708:                                              ; preds = %20, %65, %.loopexit283, %602, %533, %531, %524, %508, %504, %325, %306, %255, %234, %191, %175, %171, %167, %140, %79, %71, %71, %71, %71, %71, %16, %4
   %709 = getelementptr inbounds i8, ptr %2, i64 16
   store i8 0, ptr %709, align 4
   %710 = getelementptr inbounds i8, ptr %2, i64 14
   store i16 0, ptr %710, align 2
-  br label %thread-pre-split280.thread
+  br label %thread-pre-split281.thread
 
-thread-pre-split280.thread:                       ; preds = %699, %695, %708, %706, %thread-pre-split280, %563, %555, %502, %500, %497, %281, %65
+.unreachabledefault:                              ; preds = %65
+  unreachable
+
+thread-pre-split281.thread:                       ; preds = %699, %695, %65, %708, %706, %thread-pre-split281, %563, %555, %502, %500, %497, %281
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   ret void

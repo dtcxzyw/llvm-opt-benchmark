@@ -41800,13 +41800,16 @@ split:                                            ; preds = %46, %._crit_edge
   %141 = load i8, ptr %140, align 8, !range !4339, !alias.scope !9010, !noalias !9008, !noundef !4
   %142 = add nsw i8 %141, -24
   %narrow.i.i = call i8 @llvm.umin.i8(i8 %142, i8 2)
-  switch i8 %narrow.i.i, label %default.unreachable [
+  switch i8 %narrow.i.i, label %.unreachabledefault [
     i8 0, label %143
     i8 1, label %149
     i8 2, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf5ccb4a6fa474ac6E.llvm.17814153394679541470.exit.i.i"
   ]
 
-default.unreachable:                              ; preds = %182, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.17814153394679541470.exit.i, %138
+.unreachabledefault:                              ; preds = %138
+  unreachable
+
+default.unreachable:                              ; preds = %182, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.17814153394679541470.exit.i
   unreachable
 
 143:                                              ; preds = %138

@@ -2369,10 +2369,11 @@ define internal i32 @dissect_infiniband_link(ptr noundef %0, ptr noundef %1, ptr
   store ptr null, ptr %30, align 8
   store i32 8, ptr %5, align 4
   %31 = and i8 %15, 3
-  switch i8 %31, label %.critedge.i [
+  switch i8 %31, label %default.unreachable [
     i8 3, label %32
     i8 2, label %36
     i8 1, label %50
+    i8 0, label %.critedge.i
   ]
 
 32:                                               ; preds = %4
@@ -2585,6 +2586,9 @@ define internal i32 @dissect_infiniband_link(ptr noundef %0, ptr noundef %1, ptr
   %107 = add nuw nsw i32 %48, 20
   store i32 %107, ptr %5, align 4
   br label %.critedge.i
+
+default.unreachable:                              ; preds = %4
+  unreachable
 
 .critedge.i:                                      ; preds = %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %50, %44, %32, %4
   %108 = phi i32 [ 8, %4 ], [ 8, %50 ], [ 48, %32 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %48, %44 ]

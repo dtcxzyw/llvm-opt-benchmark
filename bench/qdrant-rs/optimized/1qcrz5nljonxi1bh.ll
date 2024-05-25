@@ -5721,13 +5721,13 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.phi.trans.insert.i.i.i20.i.i.i = getelementptr inbounds i8, ptr %37, i64 1
   %241 = getelementptr inbounds i8, ptr %1, i64 16
   %242 = getelementptr inbounds i8, ptr %32, i64 8
-  %243 = getelementptr inbounds i8, ptr %41, i64 8
-  %244 = getelementptr inbounds i8, ptr %42, i64 8
   %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 1
-  %245 = getelementptr inbounds i8, ptr %1, i64 8
+  %243 = getelementptr inbounds i8, ptr %1, i64 8
   %.phi.trans.insert.i.i.i96.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 1
   %.phi.trans.insert.i.i.i115.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 1
   %.phi.trans.insert.i.i.i132.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 1
+  %244 = getelementptr inbounds i8, ptr %41, i64 8
+  %245 = getelementptr inbounds i8, ptr %42, i64 8
   br label %246
 
 246:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17h4b784208c9c6c251E.exit.i, %240
@@ -5832,8 +5832,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %311
 
 ._crit_edge.i.i.i73:                              ; preds = %266
-  %.pre429.i = trunc nuw i8 %.sroa.5.0.i to i1
-  br i1 %.pre429.i, label %.loopexit.i.i.i, label %295
+  %.pre439.i = trunc nuw i8 %.sroa.5.0.i to i1
+  br i1 %.pre439.i, label %.loopexit.i.i.i, label %295
 
 273:                                              ; preds = %266
   %274 = trunc nuw i8 %.sroa.5.0.i to i1
@@ -6190,7 +6190,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %373 = load i64, ptr %1, align 8, !alias.scope !1770, !noalias !1697, !noundef !10
   %374 = icmp ult i64 %372, %373
   call void @llvm.assume(i1 %374)
-  %375 = load ptr, ptr %245, align 8, !alias.scope !1770, !noalias !1697, !nonnull !10, !noundef !10
+  %375 = load ptr, ptr %243, align 8, !alias.scope !1770, !noalias !1697, !nonnull !10, !noundef !10
   %376 = getelementptr inbounds i8, ptr %375, i64 %372
   %377 = load i8, ptr %376, align 1, !noalias !1771, !noundef !10
   br label %.preheader.i.i.i.i.i.i.i
@@ -6351,7 +6351,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %421 = load i64, ptr %1, align 8, !alias.scope !1814, !noalias !1697, !noundef !10
   %422 = icmp ult i64 %420, %421
   call void @llvm.assume(i1 %422)
-  %423 = load ptr, ptr %245, align 8, !alias.scope !1814, !noalias !1697, !nonnull !10, !noundef !10
+  %423 = load ptr, ptr %243, align 8, !alias.scope !1814, !noalias !1697, !nonnull !10, !noundef !10
   %424 = getelementptr inbounds i8, ptr %423, i64 %420
   %425 = load i8, ptr %424, align 1, !noalias !1815, !noundef !10
   br label %378
@@ -6622,10 +6622,10 @@ _ZN5serde2de9MapAccess10next_value17h59673e244d35211fE.exit.thread.i: ; preds = 
 
 _ZN5serde2de9MapAccess10next_value17h59673e244d35211fE.exit.i: ; preds = %498
   call fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hdf3e855b0240bc6eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %42, ptr noalias noundef nonnull align 8 dereferenceable(112) %1), !noalias !1697
-  %.pre427.i = load i64, ptr %42, align 8, !range !69, !noalias !1900
-  %.pre428.i = load ptr, ptr %244, align 8, !noalias !1900
-  %trunc54.i = trunc nuw i64 %.pre427.i to i1
-  %.cast98.i = ptrtoint ptr %.pre428.i to i64
+  %.pre437.i = load i64, ptr %42, align 8, !range !69, !noalias !1900
+  %.pre438.i = load ptr, ptr %245, align 8, !noalias !1900
+  %trunc54.i = trunc nuw i64 %.pre437.i to i1
+  %.cast98.i = ptrtoint ptr %.pre438.i to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !1900
   br i1 %trunc54.i, label %"_ZN245_$LT$sparse..index..inverted_index..inverted_index_mmap.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$sparse..index..inverted_index..inverted_index_mmap..InvertedIndexFileHeader$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h0590ff1519ad0004E.exit", label %_ZN5serde2de9MapAccess10next_value17h4b784208c9c6c251E.exit.i
 
@@ -6656,9 +6656,9 @@ _ZN5serde2de9MapAccess10next_value17h59673e244d35211fE.exit79.thread.i: ; preds 
 _ZN5serde2de9MapAccess10next_value17h59673e244d35211fE.exit79.i: ; preds = %504
   call fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hdf3e855b0240bc6eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %41, ptr noalias noundef nonnull align 8 dereferenceable(112) %1), !noalias !1697
   %.pre.i70 = load i64, ptr %41, align 8, !range !69, !noalias !1900
-  %.pre426.i = load ptr, ptr %243, align 8, !noalias !1900
+  %.pre436.i = load ptr, ptr %244, align 8, !noalias !1900
   %trunc52.i = trunc nuw i64 %.pre.i70 to i1
-  %.cast.i71 = ptrtoint ptr %.pre426.i to i64
+  %.cast.i71 = ptrtoint ptr %.pre436.i to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41), !noalias !1900
   br i1 %trunc52.i, label %"_ZN245_$LT$sparse..index..inverted_index..inverted_index_mmap.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$sparse..index..inverted_index..inverted_index_mmap..InvertedIndexFileHeader$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h0590ff1519ad0004E.exit", label %_ZN5serde2de9MapAccess10next_value17h4b784208c9c6c251E.exit.i
 

@@ -227,10 +227,11 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   %89 = getelementptr inbounds i8, ptr %88, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %89, i8 0, i64 12, i1 false)
   store i32 %.17295, ptr %88, align 4
-  switch i32 %.045.ph, label %115 [
+  switch i32 %.045.ph, label %default.unreachable [
     i32 1, label %90
     i32 2, label %98
     i32 3, label %112
+    i32 0, label %115
   ]
 
 90:                                               ; preds = %.critedge2.thread
@@ -292,6 +293,9 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   %114 = getelementptr inbounds i8, ptr %113, i64 12
   store i32 3, ptr %114, align 4
   br label %drange_str_to_gint32.exit.thread
+
+default.unreachable:                              ; preds = %.critedge2.thread
+  unreachable
 
 115:                                              ; preds = %.critedge2.thread
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.4, i32 noundef 7, ptr noundef nonnull @.str.5, i64 noundef 157, ptr noundef nonnull @__func__.drange_node_from_str, ptr noundef nonnull @.str.6) #12

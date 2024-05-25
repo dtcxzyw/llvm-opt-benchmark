@@ -1515,10 +1515,11 @@ entry:
   %1 = lshr i8 %0, 2
   %2 = and i8 %1, 3
   %and1 = and i64 %addr, 131071
-  switch i8 %2, label %sw.bb10 [
+  switch i8 %2, label %default.unreachable [
     i8 0, label %sw.epilog
     i8 1, label %sw.bb2
     i8 2, label %sw.bb5
+    i8 3, label %sw.bb10
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -1536,6 +1537,9 @@ sw.bb5:                                           ; preds = %entry
   %sub = add nsw i64 %and1, -65536
   %cmp6 = icmp ugt i64 %sub, 32767
   br i1 %cmp6, label %return, label %sw.epilog
+
+default.unreachable:                              ; preds = %entry
+  unreachable
 
 sw.bb10:                                          ; preds = %entry
   %sub11 = add nsw i64 %and1, -98304
@@ -1671,10 +1675,11 @@ entry:
   %1 = lshr i8 %0, 2
   %2 = and i8 %1, 3
   %and1 = and i64 %addr, 131071
-  switch i8 %2, label %sw.bb10 [
+  switch i8 %2, label %default.unreachable [
     i8 0, label %sw.epilog
     i8 1, label %sw.bb2
     i8 2, label %sw.bb5
+    i8 3, label %sw.bb10
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -1692,6 +1697,9 @@ sw.bb5:                                           ; preds = %entry
   %sub = add nsw i64 %and1, -65536
   %cmp6 = icmp ugt i64 %sub, 32767
   br i1 %cmp6, label %if.end178, label %sw.epilog
+
+default.unreachable:                              ; preds = %if.else72, %entry
+  unreachable
 
 sw.bb10:                                          ; preds = %entry
   %sub11 = add nsw i64 %and1, -98304
@@ -1799,10 +1807,11 @@ if.end64:                                         ; preds = %if.then54
 
 if.else72:                                        ; preds = %if.else34
   %and76 = and i32 %conv37, 3
-  switch i32 %and76, label %sw.bb78 [
+  switch i32 %and76, label %default.unreachable [
     i32 3, label %sw.bb113
     i32 1, label %sw.bb105
     i32 2, label %sw.bb106
+    i32 0, label %sw.bb78
   ]
 
 sw.bb78:                                          ; preds = %if.else72

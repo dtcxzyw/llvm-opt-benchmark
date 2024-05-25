@@ -520,10 +520,11 @@ _ZN4core3ops8function6FnOnce9call_once17h95c8e72894318fb6E.exit.i.i.i: ; preds =
   %.val11.i.i.i = load i64, ptr %1, align 8, !range !13, !alias.scope !14, !noalias !15, !noundef !17
   %46 = getelementptr inbounds i8, ptr %1, i64 8
   %.val12.i.i.i = load ptr, ptr %46, align 8, !alias.scope !14, !noalias !15
-  switch i64 %.val11.i.i.i, label %53 [
+  switch i64 %.val11.i.i.i, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h687cbc5729870856E.exit.i.i.i"
     i64 2, label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h687cbc5729870856E.exit.i.i.i"
     i64 0, label %47
+    i64 1, label %53
   ]
 
 47:                                               ; preds = %45
@@ -535,6 +536,9 @@ _ZN4core3ops8function6FnOnce9call_once17h95c8e72894318fb6E.exit.i.i.i: ; preds =
   store i32 %51, ptr %49, align 4, !noalias !33
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706.exit.sink.split.i.i.i.i.i.i.i.i.i.i", label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h687cbc5729870856E.exit.i.i.i"
+
+default.unreachable:                              ; preds = %74, %45
+  unreachable
 
 53:                                               ; preds = %45
   %54 = icmp ne ptr %.val12.i.i.i, null
@@ -570,8 +574,8 @@ _ZN4core3ops8function6FnOnce9call_once17h95c8e72894318fb6E.exit.i.i.i: ; preds =
 .noexc.i.i.i:                                     ; preds = %61
   %65 = call fastcc { i64, ptr } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h39caf0aabba9bfb4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %62), !noalias !15
   %66 = extractvalue { i64, ptr } %65, 0
-  %.not19.i.i.i.i.i.i = icmp eq i64 %66, 2
-  br i1 %.not19.i.i.i.i.i.i, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..Attr$C$syntax..ast..generated..tokens..Comment$GT$$GT$$GT$17hcc294edfaeb01e6cE.exit.lr.ph.i.i.i.i.i.i", label %.loopexit
+  %.not23.i.i.i.i.i.i = icmp eq i64 %66, 2
+  br i1 %.not23.i.i.i.i.i.i, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..Attr$C$syntax..ast..generated..tokens..Comment$GT$$GT$$GT$17hcc294edfaeb01e6cE.exit.lr.ph.i.i.i.i.i.i", label %.loopexit
 
 "_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..Attr$C$syntax..ast..generated..tokens..Comment$GT$$GT$$GT$17hcc294edfaeb01e6cE.exit.lr.ph.i.i.i.i.i.i": ; preds = %.noexc.i.i.i
   %67 = getelementptr inbounds i8, ptr %1, i64 48
@@ -593,10 +597,11 @@ _ZN4core3ops8function6FnOnce9call_once17h95c8e72894318fb6E.exit.i.i.i: ; preds =
 74:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h95fe459e0a2b5a55E.exit.i.i.i.i.i.i"
   %.val9.i.i.i.i.i.i = load i64, ptr %..i.i.i.i, align 8, !range !13, !alias.scope !71, !noalias !15, !noundef !17
   %.val10.i.i.i.i.i.i = load ptr, ptr %69, align 8, !alias.scope !71, !noalias !15
-  switch i64 %.val9.i.i.i.i.i.i, label %81 [
+  switch i64 %.val9.i.i.i.i.i.i, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63bb319e137b31cdE.exit.i.i.i.i.i.i"
     i64 2, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63bb319e137b31cdE.exit.i.i.i.i.i.i"
     i64 0, label %75
+    i64 1, label %81
   ]
 
 75:                                               ; preds = %74
@@ -6030,7 +6035,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$core..num..error..TryFromInt
 define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.llvm.11762030844908852975"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1743, !noundef !17
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
@@ -6046,7 +6051,11 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..node
     i64 12, label %82
     i64 13, label %88
     i64 14, label %94
+    i64 15, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1744)
@@ -7194,10 +7203,11 @@ _ZN4core3ops8function6FnOnce9call_once17h05d2a285840f3c8bE.exit: ; preds = %37, 
   %.val11 = load i64, ptr %0, align 8, !range !13, !noundef !17
   %46 = getelementptr inbounds i8, ptr %0, i64 8
   %.val12 = load ptr, ptr %46, align 8
-  switch i64 %.val11, label %53 [
+  switch i64 %.val11, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63bb319e137b31cdE.exit"
     i64 2, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63bb319e137b31cdE.exit"
     i64 0, label %47
+    i64 1, label %53
   ]
 
 47:                                               ; preds = %45
@@ -7209,6 +7219,9 @@ _ZN4core3ops8function6FnOnce9call_once17h05d2a285840f3c8bE.exit: ; preds = %37, 
   store i32 %51, ptr %49, align 4, !noalias !2324
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706.exit.sink.split.i.i.i.i.i.i.i", label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63bb319e137b31cdE.exit"
+
+default.unreachable:                              ; preds = %45
+  unreachable
 
 53:                                               ; preds = %45
   %54 = icmp ne ptr %.val12, null
@@ -7224,7 +7237,7 @@ _ZN4core3ops8function6FnOnce9call_once17h05d2a285840f3c8bE.exit: ; preds = %37, 
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val12)
           to label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63bb319e137b31cdE.exit" unwind label %62
 
-"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63bb319e137b31cdE.exit": ; preds = %53, %47, %45, %45, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706.exit.sink.split.i.i.i.i.i.i.i"
+"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63bb319e137b31cdE.exit": ; preds = %45, %45, %53, %47, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706.exit.sink.split.i.i.i.i.i.i.i"
   store i64 3, ptr %0, align 8
   br label %59
 

@@ -60875,7 +60875,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$deltalake_core..kernel..mode
   %4 = add nsw i64 %3, -2
   %5 = icmp ult i64 %4, 8
   %6 = select i1 %5, i64 %4, i64 2
-  switch i64 %6, label %7 [
+  switch i64 %6, label %.unreachabledefault [
     i64 0, label %9
     i64 1, label %11
     i64 2, label %13
@@ -60883,7 +60883,11 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$deltalake_core..kernel..mode
     i64 4, label %16
     i64 5, label %18
     i64 6, label %28
+    i64 7, label %7
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -64002,11 +64006,15 @@ define internal void @"_ZN4core3ptr69drop_in_place$LT$$RF$alloc..vec..Vec$LT$all
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr69drop_in_place$LT$deltalake_core..kernel..models..schema..DataType$GT$17h46a60cf0b40c344aE.llvm.8022584466853825857"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !11397, !noundef !4
-  switch i8 %2, label %3 [
+  switch i8 %2, label %default.unreachable1 [
     i8 0, label %8
     i8 1, label %9
     i8 2, label %11
+    i8 3, label %3
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -64029,7 +64037,7 @@ common.resume:                                    ; preds = %14, %6
   tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 64, i64 noundef 8) #68, !noalias !17580
   br label %8
 
-8:                                                ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$deltalake_core..kernel..models..schema..StructType$GT$$GT$17h396efc7cc397ffceE.llvm.8022584466853825857.exit", %9, %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$deltalake_core..kernel..models..schema..MapType$GT$$GT$17h05770589e1586b11E.llvm.8022584466853825857.exit", %1
+8:                                                ; preds = %1, %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$deltalake_core..kernel..models..schema..StructType$GT$$GT$17h396efc7cc397ffceE.llvm.8022584466853825857.exit", %9, %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$deltalake_core..kernel..models..schema..MapType$GT$$GT$17h05770589e1586b11E.llvm.8022584466853825857.exit"
   ret void
 
 9:                                                ; preds = %1
@@ -133194,7 +133202,7 @@ define hidden void @_ZN14deltalake_core6writer5stats11StatsScalar14try_from_stat
   %.sroa.7 = alloca [12 x i8], align 8
   %30 = alloca i64, align 8
   %31 = load i64, ptr %1, align 8, !range !22561, !noundef !4
-  switch i64 %31, label %._ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit_crit_edge [
+  switch i64 %31, label %default.unreachable318 [
     i64 0, label %34
     i64 1, label %35
     i64 2, label %37
@@ -133202,11 +133210,15 @@ define hidden void @_ZN14deltalake_core6writer5stats11StatsScalar14try_from_stat
     i64 5, label %40
     i64 6, label %41
     i64 7, label %42
+    i64 3, label %._ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit_crit_edge
   ]
 
 ._ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit_crit_edge: ; preds = %4
   %.pre = load i8, ptr %2, align 4, !range !17676
   br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
+
+default.unreachable318:                           ; preds = %"_ZN7parquet4file10statistics24ValueStatistics$LT$T$GT$3max17h837ebaad57dc18f7E.exit206", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %4
+  unreachable
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %._ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit_crit_edge, %42
   %32 = phi i8 [ %.pre, %._ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit_crit_edge ], [ %43, %42 ]
@@ -133634,8 +133646,8 @@ common.resume:                                    ; preds = %238, %226, %159
   store i8 %.sroa.027.0.copyload28, ptr %167, align 8
   store i64 50, ptr %28, align 8
   %168 = load i32, ptr %29, align 8, !noundef !4
-  %.not190 = icmp eq i32 %168, 0
-  br i1 %.not190, label %171, label %169
+  %.not191 = icmp eq i32 %168, 0
+  br i1 %.not191, label %171, label %169
 
 169:                                              ; preds = %165
   call void @"_ZN4core3ptr61drop_in_place$LT$deltalake_core..writer..DeltaWriterError$GT$17hd55b8d5842c7bd1dE.llvm.8022584466853825857"(ptr noalias noundef nonnull align 8 dereferenceable(88) %28)
@@ -134251,9 +134263,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit248: ; preds = %"_ZN7parquet4file10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4102)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   br label %55
-
-default.unreachable318:                           ; preds = %"_ZN7parquet4file10statistics24ValueStatistics$LT$T$GT$3max17h837ebaad57dc18f7E.exit206", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
-  unreachable
 
 326:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
   %327 = getelementptr inbounds i8, ptr %2, i64 4

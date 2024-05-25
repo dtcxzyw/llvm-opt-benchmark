@@ -1075,7 +1075,7 @@ define hidden void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17ha8c6de6d
   %3 = load i64, ptr %0, align 8, !range !235, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 7)
-  switch i64 %5, label %6 [
+  switch i64 %5, label %default.unreachable [
     i64 0, label %16
     i64 1, label %18
     i64 2, label %20
@@ -1083,7 +1083,11 @@ define hidden void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17ha8c6de6d
     i64 4, label %24
     i64 5, label %33
     i64 6, label %"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h7bbe7bc4e754db60E.exit"
+    i64 7, label %6
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = icmp eq i64 %3, -9223372036854775808
@@ -1185,7 +1189,7 @@ common.resume:                                    ; preds = %36, %27
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142"(ptr noalias noundef nonnull readonly align 1 %41, ptr noundef nonnull %35, i64 noundef 8, i64 noundef 56)
   br label %"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h7bbe7bc4e754db60E.exit"
 
-"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h7bbe7bc4e754db60E.exit": ; preds = %"_ZN4core3ptr51drop_in_place$LT$proc_macro2..fallback..Literal$GT$17h3abe767333b7ed7bE.llvm.8351105841907204142.exit.i.i", %6, %"_ZN4core3ptr39drop_in_place$LT$syn..lit..LitFloat$GT$17h22512bce4bc746bcE.exit", %"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitInt$GT$17he89f7074a65acaeaE.exit", %22, %20, %18, %16, %1
+"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h7bbe7bc4e754db60E.exit": ; preds = %"_ZN4core3ptr51drop_in_place$LT$proc_macro2..fallback..Literal$GT$17h3abe767333b7ed7bE.llvm.8351105841907204142.exit.i.i", %6, %1, %"_ZN4core3ptr39drop_in_place$LT$syn..lit..LitFloat$GT$17h22512bce4bc746bcE.exit", %"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitInt$GT$17he89f7074a65acaeaE.exit", %22, %20, %18, %16
   ret void
 }
 
@@ -1229,11 +1233,15 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17
   %5 = add i64 %4, 9223372036854775807
   %6 = icmp ult i64 %5, 4
   %7 = select i1 %6, i64 %5, i64 1
-  switch i64 %7, label %8 [
+  switch i64 %7, label %.unreachabledefault [
     i64 0, label %20
     i64 1, label %35
     i64 2, label %"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h7bbe7bc4e754db60E.exit"
+    i64 3, label %8
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8

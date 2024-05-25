@@ -5349,10 +5349,11 @@ if.end46:                                         ; preds = %if.then36
 if.end52:                                         ; preds = %if.end46, %if.end34
   %windowSize27.0 = phi i32 [ 0, %if.end34 ], [ %add51, %if.end46 ]
   %pos.0 = phi i64 [ 5, %if.end34 ], [ 6, %if.end46 ]
-  switch i32 %and.i, label %sw.epilog [
+  switch i32 %and.i, label %default.unreachable [
     i32 3, label %sw.bb62
     i32 1, label %sw.bb53
     i32 2, label %sw.bb57
+    i32 0, label %sw.epilog
   ]
 
 sw.bb53:                                          ; preds = %if.end52
@@ -5375,13 +5376,17 @@ sw.bb62:                                          ; preds = %if.end52
   %add65 = add nuw nsw i64 %pos.0, 4
   br label %sw.epilog
 
+default.unreachable:                              ; preds = %sw.epilog, %if.end52
+  unreachable
+
 sw.epilog:                                        ; preds = %if.end52, %sw.bb62, %sw.bb57, %sw.bb53
-  %dictID.0 = phi i32 [ 0, %if.end52 ], [ %conv60, %sw.bb57 ], [ %conv55, %sw.bb53 ], [ %add.ptr63.val, %sw.bb62 ]
+  %dictID.0 = phi i32 [ %and.i, %if.end52 ], [ %conv60, %sw.bb57 ], [ %conv55, %sw.bb53 ], [ %add.ptr63.val, %sw.bb62 ]
   %pos.1 = phi i64 [ %pos.0, %if.end52 ], [ %add61, %sw.bb57 ], [ %inc56, %sw.bb53 ], [ %add65, %sw.bb62 ]
-  switch i32 %shr4.i, label %sw.bb67 [
+  switch i32 %shr4.i, label %default.unreachable [
     i32 3, label %sw.bb83
     i32 1, label %sw.bb73
     i32 2, label %sw.bb79
+    i32 0, label %sw.bb67
   ]
 
 sw.bb67:                                          ; preds = %sw.epilog
@@ -5818,7 +5823,7 @@ if.end280.i:                                      ; preds = %sw.bb259.i, %sw.bb2
   %conv291.i = zext nneg i32 %add290.i to i64
   br label %if.end3
 
-default.unreachable:                              ; preds = %if.end.i
+default.unreachable:                              ; preds = %if.end50.i.i, %if.end41.i.i, %if.end29.i.i, %if.end.i
   unreachable
 
 if.end3:                                          ; preds = %if.end280.i, %if.end230.i, %if.end215.i, %if.end157.i, %if.end97.i
@@ -5902,10 +5907,11 @@ if.end29.i.i:                                     ; preds = %if.end24.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tableLog.i.i.i)
   call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %norm.i.i.i)
   store i32 35, ptr %max.addr.i.i.i, align 4
-  switch i32 %shr.i.i, label %sw.bb10.i.i.i [
+  switch i32 %shr.i.i, label %default.unreachable [
     i32 1, label %if.end.i.i.i
     i32 0, label %sw.bb4.i.i.i
     i32 2, label %ZSTDv07_buildSeqTable.exit.i.i
+    i32 3, label %sw.bb10.i.i.i
   ]
 
 if.end.i.i.i:                                     ; preds = %if.end29.i.i
@@ -6087,10 +6093,11 @@ if.end41.i.i:                                     ; preds = %ZSTDv07_buildSeqTab
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tableLog.i42.i.i)
   call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %norm.i43.i.i)
   store i32 28, ptr %max.addr.i41.i.i, align 4
-  switch i32 %and.i.i, label %sw.bb10.i60.i.i [
+  switch i32 %and.i.i, label %default.unreachable [
     i32 1, label %sw.bb.i50.i.i
     i32 0, label %sw.bb4.i48.i.i
     i32 2, label %ZSTDv07_buildSeqTable.exit67.i.i
+    i32 3, label %sw.bb10.i60.i.i
   ]
 
 sw.bb.i50.i.i:                                    ; preds = %if.end41.i.i
@@ -6274,10 +6281,11 @@ if.end50.i.i:                                     ; preds = %ZSTDv07_buildSeqTab
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tableLog.i71.i.i)
   call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %norm.i72.i.i)
   store i32 52, ptr %max.addr.i70.i.i, align 4
-  switch i32 %and35.i.i, label %sw.bb10.i89.i.i [
+  switch i32 %and35.i.i, label %default.unreachable [
     i32 1, label %sw.bb.i79.i.i
     i32 0, label %sw.bb4.i77.i.i
     i32 2, label %ZSTDv07_buildSeqTable.exit96.i.i
+    i32 3, label %sw.bb10.i89.i.i
   ]
 
 sw.bb.i79.i.i:                                    ; preds = %if.end50.i.i

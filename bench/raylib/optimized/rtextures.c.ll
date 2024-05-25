@@ -1996,10 +1996,11 @@ stbi__zreceive.exit30.i:                          ; preds = %stbi__zget8.exit.i.
   store i32 %86, ptr %37, align 4
   %87 = add nsw i32 %82, -2
   store i32 %87, ptr %36, align 8
-  switch i32 %85, label %190 [
+  switch i32 %85, label %default.unreachable [
     i32 0, label %88
     i32 3, label %stbi__parse_zlib.exit
     i32 1, label %186
+    i32 2, label %190
   ]
 
 88:                                               ; preds = %stbi__zreceive.exit30.i
@@ -2010,21 +2011,21 @@ stbi__zreceive.exit30.i:                          ; preds = %stbi__zget8.exit.i.
 
 90:                                               ; preds = %88
   %91 = icmp slt i32 %87, %89
-  br i1 %91, label %.preheader166.i, label %stbi__zreceive.exit.i.i
+  br i1 %91, label %.preheader.i, label %stbi__zreceive.exit.i.i
 
-.preheader166.i:                                  ; preds = %90, %stbi__zget8.exit.i.i.i.i
+.preheader.i:                                     ; preds = %90, %stbi__zget8.exit.i.i.i.i
   %92 = phi i32 [ %104, %stbi__zget8.exit.i.i.i.i ], [ %87, %90 ]
   %93 = phi i32 [ %103, %stbi__zget8.exit.i.i.i.i ], [ %86, %90 ]
   %.highbits.i.i.i.i = lshr i32 %93, %92
   %.not.i.i.i.i = icmp eq i32 %.highbits.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %96, label %94
 
-94:                                               ; preds = %.preheader166.i
+94:                                               ; preds = %.preheader.i
   %95 = load ptr, ptr %38, align 8
   store ptr %95, ptr %0, align 8
   br label %stbi__zreceive.exit.i.i
 
-96:                                               ; preds = %.preheader166.i
+96:                                               ; preds = %.preheader.i
   %.val.i.i.i.i.i = load ptr, ptr %0, align 8
   %.val2.i.i.i.i.i = load ptr, ptr %38, align 8
   %.not3.i.i.i.i.i = icmp ult ptr %.val.i.i.i.i.i, %.val2.i.i.i.i.i
@@ -2045,7 +2046,7 @@ stbi__zget8.exit.i.i.i.i:                         ; preds = %97, %96
   %104 = add nsw i32 %92, 8
   store i32 %104, ptr %36, align 8
   %105 = icmp slt i32 %92, 17
-  br i1 %105, label %.preheader166.i, label %stbi__zreceive.exit.i.i
+  br i1 %105, label %.preheader.i, label %stbi__zreceive.exit.i.i
 
 stbi__zreceive.exit.i.i:                          ; preds = %stbi__zget8.exit.i.i.i.i, %94, %90
   %106 = phi i32 [ %92, %94 ], [ %87, %90 ], [ %104, %stbi__zget8.exit.i.i.i.i ]
@@ -2232,26 +2233,29 @@ stbi__parse_uncompressed_block.exit.i:            ; preds = %stbi__zexpand.exit.
   %.not19.i = icmp eq i32 %189, 0
   br i1 %.not19.i, label %stbi__parse_zlib.exit, label %383
 
+default.unreachable:                              ; preds = %stbi__zreceive.exit30.i
+  unreachable
+
 190:                                              ; preds = %stbi__zreceive.exit30.i
   call void @llvm.lifetime.start.p0(i64 2020, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 455, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %8)
   %191 = icmp slt i32 %82, 7
-  br i1 %191, label %.preheader165.i, label %stbi__zreceive.exit.i36.i
+  br i1 %191, label %.preheader166.i, label %stbi__zreceive.exit.i36.i
 
-.preheader165.i:                                  ; preds = %190, %stbi__zget8.exit.i.i.i48.i
+.preheader166.i:                                  ; preds = %190, %stbi__zget8.exit.i.i.i48.i
   %192 = phi i32 [ %204, %stbi__zget8.exit.i.i.i48.i ], [ %87, %190 ]
   %193 = phi i32 [ %203, %stbi__zget8.exit.i.i.i48.i ], [ %86, %190 ]
   %.highbits.i.i.i43.i = lshr i32 %193, %192
   %.not.i.i.i44.i = icmp eq i32 %.highbits.i.i.i43.i, 0
   br i1 %.not.i.i.i44.i, label %196, label %194
 
-194:                                              ; preds = %.preheader165.i
+194:                                              ; preds = %.preheader166.i
   %195 = load ptr, ptr %38, align 8
   store ptr %195, ptr %0, align 8
   br label %stbi__zreceive.exit.i36.i
 
-196:                                              ; preds = %.preheader165.i
+196:                                              ; preds = %.preheader166.i
   %.val.i.i.i.i45.i = load ptr, ptr %0, align 8
   %.val2.i.i.i.i46.i = load ptr, ptr %38, align 8
   %.not3.i.i.i.i47.i = icmp ult ptr %.val.i.i.i.i45.i, %.val2.i.i.i.i46.i
@@ -2272,7 +2276,7 @@ stbi__zget8.exit.i.i.i48.i:                       ; preds = %197, %196
   %204 = add nsw i32 %192, 8
   store i32 %204, ptr %36, align 8
   %205 = icmp slt i32 %192, 17
-  br i1 %205, label %.preheader165.i, label %stbi__zreceive.exit.i36.i
+  br i1 %205, label %.preheader166.i, label %stbi__zreceive.exit.i36.i
 
 stbi__zreceive.exit.i36.i:                        ; preds = %stbi__zget8.exit.i.i.i48.i, %194, %190
   %206 = phi i32 [ %192, %194 ], [ %87, %190 ], [ %204, %stbi__zget8.exit.i.i.i48.i ]
@@ -2284,21 +2288,21 @@ stbi__zreceive.exit.i36.i:                        ; preds = %stbi__zget8.exit.i.
   store i32 %210, ptr %36, align 8
   %211 = add nuw nsw i32 %208, 257
   %212 = icmp slt i32 %206, 10
-  br i1 %212, label %.preheader164.i, label %stbi__zreceive.exit60.i.i
+  br i1 %212, label %.preheader165.i, label %stbi__zreceive.exit60.i.i
 
-.preheader164.i:                                  ; preds = %stbi__zreceive.exit.i36.i, %stbi__zget8.exit.i.i59.i.i
+.preheader165.i:                                  ; preds = %stbi__zreceive.exit.i36.i, %stbi__zget8.exit.i.i59.i.i
   %213 = phi i32 [ %225, %stbi__zget8.exit.i.i59.i.i ], [ %210, %stbi__zreceive.exit.i36.i ]
   %214 = phi i32 [ %224, %stbi__zget8.exit.i.i59.i.i ], [ %209, %stbi__zreceive.exit.i36.i ]
   %.highbits.i.i54.i.i = lshr i32 %214, %213
   %.not.i.i55.i.i = icmp eq i32 %.highbits.i.i54.i.i, 0
   br i1 %.not.i.i55.i.i, label %217, label %215
 
-215:                                              ; preds = %.preheader164.i
+215:                                              ; preds = %.preheader165.i
   %216 = load ptr, ptr %38, align 8
   store ptr %216, ptr %0, align 8
   br label %stbi__zreceive.exit60.i.i
 
-217:                                              ; preds = %.preheader164.i
+217:                                              ; preds = %.preheader165.i
   %.val.i.i.i56.i.i = load ptr, ptr %0, align 8
   %.val2.i.i.i57.i.i = load ptr, ptr %38, align 8
   %.not3.i.i.i58.i.i = icmp ult ptr %.val.i.i.i56.i.i, %.val2.i.i.i57.i.i
@@ -2319,7 +2323,7 @@ stbi__zget8.exit.i.i59.i.i:                       ; preds = %218, %217
   %225 = add nsw i32 %213, 8
   store i32 %225, ptr %36, align 8
   %226 = icmp slt i32 %213, 17
-  br i1 %226, label %.preheader164.i, label %stbi__zreceive.exit60.i.i
+  br i1 %226, label %.preheader165.i, label %stbi__zreceive.exit60.i.i
 
 stbi__zreceive.exit60.i.i:                        ; preds = %stbi__zget8.exit.i.i59.i.i, %215, %stbi__zreceive.exit.i36.i
   %227 = phi i32 [ %213, %215 ], [ %210, %stbi__zreceive.exit.i36.i ], [ %225, %stbi__zget8.exit.i.i59.i.i ]
@@ -2331,21 +2335,21 @@ stbi__zreceive.exit60.i.i:                        ; preds = %stbi__zget8.exit.i.
   store i32 %231, ptr %36, align 8
   %232 = add nuw nsw i32 %229, 1
   %233 = icmp slt i32 %227, 9
-  br i1 %233, label %.preheader.i, label %stbi__zreceive.exit68.i.i
+  br i1 %233, label %.preheader164.i, label %stbi__zreceive.exit68.i.i
 
-.preheader.i:                                     ; preds = %stbi__zreceive.exit60.i.i, %stbi__zget8.exit.i.i67.i.i
+.preheader164.i:                                  ; preds = %stbi__zreceive.exit60.i.i, %stbi__zget8.exit.i.i67.i.i
   %234 = phi i32 [ %246, %stbi__zget8.exit.i.i67.i.i ], [ %231, %stbi__zreceive.exit60.i.i ]
   %235 = phi i32 [ %245, %stbi__zget8.exit.i.i67.i.i ], [ %230, %stbi__zreceive.exit60.i.i ]
   %.highbits.i.i62.i.i = lshr i32 %235, %234
   %.not.i.i63.i.i = icmp eq i32 %.highbits.i.i62.i.i, 0
   br i1 %.not.i.i63.i.i, label %238, label %236
 
-236:                                              ; preds = %.preheader.i
+236:                                              ; preds = %.preheader164.i
   %237 = load ptr, ptr %38, align 8
   store ptr %237, ptr %0, align 8
   br label %stbi__zreceive.exit68.i.i
 
-238:                                              ; preds = %.preheader.i
+238:                                              ; preds = %.preheader164.i
   %.val.i.i.i64.i.i = load ptr, ptr %0, align 8
   %.val2.i.i.i65.i.i = load ptr, ptr %38, align 8
   %.not3.i.i.i66.i.i = icmp ult ptr %.val.i.i.i64.i.i, %.val2.i.i.i65.i.i
@@ -2366,7 +2370,7 @@ stbi__zget8.exit.i.i67.i.i:                       ; preds = %239, %238
   %246 = add nsw i32 %234, 8
   store i32 %246, ptr %36, align 8
   %247 = icmp slt i32 %234, 17
-  br i1 %247, label %.preheader.i, label %stbi__zreceive.exit68.i.i
+  br i1 %247, label %.preheader164.i, label %stbi__zreceive.exit68.i.i
 
 stbi__zreceive.exit68.i.i:                        ; preds = %stbi__zget8.exit.i.i67.i.i, %236, %stbi__zreceive.exit60.i.i
   %248 = phi i32 [ %234, %236 ], [ %231, %stbi__zreceive.exit60.i.i ], [ %246, %stbi__zget8.exit.i.i67.i.i ]

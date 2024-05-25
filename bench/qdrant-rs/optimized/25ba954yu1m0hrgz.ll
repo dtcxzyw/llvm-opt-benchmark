@@ -24,11 +24,15 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$io..file_operations
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %7, label %9 [
+  switch i64 %7, label %default.unreachable1 [
     i64 0, label %18
     i64 1, label %23
     i64 2, label %42
+    i64 3, label %9
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !6

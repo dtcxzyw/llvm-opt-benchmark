@@ -26405,11 +26405,15 @@ define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Resu
 5:                                                ; preds = %1
   %6 = add i64 %4, 9223372036854775803
   %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 3)
-  switch i64 %7, label %8 [
+  switch i64 %7, label %default.unreachable [
     i64 0, label %9
     i64 1, label %"_ZN4core3ptr65drop_in_place$LT$lsp_types..window..MessageActionItemProperty$GT$17hc75bdadfaeb70b14E.exit"
     i64 2, label %"_ZN4core3ptr65drop_in_place$LT$lsp_types..window..MessageActionItemProperty$GT$17hc75bdadfaeb70b14E.exit"
+    i64 3, label %8
   ]
+
+default.unreachable:                              ; preds = %5
+  unreachable
 
 8:                                                ; preds = %5
   tail call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17ha0ac8ddd059f5d14E.llvm.4410324582955345377"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)

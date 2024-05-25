@@ -3763,16 +3763,20 @@ dissect_nodeinfo.exit:                            ; preds = %.lr.ph.i678, %804, 
   %1006 = load i32, ptr @hf_icmpv6_rpl_secure_counter, align 4
   %1007 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %1006, ptr noundef %0, i32 noundef %1005, i32 noundef 4, i32 noundef 0) #6
   %1008 = add i32 %.1629, 8
-  switch i8 %1000, label %1017 [
+  switch i8 %1000, label %default.unreachable [
     i8 0, label %.sink.split.i
     i8 3, label %1009
     i8 2, label %.sink.split.sink.split.i
+    i8 1, label %1017
   ]
 
 1009:                                             ; preds = %988
   %1010 = and i8 %1001, 5
   %or.cond.i = icmp eq i8 %1010, 1
   br i1 %or.cond.i, label %.sink.split.sink.split.i, label %1017
+
+default.unreachable:                              ; preds = %1226, %988
+  unreachable
 
 .sink.split.sink.split.i:                         ; preds = %1009, %988
   %1011 = load i32, ptr @hf_icmpv6_rpl_secure_key_source, align 4
@@ -4104,9 +4108,6 @@ dissect_nodeinfo.exit:                            ; preds = %.lr.ph.i678, %804, 
 1236:                                             ; preds = %1226
   %1237 = call ptr @tvb_address_to_str(ptr noundef %1227, ptr noundef %0, i32 noundef 3, i32 noundef %1215) #6
   br label %1238
-
-default.unreachable:                              ; preds = %1226
-  unreachable
 
 1238:                                             ; preds = %1236, %1234, %1230, %1228
   %.1.i688 = phi ptr [ %1237, %1236 ], [ %1235, %1234 ], [ %1233, %1230 ], [ %1229, %1228 ]

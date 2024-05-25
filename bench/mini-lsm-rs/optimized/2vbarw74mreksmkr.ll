@@ -10107,13 +10107,17 @@ default.unreachable10:                            ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN8mini_lsm7compact20CompactionController23apply_compaction_result17h06a06b101eaf335fE(ptr noalias nocapture noundef sret({ { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { i64, ptr }, i64 } }) align 8 dereferenceable(152) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(128) %2, ptr noalias noundef readonly align 8 dereferenceable(88) %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5) unnamed_addr #0 {
   %7 = load i64, ptr %1, align 8, !range !3074, !noundef !7
-  switch i64 %7, label %8 [
+  switch i64 %7, label %default.unreachable1 [
     i64 0, label %9
     i64 1, label %12
     i64 2, label %15
+    i64 3, label %8
   ]
 
-8:                                                ; preds = %15, %12, %9, %6
+default.unreachable1:                             ; preds = %6
+  unreachable
+
+8:                                                ; preds = %6, %15, %12, %9
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a2529cd21221c1486fc2948c80b8cecc.0.llvm.8515880784993868172, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2529cd21221c1486fc2948c80b8cecc.137.llvm.8515880784993868172) #28
   unreachable
 
@@ -10154,12 +10158,9 @@ define void @_ZN8mini_lsm7compact20CompactionController23apply_compaction_result
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN8mini_lsm7compact20CompactionController11flush_to_l017h9c9d909922d7afc9E(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #8 {
-switch.lookup:
-  %1 = load i64, ptr %0, align 8, !range !3074, !noundef !7
-  %switch.cast = trunc nuw nsw i64 %1 to i4
-  %switch.downshift = lshr i4 -3, %switch.cast
-  %switch.masked = trunc i4 %switch.downshift to i1
-  ret i1 %switch.masked
+  %2 = load i64, ptr %0, align 8, !range !3074, !noundef !7
+  %switch = icmp ne i64 %2, 1
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -1378,10 +1378,11 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i.i: ; preds
 128:                                              ; preds = %122
   store i64 -1, ptr %124, align 8, !noalias !248
   %129 = getelementptr inbounds i8, ptr %.val349.i, i64 24
-  switch i8 %77, label %458 [
+  switch i8 %77, label %default.unreachable [
     i8 1, label %130
     i8 2, label %203
     i8 3, label %.thread.i
+    i8 0, label %458
   ]
 
 130:                                              ; preds = %128
@@ -2423,6 +2424,9 @@ _ZN15actix_multipart6server14InnerMultipart13read_boundary17h45c533dd8c15961dE.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.28.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.434.i.sroa.5.0..sroa_idx.i, i64 7, i1 false), !noalias !448
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !446
   br label %400
+
+default.unreachable:                              ; preds = %128
+  unreachable
 
 458:                                              ; preds = %128
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.5007fb1ca41d1123f19426ceed96f3e3.46, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5007fb1ca41d1123f19426ceed96f3e3.47) #16

@@ -5667,11 +5667,15 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Messa
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault.i [
     i64 0, label %"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440.exit"
     i64 1, label %11
     i64 2, label %"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440.exit"
+    i64 3, label %6
   ]
+
+.unreachabledefault.i:                            ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8222,11 +8226,15 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..Messa
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %"_ZN4core3ptr48drop_in_place$LT$rustls..msgs..base..Payload$GT$17h1a521351922f61f4E.llvm.4248407042397360440.exit"
     i64 1, label %11
     i64 2, label %"_ZN4core3ptr48drop_in_place$LT$rustls..msgs..base..Payload$GT$17h1a521351922f61f4E.llvm.4248407042397360440.exit"
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12058,11 +12066,15 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..Han
   %63 = load i64, ptr %61, align 8, !range !5540, !alias.scope !5541, !noalias !5533, !noundef !4
   %64 = add i64 %63, 9223372036854775807
   %65 = tail call i64 @llvm.umin.i64(i64 %64, i64 3)
-  switch i64 %65, label %66 [
+  switch i64 %65, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..handshake..HelloRetryExtension$GT$17h1f6e1988a811b22eE.llvm.4248407042397360440.exit.i.i.i.i"
     i64 1, label %69
     i64 2, label %"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..handshake..HelloRetryExtension$GT$17h1f6e1988a811b22eE.llvm.4248407042397360440.exit.i.i.i.i"
+    i64 3, label %66
   ]
+
+default.unreachable:                              ; preds = %.lr.ph.i.i.i.i3
+  unreachable
 
 66:                                               ; preds = %.lr.ph.i.i.i.i3
   switch i64 %63, label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit.sink.split.i.i.i.i.i" [
@@ -13361,11 +13373,15 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$rustls..msgs..handshake..Hel
   %9 = load i64, ptr %7, align 8, !range !5540, !alias.scope !6407, !noalias !6400, !noundef !4
   %10 = add i64 %9, 9223372036854775807
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 3)
-  switch i64 %11, label %12 [
+  switch i64 %11, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..handshake..HelloRetryExtension$GT$17h1f6e1988a811b22eE.llvm.4248407042397360440.exit.i.i.i"
     i64 1, label %15
     i64 2, label %"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..handshake..HelloRetryExtension$GT$17h1f6e1988a811b22eE.llvm.4248407042397360440.exit.i.i.i"
+    i64 3, label %12
   ]
+
+default.unreachable:                              ; preds = %.lr.ph.i.i.i
+  unreachable
 
 12:                                               ; preds = %.lr.ph.i.i.i
   switch i64 %9, label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit.sink.split.i.i.i.i" [
@@ -14159,11 +14175,15 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..handshake..Hel
   %2 = load i64, ptr %0, align 8, !range !5540, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 3)
-  switch i64 %4, label %5 [
+  switch i64 %4, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit"
     i64 1, label %8
     i64 2, label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit"
+    i64 3, label %5
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   switch i64 %2, label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit.sink.split" [
@@ -18068,11 +18088,15 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$$u5b$rustls..msgs..handshake
   %6 = load i64, ptr %4, align 8, !range !5540, !alias.scope !9142, !noundef !4
   %7 = add i64 %6, 9223372036854775807
   %8 = tail call i64 @llvm.umin.i64(i64 %7, i64 3)
-  switch i64 %8, label %9 [
+  switch i64 %8, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..handshake..HelloRetryExtension$GT$17h1f6e1988a811b22eE.llvm.4248407042397360440.exit"
     i64 1, label %12
     i64 2, label %"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..handshake..HelloRetryExtension$GT$17h1f6e1988a811b22eE.llvm.4248407042397360440.exit"
+    i64 3, label %9
   ]
+
+default.unreachable:                              ; preds = %.lr.ph
+  unreachable
 
 9:                                                ; preds = %.lr.ph
   switch i64 %6, label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit.sink.split.i" [
@@ -20911,11 +20935,15 @@ define hidden void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$rustls..m
   %9 = load i64, ptr %7, align 8, !range !5540, !alias.scope !10540, !noalias !10531, !noundef !4
   %10 = add i64 %9, 9223372036854775807
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 3)
-  switch i64 %11, label %12 [
+  switch i64 %11, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..handshake..HelloRetryExtension$GT$17h1f6e1988a811b22eE.llvm.4248407042397360440.exit.i.i"
     i64 1, label %15
     i64 2, label %"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..handshake..HelloRetryExtension$GT$17h1f6e1988a811b22eE.llvm.4248407042397360440.exit.i.i"
+    i64 3, label %12
   ]
+
+default.unreachable:                              ; preds = %.lr.ph.i.i
+  unreachable
 
 12:                                               ; preds = %.lr.ph.i.i
   switch i64 %9, label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit.sink.split.i.i.i" [
@@ -24279,11 +24307,15 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %9 = load i64, ptr %7, align 8, !range !5540, !alias.scope !11463, !noundef !4
   %10 = add i64 %9, 9223372036854775807
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 3)
-  switch i64 %11, label %12 [
+  switch i64 %11, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..handshake..HelloRetryExtension$GT$17h1f6e1988a811b22eE.llvm.4248407042397360440.exit.i"
     i64 1, label %15
     i64 2, label %"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..handshake..HelloRetryExtension$GT$17h1f6e1988a811b22eE.llvm.4248407042397360440.exit.i"
+    i64 3, label %12
   ]
+
+default.unreachable:                              ; preds = %.lr.ph.i
+  unreachable
 
 12:                                               ; preds = %.lr.ph.i
   switch i64 %9, label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit.sink.split.i.i" [

@@ -1255,11 +1255,15 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$just..search_config
   %7 = load i64, ptr %6, align 8, !range !127, !noundef !13
   %8 = xor i64 %7, -9223372036854775808
   %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 3)
-  switch i64 %9, label %10 [
+  switch i64 %9, label %default.unreachable [
     i64 0, label %19
     i64 1, label %20
     i64 2, label %29
+    i64 3, label %10
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !128
@@ -1283,7 +1287,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$just..search_config
   tail call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %15, i64 noundef %12) #27
   br label %40
 
-19:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f8ab0c197ed5903E.exit6", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f8ab0c197ed5903E.exit4", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f8ab0c197ed5903E.exit2", %1
+19:                                               ; preds = %1, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f8ab0c197ed5903E.exit6", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f8ab0c197ed5903E.exit4", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f8ab0c197ed5903E.exit2"
   ret void
 
 20:                                               ; preds = %1

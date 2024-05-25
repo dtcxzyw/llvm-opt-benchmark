@@ -100,11 +100,15 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Bind
 
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  switch i64 %2, label %8 [
+  switch i64 %2, label %default.unreachable6.i [
     i64 0, label %"_ZN4core3ptr44drop_in_place$LT$mbe..expander..Fragment$GT$17h715e1b084d872ea1E.exit"
     i64 1, label %19
     i64 2, label %21
+    i64 3, label %8
   ]
+
+default.unreachable6.i:                           ; preds = %7
+  unreachable
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -122,10 +126,10 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Bind
   br i1 %15, label %common.resume.i, label %common.resume.sink.split.i
 
 common.resume.sink.split.i:                       ; preds = %26, %13
-  %.sink7.i = phi i64 [ %25, %26 ], [ %12, %13 ]
+  %.sink8.i = phi i64 [ %25, %26 ], [ %12, %13 ]
   %.sink.i = phi ptr [ %23, %26 ], [ %10, %13 ]
   %common.resume.op.ph.i = phi { ptr, i32 } [ %27, %26 ], [ %14, %13 ]
-  %16 = shl nsw i64 %.sink7.i, 6
+  %16 = shl nsw i64 %.sink8.i, 6
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink.i, i64 noundef %16, i64 noundef 8) #32, !noalias !17
   br label %common.resume.i
 

@@ -17948,11 +17948,15 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$openssl..ssl..bio..BioMethod
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !652, !noundef !4
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable5 [
     i64 0, label %5
     i64 1, label %9
     i64 2, label %15
+    i64 3, label %3
   ]
+
+default.unreachable5:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -18018,11 +18022,15 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Value
 
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5501)
-  switch i64 %2, label %6 [
+  switch i64 %2, label %default.unreachable5.i [
     i64 0, label %8
     i64 1, label %12
     i64 2, label %18
+    i64 3, label %6
   ]
+
+default.unreachable5.i:                           ; preds = %5
+  unreachable
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %0, i64 8

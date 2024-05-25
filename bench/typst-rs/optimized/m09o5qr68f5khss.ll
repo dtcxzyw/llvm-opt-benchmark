@@ -36888,11 +36888,15 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..It
   %8 = add nsw i64 %7, -8
   %9 = icmp ult i64 %8, 4
   %10 = select i1 %9, i64 %8, i64 1
-  switch i64 %10, label %11 [
+  switch i64 %10, label %.unreachabledefault [
     i64 0, label %"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17hacf19e32c26d9734E.exit"
     i64 1, label %29
     i64 2, label %125
+    i64 3, label %11
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 11:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9555)
@@ -36944,7 +36948,7 @@ common.resume:                                    ; preds = %127, %51, %73, %95,
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !9565
   br label %"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17hacf19e32c26d9734E.exit"
 
-"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17hacf19e32c26d9734E.exit": ; preds = %123, %"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17hfab69f380827c9bdE.exit.i", %"_ZN4core3ptr59drop_in_place$LT$toml_edit..repr..Formatted$LT$bool$GT$$GT$17ha5121c53ea938cf9E.exit.i", %"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$f64$GT$$GT$17h17fafcda2e72a7edE.exit.i", %"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$i64$GT$$GT$17h6792c32bbae37163E.exit.i", %33, %32, %"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17hc7a9fe1aee727d03E.exit", %"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h09e692004b45d24fE.exit", %1
+"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17hacf19e32c26d9734E.exit": ; preds = %123, %"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17hfab69f380827c9bdE.exit.i", %"_ZN4core3ptr59drop_in_place$LT$toml_edit..repr..Formatted$LT$bool$GT$$GT$17ha5121c53ea938cf9E.exit.i", %"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$f64$GT$$GT$17h17fafcda2e72a7edE.exit.i", %"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$i64$GT$$GT$17h6792c32bbae37163E.exit.i", %33, %32, %1, %"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17hc7a9fe1aee727d03E.exit", %"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h09e692004b45d24fE.exit"
   ret void
 
 29:                                               ; preds = %1
@@ -37304,11 +37308,15 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$typst..diag..FileEr
   ret void
 
 26:                                               ; preds = %1
-  switch i64 %3, label %27 [
+  switch i64 %3, label %default.unreachable7.i [
     i64 0, label %34
     i64 1, label %52
     i64 2, label %59
+    i64 3, label %27
   ]
+
+default.unreachable7.i:                           ; preds = %26
+  unreachable
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds i8, ptr %0, i64 8
@@ -37380,8 +37388,8 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$typst..diag..FileEr
   br i1 %or.cond.i4.i, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$ecow..string..EcoString$GT$$GT$17h4e9b0132a0da7286E.llvm.14728845296163125433.exit.sink.split.i", label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$ecow..string..EcoString$GT$$GT$17h4e9b0132a0da7286E.llvm.14728845296163125433.exit"
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$ecow..string..EcoString$GT$$GT$17h4e9b0132a0da7286E.llvm.14728845296163125433.exit.sink.split.i": ; preds = %59, %52, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit.i.i", %27
-  %.sink7.i = phi i64 [ 16, %27 ], [ 24, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit.i.i" ], [ 16, %52 ], [ 16, %59 ]
-  %66 = getelementptr inbounds i8, ptr %0, i64 %.sink7.i
+  %.sink8.i = phi i64 [ 16, %27 ], [ 24, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit.i.i" ], [ 16, %52 ], [ 16, %59 ]
+  %66 = getelementptr inbounds i8, ptr %0, i64 %.sink8.i
   tail call void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %66)
   br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$ecow..string..EcoString$GT$$GT$17h4e9b0132a0da7286E.llvm.14728845296163125433.exit"
 }
@@ -37929,11 +37937,15 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..V
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9924)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9927)
   %75 = load i64, ptr %74, align 8, !range !3225, !alias.scope !9930, !noundef !4
-  switch i64 %75, label %76 [
+  switch i64 %75, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..value..Dynamic$GT$17hf842add98afcce69E.exit"
     i64 1, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..value..Dynamic$GT$17hf842add98afcce69E.exit"
     i64 2, label %82
+    i64 3, label %76
   ]
+
+default.unreachable:                              ; preds = %73
+  unreachable
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %0, i64 16
@@ -38030,18 +38042,22 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..Ca
   %3 = add nsw i8 %2, -30
   %4 = icmp ult i8 %3, 4
   %narrow = select i1 %4, i8 %3, i8 1
-  switch i8 %narrow, label %5 [
+  switch i8 %narrow, label %.unreachabledefault [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %7
+    i8 3, label %5
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$typst..foundations..cast..CastInfo$GT$$GT$17heb93532ecd1ef353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   br label %7
 
-7:                                                ; preds = %8, %5, %1, %1
+7:                                                ; preds = %1, %1, %8, %5
   ret void
 
 8:                                                ; preds = %1

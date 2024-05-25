@@ -10299,7 +10299,7 @@ for.body:                                         ; preds = %_ZNRSt8optionalINSt
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75) #30
   %call77 = call noundef i32 @_ZN4node2fs11BindingData14FilePathIsFileEPNS_11EnvironmentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %file_path)
-  switch i32 %call77, label %default.unreachable249 [
+  switch i32 %call77, label %for.body.unreachabledefault [
     i32 0, label %if.then.i361
     i32 1, label %for.inc
     i32 2, label %cleanup170.critedge
@@ -10312,7 +10312,10 @@ if.then.i361:                                     ; preds = %for.body
   store i64 %shl.i758, ptr %arrayidx.i325, align 8
   br label %cleanup170.critedge
 
-default.unreachable249:                           ; preds = %for.body, %for.body103
+for.body.unreachabledefault:                      ; preds = %for.body
+  unreachable
+
+default.unreachable248:                           ; preds = %for.body103
   unreachable
 
 for.inc:                                          ; preds = %for.body
@@ -10449,8 +10452,8 @@ _ZNRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.ex
   br label %for.body103
 
 for.body103:                                      ; preds = %_ZNRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.exit153, %for.inc123
-  %indvars.iv245 = phi i64 [ 7, %_ZNRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.exit153 ], [ %indvars.iv.next246, %for.inc123 ]
-  %arrayidx.i.i154 = getelementptr inbounds [10 x %"class.std::basic_string_view"], ptr @_ZN4node2fs12_GLOBAL__N_122legacy_main_extensionsE, i64 0, i64 %indvars.iv245
+  %indvars.iv244 = phi i64 [ 7, %_ZNRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.exit153 ], [ %indvars.iv.next245, %for.inc123 ]
+  %arrayidx.i.i154 = getelementptr inbounds [10 x %"class.std::basic_string_view"], ptr @_ZN4node2fs12_GLOBAL__N_122legacy_main_extensionsE, i64 0, i64 %indvars.iv244
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp109) #30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i155)
   %agg.tmp3.sroa.0.0.copyload.i156 = load i64, ptr %arrayidx.i.i154, align 8
@@ -10471,7 +10474,7 @@ for.body103:                                      ; preds = %_ZNRSt8optionalINSt
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp106) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp109) #30
   %call111 = call noundef i32 @_ZN4node2fs11BindingData14FilePathIsFileEPNS_11EnvironmentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %file_path)
-  switch i32 %call111, label %default.unreachable249 [
+  switch i32 %call111, label %default.unreachable248 [
     i32 0, label %if.then.i350
     i32 1, label %for.inc123
     i32 2, label %cleanup170
@@ -10480,14 +10483,14 @@ for.body103:                                      ; preds = %_ZNRSt8optionalINSt
 if.then.i350:                                     ; preds = %for.body103
   %82 = load ptr, ptr %args, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %82, i64 24
-  %shl.i = shl nuw nsw i64 %indvars.iv245, 32
+  %shl.i = shl nuw nsw i64 %indvars.iv244, 32
   store i64 %shl.i, ptr %arrayidx.i, align 8
   br label %cleanup170
 
 for.inc123:                                       ; preds = %for.body103
-  %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
-  %exitcond248.not = icmp eq i64 %indvars.iv.next246, 10
-  br i1 %exitcond248.not, label %for.end125, label %for.body103, !llvm.loop !82
+  %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
+  %exitcond247.not = icmp eq i64 %indvars.iv.next245, 10
+  br i1 %exitcond247.not, label %for.end125, label %for.body103, !llvm.loop !82
 
 for.end125:                                       ; preds = %for.inc123
   call void @_ZN4node3url13FileURLToPathB5cxx11EPNS_11EnvironmentERKN3ada14url_aggregatorE(ptr nonnull sret(%"class.std::optional.377") align 8 %module_path, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(80) %package_json_url) #30

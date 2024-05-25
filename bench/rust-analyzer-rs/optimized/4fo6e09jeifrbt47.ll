@@ -15999,11 +15999,15 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$ide_db..source_chan
   %2 = load i64, ptr %0, align 8, !range !3761, !noundef !4
   %3 = xor i64 %2, -9223372036854775808
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 3)
-  switch i64 %4, label %5 [
+  switch i64 %4, label %default.unreachable [
     i64 0, label %6
     i64 1, label %12
     i64 2, label %18
+    i64 3, label %5
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   tail call void @"_ZN4core3ptr215drop_in_place$LT$alloc..vec..Vec$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h7220937cff5b4d90E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)

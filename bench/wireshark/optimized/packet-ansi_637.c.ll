@@ -2468,10 +2468,11 @@ define internal void @tele_param_msg_status(ptr noundef %0, ptr noundef %1, ptr 
   %15 = zext i8 %14 to i32
   %16 = and i8 %14, 63
   %17 = lshr i32 %15, 6
-  switch i32 %17, label %35 [
+  switch i32 %17, label %default.unreachable25 [
     i32 0, label %18
     i32 2, label %20
     i32 3, label %24
+    i32 1, label %35
   ]
 
 18:                                               ; preds = %9
@@ -2533,6 +2534,9 @@ define internal void @tele_param_msg_status(ptr noundef %0, ptr noundef %1, ptr 
 
 33:                                               ; preds = %24
   br label %35
+
+default.unreachable25:                            ; preds = %9
+  unreachable
 
 switch.lookup:                                    ; preds = %18
   %34 = zext nneg i8 %16 to i64

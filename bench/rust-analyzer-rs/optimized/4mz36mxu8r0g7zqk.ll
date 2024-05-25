@@ -3196,12 +3196,16 @@ common.resume:                                    ; preds = %116, %149, %15, %20
   %120 = load <2 x i32>, ptr %.sroa.12.0..sroa_idx14.i.i.i, align 8, !noalias !1063
   %.sroa.12.sroa.6.0..sroa.12.0..sroa_idx14.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %118, i64 32
   %.sroa.12.sroa.6.0.copyload.i.i.i = load i8, ptr %.sroa.12.sroa.6.0..sroa.12.0..sroa_idx14.sroa_idx.i.i.i, align 8, !noalias !1063
-  switch i32 %.sroa.0.0.copyload4.i.i.i, label %121 [
+  switch i32 %.sroa.0.0.copyload4.i.i.i, label %default.unreachable.i.i.i.i.i.i [
     i32 4, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cba97d36392d5f5E.exit.thread.i.i.loopexit.i"
     i32 0, label %126
     i32 1, label %132
     i32 2, label %138
+    i32 3, label %121
   ]
+
+default.unreachable.i.i.i.i.i.i:                  ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cba97d36392d5f5E.exit.i.i.i"
+  unreachable
 
 121:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cba97d36392d5f5E.exit.i.i.i"
   %.sroa.11.0..sroa_idx12.i.i.i = getelementptr inbounds i8, ptr %118, i64 16

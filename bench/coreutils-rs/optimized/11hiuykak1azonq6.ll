@@ -1517,11 +1517,15 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$uu_expr..syntax_tre
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i8, ptr %0, align 8, !range !290, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i8 %3, label %5 [
+  switch i8 %3, label %default.unreachable22 [
     i8 0, label %9
     i8 1, label %17
     i8 2, label %21
+    i8 3, label %5
   ]
+
+default.unreachable22:                            ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !291)

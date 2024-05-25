@@ -7984,11 +7984,15 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6862c88b7961e0
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !range !1377, !alias.scope !1378, !noundef !4
-  switch i64 %6, label %7 [
+  switch i64 %6, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr92drop_in_place$LT$$LP$typst..foundations..func..Func$C$typst..foundations..args..Args$RP$$GT$17h436129e6ae4dc829E.exit"
     i64 1, label %"_ZN4core3ptr92drop_in_place$LT$$LP$typst..foundations..func..Func$C$typst..foundations..args..Args$RP$$GT$17h436129e6ae4dc829E.exit"
     i64 2, label %13
+    i64 3, label %7
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %4, i64 24

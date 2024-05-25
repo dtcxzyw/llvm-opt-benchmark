@@ -6330,13 +6330,16 @@ define hidden noundef i8 @_ZN16wasmtime_runtime5table5Table9init_func17habc4c6d8
   %.val2.i.i = load i32, ptr %29, align 4, !range !843, !noalias !844, !noundef !4
   %30 = getelementptr i8, ptr %29, i64 4
   %.val3.i.i = load i32, ptr %30, align 4, !noalias !844
-  switch i32 %.val2.i.i, label %default.unreachable [
+  switch i32 %.val2.i.i, label %.unreachabledefault [
     i32 0, label %31
     i32 1, label %34
     i32 2, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h1a202569135eb2ddE.exit"
   ]
 
-default.unreachable:                              ; preds = %27, %41
+.unreachabledefault:                              ; preds = %27
+  unreachable
+
+default.unreachable:                              ; preds = %41
   unreachable
 
 31:                                               ; preds = %27
@@ -6677,13 +6680,16 @@ define hidden noundef i8 @_ZN16wasmtime_runtime5table5Table12init_gc_refs17hdcce
   %32 = add nuw nsw i64 %.sroa.10.056, 1
   %33 = getelementptr inbounds { i32, [1 x i32] }, ptr %.sroa.036.sroa.0.0.copyload, i64 %.sroa.10.056
   %.val2.i.i = load i32, ptr %33, align 4, !range !843, !noalias !902, !noundef !4
-  switch i32 %.val2.i.i, label %default.unreachable [
+  switch i32 %.val2.i.i, label %.unreachabledefault [
     i32 0, label %34
     i32 1, label %35
     i32 2, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h0f31dec6776bd883E.exit"
   ]
 
-default.unreachable:                              ; preds = %31, %80
+.unreachabledefault:                              ; preds = %31
+  unreachable
+
+default.unreachable:                              ; preds = %80
   unreachable
 
 34:                                               ; preds = %31

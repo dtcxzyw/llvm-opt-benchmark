@@ -152,14 +152,18 @@ define void @Mvc_CoverPrintBinary(ptr nocapture noundef readonly %0) local_unnam
   %18 = and i32 %13, 30
   %19 = lshr i32 %17, %18
   %20 = and i32 %19, 3
-  switch i32 %20, label %22 [
+  switch i32 %20, label %default.unreachable [
     i32 0, label %Mvc_CubePrintBinary.exit
     i32 3, label %23
     i32 1, label %21
+    i32 2, label %22
   ]
 
 21:                                               ; preds = %12
   br label %23
+
+default.unreachable:                              ; preds = %12
+  unreachable
 
 22:                                               ; preds = %12
   br label %23

@@ -3460,7 +3460,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %.136 = phi i64 [ %2, %3 ], [ %14, %.preheader ]
   %.134 = phi ptr [ %0, %3 ], [ %15, %.preheader ]
   %.1 = phi i64 [ %1, %3 ], [ %16, %.preheader ]
-  switch i64 %.1, label %59 [
+  switch i64 %.1, label %.unreachabledefault [
     i64 7, label %18
     i64 6, label %23
     i64 5, label %29
@@ -3468,6 +3468,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
     i64 3, label %39
     i64 2, label %44
     i64 1, label %50
+    i64 0, label %59
   ]
 
 18:                                               ; preds = %.loopexit
@@ -3477,7 +3478,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %22 = shl nuw nsw i64 %21, 48
   br label %23
 
-23:                                               ; preds = %18, %.loopexit
+23:                                               ; preds = %.loopexit, %18
   %.031 = phi i64 [ 0, %.loopexit ], [ %22, %18 ]
   %24 = getelementptr i8, ptr %.134, i64 5
   %25 = load i8, ptr %24, align 1
@@ -3486,7 +3487,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %28 = or disjoint i64 %27, %.031
   br label %29
 
-29:                                               ; preds = %23, %.loopexit
+29:                                               ; preds = %.loopexit, %23
   %.132 = phi i64 [ 0, %.loopexit ], [ %28, %23 ]
   %30 = getelementptr i8, ptr %.134, i64 4
   %31 = load i8, ptr %30, align 1
@@ -3495,7 +3496,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %34 = or i64 %33, %.132
   br label %35
 
-35:                                               ; preds = %29, %.loopexit
+35:                                               ; preds = %.loopexit, %29
   %.2 = phi i64 [ 0, %.loopexit ], [ %34, %29 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %.134, i64 8) ]
   %36 = load i32, ptr %.134, align 8
@@ -3510,7 +3511,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %43 = shl nuw nsw i64 %42, 16
   br label %44
 
-44:                                               ; preds = %39, %.loopexit
+44:                                               ; preds = %.loopexit, %39
   %.3 = phi i64 [ 0, %.loopexit ], [ %43, %39 ]
   %45 = getelementptr i8, ptr %.134, i64 1
   %46 = load i8, ptr %45, align 1
@@ -3519,7 +3520,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %49 = or disjoint i64 %48, %.3
   br label %50
 
-50:                                               ; preds = %44, %.loopexit
+50:                                               ; preds = %.loopexit, %44
   %.4 = phi i64 [ 0, %.loopexit ], [ %49, %44 ]
   %51 = load i8, ptr %.134, align 1
   %52 = zext i8 %51 to i64
@@ -3534,7 +3535,10 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %58 = mul i64 %57, 5545529020109919103
   br label %59
 
-59:                                               ; preds = %54, %.loopexit
+.unreachabledefault:                              ; preds = %.loopexit
+  unreachable
+
+59:                                               ; preds = %.loopexit, %54
   %.237 = phi i64 [ %.136, %.loopexit ], [ %58, %54 ]
   %60 = xor i64 %.237, %1
   %61 = lshr i64 %60, 30
@@ -4656,7 +4660,7 @@ define internal i64 @strhash(i64 noundef %0) #16 {
   %.136.i = phi i64 [ 2166136261, %1 ], [ %14, %.preheader.i ]
   %.134.i = phi ptr [ %2, %1 ], [ %15, %.preheader.i ]
   %.1.i = phi i64 [ %3, %1 ], [ %16, %.preheader.i ]
-  switch i64 %.1.i, label %rb_st_hash.exit [
+  switch i64 %.1.i, label %.unreachabledefault.i [
     i64 7, label %18
     i64 6, label %23
     i64 5, label %29
@@ -4664,6 +4668,7 @@ define internal i64 @strhash(i64 noundef %0) #16 {
     i64 3, label %39
     i64 2, label %44
     i64 1, label %50
+    i64 0, label %rb_st_hash.exit
   ]
 
 18:                                               ; preds = %.loopexit.i
@@ -4729,6 +4734,9 @@ define internal i64 @strhash(i64 noundef %0) #16 {
   %57 = sub i64 %55, %56
   %58 = mul i64 %57, 5545529020109919103
   br label %rb_st_hash.exit
+
+.unreachabledefault.i:                            ; preds = %.loopexit.i
+  unreachable
 
 rb_st_hash.exit:                                  ; preds = %.loopexit.i, %54
   %.237.i = phi i64 [ %.136.i, %.loopexit.i ], [ %58, %54 ]

@@ -16863,11 +16863,15 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$typst..loading..Rea
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr46drop_in_place$LT$typst..diag..PackageError$GT$17h4621ca20a4f912c0E.llvm.12777920187102919001"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !250, !noundef !16
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable7 [
     i64 0, label %10
     i64 1, label %28
     i64 2, label %35
+    i64 3, label %3
   ]
+
+default.unreachable7:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -16939,8 +16943,8 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$typst..diag..PackageError$GT
   br i1 %or.cond.i4, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$ecow..string..EcoString$GT$$GT$17h4e9b0132a0da7286E.llvm.12777920187102919001.exit.sink.split", label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$ecow..string..EcoString$GT$$GT$17h4e9b0132a0da7286E.llvm.12777920187102919001.exit"
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$ecow..string..EcoString$GT$$GT$17h4e9b0132a0da7286E.llvm.12777920187102919001.exit.sink.split": ; preds = %35, %28, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit.i", %3
-  %.sink7 = phi i64 [ 16, %3 ], [ 24, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit.i" ], [ 16, %28 ], [ 16, %35 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 %.sink7
+  %.sink8 = phi i64 [ 16, %3 ], [ 24, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit.i" ], [ 16, %28 ], [ 16, %35 ]
+  %42 = getelementptr inbounds i8, ptr %0, i64 %.sink8
   tail call void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %42)
   br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$ecow..string..EcoString$GT$$GT$17h4e9b0132a0da7286E.llvm.12777920187102919001.exit"
 
@@ -17388,11 +17392,15 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..V
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3674)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3677)
   %75 = load i64, ptr %74, align 8, !range !250, !alias.scope !3680, !noundef !16
-  switch i64 %75, label %76 [
+  switch i64 %75, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..value..Dynamic$GT$17hf842add98afcce69E.exit"
     i64 1, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..value..Dynamic$GT$17hf842add98afcce69E.exit"
     i64 2, label %82
+    i64 3, label %76
   ]
+
+default.unreachable:                              ; preds = %73
+  unreachable
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17494,18 +17502,22 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..Ca
   %3 = add nsw i8 %2, -30
   %4 = icmp ult i8 %3, 4
   %narrow = select i1 %4, i8 %3, i8 1
-  switch i8 %narrow, label %5 [
+  switch i8 %narrow, label %.unreachabledefault [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %7
+    i8 3, label %5
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$typst..foundations..cast..CastInfo$GT$$GT$17heb93532ecd1ef353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   br label %7
 
-7:                                                ; preds = %8, %5, %1, %1
+7:                                                ; preds = %1, %1, %8, %5
   ret void
 
 8:                                                ; preds = %1
@@ -17566,11 +17578,15 @@ define internal void @"_ZN4core3ptr56drop_in_place$LT$typst..model..numbering_..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3739)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3742)
   %20 = load i64, ptr %0, align 8, !range !250, !alias.scope !3745, !noundef !16
-  switch i64 %20, label %21 [
+  switch i64 %20, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr63drop_in_place$LT$typst..model..numbering_..NumberingPattern$GT$17h9b284622ed07ddf6E.exit"
     i64 1, label %"_ZN4core3ptr63drop_in_place$LT$typst..model..numbering_..NumberingPattern$GT$17h9b284622ed07ddf6E.exit"
     i64 2, label %27
+    i64 3, label %21
   ]
+
+default.unreachable:                              ; preds = %19
+  unreachable
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 8
@@ -56196,11 +56212,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h797708f33a282760
   %12 = add nsw i8 %11, -30
   %13 = icmp ult i8 %12, 4
   %narrow.i = select i1 %13, i8 %12, i8 1
-  switch i8 %narrow.i, label %14 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.12777920187102919001.exit"
     i8 1, label %16
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.12777920187102919001.exit"
+    i8 3, label %14
   ]
+
+.unreachabledefault.i:                            ; preds = %10
+  unreachable
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -56244,11 +56264,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17h7b04d5fd0c2d8ccc
   %8 = add nsw i8 %7, -30
   %9 = icmp ult i8 %8, 4
   %narrow.i = select i1 %9, i8 %8, i8 1
-  switch i8 %narrow.i, label %10 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.12777920187102919001.exit"
     i8 1, label %12
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.12777920187102919001.exit"
+    i8 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %6
+  unreachable
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -56304,11 +56328,15 @@ define hidden void @_ZN5typst11foundations4cast7Reflect5error17hfd5991d8bec7e703
   %12 = add nsw i8 %11, -30
   %13 = icmp ult i8 %12, 4
   %narrow.i = select i1 %13, i8 %12, i8 1
-  switch i8 %narrow.i, label %14 [
+  switch i8 %narrow.i, label %.unreachabledefault.i [
     i8 0, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.12777920187102919001.exit"
     i8 1, label %16
     i8 2, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..cast..CastInfo$GT$17h1ada62c17a51fa02E.llvm.12777920187102919001.exit"
+    i8 3, label %14
   ]
+
+.unreachabledefault.i:                            ; preds = %10
+  unreachable
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -59629,7 +59657,7 @@ _ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.exit.i.i.i.i.i.i: 
   store i64 %508, ptr %.sroa.412.0..sroa_idx.i.i.i36, align 8, !alias.scope !9653, !noalias !9652
   %509 = xor i64 %503, %498
   store i64 %509, ptr %9, align 8, !alias.scope !9645, !noalias !9652
-  switch i32 %497, label %520 [
+  switch i32 %497, label %default.unreachable [
     i32 0, label %.invoke.i.i
     i32 1, label %.invoke.i.i
     i32 2, label %.invoke.i.i
@@ -59637,7 +59665,11 @@ _ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.exit.i.i.i.i.i.i: 
     i32 5, label %514
     i32 6, label %516
     i32 7, label %518
+    i32 4, label %520
   ]
+
+default.unreachable:                              ; preds = %489
+  unreachable
 
 .invoke.i.i:                                      ; preds = %489, %489, %489
   %510 = getelementptr inbounds i8, ptr %15, i64 16
@@ -129058,10 +129090,11 @@ thread-pre-split:                                 ; preds = %42
   store i64 10, ptr %0, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28303)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28304)
-  switch i64 %.pre163.pre, label %173 [
+  switch i64 %.pre163.pre, label %default.unreachable.i [
     i64 0, label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
     i64 1, label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
     i64 2, label %177
+    i64 3, label %173
   ]
 
 .thread165:                                       ; preds = %165
@@ -129070,6 +129103,9 @@ thread-pre-split:                                 ; preds = %42
   %.sroa.5132.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %172, ptr %.sroa.5132.0..sroa_idx, align 8
   br label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
+
+default.unreachable.i:                            ; preds = %.noexc126
+  unreachable
 
 173:                                              ; preds = %.noexc126
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28308)
@@ -130796,11 +130832,15 @@ define void @"_ZN92_$LT$typst..foundations..element..Element$u20$as$u20$typst..f
   store i64 1, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28606)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28607)
-  switch i64 %.pre.pre, label %36 [
+  switch i64 %.pre.pre, label %default.unreachable.i [
     i64 0, label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
     i64 1, label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
     i64 2, label %40
+    i64 3, label %36
   ]
+
+default.unreachable.i:                            ; preds = %.noexc
+  unreachable
 
 36:                                               ; preds = %.noexc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28608)

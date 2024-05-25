@@ -951,20 +951,22 @@ if.end9:                                          ; preds = %for.body
   %14 = load i8, ptr %arrayidx11, align 1, !tbaa !20
   %conv12 = zext i8 %14 to i32
   %and13 = and i32 %conv12, 3
-  switch i32 %and13, label %sw.epilog [
+  switch i32 %and13, label %default.unreachable4 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb36
     i32 2, label %sw.bb52
+    i32 3, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.end9
   %shr14 = lshr i32 %13, 23
   %shr21 = lshr i32 %conv12, 4
   %and22 = and i32 %shr21, 3
-  switch i32 %and22, label %if.end26 [
+  switch i32 %and22, label %default.unreachable4 [
     i32 0, label %sw.bb.i
     i32 3, label %sw.bb6.i
     i32 2, label %sw.bb1.i
+    i32 1, label %if.end26
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb
@@ -989,15 +991,16 @@ cond.false.i:                                     ; preds = %sw.bb6.i
   %cmp12.i = icmp ult i32 %shr14, %conv.i
   br i1 %cmp12.i, label %if.end26, label %cleanup423
 
-if.end26:                                         ; preds = %cond.false.i, %cond.true.i, %sw.bb1.i, %sw.bb.i, %sw.bb
+if.end26:                                         ; preds = %sw.bb, %cond.false.i, %cond.true.i, %sw.bb1.i, %sw.bb.i
   %shr16 = lshr i32 %13, 14
   %and17 = and i32 %shr16, 511
   %16 = lshr i8 %14, 2
   %17 = and i8 %16, 3
-  switch i8 %17, label %sw.epilog [
+  switch i8 %17, label %default.unreachable4 [
     i8 0, label %sw.bb.i600
     i8 3, label %sw.bb6.i589
     i8 2, label %sw.bb1.i583
+    i8 1, label %sw.epilog
   ]
 
 sw.bb.i600:                                       ; preds = %if.end26
@@ -1080,7 +1083,10 @@ for.end:                                          ; preds = %for.inc, %for.body7
   %cmp96 = icmp eq i32 %and95, 0
   br i1 %cmp96, label %sw.epilog, label %cleanup423
 
-sw.epilog:                                        ; preds = %for.end, %if.end71, %sw.bb52, %if.then46, %sw.bb36, %cond.false.i596, %cond.true.i592, %sw.bb1.i583, %sw.bb.i600, %if.end26, %if.end9
+default.unreachable4:                             ; preds = %if.end26, %sw.bb, %if.end9
+  unreachable
+
+sw.epilog:                                        ; preds = %if.end26, %if.end9, %for.end, %if.end71, %sw.bb52, %if.then46, %sw.bb36, %cond.false.i596, %cond.true.i592, %sw.bb1.i583, %sw.bb.i600
   %c.0 = phi i32 [ 0, %if.end9 ], [ 0, %sw.bb52 ], [ 0, %if.then46 ], [ 0, %sw.bb36 ], [ 0, %for.end ], [ 0, %if.end71 ], [ %and17, %if.end26 ], [ 0, %sw.bb.i600 ], [ %and17, %sw.bb1.i583 ], [ %and17, %cond.true.i592 ], [ %and17, %cond.false.i596 ]
   %b.0 = phi i32 [ 0, %if.end9 ], [ %sub55, %sw.bb52 ], [ %shr37, %if.then46 ], [ %shr37, %sw.bb36 ], [ %sub55, %for.end ], [ %sub55, %if.end71 ], [ %shr14, %if.end26 ], [ %shr14, %sw.bb.i600 ], [ %shr14, %sw.bb1.i583 ], [ %shr14, %cond.true.i592 ], [ %shr14, %cond.false.i596 ]
   %26 = and i8 %14, 64

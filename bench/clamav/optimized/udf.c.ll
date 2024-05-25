@@ -58,12 +58,12 @@ define noundef i32 @cli_scanudf(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   br label %8
 
 8:                                                ; preds = %6, %30
-  %.082805 = phi i64 [ 0, %6 ], [ %41, %30 ]
-  %.0385804 = phi i64 [ %1, %6 ], [ %40, %30 ]
+  %.082817 = phi i64 [ 0, %6 ], [ %41, %30 ]
+  %.0385816 = phi i64 [ %1, %6 ], [ %40, %30 ]
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 104
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef %9, i64 noundef %.0385804, i64 noundef 2048, i32 noundef 1) #7
+  %12 = tail call ptr %11(ptr noundef %9, i64 noundef %.0385816, i64 noundef 2048, i32 noundef 1) #7
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread502, label %14
 
@@ -122,19 +122,19 @@ define noundef i32 @cli_scanudf(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %38 = getelementptr inbounds i8, ptr %31, i64 128
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef %31, i64 noundef %37, i64 noundef 2048) #7
-  %40 = add i64 %.0385804, 2048
-  %41 = add nuw nsw i64 %.082805, 1
+  %40 = add i64 %.0385816, 2048
+  %41 = add nuw nsw i64 %.082817, 1
   %exitcond.not = icmp eq i64 %41, 3
   br i1 %exitcond.not, label %.loopexit557, label %8
 
 .loopexit557:                                     ; preds = %30, %29
-  %.0385802 = phi i64 [ %.0385804, %29 ], [ %40, %30 ]
+  %.0385814 = phi i64 [ %.0385816, %29 ], [ %40, %30 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   %43 = getelementptr inbounds i8, ptr %0, i64 48
   br label %44
 
 44:                                               ; preds = %findFileIdentifiers.exit.thread, %.loopexit557
-  %.1386 = phi i64 [ %.0385802, %.loopexit557 ], [ %561, %findFileIdentifiers.exit.thread ]
+  %.1386 = phi i64 [ %.0385814, %.loopexit557 ], [ %561, %findFileIdentifiers.exit.thread ]
   %.sroa.0334.0 = phi ptr [ null, %.loopexit557 ], [ %.sroa.0334.5, %findFileIdentifiers.exit.thread ]
   %.sroa.8337.0 = phi i64 [ 0, %.loopexit557 ], [ %.sroa.8337.6, %findFileIdentifiers.exit.thread ]
   %.sroa.0.0 = phi ptr [ null, %.loopexit557 ], [ %.sroa.0.5, %findFileIdentifiers.exit.thread ]
@@ -888,14 +888,14 @@ getFileSetDescriptor.exit:                        ; preds = %347
   %391 = add nuw nsw i32 %389, %390
   %392 = add nuw nsw i32 %391, 41
   %393 = and i32 %392, 262140
-  %reass.sub807 = sub nsw i32 %393, %391
-  %394 = add nsw i32 %reass.sub807, -38
+  %reass.sub819 = sub nsw i32 %393, %391
+  %394 = add nsw i32 %reass.sub819, -38
   %395 = zext i32 %394 to i64
   %396 = add nuw nsw i64 %388, 38
   %397 = add nuw nsw i64 %396, %387
   %398 = add nuw nsw i64 %397, %395
-  %reass.sub808 = sub i64 %384, %369
-  %399 = add i64 %reass.sub808, -2011
+  %reass.sub820 = sub i64 %384, %369
+  %399 = add i64 %reass.sub820, -2011
   %400 = add i64 %399, %398
   %401 = icmp ult i64 %400, -2049
   br i1 %401, label %findFileIdentifiers.exit.thread, label %402
@@ -983,8 +983,8 @@ findFileEntries.exit:                             ; preds = %411
   %.sroa.8337.8.extract.trunc = trunc i64 %.sroa.8337.2 to i32
   %spec.select = call i32 @llvm.umin.i32(i32 %.sroa.8.8.extract.trunc325, i32 %.sroa.8337.8.extract.trunc)
   %.0 = zext i32 %spec.select to i64
-  %.not809 = icmp eq i32 %spec.select, 0
-  br i1 %.not809, label %._crit_edge, label %.lr.ph
+  %.not821 = icmp eq i32 %spec.select, 0
+  br i1 %.not821, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %435
   %436 = getelementptr i8, ptr %.193, i64 212
@@ -993,10 +993,10 @@ findFileEntries.exit:                             ; preds = %411
   br label %439
 
 439:                                              ; preds = %.lr.ph, %parseFileEntryDescriptor.exit
-  %.183806 = phi i64 [ 0, %.lr.ph ], [ %533, %parseFileEntryDescriptor.exit ]
-  %440 = getelementptr inbounds ptr, ptr %.sroa.0.1, i64 %.183806
+  %.183818 = phi i64 [ 0, %.lr.ph ], [ %533, %parseFileEntryDescriptor.exit ]
+  %440 = getelementptr inbounds ptr, ptr %.sroa.0.1, i64 %.183818
   %441 = load ptr, ptr %440, align 8
-  %442 = getelementptr inbounds ptr, ptr %.sroa.0334.1, i64 %.183806
+  %442 = getelementptr inbounds ptr, ptr %.sroa.0334.1, i64 %.183818
   %443 = load ptr, ptr %442, align 8
   %.val26.i = load i16, ptr %441, align 1
   %.not.i302 = icmp eq i16 %.val26.i, 261
@@ -1041,10 +1041,11 @@ extractFile.exit.thread33.i:                      ; preds = %449
   %459 = getelementptr inbounds i8, ptr %441, i64 34
   %460 = load i16, ptr %459, align 1
   %461 = and i16 %460, 3
-  switch i16 %461, label %extractFile.exit.thread.sink.split.i [
+  switch i16 %461, label %default.unreachable [
     i16 0, label %462
     i16 1, label %468
     i16 2, label %479
+    i16 3, label %extractFile.exit.thread.sink.split.i
   ]
 
 462:                                              ; preds = %458
@@ -1096,6 +1097,9 @@ extractFile.exit.thread33.i:                      ; preds = %449
   %489 = mul i32 %488, %.val29.i
   %490 = add i32 %489, %456
   br label %491
+
+default.unreachable:                              ; preds = %458
+  unreachable
 
 491:                                              ; preds = %484, %473, %463
   %.047.in.i.i = phi ptr [ %486, %484 ], [ %454, %473 ], [ %454, %463 ]
@@ -1210,13 +1214,13 @@ extractFile.exit.thread.i:                        ; preds = %extractFile.exit.i,
   br label %532
 
 532:                                              ; preds = %444, %447, %extractFile.exit.thread.i
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, i64 noundef %.183806) #7
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, i64 noundef %.183818) #7
   br label %.thread463
 
 parseFileEntryDescriptor.exit:                    ; preds = %extractFile.exit.i, %extractFile.exit.thread33.i
-  %533 = add nuw nsw i64 %.183806, 1
-  %exitcond1069.not = icmp eq i64 %533, %.0
-  br i1 %exitcond1069.not, label %._crit_edge, label %439
+  %533 = add nuw nsw i64 %.183818, 1
+  %exitcond1093.not = icmp eq i64 %533, %.0
+  br i1 %exitcond1093.not, label %._crit_edge, label %439
 
 ._crit_edge:                                      ; preds = %parseFileEntryDescriptor.exit, %435
   %534 = load ptr, ptr %7, align 8

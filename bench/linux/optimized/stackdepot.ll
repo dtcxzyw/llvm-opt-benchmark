@@ -314,10 +314,11 @@ define dso_local i32 @stack_depot_save_flags(ptr noundef %0, i32 noundef %1, i32
   %62 = phi i32 [ %18, %15 ], [ %52, %.preheader53 ]
   %63 = phi i32 [ %18, %15 ], [ %56, %.preheader53 ]
   %64 = phi i32 [ %18, %15 ], [ %55, %.preheader53 ]
-  switch i32 %60, label %100 [
+  switch i32 %60, label %default.unreachable [
     i32 3, label %65
     i32 2, label %69
     i32 1, label %74
+    i32 0, label %100
   ]
 
 65:                                               ; preds = %.loopexit54
@@ -326,14 +327,14 @@ define dso_local i32 @stack_depot_save_flags(ptr noundef %0, i32 noundef %1, i32
   %68 = add i32 %67, %64
   br label %69
 
-69:                                               ; preds = %65, %.loopexit54
+69:                                               ; preds = %.loopexit54, %65
   %70 = phi i32 [ %64, %.loopexit54 ], [ %68, %65 ]
   %71 = getelementptr i8, ptr %61, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, %63
   br label %74
 
-74:                                               ; preds = %69, %.loopexit54
+74:                                               ; preds = %.loopexit54, %69
   %75 = phi i32 [ %63, %.loopexit54 ], [ %73, %69 ]
   %76 = phi i32 [ %64, %.loopexit54 ], [ %70, %69 ]
   %77 = load i32, ptr %61, align 4
@@ -361,7 +362,10 @@ define dso_local i32 @stack_depot_save_flags(ptr noundef %0, i32 noundef %1, i32
   %99 = sub i32 %97, %98
   br label %100
 
-100:                                              ; preds = %74, %.loopexit54
+default.unreachable:                              ; preds = %.loopexit54
+  unreachable
+
+100:                                              ; preds = %.loopexit54, %74
   %101 = phi i32 [ %64, %.loopexit54 ], [ %99, %74 ]
   %102 = load ptr, ptr @stack_table, align 8
   %103 = load i32, ptr @stack_hash_mask, align 4

@@ -3286,13 +3286,16 @@ _ZN16wasmtime_runtime8instance9allocator20get_table_init_start17h3d6634c004812e6
   %57 = add nuw nsw i64 %56, %54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !516)
   %58 = load i64, ptr %31, align 8, !range !110, !alias.scope !516, !noalias !506, !noundef !14
-  switch i64 %58, label %default.unreachable [
+  switch i64 %58, label %.unreachabledefault [
     i64 2, label %59
     i64 0, label %62
     i64 1, label %66
   ]
 
-default.unreachable:                              ; preds = %53, %301, %_ZN16wasmtime_runtime8instance8Instance17get_defined_table17h1a8e06449a792d11E.exit87.i, %_ZN16wasmtime_runtime8instance8Instance17get_defined_table17h1a8e06449a792d11E.exit85.i, %_ZN16wasmtime_runtime8instance8Instance17get_defined_table17h1a8e06449a792d11E.exit.i
+.unreachabledefault:                              ; preds = %53
+  unreachable
+
+default.unreachable:                              ; preds = %301, %_ZN16wasmtime_runtime8instance8Instance17get_defined_table17h1a8e06449a792d11E.exit87.i, %_ZN16wasmtime_runtime8instance8Instance17get_defined_table17h1a8e06449a792d11E.exit85.i, %_ZN16wasmtime_runtime8instance8Instance17get_defined_table17h1a8e06449a792d11E.exit.i
   unreachable
 
 59:                                               ; preds = %53

@@ -5344,7 +5344,7 @@ define dso_local void @xact_redo(ptr nocapture noundef readonly %0) local_unname
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, 112
   %11 = lshr exact i8 %10, 4
-  switch i8 %11, label %88 [
+  switch i8 %11, label %default.unreachable [
     i8 0, label %12
     i8 3, label %22
     i8 2, label %38
@@ -5352,6 +5352,7 @@ define dso_local void @xact_redo(ptr nocapture noundef readonly %0) local_unname
     i8 1, label %64
     i8 5, label %79
     i8 6, label %92
+    i8 7, label %88
   ]
 
 12:                                               ; preds = %1
@@ -5459,6 +5460,9 @@ define dso_local void @xact_redo(ptr nocapture noundef readonly %0) local_unname
   %87 = getelementptr inbounds i8, ptr %83, i64 8
   tail call void @ProcArrayApplyXidAssignment(i32 noundef %84, i32 noundef %86, ptr noundef nonnull %87) #22
   br label %92
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 88:                                               ; preds = %1
   %89 = zext nneg i8 %10 to i32

@@ -145598,7 +145598,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36006)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36009)
   %51 = load i8, ptr %48, align 8, !range !17197, !alias.scope !36009, !noalias !36006, !noundef !4
-  switch i8 %51, label %default.unreachable [
+  switch i8 %51, label %.unreachabledefault [
     i8 0, label %52
     i8 1, label %54
     i8 2, label %57
@@ -145608,7 +145608,10 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
     i8 6, label %70
   ]
 
-default.unreachable:                              ; preds = %126, %50
+.unreachabledefault:                              ; preds = %50
+  unreachable
+
+default.unreachable:                              ; preds = %126
   unreachable
 
 52:                                               ; preds = %50

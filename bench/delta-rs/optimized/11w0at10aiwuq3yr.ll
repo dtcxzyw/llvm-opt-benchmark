@@ -15308,7 +15308,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$deltalake_core..kernel..mode
   %4 = add nsw i64 %3, -2
   %5 = icmp ult i64 %4, 8
   %6 = select i1 %5, i64 %4, i64 2
-  switch i64 %6, label %7 [
+  switch i64 %6, label %.unreachabledefault [
     i64 0, label %9
     i64 1, label %11
     i64 2, label %13
@@ -15316,7 +15316,11 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$deltalake_core..kernel..mode
     i64 4, label %16
     i64 5, label %18
     i64 6, label %28
+    i64 7, label %7
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -16952,11 +16956,15 @@ define internal void @"_ZN4core3ptr69drop_in_place$LT$$RF$alloc..vec..Vec$LT$all
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr69drop_in_place$LT$deltalake_core..kernel..models..schema..DataType$GT$17h46a60cf0b40c344aE.llvm.5991570310944373761"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !1931, !noundef !12
-  switch i8 %2, label %3 [
+  switch i8 %2, label %default.unreachable1 [
     i8 0, label %8
     i8 1, label %9
     i8 2, label %11
+    i8 3, label %3
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -16979,7 +16987,7 @@ common.resume:                                    ; preds = %14, %6
   tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 64, i64 noundef 8) #39, !noalias !4087
   br label %8
 
-8:                                                ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$deltalake_core..kernel..models..schema..StructType$GT$$GT$17h396efc7cc397ffceE.llvm.5991570310944373761.exit", %9, %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$deltalake_core..kernel..models..schema..MapType$GT$$GT$17h05770589e1586b11E.llvm.5991570310944373761.exit", %1
+8:                                                ; preds = %1, %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$deltalake_core..kernel..models..schema..StructType$GT$$GT$17h396efc7cc397ffceE.llvm.5991570310944373761.exit", %9, %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$deltalake_core..kernel..models..schema..MapType$GT$$GT$17h05770589e1586b11E.llvm.5991570310944373761.exit"
   ret void
 
 9:                                                ; preds = %1

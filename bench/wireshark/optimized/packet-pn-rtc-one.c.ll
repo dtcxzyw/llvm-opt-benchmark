@@ -246,7 +246,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.158 = private unnamed_addr constant [13 x i8] c"Update event\00", align 1
 @.str.159 = private unnamed_addr constant [15 x i8] c"Simulation off\00", align 1
 @.str.160 = private unnamed_addr constant [18 x i8] c"Simulation active\00", align 1
-@switch.table.dissect_pn_pa_profile_status = private unnamed_addr constant [3 x ptr] [ptr @hf_pn_pa_profile_status_substatus_bad, ptr @hf_pn_pa_profile_status_substatus_uncertain, ptr @hf_pn_pa_profile_status_substatus_good], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_PNIO_C_SDU_RTC1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i16 noundef zeroext %5) local_unnamed_addr #0 {
@@ -1702,7 +1701,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_pn_pa_profile_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %25, label %5
+  br i1 %.not, label %26, label %5
 
 5:                                                ; preds = %4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #3
@@ -1718,25 +1717,36 @@ define internal fastcc void @dissect_pn_pa_profile_status(ptr noundef %0, i32 no
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %13) #3
   %15 = load i32, ptr @hf_pn_pa_profile_status_quality, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #3
-  %.not1 = icmp eq i8 %8, 3
-  br i1 %.not1, label %20, label %switch.lookup
+  switch i8 %8, label %default.unreachable [
+    i8 0, label %.sink.split
+    i8 1, label %17
+    i8 2, label %18
+    i8 3, label %21
+  ]
 
-switch.lookup:                                    ; preds = %5
-  %17 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_pn_pa_profile_status, i64 0, i64 %17
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %18 = load i32, ptr %switch.load, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %18, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #3
-  br label %20
+17:                                               ; preds = %5
+  br label %.sink.split
 
-20:                                               ; preds = %5, %switch.lookup
-  %21 = load i32, ptr @hf_pn_pa_profile_status_update_event, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %21, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #3
-  %23 = load i32, ptr @hf_pn_pa_profile_status_simulate, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %23, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #3
-  br label %25
+18:                                               ; preds = %5
+  br label %.sink.split
 
-25:                                               ; preds = %20, %4
+default.unreachable:                              ; preds = %5
+  unreachable
+
+.sink.split:                                      ; preds = %5, %17, %18
+  %hf_pn_pa_profile_status_substatus_good.sink = phi ptr [ @hf_pn_pa_profile_status_substatus_good, %18 ], [ @hf_pn_pa_profile_status_substatus_uncertain, %17 ], [ @hf_pn_pa_profile_status_substatus_bad, %5 ]
+  %19 = load i32, ptr %hf_pn_pa_profile_status_substatus_good.sink, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %19, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #3
+  br label %21
+
+21:                                               ; preds = %.sink.split, %5
+  %22 = load i32, ptr @hf_pn_pa_profile_status_update_event, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %22, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #3
+  %24 = load i32, ptr @hf_pn_pa_profile_status_simulate, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %24, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #3
+  br label %26
+
+26:                                               ; preds = %21, %4
   ret void
 }
 

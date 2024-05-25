@@ -7301,7 +7301,7 @@ sw.bb.i.i.i.i.us:                                 ; preds = %for.end.i.i.i.i.loo
   %cmp.i.i.i29.i.i.i.i.us = icmp eq i8 %10, %5
   br i1 %cmp.i.i.i29.i.i.i.i.us, label %invoke.cont.i.us, label %sw.bb21.i.i.i.i.us
 
-sw.bb21.i.i.i.i.us:                               ; preds = %sw.bb.i.i.i.i.us, %for.end.i.i.i.i.loopexit.us
+sw.bb21.i.i.i.i.us:                               ; preds = %for.end.i.i.i.i.loopexit.us, %sw.bb.i.i.i.i.us
   %__first.addr.1.i.i.i.i.us = phi ptr [ %scevgep.i.i.i.i, %for.end.i.i.i.i.loopexit.us ], [ %incdec.ptr20.i.i.i.i.us, %sw.bb.i.i.i.i.us ]
   %11 = load i8, ptr %__first.addr.1.i.i.i.i.us, align 1
   %cmp.i.i.i30.i.i.i.i.us = icmp eq i8 %11, %5
@@ -7311,7 +7311,7 @@ if.end24.i.i.i.i.us:                              ; preds = %sw.bb21.i.i.i.i.us
   %incdec.ptr25.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i.us, i64 1
   br label %sw.bb26.i.i.i.i.us
 
-sw.bb26.i.i.i.i.us:                               ; preds = %if.end24.i.i.i.i.us, %for.end.i.i.i.i.loopexit.us
+sw.bb26.i.i.i.i.us:                               ; preds = %for.end.i.i.i.i.loopexit.us, %if.end24.i.i.i.i.us
   %__first.addr.2.i.i.i.i.us = phi ptr [ %scevgep.i.i.i.i, %for.end.i.i.i.i.loopexit.us ], [ %incdec.ptr25.i.i.i.i.us, %if.end24.i.i.i.i.us ]
   %12 = load i8, ptr %__first.addr.2.i.i.i.i.us, align 1
   %cmp.i.i.i31.i.i.i.i.us = icmp eq i8 %12, %5
@@ -7338,16 +7338,20 @@ invoke.cont.i.us:                                 ; preds = %for.body.i.i.i.i.us
   %or.cond20.us = select i1 %cmp7.i.us, i1 true, i1 %cmp4.us
   br i1 %or.cond20.us, label %while.body.us, label %while.end
 
-while.body.us:                                    ; preds = %invoke.cont.i.us, %sw.bb26.i.i.i.i.us, %for.end.i.i.i.i.loopexit.us
+for.end.i.i.i.i.loopexit.us.unreachabledefault:   ; preds = %for.end.i.i.i.i.loopexit.us
+  unreachable
+
+while.body.us:                                    ; preds = %for.end.i.i.i.i.loopexit.us, %invoke.cont.i.us, %sw.bb26.i.i.i.i.us
   %incdec.ptr.us = getelementptr inbounds i8, ptr %end.030.us, i64 1
   %cmp.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i
   br i1 %cmp.not.us, label %while.end, label %land.rhs.us, !llvm.loop !142
 
 for.end.i.i.i.i.loopexit.us:                      ; preds = %if.end12.i.i.i.i.us
-  switch i64 %gepdiff, label %while.body.us [
+  switch i64 %gepdiff, label %for.end.i.i.i.i.loopexit.us.unreachabledefault [
     i64 3, label %sw.bb.i.i.i.i.us
     i64 2, label %sw.bb21.i.i.i.i.us
     i64 1, label %sw.bb26.i.i.i.i.us
+    i64 0, label %while.body.us
   ]
 
 land.rhs.lr.ph.split:                             ; preds = %land.rhs.lr.ph
@@ -11546,7 +11550,7 @@ sw.bb.i.i.i.i.us:                                 ; preds = %for.end.i.i.i.i.loo
   %cmp.i.i.i29.i.i.i.i.us = icmp eq i8 %10, %5
   br i1 %cmp.i.i.i29.i.i.i.i.us, label %invoke.cont.i.us, label %sw.bb21.i.i.i.i.us
 
-sw.bb21.i.i.i.i.us:                               ; preds = %sw.bb.i.i.i.i.us, %for.end.i.i.i.i.loopexit.us
+sw.bb21.i.i.i.i.us:                               ; preds = %for.end.i.i.i.i.loopexit.us, %sw.bb.i.i.i.i.us
   %__first.addr.1.i.i.i.i.us = phi ptr [ %scevgep.i.i.i.i, %for.end.i.i.i.i.loopexit.us ], [ %incdec.ptr20.i.i.i.i.us, %sw.bb.i.i.i.i.us ]
   %11 = load i8, ptr %__first.addr.1.i.i.i.i.us, align 1
   %cmp.i.i.i30.i.i.i.i.us = icmp eq i8 %11, %5
@@ -11556,7 +11560,7 @@ if.end24.i.i.i.i.us:                              ; preds = %sw.bb21.i.i.i.i.us
   %incdec.ptr25.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i.us, i64 1
   br label %sw.bb26.i.i.i.i.us
 
-sw.bb26.i.i.i.i.us:                               ; preds = %if.end24.i.i.i.i.us, %for.end.i.i.i.i.loopexit.us
+sw.bb26.i.i.i.i.us:                               ; preds = %for.end.i.i.i.i.loopexit.us, %if.end24.i.i.i.i.us
   %__first.addr.2.i.i.i.i.us = phi ptr [ %scevgep.i.i.i.i, %for.end.i.i.i.i.loopexit.us ], [ %incdec.ptr25.i.i.i.i.us, %if.end24.i.i.i.i.us ]
   %12 = load i8, ptr %__first.addr.2.i.i.i.i.us, align 1
   %cmp.i.i.i31.i.i.i.i.us = icmp eq i8 %12, %5
@@ -11589,10 +11593,11 @@ while.body.us:                                    ; preds = %invoke.cont.i.us
   br i1 %cmp.not.us, label %while.end, label %land.rhs.us, !llvm.loop !220
 
 for.end.i.i.i.i.loopexit.us:                      ; preds = %if.end12.i.i.i.i.us
-  switch i64 %gepdiff, label %while.end [
+  switch i64 %gepdiff, label %for.end.i.i.i.i.loopexit.us.unreachabledefault [
     i64 3, label %sw.bb.i.i.i.i.us
     i64 2, label %sw.bb21.i.i.i.i.us
     i64 1, label %sw.bb26.i.i.i.i.us
+    i64 0, label %while.end
   ]
 
 land.rhs.lr.ph.split:                             ; preds = %land.rhs.lr.ph
@@ -11683,7 +11688,10 @@ invoke.cont.i.us104:                              ; preds = %land.rhs.us94
   %cmp.not.us113 = icmp eq ptr %incdec.ptr.us112, %add.ptr.i
   br i1 %cmp.not.us113, label %while.end, label %land.rhs.us94, !llvm.loop !220
 
-while.end:                                        ; preds = %invoke.cont.i.us104, %land.rhs.us94, %while.body.us84, %invoke.cont.i.us77, %if.end24.i.i.i.i.us72, %while.body.us57, %invoke.cont.i.us50, %if.end24.i.i.i.i.us45, %while.body.us, %invoke.cont.i.us, %for.end.i.i.i.i.loopexit.us, %sw.bb26.i.i.i.i.us
+for.end.i.i.i.i.loopexit.us.unreachabledefault:   ; preds = %for.end.i.i.i.i.loopexit.us
+  unreachable
+
+while.end:                                        ; preds = %invoke.cont.i.us104, %land.rhs.us94, %while.body.us84, %invoke.cont.i.us77, %if.end24.i.i.i.i.us72, %while.body.us57, %invoke.cont.i.us50, %if.end24.i.i.i.i.us45, %while.body.us, %invoke.cont.i.us, %sw.bb26.i.i.i.i.us, %for.end.i.i.i.i.loopexit.us
   %end.0.lcssa = phi ptr [ %end.030.us, %sw.bb26.i.i.i.i.us ], [ %end.030.us, %for.end.i.i.i.i.loopexit.us ], [ %end.030.us, %invoke.cont.i.us ], [ %add.ptr.i, %while.body.us ], [ %end.030.us38, %if.end24.i.i.i.i.us45 ], [ %end.030.us38, %invoke.cont.i.us50 ], [ %add.ptr.i, %while.body.us57 ], [ %end.030.us68, %if.end24.i.i.i.i.us72 ], [ %end.030.us68, %invoke.cont.i.us77 ], [ %add.ptr.i, %while.body.us84 ], [ %end.030.us95, %land.rhs.us94 ], [ %add.ptr.i, %invoke.cont.i.us104 ]
   %sub.ptr.lhs.cast = ptrtoint ptr %end.0.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64

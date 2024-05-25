@@ -5838,7 +5838,7 @@ define internal i32 @trace_raw_output_xhci_log_ep_ctx(ptr noundef %0, i32 %1, pt
   %49 = and i32 %28, 255
   %50 = shl i32 125, %49
   %51 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %48, ptr noundef nonnull dereferenceable(1) @.str.163, i32 noundef %50, i32 noundef %23, i32 noundef %34) #11
-  switch i8 %37, label %58 [
+  switch i8 %37, label %default.unreachable1 [
     i8 1, label %59
     i8 2, label %52
     i8 3, label %53
@@ -5846,6 +5846,7 @@ define internal i32 @trace_raw_output_xhci_log_ep_ctx(ptr noundef %0, i32 %1, pt
     i8 5, label %55
     i8 6, label %56
     i8 7, label %57
+    i8 0, label %58
   ]
 
 52:                                               ; preds = %43
@@ -5866,10 +5867,13 @@ define internal i32 @trace_raw_output_xhci_log_ep_ctx(ptr noundef %0, i32 %1, pt
 57:                                               ; preds = %43
   br label %59
 
+default.unreachable1:                             ; preds = %43
+  unreachable
+
 58:                                               ; preds = %43
   br label %59
 
-59:                                               ; preds = %58, %57, %56, %55, %54, %53, %52, %43
+59:                                               ; preds = %43, %58, %57, %56, %55, %54, %53, %52
   %60 = phi ptr [ @.str.172, %58 ], [ @.str.179, %57 ], [ @.str.178, %56 ], [ @.str.177, %55 ], [ @.str.176, %54 ], [ @.str.175, %53 ], [ @.str.174, %52 ], [ @.str.173, %43 ]
   %61 = add i32 %51, %46
   %62 = sext i32 %61 to i64

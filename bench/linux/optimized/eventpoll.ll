@@ -3247,10 +3247,11 @@ define internal range(i32 0, 2) i32 @ep_poll_callback(ptr noundef %0, i32 %1, i3
 
 94:                                               ; preds = %87
   %95 = and i32 %10, 5
-  switch i32 %95, label %102 [
+  switch i32 %95, label %.unreachabledefault [
     i32 1, label %96
     i32 4, label %98
     i32 0, label %101
+    i32 5, label %102
   ]
 
 96:                                               ; preds = %94
@@ -3265,7 +3266,10 @@ define internal range(i32 0, 2) i32 @ep_poll_callback(ptr noundef %0, i32 %1, i3
 101:                                              ; preds = %94
   br label %102
 
-102:                                              ; preds = %101, %98, %96, %94, %87
+.unreachabledefault:                              ; preds = %94
+  unreachable
+
+102:                                              ; preds = %94, %101, %98, %96, %87
   %103 = phi i32 [ 0, %94 ], [ 1, %101 ], [ 0, %87 ], [ %97, %96 ], [ %100, %98 ]
   %104 = tail call i32 @__wake_up(ptr noundef %83, i32 noundef 3, i32 noundef 1, ptr noundef null) #11
   br label %105

@@ -1432,12 +1432,12 @@ invoke.cont46:                                    ; preds = %invoke.cont45
 invoke.cont47:                                    ; preds = %invoke.cont46
   %22 = load i32, ptr %status, align 4
   %cmp.i217 = icmp slt i32 %22, 1
-  br i1 %cmp.i217, label %if.end52, label %cleanup.thread2391
+  br i1 %cmp.i217, label %if.end52, label %cleanup.thread
 
 if.end52:                                         ; preds = %invoke.cont47
   %call53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @_ZN6icu_75L13gGregorianTagE) #19
   %cmp54 = icmp eq i32 %call53, 0
-  br i1 %cmp54, label %cleanup.thread2391, label %if.end56
+  br i1 %cmp54, label %cleanup.thread, label %if.end56
 
 if.end56:                                         ; preds = %if.end52
   %call58 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %calendarType, ptr noundef nonnull align 8 dereferenceable(64) %nextCalendarType.i)
@@ -1479,7 +1479,7 @@ lpad65:                                           ; preds = %if.then62
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %28) #16, !srcloc !4
   br label %ehcleanup
 
-cleanup.thread2391:                               ; preds = %invoke.cont47, %if.end52
+cleanup.thread:                                   ; preds = %invoke.cont47, %if.end52
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarTypeBuffer) #16
   br label %while.end
 
@@ -1495,7 +1495,7 @@ ehcleanup:                                        ; preds = %lpad65, %lpad39, %l
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarTypeBuffer) #16
   br label %ehcleanup883
 
-while.end:                                        ; preds = %cleanup, %while.cond.preheader, %cleanup.thread2391
+while.end:                                        ; preds = %cleanup, %while.cond.preheader, %cleanup.thread
   invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path)
           to label %invoke.cont70 unwind label %lpad15.loopexit.split-lp
 

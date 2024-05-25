@@ -18379,11 +18379,15 @@ common.resume:                                    ; preds = %2, %13
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Kind$GT$17h99d9ad04645436c0E.llvm.2651239618181311204"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !276, !noundef !5
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable6 [
     i64 0, label %24
     i64 1, label %36
     i64 2, label %51
+    i64 3, label %3
   ]
+
+default.unreachable6:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8

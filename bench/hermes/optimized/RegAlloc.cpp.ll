@@ -3701,10 +3701,11 @@ for.end.loopexit.i.i.i:                           ; preds = %if.end12.i.i.i
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %if.then6
   %sub.ptr.sub16.pre-phi.i.i.i = phi i32 [ %30, %for.end.loopexit.i.i.i ], [ %20, %if.then6 ]
   %__first.addr.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %for.end.loopexit.i.i.i ], [ %19, %if.then6 ]
-  switch i32 %sub.ptr.sub16.pre-phi.i.i.i, label %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit" [
+  switch i32 %sub.ptr.sub16.pre-phi.i.i.i, label %for.end.i.i.i.unreachabledefault [
     i32 3, label %sw.bb.i.i.i
     i32 2, label %for.end.sw.bb22_crit_edge.i.i.i
     i32 1, label %for.end.sw.bb27_crit_edge.i.i.i
+    i32 0, label %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit"
   ]
 
 for.end.sw.bb22_crit_edge.i.i.i:                  ; preds = %for.end.i.i.i
@@ -3756,6 +3757,9 @@ sw.bb27.i.i.i:                                    ; preds = %if.end25.i.i.i, %fo
   %tobool.not = icmp eq ptr %19, null
   %or.cond = and i1 %tobool.not, %.not44
   br i1 %or.cond, label %if.end15, label %return
+
+for.end.i.i.i.unreachabledefault:                 ; preds = %for.end.i.i.i
+  unreachable
 
 "_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit": ; preds = %for.end.i.i.i
   %tobool.not.old = icmp eq ptr %19, null

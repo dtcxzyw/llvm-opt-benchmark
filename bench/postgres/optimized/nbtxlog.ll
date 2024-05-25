@@ -61,7 +61,7 @@ define dso_local void @btree_redo(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %18, ptr @CurrentMemoryContext, align 8
   %20 = zext i8 %17 to i32
   %21 = lshr exact i32 %20, 4
-  switch i32 %21, label %618 [
+  switch i32 %21, label %default.unreachable [
     i32 0, label %22
     i32 1, label %23
     i32 2, label %24
@@ -77,6 +77,7 @@ define dso_local void @btree_redo(ptr noundef %0) local_unnamed_addr #0 {
     i32 10, label %532
     i32 13, label %606
     i32 14, label %617
+    i32 15, label %618
   ]
 
 22:                                               ; preds = %1
@@ -1123,6 +1124,9 @@ btree_xlog_newroot.exit:                          ; preds = %562, %_bt_clear_inc
 617:                                              ; preds = %1
   tail call fastcc void @_bt_restore_meta(ptr noundef nonnull %0, i8 noundef zeroext 0)
   br label %btree_xlog_reuse_page.exit
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 618:                                              ; preds = %1
   %619 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8

@@ -2691,7 +2691,7 @@ define dso_local void @hsw_ddi_get_config(ptr noundef %0, ptr noundef %1) #0 ali
   %11 = tail call i32 %10(ptr noundef %8, i32 %7, i1 noundef zeroext true) #14
   %12 = lshr i32 %11, 29
   %13 = xor i32 %12, 4
-  switch i32 %13, label %19 [
+  switch i32 %13, label %default.unreachable1 [
     i32 0, label %21
     i32 1, label %14
     i32 7, label %15
@@ -2699,6 +2699,7 @@ define dso_local void @hsw_ddi_get_config(ptr noundef %0, ptr noundef %1) #0 ali
     i32 5, label %17
     i32 4, label %18
     i32 3, label %24
+    i32 2, label %19
   ]
 
 14:                                               ; preds = %2
@@ -2716,6 +2717,9 @@ define dso_local void @hsw_ddi_get_config(ptr noundef %0, ptr noundef %1) #0 ali
 18:                                               ; preds = %2
   br label %21
 
+default.unreachable1:                             ; preds = %2
+  unreachable
+
 19:                                               ; preds = %2
   tail call void asm sideeffect "1057: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1057b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1057) #14, !srcloc !126
   %20 = zext i32 %11 to i64
@@ -2726,12 +2730,12 @@ define dso_local void @hsw_ddi_get_config(ptr noundef %0, ptr noundef %1) #0 ali
   tail call void asm sideeffect "1060: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1060b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1060) #14, !srcloc !130
   br label %24
 
-21:                                               ; preds = %18, %17, %16, %15, %14, %2
+21:                                               ; preds = %2, %18, %17, %16, %15, %14
   %22 = phi i32 [ 5, %18 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %14 ], [ %13, %2 ]
   %23 = tail call ptr @intel_get_shared_dpll_by_id(ptr noundef %3, i32 noundef %22) #14
   br label %24
 
-24:                                               ; preds = %21, %19, %2
+24:                                               ; preds = %2, %21, %19
   %25 = phi ptr [ %23, %21 ], [ null, %2 ], [ null, %19 ]
   tail call void @intel_ddi_get_clock(ptr noundef %0, ptr noundef %1, ptr noundef %25)
   tail call fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1)

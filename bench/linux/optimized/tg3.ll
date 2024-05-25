@@ -1508,15 +1508,15 @@ define internal fastcc i32 @tg3_get_invariants(ptr noundef %0, ptr nocapture nou
 70:                                               ; preds = %67, %2
   %.pr58 = phi i32 [ %.pr, %67 ], [ %57, %2 ]
   switch i32 %.pr58, label %71 [
-    i32 20480, label %.thread179
-    i32 91320832, label %.thread178
+    i32 20480, label %.thread180
+    i32 91320832, label %.thread179
   ]
 
-.thread179:                                       ; preds = %70
+.thread180:                                       ; preds = %70
   store i32 24576, ptr %58, align 4
   br label %78
 
-.thread178:                                       ; preds = %70
+.thread179:                                       ; preds = %70
   store i32 91357184, ptr %58, align 4
   br label %73
 
@@ -1528,7 +1528,7 @@ define internal fastcc i32 @tg3_get_invariants(ptr noundef %0, ptr nocapture nou
     i32 22304, label %73
   ]
 
-73:                                               ; preds = %.thread178, %71, %71, %71
+73:                                               ; preds = %.thread179, %71, %71, %71
   %74 = getelementptr i8, ptr %0, i64 4689
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %74, i32 64, ptr elementtype(i8) %74) #26, !srcloc !6
   %.pre = load i32, ptr %58, align 4
@@ -1547,7 +1547,7 @@ define internal fastcc i32 @tg3_get_invariants(ptr noundef %0, ptr nocapture nou
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %77, i32 32, ptr elementtype(i8) %77) #26, !srcloc !6
   br label %78
 
-78:                                               ; preds = %.thread179, %76, %75
+78:                                               ; preds = %.thread180, %76, %75
   %79 = getelementptr inbounds i8, ptr %0, i64 4680
   %80 = getelementptr i8, ptr %0, i64 4688
   %81 = load volatile i64, ptr %80, align 8
@@ -3907,7 +3907,7 @@ thread-pre-split59:                               ; preds = %._crit_edge, %.spli
   %1384 = load ptr, ptr %40, align 8
   %1385 = getelementptr inbounds i8, ptr %1384, i64 184
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1385, ptr noundef nonnull @.str.97, i32 noundef %1381) #27
-  br label %.sink.split201
+  br label %.sink.split202
 
 1386:                                             ; preds = %1379
   %1387 = load ptr, ptr %1318, align 8
@@ -3929,7 +3929,7 @@ thread-pre-split59:                               ; preds = %._crit_edge, %.spli
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1398, ptr noundef nonnull @.str.98) #27
   %1399 = load ptr, ptr %1318, align 8
   call void @mdiobus_unregister(ptr noundef %1399) #26
-  br label %.sink.split201
+  br label %.sink.split202
 
 1400:                                             ; preds = %1392
   %1401 = getelementptr inbounds i8, ptr %1394, i64 152
@@ -3992,14 +3992,14 @@ thread-pre-split59:                               ; preds = %._crit_edge, %.spli
   call fastcc void @tg3_mdio_config_5785(ptr noundef %0)
   br label %1434
 
-.sink.split201:                                   ; preds = %1383, %1396
-  %.ph202 = phi i32 [ -19, %1396 ], [ %1381, %1383 ]
+.sink.split202:                                   ; preds = %1383, %1396
+  %.ph203 = phi i32 [ -19, %1396 ], [ %1381, %1383 ]
   %1431 = load ptr, ptr %1318, align 8
   call void @mdiobus_free(ptr noundef %1431) #26
   br label %1432
 
-1432:                                             ; preds = %.sink.split201, %1316, %1275
-  %1433 = phi i32 [ -12, %1316 ], [ -19, %1275 ], [ %.ph202, %.sink.split201 ]
+1432:                                             ; preds = %.sink.split202, %1316, %1275
+  %1433 = phi i32 [ -12, %1316 ], [ -19, %1275 ], [ %.ph203, %.sink.split202 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #26
   br label %2554
 
@@ -4389,7 +4389,7 @@ thread-pre-split59:                               ; preds = %._crit_edge, %.spli
 1609:                                             ; preds = %1607, %1600, %1595
   %1610 = lshr i32 %1588, 28
   %1611 = and i32 %1610, 7
-  switch i32 %1611, label %._crit_edge166 [
+  switch i32 %1611, label %default.unreachable177 [
     i32 0, label %1618
     i32 1, label %1612
     i32 2, label %1613
@@ -4397,6 +4397,7 @@ thread-pre-split59:                               ; preds = %._crit_edge, %.spli
     i32 4, label %1615
     i32 5, label %1616
     i32 6, label %1617
+    i32 7, label %._crit_edge166
   ]
 
 ._crit_edge166:                                   ; preds = %1609
@@ -4422,11 +4423,14 @@ thread-pre-split59:                               ; preds = %._crit_edge, %.spli
 1617:                                             ; preds = %1609
   br label %1618
 
-1618:                                             ; preds = %1617, %1616, %1615, %1614, %1613, %1612, %1609
+1618:                                             ; preds = %1609, %1617, %1616, %1615, %1614, %1613, %1612
   %1619 = phi i32 [ 528, %1617 ], [ 264, %1616 ], [ 4096, %1615 ], [ 2048, %1614 ], [ 1024, %1613 ], [ 512, %1612 ], [ 256, %1609 ]
   %1620 = getelementptr inbounds i8, ptr %0, i64 5200
   store i32 %1619, ptr %1620, align 16
   br label %1621
+
+default.unreachable177:                           ; preds = %1609
+  unreachable
 
 1621:                                             ; preds = %._crit_edge166, %1618
   %1622 = phi i32 [ %.pre167, %._crit_edge166 ], [ %1619, %1618 ]
@@ -5575,15 +5579,15 @@ thread-pre-split80.thread:                        ; preds = %.thread79, %1980, %
   %2218 = lshr i64 %2217, 16
   %2219 = and i64 %2218, 255
   %2220 = icmp eq i64 %2219, 0
-  br i1 %2220, label %.loopexit92, label %.lr.ph223, !llvm.loop !37
+  br i1 %2220, label %.loopexit92, label %.lr.ph224, !llvm.loop !37
 
-.preheader:                                       ; preds = %.lr.ph223
+.preheader:                                       ; preds = %.lr.ph224
   %2221 = lshr i64 %2225, 8
   %2222 = and i64 %2221, 255
   %2223 = icmp eq i64 %2222, 0
-  br i1 %2223, label %.loopexit92, label %.lr.ph223, !llvm.loop !37
+  br i1 %2223, label %.loopexit92, label %.lr.ph224, !llvm.loop !37
 
-.lr.ph223:                                        ; preds = %.preheader.preheader, %.preheader
+.lr.ph224:                                        ; preds = %.preheader.preheader, %.preheader
   %2224 = phi i64 [ %2222, %.preheader ], [ %2219, %.preheader.preheader ]
   %2225 = phi i64 [ %2221, %.preheader ], [ %2218, %.preheader.preheader ]
   %2226 = phi i32 [ %2227, %.preheader ], [ 2, %.preheader.preheader ]
@@ -5591,8 +5595,8 @@ thread-pre-split80.thread:                        ; preds = %.thread79, %1980, %
   %2228 = icmp eq i32 %2227, 7
   br i1 %2228, label %.loopexit92, label %.preheader, !llvm.loop !37
 
-.loopexit92:                                      ; preds = %.preheader, %.lr.ph223, %.preheader.preheader, %2211
-  %2229 = phi i64 [ %2209, %2211 ], [ %2213, %.preheader.preheader ], [ %2224, %.lr.ph223 ], [ %2224, %.preheader ]
+.loopexit92:                                      ; preds = %.preheader, %.lr.ph224, %.preheader.preheader, %2211
+  %2229 = phi i64 [ %2209, %2211 ], [ %2213, %.preheader.preheader ], [ %2224, %.lr.ph224 ], [ %2224, %.preheader ]
   %2230 = trunc nuw nsw i64 %2229 to i32
   br label %2231
 
@@ -8055,10 +8059,11 @@ define internal fastcc i32 @tg3_reset_hw(ptr noundef %0, i1 noundef zeroext %1) 
   store i32 0, ptr %74, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %76, i32 -5, ptr elementtype(i8) %76) #26, !srcloc !12
   %78 = and i32 %71, 8256
-  switch i32 %78, label %174 [
+  switch i32 %78, label %.unreachabledefault [
     i32 0, label %79
     i32 8192, label %83
     i32 64, label %87
+    i32 8256, label %174
   ]
 
 79:                                               ; preds = %77
@@ -8211,7 +8216,10 @@ define internal fastcc i32 @tg3_reset_hw(ptr noundef %0, i1 noundef zeroext %1) 
   store i32 %173, ptr %74, align 8
   br label %174
 
-174:                                              ; preds = %170, %147, %140, %131, %103, %91, %87, %83, %79, %77, %64
+.unreachabledefault:                              ; preds = %77
+  unreachable
+
+174:                                              ; preds = %77, %170, %147, %140, %131, %103, %91, %87, %83, %79, %64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
   tail call fastcc void @tg3_eee_pull_config(ptr noundef %0, ptr noundef null)
   %175 = load i32, ptr %60, align 4
@@ -39292,7 +39300,7 @@ define internal fastcc void @tg3_get_5752_nvram_info(ptr noundef %0) unnamed_add
 27:                                               ; preds = %22
   %28 = lshr i32 %4, 28
   %29 = and i32 %28, 7
-  switch i32 %29, label %49 [
+  switch i32 %29, label %default.unreachable1 [
     i32 0, label %30
     i32 1, label %32
     i32 2, label %34
@@ -39300,6 +39308,7 @@ define internal fastcc void @tg3_get_5752_nvram_info(ptr noundef %0) unnamed_add
     i32 4, label %38
     i32 5, label %40
     i32 6, label %42
+    i32 7, label %49
   ]
 
 30:                                               ; preds = %27
@@ -39346,7 +39355,10 @@ define internal fastcc void @tg3_get_5752_nvram_info(ptr noundef %0) unnamed_add
   tail call void %48(ptr noundef %0, i32 noundef 28692, i32 noundef %46) #26
   br label %49
 
-49:                                               ; preds = %44, %42, %40, %38, %36, %34, %32, %30, %27
+default.unreachable1:                             ; preds = %27
+  unreachable
+
+49:                                               ; preds = %27, %44, %42, %40, %38, %36, %34, %32, %30
   ret void
 }
 
@@ -39638,7 +39650,7 @@ define internal fastcc void @tg3_get_5717_nvram_info(ptr noundef %0) unnamed_add
 28:                                               ; preds = %25, %18, %18, %13
   %29 = lshr i32 %4, 28
   %30 = and i32 %29, 7
-  switch i32 %30, label %._crit_edge [
+  switch i32 %30, label %default.unreachable1 [
     i32 0, label %37
     i32 1, label %31
     i32 2, label %32
@@ -39646,6 +39658,7 @@ define internal fastcc void @tg3_get_5717_nvram_info(ptr noundef %0) unnamed_add
     i32 4, label %34
     i32 5, label %35
     i32 6, label %36
+    i32 7, label %._crit_edge
   ]
 
 ._crit_edge:                                      ; preds = %28
@@ -39671,11 +39684,14 @@ define internal fastcc void @tg3_get_5717_nvram_info(ptr noundef %0) unnamed_add
 36:                                               ; preds = %28
   br label %37
 
-37:                                               ; preds = %36, %35, %34, %33, %32, %31, %28
+37:                                               ; preds = %28, %36, %35, %34, %33, %32, %31
   %38 = phi i32 [ 512, %31 ], [ 1024, %32 ], [ 2048, %33 ], [ 4096, %34 ], [ 264, %35 ], [ 528, %36 ], [ 256, %28 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 5200
   store i32 %38, ptr %39, align 16
   br label %40
+
+default.unreachable1:                             ; preds = %28
+  unreachable
 
 40:                                               ; preds = %._crit_edge, %37
   %41 = phi i32 [ %.pre, %._crit_edge ], [ %38, %37 ]
@@ -39928,7 +39944,7 @@ define internal fastcc void @tg3_get_5720_nvram_info(ptr noundef %0) unnamed_add
 69:                                               ; preds = %66, %60, %50
   %70 = lshr i32 %5, 28
   %71 = and i32 %70, 7
-  switch i32 %71, label %._crit_edge [
+  switch i32 %71, label %default.unreachable3 [
     i32 0, label %78
     i32 1, label %72
     i32 2, label %73
@@ -39936,6 +39952,7 @@ define internal fastcc void @tg3_get_5720_nvram_info(ptr noundef %0) unnamed_add
     i32 4, label %75
     i32 5, label %76
     i32 6, label %77
+    i32 7, label %._crit_edge
   ]
 
 ._crit_edge:                                      ; preds = %69
@@ -39961,11 +39978,14 @@ define internal fastcc void @tg3_get_5720_nvram_info(ptr noundef %0) unnamed_add
 77:                                               ; preds = %69
   br label %78
 
-78:                                               ; preds = %77, %76, %75, %74, %73, %72, %69
+78:                                               ; preds = %69, %77, %76, %75, %74, %73, %72
   %79 = phi i32 [ 512, %72 ], [ 1024, %73 ], [ 2048, %74 ], [ 4096, %75 ], [ 264, %76 ], [ 528, %77 ], [ 256, %69 ]
   %80 = getelementptr inbounds i8, ptr %0, i64 5200
   store i32 %79, ptr %80, align 16
   br label %81
+
+default.unreachable3:                             ; preds = %69
+  unreachable
 
 81:                                               ; preds = %._crit_edge, %78
   %82 = phi i32 [ %.pre, %._crit_edge ], [ %79, %78 ]

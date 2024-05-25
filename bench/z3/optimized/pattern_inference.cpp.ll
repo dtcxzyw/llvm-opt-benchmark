@@ -2777,10 +2777,11 @@ for.end.loopexit.i.i.i.i:                         ; preds = %if.end11.i.i.i.i
 for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.i.i.i, %_ZNK6vectorIiLb0EjE3endEv.exit.i
   %sub.ptr.sub15.pre-phi.i.i.i.i = phi i32 [ %19, %for.end.loopexit.i.i.i.i ], [ %12, %_ZNK6vectorIiLb0EjE3endEv.exit.i ]
   %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %11, %_ZNK6vectorIiLb0EjE3endEv.exit.i ]
-  switch i32 %sub.ptr.sub15.pre-phi.i.i.i.i, label %_ZNK6vectorIiLb0EjE3endEv.exit18.i [
+  switch i32 %sub.ptr.sub15.pre-phi.i.i.i.i, label %for.end.i.i.i.unreachabledefault.i [
     i32 3, label %sw.bb.i.i.i.i
     i32 2, label %sw.bb21.i.i.i.i
     i32 1, label %sw.bb26.i.i.i.i
+    i32 0, label %_ZNK6vectorIiLb0EjE3endEv.exit18.i
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
@@ -2808,6 +2809,9 @@ sw.bb26.i.i.i.i:                                  ; preds = %if.end24.i.i.i.i, %
   %cmp.i31.i.i.i.i = icmp eq i32 %22, %cond.i25.i
   %spec.select.i = select i1 %cmp.i31.i.i.i.i, ptr %__first.addr.2.i.i.i.i, ptr %add.ptr.i.i
   br label %_ZNK6vectorIiLb0EjE3endEv.exit18.i
+
+for.end.i.i.i.unreachabledefault.i:               ; preds = %for.end.i.i.i.i
+  unreachable
 
 _ZNK6vectorIiLb0EjE3endEv.exit18.i.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i, i64 4

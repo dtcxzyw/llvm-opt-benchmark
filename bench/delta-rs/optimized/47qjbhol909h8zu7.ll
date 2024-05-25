@@ -107689,11 +107689,15 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$thrift..errors..Err
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = load i64, ptr %0, align 8, !range !17900, !noundef !12
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %5, label %7 [
+  switch i64 %5, label %default.unreachable4 [
     i64 0, label %29
     i64 1, label %38
     i64 2, label %47
+    i64 3, label %7
   ]
+
+default.unreachable4:                             ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   %.val = load ptr, ptr %6, align 8, !noundef !12
@@ -110818,11 +110822,15 @@ define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$datafusion_expr..co
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr69drop_in_place$LT$deltalake_core..kernel..models..schema..DataType$GT$17h46a60cf0b40c344aE.llvm.18016462908235130027"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !13143, !noundef !12
-  switch i8 %2, label %3 [
+  switch i8 %2, label %default.unreachable1 [
     i8 0, label %8
     i8 1, label %9
     i8 2, label %11
+    i8 3, label %3
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -110841,7 +110849,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$deltalake_core..kernel..mode
   tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 64, i64 noundef 8) #50, !noalias !18745
   br label %8
 
-8:                                                ; preds = %11, %9, %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$deltalake_core..kernel..models..schema..MapType$GT$$GT$17h05770589e1586b11E.llvm.18016462908235130027.exit", %1
+8:                                                ; preds = %1, %11, %9, %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$deltalake_core..kernel..models..schema..MapType$GT$$GT$17h05770589e1586b11E.llvm.18016462908235130027.exit"
   ret void
 
 9:                                                ; preds = %1
@@ -111002,11 +111010,15 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$deltalake_core..kernel..expr
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18777)
   %29 = load i8, ptr %28, align 8, !range !13143, !alias.scope !18777, !noundef !12
-  switch i8 %29, label %30 [
+  switch i8 %29, label %default.unreachable [
     i8 0, label %"_ZN4core3ptr69drop_in_place$LT$deltalake_core..kernel..models..schema..DataType$GT$17h46a60cf0b40c344aE.llvm.18016462908235130027.exit"
     i8 1, label %35
     i8 2, label %37
+    i8 3, label %30
   ]
+
+default.unreachable:                              ; preds = %27
+  unreachable
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %0, i64 16

@@ -860,10 +860,11 @@ define internal fastcc void @vga_update_device_decodes(ptr nocapture noundef %0,
   %12 = and i32 %11, %7
   store i32 %1, ptr %6, align 8
   %13 = and i32 %7, 3
-  switch i32 %13, label %16 [
+  switch i32 %13, label %default.unreachable3 [
     i32 3, label %17
     i32 1, label %14
     i32 2, label %15
+    i32 0, label %16
   ]
 
 14:                                               ; preds = %2
@@ -872,16 +873,20 @@ define internal fastcc void @vga_update_device_decodes(ptr nocapture noundef %0,
 15:                                               ; preds = %2
   br label %17
 
+default.unreachable3:                             ; preds = %23, %17, %2
+  unreachable
+
 16:                                               ; preds = %2
   br label %17
 
-17:                                               ; preds = %16, %15, %14, %2
+17:                                               ; preds = %2, %16, %15, %14
   %18 = phi ptr [ @.str.5, %16 ], [ @.str.4, %15 ], [ @.str.3, %14 ], [ @.str.2, %2 ]
   %19 = and i32 %1, 3
-  switch i32 %19, label %22 [
+  switch i32 %19, label %default.unreachable3 [
     i32 3, label %23
     i32 1, label %20
     i32 2, label %21
+    i32 0, label %22
   ]
 
 20:                                               ; preds = %17
@@ -893,15 +898,16 @@ define internal fastcc void @vga_update_device_decodes(ptr nocapture noundef %0,
 22:                                               ; preds = %17
   br label %23
 
-23:                                               ; preds = %22, %21, %20, %17
+23:                                               ; preds = %17, %22, %21, %20
   %24 = phi ptr [ @.str.5, %22 ], [ @.str.4, %21 ], [ @.str.3, %20 ], [ @.str.2, %17 ]
   %25 = getelementptr inbounds i8, ptr %0, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 3
-  switch i32 %27, label %30 [
+  switch i32 %27, label %default.unreachable3 [
     i32 3, label %31
     i32 1, label %28
     i32 2, label %29
+    i32 0, label %30
   ]
 
 28:                                               ; preds = %23
@@ -913,7 +919,7 @@ define internal fastcc void @vga_update_device_decodes(ptr nocapture noundef %0,
 30:                                               ; preds = %23
   br label %31
 
-31:                                               ; preds = %30, %29, %28, %23
+31:                                               ; preds = %23, %30, %29, %28
   %32 = phi ptr [ @.str.5, %30 ], [ @.str.4, %29 ], [ @.str.3, %28 ], [ @.str.2, %23 ]
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %5, ptr noundef nonnull @.str.1, ptr noundef nonnull %18, ptr noundef nonnull %24, ptr noundef nonnull %32) #15
   %33 = icmp eq i32 %12, 0
@@ -954,9 +960,9 @@ define internal fastcc void @vga_update_device_decodes(ptr nocapture noundef %0,
   br i1 %50, label %53, label %.sink.split
 
 .sink.split:                                      ; preds = %49, %45
-  %.sink2 = phi i32 [ -1, %45 ], [ 1, %49 ]
+  %.sink5 = phi i32 [ -1, %45 ], [ 1, %49 ]
   %51 = load i32, ptr @vga_decode_count, align 4
-  %52 = add i32 %51, %.sink2
+  %52 = add i32 %51, %.sink5
   store i32 %52, ptr @vga_decode_count, align 4
   br label %53
 
@@ -1068,16 +1074,16 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %44 = getelementptr inbounds i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.loopexit24, label %.preheader23
+  br i1 %46, label %.loopexit26, label %.preheader25
 
-.preheader23:                                     ; preds = %43, %59
+.preheader25:                                     ; preds = %43, %59
   %47 = phi ptr [ %61, %59 ], [ %45, %43 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %59, label %51
 
-51:                                               ; preds = %.preheader23
+51:                                               ; preds = %.preheader25
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #14
   store i16 0, ptr %5, align 2, !annotation !5
   %52 = call i32 @pci_read_config_word(ptr noundef nonnull %49, i32 noundef 62, ptr noundef nonnull %5) #14
@@ -1090,29 +1096,29 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %57 = getelementptr inbounds i8, ptr %7, i64 28
   store i32 0, ptr %57, align 4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #14
-  br label %.loopexit24
+  br label %.loopexit26
 
 58:                                               ; preds = %51
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #14
   br label %59
 
-59:                                               ; preds = %58, %.preheader23
+59:                                               ; preds = %58, %.preheader25
   %60 = getelementptr inbounds i8, ptr %47, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.loopexit24, label %.preheader23, !llvm.loop !20
+  br i1 %62, label %.loopexit26, label %.preheader25, !llvm.loop !20
 
-.loopexit24:                                      ; preds = %59, %56, %43
+.loopexit26:                                      ; preds = %59, %56, %43
   %63 = load ptr, ptr @vga_default, align 8
   br label %64
 
-64:                                               ; preds = %68, %.loopexit24
-  %65 = phi ptr [ @vga_list, %.loopexit24 ], [ %66, %68 ]
+64:                                               ; preds = %68, %.loopexit26
+  %65 = phi ptr [ @vga_list, %.loopexit26 ], [ %66, %68 ]
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, @vga_list
-  br i1 %67, label %.thread20, label %68
+  br i1 %67, label %.thread22, label %68
 
-.thread20:                                        ; preds = %64
+.thread22:                                        ; preds = %64
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #14
   store i16 0, ptr %2, align 2, !annotation !5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
@@ -1139,9 +1145,9 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %167
 
-78:                                               ; preds = %.thread20, %74, %72
-  %79 = phi i1 [ true, %.thread20 ], [ false, %74 ], [ true, %72 ]
-  %80 = phi ptr [ null, %.thread20 ], [ %66, %74 ], [ null, %72 ]
+78:                                               ; preds = %.thread22, %74, %72
+  %79 = phi i1 [ true, %.thread22 ], [ false, %74 ], [ true, %72 ]
+  %80 = phi ptr [ null, %.thread22 ], [ %66, %74 ], [ null, %72 ]
   %81 = load i32, ptr getelementptr inbounds (i8, ptr @screen_info, i64 24), align 1
   %82 = zext i32 %81 to i64
   %83 = load i32, ptr getelementptr inbounds (i8, ptr @screen_info, i64 28), align 1
@@ -1294,9 +1300,9 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
 174:                                              ; preds = %168
   %175 = load ptr, ptr %44, align 8
   %176 = icmp eq ptr %175, null
-  br i1 %176, label %.loopexit22.thread, label %.preheader21
+  br i1 %176, label %.loopexit24.thread, label %.preheader23
 
-.loopexit22.thread:                               ; preds = %174
+.loopexit24.thread:                               ; preds = %174
   %177 = getelementptr inbounds i8, ptr %0, i64 184
   br label %221
 
@@ -1304,9 +1310,9 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %179 = getelementptr inbounds i8, ptr %183, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %.loopexit22, label %.preheader21, !llvm.loop !22
+  br i1 %181, label %.loopexit24, label %.preheader23, !llvm.loop !22
 
-.preheader21:                                     ; preds = %174, %178
+.preheader23:                                     ; preds = %174, %178
   %182 = phi i8 [ %186, %178 ], [ 1, %174 ]
   %183 = phi ptr [ %180, %178 ], [ %175, %174 ]
   %184 = getelementptr inbounds i8, ptr %183, i64 56
@@ -1319,9 +1325,9 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %188 = icmp eq ptr %187, @vga_list
   br i1 %188, label %178, label %189, !llvm.loop !23
 
-189:                                              ; preds = %.loopexit, %.preheader21
-  %190 = phi i8 [ %186, %.loopexit ], [ %182, %.preheader21 ]
-  %191 = phi ptr [ %187, %.loopexit ], [ %170, %.preheader21 ]
+189:                                              ; preds = %.loopexit, %.preheader23
+  %190 = phi i8 [ %186, %.loopexit ], [ %182, %.preheader23 ]
+  %191 = phi ptr [ %187, %.loopexit ], [ %170, %.preheader23 ]
   %192 = getelementptr inbounds i8, ptr %191, i64 16
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 16
@@ -1366,19 +1372,22 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %218 = icmp eq ptr %217, null
   br i1 %218, label %.loopexit, label %.preheader, !llvm.loop !24
 
-.loopexit22:                                      ; preds = %178
+.loopexit24:                                      ; preds = %178
   %219 = icmp eq i8 %186, 0
   %220 = getelementptr inbounds i8, ptr %0, i64 184
   br i1 %219, label %223, label %221
 
-221:                                              ; preds = %.loopexit22.thread, %.loopexit22
-  %222 = phi ptr [ %177, %.loopexit22.thread ], [ %220, %.loopexit22 ]
+221:                                              ; preds = %.loopexit24.thread, %.loopexit24
+  %222 = phi ptr [ %177, %.loopexit24.thread ], [ %220, %.loopexit24 ]
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %222, ptr noundef nonnull @.str.28) #15
   br label %224
 
-223:                                              ; preds = %.loopexit22
+223:                                              ; preds = %.loopexit24
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %220, ptr noundef nonnull @.str.29) #15
   br label %224
+
+default.unreachable31:                            ; preds = %236, %224
+  unreachable
 
 224:                                              ; preds = %172, %221, %223
   %225 = load ptr, ptr getelementptr inbounds (i8, ptr @vga_list, i64 8), align 8
@@ -1394,10 +1403,11 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   %230 = getelementptr inbounds i8, ptr %7, i64 28
   %231 = load i32, ptr %230, align 4
   %232 = and i32 %231, 3
-  switch i32 %232, label %235 [
+  switch i32 %232, label %default.unreachable31 [
     i32 3, label %236
     i32 1, label %233
     i32 2, label %234
+    i32 0, label %235
   ]
 
 233:                                              ; preds = %224
@@ -1409,15 +1419,16 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
 235:                                              ; preds = %224
   br label %236
 
-236:                                              ; preds = %235, %234, %233, %224
+236:                                              ; preds = %224, %235, %234, %233
   %237 = phi ptr [ @.str.5, %235 ], [ @.str.4, %234 ], [ @.str.3, %233 ], [ @.str.2, %224 ]
   %238 = getelementptr inbounds i8, ptr %7, i64 32
   %239 = load i32, ptr %238, align 8
   %240 = and i32 %239, 3
-  switch i32 %240, label %243 [
+  switch i32 %240, label %default.unreachable31 [
     i32 3, label %244
     i32 1, label %241
     i32 2, label %242
+    i32 0, label %243
   ]
 
 241:                                              ; preds = %236
@@ -1429,7 +1440,7 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
 243:                                              ; preds = %236
   br label %244
 
-244:                                              ; preds = %243, %242, %241, %236
+244:                                              ; preds = %236, %243, %242, %241
   %245 = phi ptr [ @.str.5, %243 ], [ @.str.4, %242 ], [ @.str.3, %241 ], [ @.str.2, %236 ]
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %229, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.2, ptr noundef nonnull %237, ptr noundef nonnull %245) #15
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %12) #14
@@ -1505,10 +1516,11 @@ define internal i64 @vga_arb_read(ptr nocapture noundef readonly %0, ptr noundef
   %35 = getelementptr inbounds i8, ptr %17, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 3
-  switch i32 %37, label %40 [
+  switch i32 %37, label %default.unreachable9 [
     i32 3, label %41
     i32 1, label %38
     i32 2, label %39
+    i32 0, label %40
   ]
 
 38:                                               ; preds = %33
@@ -1517,18 +1529,22 @@ define internal i64 @vga_arb_read(ptr nocapture noundef readonly %0, ptr noundef
 39:                                               ; preds = %33
   br label %41
 
+default.unreachable9:                             ; preds = %49, %41, %33
+  unreachable
+
 40:                                               ; preds = %33
   br label %41
 
-41:                                               ; preds = %40, %39, %38, %33
+41:                                               ; preds = %33, %40, %39, %38
   %42 = phi ptr [ @.str.5, %40 ], [ @.str.4, %39 ], [ @.str.3, %38 ], [ @.str.2, %33 ]
   %43 = getelementptr inbounds i8, ptr %17, i64 28
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 3
-  switch i32 %45, label %48 [
+  switch i32 %45, label %default.unreachable9 [
     i32 3, label %49
     i32 1, label %46
     i32 2, label %47
+    i32 0, label %48
   ]
 
 46:                                               ; preds = %41
@@ -1540,15 +1556,16 @@ define internal i64 @vga_arb_read(ptr nocapture noundef readonly %0, ptr noundef
 48:                                               ; preds = %41
   br label %49
 
-49:                                               ; preds = %48, %47, %46, %41
+49:                                               ; preds = %41, %48, %47, %46
   %50 = phi ptr [ @.str.5, %48 ], [ @.str.4, %47 ], [ @.str.3, %46 ], [ @.str.2, %41 ]
   %51 = getelementptr inbounds i8, ptr %17, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 3
-  switch i32 %53, label %56 [
+  switch i32 %53, label %default.unreachable9 [
     i32 3, label %57
     i32 1, label %54
     i32 2, label %55
+    i32 0, label %56
   ]
 
 54:                                               ; preds = %49
@@ -1560,7 +1577,7 @@ define internal i64 @vga_arb_read(ptr nocapture noundef readonly %0, ptr noundef
 56:                                               ; preds = %49
   br label %57
 
-57:                                               ; preds = %56, %55, %54, %49
+57:                                               ; preds = %49, %56, %55, %54
   %58 = phi ptr [ @.str.5, %56 ], [ @.str.4, %55 ], [ @.str.3, %54 ], [ @.str.2, %49 ]
   %59 = getelementptr inbounds i8, ptr %17, i64 36
   %60 = load i32, ptr %59, align 4

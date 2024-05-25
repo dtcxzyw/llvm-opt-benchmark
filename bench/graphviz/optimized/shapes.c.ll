@@ -5030,7 +5030,7 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
   %138 = icmp ult i8 %switch.tableidx173, 8
   br i1 %138, label %switch.hole_check174, label %invflip_side.exit
 
-default.unreachable:                              ; preds = %125
+default.unreachable:                              ; preds = %invflip_side.exit, %125
   unreachable
 
 switch.hole_check:                                ; preds = %135
@@ -5077,10 +5077,11 @@ invflip_side.exit:                                ; preds = %switch.lookup175, %
   %153 = getelementptr inbounds i8, ptr %152, i64 132
   %154 = load i32, ptr %153, align 4
   %155 = and i32 %154, 3
-  switch i32 %155, label %invflip_angle.exit [
+  switch i32 %155, label %default.unreachable [
     i32 3, label %160
     i32 2, label %156
     i32 1, label %158
+    i32 0, label %invflip_angle.exit
   ]
 
 156:                                              ; preds = %invflip_side.exit

@@ -75336,104 +75336,105 @@ define internal fastcc void @convert_channels_short_interleaved(i32 noundef %0, 
 
 .lr.ph78.us.i.us.us:                              ; preds = %._crit_edge.us.i.us.us, %.lr.ph84.i.us.us
   %indvars.iv98 = phi i32 [ %indvars.iv.next99, %._crit_edge.us.i.us.us ], [ 0, %.lr.ph84.i.us.us ]
-  %indvars.iv108.i.us.us = phi i64 [ %indvars.iv.next109.i.us.us, %._crit_edge.us.i.us.us ], [ 0, %.lr.ph84.i.us.us ]
+  %indvars.iv109.i.us.us = phi i64 [ %indvars.iv.next110.i.us.us, %._crit_edge.us.i.us.us ], [ 0, %.lr.ph84.i.us.us ]
   %.06281.us.i.us.us = phi i32 [ %spec.select.us.i.us.us, %._crit_edge.us.i.us.us ], [ 16, %.lr.ph84.i.us.us ]
-  %indvars107 = trunc i64 %indvars.iv108.i.us.us to i32
+  %indvars107 = trunc i64 %indvars.iv109.i.us.us to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   %17 = add i32 %.06281.us.i.us.us, %indvars107
   %18 = icmp sgt i32 %17, %5
   %19 = sub i32 %5, %indvars107
   %spec.select.us.i.us.us = select i1 %18, i32 %19, i32 %.06281.us.i.us.us
   %20 = icmp sgt i32 %spec.select.us.i.us.us, 0
-  %21 = add nsw i64 %indvars.iv108.i.us.us, %15
+  %21 = add nsw i64 %indvars.iv109.i.us.us, %15
   %smin97 = tail call i32 @llvm.smin.i32(i32 %5, i32 %17)
   %22 = add i32 %smin97, %indvars.iv98
   %23 = sext i32 %22 to i64
   br label %24
 
 24:                                               ; preds = %.loopexit.us.i.us.us, %.lr.ph78.us.i.us.us
-  %indvars.iv102.i.us.us = phi i64 [ 0, %.lr.ph78.us.i.us.us ], [ %indvars.iv.next103.i.us.us, %.loopexit.us.i.us.us ]
-  %25 = getelementptr inbounds [7 x [6 x i8]], ptr @channel_position, i64 0, i64 %13, i64 %indvars.iv102.i.us.us
+  %indvars.iv103.i.us.us = phi i64 [ 0, %.lr.ph78.us.i.us.us ], [ %indvars.iv.next104.i.us.us, %.loopexit.us.i.us.us ]
+  %25 = getelementptr inbounds [7 x [6 x i8]], ptr @channel_position, i64 0, i64 %13, i64 %indvars.iv103.i.us.us
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 6
-  switch i8 %27, label %.loopexit.us.i.us.us [
+  switch i8 %27, label %.unreachabledefault [
     i8 6, label %.preheader.us.i.us.us
     i8 2, label %.preheader67.us.i.us.us
     i8 4, label %.preheader69.us.i.us.us
+    i8 0, label %.loopexit.us.i.us.us
   ]
 
 .preheader69.us.i.us.us:                          ; preds = %24
   br i1 %20, label %.lr.ph.us.i.us.us, label %.loopexit.us.i.us.us
 
 .lr.ph.us.i.us.us:                                ; preds = %.preheader69.us.i.us.us
-  %28 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv102.i.us.us
+  %28 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv103.i.us.us
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr float, ptr %29, i64 %21
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph.us.i.us.us
-  %indvars.iv93.i.us.us = phi i64 [ 0, %.lr.ph.us.i.us.us ], [ %indvars.iv.next94.i.us.us, %31 ]
-  %32 = getelementptr float, ptr %30, i64 %indvars.iv93.i.us.us
+  %indvars.iv94.i.us.us = phi i64 [ 0, %.lr.ph.us.i.us.us ], [ %indvars.iv.next95.i.us.us, %31 ]
+  %32 = getelementptr float, ptr %30, i64 %indvars.iv94.i.us.us
   %33 = load float, ptr %32, align 4
-  %34 = shl nuw nsw i64 %indvars.iv93.i.us.us, 1
+  %34 = shl nuw nsw i64 %indvars.iv94.i.us.us, 1
   %35 = or disjoint i64 %34, 1
   %36 = getelementptr inbounds [32 x float], ptr %7, i64 0, i64 %35
   %37 = load float, ptr %36, align 4
   %38 = fadd float %33, %37
   store float %38, ptr %36, align 4
-  %indvars.iv.next94.i.us.us = add nuw nsw i64 %indvars.iv93.i.us.us, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next94.i.us.us, %23
+  %indvars.iv.next95.i.us.us = add nuw nsw i64 %indvars.iv94.i.us.us, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next95.i.us.us, %23
   br i1 %exitcond100.not, label %.loopexit.us.i.us.us, label %31
 
 .preheader67.us.i.us.us:                          ; preds = %24
   br i1 %20, label %.lr.ph74.us.i.us.us, label %.loopexit.us.i.us.us
 
 .lr.ph74.us.i.us.us:                              ; preds = %.preheader67.us.i.us.us
-  %39 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv102.i.us.us
+  %39 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv103.i.us.us
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr float, ptr %40, i64 %21
   br label %42
 
 42:                                               ; preds = %42, %.lr.ph74.us.i.us.us
-  %indvars.iv96.i.us.us = phi i64 [ 0, %.lr.ph74.us.i.us.us ], [ %indvars.iv.next97.i.us.us, %42 ]
-  %43 = getelementptr float, ptr %41, i64 %indvars.iv96.i.us.us
+  %indvars.iv97.i.us.us = phi i64 [ 0, %.lr.ph74.us.i.us.us ], [ %indvars.iv.next98.i.us.us, %42 ]
+  %43 = getelementptr float, ptr %41, i64 %indvars.iv97.i.us.us
   %44 = load float, ptr %43, align 4
-  %45 = shl nuw nsw i64 %indvars.iv96.i.us.us, 1
+  %45 = shl nuw nsw i64 %indvars.iv97.i.us.us, 1
   %46 = getelementptr inbounds [32 x float], ptr %7, i64 0, i64 %45
   %47 = load float, ptr %46, align 8
   %48 = fadd float %44, %47
   store float %48, ptr %46, align 8
-  %indvars.iv.next97.i.us.us = add nuw nsw i64 %indvars.iv96.i.us.us, 1
-  %exitcond102.not = icmp eq i64 %indvars.iv.next97.i.us.us, %23
+  %indvars.iv.next98.i.us.us = add nuw nsw i64 %indvars.iv97.i.us.us, 1
+  %exitcond102.not = icmp eq i64 %indvars.iv.next98.i.us.us, %23
   br i1 %exitcond102.not, label %.loopexit.us.i.us.us, label %42
 
 .preheader.us.i.us.us:                            ; preds = %24
   br i1 %20, label %.lr.ph76.us.i.us.us, label %.loopexit.us.i.us.us
 
 .lr.ph76.us.i.us.us:                              ; preds = %.preheader.us.i.us.us
-  %49 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv102.i.us.us
+  %49 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv103.i.us.us
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr float, ptr %50, i64 %21
   br label %52
 
 52:                                               ; preds = %52, %.lr.ph76.us.i.us.us
-  %indvars.iv99.i.us.us = phi i64 [ 0, %.lr.ph76.us.i.us.us ], [ %indvars.iv.next100.i.us.us, %52 ]
-  %53 = getelementptr float, ptr %51, i64 %indvars.iv99.i.us.us
+  %indvars.iv100.i.us.us = phi i64 [ 0, %.lr.ph76.us.i.us.us ], [ %indvars.iv.next101.i.us.us, %52 ]
+  %53 = getelementptr float, ptr %51, i64 %indvars.iv100.i.us.us
   %54 = load float, ptr %53, align 4
-  %55 = shl nuw nsw i64 %indvars.iv99.i.us.us, 1
+  %55 = shl nuw nsw i64 %indvars.iv100.i.us.us, 1
   %56 = getelementptr inbounds [32 x float], ptr %7, i64 0, i64 %55
   %57 = load <2 x float>, ptr %56, align 8
   %58 = insertelement <2 x float> poison, float %54, i64 0
   %59 = shufflevector <2 x float> %58, <2 x float> poison, <2 x i32> zeroinitializer
   %60 = fadd <2 x float> %59, %57
   store <2 x float> %60, ptr %56, align 8
-  %indvars.iv.next100.i.us.us = add nuw nsw i64 %indvars.iv99.i.us.us, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next100.i.us.us, %23
+  %indvars.iv.next101.i.us.us = add nuw nsw i64 %indvars.iv100.i.us.us, 1
+  %exitcond104.not = icmp eq i64 %indvars.iv.next101.i.us.us, %23
   br i1 %exitcond104.not, label %.loopexit.us.i.us.us, label %52
 
 .loopexit.us.i.us.us:                             ; preds = %31, %42, %52, %.preheader.us.i.us.us, %.preheader67.us.i.us.us, %.preheader69.us.i.us.us, %24
-  %indvars.iv.next103.i.us.us = add nuw nsw i64 %indvars.iv102.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next103.i.us.us, %wide.trip.count.i
+  %indvars.iv.next104.i.us.us = add nuw nsw i64 %indvars.iv103.i.us.us, 1
+  %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next104.i.us.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us.us, label %..preheader71_crit_edge.us.i.us.us, label %24
 
 ..preheader71_crit_edge.us.i.us.us:               ; preds = %.loopexit.us.i.us.us
@@ -75444,29 +75445,29 @@ define internal fastcc void @convert_channels_short_interleaved(i32 noundef %0, 
 .lr.ph80.us.preheader.i.us.us:                    ; preds = %..preheader71_crit_edge.us.i.us.us
   %63 = shl i32 %indvars107, 1
   %64 = sext i32 %63 to i64
-  %invariant.gep114.i.us.us = getelementptr i16, ptr %1, i64 %64
+  %invariant.gep115.i.us.us = getelementptr i16, ptr %1, i64 %64
   %65 = shl i32 %22, 1
   %66 = zext i32 %65 to i64
   br label %.lr.ph80.us.i.us.us
 
 .lr.ph80.us.i.us.us:                              ; preds = %.lr.ph80.us.i.us.us, %.lr.ph80.us.preheader.i.us.us
-  %indvars.iv105.i.us.us = phi i64 [ 0, %.lr.ph80.us.preheader.i.us.us ], [ %indvars.iv.next106.i.us.us, %.lr.ph80.us.i.us.us ]
-  %67 = getelementptr inbounds [32 x float], ptr %7, i64 0, i64 %indvars.iv105.i.us.us
+  %indvars.iv106.i.us.us = phi i64 [ 0, %.lr.ph80.us.preheader.i.us.us ], [ %indvars.iv.next107.i.us.us, %.lr.ph80.us.i.us.us ]
+  %67 = getelementptr inbounds [32 x float], ptr %7, i64 0, i64 %indvars.iv106.i.us.us
   %68 = load float, ptr %67, align 4
   %69 = fadd float %68, 3.840000e+02
   %70 = bitcast float %69 to i32
   %71 = tail call i32 @llvm.smax.i32(i32 %70, i32 1136623616)
   %72 = tail call i32 @llvm.umin.i32(i32 %71, i32 1136689151)
   %73 = trunc i32 %72 to i16
-  %gep115.i.us.us = getelementptr i16, ptr %invariant.gep114.i.us.us, i64 %indvars.iv105.i.us.us
-  store i16 %73, ptr %gep115.i.us.us, align 2
-  %indvars.iv.next106.i.us.us = add nuw nsw i64 %indvars.iv105.i.us.us, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next106.i.us.us, %66
+  %gep116.i.us.us = getelementptr i16, ptr %invariant.gep115.i.us.us, i64 %indvars.iv106.i.us.us
+  store i16 %73, ptr %gep116.i.us.us, align 2
+  %indvars.iv.next107.i.us.us = add nuw nsw i64 %indvars.iv106.i.us.us, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next107.i.us.us, %66
   br i1 %exitcond106.not, label %._crit_edge.us.i.us.us, label %.lr.ph80.us.i.us.us
 
 ._crit_edge.us.i.us.us:                           ; preds = %.lr.ph80.us.i.us.us, %..preheader71_crit_edge.us.i.us.us
-  %indvars.iv.next109.i.us.us = add nuw nsw i64 %indvars.iv108.i.us.us, 16
-  %74 = icmp ult i64 %indvars.iv.next109.i.us.us, %14
+  %indvars.iv.next110.i.us.us = add nuw nsw i64 %indvars.iv109.i.us.us, 16
+  %74 = icmp ult i64 %indvars.iv.next110.i.us.us, %14
   %indvars.iv.next99 = add i32 %indvars.iv98, -16
   br i1 %74, label %.lr.ph78.us.i.us.us, label %compute_stereo_samples.exit.loopexit.us.us
 
@@ -75476,6 +75477,9 @@ compute_stereo_samples.exit.loopexit.us.us:       ; preds = %._crit_edge.us.i.us
   %exitcond108.not = icmp eq i32 %75, %0
   br i1 %exitcond108.not, label %.loopexit, label %.lr.ph84.i.us.us
 
+.unreachabledefault:                              ; preds = %24
+  unreachable
+
 .lr.ph84.i.us:                                    ; preds = %.lr.ph.split.us, %compute_stereo_samples.exit.loopexit46.us
   %.03868.us = phi i32 [ %94, %compute_stereo_samples.exit.loopexit46.us ], [ 0, %.lr.ph.split.us ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
@@ -75483,9 +75487,9 @@ compute_stereo_samples.exit.loopexit.us.us:       ; preds = %._crit_edge.us.i.us
 
 .preheader71.i.us:                                ; preds = %.lr.ph84.i.us, %._crit_edge.i.us
   %indvars.iv90 = phi i32 [ 0, %.lr.ph84.i.us ], [ %indvars.iv.next91, %._crit_edge.i.us ]
-  %indvars.iv90.i.us = phi i64 [ 0, %.lr.ph84.i.us ], [ %indvars.iv.next91.i.us, %._crit_edge.i.us ]
+  %indvars.iv91.i.us = phi i64 [ 0, %.lr.ph84.i.us ], [ %indvars.iv.next92.i.us, %._crit_edge.i.us ]
   %.06281.i.us = phi i32 [ 16, %.lr.ph84.i.us ], [ %spec.select.i.us, %._crit_edge.i.us ]
-  %indvars93 = trunc i64 %indvars.iv90.i.us to i32
+  %indvars93 = trunc i64 %indvars.iv91.i.us to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   %76 = add nsw i32 %.06281.i.us, %indvars93
   %77 = icmp sgt i32 %76, %5
@@ -75521,8 +75525,8 @@ compute_stereo_samples.exit.loopexit.us.us:       ; preds = %._crit_edge.us.i.us
   br i1 %exitcond92.not, label %._crit_edge.i.us, label %.lr.ph80.i.us
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph80.i.us, %.preheader71.i.us
-  %indvars.iv.next91.i.us = add nuw nsw i64 %indvars.iv90.i.us, 16
-  %93 = icmp ult i64 %indvars.iv.next91.i.us, %14
+  %indvars.iv.next92.i.us = add nuw nsw i64 %indvars.iv91.i.us, 16
+  %93 = icmp ult i64 %indvars.iv.next92.i.us, %14
   %indvars.iv.next91 = add i32 %indvars.iv90, -16
   br i1 %93, label %.preheader71.i.us, label %compute_stereo_samples.exit.loopexit46.us
 
@@ -86944,11 +86948,11 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   br i1 %134, label %136, label %.thread949
 
 136:                                              ; preds = %128
-  %.not1020 = icmp eq i64 %2, 77
+  %.not1023 = icmp eq i64 %2, 77
   %137 = getelementptr inbounds i8, ptr %1, i64 76
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i16
-  br i1 %.not1020, label %.thread949, label %141
+  br i1 %.not1023, label %.thread949, label %141
 
 .thread949:                                       ; preds = %128, %136, %.thread946
   %.ph948 = phi i16 [ %139, %136 ], [ 0, %.thread946 ], [ 0, %128 ]
@@ -87002,14 +87006,14 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %168, i8 0, i64 %169, i1 false)
   %170 = add nuw nsw i64 %104, 60
   %171 = load i16, ptr %107, align 8
-  %.not1021 = icmp eq i16 %171, 0
-  br i1 %.not1021, label %._crit_edge, label %.lr.ph
+  %.not1024 = icmp eq i16 %171, 0
+  br i1 %.not1024, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread953, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.thread953 ]
-  %.0768977 = phi ptr [ %216, %.loopexit ], [ %125, %.thread953 ]
-  %.0770976 = phi i64 [ %384, %.loopexit ], [ %170, %.thread953 ]
-  %172 = add i64 %.0770976, 7
+  %.0768980 = phi ptr [ %216, %.loopexit ], [ %125, %.thread953 ]
+  %.0770979 = phi i64 [ %384, %.loopexit ], [ %170, %.thread953 ]
+  %172 = add i64 %.0770979, 7
   %173 = icmp ult i64 %172, %2
   br i1 %173, label %174, label %178
 
@@ -87021,7 +87025,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 178:                                              ; preds = %.lr.ph, %174
   %179 = phi i16 [ %177, %174 ], [ 0, %.lr.ph ]
-  %180 = add i64 %.0770976, 8
+  %180 = add i64 %.0770979, 8
   %181 = icmp ult i64 %180, %2
   br i1 %181, label %182, label %186
 
@@ -87037,7 +87041,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %189 = or disjoint i16 %188, %179
   %190 = load ptr, ptr %112, align 8
   %191 = getelementptr inbounds %struct.jar_xm_pattern_s, ptr %190, i64 %indvars.iv
-  %192 = add i64 %.0770976, 5
+  %192 = add i64 %.0770979, 5
   %193 = icmp ult i64 %192, %2
   br i1 %193, label %194, label %198
 
@@ -87049,7 +87053,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 198:                                              ; preds = %186, %194
   %199 = phi i16 [ %197, %194 ], [ 0, %186 ]
-  %200 = add i64 %.0770976, 6
+  %200 = add i64 %.0770979, 6
   %201 = icmp ult i64 %200, %2
   br i1 %201, label %202, label %206
 
@@ -87065,25 +87069,25 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %209 = or disjoint i16 %208, %199
   store i16 %209, ptr %191, align 8
   %210 = getelementptr inbounds i8, ptr %191, i64 8
-  store ptr %.0768977, ptr %210, align 8
+  store ptr %.0768980, ptr %210, align 8
   %211 = load i16, ptr %105, align 2
   %212 = zext i16 %211 to i64
   %213 = zext i16 %209 to i64
   %214 = mul nuw nsw i64 %213, 5
   %215 = mul nuw nsw i64 %214, %212
-  %216 = getelementptr inbounds i8, ptr %.0768977, i64 %215
-  %217 = icmp ult i64 %.0770976, %2
+  %216 = getelementptr inbounds i8, ptr %.0768980, i64 %215
+  %217 = icmp ult i64 %.0770979, %2
   br i1 %217, label %218, label %222
 
 218:                                              ; preds = %206
-  %219 = getelementptr inbounds i8, ptr %1, i64 %.0770976
+  %219 = getelementptr inbounds i8, ptr %1, i64 %.0770979
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i64
   br label %222
 
 222:                                              ; preds = %206, %218
   %223 = phi i64 [ %221, %218 ], [ 0, %206 ]
-  %224 = add i64 %.0770976, 1
+  %224 = add i64 %.0770979, 1
   %225 = icmp ult i64 %224, %2
   br i1 %225, label %226, label %230
 
@@ -87096,7 +87100,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 230:                                              ; preds = %222, %226
   %231 = phi i64 [ %229, %226 ], [ 0, %222 ]
   %232 = shl nuw nsw i64 %231, 8
-  %233 = add i64 %.0770976, 2
+  %233 = add i64 %.0770979, 2
   %234 = icmp ult i64 %233, %2
   br i1 %234, label %235, label %239
 
@@ -87108,7 +87112,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 239:                                              ; preds = %230, %235
   %240 = phi i64 [ %238, %235 ], [ 0, %230 ]
-  %241 = add i64 %.0770976, 3
+  %241 = add i64 %.0770979, 3
   %242 = icmp ult i64 %241, %2
   br i1 %242, label %243, label %247
 
@@ -87122,7 +87126,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %248 = phi i64 [ %246, %243 ], [ 0, %239 ]
   %249 = shl nuw nsw i64 %248, 24
   %250 = shl nuw nsw i64 %240, 16
-  %251 = add i64 %223, %.0770976
+  %251 = add i64 %223, %.0770979
   %252 = add i64 %251, %232
   %253 = add i64 %252, %250
   %254 = add i64 %253, %249
@@ -87130,20 +87134,20 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   br i1 %255, label %256, label %.preheader971
 
 256:                                              ; preds = %247
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0768977, i8 0, i64 %215, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0768980, i8 0, i64 %215, i1 false)
   br label %.loopexit
 
 .preheader971:                                    ; preds = %247, %380
-  %.0776974 = phi i16 [ %.5781, %380 ], [ 0, %247 ]
-  %.0783972 = phi i16 [ %381, %380 ], [ 0, %247 ]
-  %257 = zext i16 %.0776974 to i64
+  %.0776977 = phi i16 [ %.5781, %380 ], [ 0, %247 ]
+  %.0783975 = phi i16 [ %381, %380 ], [ 0, %247 ]
+  %257 = zext i16 %.0776977 to i64
   %258 = add i64 %254, %257
   %259 = icmp ult i64 %258, %2
   br i1 %259, label %263, label %.thread954
 
 .thread954:                                       ; preds = %.preheader971
   %260 = load ptr, ptr %210, align 8
-  %261 = zext i16 %.0783972 to i64
+  %261 = zext i16 %.0783975 to i64
   %262 = getelementptr inbounds %struct.jar_xm_pattern_slot_s, ptr %260, i64 %261
   br label %344
 
@@ -87151,14 +87155,14 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %264 = getelementptr inbounds i8, ptr %1, i64 %258
   %265 = load i8, ptr %264, align 1
   %266 = load ptr, ptr %210, align 8
-  %267 = zext i16 %.0783972 to i64
+  %267 = zext i16 %.0783975 to i64
   %268 = getelementptr inbounds %struct.jar_xm_pattern_slot_s, ptr %266, i64 %267
   %269 = zext i8 %265 to i32
   %.not893 = icmp sgt i8 %265, -1
   br i1 %.not893, label %344, label %270
 
 270:                                              ; preds = %263
-  %271 = add nuw i16 %.0776974, 1
+  %271 = add nuw i16 %.0776977, 1
   %272 = and i32 %269, 1
   %.not894 = icmp eq i32 %272, 0
   br i1 %.not894, label %283, label %273
@@ -87177,7 +87181,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 280:                                              ; preds = %273, %277
   %281 = phi i8 [ %279, %277 ], [ 0, %273 ]
   store i8 %281, ptr %268, align 1
-  %282 = add i16 %.0776974, 2
+  %282 = add i16 %.0776977, 2
   br label %284
 
 283:                                              ; preds = %270
@@ -87356,12 +87360,12 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %377 = phi i8 [ %375, %373 ], [ 0, %368 ]
   %378 = getelementptr inbounds i8, ptr %345, i64 4
   store i8 %377, ptr %378, align 1
-  %379 = add i16 %.0776974, 5
+  %379 = add i16 %.0776977, 5
   br label %380
 
 380:                                              ; preds = %376, %342, %338
   %.5781 = phi i16 [ %341, %338 ], [ %.4780, %342 ], [ %379, %376 ]
-  %381 = add i16 %.0783972, 1
+  %381 = add i16 %.0783975, 1
   %382 = icmp ult i16 %.5781, %189
   br i1 %382, label %.preheader971, label %.loopexit
 
@@ -87382,23 +87386,23 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %390 = and i64 %389, -16
   %391 = inttoptr i64 %390 to ptr
   %392 = load i16, ptr %111, align 2
-  %.not1022 = icmp eq i16 %392, 0
-  br i1 %.not1022, label %._crit_edge1018, label %.lr.ph1017
+  %.not1025 = icmp eq i16 %392, 0
+  br i1 %.not1025, label %._crit_edge1021, label %.lr.ph1020
 
-.lr.ph1017:                                       ; preds = %._crit_edge
+.lr.ph1020:                                       ; preds = %._crit_edge
   %393 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 18)
   %394 = tail call i64 @llvm.umin.i64(i64 %393, i64 22)
   %395 = getelementptr inbounds i8, ptr %1, i64 18
   %396 = sub nuw nsw i64 22, %394
   br label %397
 
-397:                                              ; preds = %.lr.ph1017, %._crit_edge1011
-  %indvars.iv1060 = phi i64 [ 0, %.lr.ph1017 ], [ %indvars.iv.next1061, %._crit_edge1011 ]
-  %.17691015 = phi ptr [ %391, %.lr.ph1017 ], [ %.3.lcssa1070, %._crit_edge1011 ]
-  %.17711014 = phi i64 [ %.0770.lcssa, %.lr.ph1017 ], [ %.3773.lcssa, %._crit_edge1011 ]
+397:                                              ; preds = %.lr.ph1020, %._crit_edge1014
+  %indvars.iv1063 = phi i64 [ 0, %.lr.ph1020 ], [ %indvars.iv.next1064, %._crit_edge1014 ]
+  %.17691018 = phi ptr [ %391, %.lr.ph1020 ], [ %.3.lcssa1074, %._crit_edge1014 ]
+  %.17711017 = phi i64 [ %.0770.lcssa, %.lr.ph1020 ], [ %.3773.lcssa, %._crit_edge1014 ]
   %398 = load ptr, ptr %122, align 8
-  %399 = getelementptr inbounds %struct.jar_xm_instrument_s, ptr %398, i64 %indvars.iv1060
-  %400 = add i64 %.17711014, 4
+  %399 = getelementptr inbounds %struct.jar_xm_instrument_s, ptr %398, i64 %indvars.iv1063
+  %400 = add i64 %.17711017, 4
   %401 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %400)
   %402 = tail call i64 @llvm.umin.i64(i64 %401, i64 22)
   %403 = getelementptr inbounds i8, ptr %1, i64 %400
@@ -87406,7 +87410,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %404 = getelementptr inbounds i8, ptr %399, i64 %402
   %405 = sub nuw nsw i64 22, %402
   tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %404, i8 0, i64 %405, i1 false)
-  %406 = add i64 %.17711014, 27
+  %406 = add i64 %.17711017, 27
   %407 = icmp ult i64 %406, %2
   br i1 %407, label %408, label %412
 
@@ -87418,7 +87422,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 412:                                              ; preds = %397, %408
   %413 = phi i16 [ %411, %408 ], [ 0, %397 ]
-  %414 = add i64 %.17711014, 28
+  %414 = add i64 %.17711017, 28
   %415 = icmp ult i64 %414, %2
   br i1 %415, label %416, label %420
 
@@ -87438,7 +87442,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   br i1 %.not880, label %711, label %425
 
 425:                                              ; preds = %420
-  %426 = add i64 %.17711014, 29
+  %426 = add i64 %.17711017, 29
   %427 = icmp ult i64 %426, %2
   br i1 %427, label %428, label %432
 
@@ -87450,7 +87454,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 432:                                              ; preds = %425, %428
   %433 = phi i64 [ %431, %428 ], [ 0, %425 ]
-  %434 = add i64 %.17711014, 30
+  %434 = add i64 %.17711017, 30
   %435 = icmp ult i64 %434, %2
   br i1 %435, label %436, label %440
 
@@ -87464,7 +87468,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %441 = phi i64 [ %439, %436 ], [ 0, %432 ]
   %442 = shl nuw nsw i64 %441, 8
   %443 = or disjoint i64 %442, %433
-  %444 = add i64 %.17711014, 31
+  %444 = add i64 %.17711017, 31
   %445 = icmp ult i64 %444, %2
   br i1 %445, label %446, label %450
 
@@ -87476,7 +87480,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 450:                                              ; preds = %440, %446
   %451 = phi i64 [ %449, %446 ], [ 0, %440 ]
-  %452 = add i64 %.17711014, 32
+  %452 = add i64 %.17711017, 32
   %453 = icmp ult i64 %452, %2
   br i1 %453, label %454, label %458
 
@@ -87493,7 +87497,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %462 = or disjoint i64 %460, %461
   %463 = or disjoint i64 %462, %443
   %464 = getelementptr inbounds i8, ptr %399, i64 26
-  %465 = add i64 %.17711014, 33
+  %465 = add i64 %.17711017, 33
   %466 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %465)
   %467 = tail call i64 @llvm.umin.i64(i64 %466, i64 96)
   %468 = getelementptr inbounds i8, ptr %1, i64 %465
@@ -87501,7 +87505,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %469 = getelementptr inbounds i8, ptr %464, i64 %467
   %470 = sub nuw nsw i64 96, %467
   tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %469, i8 0, i64 %470, i1 false)
-  %471 = add i64 %.17711014, 225
+  %471 = add i64 %.17711017, 225
   %472 = icmp ult i64 %471, %2
   br i1 %472, label %473, label %476
 
@@ -87515,7 +87519,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %478 = getelementptr inbounds i8, ptr %399, i64 122
   %479 = getelementptr inbounds i8, ptr %399, i64 170
   store i8 %477, ptr %479, align 2
-  %480 = add i64 %.17711014, 226
+  %480 = add i64 %.17711017, 226
   %481 = icmp ult i64 %480, %2
   br i1 %481, label %482, label %485
 
@@ -87529,11 +87533,11 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %487 = getelementptr inbounds i8, ptr %399, i64 178
   %488 = getelementptr inbounds i8, ptr %399, i64 226
   store i8 %486, ptr %488, align 2
-  %.not1023 = icmp eq i8 %477, 0
-  br i1 %.not1023, label %.preheader970, label %.lr.ph981
+  %.not1026 = icmp eq i8 %477, 0
+  br i1 %.not1026, label %.preheader970, label %.lr.ph984
 
-.lr.ph981:                                        ; preds = %485
-  %489 = add i64 %.17711014, 129
+.lr.ph984:                                        ; preds = %485
+  %489 = add i64 %.17711017, 129
   br label %492
 
 .preheader970.loopexit:                           ; preds = %527
@@ -87542,16 +87546,16 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 .preheader970:                                    ; preds = %.preheader970.loopexit, %485
   %490 = phi i8 [ %.pre, %.preheader970.loopexit ], [ %486, %485 ]
-  %.not1024 = icmp eq i8 %490, 0
-  br i1 %.not1024, label %._crit_edge984, label %.lr.ph983
+  %.not1027 = icmp eq i8 %490, 0
+  br i1 %.not1027, label %._crit_edge987, label %.lr.ph986
 
-.lr.ph983:                                        ; preds = %.preheader970
-  %491 = add i64 %.17711014, 177
+.lr.ph986:                                        ; preds = %.preheader970
+  %491 = add i64 %.17711017, 177
   br label %535
 
-492:                                              ; preds = %.lr.ph981, %527
-  %indvars.iv1030 = phi i64 [ 0, %.lr.ph981 ], [ %indvars.iv.next1031, %527 ]
-  %493 = shl nuw nsw i64 %indvars.iv1030, 2
+492:                                              ; preds = %.lr.ph984, %527
+  %indvars.iv1033 = phi i64 [ 0, %.lr.ph984 ], [ %indvars.iv.next1034, %527 ]
+  %493 = shl nuw nsw i64 %indvars.iv1033, 2
   %494 = add i64 %489, %493
   %495 = icmp ult i64 %494, %2
   br i1 %495, label %496, label %500
@@ -87578,7 +87582,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %509 = phi i16 [ %507, %504 ], [ 0, %500 ]
   %510 = shl nuw i16 %509, 8
   %511 = or disjoint i16 %510, %501
-  %512 = getelementptr inbounds [12 x %struct.jar_xm_envelope_point_s], ptr %478, i64 0, i64 %indvars.iv1030
+  %512 = getelementptr inbounds [12 x %struct.jar_xm_envelope_point_s], ptr %478, i64 0, i64 %indvars.iv1033
   store i16 %511, ptr %512, align 2
   %513 = add i64 %494, 2
   %514 = icmp ult i64 %513, %2
@@ -87608,15 +87612,15 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %530 = or disjoint i16 %529, %520
   %531 = getelementptr inbounds i8, ptr %512, i64 2
   store i16 %530, ptr %531, align 2
-  %indvars.iv.next1031 = add nuw nsw i64 %indvars.iv1030, 1
+  %indvars.iv.next1034 = add nuw nsw i64 %indvars.iv1033, 1
   %532 = load i8, ptr %479, align 2
   %533 = zext i8 %532 to i64
-  %534 = icmp ult i64 %indvars.iv.next1031, %533
+  %534 = icmp ult i64 %indvars.iv.next1034, %533
   br i1 %534, label %492, label %.preheader970.loopexit
 
-535:                                              ; preds = %.lr.ph983, %570
-  %indvars.iv1033 = phi i64 [ 0, %.lr.ph983 ], [ %indvars.iv.next1034, %570 ]
-  %536 = shl nuw nsw i64 %indvars.iv1033, 2
+535:                                              ; preds = %.lr.ph986, %570
+  %indvars.iv1036 = phi i64 [ 0, %.lr.ph986 ], [ %indvars.iv.next1037, %570 ]
+  %536 = shl nuw nsw i64 %indvars.iv1036, 2
   %537 = add i64 %491, %536
   %538 = icmp ult i64 %537, %2
   br i1 %538, label %539, label %543
@@ -87643,7 +87647,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %552 = phi i16 [ %550, %547 ], [ 0, %543 ]
   %553 = shl nuw i16 %552, 8
   %554 = or disjoint i16 %553, %544
-  %555 = getelementptr inbounds [12 x %struct.jar_xm_envelope_point_s], ptr %487, i64 0, i64 %indvars.iv1033
+  %555 = getelementptr inbounds [12 x %struct.jar_xm_envelope_point_s], ptr %487, i64 0, i64 %indvars.iv1036
   store i16 %554, ptr %555, align 2
   %556 = add i64 %537, 2
   %557 = icmp ult i64 %556, %2
@@ -87673,27 +87677,27 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %573 = or disjoint i16 %572, %563
   %574 = getelementptr inbounds i8, ptr %555, i64 2
   store i16 %573, ptr %574, align 2
-  %indvars.iv.next1034 = add nuw nsw i64 %indvars.iv1033, 1
+  %indvars.iv.next1037 = add nuw nsw i64 %indvars.iv1036, 1
   %575 = load i8, ptr %488, align 2
   %576 = zext i8 %575 to i64
-  %577 = icmp ult i64 %indvars.iv.next1034, %576
-  br i1 %577, label %535, label %._crit_edge984
+  %577 = icmp ult i64 %indvars.iv.next1037, %576
+  br i1 %577, label %535, label %._crit_edge987
 
-._crit_edge984:                                   ; preds = %570, %.preheader970
-  %578 = add i64 %.17711014, 227
+._crit_edge987:                                   ; preds = %570, %.preheader970
+  %578 = add i64 %.17711017, 227
   %579 = icmp ult i64 %578, %2
   br i1 %579, label %580, label %583
 
-580:                                              ; preds = %._crit_edge984
+580:                                              ; preds = %._crit_edge987
   %581 = getelementptr inbounds i8, ptr %1, i64 %578
   %582 = load i8, ptr %581, align 1
   br label %583
 
-583:                                              ; preds = %._crit_edge984, %580
-  %584 = phi i8 [ %582, %580 ], [ 0, %._crit_edge984 ]
+583:                                              ; preds = %._crit_edge987, %580
+  %584 = phi i8 [ %582, %580 ], [ 0, %._crit_edge987 ]
   %585 = getelementptr inbounds i8, ptr %399, i64 171
   store i8 %584, ptr %585, align 1
-  %586 = add i64 %.17711014, 228
+  %586 = add i64 %.17711017, 228
   %587 = icmp ult i64 %586, %2
   br i1 %587, label %588, label %591
 
@@ -87706,7 +87710,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %592 = phi i8 [ %590, %588 ], [ 0, %583 ]
   %593 = getelementptr inbounds i8, ptr %399, i64 172
   store i8 %592, ptr %593, align 2
-  %594 = add i64 %.17711014, 229
+  %594 = add i64 %.17711017, 229
   %595 = icmp ult i64 %594, %2
   br i1 %595, label %596, label %599
 
@@ -87719,7 +87723,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %600 = phi i8 [ %598, %596 ], [ 0, %591 ]
   %601 = getelementptr inbounds i8, ptr %399, i64 173
   store i8 %600, ptr %601, align 1
-  %602 = add i64 %.17711014, 230
+  %602 = add i64 %.17711017, 230
   %603 = icmp ult i64 %602, %2
   br i1 %603, label %604, label %607
 
@@ -87732,7 +87736,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %608 = phi i8 [ %606, %604 ], [ 0, %599 ]
   %609 = getelementptr inbounds i8, ptr %399, i64 227
   store i8 %608, ptr %609, align 1
-  %610 = add i64 %.17711014, 231
+  %610 = add i64 %.17711017, 231
   %611 = icmp ult i64 %610, %2
   br i1 %611, label %612, label %615
 
@@ -87745,7 +87749,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %616 = phi i8 [ %614, %612 ], [ 0, %607 ]
   %617 = getelementptr inbounds i8, ptr %399, i64 228
   store i8 %616, ptr %617, align 2
-  %618 = add i64 %.17711014, 232
+  %618 = add i64 %.17711017, 232
   %619 = icmp ult i64 %618, %2
   br i1 %619, label %620, label %623
 
@@ -87758,7 +87762,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %624 = phi i8 [ %622, %620 ], [ 0, %615 ]
   %625 = getelementptr inbounds i8, ptr %399, i64 229
   store i8 %624, ptr %625, align 1
-  %626 = add i64 %.17711014, 233
+  %626 = add i64 %.17711017, 233
   %627 = icmp ult i64 %626, %2
   br i1 %627, label %628, label %631
 
@@ -87780,7 +87784,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %638 = lshr i8 %632, 2
   %.lobit881 = and i8 %638, 1
   store i8 %.lobit881, ptr %637, align 2
-  %639 = add i64 %.17711014, 234
+  %639 = add i64 %.17711017, 234
   %640 = icmp ult i64 %639, %2
   br i1 %640, label %641, label %644
 
@@ -87802,7 +87806,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %651 = lshr i8 %645, 2
   %.lobit883 = and i8 %651, 1
   store i8 %.lobit883, ptr %650, align 2
-  %652 = add i64 %.17711014, 235
+  %652 = add i64 %.17711017, 235
   %653 = icmp ult i64 %652, %2
   br i1 %653, label %655, label %.thread956
 
@@ -87831,7 +87835,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   br label %662
 
 662:                                              ; preds = %.thread956, %655, %661, %660
-  %663 = add i64 %.17711014, 236
+  %663 = add i64 %.17711017, 236
   %664 = icmp ult i64 %663, %2
   br i1 %664, label %665, label %668
 
@@ -87844,7 +87848,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %669 = phi i8 [ %667, %665 ], [ 0, %662 ]
   %670 = getelementptr inbounds i8, ptr %399, i64 240
   store i8 %669, ptr %670, align 8
-  %671 = add i64 %.17711014, 237
+  %671 = add i64 %.17711017, 237
   %672 = icmp ult i64 %671, %2
   br i1 %672, label %673, label %676
 
@@ -87857,7 +87861,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %677 = phi i8 [ %675, %673 ], [ 0, %668 ]
   %678 = getelementptr inbounds i8, ptr %399, i64 241
   store i8 %677, ptr %678, align 1
-  %679 = add i64 %.17711014, 238
+  %679 = add i64 %.17711017, 238
   %680 = icmp ult i64 %679, %2
   br i1 %680, label %681, label %684
 
@@ -87870,7 +87874,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %685 = phi i8 [ %683, %681 ], [ 0, %676 ]
   %686 = getelementptr inbounds i8, ptr %399, i64 242
   store i8 %685, ptr %686, align 2
-  %687 = add i64 %.17711014, 239
+  %687 = add i64 %.17711017, 239
   %688 = icmp ult i64 %687, %2
   br i1 %688, label %689, label %693
 
@@ -87882,7 +87886,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 693:                                              ; preds = %684, %689
   %694 = phi i16 [ %692, %689 ], [ 0, %684 ]
-  %695 = add i64 %.17711014, 240
+  %695 = add i64 %.17711017, 240
   %696 = icmp ult i64 %695, %2
   br i1 %696, label %697, label %701
 
@@ -87899,11 +87903,11 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %705 = getelementptr inbounds i8, ptr %399, i64 244
   store i16 %704, ptr %705, align 4
   %706 = getelementptr inbounds i8, ptr %399, i64 264
-  store ptr %.17691015, ptr %706, align 8
+  store ptr %.17691018, ptr %706, align 8
   %707 = load i16, ptr %424, align 8
   %708 = zext i16 %707 to i64
   %709 = mul nuw nsw i64 %708, 80
-  %710 = getelementptr inbounds i8, ptr %.17691015, i64 %709
+  %710 = getelementptr inbounds i8, ptr %.17691018, i64 %709
   br label %713
 
 711:                                              ; preds = %420
@@ -87914,19 +87918,19 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 713:                                              ; preds = %711, %701
   %714 = phi i16 [ %707, %701 ], [ 0, %711 ]
   %.0785 = phi i64 [ %463, %701 ], [ 0, %711 ]
-  %.2 = phi ptr [ %710, %701 ], [ %.17691015, %711 ]
-  %715 = icmp ult i64 %.17711014, %2
+  %.2 = phi ptr [ %710, %701 ], [ %.17691018, %711 ]
+  %715 = icmp ult i64 %.17711017, %2
   br i1 %715, label %716, label %720
 
 716:                                              ; preds = %713
-  %717 = getelementptr inbounds i8, ptr %1, i64 %.17711014
+  %717 = getelementptr inbounds i8, ptr %1, i64 %.17711017
   %718 = load i8, ptr %717, align 1
   %719 = zext i8 %718 to i64
   br label %720
 
 720:                                              ; preds = %713, %716
   %721 = phi i64 [ %719, %716 ], [ 0, %713 ]
-  %722 = add i64 %.17711014, 1
+  %722 = add i64 %.17711017, 1
   %723 = icmp ult i64 %722, %2
   br i1 %723, label %724, label %728
 
@@ -87939,7 +87943,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 728:                                              ; preds = %720, %724
   %729 = phi i64 [ %727, %724 ], [ 0, %720 ]
   %730 = shl nuw nsw i64 %729, 8
-  %731 = add i64 %.17711014, 2
+  %731 = add i64 %.17711017, 2
   %732 = icmp ult i64 %731, %2
   br i1 %732, label %733, label %737
 
@@ -87951,7 +87955,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 737:                                              ; preds = %728, %733
   %738 = phi i64 [ %736, %733 ], [ 0, %728 ]
-  %739 = add i64 %.17711014, 3
+  %739 = add i64 %.17711017, 3
   %740 = icmp ult i64 %739, %2
   br i1 %740, label %741, label %745
 
@@ -87965,44 +87969,44 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %746 = phi i64 [ %744, %741 ], [ 0, %737 ]
   %747 = shl nuw nsw i64 %746, 24
   %748 = shl nuw nsw i64 %738, 16
-  %749 = add i64 %721, %.17711014
+  %749 = add i64 %721, %.17711017
   %750 = add i64 %749, %730
   %751 = add i64 %750, %748
   %752 = add i64 %751, %747
-  %.not1025 = icmp eq i16 %714, 0
-  br i1 %.not1025, label %._crit_edge1011, label %.lr.ph989
+  %.not1028 = icmp eq i16 %714, 0
+  br i1 %.not1028, label %._crit_edge1014, label %.lr.ph992
 
-.lr.ph989:                                        ; preds = %745
+.lr.ph992:                                        ; preds = %745
   %753 = getelementptr inbounds i8, ptr %399, i64 264
   %754 = and i64 %.0785, 4294967295
   br label %756
 
 .preheader969:                                    ; preds = %1018
-  %.not1026 = icmp eq i16 %1020, 0
-  br i1 %.not1026, label %._crit_edge1011, label %.lr.ph1010
+  %.not1029 = icmp eq i16 %1020, 0
+  br i1 %.not1029, label %._crit_edge1014, label %.lr.ph1013
 
-.lr.ph1010:                                       ; preds = %.preheader969
+.lr.ph1013:                                       ; preds = %.preheader969
   %755 = getelementptr inbounds i8, ptr %399, i64 264
   br label %1023
 
-756:                                              ; preds = %.lr.ph989, %1018
-  %indvars.iv1036 = phi i64 [ 0, %.lr.ph989 ], [ %indvars.iv.next1037, %1018 ]
-  %.3987 = phi ptr [ %.2, %.lr.ph989 ], [ %.4, %1018 ]
-  %.2772986 = phi i64 [ %752, %.lr.ph989 ], [ %1019, %1018 ]
+756:                                              ; preds = %.lr.ph992, %1018
+  %indvars.iv1039 = phi i64 [ 0, %.lr.ph992 ], [ %indvars.iv.next1040, %1018 ]
+  %.3990 = phi ptr [ %.2, %.lr.ph992 ], [ %.4, %1018 ]
+  %.2772989 = phi i64 [ %752, %.lr.ph992 ], [ %1019, %1018 ]
   %757 = load ptr, ptr %753, align 8
-  %758 = getelementptr inbounds %struct.jar_xm_sample_s, ptr %757, i64 %indvars.iv1036
-  %759 = icmp ult i64 %.2772986, %2
+  %758 = getelementptr inbounds %struct.jar_xm_sample_s, ptr %757, i64 %indvars.iv1039
+  %759 = icmp ult i64 %.2772989, %2
   br i1 %759, label %760, label %764
 
 760:                                              ; preds = %756
-  %761 = getelementptr inbounds i8, ptr %1, i64 %.2772986
+  %761 = getelementptr inbounds i8, ptr %1, i64 %.2772989
   %762 = load i8, ptr %761, align 1
   %763 = zext i8 %762 to i32
   br label %764
 
 764:                                              ; preds = %756, %760
   %765 = phi i32 [ %763, %760 ], [ 0, %756 ]
-  %766 = add i64 %.2772986, 1
+  %766 = add i64 %.2772989, 1
   %767 = icmp ult i64 %766, %2
   br i1 %767, label %768, label %772
 
@@ -88016,7 +88020,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %773 = phi i32 [ %771, %768 ], [ 0, %764 ]
   %774 = shl nuw nsw i32 %773, 8
   %775 = or disjoint i32 %774, %765
-  %776 = add i64 %.2772986, 2
+  %776 = add i64 %.2772989, 2
   %777 = icmp ult i64 %776, %2
   br i1 %777, label %778, label %782
 
@@ -88028,7 +88032,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 782:                                              ; preds = %772, %778
   %783 = phi i32 [ %781, %778 ], [ 0, %772 ]
-  %784 = add i64 %.2772986, 3
+  %784 = add i64 %.2772989, 3
   %785 = icmp ult i64 %784, %2
   br i1 %785, label %786, label %790
 
@@ -88046,7 +88050,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %795 = or disjoint i32 %794, %775
   %796 = getelementptr inbounds i8, ptr %758, i64 28
   store i32 %795, ptr %796, align 4
-  %797 = add i64 %.2772986, 4
+  %797 = add i64 %.2772989, 4
   %798 = icmp ult i64 %797, %2
   br i1 %798, label %799, label %803
 
@@ -88058,7 +88062,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 803:                                              ; preds = %790, %799
   %804 = phi i32 [ %802, %799 ], [ 0, %790 ]
-  %805 = add i64 %.2772986, 5
+  %805 = add i64 %.2772989, 5
   %806 = icmp ult i64 %805, %2
   br i1 %806, label %807, label %811
 
@@ -88072,7 +88076,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %812 = phi i32 [ %810, %807 ], [ 0, %803 ]
   %813 = shl nuw nsw i32 %812, 8
   %814 = or disjoint i32 %813, %804
-  %815 = add i64 %.2772986, 6
+  %815 = add i64 %.2772989, 6
   %816 = icmp ult i64 %815, %2
   br i1 %816, label %817, label %821
 
@@ -88084,7 +88088,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 821:                                              ; preds = %811, %817
   %822 = phi i32 [ %820, %817 ], [ 0, %811 ]
-  %823 = add i64 %.2772986, 7
+  %823 = add i64 %.2772989, 7
   %824 = icmp ult i64 %823, %2
   br i1 %824, label %825, label %829
 
@@ -88102,7 +88106,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %834 = or disjoint i32 %833, %814
   %835 = getelementptr inbounds i8, ptr %758, i64 32
   store i32 %834, ptr %835, align 8
-  %836 = add i64 %.2772986, 8
+  %836 = add i64 %.2772989, 8
   %837 = icmp ult i64 %836, %2
   br i1 %837, label %838, label %842
 
@@ -88114,7 +88118,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 842:                                              ; preds = %829, %838
   %843 = phi i32 [ %841, %838 ], [ 0, %829 ]
-  %844 = add i64 %.2772986, 9
+  %844 = add i64 %.2772989, 9
   %845 = icmp ult i64 %844, %2
   br i1 %845, label %846, label %850
 
@@ -88128,7 +88132,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %851 = phi i32 [ %849, %846 ], [ 0, %842 ]
   %852 = shl nuw nsw i32 %851, 8
   %853 = or disjoint i32 %852, %843
-  %854 = add i64 %.2772986, 10
+  %854 = add i64 %.2772989, 10
   %855 = icmp ult i64 %854, %2
   br i1 %855, label %856, label %860
 
@@ -88140,7 +88144,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 860:                                              ; preds = %850, %856
   %861 = phi i32 [ %859, %856 ], [ 0, %850 ]
-  %862 = add i64 %.2772986, 11
+  %862 = add i64 %.2772989, 11
   %863 = icmp ult i64 %862, %2
   br i1 %863, label %864, label %868
 
@@ -88161,7 +88165,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %875 = add i32 %873, %834
   %876 = getelementptr inbounds i8, ptr %758, i64 40
   store i32 %875, ptr %876, align 8
-  %877 = add i64 %.2772986, 12
+  %877 = add i64 %.2772989, 12
   %878 = icmp ult i64 %877, %2
   br i1 %878, label %879, label %883
 
@@ -88180,7 +88184,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %889 = fcmp ogt float %887, 1.000000e+00
   %storemerge = select i1 %889, float 1.000000e+00, float %887
   store float %storemerge, ptr %888, align 4
-  %890 = add i64 %.2772986, 13
+  %890 = add i64 %.2772989, 13
   %891 = icmp ult i64 %890, %2
   br i1 %891, label %892, label %895
 
@@ -88193,7 +88197,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %896 = phi i8 [ %894, %892 ], [ 0, %883 ]
   %897 = getelementptr inbounds i8, ptr %758, i64 48
   store i8 %896, ptr %897, align 8
-  %898 = add i64 %.2772986, 14
+  %898 = add i64 %.2772989, 14
   %899 = icmp ult i64 %898, %2
   br i1 %899, label %900, label %.thread957
 
@@ -88222,7 +88226,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %.lobit890 = and i8 %911, 1
   %912 = getelementptr inbounds i8, ptr %758, i64 24
   store i8 %.lobit890, ptr %912, align 8
-  %913 = add i64 %.2772986, 15
+  %913 = add i64 %.2772989, 15
   %914 = icmp ult i64 %913, %2
   br i1 %914, label %915, label %919
 
@@ -88238,7 +88242,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %922 = fdiv float %921, 2.550000e+02
   %923 = getelementptr inbounds i8, ptr %758, i64 56
   store float %922, ptr %923, align 8
-  %924 = add i64 %.2772986, 16
+  %924 = add i64 %.2772989, 16
   %925 = icmp ult i64 %924, %2
   br i1 %925, label %926, label %929
 
@@ -88255,7 +88259,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %932 = getelementptr inbounds i8, ptr %758, i64 %394
   tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %932, i8 0, i64 %396, i1 false)
   %933 = getelementptr inbounds i8, ptr %758, i64 72
-  store ptr %.3987, ptr %933, align 8
+  store ptr %.3990, ptr %933, align 8
   %934 = load i8, ptr %910, align 1
   %935 = icmp eq i8 %934, 16
   %936 = load i32, ptr %796, align 4
@@ -88280,7 +88284,7 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
 
 949:                                              ; preds = %947, %938
   %.pn = phi i64 [ %939, %938 ], [ %948, %947 ]
-  %.4 = getelementptr inbounds i8, ptr %.3987, i64 %.pn
+  %.4 = getelementptr inbounds i8, ptr %.3990, i64 %.pn
   %950 = load i8, ptr %912, align 8
   %.not891 = icmp eq i8 %950, 0
   br i1 %.not891, label %1018, label %951
@@ -88395,18 +88399,18 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   br label %1018
 
 1018:                                             ; preds = %1010, %951, %949
-  %1019 = add i64 %.2772986, %754
-  %indvars.iv.next1037 = add nuw nsw i64 %indvars.iv1036, 1
+  %1019 = add i64 %.2772989, %754
+  %indvars.iv.next1040 = add nuw nsw i64 %indvars.iv1039, 1
   %1020 = load i16, ptr %424, align 8
   %1021 = zext i16 %1020 to i64
-  %1022 = icmp ult i64 %indvars.iv.next1037, %1021
+  %1022 = icmp ult i64 %indvars.iv.next1040, %1021
   br i1 %1022, label %756, label %.preheader969
 
-1023:                                             ; preds = %.lr.ph1010, %._crit_edge1003
-  %indvars.iv1057 = phi i64 [ 0, %.lr.ph1010 ], [ %indvars.iv.next1058, %._crit_edge1003 ]
-  %.37731009 = phi i64 [ %1019, %.lr.ph1010 ], [ %.5, %._crit_edge1003 ]
+1023:                                             ; preds = %.lr.ph1013, %._crit_edge1006
+  %indvars.iv1060 = phi i64 [ 0, %.lr.ph1013 ], [ %indvars.iv.next1061, %._crit_edge1006 ]
+  %.37731012 = phi i64 [ %1019, %.lr.ph1013 ], [ %.5, %._crit_edge1006 ]
   %1024 = load ptr, ptr %755, align 8
-  %1025 = getelementptr inbounds %struct.jar_xm_sample_s, ptr %1024, i64 %indvars.iv1057
+  %1025 = getelementptr inbounds %struct.jar_xm_sample_s, ptr %1024, i64 %indvars.iv1060
   %1026 = getelementptr inbounds i8, ptr %1025, i64 28
   %1027 = load i32, ptr %1026, align 4
   %1028 = getelementptr inbounds i8, ptr %1025, i64 24
@@ -88424,34 +88428,34 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   br i1 %1034, label %.preheader967, label %.preheader968
 
 .preheader968:                                    ; preds = %1030
-  br i1 %1035, label %.lr.ph994, label %._crit_edge995
+  br i1 %1035, label %.lr.ph997, label %._crit_edge998
 
-.lr.ph994:                                        ; preds = %.preheader968
+.lr.ph997:                                        ; preds = %.preheader968
   %1036 = getelementptr inbounds i8, ptr %1025, i64 72
   %1037 = and i64 %1031, 4294967295
   %wide.trip.count = zext nneg i32 %1027 to i64
   br label %1080
 
 .preheader967:                                    ; preds = %1030
-  br i1 %1035, label %.lr.ph998, label %._crit_edge999
+  br i1 %1035, label %.lr.ph1001, label %._crit_edge1002
 
-.lr.ph998:                                        ; preds = %.preheader967
+.lr.ph1001:                                       ; preds = %.preheader967
   %1038 = getelementptr inbounds i8, ptr %1025, i64 72
   %1039 = and i64 %1031, 4294967295
-  %wide.trip.count1045 = zext nneg i32 %1027 to i64
+  %wide.trip.count1048 = zext nneg i32 %1027 to i64
   br label %1040
 
-1040:                                             ; preds = %.lr.ph998, %1077
-  %indvars.iv1042 = phi i64 [ 0, %.lr.ph998 ], [ %indvars.iv.next1043, %1077 ]
-  %.0766996 = phi i32 [ 0, %.lr.ph998 ], [ %1065, %1077 ]
-  %1041 = icmp eq i64 %indvars.iv1042, %1039
-  %1042 = shl i32 %.0766996, 16
+1040:                                             ; preds = %.lr.ph1001, %1077
+  %indvars.iv1045 = phi i64 [ 0, %.lr.ph1001 ], [ %indvars.iv.next1046, %1077 ]
+  %.0766999 = phi i32 [ 0, %.lr.ph1001 ], [ %1065, %1077 ]
+  %1041 = icmp eq i64 %indvars.iv1045, %1039
+  %1042 = shl i32 %.0766999, 16
   %1043 = ashr exact i32 %1042, 16
   %1044 = select i1 %1041, i32 0, i32 %1043
-  %indvars.iv1042.tr = trunc i64 %indvars.iv1042 to i32
-  %1045 = shl i32 %indvars.iv1042.tr, 1
+  %indvars.iv1045.tr = trunc i64 %indvars.iv1045 to i32
+  %1045 = shl i32 %indvars.iv1045.tr, 1
   %1046 = sext i32 %1045 to i64
-  %1047 = add i64 %.37731009, %1046
+  %1047 = add i64 %.37731012, %1046
   %1048 = icmp ult i64 %1047, %2
   br i1 %1048, label %1049, label %1053
 
@@ -88482,10 +88486,10 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %1067 = sitofp i16 %1066 to float
   %1068 = fmul float %1067, 0x3F00000000000000
   %1069 = load ptr, ptr %1038, align 8
-  %1070 = getelementptr inbounds float, ptr %1069, i64 %indvars.iv1042
+  %1070 = getelementptr inbounds float, ptr %1069, i64 %indvars.iv1045
   store float %1068, ptr %1070, align 4
   %1071 = load ptr, ptr %1038, align 8
-  %1072 = getelementptr inbounds float, ptr %1071, i64 %indvars.iv1042
+  %1072 = getelementptr inbounds float, ptr %1071, i64 %indvars.iv1045
   %1073 = load float, ptr %1072, align 4
   %1074 = fcmp olt float %1073, -1.000000e+00
   br i1 %1074, label %.sink.split, label %1075
@@ -88495,32 +88499,32 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   br i1 %1076, label %.sink.split, label %1077
 
 .sink.split:                                      ; preds = %1075, %1061
-  %.sink1075 = phi float [ -1.000000e+00, %1061 ], [ 1.000000e+00, %1075 ]
-  store float %.sink1075, ptr %1072, align 4
+  %.sink1079 = phi float [ -1.000000e+00, %1061 ], [ 1.000000e+00, %1075 ]
+  store float %.sink1079, ptr %1072, align 4
   br label %1077
 
 1077:                                             ; preds = %.sink.split, %1075
-  %indvars.iv.next1043 = add nuw nsw i64 %indvars.iv1042, 1
-  %exitcond1046.not = icmp eq i64 %indvars.iv.next1043, %wide.trip.count1045
-  br i1 %exitcond1046.not, label %._crit_edge999.loopexit, label %1040
+  %indvars.iv.next1046 = add nuw nsw i64 %indvars.iv1045, 1
+  %exitcond1049.not = icmp eq i64 %indvars.iv.next1046, %wide.trip.count1048
+  br i1 %exitcond1049.not, label %._crit_edge1002.loopexit, label %1040
 
-._crit_edge999.loopexit:                          ; preds = %1077
-  %.pre1064 = load i32, ptr %1026, align 4
-  br label %._crit_edge999
+._crit_edge1002.loopexit:                         ; preds = %1077
+  %.pre1067 = load i32, ptr %1026, align 4
+  br label %._crit_edge1002
 
-._crit_edge999:                                   ; preds = %._crit_edge999.loopexit, %.preheader967
-  %1078 = phi i32 [ %.pre1064, %._crit_edge999.loopexit ], [ %1027, %.preheader967 ]
+._crit_edge1002:                                  ; preds = %._crit_edge1002.loopexit, %.preheader967
+  %1078 = phi i32 [ %.pre1067, %._crit_edge1002.loopexit ], [ %1027, %.preheader967 ]
   %1079 = shl i32 %1078, 1
-  br label %._crit_edge995
+  br label %._crit_edge998
 
-1080:                                             ; preds = %.lr.ph994, %1105
-  %indvars.iv1039 = phi i64 [ 0, %.lr.ph994 ], [ %indvars.iv.next1040, %1105 ]
-  %.0764992 = phi i32 [ 0, %.lr.ph994 ], [ %1093, %1105 ]
-  %1081 = icmp eq i64 %indvars.iv1039, %1037
-  %1082 = shl i32 %.0764992, 24
+1080:                                             ; preds = %.lr.ph997, %1105
+  %indvars.iv1042 = phi i64 [ 0, %.lr.ph997 ], [ %indvars.iv.next1043, %1105 ]
+  %.0764995 = phi i32 [ 0, %.lr.ph997 ], [ %1093, %1105 ]
+  %1081 = icmp eq i64 %indvars.iv1042, %1037
+  %1082 = shl i32 %.0764995, 24
   %1083 = ashr exact i32 %1082, 24
   %1084 = select i1 %1081, i32 0, i32 %1083
-  %1085 = add i64 %.37731009, %indvars.iv1039
+  %1085 = add i64 %.37731012, %indvars.iv1042
   %1086 = icmp ult i64 %1085, %2
   br i1 %1086, label %1087, label %1090
 
@@ -88537,36 +88541,36 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %1095 = sitofp i8 %1094 to float
   %1096 = fmul float %1095, 7.812500e-03
   %1097 = load ptr, ptr %1036, align 8
-  %1098 = getelementptr inbounds float, ptr %1097, i64 %indvars.iv1039
+  %1098 = getelementptr inbounds float, ptr %1097, i64 %indvars.iv1042
   store float %1096, ptr %1098, align 4
   %1099 = load ptr, ptr %1036, align 8
-  %1100 = getelementptr inbounds float, ptr %1099, i64 %indvars.iv1039
+  %1100 = getelementptr inbounds float, ptr %1099, i64 %indvars.iv1042
   %1101 = load float, ptr %1100, align 4
   %1102 = fcmp olt float %1101, -1.000000e+00
-  br i1 %1102, label %.sink.split1076, label %1103
+  br i1 %1102, label %.sink.split1080, label %1103
 
 1103:                                             ; preds = %1090
   %1104 = fcmp ogt float %1101, 1.000000e+00
-  br i1 %1104, label %.sink.split1076, label %1105
+  br i1 %1104, label %.sink.split1080, label %1105
 
-.sink.split1076:                                  ; preds = %1103, %1090
-  %.sink1077 = phi float [ -1.000000e+00, %1090 ], [ 1.000000e+00, %1103 ]
-  store float %.sink1077, ptr %1100, align 4
+.sink.split1080:                                  ; preds = %1103, %1090
+  %.sink1081 = phi float [ -1.000000e+00, %1090 ], [ 1.000000e+00, %1103 ]
+  store float %.sink1081, ptr %1100, align 4
   br label %1105
 
-1105:                                             ; preds = %.sink.split1076, %1103
-  %indvars.iv.next1040 = add nuw nsw i64 %indvars.iv1039, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next1040, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge995.loopexit, label %1080
+1105:                                             ; preds = %.sink.split1080, %1103
+  %indvars.iv.next1043 = add nuw nsw i64 %indvars.iv1042, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next1043, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge998.loopexit, label %1080
 
-._crit_edge995.loopexit:                          ; preds = %1105
-  %.pre1063 = load i32, ptr %1026, align 4
-  br label %._crit_edge995
+._crit_edge998.loopexit:                          ; preds = %1105
+  %.pre1066 = load i32, ptr %1026, align 4
+  br label %._crit_edge998
 
-._crit_edge995:                                   ; preds = %.preheader968, %._crit_edge995.loopexit, %._crit_edge999
-  %.pn.in = phi i32 [ %1079, %._crit_edge999 ], [ %.pre1063, %._crit_edge995.loopexit ], [ %1027, %.preheader968 ]
+._crit_edge998:                                   ; preds = %.preheader968, %._crit_edge998.loopexit, %._crit_edge1002
+  %.pn.in = phi i32 [ %1079, %._crit_edge1002 ], [ %.pre1066, %._crit_edge998.loopexit ], [ %1027, %.preheader968 ]
   store i32 %.sroa.0.0.extract.trunc, ptr %1026, align 4
-  br label %._crit_edge1003
+  br label %._crit_edge1006
 
 1106:                                             ; preds = %1023
   %1107 = getelementptr inbounds i8, ptr %1025, i64 23
@@ -88576,30 +88580,30 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   br i1 %1109, label %.preheader, label %.preheader966
 
 .preheader966:                                    ; preds = %1106
-  br i1 %1110, label %.lr.ph1002, label %._crit_edge1003
+  br i1 %1110, label %.lr.ph1005, label %._crit_edge1006
 
-.lr.ph1002:                                       ; preds = %.preheader966
+.lr.ph1005:                                       ; preds = %.preheader966
   %1111 = getelementptr inbounds i8, ptr %1025, i64 72
-  %wide.trip.count1050 = zext nneg i32 %1027 to i64
+  %wide.trip.count1053 = zext nneg i32 %1027 to i64
   br label %1150
 
 .preheader:                                       ; preds = %1106
-  br i1 %1110, label %.lr.ph1006, label %._crit_edge1007
+  br i1 %1110, label %.lr.ph1009, label %._crit_edge1010
 
-.lr.ph1006:                                       ; preds = %.preheader
+.lr.ph1009:                                       ; preds = %.preheader
   %1112 = getelementptr inbounds i8, ptr %1025, i64 72
-  %wide.trip.count1055 = zext nneg i32 %1027 to i64
+  %wide.trip.count1058 = zext nneg i32 %1027 to i64
   br label %1113
 
-1113:                                             ; preds = %.lr.ph1006, %1147
-  %indvars.iv1052 = phi i64 [ 0, %.lr.ph1006 ], [ %indvars.iv.next1053, %1147 ]
-  %.07621004 = phi i32 [ 0, %.lr.ph1006 ], [ %1135, %1147 ]
-  %sext885 = shl i32 %.07621004, 16
+1113:                                             ; preds = %.lr.ph1009, %1147
+  %indvars.iv1055 = phi i64 [ 0, %.lr.ph1009 ], [ %indvars.iv.next1056, %1147 ]
+  %.07621007 = phi i32 [ 0, %.lr.ph1009 ], [ %1135, %1147 ]
+  %sext885 = shl i32 %.07621007, 16
   %1114 = ashr exact i32 %sext885, 16
-  %indvars.iv1052.tr = trunc i64 %indvars.iv1052 to i32
-  %1115 = shl i32 %indvars.iv1052.tr, 1
+  %indvars.iv1055.tr = trunc i64 %indvars.iv1055 to i32
+  %1115 = shl i32 %indvars.iv1055.tr, 1
   %1116 = sext i32 %1115 to i64
-  %1117 = add i64 %.37731009, %1116
+  %1117 = add i64 %.37731012, %1116
   %1118 = icmp ult i64 %1117, %2
   br i1 %1118, label %1119, label %1123
 
@@ -88630,43 +88634,43 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %1137 = sitofp i16 %1136 to float
   %1138 = fmul float %1137, 0x3F00000000000000
   %1139 = load ptr, ptr %1112, align 8
-  %1140 = getelementptr inbounds float, ptr %1139, i64 %indvars.iv1052
+  %1140 = getelementptr inbounds float, ptr %1139, i64 %indvars.iv1055
   store float %1138, ptr %1140, align 4
   %1141 = load ptr, ptr %1112, align 8
-  %1142 = getelementptr inbounds float, ptr %1141, i64 %indvars.iv1052
+  %1142 = getelementptr inbounds float, ptr %1141, i64 %indvars.iv1055
   %1143 = load float, ptr %1142, align 4
   %1144 = fcmp olt float %1143, -1.000000e+00
-  br i1 %1144, label %.sink.split1078, label %1145
+  br i1 %1144, label %.sink.split1082, label %1145
 
 1145:                                             ; preds = %1131
   %1146 = fcmp ogt float %1143, 1.000000e+00
-  br i1 %1146, label %.sink.split1078, label %1147
+  br i1 %1146, label %.sink.split1082, label %1147
 
-.sink.split1078:                                  ; preds = %1145, %1131
-  %.sink1079 = phi float [ -1.000000e+00, %1131 ], [ 1.000000e+00, %1145 ]
-  store float %.sink1079, ptr %1142, align 4
+.sink.split1082:                                  ; preds = %1145, %1131
+  %.sink1083 = phi float [ -1.000000e+00, %1131 ], [ 1.000000e+00, %1145 ]
+  store float %.sink1083, ptr %1142, align 4
   br label %1147
 
-1147:                                             ; preds = %.sink.split1078, %1145
-  %indvars.iv.next1053 = add nuw nsw i64 %indvars.iv1052, 1
-  %exitcond1056.not = icmp eq i64 %indvars.iv.next1053, %wide.trip.count1055
-  br i1 %exitcond1056.not, label %._crit_edge1007.loopexit, label %1113
+1147:                                             ; preds = %.sink.split1082, %1145
+  %indvars.iv.next1056 = add nuw nsw i64 %indvars.iv1055, 1
+  %exitcond1059.not = icmp eq i64 %indvars.iv.next1056, %wide.trip.count1058
+  br i1 %exitcond1059.not, label %._crit_edge1010.loopexit, label %1113
 
-._crit_edge1007.loopexit:                         ; preds = %1147
-  %.pre1066 = load i32, ptr %1026, align 4
-  br label %._crit_edge1007
+._crit_edge1010.loopexit:                         ; preds = %1147
+  %.pre1069 = load i32, ptr %1026, align 4
+  br label %._crit_edge1010
 
-._crit_edge1007:                                  ; preds = %._crit_edge1007.loopexit, %.preheader
-  %1148 = phi i32 [ %.pre1066, %._crit_edge1007.loopexit ], [ %1027, %.preheader ]
+._crit_edge1010:                                  ; preds = %._crit_edge1010.loopexit, %.preheader
+  %1148 = phi i32 [ %.pre1069, %._crit_edge1010.loopexit ], [ %1027, %.preheader ]
   %1149 = shl i32 %1148, 1
-  br label %._crit_edge1003
+  br label %._crit_edge1006
 
-1150:                                             ; preds = %.lr.ph1002, %1172
-  %indvars.iv1047 = phi i64 [ 0, %.lr.ph1002 ], [ %indvars.iv.next1048, %1172 ]
-  %.07601000 = phi i32 [ 0, %.lr.ph1002 ], [ %1160, %1172 ]
-  %sext = shl i32 %.07601000, 24
+1150:                                             ; preds = %.lr.ph1005, %1172
+  %indvars.iv1050 = phi i64 [ 0, %.lr.ph1005 ], [ %indvars.iv.next1051, %1172 ]
+  %.07601003 = phi i32 [ 0, %.lr.ph1005 ], [ %1160, %1172 ]
+  %sext = shl i32 %.07601003, 24
   %1151 = ashr exact i32 %sext, 24
-  %1152 = add i64 %.37731009, %indvars.iv1047
+  %1152 = add i64 %.37731012, %indvars.iv1050
   %1153 = icmp ult i64 %1152, %2
   br i1 %1153, label %1154, label %1157
 
@@ -88683,53 +88687,53 @@ define hidden ptr @jar_xm_load_module(ptr nocapture noundef %0, ptr noundef read
   %1162 = sitofp i8 %1161 to float
   %1163 = fmul float %1162, 7.812500e-03
   %1164 = load ptr, ptr %1111, align 8
-  %1165 = getelementptr inbounds float, ptr %1164, i64 %indvars.iv1047
+  %1165 = getelementptr inbounds float, ptr %1164, i64 %indvars.iv1050
   store float %1163, ptr %1165, align 4
   %1166 = load ptr, ptr %1111, align 8
-  %1167 = getelementptr inbounds float, ptr %1166, i64 %indvars.iv1047
+  %1167 = getelementptr inbounds float, ptr %1166, i64 %indvars.iv1050
   %1168 = load float, ptr %1167, align 4
   %1169 = fcmp olt float %1168, -1.000000e+00
-  br i1 %1169, label %.sink.split1080, label %1170
+  br i1 %1169, label %.sink.split1084, label %1170
 
 1170:                                             ; preds = %1157
   %1171 = fcmp ogt float %1168, 1.000000e+00
-  br i1 %1171, label %.sink.split1080, label %1172
+  br i1 %1171, label %.sink.split1084, label %1172
 
-.sink.split1080:                                  ; preds = %1170, %1157
-  %.sink1081 = phi float [ -1.000000e+00, %1157 ], [ 1.000000e+00, %1170 ]
-  store float %.sink1081, ptr %1167, align 4
+.sink.split1084:                                  ; preds = %1170, %1157
+  %.sink1085 = phi float [ -1.000000e+00, %1157 ], [ 1.000000e+00, %1170 ]
+  store float %.sink1085, ptr %1167, align 4
   br label %1172
 
-1172:                                             ; preds = %.sink.split1080, %1170
-  %indvars.iv.next1048 = add nuw nsw i64 %indvars.iv1047, 1
-  %exitcond1051.not = icmp eq i64 %indvars.iv.next1048, %wide.trip.count1050
-  br i1 %exitcond1051.not, label %._crit_edge1003.loopexit, label %1150
+1172:                                             ; preds = %.sink.split1084, %1170
+  %indvars.iv.next1051 = add nuw nsw i64 %indvars.iv1050, 1
+  %exitcond1054.not = icmp eq i64 %indvars.iv.next1051, %wide.trip.count1053
+  br i1 %exitcond1054.not, label %._crit_edge1006.loopexit, label %1150
 
-._crit_edge1003.loopexit:                         ; preds = %1172
-  %.pre1065 = load i32, ptr %1026, align 4
-  br label %._crit_edge1003
+._crit_edge1006.loopexit:                         ; preds = %1172
+  %.pre1068 = load i32, ptr %1026, align 4
+  br label %._crit_edge1006
 
-._crit_edge1003:                                  ; preds = %.preheader966, %._crit_edge1003.loopexit, %._crit_edge995, %._crit_edge1007
-  %.pn.pn.in = phi i32 [ %.pn.in, %._crit_edge995 ], [ %1149, %._crit_edge1007 ], [ %.pre1065, %._crit_edge1003.loopexit ], [ %1027, %.preheader966 ]
+._crit_edge1006:                                  ; preds = %.preheader966, %._crit_edge1006.loopexit, %._crit_edge998, %._crit_edge1010
+  %.pn.pn.in = phi i32 [ %.pn.in, %._crit_edge998 ], [ %1149, %._crit_edge1010 ], [ %.pre1068, %._crit_edge1006.loopexit ], [ %1027, %.preheader966 ]
   %.pn.pn = zext i32 %.pn.pn.in to i64
-  %.5 = add i64 %.37731009, %.pn.pn
-  %indvars.iv.next1058 = add nuw nsw i64 %indvars.iv1057, 1
+  %.5 = add i64 %.37731012, %.pn.pn
+  %indvars.iv.next1061 = add nuw nsw i64 %indvars.iv1060, 1
   %1173 = load i16, ptr %424, align 8
   %1174 = zext i16 %1173 to i64
-  %1175 = icmp ult i64 %indvars.iv.next1058, %1174
-  br i1 %1175, label %1023, label %._crit_edge1011
+  %1175 = icmp ult i64 %indvars.iv.next1061, %1174
+  br i1 %1175, label %1023, label %._crit_edge1014
 
-._crit_edge1011:                                  ; preds = %._crit_edge1003, %745, %.preheader969
-  %.3.lcssa1070 = phi ptr [ %.4, %.preheader969 ], [ %.2, %745 ], [ %.4, %._crit_edge1003 ]
-  %.3773.lcssa = phi i64 [ %1019, %.preheader969 ], [ %752, %745 ], [ %.5, %._crit_edge1003 ]
-  %indvars.iv.next1061 = add nuw nsw i64 %indvars.iv1060, 1
+._crit_edge1014:                                  ; preds = %._crit_edge1006, %745, %.preheader969
+  %.3.lcssa1074 = phi ptr [ %.4, %.preheader969 ], [ %.2, %745 ], [ %.4, %._crit_edge1006 ]
+  %.3773.lcssa = phi i64 [ %1019, %.preheader969 ], [ %752, %745 ], [ %.5, %._crit_edge1006 ]
+  %indvars.iv.next1064 = add nuw nsw i64 %indvars.iv1063, 1
   %1176 = load i16, ptr %111, align 2
   %1177 = zext i16 %1176 to i64
-  %1178 = icmp ult i64 %indvars.iv.next1061, %1177
-  br i1 %1178, label %397, label %._crit_edge1018
+  %1178 = icmp ult i64 %indvars.iv.next1064, %1177
+  br i1 %1178, label %397, label %._crit_edge1021
 
-._crit_edge1018:                                  ; preds = %._crit_edge1011, %._crit_edge
-  %.1769.lcssa = phi ptr [ %391, %._crit_edge ], [ %.3.lcssa1070, %._crit_edge1011 ]
+._crit_edge1021:                                  ; preds = %._crit_edge1014, %._crit_edge
+  %.1769.lcssa = phi ptr [ %391, %._crit_edge ], [ %.3.lcssa1074, %._crit_edge1014 ]
   ret ptr %.1769.lcssa
 }
 
@@ -89509,32 +89513,33 @@ jar_xm_autovibrato.exit:                          ; preds = %147, %jar_xm_envelo
   %277 = getelementptr inbounds i8, ptr %276, i64 2
   %278 = load i8, ptr %277, align 1
   %279 = zext i8 %278 to i32
-  %280 = add nsw i32 %279, -16
-  %281 = lshr i32 %280, 4
-  switch i32 %281, label %jar_xm_volume_slide.exit [
+  %280 = lshr i32 %279, 4
+  switch i32 %280, label %default.unreachable293 [
+    i32 5, label %281
+    i32 1, label %282
+    i32 2, label %282
+    i32 3, label %282
     i32 4, label %282
-    i32 0, label %283
-    i32 1, label %283
-    i32 2, label %283
-    i32 3, label %283
-    i32 5, label %287
-    i32 6, label %295
-    i32 7, label %302
-    i32 8, label %310
-    i32 9, label %317
-    i32 10, label %323
-    i32 11, label %369
-    i32 12, label %376
-    i32 13, label %384
-    i32 14, label %391
+    i32 6, label %287
+    i32 7, label %295
+    i32 8, label %302
+    i32 9, label %310
+    i32 10, label %317
+    i32 11, label %323
+    i32 12, label %369
+    i32 13, label %376
+    i32 14, label %384
+    i32 15, label %391
+    i32 0, label %jar_xm_volume_slide.exit
   ]
 
-282:                                              ; preds = %274
+281:                                              ; preds = %274
   %.not217 = icmp eq i8 %278, 80
-  br i1 %.not217, label %283, label %jar_xm_volume_slide.exit
+  br i1 %.not217, label %282, label %jar_xm_volume_slide.exit
 
-283:                                              ; preds = %282, %274, %274, %274, %274
-  %284 = sitofp i32 %280 to float
+282:                                              ; preds = %281, %274, %274, %274, %274
+  %283 = add nsw i32 %279, -16
+  %284 = sitofp i32 %283 to float
   %285 = fmul float %284, 1.562500e-02
   %286 = getelementptr inbounds i8, ptr %150, i64 52
   store float %285, ptr %286, align 4
@@ -89789,7 +89794,10 @@ jar_xm_vibrato.exit:                              ; preds = %323, %335, %341, %3
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull readonly %0, ptr noundef nonnull %150)
   br label %jar_xm_volume_slide.exit
 
-jar_xm_volume_slide.exit:                         ; preds = %384, %385, %310, %311, %295, %296, %430, %404, %400, %378, %376, %304, %302, %289, %287, %274, %369, %371, %282, %jar_xm_vibrato.exit, %317, %283
+default.unreachable293:                           ; preds = %452, %437, %274
+  unreachable
+
+jar_xm_volume_slide.exit:                         ; preds = %384, %385, %310, %311, %295, %296, %430, %404, %400, %378, %376, %304, %302, %289, %287, %274, %369, %371, %281, %jar_xm_vibrato.exit, %317, %282
   %431 = load ptr, ptr %275, align 8
   %432 = getelementptr inbounds i8, ptr %431, i64 3
   %433 = load i8, ptr %432, align 1
@@ -90709,9 +90717,6 @@ jar_xm_tremolo.exit:                              ; preds = %697, %708, %714, %7
   %956 = zext i1 %954 to i8
   store i8 %956, ptr %955, align 1
   br label %jar_xm_tone_portamento.exit248
-
-default.unreachable293:                           ; preds = %452, %437
-  unreachable
 
 jar_xm_tone_portamento.exit248:                   ; preds = %909, %907, %891, %887, %850, %845, %821, %804, %799, %775, %758, %756, %688, %686, %621, %619, %525, %499, %495, %857, %jar_xm_volume_slide.exit, %942, %924, %941, %918, %915, %893, %877, %862, %869, %870, %876, %854, %773, %771, %769, %813, %808, %815, %764, %742, %694, %627, %575, %526, %492, %478, %462, %434, %jar_xm_arpeggio.exit, %450, %443, %945, %jar_xm_tremolo.exit, %jar_xm_vibrato.exit251, %481, %465
   %957 = getelementptr inbounds i8, ptr %150, i64 56

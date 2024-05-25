@@ -5986,7 +5986,7 @@ define hidden void @"_ZN4core3ptr471drop_in_place$LT$hashbrown..raw..RawTable$LT
 define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86722e6385c42197E.llvm.15956212377945586164"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !2360, !noundef !25
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
@@ -6002,7 +6002,11 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..node
     i64 12, label %82
     i64 13, label %88
     i64 14, label %94
+    i64 15, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2361)
@@ -7245,11 +7249,15 @@ define hidden void @"_ZN4core3ptr617drop_in_place$LT$hashbrown..raw..RawTable$LT
 define hidden void @"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..AssocItem$GT$17h8ef3eb3d53f7b9f9E.llvm.15956212377945586164"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !3463, !noundef !25
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3464)
@@ -7331,11 +7339,15 @@ define hidden void @"_ZN4core3ptr628drop_in_place$LT$hashbrown..raw..RawTable$LT
 define internal void @"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ExternItem$GT$17h0471ad208dd63ce3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !3463, !noundef !25
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3516)
@@ -53353,9 +53365,9 @@ default.unreachable:                              ; preds = %3
   br i1 %switch, label %27, label %20
 
 20:                                               ; preds = %57, %55, %53, %18
-  %.pn41 = phi i32 [ 3, %18 ], [ 14, %53 ], [ 8, %55 ], [ 12, %57 ]
-  %.pn43 = phi { i32, i32 } [ %8, %18 ], [ %10, %53 ], [ %12, %55 ], [ %14, %57 ]
-  %.pn42 = extractvalue { i32, i32 } %.pn43, 1
+  %.pn42 = phi i32 [ 3, %18 ], [ 14, %53 ], [ 8, %55 ], [ 12, %57 ]
+  %.pn44 = phi { i32, i32 } [ %8, %18 ], [ %10, %53 ], [ %12, %55 ], [ %14, %57 ]
+  %.pn43 = extractvalue { i32, i32 } %.pn44, 1
   %21 = load ptr, ptr %6, align 8, !nonnull !25, !align !122, !noundef !25
   %22 = getelementptr inbounds i8, ptr %6, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !25, !align !210, !noundef !25
@@ -53367,11 +53379,15 @@ default.unreachable:                              ; preds = %3
 27:                                               ; preds = %57, %55, %53, %18
   call void @llvm.experimental.noalias.scope.decl(metadata !15312)
   %28 = load i64, ptr %4, align 8, !range !3463, !alias.scope !15312, !noundef !25
-  switch i64 %28, label %29 [
+  switch i64 %28, label %default.unreachable45 [
     i64 0, label %35
     i64 1, label %41
     i64 2, label %47
+    i64 3, label %29
   ]
+
+default.unreachable45:                            ; preds = %72, %27
+  unreachable
 
 29:                                               ; preds = %27
   call void @llvm.experimental.noalias.scope.decl(metadata !15315)
@@ -53464,9 +53480,9 @@ _ZN7hir_def9item_tree5lower3Ctx8span_map17h45c35593ec05e314E.exit: ; preds = %.n
   br label %15
 
 71:                                               ; preds = %_ZN7hir_def9item_tree5lower3Ctx8span_map17h45c35593ec05e314E.exit
-  %.sroa.2.0.insert.ext.i = zext i32 %.pn42 to i64
+  %.sroa.2.0.insert.ext.i = zext i32 %.pn43 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext nneg i32 %.pn41 to i64
+  %.sroa.0.0.insert.ext.i = zext nneg i32 %.pn42 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   invoke void @_ZN7hir_def9item_tree5lower3Ctx9add_attrs17h987ce8ed865e203bE(ptr noalias noundef nonnull align 8 dereferenceable(136) %6, i64 %.sroa.0.0.insert.insert.i, ptr noundef %68)
           to label %72 unwind label %69
@@ -53474,10 +53490,11 @@ _ZN7hir_def9item_tree5lower3Ctx8span_map17h45c35593ec05e314E.exit: ; preds = %.n
 72:                                               ; preds = %71
   call void @llvm.experimental.noalias.scope.decl(metadata !15367)
   %73 = load i64, ptr %4, align 8, !range !3463, !alias.scope !15367, !noundef !25
-  switch i64 %73, label %74 [
+  switch i64 %73, label %default.unreachable45 [
     i64 0, label %80
     i64 1, label %86
     i64 2, label %92
+    i64 3, label %74
   ]
 
 74:                                               ; preds = %72
@@ -53534,14 +53551,14 @@ _ZN7hir_def9item_tree5lower3Ctx8span_map17h45c35593ec05e314E.exit: ; preds = %.n
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ExternItem$GT$17h0471ad208dd63ce3E.exit.sink.split": ; preds = %74, %80, %86, %92, %29, %35, %41, %47
   %.sink.i38.sink = phi ptr [ %30, %29 ], [ %36, %35 ], [ %42, %41 ], [ %48, %47 ], [ %75, %74 ], [ %81, %80 ], [ %87, %86 ], [ %93, %92 ]
-  %.sroa.6.1.ph = phi i32 [ undef, %29 ], [ undef, %35 ], [ undef, %41 ], [ undef, %47 ], [ %.pn42, %74 ], [ %.pn42, %80 ], [ %.pn42, %86 ], [ %.pn42, %92 ]
-  %.sroa.0.1.ph = phi i32 [ 17, %29 ], [ 17, %35 ], [ 17, %41 ], [ 17, %47 ], [ %.pn41, %74 ], [ %.pn41, %80 ], [ %.pn41, %86 ], [ %.pn41, %92 ]
+  %.sroa.6.1.ph = phi i32 [ undef, %29 ], [ undef, %35 ], [ undef, %41 ], [ undef, %47 ], [ %.pn43, %74 ], [ %.pn43, %80 ], [ %.pn43, %86 ], [ %.pn43, %92 ]
+  %.sroa.0.1.ph = phi i32 [ 17, %29 ], [ 17, %35 ], [ 17, %41 ], [ 17, %47 ], [ %.pn42, %74 ], [ %.pn42, %80 ], [ %.pn42, %86 ], [ %.pn42, %92 ]
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink.i38.sink), !noalias !25
   br label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ExternItem$GT$17h0471ad208dd63ce3E.exit"
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ExternItem$GT$17h0471ad208dd63ce3E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ExternItem$GT$17h0471ad208dd63ce3E.exit.sink.split", %92, %86, %80, %74, %47, %41, %35, %29
-  %.sroa.6.1 = phi i32 [ undef, %29 ], [ undef, %35 ], [ undef, %41 ], [ undef, %47 ], [ %.pn42, %74 ], [ %.pn42, %80 ], [ %.pn42, %86 ], [ %.pn42, %92 ], [ %.sroa.6.1.ph, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ExternItem$GT$17h0471ad208dd63ce3E.exit.sink.split" ]
-  %.sroa.0.1 = phi i32 [ 17, %29 ], [ 17, %35 ], [ 17, %41 ], [ 17, %47 ], [ %.pn41, %74 ], [ %.pn41, %80 ], [ %.pn41, %86 ], [ %.pn41, %92 ], [ %.sroa.0.1.ph, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ExternItem$GT$17h0471ad208dd63ce3E.exit.sink.split" ]
+  %.sroa.6.1 = phi i32 [ undef, %29 ], [ undef, %35 ], [ undef, %41 ], [ undef, %47 ], [ %.pn43, %74 ], [ %.pn43, %80 ], [ %.pn43, %86 ], [ %.pn43, %92 ], [ %.sroa.6.1.ph, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ExternItem$GT$17h0471ad208dd63ce3E.exit.sink.split" ]
+  %.sroa.0.1 = phi i32 [ 17, %29 ], [ 17, %35 ], [ 17, %41 ], [ 17, %47 ], [ %.pn42, %74 ], [ %.pn42, %80 ], [ %.pn42, %86 ], [ %.pn42, %92 ], [ %.sroa.0.1.ph, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ExternItem$GT$17h0471ad208dd63ce3E.exit.sink.split" ]
   %98 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
   %99 = insertvalue { i32, i32 } %98, i32 %.sroa.6.1, 1
   ret { i32, i32 } %99

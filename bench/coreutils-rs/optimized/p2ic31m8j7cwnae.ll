@@ -2168,11 +2168,15 @@ define { i64, i64 } @_ZN8uu_shred8get_size17hd373381363b3d5b0E(ptr noalias nocap
   %20 = load i64, ptr %13, align 8, !range !667, !noundef !5
   %21 = getelementptr inbounds i8, ptr %13, i64 8
   %22 = load i64, ptr %21, align 8
-  switch i64 %20, label %23 [
+  switch i64 %20, label %default.unreachable [
     i64 3, label %77
     i64 0, label %32
     i64 1, label %41
+    i64 2, label %23
   ]
+
+default.unreachable:                              ; preds = %.noexc
+  unreachable
 
 23:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !668

@@ -3036,11 +3036,15 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17h
   %4 = add nsw i64 %3, -8
   %5 = icmp ult i64 %4, 4
   %6 = select i1 %5, i64 %4, i64 1
-  switch i64 %6, label %7 [
+  switch i64 %6, label %.unreachabledefault [
     i64 0, label %25
     i64 1, label %26
     i64 2, label %27
+    i64 3, label %7
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !353)
@@ -3092,7 +3096,7 @@ common.resume:                                    ; preds = %29, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !363
   br label %25
 
-25:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17h96ffc6080e786197E.exit", %26, %"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h2d7a015a0140ca25E.exit", %1
+25:                                               ; preds = %1, %"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17h96ffc6080e786197E.exit", %26, %"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h2d7a015a0140ca25E.exit"
   ret void
 
 26:                                               ; preds = %1
@@ -4484,15 +4488,19 @@ define internal void @"_ZN4core3ptr78drop_in_place$LT$$RF$thin_vec..ThinVec$LT$r
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$rustc_ast..ast..AssocItemKind$GT$$GT$17hfc09b5e6e84779a5E"(i64 %.0.val, ptr %.8.val) unnamed_addr #3 personality ptr @rust_eh_personality {
-  switch i64 %.0.val, label %2 [
+  switch i64 %.0.val, label %default.unreachable.i [
     i64 4, label %1
     i64 0, label %5
     i64 1, label %9
     i64 2, label %13
+    i64 3, label %2
   ]
 
 1:                                                ; preds = %0, %"_ZN4core3ptr50drop_in_place$LT$rustc_ast..ast..AssocItemKind$GT$17h3b9e526b1044d86cE.exit"
   ret void
+
+default.unreachable.i:                            ; preds = %0
+  unreachable
 
 2:                                                ; preds = %0
   invoke void @"_ZN4core3ptr44drop_in_place$LT$rustc_ast..ast..MacCall$GT$17hc41e51e8bdb040ebE"(ptr noalias noundef align 8 dereferenceable(32) %.8.val)
@@ -22458,11 +22466,15 @@ define void @"_ZN106_$LT$rustfmt_nightly..parse..session..ParseSess$u20$as$u20$r
   %25 = add i64 %21, 9223372036854775799
   %26 = icmp ult i64 %25, 4
   %27 = select i1 %26, i64 %25, i64 2
-  switch i64 %27, label %28 [
+  switch i64 %27, label %.unreachabledefault.i.i [
     i64 0, label %"_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17ha475a8bada173396E.exit"
     i64 1, label %30
     i64 2, label %42
+    i64 3, label %28
   ]
+
+.unreachabledefault.i.i:                          ; preds = %24
+  unreachable
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %16, i64 8

@@ -2492,10 +2492,11 @@ define internal i32 @dissect_iec60870_104(ptr noundef %0, ptr noundef %1, ptr no
   br label %59
 
 59:                                               ; preds = %58, %50
-  switch i8 %narrow, label %76 [
+  switch i8 %narrow, label %default.unreachable [
     i8 0, label %60
     i8 1, label %67
     i8 3, label %71
+    i8 2, label %76
   ]
 
 60:                                               ; preds = %59
@@ -2523,7 +2524,10 @@ define internal i32 @dissect_iec60870_104(ptr noundef %0, ptr noundef %1, ptr no
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %18, ptr noundef nonnull @.str.379, ptr noundef %75) #7
   br label %76
 
-76:                                               ; preds = %71, %67, %60, %59
+default.unreachable:                              ; preds = %59
+  unreachable
+
+76:                                               ; preds = %59, %71, %67, %60
   %77 = load ptr, ptr %10, align 8
   call void @col_clear(ptr noundef %77, i32 noundef 25) #7
   %78 = load ptr, ptr %10, align 8

@@ -1095,9 +1095,9 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %346 = getelementptr inbounds i8, ptr %90, i64 16
   %spec.select.i = select i1 %296, i32 %.neg.i.i.i, i32 0
   %347 = select i1 %296, i32 %300, i32 0
-  %spec.select256.i = add nsw i32 %295, %347
-  %348 = sdiv i32 %spec.select256.i, 100
-  %349 = mul nsw i32 %spec.select256.i, 1461
+  %spec.select257.i = add nsw i32 %295, %347
+  %348 = sdiv i32 %spec.select257.i, 100
+  %349 = mul nsw i32 %spec.select257.i, 1461
   %350 = ashr i32 %349, 2
   %351 = ashr i32 %348, 2
   %352 = add nsw i32 %302, %spec.select.i
@@ -2259,6 +2259,9 @@ _ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.exit.i.inv
     i8 19, label %740
   ]
 
+.unreachabledefault.i.i:                          ; preds = %967
+  unreachable
+
 728:                                              ; preds = %967, %740, %738, %737, %736, %735, %734, %733, %732, %731, %730, %729, %726
   br i1 %108, label %.loopexit, label %974
 
@@ -2992,10 +2995,11 @@ _ZN6chrono5naive4date9NaiveDate7weekday17h4a4c3ff80126069bE.exit277.i.i: ; preds
   br i1 %966, label %.loopexit, label %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric17h4afff4a5883086fdE.exit.thread220.i"
 
 967:                                              ; preds = %740
-  switch i8 %.val8.i, label %728 [
+  switch i8 %.val8.i, label %.unreachabledefault.i.i [
     i8 1, label %968
     i8 2, label %970
     i8 3, label %972
+    i8 0, label %728
   ]
 
 968:                                              ; preds = %967
@@ -3917,8 +3921,8 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit.i.i: ; pr
 
 .noexc11:                                         ; preds = %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h401e49cd355a94deE.exit.i"
   %1219 = load i8, ptr %91, align 8, !range !59, !noalias !58, !noundef !5
-  %.not280.i = icmp eq i8 %1219, 7
-  br i1 %.not280.i, label %.loopexit25, label %413
+  %.not282.i = icmp eq i8 %1219, 7
+  br i1 %.not282.i, label %.loopexit25, label %413
 
 .loopexit24:                                      ; preds = %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h401e49cd355a94deE.exit.i"
   %lpad.loopexit = landingpad { ptr, i32 }

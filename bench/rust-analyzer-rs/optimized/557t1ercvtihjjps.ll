@@ -1991,11 +1991,15 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$core..ops..control_flow..Co
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %6 [
+  switch i64 %2, label %default.unreachable1.i [
     i64 0, label %12
     i64 1, label %18
     i64 2, label %24
+    i64 3, label %6
   ]
+
+default.unreachable1.i:                           ; preds = %4
+  unreachable
 
 6:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
@@ -2089,11 +2093,15 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$core..ops..control_flow..Co
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %6 [
+  switch i64 %2, label %default.unreachable1.i [
     i64 0, label %12
     i64 1, label %18
     i64 2, label %24
+    i64 3, label %6
   ]
+
+default.unreachable1.i:                           ; preds = %4
+  unreachable
 
 6:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
@@ -2938,11 +2946,15 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$tracing_core..callsite..De
 define hidden void @"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..AssocItem$GT$17hd9f9fd0291d063ceE.llvm.6887668541773461223"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !175, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !781)
@@ -3009,11 +3021,15 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..node
 define hidden void @"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ExternItem$GT$17h45892859aad6b255E.llvm.6887668541773461223"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !175, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !833)

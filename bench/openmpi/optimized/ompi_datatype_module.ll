@@ -2656,139 +2656,145 @@ define void @ompi_datatype_dump(ptr noundef %0) local_unnamed_addr #0 {
   %68 = load i16, ptr %36, align 8
   %69 = tail call i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %68, ptr noundef %64, i64 noundef %65) #8
   %70 = zext i16 %68 to i32
-  %trunc.i = and i16 %68, -16384
-  switch i16 %trunc.i, label %73 [
-    i16 16384, label %.sink.split.i
-    i16 -32768, label %71
-    i16 -16384, label %72
+  %71 = lshr i32 %70, 14
+  switch i32 %71, label %default.unreachable [
+    i32 1, label %.sink.split.i
+    i32 2, label %72
+    i32 3, label %73
+    i32 0, label %74
   ]
-
-71:                                               ; preds = %67
-  br label %.sink.split.i
 
 72:                                               ; preds = %67
   br label %.sink.split.i
 
 73:                                               ; preds = %67
-  %74 = and i32 %70, 512
-  %.not.i = icmp eq i32 %74, 0
-  br i1 %.not.i, label %78, label %.sink.split.i
+  br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %73, %72, %71, %67
-  %.sink39.i = phi i8 [ 70, %72 ], [ 67, %71 ], [ 32, %67 ], [ 69, %73 ]
-  %.sink37.i = phi i8 [ 55, %72 ], [ 80, %71 ], [ 67, %67 ], [ 82, %73 ]
-  %.sink.i = phi i8 [ 55, %72 ], [ 80, %71 ], [ 32, %67 ], [ 82, %73 ]
-  %75 = getelementptr inbounds i8, ptr %64, i64 12
-  store i8 %.sink39.i, ptr %75, align 1
-  %76 = getelementptr inbounds i8, ptr %64, i64 13
-  store i8 %.sink37.i, ptr %76, align 1
-  %77 = getelementptr inbounds i8, ptr %64, i64 14
-  store i8 %.sink.i, ptr %77, align 1
-  br label %78
+default.unreachable:                              ; preds = %79, %67
+  unreachable
 
-78:                                               ; preds = %.sink.split.i, %73
-  %79 = and i32 %70, 12288
-  switch i32 %79, label %82 [
-    i32 4096, label %.sink.split41.i
-    i32 8192, label %80
-    i32 12288, label %81
+74:                                               ; preds = %67
+  %75 = and i32 %70, 512
+  %.not.i = icmp eq i32 %75, 0
+  br i1 %.not.i, label %79, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %74, %73, %72, %67
+  %.sink40.i = phi i8 [ 70, %73 ], [ 67, %72 ], [ 32, %67 ], [ 69, %74 ]
+  %.sink38.i = phi i8 [ 55, %73 ], [ 80, %72 ], [ 67, %67 ], [ 82, %74 ]
+  %.sink.i = phi i8 [ 55, %73 ], [ 80, %72 ], [ 32, %67 ], [ 82, %74 ]
+  %76 = getelementptr inbounds i8, ptr %64, i64 12
+  store i8 %.sink40.i, ptr %76, align 1
+  %77 = getelementptr inbounds i8, ptr %64, i64 13
+  store i8 %.sink38.i, ptr %77, align 1
+  %78 = getelementptr inbounds i8, ptr %64, i64 14
+  store i8 %.sink.i, ptr %78, align 1
+  br label %79
+
+79:                                               ; preds = %.sink.split.i, %74
+  %80 = lshr i32 %70, 12
+  %81 = and i32 %80, 3
+  switch i32 %81, label %default.unreachable [
+    i32 1, label %.sink.split42.i
+    i32 2, label %82
+    i32 3, label %83
+    i32 0, label %84
   ]
 
-80:                                               ; preds = %78
-  br label %.sink.split41.i
+82:                                               ; preds = %79
+  br label %.sink.split42.i
 
-81:                                               ; preds = %78
-  br label %.sink.split41.i
+83:                                               ; preds = %79
+  br label %.sink.split42.i
 
-82:                                               ; preds = %78
-  %83 = and i32 %70, 512
-  %.not35.i = icmp eq i32 %83, 0
-  br i1 %.not35.i, label %_ompi_dump_data_flags.exit, label %.sink.split41.i
+84:                                               ; preds = %79
+  %85 = and i32 %70, 512
+  %.not36.i = icmp eq i32 %85, 0
+  br i1 %.not36.i, label %_ompi_dump_data_flags.exit, label %.sink.split42.i
 
-.sink.split41.i:                                  ; preds = %82, %81, %80, %78
-  %.sink46.i = phi i8 [ 70, %80 ], [ 67, %81 ], [ 73, %78 ], [ 69, %82 ]
-  %.sink44.i = phi i8 [ 76, %80 ], [ 80, %81 ], [ 78, %78 ], [ 82, %82 ]
-  %.sink42.i = phi i8 [ 84, %80 ], [ 76, %81 ], [ 84, %78 ], [ 82, %82 ]
-  %84 = getelementptr inbounds i8, ptr %64, i64 17
-  store i8 %.sink46.i, ptr %84, align 1
-  %85 = getelementptr inbounds i8, ptr %64, i64 18
-  store i8 %.sink44.i, ptr %85, align 1
-  %86 = getelementptr inbounds i8, ptr %64, i64 19
-  store i8 %.sink42.i, ptr %86, align 1
+.sink.split42.i:                                  ; preds = %84, %83, %82, %79
+  %.sink47.i = phi i8 [ 70, %82 ], [ 67, %83 ], [ 73, %79 ], [ 69, %84 ]
+  %.sink45.i = phi i8 [ 76, %82 ], [ 80, %83 ], [ 78, %79 ], [ 82, %84 ]
+  %.sink43.i = phi i8 [ 84, %82 ], [ 76, %83 ], [ 84, %79 ], [ 82, %84 ]
+  %86 = getelementptr inbounds i8, ptr %64, i64 17
+  store i8 %.sink47.i, ptr %86, align 1
+  %87 = getelementptr inbounds i8, ptr %64, i64 18
+  store i8 %.sink45.i, ptr %87, align 1
+  %88 = getelementptr inbounds i8, ptr %64, i64 19
+  store i8 %.sink43.i, ptr %88, align 1
   br label %_ompi_dump_data_flags.exit
 
-_ompi_dump_data_flags.exit:                       ; preds = %57, %82, %.sink.split41.i
-  %.0.i = phi i32 [ 0, %57 ], [ %69, %82 ], [ %69, %.sink.split41.i ]
-  %87 = add nsw i32 %.0.i, %62
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i8, ptr %10, i64 %88
-  %90 = sub i64 %9, %88
-  %91 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %89, i64 noundef %90, ptr noundef nonnull @.str.36) #8
-  %92 = add nsw i32 %87, %91
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i8, ptr %10, i64 %93
-  %95 = sub i64 %9, %93
-  %96 = tail call i32 @opal_datatype_contain_basic_datatypes(ptr noundef nonnull %0, ptr noundef %94, i64 noundef %95) #8
-  %97 = add nsw i32 %92, %96
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %10, i64 %98
-  %100 = sub i64 %9, %98
-  %101 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %99, i64 noundef %100, ptr noundef nonnull @.str.37) #8
-  %102 = add nsw i32 %97, %101
-  %103 = getelementptr inbounds i8, ptr %0, i64 184
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 160
+_ompi_dump_data_flags.exit:                       ; preds = %57, %84, %.sink.split42.i
+  %.0.i = phi i32 [ 0, %57 ], [ %69, %84 ], [ %69, %.sink.split42.i ]
+  %89 = add nsw i32 %.0.i, %62
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i8, ptr %10, i64 %90
+  %92 = sub i64 %9, %90
+  %93 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %91, i64 noundef %92, ptr noundef nonnull @.str.36) #8
+  %94 = add nsw i32 %89, %93
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds i8, ptr %10, i64 %95
+  %97 = sub i64 %9, %95
+  %98 = tail call i32 @opal_datatype_contain_basic_datatypes(ptr noundef nonnull %0, ptr noundef %96, i64 noundef %97) #8
+  %99 = add nsw i32 %94, %98
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i8, ptr %10, i64 %100
+  %102 = sub i64 %9, %100
+  %103 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %101, i64 noundef %102, ptr noundef nonnull @.str.37) #8
+  %104 = add nsw i32 %99, %103
+  %105 = getelementptr inbounds i8, ptr %0, i64 184
   %106 = load ptr, ptr %105, align 8
-  %.not114 = icmp eq ptr %104, %106
-  %.not115 = icmp eq ptr %104, null
+  %107 = getelementptr inbounds i8, ptr %0, i64 160
+  %108 = load ptr, ptr %107, align 8
+  %.not114 = icmp eq ptr %106, %108
+  %.not115 = icmp eq ptr %106, null
   %or.cond = or i1 %.not115, %.not114
-  %107 = load i64, ptr %5, align 8
-  %108 = trunc i64 %107 to i32
-  br i1 %or.cond, label %130, label %109
+  %109 = load i64, ptr %5, align 8
+  %110 = trunc i64 %109 to i32
+  br i1 %or.cond, label %132, label %111
 
-109:                                              ; preds = %_ompi_dump_data_flags.exit
-  %110 = add i32 %108, 1
-  %111 = sext i32 %102 to i64
-  %112 = getelementptr inbounds i8, ptr %10, i64 %111
-  %113 = sub i64 %9, %111
-  %114 = tail call i32 @opal_datatype_dump_data_desc(ptr noundef %106, i32 noundef %110, ptr noundef %112, i64 noundef %113) #8
-  %115 = add nsw i32 %114, %102
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i8, ptr %10, i64 %116
-  %118 = sub i64 %9, %116
-  %119 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %117, i64 noundef %118, ptr noundef nonnull @.str.38) #8
-  %120 = add nsw i32 %115, %119
-  %121 = load ptr, ptr %103, align 8
-  %122 = load i64, ptr %2, align 8
-  %123 = trunc i64 %122 to i32
-  %124 = add i32 %123, 1
-  %125 = sext i32 %120 to i64
-  %126 = getelementptr inbounds i8, ptr %10, i64 %125
-  %127 = sub i64 %9, %125
-  %128 = tail call i32 @opal_datatype_dump_data_desc(ptr noundef %121, i32 noundef %124, ptr noundef %126, i64 noundef %127) #8
-  %129 = add nsw i32 %128, %120
-  br label %141
+111:                                              ; preds = %_ompi_dump_data_flags.exit
+  %112 = add i32 %110, 1
+  %113 = sext i32 %104 to i64
+  %114 = getelementptr inbounds i8, ptr %10, i64 %113
+  %115 = sub i64 %9, %113
+  %116 = tail call i32 @opal_datatype_dump_data_desc(ptr noundef %108, i32 noundef %112, ptr noundef %114, i64 noundef %115) #8
+  %117 = add nsw i32 %116, %104
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds i8, ptr %10, i64 %118
+  %120 = sub i64 %9, %118
+  %121 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %119, i64 noundef %120, ptr noundef nonnull @.str.38) #8
+  %122 = add nsw i32 %117, %121
+  %123 = load ptr, ptr %105, align 8
+  %124 = load i64, ptr %2, align 8
+  %125 = trunc i64 %124 to i32
+  %126 = add i32 %125, 1
+  %127 = sext i32 %122 to i64
+  %128 = getelementptr inbounds i8, ptr %10, i64 %127
+  %129 = sub i64 %9, %127
+  %130 = tail call i32 @opal_datatype_dump_data_desc(ptr noundef %123, i32 noundef %126, ptr noundef %128, i64 noundef %129) #8
+  %131 = add nsw i32 %130, %122
+  br label %143
 
-130:                                              ; preds = %_ompi_dump_data_flags.exit
-  %131 = sext i32 %102 to i64
-  %132 = getelementptr inbounds i8, ptr %10, i64 %131
-  %133 = sub i64 %9, %131
-  %134 = tail call i32 @opal_datatype_dump_data_desc(ptr noundef %106, i32 noundef %108, ptr noundef %132, i64 noundef %133) #8
-  %135 = add nsw i32 %134, %102
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i8, ptr %10, i64 %136
-  %138 = sub i64 %9, %136
-  %139 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %137, i64 noundef %138, ptr noundef nonnull @.str.39) #8
-  %140 = add nsw i32 %135, %139
-  br label %141
+132:                                              ; preds = %_ompi_dump_data_flags.exit
+  %133 = sext i32 %104 to i64
+  %134 = getelementptr inbounds i8, ptr %10, i64 %133
+  %135 = sub i64 %9, %133
+  %136 = tail call i32 @opal_datatype_dump_data_desc(ptr noundef %108, i32 noundef %110, ptr noundef %134, i64 noundef %135) #8
+  %137 = add nsw i32 %136, %104
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds i8, ptr %10, i64 %138
+  %140 = sub i64 %9, %138
+  %141 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %139, i64 noundef %140, ptr noundef nonnull @.str.39) #8
+  %142 = add nsw i32 %137, %141
+  br label %143
 
-141:                                              ; preds = %130, %109
-  %.2 = phi i32 [ %129, %109 ], [ %140, %130 ]
-  %142 = sext i32 %.2 to i64
-  %143 = getelementptr inbounds i8, ptr %10, i64 %142
-  store i8 0, ptr %143, align 1
+143:                                              ; preds = %132, %111
+  %.2 = phi i32 [ %131, %111 ], [ %142, %132 ]
+  %144 = sext i32 %.2 to i64
+  %145 = getelementptr inbounds i8, ptr %10, i64 %144
+  store i8 0, ptr %145, align 1
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef %10) #8
-  %144 = tail call i32 @ompi_datatype_print_args(ptr noundef nonnull %0) #8
+  %146 = tail call i32 @ompi_datatype_print_args(ptr noundef nonnull %0) #8
   tail call void @free(ptr noundef %10) #8
   ret void
 }

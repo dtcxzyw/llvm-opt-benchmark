@@ -7919,10 +7919,11 @@ define internal void @icl_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %11 = getelementptr inbounds i8, ptr %0, i64 4320
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 3
-  switch i32 %13, label %1138 [
+  switch i32 %13, label %default.unreachable84 [
     i32 0, label %14
     i32 3, label %15
     i32 1, label %910
+    i32 2, label %1138
   ]
 
 14:                                               ; preds = %10
@@ -10002,6 +10003,9 @@ ilk_lut_write.exit82:                             ; preds = %1068, %1096
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %1137) #12, !srcloc !68
   br label %ilk_lut_write.exit77
 
+default.unreachable84:                            ; preds = %10
+  unreachable
+
 1138:                                             ; preds = %10
   tail call void asm sideeffect "1163: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1163b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1163) #12, !srcloc !152
   %1139 = load i32, ptr %11, align 8
@@ -10047,10 +10051,11 @@ define internal void @icl_read_luts(ptr nocapture noundef %0) #0 align 16 {
 
 16:                                               ; preds = %10
   %17 = and i32 %.pre, 3
-  switch i32 %17, label %227 [
+  switch i32 %17, label %default.unreachable18 [
     i32 0, label %18
     i32 1, label %22
     i32 3, label %26
+    i32 2, label %227
   ]
 
 18:                                               ; preds = %16
@@ -10404,6 +10409,9 @@ define internal void @icl_read_luts(ptr nocapture noundef %0) #0 align 16 {
   store ptr %225, ptr %226, align 8
   br label %230
 
+default.unreachable18:                            ; preds = %16
+  unreachable
+
 227:                                              ; preds = %16
   tail call void asm sideeffect "1269: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1269b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1269) #12, !srcloc !158
   %228 = load i32, ptr %3, align 8
@@ -10552,10 +10560,11 @@ define internal zeroext i1 @icl_lut_equal(ptr nocapture noundef readonly %0, ptr
   br i1 %109, label %116, label %110
 
 110:                                              ; preds = %100
-  switch i32 %101, label %113 [
+  switch i32 %101, label %default.unreachable13 [
     i32 0, label %116
     i32 1, label %111
     i32 3, label %112
+    i32 2, label %113
   ]
 
 111:                                              ; preds = %110
@@ -10563,6 +10572,9 @@ define internal zeroext i1 @icl_lut_equal(ptr nocapture noundef readonly %0, ptr
 
 112:                                              ; preds = %110
   br label %116
+
+default.unreachable13:                            ; preds = %110
+  unreachable
 
 113:                                              ; preds = %110
   tail call void asm sideeffect "1241: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1241b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1241) #12, !srcloc !163
@@ -10575,7 +10587,7 @@ define internal zeroext i1 @icl_lut_equal(ptr nocapture noundef readonly %0, ptr
   tail call void asm sideeffect "1244: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1244b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1244) #12, !srcloc !167
   br label %116
 
-116:                                              ; preds = %113, %112, %111, %110, %100
+116:                                              ; preds = %110, %113, %112, %111, %100
   %117 = phi i1 [ true, %113 ], [ false, %112 ], [ false, %111 ], [ false, %110 ], [ true, %100 ]
   %118 = phi i32 [ 0, %113 ], [ 16, %112 ], [ 10, %111 ], [ 8, %110 ], [ 0, %100 ]
   %119 = icmp eq ptr %1, null

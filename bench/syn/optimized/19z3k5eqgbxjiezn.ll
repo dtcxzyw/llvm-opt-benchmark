@@ -117,11 +117,15 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenT
   %5 = add i64 %4, 9223372036854775807
   %6 = icmp ult i64 %5, 4
   %7 = select i1 %6, i64 %5, i64 1
-  switch i64 %7, label %8 [
+  switch i64 %7, label %.unreachabledefault [
     i64 0, label %21
     i64 1, label %36
     i64 2, label %"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h7bbe7bc4e754db60E.exit"
+    i64 3, label %8
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8

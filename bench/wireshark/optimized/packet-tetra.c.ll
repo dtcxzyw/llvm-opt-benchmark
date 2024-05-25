@@ -2934,10 +2934,11 @@ define hidden void @tetra_dissect_pdu(i32 noundef %0, i32 noundef %1, ptr nounde
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef 0) #3
   %27 = zext i8 %26 to i32
   %28 = lshr i32 %27, 6
-  switch i32 %28, label %104 [
+  switch i32 %28, label %default.unreachable86 [
     i32 0, label %29
     i32 1, label %33
     i32 2, label %40
+    i32 3, label %104
   ]
 
 29:                                               ; preds = %25
@@ -2953,8 +2954,8 @@ define hidden void @tetra_dissect_pdu(i32 noundef %0, i32 noundef %1, ptr nounde
   br label %104
 
 33:                                               ; preds = %25
-  %.mask82 = and i32 %27, 224
-  %34 = icmp eq i32 %.mask82, 96
+  %.mask85 = and i32 %27, 224
+  %34 = icmp eq i32 %.mask85, 96
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %33
@@ -2982,14 +2983,18 @@ define hidden void @tetra_dissect_pdu(i32 noundef %0, i32 noundef %1, ptr nounde
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %14)
   br label %104
 
+default.unreachable86:                            ; preds = %82, %44, %25
+  unreachable
+
 44:                                               ; preds = %5
   %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef 0) #3
   %46 = zext i8 %45 to i32
   %47 = lshr i32 %46, 6
-  switch i32 %47, label %104 [
+  switch i32 %47, label %default.unreachable86 [
     i32 0, label %48
     i32 1, label %52
     i32 2, label %56
+    i32 3, label %104
   ]
 
 48:                                               ; preds = %44
@@ -3002,8 +3007,8 @@ define hidden void @tetra_dissect_pdu(i32 noundef %0, i32 noundef %1, ptr nounde
   br label %104
 
 52:                                               ; preds = %44
-  %.mask81 = and i32 %46, 224
-  %53 = icmp eq i32 %.mask81, 96
+  %.mask84 = and i32 %46, 224
+  %53 = icmp eq i32 %.mask84, 96
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %52
@@ -3074,10 +3079,11 @@ define hidden void @tetra_dissect_pdu(i32 noundef %0, i32 noundef %1, ptr nounde
   %83 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef 0) #3
   %84 = zext i8 %83 to i32
   %85 = lshr i32 %84, 6
-  switch i32 %85, label %104 [
+  switch i32 %85, label %default.unreachable86 [
     i32 0, label %86
     i32 1, label %90
     i32 2, label %97
+    i32 3, label %104
   ]
 
 86:                                               ; preds = %82
@@ -3125,7 +3131,7 @@ define hidden void @tetra_dissect_pdu(i32 noundef %0, i32 noundef %1, ptr nounde
   tail call void @col_append_sep_str(ptr noundef %103, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2) #3
   br label %104
 
-104:                                              ; preds = %82, %86, %97, %94, %95, %96, %62, %66, %44, %48, %56, %55, %54, %25, %40, %32, %31, %37, %38, %39, %101, %76, %70, %21, %5
+104:                                              ; preds = %86, %97, %82, %94, %95, %96, %62, %66, %48, %56, %44, %55, %54, %40, %25, %32, %31, %37, %38, %39, %101, %76, %70, %21, %5
   ret void
 }
 

@@ -29359,13 +29359,17 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$hir_def..hir..type_ref..Type
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %"_ZN4core3ptr56drop_in_place$LT$hir_def..hir..type_ref..LifetimeRef$GT$17h5d86f7b55b2292fbE.llvm.13297079808459514206.exit" [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %6
     i64 1, label %8
     i64 2, label %10
+    i64 3, label %"_ZN4core3ptr56drop_in_place$LT$hir_def..hir..type_ref..LifetimeRef$GT$17h5d86f7b55b2292fbE.llvm.13297079808459514206.exit"
   ]
 
-"_ZN4core3ptr56drop_in_place$LT$hir_def..hir..type_ref..LifetimeRef$GT$17h5d86f7b55b2292fbE.llvm.13297079808459514206.exit": ; preds = %19, %14, %13, %10, %22, %6, %1
+.unreachabledefault:                              ; preds = %1
+  unreachable
+
+"_ZN4core3ptr56drop_in_place$LT$hir_def..hir..type_ref..LifetimeRef$GT$17h5d86f7b55b2292fbE.llvm.13297079808459514206.exit": ; preds = %19, %14, %13, %10, %1, %22, %6
   ret void
 
 6:                                                ; preds = %1
@@ -30573,7 +30577,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..node
 define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17hfe9e3b2b7cc1b90eE.llvm.13297079808459514206"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !11738, !noundef !11
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
@@ -30589,7 +30593,11 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..node
     i64 12, label %82
     i64 13, label %88
     i64 14, label %94
+    i64 15, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11739)
@@ -33782,11 +33790,15 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$ide_completion..context..Typ
   %8 = load i64, ptr %7, align 8, !range !574, !alias.scope !13623, !noundef !11
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !11642, !alias.scope !13623, !noundef !11
-  switch i64 %8, label %11 [
+  switch i64 %8, label %default.unreachable [
     i64 0, label %14
     i64 1, label %17
     i64 2, label %20
+    i64 3, label %11
   ]
+
+default.unreachable:                              ; preds = %6
+  unreachable
 
 11:                                               ; preds = %6
   %12 = icmp eq i64 %10, 36
@@ -39632,11 +39644,15 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..Typ
   %2 = load i64, ptr %0, align 8, !range !574, !noundef !11
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !range !11642, !noundef !11
-  switch i64 %2, label %5 [
+  switch i64 %2, label %default.unreachable3 [
     i64 0, label %8
     i64 1, label %11
     i64 2, label %14
+    i64 3, label %5
   ]
+
+default.unreachable3:                             ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   %6 = icmp eq i64 %4, 36
@@ -44092,7 +44108,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$chalk_ir..GoalData$LT$hir_ty
   %3 = add nsw i32 %2, -12
   %4 = icmp ult i32 %3, 8
   %narrow = select i1 %4, i32 %3, i32 6
-  switch i32 %narrow, label %"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17hf9e7112fbf55db58E.exit" [
+  switch i32 %narrow, label %.unreachabledefault [
     i32 0, label %5
     i32 1, label %7
     i32 2, label %29
@@ -44100,9 +44116,13 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$chalk_ir..GoalData$LT$hir_ty
     i32 4, label %39
     i32 5, label %47
     i32 6, label %49
+    i32 7, label %"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17hf9e7112fbf55db58E.exit"
   ]
 
-"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17hf9e7112fbf55db58E.exit": ; preds = %63, %"_ZN4core3ptr79drop_in_place$LT$chalk_ir..ProgramClauses$LT$hir_ty..interner..Interner$GT$$GT$17ha40a8ce7c596b085E.exit", %36, %31, %49, %47, %"_ZN4core3ptr71drop_in_place$LT$chalk_ir..EqGoal$LT$hir_ty..interner..Interner$GT$$GT$17hfe16883090451bdcE.llvm.13297079808459514206.exit", %29, %5, %1
+.unreachabledefault:                              ; preds = %1
+  unreachable
+
+"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17hf9e7112fbf55db58E.exit": ; preds = %63, %"_ZN4core3ptr79drop_in_place$LT$chalk_ir..ProgramClauses$LT$hir_ty..interner..Interner$GT$$GT$17ha40a8ce7c596b085E.exit", %36, %31, %1, %49, %47, %"_ZN4core3ptr71drop_in_place$LT$chalk_ir..EqGoal$LT$hir_ty..interner..Interner$GT$$GT$17hfe16883090451bdcE.llvm.13297079808459514206.exit", %29, %5
   ret void
 
 5:                                                ; preds = %1
@@ -46760,11 +46780,15 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$chalk_ir..WhereClause$LT$hir
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %8
     i64 1, label %30
     i64 2, label %31
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8

@@ -151,11 +151,12 @@ define range(i32 -1, 1) i32 @H5HF_id_print(ptr noundef %0, ptr noundef %1, ptr n
   br label %41
 
 13:                                               ; preds = %5
-  %14 = and i8 %8, 48
-  switch i8 %14, label %17 [
+  %14 = lshr i8 %8, 4
+  switch i8 %14, label %.unreachabledefault [
     i8 0, label %23
-    i8 16, label %15
-    i8 32, label %16
+    i8 1, label %15
+    i8 2, label %16
+    i8 3, label %17
   ]
 
 15:                                               ; preds = %13
@@ -163,6 +164,9 @@ define range(i32 -1, 1) i32 @H5HF_id_print(ptr noundef %0, ptr noundef %1, ptr n
 
 16:                                               ; preds = %13
   br label %23
+
+.unreachabledefault:                              ; preds = %13
+  unreachable
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr @stderr, align 8

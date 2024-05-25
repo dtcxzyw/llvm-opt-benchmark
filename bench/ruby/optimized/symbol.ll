@@ -420,7 +420,7 @@ define dso_local i64 @rb_id_attrset(i64 noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %1
   %9 = trunc i64 %0 to i32
   %10 = and i32 %9, 14
-  switch i32 %10, label %11 [
+  switch i32 %10, label %.unreachabledefault [
     i32 0, label %15
     i32 2, label %15
     i32 6, label %15
@@ -428,7 +428,11 @@ define dso_local i64 @rb_id_attrset(i64 noundef %0) local_unnamed_addr #0 {
     i32 12, label %15
     i32 14, label %15
     i32 8, label %45
+    i32 4, label %11
   ]
+
+.unreachabledefault:                              ; preds = %8
+  unreachable
 
 11:                                               ; preds = %8
   %12 = tail call fastcc i64 @lookup_id_str(i64 noundef %0)
@@ -436,11 +440,11 @@ define dso_local i64 @rb_id_attrset(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not30, label %14, label %13
 
 13:                                               ; preds = %11
-  tail call void (i64, ptr, ...) @rb_name_error(i64 noundef %0, ptr noundef nonnull @.str.1, i32 noundef %10, i64 noundef %12) #19
+  tail call void (i64, ptr, ...) @rb_name_error(i64 noundef %0, ptr noundef nonnull @.str.1, i32 noundef 4, i64 noundef %12) #19
   unreachable
 
 14:                                               ; preds = %11
-  tail call void (i64, ptr, ...) @rb_name_error_str(i64 noundef 4, ptr noundef nonnull @.str.2, i32 noundef %10, i64 noundef %0) #19
+  tail call void (i64, ptr, ...) @rb_name_error_str(i64 noundef 4, ptr noundef nonnull @.str.2, i32 noundef 4, i64 noundef %0) #19
   unreachable
 
 15:                                               ; preds = %8, %8, %8, %8, %8, %8
@@ -516,7 +520,7 @@ lookup_str_sym.exit:                              ; preds = %lookup_str_sym_with
   %44 = call fastcc i64 @intern_str(i64 noundef %21, i32 noundef 1)
   br label %45
 
-45:                                               ; preds = %41, %43, %8, %5
+45:                                               ; preds = %8, %41, %43, %5
   %.0 = phi i64 [ 146, %5 ], [ %0, %8 ], [ %42, %41 ], [ %44, %43 ]
   ret i64 %.0
 }

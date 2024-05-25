@@ -4006,7 +4006,7 @@ define internal i64 @f_lambda(i64 %0) #0 {
   %9 = and i64 %6, 3
   switch i64 %9, label %10 [
     i64 1, label %19
-    i64 3, label %vm_block_handler_type.exit.thread6.i
+    i64 3, label %vm_block_handler_type.exit.i
   ]
 
 10:                                               ; preds = %8
@@ -4035,7 +4035,7 @@ RB_SYMBOL_P.exit.i.i:                             ; preds = %13
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %21, %25
-  br i1 %26, label %f_lambda_filter_non_literal.exit, label %vm_block_handler_type.exit.thread6.i
+  br i1 %26, label %f_lambda_filter_non_literal.exit, label %vm_block_handler_type.exit.i
 
 ._crit_edge.i:                                    ; preds = %RB_SYMBOL_P.exit.i.i, %13
   %27 = getelementptr inbounds i8, ptr %15, i64 32
@@ -4044,9 +4044,9 @@ RB_SYMBOL_P.exit.i.i:                             ; preds = %13
   %30 = load i8, ptr %29, align 8
   %31 = and i8 %30, 2
   %.not.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i, label %vm_block_handler_type.exit.thread6.i, label %f_lambda_filter_non_literal.exit
+  br i1 %.not.i.i, label %vm_block_handler_type.exit.i, label %f_lambda_filter_non_literal.exit
 
-vm_block_handler_type.exit.thread6.i:             ; preds = %._crit_edge.i, %19, %8
+vm_block_handler_type.exit.i:                     ; preds = %._crit_edge.i, %19, %8
   %32 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str.87) #21
   unreachable

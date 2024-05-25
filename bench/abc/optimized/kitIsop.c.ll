@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [13 x i8] c"Constant %d\0A\00", align 1
 @.str.4 = private unnamed_addr constant [5 x i8] c" %d\0A\00", align 1
 @__const.Kit_TruthIsop5_rec.uMasks = private unnamed_addr constant [5 x i32] [i32 -1431655766, i32 -858993460, i32 -252645136, i32 -16711936, i32 -65536], align 16
-@switch.table.Kit_TruthIsopPrintCover = private unnamed_addr constant [3 x i32] [i32 45, i32 48, i32 49], align 4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @Kit_TruthIsop2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -938,41 +937,52 @@ define void @Kit_TruthIsopPrintCover(ptr nocapture noundef readonly %0, i32 noun
   %17 = load i32, ptr %16, align 4
   br label %18
 
-18:                                               ; preds = %.lr.ph.us, %23
-  %.01726.us = phi i32 [ 0, %.lr.ph.us ], [ %24, %23 ]
+18:                                               ; preds = %.lr.ph.us, %24
+  %.01726.us = phi i32 [ 0, %.lr.ph.us ], [ %25, %24 ]
   %19 = shl nuw i32 %.01726.us, 1
   %20 = ashr i32 %17, %19
   %21 = and i32 %20, 3
-  %.not35 = icmp eq i32 %21, 3
-  br i1 %.not35, label %23, label %switch.lookup
+  switch i32 %21, label %default.unreachable [
+    i32 1, label %23
+    i32 2, label %22
+    i32 0, label %.sink.split
+    i32 3, label %24
+  ]
 
-switch.lookup:                                    ; preds = %18
-  %22 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.Kit_TruthIsopPrintCover, i64 0, i64 %22
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %putchar20.us = tail call i32 @putchar(i32 %switch.load)
-  br label %23
+22:                                               ; preds = %18
+  br label %.sink.split
 
-23:                                               ; preds = %18, %switch.lookup
-  %24 = add nuw nsw i32 %.01726.us, 1
-  %exitcond.not = icmp eq i32 %24, %1
+23:                                               ; preds = %18
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %18, %22, %23
+  %.sink = phi i32 [ 48, %23 ], [ 49, %22 ], [ 45, %18 ]
+  %putchar20.us = tail call i32 @putchar(i32 %.sink)
+  br label %24
+
+24:                                               ; preds = %.sink.split, %18
+  %25 = add nuw nsw i32 %.01726.us, 1
+  %exitcond.not = icmp eq i32 %25, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !18
 
-._crit_edge.us:                                   ; preds = %23
-  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %15)
+._crit_edge.us:                                   ; preds = %24
+  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val23.us = load i32, ptr %4, align 4
-  %26 = sext i32 %.val23.us to i64
-  %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph.us, label %.critedge, !llvm.loop !19
+  %27 = sext i32 %.val23.us to i64
+  %28 = icmp slt i64 %indvars.iv.next, %27
+  br i1 %28, label %.lr.ph.us, label %.critedge, !llvm.loop !19
+
+default.unreachable:                              ; preds = %18
+  unreachable
 
 .lr.ph30.split:                                   ; preds = %.lr.ph30, %.lr.ph30.split
-  %.028 = phi i32 [ %29, %.lr.ph30.split ], [ 0, %.lr.ph30 ]
-  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %15)
-  %29 = add nuw nsw i32 %.028, 1
+  %.028 = phi i32 [ %30, %.lr.ph30.split ], [ 0, %.lr.ph30 ]
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %15)
+  %30 = add nuw nsw i32 %.028, 1
   %.val23 = load i32, ptr %4, align 4
-  %30 = icmp slt i32 %29, %.val23
-  br i1 %30, label %.lr.ph30.split, label %.critedge, !llvm.loop !19
+  %31 = icmp slt i32 %30, %.val23
+  br i1 %31, label %.lr.ph30.split, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %.lr.ph30.split, %._crit_edge.us, %11, %9
   ret void

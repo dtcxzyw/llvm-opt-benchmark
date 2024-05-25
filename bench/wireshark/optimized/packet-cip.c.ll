@@ -6377,10 +6377,11 @@ define internal fastcc range(i32 0, 7) i32 @dissect_cia(ptr noundef %0, i32 noun
 
 proto_item_set_generated.exit:                    ; preds = %29, %26, %20, %33, %16
   %37 = and i8 %2, 3
-  switch i8 %37, label %126 [
+  switch i8 %37, label %default.unreachable [
     i8 0, label %38
     i8 1, label %67
     i8 2, label %97
+    i8 3, label %126
   ]
 
 38:                                               ; preds = %proto_item_set_generated.exit
@@ -6599,6 +6600,9 @@ proto_item_set_generated.exit162:                 ; preds = %105, %102, %100, %1
 125:                                              ; preds = %124
   store i32 %99, ptr %12, align 4
   br label %128
+
+default.unreachable:                              ; preds = %proto_item_set_generated.exit
+  unreachable
 
 126:                                              ; preds = %proto_item_set_generated.exit
   %127 = tail call ptr @expert_add_info(ptr noundef %5, ptr noundef %6, ptr noundef nonnull @ei_proto_log_seg_format) #13
@@ -12358,10 +12362,11 @@ define internal range(i32 0, 2) i32 @dissect_class_cco_heur(ptr noundef %0, ptr 
 
 25:                                               ; preds = %21
   %26 = and i32 %23, 3
-  switch i32 %26, label %.thread [
+  switch i32 %26, label %default.unreachable43 [
     i32 0, label %27
     i32 1, label %30
     i32 2, label %33
+    i32 3, label %.thread
   ]
 
 27:                                               ; preds = %25
@@ -12381,6 +12386,9 @@ define internal range(i32 0, 2) i32 @dissect_class_cco_heur(ptr noundef %0, ptr 
 34:                                               ; preds = %33
   %35 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4) #13
   br label %36
+
+default.unreachable43:                            ; preds = %25
+  unreachable
 
 36:                                               ; preds = %34, %30, %27
   %.035 = phi i32 [ %35, %34 ], [ %32, %30 ], [ %29, %27 ]

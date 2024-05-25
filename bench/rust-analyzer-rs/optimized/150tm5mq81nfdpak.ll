@@ -3930,13 +3930,17 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$base_db..input..Cra
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = load i8, ptr %0, align 8, !range !746, !noundef !7
-  switch i8 %7, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hd3e3ae590bdf5264E.exit8" [
+  switch i8 %7, label %default.unreachable11 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %31
+    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hd3e3ae590bdf5264E.exit8"
   ]
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hd3e3ae590bdf5264E.exit8": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h119181ef79e31d9fE.exit.i7", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hd3e3ae590bdf5264E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h119181ef79e31d9fE.exit10", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h119181ef79e31d9fE.exit", %1
+default.unreachable11:                            ; preds = %1
+  unreachable
+
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hd3e3ae590bdf5264E.exit8": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h119181ef79e31d9fE.exit.i7", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hd3e3ae590bdf5264E.exit", %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h119181ef79e31d9fE.exit10", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h119181ef79e31d9fE.exit"
   ret void
 
 8:                                                ; preds = %1
@@ -38431,13 +38435,13 @@ default.unreachable:                              ; preds = %6
   %43 = load i32, ptr %41, align 4, !range !954, !noalias !8587, !noundef !7
   %44 = getelementptr inbounds i8, ptr %41, i64 4
   %45 = load i32, ptr %44, align 4, !noalias !8587, !noundef !7
-  switch i32 %43, label %default.unreachable80 [
+  switch i32 %43, label %.unreachabledefault [
     i32 0, label %46
     i32 1, label %47
     i32 2, label %48
   ]
 
-default.unreachable80:                            ; preds = %40
+.unreachabledefault:                              ; preds = %40
   unreachable
 
 46:                                               ; preds = %40

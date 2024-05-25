@@ -2238,11 +2238,11 @@ select.unfold:                                    ; preds = %_ZNK5draco58Predict
   %84 = load i32, ptr %2, align 4
   %85 = load i32, ptr %6, align 4
   %86 = sub nsw i32 0, %84
-  %.sroa.541.0.insert.ext98 = zext i32 %86 to i64
-  %.sroa.541.0.insert.shift99 = shl nuw i64 %.sroa.541.0.insert.ext98, 32
-  %.sroa.040.0.insert.ext100 = zext i32 %85 to i64
-  %.sroa.040.0.insert.insert101 = or disjoint i64 %.sroa.541.0.insert.shift99, %.sroa.040.0.insert.ext100
-  store i64 %.sroa.040.0.insert.insert101, ptr %2, align 4
+  %.sroa.541.0.insert.ext90 = zext i32 %86 to i64
+  %.sroa.541.0.insert.shift91 = shl nuw i64 %.sroa.541.0.insert.ext90, 32
+  %.sroa.040.0.insert.ext92 = zext i32 %85 to i64
+  %.sroa.040.0.insert.insert93 = or disjoint i64 %.sroa.541.0.insert.shift91, %.sroa.040.0.insert.ext92
+  store i64 %.sroa.040.0.insert.insert93, ptr %2, align 4
   %87 = load i32, ptr %3, align 4
   %88 = load i32, ptr %13, align 4
   %89 = sub nsw i32 0, %87
@@ -2253,11 +2253,11 @@ select.unfold:                                    ; preds = %_ZNK5draco58Predict
   %92 = load i32, ptr %6, align 4
   %93 = sub nsw i32 0, %91
   %94 = sub nsw i32 0, %92
-  %.sroa.541.0.insert.ext106 = zext i32 %94 to i64
-  %.sroa.541.0.insert.shift107 = shl nuw i64 %.sroa.541.0.insert.ext106, 32
-  %.sroa.040.0.insert.ext108 = zext i32 %93 to i64
-  %.sroa.040.0.insert.insert109 = or disjoint i64 %.sroa.541.0.insert.shift107, %.sroa.040.0.insert.ext108
-  store i64 %.sroa.040.0.insert.insert109, ptr %2, align 4
+  %.sroa.541.0.insert.ext98 = zext i32 %94 to i64
+  %.sroa.541.0.insert.shift99 = shl nuw i64 %.sroa.541.0.insert.ext98, 32
+  %.sroa.040.0.insert.ext100 = zext i32 %93 to i64
+  %.sroa.040.0.insert.insert101 = or disjoint i64 %.sroa.541.0.insert.shift99, %.sroa.040.0.insert.ext100
+  store i64 %.sroa.040.0.insert.insert101, ptr %2, align 4
   %95 = load i32, ptr %3, align 4
   %96 = load i32, ptr %13, align 4
   %97 = sub nsw i32 0, %95
@@ -2268,11 +2268,11 @@ select.unfold76:                                  ; preds = %79, %_ZNK5draco58Pr
   %99 = load i32, ptr %2, align 4
   %100 = load i32, ptr %6, align 4
   %101 = sub nsw i32 0, %100
-  %.sroa.541.0.insert.ext = zext i32 %99 to i64
-  %.sroa.541.0.insert.shift = shl nuw i64 %.sroa.541.0.insert.ext, 32
-  %.sroa.040.0.insert.ext = zext i32 %101 to i64
-  %.sroa.040.0.insert.insert = or disjoint i64 %.sroa.541.0.insert.shift, %.sroa.040.0.insert.ext
-  store i64 %.sroa.040.0.insert.insert, ptr %2, align 4
+  %.sroa.541.0.insert.ext106 = zext i32 %99 to i64
+  %.sroa.541.0.insert.shift107 = shl nuw i64 %.sroa.541.0.insert.ext106, 32
+  %.sroa.040.0.insert.ext108 = zext i32 %101 to i64
+  %.sroa.040.0.insert.insert109 = or disjoint i64 %.sroa.541.0.insert.shift107, %.sroa.040.0.insert.ext108
+  store i64 %.sroa.040.0.insert.insert109, ptr %2, align 4
   %102 = load i32, ptr %3, align 4
   %103 = load i32, ptr %13, align 4
   %104 = sub nsw i32 0, %103

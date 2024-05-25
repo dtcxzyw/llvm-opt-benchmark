@@ -1369,7 +1369,7 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$ide_completion..con
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hbb8f32be5e2cdd20E"(i8 %.0.val, ptr %.8.val) unnamed_addr #0 {
-  switch i8 %.0.val, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h799a2202b77728e8E.exit" [
+  switch i8 %.0.val, label %default.unreachable [
     i8 0, label %1
     i8 1, label %7
     i8 2, label %13
@@ -1377,7 +1377,11 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_e
     i8 4, label %25
     i8 5, label %31
     i8 6, label %37
+    i8 7, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h799a2202b77728e8E.exit"
   ]
+
+default.unreachable:                              ; preds = %0
+  unreachable
 
 "_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h799a2202b77728e8E.exit.sink.split": ; preds = %37, %31, %25, %19, %13, %7, %1
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.8.val), !noalias !8
@@ -1534,7 +1538,7 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$ide_completion..con
   ]
 
 "_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit.sink.split": ; preds = %63, %13, %21, %29, %37
-  %.val4.sink = phi ptr [ %.val5.i, %37 ], [ %.val5.i, %29 ], [ %.val5.i, %21 ], [ %.val5.i, %13 ], [ %.val4, %63 ]
+  %.val4.sink = phi ptr [ %.val1.i, %37 ], [ %.val1.i, %29 ], [ %.val1.i, %21 ], [ %.val1.i, %13 ], [ %.val4, %63 ]
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val4.sink), !noalias !8
   br label %"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit"
 
@@ -1546,23 +1550,27 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$ide_completion..con
   tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
   %8 = load i64, ptr %7, align 8, !range !439, !alias.scope !436, !noundef !8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val4.i = load i64, ptr %9, align 8, !range !440, !alias.scope !436, !noundef !8
+  %.val.i = load i64, ptr %9, align 8, !range !440, !alias.scope !436, !noundef !8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val5.i = load ptr, ptr %10, align 8, !alias.scope !436
-  switch i64 %8, label %11 [
+  %.val1.i = load ptr, ptr %10, align 8, !alias.scope !436
+  switch i64 %8, label %default.unreachable [
     i64 0, label %19
     i64 1, label %27
     i64 2, label %35
+    i64 3, label %11
   ]
 
+default.unreachable:                              ; preds = %6
+  unreachable
+
 11:                                               ; preds = %6
-  %12 = icmp eq i64 %.val4.i, 36
+  %12 = icmp eq i64 %.val.i, 36
   br i1 %12, label %"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit", label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ne ptr %.val5.i, null
+  %14 = icmp ne ptr %.val1.i, null
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds i8, ptr %.val5.i, i64 48
+  %15 = getelementptr inbounds i8, ptr %.val1.i, i64 48
   %16 = load i32, ptr %15, align 4, !noalias !436, !noundef !8
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4, !noalias !436
@@ -1570,13 +1578,13 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$ide_completion..con
   br i1 %18, label %"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit.sink.split", label %"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit"
 
 19:                                               ; preds = %6
-  %20 = icmp eq i64 %.val4.i, 16
+  %20 = icmp eq i64 %.val.i, 16
   br i1 %20, label %"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit", label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ne ptr %.val5.i, null
+  %22 = icmp ne ptr %.val1.i, null
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds i8, ptr %.val5.i, i64 48
+  %23 = getelementptr inbounds i8, ptr %.val1.i, i64 48
   %24 = load i32, ptr %23, align 4, !noalias !436, !noundef !8
   %25 = add i32 %24, -1
   store i32 %25, ptr %23, align 4, !noalias !436
@@ -1584,13 +1592,13 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$ide_completion..con
   br i1 %26, label %"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit.sink.split", label %"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit"
 
 27:                                               ; preds = %6
-  %28 = icmp eq i64 %.val4.i, 16
+  %28 = icmp eq i64 %.val.i, 16
   br i1 %28, label %"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit", label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ne ptr %.val5.i, null
+  %30 = icmp ne ptr %.val1.i, null
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds i8, ptr %.val5.i, i64 48
+  %31 = getelementptr inbounds i8, ptr %.val1.i, i64 48
   %32 = load i32, ptr %31, align 4, !noalias !436, !noundef !8
   %33 = add i32 %32, -1
   store i32 %33, ptr %31, align 4, !noalias !436
@@ -1598,13 +1606,13 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$ide_completion..con
   br i1 %34, label %"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit.sink.split", label %"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit"
 
 35:                                               ; preds = %6
-  %36 = icmp eq i64 %.val4.i, 36
+  %36 = icmp eq i64 %.val.i, 36
   br i1 %36, label %"_ZN4core3ptr66drop_in_place$LT$ide_completion..context..TypeAscriptionTarget$GT$17h61c5bf9f81655955E.exit", label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ne ptr %.val5.i, null
+  %38 = icmp ne ptr %.val1.i, null
   tail call void @llvm.assume(i1 %38)
-  %39 = getelementptr inbounds i8, ptr %.val5.i, i64 48
+  %39 = getelementptr inbounds i8, ptr %.val1.i, i64 48
   %40 = load i32, ptr %39, align 4, !noalias !436, !noundef !8
   %41 = add i32 %40, -1
   store i32 %41, ptr %39, align 4, !noalias !436

@@ -13701,11 +13701,15 @@ define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$ockam_transport_uds
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = load i64, ptr %0, align 8, !range !1722, !noundef !4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %6, label %8 [
+  switch i64 %6, label %default.unreachable6 [
     i64 0, label %17
     i64 1, label %18
     i64 2, label %27
+    i64 3, label %8
   ]
+
+default.unreachable6:                             ; preds = %1
+  unreachable
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1723
@@ -13846,11 +13850,15 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_transport_uds
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !1722, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %3, label %5 [
+  switch i64 %3, label %default.unreachable6 [
     i64 0, label %13
     i64 1, label %21
     i64 2, label %39
+    i64 3, label %5
   ]
+
+default.unreachable6:                             ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1762)

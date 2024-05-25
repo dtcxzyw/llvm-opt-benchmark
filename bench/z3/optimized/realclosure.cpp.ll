@@ -6355,10 +6355,11 @@ entry:
   %m_kind.i.i = getelementptr inbounds i8, ptr %x, i64 4
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 3
-  switch i32 %bf.clear.i.i, label %_ZNK11realclosure7manager3imp11display_extERSoPNS_9extensionEbb.exit [
+  switch i32 %bf.clear.i.i, label %default.unreachable [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb4.i
     i32 2, label %sw.bb7.i
+    i32 3, label %_ZNK11realclosure7manager3imp11display_extERSoPNS_9extensionEbb.exit
   ]
 
 sw.bb.i:                                          ; preds = %entry
@@ -6396,6 +6397,9 @@ sw.bb7.i:                                         ; preds = %entry
   tail call void @_ZNK11realclosure7manager3imp21display_algebraic_defERSoPNS_9algebraicEbb(ptr noundef nonnull align 8 dereferenceable(1497) %imp, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %x, i1 noundef zeroext false, i1 noundef zeroext false) #22
   br label %_ZNK11realclosure7manager3imp11display_extERSoPNS_9extensionEbb.exit
 
+default.unreachable:                              ; preds = %entry
+  unreachable
+
 _ZNK11realclosure7manager3imp11display_extERSoPNS_9extensionEbb.exit: ; preds = %if.else5.i4.i, %if.else.i13.i, %if.then2.i11.i, %entry, %sw.bb4.i, %sw.bb7.i
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   ret void
@@ -6407,10 +6411,11 @@ entry:
   %m_kind.i = getelementptr inbounds i8, ptr %r, i64 4
   %bf.load.i = load i32, ptr %m_kind.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 3
-  switch i32 %bf.clear.i, label %sw.epilog [
+  switch i32 %bf.clear.i, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb4
     i32 2, label %sw.bb7
+    i32 3, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -6446,7 +6451,10 @@ if.else18:                                        ; preds = %sw.bb7
   tail call void @_ZNK11realclosure7manager3imp21display_algebraic_defERSoPNS_9algebraicEbb(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %r, i1 noundef zeroext false, i1 noundef zeroext %pp)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.else18, %if.else, %if.then10, %sw.bb4, %sw.bb, %entry
+default.unreachable:                              ; preds = %entry
+  unreachable
+
+sw.epilog:                                        ; preds = %entry, %if.else18, %if.else, %if.then10, %sw.bb4, %sw.bb
   ret void
 }
 
@@ -9212,10 +9220,11 @@ if.then:                                          ; preds = %entry
   store ptr null, ptr %arrayidx.i, align 8
   %bf.load.i10 = load i32, ptr %m_kind.i, align 4
   %bf.clear.i11 = and i32 %bf.load.i10, 3
-  switch i32 %bf.clear.i11, label %if.end [
+  switch i32 %bf.clear.i11, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb6
     i32 2, label %sw.bb7
+    i32 3, label %if.end
   ]
 
 sw.bb:                                            ; preds = %if.then
@@ -9331,6 +9340,9 @@ if.then.i:                                        ; preds = %_ZN11realclosure7ma
 if.then4.i:                                       ; preds = %if.then.i
   tail call void @_ZN11realclosure7manager3imp12del_sign_detEPNS_8sign_detE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %25)
   br label %if.end.sink.split
+
+default.unreachable:                              ; preds = %if.then
+  unreachable
 
 if.end.sink.split:                                ; preds = %if.then4.i, %if.then.i, %_ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit, %sw.bb6, %sw.bb
   %m_allocator.i.i.sink = phi ptr [ %m_allocator.i.i, %sw.bb ], [ %m_allocator.i.i15, %sw.bb6 ], [ %m_allocator.i.i2028, %_ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit ], [ %m_allocator.i.i2028, %if.then.i ], [ %m_allocator.i.i2028, %if.then4.i ]
@@ -10376,11 +10388,15 @@ if.else:                                          ; preds = %invoke.cont
 if.end:                                           ; preds = %invoke.cont, %if.else
   %bf.load.i.i12 = phi i32 [ %bf.load.i.i, %invoke.cont ], [ %bf.load.i.i12.pre, %if.else ]
   %bf.clear.i.i13 = and i32 %bf.load.i.i12, 3
-  switch i32 %bf.clear.i.i13, label %sw.default.i [
+  switch i32 %bf.clear.i.i13, label %default.unreachable [
     i32 0, label %lor.lhs.false
     i32 1, label %lor.end
     i32 2, label %_ZN11realclosure7manager3imp25depends_on_infinitesimalsEPNS_9extensionE.exit
+    i32 3, label %sw.default.i
   ]
+
+default.unreachable:                              ; preds = %if.end
+  unreachable
 
 sw.default.i:                                     ; preds = %if.end
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.21, i32 noundef 1093, ptr noundef nonnull @.str.2)
@@ -43570,10 +43586,11 @@ if.end:                                           ; preds = %land.rhs.i.i, %_ZNK
   %m_kind.i = getelementptr inbounds i8, ptr %8, i64 4
   %bf.load.i = load i32, ptr %m_kind.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 3
-  switch i32 %bf.clear.i, label %sw.default [
+  switch i32 %bf.clear.i, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb5
     i32 2, label %sw.bb6
+    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -43630,6 +43647,9 @@ sw.bb5:                                           ; preds = %if.end
 sw.bb6:                                           ; preds = %if.end
   %call7 = tail call noundef zeroext i1 @_ZN11realclosure7manager3imp24determine_algebraic_signEPNS_23rational_function_valueE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %v)
   br label %return
+
+default.unreachable:                              ; preds = %if.end
+  unreachable
 
 sw.default:                                       ; preds = %if.end
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.21, i32 noundef 4975, ptr noundef nonnull @.str.2)

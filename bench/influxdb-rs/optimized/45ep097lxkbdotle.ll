@@ -10824,11 +10824,15 @@ common.resume:                                    ; preds = %2, %13
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Kind$GT$17h4d8f300ce6bf8ea3E.llvm.9135219245553044050"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !561, !noundef !4
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable8 [
     i64 0, label %24
     i64 1, label %36
     i64 2, label %51
+    i64 3, label %3
   ]
+
+default.unreachable8:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15335,7 +15339,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$parquet..data_type..FixedLen
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr58drop_in_place$LT$parquet..file..statistics..Statistics$GT$17h62e8786e557fb0e6E.llvm.9135219245553044050"(ptr noalias noundef align 8 dereferenceable(120) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !6398, !noundef !4
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit"
     i64 1, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit"
     i64 2, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit"
@@ -15343,7 +15347,11 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$parquet..file..statistics..S
     i64 4, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit"
     i64 5, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit"
     i64 6, label %51
+    i64 7, label %3
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15427,8 +15435,8 @@ common.resume:                                    ; preds = %67, %72, %76, %19, 
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit.sink.split": ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17he6d37ce89891e60cE.llvm.9135219245553044050.exit.i", %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hf9155bd0ca794cceE.llvm.9135219245553044050.exit.i"
-  %.sink6 = phi ptr [ %40, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hf9155bd0ca794cceE.llvm.9135219245553044050.exit.i" ], [ %88, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17he6d37ce89891e60cE.llvm.9135219245553044050.exit.i" ]
-  %44 = getelementptr inbounds i8, ptr %.sink6, i64 16
+  %.sink7 = phi ptr [ %40, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hf9155bd0ca794cceE.llvm.9135219245553044050.exit.i" ], [ %88, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17he6d37ce89891e60cE.llvm.9135219245553044050.exit.i" ]
+  %44 = getelementptr inbounds i8, ptr %.sink7, i64 16
   %45 = load ptr, ptr %44, align 8, !noalias !4, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds i8, ptr %0, i64 80
   %47 = getelementptr inbounds i8, ptr %0, i64 64
@@ -15507,8 +15515,8 @@ common.resume:                                    ; preds = %67, %72, %76, %19, 
   %87 = getelementptr inbounds i8, ptr %0, i64 56
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
-  %or.cond11 = select i1 %86, i1 true, i1 %89
-  br i1 %or.cond11, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit", label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit.sink.split"
+  %or.cond12 = select i1 %86, i1 true, i1 %89
+  br i1 %or.cond12, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit", label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit.sink.split"
 
 90:                                               ; preds = %76
   %91 = landingpad { ptr, i32 }
@@ -19212,7 +19220,7 @@ common.resume:                                    ; preds = %413, %455, %460, %c
   %251 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8502)
   %252 = load i64, ptr %251, align 8, !range !6398, !alias.scope !8502, !noundef !4
-  switch i64 %252, label %253 [
+  switch i64 %252, label %default.unreachable [
     i64 0, label %485
     i64 1, label %619
     i64 2, label %753
@@ -19220,7 +19228,11 @@ common.resume:                                    ; preds = %413, %455, %460, %c
     i64 4, label %1020
     i64 5, label %1154
     i64 6, label %1287
+    i64 7, label %253
   ]
+
+default.unreachable:                              ; preds = %250
+  unreachable
 
 253:                                              ; preds = %250
   %254 = getelementptr inbounds i8, ptr %0, i64 16
@@ -19303,9 +19315,9 @@ common.resume:                                    ; preds = %413, %455, %460, %c
   %286 = icmp ult i64 %285, -9223372036854775807
   tail call void @llvm.assume(i1 %286)
   %287 = icmp eq i64 %283, 0
-  br i1 %287, label %.body.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i3"
+  br i1 %287, label %.body.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i1"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i3": ; preds = %279
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i1": ; preds = %279
   tail call void @__rust_dealloc(ptr noundef nonnull %.val23.i.i, i64 noundef %283, i64 noundef %285) #21
   br label %.body.i.i
 
@@ -19325,8 +19337,8 @@ common.resume:                                    ; preds = %413, %455, %460, %c
   tail call void @__rust_dealloc(ptr noundef nonnull %.val23.i.i, i64 noundef %291, i64 noundef %293) #21
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$parquet..column..page..PageWriter$GT$$GT$17h5ab8d318fc5d349bE.exit.i.i"
 
-.body.i.i:                                        ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i3", %279, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i.i"
-  %.pn2.i.i = phi { ptr, i32 } [ %.pn.i.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i.i" ], [ %280, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i3" ], [ %280, %279 ]
+.body.i.i:                                        ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i1", %279, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i.i"
+  %.pn2.i.i = phi { ptr, i32 } [ %.pn.i.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i.i" ], [ %280, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i1" ], [ %280, %279 ]
   %296 = getelementptr inbounds i8, ptr %0, i64 840
   %.val27.i.i = load ptr, ptr %296, align 8, !alias.scope !8532, !noundef !4
   %297 = getelementptr inbounds i8, ptr %0, i64 848
@@ -19796,12 +19808,12 @@ common.resume:                                    ; preds = %413, %455, %460, %c
   unreachable
 
 common.resume.sink.split.i:                       ; preds = %1262, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i", %1129, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i", %995, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i", %861, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i", %728, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i", %594, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i"
-  %.sink406.i = phi i64 [ 120, %594 ], [ 120, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 336, %728 ], [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 392, %861 ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 368, %995 ], [ 368, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 336, %1129 ], [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 392, %1262 ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
-  %.sink405.i = phi i64 [ 528, %594 ], [ 528, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 552, %728 ], [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 608, %861 ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 584, %995 ], [ 584, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 552, %1129 ], [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 608, %1262 ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
+  %.sink407.i = phi i64 [ 120, %594 ], [ 120, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 336, %728 ], [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 392, %861 ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 368, %995 ], [ 368, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 336, %1129 ], [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 392, %1262 ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
+  %.sink406.i = phi i64 [ 528, %594 ], [ 528, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 552, %728 ], [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 608, %861 ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 584, %995 ], [ 584, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 552, %1129 ], [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 608, %1262 ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
   %common.resume.op.ph.i = phi { ptr, i32 } [ %595, %594 ], [ %.pn8.i9.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ %729, %728 ], [ %.pn8.i59.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ %862, %861 ], [ %.pn8.i118.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ %996, %995 ], [ %.pn8.i177.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ %1130, %1129 ], [ %.pn8.i236.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ %1263, %1262 ], [ %.pn8.i295.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
-  %481 = getelementptr inbounds i8, ptr %251, i64 %.sink406.i
+  %481 = getelementptr inbounds i8, ptr %251, i64 %.sink407.i
   call fastcc void @"_ZN4core3ptr64drop_in_place$LT$parquet..file..metadata..ColumnIndexBuilder$GT$17heb3001986e201a24E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %481) #24
-  %482 = getelementptr inbounds i8, ptr %251, i64 %.sink405.i
+  %482 = getelementptr inbounds i8, ptr %251, i64 %.sink406.i
   call fastcc void @"_ZN4core3ptr64drop_in_place$LT$parquet..file..metadata..OffsetIndexBuilder$GT$17hcda5715598bbc27bE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %482) #24
   br label %common.resume
 

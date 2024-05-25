@@ -29045,13 +29045,16 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %49 = load i8, ptr %48, align 8, !range !7617, !alias.scope !8263, !noalias !8264, !noundef !11
   %50 = add nsw i8 %49, -24
   %narrow.i.i.i = call i8 @llvm.umin.i8(i8 %50, i8 2)
-  switch i8 %narrow.i.i.i, label %default.unreachable [
+  switch i8 %narrow.i.i.i, label %.unreachabledefault [
     i8 0, label %51
     i8 1, label %57
     i8 2, label %62
   ]
 
-default.unreachable:                              ; preds = %47, %101
+.unreachabledefault:                              ; preds = %47
+  unreachable
+
+default.unreachable:                              ; preds = %101
   unreachable
 
 51:                                               ; preds = %47

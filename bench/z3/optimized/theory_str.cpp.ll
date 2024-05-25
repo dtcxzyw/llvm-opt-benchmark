@@ -66676,7 +66676,7 @@ if.then.i.i.i.i.i1573:                            ; preds = %invoke.cont8.i.i157
           to label %if.then.i.i.i.i.i1573.if.end629_crit_edge unwind label %terminate.lpad.i.i.i.i1575
 
 if.then.i.i.i.i.i1573.if.end629_crit_edge:        ; preds = %if.then.i.i.i.i.i1573
-  %.pre2319 = load ptr, ptr %temp1_y, align 8
+  %.pre2320 = load ptr, ptr %temp1_y, align 8
   br label %if.end629
 
 terminate.lpad.i.i.i.i1575:                       ; preds = %if.then.i.i.i.i.i1573
@@ -66751,7 +66751,7 @@ lpad615:                                          ; preds = %invoke.cont620, %in
   br label %ehcleanup630
 
 if.end629:                                        ; preds = %if.then.i.i.i.i.i1573.if.end629_crit_edge, %invoke.cont8.i.i1570, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1553, %invoke.cont625, %invoke.cont525
-  %518 = phi ptr [ %.pre2319, %if.then.i.i.i.i.i1573.if.end629_crit_edge ], [ %call520, %invoke.cont8.i.i1570 ], [ %call520, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1553 ], [ %call520, %invoke.cont625 ], [ %call520, %invoke.cont525 ]
+  %518 = phi ptr [ %.pre2320, %if.then.i.i.i.i.i1573.if.end629_crit_edge ], [ %call520, %invoke.cont8.i.i1570 ], [ %call520, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1553 ], [ %call520, %invoke.cont625 ], [ %call520, %invoke.cont525 ]
   %tobool.not.i.i1587 = icmp eq ptr %518, null
   br i1 %tobool.not.i.i1587, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit1595, label %if.then.i.i.i1588
 
@@ -67456,7 +67456,7 @@ if.then.i.i.i.i.i1837:                            ; preds = %invoke.cont8.i.i183
           to label %if.then.i.i.i.i.i1837.if.end732_crit_edge unwind label %terminate.lpad.i.i.i.i1839
 
 if.then.i.i.i.i.i1837.if.end732_crit_edge:        ; preds = %if.then.i.i.i.i.i1837
-  %.pre2320 = load ptr, ptr %y_concat, align 8
+  %.pre2319 = load ptr, ptr %y_concat, align 8
   br label %if.end732
 
 terminate.lpad.i.i.i.i1839:                       ; preds = %if.then.i.i.i.i.i1837
@@ -67484,7 +67484,7 @@ ehcleanup731:                                     ; preds = %ehcleanup730, %lpad
   br label %ehcleanup733
 
 if.end732:                                        ; preds = %if.then.i.i.i.i.i1837.if.end732_crit_edge, %invoke.cont8.i.i1834, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1817, %invoke.cont669, %invoke.cont664
-  %635 = phi ptr [ %call659, %invoke.cont669 ], [ %call659, %invoke.cont664 ], [ %call659, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1817 ], [ %call659, %invoke.cont8.i.i1834 ], [ %.pre2320, %if.then.i.i.i.i.i1837.if.end732_crit_edge ]
+  %635 = phi ptr [ %call659, %invoke.cont669 ], [ %call659, %invoke.cont664 ], [ %call659, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1817 ], [ %call659, %invoke.cont8.i.i1834 ], [ %.pre2319, %if.then.i.i.i.i.i1837.if.end732_crit_edge ]
   %tobool.not.i.i1843 = icmp eq ptr %635, null
   br i1 %tobool.not.i.i1843, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit1851, label %if.then.i.i.i1844
 

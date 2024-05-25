@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [8 x i8] c"commit \00", align 1
 @.str.24 = private unnamed_addr constant [7 x i8] c"abort \00", align 1
 @.str.25 = private unnamed_addr constant [10 x i8] c"subxacts:\00", align 1
-@switch.table.xact_identify = private unnamed_addr constant [7 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7], align 8
+@switch.table.xact_identify = private unnamed_addr constant [8 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr null], align 8
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -428,7 +428,7 @@ define dso_local void @xact_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %11 = load i8, ptr %10, align 8
   %12 = lshr i8 %11, 4
   %13 = and i8 %12, 7
-  switch i8 %13, label %xact_desc_assignment.exit [
+  switch i8 %13, label %default.unreachable [
     i8 3, label %14
     i8 0, label %14
     i8 4, label %90
@@ -436,6 +436,7 @@ define dso_local void @xact_desc(ptr noundef %0, ptr nocapture noundef readonly 
     i8 1, label %149
     i8 5, label %296
     i8 6, label %308
+    i8 7, label %xact_desc_assignment.exit
   ]
 
 14:                                               ; preds = %2, %2
@@ -979,6 +980,9 @@ xact_desc_prepare.exit:                           ; preds = %xact_desc_subxacts.
   tail call void @standby_desc_invalidations(ptr noundef %0, i32 noundef %309, ptr noundef nonnull %310, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #10
   br label %xact_desc_assignment.exit
 
+default.unreachable:                              ; preds = %2
+  unreachable
+
 xact_desc_assignment.exit:                        ; preds = %302, %296, %2, %xact_desc_abort.exit, %308, %xact_desc_prepare.exit, %xact_desc_commit.exit
   ret void
 }
@@ -989,20 +993,13 @@ declare void @standby_desc_invalidations(ptr noundef, i32 noundef, ptr noundef, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @xact_identify(i8 noundef zeroext %0) local_unnamed_addr #8 {
-  %2 = lshr i8 %0, 4
-  %3 = and i8 %2, 7
-  %.not = icmp eq i8 %3, 7
-  br i1 %.not, label %5, label %switch.lookup
-
-switch.lookup:                                    ; preds = %1
-  %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.xact_identify, i64 0, i64 %4
+switch.lookup:
+  %1 = lshr i8 %0, 4
+  %2 = and i8 %1, 7
+  %3 = zext nneg i8 %2 to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.xact_identify, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %5
-
-5:                                                ; preds = %switch.lookup, %1
-  %.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  ret ptr %.0
+  ret ptr %switch.load
 }
 
 declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #7

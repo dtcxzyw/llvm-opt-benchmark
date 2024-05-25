@@ -2653,11 +2653,15 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
   %4 = load ptr, ptr %0, align 8, !nonnull !11, !align !319, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !323)
   store i8 1, ptr %4, align 1, !alias.scope !323, !noalias !326
-  switch i32 %.sroa.1.8.copyload, label %5 [
+  switch i32 %.sroa.1.8.copyload, label %default.unreachable.i.i [
     i32 0, label %11
     i32 1, label %17
     i32 2, label %23
+    i32 3, label %5
   ]
+
+default.unreachable.i.i:                          ; preds = %3
+  unreachable
 
 5:                                                ; preds = %3
   %6 = icmp ne ptr %.sroa.4.8.copyload, null
@@ -3328,11 +3332,15 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$core..num..error..TryFromInt
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ide_db..search..FileReferenceNode$GT$17hf33a9e130146ed5dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !range !576, !noundef !11
-  switch i32 %2, label %3 [
+  switch i32 %2, label %default.unreachable1 [
     i32 0, label %10
     i32 1, label %17
     i32 2, label %24
+    i32 3, label %3
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -33383,11 +33391,15 @@ define internal noundef zeroext i1 @"_ZN6ide_db6search10FindUsages12at_least_one
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4839)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4842)
   %5 = load i32, ptr %2, align 8, !range !576, !alias.scope !4845, !noundef !11
-  switch i32 %5, label %6 [
+  switch i32 %5, label %default.unreachable [
     i32 0, label %13
     i32 1, label %20
     i32 2, label %27
+    i32 3, label %6
   ]
+
+default.unreachable:                              ; preds = %3
+  unreachable
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 16

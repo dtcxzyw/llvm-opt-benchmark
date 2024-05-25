@@ -391,16 +391,17 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
 295:                                              ; preds = %291, %40
   %296 = phi ptr [ %293, %291 ], [ %44, %40 ]
   %297 = phi ptr [ %277, %291 ], [ %42, %40 ]
-  switch i64 %21, label %504 [
+  switch i64 %21, label %default.unreachable93 [
     i64 0, label %572
     i64 3, label %298
     i64 2, label %415
+    i64 1, label %504
   ]
 
 298:                                              ; preds = %295
   %299 = icmp eq i64 %5, 3
   %300 = and i1 %299, %27
-  br i1 %300, label %301, label %.preheader20
+  br i1 %300, label %301, label %.preheader16
 
 301:                                              ; preds = %298
   %302 = and i64 %1, 9223372036854775804
@@ -423,7 +424,7 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %313 = phi double [ 0.000000e+00, %301 ], [ %363, %306 ]
   %314 = phi <2 x double> [ zeroinitializer, %301 ], [ %356, %306 ]
   %315 = icmp slt i64 %312, %1
-  br i1 %315, label %.preheader18, label %.loopexit19
+  br i1 %315, label %.preheader, label %.loopexit
 
 316:                                              ; preds = %316, %304
   %317 = phi double [ %363, %316 ], [ 0.000000e+00, %304 ]
@@ -479,12 +480,12 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %367 = icmp ult i64 %366, %302
   br i1 %367, label %316, label %306, !llvm.loop !19
 
-.preheader18:                                     ; preds = %309, %.preheader18
-  %368 = phi double [ %380, %.preheader18 ], [ %313, %309 ]
-  %369 = phi i64 [ %383, %.preheader18 ], [ %312, %309 ]
-  %370 = phi ptr [ %381, %.preheader18 ], [ %311, %309 ]
-  %371 = phi ptr [ %382, %.preheader18 ], [ %310, %309 ]
-  %372 = phi <2 x double> [ %377, %.preheader18 ], [ %314, %309 ]
+.preheader:                                       ; preds = %309, %.preheader
+  %368 = phi double [ %380, %.preheader ], [ %313, %309 ]
+  %369 = phi i64 [ %383, %.preheader ], [ %312, %309 ]
+  %370 = phi ptr [ %381, %.preheader ], [ %311, %309 ]
+  %371 = phi ptr [ %382, %.preheader ], [ %310, %309 ]
+  %372 = phi <2 x double> [ %377, %.preheader ], [ %314, %309 ]
   %373 = load double, ptr %371, align 8, !tbaa !3
   %374 = load <2 x double>, ptr %370, align 8, !tbaa !3
   %375 = insertelement <2 x double> poison, double %373, i64 0
@@ -497,14 +498,14 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %382 = getelementptr inbounds i8, ptr %371, i64 8
   %383 = add nuw nsw i64 %369, 1
   %384 = icmp eq i64 %383, %1
-  br i1 %384, label %.loopexit19, label %.preheader18, !llvm.loop !20
+  br i1 %384, label %.loopexit, label %.preheader, !llvm.loop !20
 
-.preheader20:                                     ; preds = %298, %.preheader20
-  %385 = phi double [ %397, %.preheader20 ], [ 0.000000e+00, %298 ]
-  %386 = phi i64 [ %400, %.preheader20 ], [ 0, %298 ]
-  %387 = phi ptr [ %398, %.preheader20 ], [ %297, %298 ]
-  %388 = phi ptr [ %399, %.preheader20 ], [ %6, %298 ]
-  %389 = phi <2 x double> [ %394, %.preheader20 ], [ zeroinitializer, %298 ]
+.preheader16:                                     ; preds = %298, %.preheader16
+  %385 = phi double [ %397, %.preheader16 ], [ 0.000000e+00, %298 ]
+  %386 = phi i64 [ %400, %.preheader16 ], [ 0, %298 ]
+  %387 = phi ptr [ %398, %.preheader16 ], [ %297, %298 ]
+  %388 = phi ptr [ %399, %.preheader16 ], [ %6, %298 ]
+  %389 = phi <2 x double> [ %394, %.preheader16 ], [ zeroinitializer, %298 ]
   %390 = load double, ptr %388, align 8, !tbaa !3
   %391 = load <2 x double>, ptr %387, align 8, !tbaa !3
   %392 = insertelement <2 x double> poison, double %390, i64 0
@@ -517,11 +518,11 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %399 = getelementptr inbounds double, ptr %388, i64 %7
   %400 = add nuw nsw i64 %386, 1
   %401 = icmp eq i64 %400, %1
-  br i1 %401, label %.loopexit19, label %.preheader20, !llvm.loop !21
+  br i1 %401, label %.loopexit, label %.preheader16, !llvm.loop !21
 
-.loopexit19:                                      ; preds = %.preheader20, %.preheader18, %309
-  %402 = phi double [ %313, %309 ], [ %380, %.preheader18 ], [ %397, %.preheader20 ]
-  %403 = phi <2 x double> [ %314, %309 ], [ %377, %.preheader18 ], [ %394, %.preheader20 ]
+.loopexit:                                        ; preds = %.preheader16, %.preheader, %309
+  %402 = phi double [ %313, %309 ], [ %380, %.preheader ], [ %397, %.preheader16 ]
+  %403 = phi <2 x double> [ %314, %309 ], [ %377, %.preheader ], [ %394, %.preheader16 ]
   %404 = load double, ptr %12, align 8, !tbaa !3
   %405 = load double, ptr %296, align 8, !tbaa !3
   %406 = extractelement <2 x double> %403, i64 0
@@ -541,7 +542,7 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
 415:                                              ; preds = %295
   %416 = icmp eq i64 %5, 2
   %417 = and i1 %416, %27
-  br i1 %417, label %418, label %.preheader24
+  br i1 %417, label %418, label %.preheader20
 
 418:                                              ; preds = %415
   %419 = and i64 %1, 9223372036854775804
@@ -563,7 +564,7 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %429 = phi i64 [ 0, %418 ], [ %425, %423 ]
   %430 = phi <2 x double> [ zeroinitializer, %418 ], [ %464, %423 ]
   %431 = icmp slt i64 %429, %1
-  br i1 %431, label %.preheader22, label %.loopexit23
+  br i1 %431, label %.preheader18, label %.loopexit19
 
 432:                                              ; preds = %432, %421
   %433 = phi i64 [ %467, %432 ], [ 0, %421 ]
@@ -604,11 +605,11 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %468 = icmp ult i64 %467, %419
   br i1 %468, label %432, label %423, !llvm.loop !22
 
-.preheader22:                                     ; preds = %426, %.preheader22
-  %469 = phi i64 [ %480, %.preheader22 ], [ %429, %426 ]
-  %470 = phi ptr [ %478, %.preheader22 ], [ %428, %426 ]
-  %471 = phi ptr [ %479, %.preheader22 ], [ %427, %426 ]
-  %472 = phi <2 x double> [ %477, %.preheader22 ], [ %430, %426 ]
+.preheader18:                                     ; preds = %426, %.preheader18
+  %469 = phi i64 [ %480, %.preheader18 ], [ %429, %426 ]
+  %470 = phi ptr [ %478, %.preheader18 ], [ %428, %426 ]
+  %471 = phi ptr [ %479, %.preheader18 ], [ %427, %426 ]
+  %472 = phi <2 x double> [ %477, %.preheader18 ], [ %430, %426 ]
   %473 = load double, ptr %471, align 8, !tbaa !3
   %474 = load <2 x double>, ptr %470, align 8, !tbaa !3
   %475 = insertelement <2 x double> poison, double %473, i64 0
@@ -618,13 +619,13 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %479 = getelementptr inbounds i8, ptr %471, i64 8
   %480 = add nuw nsw i64 %469, 1
   %481 = icmp eq i64 %480, %1
-  br i1 %481, label %.loopexit23, label %.preheader22, !llvm.loop !23
+  br i1 %481, label %.loopexit19, label %.preheader18, !llvm.loop !23
 
-.preheader24:                                     ; preds = %415, %.preheader24
-  %482 = phi i64 [ %493, %.preheader24 ], [ 0, %415 ]
-  %483 = phi ptr [ %491, %.preheader24 ], [ %297, %415 ]
-  %484 = phi ptr [ %492, %.preheader24 ], [ %6, %415 ]
-  %485 = phi <2 x double> [ %490, %.preheader24 ], [ zeroinitializer, %415 ]
+.preheader20:                                     ; preds = %415, %.preheader20
+  %482 = phi i64 [ %493, %.preheader20 ], [ 0, %415 ]
+  %483 = phi ptr [ %491, %.preheader20 ], [ %297, %415 ]
+  %484 = phi ptr [ %492, %.preheader20 ], [ %6, %415 ]
+  %485 = phi <2 x double> [ %490, %.preheader20 ], [ zeroinitializer, %415 ]
   %486 = load double, ptr %484, align 8, !tbaa !3
   %487 = load <2 x double>, ptr %483, align 8, !tbaa !3
   %488 = insertelement <2 x double> poison, double %486, i64 0
@@ -634,10 +635,10 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %492 = getelementptr inbounds double, ptr %484, i64 %7
   %493 = add nuw nsw i64 %482, 1
   %494 = icmp eq i64 %493, %1
-  br i1 %494, label %.loopexit23, label %.preheader24, !llvm.loop !24
+  br i1 %494, label %.loopexit19, label %.preheader20, !llvm.loop !24
 
-.loopexit23:                                      ; preds = %.preheader24, %.preheader22, %426
-  %495 = phi <2 x double> [ %430, %426 ], [ %477, %.preheader22 ], [ %490, %.preheader24 ]
+.loopexit19:                                      ; preds = %.preheader20, %.preheader18, %426
+  %495 = phi <2 x double> [ %430, %426 ], [ %477, %.preheader18 ], [ %490, %.preheader20 ]
   %496 = load double, ptr %12, align 8, !tbaa !3
   %497 = load double, ptr %296, align 8, !tbaa !3
   %498 = extractelement <2 x double> %495, i64 0
@@ -650,10 +651,13 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   store double %503, ptr %500, align 8, !tbaa !3
   br label %572
 
+default.unreachable93:                            ; preds = %295
+  unreachable
+
 504:                                              ; preds = %295
   %505 = icmp eq i64 %5, 1
   %506 = and i1 %505, %27
-  br i1 %506, label %507, label %.preheader16
+  br i1 %506, label %507, label %.preheader24
 
 507:                                              ; preds = %504
   %508 = and i64 %1, 9223372036854775804
@@ -673,7 +677,7 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %516 = phi i64 [ 0, %507 ], [ %514, %512 ]
   %517 = phi double [ 0.000000e+00, %507 ], [ %545, %512 ]
   %518 = icmp slt i64 %516, %1
-  br i1 %518, label %.preheader, label %.loopexit
+  br i1 %518, label %.preheader22, label %.loopexit23
 
 519:                                              ; preds = %519, %510
   %520 = phi double [ %545, %519 ], [ 0.000000e+00, %510 ]
@@ -706,9 +710,9 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %547 = icmp ult i64 %546, %508
   br i1 %547, label %519, label %512, !llvm.loop !25
 
-.preheader:                                       ; preds = %515, %.preheader
-  %548 = phi double [ %554, %.preheader ], [ %517, %515 ]
-  %549 = phi i64 [ %555, %.preheader ], [ %516, %515 ]
+.preheader22:                                     ; preds = %515, %.preheader22
+  %548 = phi double [ %554, %.preheader22 ], [ %517, %515 ]
+  %549 = phi i64 [ %555, %.preheader22 ], [ %516, %515 ]
   %550 = getelementptr inbounds double, ptr %297, i64 %549
   %551 = load double, ptr %550, align 8, !tbaa !3
   %552 = getelementptr inbounds double, ptr %6, i64 %549
@@ -716,13 +720,13 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %554 = call double @llvm.fmuladd.f64(double %551, double %553, double %548)
   %555 = add nuw nsw i64 %549, 1
   %556 = icmp eq i64 %555, %1
-  br i1 %556, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %556, label %.loopexit23, label %.preheader22, !llvm.loop !26
 
-.preheader16:                                     ; preds = %504, %.preheader16
-  %557 = phi double [ %563, %.preheader16 ], [ 0.000000e+00, %504 ]
-  %558 = phi i64 [ %566, %.preheader16 ], [ 0, %504 ]
-  %559 = phi ptr [ %564, %.preheader16 ], [ %297, %504 ]
-  %560 = phi ptr [ %565, %.preheader16 ], [ %6, %504 ]
+.preheader24:                                     ; preds = %504, %.preheader24
+  %557 = phi double [ %563, %.preheader24 ], [ 0.000000e+00, %504 ]
+  %558 = phi i64 [ %566, %.preheader24 ], [ 0, %504 ]
+  %559 = phi ptr [ %564, %.preheader24 ], [ %297, %504 ]
+  %560 = phi ptr [ %565, %.preheader24 ], [ %6, %504 ]
   %561 = load double, ptr %559, align 8, !tbaa !3
   %562 = load double, ptr %560, align 8, !tbaa !3
   %563 = call double @llvm.fmuladd.f64(double %561, double %562, double %557)
@@ -730,17 +734,17 @@ add_y.exit:                                       ; preds = %.preheader.i, %278
   %565 = getelementptr inbounds double, ptr %560, i64 %7
   %566 = add nuw nsw i64 %558, 1
   %567 = icmp eq i64 %566, %1
-  br i1 %567, label %.loopexit, label %.preheader16, !llvm.loop !27
+  br i1 %567, label %.loopexit23, label %.preheader24, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.preheader16, %.preheader, %515
-  %568 = phi double [ %517, %515 ], [ %554, %.preheader ], [ %563, %.preheader16 ]
+.loopexit23:                                      ; preds = %.preheader24, %.preheader22, %515
+  %568 = phi double [ %517, %515 ], [ %554, %.preheader22 ], [ %563, %.preheader24 ]
   %569 = load double, ptr %12, align 8, !tbaa !3
   %570 = load double, ptr %296, align 8, !tbaa !3
   %571 = call double @llvm.fmuladd.f64(double %569, double %568, double %570)
   store double %571, ptr %296, align 8, !tbaa !3
   br label %572
 
-572:                                              ; preds = %.loopexit, %.loopexit23, %.loopexit19, %295, %11
+572:                                              ; preds = %295, %.loopexit23, %.loopexit19, %.loopexit, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #5
   ret i32 0
 }

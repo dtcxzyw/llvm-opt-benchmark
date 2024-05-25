@@ -25682,17 +25682,18 @@ define linkonce_odr void @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12
 
 23:                                               ; preds = %4
   %24 = and i32 %3, 3
-  switch i32 %24, label %80 [
+  switch i32 %24, label %default.unreachable40 [
     i32 0, label %25
     i32 1, label %76
     i32 2, label %78
+    i32 3, label %80
   ]
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 160
   store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14parse_extendedEv to i64), ptr %26, align 8
-  %.repack22 = getelementptr inbounds i8, ptr %0, i64 168
-  store i64 0, ptr %.repack22, align 8
+  %.repack23 = getelementptr inbounds i8, ptr %0, i64 168
+  store i64 0, ptr %.repack23, align 8
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 352
   %29 = load ptr, ptr %28, align 8
@@ -25768,16 +25769,19 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
 76:                                               ; preds = %23
   %77 = getelementptr inbounds i8, ptr %0, i64 160
   store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE11parse_basicEv to i64), ptr %77, align 8
-  %.repack21 = getelementptr inbounds i8, ptr %0, i64 168
-  store i64 0, ptr %.repack21, align 8
+  %.repack22 = getelementptr inbounds i8, ptr %0, i64 168
+  store i64 0, ptr %.repack22, align 8
   br label %102
 
 78:                                               ; preds = %23
   %79 = getelementptr inbounds i8, ptr %0, i64 160
   store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13parse_literalEv to i64), ptr %79, align 8
-  %.repack20 = getelementptr inbounds i8, ptr %0, i64 168
-  store i64 0, ptr %.repack20, align 8
+  %.repack21 = getelementptr inbounds i8, ptr %0, i64 168
+  store i64 0, ptr %.repack21, align 8
   br label %102
+
+default.unreachable40:                            ; preds = %23
+  unreachable
 
 80:                                               ; preds = %23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #29
@@ -25961,8 +25965,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   %140 = load ptr, ptr %0, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 44
   %142 = load i32, ptr %141, align 4
-  %.not24 = icmp eq i32 %142, 0
-  br i1 %.not24, label %143, label %149
+  %.not27 = icmp eq i32 %142, 0
+  br i1 %.not27, label %143, label %149
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds i8, ptr %0, i64 200
@@ -25979,9 +25983,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
 
 150:                                              ; preds = %135, %.body32, %98, %.body
   %.sink = phi ptr [ %8, %.body ], [ %8, %98 ], [ %10, %.body32 ], [ %10, %135 ]
-  %.pn25.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %99, %98 ], [ %eh.lpad-body33, %.body32 ], [ %136, %135 ]
+  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %99, %98 ], [ %eh.lpad-body33, %.body32 ], [ %136, %135 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #29
-  resume { ptr, i32 } %.pn25.pn
+  resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

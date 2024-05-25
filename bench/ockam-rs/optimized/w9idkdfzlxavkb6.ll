@@ -3822,11 +3822,15 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$ockam_transport_uds..router.
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = load i64, ptr %0, align 8, !range !1066, !noundef !4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %6, label %8 [
+  switch i64 %6, label %default.unreachable6 [
     i64 0, label %17
     i64 1, label %18
     i64 2, label %27
+    i64 3, label %8
   ]
+
+default.unreachable6:                             ; preds = %1
+  unreachable
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1067
@@ -3949,11 +3953,15 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$ockam_transport_uds..router.
 define hidden void @"_ZN4core3ptr76drop_in_place$LT$ockam_transport_uds..router..message..UdsRouterResponse$GT$17hdb225d3ec7c3bf80E.llvm.15328536302644105373"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1066, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable5 [
     i64 0, label %12
     i64 1, label %20
     i64 2, label %21
+    i64 3, label %4
   ]
+
+default.unreachable5:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1103)

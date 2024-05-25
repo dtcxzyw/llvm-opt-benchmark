@@ -9881,7 +9881,7 @@ land.lhs.true157:                                 ; preds = %if.end155
   %spec.select = select i1 %tobool160.not, i32 %cond163, i32 0
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.then29, %land.lhs.true157, %if.end155, %land.lhs.true86, %if.then69, %if.end64, %if.then43, %if.end58, %if.then53, %match_pathspec_with_flags.exit, %entry, %if.then2
+return:                                           ; preds = %if.end.i, %if.then29, %land.lhs.true157, %entry, %if.end155, %land.lhs.true86, %if.then69, %if.end64, %if.then43, %if.end58, %if.then53, %match_pathspec_with_flags.exit, %if.then2
   %retval.0 = phi i32 [ 0, %if.then2 ], [ %call, %entry ], [ 0, %match_pathspec_with_flags.exit ], [ 2, %if.then53 ], [ %., %if.end58 ], [ 1, %if.then43 ], [ 1, %if.end64 ], [ 2, %if.then69 ], [ 3, %land.lhs.true86 ], [ %state.0, %if.end155 ], [ %spec.select, %land.lhs.true157 ], [ %spec.select80, %if.then29 ], [ 0, %if.end.i ]
   ret i32 %retval.0
 }

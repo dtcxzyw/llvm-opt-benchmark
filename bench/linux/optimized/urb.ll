@@ -611,8 +611,8 @@ define dso_local i32 @usb_submit_urb(ptr noundef %0, i32 noundef %1) #2 align 16
   %127 = mul nuw nsw i32 %126, %125
   %128 = icmp ne i32 %114, 6
   %129 = icmp sgt i8 %122, -1
-  %or.cond35 = select i1 %128, i1 true, i1 %129
-  br i1 %or.cond35, label %.thread21, label %130
+  %or.cond36 = select i1 %128, i1 true, i1 %129
+  br i1 %or.cond36, label %.thread21, label %130
 
 130:                                              ; preds = %116
   %131 = getelementptr inbounds i8, ptr %34, i64 19
@@ -772,24 +772,28 @@ define dso_local i32 @usb_submit_urb(ptr noundef %0, i32 noundef %1) #2 align 16
   br label %235
 
 235:                                              ; preds = %228, %211
-  switch i8 %42, label %238 [
+  switch i8 %42, label %default.unreachable33 [
     i8 2, label %236
     i8 3, label %236
     i8 1, label %243
+    i8 0, label %238
   ]
 
 236:                                              ; preds = %235, %235
   %237 = select i1 %194, i32 964, i32 900
   br label %238
 
-238:                                              ; preds = %236, %235
+default.unreachable33:                            ; preds = %235
+  unreachable
+
+238:                                              ; preds = %235, %236
   %239 = phi i32 [ 900, %235 ], [ %237, %236 ]
   %240 = xor i1 %194, true
   %241 = zext i1 %240 to i32
   %242 = or disjoint i32 %239, %241
   br label %243
 
-243:                                              ; preds = %238, %235
+243:                                              ; preds = %235, %238
   %244 = phi i32 [ %242, %238 ], [ 902, %235 ]
   %245 = load i32, ptr %193, align 4
   %246 = and i32 %245, %244

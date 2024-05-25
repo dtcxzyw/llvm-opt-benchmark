@@ -324,7 +324,7 @@ define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr nocapture 
   %.sink = select i1 %.not, i32 16, i32 1
   %.0584 = select i1 %.not, i32 %9, i32 %11
   %12 = and i32 %.sink, %7
-  switch i32 %.0584, label %633 [
+  switch i32 %.0584, label %.unreachabledefault [
     i32 0, label %13
     i32 1, label %119
     i32 2, label %279
@@ -332,6 +332,7 @@ define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr nocapture 
     i32 4, label %467
     i32 5, label %545
     i32 7, label %575
+    i32 6, label %633
   ]
 
 13:                                               ; preds = %5
@@ -1452,6 +1453,9 @@ wimax_compact_dlmap_rcid_ie_decoder.exit700.thread: ; preds = %wimax_compact_dlm
   %.0.i703 = phi i32 [ %583, %601 ], [ %583, %595 ], [ %583, %591 ], [ %610, %626 ], [ %610, %622 ], [ %610, %617 ]
   %632 = shl nuw nsw i32 %.0.i703, 1
   br label %wimax_compact_dlmap_format_configuration_ie_decoder.exit
+
+.unreachabledefault:                              ; preds = %5
+  unreachable
 
 633:                                              ; preds = %5
   %634 = load i32, ptr @hf_cdlmap_reserved_type_1, align 4

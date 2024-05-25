@@ -59,7 +59,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$fundu_core..error..
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %6 [
+  switch i64 %5, label %default.unreachable5 [
     i64 0, label %15
     i64 1, label %16
     i64 2, label %15
@@ -67,7 +67,11 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$fundu_core..error..
     i64 4, label %15
     i64 5, label %15
     i64 6, label %15
+    i64 7, label %6
   ]
+
+default.unreachable5:                             ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -90,7 +94,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$fundu_core..error..
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !6
   br label %15
 
-15:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2ba3a4a15edf9a71E.exit4", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2ba3a4a15edf9a71E.exit2", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2ba3a4a15edf9a71E.exit", %1, %1, %1, %1, %1
+15:                                               ; preds = %1, %1, %1, %1, %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2ba3a4a15edf9a71E.exit4", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2ba3a4a15edf9a71E.exit2", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2ba3a4a15edf9a71E.exit"
   ret void
 
 16:                                               ; preds = %1

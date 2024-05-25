@@ -8648,18 +8648,18 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_update_linkspeed(ptr noun
   %37 = load volatile i64, ptr %36, align 8
   %38 = and i64 %37, 1
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %532, label %40
+  br i1 %39, label %533, label %40
 
 40:                                               ; preds = %.thread10
   tail call fastcc void @nv_force_linkspeed(ptr noundef %0)
   %41 = load volatile i64, ptr %36, align 8
   %42 = and i64 %41, 4
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %532, label %44
+  br i1 %43, label %533, label %44
 
 44:                                               ; preds = %40
   tail call void @netif_carrier_on(ptr noundef %0) #16
-  br label %532
+  br label %533
 
 45:                                               ; preds = %31
   %46 = load i32, ptr %6, align 4
@@ -9033,7 +9033,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_update_linkspeed(ptr noun
 272:                                              ; preds = %264
   %273 = load i32, ptr %4, align 4
   %274 = icmp eq i32 %273, %267
-  br i1 %274, label %532, label %275
+  br i1 %274, label %533, label %275
 
 275:                                              ; preds = %272, %264
   store i32 %268, ptr %5, align 8
@@ -9353,108 +9353,113 @@ nv_stop_rx.exit:                                  ; preds = %338, %.loopexit.i9,
   br i1 %or.cond, label %._crit_edge, label %466
 
 466:                                              ; preds = %460
-  %467 = and i32 %265, 3072
-  %468 = and i32 %266, 3072
-  switch i32 %467, label %._crit_edge [
-    i32 1024, label %469
-    i32 2048, label %476
-    i32 3072, label %479
+  %467 = and i32 %266, 3072
+  %468 = lshr i32 %265, 10
+  %469 = and i32 %468, 3
+  switch i32 %469, label %default.unreachable [
+    i32 1, label %470
+    i32 2, label %477
+    i32 3, label %480
+    i32 0, label %._crit_edge
   ]
 
-469:                                              ; preds = %466
-  %470 = and i32 %266, 1024
-  %471 = icmp eq i32 %470, 0
-  br i1 %471, label %._crit_edge, label %472
+470:                                              ; preds = %466
+  %471 = and i32 %266, 1024
+  %472 = icmp eq i32 %471, 0
+  br i1 %472, label %._crit_edge, label %473
 
-472:                                              ; preds = %469
-  %473 = and i32 %.pre, 32
-  %474 = icmp eq i32 %473, 0
-  %475 = select i1 %474, i32 4, i32 12
+473:                                              ; preds = %470
+  %474 = and i32 %.pre, 32
+  %475 = icmp eq i32 %474, 0
+  %476 = select i1 %475, i32 4, i32 12
   br label %._crit_edge
 
-476:                                              ; preds = %466
-  %477 = icmp eq i32 %468, 3072
-  %478 = select i1 %477, i32 8, i32 0
+477:                                              ; preds = %466
+  %478 = icmp eq i32 %467, 3072
+  %479 = select i1 %478, i32 8, i32 0
   br label %._crit_edge
 
-479:                                              ; preds = %466
-  %480 = and i32 %266, 1024
-  %481 = icmp eq i32 %480, 0
-  %482 = and i32 %.pre, 32
-  %483 = icmp eq i32 %482, 0
-  %484 = select i1 %483, i32 4, i32 12
-  %485 = select i1 %481, i32 0, i32 %484
-  %486 = icmp eq i32 %468, 2048
-  %487 = or i32 %485, 4
-  %488 = select i1 %486, i32 %487, i32 %485
+480:                                              ; preds = %466
+  %481 = and i32 %266, 1024
+  %482 = icmp eq i32 %481, 0
+  %483 = and i32 %.pre, 32
+  %484 = icmp eq i32 %483, 0
+  %485 = select i1 %484, i32 4, i32 12
+  %486 = select i1 %482, i32 0, i32 %485
+  %487 = icmp eq i32 %467, 2048
+  %488 = or i32 %486, 4
+  %489 = select i1 %487, i32 %488, i32 %486
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %460, %479, %476, %472, %469, %466, %457, %442
-  %489 = phi i32 [ 0, %466 ], [ 0, %469 ], [ 0, %457 ], [ 0, %442 ], [ %475, %472 ], [ %478, %476 ], [ %488, %479 ], [ %.pre, %460 ]
-  tail call fastcc void @nv_update_pause(ptr noundef %0, i32 noundef %489)
-  %490 = and i32 %340, 1
-  %491 = icmp eq i32 %490, 0
-  br i1 %491, label %503, label %492
+default.unreachable:                              ; preds = %466
+  unreachable
 
-492:                                              ; preds = %._crit_edge
-  %493 = load ptr, ptr %2, align 8
-  %494 = getelementptr i8, ptr %493, i64 132
-  %495 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %494) #16, !srcloc !10
-  %496 = or i32 %495, 1
-  %497 = getelementptr i8, ptr %0, i64 3104
-  %498 = load i32, ptr %497, align 8
-  %499 = icmp eq i32 %498, 0
-  %500 = and i32 %496, -16777217
-  %501 = select i1 %499, i32 %496, i32 %500
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %501, ptr elementtype(i32) %494) #16, !srcloc !11
-  %502 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %493) #16, !srcloc !10
-  br label %503
+._crit_edge:                                      ; preds = %460, %466, %480, %477, %473, %470, %457, %442
+  %490 = phi i32 [ %469, %466 ], [ 0, %470 ], [ 0, %457 ], [ 0, %442 ], [ %476, %473 ], [ %479, %477 ], [ %489, %480 ], [ %.pre, %460 ]
+  tail call fastcc void @nv_update_pause(ptr noundef %0, i32 noundef %490)
+  %491 = and i32 %340, 1
+  %492 = icmp eq i32 %491, 0
+  br i1 %492, label %504, label %493
 
-503:                                              ; preds = %492, %._crit_edge
-  %504 = and i32 %340, 2
-  %505 = icmp eq i32 %504, 0
-  br i1 %505, label %532, label %506
+493:                                              ; preds = %._crit_edge
+  %494 = load ptr, ptr %2, align 8
+  %495 = getelementptr i8, ptr %494, i64 132
+  %496 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %495) #16, !srcloc !10
+  %497 = or i32 %496, 1
+  %498 = getelementptr i8, ptr %0, i64 3104
+  %499 = load i32, ptr %498, align 8
+  %500 = icmp eq i32 %499, 0
+  %501 = and i32 %497, -16777217
+  %502 = select i1 %500, i32 %497, i32 %501
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %502, ptr elementtype(i32) %495) #16, !srcloc !11
+  %503 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %494) #16, !srcloc !10
+  br label %504
 
-506:                                              ; preds = %503
-  %507 = load ptr, ptr %2, align 8
-  %508 = getelementptr i8, ptr %507, i64 148
-  %509 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %508) #16, !srcloc !10
-  %510 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %508) #16, !srcloc !10
-  %511 = and i32 %510, 1
-  %512 = icmp eq i32 %511, 0
-  br i1 %512, label %520, label %513
+504:                                              ; preds = %493, %._crit_edge
+  %505 = and i32 %340, 2
+  %506 = icmp eq i32 %505, 0
+  br i1 %506, label %533, label %507
 
-513:                                              ; preds = %506
-  %514 = getelementptr i8, ptr %0, i64 3104
-  %515 = load i32, ptr %514, align 8
-  %516 = icmp eq i32 %515, 0
-  br i1 %516, label %517, label %520
+507:                                              ; preds = %504
+  %508 = load ptr, ptr %2, align 8
+  %509 = getelementptr i8, ptr %508, i64 148
+  %510 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %509) #16, !srcloc !10
+  %511 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %509) #16, !srcloc !10
+  %512 = and i32 %511, 1
+  %513 = icmp eq i32 %512, 0
+  br i1 %513, label %521, label %514
 
-517:                                              ; preds = %513
-  %518 = and i32 %509, -2
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %518, ptr elementtype(i32) %508) #16, !srcloc !11
-  %519 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %507) #16, !srcloc !10
-  br label %520
+514:                                              ; preds = %507
+  %515 = getelementptr i8, ptr %0, i64 3104
+  %516 = load i32, ptr %515, align 8
+  %517 = icmp eq i32 %516, 0
+  br i1 %517, label %518, label %521
 
-520:                                              ; preds = %517, %513, %506
-  %521 = phi i32 [ %509, %513 ], [ %518, %517 ], [ %509, %506 ]
-  %522 = load i32, ptr %4, align 4
-  %523 = getelementptr i8, ptr %507, i64 272
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %522, ptr elementtype(i32) %523) #16, !srcloc !11
-  %524 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %507) #16, !srcloc !10
-  %525 = or i32 %521, 1
-  %526 = getelementptr i8, ptr %0, i64 3104
-  %527 = load i32, ptr %526, align 8
-  %528 = icmp eq i32 %527, 0
-  %529 = and i32 %525, -16777217
-  %530 = select i1 %528, i32 %525, i32 %529
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %530, ptr elementtype(i32) %508) #16, !srcloc !11
-  %531 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %507) #16, !srcloc !10
-  br label %532
+518:                                              ; preds = %514
+  %519 = and i32 %510, -2
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %519, ptr elementtype(i32) %509) #16, !srcloc !11
+  %520 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %508) #16, !srcloc !10
+  br label %521
 
-532:                                              ; preds = %520, %503, %272, %44, %40, %.thread10
-  %533 = phi i32 [ 1, %40 ], [ 1, %44 ], [ 1, %.thread10 ], [ %269, %272 ], [ %269, %520 ], [ %269, %503 ]
-  ret i32 %533
+521:                                              ; preds = %518, %514, %507
+  %522 = phi i32 [ %510, %514 ], [ %519, %518 ], [ %510, %507 ]
+  %523 = load i32, ptr %4, align 4
+  %524 = getelementptr i8, ptr %508, i64 272
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %523, ptr elementtype(i32) %524) #16, !srcloc !11
+  %525 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %508) #16, !srcloc !10
+  %526 = or i32 %522, 1
+  %527 = getelementptr i8, ptr %0, i64 3104
+  %528 = load i32, ptr %527, align 8
+  %529 = icmp eq i32 %528, 0
+  %530 = and i32 %526, -16777217
+  %531 = select i1 %529, i32 %526, i32 %530
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %531, ptr elementtype(i32) %509) #16, !srcloc !11
+  %532 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %508) #16, !srcloc !10
+  br label %533
+
+533:                                              ; preds = %521, %504, %272, %44, %40, %.thread10
+  %534 = phi i32 [ 1, %40 ], [ 1, %44 ], [ 1, %.thread10 ], [ %269, %272 ], [ %269, %521 ], [ %269, %504 ]
+  ret i32 %534
 }
 
 ; Function Attrs: null_pointer_is_valid

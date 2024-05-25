@@ -5186,7 +5186,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$hir_ty..mir..eval..
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = load i8, ptr %0, align 8, !range !1177, !noundef !4
-  switch i8 %7, label %8 [
+  switch i8 %7, label %default.unreachable18 [
     i8 0, label %12
     i8 1, label %22
     i8 2, label %38
@@ -5202,7 +5202,11 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$hir_ty..mir..eval..
     i8 12, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.exit"
     i8 13, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.exit"
     i8 14, label %117
+    i8 15, label %8
   ]
+
+default.unreachable18:                            ; preds = %1
+  unreachable
 
 8:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1178)
@@ -5479,7 +5483,7 @@ common.resume:                                    ; preds = %133, %.body, %123, 
   invoke void @"_ZN4core3ptr197drop_in_place$LT$alloc..vec..Vec$LT$$LP$either..Either$LT$hir_def..FunctionId$C$chalk_ir..ClosureId$LT$hir_ty..interner..Interner$GT$$GT$$C$hir_ty..mir..MirSpan$C$hir_def..DefWithBodyId$RP$$GT$$GT$17hb1dcb5f059696479E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %116) #63
           to label %common.resume unwind label %146
 
-"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.exit": ; preds = %128, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i12", %107, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca28e788f3543be6E.llvm.11905809803391100490.exit.i.i", %81, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i6", %43, %38, %33, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.371848337259013923.exit.i.i", %8, %"_ZN4core3ptr197drop_in_place$LT$alloc..vec..Vec$LT$$LP$either..Either$LT$hir_def..FunctionId$C$chalk_ir..ClosureId$LT$hir_ty..interner..Interner$GT$$GT$$C$hir_ty..mir..MirSpan$C$hir_def..DefWithBodyId$RP$$GT$$GT$17hb1dcb5f059696479E.exit", %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$hir_ty..consteval..ConstEvalError$GT$$GT$17h2926fc70667c7992E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit9", %68, %66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit5", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit3", %1, %1, %1
+"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.exit": ; preds = %128, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i12", %107, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca28e788f3543be6E.llvm.11905809803391100490.exit.i.i", %81, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i6", %43, %38, %33, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.371848337259013923.exit.i.i", %8, %1, %1, %1, %"_ZN4core3ptr197drop_in_place$LT$alloc..vec..Vec$LT$$LP$either..Either$LT$hir_def..FunctionId$C$chalk_ir..ClosureId$LT$hir_ty..interner..Interner$GT$$GT$$C$hir_ty..mir..MirSpan$C$hir_def..DefWithBodyId$RP$$GT$$GT$17hb1dcb5f059696479E.exit", %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$hir_ty..consteval..ConstEvalError$GT$$GT$17h2926fc70667c7992E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit9", %68, %66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit5", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit3"
   ret void
 
 117:                                              ; preds = %1
@@ -6534,8 +6538,8 @@ define internal fastcc void @"_ZN4core3ptr86drop_in_place$LT$ra_ap_rustc_abi..Fi
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h14633717be870cf4E.llvm.11905809803391100490"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load i64, ptr %19, align 8, !range !961, !noalias !1600, !noundef !4
-  %.not.i.i.i.i1 = icmp eq i64 %20, 0
-  br i1 %.not.i.i.i.i1, label %"_ZN4core3ptr96drop_in_place$LT$ra_ap_rustc_index..vec..IndexVec$LT$hir_ty..layout..RustcFieldIdx$C$u32$GT$$GT$17h45c2deec7a674abcE.exit", label %21
+  %.not.i.i.i.i2 = icmp eq i64 %20, 0
+  br i1 %.not.i.i.i.i2, label %"_ZN4core3ptr96drop_in_place$LT$ra_ap_rustc_index..vec..IndexVec$LT$hir_ty..layout..RustcFieldIdx$C$u32$GT$$GT$17h45c2deec7a674abcE.exit", label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %2, i64 16
@@ -88021,13 +88025,16 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %136
   br i1 %183, label %206, label %184
 
 184:                                              ; preds = %179
-  switch i64 %180, label %default.unreachable499 [
+  switch i64 %180, label %.unreachabledefault [
     i64 0, label %189
     i64 1, label %185
     i64 2, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i
   ]
 
-default.unreachable499:                           ; preds = %394, %184, %472, %262
+.unreachabledefault:                              ; preds = %184
+  unreachable
+
+default.unreachable497:                           ; preds = %394, %472, %262
   unreachable
 
 185:                                              ; preds = %184
@@ -88068,7 +88075,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i: ; preds = %184
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55), !noalias !15599
   br label %207
 
-189:                                              ; preds = %185, %184
+189:                                              ; preds = %184, %185
   %.sink.i.i.i = phi i64 [ 408, %185 ], [ 384, %184 ]
   %190 = getelementptr inbounds i8, ptr %1, i64 %.sink.i.i.i
   %191 = getelementptr inbounds i8, ptr %190, i64 16
@@ -88311,7 +88318,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit130.i: ; preds = %214
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46), !noalias !15670
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48), !noalias !15670
   store i64 %.sroa.16.8.copyload321, ptr %48, align 8, !noalias !15675
-  switch i64 %.val160, label %default.unreachable499 [
+  switch i64 %.val160, label %default.unreachable497 [
     i64 0, label %267
     i64 1, label %263
     i64 2, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i166
@@ -88806,7 +88813,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i275: ; preds = %346
   br i1 %393, label %416, label %394
 
 394:                                              ; preds = %389
-  switch i64 %390, label %default.unreachable499 [
+  switch i64 %390, label %default.unreachable497 [
     i64 0, label %399
     i64 1, label %395
     i64 2, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i227
@@ -89093,7 +89100,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit130.i216: ; preds = %424
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !15844
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19), !noalias !15844
   store i64 %.sroa.16332.8.copyload334, ptr %19, align 8, !noalias !15849
-  switch i64 %.val, label %default.unreachable499 [
+  switch i64 %.val, label %default.unreachable497 [
     i64 0, label %477
     i64 1, label %473
     i64 2, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i284

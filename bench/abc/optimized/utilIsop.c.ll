@@ -32,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 @enable_dbg_outs = external local_unnamed_addr global i32, align 4
 @stdout = external local_unnamed_addr global ptr, align 8
 @str = private unnamed_addr constant [21 x i8] c"Verification failed.\00", align 1
-@switch.table.Abc_IsopTestNew = private unnamed_addr constant [3 x i32] [i32 45, i32 48, i32 49], align 4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @Abc_Isop6Cover(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -1008,41 +1007,52 @@ define void @Abc_IsopPrintCover(ptr nocapture noundef readonly %0, i32 noundef %
   %17 = load i32, ptr %16, align 4
   br label %18
 
-18:                                               ; preds = %.lr.ph.us, %23
-  %.01726.us = phi i32 [ 0, %.lr.ph.us ], [ %24, %23 ]
+18:                                               ; preds = %.lr.ph.us, %24
+  %.01726.us = phi i32 [ 0, %.lr.ph.us ], [ %25, %24 ]
   %19 = shl nuw i32 %.01726.us, 1
   %20 = ashr i32 %17, %19
   %21 = and i32 %20, 3
-  %.not35 = icmp eq i32 %21, 3
-  br i1 %.not35, label %23, label %switch.lookup
+  switch i32 %21, label %default.unreachable [
+    i32 1, label %23
+    i32 2, label %22
+    i32 0, label %.sink.split
+    i32 3, label %24
+  ]
 
-switch.lookup:                                    ; preds = %18
-  %22 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.Abc_IsopTestNew, i64 0, i64 %22
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %putchar20.us = tail call i32 @putchar(i32 %switch.load)
-  br label %23
+22:                                               ; preds = %18
+  br label %.sink.split
 
-23:                                               ; preds = %18, %switch.lookup
-  %24 = add nuw nsw i32 %.01726.us, 1
-  %exitcond.not = icmp eq i32 %24, %1
+23:                                               ; preds = %18
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %18, %22, %23
+  %.sink = phi i32 [ 48, %23 ], [ 49, %22 ], [ 45, %18 ]
+  %putchar20.us = tail call i32 @putchar(i32 %.sink)
+  br label %24
+
+24:                                               ; preds = %.sink.split, %18
+  %25 = add nuw nsw i32 %.01726.us, 1
+  %exitcond.not = icmp eq i32 %25, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !28
 
-._crit_edge.us:                                   ; preds = %23
-  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %15)
+._crit_edge.us:                                   ; preds = %24
+  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val.us = load i32, ptr %4, align 4
-  %26 = sext i32 %.val.us to i64
-  %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph.us, label %.critedge, !llvm.loop !29
+  %27 = sext i32 %.val.us to i64
+  %28 = icmp slt i64 %indvars.iv.next, %27
+  br i1 %28, label %.lr.ph.us, label %.critedge, !llvm.loop !29
+
+default.unreachable:                              ; preds = %18
+  unreachable
 
 .lr.ph30.split:                                   ; preds = %.lr.ph30, %.lr.ph30.split
-  %.028 = phi i32 [ %29, %.lr.ph30.split ], [ 0, %.lr.ph30 ]
-  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %15)
-  %29 = add nuw nsw i32 %.028, 1
+  %.028 = phi i32 [ %30, %.lr.ph30.split ], [ 0, %.lr.ph30 ]
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %15)
+  %30 = add nuw nsw i32 %.028, 1
   %.val = load i32, ptr %4, align 4
-  %30 = icmp slt i32 %29, %.val
-  br i1 %30, label %.lr.ph30.split, label %.critedge, !llvm.loop !29
+  %31 = icmp slt i32 %30, %.val
+  br i1 %31, label %.lr.ph30.split, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %.lr.ph30.split, %._crit_edge.us, %11, %9
   ret void
@@ -2612,51 +2622,62 @@ define void @Abc_IsopTestNew() local_unnamed_addr #1 {
   %20 = load i32, ptr %19, align 4
   br label %21
 
-21:                                               ; preds = %26, %.lr.ph.us.i
-  %.01726.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %27, %26 ]
+21:                                               ; preds = %27, %.lr.ph.us.i
+  %.01726.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %28, %27 ]
   %22 = shl nuw i32 %.01726.us.i, 1
   %23 = ashr i32 %20, %22
   %24 = and i32 %23, 3
-  %.not = icmp eq i32 %24, 3
-  br i1 %.not, label %26, label %switch.lookup
+  switch i32 %24, label %default.unreachable [
+    i32 1, label %26
+    i32 2, label %25
+    i32 0, label %.sink.split.i
+    i32 3, label %27
+  ]
 
-switch.lookup:                                    ; preds = %21
-  %25 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.Abc_IsopTestNew, i64 0, i64 %25
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %putchar20.us.i = tail call i32 @putchar(i32 %switch.load)
-  br label %26
+25:                                               ; preds = %21
+  br label %.sink.split.i
 
-26:                                               ; preds = %21, %switch.lookup
-  %27 = add nuw nsw i32 %.01726.us.i, 1
-  %exitcond.not.i = icmp eq i32 %27, 4
+26:                                               ; preds = %21
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %26, %25, %21
+  %.sink.i = phi i32 [ 48, %26 ], [ 49, %25 ], [ 45, %21 ]
+  %putchar20.us.i = tail call i32 @putchar(i32 %.sink.i)
+  br label %27
+
+27:                                               ; preds = %.sink.split.i, %21
+  %28 = add nuw nsw i32 %.01726.us.i, 1
+  %exitcond.not.i = icmp eq i32 %28, 4
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %21, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %26
-  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef 1)
+._crit_edge.us.i:                                 ; preds = %27
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef 1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %smax
   br i1 %exitcond.not, label %Abc_IsopPrintCover.exit, label %.lr.ph.us.i, !llvm.loop !29
 
+default.unreachable:                              ; preds = %21
+  unreachable
+
 Abc_IsopPrintCover.exit:                          ; preds = %._crit_edge.us.i, %14, %16
   call void @Abc_IsopBuildTruth(ptr noundef nonnull readonly %2, i32 noundef 4, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 0)
-  %29 = load i64, ptr %1, align 8
-  %.not.i.i = icmp eq i64 %29, 8685324408917096584
-  br i1 %.not.i.i, label %Abc_IsopVerify.exit, label %30
+  %30 = load i64, ptr %1, align 8
+  %.not.i.i = icmp eq i64 %30, 8685324408917096584
+  br i1 %.not.i.i, label %Abc_IsopVerify.exit, label %31
 
-30:                                               ; preds = %Abc_IsopPrintCover.exit
+31:                                               ; preds = %Abc_IsopPrintCover.exit
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %Abc_IsopVerify.exit
 
-Abc_IsopVerify.exit:                              ; preds = %Abc_IsopPrintCover.exit, %30
+Abc_IsopVerify.exit:                              ; preds = %Abc_IsopPrintCover.exit, %31
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %31
+  br i1 %.not.i, label %Vec_IntFree.exit, label %32
 
-31:                                               ; preds = %Abc_IsopVerify.exit
+32:                                               ; preds = %Abc_IsopVerify.exit
   tail call void @free(ptr noundef nonnull %4) #19
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Abc_IsopVerify.exit, %31
+Vec_IntFree.exit:                                 ; preds = %Abc_IsopVerify.exit, %32
   tail call void @free(ptr noundef nonnull %2) #19
   ret void
 }

@@ -7955,45 +7955,51 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %and3 = and i32 %conv13, 40
-  switch i32 %and3, label %sw.bb [
+  %and3 = lshr i32 %conv13, 3
+  %1 = and i32 %and3, 5
+  switch i32 %1, label %if.end.unreachabledefault [
+    i32 4, label %sw.bb
+    i32 1, label %return
     i32 0, label %sw.epilog
-    i32 8, label %return
+    i32 5, label %sw.bb
   ]
 
-sw.bb:                                            ; preds = %if.end
-  %1 = lshr i16 %0, 4
-  %2 = and i16 %1, 1
-  %sext.i = add nsw i16 %2, -1
+if.end.unreachabledefault:                        ; preds = %if.end
+  unreachable
+
+sw.bb:                                            ; preds = %if.end, %if.end
+  %2 = lshr i16 %0, 4
+  %3 = and i16 %2, 1
+  %sext.i = add nsw i16 %3, -1
   %lnot.ext.neg.i = sext i16 %sext.i to i32
   %event_count.i = getelementptr inbounds i8, ptr %base, i64 720
-  %3 = load i32, ptr %event_count.i, align 8
-  %sub.i = add i32 %3, %lnot.ext.neg.i
+  %4 = load i32, ptr %event_count.i, align 8
+  %sub.i = add i32 %4, %lnot.ext.neg.i
   store i32 %sub.i, ptr %event_count.i, align 8
-  %4 = load i16, ptr %evcb_flags, align 8
-  %5 = and i16 %4, -33
-  store i16 %5, ptr %evcb_flags, align 8
+  %5 = load i16, ptr %evcb_flags, align 8
+  %6 = and i16 %5, -33
+  store i16 %6, ptr %evcb_flags, align 8
   %event_count_active.i = getelementptr inbounds i8, ptr %base, i64 728
-  %6 = load i32, ptr %event_count_active.i, align 8
-  %dec.i = add nsw i32 %6, -1
+  %7 = load i32, ptr %event_count_active.i, align 8
+  %dec.i = add nsw i32 %7, -1
   store i32 %dec.i, ptr %event_count_active.i, align 8
-  %7 = load ptr, ptr %evcb, align 8
-  %cmp.not.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %evcb, align 8
+  %cmp.not.i = icmp eq ptr %8, null
   %tqe_prev18.i = getelementptr inbounds i8, ptr %evcb, i64 8
-  %8 = load ptr, ptr %tqe_prev18.i, align 8
+  %9 = load ptr, ptr %tqe_prev18.i, align 8
   %tqh_last.i = getelementptr inbounds i8, ptr %base, i64 784
-  %tqe_prev16.i = getelementptr inbounds i8, ptr %7, i64 8
+  %tqe_prev16.i = getelementptr inbounds i8, ptr %8, i64 8
   %tqh_last.sink.i = select i1 %cmp.not.i, ptr %tqh_last.i, ptr %tqe_prev16.i
-  store ptr %8, ptr %tqh_last.sink.i, align 8
-  %9 = load ptr, ptr %evcb, align 8
-  store ptr %9, ptr %8, align 8
+  store ptr %9, ptr %tqh_last.sink.i, align 8
+  %10 = load ptr, ptr %evcb, align 8
+  store ptr %10, ptr %9, align 8
   %.pre = load i16, ptr %evcb_flags, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %sw.bb
-  %10 = phi i16 [ %.pre, %sw.bb ], [ %0, %if.end ]
-  %r.0 = phi i32 [ 0, %sw.bb ], [ 1, %if.end ]
-  %conv26.i = zext i16 %10 to i32
+  %11 = phi i16 [ %0, %if.end ], [ %.pre, %sw.bb ]
+  %r.0 = phi i32 [ 1, %if.end ], [ 0, %sw.bb ]
+  %conv26.i = zext i16 %11 to i32
   %and.i = and i32 %conv26.i, 8
   %tobool4.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool4.not.i, label %do.body7.i, label %event_queue_insert_active.exit
@@ -8003,78 +8009,78 @@ do.body7.i:                                       ; preds = %sw.epilog
   %and10.lobit.i = and i32 %and10.i, 1
   %lnot.ext.i = xor i32 %and10.lobit.i, 1
   %event_count.i9 = getelementptr inbounds i8, ptr %base, i64 720
-  %11 = load i32, ptr %event_count.i9, align 8
-  %add.i = add nsw i32 %11, %lnot.ext.i
+  %12 = load i32, ptr %event_count.i9, align 8
+  %add.i = add nsw i32 %12, %lnot.ext.i
   store i32 %add.i, ptr %event_count.i9, align 8
   %event_count_max.i = getelementptr inbounds i8, ptr %base, i64 724
-  %12 = load i32, ptr %event_count_max.i, align 4
-  %.add.i = tail call i32 @llvm.smax.i32(i32 %12, i32 %add.i)
+  %13 = load i32, ptr %event_count_max.i, align 4
+  %.add.i = tail call i32 @llvm.smax.i32(i32 %13, i32 %add.i)
   store i32 %.add.i, ptr %event_count_max.i, align 4
-  %13 = load i16, ptr %evcb_flags, align 8
-  %14 = or i16 %13, 8
-  store i16 %14, ptr %evcb_flags, align 8
+  %14 = load i16, ptr %evcb_flags, align 8
+  %15 = or i16 %14, 8
+  store i16 %15, ptr %evcb_flags, align 8
   %event_count_active.i10 = getelementptr inbounds i8, ptr %base, i64 728
-  %15 = load i32, ptr %event_count_active.i10, align 8
-  %inc.i = add nsw i32 %15, 1
+  %16 = load i32, ptr %event_count_active.i10, align 8
+  %inc.i = add nsw i32 %16, 1
   store i32 %inc.i, ptr %event_count_active.i10, align 8
   %event_count_active_max.i = getelementptr inbounds i8, ptr %base, i64 732
-  %16 = load i32, ptr %event_count_active_max.i, align 4
-  %cond29.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %inc.i)
+  %17 = load i32, ptr %event_count_active_max.i, align 4
+  %cond29.i = tail call i32 @llvm.smax.i32(i32 %17, i32 %inc.i)
   store i32 %cond29.i, ptr %event_count_active_max.i, align 4
   store ptr null, ptr %evcb, align 8
   %activequeues.i = getelementptr inbounds i8, ptr %base, i64 760
-  %17 = load ptr, ptr %activequeues.i, align 8
+  %18 = load ptr, ptr %activequeues.i, align 8
   %evcb_pri.i = getelementptr inbounds i8, ptr %evcb, i64 18
-  %18 = load i8, ptr %evcb_pri.i, align 2
-  %idxprom.i = zext i8 %18 to i64
-  %tqh_last.i11 = getelementptr inbounds %struct.evcallback_list, ptr %17, i64 %idxprom.i, i32 1
-  %19 = load ptr, ptr %tqh_last.i11, align 8
+  %19 = load i8, ptr %evcb_pri.i, align 2
+  %idxprom.i = zext i8 %19 to i64
+  %tqh_last.i11 = getelementptr inbounds %struct.evcallback_list, ptr %18, i64 %idxprom.i, i32 1
+  %20 = load ptr, ptr %tqh_last.i11, align 8
   %tqe_prev.i = getelementptr inbounds i8, ptr %evcb, i64 8
-  store ptr %19, ptr %tqe_prev.i, align 8
-  %20 = load ptr, ptr %activequeues.i, align 8
-  %tqh_last39.i = getelementptr inbounds %struct.evcallback_list, ptr %20, i64 %idxprom.i, i32 1
-  %21 = load ptr, ptr %tqh_last39.i, align 8
-  store ptr %evcb, ptr %21, align 8
-  %22 = load ptr, ptr %activequeues.i, align 8
-  %23 = load i8, ptr %evcb_pri.i, align 2
-  %idxprom44.i = zext i8 %23 to i64
-  %tqh_last46.i = getelementptr inbounds %struct.evcallback_list, ptr %22, i64 %idxprom44.i, i32 1
+  store ptr %20, ptr %tqe_prev.i, align 8
+  %21 = load ptr, ptr %activequeues.i, align 8
+  %tqh_last39.i = getelementptr inbounds %struct.evcallback_list, ptr %21, i64 %idxprom.i, i32 1
+  %22 = load ptr, ptr %tqh_last39.i, align 8
+  store ptr %evcb, ptr %22, align 8
+  %23 = load ptr, ptr %activequeues.i, align 8
+  %24 = load i8, ptr %evcb_pri.i, align 2
+  %idxprom44.i = zext i8 %24 to i64
+  %tqh_last46.i = getelementptr inbounds %struct.evcallback_list, ptr %23, i64 %idxprom44.i, i32 1
   store ptr %evcb, ptr %tqh_last46.i, align 8
   br label %event_queue_insert_active.exit
 
 event_queue_insert_active.exit:                   ; preds = %sw.epilog, %do.body7.i
-  %24 = load ptr, ptr @evthread_id_fn_, align 8
-  %cmp.not = icmp eq ptr %24, null
+  %25 = load ptr, ptr @evthread_id_fn_, align 8
+  %cmp.not = icmp eq ptr %25, null
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %event_queue_insert_active.exit
   %running_loop = getelementptr inbounds i8, ptr %base, i64 752
-  %25 = load i32, ptr %running_loop, align 8
-  %tobool7.not = icmp eq i32 %25, 0
+  %26 = load i32, ptr %running_loop, align 8
+  %tobool7.not = icmp eq i32 %26, 0
   br i1 %tobool7.not, label %return, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
   %th_owner_id = getelementptr inbounds i8, ptr %base, i64 944
-  %26 = load i64, ptr %th_owner_id, align 8
-  %call = tail call i64 %24() #26
-  %cmp9.not = icmp eq i64 %26, %call
+  %27 = load i64, ptr %th_owner_id, align 8
+  %call = tail call i64 %25() #26
+  %cmp9.not = icmp eq i64 %27, %call
   br i1 %cmp9.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true8
   %th_notify_fn.i = getelementptr inbounds i8, ptr %base, i64 1152
-  %27 = load ptr, ptr %th_notify_fn.i, align 8
-  %tobool4.not.i12 = icmp eq ptr %27, null
+  %28 = load ptr, ptr %th_notify_fn.i, align 8
+  %tobool4.not.i12 = icmp eq ptr %28, null
   br i1 %tobool4.not.i12, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then11
   %is_notify_pending.i = getelementptr inbounds i8, ptr %base, i64 1016
-  %28 = load i32, ptr %is_notify_pending.i, align 8
-  %tobool7.not.i = icmp eq i32 %28, 0
+  %29 = load i32, ptr %is_notify_pending.i, align 8
+  %tobool7.not.i = icmp eq i32 %29, 0
   br i1 %tobool7.not.i, label %if.end9.i, label %return
 
 if.end9.i:                                        ; preds = %if.end6.i
   store i32 1, ptr %is_notify_pending.i, align 8
-  %call.i = tail call i32 %27(ptr noundef nonnull %base) #26
+  %call.i = tail call i32 %28(ptr noundef nonnull %base) #26
   br label %return
 
 return:                                           ; preds = %if.end9.i, %if.end6.i, %if.then11, %event_queue_insert_active.exit, %land.lhs.true, %land.lhs.true8, %if.end, %entry
@@ -10559,7 +10565,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %cmp, label %for.body, label %for.cond15.preheader, !llvm.loop !49
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %for.inc32
-  %10 = phi i32 [ %4, %for.body18.lr.ph ], [ %60, %for.inc32 ]
+  %10 = phi i32 [ %4, %for.body18.lr.ph ], [ %61, %for.inc32 ]
   %indvars.iv = phi i64 [ 0, %for.body18.lr.ph ], [ %indvars.iv.next, %for.inc32 ]
   %11 = load ptr, ptr %common_timeout_queues, align 8
   %arrayidx19 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
@@ -10697,38 +10703,44 @@ if.end54.i:                                       ; preds = %if.end52.i, %if.end
   br i1 %tobool.not.i24, label %if.end.i, label %for.inc30
 
 if.end.i:                                         ; preds = %if.end54.i
-  %and3.i = and i32 %conv13.i, 40
-  switch i32 %and3.i, label %sw.bb.i [
+  %and3.i = lshr i32 %conv13.i, 3
+  %33 = and i32 %and3.i, 5
+  switch i32 %33, label %if.end.unreachabledefault.i [
+    i32 4, label %sw.bb.i
+    i32 1, label %for.inc30
     i32 0, label %sw.epilog.i25
-    i32 8, label %for.inc30
+    i32 5, label %sw.bb.i
   ]
 
-sw.bb.i:                                          ; preds = %if.end.i
-  %33 = lshr i16 %32, 4
-  %34 = and i16 %33, 1
-  %sext.i.i = add nsw i16 %34, -1
+if.end.unreachabledefault.i:                      ; preds = %if.end.i
+  unreachable
+
+sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
+  %34 = lshr i16 %32, 4
+  %35 = and i16 %34, 1
+  %sext.i.i = add nsw i16 %35, -1
   %lnot.ext.neg.i.i = sext i16 %sext.i.i to i32
   %event_count.i.i = getelementptr inbounds i8, ptr %16, i64 720
-  %35 = load i32, ptr %event_count.i.i, align 8
-  %sub.i.i = add i32 %35, %lnot.ext.neg.i.i
+  %36 = load i32, ptr %event_count.i.i, align 8
+  %sub.i.i = add i32 %36, %lnot.ext.neg.i.i
   store i32 %sub.i.i, ptr %event_count.i.i, align 8
-  %36 = load i16, ptr %evcb_flags.i, align 8
-  %37 = and i16 %36, -33
-  store i16 %37, ptr %evcb_flags.i, align 8
+  %37 = load i16, ptr %evcb_flags.i, align 8
+  %38 = and i16 %37, -33
+  store i16 %38, ptr %evcb_flags.i, align 8
   %event_count_active.i.i = getelementptr inbounds i8, ptr %16, i64 728
-  %38 = load i32, ptr %event_count_active.i.i, align 8
-  %dec.i.i = add nsw i32 %38, -1
+  %39 = load i32, ptr %event_count_active.i.i, align 8
+  %dec.i.i = add nsw i32 %39, -1
   store i32 %dec.i.i, ptr %event_count_active.i.i, align 8
-  %39 = load ptr, ptr %ev.031, align 8
-  %cmp.not.i.i = icmp eq ptr %39, null
+  %40 = load ptr, ptr %ev.031, align 8
+  %cmp.not.i.i = icmp eq ptr %40, null
   %tqe_prev18.i.i = getelementptr inbounds i8, ptr %ev.031, i64 8
-  %40 = load ptr, ptr %tqe_prev18.i.i, align 8
+  %41 = load ptr, ptr %tqe_prev18.i.i, align 8
   %tqh_last.i.i = getelementptr inbounds i8, ptr %16, i64 784
-  %tqe_prev16.i.i = getelementptr inbounds i8, ptr %39, i64 8
+  %tqe_prev16.i.i = getelementptr inbounds i8, ptr %40, i64 8
   %tqh_last.sink.i.i = select i1 %cmp.not.i.i, ptr %tqh_last.i.i, ptr %tqe_prev16.i.i
-  store ptr %40, ptr %tqh_last.sink.i.i, align 8
-  %41 = load ptr, ptr %ev.031, align 8
-  store ptr %41, ptr %40, align 8
+  store ptr %41, ptr %tqh_last.sink.i.i, align 8
+  %42 = load ptr, ptr %ev.031, align 8
+  store ptr %42, ptr %41, align 8
   %.pre.i = load i16, ptr %evcb_flags.i, align 8
   %.pre37 = zext i16 %.pre.i to i32
   br label %sw.epilog.i25
@@ -10744,77 +10756,77 @@ do.body7.i.i:                                     ; preds = %sw.epilog.i25
   %and10.lobit.i.i = and i32 %and10.i.i, 1
   %lnot.ext.i.i = xor i32 %and10.lobit.i.i, 1
   %event_count.i9.i = getelementptr inbounds i8, ptr %16, i64 720
-  %42 = load i32, ptr %event_count.i9.i, align 8
-  %add.i.i = add nsw i32 %42, %lnot.ext.i.i
+  %43 = load i32, ptr %event_count.i9.i, align 8
+  %add.i.i = add nsw i32 %43, %lnot.ext.i.i
   store i32 %add.i.i, ptr %event_count.i9.i, align 8
   %event_count_max.i.i = getelementptr inbounds i8, ptr %16, i64 724
-  %43 = load i32, ptr %event_count_max.i.i, align 4
-  %.add.i.i = tail call i32 @llvm.smax.i32(i32 %43, i32 %add.i.i)
+  %44 = load i32, ptr %event_count_max.i.i, align 4
+  %.add.i.i = tail call i32 @llvm.smax.i32(i32 %44, i32 %add.i.i)
   store i32 %.add.i.i, ptr %event_count_max.i.i, align 4
-  %44 = load i16, ptr %evcb_flags.i, align 8
-  %45 = or i16 %44, 8
-  store i16 %45, ptr %evcb_flags.i, align 8
+  %45 = load i16, ptr %evcb_flags.i, align 8
+  %46 = or i16 %45, 8
+  store i16 %46, ptr %evcb_flags.i, align 8
   %event_count_active.i10.i = getelementptr inbounds i8, ptr %16, i64 728
-  %46 = load i32, ptr %event_count_active.i10.i, align 8
-  %inc.i.i = add nsw i32 %46, 1
+  %47 = load i32, ptr %event_count_active.i10.i, align 8
+  %inc.i.i = add nsw i32 %47, 1
   store i32 %inc.i.i, ptr %event_count_active.i10.i, align 8
   %event_count_active_max.i.i = getelementptr inbounds i8, ptr %16, i64 732
-  %47 = load i32, ptr %event_count_active_max.i.i, align 4
-  %cond29.i.i = tail call i32 @llvm.smax.i32(i32 %47, i32 %inc.i.i)
+  %48 = load i32, ptr %event_count_active_max.i.i, align 4
+  %cond29.i.i = tail call i32 @llvm.smax.i32(i32 %48, i32 %inc.i.i)
   store i32 %cond29.i.i, ptr %event_count_active_max.i.i, align 4
   store ptr null, ptr %ev.031, align 8
   %activequeues.i.i = getelementptr inbounds i8, ptr %16, i64 760
-  %48 = load ptr, ptr %activequeues.i.i, align 8
-  %49 = load i8, ptr %evcb_pri.i, align 2
-  %idxprom.i.i = zext i8 %49 to i64
-  %tqh_last.i11.i = getelementptr inbounds %struct.evcallback_list, ptr %48, i64 %idxprom.i.i, i32 1
-  %50 = load ptr, ptr %tqh_last.i11.i, align 8
+  %49 = load ptr, ptr %activequeues.i.i, align 8
+  %50 = load i8, ptr %evcb_pri.i, align 2
+  %idxprom.i.i = zext i8 %50 to i64
+  %tqh_last.i11.i = getelementptr inbounds %struct.evcallback_list, ptr %49, i64 %idxprom.i.i, i32 1
+  %51 = load ptr, ptr %tqh_last.i11.i, align 8
   %tqe_prev.i.i = getelementptr inbounds i8, ptr %ev.031, i64 8
-  store ptr %50, ptr %tqe_prev.i.i, align 8
-  %51 = load ptr, ptr %activequeues.i.i, align 8
-  %tqh_last39.i.i = getelementptr inbounds %struct.evcallback_list, ptr %51, i64 %idxprom.i.i, i32 1
-  %52 = load ptr, ptr %tqh_last39.i.i, align 8
-  store ptr %ev.031, ptr %52, align 8
-  %53 = load ptr, ptr %activequeues.i.i, align 8
-  %54 = load i8, ptr %evcb_pri.i, align 2
-  %idxprom44.i.i = zext i8 %54 to i64
-  %tqh_last46.i.i = getelementptr inbounds %struct.evcallback_list, ptr %53, i64 %idxprom44.i.i, i32 1
+  store ptr %51, ptr %tqe_prev.i.i, align 8
+  %52 = load ptr, ptr %activequeues.i.i, align 8
+  %tqh_last39.i.i = getelementptr inbounds %struct.evcallback_list, ptr %52, i64 %idxprom.i.i, i32 1
+  %53 = load ptr, ptr %tqh_last39.i.i, align 8
+  store ptr %ev.031, ptr %53, align 8
+  %54 = load ptr, ptr %activequeues.i.i, align 8
+  %55 = load i8, ptr %evcb_pri.i, align 2
+  %idxprom44.i.i = zext i8 %55 to i64
+  %tqh_last46.i.i = getelementptr inbounds %struct.evcallback_list, ptr %54, i64 %idxprom44.i.i, i32 1
   store ptr %ev.031, ptr %tqh_last46.i.i, align 8
   br label %event_queue_insert_active.exit.i
 
 event_queue_insert_active.exit.i:                 ; preds = %do.body7.i.i, %sw.epilog.i25
-  %55 = load ptr, ptr @evthread_id_fn_, align 8
-  %cmp.not.i = icmp eq ptr %55, null
+  %56 = load ptr, ptr @evthread_id_fn_, align 8
+  %cmp.not.i = icmp eq ptr %56, null
   br i1 %cmp.not.i, label %for.inc30, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %event_queue_insert_active.exit.i
   %running_loop.i = getelementptr inbounds i8, ptr %16, i64 752
-  %56 = load i32, ptr %running_loop.i, align 8
-  %tobool7.not.i = icmp eq i32 %56, 0
+  %57 = load i32, ptr %running_loop.i, align 8
+  %tobool7.not.i = icmp eq i32 %57, 0
   br i1 %tobool7.not.i, label %for.inc30, label %land.lhs.true8.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
   %th_owner_id.i26 = getelementptr inbounds i8, ptr %16, i64 944
-  %57 = load i64, ptr %th_owner_id.i26, align 8
-  %call.i = tail call i64 %55() #26
-  %cmp9.not.i = icmp eq i64 %57, %call.i
+  %58 = load i64, ptr %th_owner_id.i26, align 8
+  %call.i = tail call i64 %56() #26
+  %cmp9.not.i = icmp eq i64 %58, %call.i
   br i1 %cmp9.not.i, label %for.inc30, label %if.then11.i
 
 if.then11.i:                                      ; preds = %land.lhs.true8.i
   %th_notify_fn.i.i = getelementptr inbounds i8, ptr %16, i64 1152
-  %58 = load ptr, ptr %th_notify_fn.i.i, align 8
-  %tobool4.not.i12.i = icmp eq ptr %58, null
+  %59 = load ptr, ptr %th_notify_fn.i.i, align 8
+  %tobool4.not.i12.i = icmp eq ptr %59, null
   br i1 %tobool4.not.i12.i, label %for.inc30, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then11.i
   %is_notify_pending.i.i = getelementptr inbounds i8, ptr %16, i64 1016
-  %59 = load i32, ptr %is_notify_pending.i.i, align 8
-  %tobool7.not.i.i = icmp eq i32 %59, 0
+  %60 = load i32, ptr %is_notify_pending.i.i, align 8
+  %tobool7.not.i.i = icmp eq i32 %60, 0
   br i1 %tobool7.not.i.i, label %if.end9.i.i, label %for.inc30
 
 if.end9.i.i:                                      ; preds = %if.end6.i.i
   store i32 1, ptr %is_notify_pending.i.i, align 8
-  %call.i.i = tail call i32 %58(ptr noundef nonnull %16) #26
+  %call.i.i = tail call i32 %59(ptr noundef nonnull %16) #26
   br label %for.inc30
 
 for.inc30:                                        ; preds = %sw.bb19.i, %do.end.i, %if.end54.i, %if.end.i, %event_queue_insert_active.exit.i, %land.lhs.true.i, %land.lhs.true8.i, %if.then11.i, %if.end6.i.i, %if.end9.i.i, %for.body24
@@ -10828,20 +10840,20 @@ for.inc32.loopexit:                               ; preds = %for.inc30
   br label %for.inc32
 
 for.inc32:                                        ; preds = %for.inc32.loopexit, %for.body18
-  %60 = phi i32 [ %.pre36, %for.inc32.loopexit ], [ %10, %for.body18 ]
+  %61 = phi i32 [ %.pre36, %for.inc32.loopexit ], [ %10, %for.body18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = sext i32 %60 to i64
-  %cmp16 = icmp slt i64 %indvars.iv.next, %61
+  %62 = sext i32 %61 to i64
+  %cmp16 = icmp slt i64 %indvars.iv.next, %62
   br i1 %cmp16, label %for.body18, label %do.body37, !llvm.loop !51
 
 do.body37:                                        ; preds = %for.inc32, %for.cond15.preheader, %if.then5
-  %62 = load ptr, ptr %th_base_lock, align 8
-  %tobool39.not = icmp eq ptr %62, null
+  %63 = load ptr, ptr %th_base_lock, align 8
+  %tobool39.not = icmp eq ptr %63, null
   br i1 %tobool39.not, label %do.end45, label %if.then40
 
 if.then40:                                        ; preds = %do.body37
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %call42 = tail call i32 %63(i32 noundef 0, ptr noundef nonnull %62) #26
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %call42 = tail call i32 %64(i32 noundef 0, ptr noundef nonnull %63) #26
   br label %do.end45
 
 do.end45:                                         ; preds = %if.then40, %do.body37

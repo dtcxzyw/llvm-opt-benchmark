@@ -16415,11 +16415,15 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Optio
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5218)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5221)
-  switch i32 %2, label %5 [
+  switch i32 %2, label %default.unreachable.i [
     i32 0, label %12
     i32 1, label %19
     i32 2, label %26
+    i32 3, label %5
   ]
+
+default.unreachable.i:                            ; preds = %4
+  unreachable
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17088,11 +17092,15 @@ _ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.i1.i.i.i.i.i.i.i
   %.sroa.9.138.i.i.i.i.i = phi ptr [ %.sroa.11.0.copyload2060.i.i.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d98c1d6e5f4c79cE.exit.thread.i.i.i.i.i" ], [ %.sroa.9.0.copyload7.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d98c1d6e5f4c79cE.exit.i.i.i.i.i" ]
   %.sroa.10.sroa.6.137.i.i.i.i.i = phi i8 [ %.sroa.12.i.i.sroa.6.0.copyload.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d98c1d6e5f4c79cE.exit.thread.i.i.i.i.i" ], [ %.sroa.10.sroa.6.0.copyload.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d98c1d6e5f4c79cE.exit.i.i.i.i.i" ]
   %146 = phi <2 x i32> [ %114, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d98c1d6e5f4c79cE.exit.thread.i.i.i.i.i" ], [ %144, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d98c1d6e5f4c79cE.exit.i.i.i.i.i" ]
-  switch i32 %.sroa.0.140.i.i.i.i.i, label %147 [
+  switch i32 %.sroa.0.140.i.i.i.i.i, label %default.unreachable.i.i.i.i.i.i.i [
     i32 0, label %153
     i32 1, label %159
     i32 2, label %165
+    i32 3, label %147
   ]
+
+default.unreachable.i.i.i.i.i.i.i:                ; preds = %145
+  unreachable
 
 147:                                              ; preds = %145
   %148 = icmp ne ptr %.sroa.9.138.i.i.i.i.i, null
@@ -17955,11 +17963,15 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5813)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5816)
   %21 = load i32, ptr %13, align 8, !range !5819, !alias.scope !5820, !noundef !25
-  switch i32 %21, label %22 [
+  switch i32 %21, label %default.unreachable [
     i32 0, label %29
     i32 1, label %36
     i32 2, label %43
+    i32 3, label %22
   ]
+
+default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h7aae57e6f64c3291E.exit.thread"
+  unreachable
 
 22:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h7aae57e6f64c3291E.exit.thread"
   %23 = getelementptr inbounds i8, ptr %13, i64 16
@@ -18075,11 +18087,15 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5873)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5876)
   %18 = load i32, ptr %10, align 8, !range !5819, !alias.scope !5879, !noundef !25
-  switch i32 %18, label %19 [
+  switch i32 %18, label %default.unreachable [
     i32 0, label %26
     i32 1, label %33
     i32 2, label %40
+    i32 3, label %19
   ]
+
+default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h33d4fe6d983e4ba5E.exit.thread"
+  unreachable
 
 19:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h33d4fe6d983e4ba5E.exit.thread"
   %20 = getelementptr inbounds i8, ptr %10, i64 16
@@ -18195,11 +18211,15 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5938)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5941)
   %21 = load i32, ptr %11, align 8, !range !5819, !alias.scope !5944, !noundef !25
-  switch i32 %21, label %22 [
+  switch i32 %21, label %default.unreachable [
     i32 0, label %29
     i32 1, label %36
     i32 2, label %43
+    i32 3, label %22
   ]
+
+default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h7aae57e6f64c3291E.exit.thread"
+  unreachable
 
 22:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h7aae57e6f64c3291E.exit.thread"
   %23 = getelementptr inbounds i8, ptr %11, i64 16
@@ -18307,11 +18327,15 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5997)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6000)
   %18 = load i32, ptr %12, align 8, !range !5819, !alias.scope !6003, !noundef !25
-  switch i32 %18, label %19 [
+  switch i32 %18, label %default.unreachable [
     i32 0, label %26
     i32 1, label %33
     i32 2, label %40
+    i32 3, label %19
   ]
+
+default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h33d4fe6d983e4ba5E.exit.thread"
+  unreachable
 
 19:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h33d4fe6d983e4ba5E.exit.thread"
   %20 = getelementptr inbounds i8, ptr %12, i64 16

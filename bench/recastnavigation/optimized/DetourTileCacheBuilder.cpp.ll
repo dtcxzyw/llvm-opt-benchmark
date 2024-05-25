@@ -1246,10 +1246,11 @@ _ZL15getNeighbourRegR16dtTileCacheLayeriii.exit94.i.us: ; preds = %158, %154, %1
   br i1 %.not88.i.us, label %223, label %167
 
 167:                                              ; preds = %_ZL15getNeighbourRegR16dtTileCacheLayeriii.exit94.i.us
-  switch i32 %.085101.i.us, label %175 [
+  switch i32 %.085101.i.us, label %default.unreachable [
     i32 0, label %173
     i32 1, label %170
     i32 2, label %168
+    i32 3, label %175
   ]
 
 168:                                              ; preds = %167
@@ -1933,6 +1934,9 @@ _ZL15simplifyContourR13dtTempContourf.exit.us:    ; preds = %._crit_edge221.i.us
           catch ptr null
   %510 = extractvalue { ptr, i32 } %509, 0
   tail call void @__clang_call_terminate(ptr %510) #20
+  unreachable
+
+default.unreachable:                              ; preds = %167
   unreachable
 
 _ZL11walkContourR16dtTileCacheLayeriiR13dtTempContour.exit: ; preds = %._crit_edge.us, %432, %205, %.preheader166.lr.ph, %.preheader168, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit

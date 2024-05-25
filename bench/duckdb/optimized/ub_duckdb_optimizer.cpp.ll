@@ -23730,10 +23730,11 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.042 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call3 = tail call noundef nonnull align 8 dereferenceable(65) ptr @_ZN6duckdb6vectorINS_14FilterCombiner26ExpressionValueInformationELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %info_list, i64 noundef %i.042)
   %call4 = tail call noundef i32 @_ZN6duckdb23CompareValueInformationERNS_14FilterCombiner26ExpressionValueInformationES2_(ptr noundef nonnull align 8 dereferenceable(65) %call3, ptr noundef nonnull align 8 dereferenceable(65) %info)
-  switch i32 %call4, label %for.inc [
+  switch i32 %call4, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %return
     i32 2, label %return.loopexit5
+    i32 3, label %for.inc
   ]
 
 sw.bb:                                            ; preds = %for.body
@@ -23782,7 +23783,10 @@ _ZNSt6vectorIN6duckdb14FilterCombiner26ExpressionValueInformationESaIS2_EE5erase
   %dec = add i64 %i.042, -1
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZNSt6vectorIN6duckdb14FilterCombiner26ExpressionValueInformationESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, %for.body
+default.unreachable:                              ; preds = %for.body
+  unreachable
+
+for.inc:                                          ; preds = %for.body, %_ZNSt6vectorIN6duckdb14FilterCombiner26ExpressionValueInformationESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
   %i.2.ph = phi i64 [ %dec, %_ZNSt6vectorIN6duckdb14FilterCombiner26ExpressionValueInformationESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit ], [ %i.042, %for.body ]
   %inc = add i64 %i.2.ph, 1
   %7 = load ptr, ptr %_M_finish.i, align 8, !tbaa !28

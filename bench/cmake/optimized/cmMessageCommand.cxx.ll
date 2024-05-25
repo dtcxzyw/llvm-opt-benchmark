@@ -821,10 +821,11 @@ _ZNK5cmake15GetDebugAdapterEv.exit133:            ; preds = %264, %273, %276
   br label %333
 
 287:                                              ; preds = %163
-  switch i32 %.087, label %313 [
+  switch i32 %.087, label %default.unreachable172 [
     i32 1, label %288
     i32 2, label %303
     i32 3, label %308
+    i32 0, label %313
   ]
 
 288:                                              ; preds = %287
@@ -981,7 +982,7 @@ _ZNK5cmake15GetDebugAdapterEv.exit133:            ; preds = %264, %273, %276
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #16
   br label %333
 
-default.unreachable172:                           ; preds = %163
+default.unreachable172:                           ; preds = %287, %163
   unreachable
 
 _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %_ZNK5cmake15GetDebugAdapterEv.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %202, %189, %170, %295, %305, %310, %316, %_ZNSt10shared_ptrIN10cmDebugger17cmDebuggerAdapterEED2Ev.exit, %279, %325

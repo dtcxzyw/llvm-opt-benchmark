@@ -10652,11 +10652,15 @@ define internal void @"_ZN4core3ptr45drop_in_place$LT$hir_ty..infer..TypeError$G
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$hir_ty..infer..Expectation$GT$17h96e9ff26ec6b03fcE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !346, !noundef !9
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable5 [
     i64 0, label %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit"
     i64 1, label %18
     i64 2, label %31
+    i64 3, label %3
   ]
+
+default.unreachable5:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10698,10 +10702,10 @@ common.resume:                                    ; preds = %37, %24, %9
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit.sink.split": ; preds = %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i", %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i3", %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i1"
-  %.sink6 = phi ptr [ %19, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i1" ], [ %32, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i3" ], [ %4, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i" ]
-  %16 = load ptr, ptr %.sink6, align 8, !nonnull !9, !noundef !9
+  %.sink7 = phi ptr [ %19, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i1" ], [ %32, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i3" ], [ %4, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i" ]
+  %16 = load ptr, ptr %.sink7, align 8, !nonnull !9, !noundef !9
   %17 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h2321e173eb5e90a6E.llvm.11905809803391100490(ptr noundef nonnull %16, i8 noundef 2), !noalias !9
-  tail call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h0529934a544db720E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink6)
+  tail call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h0529934a544db720E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink7)
   br label %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit"
 
 "_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit.sink.split", %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i3", %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i1", %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i", %1
@@ -13497,11 +13501,15 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$chalk_ir..WhereClause$LT$hir
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %8
     i64 1, label %25
     i64 2, label %26
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15912,8 +15920,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
-  %.fr16 = freeze i64 %5
-  %6 = icmp eq i64 %.fr16, 0
+  %.fr17 = freeze i64 %5
+  %6 = icmp eq i64 %.fr17, 0
   %.val.i.i.i = load ptr, ptr %1, align 8, !nonnull !9
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %.val5.i.i.i = load i64, ptr %7, align 8
@@ -16047,11 +16055,15 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %62, label %63, label %.loopexit
 
 63:                                               ; preds = %50
-  switch i8 %narrow.i.i.i.i.i.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h14fce1bc99f8497eE.exit.i.i.i.i.i.i [
+  switch i8 %narrow.i.i.i.i.i.i.i.i.i, label %.unreachabledefault.i.i.i.i.i.i.i.i.i [
     i8 1, label %64
     i8 2, label %74
     i8 3, label %83
+    i8 0, label %_ZN4core3cmp9PartialEq2ne17h14fce1bc99f8497eE.exit.i.i.i.i.i.i
   ]
+
+.unreachabledefault.i.i.i.i.i.i.i.i.i:            ; preds = %63
+  unreachable
 
 64:                                               ; preds = %63
   %65 = icmp eq i8 %.val1.i.i.i.i.i.i.i.i, 3
@@ -97587,13 +97599,16 @@ define internal fastcc noundef zeroext i1 @"_ZN106_$LT$hir_ty..infer..UnknownMis
 .thread.i.us:                                     ; preds = %35
   br label %39
 
-39:                                               ; preds = %.thread.i.us, %38, %35
+39:                                               ; preds = %35, %.thread.i.us, %38
   %.023.i.us = phi i8 [ 1, %.thread.i.us ], [ %5, %35 ], [ %..i, %38 ]
   %40 = invoke noundef zeroext i1 @"_ZN8chalk_ir1_91_$LT$impl$u20$chalk_ir..zip..Zip$LT$I$GT$$u20$for$u20$chalk_ir..GenericArgData$LT$I$GT$$GT$8zip_with17hb0696e7ada4ff8a2E.llvm.6150282900714191917"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i8 noundef %.023.i.us, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %34)
           to label %"_ZN77_$LT$chalk_ir..GenericArg$LT$I$GT$$u20$as$u20$chalk_ir..zip..Zip$LT$I$GT$$GT$8zip_with17hbce52746cddbb1feE.exit.i.us" unwind label %.loopexit.split.i.split.us, !noalias !23021
 
 "_ZN77_$LT$chalk_ir..GenericArg$LT$I$GT$$u20$as$u20$chalk_ir..zip..Zip$LT$I$GT$$GT$8zip_with17hbce52746cddbb1feE.exit.i.us": ; preds = %39
   br i1 %40, label %.split78.us.i, label %.split.i.us
+
+default.unreachable:                              ; preds = %35
+  unreachable
 
 .loopexit.split.i.split.us:                       ; preds = %39
   %lpad.loopexit.i.us = landingpad { ptr, i32 }
@@ -97671,9 +97686,6 @@ define internal fastcc noundef zeroext i1 @"_ZN106_$LT$hir_ty..infer..UnknownMis
   %.sroa.943.0.i = phi i64 [ %60, %"_ZN77_$LT$chalk_ir..GenericArg$LT$I$GT$$u20$as$u20$chalk_ir..zip..Zip$LT$I$GT$$GT$8zip_with17hbce52746cddbb1feE.exit.i" ], [ 0, %.split.i.preheader ]
   %exitcond.not.i = icmp eq i64 %.sroa.943.0.i, %.0.sroa.speculated.i.i.i.i
   br i1 %exitcond.not.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hac8fcd0e339e08d9E.exit.i", label %.thread.i
-
-default.unreachable:                              ; preds = %35
-  unreachable
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hac8fcd0e339e08d9E.exit.i": ; preds = %.split.i, %.split.i.us, %.split.us.i, %.split.us.i.us
   %55 = load i64, ptr %3, align 8, !range !11, !alias.scope !23031, !noalias !23027, !noundef !9

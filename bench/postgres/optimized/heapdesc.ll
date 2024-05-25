@@ -321,188 +321,191 @@ define dso_local void @heap2_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 56
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 112
-  %12 = add nsw i8 %11, -16
-  %13 = lshr exact i8 %12, 4
-  switch i8 %13, label %131 [
-    i8 0, label %14
-    i8 1, label %49
-    i8 2, label %60
-    i8 3, label %81
-    i8 4, label %86
-    i8 5, label %100
-    i8 6, label %110
+  %11 = lshr i8 %10, 4
+  %12 = and i8 %11, 7
+  switch i8 %12, label %default.unreachable [
+    i8 1, label %13
+    i8 2, label %48
+    i8 3, label %59
+    i8 4, label %80
+    i8 5, label %85
+    i8 6, label %99
+    i8 7, label %109
+    i8 0, label %130
   ]
 
-14:                                               ; preds = %2
-  %15 = load i32, ptr %8, align 4
-  %16 = getelementptr inbounds i8, ptr %8, i64 4
-  %17 = load i16, ptr %16, align 4
-  %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %8, i64 6
-  %20 = load i16, ptr %19, align 2
-  %21 = zext i16 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
-  %23 = load i8, ptr %22, align 4
-  %24 = trunc i8 %23 to i1
-  %25 = select i1 %24, i32 84, i32 70
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %15, i32 noundef %18, i32 noundef %21, i32 noundef %25) #3
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 135
-  %28 = load i8, ptr %27, align 1
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %131
+13:                                               ; preds = %2
+  %14 = load i32, ptr %8, align 4
+  %15 = getelementptr inbounds i8, ptr %8, i64 4
+  %16 = load i16, ptr %15, align 4
+  %17 = zext i16 %16 to i32
+  %18 = getelementptr inbounds i8, ptr %8, i64 6
+  %19 = load i16, ptr %18, align 2
+  %20 = zext i16 %19 to i32
+  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = load i8, ptr %21, align 4
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, i32 84, i32 70
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %14, i32 noundef %17, i32 noundef %20, i32 noundef %24) #3
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 135
+  %27 = load i8, ptr %26, align 1
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %130
 
-30:                                               ; preds = %14
-  %31 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef nonnull %3) #3
-  %32 = load i16, ptr %16, align 4
-  %33 = zext i16 %32 to i32
-  %34 = load i64, ptr %3, align 8
-  %35 = getelementptr i8, ptr %31, i64 %34
-  %36 = shl nuw nsw i32 %33, 1
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr i16, ptr %31, i64 %37
-  %39 = load i16, ptr %19, align 2
-  %40 = zext i16 %39 to i64
-  %41 = getelementptr i16, ptr %38, i64 %40
-  %42 = ptrtoint ptr %35 to i64
-  %43 = ptrtoint ptr %41 to i64
-  %44 = sub i64 %42, %43
-  %45 = lshr exact i64 %44, 1
-  %46 = trunc i64 %45 to i32
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %46) #3
+29:                                               ; preds = %13
+  %30 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef nonnull %3) #3
+  %31 = load i16, ptr %15, align 4
+  %32 = zext i16 %31 to i32
+  %33 = load i64, ptr %3, align 8
+  %34 = getelementptr i8, ptr %30, i64 %33
+  %35 = shl nuw nsw i32 %32, 1
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr i16, ptr %30, i64 %36
+  %38 = load i16, ptr %18, align 2
+  %39 = zext i16 %38 to i64
+  %40 = getelementptr i16, ptr %37, i64 %39
+  %41 = ptrtoint ptr %34 to i64
+  %42 = ptrtoint ptr %40 to i64
+  %43 = sub i64 %41, %42
+  %44 = lshr exact i64 %43, 1
+  %45 = trunc i64 %44 to i32
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %45) #3
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.12) #3
-  call void @array_desc(ptr noundef %0, ptr noundef %31, i64 noundef 4, i32 noundef %33, ptr noundef nonnull @redirect_elem_desc, ptr noundef null) #3
+  call void @array_desc(ptr noundef %0, ptr noundef %30, i64 noundef 4, i32 noundef %32, ptr noundef nonnull @redirect_elem_desc, ptr noundef null) #3
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.13) #3
-  %47 = load i16, ptr %19, align 2
-  %48 = zext i16 %47 to i32
-  call void @array_desc(ptr noundef %0, ptr noundef %38, i64 noundef 2, i32 noundef %48, ptr noundef nonnull @offset_elem_desc, ptr noundef null) #3
+  %46 = load i16, ptr %18, align 2
+  %47 = zext i16 %46 to i32
+  call void @array_desc(ptr noundef %0, ptr noundef %37, i64 noundef 2, i32 noundef %47, ptr noundef nonnull @offset_elem_desc, ptr noundef null) #3
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.14) #3
-  call void @array_desc(ptr noundef %0, ptr noundef %41, i64 noundef 2, i32 noundef %46, ptr noundef nonnull @offset_elem_desc, ptr noundef null) #3
-  br label %131
+  call void @array_desc(ptr noundef %0, ptr noundef %40, i64 noundef 2, i32 noundef %45, ptr noundef nonnull @offset_elem_desc, ptr noundef null) #3
+  br label %130
 
-49:                                               ; preds = %2
-  %50 = load i16, ptr %8, align 2
-  %51 = zext i16 %50 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %51) #3
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 135
-  %54 = load i8, ptr %53, align 1
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %131
+48:                                               ; preds = %2
+  %49 = load i16, ptr %8, align 2
+  %50 = zext i16 %49 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %50) #3
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 135
+  %53 = load i8, ptr %52, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %130
 
-56:                                               ; preds = %49
-  %57 = tail call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef null) #3
+55:                                               ; preds = %48
+  %56 = tail call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef null) #3
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.14) #3
-  %58 = load i16, ptr %8, align 2
-  %59 = zext i16 %58 to i32
-  tail call void @array_desc(ptr noundef %0, ptr noundef %57, i64 noundef 2, i32 noundef %59, ptr noundef nonnull @offset_elem_desc, ptr noundef null) #3
-  br label %131
+  %57 = load i16, ptr %8, align 2
+  %58 = zext i16 %57 to i32
+  tail call void @array_desc(ptr noundef %0, ptr noundef %56, i64 noundef 2, i32 noundef %58, ptr noundef nonnull @offset_elem_desc, ptr noundef null) #3
+  br label %130
 
-60:                                               ; preds = %2
-  %61 = load i32, ptr %8, align 4
-  %62 = getelementptr inbounds i8, ptr %8, i64 4
-  %63 = load i16, ptr %62, align 4
-  %64 = zext i16 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %8, i64 6
-  %66 = load i8, ptr %65, align 2
-  %67 = trunc i8 %66 to i1
-  %68 = select i1 %67, i32 84, i32 70
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %61, i32 noundef %64, i32 noundef %68) #3
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 135
-  %71 = load i8, ptr %70, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %131
+59:                                               ; preds = %2
+  %60 = load i32, ptr %8, align 4
+  %61 = getelementptr inbounds i8, ptr %8, i64 4
+  %62 = load i16, ptr %61, align 4
+  %63 = zext i16 %62 to i32
+  %64 = getelementptr inbounds i8, ptr %8, i64 6
+  %65 = load i8, ptr %64, align 2
+  %66 = trunc i8 %65 to i1
+  %67 = select i1 %66, i32 84, i32 70
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %60, i32 noundef %63, i32 noundef %67) #3
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 135
+  %70 = load i8, ptr %69, align 1
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %130
 
-73:                                               ; preds = %60
-  %74 = tail call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef null) #3
-  %75 = load i16, ptr %62, align 4
-  %76 = zext i16 %75 to i64
-  %77 = mul nuw nsw i64 %76, 12
-  %78 = getelementptr i8, ptr %74, i64 %77
-  store ptr %78, ptr %4, align 8
+72:                                               ; preds = %59
+  %73 = tail call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef null) #3
+  %74 = load i16, ptr %61, align 4
+  %75 = zext i16 %74 to i64
+  %76 = mul nuw nsw i64 %75, 12
+  %77 = getelementptr i8, ptr %73, i64 %76
+  store ptr %77, ptr %4, align 8
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.17) #3
-  %79 = load i16, ptr %62, align 4
-  %80 = zext i16 %79 to i32
-  call void @array_desc(ptr noundef %0, ptr noundef %74, i64 noundef 12, i32 noundef %80, ptr noundef nonnull @plan_elem_desc, ptr noundef nonnull %4) #3
-  br label %131
+  %78 = load i16, ptr %61, align 4
+  %79 = zext i16 %78 to i32
+  call void @array_desc(ptr noundef %0, ptr noundef %73, i64 noundef 12, i32 noundef %79, ptr noundef nonnull @plan_elem_desc, ptr noundef nonnull %4) #3
+  br label %130
 
-81:                                               ; preds = %2
-  %82 = load i32, ptr %8, align 4
-  %83 = getelementptr inbounds i8, ptr %8, i64 4
-  %84 = load i8, ptr %83, align 4
-  %85 = zext i8 %84 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %82, i32 noundef %85) #3
-  br label %131
+80:                                               ; preds = %2
+  %81 = load i32, ptr %8, align 4
+  %82 = getelementptr inbounds i8, ptr %8, i64 4
+  %83 = load i8, ptr %82, align 4
+  %84 = zext i8 %83 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %81, i32 noundef %84) #3
+  br label %130
 
-86:                                               ; preds = %2
-  %87 = getelementptr inbounds i8, ptr %8, i64 2
-  %88 = load i16, ptr %87, align 2
-  %89 = zext i16 %88 to i32
-  %90 = load i8, ptr %8, align 2
-  %91 = zext i8 %90 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %89, i32 noundef %91) #3
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 135
-  %94 = load i8, ptr %93, align 1
-  %95 = trunc i8 %94 to i1
+85:                                               ; preds = %2
+  %86 = getelementptr inbounds i8, ptr %8, i64 2
+  %87 = load i16, ptr %86, align 2
+  %88 = zext i16 %87 to i32
+  %89 = load i8, ptr %8, align 2
+  %90 = zext i8 %89 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %88, i32 noundef %90) #3
+  %91 = load ptr, ptr %5, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 135
+  %93 = load i8, ptr %92, align 1
+  %94 = trunc i8 %93 to i1
   %.not = icmp sgt i8 %10, -1
-  %or.cond = and i1 %.not, %95
-  br i1 %or.cond, label %96, label %131
+  %or.cond = and i1 %.not, %94
+  br i1 %or.cond, label %95, label %130
 
-96:                                               ; preds = %86
+95:                                               ; preds = %85
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.20) #3
-  %97 = getelementptr inbounds i8, ptr %8, i64 4
-  %98 = load i16, ptr %87, align 2
-  %99 = zext i16 %98 to i32
-  tail call void @array_desc(ptr noundef %0, ptr noundef nonnull %97, i64 noundef 2, i32 noundef %99, ptr noundef nonnull @offset_elem_desc, ptr noundef null) #3
-  br label %131
+  %96 = getelementptr inbounds i8, ptr %8, i64 4
+  %97 = load i16, ptr %86, align 2
+  %98 = zext i16 %97 to i32
+  tail call void @array_desc(ptr noundef %0, ptr noundef nonnull %96, i64 noundef 2, i32 noundef %98, ptr noundef nonnull @offset_elem_desc, ptr noundef null) #3
+  br label %130
 
-100:                                              ; preds = %2
-  %101 = load i32, ptr %8, align 4
-  %102 = getelementptr inbounds i8, ptr %8, i64 4
-  %103 = load i16, ptr %102, align 4
-  %104 = zext i16 %103 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %101, i32 noundef %104) #3
-  %105 = getelementptr inbounds i8, ptr %8, i64 6
-  %106 = load i8, ptr %105, align 2
-  tail call fastcc void @infobits_desc(ptr noundef %0, i8 noundef zeroext %106, ptr noundef nonnull @.str.2)
-  %107 = getelementptr inbounds i8, ptr %8, i64 7
-  %108 = load i8, ptr %107, align 1
-  %109 = zext i8 %108 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %109) #3
-  br label %131
+99:                                               ; preds = %2
+  %100 = load i32, ptr %8, align 4
+  %101 = getelementptr inbounds i8, ptr %8, i64 4
+  %102 = load i16, ptr %101, align 4
+  %103 = zext i16 %102 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %100, i32 noundef %103) #3
+  %104 = getelementptr inbounds i8, ptr %8, i64 6
+  %105 = load i8, ptr %104, align 2
+  tail call fastcc void @infobits_desc(ptr noundef %0, i8 noundef zeroext %105, ptr noundef nonnull @.str.2)
+  %106 = getelementptr inbounds i8, ptr %8, i64 7
+  %107 = load i8, ptr %106, align 1
+  %108 = zext i8 %107 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %108) #3
+  br label %130
 
-110:                                              ; preds = %2
-  %111 = getelementptr inbounds i8, ptr %8, i64 16
-  %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %8, i64 20
-  %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %8, i64 24
-  %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds i8, ptr %8, i64 28
-  %.val = load i16, ptr %117, align 2
-  %118 = getelementptr i8, ptr %8, i64 30
-  %.val95 = load i16, ptr %118, align 2
-  %119 = zext i16 %.val to i32
-  %120 = shl nuw i32 %119, 16
-  %121 = zext i16 %.val95 to i32
-  %122 = or disjoint i32 %120, %121
-  %123 = getelementptr i8, ptr %8, i64 32
-  %.val96 = load i16, ptr %123, align 2
-  %124 = zext i16 %.val96 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %112, i32 noundef %114, i32 noundef %116, i32 noundef %122, i32 noundef %124) #3
-  %125 = getelementptr inbounds i8, ptr %8, i64 4
-  %126 = load i32, ptr %125, align 4
-  %127 = getelementptr inbounds i8, ptr %8, i64 8
-  %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds i8, ptr %8, i64 12
-  %130 = load i32, ptr %129, align 4
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %126, i32 noundef %128, i32 noundef %130) #3
-  br label %131
+109:                                              ; preds = %2
+  %110 = getelementptr inbounds i8, ptr %8, i64 16
+  %111 = load i32, ptr %110, align 4
+  %112 = getelementptr inbounds i8, ptr %8, i64 20
+  %113 = load i32, ptr %112, align 4
+  %114 = getelementptr inbounds i8, ptr %8, i64 24
+  %115 = load i32, ptr %114, align 4
+  %116 = getelementptr inbounds i8, ptr %8, i64 28
+  %.val = load i16, ptr %116, align 2
+  %117 = getelementptr i8, ptr %8, i64 30
+  %.val95 = load i16, ptr %117, align 2
+  %118 = zext i16 %.val to i32
+  %119 = shl nuw i32 %118, 16
+  %120 = zext i16 %.val95 to i32
+  %121 = or disjoint i32 %119, %120
+  %122 = getelementptr i8, ptr %8, i64 32
+  %.val96 = load i16, ptr %122, align 2
+  %123 = zext i16 %.val96 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %121, i32 noundef %123) #3
+  %124 = getelementptr inbounds i8, ptr %8, i64 4
+  %125 = load i32, ptr %124, align 4
+  %126 = getelementptr inbounds i8, ptr %8, i64 8
+  %127 = load i32, ptr %126, align 4
+  %128 = getelementptr inbounds i8, ptr %8, i64 12
+  %129 = load i32, ptr %128, align 4
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %125, i32 noundef %127, i32 noundef %129) #3
+  br label %130
 
-131:                                              ; preds = %2, %56, %49, %81, %100, %110, %86, %96, %60, %73, %14, %30
+default.unreachable:                              ; preds = %2
+  unreachable
+
+130:                                              ; preds = %2, %55, %48, %80, %99, %109, %85, %95, %59, %72, %13, %29
   ret void
 }
 

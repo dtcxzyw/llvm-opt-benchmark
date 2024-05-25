@@ -2911,11 +2911,15 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3408e1dc8348d0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !938)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !941)
   %6 = load i8, ptr %5, align 8, !range !944, !alias.scope !945, !noundef !31
-  switch i8 %6, label %7 [
+  switch i8 %6, label %default.unreachable [
     i8 0, label %"_ZN4core3ptr42drop_in_place$LT$event_listener..Inner$GT$17hf4e5a42a8d38764eE.exit"
     i8 1, label %"_ZN4core3ptr42drop_in_place$LT$event_listener..Inner$GT$17hf4e5a42a8d38764eE.exit"
     i8 2, label %20
+    i8 3, label %7
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %4, i64 88

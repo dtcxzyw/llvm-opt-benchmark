@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 @str.10 = private unnamed_addr constant [72 x i8] c"The number of frames is less than 2. Phase assignment is not performed.\00", align 1
 @str.11 = private unnamed_addr constant [55 x i8] c"Print-out finished. Phase assignment is not performed.\00", align 1
 @str.12 = private unnamed_addr constant [53 x i8] c"The PI count in the AIG and in the CEX do not match.\00", align 1
-@switch.table.Saig_TsiPrintTraces = private unnamed_addr constant [3 x i32] [i32 48, i32 49, i32 120], align 4
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Saig_TsiStart(ptr noundef %0) local_unnamed_addr #0 {
@@ -546,18 +545,28 @@ define void @Saig_TsiPrintTraces(ptr nocapture noundef readonly %0, i32 %1, i32 
   %51 = lshr i32 %47, %39
   %52 = and i32 %51, 1
   %53 = or disjoint i32 %50, %52
-  %switch.tableidx = add nsw i32 %53, -1
-  %54 = icmp ult i32 %switch.tableidx, 3
-  br i1 %54, label %switch.lookup, label %56
+  switch i32 %53, label %default.unreachable [
+    i32 1, label %.sink.split
+    i32 2, label %54
+    i32 3, label %55
+    i32 0, label %56
+  ]
 
-switch.lookup:                                    ; preds = %41
-  %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.Saig_TsiPrintTraces, i64 0, i64 %55
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %putchar32 = tail call i32 @putchar(i32 %switch.load)
+54:                                               ; preds = %41
+  br label %.sink.split
+
+55:                                               ; preds = %41
+  br label %.sink.split
+
+default.unreachable:                              ; preds = %41
+  unreachable
+
+.sink.split:                                      ; preds = %41, %55, %54
+  %.sink = phi i32 [ 49, %54 ], [ 120, %55 ], [ 48, %41 ]
+  %putchar32 = tail call i32 @putchar(i32 %.sink)
   br label %56
 
-56:                                               ; preds = %41, %switch.lookup
+56:                                               ; preds = %.sink.split, %41
   %57 = icmp eq i64 %indvars.iv, %29
   br i1 %57, label %58, label %60
 
@@ -859,17 +868,17 @@ declare ptr @Aig_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #3
 define void @Saig_TsiStatePrint(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 104
-  %.val23 = load i32, ptr %4, align 8
-  %5 = icmp sgt i32 %.val23, 0
+  %.val26 = load i32, ptr %4, align 8
+  %5 = icmp sgt i32 %.val26, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %25
-  %.027 = phi i32 [ %.1, %25 ], [ 0, %2 ]
-  %.01526 = phi i32 [ %.116, %25 ], [ 0, %2 ]
-  %.01725 = phi i32 [ %.118, %25 ], [ 0, %2 ]
-  %.01924 = phi i32 [ %26, %25 ], [ 0, %2 ]
-  %6 = shl nuw nsw i32 %.01924, 1
-  %7 = lshr i32 %.01924, 4
+  %.030 = phi i32 [ %.1, %25 ], [ 0, %2 ]
+  %.01529 = phi i32 [ %.116, %25 ], [ 0, %2 ]
+  %.01728 = phi i32 [ %.118, %25 ], [ 0, %2 ]
+  %.01927 = phi i32 [ %26, %25 ], [ 0, %2 ]
+  %6 = shl nuw nsw i32 %.01927, 1
+  %7 = lshr i32 %.01927, 4
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds i32, ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4
@@ -881,32 +890,36 @@ define void @Saig_TsiStatePrint(ptr nocapture noundef readonly %0, ptr nocapture
   %16 = lshr i32 %10, %11
   %17 = and i32 %16, 1
   %18 = or disjoint i32 %15, %17
-  switch i32 %18, label %25 [
+  switch i32 %18, label %default.unreachable [
     i32 1, label %19
     i32 2, label %21
     i32 3, label %23
+    i32 0, label %25
   ]
 
 19:                                               ; preds = %.lr.ph
   %putchar22 = tail call i32 @putchar(i32 48)
-  %20 = add nsw i32 %.01725, 1
+  %20 = add nsw i32 %.01728, 1
   br label %25
 
 21:                                               ; preds = %.lr.ph
   %putchar21 = tail call i32 @putchar(i32 49)
-  %22 = add nsw i32 %.01526, 1
+  %22 = add nsw i32 %.01529, 1
   br label %25
 
 23:                                               ; preds = %.lr.ph
   %putchar = tail call i32 @putchar(i32 120)
-  %24 = add nsw i32 %.027, 1
+  %24 = add nsw i32 %.030, 1
   br label %25
 
+default.unreachable:                              ; preds = %.lr.ph
+  unreachable
+
 25:                                               ; preds = %.lr.ph, %19, %23, %21
-  %.118 = phi i32 [ %20, %19 ], [ %.01725, %21 ], [ %.01725, %23 ], [ %.01725, %.lr.ph ]
-  %.116 = phi i32 [ %.01526, %19 ], [ %22, %21 ], [ %.01526, %23 ], [ %.01526, %.lr.ph ]
-  %.1 = phi i32 [ %.027, %19 ], [ %.027, %21 ], [ %24, %23 ], [ %.027, %.lr.ph ]
-  %26 = add nuw nsw i32 %.01924, 1
+  %.118 = phi i32 [ %20, %19 ], [ %.01728, %21 ], [ %.01728, %23 ], [ %.01728, %.lr.ph ]
+  %.116 = phi i32 [ %.01529, %19 ], [ %22, %21 ], [ %.01529, %23 ], [ %.01529, %.lr.ph ]
+  %.1 = phi i32 [ %.030, %19 ], [ %.030, %21 ], [ %24, %23 ], [ %.030, %.lr.ph ]
+  %26 = add nuw nsw i32 %.01927, 1
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr i8, ptr %27, i64 104
   %.val = load i32, ptr %28, align 8

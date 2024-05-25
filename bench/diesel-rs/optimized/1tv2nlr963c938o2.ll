@@ -596,11 +596,15 @@ common.resume:                                    ; preds = %.body, %35
   call void @llvm.experimental.noalias.scope.decl(metadata !124)
   %92 = load i64, ptr %13, align 8, !range !127, !alias.scope !128, !noalias !129, !noundef !5
   %93 = getelementptr inbounds i8, ptr %13, i64 8
-  switch i64 %92, label %94 [
+  switch i64 %92, label %default.unreachable [
     i64 0, label %95
     i64 1, label %103
     i64 2, label %111
+    i64 3, label %94
   ]
+
+default.unreachable:                              ; preds = %90
+  unreachable
 
 94:                                               ; preds = %90
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h7d0a99da83777a3bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %93)

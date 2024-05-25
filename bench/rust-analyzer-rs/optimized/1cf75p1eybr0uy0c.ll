@@ -7410,11 +7410,15 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$core..ops..control_flow..Co
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2680)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %6 [
+  switch i64 %2, label %default.unreachable1.i [
     i64 0, label %12
     i64 1, label %18
     i64 2, label %24
+    i64 3, label %6
   ]
+
+default.unreachable1.i:                           ; preds = %4
+  unreachable
 
 6:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2683)
@@ -7508,11 +7512,15 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$core..ops..control_flow..Co
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2744)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %6 [
+  switch i64 %2, label %default.unreachable1.i [
     i64 0, label %12
     i64 1, label %18
     i64 2, label %24
+    i64 3, label %6
   ]
+
+default.unreachable1.i:                           ; preds = %4
+  unreachable
 
 6:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2747)
@@ -9907,7 +9915,7 @@ define internal void @"_ZN4core3ptr51drop_in_place$LT$hir_expand..mod_path..Path
 define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86722e6385c42197E.llvm.12542172245242916373"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !495, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
@@ -9923,7 +9931,11 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..node
     i64 12, label %82
     i64 13, label %88
     i64 14, label %94
+    i64 15, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3573)
@@ -11205,11 +11217,15 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$tracing_core..callsite..De
 define hidden void @"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..AssocItem$GT$17h8ef3eb3d53f7b9f9E.llvm.12542172245242916373"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !2817, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4689)
@@ -11286,11 +11302,15 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop.
 define hidden void @"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ExternItem$GT$17h0471ad208dd63ce3E.llvm.12542172245242916373"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !2817, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4744)
@@ -62959,14 +62979,18 @@ define internal fastcc { ptr, i8 } @_ZN7hir_def4body5lower13ExprCollector23expan
   br i1 %.not, label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17h4fc8da2027f9ea07E.exit", label %44
 
 44:                                               ; preds = %40
-  switch i8 %41, label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17h4fc8da2027f9ea07E.exit" [
-    i8 6, label %75
+  switch i8 %41, label %default.unreachable.i [
+    i8 7, label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17h4fc8da2027f9ea07E.exit"
     i8 1, label %45
     i8 2, label %51
     i8 3, label %57
     i8 4, label %63
     i8 5, label %69
+    i8 6, label %75
   ]
+
+default.unreachable.i:                            ; preds = %44
+  unreachable
 
 "_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h3adc4ee18ad45316E.exit.sink.split.i": ; preds = %75, %69, %63, %57, %51, %45
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %43)
@@ -63036,8 +63060,8 @@ define internal fastcc { ptr, i8 } @_ZN7hir_def4body5lower13ExprCollector23expan
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h3adc4ee18ad45316E.exit.sink.split.i", label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17h4fc8da2027f9ea07E.exit"
 
-"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17h4fc8da2027f9ea07E.exit": ; preds = %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h3adc4ee18ad45316E.exit.sink.split.i._ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17h4fc8da2027f9ea07E.exit_crit_edge", %75, %69, %63, %57, %51, %45, %44, %40
-  %81 = phi ptr [ %.pre, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h3adc4ee18ad45316E.exit.sink.split.i._ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17h4fc8da2027f9ea07E.exit_crit_edge" ], [ %2, %75 ], [ %2, %69 ], [ %2, %63 ], [ %2, %57 ], [ %2, %51 ], [ %2, %45 ], [ %2, %44 ], [ %2, %40 ]
+"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17h4fc8da2027f9ea07E.exit": ; preds = %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h3adc4ee18ad45316E.exit.sink.split.i._ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17h4fc8da2027f9ea07E.exit_crit_edge", %44, %75, %69, %63, %57, %51, %45, %40
+  %81 = phi ptr [ %.pre, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h3adc4ee18ad45316E.exit.sink.split.i._ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17h4fc8da2027f9ea07E.exit_crit_edge" ], [ %2, %44 ], [ %2, %75 ], [ %2, %69 ], [ %2, %63 ], [ %2, %57 ], [ %2, %51 ], [ %2, %45 ], [ %2, %40 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !19268)
   call void @llvm.experimental.noalias.scope.decl(metadata !19269)
@@ -66747,10 +66771,11 @@ define internal fastcc noundef i32 @_ZN7hir_def4body5lower13ExprCollector10make_
   %14 = alloca { i8, [63 x i8] }, align 16
   %15 = alloca { i8, [63 x i8] }, align 16
   %16 = alloca { i8, [63 x i8] }, align 16
-  switch i64 %.0.val, label %197 [
+  switch i64 %.0.val, label %.unreachabledefault [
     i64 3, label %17
     i64 2, label %69
     i64 0, label %156
+    i64 1, label %197
   ]
 
 17:                                               ; preds = %2
@@ -67198,6 +67223,9 @@ _ZN7hir_def4body5lower13ExprCollector20alloc_expr_desugared17hff8d3082d3c2be76E.
   %196 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53, !noalias !20170
+  unreachable
+
+.unreachabledefault:                              ; preds = %2
   unreachable
 
 197:                                              ; preds = %2

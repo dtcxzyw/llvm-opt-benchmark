@@ -87,7 +87,7 @@ define dso_local noundef i64 @_ZN8BuildLog8LogEntry11HashCommandE11StringPiece(p
   %.035.lcssa.i = phi i64 [ %4, %2 ], [ %11, %.lr.ph.i ]
   %.034.lcssa.i = phi ptr [ %0, %2 ], [ %12, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %1, %2 ], [ %13, %.lr.ph.i ]
-  switch i64 %.0.lcssa.i, label %_ZN12_GLOBAL__N_113MurmurHash64AEPKvm.exit [
+  switch i64 %.0.lcssa.i, label %default.unreachable.i [
     i64 7, label %15
     i64 6, label %21
     i64 5, label %27
@@ -95,6 +95,7 @@ define dso_local noundef i64 @_ZN8BuildLog8LogEntry11HashCommandE11StringPiece(p
     i64 3, label %39
     i64 2, label %45
     i64 1, label %51
+    i64 0, label %_ZN12_GLOBAL__N_113MurmurHash64AEPKvm.exit
   ]
 
 15:                                               ; preds = %._crit_edge.i
@@ -157,6 +158,9 @@ define dso_local noundef i64 @_ZN8BuildLog8LogEntry11HashCommandE11StringPiece(p
   %54 = xor i64 %.6.i, %53
   %55 = mul i64 %54, -4132994306676758123
   br label %_ZN12_GLOBAL__N_113MurmurHash64AEPKvm.exit
+
+default.unreachable.i:                            ; preds = %._crit_edge.i
+  unreachable
 
 _ZN12_GLOBAL__N_113MurmurHash64AEPKvm.exit:       ; preds = %._crit_edge.i, %51
   %.7.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %55, %51 ]
@@ -714,7 +718,7 @@ define dso_local noundef zeroext i1 @_ZN8BuildLog13RecordCommandEP4Edgeiil(ptr n
   %.035.lcssa.i.i = phi i64 [ %12, %5 ], [ %19, %.lr.ph.i.i ]
   %.034.lcssa.i.i = phi ptr [ %9, %5 ], [ %20, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ %10, %5 ], [ %21, %.lr.ph.i.i ]
-  switch i64 %.0.lcssa.i.i, label %64 [
+  switch i64 %.0.lcssa.i.i, label %default.unreachable.i.i [
     i64 7, label %23
     i64 6, label %29
     i64 5, label %35
@@ -722,6 +726,7 @@ define dso_local noundef zeroext i1 @_ZN8BuildLog13RecordCommandEP4Edgeiil(ptr n
     i64 3, label %47
     i64 2, label %53
     i64 1, label %59
+    i64 0, label %64
   ]
 
 23:                                               ; preds = %._crit_edge.i.i
@@ -784,6 +789,9 @@ define dso_local noundef zeroext i1 @_ZN8BuildLog13RecordCommandEP4Edgeiil(ptr n
   %62 = xor i64 %.6.i.i, %61
   %63 = mul i64 %62, -4132994306676758123
   br label %64
+
+default.unreachable.i.i:                          ; preds = %._crit_edge.i.i
+  unreachable
 
 64:                                               ; preds = %59, %._crit_edge.i.i
   %.7.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %63, %59 ]
@@ -1912,10 +1920,11 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEE
   %.027.lcssa.i.i.i = phi i32 [ %19, %17 ], [ %26, %.lr.ph.i.i.i ]
   %.026.lcssa.i.i.i = phi ptr [ %.sroa.0.0.copyload.i, %17 ], [ %27, %.lr.ph.i.i.i ]
   %.0.lcssa.i.i.i = phi i64 [ %.sroa.2.0.copyload.i, %17 ], [ %28, %.lr.ph.i.i.i ]
-  switch i64 %.0.lcssa.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit [
+  switch i64 %.0.lcssa.i.i.i, label %._crit_edge.unreachabledefault.i.i.i [
     i64 3, label %30
     i64 2, label %36
     i64 1, label %42
+    i64 0, label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
   ]
 
 30:                                               ; preds = %._crit_edge.i.i.i
@@ -1942,6 +1951,9 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEE
   %45 = xor i32 %.2.i.i.i, %44
   %46 = mul i32 %45, 1540483477
   br label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
+
+._crit_edge.unreachabledefault.i.i.i:             ; preds = %._crit_edge.i.i.i
+  unreachable
 
 _ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit: ; preds = %._crit_edge.i.i.i, %42
   %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %42 ]
@@ -2079,10 +2091,11 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEE
   %.027.lcssa.i.i.i = phi i32 [ %21, %.loopexit ], [ %28, %.lr.ph.i.i.i ]
   %.026.lcssa.i.i.i = phi ptr [ %.sroa.0.0.copyload.i, %.loopexit ], [ %29, %.lr.ph.i.i.i ]
   %.0.lcssa.i.i.i = phi i64 [ %.sroa.2.0.copyload.i, %.loopexit ], [ %30, %.lr.ph.i.i.i ]
-  switch i64 %.0.lcssa.i.i.i, label %49 [
+  switch i64 %.0.lcssa.i.i.i, label %._crit_edge.unreachabledefault.i.i.i [
     i64 3, label %32
     i64 2, label %38
     i64 1, label %44
+    i64 0, label %49
   ]
 
 32:                                               ; preds = %._crit_edge.i.i.i
@@ -2109,6 +2122,9 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEE
   %47 = xor i32 %.2.i.i.i, %46
   %48 = mul i32 %47, 1540483477
   br label %49
+
+._crit_edge.unreachabledefault.i.i.i:             ; preds = %._crit_edge.i.i.i
+  unreachable
 
 49:                                               ; preds = %._crit_edge.i.i.i, %44
   %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %48, %44 ]
@@ -2582,10 +2598,11 @@ _ZNSt10_HashtableI11StringPieceSt4pairIKS0_PN8BuildLog8LogEntryEESaIS6_ENSt8__de
   %.027.lcssa.i.i.i = phi i32 [ %27, %25 ], [ %34, %.lr.ph.i.i.i ]
   %.026.lcssa.i.i.i = phi ptr [ %.sroa.0.0.copyload.i, %25 ], [ %35, %.lr.ph.i.i.i ]
   %.0.lcssa.i.i.i = phi i64 [ %.sroa.2.0.copyload.i, %25 ], [ %36, %.lr.ph.i.i.i ]
-  switch i64 %.0.lcssa.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit [
+  switch i64 %.0.lcssa.i.i.i, label %._crit_edge.unreachabledefault.i.i.i [
     i64 3, label %38
     i64 2, label %44
     i64 1, label %50
+    i64 0, label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
   ]
 
 38:                                               ; preds = %._crit_edge.i.i.i
@@ -2612,6 +2629,9 @@ _ZNSt10_HashtableI11StringPieceSt4pairIKS0_PN8BuildLog8LogEntryEESaIS6_ENSt8__de
   %53 = xor i32 %.2.i.i.i, %52
   %54 = mul i32 %53, 1540483477
   br label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
+
+._crit_edge.unreachabledefault.i.i.i:             ; preds = %._crit_edge.i.i.i
+  unreachable
 
 _ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit: ; preds = %._crit_edge.i.i.i, %50
   %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %54, %50 ]

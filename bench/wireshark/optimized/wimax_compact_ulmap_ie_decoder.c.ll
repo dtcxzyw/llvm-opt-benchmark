@@ -315,7 +315,7 @@ define hidden i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %0, ptr nocapture 
   %10 = and i32 %9, 7
   %11 = lshr i32 %7, 5
   %.0552 = select i1 %.not.not.not, i32 %11, i32 %10
-  switch i32 %.0552, label %492 [
+  switch i32 %.0552, label %default.unreachable [
     i32 0, label %12
     i32 1, label %81
     i32 2, label %239
@@ -323,6 +323,7 @@ define hidden i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %0, ptr nocapture 
     i32 4, label %397
     i32 5, label %421
     i32 7, label %445
+    i32 6, label %492
   ]
 
 12:                                               ; preds = %5
@@ -1241,6 +1242,9 @@ wimax_compact_ulmap_rcid_ie_decoder.exit654:      ; preds = %331, %353, %.sink.s
   %.0.i656 = phi i32 [ %451, %460 ], [ %451, %466 ], [ %473, %481 ], [ %473, %485 ]
   %491 = shl nuw nsw i32 %.0.i656, 1
   br label %wimax_culmap_extension_ie_decoder.exit
+
+default.unreachable:                              ; preds = %5
+  unreachable
 
 492:                                              ; preds = %5
   %493 = load i32, ptr @hf_culmap_reserved_type_1, align 4

@@ -8678,10 +8678,11 @@ define void @_ZN16wasmtime_environ8tunables8Tunables18default_for_target17hedc65
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = tail call noundef i8 @_ZN14target_lexicon6triple6Triple13pointer_width17h63d6a75f88923f76E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1), !range !890
-  switch i8 %5, label %13 [
+  switch i8 %5, label %default.unreachable [
     i8 3, label %6
     i8 1, label %20
     i8 2, label %21
+    i8 0, label %13
   ]
 
 6:                                                ; preds = %2
@@ -8701,6 +8702,9 @@ define void @_ZN16wasmtime_environ8tunables8Tunables18default_for_target17hedc65
   %12 = getelementptr inbounds i8, ptr %0, i64 42
   store i8 2, ptr %12, align 2
   br label %22
+
+default.unreachable:                              ; preds = %2
+  unreachable
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)

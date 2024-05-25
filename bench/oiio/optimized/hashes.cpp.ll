@@ -76,10 +76,11 @@ while.end:                                        ; preds = %while.body, %entry
   %a.0.lcssa = phi i32 [ %add1, %entry ], [ %add32, %while.body ]
   %b.0.lcssa = phi i32 [ %add1, %entry ], [ %add38, %while.body ]
   %c.0.lcssa = phi i32 [ %add1, %entry ], [ %xor37, %while.body ]
-  switch i64 %length.addr.0.lcssa, label %sw.epilog [
+  switch i64 %length.addr.0.lcssa, label %while.end.unreachabledefault [
     i64 3, label %sw.bb
     i64 2, label %sw.bb42
     i64 1, label %sw.bb45
+    i64 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -123,7 +124,10 @@ sw.bb45:                                          ; preds = %sw.bb42, %while.end
   %sub82 = sub i32 %xor78, %or81
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb45, %while.end
+while.end.unreachabledefault:                     ; preds = %while.end
+  unreachable
+
+sw.epilog:                                        ; preds = %while.end, %sw.bb45
   %c.3 = phi i32 [ %c.0.lcssa, %while.end ], [ %sub82, %sw.bb45 ]
   ret i32 %c.3
 }

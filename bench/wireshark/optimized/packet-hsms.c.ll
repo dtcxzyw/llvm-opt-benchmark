@@ -435,10 +435,11 @@ define internal fastcc noundef i32 @dissect_secs_variable(ptr noundef %0, ptr no
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #3
   %12 = and i8 %11, 3
   %13 = zext nneg i8 %12 to i32
-  switch i8 %12, label %.loopexit139 [
+  switch i8 %12, label %default.unreachable [
     i8 3, label %14
     i8 2, label %18
     i8 1, label %23
+    i8 0, label %.loopexit139
   ]
 
 14:                                               ; preds = %3
@@ -460,6 +461,9 @@ define internal fastcc noundef i32 @dissect_secs_variable(ptr noundef %0, ptr no
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %25) #3
   %27 = zext i8 %26 to i32
   br label %28
+
+default.unreachable:                              ; preds = %3
+  unreachable
 
 28:                                               ; preds = %23, %18, %14
   %.0132 = phi i32 [ %27, %23 ], [ %22, %18 ], [ %17, %14 ]

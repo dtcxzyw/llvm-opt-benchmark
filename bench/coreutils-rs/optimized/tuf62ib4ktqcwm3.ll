@@ -955,8 +955,8 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %12 = getelementptr inbounds i8, ptr %7, i64 80
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i8, ptr %13, align 8, !range !194, !alias.scope !195
-  %.fr32.i.i = freeze i8 %14
-  %15 = icmp eq i8 %.fr32.i.i, 0
+  %.fr33.i.i = freeze i8 %14
+  %15 = icmp eq i8 %.fr33.i.i, 0
   br i1 %15, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %1, %32
@@ -964,7 +964,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %.sroa.8.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6), !noalias !197
-  switch i64 %8, label %default.unreachable [
+  switch i64 %8, label %.split.us.i.i.unreachabledefault [
     i64 0, label %18
     i64 1, label %17
     i64 2, label %16
@@ -996,7 +996,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   store i32 %19, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %.sroa.8.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(84) %.sroa.8.i.i, i64 84, i1 false), !noalias !195
   %22 = load i8, ptr %12, align 16, !range !204, !noalias !195, !noundef !4
-  switch i8 %22, label %default.unreachable [
+  switch i8 %22, label %.unreachabledefault [
     i8 0, label %28
     i8 1, label %23
     i8 2, label %.split23.us.loopexit.i.i
@@ -1039,6 +1039,15 @@ _ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17h933899837543cb1cE.exit.us.i.
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %.sroa.8.i.i)
   br label %.split.us.i.i
 
+.split.us.i.i.unreachabledefault:                 ; preds = %.split.us.i.i
+  unreachable
+
+.unreachabledefault:                              ; preds = %21
+  unreachable
+
+default.unreachable:                              ; preds = %38, %.split.i.i, %"_ZN5uu_dd8progress16gen_prog_updater28_$u7b$$u7b$closure$u7d$$u7d$17h25f745b560b49d4eE.exit.i"
+  unreachable
+
 .split.i.i:                                       ; preds = %1, %61
   call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %.sroa.8.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
@@ -1048,9 +1057,6 @@ _ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17h933899837543cb1cE.exit.us.i.
     i64 1, label %34
     i64 2, label %35
   ]
-
-default.unreachable:                              ; preds = %38, %.split.i.i, %21, %.split.us.i.i, %"_ZN5uu_dd8progress16gen_prog_updater28_$u7b$$u7b$closure$u7d$$u7d$17h25f745b560b49d4eE.exit.i"
-  unreachable
 
 33:                                               ; preds = %.split.i.i
   invoke void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$4recv17hdfa3748991bb4e17E"(ptr noalias nocapture noundef nonnull sret({ [2 x i32], i32, [21 x i32] }) align 16 dereferenceable(96) %6, ptr noundef nonnull align 128 %10, i64 undef, i32 noundef 1000000000)
@@ -1138,7 +1144,7 @@ _ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17h8cc168035ea80af2E.exit.i.
 
 .split23.us.i.i:                                  ; preds = %38, %.split23.us.loopexit.i.i
   %.us-phi.i.i = phi i1 [ %52, %.split23.us.loopexit.i.i ], [ false, %38 ]
-  invoke void @_ZN5uu_dd8progress10ProgUpdate17print_final_stats17h06f50fac148c6a2dE(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %7, i8 noundef %.fr32.i.i, i1 noundef zeroext %.us-phi.i.i)
+  invoke void @_ZN5uu_dd8progress10ProgUpdate17print_final_stats17h06f50fac148c6a2dE(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %7, i8 noundef %.fr33.i.i, i1 noundef zeroext %.us-phi.i.i)
           to label %.noexc9.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !182
 
 .noexc9.i:                                        ; preds = %.split23.us.i.i

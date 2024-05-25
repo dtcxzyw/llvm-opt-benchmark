@@ -922,7 +922,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
   %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
-  switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit [
+  switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i
     i64 6, label %sw.bb9.i.i.i
     i64 5, label %sw.bb14.i.i.i
@@ -930,6 +930,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
     i64 3, label %sw.bb24.i.i.i
     i64 2, label %sw.bb29.i.i.i
     i64 1, label %sw.bb34.i.i.i
+    i64 0, label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit
   ]
 
 sw.bb.i.i.i:                                      ; preds = %while.end.i.i.i
@@ -992,6 +993,9 @@ sw.bb34.i.i.i:                                    ; preds = %sw.bb29.i.i.i, %whi
   %xor37.i.i.i = xor i64 %h.6.i.i.i, %conv36.i.i.i
   %mul38.i.i.i = mul i64 %xor37.i.i.i, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit
+
+default.unreachable:                              ; preds = %while.end.i.i.i50, %while.end.i.i.i
+  unreachable
 
 _ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit:      ; preds = %while.end.i.i.i, %sw.bb34.i.i.i
   %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
@@ -1127,14 +1131,15 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
   %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
-  switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit101 [
+  switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
     i64 5, label %sw.bb14.i.i.i84
     i64 4, label %sw.bb19.i.i.i78
     i64 3, label %sw.bb24.i.i.i72
     i64 2, label %sw.bb29.i.i.i66
-    i64 1, label %sw.bb34.i.i.i54
+    i64 1, label %sw.bb34.i.i.i61
+    i64 0, label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit102
   ]
 
 sw.bb.i.i.i96:                                    ; preds = %while.end.i.i.i50
@@ -1188,34 +1193,34 @@ sw.bb29.i.i.i66:                                  ; preds = %sw.bb24.i.i.i72, %w
   %conv31.i.i.i69 = zext i8 %27 to i64
   %shl32.i.i.i70 = shl nuw nsw i64 %conv31.i.i.i69, 8
   %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.5.i.i.i67
-  br label %sw.bb34.i.i.i54
+  br label %sw.bb34.i.i.i61
 
-sw.bb34.i.i.i54:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
-  %h.6.i.i.i55 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
+sw.bb34.i.i.i61:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
+  %h.6.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
   %28 = load i8, ptr %key.addr.0.lcssa.i.i.i52, align 1
-  %conv36.i.i.i56 = zext i8 %28 to i64
-  %xor37.i.i.i57 = xor i64 %h.6.i.i.i55, %conv36.i.i.i56
-  %mul38.i.i.i58 = mul i64 %xor37.i.i.i57, -4132994306676758123
-  br label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit101
+  %conv36.i.i.i63 = zext i8 %28 to i64
+  %xor37.i.i.i64 = xor i64 %h.6.i.i.i62, %conv36.i.i.i63
+  %mul38.i.i.i65 = mul i64 %xor37.i.i.i64, -4132994306676758123
+  br label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit102
 
-_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit101:   ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i54
-  %h.7.i.i.i59 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i58, %sw.bb34.i.i.i54 ]
-  %shr39.i.i.i60 = lshr i64 %h.7.i.i.i59, 47
-  %xor40.i.i.i61 = xor i64 %shr39.i.i.i60, %h.7.i.i.i59
-  %mul41.i.i.i62 = mul i64 %xor40.i.i.i61, -4132994306676758123
-  %shr42.i.i.i63 = lshr i64 %mul41.i.i.i62, 47
-  %xor43.i.i.i64 = xor i64 %shr42.i.i.i63, %mul41.i.i.i62
-  %hash.i65 = getelementptr inbounds i8, ptr %ref.tmp69, i64 16
-  store i64 %xor43.i.i.i64, ptr %hash.i65, align 8
+_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit102:   ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i61
+  %h.7.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
+  %shr39.i.i.i55 = lshr i64 %h.7.i.i.i54, 47
+  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.7.i.i.i54
+  %mul41.i.i.i57 = mul i64 %xor40.i.i.i56, -4132994306676758123
+  %shr42.i.i.i58 = lshr i64 %mul41.i.i.i57, 47
+  %xor43.i.i.i59 = xor i64 %shr42.i.i.i58, %mul41.i.i.i57
+  %hash.i60 = getelementptr inbounds i8, ptr %ref.tmp69, i64 16
+  store i64 %xor43.i.i.i59, ptr %hash.i60, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
   store ptr %arrayidx4, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCacheIiE6BufferES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_12BufferHasherENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIS3_S3_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb1EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx4, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
-  %call1.i.i.i102 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %arrayidx) #22
+  %call1.i.i.i103 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %arrayidx) #22
   br label %return
 
-return:                                           ; preds = %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit101, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIiEEvPT_m.exit, %if.then
-  %retval.0 = phi ptr [ %9, %if.then ], [ %16, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIiEEvPT_m.exit ], [ %retval.0.i.i.i, %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit101 ]
+return:                                           ; preds = %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit102, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIiEEvPT_m.exit, %if.then
+  %retval.0 = phi ptr [ %9, %if.then ], [ %16, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIiEEvPT_m.exit ], [ %retval.0.i.i.i, %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit102 ]
   ret ptr %retval.0
 }
 
@@ -1362,7 +1367,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
   %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
-  switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit [
+  switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i
     i64 6, label %sw.bb9.i.i.i
     i64 5, label %sw.bb14.i.i.i
@@ -1370,6 +1375,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
     i64 3, label %sw.bb24.i.i.i
     i64 2, label %sw.bb29.i.i.i
     i64 1, label %sw.bb34.i.i.i
+    i64 0, label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit
   ]
 
 sw.bb.i.i.i:                                      ; preds = %while.end.i.i.i
@@ -1432,6 +1438,9 @@ sw.bb34.i.i.i:                                    ; preds = %sw.bb29.i.i.i, %whi
   %xor37.i.i.i = xor i64 %h.6.i.i.i, %conv36.i.i.i
   %mul38.i.i.i = mul i64 %xor37.i.i.i, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit
+
+default.unreachable:                              ; preds = %while.end.i.i.i50, %while.end.i.i.i
+  unreachable
 
 _ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit: ; preds = %while.end.i.i.i, %sw.bb34.i.i.i
   %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
@@ -1567,14 +1576,15 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
   %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
-  switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit101 [
+  switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
     i64 5, label %sw.bb14.i.i.i84
     i64 4, label %sw.bb19.i.i.i78
     i64 3, label %sw.bb24.i.i.i72
     i64 2, label %sw.bb29.i.i.i66
-    i64 1, label %sw.bb34.i.i.i54
+    i64 1, label %sw.bb34.i.i.i61
+    i64 0, label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit102
   ]
 
 sw.bb.i.i.i96:                                    ; preds = %while.end.i.i.i50
@@ -1628,34 +1638,34 @@ sw.bb29.i.i.i66:                                  ; preds = %sw.bb24.i.i.i72, %w
   %conv31.i.i.i69 = zext i8 %27 to i64
   %shl32.i.i.i70 = shl nuw nsw i64 %conv31.i.i.i69, 8
   %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.5.i.i.i67
-  br label %sw.bb34.i.i.i54
+  br label %sw.bb34.i.i.i61
 
-sw.bb34.i.i.i54:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
-  %h.6.i.i.i55 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
+sw.bb34.i.i.i61:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
+  %h.6.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
   %28 = load i8, ptr %key.addr.0.lcssa.i.i.i52, align 1
-  %conv36.i.i.i56 = zext i8 %28 to i64
-  %xor37.i.i.i57 = xor i64 %h.6.i.i.i55, %conv36.i.i.i56
-  %mul38.i.i.i58 = mul i64 %xor37.i.i.i57, -4132994306676758123
-  br label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit101
+  %conv36.i.i.i63 = zext i8 %28 to i64
+  %xor37.i.i.i64 = xor i64 %h.6.i.i.i62, %conv36.i.i.i63
+  %mul38.i.i.i65 = mul i64 %xor37.i.i.i64, -4132994306676758123
+  br label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit102
 
-_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit101: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i54
-  %h.7.i.i.i59 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i58, %sw.bb34.i.i.i54 ]
-  %shr39.i.i.i60 = lshr i64 %h.7.i.i.i59, 47
-  %xor40.i.i.i61 = xor i64 %shr39.i.i.i60, %h.7.i.i.i59
-  %mul41.i.i.i62 = mul i64 %xor40.i.i.i61, -4132994306676758123
-  %shr42.i.i.i63 = lshr i64 %mul41.i.i.i62, 47
-  %xor43.i.i.i64 = xor i64 %shr42.i.i.i63, %mul41.i.i.i62
-  %hash.i65 = getelementptr inbounds i8, ptr %ref.tmp69, i64 16
-  store i64 %xor43.i.i.i64, ptr %hash.i65, align 8
+_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit102: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i61
+  %h.7.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
+  %shr39.i.i.i55 = lshr i64 %h.7.i.i.i54, 47
+  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.7.i.i.i54
+  %mul41.i.i.i57 = mul i64 %xor40.i.i.i56, -4132994306676758123
+  %shr42.i.i.i58 = lshr i64 %mul41.i.i.i57, 47
+  %xor43.i.i.i59 = xor i64 %shr42.i.i.i58, %mul41.i.i.i57
+  %hash.i60 = getelementptr inbounds i8, ptr %ref.tmp69, i64 16
+  store i64 %xor43.i.i.i59, ptr %hash.i60, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
   store ptr %arrayidx4, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_6Point3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIS5_S5_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb1EEEEEEEESt4pairINS7_14_Node_iteratorIS5_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx4, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
-  %call1.i.i.i102 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %arrayidx) #22
+  %call1.i.i.i103 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %arrayidx) #22
   br label %return
 
-return:                                           ; preds = %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit101, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt6Point3IfEEEEvPT_m.exit, %if.then
-  %retval.0 = phi ptr [ %9, %if.then ], [ %16, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt6Point3IfEEEEvPT_m.exit ], [ %retval.0.i.i.i, %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit101 ]
+return:                                           ; preds = %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit102, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt6Point3IfEEEEvPT_m.exit, %if.then
+  %retval.0 = phi ptr [ %9, %if.then ], [ %16, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt6Point3IfEEEEvPT_m.exit ], [ %retval.0.i.i.i, %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit102 ]
   ret ptr %retval.0
 }
 
@@ -1730,7 +1740,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
   %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
-  switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit [
+  switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i
     i64 6, label %sw.bb9.i.i.i
     i64 5, label %sw.bb14.i.i.i
@@ -1738,6 +1748,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
     i64 3, label %sw.bb24.i.i.i
     i64 2, label %sw.bb29.i.i.i
     i64 1, label %sw.bb34.i.i.i
+    i64 0, label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit
   ]
 
 sw.bb.i.i.i:                                      ; preds = %while.end.i.i.i
@@ -1800,6 +1811,9 @@ sw.bb34.i.i.i:                                    ; preds = %sw.bb29.i.i.i, %whi
   %xor37.i.i.i = xor i64 %h.6.i.i.i, %conv36.i.i.i
   %mul38.i.i.i = mul i64 %xor37.i.i.i, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit
+
+default.unreachable:                              ; preds = %while.end.i.i.i50, %while.end.i.i.i
+  unreachable
 
 _ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit: ; preds = %while.end.i.i.i, %sw.bb34.i.i.i
   %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
@@ -1935,14 +1949,15 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
   %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
-  switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit101 [
+  switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
     i64 5, label %sw.bb14.i.i.i84
     i64 4, label %sw.bb19.i.i.i78
     i64 3, label %sw.bb24.i.i.i72
     i64 2, label %sw.bb29.i.i.i66
-    i64 1, label %sw.bb34.i.i.i54
+    i64 1, label %sw.bb34.i.i.i61
+    i64 0, label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit102
   ]
 
 sw.bb.i.i.i96:                                    ; preds = %while.end.i.i.i50
@@ -1996,34 +2011,34 @@ sw.bb29.i.i.i66:                                  ; preds = %sw.bb24.i.i.i72, %w
   %conv31.i.i.i69 = zext i8 %27 to i64
   %shl32.i.i.i70 = shl nuw nsw i64 %conv31.i.i.i69, 8
   %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.5.i.i.i67
-  br label %sw.bb34.i.i.i54
+  br label %sw.bb34.i.i.i61
 
-sw.bb34.i.i.i54:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
-  %h.6.i.i.i55 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
+sw.bb34.i.i.i61:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
+  %h.6.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
   %28 = load i8, ptr %key.addr.0.lcssa.i.i.i52, align 1
-  %conv36.i.i.i56 = zext i8 %28 to i64
-  %xor37.i.i.i57 = xor i64 %h.6.i.i.i55, %conv36.i.i.i56
-  %mul38.i.i.i58 = mul i64 %xor37.i.i.i57, -4132994306676758123
-  br label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit101
+  %conv36.i.i.i63 = zext i8 %28 to i64
+  %xor37.i.i.i64 = xor i64 %h.6.i.i.i62, %conv36.i.i.i63
+  %mul38.i.i.i65 = mul i64 %xor37.i.i.i64, -4132994306676758123
+  br label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit102
 
-_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit101: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i54
-  %h.7.i.i.i59 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i58, %sw.bb34.i.i.i54 ]
-  %shr39.i.i.i60 = lshr i64 %h.7.i.i.i59, 47
-  %xor40.i.i.i61 = xor i64 %shr39.i.i.i60, %h.7.i.i.i59
-  %mul41.i.i.i62 = mul i64 %xor40.i.i.i61, -4132994306676758123
-  %shr42.i.i.i63 = lshr i64 %mul41.i.i.i62, 47
-  %xor43.i.i.i64 = xor i64 %shr42.i.i.i63, %mul41.i.i.i62
-  %hash.i65 = getelementptr inbounds i8, ptr %ref.tmp69, i64 16
-  store i64 %xor43.i.i.i64, ptr %hash.i65, align 8
+_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit102: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i61
+  %h.7.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
+  %shr39.i.i.i55 = lshr i64 %h.7.i.i.i54, 47
+  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.7.i.i.i54
+  %mul41.i.i.i57 = mul i64 %xor40.i.i.i56, -4132994306676758123
+  %shr42.i.i.i58 = lshr i64 %mul41.i.i.i57, 47
+  %xor43.i.i.i59 = xor i64 %shr42.i.i.i58, %mul41.i.i.i57
+  %hash.i60 = getelementptr inbounds i8, ptr %ref.tmp69, i64 16
+  store i64 %xor43.i.i.i59, ptr %hash.i60, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
   store ptr %arrayidx4, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_6Point2IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIS5_S5_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb1EEEEEEEESt4pairINS7_14_Node_iteratorIS5_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx4, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
-  %call1.i.i.i102 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %arrayidx) #22
+  %call1.i.i.i103 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %arrayidx) #22
   br label %return
 
-return:                                           ; preds = %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit101, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt6Point2IfEEEEvPT_m.exit, %if.then
-  %retval.0 = phi ptr [ %9, %if.then ], [ %16, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt6Point2IfEEEEvPT_m.exit ], [ %retval.0.i.i.i, %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit101 ]
+return:                                           ; preds = %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit102, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt6Point2IfEEEEvPT_m.exit, %if.then
+  %retval.0 = phi ptr [ %9, %if.then ], [ %16, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt6Point2IfEEEEvPT_m.exit ], [ %retval.0.i.i.i, %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit102 ]
   ret ptr %retval.0
 }
 
@@ -2159,7 +2174,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
   %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
-  switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit [
+  switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i
     i64 6, label %sw.bb9.i.i.i
     i64 5, label %sw.bb14.i.i.i
@@ -2167,6 +2182,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
     i64 3, label %sw.bb24.i.i.i
     i64 2, label %sw.bb29.i.i.i
     i64 1, label %sw.bb34.i.i.i
+    i64 0, label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit
   ]
 
 sw.bb.i.i.i:                                      ; preds = %while.end.i.i.i
@@ -2229,6 +2245,9 @@ sw.bb34.i.i.i:                                    ; preds = %sw.bb29.i.i.i, %whi
   %xor37.i.i.i = xor i64 %h.6.i.i.i, %conv36.i.i.i
   %mul38.i.i.i = mul i64 %xor37.i.i.i, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit
+
+default.unreachable:                              ; preds = %while.end.i.i.i50, %while.end.i.i.i
+  unreachable
 
 _ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit: ; preds = %while.end.i.i.i, %sw.bb34.i.i.i
   %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
@@ -2364,14 +2383,15 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
   %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
-  switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit101 [
+  switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
     i64 5, label %sw.bb14.i.i.i84
     i64 4, label %sw.bb19.i.i.i78
     i64 3, label %sw.bb24.i.i.i72
     i64 2, label %sw.bb29.i.i.i66
-    i64 1, label %sw.bb34.i.i.i54
+    i64 1, label %sw.bb34.i.i.i61
+    i64 0, label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit102
   ]
 
 sw.bb.i.i.i96:                                    ; preds = %while.end.i.i.i50
@@ -2425,34 +2445,34 @@ sw.bb29.i.i.i66:                                  ; preds = %sw.bb24.i.i.i72, %w
   %conv31.i.i.i69 = zext i8 %27 to i64
   %shl32.i.i.i70 = shl nuw nsw i64 %conv31.i.i.i69, 8
   %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.5.i.i.i67
-  br label %sw.bb34.i.i.i54
+  br label %sw.bb34.i.i.i61
 
-sw.bb34.i.i.i54:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
-  %h.6.i.i.i55 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
+sw.bb34.i.i.i61:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
+  %h.6.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
   %28 = load i8, ptr %key.addr.0.lcssa.i.i.i52, align 1
-  %conv36.i.i.i56 = zext i8 %28 to i64
-  %xor37.i.i.i57 = xor i64 %h.6.i.i.i55, %conv36.i.i.i56
-  %mul38.i.i.i58 = mul i64 %xor37.i.i.i57, -4132994306676758123
-  br label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit101
+  %conv36.i.i.i63 = zext i8 %28 to i64
+  %xor37.i.i.i64 = xor i64 %h.6.i.i.i62, %conv36.i.i.i63
+  %mul38.i.i.i65 = mul i64 %xor37.i.i.i64, -4132994306676758123
+  br label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit102
 
-_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit101: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i54
-  %h.7.i.i.i59 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i58, %sw.bb34.i.i.i54 ]
-  %shr39.i.i.i60 = lshr i64 %h.7.i.i.i59, 47
-  %xor40.i.i.i61 = xor i64 %shr39.i.i.i60, %h.7.i.i.i59
-  %mul41.i.i.i62 = mul i64 %xor40.i.i.i61, -4132994306676758123
-  %shr42.i.i.i63 = lshr i64 %mul41.i.i.i62, 47
-  %xor43.i.i.i64 = xor i64 %shr42.i.i.i63, %mul41.i.i.i62
-  %hash.i65 = getelementptr inbounds i8, ptr %ref.tmp69, i64 16
-  store i64 %xor43.i.i.i64, ptr %hash.i65, align 8
+_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit102: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i61
+  %h.7.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
+  %shr39.i.i.i55 = lshr i64 %h.7.i.i.i54, 47
+  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.7.i.i.i54
+  %mul41.i.i.i57 = mul i64 %xor40.i.i.i56, -4132994306676758123
+  %shr42.i.i.i58 = lshr i64 %mul41.i.i.i57, 47
+  %xor43.i.i.i59 = xor i64 %shr42.i.i.i58, %mul41.i.i.i57
+  %hash.i60 = getelementptr inbounds i8, ptr %ref.tmp69, i64 16
+  store i64 %xor43.i.i.i59, ptr %hash.i60, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
   store ptr %arrayidx4, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_7Normal3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIS5_S5_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb1EEEEEEEESt4pairINS7_14_Node_iteratorIS5_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx4, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
-  %call1.i.i.i102 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %arrayidx) #22
+  %call1.i.i.i103 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %arrayidx) #22
   br label %return
 
-return:                                           ; preds = %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit101, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt7Normal3IfEEEEvPT_m.exit, %if.then
-  %retval.0 = phi ptr [ %9, %if.then ], [ %16, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt7Normal3IfEEEEvPT_m.exit ], [ %retval.0.i.i.i, %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit101 ]
+return:                                           ; preds = %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit102, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt7Normal3IfEEEEvPT_m.exit, %if.then
+  %retval.0 = phi ptr [ %9, %if.then ], [ %16, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt7Normal3IfEEEEvPT_m.exit ], [ %retval.0.i.i.i, %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit102 ]
   ret ptr %retval.0
 }
 
@@ -2555,7 +2575,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
   %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
-  switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit [
+  switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i
     i64 6, label %sw.bb9.i.i.i
     i64 5, label %sw.bb14.i.i.i
@@ -2563,6 +2583,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
     i64 3, label %sw.bb24.i.i.i
     i64 2, label %sw.bb29.i.i.i
     i64 1, label %sw.bb34.i.i.i
+    i64 0, label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit
   ]
 
 sw.bb.i.i.i:                                      ; preds = %while.end.i.i.i
@@ -2625,6 +2646,9 @@ sw.bb34.i.i.i:                                    ; preds = %sw.bb29.i.i.i, %whi
   %xor37.i.i.i = xor i64 %h.6.i.i.i, %conv36.i.i.i
   %mul38.i.i.i = mul i64 %xor37.i.i.i, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit
+
+default.unreachable:                              ; preds = %while.end.i.i.i50, %while.end.i.i.i
+  unreachable
 
 _ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit: ; preds = %while.end.i.i.i, %sw.bb34.i.i.i
   %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
@@ -2760,14 +2784,15 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
   %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
-  switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit101 [
+  switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
     i64 5, label %sw.bb14.i.i.i84
     i64 4, label %sw.bb19.i.i.i78
     i64 3, label %sw.bb24.i.i.i72
     i64 2, label %sw.bb29.i.i.i66
-    i64 1, label %sw.bb34.i.i.i54
+    i64 1, label %sw.bb34.i.i.i61
+    i64 0, label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit102
   ]
 
 sw.bb.i.i.i96:                                    ; preds = %while.end.i.i.i50
@@ -2821,34 +2846,34 @@ sw.bb29.i.i.i66:                                  ; preds = %sw.bb24.i.i.i72, %w
   %conv31.i.i.i69 = zext i8 %27 to i64
   %shl32.i.i.i70 = shl nuw nsw i64 %conv31.i.i.i69, 8
   %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.5.i.i.i67
-  br label %sw.bb34.i.i.i54
+  br label %sw.bb34.i.i.i61
 
-sw.bb34.i.i.i54:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
-  %h.6.i.i.i55 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
+sw.bb34.i.i.i61:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
+  %h.6.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
   %28 = load i8, ptr %key.addr.0.lcssa.i.i.i52, align 1
-  %conv36.i.i.i56 = zext i8 %28 to i64
-  %xor37.i.i.i57 = xor i64 %h.6.i.i.i55, %conv36.i.i.i56
-  %mul38.i.i.i58 = mul i64 %xor37.i.i.i57, -4132994306676758123
-  br label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit101
+  %conv36.i.i.i63 = zext i8 %28 to i64
+  %xor37.i.i.i64 = xor i64 %h.6.i.i.i62, %conv36.i.i.i63
+  %mul38.i.i.i65 = mul i64 %xor37.i.i.i64, -4132994306676758123
+  br label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit102
 
-_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit101: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i54
-  %h.7.i.i.i59 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i58, %sw.bb34.i.i.i54 ]
-  %shr39.i.i.i60 = lshr i64 %h.7.i.i.i59, 47
-  %xor40.i.i.i61 = xor i64 %shr39.i.i.i60, %h.7.i.i.i59
-  %mul41.i.i.i62 = mul i64 %xor40.i.i.i61, -4132994306676758123
-  %shr42.i.i.i63 = lshr i64 %mul41.i.i.i62, 47
-  %xor43.i.i.i64 = xor i64 %shr42.i.i.i63, %mul41.i.i.i62
-  %hash.i65 = getelementptr inbounds i8, ptr %ref.tmp69, i64 16
-  store i64 %xor43.i.i.i64, ptr %hash.i65, align 8
+_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit102: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i61
+  %h.7.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
+  %shr39.i.i.i55 = lshr i64 %h.7.i.i.i54, 47
+  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.7.i.i.i54
+  %mul41.i.i.i57 = mul i64 %xor40.i.i.i56, -4132994306676758123
+  %shr42.i.i.i58 = lshr i64 %mul41.i.i.i57, 47
+  %xor43.i.i.i59 = xor i64 %shr42.i.i.i58, %mul41.i.i.i57
+  %hash.i60 = getelementptr inbounds i8, ptr %ref.tmp69, i64 16
+  store i64 %xor43.i.i.i59, ptr %hash.i60, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
   store ptr %arrayidx4, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_7Vector3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIS5_S5_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb1EEEEEEEESt4pairINS7_14_Node_iteratorIS5_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx4, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
-  %call1.i.i.i102 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %arrayidx) #22
+  %call1.i.i.i103 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %arrayidx) #22
   br label %return
 
-return:                                           ; preds = %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit101, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt7Vector3IfEEEEvPT_m.exit, %if.then
-  %retval.0 = phi ptr [ %9, %if.then ], [ %16, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt7Vector3IfEEEEvPT_m.exit ], [ %retval.0.i.i.i, %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit101 ]
+return:                                           ; preds = %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit102, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt7Vector3IfEEEEvPT_m.exit, %if.then
+  %retval.0 = phi ptr [ %9, %if.then ], [ %16, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE17deallocate_objectIN4pbrt7Vector3IfEEEEvPT_m.exit ], [ %retval.0.i.i.i, %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit102 ]
   ret ptr %retval.0
 }
 

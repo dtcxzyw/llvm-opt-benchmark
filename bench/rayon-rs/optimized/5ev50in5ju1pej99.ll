@@ -2053,13 +2053,16 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b268e9298e0a7E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
   %11 = load i64, ptr %6, align 8, !range !56, !noundef !4
-  switch i64 %11, label %default.unreachable [
+  switch i64 %11, label %.unreachabledefault [
     i64 0, label %17
     i64 1, label %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit
     i64 2, label %12
   ]
 
-default.unreachable:                              ; preds = %10, %43
+.unreachabledefault:                              ; preds = %10
+  unreachable
+
+default.unreachable:                              ; preds = %43
   unreachable
 
 12:                                               ; preds = %10

@@ -751,11 +751,15 @@ define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Resu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %9 = load i64, ptr %0, align 8, !range !94, !alias.scope !91, !noundef !10
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %9, label %11 [
+  switch i64 %9, label %default.unreachable [
     i64 0, label %12
     i64 1, label %21
     i64 2, label %30
+    i64 3, label %11
   ]
+
+default.unreachable:                              ; preds = %8
+  unreachable
 
 11:                                               ; preds = %8
   tail call void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h3557db855e5379c0E.llvm.3868854263495710559"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)

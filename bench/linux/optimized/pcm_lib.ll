@@ -4536,7 +4536,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %127 = phi i64 [ 0, %114 ], [ %326, %.thread48 ]
   %128 = phi i32 [ %79, %114 ], [ %327, %.thread48 ]
   %129 = phi i64 [ %115, %114 ], [ %328, %.thread48 ]
-  %.fr59 = freeze i64 %126
+  %.fr58 = freeze i64 %126
   %130 = icmp eq i64 %129, 0
   br i1 %130, label %131, label %241
 
@@ -4553,7 +4553,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   br label %.thread41
 
 137:                                              ; preds = %132, %131
-  br i1 %53, label %138, label %.thread41.thread.loopexit102
+  br i1 %53, label %138, label %.thread41.thread.loopexit101
 
 138:                                              ; preds = %137
   %139 = load ptr, ptr %58, align 8
@@ -4619,15 +4619,15 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %180 = load volatile i64, ptr %148, align 8
   %181 = and i64 %180, 4
   %182 = icmp eq i64 %181, 0
-  br i1 %182, label %.lr.ph154, label %.thread30
+  br i1 %182, label %.lr.ph153, label %.thread30
 
 .lr.ph:                                           ; preds = %231
   %183 = load volatile i64, ptr %148, align 8
   %184 = and i64 %183, 4
   %185 = icmp eq i64 %184, 0
-  br i1 %185, label %.lr.ph154, label %.thread30, !llvm.loop !34
+  br i1 %185, label %.lr.ph153, label %.thread30, !llvm.loop !34
 
-.lr.ph154:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph153:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %186 = load i32, ptr %26, align 4
   %187 = icmp eq i32 %186, 0
   %188 = load ptr, ptr %7, align 8
@@ -4637,7 +4637,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %192 = load i64, ptr %191, align 8
   br i1 %187, label %193, label %210
 
-193:                                              ; preds = %.lr.ph154
+193:                                              ; preds = %.lr.ph153
   %194 = getelementptr inbounds i8, ptr %188, i64 136
   %195 = load i64, ptr %194, align 8
   %196 = add i64 %195, %192
@@ -4660,7 +4660,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %209 = sub nsw i64 %200, %208
   br label %220
 
-210:                                              ; preds = %.lr.ph154
+210:                                              ; preds = %.lr.ph153
   %211 = getelementptr inbounds i8, ptr %188, i64 272
   %212 = load ptr, ptr %211, align 8
   %213 = load i64, ptr %212, align 8
@@ -4688,7 +4688,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %227 = load i32, ptr %144, align 8
   switch i32 %227, label %229 [
     i32 7, label %.thread30.loopexit
-    i32 4, label %.thread30.loopexit167
+    i32 4, label %.thread30.loopexit166
     i32 5, label %228
     i32 0, label %.thread30
     i32 1, label %.thread30
@@ -4698,7 +4698,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
 
 228:                                              ; preds = %224
   %spec.select = select i1 %146, i64 %221, i64 0
-  %spec.select137 = select i1 %146, i32 -32, i32 0
+  %spec.select136 = select i1 %146, i32 -32, i32 0
   br label %.thread30
 
 229:                                              ; preds = %224
@@ -4714,17 +4714,17 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
 .thread30.loopexit:                               ; preds = %224
   br label %.thread30
 
-.thread30.loopexit167:                            ; preds = %224
+.thread30.loopexit166:                            ; preds = %224
   br label %.thread30
 
-.thread30:                                        ; preds = %231, %229, %220, %.lr.ph, %224, %224, %224, %.thread30.loopexit167, %.lr.ph.preheader, %.thread30.loopexit, %228, %174
-  %235 = phi i64 [ 0, %174 ], [ %spec.select, %228 ], [ 0, %.lr.ph.preheader ], [ %221, %.thread30.loopexit ], [ %221, %224 ], [ %221, %224 ], [ %221, %224 ], [ %221, %.lr.ph ], [ %221, %220 ], [ %221, %229 ], [ %221, %231 ], [ %221, %.thread30.loopexit167 ]
-  %236 = phi i32 [ -512, %174 ], [ %spec.select137, %228 ], [ -512, %.lr.ph.preheader ], [ -86, %.thread30.loopexit ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ], [ -512, %.lr.ph ], [ 0, %220 ], [ -5, %229 ], [ -512, %231 ], [ -32, %.thread30.loopexit167 ]
+.thread30:                                        ; preds = %231, %229, %220, %.lr.ph, %224, %224, %224, %.thread30.loopexit166, %.lr.ph.preheader, %.thread30.loopexit, %228, %174
+  %235 = phi i64 [ 0, %174 ], [ %spec.select, %228 ], [ 0, %.lr.ph.preheader ], [ %221, %.thread30.loopexit ], [ %221, %224 ], [ %221, %224 ], [ %221, %224 ], [ %221, %.lr.ph ], [ %221, %220 ], [ %221, %229 ], [ %221, %231 ], [ %221, %.thread30.loopexit166 ]
+  %236 = phi i32 [ -512, %174 ], [ %spec.select136, %228 ], [ -512, %.lr.ph.preheader ], [ -86, %.thread30.loopexit ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ], [ -512, %.lr.ph ], [ 0, %220 ], [ -5, %229 ], [ -512, %231 ], [ -32, %.thread30.loopexit166 ]
   %237 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %149, i32 0, ptr elementtype(i32) %149) #20, !srcloc !37
   call void @remove_wait_queue(ptr noundef %151, ptr noundef nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #20
   %238 = icmp slt i32 %236, 0
-  br i1 %238, label %.thread41.thread.loopexit102, label %239
+  br i1 %238, label %.thread41.thread.loopexit101, label %239
 
 239:                                              ; preds = %.thread30
   %240 = icmp eq i64 %235, 0
@@ -4741,9 +4741,9 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %249 = call i64 @llvm.umin.i64(i64 %243, i64 %248)
   %250 = load volatile i32, ptr %120, align 4
   %251 = icmp sgt i32 %250, -1
-  br i1 %251, label %.lr.ph96, label %.thread41.thread.loopexit102, !prof !33
+  br i1 %251, label %.lr.ph95, label %.thread41.thread.loopexit101, !prof !33
 
-.lr.ph96:                                         ; preds = %241, %258
+.lr.ph95:                                         ; preds = %241, %258
   %252 = phi i32 [ %259, %258 ], [ %250, %241 ]
   %253 = add nuw i32 %252, 1
   %254 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %120, i32 %253, ptr elementtype(i32) %120, i32 %252) #20, !srcloc !39
@@ -4753,12 +4753,12 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %257 = icmp eq i8 %255, 0
   br i1 %257, label %258, label %261, !prof !40
 
-258:                                              ; preds = %.lr.ph96
+258:                                              ; preds = %.lr.ph95
   %259 = extractvalue { i8, i32 } %254, 1
   %260 = icmp sgt i32 %259, -1
-  br i1 %260, label %.lr.ph96, label %.thread41.thread, !prof !36, !llvm.loop !41
+  br i1 %260, label %.lr.ph95, label %.thread41.thread, !prof !36, !llvm.loop !41
 
-261:                                              ; preds = %.lr.ph96
+261:                                              ; preds = %.lr.ph95
   call void @snd_pcm_stream_unlock_irq(ptr noundef %0) #20
   br i1 %28, label %272, label %262
 
@@ -4800,16 +4800,16 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   call void @snd_pcm_stream_lock_irq(ptr noundef %0) #20
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %120, ptr elementtype(i32) %120) #20, !srcloc !43
   %284 = icmp slt i32 %283, 0
-  br i1 %284, label %.thread41.thread.loopexit102, label %285
+  br i1 %284, label %.thread41.thread.loopexit101, label %285
 
 285:                                              ; preds = %282
   %286 = load i32, ptr %8, align 8
-  switch i32 %286, label %.thread41.thread.loopexit168 [
+  switch i32 %286, label %.thread41.thread.loopexit167 [
     i32 2, label %287
     i32 3, label %287
     i32 6, label %287
     i32 4, label %.thread41.thread
-    i32 7, label %.thread41.thread.loopexit102
+    i32 7, label %.thread41.thread.loopexit101
   ]
 
 287:                                              ; preds = %285, %285, %285
@@ -4820,12 +4820,12 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %292 = sub i64 %288, %291
   %293 = call i32 @pcm_lib_apply_appl_ptr(ptr noundef %0, i64 noundef %292), !range !44
   %294 = icmp slt i32 %293, 0
-  br i1 %294, label %.thread41.thread.loopexit102, label %295
+  br i1 %294, label %.thread41.thread.loopexit101, label %295
 
 295:                                              ; preds = %287
   %296 = add i64 %249, %127
   %297 = sub i64 %125, %249
-  %298 = add i64 %249, %.fr59
+  %298 = add i64 %249, %.fr58
   %299 = sub i64 %242, %249
   br i1 %28, label %300, label %.thread48
 
@@ -4862,7 +4862,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
 
 .thread48:                                        ; preds = %322, %295, %300, %303, %239
   %324 = phi i64 [ %297, %322 ], [ %297, %295 ], [ %297, %300 ], [ %297, %303 ], [ %125, %239 ]
-  %325 = phi i64 [ %298, %322 ], [ %298, %295 ], [ %298, %300 ], [ %298, %303 ], [ %.fr59, %239 ]
+  %325 = phi i64 [ %298, %322 ], [ %298, %295 ], [ %298, %300 ], [ %298, %303 ], [ %.fr58, %239 ]
   %326 = phi i64 [ %296, %322 ], [ %296, %295 ], [ %296, %300 ], [ %296, %303 ], [ %127, %239 ]
   %327 = phi i32 [ %323, %322 ], [ 0, %295 ], [ 0, %300 ], [ 0, %303 ], [ 0, %239 ]
   %328 = phi i64 [ %299, %322 ], [ %299, %295 ], [ %299, %300 ], [ %299, %303 ], [ 0, %239 ]
@@ -4877,30 +4877,30 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %331 = sext i32 %.ph50 to i64
   br label %select.unfold
 
-.thread41.thread.loopexit102:                     ; preds = %285, %241, %.thread30, %282, %287, %137
+.thread41.thread.loopexit101:                     ; preds = %285, %241, %.thread30, %282, %287, %137
   %.ph55.ph = phi i32 [ %236, %.thread30 ], [ %283, %282 ], [ %293, %287 ], [ -11, %137 ], [ -16, %241 ], [ -86, %285 ]
   %332 = sext i32 %.ph55.ph to i64
   br label %.thread41.thread
 
-.thread41.thread.loopexit168:                     ; preds = %285
+.thread41.thread.loopexit167:                     ; preds = %285
   br label %.thread41.thread
 
-.thread41.thread:                                 ; preds = %258, %285, %.thread41.thread.loopexit168, %.thread41.thread.loopexit102
-  %.ph55 = phi i64 [ %332, %.thread41.thread.loopexit102 ], [ -77, %.thread41.thread.loopexit168 ], [ -32, %285 ], [ -16, %258 ]
+.thread41.thread:                                 ; preds = %258, %285, %.thread41.thread.loopexit167, %.thread41.thread.loopexit101
+  %.ph55 = phi i64 [ %332, %.thread41.thread.loopexit101 ], [ -77, %.thread41.thread.loopexit167 ], [ -32, %285 ], [ -16, %258 ]
   store i64 0, ptr %63, align 8
-  %.not = icmp eq i64 %.fr59, 0
+  %.not = icmp eq i64 %.fr58, 0
   call void @snd_pcm_stream_unlock_irq(ptr noundef %0) #20
   br i1 %.not, label %select.unfold, label %342
 
 .thread41.loopexit:                               ; preds = %.thread48, %322
-  %.ph103 = phi i32 [ %323, %322 ], [ %327, %.thread48 ]
-  %.ph104 = phi i64 [ %298, %322 ], [ %325, %.thread48 ]
-  %333 = freeze i64 %.ph104
+  %.ph102 = phi i32 [ %323, %322 ], [ %327, %.thread48 ]
+  %.ph103 = phi i64 [ %298, %322 ], [ %325, %.thread48 ]
+  %333 = freeze i64 %.ph103
   br label %.thread41
 
 .thread41:                                        ; preds = %.thread41.loopexit, %135
-  %334 = phi i32 [ %128, %135 ], [ %.ph103, %.thread41.loopexit ]
-  %.fr = phi i64 [ %.fr59, %135 ], [ %333, %.thread41.loopexit ]
+  %334 = phi i32 [ %128, %135 ], [ %.ph102, %.thread41.loopexit ]
+  %.fr = phi i64 [ %.fr58, %135 ], [ %333, %.thread41.loopexit ]
   store i64 0, ptr %63, align 8
   %335 = icmp ne i64 %.fr, 0
   %336 = icmp sgt i32 %334, -1
@@ -4918,7 +4918,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %335, label %342, label %select.unfold
 
 342:                                              ; preds = %.thread41.thread, %338, %340
-  %343 = phi i64 [ %.fr, %338 ], [ %.fr, %340 ], [ %.fr59, %.thread41.thread ]
+  %343 = phi i64 [ %.fr, %338 ], [ %.fr, %340 ], [ %.fr58, %.thread41.thread ]
   br label %select.unfold
 
 select.unfold:                                    ; preds = %5, %18, %22, %.thread41.thread, %342, %340, %.thread52, %46, %42, %37, %33

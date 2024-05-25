@@ -44,10 +44,11 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %if.end
   %hash.0.lcssa = phi i32 [ %len, %if.end ], [ %add18, %for.body ]
   %data.addr.0.lcssa = phi ptr [ %data, %if.end ], [ %add.ptr16, %for.body ]
-  switch i32 %and, label %sw.epilog [
+  switch i32 %and, label %default.unreachable [
     i32 3, label %sw.bb
     i32 2, label %sw.bb34
     i32 1, label %sw.bb46
+    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -85,7 +86,10 @@ sw.bb46:                                          ; preds = %for.end
   %add52 = add i32 %shr51, %xor50
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb46, %sw.bb34, %sw.bb, %for.end
+default.unreachable:                              ; preds = %for.end
+  unreachable
+
+sw.epilog:                                        ; preds = %for.end, %sw.bb46, %sw.bb34, %sw.bb
   %hash.1 = phi i32 [ %hash.0.lcssa, %for.end ], [ %add52, %sw.bb46 ], [ %add45, %sw.bb34 ], [ %add33, %sw.bb ]
   %shl53 = shl i32 %hash.1, 3
   %xor54 = xor i32 %shl53, %hash.1

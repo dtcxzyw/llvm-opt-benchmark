@@ -432,7 +432,7 @@ define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$core..option..Optio
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %5 = add i64 %2, 9223372036854775807
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 7)
-  switch i64 %6, label %7 [
+  switch i64 %6, label %default.unreachable [
     i64 0, label %14
     i64 1, label %16
     i64 2, label %18
@@ -440,7 +440,11 @@ define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$core..option..Optio
     i64 4, label %22
     i64 5, label %27
     i64 6, label %"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17ha8c6de6d1b8cffcfE.exit"
+    i64 7, label %7
   ]
+
+default.unreachable:                              ; preds = %4
+  unreachable
 
 7:                                                ; preds = %4
   %8 = icmp eq i64 %2, -9223372036854775808

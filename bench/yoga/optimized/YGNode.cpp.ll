@@ -907,10 +907,11 @@ for.end.i.i.i:                                    ; preds = %if.end22.i.i.i, %fo
   %sub.ptr.sub.i17.pre-phi.i.i.i = phi i64 [ %add.ptr.idx, %for.body40 ], [ %gepdiff, %if.end22.i.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i.i1.i, %for.body40 ], [ %scevgep.i.i.i, %if.end22.i.i.i ]
   %sub.ptr.div.i18.i.i.i = lshr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i, label %if.then57 [
+  switch i64 %sub.ptr.div.i18.i.i.i, label %for.end.i.i.i.unreachabledefault [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %sw.bb31.i.i.i
     i64 1, label %sw.bb38.i.i.i
+    i64 0, label %if.then57
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
@@ -955,6 +956,9 @@ invoke.cont50:                                    ; preds = %for.body.i.i.i, %in
   %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i12.i.i.i.le, %invoke.cont50.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.le, %invoke.cont50.loopexit.split.loop.exit129 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont50.loopexit.split.loop.exit131 ], [ %__first.sroa.0.051.i.i.i, %for.body.i.i.i ]
   %cmp.i44 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i44, label %if.then57, label %for.inc62
+
+for.end.i.i.i.unreachabledefault:                 ; preds = %for.end.i.i.i
+  unreachable
 
 if.then57:                                        ; preds = %for.end.i.i.i, %invoke.cont50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp58, i8 0, i64 320, i1 false)

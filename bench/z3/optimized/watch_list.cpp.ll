@@ -162,10 +162,11 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
   %sub.ptr.sub15.pre-phi.i.i.i = phi i64 [ %gepdiff, %for.end.loopexit.i.i.i ], [ %3, %_ZN3smt10watch_list10end_clauseEv.exit ]
   %__first.addr.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %for.end.loopexit.i.i.i ], [ %0, %_ZN3smt10watch_list10end_clauseEv.exit ]
   %sub.ptr.div16.i.i.i = lshr exact i64 %sub.ptr.sub15.pre-phi.i.i.i, 3
-  switch i64 %sub.ptr.div16.i.i.i, label %return [
+  switch i64 %sub.ptr.div16.i.i.i, label %for.end.i.i.i.unreachabledefault [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %sw.bb21.i.i.i
     i64 1, label %sw.bb26.i.i.i
+    i64 0, label %return
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
@@ -234,7 +235,10 @@ for.end:                                          ; preds = %for.body.preheader,
   store i32 %sub, ptr %arrayidx.i, align 4
   br label %return
 
-return:                                           ; preds = %entry, %sw.bb26.i.i.i, %for.end.i.i.i, %_ZSt4findIPPN3smt6clauseES2_ET_S4_S4_RKT0_.exit, %for.end
+for.end.i.i.i.unreachabledefault:                 ; preds = %for.end.i.i.i
+  unreachable
+
+return:                                           ; preds = %entry, %for.end.i.i.i, %sw.bb26.i.i.i, %_ZSt4findIPPN3smt6clauseES2_ET_S4_S4_RKT0_.exit, %for.end
   ret void
 }
 

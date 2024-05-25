@@ -300,7 +300,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 
 46:                                               ; preds = %.split.us
   %47 = icmp eq i32 %41, 1
-  br i1 %47, label %.thread23, label %48
+  br i1 %47, label %.thread24, label %48
 
 48:                                               ; preds = %46
   %49 = add i32 %39, 1
@@ -310,7 +310,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %53 = zext i8 %52 to i32
   %54 = add nuw nsw i32 %53, 2
   %55 = icmp ugt i32 %54, %41
-  br i1 %55, label %.thread23, label %56
+  br i1 %55, label %.thread24, label %56
 
 56:                                               ; preds = %48
   %57 = icmp eq i8 %44, 1
@@ -319,7 +319,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 58:                                               ; preds = %56
   %59 = add i32 %38, 1
   %60 = icmp sgt i32 %59, %31
-  br i1 %60, label %.thread23, label %61
+  br i1 %60, label %.thread24, label %61
 
 61:                                               ; preds = %58
   switch i8 %44, label %208 [
@@ -337,7 +337,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %67 = getelementptr i8, ptr %66, i64 %50
   %68 = load i8, ptr %67, align 1
   %69 = icmp ult i8 %68, 8
-  br i1 %69, label %.split49.us, label %70
+  br i1 %69, label %.split51.us, label %70
 
 70:                                               ; preds = %62
   %71 = zext i8 %68 to i32
@@ -349,12 +349,12 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %77 = shl nuw nsw i32 %76, 2
   %78 = add nuw nsw i32 %77, 8
   %79 = icmp ugt i32 %78, %71
-  br i1 %79, label %.split49.us, label %80
+  br i1 %79, label %.split51.us, label %80
 
 80:                                               ; preds = %70
   %81 = getelementptr i8, ptr %66, i64 %42
   %82 = tail call zeroext i1 @calipso_validate(ptr noundef %1, ptr noundef %81) #10
-  br i1 %82, label %.loopexit.us, label %.split49.us
+  br i1 %82, label %.loopexit.us, label %.split51.us
 
 83:                                               ; preds = %61
   %84 = load ptr, ptr %4, align 8
@@ -367,7 +367,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %91 = and i32 %39, 3
   %92 = icmp eq i32 %91, 2
   %93 = and i1 %92, %90
-  br i1 %93, label %94, label %.split51.us
+  br i1 %93, label %94, label %.split53.us
 
 94:                                               ; preds = %83
   %95 = getelementptr i8, ptr %87, i64 %42
@@ -375,13 +375,13 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %97 = load i32, ptr %96, align 4
   %98 = tail call i32 @llvm.bswap.i32(i32 %97)
   %99 = icmp ult i32 %98, 65536
-  br i1 %99, label %.split53.us, label %100
+  br i1 %99, label %.split55.us, label %100
 
 100:                                              ; preds = %94
   %101 = getelementptr inbounds i8, ptr %87, i64 4
   %102 = load i16, ptr %101, align 4
   %103 = icmp eq i16 %102, 0
-  br i1 %103, label %104, label %.split56.us
+  br i1 %103, label %104, label %.split58.us
 
 104:                                              ; preds = %100
   %105 = zext i32 %98 to i64
@@ -389,7 +389,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %107 = zext i32 %106 to i64
   %108 = add nsw i64 %107, -40
   %109 = icmp ult i64 %108, %105
-  br i1 %109, label %.split51.us, label %110
+  br i1 %109, label %.split53.us, label %110
 
 110:                                              ; preds = %104
   %111 = add i32 %98, 40
@@ -399,7 +399,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 113:                                              ; preds = %110
   %114 = tail call i32 @pskb_trim_rcsum_slow(ptr noundef %1, i32 noundef %111) #10
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %.split51.us
+  br i1 %115, label %116, label %.split53.us
 
 116:                                              ; preds = %113, %110
   %117 = load i16, ptr %33, align 8
@@ -410,7 +410,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 119:                                              ; preds = %61
   %120 = and i32 %39, 3
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %.split59.us
+  br i1 %121, label %122, label %.split61.us
 
 122:                                              ; preds = %119
   %123 = load ptr, ptr %34, align 8
@@ -430,7 +430,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %135 = getelementptr inbounds i8, ptr %134, i64 1
   %136 = load i8, ptr %135, align 1
   %137 = icmp ult i8 %136, 2
-  br i1 %137, label %.split59.us, label %138
+  br i1 %137, label %.split61.us, label %138
 
 138:                                              ; preds = %129
   %139 = getelementptr inbounds i8, ptr %134, i64 3
@@ -440,7 +440,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 
 142:                                              ; preds = %138
   %143 = icmp ult i8 %136, 10
-  br i1 %143, label %.split59.us, label %144
+  br i1 %143, label %.split61.us, label %144
 
 144:                                              ; preds = %142
   %145 = getelementptr i8, ptr %134, i64 6
@@ -450,7 +450,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %149 = add nuw nsw i16 %148, 10
   %150 = zext i8 %136 to i16
   %151 = icmp ugt i16 %149, %150
-  br i1 %151, label %.split59.us, label %152
+  br i1 %151, label %.split61.us, label %152
 
 152:                                              ; preds = %144
   %153 = getelementptr i8, ptr %134, i64 4
@@ -492,7 +492,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %180 = add i32 %177, %179
   %181 = tail call i32 @skb_ensure_writable(ptr noundef %1, i32 noundef %180) #10
   %182 = icmp eq i32 %181, 0
-  br i1 %182, label %183, label %.split59.us
+  br i1 %182, label %183, label %.split61.us
 
 183:                                              ; preds = %176
   %184 = load ptr, ptr %4, align 8
@@ -519,7 +519,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %200 = getelementptr i8, ptr %199, i64 %50
   %201 = load i8, ptr %200, align 1
   %202 = icmp eq i8 %201, 2
-  br i1 %202, label %.thread.us, label %.split61.us
+  br i1 %202, label %.thread.us, label %.split63.us
 
 .thread.us:                                       ; preds = %195
   %203 = load i16, ptr %33, align 8
@@ -532,7 +532,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   br label %.loopexit.us
 
 208:                                              ; preds = %61
-  br i1 %20, label %.loopexit27, label %209
+  br i1 %20, label %.loopexit28, label %209
 
 209:                                              ; preds = %208
   %210 = load ptr, ptr %4, align 8
@@ -542,16 +542,17 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %214 = getelementptr i8, ptr %213, i64 %42
   %215 = load i8, ptr %214, align 1
   %216 = lshr i8 %215, 6
-  switch i8 %216, label %.loopexit27 [
+  switch i8 %216, label %.unreachabledefault [
     i8 0, label %.loopexit.us
-    i8 2, label %.loopexit28
-    i8 3, label %.split64.us
+    i8 2, label %.loopexit29
+    i8 3, label %.split66.us
+    i8 1, label %.loopexit28
   ]
 
 217:                                              ; preds = %56
   %218 = add i32 %54, %37
   %219 = icmp sgt i32 %218, 7
-  br i1 %219, label %.thread23, label %220
+  br i1 %219, label %.thread24, label %220
 
 220:                                              ; preds = %217
   %221 = icmp eq i8 %52, 0
@@ -569,7 +570,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %229 = getelementptr i8, ptr %40, i64 %228
   %230 = load i8, ptr %229, align 1
   %231 = icmp eq i8 %230, 0
-  br i1 %231, label %232, label %.thread23
+  br i1 %231, label %232, label %.thread24
 
 232:                                              ; preds = %224
   %233 = add nuw nsw i64 %225, 1
@@ -587,7 +588,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 240:                                              ; preds = %.split.us
   %241 = add i32 %37, 1
   %242 = icmp sgt i32 %241, 7
-  br i1 %242, label %.thread23, label %243
+  br i1 %242, label %.thread24, label %243
 
 243:                                              ; preds = %240
   %244 = add i32 %39, 1
@@ -601,7 +602,13 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %250 = phi i32 [ %38, %243 ], [ %236, %.loopexit.us ]
   %251 = phi i32 [ %241, %243 ], [ %237, %.loopexit.us ]
   %252 = icmp sgt i32 %247, 0
-  br i1 %252, label %.split.us, label %.split68.us, !llvm.loop !9
+  br i1 %252, label %.split.us, label %.split70.us, !llvm.loop !9
+
+.unreachabledefault:                              ; preds = %209
+  unreachable
+
+default.unreachable:                              ; preds = %352
+  unreachable
 
 .split.split.us:                                  ; preds = %21, %300
   %253 = phi i32 [ %303, %300 ], [ 0, %21 ]
@@ -615,7 +622,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 
 260:                                              ; preds = %.split.split.us
   %261 = icmp eq i32 %255, 1
-  br i1 %261, label %.thread23, label %262
+  br i1 %261, label %.thread24, label %262
 
 262:                                              ; preds = %260
   %263 = add i32 %254, 1
@@ -625,7 +632,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %267 = zext i8 %266 to i32
   %268 = add nuw nsw i32 %267, 2
   %269 = icmp ugt i32 %268, %255
-  br i1 %269, label %.thread23, label %270
+  br i1 %269, label %.thread24, label %270
 
 270:                                              ; preds = %262
   %271 = icmp eq i8 %258, 1
@@ -633,16 +640,16 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 
 272:                                              ; preds = %270
   %273 = icmp slt i32 %22, 1
-  br i1 %273, label %.thread23, label %.loopexit25
+  br i1 %273, label %.thread24, label %.loopexit26
 
 274:                                              ; preds = %270
   %275 = add i32 %268, %253
   %276 = icmp sgt i32 %275, 7
-  br i1 %276, label %.thread23, label %277
+  br i1 %276, label %.thread24, label %277
 
 277:                                              ; preds = %274
   %278 = icmp eq i8 %266, 0
-  br i1 %278, label %.loopexit.us70, label %279
+  br i1 %278, label %.loopexit.us72, label %279
 
 279:                                              ; preds = %277
   %280 = zext nneg i32 %268 to i64
@@ -656,14 +663,14 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %286 = getelementptr i8, ptr %17, i64 %285
   %287 = load i8, ptr %286, align 1
   %288 = icmp eq i8 %287, 0
-  br i1 %288, label %289, label %.thread23
+  br i1 %288, label %289, label %.thread24
 
 289:                                              ; preds = %281
   %290 = add nuw nsw i64 %282, 1
   %291 = icmp eq i64 %290, %280
-  br i1 %291, label %.loopexit.us70, label %281, !llvm.loop !6
+  br i1 %291, label %.loopexit.us72, label %281, !llvm.loop !6
 
-.loopexit.us70:                                   ; preds = %289, %277
+.loopexit.us72:                                   ; preds = %289, %277
   %292 = add i32 %268, %254
   %293 = sub nsw i32 %255, %268
   br label %300
@@ -671,19 +678,19 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 294:                                              ; preds = %.split.split.us
   %295 = add i32 %253, 1
   %296 = icmp sgt i32 %295, 7
-  br i1 %296, label %.thread23, label %297
+  br i1 %296, label %.thread24, label %297
 
 297:                                              ; preds = %294
   %298 = add i32 %254, 1
   %299 = add nsw i32 %255, -1
   br label %300, !llvm.loop !9
 
-300:                                              ; preds = %297, %.loopexit.us70
-  %301 = phi i32 [ %299, %297 ], [ %293, %.loopexit.us70 ]
-  %302 = phi i32 [ %298, %297 ], [ %292, %.loopexit.us70 ]
-  %303 = phi i32 [ %295, %297 ], [ %275, %.loopexit.us70 ]
+300:                                              ; preds = %297, %.loopexit.us72
+  %301 = phi i32 [ %299, %297 ], [ %293, %.loopexit.us72 ]
+  %302 = phi i32 [ %298, %297 ], [ %292, %.loopexit.us72 ]
+  %303 = phi i32 [ %295, %297 ], [ %275, %.loopexit.us72 ]
   %304 = icmp sgt i32 %301, 0
-  br i1 %304, label %.split.split.us, label %.split68.us, !llvm.loop !9
+  br i1 %304, label %.split.split.us, label %.split70.us, !llvm.loop !9
 
 .split.split:                                     ; preds = %.thread, %369
   %305 = phi i32 [ %373, %369 ], [ 0, %.thread ]
@@ -699,7 +706,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 313:                                              ; preds = %.split.split
   %314 = add i32 %305, 1
   %315 = icmp sgt i32 %314, 7
-  br i1 %315, label %.thread23, label %316
+  br i1 %315, label %.thread24, label %316
 
 316:                                              ; preds = %313
   %317 = add i32 %307, 1
@@ -708,7 +715,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 
 319:                                              ; preds = %.split.split
   %320 = icmp eq i32 %308, 1
-  br i1 %320, label %.thread23, label %321
+  br i1 %320, label %.thread24, label %321
 
 321:                                              ; preds = %319
   %322 = add i32 %307, 1
@@ -718,7 +725,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %326 = zext i8 %325 to i32
   %327 = add nuw nsw i32 %326, 2
   %328 = icmp ugt i32 %327, %308
-  br i1 %328, label %.thread23, label %329
+  br i1 %328, label %.thread24, label %329
 
 329:                                              ; preds = %321
   %330 = icmp eq i8 %311, 1
@@ -727,7 +734,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
 331:                                              ; preds = %329
   %332 = add i32 %327, %305
   %333 = icmp sgt i32 %332, 7
-  br i1 %333, label %.thread23, label %334
+  br i1 %333, label %.thread24, label %334
 
 334:                                              ; preds = %331
   %335 = icmp eq i8 %325, 0
@@ -750,76 +757,77 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %346 = getelementptr i8, ptr %17, i64 %345
   %347 = load i8, ptr %346, align 1
   %348 = icmp eq i8 %347, 0
-  br i1 %348, label %338, label %.thread23
+  br i1 %348, label %338, label %.thread24
 
 349:                                              ; preds = %329
   %350 = add i32 %306, 1
   %351 = icmp sgt i32 %350, %2
-  br i1 %351, label %.thread23, label %352
+  br i1 %351, label %.thread24, label %352
 
 352:                                              ; preds = %349
   %353 = lshr i8 %311, 6
-  switch i8 %353, label %.loopexit25 [
+  switch i8 %353, label %default.unreachable [
     i8 0, label %.loopexit
-    i8 2, label %.loopexit26
+    i8 2, label %.loopexit27
     i8 3, label %360
+    i8 1, label %.loopexit26
   ]
 
-.split61.us:                                      ; preds = %195
+.split63.us:                                      ; preds = %195
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 11) #10
-  br label %.thread19
+  br label %.thread20
 
-.split59.us:                                      ; preds = %119, %129, %142, %144, %176
+.split61.us:                                      ; preds = %119, %129, %142, %144, %176
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 11) #10
-  br label %.thread19
+  br label %.thread20
 
-.split53.us:                                      ; preds = %94
+.split55.us:                                      ; preds = %94
   %354 = add i32 %39, 2
   tail call void @icmpv6_param_prob_reason(ptr noundef %1, i8 noundef zeroext 0, i32 noundef %354, i32 noundef 11) #10
-  br label %.thread19
+  br label %.thread20
 
-.split56.us:                                      ; preds = %100
+.split58.us:                                      ; preds = %100
   tail call void @icmpv6_param_prob_reason(ptr noundef %1, i8 noundef zeroext 0, i32 noundef %39, i32 noundef 11) #10
-  br label %.thread19
+  br label %.thread20
 
-.split51.us:                                      ; preds = %83, %104, %113
+.split53.us:                                      ; preds = %83, %104, %113
   %355 = phi i32 [ 2, %113 ], [ 11, %83 ], [ 4, %104 ]
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef %355) #10
-  br label %.thread19
+  br label %.thread20
 
-.split49.us:                                      ; preds = %62, %70, %80
+.split51.us:                                      ; preds = %62, %70, %80
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 11) #10
-  br label %.thread19
+  br label %.thread20
 
-.split64.us:                                      ; preds = %209
+.split66.us:                                      ; preds = %209
   %356 = getelementptr inbounds i8, ptr %213, i64 24
   %357 = load i32, ptr %356, align 4
   %358 = and i32 %357, 255
   %359 = icmp eq i32 %358, 255
-  br i1 %359, label %.loopexit27, label %.loopexit28
+  br i1 %359, label %.loopexit28, label %.loopexit29
 
-.loopexit28:                                      ; preds = %209, %.split64.us
+.loopexit29:                                      ; preds = %209, %.split66.us
   tail call void @icmpv6_param_prob_reason(ptr noundef %1, i8 noundef zeroext 2, i32 noundef %39, i32 noundef 56) #10
-  br label %.thread19
+  br label %.thread20
 
-.loopexit27:                                      ; preds = %209, %208, %.split64.us
+.loopexit28:                                      ; preds = %209, %208, %.split66.us
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 56) #10
-  br label %.thread19
+  br label %.thread20
 
 360:                                              ; preds = %352
   %361 = getelementptr inbounds i8, ptr %17, i64 24
   %362 = load i32, ptr %361, align 4
   %363 = and i32 %362, 255
   %364 = icmp eq i32 %363, 255
-  br i1 %364, label %.loopexit25, label %.loopexit26
+  br i1 %364, label %.loopexit26, label %.loopexit27
 
-.loopexit26:                                      ; preds = %352, %360
+.loopexit27:                                      ; preds = %352, %360
   tail call void @icmpv6_param_prob_reason(ptr noundef %1, i8 noundef zeroext 2, i32 noundef %307, i32 noundef 56) #10
-  br label %.thread19
+  br label %.thread20
 
-.loopexit25:                                      ; preds = %352, %272, %360
+.loopexit26:                                      ; preds = %352, %272, %360
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 56) #10
-  br label %.thread19
+  br label %.thread20
 
 .loopexit:                                        ; preds = %338, %352, %334
   %365 = phi i32 [ %350, %352 ], [ %306, %334 ], [ %306, %338 ]
@@ -834,19 +842,19 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %372 = phi i32 [ %306, %316 ], [ %365, %.loopexit ]
   %373 = phi i32 [ %314, %316 ], [ %366, %.loopexit ]
   %374 = icmp sgt i32 %370, 0
-  br i1 %374, label %.split.split, label %.split68.us, !llvm.loop !9
+  br i1 %374, label %.split.split, label %.split70.us, !llvm.loop !9
 
-.split68.us:                                      ; preds = %369, %300, %246
-  %.us-phi69 = phi i32 [ %247, %246 ], [ %301, %300 ], [ %370, %369 ]
-  %375 = icmp eq i32 %.us-phi69, 0
-  br i1 %375, label %.thread19, label %.thread23
+.split70.us:                                      ; preds = %369, %300, %246
+  %.us-phi71 = phi i32 [ %247, %246 ], [ %301, %300 ], [ %370, %369 ]
+  %375 = icmp eq i32 %.us-phi71, 0
+  br i1 %375, label %.thread20, label %.thread24
 
-.thread23:                                        ; preds = %349, %331, %321, %319, %313, %341, %260, %262, %274, %294, %281, %240, %217, %58, %48, %46, %224, %272, %.split68.us
+.thread24:                                        ; preds = %349, %331, %321, %319, %313, %341, %260, %262, %274, %294, %281, %240, %217, %58, %48, %46, %224, %272, %.split70.us
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 11) #10
-  br label %.thread19
+  br label %.thread20
 
-.thread19:                                        ; preds = %.loopexit25, %.loopexit26, %.loopexit27, %.loopexit28, %.split51.us, %.split53.us, %.split56.us, %.split49.us, %.split59.us, %.split61.us, %.thread23, %.split68.us
-  %376 = phi i1 [ false, %.thread23 ], [ true, %.split68.us ], [ false, %.split61.us ], [ false, %.split59.us ], [ false, %.split49.us ], [ false, %.split56.us ], [ false, %.split53.us ], [ false, %.split51.us ], [ false, %.loopexit28 ], [ false, %.loopexit27 ], [ false, %.loopexit26 ], [ false, %.loopexit25 ]
+.thread20:                                        ; preds = %.loopexit26, %.loopexit27, %.loopexit28, %.loopexit29, %.split53.us, %.split55.us, %.split58.us, %.split51.us, %.split61.us, %.split63.us, %.thread24, %.split70.us
+  %376 = phi i1 [ false, %.thread24 ], [ true, %.split70.us ], [ false, %.split63.us ], [ false, %.split61.us ], [ false, %.split51.us ], [ false, %.split58.us ], [ false, %.split55.us ], [ false, %.split53.us ], [ false, %.loopexit29 ], [ false, %.loopexit28 ], [ false, %.loopexit27 ], [ false, %.loopexit26 ]
   ret i1 %376
 }
 

@@ -2860,11 +2860,15 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$$LP$usize$C$$LP$usize$C$semv
 define hidden void @"_ZN4core3ptr69drop_in_place$LT$wasmtime..runtime..component..linker..Definition$GT$17h6054d8191f736070E.llvm.6452179527160401088"(ptr noalias noundef align 16 dereferenceable(112) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 16, !range !719, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable [
     i64 0, label %9
     i64 1, label %60
     i64 2, label %65
+    i64 3, label %4
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !720)

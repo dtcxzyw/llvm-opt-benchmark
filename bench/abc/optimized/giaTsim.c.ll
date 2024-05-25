@@ -1073,44 +1073,48 @@ define void @Gia_ManTerStatePrint(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %20
-  %.025 = phi i32 [ %.1, %20 ], [ 0, %3 ]
-  %.01524 = phi i32 [ %.116, %20 ], [ 0, %3 ]
-  %.01723 = phi i32 [ %.118, %20 ], [ 0, %3 ]
-  %.01922 = phi i32 [ %21, %20 ], [ 0, %3 ]
-  %6 = lshr i32 %.01922, 4
+  %.028 = phi i32 [ %.1, %20 ], [ 0, %3 ]
+  %.01527 = phi i32 [ %.116, %20 ], [ 0, %3 ]
+  %.01726 = phi i32 [ %.118, %20 ], [ 0, %3 ]
+  %.01925 = phi i32 [ %21, %20 ], [ 0, %3 ]
+  %6 = lshr i32 %.01925, 4
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds i32, ptr %0, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = shl nuw i32 %.01922, 1
+  %10 = shl nuw i32 %.01925, 1
   %11 = and i32 %10, 30
   %12 = lshr i32 %9, %11
   %13 = and i32 %12, 3
-  switch i32 %13, label %20 [
+  switch i32 %13, label %default.unreachable [
     i32 1, label %14
     i32 2, label %16
     i32 3, label %18
+    i32 0, label %20
   ]
 
 14:                                               ; preds = %.lr.ph
   %putchar21 = tail call i32 @putchar(i32 48)
-  %15 = add nsw i32 %.01723, 1
+  %15 = add nsw i32 %.01726, 1
   br label %20
 
 16:                                               ; preds = %.lr.ph
   %putchar20 = tail call i32 @putchar(i32 49)
-  %17 = add nsw i32 %.01524, 1
+  %17 = add nsw i32 %.01527, 1
   br label %20
 
 18:                                               ; preds = %.lr.ph
   %putchar = tail call i32 @putchar(i32 120)
-  %19 = add nsw i32 %.025, 1
+  %19 = add nsw i32 %.028, 1
   br label %20
 
+default.unreachable:                              ; preds = %.lr.ph
+  unreachable
+
 20:                                               ; preds = %.lr.ph, %14, %18, %16
-  %.118 = phi i32 [ %15, %14 ], [ %.01723, %16 ], [ %.01723, %18 ], [ %.01723, %.lr.ph ]
-  %.116 = phi i32 [ %.01524, %14 ], [ %17, %16 ], [ %.01524, %18 ], [ %.01524, %.lr.ph ]
-  %.1 = phi i32 [ %.025, %14 ], [ %.025, %16 ], [ %19, %18 ], [ %.025, %.lr.ph ]
-  %21 = add nuw nsw i32 %.01922, 1
+  %.118 = phi i32 [ %15, %14 ], [ %.01726, %16 ], [ %.01726, %18 ], [ %.01726, %.lr.ph ]
+  %.116 = phi i32 [ %.01527, %14 ], [ %17, %16 ], [ %.01527, %18 ], [ %.01527, %.lr.ph ]
+  %.1 = phi i32 [ %.028, %14 ], [ %.028, %16 ], [ %19, %18 ], [ %.028, %.lr.ph ]
+  %21 = add nuw nsw i32 %.01925, 1
   %exitcond.not = icmp eq i32 %21, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 

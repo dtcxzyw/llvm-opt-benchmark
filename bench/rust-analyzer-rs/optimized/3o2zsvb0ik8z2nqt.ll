@@ -6551,11 +6551,15 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$ide_assists..handlers..gene
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2441)
   %11 = load i64, ptr %0, align 8, !range !2444, !alias.scope !2441, !noundef !23
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %11, label %13 [
+  switch i64 %11, label %default.unreachable [
     i64 0, label %19
     i64 1, label %25
     i64 2, label %31
+    i64 3, label %13
   ]
+
+default.unreachable:                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Enum$GT$17h20f5af484209db62E.exit"
+  unreachable
 
 13:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Enum$GT$17h20f5af484209db62E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2445)
@@ -7757,11 +7761,15 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$ide_assists..handlers..wrap
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2916)
   %11 = load i64, ptr %0, align 8, !range !2444, !alias.scope !2916, !noundef !23
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %11, label %13 [
+  switch i64 %11, label %default.unreachable [
     i64 0, label %19
     i64 1, label %25
     i64 2, label %31
+    i64 3, label %13
   ]
+
+default.unreachable:                              ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h6e8e990a03c9b9b1E.exit"
+  unreachable
 
 13:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h6e8e990a03c9b9b1E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2919)
@@ -13150,7 +13158,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..node
 define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h2132fbb9cb5b581dE.llvm.16859448508238014806"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !3425, !noundef !23
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
@@ -13166,7 +13174,11 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..node
     i64 12, label %82
     i64 13, label %88
     i64 14, label %94
+    i64 15, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4645)
@@ -14176,11 +14188,15 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$ide_db..imports..insert_use.
 define hidden void @"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..GenericArg$GT$17hc72f9c6768e4dc49E.llvm.16859448508238014806"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !2444, !noundef !23
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5544)
@@ -14336,11 +14352,15 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$ide_assists..handle
   %3 = add nsw i64 %2, -37
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 2
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %15
     i64 1, label %20
     i64 2, label %25
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14521,11 +14541,15 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$ide_assists..handle
 define hidden void @"_ZN4core3ptr77drop_in_place$LT$ide_assists..handlers..generate_enum_variant..PathParent$GT$17ha29bbfeb60aa1635E.llvm.16859448508238014806"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !2444, !noundef !23
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5685)
@@ -61471,11 +61495,15 @@ define hidden void @"_ZN11ide_assists14assist_context7Assists3add28_$u7b$$u7b$cl
 82:                                               ; preds = %80
   call void @llvm.experimental.noalias.scope.decl(metadata !17655)
   %83 = load i64, ptr %13, align 8, !range !2444, !alias.scope !17658, !noalias !17650, !noundef !23
-  switch i64 %83, label %84 [
+  switch i64 %83, label %default.unreachable [
     i64 0, label %90
     i64 1, label %96
     i64 2, label %102
+    i64 3, label %84
   ]
+
+default.unreachable:                              ; preds = %82
+  unreachable
 
 84:                                               ; preds = %82
   call void @llvm.experimental.noalias.scope.decl(metadata !17659)
@@ -69785,9 +69813,9 @@ _ZN6syntax3ast7AstNode16clone_for_update17had017b6f278e5c75E.exit.i: ; preds = %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %29, i64 40, i1 false), !noalias !19755
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26), !noalias !19753
   %48 = invoke noundef ptr @_ZN6syntax3ast9generated5nodes12MatchArmList4arms17h9ff41578f5b56e7cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28)
-          to label %52 unwind label %.thread285.i, !noalias !19750
+          to label %52 unwind label %.thread287.i, !noalias !19750
 
-.thread285.i:                                     ; preds = %_ZN6syntax3ast7AstNode16clone_for_update17had017b6f278e5c75E.exit.i
+.thread287.i:                                     ; preds = %_ZN6syntax3ast7AstNode16clone_for_update17had017b6f278e5c75E.exit.i
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %.thread187.i
@@ -70446,8 +70474,8 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h1b2663336a0d6ff8E.exit.i.i.i: 
   br label %.loopexit253.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.preheader.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.in284.i = phi i64 [ %.sroa.5.0.copyload.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.5.0.copyload24.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %239 = inttoptr i64 %.in284.i to ptr
+  %.in286.i = phi i64 [ %.sroa.5.0.copyload.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.5.0.copyload24.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i ]
+  %239 = inttoptr i64 %.in286.i to ptr
   %240 = getelementptr inbounds i8, ptr %239, i64 48
   %241 = load i32, ptr %240, align 4, !noalias !19988, !noundef !23
   %242 = add i32 %241, -1
@@ -71369,8 +71397,8 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h119a955a0b567ee4E.exit.i: ; pr
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %559)
           to label %.thread.i unwind label %230, !noalias !19750
 
-.thread187.i:                                     ; preds = %89, %84, %.body.i, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..MatchArm$GT$17h5f162e7aafef1f45E.exit151.i", %.thread285.i
-  %.pn56.pn.pn.pn.pn191.i = phi { ptr, i32 } [ %.pn56.pn.pn.pn.i, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..MatchArm$GT$17h5f162e7aafef1f45E.exit151.i" ], [ %eh.lpad-body.i, %84 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i, %89 ], [ %49, %.thread285.i ]
+.thread187.i:                                     ; preds = %89, %84, %.body.i, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..MatchArm$GT$17h5f162e7aafef1f45E.exit151.i", %.thread287.i
+  %.pn56.pn.pn.pn.pn191.i = phi { ptr, i32 } [ %.pn56.pn.pn.pn.i, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..MatchArm$GT$17h5f162e7aafef1f45E.exit151.i" ], [ %eh.lpad-body.i, %84 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i, %89 ], [ %49, %.thread287.i ]
   invoke void @"_ZN4core3ptr213drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$syntax..ast..generated..nodes..Pat$C$bool$RP$$GT$$GT$$GT$17h40359c9d6d7194a9E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %27)
           to label %"_ZN4core3ptr555drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..peekable..Peekable$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$syntax..ast..generated..nodes..Pat$C$bool$RP$$GT$$GT$$C$ide_assists..handlers..add_missing_match_arms..add_missing_match_arms..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_assists..handlers..add_missing_match_arms..add_missing_match_arms..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbb284ea7078fcef0E.exit155.i" unwind label %230, !noalias !19750
 

@@ -159,10 +159,11 @@ define noundef range(i32 4, 3) i32 @_ZN8ScanTree7GetNextEP8FindData(ptr noundef 
 
 16:                                               ; preds = %14, %.backedge
   %17 = tail call noundef i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef nonnull align 8 dereferenceable(33216) %0, ptr noundef %1)
-  switch i32 %17, label %26 [
+  switch i32 %17, label %default.unreachable [
     i32 2, label %18
     i32 3, label %.backedge.backedge
     i32 0, label %21
+    i32 1, label %26
   ]
 
 .backedge.backedge:                               ; preds = %16, %18, %26, %30, %21
@@ -181,6 +182,9 @@ define noundef range(i32 4, 3) i32 @_ZN8ScanTree7GetNextEP8FindData(ptr noundef 
   %25 = icmp eq i32 %24, 0
   %or.cond15 = select i1 %23, i1 %25, i1 false
   br i1 %or.cond15, label %.backedge.backedge, label %28
+
+default.unreachable:                              ; preds = %16
+  unreachable
 
 26:                                               ; preds = %16
   %27 = tail call noundef zeroext i1 @_ZN8ScanTree11GetNextMaskEv(ptr noundef nonnull align 8 dereferenceable(33216) %0)

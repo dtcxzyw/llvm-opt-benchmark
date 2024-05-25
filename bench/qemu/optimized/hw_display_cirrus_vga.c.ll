@@ -815,10 +815,11 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %and10.i = shl nuw nsw i32 %shr9.i, 1
   %shl.i80 = and i32 %and10.i, 2
   %or.i81 = or disjoint i32 %shl.i80, %and2.i
-  switch i32 %or.i81, label %sw.epilog.i [
+  switch i32 %or.i81, label %default.unreachable [
     i32 3, label %sw.bb15.i
     i32 1, label %sw.bb11.i
     i32 2, label %sw.epilog.sink.split.i
+    i32 0, label %sw.epilog.i
   ]
 
 sw.bb11.i:                                        ; preds = %for.body.i
@@ -828,6 +829,9 @@ sw.bb11.i:                                        ; preds = %for.body.i
 
 sw.bb15.i:                                        ; preds = %for.body.i
   br label %sw.epilog.sink.split.i
+
+default.unreachable:                              ; preds = %for.body.i
+  unreachable
 
 sw.epilog.sink.split.i:                           ; preds = %sw.bb15.i, %sw.bb11.i, %for.body.i
   %color1.sink.i = phi i32 [ %or2.i78, %sw.bb15.i ], [ %xor.i, %sw.bb11.i ], [ %or2.i, %for.body.i ]

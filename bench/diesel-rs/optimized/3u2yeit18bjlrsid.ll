@@ -225,13 +225,17 @@ default.unreachable:                              ; preds = %30
   %77 = add nsw i64 %76, -8
   %78 = icmp ult i64 %77, 4
   %79 = select i1 %78, i64 %77, i64 1
-  switch i64 %79, label %80 [
+  switch i64 %79, label %.unreachabledefault [
     i64 1, label %81
     i64 2, label %84
     i64 3, label %85
+    i64 0, label %80
   ]
 
-80:                                               ; preds = %110, %108, %107, %105, %103, %101, %99, %97, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %75
+.unreachabledefault:                              ; preds = %75
+  unreachable
+
+80:                                               ; preds = %75, %110, %108, %107, %105, %103, %101, %99, %97, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84
   resume { ptr, i32 } %.pn
 
 81:                                               ; preds = %75
@@ -542,13 +546,17 @@ default.unreachable:                              ; preds = %30
   %77 = add nsw i64 %76, -8
   %78 = icmp ult i64 %77, 4
   %79 = select i1 %78, i64 %77, i64 1
-  switch i64 %79, label %80 [
+  switch i64 %79, label %.unreachabledefault [
     i64 1, label %81
     i64 2, label %84
     i64 3, label %85
+    i64 0, label %80
   ]
 
-80:                                               ; preds = %110, %108, %107, %105, %103, %101, %99, %97, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %75
+.unreachabledefault:                              ; preds = %75
+  unreachable
+
+80:                                               ; preds = %75, %110, %108, %107, %105, %103, %101, %99, %97, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84
   resume { ptr, i32 } %.pn
 
 81:                                               ; preds = %75
@@ -859,13 +867,17 @@ default.unreachable:                              ; preds = %30
   %77 = add nsw i64 %76, -8
   %78 = icmp ult i64 %77, 4
   %79 = select i1 %78, i64 %77, i64 1
-  switch i64 %79, label %80 [
+  switch i64 %79, label %.unreachabledefault [
     i64 1, label %81
     i64 2, label %84
     i64 3, label %85
+    i64 0, label %80
   ]
 
-80:                                               ; preds = %110, %108, %107, %105, %103, %101, %99, %97, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %75
+.unreachabledefault:                              ; preds = %75
+  unreachable
+
+80:                                               ; preds = %75, %110, %108, %107, %105, %103, %101, %99, %97, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84
   resume { ptr, i32 } %.pn
 
 81:                                               ; preds = %75

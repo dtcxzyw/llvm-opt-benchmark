@@ -504,7 +504,7 @@ tailrecurse:                                      ; preds = %63, %4
   store i64 %.sroa.651.0.copyload, ptr %.sroa.3155.0..sroa_idx, align 8
   br label %.sink.split
 
-default.unreachable:                              ; preds = %.thread226
+default.unreachable:                              ; preds = %168, %.thread226
   unreachable
 
 114:                                              ; preds = %.thread226
@@ -683,7 +683,7 @@ default.unreachable:                              ; preds = %.thread226
   %170 = load i64, ptr %169, align 8, !range !11, !noundef !4
   %171 = add i64 %170, 9223372036854775807
   %172 = tail call i64 @llvm.umin.i64(i64 %171, i64 7)
-  switch i64 %172, label %173 [
+  switch i64 %172, label %default.unreachable [
     i64 0, label %176
     i64 1, label %178
     i64 2, label %180
@@ -691,6 +691,7 @@ default.unreachable:                              ; preds = %.thread226
     i64 4, label %184
     i64 5, label %186
     i64 6, label %188
+    i64 7, label %173
   ]
 
 173:                                              ; preds = %168

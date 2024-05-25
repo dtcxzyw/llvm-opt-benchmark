@@ -66,7 +66,7 @@ for.end:                                          ; preds = %for.body, %entry
   %v1.0.lcssa = phi i64 [ %xor4, %entry ], [ %xor27, %for.body ]
   %v0.0.lcssa = phi i64 [ %xor5, %entry ], [ %xor31, %for.body ]
   %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr32, %for.body ]
-  switch i32 %conv, label %sw.epilog [
+  switch i32 %conv, label %default.unreachable [
     i32 7, label %sw.bb
     i32 6, label %sw.bb36
     i32 5, label %sw.bb41
@@ -74,6 +74,7 @@ for.end:                                          ; preds = %for.body, %entry
     i32 3, label %sw.bb51
     i32 2, label %sw.bb56
     i32 1, label %sw.bb61
+    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -136,7 +137,10 @@ sw.bb61:                                          ; preds = %sw.bb56, %for.end
   %or64 = or i64 %b.5, %conv63
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb61, %for.end
+default.unreachable:                              ; preds = %for.end
+  unreachable
+
+sw.epilog:                                        ; preds = %for.end, %sw.bb61
   %b.6 = phi i64 [ %shl, %for.end ], [ %or64, %sw.bb61 ]
   %xor66 = xor i64 %b.6, %v3.0.lcssa
   %add68 = add i64 %v0.0.lcssa, %v1.0.lcssa
@@ -282,7 +286,7 @@ for.end:                                          ; preds = %for.body, %entry
   %v1.0.lcssa = phi i64 [ %xor4, %entry ], [ %xor71, %for.body ]
   %v0.0.lcssa = phi i64 [ %xor5, %entry ], [ %xor75, %for.body ]
   %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr76, %for.body ]
-  switch i32 %conv, label %sw.epilog [
+  switch i32 %conv, label %default.unreachable [
     i32 7, label %sw.bb
     i32 6, label %sw.bb83
     i32 5, label %sw.bb90
@@ -290,6 +294,7 @@ for.end:                                          ; preds = %for.body, %entry
     i32 3, label %sw.bb104
     i32 2, label %sw.bb111
     i32 1, label %sw.bb118
+    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -387,7 +392,10 @@ sw.bb118:                                         ; preds = %sw.bb111, %for.end
   %or123 = or i64 %b.5, %conv122
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb118, %for.end
+default.unreachable:                              ; preds = %for.end
+  unreachable
+
+sw.epilog:                                        ; preds = %for.end, %sw.bb118
   %b.6 = phi i64 [ %shl, %for.end ], [ %or123, %sw.bb118 ]
   %xor125 = xor i64 %b.6, %v3.0.lcssa
   %add127 = add i64 %v0.0.lcssa, %v1.0.lcssa

@@ -6,15 +6,19 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -138, 1) i32 @nxsem_set_protocol(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 3
-  switch i32 %3, label %5 [
+  switch i32 %3, label %default.unreachable4 [
     i32 0, label %4
     i32 1, label %6
     i32 2, label %9
+    i32 3, label %5
   ]
 
 4:                                                ; preds = %2
   tail call void @nxsem_destroyholder(ptr noundef %0) #2
   br label %6
+
+default.unreachable4:                             ; preds = %2
+  unreachable
 
 5:                                                ; preds = %2
   br label %9

@@ -2313,11 +2313,15 @@ define hidden void @"_ZN69_$LT$typst..visualize..path..PathItem$u20$as$u20$core.
 _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.exit: ; preds = %16, %42
   %44 = phi i64 [ %.0.i.i.i, %16 ], [ %14, %42 ]
   %.pr = phi i64 [ %8, %16 ], [ %43, %42 ]
-  switch i64 %3, label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit13" [
+  switch i64 %3, label %default.unreachable70 [
     i64 0, label %45
     i64 1, label %117
     i64 2, label %189
+    i64 3, label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit13"
   ]
+
+default.unreachable70:                            ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.exit
+  unreachable
 
 "_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit13": ; preds = %396, %370, %187, %161, %115, %89, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.exit
   ret void

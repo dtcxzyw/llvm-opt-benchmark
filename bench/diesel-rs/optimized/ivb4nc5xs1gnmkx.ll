@@ -2442,7 +2442,7 @@ define hidden void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17head3f721
   %2 = load i64, ptr %0, align 8, !range !833, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 7)
-  switch i64 %4, label %5 [
+  switch i64 %4, label %default.unreachable [
     i64 0, label %11
     i64 1, label %23
     i64 2, label %35
@@ -2450,7 +2450,11 @@ define hidden void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17head3f721
     i64 4, label %59
     i64 5, label %74
     i64 6, label %"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4d8f8c2ddaffe17eE.exit"
+    i64 7, label %5
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !834)
@@ -2755,7 +2759,7 @@ define hidden void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17head3f721
   tail call void @__rust_dealloc(ptr noundef nonnull %76, i64 noundef 56, i64 noundef 8) #18, !noalias !1110
   br label %"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4d8f8c2ddaffe17eE.exit"
 
-"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4d8f8c2ddaffe17eE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.566609780180471337.exit.i.i1.i.i.i.i.i", %7, %5, %"_ZN4core3ptr39drop_in_place$LT$syn..lit..LitFloat$GT$17ha413e1dcd55f51ddE.llvm.566609780180471337.exit", %"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitInt$GT$17hc9d1ba9340de36f4E.llvm.566609780180471337.exit", %"_ZN4core3ptr38drop_in_place$LT$syn..lit..LitChar$GT$17hca530f61a8050e25E.llvm.566609780180471337.exit", %"_ZN4core3ptr38drop_in_place$LT$syn..lit..LitByte$GT$17hf3fd7bba5e153b22E.llvm.566609780180471337.exit", %"_ZN4core3ptr41drop_in_place$LT$syn..lit..LitByteStr$GT$17h7ab1a54c9ec8ec6cE.llvm.566609780180471337.exit", %"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitStr$GT$17h8294d582528a6d88E.llvm.566609780180471337.exit", %1
+"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4d8f8c2ddaffe17eE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.566609780180471337.exit.i.i1.i.i.i.i.i", %7, %5, %1, %"_ZN4core3ptr39drop_in_place$LT$syn..lit..LitFloat$GT$17ha413e1dcd55f51ddE.llvm.566609780180471337.exit", %"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitInt$GT$17hc9d1ba9340de36f4E.llvm.566609780180471337.exit", %"_ZN4core3ptr38drop_in_place$LT$syn..lit..LitChar$GT$17hca530f61a8050e25E.llvm.566609780180471337.exit", %"_ZN4core3ptr38drop_in_place$LT$syn..lit..LitByte$GT$17hf3fd7bba5e153b22E.llvm.566609780180471337.exit", %"_ZN4core3ptr41drop_in_place$LT$syn..lit..LitByteStr$GT$17h7ab1a54c9ec8ec6cE.llvm.566609780180471337.exit", %"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitStr$GT$17h8294d582528a6d88E.llvm.566609780180471337.exit"
   ret void
 }
 
@@ -5885,7 +5889,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..item..Item$GT$
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 16
   %5 = select i1 %4, i64 %3, i64 3
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %8
     i64 1, label %77
     i64 2, label %138
@@ -5901,7 +5905,11 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..item..Item$GT$
     i64 12, label %606
     i64 13, label %670
     i64 14, label %742
+    i64 15, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8297,11 +8305,15 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..stmt..Stmt$GT$
   %3 = add nsw i64 %2, -18
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %26
     i64 1, label %53
     i64 2, label %54
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14510,11 +14522,15 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %14
     i64 1, label %16
     i64 2, label %"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4d8f8c2ddaffe17eE.exit"
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14565,7 +14581,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17
   tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %2, i64 noundef 1) #18, !noalias !5729
   br label %"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4d8f8c2ddaffe17eE.exit"
 
-"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4d8f8c2ddaffe17eE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.566609780180471337.exit.i.i1.i.i.i.i.i1", %18, %16, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.566609780180471337.exit.i.i1.i.i.i.i.i", %10, %6, %14, %1
+"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17h4d8f8c2ddaffe17eE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.566609780180471337.exit.i.i1.i.i.i.i.i1", %18, %16, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.566609780180471337.exit.i.i1.i.i.i.i.i", %10, %6, %1, %14
   ret void
 }
 
@@ -16867,18 +16883,22 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$$u5b$syn..stmt..Stmt$u5d$$GT
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr36drop_in_place$LT$syn..stmt..Stmt$GT$17h144c09e6d7cb3624E.exit"
-  %.052 = phi i64 [ %5, %"_ZN4core3ptr36drop_in_place$LT$syn..stmt..Stmt$GT$17h144c09e6d7cb3624E.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { i64, [44 x i64] }], ptr %0, i64 0, i64 %.052
-  %5 = add nuw i64 %.052, 1
+  %.054 = phi i64 [ %5, %"_ZN4core3ptr36drop_in_place$LT$syn..stmt..Stmt$GT$17h144c09e6d7cb3624E.exit" ], [ 0, %2 ]
+  %4 = getelementptr inbounds [0 x { i64, [44 x i64] }], ptr %0, i64 0, i64 %.054
+  %5 = add nuw i64 %.054, 1
   %6 = load i64, ptr %4, align 8, !range !3090, !alias.scope !6645, !noundef !4
   %7 = add nsw i64 %6, -18
   %8 = icmp ult i64 %7, 4
   %9 = select i1 %8, i64 %7, i64 1
-  switch i64 %9, label %10 [
+  switch i64 %9, label %.unreachabledefault.i [
     i64 0, label %46
     i64 1, label %88
     i64 2, label %89
+    i64 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %.lr.ph
+  unreachable
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds i8, ptr %4, i64 8
@@ -20214,18 +20234,22 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$proc_macro2..TokenTree$
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit"
-  %.08 = phi i64 [ %5, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %0, i64 0, i64 %.08
-  %5 = add nuw i64 %.08, 1
+  %.09 = phi i64 [ %5, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit" ], [ 0, %2 ]
+  %4 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %0, i64 0, i64 %.09
+  %5 = add nuw i64 %.09, 1
   %6 = load i64, ptr %4, align 8, !range !5674, !noundef !4
   %7 = add i64 %6, 9223372036854775807
   %8 = icmp ult i64 %7, 4
   %9 = select i1 %8, i64 %7, i64 1
-  switch i64 %9, label %10 [
+  switch i64 %9, label %.unreachabledefault.i [
     i64 0, label %13
     i64 1, label %15
     i64 2, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit"
+    i64 3, label %10
   ]
+
+.unreachabledefault.i:                            ; preds = %.lr.ph
+  unreachable
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds i8, ptr %4, i64 8
@@ -20248,10 +20272,10 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$proc_macro2..TokenTree$
 
 "_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.sink.split": ; preds = %15, %10
   %.sink = phi i64 [ 16, %10 ], [ 8, %15 ]
-  %.sink11 = phi i64 [ %12, %10 ], [ %6, %15 ]
+  %.sink14 = phi i64 [ %12, %10 ], [ %6, %15 ]
   %16 = getelementptr inbounds i8, ptr %4, i64 %.sink
   %17 = load ptr, ptr %16, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink11, i64 noundef 1) #18, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink14, i64 noundef 1) #18, !noalias !4
   br label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit"
 
 "_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit": ; preds = %15, %15, %10, %10, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.sink.split", %13, %.lr.ph
@@ -23372,18 +23396,22 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$proc_macr
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h079276b2c61497f2E.llvm.566609780180471337.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i"
-  %.0.i3 = phi i64 [ %8, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %3, i64 0, i64 %.0.i3
-  %8 = add nuw i64 %.0.i3, 1
+  %.0.i4 = phi i64 [ %8, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %3, i64 0, i64 %.0.i4
+  %8 = add nuw i64 %.0.i4, 1
   %9 = load i64, ptr %7, align 8, !range !5674, !noundef !4
   %10 = add i64 %9, 9223372036854775807
   %11 = icmp ult i64 %10, 4
   %12 = select i1 %11, i64 %10, i64 1
-  switch i64 %12, label %13 [
+  switch i64 %12, label %.unreachabledefault.i.i [
     i64 0, label %16
     i64 1, label %18
     i64 2, label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i"
+    i64 3, label %13
   ]
+
+.unreachabledefault.i.i:                          ; preds = %.lr.ph
+  unreachable
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds i8, ptr %7, i64 8
@@ -23406,10 +23434,10 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$proc_macr
 
 "_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i.sink.split": ; preds = %18, %13
   %.sink = phi i64 [ 16, %13 ], [ 8, %18 ]
-  %.sink6 = phi i64 [ %15, %13 ], [ %9, %18 ]
+  %.sink9 = phi i64 [ %15, %13 ], [ %9, %18 ]
   %19 = getelementptr inbounds i8, ptr %7, i64 %.sink
   %20 = load ptr, ptr %19, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %.sink6, i64 noundef 1) #18, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %.sink9, i64 noundef 1) #18, !noalias !4
   br label %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i"
 
 "_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i": ; preds = %18, %18, %13, %13, %"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h561dfaabfa0d1a12E.llvm.566609780180471337.exit.i.sink.split", %16, %.lr.ph

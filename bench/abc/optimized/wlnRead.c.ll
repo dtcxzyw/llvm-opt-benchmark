@@ -3213,10 +3213,11 @@ define i32 @Rtl_NtkCountConcatRange(ptr nocapture noundef readonly %0, ptr nocap
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Rtl_NtkCountSignalRange(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = and i32 %1, 3
-  switch i32 %3, label %Rtl_NtkCountConcatRange.exit [
+  switch i32 %3, label %default.unreachable [
     i32 0, label %4
     i32 2, label %18
     i32 3, label %31
+    i32 1, label %Rtl_NtkCountConcatRange.exit
   ]
 
 4:                                                ; preds = %2
@@ -3282,6 +3283,9 @@ define i32 @Rtl_NtkCountSignalRange(ptr nocapture noundef readonly %0, i32 nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %Rtl_NtkCountConcatRange.exit, label %.lr.ph, !llvm.loop !31
+
+default.unreachable:                              ; preds = %2
+  unreachable
 
 Rtl_NtkCountConcatRange.exit:                     ; preds = %.lr.ph, %31, %2, %18, %4
   %.0 = phi i32 [ %17, %4 ], [ %30, %18 ], [ 1000000000, %2 ], [ 0, %31 ], [ %43, %.lr.ph ]
@@ -3711,10 +3715,11 @@ define void @Rtl_NtkSetConcatRange(ptr nocapture noundef readonly %0, ptr nocapt
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Rtl_NtkSetSignalRange(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = and i32 %1, 3
-  switch i32 %4, label %Rtl_NtkSetWireRange.exit [
+  switch i32 %4, label %default.unreachable [
     i32 0, label %5
     i32 2, label %27
     i32 3, label %64
+    i32 1, label %Rtl_NtkSetWireRange.exit
   ]
 
 5:                                                ; preds = %3
@@ -3833,6 +3838,9 @@ define void @Rtl_NtkSetSignalRange(ptr nocapture noundef readonly %0, i32 nounde
   %75 = sext i32 %74 to i64
   %.not.i.not = icmp slt i64 %indvars.iv, %75
   br i1 %.not.i.not, label %.lr.ph, label %Rtl_NtkSetWireRange.exit, !llvm.loop !35
+
+default.unreachable:                              ; preds = %3
+  unreachable
 
 Rtl_NtkSetWireRange.exit:                         ; preds = %.lr.ph, %61, %23, %64, %3, %27, %5
   ret void

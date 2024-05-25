@@ -1320,10 +1320,11 @@ define dso_local void @intel_ggtt_init_fences(ptr noundef %0) local_unnamed_addr
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 %60(ptr noundef %12, i32 66048, i1 noundef zeroext true) #9
   %62 = and i32 %61, 3
-  switch i32 %62, label %72 [
+  switch i32 %62, label %default.unreachable9 [
     i32 0, label %63
     i32 1, label %63
     i32 2, label %64
+    i32 3, label %72
   ]
 
 63:                                               ; preds = %58, %58
@@ -1341,7 +1342,10 @@ define dso_local void @intel_ggtt_init_fences(ptr noundef %0) local_unnamed_addr
   %71 = select i1 %69, i32 4, i32 7
   br label %72
 
-72:                                               ; preds = %67, %64, %63, %58
+default.unreachable9:                             ; preds = %58
+  unreachable
+
+72:                                               ; preds = %58, %67, %64, %63
   %73 = phi i32 [ 5, %58 ], [ 0, %63 ], [ 1, %64 ], [ %70, %67 ]
   %74 = phi i32 [ 5, %58 ], [ 0, %63 ], [ 2, %64 ], [ %71, %67 ]
   %75 = load i8, ptr %13, align 8

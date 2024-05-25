@@ -224,13 +224,14 @@ for.end:                                          ; preds = %if.end36, %if.end14
   %p.0.lcssa = phi ptr [ %dest, %if.end14 ], [ %incdec.ptr41, %if.end36 ]
   %y.0.lcssa = phi ptr [ %src, %if.end14 ], [ %add.ptr, %if.end36 ]
   %12 = load i8, ptr %y.0.lcssa, align 1
-  %idxprom78 = zext i8 %12 to i64
-  %arrayidx79 = getelementptr inbounds [256 x i32], ptr @_ZL2d0, i64 0, i64 %idxprom78
-  %13 = load i32, ptr %arrayidx79, align 4
-  switch i32 %conv16, label %sw.default [
+  %idxprom43 = zext i8 %12 to i64
+  %arrayidx44 = getelementptr inbounds [256 x i32], ptr @_ZL2d0, i64 0, i64 %idxprom43
+  %13 = load i32, ptr %arrayidx44, align 4
+  switch i32 %conv16, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb65
     i32 2, label %sw.bb69
+    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -287,6 +288,9 @@ sw.bb69:                                          ; preds = %for.end
   %x.sroa.14.0.extract.shift41 = lshr i32 %or76, 8
   store i8 %x.sroa.0.0.extract.trunc26, ptr %p.0.lcssa, align 1
   br label %sw.epilog
+
+default.unreachable:                              ; preds = %for.end
+  unreachable
 
 sw.default:                                       ; preds = %for.end
   %arrayidx80 = getelementptr inbounds i8, ptr %y.0.lcssa, i64 1

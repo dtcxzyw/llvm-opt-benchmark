@@ -27926,11 +27926,15 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$chalk_ir..WhereClause$LT$hir
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %8
     i64 1, label %25
     i64 2, label %26
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -116256,13 +116260,17 @@ define hidden void @"_ZN6hir_ty5infer5unify49_$LT$impl$u20$hir_ty..infer..Infere
   %23 = add nsw i64 %22, -2
   %24 = icmp ult i64 %23, 4
   %25 = select i1 %24, i64 %23, i64 1
-  switch i64 %25, label %26 [
+  switch i64 %25, label %.unreachabledefault [
     i64 0, label %27
     i64 1, label %50
     i64 3, label %52
+    i64 2, label %26
   ]
 
-26:                                               ; preds = %50, %20
+.unreachabledefault:                              ; preds = %20
+  unreachable
+
+26:                                               ; preds = %20, %50
   store i64 6, ptr %0, align 8
   br label %137
 
@@ -128522,7 +128530,7 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %110, %107, %
 
 70:                                               ; preds = %63
   %71 = getelementptr inbounds i8, ptr %.sroa.0169.0.us.us, i64 32
-  switch i8 %69, label %default.unreachable326 [
+  switch i8 %69, label %.unreachabledefault [
     i8 0, label %.loopexit213.us.us
     i8 1, label %.outer.us.us.backedge
     i8 2, label %.thread194.us.us
@@ -128575,6 +128583,12 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %110, %107, %
   %lpad.loopexit.us.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
+
+.unreachabledefault:                              ; preds = %70
+  unreachable
+
+default.unreachable326:                           ; preds = %178
+  unreachable
 
 .loopexit.split-lp.split.us.split.us:             ; preds = %.thread194.us.us
   %lpad.loopexit.split-lp.us.us = landingpad { ptr, i32 }
@@ -128868,9 +128882,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %154 = load i64, ptr %153, align 8, !noundef !7
   %155 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, [1 x i32] } }, ptr %152, i64 %154
   br label %.outer
-
-default.unreachable326:                           ; preds = %178, %70
-  unreachable
 
 .outer:                                           ; preds = %.outer.backedge, %.split
   %.sroa.0169.0 = phi ptr [ %152, %.split ], [ %179, %.outer.backedge ]

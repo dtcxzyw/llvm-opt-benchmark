@@ -6287,11 +6287,15 @@ define hidden void @"_ZN4core3ptr38drop_in_place$LT$duct..ChildHandle$GT$17h6620
 define hidden void @"_ZN4core3ptr38drop_in_place$LT$duct..HandleInner$GT$17h0372f29eaf1f4337E.llvm.1799741712541865863"(ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !528, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable3 [
     i64 0, label %8
     i64 1, label %16
     i64 2, label %27
+    i64 3, label %4
   ]
+
+default.unreachable3:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !noundef !10

@@ -2850,14 +2850,18 @@ define internal fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..option..Opti
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$salsa..derived..slot..Memo$LT$core..result..Result$LT$i128$C$hir_ty..consteval..ConstEvalError$GT$$GT$$GT$$GT$17hbbe3df46f5677b69E"(ptr noalias noundef align 16 dereferenceable(80) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 16, !range !531, !noundef !388
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr123drop_in_place$LT$salsa..derived..slot..Memo$LT$core..result..Result$LT$i128$C$hir_ty..consteval..ConstEvalError$GT$$GT$$GT$17h80061e74e9de6a24E.exit"
     i64 2, label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$i128$C$hir_ty..consteval..ConstEvalError$GT$$GT$$GT$17h7cd30c9ddd36f3ccE.llvm.11905809803391100490.exit.i"
     i64 0, label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$i128$C$hir_ty..consteval..ConstEvalError$GT$$GT$$GT$17h7cd30c9ddd36f3ccE.llvm.11905809803391100490.exit.i"
+    i64 1, label %3
   ]
 
 "_ZN4core3ptr123drop_in_place$LT$salsa..derived..slot..Memo$LT$core..result..Result$LT$i128$C$hir_ty..consteval..ConstEvalError$GT$$GT$$GT$17h80061e74e9de6a24E.exit": ; preds = %1, %18, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$i128$C$hir_ty..consteval..ConstEvalError$GT$$GT$$GT$17h7cd30c9ddd36f3ccE.llvm.11905809803391100490.exit.i"
   ret void
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7872,7 +7876,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$hir_ty..mir..eval..MirEvalEr
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = load i8, ptr %0, align 8, !range !1939, !noundef !388
-  switch i8 %7, label %8 [
+  switch i8 %7, label %default.unreachable25 [
     i8 0, label %13
     i8 1, label %23
     i8 2, label %39
@@ -7888,7 +7892,11 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$hir_ty..mir..eval..MirEvalEr
     i8 12, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.exit"
     i8 13, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.exit"
     i8 14, label %118
+    i8 15, label %8
   ]
+
+default.unreachable25:                            ; preds = %1
+  unreachable
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -8179,7 +8187,7 @@ common.resume:                                    ; preds = %134, %.body, %124, 
   invoke void @"_ZN4core3ptr197drop_in_place$LT$alloc..vec..Vec$LT$$LP$either..Either$LT$hir_def..FunctionId$C$chalk_ir..ClosureId$LT$hir_ty..interner..Interner$GT$$GT$$C$hir_ty..mir..MirSpan$C$hir_def..DefWithBodyId$RP$$GT$$GT$17hb1dcb5f059696479E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117) #22
           to label %common.resume unwind label %147
 
-"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.exit": ; preds = %129, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i17", %108, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca28e788f3543be6E.llvm.11905809803391100490.exit.i.i", %82, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i8", %44, %39, %34, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i", %11, %8, %"_ZN4core3ptr197drop_in_place$LT$alloc..vec..Vec$LT$$LP$either..Either$LT$hir_def..FunctionId$C$chalk_ir..ClosureId$LT$hir_ty..interner..Interner$GT$$GT$$C$hir_ty..mir..MirSpan$C$hir_def..DefWithBodyId$RP$$GT$$GT$17hb1dcb5f059696479E.exit", %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$hir_ty..consteval..ConstEvalError$GT$$GT$17h2926fc70667c7992E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit13", %69, %67, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit6", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit4", %1, %1, %1
+"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.exit": ; preds = %129, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i17", %108, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca28e788f3543be6E.llvm.11905809803391100490.exit.i.i", %82, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i8", %44, %39, %34, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i", %11, %8, %1, %1, %1, %"_ZN4core3ptr197drop_in_place$LT$alloc..vec..Vec$LT$$LP$either..Either$LT$hir_def..FunctionId$C$chalk_ir..ClosureId$LT$hir_ty..interner..Interner$GT$$GT$$C$hir_ty..mir..MirSpan$C$hir_def..DefWithBodyId$RP$$GT$$GT$17hb1dcb5f059696479E.exit", %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$hir_ty..consteval..ConstEvalError$GT$$GT$17h2926fc70667c7992E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit13", %69, %67, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit6", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit4"
   ret void
 
 118:                                              ; preds = %1
@@ -159717,11 +159725,15 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit270
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %44)
   %320 = load i64, ptr %9, align 16, !range !531, !alias.scope !16137, !noundef !388
-  switch i64 %320, label %321 [
+  switch i64 %320, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$salsa..derived..slot..Memo$LT$core..result..Result$LT$i128$C$hir_ty..consteval..ConstEvalError$GT$$GT$$GT$$GT$17hbbe3df46f5677b69E.exit"
     i64 2, label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$i128$C$hir_ty..consteval..ConstEvalError$GT$$GT$$GT$17h7cd30c9ddd36f3ccE.llvm.11905809803391100490.exit.i.i"
     i64 0, label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$i128$C$hir_ty..consteval..ConstEvalError$GT$$GT$$GT$17h7cd30c9ddd36f3ccE.llvm.11905809803391100490.exit.i.i"
+    i64 1, label %321
   ]
+
+default.unreachable:                              ; preds = %319
+  unreachable
 
 321:                                              ; preds = %319
   %322 = getelementptr inbounds i8, ptr %9, i64 8

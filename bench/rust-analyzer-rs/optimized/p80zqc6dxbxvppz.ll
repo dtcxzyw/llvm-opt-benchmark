@@ -66615,7 +66615,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$hir_ty..mir..eval..
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = load i8, ptr %0, align 8, !range !1068, !noundef !26
-  switch i8 %7, label %8 [
+  switch i8 %7, label %default.unreachable16 [
     i8 0, label %14
     i8 1, label %24
     i8 2, label %40
@@ -66631,7 +66631,11 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$hir_ty..mir..eval..
     i8 12, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.llvm.2869318172927361419.exit"
     i8 13, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.llvm.2869318172927361419.exit"
     i8 14, label %119
+    i8 15, label %8
   ]
+
+default.unreachable16:                            ; preds = %1
+  unreachable
 
 8:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12917)
@@ -66909,7 +66913,7 @@ common.resume:                                    ; preds = %135, %.body, %125, 
   invoke void @"_ZN4core3ptr197drop_in_place$LT$alloc..vec..Vec$LT$$LP$either..Either$LT$hir_def..FunctionId$C$chalk_ir..ClosureId$LT$hir_ty..interner..Interner$GT$$GT$$C$hir_ty..mir..MirSpan$C$hir_def..DefWithBodyId$RP$$GT$$GT$17hb1dcb5f059696479E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %118) #49
           to label %common.resume unwind label %148
 
-"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.llvm.2869318172927361419.exit": ; preds = %130, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i10", %109, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca28e788f3543be6E.llvm.11905809803391100490.exit.i.i", %83, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i6", %45, %40, %35, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2869318172927361419.exit.i.i", %8, %"_ZN4core3ptr197drop_in_place$LT$alloc..vec..Vec$LT$$LP$either..Either$LT$hir_def..FunctionId$C$chalk_ir..ClosureId$LT$hir_ty..interner..Interner$GT$$GT$$C$hir_ty..mir..MirSpan$C$hir_def..DefWithBodyId$RP$$GT$$GT$17hb1dcb5f059696479E.exit", %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$hir_ty..consteval..ConstEvalError$GT$$GT$17h2926fc70667c7992E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit9", %70, %68, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit5", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit3", %1, %1, %1
+"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hf6faf917d959711bE.llvm.2869318172927361419.exit": ; preds = %130, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i10", %109, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca28e788f3543be6E.llvm.11905809803391100490.exit.i.i", %83, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i6", %45, %40, %35, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c499b3f418eca8aE.llvm.11905809803391100490.exit.i.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2869318172927361419.exit.i.i", %8, %1, %1, %1, %"_ZN4core3ptr197drop_in_place$LT$alloc..vec..Vec$LT$$LP$either..Either$LT$hir_def..FunctionId$C$chalk_ir..ClosureId$LT$hir_ty..interner..Interner$GT$$GT$$C$hir_ty..mir..MirSpan$C$hir_def..DefWithBodyId$RP$$GT$$GT$17hb1dcb5f059696479E.exit", %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$hir_ty..consteval..ConstEvalError$GT$$GT$17h2926fc70667c7992E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit9", %70, %68, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit5", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe63ba82eb106b66E.exit3"
   ret void
 
 119:                                              ; preds = %1
@@ -68784,11 +68788,15 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$chalk_ir..WhereClau
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %8
     i64 1, label %25
     i64 2, label %26
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -112619,7 +112627,7 @@ define internal fastcc void @_ZN6hir_ty17method_resolution13InherentImpls15colle
 .thread4.i:                                       ; preds = %.noexc38
   %185 = load i32, ptr %153, align 8, !range !636, !noalias !22794, !noundef !26
   %186 = load i32, ptr %154, align 4, !noalias !22794, !noundef !26
-  switch i32 %185, label %default.unreachable [
+  switch i32 %185, label %.thread4.i.unreachabledefault [
     i32 0, label %203
     i32 1, label %214
     i32 2, label %225
@@ -112636,11 +112644,11 @@ define internal fastcc void @_ZN6hir_ty17method_resolution13InherentImpls15colle
 .thread.i..thread.thread11.i_crit_edge:           ; preds = %.thread.i
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !22810
-  %.pre174 = load i64, ptr %.pre, align 8, !range !1746, !noalias !22810
+  %.pre173 = load i64, ptr %.pre, align 8, !range !1746, !noalias !22810
   br label %.thread.thread11.i
 
 .thread.thread11.i:                               ; preds = %.thread.i..thread.thread11.i_crit_edge, %170
-  %188 = phi i64 [ %.pre174, %.thread.i..thread.thread11.i_crit_edge ], [ %173, %170 ]
+  %188 = phi i64 [ %.pre173, %.thread.i..thread.thread11.i_crit_edge ], [ %173, %170 ]
   %189 = phi ptr [ %.pre, %.thread.i..thread.thread11.i_crit_edge ], [ %172, %170 ]
   %190 = icmp eq i64 %188, 2
   br i1 %190, label %191, label %.loopexit149
@@ -112676,7 +112684,10 @@ define internal fastcc void @_ZN6hir_ty17method_resolution13InherentImpls15colle
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hde9243afe9cce15cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
           to label %"_ZN4core6option15Option$LT$T$GT$6map_or17h319c7fa2de4513aaE.exit.i" unwind label %.loopexit.split-lp.loopexit.split-lp
 
-default.unreachable:                              ; preds = %.thread4.i, %246
+.thread4.i.unreachabledefault:                    ; preds = %.thread4.i
+  unreachable
+
+default.unreachable:                              ; preds = %246
   unreachable
 
 203:                                              ; preds = %.thread4.i
@@ -113003,11 +113014,11 @@ _ZN6hir_ty17method_resolution25is_inherent_impl_coherent17h302c4580c8781101E.exi
   br label %357
 
 .thread.sink.split:                               ; preds = %.noexc61, %.loopexit149, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8a4381f67d9aed9dE.exit79"
-  %.sink184 = phi ptr [ %427, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8a4381f67d9aed9dE.exit79" ], [ %42, %.loopexit149 ], [ %42, %.noexc61 ]
-  %.sink183 = phi i64 [ %426, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8a4381f67d9aed9dE.exit79" ], [ %280, %.loopexit149 ], [ %.pre.i60, %.noexc61 ]
+  %.sink183 = phi ptr [ %427, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8a4381f67d9aed9dE.exit79" ], [ %42, %.loopexit149 ], [ %42, %.noexc61 ]
+  %.sink182 = phi i64 [ %426, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8a4381f67d9aed9dE.exit79" ], [ %280, %.loopexit149 ], [ %.pre.i60, %.noexc61 ]
   %.sink = phi ptr [ %421, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8a4381f67d9aed9dE.exit79" ], [ %41, %.loopexit149 ], [ %41, %.noexc61 ]
-  %321 = load ptr, ptr %.sink184, align 8, !nonnull !26, !noundef !26
-  %322 = getelementptr inbounds i32, ptr %321, i64 %.sink183
+  %321 = load ptr, ptr %.sink183, align 8, !nonnull !26, !noundef !26
+  %322 = getelementptr inbounds i32, ptr %321, i64 %.sink182
   store i32 %69, ptr %322, align 4
   %323 = load i64, ptr %.sink, align 8, !noundef !26
   %324 = add i64 %323, 1

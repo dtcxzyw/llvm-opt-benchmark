@@ -117240,9 +117240,10 @@ _ZNK4toml6detail6region3strB5cxx11Ev.exit261:     ; preds = %322
   %339 = load ptr, ptr %68, align 8
   %340 = load i64, ptr %326, align 8
   %341 = urem i64 %340, 3
-  switch i64 %341, label %376 [
+  switch i64 %341, label %default.unreachable442 [
     i64 2, label %346
     i64 1, label %360
+    i64 0, label %376
   ]
 
 342:                                              ; preds = %322, %320
@@ -117332,6 +117333,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %373
   %374 = load ptr, ptr %68, align 8
   %375 = getelementptr inbounds i8, ptr %374, i64 %364
   br label %thread-pre-split
+
+default.unreachable442:                           ; preds = %334
+  unreachable
 
 thread-pre-split:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
   %.sink = phi ptr [ %359, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %375, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ]

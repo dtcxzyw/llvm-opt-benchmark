@@ -8449,12 +8449,16 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   %.sroa.12.sroa.5.0.copyload.i = load i32, ptr %.sroa.12.sroa.5.0..sroa.12.0..sroa_idx16.sroa_idx.i, align 4, !noalias !2767
   %.sroa.12.sroa.6.0..sroa.12.0..sroa_idx16.sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 32
   %.sroa.12.sroa.6.0.copyload.i = load i8, ptr %.sroa.12.sroa.6.0..sroa.12.0..sroa_idx16.sroa_idx.i, align 8, !noalias !2767
-  switch i32 %.sroa.0.0.copyload6.i, label %19 [
+  switch i32 %.sroa.0.0.copyload6.i, label %default.unreachable.i.i.i.i [
     i32 4, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cba97d36392d5f5E.llvm.17934416572435023626.exit.thread.i"
     i32 0, label %24
     i32 1, label %30
     i32 2, label %36
+    i32 3, label %19
   ]
+
+default.unreachable.i.i.i.i:                      ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cba97d36392d5f5E.llvm.17934416572435023626.exit.i"
+  unreachable
 
 19:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cba97d36392d5f5E.llvm.17934416572435023626.exit.i"
   %.sroa.11.0..sroa_idx14.i = getelementptr inbounds i8, ptr %17, i64 16
@@ -10598,11 +10602,15 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ide_
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3734)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3737)
-  switch i32 %2, label %5 [
+  switch i32 %2, label %default.unreachable.i [
     i32 0, label %12
     i32 1, label %19
     i32 2, label %26
+    i32 3, label %5
   ]
+
+default.unreachable.i:                            ; preds = %4
+  unreachable
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -26133,11 +26141,15 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
   %6 = load <2 x i32>, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   %.sroa.10.0.copyload = load i8, ptr %.sroa.10.0..sroa_idx, align 8
-  switch i32 %.sroa.0.0.copyload, label %7 [
+  switch i32 %.sroa.0.0.copyload, label %default.unreachable.i [
     i32 0, label %12
     i32 1, label %18
     i32 2, label %24
+    i32 3, label %7
   ]
+
+default.unreachable.i:                            ; preds = %3
+  unreachable
 
 7:                                                ; preds = %3
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -26558,11 +26570,15 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.10.0.copyload = load i8, ptr %.sroa.10.0..sroa_idx, align 8
-  switch i32 %.sroa.0.0.copyload, label %7 [
+  switch i32 %.sroa.0.0.copyload, label %default.unreachable.i [
     i32 0, label %12
     i32 1, label %18
     i32 2, label %24
+    i32 3, label %7
   ]
+
+default.unreachable.i:                            ; preds = %2
+  unreachable
 
 7:                                                ; preds = %2
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -37101,11 +37117,15 @@ define hidden void @"_ZN3ide17highlight_related20highlight_references28_$u7b$$u7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12265)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12268)
   %9 = load i32, ptr %2, align 8, !range !10144, !alias.scope !12271, !noundef !4
-  switch i32 %9, label %10 [
+  switch i32 %9, label %default.unreachable [
     i32 0, label %17
     i32 1, label %24
     i32 2, label %31
+    i32 3, label %10
   ]
+
+default.unreachable:                              ; preds = %3
+  unreachable
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %2, i64 16
@@ -38464,11 +38484,15 @@ define hidden void @"_ZN3ide10references13find_all_refs28_$u7b$$u7b$closure$u7d$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12618)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12621)
   %9 = load i32, ptr %2, align 8, !range !10144, !alias.scope !12624, !noundef !4
-  switch i32 %9, label %10 [
+  switch i32 %9, label %default.unreachable [
     i32 0, label %17
     i32 1, label %24
     i32 2, label %31
+    i32 3, label %10
   ]
+
+default.unreachable:                              ; preds = %3
+  unreachable
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %2, i64 16
@@ -38729,11 +38753,15 @@ select.unfold:                                    ; preds = %.noexc, %29
   call void @llvm.experimental.noalias.scope.decl(metadata !12735)
   call void @llvm.experimental.noalias.scope.decl(metadata !12738)
   call void @llvm.experimental.noalias.scope.decl(metadata !12741)
-  switch i32 %.pr, label %81 [
+  switch i32 %.pr, label %default.unreachable.i.i [
     i32 0, label %88
     i32 1, label %95
     i32 2, label %102
+    i32 3, label %81
   ]
+
+default.unreachable.i.i:                          ; preds = %80
+  unreachable
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds i8, ptr %12, i64 16

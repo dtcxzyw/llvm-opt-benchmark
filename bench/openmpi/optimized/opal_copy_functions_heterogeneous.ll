@@ -2045,111 +2045,119 @@ define internal noundef i32 @copy_cxx_bool_heterogeneous(ptr nocapture noundef r
   br i1 %.not, label %datatype_check.exit, label %15
 
 15:                                               ; preds = %9
-  switch i32 %12, label %datatype_check.exit [
-    i32 0, label %16
-    i32 1024, label %datatype_check.exit.thread
-    i32 2048, label %17
+  %16 = lshr exact i32 %12, 10
+  switch i32 %16, label %default.unreachable [
+    i32 0, label %17
+    i32 1, label %datatype_check.exit.thread
+    i32 2, label %18
+    i32 3, label %datatype_check.exit
   ]
-
-16:                                               ; preds = %15
-  br label %datatype_check.exit
 
 17:                                               ; preds = %15
+  br label %datatype_check.exit
+
+18:                                               ; preds = %15
   br label %datatype_check.exit.thread
 
-datatype_check.exit.thread:                       ; preds = %17, %15
-  %.044.ph = phi i64 [ 4, %17 ], [ 2, %15 ]
-  %spec.select81 = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
-  br label %23
+default.unreachable:                              ; preds = %24, %15
+  unreachable
 
-datatype_check.exit:                              ; preds = %15, %16, %9
-  %.044 = phi i64 [ %4, %15 ], [ 1, %16 ], [ %4, %9 ]
+datatype_check.exit.thread:                       ; preds = %18, %15
+  %.045.ph = phi i64 [ 4, %18 ], [ 2, %15 ]
+  %spec.select82 = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
+  br label %24
+
+datatype_check.exit:                              ; preds = %17, %15, %9
+  %.045 = phi i64 [ %4, %15 ], [ 1, %17 ], [ %4, %9 ]
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
-  %18 = icmp ne i64 %7, 1
-  %19 = icmp ne i64 %.044, 1
-  %or.cond = or i1 %18, %19
-  br i1 %or.cond, label %23, label %20
+  %19 = icmp ne i64 %7, 1
+  %20 = icmp ne i64 %.045, 1
+  %or.cond = or i1 %19, %20
+  br i1 %or.cond, label %24, label %21
 
-20:                                               ; preds = %datatype_check.exit
-  %21 = xor i32 %13, %11
-  %22 = and i32 %21, 3072
-  %.not51 = icmp eq i32 %22, 0
-  br i1 %.not51, label %42, label %23
+21:                                               ; preds = %datatype_check.exit
+  %22 = xor i32 %13, %11
+  %23 = and i32 %22, 3072
+  %.not52 = icmp eq i32 %23, 0
+  br i1 %.not52, label %45, label %24
 
-23:                                               ; preds = %datatype_check.exit.thread, %20, %datatype_check.exit
-  %spec.select86 = phi i64 [ %spec.select81, %datatype_check.exit.thread ], [ %spec.select, %20 ], [ %spec.select, %datatype_check.exit ]
-  %.04484 = phi i64 [ %.044.ph, %datatype_check.exit.thread ], [ 1, %20 ], [ %.044, %datatype_check.exit ]
-  switch i32 %12, label %.loopexit [
+24:                                               ; preds = %datatype_check.exit.thread, %21, %datatype_check.exit
+  %spec.select87 = phi i64 [ %spec.select82, %datatype_check.exit.thread ], [ %spec.select, %21 ], [ %spec.select, %datatype_check.exit ]
+  %.04585 = phi i64 [ %.045.ph, %datatype_check.exit.thread ], [ 1, %21 ], [ %.045, %datatype_check.exit ]
+  %25 = lshr i32 %11, 10
+  %26 = and i32 %25, 3
+  switch i32 %26, label %default.unreachable [
     i32 0, label %.preheader
-    i32 1024, label %.preheader58
-    i32 2048, label %.preheader60
+    i32 1, label %.preheader59
+    i32 2, label %.preheader61
+    i32 3, label %.loopexit
   ]
 
-.preheader60:                                     ; preds = %23
-  %.not73 = icmp eq i64 %spec.select86, 0
-  br i1 %.not73, label %.loopexit, label %.lr.ph
+.preheader61:                                     ; preds = %24
+  %.not74 = icmp eq i64 %spec.select87, 0
+  br i1 %.not74, label %.loopexit, label %.lr.ph
 
-.preheader58:                                     ; preds = %23
-  %.not74 = icmp eq i64 %spec.select86, 0
-  br i1 %.not74, label %.loopexit, label %.lr.ph68
+.preheader59:                                     ; preds = %24
+  %.not75 = icmp eq i64 %spec.select87, 0
+  br i1 %.not75, label %.loopexit, label %.lr.ph69
 
-.preheader:                                       ; preds = %23
-  %.not75 = icmp eq i64 %spec.select86, 0
-  br i1 %.not75, label %.loopexit, label %.lr.ph72
+.preheader:                                       ; preds = %24
+  %.not76 = icmp eq i64 %spec.select87, 0
+  br i1 %.not76, label %.loopexit, label %.lr.ph73
 
-.lr.ph72:                                         ; preds = %.preheader, %.lr.ph72
-  %.071 = phi ptr [ %28, %.lr.ph72 ], [ %2, %.preheader ]
-  %.04670 = phi ptr [ %27, %.lr.ph72 ], [ %5, %.preheader ]
-  %.04969 = phi i64 [ %29, %.lr.ph72 ], [ 0, %.preheader ]
-  %24 = load i8, ptr %.071, align 1
-  %25 = icmp ne i8 %24, 0
-  %26 = zext i1 %25 to i8
-  store i8 %26, ptr %.04670, align 1
-  %27 = getelementptr inbounds i8, ptr %.04670, i64 %7
-  %28 = getelementptr inbounds i8, ptr %.071, i64 %.04484
-  %29 = add nuw i64 %.04969, 1
-  %exitcond79.not = icmp eq i64 %29, %spec.select86
-  br i1 %exitcond79.not, label %.loopexit, label %.lr.ph72, !llvm.loop !25
+.lr.ph73:                                         ; preds = %.preheader, %.lr.ph73
+  %.072 = phi ptr [ %31, %.lr.ph73 ], [ %2, %.preheader ]
+  %.04771 = phi ptr [ %30, %.lr.ph73 ], [ %5, %.preheader ]
+  %.05070 = phi i64 [ %32, %.lr.ph73 ], [ 0, %.preheader ]
+  %27 = load i8, ptr %.072, align 1
+  %28 = icmp ne i8 %27, 0
+  %29 = zext i1 %28 to i8
+  store i8 %29, ptr %.04771, align 1
+  %30 = getelementptr inbounds i8, ptr %.04771, i64 %7
+  %31 = getelementptr inbounds i8, ptr %.072, i64 %.04585
+  %32 = add nuw i64 %.05070, 1
+  %exitcond80.not = icmp eq i64 %32, %spec.select87
+  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph73, !llvm.loop !25
 
-.lr.ph68:                                         ; preds = %.preheader58, %.lr.ph68
-  %.167 = phi ptr [ %34, %.lr.ph68 ], [ %2, %.preheader58 ]
-  %.04566 = phi i64 [ %35, %.lr.ph68 ], [ 0, %.preheader58 ]
-  %.14765 = phi ptr [ %33, %.lr.ph68 ], [ %5, %.preheader58 ]
-  %30 = load i16, ptr %.167, align 2
-  %31 = icmp ne i16 %30, 0
-  %32 = zext i1 %31 to i8
-  store i8 %32, ptr %.14765, align 1
-  %33 = getelementptr inbounds i8, ptr %.14765, i64 %7
-  %34 = getelementptr inbounds i8, ptr %.167, i64 %.04484
-  %35 = add nuw i64 %.04566, 1
-  %exitcond78.not = icmp eq i64 %35, %spec.select86
-  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph68, !llvm.loop !26
+.lr.ph69:                                         ; preds = %.preheader59, %.lr.ph69
+  %.168 = phi ptr [ %37, %.lr.ph69 ], [ %2, %.preheader59 ]
+  %.04667 = phi i64 [ %38, %.lr.ph69 ], [ 0, %.preheader59 ]
+  %.14866 = phi ptr [ %36, %.lr.ph69 ], [ %5, %.preheader59 ]
+  %33 = load i16, ptr %.168, align 2
+  %34 = icmp ne i16 %33, 0
+  %35 = zext i1 %34 to i8
+  store i8 %35, ptr %.14866, align 1
+  %36 = getelementptr inbounds i8, ptr %.14866, i64 %7
+  %37 = getelementptr inbounds i8, ptr %.168, i64 %.04585
+  %38 = add nuw i64 %.04667, 1
+  %exitcond79.not = icmp eq i64 %38, %spec.select87
+  br i1 %exitcond79.not, label %.loopexit, label %.lr.ph69, !llvm.loop !26
 
-.lr.ph:                                           ; preds = %.preheader60, %.lr.ph
-  %.264 = phi ptr [ %40, %.lr.ph ], [ %2, %.preheader60 ]
-  %.04363 = phi i64 [ %41, %.lr.ph ], [ 0, %.preheader60 ]
-  %.24862 = phi ptr [ %39, %.lr.ph ], [ %5, %.preheader60 ]
-  %36 = load i32, ptr %.264, align 4
-  %37 = icmp ne i32 %36, 0
-  %38 = zext i1 %37 to i8
-  store i8 %38, ptr %.24862, align 1
-  %39 = getelementptr inbounds i8, ptr %.24862, i64 %7
-  %40 = getelementptr inbounds i8, ptr %.264, i64 %.04484
-  %41 = add nuw i64 %.04363, 1
-  %exitcond.not = icmp eq i64 %41, %spec.select86
+.lr.ph:                                           ; preds = %.preheader61, %.lr.ph
+  %.265 = phi ptr [ %43, %.lr.ph ], [ %2, %.preheader61 ]
+  %.04464 = phi i64 [ %44, %.lr.ph ], [ 0, %.preheader61 ]
+  %.24963 = phi ptr [ %42, %.lr.ph ], [ %5, %.preheader61 ]
+  %39 = load i32, ptr %.265, align 4
+  %40 = icmp ne i32 %39, 0
+  %41 = zext i1 %40 to i8
+  store i8 %41, ptr %.24963, align 1
+  %42 = getelementptr inbounds i8, ptr %.24963, i64 %7
+  %43 = getelementptr inbounds i8, ptr %.265, i64 %.04585
+  %44 = add nuw i64 %.04464, 1
+  %exitcond.not = icmp eq i64 %44, %spec.select87
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
-42:                                               ; preds = %20
+45:                                               ; preds = %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %2, i64 %spec.select, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph68, %.lr.ph72, %.preheader60, %.preheader58, %.preheader, %23, %42
-  %spec.select85 = phi i64 [ 0, %.preheader60 ], [ 0, %.preheader58 ], [ 0, %.preheader ], [ %spec.select86, %23 ], [ %spec.select, %42 ], [ %spec.select86, %.lr.ph72 ], [ %spec.select86, %.lr.ph68 ], [ %spec.select86, %.lr.ph ]
-  %.04483 = phi i64 [ %.04484, %.preheader60 ], [ %.04484, %.preheader58 ], [ %.04484, %.preheader ], [ %.04484, %23 ], [ 1, %42 ], [ %.04484, %.lr.ph72 ], [ %.04484, %.lr.ph68 ], [ %.04484, %.lr.ph ]
-  %43 = mul i64 %.04483, %spec.select85
-  store i64 %43, ptr %8, align 8
-  %44 = trunc i64 %spec.select85 to i32
-  ret i32 %44
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph69, %.lr.ph73, %.preheader61, %.preheader59, %.preheader, %24, %45
+  %spec.select86 = phi i64 [ 0, %.preheader61 ], [ 0, %.preheader59 ], [ 0, %.preheader ], [ %spec.select87, %24 ], [ %spec.select, %45 ], [ %spec.select87, %.lr.ph73 ], [ %spec.select87, %.lr.ph69 ], [ %spec.select87, %.lr.ph ]
+  %.04584 = phi i64 [ %.04585, %.preheader61 ], [ %.04585, %.preheader59 ], [ %.04585, %.preheader ], [ %.04585, %24 ], [ 1, %45 ], [ %.04585, %.lr.ph73 ], [ %.04585, %.lr.ph69 ], [ %.04585, %.lr.ph ]
+  %46 = mul i64 %.04584, %spec.select86
+  store i64 %46, ptr %8, align 8
+  %47 = trunc i64 %spec.select86 to i32
+  ret i32 %47
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

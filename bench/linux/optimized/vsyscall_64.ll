@@ -496,7 +496,7 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
 158:                                              ; preds = %123
   %159 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
   %160 = inttoptr i64 %159 to ptr
-  switch i32 %74, label %211 [
+  switch i32 %74, label %default.unreachable [
     i32 0, label %161
     i32 1, label %181
     i32 2, label %191
@@ -587,8 +587,11 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
   %210 = tail call i32 @force_sig_fault(i32 noundef 11, i32 noundef 1, ptr noundef %204) #15
   br label %.thread7
 
-211:                                              ; preds = %201, %181, %171, %158
-  %212 = phi i64 [ 0, %158 ], [ 96, %171 ], [ 201, %181 ], [ 309, %201 ]
+default.unreachable:                              ; preds = %228, %158
+  unreachable
+
+211:                                              ; preds = %201, %181, %171
+  %212 = phi i64 [ 96, %171 ], [ 201, %181 ], [ 309, %201 ]
   %213 = getelementptr inbounds i8, ptr %1, i64 120
   store i64 %212, ptr %213, align 8
   %214 = getelementptr inbounds i8, ptr %1, i64 80
@@ -602,7 +605,7 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
 219:                                              ; preds = %211
   %220 = tail call i32 @__secure_computing(ptr noundef null) #15
   %221 = icmp eq i32 %220, 0
-  br i1 %221, label %.thread, label %.thread9
+  br i1 %221, label %.thread, label %.thread10
 
 .thread:                                          ; preds = %219
   %.pre = load i64, ptr %213, align 8
@@ -614,16 +617,16 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
   %224 = icmp eq i64 %223, %2
   br i1 %224, label %228, label %227
 
-.thread9:                                         ; preds = %219
+.thread10:                                        ; preds = %219
   %225 = load i64, ptr %38, align 8
   %226 = icmp eq i64 %225, %2
-  br i1 %226, label %.thread10, label %227
+  br i1 %226, label %.thread11, label %227
 
-.thread10:                                        ; preds = %.thread9
+.thread11:                                        ; preds = %.thread10
   store i64 -1, ptr %213, align 8
   br label %253
 
-227:                                              ; preds = %.thread9, %.thread.thread, %.thread
+227:                                              ; preds = %.thread10, %.thread.thread, %.thread
   tail call fastcc void @warn_bad_vsyscall(ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef nonnull @.str.8)
   tail call void @force_exit_sig(i32 noundef 31) #15
   br label %257
@@ -635,10 +638,11 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
   %231 = and i8 %230, 2
   %232 = or i8 %230, 2
   store i8 %232, ptr %229, align 16
-  switch i32 %74, label %.thread8 [
+  switch i32 %74, label %default.unreachable [
     i32 0, label %233
     i32 1, label %235
     i32 2, label %237
+    i32 3, label %.thread8
   ]
 
 .thread8:                                         ; preds = %228
@@ -688,7 +692,7 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
   store i64 %242, ptr %214, align 8
   br label %253
 
-253:                                              ; preds = %.thread10, %252
+253:                                              ; preds = %.thread11, %252
   store i64 %130, ptr %38, align 8
   %254 = load i64, ptr %125, align 8
   %255 = add i64 %254, 8

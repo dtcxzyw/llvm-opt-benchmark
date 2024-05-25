@@ -730,6 +730,9 @@ define dso_local void @add_path(ptr nocapture noundef %0, ptr noundef %1) local_
   %204 = fcmp ult double %201, %203
   br i1 %204, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread149.sink.split
 
+default.unreachable:                              ; preds = %94
+  unreachable
+
 compare_path_costs_fuzzily.exit:                  ; preds = %179
   %205 = load i8, ptr %19, align 1
   %206 = and i8 %205, 1
@@ -751,9 +754,6 @@ compare_path_costs_fuzzily.exit.thread155:        ; preds = %153, %138, %129, %1
 215:                                              ; preds = %compare_path_costs_fuzzily.exit.thread155
   tail call void @pfree(ptr noundef nonnull %29) #10
   br label %226
-
-default.unreachable:                              ; preds = %94
-  unreachable
 
 compare_path_costs_fuzzily.exit.thread149.sink.split: ; preds = %200, %159, %123
   %216 = load i8, ptr %19, align 1

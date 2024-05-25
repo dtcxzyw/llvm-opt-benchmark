@@ -9579,7 +9579,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator11defi
     i64 13, label %961
   ]
 
-default.unreachable70:                            ; preds = %401, %5
+default.unreachable70:                            ; preds = %445, %401, %5
   unreachable
 
 144:                                              ; preds = %5
@@ -10606,10 +10606,11 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
 445:                                              ; preds = %442
   %446 = getelementptr inbounds i8, ptr %439, i64 32
   %447 = load i64, ptr %446, align 8, !range !3, !noundef !4
-  switch i64 %447, label %.critedge.i.backedge [
+  switch i64 %447, label %default.unreachable70 [
     i64 1, label %460
     i64 2, label %464
     i64 3, label %468
+    i64 0, label %.critedge.i.backedge
   ]
 
 448:                                              ; preds = %444

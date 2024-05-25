@@ -1104,7 +1104,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.789 = private unnamed_addr constant [19 x i8] c"Paging Group Paras\00", align 1
 @switch.table.req_ref_ra_est_cause_convert = private unnamed_addr constant [8 x ptr] [ptr @.str.471, ptr @.str.471, ptr @.str.471, ptr @.str.471, ptr @.str.472, ptr @.str.473, ptr @.str.474, ptr @.str.475], align 8
 @switch.table.req_ref_ra_est_cause_convert.55 = private unnamed_addr constant [8 x ptr] [ptr @.str.476, ptr @.str.477, ptr @.str.478, ptr @.str.479, ptr @.str.480, ptr @.str.481, ptr @.str.476, ptr @.str.482], align 8
-@switch.table.dissect_rsl_ie_act_type = private unnamed_addr constant [3 x ptr] [ptr @hf_rsl_a1_0, ptr @hf_rsl_a1_1, ptr @hf_rsl_a1_2], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_rsl() local_unnamed_addr #0 {
@@ -3864,20 +3863,31 @@ define internal fastcc noundef i32 @dissect_rsl_ie_act_type(ptr noundef %0, ptr 
   %13 = and i8 %12, 3
   %14 = load i32, ptr @hf_rsl_a3a2, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %14, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #5
-  %.not = icmp eq i8 %13, 3
-  br i1 %.not, label %19, label %switch.lookup
+  switch i8 %13, label %default.unreachable [
+    i8 0, label %.sink.split
+    i8 1, label %16
+    i8 2, label %17
+    i8 3, label %20
+  ]
 
-switch.lookup:                                    ; preds = %3
-  %16 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_rsl_ie_act_type, i64 0, i64 %16
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %17 = load i32, ptr %switch.load, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %17, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #5
-  br label %19
+16:                                               ; preds = %3
+  br label %.sink.split
 
-19:                                               ; preds = %3, %switch.lookup
-  %20 = add i32 %2, 2
-  ret i32 %20
+17:                                               ; preds = %3
+  br label %.sink.split
+
+default.unreachable:                              ; preds = %3
+  unreachable
+
+.sink.split:                                      ; preds = %3, %17, %16
+  %hf_rsl_a1_0.sink = phi ptr [ @hf_rsl_a1_1, %16 ], [ @hf_rsl_a1_2, %17 ], [ @hf_rsl_a1_0, %3 ]
+  %18 = load i32, ptr %hf_rsl_a1_0.sink, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %18, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #5
+  br label %20
+
+20:                                               ; preds = %.sink.split, %3
+  %21 = add i32 %2, 2
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable

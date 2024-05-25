@@ -3999,10 +3999,11 @@ define i32 @Prs_CreateSignalIn(ptr noundef %0, ptr nocapture noundef readonly %1
 
 5:                                                ; preds = %3
   %6 = and i32 %2, 3
-  switch i32 %6, label %50 [
+  switch i32 %6, label %default.unreachable [
     i32 0, label %7
     i32 2, label %24
     i32 1, label %26
+    i32 3, label %50
   ]
 
 7:                                                ; preds = %5
@@ -4083,6 +4084,9 @@ Prs_CreateVerilogFindFon.exit39:                  ; preds = %26
   %48 = load i32, ptr %47, align 4
   %49 = tail call i32 @Prs_CreateSlice(ptr noundef nonnull %0, i32 noundef %39, ptr nonnull poison, i32 noundef %48)
   br label %Prs_CreateVerilogFindFon.exit
+
+default.unreachable:                              ; preds = %5
+  unreachable
 
 50:                                               ; preds = %5
   %51 = tail call i32 @Prs_CreateCatIn(ptr noundef %0, ptr noundef %1, i32 noundef %4)

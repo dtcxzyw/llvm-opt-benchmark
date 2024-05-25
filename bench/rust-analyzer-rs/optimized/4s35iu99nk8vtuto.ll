@@ -574,7 +574,7 @@ define internal void @"_ZN4core3ptr54drop_in_place$LT$core..num..error..TryFromI
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hf340bbfe551fca58E"(i8 %.0.val, ptr %.8.val) unnamed_addr #1 {
-  switch i8 %.0.val, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h5d06d6aad57ea3c9E.exit" [
+  switch i8 %.0.val, label %default.unreachable [
     i8 0, label %1
     i8 1, label %7
     i8 2, label %13
@@ -582,7 +582,11 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_e
     i8 4, label %25
     i8 5, label %31
     i8 6, label %37
+    i8 7, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h5d06d6aad57ea3c9E.exit"
   ]
+
+default.unreachable:                              ; preds = %0
+  unreachable
 
 "_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h5d06d6aad57ea3c9E.exit.sink.split": ; preds = %37, %31, %25, %19, %13, %7, %1
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.8.val), !noalias !4
@@ -2537,7 +2541,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.ex
           to label %._crit_edge unwind label %.loopexit1108
 
 ._crit_edge:                                      ; preds = %158
-  %.pre2505 = load i32, ptr %134, align 4
+  %.pre2511 = load i32, ptr %134, align 4
   br label %378
 
 159:                                              ; preds = %152
@@ -3173,12 +3177,16 @@ _ZN6syntax3ast9token_ext8IsString6is_raw17h05bfaf79e1982593E.exit.i: ; preds = %
 
 346:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit41.i"
   %.val28.i = load ptr, ptr %94, align 8, !noalias !606
-  switch i8 %186, label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hf340bbfe551fca58E.exit.i" [
+  switch i8 %186, label %default.unreachable.i.i [
+    i8 7, label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..expr_ext..LiteralKind$GT$17hf340bbfe551fca58E.exit.i"
     i8 6, label %365
     i8 5, label %359
-    i8 4, label %353
     i8 3, label %347
+    i8 4, label %353
   ]
+
+default.unreachable.i.i:                          ; preds = %346
+  unreachable
 
 "_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..tokens..String$GT$17h5d06d6aad57ea3c9E.exit.sink.split.i.i": ; preds = %365, %359, %353, %347
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val28.i)
@@ -3252,7 +3260,7 @@ _ZN6syntax10validation16validate_literal17hc07533939226027eE.exit: ; preds = %37
   br label %1602
 
 378:                                              ; preds = %._crit_edge, %155
-  %379 = phi i32 [ %.pre2505, %._crit_edge ], [ %156, %155 ]
+  %379 = phi i32 [ %.pre2511, %._crit_edge ], [ %156, %155 ]
   %380 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %379, i32 1)
   %381 = extractvalue { i32, i1 } %380, 1
   br i1 %381, label %382, label %383
@@ -3318,10 +3326,10 @@ _ZN6syntax10validation16validate_literal17hc07533939226027eE.exit: ; preds = %37
 
 398:                                              ; preds = %395
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %97)
-          to label %._crit_edge2506 unwind label %.loopexit1113
+          to label %._crit_edge2512 unwind label %.loopexit1113
 
-._crit_edge2506:                                  ; preds = %398
-  %.pre2507 = load i32, ptr %134, align 4
+._crit_edge2512:                                  ; preds = %398
+  %.pre2513 = load i32, ptr %134, align 4
   br label %510
 
 399:                                              ; preds = %392
@@ -3644,8 +3652,8 @@ _ZN6syntax10validation14validate_const17h3feee6f425c3b198E.exit: ; preds = %509,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   br label %1602
 
-510:                                              ; preds = %._crit_edge2506, %395
-  %511 = phi i32 [ %.pre2507, %._crit_edge2506 ], [ %396, %395 ]
+510:                                              ; preds = %._crit_edge2512, %395
+  %511 = phi i32 [ %.pre2513, %._crit_edge2512 ], [ %396, %395 ]
   %512 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %511, i32 1)
   %513 = extractvalue { i32, i1 } %512, 1
   br i1 %513, label %514, label %515
@@ -3711,10 +3719,10 @@ _ZN6syntax10validation14validate_const17h3feee6f425c3b198E.exit: ; preds = %509,
 
 531:                                              ; preds = %528
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %97)
-          to label %._crit_edge2508 unwind label %.loopexit1118
+          to label %._crit_edge2514 unwind label %.loopexit1118
 
-._crit_edge2508:                                  ; preds = %531
-  %.pre2509 = load i32, ptr %134, align 4
+._crit_edge2514:                                  ; preds = %531
+  %.pre2515 = load i32, ptr %134, align 4
   br label %534
 
 532:                                              ; preds = %524
@@ -3727,8 +3735,8 @@ _ZN6syntax10validation14validate_const17h3feee6f425c3b198E.exit: ; preds = %509,
   invoke void @_ZN6syntax10validation5block19validate_block_expr17h602add759da1db9eE(ptr noundef nonnull %97, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %1602 unwind label %539
 
-534:                                              ; preds = %._crit_edge2508, %528
-  %535 = phi i32 [ %.pre2509, %._crit_edge2508 ], [ %529, %528 ]
+534:                                              ; preds = %._crit_edge2514, %528
+  %535 = phi i32 [ %.pre2515, %._crit_edge2514 ], [ %529, %528 ]
   %536 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %535, i32 1)
   %537 = extractvalue { i32, i1 } %536, 1
   br i1 %537, label %538, label %540
@@ -3799,10 +3807,10 @@ _ZN6syntax10validation14validate_const17h3feee6f425c3b198E.exit: ; preds = %509,
 
 556:                                              ; preds = %553
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %97)
-          to label %._crit_edge2510 unwind label %.thread780.loopexit
+          to label %._crit_edge2516 unwind label %.thread780.loopexit
 
-._crit_edge2510:                                  ; preds = %556
-  %.pre2511 = load i32, ptr %134, align 4
+._crit_edge2516:                                  ; preds = %556
+  %.pre2517 = load i32, ptr %134, align 4
   br label %560
 
 557:                                              ; preds = %549
@@ -3817,8 +3825,8 @@ _ZN6syntax10validation14validate_const17h3feee6f425c3b198E.exit: ; preds = %509,
   %559 = invoke noundef ptr @_ZN6syntax3ast7support5child17h035af122d60f3061E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %39)
           to label %_ZN6syntax3ast9generated5nodes9FieldExpr8name_ref17h983a63f598787192E.exit unwind label %565
 
-560:                                              ; preds = %._crit_edge2510, %553
-  %561 = phi i32 [ %.pre2511, %._crit_edge2510 ], [ %554, %553 ]
+560:                                              ; preds = %._crit_edge2516, %553
+  %561 = phi i32 [ %.pre2517, %._crit_edge2516 ], [ %554, %553 ]
   %562 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %561, i32 1)
   %563 = extractvalue { i32, i1 } %562, 1
   br i1 %563, label %564, label %582
@@ -3939,10 +3947,10 @@ _ZN6syntax3ast9generated5nodes9FieldExpr8name_ref17h983a63f598787192E.exit: ; pr
 
 598:                                              ; preds = %595
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %97)
-          to label %._crit_edge2512 unwind label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..FieldExpr$GT$17h189b71bbc4ed8042E.exit.thread846.loopexit"
+          to label %._crit_edge2518 unwind label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..FieldExpr$GT$17h189b71bbc4ed8042E.exit.thread846.loopexit"
 
-._crit_edge2512:                                  ; preds = %598
-  %.pre2513 = load i32, ptr %134, align 4
+._crit_edge2518:                                  ; preds = %598
+  %.pre2519 = load i32, ptr %134, align 4
   br label %602
 
 599:                                              ; preds = %591
@@ -3957,8 +3965,8 @@ _ZN6syntax3ast9generated5nodes9FieldExpr8name_ref17h983a63f598787192E.exit: ; pr
   %601 = invoke noundef ptr @_ZN6syntax3ast7support5child17h035af122d60f3061E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %38)
           to label %_ZN6syntax3ast9generated5nodes15RecordExprField8name_ref17hc847c9a776ce2e9cE.exit unwind label %607
 
-602:                                              ; preds = %._crit_edge2512, %595
-  %603 = phi i32 [ %.pre2513, %._crit_edge2512 ], [ %596, %595 ]
+602:                                              ; preds = %._crit_edge2518, %595
+  %603 = phi i32 [ %.pre2519, %._crit_edge2518 ], [ %596, %595 ]
   %604 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %603, i32 1)
   %605 = extractvalue { i32, i1 } %604, 1
   br i1 %605, label %606, label %622
@@ -4073,10 +4081,10 @@ _ZN6syntax3ast9generated5nodes15RecordExprField8name_ref17hc847c9a776ce2e9cE.exi
 
 637:                                              ; preds = %634
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %97)
-          to label %._crit_edge2514 unwind label %"_ZN4core3ptr67drop_in_place$LT$syntax..ast..generated..nodes..RecordExprField$GT$17h90beab05ee56aea7E.exit.thread908.loopexit"
+          to label %._crit_edge2520 unwind label %"_ZN4core3ptr67drop_in_place$LT$syntax..ast..generated..nodes..RecordExprField$GT$17h90beab05ee56aea7E.exit.thread908.loopexit"
 
-._crit_edge2514:                                  ; preds = %637
-  %.pre2515 = load i32, ptr %134, align 4
+._crit_edge2520:                                  ; preds = %637
+  %.pre2521 = load i32, ptr %134, align 4
   br label %969
 
 638:                                              ; preds = %631
@@ -5058,8 +5066,8 @@ _ZN6syntax10validation19validate_visibility17h630a2de020659375E.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   br label %1602
 
-969:                                              ; preds = %._crit_edge2514, %634
-  %970 = phi i32 [ %.pre2515, %._crit_edge2514 ], [ %635, %634 ]
+969:                                              ; preds = %._crit_edge2520, %634
+  %970 = phi i32 [ %.pre2521, %._crit_edge2520 ], [ %635, %634 ]
   %971 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %970, i32 1)
   %972 = extractvalue { i32, i1 } %971, 1
   br i1 %972, label %973, label %974
@@ -5125,10 +5133,10 @@ _ZN6syntax10validation19validate_visibility17h630a2de020659375E.exit: ; preds = 
 
 989:                                              ; preds = %986
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %97)
-          to label %._crit_edge2516 unwind label %.loopexit1132
+          to label %._crit_edge2522 unwind label %.loopexit1132
 
-._crit_edge2516:                                  ; preds = %989
-  %.pre2517 = load i32, ptr %134, align 4
+._crit_edge2522:                                  ; preds = %989
+  %.pre2523 = load i32, ptr %134, align 4
   br label %1069
 
 990:                                              ; preds = %983
@@ -5369,8 +5377,8 @@ _ZN6syntax10validation19validate_range_expr17h75da4e809c8e8fd5E.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   br label %1602
 
-1069:                                             ; preds = %._crit_edge2516, %986
-  %1070 = phi i32 [ %.pre2517, %._crit_edge2516 ], [ %987, %986 ]
+1069:                                             ; preds = %._crit_edge2522, %986
+  %1070 = phi i32 [ %.pre2523, %._crit_edge2522 ], [ %987, %986 ]
   %1071 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %1070, i32 1)
   %1072 = extractvalue { i32, i1 } %1071, 1
   br i1 %1072, label %1073, label %1074
@@ -5436,10 +5444,10 @@ _ZN6syntax10validation19validate_range_expr17h75da4e809c8e8fd5E.exit: ; preds = 
 
 1089:                                             ; preds = %1086
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %97)
-          to label %._crit_edge2518 unwind label %.loopexit1137
+          to label %._crit_edge2524 unwind label %.loopexit1137
 
-._crit_edge2518:                                  ; preds = %1089
-  %.pre2519 = load i32, ptr %134, align 4
+._crit_edge2524:                                  ; preds = %1089
+  %.pre2525 = load i32, ptr %134, align 4
   br label %1549
 
 1090:                                             ; preds = %1083
@@ -6817,8 +6825,8 @@ _ZN6syntax10validation22validate_path_keywords17h68f31563ac94b49dE.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %1602
 
-1549:                                             ; preds = %._crit_edge2518, %1086
-  %1550 = phi i32 [ %.pre2519, %._crit_edge2518 ], [ %1087, %1086 ]
+1549:                                             ; preds = %._crit_edge2524, %1086
+  %1550 = phi i32 [ %.pre2525, %._crit_edge2524 ], [ %1087, %1086 ]
   %1551 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %1550, i32 1)
   %1552 = extractvalue { i32, i1 } %1551, 1
   br i1 %1552, label %1553, label %1554

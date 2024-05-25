@@ -1692,10 +1692,11 @@ define internal i32 @rhashtable_jhash2(ptr nocapture noundef readonly %0, i32 no
   %50 = phi i32 [ %6, %3 ], [ %40, %.preheader.i ]
   %51 = phi i32 [ %6, %3 ], [ %44, %.preheader.i ]
   %52 = phi i32 [ %6, %3 ], [ %43, %.preheader.i ]
-  switch i32 %48, label %jhash2.exit [
+  switch i32 %48, label %default.unreachable.i [
     i32 3, label %53
     i32 2, label %57
     i32 1, label %62
+    i32 0, label %jhash2.exit
   ]
 
 53:                                               ; preds = %.loopexit.i
@@ -1738,6 +1739,9 @@ define internal i32 @rhashtable_jhash2(ptr nocapture noundef readonly %0, i32 no
   %86 = tail call noundef i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 24)
   %87 = sub i32 %85, %86
   br label %jhash2.exit
+
+default.unreachable.i:                            ; preds = %.loopexit.i
+  unreachable
 
 jhash2.exit:                                      ; preds = %.loopexit.i, %62
   %88 = phi i32 [ %52, %.loopexit.i ], [ %87, %62 ]

@@ -1327,6 +1327,9 @@ cond.false33:                                     ; preds = %lor.rhs.i
 cond.end36:                                       ; preds = %lor.rhs.i74, %lor.rhs.i74, %lor.rhs.i74, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit8.i73, %lor.lhs.false6.i71, %lor.lhs.false6.i71, %lor.lhs.false6.i71, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit4.i70, %lor.lhs.false.i68, %lor.lhs.false.i68, %lor.lhs.false.i68, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i67, %cond.true30, %cond.true30, %cond.true30
   br i1 %call25, label %switch.lookup, label %switch.lookup262
 
+default.unreachable:                              ; preds = %if.then68, %if.then66
+  unreachable
+
 switch.lookup:                                    ; preds = %cond.end36, %cond.false33, %land.rhs.i.i11.i76, %cond.false33.thread
   %cond37191 = phi i1 [ %call35, %cond.false33 ], [ true, %cond.end36 ], [ %40, %land.rhs.i.i11.i76 ], [ %call35248, %cond.false33.thread ]
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1373,15 +1376,11 @@ switch.lookup271:                                 ; preds = %switch.lookup265, %
   br i1 %.not250, label %if.end, label %if.then66
 
 if.then66:                                        ; preds = %switch.lookup271
-  switch i8 %retval.0.i181, label %sw.epilog.i.i [
+  switch i8 %retval.0.i181, label %default.unreachable [
     i8 3, label %sw.bb3.i5.i
     i8 1, label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit
     i8 2, label %sw.bb2.i7.i
   ]
-
-sw.epilog.i.i:                                    ; preds = %if.then66
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str) #5
-  unreachable
 
 sw.bb2.i7.i:                                      ; preds = %if.then66
   br label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit
@@ -1409,15 +1408,11 @@ if.end:                                           ; preds = %_ZN8facebook4yoga24
   br i1 %.not253, label %for.inc, label %if.then68
 
 if.then68:                                        ; preds = %if.end
-  switch i8 %1, label %sw.epilog.i.i147 [
+  switch i8 %1, label %default.unreachable [
     i8 3, label %sw.bb3.i5.i138
     i8 1, label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit148
     i8 2, label %sw.bb2.i7.i142
   ]
-
-sw.epilog.i.i147:                                 ; preds = %if.then68
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str) #5
-  unreachable
 
 sw.bb2.i7.i142:                                   ; preds = %if.then68
   br label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit148

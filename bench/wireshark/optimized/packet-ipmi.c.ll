@@ -2534,10 +2534,11 @@ define internal void @parse_6bit_ascii(ptr nocapture noundef writeonly %0, ptr n
   %.034.lcssa = phi ptr [ %0, %4 ], [ %27, %.lr.ph ]
   %29 = add i32 %5, %2
   %30 = and i32 %3, 3
-  switch i32 %30, label %52 [
+  switch i32 %30, label %default.unreachable [
     i32 3, label %31
     i32 2, label %._crit_edge._crit_edge
     i32 1, label %49
+    i32 0, label %52
   ]
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -2571,14 +2572,17 @@ define internal void @parse_6bit_ascii(ptr nocapture noundef writeonly %0, ptr n
   store i8 %47, ptr %48, align 1
   br label %49
 
-49:                                               ; preds = %41, %._crit_edge
+49:                                               ; preds = %._crit_edge, %41
   %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %29) #13
   %51 = and i8 %50, 63
   %narrow = add nuw nsw i8 %51, 32
   store i8 %narrow, ptr %.034.lcssa, align 1
   br label %52
 
-52:                                               ; preds = %49, %._crit_edge
+default.unreachable:                              ; preds = %._crit_edge
+  unreachable
+
+52:                                               ; preds = %._crit_edge, %49
   ret void
 }
 

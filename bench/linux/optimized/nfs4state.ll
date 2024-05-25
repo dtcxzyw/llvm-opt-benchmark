@@ -1310,10 +1310,11 @@ define internal fastcc void @__nfs4_close(ptr noundef %0, i32 noundef %1, i32 no
   %7 = getelementptr inbounds i8, ptr %5, i64 64
   tail call void @_raw_spin_lock(ptr noundef %7) #17
   %8 = and i32 %1, 3
-  switch i32 %8, label %21 [
+  switch i32 %8, label %default.unreachable4 [
     i32 1, label %9
     i32 2, label %13
     i32 3, label %17
+    i32 0, label %21
   ]
 
 9:                                                ; preds = %3
@@ -1337,7 +1338,10 @@ define internal fastcc void @__nfs4_close(ptr noundef %0, i32 noundef %1, i32 no
   store i32 %20, ptr %18, align 4
   br label %21
 
-21:                                               ; preds = %17, %13, %9, %3
+default.unreachable4:                             ; preds = %3
+  unreachable
+
+21:                                               ; preds = %3, %17, %13, %9
   %22 = getelementptr inbounds i8, ptr %0, i64 132
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0

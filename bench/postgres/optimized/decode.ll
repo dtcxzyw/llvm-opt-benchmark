@@ -200,7 +200,7 @@ define dso_local void @xact_decode(ptr noundef %0, ptr nocapture noundef readonl
   %19 = and i8 %15, 112
   %20 = zext nneg i8 %19 to i32
   %21 = lshr exact i32 %20, 4
-  switch i32 %21, label %311 [
+  switch i32 %21, label %default.unreachable [
     i32 0, label %22
     i32 3, label %22
     i32 2, label %121
@@ -208,6 +208,7 @@ define dso_local void @xact_decode(ptr noundef %0, ptr nocapture noundef readonl
     i32 5, label %DecodeCommit.exit
     i32 6, label %205
     i32 1, label %228
+    i32 7, label %311
   ]
 
 22:                                               ; preds = %18, %18
@@ -726,6 +727,9 @@ DecodeTXNNeedSkip.exit._crit_edge.i83:            ; preds = %DecodeTXNNeedSkip.e
   call void @UpdateDecodingStats(ptr noundef nonnull %0) #7
   br label %DecodeCommit.exit
 
+default.unreachable:                              ; preds = %18
+  unreachable
+
 311:                                              ; preds = %18
   %312 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %312)
@@ -733,7 +737,7 @@ DecodeTXNNeedSkip.exit._crit_edge.i83:            ; preds = %DecodeTXNNeedSkip.e
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @__func__.xact_decode) #7
   unreachable
 
-DecodeCommit.exit:                                ; preds = %DecodeTXNNeedSkip.exit._crit_edge.i83, %297, %270, %FilterPrepare.exit75.thread89, %120, %._crit_edge.i, %220, %224, %223, %18, %2, %FilterPrepare.exit75.thread, %DecodeAbort.exit
+DecodeCommit.exit:                                ; preds = %DecodeTXNNeedSkip.exit._crit_edge.i83, %297, %270, %FilterPrepare.exit75.thread89, %120, %._crit_edge.i, %18, %220, %224, %223, %2, %FilterPrepare.exit75.thread, %DecodeAbort.exit
   ret void
 }
 

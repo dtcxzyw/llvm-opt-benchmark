@@ -2970,10 +2970,11 @@ define internal fastcc void @azx_init_pci(ptr nocapture noundef readonly %0) unn
   br label %21
 
 21:                                               ; preds = %14, %1
-  switch i32 %11, label %75 [
+  switch i32 %11, label %default.unreachable1 [
     i32 2, label %22
     i32 3, label %35
     i32 1, label %52
+    i32 0, label %75
   ]
 
 22:                                               ; preds = %21
@@ -3063,7 +3064,10 @@ define internal fastcc void @azx_init_pci(ptr nocapture noundef readonly %0) unn
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #15
   br label %75
 
-75:                                               ; preds = %74, %35, %22, %21
+default.unreachable1:                             ; preds = %21
+  unreachable
+
+75:                                               ; preds = %21, %74, %35, %22
   ret void
 }
 

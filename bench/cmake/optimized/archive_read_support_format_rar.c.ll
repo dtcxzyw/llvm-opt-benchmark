@@ -6973,17 +6973,18 @@ membr_fill.exit.thread.i:                         ; preds = %12
 
 membr_bits.exit:                                  ; preds = %16, %.membr_fill.exit_crit_edge.i
   %27 = phi i32 [ %3, %.membr_fill.exit_crit_edge.i ], [ %25, %16 ]
-  %.pre.i52 = phi i64 [ %.pre.i, %.membr_fill.exit_crit_edge.i ], [ %24, %16 ]
+  %.pre.i22 = phi i64 [ %.pre.i, %.membr_fill.exit_crit_edge.i ], [ %24, %16 ]
   %28 = add nsw i32 %27, -2
   store i32 %28, ptr %2, align 8
   %29 = zext nneg i32 %28 to i64
-  %30 = lshr i64 %.pre.i52, %29
+  %30 = lshr i64 %.pre.i22, %29
   %31 = trunc i64 %30 to i32
   %32 = and i32 %31, 3
-  switch i32 %32, label %160 [
+  switch i32 %32, label %default.unreachable [
     i32 0, label %membr_bits.exit.thread
     i32 1, label %63
     i32 2, label %129
+    i32 3, label %160
   ]
 
 membr_bits.exit.thread:                           ; preds = %membr_bits.exit
@@ -7070,7 +7071,7 @@ membr_fill.exit.i13:                              ; preds = %45, %.membr_fill.ex
   br label %73
 
 73:                                               ; preds = %78, %.lr.ph.i.i26
-  %74 = phi i64 [ %.pre.i52, %.lr.ph.i.i26 ], [ %85, %78 ]
+  %74 = phi i64 [ %.pre.i22, %.lr.ph.i.i26 ], [ %85, %78 ]
   %75 = phi i64 [ %.promoted13.i.i27, %.lr.ph.i.i26 ], [ %81, %78 ]
   %76 = phi i32 [ %28, %.lr.ph.i.i26 ], [ %86, %78 ]
   %77 = icmp ult i64 %75, %71
@@ -7097,7 +7098,7 @@ membr_fill.exit.thread.i28:                       ; preds = %73
 
 membr_bits.exit29:                                ; preds = %78, %.membr_fill.exit_crit_edge.i20
   %88 = phi i32 [ %65, %.membr_fill.exit_crit_edge.i20 ], [ %76, %78 ]
-  %89 = phi i64 [ %.pre.i52, %.membr_fill.exit_crit_edge.i20 ], [ %85, %78 ]
+  %89 = phi i64 [ %.pre.i22, %.membr_fill.exit_crit_edge.i20 ], [ %85, %78 ]
   store i32 %88, ptr %2, align 8
   %90 = zext nneg i32 %88 to i64
   %91 = lshr i64 %89, %90
@@ -7107,7 +7108,7 @@ membr_bits.exit29:                                ; preds = %78, %.membr_fill.ex
   br i1 %94, label %membr_bits.exit19, label %membr_bits.exit29.thread
 
 membr_bits.exit29.thread:                         ; preds = %membr_fill.exit.thread.i28, %66, %membr_bits.exit29
-  %.pre.i32 = phi i64 [ %89, %membr_bits.exit29 ], [ %.pre.i52, %66 ], [ %74, %membr_fill.exit.thread.i28 ]
+  %.pre.i32 = phi i64 [ %89, %membr_bits.exit29 ], [ %.pre.i22, %66 ], [ %74, %membr_fill.exit.thread.i28 ]
   %95 = phi i32 [ %88, %membr_bits.exit29 ], [ %28, %66 ], [ %76, %membr_fill.exit.thread.i28 ]
   %.0.i2462 = phi i32 [ %93, %membr_bits.exit29 ], [ 0, %66 ], [ 0, %membr_fill.exit.thread.i28 ]
   %96 = shl nuw nsw i32 %.0.i2462, 4
@@ -7190,7 +7191,7 @@ membr_bits.exit39:                                ; preds = %98, %membr_fill.exi
   br label %138
 
 138:                                              ; preds = %143, %.lr.ph.i.i46
-  %139 = phi i64 [ %.pre.i52, %.lr.ph.i.i46 ], [ %150, %143 ]
+  %139 = phi i64 [ %.pre.i22, %.lr.ph.i.i46 ], [ %150, %143 ]
   %140 = phi i64 [ %.promoted13.i.i47, %.lr.ph.i.i46 ], [ %146, %143 ]
   %141 = phi i32 [ %28, %.lr.ph.i.i46 ], [ %151, %143 ]
   %142 = icmp ult i64 %140, %136
@@ -7217,7 +7218,7 @@ membr_fill.exit.thread.i48:                       ; preds = %138
 
 membr_fill.exit.i43:                              ; preds = %143, %129
   %153 = phi i32 [ %28, %129 ], [ %151, %143 ]
-  %154 = phi i64 [ %.pre.i52, %129 ], [ %150, %143 ]
+  %154 = phi i64 [ %.pre.i22, %129 ], [ %150, %143 ]
   %155 = add nsw i32 %153, -16
   store i32 %155, ptr %2, align 8
   %156 = zext nneg i32 %155 to i64
@@ -7225,6 +7226,9 @@ membr_fill.exit.i43:                              ; preds = %143, %129
   %158 = trunc i64 %157 to i32
   %159 = and i32 %158, 65535
   br label %membr_bits.exit19
+
+default.unreachable:                              ; preds = %membr_bits.exit
+  unreachable
 
 160:                                              ; preds = %membr_bits.exit
   %161 = icmp ult i32 %27, 34
@@ -7245,7 +7249,7 @@ membr_fill.exit.i43:                              ; preds = %143, %129
   br label %169
 
 169:                                              ; preds = %174, %.lr.ph.i.i56
-  %170 = phi i64 [ %.pre.i52, %.lr.ph.i.i56 ], [ %181, %174 ]
+  %170 = phi i64 [ %.pre.i22, %.lr.ph.i.i56 ], [ %181, %174 ]
   %171 = phi i64 [ %.promoted13.i.i57, %.lr.ph.i.i56 ], [ %177, %174 ]
   %172 = phi i32 [ %28, %.lr.ph.i.i56 ], [ %182, %174 ]
   %173 = icmp ult i64 %171, %167
@@ -7272,7 +7276,7 @@ membr_fill.exit.thread.i58:                       ; preds = %169
 
 membr_fill.exit.i53:                              ; preds = %174, %160
   %184 = phi i32 [ %28, %160 ], [ %182, %174 ]
-  %185 = phi i64 [ %.pre.i52, %160 ], [ %181, %174 ]
+  %185 = phi i64 [ %.pre.i22, %160 ], [ %181, %174 ]
   %186 = add nsw i32 %184, -32
   store i32 %186, ptr %2, align 8
   %187 = zext nneg i32 %186 to i64

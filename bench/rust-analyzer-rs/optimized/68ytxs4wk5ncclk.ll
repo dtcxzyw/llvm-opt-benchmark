@@ -33791,13 +33791,16 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_112_$LT$impl$u20$ch
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7914)
   %18 = load i64, ptr %.sroa.0.09.i.i.i, align 8, !range !125, !alias.scope !7916, !noalias !7917, !noundef !14
   %19 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i, i64 8
-  switch i64 %18, label %default.unreachable [
+  switch i64 %18, label %.unreachabledefault [
     i64 0, label %20
     i64 1, label %23
     i64 2, label %26
   ]
 
-default.unreachable:                              ; preds = %38, %61, %16
+.unreachabledefault:                              ; preds = %16
+  unreachable
+
+default.unreachable:                              ; preds = %38, %61
   unreachable
 
 20:                                               ; preds = %16
@@ -49442,11 +49445,15 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$chalk_ir..WhereClause$LT$hir
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 4
   %5 = select i1 %4, i64 %3, i64 1
-  switch i64 %5, label %6 [
+  switch i64 %5, label %.unreachabledefault [
     i64 0, label %8
     i64 1, label %25
     i64 2, label %26
+    i64 3, label %6
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -61713,13 +61720,16 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15898)
   %28 = load i64, ptr %26, align 8, !range !125, !alias.scope !15900, !noalias !15901, !noundef !14
   %29 = load i64, ptr %27, align 8, !range !125, !alias.scope !15905, !noalias !15906, !noundef !14
-  switch i64 %28, label %default.unreachable [
+  switch i64 %28, label %.lr.ph.unreachabledefault [
     i64 0, label %30
     i64 1, label %32
     i64 2, label %34
   ]
 
-default.unreachable:                              ; preds = %.lr.ph, %60
+.lr.ph.unreachabledefault:                        ; preds = %.lr.ph
+  unreachable
+
+default.unreachable:                              ; preds = %60
   unreachable
 
 30:                                               ; preds = %.lr.ph
@@ -62865,13 +62875,16 @@ define hidden noundef zeroext i1 @"_ZN83_$LT$chalk_solve..rust_ir..InlineBound$L
 26:                                               ; preds = %.lr.ph.i.i
   %27 = getelementptr inbounds i8, ptr %21, i64 8
   %28 = getelementptr inbounds i8, ptr %22, i64 8
-  switch i64 %23, label %default.unreachable [
+  switch i64 %23, label %.unreachabledefault [
     i64 0, label %_ZN4core3cmp9PartialEq2ne17ha806fe5fddbe57a6E.llvm.6150282900714191917.exit.i.i.i
     i64 1, label %29
     i64 2, label %31
   ]
 
-default.unreachable:                              ; preds = %26, %53, %79
+.unreachabledefault:                              ; preds = %26
+  unreachable
+
+default.unreachable:                              ; preds = %53, %79
   unreachable
 
 29:                                               ; preds = %26
@@ -79475,13 +79488,16 @@ define internal fastcc noundef i16 @"_ZN8chalk_ir16AliasTy$LT$I$GT$13compute_fla
   %.val.i = load i64, ptr %.sroa.0.06.i, align 8, !range !125, !noundef !14
   %13 = getelementptr i8, ptr %.sroa.0.06.i, i64 8
   %.val7.i = load ptr, ptr %13, align 8, !nonnull !14, !noundef !14
-  switch i64 %.val.i, label %default.unreachable [
+  switch i64 %.val.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i.unreachabledefault" [
     i64 0, label %14
     i64 1, label %switch.hole_check
     i64 2, label %20
   ]
 
-default.unreachable:                              ; preds = %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i", %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i10"
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i.unreachabledefault": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i"
+  unreachable
+
+default.unreachable:                              ; preds = %20, %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i10"
   unreachable
 
 14:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i"
@@ -96325,13 +96341,16 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24312)
   %24 = load i64, ptr %.sroa.0.09.i.i.i, align 8, !range !125, !alias.scope !24314, !noalias !24315, !noundef !14
   %25 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i, i64 8
-  switch i64 %24, label %default.unreachable [
+  switch i64 %24, label %.unreachabledefault [
     i64 0, label %26
     i64 1, label %29
     i64 2, label %32
   ]
 
-default.unreachable:                              ; preds = %22, %49
+.unreachabledefault:                              ; preds = %22
+  unreachable
+
+default.unreachable:                              ; preds = %49
   unreachable
 
 26:                                               ; preds = %22
@@ -96473,13 +96492,16 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24405)
   %24 = load i64, ptr %.sroa.0.09.i.i.i, align 8, !range !125, !alias.scope !24407, !noalias !24408, !noundef !14
   %25 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i, i64 8
-  switch i64 %24, label %default.unreachable [
+  switch i64 %24, label %.unreachabledefault [
     i64 0, label %26
     i64 1, label %29
     i64 2, label %32
   ]
 
-default.unreachable:                              ; preds = %22, %49
+.unreachabledefault:                              ; preds = %22
+  unreachable
+
+default.unreachable:                              ; preds = %49
   unreachable
 
 26:                                               ; preds = %22

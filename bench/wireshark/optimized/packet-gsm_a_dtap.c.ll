@@ -1768,9 +1768,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1280 = private unnamed_addr constant [35 x i8] c" - UMTS challenge or GSM challenge\00", align 1
 @.str.1281 = private unnamed_addr constant [31 x i8] c" - Routing area identification\00", align 1
 @.str.1282 = private unnamed_addr constant [20 x i8] c" - P-TMSI signature\00", align 1
-@switch.table.de_bearer_cap = private unnamed_addr constant [3 x ptr] [ptr @.str.140, ptr @.str.141, ptr @.str.142], align 8
-@switch.table.de_bearer_cap.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.143, ptr @.str.144, ptr @.str.145], align 8
-@switch.table.de_bearer_cap.2 = private unnamed_addr constant [3 x ptr] [ptr @.str.146, ptr @.str.147, ptr @.str.148], align 8
+@switch.table.de_bearer_cap = private unnamed_addr constant [4 x ptr] [ptr @.str.123, ptr @.str.140, ptr @.str.141, ptr @.str.142], align 8
+@switch.table.de_bearer_cap.1 = private unnamed_addr constant [4 x ptr] [ptr @.str.123, ptr @.str.143, ptr @.str.144, ptr @.str.145], align 8
+@switch.table.de_bearer_cap.2 = private unnamed_addr constant [4 x ptr] [ptr @.str.123, ptr @.str.146, ptr @.str.147, ptr @.str.148], align 8
 @switch.table.de_tp_sub_channel = private unnamed_addr constant [7 x ptr] [ptr @.str.938, ptr @.str.937, ptr @.str.936, ptr @.str.935, ptr @.str.935, ptr @.str.935, ptr @.str.935], align 8
 
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
@@ -1825,512 +1825,497 @@ define hidden zeroext i16 @de_bearer_cap(ptr noundef %0, ptr noundef %1, ptr nou
   %13 = and i8 %9, 7
   %14 = load i32, ptr @hf_gsm_a_extension, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
-  %.b445 = load i1, ptr @is_uplink, align 4
-  br i1 %.b445, label %16, label %30
+  %.b447 = load i1, ptr @is_uplink, align 4
+  br i1 %.b447, label %16, label %24
 
 16:                                               ; preds = %7
   %cond = icmp eq i8 %13, 0
   %17 = lshr i32 %12, 5
-  br i1 %cond, label %18, label %24
+  br i1 %cond, label %18, label %switch.lookup473
 
 18:                                               ; preds = %16
-  br i1 %.not, label %19, label %21
+  br i1 %.not, label %switch.lookup, label %switch.lookup470
 
-19:                                               ; preds = %18
-  %switch.tableidx = add nsw i32 %17, -1
-  %20 = icmp ult i32 %switch.tableidx, 3
-  br i1 %20, label %switch.lookup, label %30
-
-21:                                               ; preds = %18
-  %22 = and i32 %17, 3
-  %switch.tableidx468 = add nsw i32 %22, -1
-  %23 = icmp ult i32 %switch.tableidx468, 3
-  br i1 %23, label %switch.lookup467, label %30
-
-24:                                               ; preds = %16
-  %25 = and i32 %17, 3
-  %switch.tableidx472 = add nsw i32 %25, -1
-  %26 = icmp ult i32 %switch.tableidx472, 3
-  br i1 %26, label %switch.lookup471, label %30
-
-switch.lookup:                                    ; preds = %19
-  %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.de_bearer_cap, i64 0, i64 %27
+switch.lookup470:                                 ; preds = %18
+  %19 = and i32 %17, 3
+  %20 = zext nneg i32 %19 to i64
+  %switch.gep471 = getelementptr inbounds [4 x ptr], ptr @switch.table.de_bearer_cap.1, i64 0, i64 %20
   br label %.sink.split
 
-switch.lookup467:                                 ; preds = %21
-  %28 = zext nneg i32 %switch.tableidx468 to i64
-  %switch.gep469 = getelementptr inbounds [3 x ptr], ptr @switch.table.de_bearer_cap.1, i64 0, i64 %28
+switch.lookup473:                                 ; preds = %16
+  %21 = and i32 %17, 3
+  %22 = zext nneg i32 %21 to i64
+  %switch.gep474 = getelementptr inbounds [4 x ptr], ptr @switch.table.de_bearer_cap.2, i64 0, i64 %22
   br label %.sink.split
 
-switch.lookup471:                                 ; preds = %24
-  %29 = zext nneg i32 %switch.tableidx472 to i64
-  %switch.gep473 = getelementptr inbounds [3 x ptr], ptr @switch.table.de_bearer_cap.2, i64 0, i64 %29
+switch.lookup:                                    ; preds = %18
+  %23 = zext nneg i32 %17 to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.de_bearer_cap, i64 0, i64 %23
   br label %.sink.split
 
-.sink.split:                                      ; preds = %switch.lookup, %switch.lookup467, %switch.lookup471
-  %switch.gep473.sink = phi ptr [ %switch.gep473, %switch.lookup471 ], [ %switch.gep469, %switch.lookup467 ], [ %switch.gep, %switch.lookup ]
-  %switch.load474 = load ptr, ptr %switch.gep473.sink, align 8
-  br label %30
+.sink.split:                                      ; preds = %switch.lookup, %switch.lookup470, %switch.lookup473
+  %switch.gep474.sink = phi ptr [ %switch.gep474, %switch.lookup473 ], [ %switch.gep471, %switch.lookup470 ], [ %switch.gep, %switch.lookup ]
+  %switch.load475 = load ptr, ptr %switch.gep474.sink, align 8
+  br label %24
 
-30:                                               ; preds = %.sink.split, %24, %21, %19, %7
-  %.0 = phi ptr [ @.str.139, %7 ], [ @.str.123, %19 ], [ @.str.123, %21 ], [ @.str.123, %24 ], [ %switch.load474, %.sink.split ]
-  %31 = load i32, ptr @hf_gsm_a_dtap_radio_channel_requirement, align 4
-  %32 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %11, i32 noundef %31, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.150, ptr noundef nonnull %.0) #6
-  %33 = load i32, ptr @hf_gsm_a_dtap_bearer_cap_coding_standard, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %33, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
-  %35 = load i32, ptr @hf_gsm_a_dtap_transfer_mode, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %35, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
-  %37 = load i32, ptr @hf_gsm_a_dtap_itc, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %37, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
-  %.not446 = icmp eq ptr %5, null
-  br i1 %.not446, label %42, label %39
+24:                                               ; preds = %.sink.split, %7
+  %.0 = phi ptr [ @.str.139, %7 ], [ %switch.load475, %.sink.split ]
+  %25 = load i32, ptr @hf_gsm_a_dtap_radio_channel_requirement, align 4
+  %26 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %11, i32 noundef %25, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.150, ptr noundef nonnull %.0) #6
+  %27 = load i32, ptr @hf_gsm_a_dtap_bearer_cap_coding_standard, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %27, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
+  %29 = load i32, ptr @hf_gsm_a_dtap_transfer_mode, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %29, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
+  %31 = load i32, ptr @hf_gsm_a_dtap_itc, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %31, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
+  %.not448 = icmp eq ptr %5, null
+  br i1 %.not448, label %36, label %33
 
-39:                                               ; preds = %30
-  %40 = sext i32 %6 to i64
-  %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %5, i64 noundef %40, ptr noundef nonnull @.str.151, ptr noundef nonnull %.0) #6
-  br label %42
+33:                                               ; preds = %24
+  %34 = sext i32 %6 to i64
+  %35 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %5, i64 noundef %34, ptr noundef nonnull @.str.151, ptr noundef nonnull %.0) #6
+  br label %36
 
-42:                                               ; preds = %39, %30
-  %43 = add i32 %3, 1
-  %44 = icmp ult i32 %4, 2
-  br i1 %44, label %45, label %47
+36:                                               ; preds = %33, %24
+  %37 = add i32 %3, 1
+  %38 = icmp ult i32 %4, 2
+  br i1 %38, label %39, label %41
 
-45:                                               ; preds = %42
-  %46 = trunc nuw nsw i32 %4 to i16
-  br label %347
+39:                                               ; preds = %36
+  %40 = trunc nuw nsw i32 %4 to i16
+  br label %341
 
-47:                                               ; preds = %42
+41:                                               ; preds = %36
   %cond1 = icmp eq i8 %13, 0
-  br i1 %cond1, label %48, label %67
+  br i1 %cond1, label %42, label %61
 
-48:                                               ; preds = %47
-  %49 = load i32, ptr @ett_bc_oct_3a, align 4
-  %50 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %43, i32 noundef -1, i32 noundef %49, ptr noundef nonnull %8, ptr noundef nonnull @.str.152) #6
-  %51 = sub i32 0, %4
-  br label %52
+42:                                               ; preds = %41
+  %43 = load i32, ptr @ett_bc_oct_3a, align 4
+  %44 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %37, i32 noundef -1, i32 noundef %43, ptr noundef nonnull %8, ptr noundef nonnull @.str.152) #6
+  %45 = sub i32 0, %4
+  br label %46
 
-52:                                               ; preds = %52, %48
-  %.0436 = phi i32 [ %43, %48 ], [ %64, %52 ]
-  %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0436) #6
-  %.not465 = icmp slt i8 %53, 0
-  %54 = load i32, ptr @hf_gsm_a_extension, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %54, ptr noundef %0, i32 noundef %.0436, i32 noundef 1, i32 noundef 0) #6
-  %56 = load i32, ptr @hf_gsm_a_dtap_coding, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %56, ptr noundef %0, i32 noundef %.0436, i32 noundef 1, i32 noundef 0) #6
-  %58 = load i32, ptr @hf_gsm_a_spare_bits, align 4
-  %59 = shl i32 %.0436, 3
-  %60 = or disjoint i32 %59, 2
-  %61 = call ptr @proto_tree_add_bits_item(ptr noundef %50, i32 noundef %58, ptr noundef %0, i32 noundef %60, i32 noundef 2, i32 noundef 0) #6
-  %62 = load i32, ptr @hf_gsm_a_dtap_speech_vers_ind, align 4
-  %63 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %62, ptr noundef %0, i32 noundef %.0436, i32 noundef 1, i32 noundef 0) #6
-  %64 = add i32 %.0436, 1
-  %.neg = sub i32 %3, %64
-  %.not466 = icmp eq i32 %.neg, %51
-  %or.cond = or i1 %.not465, %.not466
-  br i1 %or.cond, label %.critedge, label %52, !llvm.loop !4
+46:                                               ; preds = %46, %42
+  %.0438 = phi i32 [ %37, %42 ], [ %58, %46 ]
+  %47 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0438) #6
+  %.not467 = icmp slt i8 %47, 0
+  %48 = load i32, ptr @hf_gsm_a_extension, align 4
+  %49 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %48, ptr noundef %0, i32 noundef %.0438, i32 noundef 1, i32 noundef 0) #6
+  %50 = load i32, ptr @hf_gsm_a_dtap_coding, align 4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %50, ptr noundef %0, i32 noundef %.0438, i32 noundef 1, i32 noundef 0) #6
+  %52 = load i32, ptr @hf_gsm_a_spare_bits, align 4
+  %53 = shl i32 %.0438, 3
+  %54 = or disjoint i32 %53, 2
+  %55 = call ptr @proto_tree_add_bits_item(ptr noundef %44, i32 noundef %52, ptr noundef %0, i32 noundef %54, i32 noundef 2, i32 noundef 0) #6
+  %56 = load i32, ptr @hf_gsm_a_dtap_speech_vers_ind, align 4
+  %57 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %56, ptr noundef %0, i32 noundef %.0438, i32 noundef 1, i32 noundef 0) #6
+  %58 = add i32 %.0438, 1
+  %.neg = sub i32 %3, %58
+  %.not468 = icmp eq i32 %.neg, %45
+  %or.cond = or i1 %.not467, %.not468
+  br i1 %or.cond, label %.critedge, label %46, !llvm.loop !4
 
-.critedge:                                        ; preds = %52
-  %65 = load ptr, ptr %8, align 8
-  %66 = sub i32 %.0436, %3
-  call void @proto_item_set_len(ptr noundef %65, i32 noundef %66) #6
-  br label %338
+.critedge:                                        ; preds = %46
+  %59 = load ptr, ptr %8, align 8
+  %60 = sub i32 %.0438, %3
+  call void @proto_item_set_len(ptr noundef %59, i32 noundef %60) #6
+  br label %332
 
-67:                                               ; preds = %47
-  %68 = load i32, ptr @ett_bc_oct_4, align 4
-  %69 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef %68, ptr noundef null, ptr noundef nonnull @.str.153) #6
-  %70 = load i32, ptr @hf_gsm_a_extension, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef 0) #6
+61:                                               ; preds = %41
+  %62 = load i32, ptr @ett_bc_oct_4, align 4
+  %63 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef %62, ptr noundef null, ptr noundef nonnull @.str.153) #6
+  %64 = load i32, ptr @hf_gsm_a_extension, align 4
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #6
+  %.b446 = load i1, ptr @is_uplink, align 4
+  %66 = load i32, ptr @hf_gsm_a_dtap_compression_up, align 4
+  %67 = load i32, ptr @hf_gsm_a_dtap_compression, align 4
+  %68 = select i1 %.b446, i32 %66, i32 %67
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %68, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #6
+  %70 = load i32, ptr @hf_gsm_a_dtap_structure, align 4
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %70, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #6
+  %72 = load i32, ptr @hf_gsm_a_dtap_duplex_mode, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %72, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #6
+  %74 = load i32, ptr @hf_gsm_a_dtap_configuration, align 4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %74, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #6
+  %76 = load i32, ptr @hf_gsm_a_dtap_nirr, align 4
+  %77 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %76, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #6
+  %78 = load i32, ptr @hf_gsm_a_dtap_establishment, align 4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %78, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #6
+  %80 = icmp eq i32 %4, 2
+  br i1 %80, label %341, label %81
+
+81:                                               ; preds = %61
+  %82 = add i32 %3, 2
+  %83 = load i32, ptr @ett_bc_oct_5, align 4
+  %84 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef %83, ptr noundef null, ptr noundef nonnull @.str.154) #6
+  %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %82) #6
+  %86 = load i32, ptr @hf_gsm_a_extension, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %86, ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0) #6
+  %88 = load i32, ptr @hf_gsm_a_dtap_access_identity, align 4
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %88, ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0) #6
+  %90 = load i32, ptr @hf_gsm_a_dtap_rate_adaption, align 4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %90, ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0) #6
+  %92 = load i32, ptr @hf_gsm_a_dtap_signalling_access_protocol, align 4
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %92, ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0) #6
+  %94 = add i32 %3, 3
+  %95 = icmp ult i32 %4, 4
+  br i1 %95, label %341, label %96
+
+96:                                               ; preds = %81
+  %.not449 = icmp sgt i8 %85, -1
+  br i1 %.not449, label %97, label %137
+
+97:                                               ; preds = %96
+  %98 = load i32, ptr @ett_bc_oct_5a, align 4
+  %99 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef %98, ptr noundef null, ptr noundef nonnull @.str.155) #6
+  %100 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %94) #6
+  %101 = load i32, ptr @hf_gsm_a_extension, align 4
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %101, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef 0) #6
+  %103 = load i32, ptr @hf_gsm_a_dtap_other_itc, align 4
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %103, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef 0) #6
+  %105 = load i32, ptr @hf_gsm_a_dtap_other_rate_adaption, align 4
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %105, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef 0) #6
+  %107 = load i32, ptr @hf_gsm_a_spare_bits, align 4
+  %108 = shl i32 %94, 3
+  %109 = or disjoint i32 %108, 5
+  %110 = tail call ptr @proto_tree_add_bits_item(ptr noundef %99, i32 noundef %107, ptr noundef %0, i32 noundef %109, i32 noundef 3, i32 noundef 0) #6
+  %111 = add i32 %3, 4
+  %112 = icmp eq i32 %4, 4
+  br i1 %112, label %341, label %113
+
+113:                                              ; preds = %97
+  %.not450 = icmp sgt i8 %100, -1
+  br i1 %.not450, label %114, label %137
+
+114:                                              ; preds = %113
+  %115 = load i32, ptr @ett_bc_oct_5b, align 4
+  %116 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef %115, ptr noundef null, ptr noundef nonnull @.str.156) #6
+  %117 = load i32, ptr @hf_gsm_a_extension, align 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0) #6
+  %119 = load i32, ptr @hf_gsm_a_dtap_rate_adaption_header, align 4
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %119, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0) #6
+  %121 = load i32, ptr @hf_gsm_a_dtap_multiple_frame_establishment_support, align 4
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %121, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0) #6
+  %123 = load i32, ptr @hf_gsm_a_dtap_mode_of_operation, align 4
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %123, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0) #6
+  %125 = load i32, ptr @hf_gsm_a_dtap_logical_link_identifier_negotiation, align 4
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %125, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0) #6
+  %127 = load i32, ptr @hf_gsm_a_dtap_assignor_assignee, align 4
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %127, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0) #6
+  %129 = load i32, ptr @hf_gsm_a_dtap_in_out_band, align 4
+  %130 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %129, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0) #6
+  %131 = load i32, ptr @hf_gsm_a_spare_bits, align 4
+  %132 = shl i32 %111, 3
+  %133 = or disjoint i32 %132, 7
+  %134 = tail call ptr @proto_tree_add_bits_item(ptr noundef %116, i32 noundef %131, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #6
+  %135 = add i32 %3, 5
+  %136 = icmp ult i32 %4, 6
+  br i1 %136, label %341, label %137
+
+137:                                              ; preds = %114, %113, %96
+  %.1 = phi i32 [ %135, %114 ], [ %111, %113 ], [ %94, %96 ]
+  %138 = load i32, ptr @ett_bc_oct_6, align 4
+  %139 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %138, ptr noundef null, ptr noundef nonnull @.str.157) #6
+  %140 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #6
+  %141 = zext i8 %140 to i32
+  %142 = load i32, ptr @hf_gsm_a_extension, align 4
+  %143 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %142, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #6
+  %144 = load i32, ptr @hf_gsm_a_dtap_layer_1_identity, align 4
+  %145 = and i32 %141, 96
+  %146 = icmp eq i32 %145, 32
+  %147 = select i1 %146, ptr @.str.158, ptr @.str.123
+  %148 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %139, i32 noundef %144, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %141, ptr noundef nonnull @.str.150, ptr noundef nonnull %147) #6
+  %149 = load i32, ptr @hf_gsm_a_dtap_user_information_layer_1_protocol, align 4
+  %150 = and i32 %141, 30
+  %.not452 = icmp eq i32 %150, 0
+  %151 = select i1 %.not452, ptr @.str.159, ptr @.str.123
+  %152 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %139, i32 noundef %149, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %141, ptr noundef nonnull @.str.150, ptr noundef nonnull %151) #6
+  %153 = load i32, ptr @hf_gsm_a_dtap_synchronous, align 4
+  %154 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %153, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #6
+  %155 = add i32 %.1, 1
+  %156 = sub i32 %155, %3
+  %.not453 = icmp ult i32 %156, %4
+  br i1 %.not453, label %159, label %157
+
+157:                                              ; preds = %137
+  %158 = trunc i32 %4 to i16
+  br label %341
+
+159:                                              ; preds = %137
+  %.not451 = icmp sgt i8 %140, -1
+  br i1 %.not451, label %160, label %317
+
+160:                                              ; preds = %159
+  %161 = load i32, ptr @ett_bc_oct_6a, align 4
+  %162 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef %161, ptr noundef null, ptr noundef nonnull @.str.160) #6
+  %163 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %155) #6
+  %164 = zext i8 %163 to i32
+  %165 = load i32, ptr @hf_gsm_a_extension, align 4
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %165, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef 0) #6
+  %167 = load i32, ptr @hf_gsm_a_dtap_number_of_stop_bits, align 4
+  %168 = tail call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %167, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef 0) #6
+  %169 = load i32, ptr @hf_gsm_a_dtap_negotiation, align 4
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %169, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef 0) #6
+  %171 = load i32, ptr @hf_gsm_a_dtap_number_of_data_bits, align 4
+  %172 = tail call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %171, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef 0) #6
+  %173 = load i32, ptr @hf_gsm_a_dtap_user_rate, align 4
+  %174 = and i32 %164, 15
+  %175 = tail call ptr @val_to_str_const(i32 noundef %174, ptr noundef nonnull @gsm_a_dtap_user_rate_vals, ptr noundef nonnull @.str.123) #6
+  %176 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %162, i32 noundef %173, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef %164, ptr noundef nonnull @.str.150, ptr noundef %175) #6
+  %177 = add i32 %.1, 2
+  %178 = sub i32 %177, %3
+  %.not455 = icmp ult i32 %178, %4
+  br i1 %.not455, label %181, label %179
+
+179:                                              ; preds = %160
+  %180 = trunc i32 %4 to i16
+  br label %341
+
+181:                                              ; preds = %160
+  %.not454 = icmp sgt i8 %163, -1
+  br i1 %.not454, label %182, label %317
+
+182:                                              ; preds = %181
+  %183 = load i32, ptr @ett_bc_oct_6b, align 4
+  %184 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef %183, ptr noundef null, ptr noundef nonnull @.str.161) #6
+  %185 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %177) #6
+  %186 = load i32, ptr @hf_gsm_a_extension, align 4
+  %187 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %186, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0) #6
+  %188 = load i32, ptr @hf_gsm_a_dtap_v110_x30_rate_adaptation, align 4
+  %189 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %188, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0) #6
+  %190 = load i32, ptr @hf_gsm_a_dtap_nic_on_tx, align 4
+  %191 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %190, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0) #6
+  %192 = load i32, ptr @hf_gsm_a_dtap_nic_on_rx, align 4
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %192, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0) #6
+  %194 = load i32, ptr @hf_gsm_a_dtap_parity_information, align 4
+  %195 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %194, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0) #6
+  %196 = add i32 %.1, 3
+  %197 = sub i32 %196, %3
+  %.not457 = icmp ult i32 %197, %4
+  br i1 %.not457, label %200, label %198
+
+198:                                              ; preds = %182
+  %199 = trunc i32 %4 to i16
+  br label %341
+
+200:                                              ; preds = %182
+  %.not456 = icmp sgt i8 %185, -1
+  br i1 %.not456, label %201, label %317
+
+201:                                              ; preds = %200
+  %202 = load i32, ptr @ett_bc_oct_6c, align 4
+  %203 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %196, i32 noundef 1, i32 noundef %202, ptr noundef null, ptr noundef nonnull @.str.162) #6
+  %204 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %196) #6
+  %205 = zext i8 %204 to i32
+  %206 = load i32, ptr @hf_gsm_a_extension, align 4
+  %207 = tail call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %206, ptr noundef %0, i32 noundef %196, i32 noundef 1, i32 noundef 0) #6
+  %208 = load i32, ptr @hf_gsm_a_dtap_connection_element, align 4
+  %209 = tail call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %208, ptr noundef %0, i32 noundef %196, i32 noundef 1, i32 noundef 0) #6
+  %210 = load i32, ptr @hf_gsm_a_dtap_modem_type, align 4
+  %211 = and i32 %205, 31
+  %212 = tail call ptr @val_to_str_const(i32 noundef %211, ptr noundef nonnull @gsm_a_dtap_modem_type_vals, ptr noundef nonnull @.str.123) #6
+  %213 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %203, i32 noundef %210, ptr noundef %0, i32 noundef %196, i32 noundef 1, i32 noundef %205, ptr noundef nonnull @.str.150, ptr noundef %212) #6
+  %214 = add i32 %.1, 4
+  %215 = sub i32 %214, %3
+  %.not459 = icmp ult i32 %215, %4
+  br i1 %.not459, label %218, label %216
+
+216:                                              ; preds = %201
+  %217 = trunc i32 %4 to i16
+  br label %341
+
+218:                                              ; preds = %201
+  %.not458 = icmp sgt i8 %204, -1
+  br i1 %.not458, label %219, label %317
+
+219:                                              ; preds = %218
+  %220 = load i32, ptr @ett_bc_oct_6d, align 4
+  %221 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %214, i32 noundef 1, i32 noundef %220, ptr noundef null, ptr noundef nonnull @.str.163) #6
+  %222 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %214) #6
+  %223 = zext i8 %222 to i32
+  %224 = load i32, ptr @hf_gsm_a_extension, align 4
+  %225 = tail call ptr @proto_tree_add_item(ptr noundef %221, i32 noundef %224, ptr noundef %0, i32 noundef %214, i32 noundef 1, i32 noundef 0) #6
+  %226 = load i32, ptr @hf_gsm_a_dtap_other_modem_type, align 4
+  %227 = tail call ptr @proto_tree_add_item(ptr noundef %221, i32 noundef %226, ptr noundef %0, i32 noundef %214, i32 noundef 1, i32 noundef 0) #6
+  %228 = load i32, ptr @hf_gsm_a_dtap_fixed_network_user_rate, align 4
+  %229 = and i32 %223, 31
+  %230 = tail call ptr @val_to_str_const(i32 noundef %229, ptr noundef nonnull @gsm_a_dtap_fixed_network_user_rate_vals, ptr noundef nonnull @.str.123) #6
+  %231 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %221, i32 noundef %228, ptr noundef %0, i32 noundef %214, i32 noundef 1, i32 noundef %223, ptr noundef nonnull @.str.150, ptr noundef %230) #6
+  %232 = add i32 %.1, 5
+  %233 = sub i32 %232, %3
+  %.not461 = icmp ult i32 %233, %4
+  br i1 %.not461, label %236, label %234
+
+234:                                              ; preds = %219
+  %235 = trunc i32 %4 to i16
+  br label %341
+
+236:                                              ; preds = %219
+  %.not460 = icmp sgt i8 %222, -1
+  br i1 %.not460, label %237, label %317
+
+237:                                              ; preds = %236
+  %238 = load i32, ptr @ett_bc_oct_6e, align 4
+  %239 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %232, i32 noundef 1, i32 noundef %238, ptr noundef null, ptr noundef nonnull @.str.164) #6
+  %240 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %232) #6
+  %241 = zext i8 %240 to i32
+  %.not462 = icmp sgt i8 %240, -1
+  %242 = load i32, ptr @hf_gsm_a_extension, align 4
+  %243 = tail call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %242, ptr noundef %0, i32 noundef %232, i32 noundef 1, i32 noundef 0) #6
+  %.b445 = load i1, ptr @is_uplink, align 4
+  br i1 %.b445, label %244, label %257
+
+244:                                              ; preds = %237
+  %245 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_TCH_F14_4, align 4
+  %246 = tail call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %245, ptr noundef %0, i32 noundef %232, i32 noundef 1, i32 noundef 0) #6
+  %247 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_spare20, align 4
+  %248 = tail call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %247, ptr noundef %0, i32 noundef %232, i32 noundef 1, i32 noundef 0) #6
+  %249 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_TCH_F9_6, align 4
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %249, ptr noundef %0, i32 noundef %232, i32 noundef 1, i32 noundef 0) #6
+  %251 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_TCH_F4_8, align 4
+  %252 = tail call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %251, ptr noundef %0, i32 noundef %232, i32 noundef 1, i32 noundef 0) #6
+  %253 = load i32, ptr @hf_gsm_a_dtap_maximum_number_of_traffic_channels, align 4
+  %254 = and i32 %241, 7
+  %255 = add nuw nsw i32 %254, 1
+  %256 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %239, i32 noundef %253, ptr noundef %0, i32 noundef %232, i32 noundef 1, i32 noundef %255, ptr noundef nonnull @.str.165, i32 noundef %255) #6
+  br label %262
+
+257:                                              ; preds = %237
+  %258 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_spare78, align 4
+  %259 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %239, i32 noundef %258, ptr noundef %0, i32 noundef %232, i32 noundef 1, i32 noundef %241, ptr noundef nonnull @.str.139) #6
+  %260 = load i32, ptr @hf_gsm_a_dtap_maximum_number_of_traffic_channels, align 4
+  %261 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %239, i32 noundef %260, ptr noundef %0, i32 noundef %232, i32 noundef 1, i32 noundef %241, ptr noundef nonnull @.str.139) #6
+  br label %262
+
+262:                                              ; preds = %257, %244
+  %263 = add i32 %.1, 6
+  %264 = sub i32 %263, %3
+  %.not463 = icmp ult i32 %264, %4
+  br i1 %.not463, label %267, label %265
+
+265:                                              ; preds = %262
+  %266 = trunc i32 %4 to i16
+  br label %341
+
+267:                                              ; preds = %262
+  br i1 %.not462, label %268, label %317
+
+268:                                              ; preds = %267
+  %269 = load i32, ptr @ett_bc_oct_6f, align 4
+  %270 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %263, i32 noundef 1, i32 noundef %269, ptr noundef null, ptr noundef nonnull @.str.166) #6
+  %271 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %263) #6
+  %.not464 = icmp sgt i8 %271, -1
+  %272 = load i32, ptr @hf_gsm_a_extension, align 4
+  %273 = tail call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %272, ptr noundef %0, i32 noundef %263, i32 noundef 1, i32 noundef 0) #6
+  %274 = load i32, ptr @hf_gsm_a_dtap_uimi, align 4
+  %275 = tail call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %274, ptr noundef %0, i32 noundef %263, i32 noundef 1, i32 noundef 0) #6
   %.b444 = load i1, ptr @is_uplink, align 4
-  %72 = load i32, ptr @hf_gsm_a_dtap_compression_up, align 4
-  %73 = load i32, ptr @hf_gsm_a_dtap_compression, align 4
-  %74 = select i1 %.b444, i32 %72, i32 %73
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %74, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef 0) #6
-  %76 = load i32, ptr @hf_gsm_a_dtap_structure, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %76, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef 0) #6
-  %78 = load i32, ptr @hf_gsm_a_dtap_duplex_mode, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %78, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef 0) #6
-  %80 = load i32, ptr @hf_gsm_a_dtap_configuration, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %80, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef 0) #6
-  %82 = load i32, ptr @hf_gsm_a_dtap_nirr, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %82, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef 0) #6
-  %84 = load i32, ptr @hf_gsm_a_dtap_establishment, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %84, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef 0) #6
-  %86 = icmp eq i32 %4, 2
-  br i1 %86, label %347, label %87
+  br i1 %.b444, label %276, label %279
 
-87:                                               ; preds = %67
-  %88 = add i32 %3, 2
-  %89 = load i32, ptr @ett_bc_oct_5, align 4
-  %90 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef %89, ptr noundef null, ptr noundef nonnull @.str.154) #6
-  %91 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %88) #6
-  %92 = load i32, ptr @hf_gsm_a_extension, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %92, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef 0) #6
-  %94 = load i32, ptr @hf_gsm_a_dtap_access_identity, align 4
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %94, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef 0) #6
-  %96 = load i32, ptr @hf_gsm_a_dtap_rate_adaption, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %96, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef 0) #6
-  %98 = load i32, ptr @hf_gsm_a_dtap_signalling_access_protocol, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %98, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef 0) #6
-  %100 = add i32 %3, 3
-  %101 = icmp ult i32 %4, 4
-  br i1 %101, label %347, label %102
+276:                                              ; preds = %268
+  %277 = load i32, ptr @hf_gsm_a_dtap_wanted_air_interface_user_rate, align 4
+  %278 = tail call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %277, ptr noundef %0, i32 noundef %263, i32 noundef 1, i32 noundef 0) #6
+  br label %283
 
-102:                                              ; preds = %87
-  %.not447 = icmp sgt i8 %91, -1
-  br i1 %.not447, label %103, label %143
+279:                                              ; preds = %268
+  %280 = zext i8 %271 to i32
+  %281 = load i32, ptr @hf_gsm_a_dtap_wanted_air_interface_user_rate, align 4
+  %282 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %270, i32 noundef %281, ptr noundef %0, i32 noundef %263, i32 noundef 1, i32 noundef %280, ptr noundef nonnull @.str.139) #6
+  br label %283
 
-103:                                              ; preds = %102
-  %104 = load i32, ptr @ett_bc_oct_5a, align 4
-  %105 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %100, i32 noundef 1, i32 noundef %104, ptr noundef null, ptr noundef nonnull @.str.155) #6
-  %106 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %100) #6
-  %107 = load i32, ptr @hf_gsm_a_extension, align 4
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %107, ptr noundef %0, i32 noundef %100, i32 noundef 1, i32 noundef 0) #6
-  %109 = load i32, ptr @hf_gsm_a_dtap_other_itc, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %109, ptr noundef %0, i32 noundef %100, i32 noundef 1, i32 noundef 0) #6
-  %111 = load i32, ptr @hf_gsm_a_dtap_other_rate_adaption, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %111, ptr noundef %0, i32 noundef %100, i32 noundef 1, i32 noundef 0) #6
-  %113 = load i32, ptr @hf_gsm_a_spare_bits, align 4
-  %114 = shl i32 %100, 3
-  %115 = or disjoint i32 %114, 5
-  %116 = tail call ptr @proto_tree_add_bits_item(ptr noundef %105, i32 noundef %113, ptr noundef %0, i32 noundef %115, i32 noundef 3, i32 noundef 0) #6
-  %117 = add i32 %3, 4
-  %118 = icmp eq i32 %4, 4
-  br i1 %118, label %347, label %119
+283:                                              ; preds = %279, %276
+  %284 = add i32 %.1, 7
+  %285 = sub i32 %284, %3
+  %.not465 = icmp ult i32 %285, %4
+  br i1 %.not465, label %288, label %286
 
-119:                                              ; preds = %103
-  %.not448 = icmp sgt i8 %106, -1
-  br i1 %.not448, label %120, label %143
+286:                                              ; preds = %283
+  %287 = trunc i32 %4 to i16
+  br label %341
 
-120:                                              ; preds = %119
-  %121 = load i32, ptr @ett_bc_oct_5b, align 4
-  %122 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef %121, ptr noundef null, ptr noundef nonnull @.str.156) #6
-  %123 = load i32, ptr @hf_gsm_a_extension, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %123, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef 0) #6
-  %125 = load i32, ptr @hf_gsm_a_dtap_rate_adaption_header, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %125, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef 0) #6
-  %127 = load i32, ptr @hf_gsm_a_dtap_multiple_frame_establishment_support, align 4
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %127, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef 0) #6
-  %129 = load i32, ptr @hf_gsm_a_dtap_mode_of_operation, align 4
-  %130 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %129, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef 0) #6
-  %131 = load i32, ptr @hf_gsm_a_dtap_logical_link_identifier_negotiation, align 4
-  %132 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %131, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef 0) #6
-  %133 = load i32, ptr @hf_gsm_a_dtap_assignor_assignee, align 4
-  %134 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %133, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef 0) #6
-  %135 = load i32, ptr @hf_gsm_a_dtap_in_out_band, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %135, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef 0) #6
-  %137 = load i32, ptr @hf_gsm_a_spare_bits, align 4
-  %138 = shl i32 %117, 3
-  %139 = or disjoint i32 %138, 7
-  %140 = tail call ptr @proto_tree_add_bits_item(ptr noundef %122, i32 noundef %137, ptr noundef %0, i32 noundef %139, i32 noundef 1, i32 noundef 0) #6
-  %141 = add i32 %3, 5
-  %142 = icmp ult i32 %4, 6
-  br i1 %142, label %347, label %143
+288:                                              ; preds = %283
+  br i1 %.not464, label %289, label %317
 
-143:                                              ; preds = %120, %119, %102
-  %.1 = phi i32 [ %141, %120 ], [ %117, %119 ], [ %100, %102 ]
-  %144 = load i32, ptr @ett_bc_oct_6, align 4
-  %145 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %144, ptr noundef null, ptr noundef nonnull @.str.157) #6
-  %146 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #6
-  %147 = zext i8 %146 to i32
-  %148 = load i32, ptr @hf_gsm_a_extension, align 4
-  %149 = tail call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %148, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #6
-  %150 = load i32, ptr @hf_gsm_a_dtap_layer_1_identity, align 4
-  %151 = and i32 %147, 96
-  %152 = icmp eq i32 %151, 32
-  %153 = select i1 %152, ptr @.str.158, ptr @.str.123
-  %154 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %145, i32 noundef %150, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %147, ptr noundef nonnull @.str.150, ptr noundef nonnull %153) #6
-  %155 = load i32, ptr @hf_gsm_a_dtap_user_information_layer_1_protocol, align 4
-  %156 = and i32 %147, 30
-  %.not450 = icmp eq i32 %156, 0
-  %157 = select i1 %.not450, ptr @.str.159, ptr @.str.123
-  %158 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %145, i32 noundef %155, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %147, ptr noundef nonnull @.str.150, ptr noundef nonnull %157) #6
-  %159 = load i32, ptr @hf_gsm_a_dtap_synchronous, align 4
-  %160 = tail call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %159, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #6
-  %161 = add i32 %.1, 1
-  %162 = sub i32 %161, %3
-  %.not451 = icmp ult i32 %162, %4
-  br i1 %.not451, label %165, label %163
-
-163:                                              ; preds = %143
-  %164 = trunc i32 %4 to i16
-  br label %347
-
-165:                                              ; preds = %143
-  %.not449 = icmp sgt i8 %146, -1
-  br i1 %.not449, label %166, label %323
-
-166:                                              ; preds = %165
-  %167 = load i32, ptr @ett_bc_oct_6a, align 4
-  %168 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef %167, ptr noundef null, ptr noundef nonnull @.str.160) #6
-  %169 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %161) #6
-  %170 = zext i8 %169 to i32
-  %171 = load i32, ptr @hf_gsm_a_extension, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %171, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef 0) #6
-  %173 = load i32, ptr @hf_gsm_a_dtap_number_of_stop_bits, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %173, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef 0) #6
-  %175 = load i32, ptr @hf_gsm_a_dtap_negotiation, align 4
-  %176 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %175, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef 0) #6
-  %177 = load i32, ptr @hf_gsm_a_dtap_number_of_data_bits, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %177, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef 0) #6
-  %179 = load i32, ptr @hf_gsm_a_dtap_user_rate, align 4
-  %180 = and i32 %170, 15
-  %181 = tail call ptr @val_to_str_const(i32 noundef %180, ptr noundef nonnull @gsm_a_dtap_user_rate_vals, ptr noundef nonnull @.str.123) #6
-  %182 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %168, i32 noundef %179, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef %170, ptr noundef nonnull @.str.150, ptr noundef %181) #6
-  %183 = add i32 %.1, 2
-  %184 = sub i32 %183, %3
-  %.not453 = icmp ult i32 %184, %4
-  br i1 %.not453, label %187, label %185
-
-185:                                              ; preds = %166
-  %186 = trunc i32 %4 to i16
-  br label %347
-
-187:                                              ; preds = %166
-  %.not452 = icmp sgt i8 %169, -1
-  br i1 %.not452, label %188, label %323
-
-188:                                              ; preds = %187
-  %189 = load i32, ptr @ett_bc_oct_6b, align 4
-  %190 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %183, i32 noundef 1, i32 noundef %189, ptr noundef null, ptr noundef nonnull @.str.161) #6
-  %191 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %183) #6
-  %192 = load i32, ptr @hf_gsm_a_extension, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %192, ptr noundef %0, i32 noundef %183, i32 noundef 1, i32 noundef 0) #6
-  %194 = load i32, ptr @hf_gsm_a_dtap_v110_x30_rate_adaptation, align 4
-  %195 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %194, ptr noundef %0, i32 noundef %183, i32 noundef 1, i32 noundef 0) #6
-  %196 = load i32, ptr @hf_gsm_a_dtap_nic_on_tx, align 4
-  %197 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %196, ptr noundef %0, i32 noundef %183, i32 noundef 1, i32 noundef 0) #6
-  %198 = load i32, ptr @hf_gsm_a_dtap_nic_on_rx, align 4
-  %199 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %198, ptr noundef %0, i32 noundef %183, i32 noundef 1, i32 noundef 0) #6
-  %200 = load i32, ptr @hf_gsm_a_dtap_parity_information, align 4
-  %201 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %200, ptr noundef %0, i32 noundef %183, i32 noundef 1, i32 noundef 0) #6
-  %202 = add i32 %.1, 3
-  %203 = sub i32 %202, %3
-  %.not455 = icmp ult i32 %203, %4
-  br i1 %.not455, label %206, label %204
-
-204:                                              ; preds = %188
-  %205 = trunc i32 %4 to i16
-  br label %347
-
-206:                                              ; preds = %188
-  %.not454 = icmp sgt i8 %191, -1
-  br i1 %.not454, label %207, label %323
-
-207:                                              ; preds = %206
-  %208 = load i32, ptr @ett_bc_oct_6c, align 4
-  %209 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %202, i32 noundef 1, i32 noundef %208, ptr noundef null, ptr noundef nonnull @.str.162) #6
-  %210 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %202) #6
-  %211 = zext i8 %210 to i32
-  %212 = load i32, ptr @hf_gsm_a_extension, align 4
-  %213 = tail call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %212, ptr noundef %0, i32 noundef %202, i32 noundef 1, i32 noundef 0) #6
-  %214 = load i32, ptr @hf_gsm_a_dtap_connection_element, align 4
-  %215 = tail call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %214, ptr noundef %0, i32 noundef %202, i32 noundef 1, i32 noundef 0) #6
-  %216 = load i32, ptr @hf_gsm_a_dtap_modem_type, align 4
-  %217 = and i32 %211, 31
-  %218 = tail call ptr @val_to_str_const(i32 noundef %217, ptr noundef nonnull @gsm_a_dtap_modem_type_vals, ptr noundef nonnull @.str.123) #6
-  %219 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %209, i32 noundef %216, ptr noundef %0, i32 noundef %202, i32 noundef 1, i32 noundef %211, ptr noundef nonnull @.str.150, ptr noundef %218) #6
-  %220 = add i32 %.1, 4
-  %221 = sub i32 %220, %3
-  %.not457 = icmp ult i32 %221, %4
-  br i1 %.not457, label %224, label %222
-
-222:                                              ; preds = %207
-  %223 = trunc i32 %4 to i16
-  br label %347
-
-224:                                              ; preds = %207
-  %.not456 = icmp sgt i8 %210, -1
-  br i1 %.not456, label %225, label %323
-
-225:                                              ; preds = %224
-  %226 = load i32, ptr @ett_bc_oct_6d, align 4
-  %227 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %220, i32 noundef 1, i32 noundef %226, ptr noundef null, ptr noundef nonnull @.str.163) #6
-  %228 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %220) #6
-  %229 = zext i8 %228 to i32
-  %230 = load i32, ptr @hf_gsm_a_extension, align 4
-  %231 = tail call ptr @proto_tree_add_item(ptr noundef %227, i32 noundef %230, ptr noundef %0, i32 noundef %220, i32 noundef 1, i32 noundef 0) #6
-  %232 = load i32, ptr @hf_gsm_a_dtap_other_modem_type, align 4
-  %233 = tail call ptr @proto_tree_add_item(ptr noundef %227, i32 noundef %232, ptr noundef %0, i32 noundef %220, i32 noundef 1, i32 noundef 0) #6
-  %234 = load i32, ptr @hf_gsm_a_dtap_fixed_network_user_rate, align 4
-  %235 = and i32 %229, 31
-  %236 = tail call ptr @val_to_str_const(i32 noundef %235, ptr noundef nonnull @gsm_a_dtap_fixed_network_user_rate_vals, ptr noundef nonnull @.str.123) #6
-  %237 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %227, i32 noundef %234, ptr noundef %0, i32 noundef %220, i32 noundef 1, i32 noundef %229, ptr noundef nonnull @.str.150, ptr noundef %236) #6
-  %238 = add i32 %.1, 5
-  %239 = sub i32 %238, %3
-  %.not459 = icmp ult i32 %239, %4
-  br i1 %.not459, label %242, label %240
-
-240:                                              ; preds = %225
-  %241 = trunc i32 %4 to i16
-  br label %347
-
-242:                                              ; preds = %225
-  %.not458 = icmp sgt i8 %228, -1
-  br i1 %.not458, label %243, label %323
-
-243:                                              ; preds = %242
-  %244 = load i32, ptr @ett_bc_oct_6e, align 4
-  %245 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef %244, ptr noundef null, ptr noundef nonnull @.str.164) #6
-  %246 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %238) #6
-  %247 = zext i8 %246 to i32
-  %.not460 = icmp sgt i8 %246, -1
-  %248 = load i32, ptr @hf_gsm_a_extension, align 4
-  %249 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %248, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef 0) #6
-  %.b443 = load i1, ptr @is_uplink, align 4
-  br i1 %.b443, label %250, label %263
-
-250:                                              ; preds = %243
-  %251 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_TCH_F14_4, align 4
-  %252 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %251, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef 0) #6
-  %253 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_spare20, align 4
-  %254 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %253, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef 0) #6
-  %255 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_TCH_F9_6, align 4
-  %256 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %255, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef 0) #6
-  %257 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_TCH_F4_8, align 4
-  %258 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %257, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef 0) #6
-  %259 = load i32, ptr @hf_gsm_a_dtap_maximum_number_of_traffic_channels, align 4
-  %260 = and i32 %247, 7
-  %261 = add nuw nsw i32 %260, 1
-  %262 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %245, i32 noundef %259, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef %261, ptr noundef nonnull @.str.165, i32 noundef %261) #6
-  br label %268
-
-263:                                              ; preds = %243
-  %264 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_spare78, align 4
-  %265 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %245, i32 noundef %264, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef %247, ptr noundef nonnull @.str.139) #6
-  %266 = load i32, ptr @hf_gsm_a_dtap_maximum_number_of_traffic_channels, align 4
-  %267 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %245, i32 noundef %266, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef %247, ptr noundef nonnull @.str.139) #6
-  br label %268
-
-268:                                              ; preds = %263, %250
-  %269 = add i32 %.1, 6
-  %270 = sub i32 %269, %3
-  %.not461 = icmp ult i32 %270, %4
-  br i1 %.not461, label %273, label %271
-
-271:                                              ; preds = %268
-  %272 = trunc i32 %4 to i16
-  br label %347
-
-273:                                              ; preds = %268
-  br i1 %.not460, label %274, label %323
-
-274:                                              ; preds = %273
-  %275 = load i32, ptr @ett_bc_oct_6f, align 4
-  %276 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %269, i32 noundef 1, i32 noundef %275, ptr noundef null, ptr noundef nonnull @.str.166) #6
-  %277 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %269) #6
-  %.not462 = icmp sgt i8 %277, -1
-  %278 = load i32, ptr @hf_gsm_a_extension, align 4
-  %279 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %278, ptr noundef %0, i32 noundef %269, i32 noundef 1, i32 noundef 0) #6
-  %280 = load i32, ptr @hf_gsm_a_dtap_uimi, align 4
-  %281 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %280, ptr noundef %0, i32 noundef %269, i32 noundef 1, i32 noundef 0) #6
-  %.b442 = load i1, ptr @is_uplink, align 4
-  br i1 %.b442, label %282, label %285
-
-282:                                              ; preds = %274
-  %283 = load i32, ptr @hf_gsm_a_dtap_wanted_air_interface_user_rate, align 4
-  %284 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %283, ptr noundef %0, i32 noundef %269, i32 noundef 1, i32 noundef 0) #6
-  br label %289
-
-285:                                              ; preds = %274
-  %286 = zext i8 %277 to i32
-  %287 = load i32, ptr @hf_gsm_a_dtap_wanted_air_interface_user_rate, align 4
-  %288 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %276, i32 noundef %287, ptr noundef %0, i32 noundef %269, i32 noundef 1, i32 noundef %286, ptr noundef nonnull @.str.139) #6
-  br label %289
-
-289:                                              ; preds = %285, %282
-  %290 = add i32 %.1, 7
-  %291 = sub i32 %290, %3
-  %.not463 = icmp ult i32 %291, %4
-  br i1 %.not463, label %294, label %292
-
-292:                                              ; preds = %289
-  %293 = trunc i32 %4 to i16
-  br label %347
-
-294:                                              ; preds = %289
-  br i1 %.not462, label %295, label %323
-
-295:                                              ; preds = %294
-  %296 = load i32, ptr @ett_bc_oct_6g, align 4
-  %297 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %290, i32 noundef 1, i32 noundef %296, ptr noundef null, ptr noundef nonnull @.str.167) #6
-  %298 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %290) #6
-  %299 = load i32, ptr @hf_gsm_a_extension, align 4
-  %300 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %299, ptr noundef %0, i32 noundef %290, i32 noundef 1, i32 noundef 0) #6
+289:                                              ; preds = %288
+  %290 = load i32, ptr @ett_bc_oct_6g, align 4
+  %291 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef %290, ptr noundef null, ptr noundef nonnull @.str.167) #6
+  %292 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %284) #6
+  %293 = load i32, ptr @hf_gsm_a_extension, align 4
+  %294 = tail call ptr @proto_tree_add_item(ptr noundef %291, i32 noundef %293, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef 0) #6
   %.b = load i1, ptr @is_uplink, align 4
-  br i1 %.b, label %301, label %310
+  br i1 %.b, label %295, label %304
 
-301:                                              ; preds = %295
-  %302 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_ext_TCH_F28_8, align 4
-  %303 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %302, ptr noundef %0, i32 noundef %290, i32 noundef 1, i32 noundef 0) #6
-  %304 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_ext_TCH_F32_0, align 4
-  %305 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %304, ptr noundef %0, i32 noundef %290, i32 noundef 1, i32 noundef 0) #6
-  %306 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_ext_TCH_F43_2, align 4
-  %307 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %306, ptr noundef %0, i32 noundef %290, i32 noundef 1, i32 noundef 0) #6
-  %308 = load i32, ptr @hf_gsm_a_dtap_channel_coding_asymmetry_indication, align 4
-  %309 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %308, ptr noundef %0, i32 noundef %290, i32 noundef 1, i32 noundef 0) #6
-  br label %314
+295:                                              ; preds = %289
+  %296 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_ext_TCH_F28_8, align 4
+  %297 = tail call ptr @proto_tree_add_item(ptr noundef %291, i32 noundef %296, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef 0) #6
+  %298 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_ext_TCH_F32_0, align 4
+  %299 = tail call ptr @proto_tree_add_item(ptr noundef %291, i32 noundef %298, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef 0) #6
+  %300 = load i32, ptr @hf_gsm_a_dtap_acceptable_channel_codings_ext_TCH_F43_2, align 4
+  %301 = tail call ptr @proto_tree_add_item(ptr noundef %291, i32 noundef %300, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef 0) #6
+  %302 = load i32, ptr @hf_gsm_a_dtap_channel_coding_asymmetry_indication, align 4
+  %303 = tail call ptr @proto_tree_add_item(ptr noundef %291, i32 noundef %302, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef 0) #6
+  br label %308
 
-310:                                              ; preds = %295
-  %311 = load i32, ptr @hf_gsm_a_dtap_edge_channel_codings, align 4
-  %312 = zext i8 %298 to i32
-  %313 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %297, i32 noundef %311, ptr noundef %0, i32 noundef %290, i32 noundef 1, i32 noundef %312, ptr noundef nonnull @.str.139) #6
-  br label %314
+304:                                              ; preds = %289
+  %305 = load i32, ptr @hf_gsm_a_dtap_edge_channel_codings, align 4
+  %306 = zext i8 %292 to i32
+  %307 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %291, i32 noundef %305, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef %306, ptr noundef nonnull @.str.139) #6
+  br label %308
 
-314:                                              ; preds = %310, %301
-  %315 = load i32, ptr @hf_gsm_a_spare_bits, align 4
-  %316 = shl i32 %290, 3
-  %317 = or disjoint i32 %316, 6
-  %318 = tail call ptr @proto_tree_add_bits_item(ptr noundef %297, i32 noundef %315, ptr noundef %0, i32 noundef %317, i32 noundef 2, i32 noundef 0) #6
-  %319 = add i32 %.1, 8
-  %320 = sub i32 %319, %3
-  %.not464 = icmp ult i32 %320, %4
-  br i1 %.not464, label %323, label %321
+308:                                              ; preds = %304, %295
+  %309 = load i32, ptr @hf_gsm_a_spare_bits, align 4
+  %310 = shl i32 %284, 3
+  %311 = or disjoint i32 %310, 6
+  %312 = tail call ptr @proto_tree_add_bits_item(ptr noundef %291, i32 noundef %309, ptr noundef %0, i32 noundef %311, i32 noundef 2, i32 noundef 0) #6
+  %313 = add i32 %.1, 8
+  %314 = sub i32 %313, %3
+  %.not466 = icmp ult i32 %314, %4
+  br i1 %.not466, label %317, label %315
 
-321:                                              ; preds = %314
-  %322 = trunc i32 %4 to i16
-  br label %347
+315:                                              ; preds = %308
+  %316 = trunc i32 %4 to i16
+  br label %341
 
-323:                                              ; preds = %314, %294, %273, %242, %224, %206, %187, %165
-  %.0437 = phi i8 [ %298, %314 ], [ %277, %294 ], [ %246, %273 ], [ %228, %242 ], [ %210, %224 ], [ %191, %206 ], [ %169, %187 ], [ %146, %165 ]
-  %.2 = phi i32 [ %319, %314 ], [ %290, %294 ], [ %269, %273 ], [ %238, %242 ], [ %220, %224 ], [ %202, %206 ], [ %183, %187 ], [ %161, %165 ]
-  %324 = load i32, ptr @ett_bc_oct_7, align 4
-  %325 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %324, ptr noundef null, ptr noundef nonnull @.str.168) #6
-  %326 = load i32, ptr @hf_gsm_a_extension, align 4
-  %327 = tail call ptr @proto_tree_add_item(ptr noundef %325, i32 noundef %326, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #6
-  %328 = load i32, ptr @hf_gsm_a_dtap_layer_2_identity, align 4
-  %329 = zext i8 %.0437 to i32
-  %330 = and i32 %329, 96
-  %331 = icmp eq i32 %330, 64
-  %332 = select i1 %331, ptr @.str.158, ptr @.str.123
-  %333 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %325, i32 noundef %328, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %329, ptr noundef nonnull @.str.150, ptr noundef nonnull %332) #6
-  %334 = load i32, ptr @hf_gsm_a_dtap_user_information_layer_2_protocol, align 4
-  %335 = and i32 %329, 31
-  %336 = tail call ptr @val_to_str_const(i32 noundef %335, ptr noundef nonnull @gsm_a_dtap_user_info_layer2_vals, ptr noundef nonnull @.str.123) #6
-  %337 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %325, i32 noundef %334, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %329, ptr noundef nonnull @.str.150, ptr noundef %336) #6
-  br label %338
+317:                                              ; preds = %308, %288, %267, %236, %218, %200, %181, %159
+  %.0439 = phi i8 [ %292, %308 ], [ %271, %288 ], [ %240, %267 ], [ %222, %236 ], [ %204, %218 ], [ %185, %200 ], [ %163, %181 ], [ %140, %159 ]
+  %.2 = phi i32 [ %313, %308 ], [ %284, %288 ], [ %263, %267 ], [ %232, %236 ], [ %214, %218 ], [ %196, %200 ], [ %177, %181 ], [ %155, %159 ]
+  %318 = load i32, ptr @ett_bc_oct_7, align 4
+  %319 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %318, ptr noundef null, ptr noundef nonnull @.str.168) #6
+  %320 = load i32, ptr @hf_gsm_a_extension, align 4
+  %321 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %320, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #6
+  %322 = load i32, ptr @hf_gsm_a_dtap_layer_2_identity, align 4
+  %323 = zext i8 %.0439 to i32
+  %324 = and i32 %323, 96
+  %325 = icmp eq i32 %324, 64
+  %326 = select i1 %325, ptr @.str.158, ptr @.str.123
+  %327 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %319, i32 noundef %322, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %323, ptr noundef nonnull @.str.150, ptr noundef nonnull %326) #6
+  %328 = load i32, ptr @hf_gsm_a_dtap_user_information_layer_2_protocol, align 4
+  %329 = and i32 %323, 31
+  %330 = tail call ptr @val_to_str_const(i32 noundef %329, ptr noundef nonnull @gsm_a_dtap_user_info_layer2_vals, ptr noundef nonnull @.str.123) #6
+  %331 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %319, i32 noundef %328, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %323, ptr noundef nonnull @.str.150, ptr noundef %330) #6
+  br label %332
 
-338:                                              ; preds = %323, %.critedge
-  %.3 = phi i32 [ %64, %.critedge ], [ %.2, %323 ]
-  %339 = sub i32 %.3, %3
-  %340 = icmp ult i32 %339, %4
-  br i1 %340, label %341, label %345
+332:                                              ; preds = %317, %.critedge
+  %.3 = phi i32 [ %58, %.critedge ], [ %.2, %317 ]
+  %333 = sub i32 %.3, %3
+  %334 = icmp ult i32 %333, %4
+  br i1 %334, label %335, label %339
 
-341:                                              ; preds = %338
-  %342 = sub i32 %4, %339
-  %343 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_dtap_extraneous_data, ptr noundef %0, i32 noundef %.3, i32 noundef %342) #6
-  %344 = add i32 %342, %.3
-  %.pre = sub i32 %344, %3
-  br label %345
+335:                                              ; preds = %332
+  %336 = sub i32 %4, %333
+  %337 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_dtap_extraneous_data, ptr noundef %0, i32 noundef %.3, i32 noundef %336) #6
+  %338 = add i32 %336, %.3
+  %.pre = sub i32 %338, %3
+  br label %339
 
-345:                                              ; preds = %341, %338
-  %.pre-phi = phi i32 [ %.pre, %341 ], [ %339, %338 ]
-  %346 = trunc i32 %.pre-phi to i16
-  br label %347
+339:                                              ; preds = %335, %332
+  %.pre-phi = phi i32 [ %.pre, %335 ], [ %333, %332 ]
+  %340 = trunc i32 %.pre-phi to i16
+  br label %341
 
-347:                                              ; preds = %120, %103, %87, %67, %345, %321, %292, %271, %240, %222, %204, %185, %163, %45
-  %.0435 = phi i16 [ %46, %45 ], [ %346, %345 ], [ %164, %163 ], [ %186, %185 ], [ %205, %204 ], [ %223, %222 ], [ %241, %240 ], [ %272, %271 ], [ %293, %292 ], [ %322, %321 ], [ 2, %67 ], [ 3, %87 ], [ 4, %103 ], [ 5, %120 ]
-  ret i16 %.0435
+341:                                              ; preds = %114, %97, %81, %61, %339, %315, %286, %265, %234, %216, %198, %179, %157, %39
+  %.0437 = phi i16 [ %40, %39 ], [ %340, %339 ], [ %158, %157 ], [ %180, %179 ], [ %199, %198 ], [ %217, %216 ], [ %235, %234 ], [ %266, %265 ], [ %287, %286 ], [ %316, %315 ], [ 2, %61 ], [ 3, %81 ], [ 4, %97 ], [ 5, %114 ]
+  ret i16 %.0437
 }
 
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -3012,10 +2997,11 @@ define internal noundef zeroext i16 @de_call_state(ptr noundef %0, ptr noundef %
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
   %14 = lshr i8 %13, 6
   %15 = and i8 %13, 63
-  switch i8 %14, label %24 [
+  switch i8 %14, label %default.unreachable [
     i8 0, label %16
     i8 1, label %21
     i8 2, label %21
+    i8 3, label %24
   ]
 
 16:                                               ; preds = %7
@@ -3029,6 +3015,9 @@ define internal noundef zeroext i16 @de_call_state(ptr noundef %0, ptr noundef %
   %22 = load i32, ptr @hf_gsm_a_dtap_call_state, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %22, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   br label %29
+
+default.unreachable:                              ; preds = %7
+  unreachable
 
 24:                                               ; preds = %7
   %25 = load i32, ptr @hf_gsm_a_dtap_call_state, align 4
@@ -3609,10 +3598,11 @@ define internal noundef zeroext i16 @de_prog_ind(ptr noundef %0, ptr noundef %1,
   %23 = and i8 %22, 127
   %24 = load i32, ptr @hf_gsm_a_extension, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %24, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #6
-  switch i8 %10, label %34 [
+  switch i8 %10, label %default.unreachable [
     i8 0, label %26
     i8 1, label %31
     i8 2, label %31
+    i8 3, label %34
   ]
 
 26:                                               ; preds = %7
@@ -3626,6 +3616,9 @@ define internal noundef zeroext i16 @de_prog_ind(ptr noundef %0, ptr noundef %1,
   %32 = load i32, ptr @hf_gsm_a_dtap_progress_description, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %32, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #6
   br label %39
+
+default.unreachable:                              ; preds = %7
+  unreachable
 
 34:                                               ; preds = %7
   %35 = load i32, ptr @hf_gsm_a_dtap_progress_description, align 4

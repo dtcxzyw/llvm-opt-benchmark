@@ -937,13 +937,16 @@ _ZN8smallvec10infallible17h83a519063cf949b3E.llvm.8462471242219372772.exit:
   %23 = load i8, ptr %22, align 8, !range !175, !alias.scope !176, !noalias !177, !noundef !4
   %24 = add nsw i8 %23, -24
   %narrow.i.i.i.i.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %24, i8 2)
-  switch i8 %narrow.i.i.i.i.i.i.i.i.i, label %default.unreachable [
+  switch i8 %narrow.i.i.i.i.i.i.i.i.i, label %.unreachabledefault [
     i8 0, label %25
     i8 1, label %31
     i8 2, label %34
   ]
 
-default.unreachable:                              ; preds = %21, %44
+.unreachabledefault:                              ; preds = %21
+  unreachable
+
+default.unreachable:                              ; preds = %44
   unreachable
 
 25:                                               ; preds = %21
@@ -14933,13 +14936,16 @@ _ZN10hir_expand8mod_path7ModPath8as_ident17h5a7bb0bd97c1fe7bE.exit.i.i: ; preds 
 54:                                               ; preds = %_ZN10hir_expand8mod_path7ModPath8as_ident17h5a7bb0bd97c1fe7bE.exit.i.i
   %55 = add nsw i8 %53, -24
   %narrow.i.i.i.i = call i8 @llvm.umin.i8(i8 %55, i8 2)
-  switch i8 %narrow.i.i.i.i, label %default.unreachable [
+  switch i8 %narrow.i.i.i.i, label %.unreachabledefault [
     i8 0, label %56
     i8 1, label %60
     i8 2, label %.thread9.i.i
   ]
 
-default.unreachable:                              ; preds = %54, %87
+.unreachabledefault:                              ; preds = %54
+  unreachable
+
+default.unreachable:                              ; preds = %87
   unreachable
 
 56:                                               ; preds = %54

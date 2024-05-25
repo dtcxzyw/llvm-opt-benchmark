@@ -2057,64 +2057,69 @@ define internal void @mu_association_status(ptr nocapture noundef writeonly %0, 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @topology_moder_print(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
   %3 = zext i16 %1 to i32
-  %4 = and i16 %1, -16384
-  %5 = and i16 %1, 4095
-  %.not28 = icmp eq i16 %5, 0
-  switch i16 %4, label %24 [
-    i16 -16384, label %6
-    i16 16384, label %12
-    i16 -32768, label %18
+  %4 = and i16 %1, 4095
+  %5 = lshr i16 %1, 14
+  %6 = xor i16 %5, 2
+  %.not27 = icmp eq i16 %4, 0
+  switch i16 %6, label %default.unreachable [
+    i16 1, label %7
+    i16 3, label %13
+    i16 0, label %19
+    i16 2, label %25
   ]
 
-6:                                                ; preds = %2
-  br i1 %.not28, label %10, label %7
+7:                                                ; preds = %2
+  br i1 %.not27, label %11, label %8
 
-7:                                                ; preds = %6
-  %8 = zext nneg i16 %5 to i32
-  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.889, i32 noundef %8, i32 noundef %3) #5
-  br label %30
+8:                                                ; preds = %7
+  %9 = zext nneg i16 %4 to i32
+  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.889, i32 noundef %9, i32 noundef %3) #5
+  br label %31
 
-10:                                               ; preds = %6
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.890, i32 noundef %3) #5
-  br label %30
+11:                                               ; preds = %7
+  %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.890, i32 noundef %3) #5
+  br label %31
 
-12:                                               ; preds = %2
-  br i1 %.not28, label %16, label %13
+13:                                               ; preds = %2
+  br i1 %.not27, label %17, label %14
 
-13:                                               ; preds = %12
-  %14 = zext nneg i16 %5 to i32
-  %15 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.891, i32 noundef %14, i32 noundef %3) #5
-  br label %30
+14:                                               ; preds = %13
+  %15 = zext nneg i16 %4 to i32
+  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.891, i32 noundef %15, i32 noundef %3) #5
+  br label %31
 
-16:                                               ; preds = %12
-  %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.892, i32 noundef %3) #5
-  br label %30
+17:                                               ; preds = %13
+  %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.892, i32 noundef %3) #5
+  br label %31
 
-18:                                               ; preds = %2
-  br i1 %.not28, label %22, label %19
+19:                                               ; preds = %2
+  br i1 %.not27, label %23, label %20
 
-19:                                               ; preds = %18
-  %20 = zext nneg i16 %5 to i32
-  %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.893, i32 noundef %20, i32 noundef %3) #5
-  br label %30
+20:                                               ; preds = %19
+  %21 = zext nneg i16 %4 to i32
+  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.893, i32 noundef %21, i32 noundef %3) #5
+  br label %31
 
-22:                                               ; preds = %18
-  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.894, i32 noundef %3) #5
-  br label %30
+23:                                               ; preds = %19
+  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.894, i32 noundef %3) #5
+  br label %31
 
-24:                                               ; preds = %2
-  br i1 %.not28, label %28, label %25
+default.unreachable:                              ; preds = %2
+  unreachable
 
-25:                                               ; preds = %24
-  %26 = zext nneg i16 %5 to i32
-  %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.895, i32 noundef %26, i32 noundef %3) #5
-  br label %30
+25:                                               ; preds = %2
+  br i1 %.not27, label %29, label %26
 
-28:                                               ; preds = %24
-  %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.896, i32 noundef %3) #5
-  br label %30
+26:                                               ; preds = %25
+  %27 = zext nneg i16 %4 to i32
+  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.895, i32 noundef %27, i32 noundef %3) #5
+  br label %31
 
-30:                                               ; preds = %25, %28, %19, %22, %13, %16, %7, %10
+29:                                               ; preds = %25
+  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.896, i32 noundef %3) #5
+  br label %31
+
+31:                                               ; preds = %26, %29, %20, %23, %14, %17, %8, %11
   ret void
 }
 

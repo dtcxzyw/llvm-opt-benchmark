@@ -1378,10 +1378,11 @@ zbee_get_bit_field.exit335.i:                     ; preds = %.lr.ph.i331.i
 
 361:                                              ; preds = %359, %356
   %.0237.i = phi ptr [ %357, %356 ], [ %360, %359 ]
-  switch i16 %46, label %622 [
+  switch i16 %46, label %default.unreachable [
     i16 1, label %362
     i16 3, label %619
     i16 0, label %619
+    i16 2, label %622
   ]
 
 362:                                              ; preds = %361
@@ -1827,6 +1828,9 @@ dissect_zbee_nwk_cmd.exit.i:                      ; preds = %614, %dissect_zbee_
   %620 = load ptr, ptr @aps_handle, align 8
   %621 = call i32 @call_dissector_with_data(ptr noundef %620, ptr noundef %.0237.i, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8) #8
   br label %624
+
+default.unreachable:                              ; preds = %361
+  unreachable
 
 622:                                              ; preds = %361
   %623 = call i32 @call_data_dissector(ptr noundef %.0237.i, ptr noundef %1, ptr noundef %2) #8

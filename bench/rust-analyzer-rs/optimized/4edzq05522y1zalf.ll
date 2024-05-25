@@ -796,7 +796,7 @@ define hidden void @_ZN3mbe15to_parser_input15to_parser_input17h40df232e5497df95
   %44 = load ptr, ptr %34, align 8, !noalias !7, !nonnull !7, !align !45, !noundef !7
   %45 = getelementptr inbounds { i64, [3 x i64] }, ptr %44, i64 %.sroa.23.0562
   %46 = load i64, ptr %45, align 8, !range !44, !noalias !7, !noundef !7
-  switch i64 %46, label %default.unreachable793.loopexit [
+  switch i64 %46, label %.unreachabledefault [
     i64 2, label %"_ZN2tt6buffer18Cursor$LT$Span$GT$3eof17h26ca25564c6865d3E.exit"
     i64 0, label %50
     i64 1, label %54
@@ -831,7 +831,10 @@ define hidden void @_ZN3mbe15to_parser_input15to_parser_input17h40df232e5497df95
   %49 = trunc nuw i64 %48 to i1
   br i1 %49, label %"_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17hf13c356601bf3db4E.exit.thread", label %"_ZN2tt6buffer18Cursor$LT$Span$GT$3eof17h26ca25564c6865d3E.exit.thread"
 
-default.unreachable793.loopexit:                  ; preds = %43, %60
+.unreachabledefault:                              ; preds = %43
+  unreachable
+
+.unreachabledefault1235:                          ; preds = %60
   unreachable
 
 default.unreachable793:                           ; preds = %581, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hef140300909768c4E.exit205.thread", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hef140300909768c4E.exit", %298, %276, %161
@@ -866,7 +869,7 @@ default.unreachable793:                           ; preds = %581, %"_ZN4core5sli
 
 60:                                               ; preds = %54
   %61 = load i32, ptr %56, align 8, !range !110, !noundef !7
-  switch i32 %61, label %default.unreachable793.loopexit [
+  switch i32 %61, label %.unreachabledefault1235 [
     i32 1, label %62
     i32 0, label %276
     i32 2, label %298

@@ -70953,10 +70953,11 @@ for.body:                                         ; preds = %for.cond.preheader,
           to label %invoke.cont50 unwind label %lpad.loopexit
 
 invoke.cont50:                                    ; preds = %for.body
-  switch i32 %api.0667, label %sw.default [
+  switch i32 %api.0667, label %invoke.cont50.unreachabledefault [
     i32 0, label %sw.bb
     i32 1, label %sw.bb54
     i32 2, label %sw.default.invoke
+    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %invoke.cont50
@@ -70975,6 +70976,9 @@ sw.bb54:                                          ; preds = %invoke.cont50
   store ptr @.str.291, ptr %ref.tmp60.sroa.2.0.api_scope.sroa_idx, align 8
   invoke void @_ZN4absl13cord_internal12CordRepBtree4DumpEPKNS0_7CordRepESt17basic_string_viewIcSt11char_traitsIcEERSo(ptr noundef nonnull %tree.0.lcssa, i64 17, ptr nonnull @.str.289, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr62)
           to label %sw.epilog unwind label %lpad52
+
+invoke.cont50.unreachabledefault:                 ; preds = %invoke.cont50
+  unreachable
 
 sw.default:                                       ; preds = %invoke.cont50
   br label %sw.default.invoke

@@ -24678,10 +24678,11 @@ _ZN4core3ops8function6FnOnce9call_once17hebba7e2b30c84cacE.exit: ; preds = %.noe
 518:                                              ; preds = %510
   %519 = getelementptr inbounds i8, ptr %2, i64 76
   %520 = load i8, ptr %519, align 4, !range !1312, !noundef !4
-  switch i8 %520, label %942 [
+  switch i8 %520, label %default.unreachable [
     i8 0, label %.preheader922
     i8 2, label %625
     i8 3, label %936
+    i8 1, label %942
   ]
 
 .preheader922:                                    ; preds = %518
@@ -25960,6 +25961,9 @@ _ZN4core3ops8function6FnOnce9call_once17hebba7e2b30c84cacE.exit: ; preds = %.noe
 941:                                              ; preds = %936
   invoke fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h47c4f162f5207090E"(ptr noundef %940)
           to label %942 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+default.unreachable:                              ; preds = %518
+  unreachable
 
 942:                                              ; preds = %621, %518, %941, %902
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7324)

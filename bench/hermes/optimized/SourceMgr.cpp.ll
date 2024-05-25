@@ -60,6 +60,8 @@ $_ZNSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE7emplaceIJRS1_RjEEES4_ISt17_Rb_tre
 
 $_ZNSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
 
+$_ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvh9SourceMgr9SrcBufferEEEvT_S6_ = comdat any
+
 $_ZNSt8_Rb_treeIPKcSt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_ = comdat any
 
 $_ZNK4llvh9SourceMgr9SrcBuffer10getOffsetsIhEEPSt6vectorIT_SaIS4_EEv = comdat any
@@ -350,17 +352,18 @@ _ZNSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE9push_backEOS2_.exit: ; preds = 
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE9push_backEOS2_.exit
   %12 = and i64 %11, 6
-  %and.i.i.i1.i10.i = and i64 %11, -8
-  %13 = inttoptr i64 %and.i.i.i1.i10.i to ptr
-  %isnull29.i = icmp eq i64 %and.i.i.i1.i10.i, 0
-  switch i64 %12, label %if.else26.i [
+  %and.i.i.i1.i.i = and i64 %11, -8
+  %13 = inttoptr i64 %and.i.i.i1.i.i to ptr
+  %isnull.i = icmp eq i64 %and.i.i.i1.i.i, 0
+  switch i64 %12, label %if.then.unreachabledefault.i [
     i64 0, label %if.then4.i
     i64 4, label %if.then10.i
     i64 2, label %if.then20.i
+    i64 6, label %if.else26.i
   ]
 
 if.then4.i:                                       ; preds = %if.then.i
-  br i1 %isnull29.i, label %if.end33.i, label %delete.notnull.i
+  br i1 %isnull.i, label %if.end33.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then4.i
   %14 = load ptr, ptr %13, align 8
@@ -368,7 +371,7 @@ delete.notnull.i:                                 ; preds = %if.then4.i
   br i1 %tobool.not.i.i.i.i2, label %if.end33.sink.split.i, label %if.end33.sink.split.sink.split.i
 
 if.then10.i:                                      ; preds = %if.then.i
-  br i1 %isnull29.i, label %if.end33.i, label %delete.notnull14.i
+  br i1 %isnull.i, label %if.end33.i, label %delete.notnull14.i
 
 delete.notnull14.i:                               ; preds = %if.then10.i
   %15 = load ptr, ptr %13, align 8
@@ -376,15 +379,18 @@ delete.notnull14.i:                               ; preds = %if.then10.i
   br i1 %tobool.not.i.i.i3.i, label %if.end33.sink.split.i, label %if.end33.sink.split.sink.split.i
 
 if.then20.i:                                      ; preds = %if.then.i
-  br i1 %isnull29.i, label %if.end33.i, label %delete.notnull24.i
+  br i1 %isnull.i, label %if.end33.i, label %delete.notnull24.i
 
 delete.notnull24.i:                               ; preds = %if.then20.i
   %16 = load ptr, ptr %13, align 8
   %tobool.not.i.i.i8.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i8.i, label %if.end33.sink.split.i, label %if.end33.sink.split.sink.split.i
 
+if.then.unreachabledefault.i:                     ; preds = %if.then.i
+  unreachable
+
 if.else26.i:                                      ; preds = %if.then.i
-  br i1 %isnull29.i, label %if.end33.i, label %delete.notnull30.i
+  br i1 %isnull.i, label %if.end33.i, label %delete.notnull30.i
 
 delete.notnull30.i:                               ; preds = %if.else26.i
   %17 = load ptr, ptr %13, align 8
@@ -522,17 +528,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = and i64 %0, 6
-  %and.i.i.i1.i10 = and i64 %0, -8
-  %2 = inttoptr i64 %and.i.i.i1.i10 to ptr
-  %isnull29 = icmp eq i64 %and.i.i.i1.i10, 0
-  switch i64 %1, label %if.else26 [
+  %and.i.i.i1.i = and i64 %0, -8
+  %2 = inttoptr i64 %and.i.i.i1.i to ptr
+  %isnull = icmp eq i64 %and.i.i.i1.i, 0
+  switch i64 %1, label %if.then.unreachabledefault [
     i64 0, label %if.then4
     i64 4, label %if.then10
     i64 2, label %if.then20
+    i64 6, label %if.else26
   ]
 
 if.then4:                                         ; preds = %if.then
-  br i1 %isnull29, label %if.end33, label %delete.notnull
+  br i1 %isnull, label %if.end33, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then4
   %3 = load ptr, ptr %2, align 8
@@ -540,7 +547,7 @@ delete.notnull:                                   ; preds = %if.then4
   br i1 %tobool.not.i.i.i, label %if.end33.sink.split, label %if.end33.sink.split.sink.split
 
 if.then10:                                        ; preds = %if.then
-  br i1 %isnull29, label %if.end33, label %delete.notnull14
+  br i1 %isnull, label %if.end33, label %delete.notnull14
 
 delete.notnull14:                                 ; preds = %if.then10
   %4 = load ptr, ptr %2, align 8
@@ -548,15 +555,18 @@ delete.notnull14:                                 ; preds = %if.then10
   br i1 %tobool.not.i.i.i3, label %if.end33.sink.split, label %if.end33.sink.split.sink.split
 
 if.then20:                                        ; preds = %if.then
-  br i1 %isnull29, label %if.end33, label %delete.notnull24
+  br i1 %isnull, label %if.end33, label %delete.notnull24
 
 delete.notnull24:                                 ; preds = %if.then20
   %5 = load ptr, ptr %2, align 8
   %tobool.not.i.i.i8 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i8, label %if.end33.sink.split, label %if.end33.sink.split.sink.split
 
+if.then.unreachabledefault:                       ; preds = %if.then
+  unreachable
+
 if.else26:                                        ; preds = %if.then
-  br i1 %isnull29, label %if.end33, label %delete.notnull30
+  br i1 %isnull, label %if.end33, label %delete.notnull30
 
 delete.notnull30:                                 ; preds = %if.else26
   %6 = load ptr, ptr %2, align 8
@@ -3475,99 +3485,15 @@ for.body.i.i.i.i.i14:                             ; preds = %_ZSt34__uninitializ
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit25: ; preds = %for.body.i.i.i.i.i14, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit
   %__cur.0.lcssa.i.i.i.i.i24 = phi ptr [ %incdec.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit ], [ %incdec.ptr.i.i.i.i.i22, %for.body.i.i.i.i.i14 ]
-  %cmp.not3.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not3.i.i.i, label %_ZSt8_DestroyIPN4llvh9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i
-
-for.body.i.i.i:                                   ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit25, %_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit.i.i.i
-  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit.i.i.i ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit25 ]
-  %OffsetCache.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
-  %11 = load i64, ptr %OffsetCache.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %11, 8
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %if.end36.i.i.i.i.i, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i
-  %12 = and i64 %11, 6
-  %and.i.i.i1.i10.i.i.i.i.i = and i64 %11, -8
-  %13 = inttoptr i64 %and.i.i.i1.i10.i.i.i.i.i to ptr
-  %isnull29.i.i.i.i.i = icmp eq i64 %and.i.i.i1.i10.i.i.i.i.i, 0
-  switch i64 %12, label %if.else26.i.i.i.i.i [
-    i64 0, label %if.then4.i.i.i.i.i
-    i64 4, label %if.then10.i.i.i.i.i
-    i64 2, label %if.then20.i.i.i.i.i
-  ]
-
-if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
-  br i1 %isnull29.i.i.i.i.i, label %if.end33.i.i.i.i.i, label %delete.notnull.i.i.i.i.i
-
-delete.notnull.i.i.i.i.i:                         ; preds = %if.then4.i.i.i.i.i
-  %14 = load ptr, ptr %13, align 8
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.end33.sink.split.i.i.i.i.i, label %if.end33.sink.split.sink.split.i.i.i.i.i
-
-if.then10.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  br i1 %isnull29.i.i.i.i.i, label %if.end33.i.i.i.i.i, label %delete.notnull14.i.i.i.i.i
-
-delete.notnull14.i.i.i.i.i:                       ; preds = %if.then10.i.i.i.i.i
-  %15 = load ptr, ptr %13, align 8
-  %tobool.not.i.i.i3.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i.i3.i.i.i.i.i, label %if.end33.sink.split.i.i.i.i.i, label %if.end33.sink.split.sink.split.i.i.i.i.i
-
-if.then20.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  br i1 %isnull29.i.i.i.i.i, label %if.end33.i.i.i.i.i, label %delete.notnull24.i.i.i.i.i
-
-delete.notnull24.i.i.i.i.i:                       ; preds = %if.then20.i.i.i.i.i
-  %16 = load ptr, ptr %13, align 8
-  %tobool.not.i.i.i8.i.i.i.i.i = icmp eq ptr %16, null
-  br i1 %tobool.not.i.i.i8.i.i.i.i.i, label %if.end33.sink.split.i.i.i.i.i, label %if.end33.sink.split.sink.split.i.i.i.i.i
-
-if.else26.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  br i1 %isnull29.i.i.i.i.i, label %if.end33.i.i.i.i.i, label %delete.notnull30.i.i.i.i.i
-
-delete.notnull30.i.i.i.i.i:                       ; preds = %if.else26.i.i.i.i.i
-  %17 = load ptr, ptr %13, align 8
-  %tobool.not.i.i.i11.i.i.i.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i.i11.i.i.i.i.i, label %if.end33.sink.split.i.i.i.i.i, label %if.end33.sink.split.sink.split.i.i.i.i.i
-
-if.end33.sink.split.sink.split.i.i.i.i.i:         ; preds = %delete.notnull30.i.i.i.i.i, %delete.notnull24.i.i.i.i.i, %delete.notnull14.i.i.i.i.i, %delete.notnull.i.i.i.i.i
-  %.sink14.i.i.i.i.i = phi ptr [ %14, %delete.notnull.i.i.i.i.i ], [ %15, %delete.notnull14.i.i.i.i.i ], [ %16, %delete.notnull24.i.i.i.i.i ], [ %17, %delete.notnull30.i.i.i.i.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink14.i.i.i.i.i) #19
-  br label %if.end33.sink.split.i.i.i.i.i
-
-if.end33.sink.split.i.i.i.i.i:                    ; preds = %if.end33.sink.split.sink.split.i.i.i.i.i, %delete.notnull30.i.i.i.i.i, %delete.notnull24.i.i.i.i.i, %delete.notnull14.i.i.i.i.i, %delete.notnull.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #19
-  br label %if.end33.i.i.i.i.i
-
-if.end33.i.i.i.i.i:                               ; preds = %if.end33.sink.split.i.i.i.i.i, %if.else26.i.i.i.i.i, %if.then20.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.then4.i.i.i.i.i
-  store i64 0, ptr %OffsetCache.i.i.i.i.i, align 8
-  br label %if.end36.i.i.i.i.i
-
-if.end36.i.i.i.i.i:                               ; preds = %if.end33.i.i.i.i.i, %for.body.i.i.i
-  %18 = load ptr, ptr %__first.addr.04.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %18, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit.i.i.i, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i.i.i.i
-
-_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %if.end36.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %18, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
-  %19 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
-  br label %_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit.i.i.i
-
-_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i.i.i.i, %if.end36.i.i.i.i.i
-  store ptr null, ptr %__first.addr.04.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 24
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
-  br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN4llvh9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !64
-
-_ZSt8_DestroyIPN4llvh9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit25
+  tail call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvh9SourceMgr9SrcBufferEEEvT_S6_(ptr noundef %1, ptr noundef %0)
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i26
 
-if.then.i26:                                      ; preds = %_ZSt8_DestroyIPN4llvh9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit
+if.then.i26:                                      ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit25
   tail call void @_ZdlPv(ptr noundef nonnull %1) #19
   br label %_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvh9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit, %if.then.i26
+_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit25, %if.then.i26
   %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i12, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i24, ptr %_M_finish.i.i, align 8
@@ -3581,6 +3507,101 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvh9SourceMgr9SrcBufferEEEvT_S6_(ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #0 comdat align 2 {
+entry:
+  %cmp.not3 = icmp eq ptr %__first, %__last
+  br i1 %cmp.not3, label %for.end, label %for.body
+
+for.body:                                         ; preds = %entry, %_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit
+  %__first.addr.04 = phi ptr [ %incdec.ptr, %_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit ], [ %__first, %entry ]
+  %OffsetCache.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 8
+  %0 = load i64, ptr %OffsetCache.i.i, align 8
+  %tobool.not.i.i.i.i.i.i = icmp ult i64 %0, 8
+  br i1 %tobool.not.i.i.i.i.i.i, label %if.end36.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %for.body
+  %1 = and i64 %0, 6
+  %and.i.i.i1.i.i.i = and i64 %0, -8
+  %2 = inttoptr i64 %and.i.i.i1.i.i.i to ptr
+  %isnull.i.i = icmp eq i64 %and.i.i.i1.i.i.i, 0
+  switch i64 %1, label %if.then.unreachabledefault.i.i [
+    i64 0, label %if.then4.i.i
+    i64 4, label %if.then10.i.i
+    i64 2, label %if.then20.i.i
+    i64 6, label %if.else26.i.i
+  ]
+
+if.then4.i.i:                                     ; preds = %if.then.i.i
+  br i1 %isnull.i.i, label %if.end33.i.i, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %if.then4.i.i
+  %3 = load ptr, ptr %2, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i.i.i.i, label %if.end33.sink.split.i.i, label %if.end33.sink.split.sink.split.i.i
+
+if.then10.i.i:                                    ; preds = %if.then.i.i
+  br i1 %isnull.i.i, label %if.end33.i.i, label %delete.notnull14.i.i
+
+delete.notnull14.i.i:                             ; preds = %if.then10.i.i
+  %4 = load ptr, ptr %2, align 8
+  %tobool.not.i.i.i3.i.i = icmp eq ptr %4, null
+  br i1 %tobool.not.i.i.i3.i.i, label %if.end33.sink.split.i.i, label %if.end33.sink.split.sink.split.i.i
+
+if.then20.i.i:                                    ; preds = %if.then.i.i
+  br i1 %isnull.i.i, label %if.end33.i.i, label %delete.notnull24.i.i
+
+delete.notnull24.i.i:                             ; preds = %if.then20.i.i
+  %5 = load ptr, ptr %2, align 8
+  %tobool.not.i.i.i8.i.i = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i.i8.i.i, label %if.end33.sink.split.i.i, label %if.end33.sink.split.sink.split.i.i
+
+if.then.unreachabledefault.i.i:                   ; preds = %if.then.i.i
+  unreachable
+
+if.else26.i.i:                                    ; preds = %if.then.i.i
+  br i1 %isnull.i.i, label %if.end33.i.i, label %delete.notnull30.i.i
+
+delete.notnull30.i.i:                             ; preds = %if.else26.i.i
+  %6 = load ptr, ptr %2, align 8
+  %tobool.not.i.i.i11.i.i = icmp eq ptr %6, null
+  br i1 %tobool.not.i.i.i11.i.i, label %if.end33.sink.split.i.i, label %if.end33.sink.split.sink.split.i.i
+
+if.end33.sink.split.sink.split.i.i:               ; preds = %delete.notnull30.i.i, %delete.notnull24.i.i, %delete.notnull14.i.i, %delete.notnull.i.i
+  %.sink14.i.i = phi ptr [ %3, %delete.notnull.i.i ], [ %4, %delete.notnull14.i.i ], [ %5, %delete.notnull24.i.i ], [ %6, %delete.notnull30.i.i ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink14.i.i) #19
+  br label %if.end33.sink.split.i.i
+
+if.end33.sink.split.i.i:                          ; preds = %if.end33.sink.split.sink.split.i.i, %delete.notnull30.i.i, %delete.notnull24.i.i, %delete.notnull14.i.i, %delete.notnull.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #19
+  br label %if.end33.i.i
+
+if.end33.i.i:                                     ; preds = %if.end33.sink.split.i.i, %if.else26.i.i, %if.then20.i.i, %if.then10.i.i, %if.then4.i.i
+  store i64 0, ptr %OffsetCache.i.i, align 8
+  br label %if.end36.i.i
+
+if.end36.i.i:                                     ; preds = %if.end33.i.i, %for.body
+  %7 = load ptr, ptr %__first.addr.04, align 8
+  %cmp.not.i.i.i = icmp eq ptr %7, null
+  br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i
+
+_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i: ; preds = %if.end36.i.i
+  %vtable.i.i.i.i = load ptr, ptr %7, align 8
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %8 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+  br label %_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit
+
+_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit: ; preds = %if.end36.i.i, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i
+  store ptr null, ptr %__first.addr.04, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.04, i64 24
+  %cmp.not = icmp eq ptr %incdec.ptr, %__last
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !64
+
+for.end:                                          ; preds = %_ZSt8_DestroyIN4llvh9SourceMgr9SrcBufferEEvPT_.exit, %entry
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPKcSt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #0 comdat align 2 {

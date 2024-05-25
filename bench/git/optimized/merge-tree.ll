@@ -663,10 +663,11 @@ while.body.i.i:                                   ; preds = %show_diff.exit.i.i,
   %stage.i.i.i.i = getelementptr inbounds i8, ptr %walk.014.i.i, i64 16
   %bf.load.i.i.i.i = load i8, ptr %stage.i.i.i.i, align 8
   %bf.clear.i.i.i.i = and i8 %bf.load.i.i.i.i, 3
-  switch i8 %bf.clear.i.i.i.i, label %sw.epilog.i.i.i.i [
+  switch i8 %bf.clear.i.i.i.i, label %default.unreachable [
     i8 0, label %explanation.exit.i.i.i
     i8 3, label %sw.bb2.i.i.i.i
     i8 2, label %sw.bb3.i.i.i.i
+    i8 1, label %sw.epilog.i.i.i.i
   ]
 
 sw.bb2.i.i.i.i:                                   ; preds = %while.body.i.i
@@ -678,6 +679,9 @@ sw.bb3.i.i.i.i:                                   ; preds = %while.body.i.i
   %tobool.not.i.i.i.i = icmp eq ptr %58, null
   %.str.51..str.50.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr @.str.51, ptr @.str.50
   br label %explanation.exit.i.i.i
+
+default.unreachable:                              ; preds = %while.body.i.i
+  unreachable
 
 sw.epilog.i.i.i.i:                                ; preds = %while.body.i.i
   %link4.i.i.i.i = getelementptr inbounds i8, ptr %walk.014.i.i, i64 8

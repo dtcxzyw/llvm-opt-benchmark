@@ -146,7 +146,7 @@ while.end:                                        ; preds = %while.body, %while.
   %data.0.lcssa = phi ptr [ %key, %entry ], [ %add.ptr, %while.body.prol.loopexit ], [ %add.ptr, %while.body ]
   %h.0.lcssa = phi i64 [ %xor, %entry ], [ %mul8.lcssa.unr, %while.body.prol.loopexit ], [ %mul8.1, %while.body ]
   %and = and i32 %len, 7
-  switch i32 %and, label %sw.epilog [
+  switch i32 %and, label %default.unreachable3 [
     i32 7, label %sw.bb
     i32 6, label %sw.bb11
     i32 5, label %sw.bb16
@@ -154,6 +154,7 @@ while.end:                                        ; preds = %while.body, %while.
     i32 3, label %sw.bb26
     i32 2, label %sw.bb31
     i32 1, label %sw.bb36
+    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -164,7 +165,7 @@ sw.bb:                                            ; preds = %while.end
   %xor10 = xor i64 %shl, %h.0.lcssa
   br label %sw.bb11
 
-sw.bb11:                                          ; preds = %sw.bb, %while.end
+sw.bb11:                                          ; preds = %while.end, %sw.bb
   %h.1 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor10, %sw.bb ]
   %arrayidx12 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 5
   %4 = load i8, ptr %arrayidx12, align 1, !tbaa !6
@@ -173,7 +174,7 @@ sw.bb11:                                          ; preds = %sw.bb, %while.end
   %xor15 = xor i64 %shl14, %h.1
   br label %sw.bb16
 
-sw.bb16:                                          ; preds = %sw.bb11, %while.end
+sw.bb16:                                          ; preds = %while.end, %sw.bb11
   %h.2 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor15, %sw.bb11 ]
   %arrayidx17 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 4
   %5 = load i8, ptr %arrayidx17, align 1, !tbaa !6
@@ -182,7 +183,7 @@ sw.bb16:                                          ; preds = %sw.bb11, %while.end
   %xor20 = xor i64 %shl19, %h.2
   br label %sw.bb21
 
-sw.bb21:                                          ; preds = %sw.bb16, %while.end
+sw.bb21:                                          ; preds = %while.end, %sw.bb16
   %h.3 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor20, %sw.bb16 ]
   %arrayidx22 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 3
   %6 = load i8, ptr %arrayidx22, align 1, !tbaa !6
@@ -191,7 +192,7 @@ sw.bb21:                                          ; preds = %sw.bb16, %while.end
   %xor25 = xor i64 %shl24, %h.3
   br label %sw.bb26
 
-sw.bb26:                                          ; preds = %sw.bb21, %while.end
+sw.bb26:                                          ; preds = %while.end, %sw.bb21
   %h.4 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor25, %sw.bb21 ]
   %arrayidx27 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 2
   %7 = load i8, ptr %arrayidx27, align 1, !tbaa !6
@@ -200,7 +201,7 @@ sw.bb26:                                          ; preds = %sw.bb21, %while.end
   %xor30 = xor i64 %shl29, %h.4
   br label %sw.bb31
 
-sw.bb31:                                          ; preds = %sw.bb26, %while.end
+sw.bb31:                                          ; preds = %while.end, %sw.bb26
   %h.5 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor30, %sw.bb26 ]
   %arrayidx32 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 1
   %8 = load i8, ptr %arrayidx32, align 1, !tbaa !6
@@ -209,7 +210,7 @@ sw.bb31:                                          ; preds = %sw.bb26, %while.end
   %xor35 = xor i64 %shl34, %h.5
   br label %sw.bb36
 
-sw.bb36:                                          ; preds = %sw.bb31, %while.end
+sw.bb36:                                          ; preds = %while.end, %sw.bb31
   %h.6 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor35, %sw.bb31 ]
   %9 = load i8, ptr %data.0.lcssa, align 1, !tbaa !6
   %conv38 = zext i8 %9 to i64
@@ -217,7 +218,10 @@ sw.bb36:                                          ; preds = %sw.bb31, %while.end
   %mul40 = mul i64 %xor39, -4132994306676758123
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb36, %while.end
+default.unreachable3:                             ; preds = %while.end
+  unreachable
+
+sw.epilog:                                        ; preds = %while.end, %sw.bb36
   %h.7 = phi i64 [ %h.0.lcssa, %while.end ], [ %mul40, %sw.bb36 ]
   %shr41 = lshr i64 %h.7, 47
   %xor42 = xor i64 %shr41, %h.7

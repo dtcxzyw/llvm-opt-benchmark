@@ -4410,11 +4410,15 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   br label %7
 
 7:                                                ; preds = %6, %3
-  switch i32 %.sroa.1.8.copyload, label %8 [
+  switch i32 %.sroa.1.8.copyload, label %default.unreachable.i.i [
     i32 0, label %14
     i32 1, label %20
     i32 2, label %26
+    i32 3, label %8
   ]
+
+default.unreachable.i.i:                          ; preds = %7
+  unreachable
 
 8:                                                ; preds = %7
   %9 = icmp ne ptr %.sroa.4.8.copyload, null
@@ -16816,11 +16820,15 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h46dc65ca786bc312E
   %16 = select i1 %15, i64 %14, i64 1
   %17 = mul nuw i64 %16, 5871781006564002453
   store i64 %17, ptr %5, align 8, !alias.scope !4216, !noalias !4215
-  switch i64 %16, label %"_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17h1ed610b08588f343E.exit.i" [
+  switch i64 %16, label %.unreachabledefault.i.i [
     i64 0, label %18
     i64 1, label %27
     i64 2, label %97
+    i64 3, label %"_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17h1ed610b08588f343E.exit.i"
   ]
+
+.unreachabledefault.i.i:                          ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h4ddab4c294f4793bE.exit.i"
+  unreachable
 
 18:                                               ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h4ddab4c294f4793bE.exit.i"
   %19 = getelementptr inbounds i8, ptr %7, i64 16
@@ -16868,13 +16876,16 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h46dc65ca786bc312E
 44:                                               ; preds = %.lr.ph.i.i
   %45 = add nsw i8 %38, -24
   %narrow.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %45, i8 2)
-  switch i8 %narrow.i.i.i.i.i, label %default.unreachable [
+  switch i8 %narrow.i.i.i.i.i, label %.unreachabledefault [
     i8 0, label %46
     i8 1, label %52
     i8 2, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h612135dd19ca5a32E.exit.i.i.i.i.i"
   ]
 
-default.unreachable:                              ; preds = %44, %105
+.unreachabledefault:                              ; preds = %44
+  unreachable
+
+default.unreachable:                              ; preds = %105
   unreachable
 
 46:                                               ; preds = %44
@@ -17123,7 +17134,7 @@ _ZN4core4hash6Hasher9write_str17h335ab6106810c15dE.llvm.10506081396157654736.exi
   br label %"_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17h1ed610b08588f343E.exit.i"
 
 "_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17h1ed610b08588f343E.exit.i": ; preds = %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h0859dc95e236dcf3E.llvm.10506081396157654736.exit.i.i", %_ZN4core4hash4Hash10hash_slice17h977981566d70a39cE.exit.i, %18, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h4ddab4c294f4793bE.exit.i"
-  %157 = phi i64 [ %17, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h4ddab4c294f4793bE.exit.i" ], [ %26, %18 ], [ %.pre.i, %_ZN4core4hash4Hash10hash_slice17h977981566d70a39cE.exit.i ], [ %storemerge.i.i.i, %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h0859dc95e236dcf3E.llvm.10506081396157654736.exit.i.i" ]
+  %157 = phi i64 [ -831401054017544257, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h4ddab4c294f4793bE.exit.i" ], [ %26, %18 ], [ %.pre.i, %_ZN4core4hash4Hash10hash_slice17h977981566d70a39cE.exit.i ], [ %storemerge.i.i.i, %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h0859dc95e236dcf3E.llvm.10506081396157654736.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !4206
   %158 = shl i64 %157, 7
   %159 = getelementptr inbounds i8, ptr %9, i64 16
@@ -44571,11 +44582,15 @@ define hidden noundef zeroext i1 @"_ZN11ide_assists8handlers21remove_unused_impo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11267)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11270)
   %10 = load i32, ptr %2, align 8, !range !11273, !alias.scope !11274, !noundef !4
-  switch i32 %10, label %11 [
+  switch i32 %10, label %default.unreachable [
     i32 0, label %18
     i32 1, label %25
     i32 2, label %32
+    i32 3, label %11
   ]
+
+default.unreachable:                              ; preds = %9
+  unreachable
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %2, i64 16

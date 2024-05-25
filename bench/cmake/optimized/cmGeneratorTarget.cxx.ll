@@ -93637,10 +93637,11 @@ _ZNSt6vectorI2BTIP12cmSourceFileESaIS3_EED2Ev.exit.thread: ; preds = %2, %80, %_
 
 128:                                              ; preds = %_ZNSt6vectorI2BTIP12cmSourceFileESaIS3_EED2Ev.exit.thread
   %129 = call noundef i32 @_ZNK17cmGeneratorTarget20HaveCxxModuleSupportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  switch i32 %129, label %_ZNSt6vectorI2BTIP12cmSourceFileESaIS3_EED2Ev.exit.thread70 [
+  switch i32 %129, label %default.unreachable [
     i32 0, label %130
     i32 1, label %146
     i32 2, label %203
+    i32 3, label %_ZNSt6vectorI2BTIP12cmSourceFileESaIS3_EED2Ev.exit.thread70
   ]
 
 130:                                              ; preds = %128
@@ -93898,7 +93899,10 @@ _ZNK17cmGeneratorTarget7GetNameB5cxx11Ev.exit:    ; preds = %176
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #29
   br label %219
 
-_ZNSt6vectorI2BTIP12cmSourceFileESaIS3_EED2Ev.exit.thread70: ; preds = %_ZSt8_DestroyIP2BTIP12cmSourceFileES3_EvT_S5_RSaIT0_E.exit.i.thread, %.thread, %80, %_ZNSt6vectorI2BTIP12cmSourceFileESaIS3_EED2Ev.exit, %216, %199, %143, %128, %122
+default.unreachable:                              ; preds = %128
+  unreachable
+
+_ZNSt6vectorI2BTIP12cmSourceFileESaIS3_EED2Ev.exit.thread70: ; preds = %_ZSt8_DestroyIP2BTIP12cmSourceFileES3_EvT_S5_RSaIT0_E.exit.i.thread, %.thread, %80, %128, %_ZNSt6vectorI2BTIP12cmSourceFileESaIS3_EED2Ev.exit, %216, %199, %143, %122
   ret void
 
 219:                                              ; preds = %217, %202, %.body, %144, %127, %81
@@ -93957,16 +93961,20 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i41: ; preds = %21
 
 .critedge:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i41, %21, %_ZStneIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit
   %28 = tail call noundef i32 @_ZNK17cmGeneratorTarget20HaveCxxModuleSupportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2728) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  switch i32 %28, label %30 [
+  switch i32 %28, label %default.unreachable [
     i32 0, label %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit
     i32 1, label %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit
     i32 3, label %29
+    i32 2, label %30
   ]
 
 29:                                               ; preds = %.critedge
   br label %30
 
-30:                                               ; preds = %29, %.critedge
+default.unreachable:                              ; preds = %.critedge
+  unreachable
+
+30:                                               ; preds = %.critedge, %29
   %.035 = phi i1 [ false, %.critedge ], [ true, %29 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8

@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
 @.str.30 = private unnamed_addr constant [3 x i8] c", \00", align 1
 @.str.31 = private unnamed_addr constant [4 x i8] c"] }\00", align 1
-@switch.table.btree_identify = private unnamed_addr constant [15 x ptr] [ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.19, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.20, ptr @.str.18, ptr @.str.24, ptr @.str.25], align 8
+@switch.table.btree_identify = private unnamed_addr constant [16 x ptr] [ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.19, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.20, ptr @.str.18, ptr @.str.24, ptr @.str.25, ptr null], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -46,7 +46,7 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   %7 = getelementptr inbounds i8, ptr %4, i64 56
   %8 = load i8, ptr %7, align 8
   %9 = lshr i8 %8, 4
-  switch i8 %9, label %109 [
+  switch i8 %9, label %default.unreachable [
     i8 0, label %10
     i8 1, label %10
     i8 2, label %10
@@ -62,6 +62,7 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
     i8 10, label %87
     i8 13, label %90
     i8 14, label %105
+    i8 15, label %109
   ]
 
 10:                                               ; preds = %2, %2, %2, %2
@@ -200,7 +201,10 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %108) #3
   br label %109
 
-109:                                              ; preds = %41, %57, %27, %37, %105, %90, %87, %70, %61, %24, %13, %10, %2
+default.unreachable:                              ; preds = %2
+  unreachable
+
+109:                                              ; preds = %2, %41, %57, %27, %37, %105, %90, %87, %70, %61, %24, %13, %10
   ret void
 }
 
@@ -299,19 +303,12 @@ declare ptr @XLogRecGetBlockData(ptr noundef, i8 noundef zeroext, ptr noundef) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @btree_identify(i8 noundef zeroext %0) local_unnamed_addr #2 {
-  %2 = lshr i8 %0, 4
-  %.not = icmp eq i8 %2, 15
-  br i1 %.not, label %4, label %switch.lookup
-
-switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.btree_identify, i64 0, i64 %3
+switch.lookup:
+  %1 = lshr i8 %0, 4
+  %2 = zext nneg i8 %1 to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.btree_identify, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %4
-
-4:                                                ; preds = %switch.lookup, %1
-  %.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
-  ret ptr %.0
+  ret ptr %switch.load
 }
 
 declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1

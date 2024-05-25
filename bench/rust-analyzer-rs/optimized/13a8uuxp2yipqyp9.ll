@@ -12892,13 +12892,13 @@ define hidden void @_ZN15ide_diagnostics8handlers14missing_fields14missing_field
           to label %90 unwind label %86, !noalias !2732
 
 82:                                               ; preds = %.lr.ph, %633
-  %.sroa.0.0114 = phi ptr [ %.val, %.lr.ph ], [ %83, %633 ]
-  %83 = getelementptr inbounds i8, ptr %.sroa.0.0114, i64 24
+  %.sroa.0.0113 = phi ptr [ %.val, %.lr.ph ], [ %83, %633 ]
+  %83 = getelementptr inbounds i8, ptr %.sroa.0.0113, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %57)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
   %84 = load ptr, ptr %67, align 8, !nonnull !4, !align !20, !noundef !4
-  %85 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0114, ptr noundef nonnull align 1 %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7cc258e91d5484e2a5dd00c0eb3511ea.5.llvm.3403078607549408116)
+  %85 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0113, ptr noundef nonnull align 1 %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7cc258e91d5484e2a5dd00c0eb3511ea.5.llvm.3403078607549408116)
           to label %631 unwind label %635
 
 86:                                               ; preds = %._crit_edge
@@ -13989,13 +13989,16 @@ select.unfold.i:                                  ; preds = %"_ZN9hashbrown3raw2
   %412 = load i8, ptr %31, align 8, !range !3006, !alias.scope !3007, !noalias !2754, !noundef !4
   %413 = add nsw i8 %412, -24
   %narrow.i.i = call i8 @llvm.umin.i8(i8 %413, i8 2)
-  switch i8 %narrow.i.i, label %default.unreachable [
+  switch i8 %narrow.i.i, label %.unreachabledefault [
     i8 0, label %414
     i8 1, label %418
     i8 2, label %421
   ]
 
-default.unreachable:                              ; preds = %560, %411
+.unreachabledefault:                              ; preds = %411
+  unreachable
+
+default.unreachable:                              ; preds = %560
   unreachable
 
 414:                                              ; preds = %411

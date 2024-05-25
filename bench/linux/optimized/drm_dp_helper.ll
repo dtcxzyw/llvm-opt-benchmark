@@ -2194,7 +2194,7 @@ define dso_local void @drm_dp_downstream_debug(ptr noundef %0, ptr nocapture nou
 
 16:                                               ; preds = %5
   %17 = and i8 %12, 7
-  switch i8 %17, label %24 [
+  switch i8 %17, label %default.unreachable16 [
     i8 0, label %25
     i8 1, label %18
     i8 2, label %19
@@ -2202,6 +2202,7 @@ define dso_local void @drm_dp_downstream_debug(ptr noundef %0, ptr nocapture nou
     i8 4, label %21
     i8 5, label %22
     i8 6, label %23
+    i8 7, label %24
   ]
 
 18:                                               ; preds = %16
@@ -2222,10 +2223,13 @@ define dso_local void @drm_dp_downstream_debug(ptr noundef %0, ptr nocapture nou
 23:                                               ; preds = %16
   br label %25
 
+default.unreachable16:                            ; preds = %148, %16
+  unreachable
+
 24:                                               ; preds = %16
   br label %25
 
-25:                                               ; preds = %24, %23, %22, %21, %20, %19, %18, %16
+25:                                               ; preds = %16, %24, %23, %22, %21, %20, %19, %18
   %26 = phi ptr [ @.str.26, %24 ], [ @.str.25, %23 ], [ @.str.24, %22 ], [ @.str.23, %21 ], [ @.str.22, %20 ], [ @.str.21, %19 ], [ @.str.20, %18 ], [ @.str.19, %16 ]
   store i16 0, ptr %7, align 2, !annotation !11
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull %26) #17
@@ -2461,7 +2465,7 @@ select.unfold10:                                  ; preds = %102, %105, %105, %1
   %149 = getelementptr i8, ptr %2, i64 2
   %150 = load i8, ptr %149, align 1
   %151 = and i8 %150, 3
-  switch i8 %151, label %default.unreachable [
+  switch i8 %151, label %default.unreachable16 [
     i8 0, label %155
     i8 1, label %152
     i8 2, label %153
@@ -2476,9 +2480,6 @@ select.unfold10:                                  ; preds = %102, %105, %105, %1
 
 154:                                              ; preds = %148
   br label %155
-
-default.unreachable:                              ; preds = %148
-  unreachable
 
 155:                                              ; preds = %129, %154, %153, %152, %126, %144, %148
   %.ph14 = phi i32 [ 8, %148 ], [ 8, %144 ], [ 8, %126 ], [ 10, %152 ], [ 12, %153 ], [ 16, %154 ], [ 8, %129 ]
@@ -2512,10 +2513,11 @@ define dso_local noundef range(i32 0, 19) i32 @drm_dp_subconnector_type(ptr noca
 
 10:                                               ; preds = %7
   %11 = and i8 %4, 6
-  switch i8 %11, label %14 [
+  switch i8 %11, label %.unreachabledefault [
     i8 4, label %23
     i8 2, label %12
     i8 0, label %13
+    i8 6, label %14
   ]
 
 12:                                               ; preds = %10
@@ -2523,6 +2525,9 @@ define dso_local noundef range(i32 0, 19) i32 @drm_dp_subconnector_type(ptr noca
 
 13:                                               ; preds = %10
   br label %23
+
+.unreachabledefault:                              ; preds = %10
+  unreachable
 
 14:                                               ; preds = %10
   br label %23
@@ -2554,7 +2559,7 @@ define dso_local noundef range(i32 0, 19) i32 @drm_dp_subconnector_type(ptr noca
 22:                                               ; preds = %15
   br label %23
 
-23:                                               ; preds = %22, %21, %20, %19, %18, %15, %15, %14, %13, %12, %10, %2
+23:                                               ; preds = %10, %22, %21, %20, %19, %18, %15, %15, %14, %13, %12, %2
   %24 = phi i32 [ 0, %14 ], [ 10, %13 ], [ 1, %12 ], [ 0, %22 ], [ 18, %21 ], [ 11, %20 ], [ 3, %19 ], [ 1, %18 ], [ 15, %2 ], [ 3, %10 ], [ 10, %15 ], [ 10, %15 ]
   ret i32 %24
 }
@@ -2578,10 +2583,11 @@ define dso_local void @drm_dp_set_subconnector_property(ptr noundef %0, i32 noun
 
 14:                                               ; preds = %11
   %15 = and i8 %8, 6
-  switch i8 %15, label %18 [
+  switch i8 %15, label %.unreachabledefault [
     i8 4, label %27
     i8 2, label %16
     i8 0, label %17
+    i8 6, label %18
   ]
 
 16:                                               ; preds = %14
@@ -2589,6 +2595,9 @@ define dso_local void @drm_dp_set_subconnector_property(ptr noundef %0, i32 noun
 
 17:                                               ; preds = %14
   br label %27
+
+.unreachabledefault:                              ; preds = %14
+  unreachable
 
 18:                                               ; preds = %14
   br label %27
@@ -2620,7 +2629,7 @@ define dso_local void @drm_dp_set_subconnector_property(ptr noundef %0, i32 noun
 26:                                               ; preds = %19
   br label %27
 
-27:                                               ; preds = %26, %25, %24, %23, %22, %19, %19, %18, %17, %16, %14, %6, %4
+27:                                               ; preds = %14, %26, %25, %24, %23, %22, %19, %19, %18, %17, %16, %6, %4
   %28 = phi i64 [ 0, %4 ], [ 0, %18 ], [ 10, %17 ], [ 1, %16 ], [ 0, %26 ], [ 18, %25 ], [ 11, %24 ], [ 3, %23 ], [ 1, %22 ], [ 15, %6 ], [ 3, %14 ], [ 10, %19 ], [ 10, %19 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 64
   %30 = load ptr, ptr %0, align 8
@@ -5907,9 +5916,9 @@ define internal fastcc i32 @drm_dp_i2c_do_msg(ptr noundef %0, ptr noundef %1) un
   %31 = getelementptr inbounds i8, ptr %0, i64 1148
   br label %32
 
-32:                                               ; preds = %150, %2
-  %33 = phi i32 [ 0, %2 ], [ %152, %150 ]
-  %34 = phi i32 [ 0, %2 ], [ %151, %150 ]
+32:                                               ; preds = %151, %2
+  %33 = phi i32 [ 0, %2 ], [ %153, %151 ]
+  %34 = phi i32 [ 0, %2 ], [ %152, %151 ]
   %35 = load ptr, ptr %28, align 8
   %36 = tail call i64 %35(ptr noundef %0, ptr noundef %1) #17
   %37 = trunc i64 %36 to i32
@@ -5918,7 +5927,7 @@ define internal fastcc i32 @drm_dp_i2c_do_msg(ptr noundef %0, ptr noundef %1) un
 
 39:                                               ; preds = %32
   switch i32 %37, label %56 [
-    i32 -16, label %150
+    i32 -16, label %151
     i32 -110, label %40
   ]
 
@@ -5927,12 +5936,12 @@ define internal fastcc i32 @drm_dp_i2c_do_msg(ptr noundef %0, ptr noundef %1) un
   %42 = load i64, ptr @__drm_debug, align 8
   %43 = and i64 %42, 4
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %164, label %45
+  br i1 %44, label %165, label %45
 
 45:                                               ; preds = %40
   %46 = tail call i32 @___ratelimit(ptr noundef nonnull @drm_dp_i2c_do_msg.rs_, ptr noundef nonnull @__func__.drm_dp_i2c_do_msg) #17
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %164, label %48
+  br i1 %47, label %165, label %48
 
 48:                                               ; preds = %45
   %49 = icmp eq ptr %41, null
@@ -5947,7 +5956,7 @@ define internal fastcc i32 @drm_dp_i2c_do_msg(ptr noundef %0, ptr noundef %1) un
   %54 = phi ptr [ %52, %50 ], [ null, %48 ]
   %55 = load ptr, ptr %0, align 8
   tail call void (ptr, ptr, ptr, ...) @drm_dev_printk(ptr noundef %54, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, ptr noundef %55) #17
-  br label %164
+  br label %165
 
 56:                                               ; preds = %39
   %57 = load ptr, ptr %30, align 8
@@ -5963,16 +5972,17 @@ define internal fastcc i32 @drm_dp_i2c_do_msg(ptr noundef %0, ptr noundef %1) un
   %63 = phi ptr [ %61, %59 ], [ null, %56 ]
   %64 = load ptr, ptr %0, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str.86, ptr noundef %64, i32 noundef %37) #17
-  br label %164
+  br label %165
 
 65:                                               ; preds = %32
   %66 = load i8, ptr %29, align 1
   %67 = zext i8 %66 to i32
   %68 = and i32 %67, 3
-  switch i32 %68, label %88 [
+  switch i32 %68, label %default.unreachable64 [
     i32 0, label %97
     i32 1, label %69
     i32 2, label %79
+    i32 3, label %88
   ]
 
 69:                                               ; preds = %65
@@ -5990,7 +6000,7 @@ define internal fastcc i32 @drm_dp_i2c_do_msg(ptr noundef %0, ptr noundef %1) un
   %77 = load ptr, ptr %0, align 8
   %78 = load i64, ptr %16, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %76, i32 noundef 2, ptr noundef nonnull @.str.87, ptr noundef %77, i32 noundef %37, i64 noundef %78) #17
-  br label %164
+  br label %165
 
 79:                                               ; preds = %65
   %80 = load ptr, ptr %30, align 8
@@ -6007,7 +6017,10 @@ define internal fastcc i32 @drm_dp_i2c_do_msg(ptr noundef %0, ptr noundef %1) un
   %87 = load ptr, ptr %0, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %86, i32 noundef 2, ptr noundef nonnull @.str.88, ptr noundef %87) #17
   tail call void @usleep_range_state(i64 noundef 500, i64 noundef 600, i32 noundef 2) #17
-  br label %150
+  br label %151
+
+default.unreachable64:                            ; preds = %97, %65
+  unreachable
 
 88:                                               ; preds = %65
   %89 = load ptr, ptr %30, align 8
@@ -6023,127 +6036,129 @@ define internal fastcc i32 @drm_dp_i2c_do_msg(ptr noundef %0, ptr noundef %1) un
   %95 = phi ptr [ %93, %91 ], [ null, %88 ]
   %96 = load ptr, ptr %0, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %95, ptr noundef nonnull @.str.89, ptr noundef %96, i32 noundef %67) #18
-  br label %164
+  br label %165
 
 97:                                               ; preds = %65
-  %98 = and i32 %67, 12
-  switch i32 %98, label %141 [
-    i32 0, label %99
-    i32 4, label %109
-    i32 8, label %122
+  %98 = lshr i32 %67, 2
+  %99 = and i32 %98, 3
+  switch i32 %99, label %default.unreachable64 [
+    i32 0, label %100
+    i32 1, label %110
+    i32 2, label %123
+    i32 3, label %142
   ]
 
-99:                                               ; preds = %97
-  %100 = and i64 %36, 2147483647
-  %101 = load i64, ptr %16, align 8
-  %102 = icmp eq i64 %100, %101
-  br i1 %102, label %164, label %103
+100:                                              ; preds = %97
+  %101 = and i64 %36, 2147483647
+  %102 = load i64, ptr %16, align 8
+  %103 = icmp eq i64 %101, %102
+  br i1 %103, label %165, label %104
 
-103:                                              ; preds = %99
-  %104 = load i8, ptr %4, align 4
-  %105 = and i8 %104, -5
-  %106 = icmp eq i8 %105, 0
-  br i1 %106, label %107, label %164
+104:                                              ; preds = %100
+  %105 = load i8, ptr %4, align 4
+  %106 = and i8 %105, -5
+  %107 = icmp eq i8 %106, 0
+  br i1 %107, label %108, label %165
 
-107:                                              ; preds = %103
-  %108 = or disjoint i8 %104, 2
-  store i8 %108, ptr %4, align 4
-  br label %164
+108:                                              ; preds = %104
+  %109 = or disjoint i8 %105, 2
+  store i8 %109, ptr %4, align 4
+  br label %165
 
-109:                                              ; preds = %97
-  %110 = load ptr, ptr %30, align 8
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %115, label %112
+110:                                              ; preds = %97
+  %111 = load ptr, ptr %30, align 8
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %116, label %113
 
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %110, i64 8
-  %114 = load ptr, ptr %113, align 8
-  br label %115
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds i8, ptr %111, i64 8
+  %115 = load ptr, ptr %114, align 8
+  br label %116
 
-115:                                              ; preds = %112, %109
-  %116 = phi ptr [ %114, %112 ], [ null, %109 ]
-  %117 = load ptr, ptr %0, align 8
-  %118 = load i64, ptr %16, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %116, i32 noundef 2, ptr noundef nonnull @.str.90, ptr noundef %117, i32 noundef %37, i64 noundef %118) #17
-  %119 = getelementptr inbounds i8, ptr %0, i64 1144
-  %120 = load i32, ptr %119, align 8
-  %121 = add i32 %120, 1
-  store i32 %121, ptr %119, align 8
-  br label %164
+116:                                              ; preds = %113, %110
+  %117 = phi ptr [ %115, %113 ], [ null, %110 ]
+  %118 = load ptr, ptr %0, align 8
+  %119 = load i64, ptr %16, align 8
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %117, i32 noundef 2, ptr noundef nonnull @.str.90, ptr noundef %118, i32 noundef %37, i64 noundef %119) #17
+  %120 = getelementptr inbounds i8, ptr %0, i64 1144
+  %121 = load i32, ptr %120, align 8
+  %122 = add i32 %121, 1
+  store i32 %122, ptr %120, align 8
+  br label %165
 
-122:                                              ; preds = %97
-  %123 = load ptr, ptr %30, align 8
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %128, label %125
+123:                                              ; preds = %97
+  %124 = load ptr, ptr %30, align 8
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %129, label %126
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %123, i64 8
-  %127 = load ptr, ptr %126, align 8
-  br label %128
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds i8, ptr %124, i64 8
+  %128 = load ptr, ptr %127, align 8
+  br label %129
 
-128:                                              ; preds = %125, %122
-  %129 = phi ptr [ %127, %125 ], [ null, %122 ]
-  %130 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %129, i32 noundef 2, ptr noundef nonnull @.str.91, ptr noundef %130) #17
-  %131 = load i32, ptr %31, align 4
-  %132 = add i32 %131, 1
-  store i32 %132, ptr %31, align 4
-  %133 = icmp ult i32 %34, 7
-  %134 = zext i1 %133 to i32
-  %135 = add nuw nsw i32 %34, %134
+129:                                              ; preds = %126, %123
+  %130 = phi ptr [ %128, %126 ], [ null, %123 ]
+  %131 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %130, i32 noundef 2, ptr noundef nonnull @.str.91, ptr noundef %131) #17
+  %132 = load i32, ptr %31, align 4
+  %133 = add i32 %132, 1
+  store i32 %133, ptr %31, align 4
+  %134 = icmp ult i32 %34, 7
+  %135 = zext i1 %134 to i32
+  %136 = add nuw nsw i32 %34, %135
   tail call void @usleep_range_state(i64 noundef 500, i64 noundef 600, i32 noundef 2) #17
-  %136 = load i8, ptr %4, align 4
-  %137 = and i8 %136, -5
-  %138 = icmp eq i8 %137, 0
-  br i1 %138, label %139, label %150
+  %137 = load i8, ptr %4, align 4
+  %138 = and i8 %137, -5
+  %139 = icmp eq i8 %138, 0
+  br i1 %139, label %140, label %151
 
-139:                                              ; preds = %128
-  %140 = or disjoint i8 %136, 2
-  store i8 %140, ptr %4, align 4
-  br label %150
+140:                                              ; preds = %129
+  %141 = or disjoint i8 %137, 2
+  store i8 %141, ptr %4, align 4
+  br label %151
 
-141:                                              ; preds = %97
-  %142 = load ptr, ptr %30, align 8
-  %143 = icmp eq ptr %142, null
-  br i1 %143, label %147, label %144
+142:                                              ; preds = %97
+  %143 = load ptr, ptr %30, align 8
+  %144 = icmp eq ptr %143, null
+  br i1 %144, label %148, label %145
 
-144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %142, i64 8
-  %146 = load ptr, ptr %145, align 8
-  br label %147
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds i8, ptr %143, i64 8
+  %147 = load ptr, ptr %146, align 8
+  br label %148
 
-147:                                              ; preds = %144, %141
-  %148 = phi ptr [ %146, %144 ], [ null, %141 ]
-  %149 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %148, ptr noundef nonnull @.str.92, ptr noundef %149, i32 noundef %67) #18
-  br label %164
+148:                                              ; preds = %145, %142
+  %149 = phi ptr [ %147, %145 ], [ null, %142 ]
+  %150 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %149, ptr noundef nonnull @.str.92, ptr noundef %150, i32 noundef %67) #18
+  br label %165
 
-150:                                              ; preds = %139, %128, %85, %39
-  %151 = phi i32 [ %34, %39 ], [ %34, %85 ], [ %135, %128 ], [ %135, %139 ]
-  %152 = add nuw i32 %33, 1
-  %153 = add i32 %151, %27
-  %154 = icmp ult i32 %152, %153
-  br i1 %154, label %32, label %155, !llvm.loop !56
+151:                                              ; preds = %140, %129, %85, %39
+  %152 = phi i32 [ %34, %39 ], [ %34, %85 ], [ %136, %129 ], [ %136, %140 ]
+  %153 = add nuw i32 %33, 1
+  %154 = add i32 %152, %27
+  %155 = icmp ult i32 %153, %154
+  br i1 %155, label %32, label %156, !llvm.loop !56
 
-155:                                              ; preds = %150
-  %156 = load ptr, ptr %30, align 8
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %161, label %158
+156:                                              ; preds = %151
+  %157 = load ptr, ptr %30, align 8
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %162, label %159
 
-158:                                              ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %156, i64 8
-  %160 = load ptr, ptr %159, align 8
-  br label %161
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds i8, ptr %157, i64 8
+  %161 = load ptr, ptr %160, align 8
+  br label %162
 
-161:                                              ; preds = %158, %155
-  %162 = phi ptr [ %160, %158 ], [ null, %155 ]
-  %163 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %162, i32 noundef 2, ptr noundef nonnull @.str.93, ptr noundef %163) #17
-  br label %164
+162:                                              ; preds = %159, %156
+  %163 = phi ptr [ %161, %159 ], [ null, %156 ]
+  %164 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %163, i32 noundef 2, ptr noundef nonnull @.str.93, ptr noundef %164) #17
+  br label %165
 
-164:                                              ; preds = %161, %147, %115, %107, %103, %99, %94, %75, %62, %53, %45, %40
-  %165 = phi i32 [ -121, %94 ], [ -121, %75 ], [ -121, %147 ], [ -121, %115 ], [ -121, %161 ], [ -110, %40 ], [ -110, %45 ], [ -110, %53 ], [ %37, %62 ], [ %37, %99 ], [ %37, %103 ], [ %37, %107 ]
-  ret i32 %165
+165:                                              ; preds = %162, %148, %116, %108, %104, %100, %94, %75, %62, %53, %45, %40
+  %166 = phi i32 [ -121, %94 ], [ -121, %75 ], [ -121, %148 ], [ -121, %116 ], [ -121, %162 ], [ -110, %40 ], [ -110, %45 ], [ -110, %53 ], [ %37, %62 ], [ %37, %100 ], [ %37, %104 ], [ %37, %108 ]
+  ret i32 %166
 }
 
 ; Function Attrs: null_pointer_is_valid

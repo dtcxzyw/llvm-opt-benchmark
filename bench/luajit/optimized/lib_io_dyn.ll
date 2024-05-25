@@ -621,10 +621,11 @@ land.lhs.true:                                    ; preds = %io_tofilep.exit
   %type = getelementptr inbounds i8, ptr %3, i64 56
   %6 = load i32, ptr %type, align 8
   %and = and i32 %6, 3
-  switch i32 %and, label %if.else11.i [
+  switch i32 %and, label %default.unreachable [
     i32 2, label %if.end
     i32 0, label %if.then.i5
     i32 1, label %if.then6.i
+    i32 3, label %if.else11.i
   ]
 
 if.then.i5:                                       ; preds = %land.lhs.true
@@ -636,6 +637,9 @@ if.then6.i:                                       ; preds = %land.lhs.true
   %call8.i = tail call i32 @pclose(ptr noundef nonnull %5)
   %cmp9.i = icmp ne i32 %call8.i, -1
   br label %if.end12.i
+
+default.unreachable:                              ; preds = %land.lhs.true
+  unreachable
 
 if.else11.i:                                      ; preds = %land.lhs.true
   %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 8

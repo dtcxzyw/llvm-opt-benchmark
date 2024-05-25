@@ -365,7 +365,7 @@ define { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr #0 {
   br label %.backedge
 
 .backedge:                                        ; preds = %357, %356, %332, %329, %327, %203, %200, %198, %74, %78, %.thread
-  %.0120.be = phi ptr [ null, %.thread ], [ null, %78 ], [ null, %74 ], [ %.075141.i, %198 ], [ null, %327 ], [ null, %356 ], [ null, %357 ], [ %.075141.i, %203 ], [ %.075141.i, %200 ], [ null, %332 ], [ null, %329 ]
+  %.0120.be = phi ptr [ null, %.thread ], [ null, %78 ], [ null, %74 ], [ %.075140.i, %198 ], [ null, %327 ], [ null, %356 ], [ null, %357 ], [ %.075140.i, %203 ], [ %.075140.i, %200 ], [ null, %332 ], [ null, %329 ]
   %.not128 = icmp eq ptr %.0120.be, null
   br i1 %.not128, label %58, label %.critedge, !llvm.loop !6
 
@@ -579,9 +579,10 @@ parse_check_done.exit.i:                          ; preds = %163
 
 classify.exit.i:                                  ; preds = %170, %163, %160, %158
   %.075.i = phi ptr [ @.str.1, %170 ], [ null, %158 ], [ null, %163 ], [ null, %160 ]
-  switch i32 %.0.i130.i, label %195 [
-    i32 3, label %185
+  switch i32 %.0.i130.i, label %default.unreachable [
+    i32 1, label %195
     i32 2, label %186
+    i32 3, label %185
   ]
 
 classify.exit.thread137.i:                        ; preds = %150
@@ -639,8 +640,11 @@ tokenadd.exit.i:                                  ; preds = %174, %._crit_edge.i
   %.not90.i = icmp eq ptr %194, null
   br i1 %.not90.i, label %195, label %.critedge
 
+default.unreachable:                              ; preds = %classify.exit.i
+  unreachable
+
 195:                                              ; preds = %193, %185, %tokenadd.exit.i, %classify.exit.i
-  %.075141.i = phi ptr [ %.075.i, %193 ], [ %.075.i, %185 ], [ null, %tokenadd.exit.i ], [ %.075.i, %classify.exit.i ]
+  %.075140.i = phi ptr [ %.075.i, %classify.exit.i ], [ %.075.i, %193 ], [ %.075.i, %185 ], [ null, %tokenadd.exit.i ]
   %196 = load i32, ptr %37, align 4
   %197 = and i32 %196, 2
   %.not91.i = icmp eq i32 %197, 0
@@ -1009,8 +1013,8 @@ tokenadd.exit121.i:                               ; preds = %341, %._crit_edge.i
   br label %.backedge
 
 .critedge:                                        ; preds = %193, %classify.exit.thread.i, %.backedge, %222, %238, %unhex4.exit.i.i, %263, %261, %258, %unhex4.exit83.i.i, %223, %295, %247, %275, %317, %321, %seq_check_truncation.exit.thread124.i, %stream_is_top_num.exit.i, %parse_is_top_num.exit.i, %stream_is_top_num.exit.thread.i
-  %.0120.be162 = phi ptr [ @.str.37, %317 ], [ @.str.37, %321 ], [ %129, %seq_check_truncation.exit.thread124.i ], [ @.str.12, %stream_is_top_num.exit.i ], [ @.str.12, %parse_is_top_num.exit.i ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.42, %275 ], [ @.str.41, %247 ], [ @.str.44, %295 ], [ @.str.43, %223 ], [ @.str.42, %unhex4.exit83.i.i ], [ @.str.42, %258 ], [ @.str.42, %261 ], [ @.str.42, %263 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.40, %238 ], [ @.str.39, %222 ], [ %154, %classify.exit.thread.i ], [ %194, %193 ], [ %.0120.be, %.backedge ]
-  %358 = icmp eq ptr %.0120.be162, @.str.1
+  %.0120.be165 = phi ptr [ @.str.37, %317 ], [ @.str.37, %321 ], [ %129, %seq_check_truncation.exit.thread124.i ], [ @.str.12, %stream_is_top_num.exit.i ], [ @.str.12, %parse_is_top_num.exit.i ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.42, %275 ], [ @.str.41, %247 ], [ @.str.44, %295 ], [ @.str.43, %223 ], [ @.str.42, %unhex4.exit83.i.i ], [ @.str.42, %258 ], [ @.str.42, %261 ], [ @.str.42, %263 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.40, %238 ], [ @.str.39, %222 ], [ %154, %classify.exit.thread.i ], [ %194, %193 ], [ %.0120.be, %.backedge ]
+  %358 = icmp eq ptr %.0120.be165, @.str.1
   br i1 %358, label %.critedge.thread, label %359
 
 .critedge.thread:                                 ; preds = %327, %198, %parse_check_done.exit115.i, %parse_check_done.exit109.i, %140, %138, %136, %.critedge
@@ -1035,7 +1039,7 @@ tokenadd.exit121.i:                               ; preds = %341, %._crit_edge.i
   store i32 3, ptr %46, align 8
   %366 = load i32, ptr %54, align 8
   %367 = load i32, ptr %47, align 4
-  %368 = tail call { i64, ptr } (ptr, ptr, ...) @make_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0120.be162, i32 noundef %366, i32 noundef %367)
+  %368 = tail call { i64, ptr } (ptr, ptr, ...) @make_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0120.be165, i32 noundef %366, i32 noundef %367)
   %369 = extractvalue { i64, ptr } %368, 0
   %370 = extractvalue { i64, ptr } %368, 1
   tail call fastcc void @parser_reset(ptr noundef nonnull %0)
@@ -1044,7 +1048,7 @@ tokenadd.exit121.i:                               ; preds = %341, %._crit_edge.i
 371:                                              ; preds = %362, %359
   %372 = load i32, ptr %54, align 8
   %373 = load i32, ptr %47, align 4
-  %374 = tail call { i64, ptr } (ptr, ptr, ...) @make_error(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %.0120.be162, i32 noundef %372, i32 noundef %373)
+  %374 = tail call { i64, ptr } (ptr, ptr, ...) @make_error(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %.0120.be165, i32 noundef %372, i32 noundef %373)
   %375 = extractvalue { i64, ptr } %374, 0
   %376 = extractvalue { i64, ptr } %374, 1
   tail call fastcc void @parser_reset(ptr noundef %0)
@@ -1194,17 +1198,17 @@ tokenadd.exit121.i:                               ; preds = %341, %._crit_edge.i
   %454 = load i8, ptr %51, align 4
   %455 = and i8 %454, 1
   %.not139 = icmp eq i8 %455, 0
-  %.sroa.098.0.copyload105.pre156 = load i64, ptr %2, align 8
-  %.sroa.15.0.copyload119.pre158 = load ptr, ptr %35, align 8
+  %.sroa.098.0.copyload105.pre159 = load i64, ptr %2, align 8
+  %.sroa.15.0.copyload119.pre161 = load ptr, ptr %35, align 8
   br i1 %.not139, label %456, label %465
 
 456:                                              ; preds = %453
-  %457 = tail call i32 @jv_get_kind(i64 %.sroa.098.0.copyload105.pre156, ptr %.sroa.15.0.copyload119.pre158) #8
+  %457 = tail call i32 @jv_get_kind(i64 %.sroa.098.0.copyload105.pre159, ptr %.sroa.15.0.copyload119.pre161) #8
   %458 = icmp eq i32 %457, 4
   br i1 %458, label %459, label %465
 
 459:                                              ; preds = %456
-  tail call void @jv_free(i64 %.sroa.098.0.copyload105.pre156, ptr %.sroa.15.0.copyload119.pre158) #8
+  tail call void @jv_free(i64 %.sroa.098.0.copyload105.pre159, ptr %.sroa.15.0.copyload119.pre161) #8
   %460 = load i32, ptr %54, align 8
   %461 = load i32, ptr %47, align 4
   %462 = tail call { i64, ptr } (ptr, ptr, ...) @make_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %460, i32 noundef %461)
@@ -1213,8 +1217,8 @@ tokenadd.exit121.i:                               ; preds = %341, %._crit_edge.i
   br label %465
 
 465:                                              ; preds = %453, %456, %._crit_edge, %371, %379, %459, %418, %405, %397, %391, %383, %365, %.critedge.thread, %42, %23, %11, %5
-  %.sroa.098.0 = phi i64 [ %7, %5 ], [ %.sroa.098.0.copyload, %42 ], [ %.sroa.098.0.copyload99, %.critedge.thread ], [ %369, %365 ], [ %385, %383 ], [ %395, %391 ], [ %401, %397 ], [ %409, %405 ], [ %422, %418 ], [ %463, %459 ], [ %28, %23 ], [ %13, %11 ], [ %375, %379 ], [ %375, %371 ], [ %.sroa.098.0.copyload105.pre, %._crit_edge ], [ %.sroa.098.0.copyload105.pre156, %456 ], [ %.sroa.098.0.copyload105.pre156, %453 ]
-  %.sroa.15.0 = phi ptr [ %8, %5 ], [ %.sroa.15.0.copyload, %42 ], [ %.sroa.15.0.copyload107, %.critedge.thread ], [ %370, %365 ], [ %386, %383 ], [ %396, %391 ], [ %402, %397 ], [ %410, %405 ], [ %423, %418 ], [ %464, %459 ], [ %29, %23 ], [ %14, %11 ], [ %376, %379 ], [ %376, %371 ], [ %.sroa.15.0.copyload119.pre, %._crit_edge ], [ %.sroa.15.0.copyload119.pre158, %456 ], [ %.sroa.15.0.copyload119.pre158, %453 ]
+  %.sroa.098.0 = phi i64 [ %7, %5 ], [ %.sroa.098.0.copyload, %42 ], [ %.sroa.098.0.copyload99, %.critedge.thread ], [ %369, %365 ], [ %385, %383 ], [ %395, %391 ], [ %401, %397 ], [ %409, %405 ], [ %422, %418 ], [ %463, %459 ], [ %28, %23 ], [ %13, %11 ], [ %375, %379 ], [ %375, %371 ], [ %.sroa.098.0.copyload105.pre, %._crit_edge ], [ %.sroa.098.0.copyload105.pre159, %456 ], [ %.sroa.098.0.copyload105.pre159, %453 ]
+  %.sroa.15.0 = phi ptr [ %8, %5 ], [ %.sroa.15.0.copyload, %42 ], [ %.sroa.15.0.copyload107, %.critedge.thread ], [ %370, %365 ], [ %386, %383 ], [ %396, %391 ], [ %402, %397 ], [ %410, %405 ], [ %423, %418 ], [ %464, %459 ], [ %29, %23 ], [ %14, %11 ], [ %376, %379 ], [ %376, %371 ], [ %.sroa.15.0.copyload119.pre, %._crit_edge ], [ %.sroa.15.0.copyload119.pre161, %456 ], [ %.sroa.15.0.copyload119.pre161, %453 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.098.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.15.0, 1
   ret { i64, ptr } %.fca.1.insert

@@ -477,11 +477,15 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   %72 = getelementptr %struct.page, ptr %66, i64 %71
   %73 = load i64, ptr %72, align 16
   %74 = and i64 %73, 4202496
-  switch i64 %74, label %.loopexit20 [
+  switch i64 %74, label %.unreachabledefault [
     i64 0, label %67
     i64 8192, label %.loopexit20.loopexit
     i64 4194304, label %.loopexit20.loopexit25
+    i64 4202496, label %.loopexit20
   ]
+
+.unreachabledefault:                              ; preds = %70
+  unreachable
 
 .loopexit20.loopexit:                             ; preds = %70
   br label %.loopexit20
@@ -833,10 +837,11 @@ define internal fastcc i32 @lookup_memtype(i64 noundef %0) unnamed_addr #3 align
   %24 = getelementptr %struct.page, ptr %23, i64 %7
   %25 = load i64, ptr %24, align 16
   %26 = and i64 %25, 4202496
-  switch i64 %26, label %29 [
+  switch i64 %26, label %.unreachabledefault [
     i64 0, label %38
     i64 8192, label %27
     i64 4194304, label %28
+    i64 4202496, label %29
   ]
 
 27:                                               ; preds = %21
@@ -844,6 +849,9 @@ define internal fastcc i32 @lookup_memtype(i64 noundef %0) unnamed_addr #3 align
 
 28:                                               ; preds = %21
   br label %38
+
+.unreachabledefault:                              ; preds = %21
+  unreachable
 
 29:                                               ; preds = %21
   br label %38
@@ -864,7 +872,7 @@ define internal fastcc i32 @lookup_memtype(i64 noundef %0) unnamed_addr #3 align
   call void @_raw_spin_unlock(ptr noundef nonnull @memtype_lock) #18
   br label %38
 
-38:                                               ; preds = %36, %29, %28, %27, %21, %1
+38:                                               ; preds = %21, %36, %29, %28, %27, %1
   %39 = phi i32 [ %37, %36 ], [ 0, %1 ], [ 1, %27 ], [ 2, %28 ], [ 4, %29 ], [ 0, %21 ]
   ret i32 %39
 }

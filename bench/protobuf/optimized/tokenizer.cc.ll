@@ -2609,8 +2609,8 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %line.i, ptr noundef nonnull align 8 dereferenceable(12) %line4.i, i64 12, i1 false)
   %read_error_ = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load i8, ptr %read_error_, align 8
-  %tobool217 = trunc i8 %1 to i1
-  br i1 %tobool217, label %while.end105, label %while.body.lr.ph
+  %tobool226 = trunc i8 %1 to i1
+  br i1 %tobool226, label %while.end105, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %line_.i = getelementptr inbounds i8, ptr %this, i64 156
@@ -2981,10 +2981,11 @@ _ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit28: ; preds = %if.then.critedge,
 
 if.end:                                           ; preds = %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit
   %call5 = call noundef i32 @_ZN6google8protobuf2io9Tokenizer22TryConsumeCommentStartEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  switch i32 %call5, label %sw.epilog [
+  switch i32 %call5, label %default.unreachable [
     i32 0, label %while.cond.i
     i32 1, label %sw.bb6
     i32 2, label %return
+    i32 3, label %sw.epilog
   ]
 
 while.cond.i:                                     ; preds = %if.end, %while.body.i
@@ -3002,7 +3003,7 @@ if.then.i.i29:                                    ; preds = %while.cond.i
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %while.cond.i, %lor.rhs20, %if.then.i.i29, %sw.bb6
+while.cond.backedge:                              ; preds = %lor.rhs20, %while.cond.i, %if.then.i.i29, %sw.bb6
   %57 = load i8, ptr %read_error_, align 8
   %tobool = trunc i8 %57 to i1
   br i1 %tobool, label %while.end105, label %while.body, !llvm.loop !15
@@ -3010,6 +3011,9 @@ while.cond.backedge:                              ; preds = %while.cond.i, %lor.
 sw.bb6:                                           ; preds = %if.end
   call void @_ZN6google8protobuf2io9Tokenizer19ConsumeBlockCommentEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef null)
   br label %while.cond.backedge
+
+default.unreachable:                              ; preds = %if.end
+  unreachable
 
 sw.epilog:                                        ; preds = %if.end
   %58 = load i8, ptr %read_error_, align 8

@@ -239,13 +239,16 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
 46:                                               ; preds = %38
   %47 = getelementptr inbounds i8, ptr %39, i64 16
   %48 = call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %47, ptr noundef nonnull align 8 %0, i64 noundef 0, ptr noundef nonnull %.val), !range !77, !noalias !74
-  switch i8 %48, label %default.unreachable [
+  switch i8 %48, label %.unreachabledefault [
     i8 0, label %57
     i8 1, label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hedfcf009134efc69E.exit"
     i8 2, label %49
   ]
 
-default.unreachable:                              ; preds = %46, %100
+.unreachabledefault:                              ; preds = %46
+  unreachable
+
+default.unreachable:                              ; preds = %100
   unreachable
 
 49:                                               ; preds = %46

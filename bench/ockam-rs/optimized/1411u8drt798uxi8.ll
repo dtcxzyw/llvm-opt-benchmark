@@ -63411,7 +63411,7 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = load i64, ptr %0, align 8, !range !8639, !noundef !10
-  switch i64 %7, label %8 [
+  switch i64 %7, label %default.unreachable15 [
     i64 0, label %35
     i64 1, label %51
     i64 2, label %67
@@ -63427,7 +63427,11 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT
     i64 12, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.18141648412879468590.exit"
     i64 13, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.18141648412879468590.exit"
     i64 14, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.18141648412879468590.exit"
+    i64 15, label %8
   ]
+
+default.unreachable15:                            ; preds = %1
+  unreachable
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -63641,7 +63645,7 @@ common.resume:                                    ; preds = %161, %170, %151, %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !8680
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.18141648412879468590.exit"
 
-"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.18141648412879468590.exit": ; preds = %179, %172, %160, %153, %144, %137, %88, %81, %66, %58, %50, %43, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit6", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit4", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17heea5a0a3c15bd406E.exit", %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$sqlx_core..migrate..error..MigrateError$GT$$GT$17h1cda7762a9e14e56E.exit", %1, %1, %1, %1, %1
+"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.18141648412879468590.exit": ; preds = %179, %172, %160, %153, %144, %137, %88, %81, %66, %58, %50, %43, %1, %1, %1, %1, %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit6", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit4", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17heea5a0a3c15bd406E.exit", %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$sqlx_core..migrate..error..MigrateError$GT$$GT$17h1cda7762a9e14e56E.exit"
   ret void
 
 99:                                               ; preds = %1
@@ -77902,22 +77906,22 @@ define hidden void @"_ZN80_$LT$zstd..stream..zio..reader..Reader$LT$R$C$D$GT$$u2
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = getelementptr inbounds i8, ptr %1, i64 24
   %18 = load i8, ptr %8, align 8, !range !299, !noundef !10
-  switch i8 %18, label %default.unreachable102 [
+  switch i8 %18, label %default.unreachable [
     i8 0, label %.thread
     i8 1, label %.split.us
     i8 2, label %.split76.us
   ]
 
+default.unreachable:                              ; preds = %.outer.split.split, %.outer
+  unreachable
+
 .outer.split.split:                               ; preds = %.outer.split.split.preheader, %46
   %19 = phi i8 [ %.pre, %.outer.split.split.preheader ], [ 1, %46 ]
-  switch i8 %19, label %default.unreachable102 [
+  switch i8 %19, label %default.unreachable [
     i8 0, label %20
     i8 1, label %.split.us
     i8 2, label %.split76.us
   ]
-
-default.unreachable102:                           ; preds = %.outer.split.split, %.outer
-  unreachable
 
 20:                                               ; preds = %.outer.split.split
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !10638
@@ -78084,9 +78088,9 @@ default.unreachable102:                           ; preds = %.outer.split.split,
   br label %43
 
 73:                                               ; preds = %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17h4c8c0de8c50bf828E.exit", %52
-  %.lcssa107.sink = phi ptr [ %53, %52 ], [ %51, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17h4c8c0de8c50bf828E.exit" ]
+  %.lcssa106.sink = phi ptr [ %53, %52 ], [ %51, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17h4c8c0de8c50bf828E.exit" ]
   %74 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.lcssa107.sink, ptr %74, align 8
+  store ptr %.lcssa106.sink, ptr %74, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)

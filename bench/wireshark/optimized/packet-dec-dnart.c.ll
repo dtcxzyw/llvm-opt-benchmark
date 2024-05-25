@@ -684,7 +684,7 @@ set_dnet_address.exit200:                         ; preds = %set_dnet_address.ex
   %193 = load i32, ptr @ett_dec_rt_ctl_msg, align 4
   %194 = tail call ptr @proto_item_add_subtree(ptr noundef %192, i32 noundef %193) #3
   %195 = add nuw nsw i32 %.0176, 1
-  switch i32 %185, label %handle_nsp_msg.exit [
+  switch i32 %185, label %default.unreachable [
     i32 0, label %196
     i32 1, label %225
     i32 2, label %234
@@ -692,6 +692,7 @@ set_dnet_address.exit200:                         ; preds = %set_dnet_address.ex
     i32 4, label %242
     i32 5, label %296
     i32 6, label %296
+    i32 7, label %handle_nsp_msg.exit
   ]
 
 196:                                              ; preds = %183
@@ -1230,6 +1231,9 @@ dnet_ntoa.exit215.thread:                         ; preds = %dnet_ntoa.exit.thre
   %550 = zext i8 %548 to i32
   %551 = tail call ptr @proto_tree_add_uint(ptr noundef %174, i32 noundef %549, ptr noundef %0, i32 noundef %547, i32 noundef 1, i32 noundef %550) #3
   br label %do_initialization_msg.exit.thread224
+
+default.unreachable:                              ; preds = %183
+  unreachable
 
 do_initialization_msg.exit.thread224:             ; preds = %533, %dnet_ntoa.exit215.thread
   %.sink = phi i32 [ 6, %533 ], [ 21, %dnet_ntoa.exit215.thread ]

@@ -1086,10 +1086,11 @@ while.body:                                       ; preds = %cond.end, %if.end13
   %shr.i61 = lshr i32 %conv.i60, 8
   %and.i62 = and i32 %shr.i61, 1048575
   %and.i64 = and i32 %conv.i60, 3
-  switch i32 %and.i64, label %if.else107 [
+  switch i32 %and.i64, label %default.unreachable [
     i32 3, label %if.then18
     i32 2, label %if.then23
     i32 1, label %if.then63
+    i32 0, label %if.else107
   ]
 
 if.then18:                                        ; preds = %while.body
@@ -1316,6 +1317,9 @@ if.else104:                                       ; preds = %if.then63
   %shr.i115 = lshr i64 %6, 48
   %conv.i116 = trunc nuw nsw i64 %shr.i115 to i32
   br label %if.end122
+
+default.unreachable:                              ; preds = %while.body
+  unreachable
 
 if.else107:                                       ; preds = %while.body
   %tobool108.not = icmp eq i8 %pIsTailored.0158, 0

@@ -9136,11 +9136,15 @@ common.resume:                                    ; preds = %60, %13
   store ptr %10, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %17 = zext i8 %1 to i64
-  switch i8 %1, label %18 [
+  switch i8 %1, label %.unreachabledefault [
     i8 0, label %19
     i8 1, label %25
     i8 2, label %32
+    i8 3, label %18
   ]
+
+.unreachabledefault:                              ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h567ea907280e48c9E.llvm.3998950267652723875.exit"
+  unreachable
 
 18:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h567ea907280e48c9E.llvm.3998950267652723875.exit"
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.e64089b94c7010abbaca571653ee6b27.57.llvm.3998950267652723875, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e64089b94c7010abbaca571653ee6b27.59.llvm.3998950267652723875) #39
@@ -9347,11 +9351,15 @@ define hidden void @"_ZN4moka6common10concurrent6deques15Deques$LT$K$GT$14unlink
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 3
   %5 = tail call noundef i8 @"_ZN78_$LT$moka..common..CacheRegion$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17hb62338cda0f768eaE"(i64 noundef %4), !range !669
-  switch i8 %5, label %6 [
+  switch i8 %5, label %default.unreachable1 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %10
+    i8 3, label %6
   ]
+
+default.unreachable1:                             ; preds = %2
+  unreachable
 
 6:                                                ; preds = %2
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.e64089b94c7010abbaca571653ee6b27.57.llvm.3998950267652723875, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e64089b94c7010abbaca571653ee6b27.63.llvm.3998950267652723875) #39
@@ -9475,22 +9483,26 @@ define hidden void @"_ZN4moka6common10concurrent6deques15Deques$LT$K$GT$15move_t
   %20 = icmp ne i64 %17, 0
   tail call void @llvm.assume(i1 %20)
   %21 = tail call noundef i8 @"_ZN78_$LT$moka..common..CacheRegion$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17hb62338cda0f768eaE"(i64 noundef %19), !range !669
-  switch i8 %21, label %23 [
+  switch i8 %21, label %default.unreachable29 [
     i8 0, label %24
     i8 1, label %30
     i8 2, label %37
+    i8 3, label %23
   ]
 
 "_ZN4moka6common5deque14Deque$LT$T$GT$12move_to_back17h8873045b6181bd50E.exit.sink.split": ; preds = %69, %95, %121
-  %.sink30 = phi ptr [ %98, %121 ], [ %72, %95 ], [ %46, %69 ]
+  %.sink31 = phi ptr [ %98, %121 ], [ %72, %95 ], [ %46, %69 ]
   %.sink = phi ptr [ %97, %121 ], [ %71, %95 ], [ %45, %69 ]
-  %22 = getelementptr inbounds i8, ptr %.sink30, i64 24
+  %22 = getelementptr inbounds i8, ptr %.sink31, i64 24
   store ptr %18, ptr %22, align 8, !noalias !9
   store ptr %18, ptr %.sink, align 8
   br label %"_ZN4moka6common5deque14Deque$LT$T$GT$12move_to_back17h8873045b6181bd50E.exit"
 
 "_ZN4moka6common5deque14Deque$LT$T$GT$12move_to_back17h8873045b6181bd50E.exit": ; preds = %"_ZN4moka6common5deque14Deque$LT$T$GT$12move_to_back17h8873045b6181bd50E.exit.sink.split", %112, %86, %60, %113, %96, %87, %70, %61, %44, %"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$19access_order_q_node17ha177fbeee628a760E.exit"
   ret void
+
+default.unreachable29:                            ; preds = %15
+  unreachable
 
 23:                                               ; preds = %37, %30, %24, %15
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.e64089b94c7010abbaca571653ee6b27.57.llvm.3998950267652723875, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e64089b94c7010abbaca571653ee6b27.64.llvm.3998950267652723875) #39
@@ -10305,11 +10317,15 @@ define hidden void @"_ZN4moka6common10concurrent6deques15Deques$LT$K$GT$9unlink_
   %16 = ptrtoint ptr %10 to i64
   %17 = and i64 %16, 3
   %18 = tail call noundef i8 @"_ZN78_$LT$moka..common..CacheRegion$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17hb62338cda0f768eaE"(i64 noundef %17), !range !669, !noalias !1440
-  switch i8 %18, label %19 [
+  switch i8 %18, label %default.unreachable [
     i8 0, label %20
     i8 1, label %21
     i8 2, label %23
+    i8 3, label %19
   ]
+
+default.unreachable:                              ; preds = %15
+  unreachable
 
 19:                                               ; preds = %15
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.e64089b94c7010abbaca571653ee6b27.57.llvm.3998950267652723875, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e64089b94c7010abbaca571653ee6b27.63.llvm.3998950267652723875) #39, !noalias !1440
@@ -14112,13 +14128,17 @@ default.unreachable10:                            ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN13mini_lsm_mvcc7compact20CompactionController23apply_compaction_result17h35b938a9137b7edcE(ptr noalias nocapture noundef sret({ { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { i64, ptr }, i64 } }) align 8 dereferenceable(152) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(128) %2, ptr noalias noundef readonly align 8 dereferenceable(88) %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5) unnamed_addr #0 {
   %7 = load i64, ptr %1, align 8, !range !432, !noundef !9
-  switch i64 %7, label %8 [
+  switch i64 %7, label %default.unreachable1 [
     i64 0, label %9
     i64 1, label %12
     i64 2, label %15
+    i64 3, label %8
   ]
 
-8:                                                ; preds = %15, %12, %9, %6
+default.unreachable1:                             ; preds = %6
+  unreachable
+
+8:                                                ; preds = %6, %15, %12, %9
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.e64089b94c7010abbaca571653ee6b27.57.llvm.3998950267652723875, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e64089b94c7010abbaca571653ee6b27.100.llvm.3998950267652723875) #39
   unreachable
 
@@ -14161,12 +14181,9 @@ define void @_ZN13mini_lsm_mvcc7compact20CompactionController23apply_compaction_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13mini_lsm_mvcc7compact20CompactionController11flush_to_l017h2b1b4bdc6f0d82ccE(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #8 {
-switch.lookup:
-  %1 = load i64, ptr %0, align 8, !range !432, !noundef !9
-  %switch.cast = trunc nuw nsw i64 %1 to i4
-  %switch.downshift = lshr i4 -3, %switch.cast
-  %switch.masked = trunc i4 %switch.downshift to i1
-  ret i1 %switch.masked
+  %2 = load i64, ptr %0, align 8, !range !432, !noundef !9
+  %switch = icmp ne i64 %2, 1
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -17737,13 +17737,16 @@ common.ret200:                                    ; preds = %._crit_edge.i24, %1
 75:                                               ; preds = %69
   %76 = add nsw i8 %62, -24
   %narrow.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %76, i8 2)
-  switch i8 %narrow.i.i.i.i.i, label %default.unreachable [
+  switch i8 %narrow.i.i.i.i.i, label %.unreachabledefault [
     i8 0, label %77
     i8 1, label %83
     i8 2, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf5ccb4a6fa474ac6E.exit.i.i.i.i.i"
   ]
 
-default.unreachable:                              ; preds = %75, %206
+.unreachabledefault:                              ; preds = %75
+  unreachable
+
+default.unreachable:                              ; preds = %206
   unreachable
 
 77:                                               ; preds = %75
@@ -20800,11 +20803,15 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h300ddd41e12ccd4aE
   %14 = select i1 %13, i64 %12, i64 1
   %15 = mul nuw i64 %14, 5871781006564002453
   store i64 %15, ptr %3, align 8, !alias.scope !4241, !noalias !4240
-  switch i64 %14, label %"_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17hccfb5c2811dfa108E.exit.i" [
+  switch i64 %14, label %.unreachabledefault.i.i [
     i64 0, label %16
     i64 1, label %25
     i64 2, label %95
+    i64 3, label %"_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17hccfb5c2811dfa108E.exit.i"
   ]
+
+.unreachabledefault.i.i:                          ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h0ed829449af4f045E.exit.i"
+  unreachable
 
 16:                                               ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h0ed829449af4f045E.exit.i"
   %17 = getelementptr inbounds i8, ptr %5, i64 16
@@ -20852,13 +20859,16 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h300ddd41e12ccd4aE
 42:                                               ; preds = %.lr.ph.i.i
   %43 = add nsw i8 %36, -24
   %narrow.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %43, i8 2)
-  switch i8 %narrow.i.i.i.i.i, label %default.unreachable [
+  switch i8 %narrow.i.i.i.i.i, label %.unreachabledefault [
     i8 0, label %44
     i8 1, label %50
     i8 2, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf5ccb4a6fa474ac6E.exit.i.i.i.i.i"
   ]
 
-default.unreachable:                              ; preds = %42, %103
+.unreachabledefault:                              ; preds = %42
+  unreachable
+
+default.unreachable:                              ; preds = %103
   unreachable
 
 44:                                               ; preds = %42
@@ -21107,7 +21117,7 @@ _ZN4core4hash6Hasher9write_str17h0c15d8d312ae4a03E.llvm.14093832413505439524.exi
   br label %"_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17hccfb5c2811dfa108E.exit.i"
 
 "_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17hccfb5c2811dfa108E.exit.i": ; preds = %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h226a217b5a04fc4eE.llvm.14093832413505439524.exit.i.i", %_ZN4core4hash4Hash10hash_slice17h428299b103b90b79E.exit.i, %16, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h0ed829449af4f045E.exit.i"
-  %155 = phi i64 [ %15, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h0ed829449af4f045E.exit.i" ], [ %24, %16 ], [ %.pre.i, %_ZN4core4hash4Hash10hash_slice17h428299b103b90b79E.exit.i ], [ %storemerge.i.i.i, %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h226a217b5a04fc4eE.llvm.14093832413505439524.exit.i.i" ]
+  %155 = phi i64 [ -831401054017544257, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h0ed829449af4f045E.exit.i" ], [ %24, %16 ], [ %.pre.i, %_ZN4core4hash4Hash10hash_slice17h428299b103b90b79E.exit.i ], [ %storemerge.i.i.i, %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h226a217b5a04fc4eE.llvm.14093832413505439524.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !4232
   %156 = shl i64 %155, 7
   %157 = getelementptr inbounds i8, ptr %7, i64 16

@@ -352,11 +352,15 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..GenericShunt
 27:                                               ; preds = %22
   %28 = add nsw i64 %25, -16
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 3)
-  switch i64 %29, label %30 [
+  switch i64 %29, label %default.unreachable [
     i64 0, label %31
     i64 1, label %40
     i64 2, label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_mount..error..Error$GT$$GT$$GT$17h24e2d870816b7ef9E.exit"
+    i64 3, label %30
   ]
+
+default.unreachable:                              ; preds = %27
+  unreachable
 
 30:                                               ; preds = %27
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h3183bb69bec89e65E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %24)

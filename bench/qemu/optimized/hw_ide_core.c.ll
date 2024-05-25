@@ -220,7 +220,7 @@ entry:
   %cmd = getelementptr inbounds i8, ptr %opaque, i64 2129
   %1 = load i8, ptr %cmd, align 1
   %2 = and i8 %1, -128
-  switch i32 %and, label %sw.bb110 [
+  switch i32 %and, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb4
     i32 2, label %sw.bb20
@@ -228,6 +228,7 @@ entry:
     i32 4, label %sw.bb58
     i32 5, label %sw.bb77
     i32 6, label %sw.bb96
+    i32 7, label %sw.bb110
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -403,6 +404,9 @@ if.else107:                                       ; preds = %land.lhs.true101, %
   %conv108 = zext i8 %26 to i32
   br label %sw.epilog
 
+default.unreachable:                              ; preds = %entry
+  unreachable
+
 sw.bb110:                                         ; preds = %entry
   %blk113 = getelementptr inbounds i8, ptr %opaque, i64 808
   %27 = load ptr, ptr %blk113, align 8
@@ -538,7 +542,7 @@ land.lhs.true:                                    ; preds = %trace_ide_ioport_wr
   br i1 %tobool.not, label %if.end, label %sw.epilog
 
 if.end:                                           ; preds = %land.lhs.true
-  switch i32 %and, label %sw.bb108 [
+  switch i32 %and, label %if.end.unreachabledefault [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb2
     i32 2, label %sw.bb20
@@ -655,7 +659,10 @@ sw.bb96:                                          ; preds = %if.end
   store i8 %conv107, ptr %unit.i, align 8
   br label %sw.epilog
 
-sw.bb108:                                         ; preds = %trace_ide_ioport_write.exit, %if.end
+if.end.unreachabledefault:                        ; preds = %if.end
+  unreachable
+
+sw.bb108:                                         ; preds = %trace_ide_ioport_write.exit
   %cmd.i67 = getelementptr inbounds i8, ptr %opaque, i64 2129
   %34 = load i8, ptr %cmd.i67, align 1
   %35 = and i8 %34, 127

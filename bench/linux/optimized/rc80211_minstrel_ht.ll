@@ -1658,21 +1658,21 @@ define internal fastcc void @minstrel_ht_update_caps(ptr nocapture noundef reado
   br i1 %113, label %116, label %115
 
 115:                                              ; preds = %114
-  br i1 %95, label %193, label %.thread21
+  br i1 %95, label %193, label %.thread22
 
 116:                                              ; preds = %114
-  br i1 %97, label %193, label %.thread19
+  br i1 %97, label %193, label %.thread20
 
 117:                                              ; preds = %110
-  br i1 %113, label %.thread19, label %.thread21
+  br i1 %113, label %.thread20, label %.thread22
 
-.thread21:                                        ; preds = %115, %117
+.thread22:                                        ; preds = %115, %117
   %118 = load i32, ptr %98, align 8
   %119 = icmp eq i32 %118, 0
-  br i1 %119, label %193, label %.thread19
+  br i1 %119, label %193, label %.thread20
 
-.thread19:                                        ; preds = %116, %.thread21, %117
-  %120 = phi i1 [ false, %.thread21 ], [ true, %117 ], [ true, %116 ]
+.thread20:                                        ; preds = %116, %.thread22, %117
+  %120 = phi i1 [ false, %.thread22 ], [ true, %117 ], [ true, %116 ]
   %121 = getelementptr inbounds i8, ptr %104, i64 2
   %122 = load i8, ptr %121, align 2
   %123 = zext i8 %122 to i32
@@ -1682,7 +1682,7 @@ define internal fastcc void @minstrel_ht_update_caps(ptr nocapture noundef reado
   %127 = select i1 %125, i1 %126, i1 false
   br i1 %127, label %193, label %128
 
-128:                                              ; preds = %.thread19
+128:                                              ; preds = %.thread20
   %129 = and i32 %106, 8
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %141, label %131
@@ -1781,10 +1781,11 @@ define internal fastcc void @minstrel_ht_update_caps(ptr nocapture noundef reado
   %182 = add nsw i32 %181, -2
   %183 = lshr i32 %180, %182
   %184 = and i32 %183, 3
-  switch i32 %184, label %189 [
+  switch i32 %184, label %default.unreachable19 [
     i32 0, label %185
     i32 1, label %187
     i32 2, label %190
+    i32 3, label %189
   ]
 
 185:                                              ; preds = %178
@@ -1795,16 +1796,19 @@ define internal fastcc void @minstrel_ht_update_caps(ptr nocapture noundef reado
   %188 = or i16 %179, 512
   br label %190
 
+default.unreachable19:                            ; preds = %178
+  unreachable
+
 189:                                              ; preds = %178
   br label %190
 
-190:                                              ; preds = %189, %187, %185, %178
+190:                                              ; preds = %178, %189, %187, %185
   %191 = phi i16 [ 1023, %189 ], [ %179, %178 ], [ %188, %187 ], [ %186, %185 ]
   %192 = xor i16 %191, 1023
   store i16 %192, ptr %107, align 2
   br label %193
 
-193:                                              ; preds = %190, %159, %155, %151, %147, %141, %135, %131, %.thread19, %.thread21, %116, %115, %102
+193:                                              ; preds = %190, %159, %155, %151, %147, %141, %135, %131, %.thread20, %.thread22, %116, %115, %102
   %194 = add nuw nsw i64 %103, 1
   %195 = icmp eq i64 %194, 42
   br i1 %195, label %196, label %102, !llvm.loop !43

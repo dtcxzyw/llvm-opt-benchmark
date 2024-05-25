@@ -203,7 +203,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Toke
   %5 = xor i64 %4, -9223372036854775808
   %6 = icmp ult i64 %5, 8
   %7 = select i1 %6, i64 %5, i64 6
-  switch i64 %7, label %8 [
+  switch i64 %7, label %.unreachabledefault [
     i64 0, label %27
     i64 1, label %27
     i64 2, label %27
@@ -211,7 +211,11 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Toke
     i64 4, label %27
     i64 5, label %27
     i64 6, label %28
+    i64 7, label %8
   ]
+
+.unreachabledefault:                              ; preds = %1
+  unreachable
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -261,7 +265,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Toke
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !41
   br label %27
 
-27:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$$LP$char$C$char$RP$$GT$$GT$17h9f307f0e4a2db0f7E.exit", %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$globset..glob..Tokens$GT$$GT$17hd37ad3e6b7fa4c61E.exit", %1, %1, %1, %1, %1, %1
+27:                                               ; preds = %1, %1, %1, %1, %1, %1, %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$$LP$char$C$char$RP$$GT$$GT$17h9f307f0e4a2db0f7E.exit", %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$globset..glob..Tokens$GT$$GT$17hd37ad3e6b7fa4c61E.exit"
   ret void
 
 28:                                               ; preds = %1

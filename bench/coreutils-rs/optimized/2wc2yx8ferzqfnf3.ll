@@ -1516,7 +1516,7 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uu_ls..LsError$GT$1
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = load i8, ptr %0, align 8, !range !202, !noundef !9
-  switch i8 %9, label %10 [
+  switch i8 %9, label %default.unreachable12 [
     i8 0, label %20
     i8 1, label %30
     i8 2, label %36
@@ -1524,7 +1524,11 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uu_ls..LsError$GT$1
     i8 4, label %52
     i8 5, label %52
     i8 6, label %53
+    i8 7, label %10
   ]
+
+default.unreachable12:                            ; preds = %1
+  unreachable
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1638,7 +1642,7 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uu_ls..LsError$GT$1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !248
   br label %52
 
-52:                                               ; preds = %82, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit11", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit9", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4df81ec4bf019efbE.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit3", %1, %1
+52:                                               ; preds = %1, %1, %82, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit11", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit9", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4df81ec4bf019efbE.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit3"
   ret void
 
 53:                                               ; preds = %1

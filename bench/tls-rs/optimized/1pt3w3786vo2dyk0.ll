@@ -1304,11 +1304,15 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..hands
   %4 = load i64, ptr %0, align 8, !range !349, !noundef !4
   %5 = add i64 %4, 9223372036854775807
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 3)
-  switch i64 %6, label %7 [
+  switch i64 %6, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit"
     i64 1, label %17
     i64 2, label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit"
+    i64 3, label %7
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 7:                                                ; preds = %1
   %8 = icmp eq i64 %4, -9223372036854775808
@@ -1334,7 +1338,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$rustls..msgs..hands
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !350
   br label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit"
 
-"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit.i.i", %7, %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..base..PayloadU16$GT$17hcaa19dc86fe71d36E.exit", %1, %1
+"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..UnknownExtension$GT$17hfbe3adea2d74e115E.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit.i.i", %7, %1, %1, %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..base..PayloadU16$GT$17hcaa19dc86fe71d36E.exit"
   ret void
 
 17:                                               ; preds = %1
@@ -2182,7 +2186,7 @@ default.unreachable:                              ; preds = %10
   %21 = load i16, ptr %20, align 2, !alias.scope !477
   br label %_ZN6rustls4msgs9handshake16CertReqExtension8ext_type17hb413f1cee989e952E.llvm.15934541666227088301.exit.i
 
-_ZN6rustls4msgs9handshake16CertReqExtension8ext_type17hb413f1cee989e952E.llvm.15934541666227088301.exit.i: ; preds = %17, %16, %10
+_ZN6rustls4msgs9handshake16CertReqExtension8ext_type17hb413f1cee989e952E.llvm.15934541666227088301.exit.i: ; preds = %10, %17, %16
   %.sroa.4.0.i.i = phi i16 [ %21, %17 ], [ undef, %16 ], [ undef, %10 ]
   %.sroa.0.0.i.i = phi i16 [ %19, %17 ], [ 27, %16 ], [ 13, %10 ]
   %22 = icmp eq i16 %.sroa.0.0.i.i, %6

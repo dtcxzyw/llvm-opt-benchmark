@@ -9594,10 +9594,11 @@ define hidden i32 @dissect_gsm_map_ms_Ext_QoS_Subscribed(i1 noundef zeroext %0, 
   %51 = lshr i8 %46, 6
   %52 = and i8 %46, 127
   %53 = zext nneg i8 %52 to i32
-  switch i8 %51, label %gsm_map_calc_bitrate.exit.i [
+  switch i8 %51, label %default.unreachable [
     i8 3, label %60
     i8 1, label %54
     i8 2, label %57
+    i8 0, label %gsm_map_calc_bitrate.exit.i
   ]
 
 54:                                               ; preds = %50
@@ -9615,6 +9616,9 @@ define hidden i32 @dissect_gsm_map_ms_Ext_QoS_Subscribed(i1 noundef zeroext %0, 
   %62 = add nuw nsw i32 %61, 576
   br label %gsm_map_calc_bitrate.exit.i
 
+default.unreachable:                              ; preds = %115, %96, %69, %50
+  unreachable
+
 gsm_map_calc_bitrate.exit.i:                      ; preds = %60, %57, %54, %50, %45
   %.09.i.i = phi i32 [ %53, %50 ], [ %59, %57 ], [ %56, %54 ], [ %62, %60 ], [ 0, %45 ]
   %63 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %47, ptr noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef %.09.i.i) #5
@@ -9625,7 +9629,7 @@ gsm_map_calc_bitrate.exit.i:                      ; preds = %60, %57, %54, %50, 
   %66 = load i32, ptr @hf_gsm_map_max_brate_dlink, align 4
   switch i8 %65, label %69 [
     i8 0, label %67
-    i8 -1, label %gsm_map_calc_bitrate.exit111.i
+    i8 -1, label %gsm_map_calc_bitrate.exit112.i
   ]
 
 67:                                               ; preds = %64
@@ -9636,33 +9640,34 @@ gsm_map_calc_bitrate.exit.i:                      ; preds = %60, %57, %54, %50, 
   %70 = lshr i8 %65, 6
   %71 = and i8 %65, 127
   %72 = zext nneg i8 %71 to i32
-  switch i8 %70, label %gsm_map_calc_bitrate.exit111.i [
+  switch i8 %70, label %default.unreachable [
     i8 3, label %79
     i8 1, label %73
     i8 2, label %76
+    i8 0, label %gsm_map_calc_bitrate.exit112.i
   ]
 
 73:                                               ; preds = %69
   %74 = shl nuw nsw i32 %72, 3
   %75 = add nsw i32 %74, -448
-  br label %gsm_map_calc_bitrate.exit111.i
+  br label %gsm_map_calc_bitrate.exit112.i
 
 76:                                               ; preds = %69
   %77 = shl nuw nsw i32 %72, 6
   %78 = add nuw nsw i32 %77, 576
-  br label %gsm_map_calc_bitrate.exit111.i
+  br label %gsm_map_calc_bitrate.exit112.i
 
 79:                                               ; preds = %69
   %80 = shl nuw nsw i32 %72, 6
   %81 = add nuw nsw i32 %80, 576
-  br label %gsm_map_calc_bitrate.exit111.i
+  br label %gsm_map_calc_bitrate.exit112.i
 
-gsm_map_calc_bitrate.exit111.i:                   ; preds = %79, %76, %73, %69, %64
+gsm_map_calc_bitrate.exit112.i:                   ; preds = %79, %76, %73, %69, %64
   %.09.i110.i = phi i32 [ %72, %69 ], [ %78, %76 ], [ %75, %73 ], [ %81, %79 ], [ 0, %64 ]
   %82 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %66, ptr noundef %1, i32 noundef 4, i32 noundef 1, i32 noundef %.09.i110.i) #5
   br label %83
 
-83:                                               ; preds = %gsm_map_calc_bitrate.exit111.i, %67
+83:                                               ; preds = %gsm_map_calc_bitrate.exit112.i, %67
   %84 = load i32, ptr @hf_gsm_map_qos_ber, align 4
   %85 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %84, ptr noundef %1, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
   %86 = load i32, ptr @hf_gsm_map_qos_sdu_err_rat, align 4
@@ -9675,7 +9680,7 @@ gsm_map_calc_bitrate.exit111.i:                   ; preds = %79, %76, %73, %69, 
   %93 = load i32, ptr @hf_gsm_map_guaranteed_max_brate_ulink, align 4
   switch i8 %92, label %96 [
     i8 0, label %94
-    i8 -1, label %gsm_map_calc_bitrate.exit113.i
+    i8 -1, label %gsm_map_calc_bitrate.exit115.i
   ]
 
 94:                                               ; preds = %83
@@ -9686,38 +9691,39 @@ gsm_map_calc_bitrate.exit111.i:                   ; preds = %79, %76, %73, %69, 
   %97 = lshr i8 %92, 6
   %98 = and i8 %92, 127
   %99 = zext nneg i8 %98 to i32
-  switch i8 %97, label %gsm_map_calc_bitrate.exit113.i [
+  switch i8 %97, label %default.unreachable [
     i8 3, label %106
     i8 1, label %100
     i8 2, label %103
+    i8 0, label %gsm_map_calc_bitrate.exit115.i
   ]
 
 100:                                              ; preds = %96
   %101 = shl nuw nsw i32 %99, 3
   %102 = add nsw i32 %101, -448
-  br label %gsm_map_calc_bitrate.exit113.i
+  br label %gsm_map_calc_bitrate.exit115.i
 
 103:                                              ; preds = %96
   %104 = shl nuw nsw i32 %99, 6
   %105 = add nuw nsw i32 %104, 576
-  br label %gsm_map_calc_bitrate.exit113.i
+  br label %gsm_map_calc_bitrate.exit115.i
 
 106:                                              ; preds = %96
   %107 = shl nuw nsw i32 %99, 6
   %108 = add nuw nsw i32 %107, 576
-  br label %gsm_map_calc_bitrate.exit113.i
+  br label %gsm_map_calc_bitrate.exit115.i
 
-gsm_map_calc_bitrate.exit113.i:                   ; preds = %106, %103, %100, %96, %83
-  %.09.i112.i = phi i32 [ %99, %96 ], [ %105, %103 ], [ %102, %100 ], [ %108, %106 ], [ 0, %83 ]
-  %109 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %93, ptr noundef %1, i32 noundef 7, i32 noundef 1, i32 noundef %.09.i112.i) #5
+gsm_map_calc_bitrate.exit115.i:                   ; preds = %106, %103, %100, %96, %83
+  %.09.i113.i = phi i32 [ %99, %96 ], [ %105, %103 ], [ %102, %100 ], [ %108, %106 ], [ 0, %83 ]
+  %109 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %93, ptr noundef %1, i32 noundef 7, i32 noundef 1, i32 noundef %.09.i113.i) #5
   br label %110
 
-110:                                              ; preds = %gsm_map_calc_bitrate.exit113.i, %94
+110:                                              ; preds = %gsm_map_calc_bitrate.exit115.i, %94
   %111 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 8) #5
   %112 = load i32, ptr @hf_gsm_map_guaranteed_max_brate_dlink, align 4
   switch i8 %111, label %115 [
     i8 0, label %113
-    i8 -1, label %gsm_map_calc_bitrate.exit115.i
+    i8 -1, label %gsm_map_calc_bitrate.exit118.i
   ]
 
 113:                                              ; preds = %110
@@ -9728,33 +9734,34 @@ gsm_map_calc_bitrate.exit113.i:                   ; preds = %106, %103, %100, %9
   %116 = lshr i8 %111, 6
   %117 = and i8 %111, 127
   %118 = zext nneg i8 %117 to i32
-  switch i8 %116, label %gsm_map_calc_bitrate.exit115.i [
+  switch i8 %116, label %default.unreachable [
     i8 3, label %125
     i8 1, label %119
     i8 2, label %122
+    i8 0, label %gsm_map_calc_bitrate.exit118.i
   ]
 
 119:                                              ; preds = %115
   %120 = shl nuw nsw i32 %118, 3
   %121 = add nsw i32 %120, -448
-  br label %gsm_map_calc_bitrate.exit115.i
+  br label %gsm_map_calc_bitrate.exit118.i
 
 122:                                              ; preds = %115
   %123 = shl nuw nsw i32 %118, 6
   %124 = add nuw nsw i32 %123, 576
-  br label %gsm_map_calc_bitrate.exit115.i
+  br label %gsm_map_calc_bitrate.exit118.i
 
 125:                                              ; preds = %115
   %126 = shl nuw nsw i32 %118, 6
   %127 = add nuw nsw i32 %126, 576
-  br label %gsm_map_calc_bitrate.exit115.i
+  br label %gsm_map_calc_bitrate.exit118.i
 
-gsm_map_calc_bitrate.exit115.i:                   ; preds = %125, %122, %119, %115, %110
-  %.09.i114.i = phi i32 [ %118, %115 ], [ %124, %122 ], [ %121, %119 ], [ %127, %125 ], [ 0, %110 ]
-  %128 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %112, ptr noundef %1, i32 noundef 8, i32 noundef 1, i32 noundef %.09.i114.i) #5
+gsm_map_calc_bitrate.exit118.i:                   ; preds = %125, %122, %119, %115, %110
+  %.09.i116.i = phi i32 [ %118, %115 ], [ %124, %122 ], [ %121, %119 ], [ %127, %125 ], [ 0, %110 ]
+  %128 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %112, ptr noundef %1, i32 noundef 8, i32 noundef 1, i32 noundef %.09.i116.i) #5
   br label %dissect_gsm_map_ext_qos_subscribed.exit
 
-dissect_gsm_map_ext_qos_subscribed.exit:          ; preds = %gsm_map_calc_bitrate.exit115.i, %113, %6
+dissect_gsm_map_ext_qos_subscribed.exit:          ; preds = %gsm_map_calc_bitrate.exit118.i, %113, %6
   ret i32 %8
 }
 

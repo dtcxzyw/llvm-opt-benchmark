@@ -187,67 +187,72 @@ define dso_local i32 @acpi_ex_write_with_update_rule(ptr noundef %0, i64 noundef
   store i64 0, ptr %6, align 8, !annotation !5
   store i64 %2, ptr %5, align 8
   %7 = icmp eq i64 %1, -1
-  br i1 %7, label %36, label %8
+  br i1 %7, label %37, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 13
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 96
-  switch i8 %11, label %34 [
-    i8 0, label %12
-    i8 32, label %29
-    i8 64, label %32
+  %12 = lshr exact i8 %11, 5
+  switch i8 %12, label %default.unreachable [
+    i8 0, label %13
+    i8 1, label %30
+    i8 2, label %33
+    i8 3, label %35
   ]
 
-12:                                               ; preds = %8
-  %13 = xor i64 %1, -1
-  %14 = getelementptr inbounds i8, ptr %0, i64 15
-  %15 = load i8, ptr %14, align 1
-  %16 = zext i8 %15 to i64
-  %17 = shl nuw nsw i64 %16, 3
-  %18 = sub nsw i64 64, %17
-  %19 = and i64 %18, 4294967288
-  %20 = shl i64 %13, %19
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %36, label %22
+13:                                               ; preds = %8
+  %14 = xor i64 %1, -1
+  %15 = getelementptr inbounds i8, ptr %0, i64 15
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i64
+  %18 = shl nuw nsw i64 %17, 3
+  %19 = sub nsw i64 64, %18
+  %20 = and i64 %19, 4294967288
+  %21 = shl i64 %14, %20
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %37, label %23
 
-22:                                               ; preds = %12
-  %23 = call fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 0)
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %38
+23:                                               ; preds = %13
+  %24 = call fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 0)
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %39
 
-25:                                               ; preds = %22
-  %26 = load i64, ptr %6, align 8
-  %27 = and i64 %26, %13
-  %28 = or i64 %27, %2
-  store i64 %28, ptr %5, align 8
-  br label %36
+26:                                               ; preds = %23
+  %27 = load i64, ptr %6, align 8
+  %28 = and i64 %27, %14
+  %29 = or i64 %28, %2
+  store i64 %29, ptr %5, align 8
+  br label %37
 
-29:                                               ; preds = %8
-  %30 = xor i64 %1, -1
-  %31 = or i64 %30, %2
-  store i64 %31, ptr %5, align 8
-  br label %36
+30:                                               ; preds = %8
+  %31 = xor i64 %1, -1
+  %32 = or i64 %31, %2
+  store i64 %32, ptr %5, align 8
+  br label %37
 
-32:                                               ; preds = %8
-  %33 = and i64 %2, %1
-  store i64 %33, ptr %5, align 8
-  br label %36
+33:                                               ; preds = %8
+  %34 = and i64 %2, %1
+  store i64 %34, ptr %5, align 8
+  br label %37
 
-34:                                               ; preds = %8
-  %35 = zext nneg i8 %11 to i32
-  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 607, ptr noundef nonnull @.str.2, i32 noundef %35) #7
-  br label %38
+default.unreachable:                              ; preds = %8
+  unreachable
 
-36:                                               ; preds = %32, %29, %25, %12, %4
-  %37 = call fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %5, i32 noundef 1)
-  br label %38
+35:                                               ; preds = %8
+  %36 = zext nneg i8 %11 to i32
+  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 607, ptr noundef nonnull @.str.2, i32 noundef %36) #7
+  br label %39
 
-38:                                               ; preds = %36, %34, %22
-  %39 = phi i32 [ 12292, %34 ], [ %37, %36 ], [ %23, %22 ]
+37:                                               ; preds = %33, %30, %26, %13, %4
+  %38 = call fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %5, i32 noundef 1)
+  br label %39
+
+39:                                               ; preds = %37, %35, %23
+  %40 = phi i32 [ 12292, %35 ], [ %38, %37 ], [ %24, %23 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  ret i32 %39
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

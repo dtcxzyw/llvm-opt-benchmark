@@ -350,10 +350,11 @@ if.end:                                           ; preds = %for.body, %if.else
   %m_val2.i = getelementptr inbounds i8, ptr %__begin1.031, i64 8
   %3 = load i32, ptr %m_val2.i, align 8
   %and.i = and i32 %3, 3
-  switch i32 %and.i, label %sw.default [
+  switch i32 %and.i, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb11
     i32 2, label %sw.bb23
+    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %if.end
@@ -432,6 +433,9 @@ if.else28:                                        ; preds = %sw.bb23
   %14 = load i64, ptr %__begin1.031, align 8
   %call31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call29, i64 noundef %14)
   br label %for.inc
+
+default.unreachable:                              ; preds = %if.end
+  unreachable
 
 sw.default:                                       ; preds = %if.end
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 107, ptr noundef nonnull @.str.8)

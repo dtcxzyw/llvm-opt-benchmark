@@ -1103,34 +1103,38 @@ entry:
   %arrayidx = getelementptr i8, ptr %opaque, i64 1092
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, 768
-  switch i32 %and, label %if.end6 [
-    i32 256, label %if.then
+  %1 = lshr exact i32 %and, 8
+  switch i32 %1, label %default.unreachable [
+    i32 1, label %if.then
     i32 0, label %if.then
-    i32 768, label %if.then5
+    i32 3, label %if.then5
+    i32 2, label %if.end6
   ]
 
 if.then:                                          ; preds = %entry, %entry
   tail call fastcc void @uart_write_rx_fifo(ptr noundef nonnull %opaque, ptr noundef %buf, i32 noundef %size)
-  %cond = icmp eq i32 %and, 256
-  br i1 %cond, label %if.then5, label %if.end6
+  switch i32 %and, label %if.end6 [
+    i32 768, label %if.then5
+    i32 256, label %if.then5
+  ]
 
-if.then5:                                         ; preds = %if.then, %entry
+if.then5:                                         ; preds = %entry, %if.then, %if.then
   %r.i = getelementptr inbounds i8, ptr %opaque, i64 1088
-  %1 = load i32, ptr %r.i, align 16
-  %2 = and i32 %1, 48
-  %or.cond.not.i = icmp eq i32 %2, 16
+  %2 = load i32, ptr %r.i, align 16
+  %3 = and i32 %2, 48
+  %or.cond.not.i = icmp eq i32 %3, 16
   br i1 %or.cond.not.i, label %if.end.i, label %if.end6
 
 if.end.i:                                         ; preds = %if.then5
   %tx_count.i = getelementptr inbounds i8, ptr %opaque, i64 1200
-  %3 = load i32, ptr %tx_count.i, align 16
-  %sub.i = sub i32 16, %3
+  %4 = load i32, ptr %tx_count.i, align 16
+  %sub.i = sub i32 16, %4
   %cmp.i = icmp ult i32 %sub.i, %size
   br i1 %cmp.i, label %if.then5.i, label %if.end14.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %4 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i = and i32 %4, 2048
+  %5 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i = and i32 %5, 2048
   %cmp.i.not.i = icmp eq i32 %and.i.i, 0
   br i1 %cmp.i.not.i, label %do.end.i, label %if.then10.i
 
@@ -1140,28 +1144,31 @@ if.then10.i:                                      ; preds = %if.then5.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then10.i, %if.then5.i
-  %.pre.i = phi i32 [ %3, %if.then5.i ], [ %.pre.pre.i, %if.then10.i ]
+  %.pre.i = phi i32 [ %4, %if.then5.i ], [ %.pre.pre.i, %if.then10.i ]
   %arrayidx13.i = getelementptr i8, ptr %opaque, i64 1108
-  %5 = load i32, ptr %arrayidx13.i, align 4
-  %or.i = or i32 %5, 32
+  %6 = load i32, ptr %arrayidx13.i, align 4
+  %or.i = or i32 %6, 32
   store i32 %or.i, ptr %arrayidx13.i, align 4
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %do.end.i, %if.end.i
-  %6 = phi i32 [ %.pre.i, %do.end.i ], [ %3, %if.end.i ]
+  %7 = phi i32 [ %.pre.i, %do.end.i ], [ %4, %if.end.i ]
   %size.addr.0.i = phi i32 [ %sub.i, %do.end.i ], [ %size, %if.end.i ]
   %tx_fifo.i = getelementptr inbounds i8, ptr %opaque, i64 1176
-  %idx.ext.i = zext i32 %6 to i64
+  %idx.ext.i = zext i32 %7 to i64
   %add.ptr.i = getelementptr i8, ptr %tx_fifo.i, i64 %idx.ext.i
   %conv16.i = sext i32 %size.addr.0.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %buf, i64 %conv16.i, i1 false)
-  %7 = load i32, ptr %tx_count.i, align 16
-  %add.i = add i32 %7, %size.addr.0.i
+  %8 = load i32, ptr %tx_count.i, align 16
+  %add.i = add i32 %8, %size.addr.0.i
   store i32 %add.i, ptr %tx_count.i, align 16
   %call18.i = tail call i32 @cadence_uart_xmit(ptr poison, i32 poison, ptr noundef nonnull %opaque)
   br label %if.end6
 
-if.end6:                                          ; preds = %if.then, %if.end14.i, %if.then5, %entry
+default.unreachable:                              ; preds = %entry
+  unreachable
+
+if.end6:                                          ; preds = %if.end14.i, %if.then5, %entry, %if.then
   ret void
 }
 

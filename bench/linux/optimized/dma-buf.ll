@@ -1936,10 +1936,11 @@ define internal i64 @dma_buf_ioctl(ptr nocapture noundef readonly %0, i32 nounde
 
 18:                                               ; preds = %15
   %19 = and i64 %16, 3
-  switch i64 %19, label %146 [
+  switch i64 %19, label %default.unreachable16 [
     i64 1, label %22
     i64 2, label %20
     i64 3, label %21
+    i64 0, label %146
   ]
 
 20:                                               ; preds = %18
@@ -1948,7 +1949,7 @@ define internal i64 @dma_buf_ioctl(ptr nocapture noundef readonly %0, i32 nounde
 21:                                               ; preds = %18
   br label %22
 
-22:                                               ; preds = %21, %20, %18
+22:                                               ; preds = %18, %21, %20
   %23 = phi i32 [ 0, %21 ], [ 1, %20 ], [ 2, %18 ]
   %24 = icmp ult i64 %16, 4
   br i1 %24, label %27, label %25
@@ -2187,7 +2188,10 @@ define internal i64 @dma_buf_ioctl(ptr nocapture noundef readonly %0, i32 nounde
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   br label %146
 
-146:                                              ; preds = %.thread14, %93, %38, %36, %29, %18, %15, %11, %3
+default.unreachable16:                            ; preds = %18
+  unreachable
+
+146:                                              ; preds = %18, %.thread14, %93, %38, %36, %29, %15, %11, %3
   %147 = phi i64 [ %145, %.thread14 ], [ %94, %93 ], [ %31, %29 ], [ -14, %11 ], [ -22, %15 ], [ -22, %18 ], [ -25, %3 ], [ %37, %36 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   ret i64 %147

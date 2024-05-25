@@ -1031,56 +1031,56 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %18 = add nsw i32 %.val8.i.i, -23
   %19 = icmp ult i32 %18, 7
   %narrow.i.i.i.i.i.i.i.i = select i1 %19, i32 %18, i32 3
-  switch i32 %narrow.i.i.i.i.i.i.i.i, label %20 [
-    i32 0, label %21
-    i32 1, label %23
-    i32 2, label %25
+  switch i32 %narrow.i.i.i.i.i.i.i.i, label %.unreachabledefault.i.i [
+    i32 0, label %20
+    i32 1, label %22
+    i32 2, label %24
     i32 3, label %switch.lookup
-    i32 4, label %30
-    i32 5, label %32
-    i32 6, label %34
+    i32 4, label %29
+    i32 5, label %31
+    i32 6, label %33
   ]
 
-20:                                               ; preds = %.lr.ph.i.i
+.unreachabledefault.i.i:                          ; preds = %.lr.ph.i.i
   unreachable
 
-21:                                               ; preds = %.lr.ph.i.i
-  %22 = add i64 %17, 8
+20:                                               ; preds = %.lr.ph.i.i
+  %21 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
 
-23:                                               ; preds = %.lr.ph.i.i
-  %24 = add i64 %17, 8
+22:                                               ; preds = %.lr.ph.i.i
+  %23 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
 
-25:                                               ; preds = %.lr.ph.i.i
-  %26 = add i64 %17, 8
+24:                                               ; preds = %.lr.ph.i.i
+  %25 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
 
 switch.lookup:                                    ; preds = %.lr.ph.i.i
-  %27 = zext nneg i32 %.val8.i.i to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %27
+  %26 = zext nneg i32 %.val8.i.i to i64
+  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
-  %28 = add i64 %17, 4
-  %29 = add i64 %28, %switch.load
+  %27 = add i64 %17, 4
+  %28 = add i64 %27, %switch.load
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
 
-30:                                               ; preds = %.lr.ph.i.i
-  %31 = add i64 %17, 8
+29:                                               ; preds = %.lr.ph.i.i
+  %30 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
 
-32:                                               ; preds = %.lr.ph.i.i
-  %33 = add i64 %17, 8
+31:                                               ; preds = %.lr.ph.i.i
+  %32 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
 
-34:                                               ; preds = %.lr.ph.i.i
-  %35 = add i64 %17, 8
+33:                                               ; preds = %.lr.ph.i.i
+  %34 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
 
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i": ; preds = %34, %32, %30, %switch.lookup, %25, %23, %21
-  %.sink.i.i.i.i.i.i.i.i = phi i64 [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %switch.lookup ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ]
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i": ; preds = %33, %31, %29, %switch.lookup, %24, %22, %20
+  %.sink.i.i.i.i.i.i.i.i = phi i64 [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %switch.lookup ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
   store i64 %.sink.i.i.i.i.i.i.i.i, ptr %8, align 8, !alias.scope !439, !noalias !444
-  %36 = icmp eq ptr %13, %7
-  br i1 %36, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h20b1ed9c5f0d1b4aE.exit, label %.lr.ph.i.i
+  %35 = icmp eq ptr %13, %7
+  br i1 %35, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h20b1ed9c5f0d1b4aE.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h20b1ed9c5f0d1b4aE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i", %2
   ret ptr null
@@ -2329,56 +2329,56 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %18 = add nsw i32 %.val8.i.i, -23
   %19 = icmp ult i32 %18, 7
   %narrow.i.i.i.i.i.i.i.i = select i1 %19, i32 %18, i32 3
-  switch i32 %narrow.i.i.i.i.i.i.i.i, label %20 [
-    i32 0, label %21
-    i32 1, label %23
-    i32 2, label %25
+  switch i32 %narrow.i.i.i.i.i.i.i.i, label %.unreachabledefault.i.i [
+    i32 0, label %20
+    i32 1, label %22
+    i32 2, label %24
     i32 3, label %switch.lookup
-    i32 4, label %30
-    i32 5, label %32
-    i32 6, label %34
+    i32 4, label %29
+    i32 5, label %31
+    i32 6, label %33
   ]
 
-20:                                               ; preds = %.lr.ph.i.i
+.unreachabledefault.i.i:                          ; preds = %.lr.ph.i.i
   unreachable
 
-21:                                               ; preds = %.lr.ph.i.i
-  %22 = add i64 %17, 8
+20:                                               ; preds = %.lr.ph.i.i
+  %21 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
 
-23:                                               ; preds = %.lr.ph.i.i
-  %24 = add i64 %17, 8
+22:                                               ; preds = %.lr.ph.i.i
+  %23 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
 
-25:                                               ; preds = %.lr.ph.i.i
-  %26 = add i64 %17, 8
+24:                                               ; preds = %.lr.ph.i.i
+  %25 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
 
 switch.lookup:                                    ; preds = %.lr.ph.i.i
-  %27 = zext nneg i32 %.val8.i.i to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %27
+  %26 = zext nneg i32 %.val8.i.i to i64
+  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
-  %28 = add i64 %17, 4
-  %29 = add i64 %28, %switch.load
+  %27 = add i64 %17, 4
+  %28 = add i64 %27, %switch.load
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
 
-30:                                               ; preds = %.lr.ph.i.i
-  %31 = add i64 %17, 8
+29:                                               ; preds = %.lr.ph.i.i
+  %30 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
 
-32:                                               ; preds = %.lr.ph.i.i
-  %33 = add i64 %17, 8
+31:                                               ; preds = %.lr.ph.i.i
+  %32 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
 
-34:                                               ; preds = %.lr.ph.i.i
-  %35 = add i64 %17, 8
+33:                                               ; preds = %.lr.ph.i.i
+  %34 = add i64 %17, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
 
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i": ; preds = %34, %32, %30, %switch.lookup, %25, %23, %21
-  %.sink.i.i.i.i.i.i.i.i = phi i64 [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %switch.lookup ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ]
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i": ; preds = %33, %31, %29, %switch.lookup, %24, %22, %20
+  %.sink.i.i.i.i.i.i.i.i = phi i64 [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %switch.lookup ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
   store i64 %.sink.i.i.i.i.i.i.i.i, ptr %8, align 8, !alias.scope !1532, !noalias !1537
-  %36 = icmp eq ptr %13, %7
-  br i1 %36, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hed3290347776926bE.exit, label %.lr.ph.i.i
+  %35 = icmp eq ptr %13, %7
+  br i1 %35, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hed3290347776926bE.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hed3290347776926bE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i", %2
   ret ptr null
@@ -3104,56 +3104,56 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %16 = add nsw i32 %.val7.i.i, -23
   %17 = icmp ult i32 %16, 7
   %narrow.i.i.i.i.i.i.i.i.i = select i1 %17, i32 %16, i32 3
-  switch i32 %narrow.i.i.i.i.i.i.i.i.i, label %18 [
-    i32 0, label %19
-    i32 1, label %21
-    i32 2, label %23
+  switch i32 %narrow.i.i.i.i.i.i.i.i.i, label %.unreachabledefault.i.i [
+    i32 0, label %18
+    i32 1, label %20
+    i32 2, label %22
     i32 3, label %switch.lookup
-    i32 4, label %28
-    i32 5, label %30
-    i32 6, label %32
+    i32 4, label %27
+    i32 5, label %29
+    i32 6, label %31
   ]
 
-18:                                               ; preds = %.lr.ph.i.i
+.unreachabledefault.i.i:                          ; preds = %.lr.ph.i.i
   unreachable
 
-19:                                               ; preds = %.lr.ph.i.i
-  %20 = add i64 %15, 8
+18:                                               ; preds = %.lr.ph.i.i
+  %19 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
 
-21:                                               ; preds = %.lr.ph.i.i
-  %22 = add i64 %15, 8
+20:                                               ; preds = %.lr.ph.i.i
+  %21 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
 
-23:                                               ; preds = %.lr.ph.i.i
-  %24 = add i64 %15, 8
+22:                                               ; preds = %.lr.ph.i.i
+  %23 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
 
 switch.lookup:                                    ; preds = %.lr.ph.i.i
-  %25 = zext nneg i32 %.val7.i.i to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %25
+  %24 = zext nneg i32 %.val7.i.i to i64
+  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
-  %26 = add i64 %15, 4
-  %27 = add i64 %26, %switch.load
+  %25 = add i64 %15, 4
+  %26 = add i64 %25, %switch.load
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
 
-28:                                               ; preds = %.lr.ph.i.i
-  %29 = add i64 %15, 8
+27:                                               ; preds = %.lr.ph.i.i
+  %28 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
 
-30:                                               ; preds = %.lr.ph.i.i
-  %31 = add i64 %15, 8
+29:                                               ; preds = %.lr.ph.i.i
+  %30 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
 
-32:                                               ; preds = %.lr.ph.i.i
-  %33 = add i64 %15, 8
+31:                                               ; preds = %.lr.ph.i.i
+  %32 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
 
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i": ; preds = %32, %30, %28, %switch.lookup, %23, %21, %19
-  %.sink.i.i.i.i.i.i.i.i.i = phi i64 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %switch.lookup ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i": ; preds = %31, %29, %27, %switch.lookup, %22, %20, %18
+  %.sink.i.i.i.i.i.i.i.i.i = phi i64 [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %switch.lookup ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ]
   store i64 %.sink.i.i.i.i.i.i.i.i.i, ptr %6, align 8, !alias.scope !2242, !noalias !2249
-  %34 = icmp eq ptr %11, %5
-  br i1 %34, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit, label %.lr.ph.i.i
+  %33 = icmp eq ptr %11, %5
+  br i1 %33, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i", %2
   ret ptr null
@@ -8236,56 +8236,56 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %16 = add nsw i32 %.val7.i.i, -23
   %17 = icmp ult i32 %16, 7
   %narrow.i.i.i.i.i.i.i.i.i = select i1 %17, i32 %16, i32 3
-  switch i32 %narrow.i.i.i.i.i.i.i.i.i, label %18 [
-    i32 0, label %19
-    i32 1, label %21
-    i32 2, label %23
+  switch i32 %narrow.i.i.i.i.i.i.i.i.i, label %.unreachabledefault.i.i [
+    i32 0, label %18
+    i32 1, label %20
+    i32 2, label %22
     i32 3, label %switch.lookup
-    i32 4, label %28
-    i32 5, label %30
-    i32 6, label %32
+    i32 4, label %27
+    i32 5, label %29
+    i32 6, label %31
   ]
 
-18:                                               ; preds = %.lr.ph.i.i
+.unreachabledefault.i.i:                          ; preds = %.lr.ph.i.i
   unreachable
 
-19:                                               ; preds = %.lr.ph.i.i
-  %20 = add i64 %15, 8
+18:                                               ; preds = %.lr.ph.i.i
+  %19 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
 
-21:                                               ; preds = %.lr.ph.i.i
-  %22 = add i64 %15, 8
+20:                                               ; preds = %.lr.ph.i.i
+  %21 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
 
-23:                                               ; preds = %.lr.ph.i.i
-  %24 = add i64 %15, 8
+22:                                               ; preds = %.lr.ph.i.i
+  %23 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
 
 switch.lookup:                                    ; preds = %.lr.ph.i.i
-  %25 = zext nneg i32 %.val7.i.i to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %25
+  %24 = zext nneg i32 %.val7.i.i to i64
+  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
-  %26 = add i64 %15, 4
-  %27 = add i64 %26, %switch.load
+  %25 = add i64 %15, 4
+  %26 = add i64 %25, %switch.load
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
 
-28:                                               ; preds = %.lr.ph.i.i
-  %29 = add i64 %15, 8
+27:                                               ; preds = %.lr.ph.i.i
+  %28 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
 
-30:                                               ; preds = %.lr.ph.i.i
-  %31 = add i64 %15, 8
+29:                                               ; preds = %.lr.ph.i.i
+  %30 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
 
-32:                                               ; preds = %.lr.ph.i.i
-  %33 = add i64 %15, 8
+31:                                               ; preds = %.lr.ph.i.i
+  %32 = add i64 %15, 8
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
 
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i": ; preds = %32, %30, %28, %switch.lookup, %23, %21, %19
-  %.sink.i.i.i.i.i.i.i.i.i = phi i64 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %switch.lookup ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i": ; preds = %31, %29, %27, %switch.lookup, %22, %20, %18
+  %.sink.i.i.i.i.i.i.i.i.i = phi i64 [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %switch.lookup ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ]
   store i64 %.sink.i.i.i.i.i.i.i.i.i, ptr %6, align 8, !alias.scope !5190, !noalias !5197
-  %34 = icmp eq ptr %11, %5
-  br i1 %34, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb5d601a1b8e42a6cE.exit, label %.lr.ph.i.i
+  %33 = icmp eq ptr %11, %5
+  br i1 %33, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb5d601a1b8e42a6cE.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hb5d601a1b8e42a6cE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i", %2
   ret ptr null

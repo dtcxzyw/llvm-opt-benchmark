@@ -2082,10 +2082,11 @@ define internal noundef range(i32 -512, 1) i32 @fifo_open(ptr noundef %0, ptr no
   %34 = getelementptr inbounds i8, ptr %1, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 3
-  switch i32 %36, label %128 [
+  switch i32 %36, label %default.unreachable3 [
     i32 1, label %37
     i32 2, label %65
     i32 3, label %95
+    i32 0, label %128
   ]
 
 37:                                               ; preds = %30
@@ -2233,7 +2234,10 @@ define internal noundef range(i32 -512, 1) i32 @fifo_open(ptr noundef %0, ptr no
   %127 = tail call i32 @__wake_up(ptr noundef %126, i32 noundef 1, i32 noundef %125, ptr noundef null) #15
   br label %128
 
-128:                                              ; preds = %123, %119, %115, %71, %30
+default.unreachable3:                             ; preds = %30
+  unreachable
+
+128:                                              ; preds = %30, %123, %119, %115, %71
   %129 = phi i32 [ -6, %71 ], [ -22, %30 ], [ -512, %115 ], [ -512, %119 ], [ -512, %123 ]
   tail call void @mutex_unlock(ptr noundef %31) #15
   tail call void @_raw_spin_lock(ptr noundef %9) #15

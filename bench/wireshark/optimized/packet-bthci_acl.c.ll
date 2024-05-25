@@ -622,10 +622,11 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   %223 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #7
   %224 = load i32, ptr @hf_bthci_acl_length, align 4
   %225 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %224, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #7
-  switch i16 %29, label %233 [
+  switch i16 %29, label %default.unreachable [
     i16 1, label %234
     i16 0, label %226
     i16 2, label %226
+    i16 3, label %233
   ]
 
 226:                                              ; preds = %222, %222
@@ -636,6 +637,9 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   %231 = icmp ne i32 %229, %230
   %232 = zext i1 %231 to i32
   br label %234
+
+default.unreachable:                              ; preds = %222
+  unreachable
 
 233:                                              ; preds = %222
   br label %234

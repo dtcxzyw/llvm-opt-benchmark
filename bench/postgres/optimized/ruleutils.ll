@@ -1308,10 +1308,11 @@ define internal fastcc ptr @pg_get_triggerdef_worker(i32 noundef %0, i1 noundef 
   %25 = getelementptr inbounds i8, ptr %19, i64 80
   %26 = load i16, ptr %25, align 4
   %27 = and i16 %26, 66
-  switch i16 %27, label %30 [
+  switch i16 %27, label %.unreachabledefault [
     i16 2, label %35
     i16 0, label %28
     i16 64, label %29
+    i16 66, label %30
   ]
 
 28:                                               ; preds = %13
@@ -1319,6 +1320,9 @@ define internal fastcc ptr @pg_get_triggerdef_worker(i32 noundef %0, i1 noundef 
 
 29:                                               ; preds = %13
   br label %35
+
+.unreachabledefault:                              ; preds = %13
+  unreachable
 
 30:                                               ; preds = %13
   %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12

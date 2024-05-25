@@ -5385,11 +5385,15 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$ima
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !923)
-  switch i8 %2, label %5 [
+  switch i8 %2, label %default.unreachable3.i [
     i8 0, label %9
     i8 1, label %13
     i8 2, label %"_ZN4core3ptr75drop_in_place$LT$image..codecs..webp..lossless_transform..TransformType$GT$17hd26c0017c62fd546E.llvm.9832446184049035033.exit"
+    i8 3, label %5
   ]
+
+default.unreachable3.i:                           ; preds = %4
+  unreachable
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10945,11 +10949,15 @@ define hidden void @"_ZN4core3ptr124drop_in_place$LT$$u5b$core..option..Option$L
 
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4180)
-  switch i8 %5, label %8 [
+  switch i8 %5, label %default.unreachable3.i.i [
     i8 0, label %12
     i8 1, label %16
     i8 2, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$image..codecs..webp..lossless_transform..TransformType$GT$$GT$17h1af2f6b10c43df37E.llvm.9832446184049035033.exit"
+    i8 3, label %8
   ]
+
+default.unreachable3.i.i:                         ; preds = %7
+  unreachable
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %3, i64 8
@@ -12285,11 +12293,15 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$image..codecs..webp..lossle
 
 24:                                               ; preds = %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5082)
-  switch i8 %22, label %25 [
+  switch i8 %22, label %default.unreachable3.i.i.i [
     i8 0, label %29
     i8 1, label %33
     i8 2, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$image..codecs..webp..lossless_transform..TransformType$GT$$GT$17h1af2f6b10c43df37E.llvm.9832446184049035033.exit.i"
+    i8 3, label %25
   ]
+
+default.unreachable3.i.i.i:                       ; preds = %24
+  unreachable
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds i8, ptr %20, i64 8
@@ -21860,11 +21872,15 @@ define hidden void @"_ZN4core3ptr389drop_in_place$LT$exr..image..Image$LT$exr..i
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr38drop_in_place$LT$exr..error..Error$GT$17hc6fd24adc79ac6c3E.llvm.9832446184049035033"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !2291, !noundef !4
-  switch i64 %2, label %3 [
+  switch i64 %2, label %default.unreachable3 [
     i64 0, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit"
     i64 1, label %29
     i64 2, label %37
+    i64 3, label %3
   ]
+
+default.unreachable3:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -26089,11 +26105,15 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$exr..block..chunk..Compresse
   %2 = load i64, ptr %0, align 8, !range !2598, !noundef !4
   %3 = xor i64 %2, -9223372036854775808
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 3)
-  switch i64 %4, label %5 [
+  switch i64 %4, label %default.unreachable [
     i64 0, label %12
     i64 1, label %16
     i64 2, label %20
+    i64 3, label %5
   ]
+
+default.unreachable:                              ; preds = %1
+  unreachable
 
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12124)
@@ -32193,11 +32213,15 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$hashbrown..raw..RawTable$LT$
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr75drop_in_place$LT$image..codecs..webp..lossless_transform..TransformType$GT$17hd26c0017c62fd546E.llvm.9832446184049035033"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !204, !noundef !4
-  switch i8 %2, label %3 [
+  switch i8 %2, label %default.unreachable3 [
     i8 0, label %7
     i8 1, label %11
     i8 2, label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h88c6982753044a7aE.exit"
+    i8 3, label %3
   ]
+
+default.unreachable3:                             ; preds = %1
+  unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8

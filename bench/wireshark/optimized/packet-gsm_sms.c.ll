@@ -2265,17 +2265,15 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
   %34 = icmp eq i8 %12, 0
   br i1 %34, label %dis_field_vp.exit, label %.preheader.outer
 
-.preheader.outer:                                 ; preds = %5, %58
-  %.0145.i.ph = phi i32 [ %59, %58 ], [ %33, %5 ]
-  %.0143.i.ph = phi ptr [ %42, %58 ], [ %2, %5 ]
-  %.0141.i.ph = phi i8 [ 2, %58 ], [ %12, %5 ]
-  br label %.preheader
+.preheader.unreachabledefault:                    ; preds = %.preheader
+  unreachable
 
 .preheader:                                       ; preds = %.preheader.outer, %.preheader
-  switch i8 %.0141.i.ph, label %.preheader [
+  switch i8 %.0141.i.ph, label %.preheader.unreachabledefault [
     i8 1, label %35
     i8 2, label %94
     i8 3, label %129
+    i8 0, label %.preheader
   ], !llvm.loop !7
 
 35:                                               ; preds = %.preheader
@@ -2319,6 +2317,12 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
 58:                                               ; preds = %50
   %59 = add i32 %.0145.i.ph, 1
   br label %.preheader.outer, !llvm.loop !7
+
+.preheader.outer:                                 ; preds = %5, %58
+  %.0145.i.ph = phi i32 [ %59, %58 ], [ %33, %5 ]
+  %.0143.i.ph = phi ptr [ %42, %58 ], [ %2, %5 ]
+  %.0141.i.ph = phi i8 [ 2, %58 ], [ %12, %5 ]
+  br label %.preheader
 
 60:                                               ; preds = %50
   %61 = add i32 %.0145.i.ph, 1

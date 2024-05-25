@@ -368,7 +368,7 @@ define dso_local noundef range(i32 0, 2000001) i32 @intel_bios_dp_max_link_rate(
   br i1 %9, label %14, label %22
 
 14:                                               ; preds = %8
-  switch i16 %13, label %26 [
+  switch i16 %13, label %default.unreachable2 [
     i16 1, label %21
     i16 7, label %15
     i16 6, label %16
@@ -376,6 +376,7 @@ define dso_local noundef range(i32 0, 2000001) i32 @intel_bios_dp_max_link_rate(
     i16 4, label %18
     i16 3, label %19
     i16 2, label %20
+    i16 0, label %26
   ]
 
 15:                                               ; preds = %14
@@ -415,7 +416,10 @@ define dso_local noundef range(i32 0, 2000001) i32 @intel_bios_dp_max_link_rate(
 25:                                               ; preds = %22
   br label %26
 
-26:                                               ; preds = %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %3, %1
+default.unreachable2:                             ; preds = %14
+  unreachable
+
+26:                                               ; preds = %14, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %3, %1
   %27 = phi i32 [ 0, %3 ], [ 0, %1 ], [ 270000, %20 ], [ 540000, %19 ], [ 810000, %18 ], [ 1000000, %17 ], [ 1350000, %16 ], [ 2000000, %15 ], [ 162000, %21 ], [ 0, %14 ], [ 270000, %24 ], [ 540000, %23 ], [ 162000, %25 ], [ 810000, %22 ]
   ret i32 %27
 }
@@ -1491,7 +1495,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %499 = getelementptr i8, ptr %421, i64 170
   %500 = load i8, ptr %499, align 2
   %501 = icmp eq i8 %500, 0
-  br i1 %501, label %.preheader307, label %502
+  br i1 %501, label %.preheader308, label %502
 
 502:                                              ; preds = %497
   %503 = load i16, ptr %498, align 8
@@ -1502,13 +1506,13 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 506:                                              ; preds = %502
   %507 = sub i16 %503, %474
   store i16 %507, ptr %498, align 8
-  br label %.preheader307
+  br label %.preheader308
 
-.preheader307:                                    ; preds = %506, %497
+.preheader308:                                    ; preds = %506, %497
   br label %508
 
-508:                                              ; preds = %.preheader307, %532
-  %509 = phi i32 [ %530, %532 ], [ %435, %.preheader307 ]
+508:                                              ; preds = %.preheader308, %532
+  %509 = phi i32 [ %530, %532 ], [ %435, %.preheader308 ]
   %510 = add nuw nsw i32 %509, 3
   %511 = icmp ult i32 %510, %437
   br i1 %511, label %512, label %.thread111
@@ -1690,8 +1694,8 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 
 .preheader163.preheader:                          ; preds = %631
   %invariant.op = sub nsw i32 %541, %622
-  %invariant.op267 = sub nsw i32 %541, %553
-  %invariant.op268 = sub nsw i32 %541, %557
+  %invariant.op268 = sub nsw i32 %541, %553
+  %invariant.op269 = sub nsw i32 %541, %557
   br label %.preheader163
 
 639:                                              ; preds = %652
@@ -1711,14 +1715,14 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %648 = getelementptr inbounds i8, ptr %643, i64 3
   %649 = load i16, ptr %648, align 1
   %650 = zext i16 %649 to i32
-  %651 = icmp slt i32 %invariant.op267, %650
+  %651 = icmp slt i32 %invariant.op268, %650
   br i1 %651, label %.thread111, label %652
 
 652:                                              ; preds = %647
   %653 = getelementptr inbounds i8, ptr %643, i64 6
   %654 = load i16, ptr %653, align 1
   %655 = zext i16 %654 to i32
-  %656 = icmp slt i32 %invariant.op268, %655
+  %656 = icmp slt i32 %invariant.op269, %655
   br i1 %656, label %.thread111, label %639
 
 657:                                              ; preds = %639
@@ -1974,7 +1978,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 811:                                              ; preds = %809, %.thread114
   %812 = phi ptr [ %810, %809 ], [ null, %.thread114 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %812, i32 noundef 2, ptr noundef nonnull @.str.22) #17
-  br label %.preheader299
+  br label %.preheader300
 
 813:                                              ; preds = %806
   %814 = getelementptr i8, ptr %800, i64 20
@@ -2015,7 +2019,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 835:                                              ; preds = %833, %832
   %836 = phi ptr [ %834, %833 ], [ null, %832 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %836, i32 noundef 2, ptr noundef nonnull @.str.23, i32 noundef %829) #17
-  br label %.preheader299
+  br label %.preheader300
 
 837:                                              ; preds = %827
   %838 = load i8, ptr %807, align 1
@@ -2113,7 +2117,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %885 = phi ptr [ %883, %882 ], [ null, %881 ]
   %886 = zext nneg i8 %879 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %885, i32 noundef 2, ptr noundef nonnull @.str.27, i32 noundef %886) #17
-  br label %.preheader299
+  br label %.preheader300
 
 887:                                              ; preds = %878
   %888 = add nsw i64 %830, -5
@@ -2179,7 +2183,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 .loopexit161:                                     ; preds = %922, %908, %887
   %925 = load volatile ptr, ptr %6, align 8
   %926 = icmp eq ptr %925, %6
-  br i1 %926, label %927, label %.preheader299
+  br i1 %926, label %927, label %.preheader300
 
 927:                                              ; preds = %.loopexit161
   br i1 %39, label %930, label %928
@@ -2191,13 +2195,13 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 930:                                              ; preds = %928, %927
   %931 = phi ptr [ %929, %928 ], [ null, %927 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %931, i32 noundef 2, ptr noundef nonnull @.str.29) #17
-  br label %.preheader299
+  br label %.preheader300
 
-.preheader299:                                    ; preds = %930, %.loopexit161, %884, %835, %811
+.preheader300:                                    ; preds = %930, %.loopexit161, %884, %835, %811
   br label %932
 
-932:                                              ; preds = %.preheader299, %936
-  %933 = phi ptr [ %934, %936 ], [ %8, %.preheader299 ]
+932:                                              ; preds = %.preheader300, %936
+  %933 = phi ptr [ %934, %936 ], [ %8, %.preheader300 ]
   %934 = load ptr, ptr %933, align 8
   %935 = icmp eq ptr %934, %8
   br i1 %935, label %.thread115, label %936
@@ -2404,20 +2408,20 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %1046 = load i16, ptr %1045, align 4
   %1047 = and i16 %1046, 8
   %1048 = icmp eq i16 %1047, 0
-  br i1 %1048, label %1049, label %.preheader296
+  br i1 %1048, label %1049, label %.preheader297
 
 1049:                                             ; preds = %1041
   %1050 = getelementptr inbounds i8, ptr %0, i64 7184
   %1051 = load i32, ptr %1050, align 4
   %1052 = and i32 %1051, 16777216
   %1053 = icmp eq i32 %1052, 0
-  br i1 %1053, label %.thread117, label %.preheader296
+  br i1 %1053, label %.thread117, label %.preheader297
 
-.preheader296:                                    ; preds = %1049, %1041
+.preheader297:                                    ; preds = %1049, %1041
   br label %1054
 
-1054:                                             ; preds = %.preheader296, %1089
-  %1055 = phi i32 [ %1090, %1089 ], [ 0, %.preheader296 ]
+1054:                                             ; preds = %.preheader297, %1089
+  %1055 = phi i32 [ %1090, %1089 ], [ 0, %.preheader297 ]
   %1056 = icmp ugt i32 %1055, 5
   br i1 %1056, label %1089, label %1057
 
@@ -3186,7 +3190,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   br i1 %1472, label %1477, label %1484
 
 1477:                                             ; preds = %1471
-  switch i16 %1476, label %1494 [
+  switch i16 %1476, label %default.unreachable240 [
     i16 1, label %1483
     i16 7, label %1488
     i16 6, label %1478
@@ -3194,6 +3198,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
     i16 4, label %1480
     i16 3, label %1481
     i16 2, label %1482
+    i16 0, label %1494
   ]
 
 1478:                                             ; preds = %1477
@@ -3229,6 +3234,9 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 
 1487:                                             ; preds = %1484
   br label %1488
+
+default.unreachable240:                           ; preds = %1477
+  unreachable
 
 1488:                                             ; preds = %1477, %1482, %1481, %1480, %1479, %1478, %1483, %1486, %1485, %1487, %1484
   %.ph155 = phi i32 [ 810000, %1484 ], [ 162000, %1487 ], [ 540000, %1485 ], [ 270000, %1486 ], [ 162000, %1483 ], [ 1350000, %1478 ], [ 1000000, %1479 ], [ 810000, %1480 ], [ 540000, %1481 ], [ 270000, %1482 ], [ 2000000, %1477 ]
@@ -3313,7 +3321,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %5
-  br i1 %4, label %.thread90, label %12, !prof !38
+  br i1 %4, label %.thread92, label %12, !prof !38
 
 12:                                               ; preds = %11
   tail call void asm sideeffect "620: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 620b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 620) #17, !srcloc !45
@@ -3337,7 +3345,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 3148, i32 2313, i64 12) #17, !srcloc !47
   tail call void asm sideeffect "622: nop\0A\09.pushsection .discard.instr_end\0A\09.long 622b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 622) #17, !srcloc !48
   tail call void asm sideeffect "623: nop\0A\09.pushsection .discard.instr_end\0A\09.long 623b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 623) #17, !srcloc !49
-  br label %.thread90
+  br label %.thread92
 
 24:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #17
@@ -3448,7 +3456,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   br i1 %85, label %86, label %98
 
 86:                                               ; preds = %79
-  br i1 %4, label %87, label %.thread90, !prof !22
+  br i1 %4, label %87, label %.thread92, !prof !22
 
 87:                                               ; preds = %86
   tail call void asm sideeffect "624: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 624b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 624) #17, !srcloc !56
@@ -3471,7 +3479,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 3155, i32 2313, i64 12) #17, !srcloc !58
   tail call void asm sideeffect "626: nop\0A\09.pushsection .discard.instr_end\0A\09.long 626b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 626) #17, !srcloc !59
   tail call void asm sideeffect "627: nop\0A\09.pushsection .discard.instr_end\0A\09.long 627b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 627) #17, !srcloc !60
-  br label %.thread90
+  br label %.thread92
 
 98:                                               ; preds = %79
   %99 = getelementptr inbounds i8, ptr %1, i64 230
@@ -3487,7 +3495,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %105 = phi ptr [ %103, %98 ], [ %106, %108 ]
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, %103
-  br i1 %107, label %.thread70, label %108
+  br i1 %107, label %.thread72, label %108
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds i8, ptr %106, i64 16
@@ -3498,7 +3506,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 112:                                              ; preds = %108
   %113 = getelementptr i8, ptr %106, i64 23
   %114 = icmp eq ptr %113, null
-  br i1 %114, label %.thread70, label %115
+  br i1 %114, label %.thread72, label %115
 
 115:                                              ; preds = %112
   %116 = getelementptr i8, ptr %106, i64 25
@@ -3532,7 +3540,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 135:                                              ; preds = %131, %128
   %136 = phi i32 [ %130, %128 ], [ %134, %131 ]
   %137 = icmp ult i32 %136, 16
-  br i1 %137, label %.thread70, label %138
+  br i1 %137, label %.thread72, label %138
 
 138:                                              ; preds = %135
   %139 = getelementptr i8, ptr %106, i64 39
@@ -3557,7 +3565,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 148:                                              ; preds = %146, %145
   %149 = phi ptr [ %147, %146 ], [ null, %145 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %149, i32 noundef 2, ptr noundef nonnull @.str.70) #17
-  br label %.thread70
+  br label %.thread72
 
 150:                                              ; preds = %138
   store i32 2, ptr %144, align 8
@@ -3570,7 +3578,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 153:                                              ; preds = %151, %150
   %154 = phi ptr [ %152, %151 ], [ null, %150 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %154, i32 noundef 2, ptr noundef nonnull @.str.71) #17
-  br label %.thread70
+  br label %.thread72
 
 155:                                              ; preds = %138
   store i32 0, ptr %144, align 8
@@ -3583,30 +3591,30 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 158:                                              ; preds = %156, %155
   %159 = phi ptr [ %157, %156 ], [ null, %155 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %159, i32 noundef 2, ptr noundef nonnull @.str.72) #17
-  br label %.thread70
+  br label %.thread72
 
-.thread70:                                        ; preds = %104, %158, %153, %148, %135, %112
+.thread72:                                        ; preds = %104, %158, %153, %148, %135, %112
   %160 = getelementptr inbounds i8, ptr %0, i64 6816
   %161 = load i16, ptr %160, align 8
   %162 = icmp ult i16 %161, 229
-  br i1 %162, label %.thread71, label %.preheader118
+  br i1 %162, label %.thread73, label %.preheader120
 
-.preheader118:                                    ; preds = %.thread70, %166
-  %163 = phi ptr [ %164, %166 ], [ %103, %.thread70 ]
+.preheader120:                                    ; preds = %.thread72, %166
+  %163 = phi ptr [ %164, %166 ], [ %103, %.thread72 ]
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, %103
-  br i1 %165, label %.thread71, label %166
+  br i1 %165, label %.thread73, label %166
 
-166:                                              ; preds = %.preheader118
+166:                                              ; preds = %.preheader120
   %167 = getelementptr inbounds i8, ptr %164, i64 16
   %168 = load i32, ptr %167, align 8
   %169 = icmp eq i32 %168, 58
-  br i1 %169, label %170, label %.preheader118, !llvm.loop !18
+  br i1 %169, label %170, label %.preheader120, !llvm.loop !18
 
 170:                                              ; preds = %166
   %171 = getelementptr i8, ptr %164, i64 23
   %172 = icmp eq ptr %171, null
-  br i1 %172, label %.thread71, label %173
+  br i1 %172, label %.thread73, label %173
 
 173:                                              ; preds = %170
   %174 = load i16, ptr %171, align 1
@@ -3624,7 +3632,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %180 = phi ptr [ %178, %177 ], [ null, %176 ]
   %181 = zext nneg i16 %174 to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %180, ptr noundef nonnull @.str.73, i32 noundef %181) #20
-  br label %.thread71
+  br label %.thread73
 
 182:                                              ; preds = %173
   %183 = icmp eq i16 %174, 28
@@ -3688,13 +3696,13 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 218:                                              ; preds = %216, %215
   %219 = phi ptr [ %217, %216 ], [ null, %215 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %219, ptr noundef nonnull @.str.75, i32 noundef %213, i32 noundef %211) #20
-  br label %.thread71
+  br label %.thread73
 
 220:                                              ; preds = %204
   %221 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %222 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %221, i32 noundef 3520, i64 noundef 120) #19
   %223 = icmp eq ptr %222, null
-  br i1 %223, label %.thread71, label %224
+  br i1 %223, label %.thread73, label %224
 
 224:                                              ; preds = %220
   %225 = getelementptr i8, ptr %164, i64 25
@@ -3797,18 +3805,18 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %303 = load i32, ptr %269, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %281, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef %282, i32 noundef %283, i32 noundef %284, i32 noundef %286, i32 noundef %288, i32 noundef %290, i32 noundef %292, i32 noundef %294, i32 noundef %296, i32 noundef %298, i32 noundef %300, i32 noundef %302, i32 noundef %303) #17
   store ptr %222, ptr %212, align 8
-  br label %.thread71
+  br label %.thread73
 
-.thread71:                                        ; preds = %.preheader118, %280, %220, %218, %179, %170, %.thread70
+.thread73:                                        ; preds = %.preheader120, %280, %220, %218, %179, %170, %.thread72
   %304 = getelementptr inbounds i8, ptr %1, i64 128
   %305 = load i32, ptr %8, align 8
   br label %306
 
-306:                                              ; preds = %310, %.thread71
-  %307 = phi ptr [ %103, %.thread71 ], [ %308, %310 ]
+306:                                              ; preds = %310, %.thread73
+  %307 = phi ptr [ %103, %.thread73 ], [ %308, %310 ]
   %308 = load ptr, ptr %307, align 8
   %309 = icmp eq ptr %308, %103
-  br i1 %309, label %.thread72, label %310
+  br i1 %309, label %.thread74, label %310
 
 310:                                              ; preds = %306
   %311 = getelementptr inbounds i8, ptr %308, i64 16
@@ -3819,24 +3827,24 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 314:                                              ; preds = %310
   %315 = getelementptr i8, ptr %308, i64 23
   %316 = icmp eq ptr %315, null
-  br i1 %316, label %.thread72, label %.preheader116
+  br i1 %316, label %.thread74, label %.preheader118
 
-.preheader116:                                    ; preds = %314, %320
+.preheader118:                                    ; preds = %314, %320
   %317 = phi ptr [ %318, %320 ], [ %103, %314 ]
   %318 = load ptr, ptr %317, align 8
   %319 = icmp eq ptr %318, %103
-  br i1 %319, label %.thread72, label %320
+  br i1 %319, label %.thread74, label %320
 
-320:                                              ; preds = %.preheader116
+320:                                              ; preds = %.preheader118
   %321 = getelementptr inbounds i8, ptr %318, i64 16
   %322 = load i32, ptr %321, align 8
   %323 = icmp eq i32 %322, 42
-  br i1 %323, label %324, label %.preheader116, !llvm.loop !18
+  br i1 %323, label %324, label %.preheader118, !llvm.loop !18
 
 324:                                              ; preds = %320
   %325 = getelementptr i8, ptr %318, i64 23
   %326 = icmp eq ptr %325, null
-  br i1 %326, label %.thread72, label %327
+  br i1 %326, label %.thread74, label %327
 
 327:                                              ; preds = %324
   %328 = load ptr, ptr %304, align 8
@@ -3844,7 +3852,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   br i1 %329, label %330, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %327
-  %.pre217 = sext i32 %305 to i64
+  %.pre219 = sext i32 %305 to i64
   br label %397
 
 330:                                              ; preds = %327
@@ -3936,7 +3944,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   br label %397
 
 397:                                              ; preds = %._crit_edge, %395, %384, %343, %330
-  %.pre-phi = phi i64 [ %.pre217, %._crit_edge ], [ %332, %395 ], [ %332, %384 ], [ %332, %343 ], [ %332, %330 ]
+  %.pre-phi = phi i64 [ %.pre219, %._crit_edge ], [ %332, %395 ], [ %332, %384 ], [ %332, %343 ], [ %332, %330 ]
   %398 = getelementptr i8, ptr %308, i64 24
   %399 = getelementptr [16 x %struct.lvds_lfp_data_ptr], ptr %398, i64 0, i64 %.pre-phi, i32 2
   %400 = load i16, ptr %399, align 1
@@ -3989,7 +3997,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %436 = getelementptr i8, ptr %308, i64 170
   %437 = load i8, ptr %436, align 1
   %438 = icmp eq i8 %437, 0
-  br i1 %438, label %.thread72, label %439
+  br i1 %438, label %.thread74, label %439
 
 439:                                              ; preds = %406
   %440 = getelementptr i8, ptr %308, i64 168
@@ -3997,7 +4005,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %442 = zext i16 %441 to i64
   %443 = getelementptr i8, ptr %325, i64 %442
   %444 = icmp eq ptr %443, null
-  br i1 %444, label %.thread72, label %445
+  br i1 %444, label %.thread74, label %445
 
 445:                                              ; preds = %439
   br i1 %26, label %448, label %446
@@ -4012,7 +4020,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %449, i32 noundef 2, ptr noundef nonnull @.str.78, i32 noundef 13, ptr noundef %450) #17
   %451 = load i16, ptr %160, align 8
   %452 = icmp ugt i16 %451, 187
-  br i1 %452, label %453, label %.thread72
+  br i1 %452, label %453, label %.thread74
 
 453:                                              ; preds = %448
   %454 = getelementptr inbounds i8, ptr %443, i64 210
@@ -4030,17 +4038,17 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %461 = phi ptr [ %459, %458 ], [ null, %453 ]
   %462 = zext i8 %456 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %461, i32 noundef 2, ptr noundef nonnull @.str.79, i32 noundef %462) #17
-  br label %.thread72
+  br label %.thread74
 
-.thread72:                                        ; preds = %306, %.preheader116, %406, %460, %448, %439, %324, %314
+.thread74:                                        ; preds = %306, %.preheader118, %406, %460, %448, %439, %324, %314
   %463 = load i32, ptr %8, align 8
   br label %464
 
-464:                                              ; preds = %468, %.thread72
-  %465 = phi ptr [ %103, %.thread72 ], [ %466, %468 ]
+464:                                              ; preds = %468, %.thread74
+  %465 = phi ptr [ %103, %.thread74 ], [ %466, %468 ]
   %466 = load ptr, ptr %465, align 8
   %467 = icmp eq ptr %466, %103
-  br i1 %467, label %.thread75, label %468
+  br i1 %467, label %.thread77, label %468
 
 468:                                              ; preds = %464
   %469 = getelementptr inbounds i8, ptr %466, i64 16
@@ -4051,7 +4059,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 472:                                              ; preds = %468
   %473 = getelementptr i8, ptr %466, i64 23
   %474 = icmp eq ptr %473, null
-  br i1 %474, label %.thread75, label %475
+  br i1 %474, label %.thread77, label %475
 
 475:                                              ; preds = %472
   %476 = load i8, ptr %473, align 1
@@ -4069,7 +4077,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %482 = phi ptr [ %480, %479 ], [ null, %478 ]
   %483 = zext i8 %476 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %482, i32 noundef 2, ptr noundef nonnull @.str.84, i32 noundef %483) #17
-  br label %.thread75
+  br label %.thread77
 
 484:                                              ; preds = %475
   %485 = getelementptr i8, ptr %466, i64 24
@@ -4096,7 +4104,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %499 = and i8 %498, 3
   %500 = zext nneg i8 %499 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %497, i32 noundef 2, ptr noundef nonnull @.str.85, i32 noundef %500) #17
-  br label %.thread75
+  br label %.thread77
 
 501:                                              ; preds = %484
   %502 = getelementptr inbounds i8, ptr %1, i64 236
@@ -4266,17 +4274,17 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %613 = load i8, ptr %503, align 1
   %614 = sext i8 %613 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %605, i32 noundef 2, ptr noundef nonnull @.str.87, i32 noundef %607, ptr noundef nonnull %610, i32 noundef %611, i32 noundef %612, i32 noundef %614) #17
-  br label %.thread75
+  br label %.thread77
 
-.thread75:                                        ; preds = %464, %604, %496, %481, %472
+.thread77:                                        ; preds = %464, %604, %496, %481, %472
   %615 = getelementptr inbounds i8, ptr %0, i64 6760
   %616 = load i32, ptr %615, align 8
   switch i32 %616, label %636 [
     i32 -2, label %617
-    i32 -1, label %.preheader114
+    i32 -1, label %.preheader116
   ]
 
-617:                                              ; preds = %.thread75
+617:                                              ; preds = %.thread77
   br i1 %26, label %620, label %618
 
 618:                                              ; preds = %617
@@ -4286,24 +4294,24 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 620:                                              ; preds = %618, %617
   %621 = phi ptr [ %619, %618 ], [ null, %617 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %621, i32 noundef 2, ptr noundef nonnull @.str.90) #17
-  br label %.thread77.preheader
+  br label %.thread79.preheader
 
-.preheader114:                                    ; preds = %.thread75, %625
-  %622 = phi ptr [ %623, %625 ], [ %103, %.thread75 ]
+.preheader116:                                    ; preds = %.thread77, %625
+  %622 = phi ptr [ %623, %625 ], [ %103, %.thread77 ]
   %623 = load ptr, ptr %622, align 8
   %624 = icmp eq ptr %623, %103
-  br i1 %624, label %.thread77.preheader, label %625
+  br i1 %624, label %.thread79.preheader, label %625
 
-625:                                              ; preds = %.preheader114
+625:                                              ; preds = %.preheader116
   %626 = getelementptr inbounds i8, ptr %623, i64 16
   %627 = load i32, ptr %626, align 8
   %628 = icmp eq i32 %627, 22
-  br i1 %628, label %629, label %.preheader114, !llvm.loop !18
+  br i1 %628, label %629, label %.preheader116, !llvm.loop !18
 
 629:                                              ; preds = %625
   %630 = getelementptr i8, ptr %623, i64 23
   %631 = icmp eq ptr %630, null
-  br i1 %631, label %.thread77.preheader, label %632
+  br i1 %631, label %.thread79.preheader, label %632
 
 632:                                              ; preds = %629
   %633 = getelementptr i8, ptr %623, i64 25
@@ -4311,15 +4319,15 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %635 = zext i8 %634 to i32
   br label %636
 
-636:                                              ; preds = %632, %.thread75
-  %637 = phi i32 [ %635, %632 ], [ %616, %.thread75 ]
+636:                                              ; preds = %632, %.thread77
+  %637 = phi i32 [ %635, %632 ], [ %616, %.thread77 ]
   br label %638
 
 638:                                              ; preds = %642, %636
   %639 = phi ptr [ %103, %636 ], [ %640, %642 ]
   %640 = load ptr, ptr %639, align 8
   %641 = icmp eq ptr %640, %103
-  br i1 %641, label %.thread77.preheader, label %642
+  br i1 %641, label %.thread79.preheader, label %642
 
 642:                                              ; preds = %638
   %643 = getelementptr inbounds i8, ptr %640, i64 16
@@ -4330,13 +4338,13 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 646:                                              ; preds = %642
   %647 = getelementptr i8, ptr %640, i64 23
   %648 = icmp eq ptr %647, null
-  br i1 %648, label %.thread77.preheader, label %649
+  br i1 %648, label %.thread79.preheader, label %649
 
 649:                                              ; preds = %646
   %650 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %651 = call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %650, i32 noundef 3520, i64 noundef 120) #19
   %652 = icmp eq ptr %651, null
-  br i1 %652, label %.thread77.preheader, label %653
+  br i1 %652, label %.thread79.preheader, label %653
 
 653:                                              ; preds = %649
   %654 = sext i32 %637 to i64
@@ -4385,32 +4393,32 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %691 = getelementptr inbounds i8, ptr %651, i64 24
   %692 = load i32, ptr %691, align 8
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %660, i32 noundef 2, ptr noundef nonnull @.str.91, ptr noundef %661, i32 noundef %662, i32 noundef %663, i32 noundef %666, i32 noundef %669, i32 noundef %672, i32 noundef %675, i32 noundef %678, i32 noundef %681, i32 noundef %684, i32 noundef %687, i32 noundef %690, i32 noundef %692) #17
-  br label %.thread77.preheader
+  br label %.thread79.preheader
 
-.thread77.preheader:                              ; preds = %.preheader114, %638, %629, %659, %649, %646, %620
-  br label %.thread77
+.thread79.preheader:                              ; preds = %.preheader116, %638, %629, %659, %649, %646, %620
+  br label %.thread79
 
-.thread77:                                        ; preds = %.thread77.preheader, %696
-  %693 = phi ptr [ %694, %696 ], [ %103, %.thread77.preheader ]
+.thread79:                                        ; preds = %.thread79.preheader, %696
+  %693 = phi ptr [ %694, %696 ], [ %103, %.thread79.preheader ]
   %694 = load ptr, ptr %693, align 8
   %695 = icmp eq ptr %694, %103
-  br i1 %695, label %.thread79, label %696
+  br i1 %695, label %.thread81, label %696
 
-696:                                              ; preds = %.thread77
+696:                                              ; preds = %.thread79
   %697 = getelementptr inbounds i8, ptr %694, i64 16
   %698 = load i32, ptr %697, align 8
   %699 = icmp eq i32 %698, 12
-  br i1 %699, label %700, label %.thread77, !llvm.loop !18
+  br i1 %699, label %700, label %.thread79, !llvm.loop !18
 
 700:                                              ; preds = %696
   %701 = getelementptr i8, ptr %694, i64 23
   %702 = icmp eq ptr %701, null
-  br i1 %702, label %.thread79, label %703
+  br i1 %702, label %.thread81, label %703
 
 703:                                              ; preds = %700
   %704 = load i16, ptr %160, align 8
   %705 = icmp ult i16 %704, 228
-  br i1 %705, label %706, label %.thread79
+  br i1 %705, label %706, label %.thread81
 
 706:                                              ; preds = %703
   br i1 %26, label %709, label %707
@@ -4453,32 +4461,32 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %731 = trunc nuw nsw i16 %730 to i8
   %732 = and i8 %731, 1
   store i8 %732, ptr %729, align 4
-  br label %.thread79
+  br label %.thread81
 
-.thread79:                                        ; preds = %.thread77, %727, %703, %700
+.thread81:                                        ; preds = %.thread79, %727, %703, %700
   %733 = load i32, ptr %8, align 8
   %734 = getelementptr inbounds i8, ptr %1, i64 156
   store i8 1, ptr %734, align 4
   %735 = load i16, ptr %160, align 8
   %736 = icmp ult i16 %735, 228
-  br i1 %736, label %.thread80.preheader, label %.preheader113
+  br i1 %736, label %.thread82.preheader, label %.preheader115
 
-.preheader113:                                    ; preds = %.thread79, %740
-  %737 = phi ptr [ %738, %740 ], [ %103, %.thread79 ]
+.preheader115:                                    ; preds = %.thread81, %740
+  %737 = phi ptr [ %738, %740 ], [ %103, %.thread81 ]
   %738 = load ptr, ptr %737, align 8
   %739 = icmp eq ptr %738, %103
-  br i1 %739, label %.thread80.preheader, label %740
+  br i1 %739, label %.thread82.preheader, label %740
 
-740:                                              ; preds = %.preheader113
+740:                                              ; preds = %.preheader115
   %741 = getelementptr inbounds i8, ptr %738, i64 16
   %742 = load i32, ptr %741, align 8
   %743 = icmp eq i32 %742, 44
-  br i1 %743, label %744, label %.preheader113, !llvm.loop !18
+  br i1 %743, label %744, label %.preheader115, !llvm.loop !18
 
 744:                                              ; preds = %740
   %745 = getelementptr i8, ptr %738, i64 23
   %746 = icmp eq ptr %745, null
-  br i1 %746, label %.thread80.preheader, label %747
+  br i1 %746, label %.thread82.preheader, label %747
 
 747:                                              ; preds = %744
   %748 = getelementptr i8, ptr %738, i64 47
@@ -4516,7 +4524,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 772:                                              ; preds = %766, %762, %747
   %773 = load i16, ptr %160, align 8
   %774 = icmp ugt i16 %773, 231
-  br i1 %774, label %775, label %.thread80.preheader
+  br i1 %774, label %775, label %.thread82.preheader
 
 775:                                              ; preds = %772
   %776 = getelementptr i8, ptr %738, i64 77
@@ -4529,7 +4537,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   store i8 %782, ptr %781, align 1
   %.pr = load i16, ptr %160, align 8
   %783 = icmp ugt i16 %.pr, 232
-  br i1 %783, label %784, label %.thread80.preheader
+  br i1 %783, label %784, label %.thread82.preheader
 
 784:                                              ; preds = %775
   %785 = getelementptr i8, ptr %738, i64 79
@@ -4539,27 +4547,27 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %789 = icmp ne i32 %788, 0
   %790 = zext i1 %789 to i8
   store i8 %790, ptr %734, align 4
-  br label %.thread80.preheader
+  br label %.thread82.preheader
 
-.thread80.preheader:                              ; preds = %.preheader113, %772, %784, %775, %744, %.thread79
-  br label %.thread80
+.thread82.preheader:                              ; preds = %.preheader115, %772, %784, %775, %744, %.thread81
+  br label %.thread82
 
-.thread80:                                        ; preds = %.thread80.preheader, %794
-  %791 = phi ptr [ %792, %794 ], [ %103, %.thread80.preheader ]
+.thread82:                                        ; preds = %.thread82.preheader, %794
+  %791 = phi ptr [ %792, %794 ], [ %103, %.thread82.preheader ]
   %792 = load ptr, ptr %791, align 8
   %793 = icmp eq ptr %792, %103
-  br i1 %793, label %.thread82, label %794
+  br i1 %793, label %.thread84, label %794
 
-794:                                              ; preds = %.thread80
+794:                                              ; preds = %.thread82
   %795 = getelementptr inbounds i8, ptr %792, i64 16
   %796 = load i32, ptr %795, align 8
   %797 = icmp eq i32 %796, 27
-  br i1 %797, label %798, label %.thread80, !llvm.loop !18
+  br i1 %797, label %798, label %.thread82, !llvm.loop !18
 
 798:                                              ; preds = %794
   %799 = getelementptr i8, ptr %792, i64 23
   %800 = icmp eq ptr %799, null
-  br i1 %800, label %.thread82, label %801
+  br i1 %800, label %.thread84, label %801
 
 801:                                              ; preds = %798
   %802 = getelementptr i8, ptr %792, i64 183
@@ -4567,10 +4575,11 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %804 = shl i32 %733, 1
   %805 = lshr i32 %803, %804
   %806 = and i32 %805, 3
-  switch i32 %806, label %812 [
+  switch i32 %806, label %default.unreachable220 [
     i32 0, label %809
     i32 1, label %807
     i32 2, label %808
+    i32 3, label %812
   ]
 
 807:                                              ; preds = %801
@@ -4579,13 +4588,16 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 808:                                              ; preds = %801
   br label %809
 
-809:                                              ; preds = %808, %807, %801
+809:                                              ; preds = %801, %808, %807
   %810 = phi i32 [ 30, %808 ], [ 24, %807 ], [ 18, %801 ]
   %811 = getelementptr inbounds i8, ptr %1, i64 184
   store i32 %810, ptr %811, align 4
   br label %812
 
-812:                                              ; preds = %809, %801
+default.unreachable220:                           ; preds = %1146, %1015, %801
+  unreachable
+
+812:                                              ; preds = %801, %809
   %813 = sext i32 %733 to i64
   %814 = getelementptr [16 x %struct.edp_power_seq], ptr %799, i64 0, i64 %813
   %815 = getelementptr i8, ptr %792, i64 187
@@ -4811,7 +4823,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   store i8 %920, ptr %921, align 2
   %922 = load i16, ptr %160, align 8
   %923 = icmp ugt i16 %922, 243
-  br i1 %923, label %924, label %.thread82
+  br i1 %923, label %924, label %.thread84
 
 924:                                              ; preds = %915
   %925 = getelementptr i8, ptr %792, i64 803
@@ -4820,17 +4832,17 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %928 = zext i16 %927 to i32
   %929 = mul nuw nsw i32 %928, 20
   store i32 %929, ptr %817, align 4
-  br label %.thread82
+  br label %.thread84
 
-.thread82:                                        ; preds = %.thread80, %924, %915, %798
+.thread84:                                        ; preds = %.thread82, %924, %915, %798
   %930 = load i32, ptr %8, align 8
   br label %931
 
-931:                                              ; preds = %935, %.thread82
-  %932 = phi ptr [ %103, %.thread82 ], [ %933, %935 ]
+931:                                              ; preds = %935, %.thread84
+  %932 = phi ptr [ %103, %.thread84 ], [ %933, %935 ]
   %933 = load ptr, ptr %932, align 8
   %934 = icmp eq ptr %933, %103
-  br i1 %934, label %.thread83, label %935
+  br i1 %934, label %.thread85, label %935
 
 935:                                              ; preds = %931
   %936 = getelementptr inbounds i8, ptr %933, i64 16
@@ -4841,17 +4853,17 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 939:                                              ; preds = %935
   %940 = getelementptr i8, ptr %933, i64 23
   %941 = icmp eq ptr %940, null
-  br i1 %941, label %.thread83, label %946
+  br i1 %941, label %.thread85, label %946
 
-.thread83:                                        ; preds = %931, %939
+.thread85:                                        ; preds = %931, %939
   br i1 %26, label %944, label %942
 
-942:                                              ; preds = %.thread83
+942:                                              ; preds = %.thread85
   %943 = load ptr, ptr %25, align 8
   br label %944
 
-944:                                              ; preds = %942, %.thread83
-  %945 = phi ptr [ %943, %942 ], [ null, %.thread83 ]
+944:                                              ; preds = %942, %.thread85
+  %945 = phi ptr [ %943, %942 ], [ null, %.thread85 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %945, i32 noundef 2, ptr noundef nonnull @.str.97) #17
   br label %1029
 
@@ -4986,10 +4998,11 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %1018 = shl i32 %930, 1
   %1019 = lshr i32 %1017, %1018
   %1020 = and i32 %1019, 3
-  switch i32 %1020, label %1023 [
+  switch i32 %1020, label %default.unreachable220 [
     i32 0, label %1024
     i32 1, label %1021
     i32 3, label %1022
+    i32 2, label %1023
   ]
 
 1021:                                             ; preds = %1015
@@ -5001,7 +5014,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 1023:                                             ; preds = %1015
   br label %1024
 
-1024:                                             ; preds = %1023, %1022, %1021, %1015
+1024:                                             ; preds = %1015, %1023, %1022, %1021
   %1025 = phi i32 [ 2500, %1023 ], [ 50, %1022 ], [ 100, %1021 ], [ 500, %1015 ]
   %1026 = getelementptr inbounds i8, ptr %1, i64 220
   store i32 %1025, ptr %1026, align 4
@@ -5017,9 +5030,9 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %1031 = getelementptr inbounds i8, ptr %0, i64 6840
   %1032 = load ptr, ptr %1031, align 8
   %.not = icmp eq ptr %1032, %1031
-  br i1 %.not, label %.loopexit112, label %.preheader111
+  br i1 %.not, label %.loopexit114, label %.preheader113
 
-.preheader111:                                    ; preds = %1029, %1058
+.preheader113:                                    ; preds = %1029, %1058
   %1033 = phi ptr [ %1059, %1058 ], [ %1032, %1029 ]
   %1034 = getelementptr i8, ptr %1033, i64 -32
   %1035 = load i8, ptr %1034, align 1
@@ -5029,7 +5042,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %1039 = icmp eq i16 %1038, 0
   br i1 %1039, label %1058, label %1040
 
-1040:                                             ; preds = %.preheader111
+1040:                                             ; preds = %.preheader113
   %1041 = add i8 %1035, -21
   %1042 = and i8 %1041, -3
   %1043 = icmp eq i8 %1042, 0
@@ -5065,10 +5078,10 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 1057:                                             ; preds = %1051
   br label %1060
 
-1058:                                             ; preds = %1047, %.preheader111
+1058:                                             ; preds = %1047, %.preheader113
   %1059 = load ptr, ptr %1033, align 8
-  %.not69 = icmp eq ptr %1059, %1031
-  br i1 %.not69, label %.loopexit112, label %.preheader111, !llvm.loop !63
+  %.not71 = icmp eq ptr %1059, %1031
+  br i1 %.not71, label %.loopexit114, label %.preheader113, !llvm.loop !63
 
 1060:                                             ; preds = %1057, %1051, %1052
   %.ph = phi i64 [ %1056, %1052 ], [ 0, %1051 ], [ 4294967295, %1057 ]
@@ -5080,7 +5093,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %1063 = phi ptr [ %103, %1060 ], [ %1064, %1066 ]
   %1064 = load ptr, ptr %1063, align 8
   %1065 = icmp eq ptr %1064, %103
-  br i1 %1065, label %.thread86, label %1066
+  br i1 %1065, label %.thread88, label %1066
 
 1066:                                             ; preds = %1062
   %1067 = getelementptr inbounds i8, ptr %1064, i64 16
@@ -5091,19 +5104,19 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 1070:                                             ; preds = %1066
   %1071 = getelementptr i8, ptr %1064, i64 23
   %1072 = icmp eq ptr %1071, null
-  br i1 %1072, label %.thread86, label %1077
+  br i1 %1072, label %.thread88, label %1077
 
-.thread86:                                        ; preds = %1062, %1070
+.thread88:                                        ; preds = %1062, %1070
   br i1 %26, label %1075, label %1073
 
-1073:                                             ; preds = %.thread86
+1073:                                             ; preds = %.thread88
   %1074 = load ptr, ptr %25, align 8
   br label %1075
 
-1075:                                             ; preds = %1073, %.thread86
-  %1076 = phi ptr [ %1074, %1073 ], [ null, %.thread86 ]
+1075:                                             ; preds = %1073, %.thread88
+  %1076 = phi ptr [ %1074, %1073 ], [ null, %.thread88 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1076, i32 noundef 2, ptr noundef nonnull @.str.100) #17
-  br label %.loopexit112
+  br label %.loopexit114
 
 1077:                                             ; preds = %1070
   br i1 %26, label %1080, label %1078
@@ -5121,7 +5134,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %1085 = getelementptr inbounds i8, ptr %1, i64 248
   store ptr %1084, ptr %1085, align 8
   %1086 = icmp eq ptr %1084, null
-  br i1 %1086, label %.loopexit112, label %1087
+  br i1 %1086, label %.loopexit114, label %1087
 
 1087:                                             ; preds = %1080
   %1088 = getelementptr i8, ptr %1064, i64 755
@@ -5135,7 +5148,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 1093:                                             ; preds = %1087
   %1094 = load ptr, ptr %1085, align 8
   call void @kfree(ptr noundef %1094) #17
-  br label %.loopexit112
+  br label %.loopexit114
 
 1095:                                             ; preds = %1087
   %1096 = getelementptr inbounds i8, ptr %0, i64 2632
@@ -5225,7 +5238,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %1149 = trunc i48 %1148 to i32
   %1150 = lshr i32 %1149, 14
   %1151 = and i32 %1150, 3
-  switch i32 %1151, label %default.unreachable218 [
+  switch i32 %1151, label %default.unreachable220 [
     i32 0, label %1155
     i32 1, label %1152
     i32 2, label %1153
@@ -5241,51 +5254,48 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 1154:                                             ; preds = %1146
   br label %1155
 
-default.unreachable218:                           ; preds = %1146
-  unreachable
-
 1155:                                             ; preds = %1154, %1153, %1152, %1146
   %1156 = phi i32 [ 2, %1154 ], [ 1, %1153 ], [ 3, %1152 ], [ -1, %1146 ]
   %1157 = getelementptr inbounds i8, ptr %1, i64 392
   store i32 %1156, ptr %1157, align 8
   store i16 1, ptr %1061, align 8
-  br label %.loopexit112
+  br label %.loopexit114
 
-.loopexit112:                                     ; preds = %1058, %1029, %1155, %1093, %1080, %1075
+.loopexit114:                                     ; preds = %1058, %1029, %1155, %1093, %1080, %1075
   %1158 = load i32, ptr %8, align 8
   %1159 = getelementptr inbounds i8, ptr %1, i64 240
   %1160 = load i16, ptr %1159, align 8
   %1161 = icmp eq i16 %1160, 1
-  br i1 %1161, label %.preheader110, label %.thread90
+  br i1 %1161, label %.preheader112, label %.thread92
 
-.preheader110:                                    ; preds = %.loopexit112, %1165
-  %1162 = phi ptr [ %1163, %1165 ], [ %103, %.loopexit112 ]
+.preheader112:                                    ; preds = %.loopexit114, %1165
+  %1162 = phi ptr [ %1163, %1165 ], [ %103, %.loopexit114 ]
   %1163 = load ptr, ptr %1162, align 8
   %1164 = icmp eq ptr %1163, %103
-  br i1 %1164, label %.thread87, label %1165
+  br i1 %1164, label %.thread89, label %1165
 
-1165:                                             ; preds = %.preheader110
+1165:                                             ; preds = %.preheader112
   %1166 = getelementptr inbounds i8, ptr %1163, i64 16
   %1167 = load i32, ptr %1166, align 8
   %1168 = icmp eq i32 %1167, 53
-  br i1 %1168, label %1169, label %.preheader110, !llvm.loop !18
+  br i1 %1168, label %1169, label %.preheader112, !llvm.loop !18
 
 1169:                                             ; preds = %1165
   %1170 = getelementptr i8, ptr %1163, i64 23
   %1171 = icmp eq ptr %1170, null
-  br i1 %1171, label %.thread87, label %1176
+  br i1 %1171, label %.thread89, label %1176
 
-.thread87:                                        ; preds = %.preheader110, %1169
+.thread89:                                        ; preds = %.preheader112, %1169
   br i1 %26, label %1174, label %1172
 
-1172:                                             ; preds = %.thread87
+1172:                                             ; preds = %.thread89
   %1173 = load ptr, ptr %25, align 8
   br label %1174
 
-1174:                                             ; preds = %1172, %.thread87
-  %1175 = phi ptr [ %1173, %1172 ], [ null, %.thread87 ]
+1174:                                             ; preds = %1172, %.thread89
+  %1175 = phi ptr [ %1173, %1172 ], [ null, %.thread89 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1175, i32 noundef 2, ptr noundef nonnull @.str.102) #17
-  br label %.thread90
+  br label %.thread92
 
 1176:                                             ; preds = %1169
   %1177 = load i8, ptr %1170, align 1
@@ -5303,7 +5313,7 @@ default.unreachable218:                           ; preds = %1146
   %1183 = phi ptr [ %1181, %1180 ], [ null, %1179 ]
   %1184 = zext i8 %1177 to i32
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %1183, ptr noundef nonnull @.str.103, i32 noundef %1184) #20
-  br label %.thread90
+  br label %.thread92
 
 1185:                                             ; preds = %1176
   br i1 %26, label %1188, label %1186
@@ -5320,8 +5330,8 @@ default.unreachable218:                           ; preds = %1146
   %1192 = getelementptr i8, ptr %1163, i64 20
   %1193 = load i8, ptr %1192, align 1
   %1194 = icmp eq i8 %1193, 53
-  %.pr88.pre = load i8, ptr %1170, align 1
-  %1195 = icmp ugt i8 %.pr88.pre, 2
+  %.pr90.pre = load i8, ptr %1170, align 1
+  %1195 = icmp ugt i8 %.pr90.pre, 2
   %or.cond = select i1 %1194, i1 %1195, i1 false
   br i1 %or.cond, label %1196, label %1199
 
@@ -5338,32 +5348,32 @@ default.unreachable218:                           ; preds = %1146
 
 1203:                                             ; preds = %1199, %1196
   %1204 = phi i32 [ %1202, %1199 ], [ %1198, %1196 ]
-  %1205 = icmp ugt i8 %.pr88.pre, 2
+  %1205 = icmp ugt i8 %.pr90.pre, 2
   %1206 = select i1 %1205, i32 5, i32 3
   %1207 = select i1 %1205, i64 5, i64 1
   %1208 = getelementptr i8, ptr %1170, i64 %1207
   %1209 = icmp eq i32 %1204, 0
-  br i1 %1209, label %.loopexit, label %.preheader109
+  br i1 %1209, label %.loopexit, label %.preheader111
 
 1210:                                             ; preds = %1235
   %1211 = add nuw nsw i32 %1215, 1
   %1212 = icmp ult i32 %1215, 5
   %1213 = icmp ult i32 %1232, %1204
   %1214 = and i1 %1212, %1213
-  br i1 %1214, label %.preheader109, label %.loopexit, !llvm.loop !64
+  br i1 %1214, label %.preheader111, label %.loopexit, !llvm.loop !64
 
-.preheader109:                                    ; preds = %1203, %1210
+.preheader111:                                    ; preds = %1203, %1210
   %1215 = phi i32 [ %1211, %1210 ], [ 0, %1203 ]
   %1216 = phi i32 [ %1232, %1210 ], [ 0, %1203 ]
   %1217 = add i32 %1216, %1206
   %1218 = icmp ugt i32 %1217, %1204
   br i1 %1218, label %1219, label %1220
 
-1219:                                             ; preds = %.preheader109
+1219:                                             ; preds = %.preheader111
   call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.109) #17
-  br label %.thread90
+  br label %.thread92
 
-1220:                                             ; preds = %.preheader109
+1220:                                             ; preds = %.preheader111
   %1221 = sext i32 %1216 to i64
   %1222 = getelementptr i8, ptr %1208, i64 %1221
   %1223 = load i8, ptr %1222, align 1
@@ -5387,7 +5397,7 @@ default.unreachable218:                           ; preds = %1146
 
 1234:                                             ; preds = %1230
   call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.110) #17
-  br label %.thread90
+  br label %.thread92
 
 1235:                                             ; preds = %1230
   %1236 = zext i8 %1223 to i16
@@ -5396,19 +5406,19 @@ default.unreachable218:                           ; preds = %1146
 
 .loopexit:                                        ; preds = %1210, %1203
   call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.111) #17
-  br label %.thread90
+  br label %.thread92
 
 1238:                                             ; preds = %1235
   %1239 = sext i32 %1217 to i64
   %1240 = getelementptr i8, ptr %1208, i64 %1239
   %1241 = icmp eq ptr %1240, null
-  br i1 %1241, label %.thread90, label %1242
+  br i1 %1241, label %.thread92, label %1242
 
 1242:                                             ; preds = %1238
   %1243 = zext i32 %1231 to i64
   %1244 = call ptr @kmemdup(ptr noundef nonnull %1240, i64 noundef %1243, i32 noundef 3264) #21
   %1245 = icmp eq ptr %1244, null
-  br i1 %1245, label %.thread90, label %1246
+  br i1 %1245, label %.thread92, label %1246
 
 1246:                                             ; preds = %1242
   %1247 = getelementptr inbounds i8, ptr %1, i64 288
@@ -5417,8 +5427,8 @@ default.unreachable218:                           ; preds = %1146
   %1250 = icmp slt i32 %1231, 5
   br label %1251
 
-1251:                                             ; preds = %.thread93, %1246
-  %1252 = phi i32 [ 0, %1246 ], [ %1339, %.thread93 ]
+1251:                                             ; preds = %.thread95, %1246
+  %1252 = phi i32 [ 0, %1246 ], [ %1339, %.thread95 ]
   %1253 = sext i32 %1252 to i64
   %1254 = getelementptr i8, ptr %1244, i64 %1253
   %1255 = load i8, ptr %1254, align 1
@@ -5468,7 +5478,7 @@ default.unreachable218:                           ; preds = %1146
   br i1 %1277, label %1278, label %1309
 
 1278:                                             ; preds = %1273
-  br i1 %1250, label %.thread98.sink.split, label %1279
+  br i1 %1250, label %.thread100.sink.split, label %1279
 
 1279:                                             ; preds = %1278
   %1280 = add i32 %1252, 1
@@ -5478,19 +5488,19 @@ default.unreachable218:                           ; preds = %1146
   %1284 = add i32 %1252, 5
   %1285 = add i32 %1283, %1284
   %1286 = icmp sgt i32 %1285, %1231
-  br i1 %1286, label %.thread98.sink.split, label %1287
+  br i1 %1286, label %.thread100.sink.split, label %1287
 
 1287:                                             ; preds = %1279
   %1288 = icmp slt i32 %1284, %1231
-  br i1 %1288, label %.preheader105, label %.thread98
+  br i1 %1288, label %.preheader107, label %.thread100
 
 1289:                                             ; preds = %1302, %1308
   %1290 = zext i8 %1305 to i32
   %1291 = add i32 %1306, %1290
   %1292 = icmp slt i32 %1291, %1231
-  br i1 %1292, label %.preheader105, label %.thread98, !llvm.loop !65
+  br i1 %1292, label %.preheader107, label %.thread100, !llvm.loop !65
 
-.preheader105:                                    ; preds = %1287, %1289
+.preheader107:                                    ; preds = %1287, %1289
   %1293 = phi i32 [ %1291, %1289 ], [ %1284, %1287 ]
   %1294 = sext i32 %1293 to i64
   %1295 = getelementptr i8, ptr %1244, i64 %1294
@@ -5500,11 +5510,11 @@ default.unreachable218:                           ; preds = %1146
   %1299 = icmp eq i8 %1296, 0
   br i1 %1299, label %1300, label %1302
 
-1300:                                             ; preds = %.preheader105
+1300:                                             ; preds = %.preheader107
   %1301 = icmp eq i32 %1297, %1285
-  br i1 %1301, label %.thread93, label %.thread98.sink.split
+  br i1 %1301, label %.thread95, label %.thread100.sink.split
 
-1302:                                             ; preds = %.preheader105
+1302:                                             ; preds = %.preheader107
   %1303 = sext i32 %1297 to i64
   %1304 = getelementptr i8, ptr %1244, i64 %1303
   %1305 = load i8, ptr %1304, align 1
@@ -5519,33 +5529,33 @@ default.unreachable218:                           ; preds = %1146
 1309:                                             ; preds = %1273
   %1310 = add i32 %1252, 1
   %1311 = icmp slt i32 %1310, %1231
-  br i1 %1311, label %.preheader106, label %.thread98
+  br i1 %1311, label %.preheader108, label %.thread100
 
-1312:                                             ; preds = %.preheader106, %1332, %1324, %1338
-  %.ph95 = phi i16 [ 4, %1338 ], [ %1328, %1324 ], [ %1337, %1332 ], [ 2, %.preheader106 ]
-  %1313 = zext i16 %.ph95 to i32
+1312:                                             ; preds = %.preheader108, %1332, %1324, %1338
+  %.ph97 = phi i16 [ 4, %1338 ], [ %1328, %1324 ], [ %1337, %1332 ], [ 2, %.preheader108 ]
+  %1313 = zext i16 %.ph97 to i32
   %1314 = add i32 %1320, %1313
   %1315 = icmp slt i32 %1314, %1231
-  br i1 %1315, label %.preheader106, label %.thread98, !llvm.loop !66
+  br i1 %1315, label %.preheader108, label %.thread100, !llvm.loop !66
 
-.preheader106:                                    ; preds = %1309, %1312
+.preheader108:                                    ; preds = %1309, %1312
   %1316 = phi i32 [ %1314, %1312 ], [ %1310, %1309 ]
   %1317 = sext i32 %1316 to i64
   %1318 = getelementptr i8, ptr %1244, i64 %1317
   %1319 = load i8, ptr %1318, align 1
   %1320 = add nsw i32 %1316, 1
-  switch i8 %1319, label %.thread98.sink.split [
-    i8 0, label %.thread93
+  switch i8 %1319, label %.thread100.sink.split [
+    i8 0, label %.thread95
     i8 1, label %1321
     i8 2, label %1338
     i8 3, label %1312
     i8 4, label %1329
   ]
 
-1321:                                             ; preds = %.preheader106
+1321:                                             ; preds = %.preheader108
   %1322 = add i32 %1316, 5
   %1323 = icmp sgt i32 %1322, %1231
-  br i1 %1323, label %.thread98, label %1324
+  br i1 %1323, label %.thread100, label %1324
 
 1324:                                             ; preds = %1321
   %1325 = sext i32 %1320 to i64
@@ -5554,10 +5564,10 @@ default.unreachable218:                           ; preds = %1146
   %1328 = add i16 %1327, 4
   br label %1312
 
-1329:                                             ; preds = %.preheader106
+1329:                                             ; preds = %.preheader108
   %1330 = add i32 %1316, 8
   %1331 = icmp sgt i32 %1330, %1231
-  br i1 %1331, label %.thread98, label %1332
+  br i1 %1331, label %.thread100, label %1332
 
 1332:                                             ; preds = %1329
   %1333 = sext i32 %1320 to i64
@@ -5567,28 +5577,28 @@ default.unreachable218:                           ; preds = %1146
   %1337 = add nuw nsw i16 %1336, 7
   br label %1312
 
-1338:                                             ; preds = %.preheader106
+1338:                                             ; preds = %.preheader108
   br label %1312
 
-.thread93:                                        ; preds = %.preheader106, %1300
-  %1339 = phi i32 [ %1285, %1300 ], [ %1320, %.preheader106 ]
+.thread95:                                        ; preds = %.preheader108, %1300
+  %1339 = phi i32 [ %1285, %1300 ], [ %1320, %.preheader108 ]
   %1340 = icmp eq i32 %1339, 0
-  br i1 %1340, label %.thread98, label %1251
+  br i1 %1340, label %.thread100, label %1251
 
-.thread98.sink.split:                             ; preds = %1278, %1279, %1300, %.preheader106
-  %.str.114.sink = phi ptr [ @.str.116, %.preheader106 ], [ @.str.114, %1300 ], [ @.str.112, %1278 ], [ @.str.113, %1279 ]
+.thread100.sink.split:                            ; preds = %1278, %1279, %1300, %.preheader108
+  %.str.114.sink = phi ptr [ @.str.116, %.preheader108 ], [ @.str.114, %1300 ], [ @.str.112, %1278 ], [ @.str.113, %1279 ]
   call void (ptr, ...) @__drm_err(ptr noundef nonnull %.str.114.sink) #17
-  br label %.thread98
+  br label %.thread100
 
-.thread98:                                        ; preds = %1309, %1287, %.thread93, %1329, %1321, %1312, %1289, %.thread98.sink.split
+.thread100:                                       ; preds = %1309, %1287, %.thread95, %1329, %1321, %1312, %1289, %.thread100.sink.split
   br i1 %26, label %1343, label %1341
 
-1341:                                             ; preds = %.thread98
+1341:                                             ; preds = %.thread100
   %1342 = load ptr, ptr %25, align 8
   br label %1343
 
-1343:                                             ; preds = %1341, %.thread98
-  %1344 = phi ptr [ %1342, %1341 ], [ null, %.thread98 ]
+1343:                                             ; preds = %1341, %.thread100
+  %1344 = phi ptr [ %1342, %1341 ], [ null, %.thread100 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %1344, ptr noundef nonnull @.str.107, i32 noundef %1256) #20
   br label %1408
 
@@ -5604,7 +5614,7 @@ default.unreachable218:                           ; preds = %1146
   %1351 = load i32, ptr %1350, align 4
   %1352 = and i32 %1351, 2097152
   %1353 = icmp eq i32 %1352, 0
-  br i1 %1353, label %.thread104, label %1354
+  br i1 %1353, label %.thread106, label %1354
 
 1354:                                             ; preds = %1345
   %1355 = getelementptr inbounds i8, ptr %1, i64 248
@@ -5615,32 +5625,32 @@ default.unreachable218:                           ; preds = %1146
   %1360 = icmp eq i48 %1359, 0
   %1361 = icmp eq i8 %1348, 1
   %1362 = select i1 %1360, i1 %1361, i1 false
-  br i1 %1362, label %1363, label %.thread104
+  br i1 %1362, label %1363, label %.thread106
 
 1363:                                             ; preds = %1354
   %1364 = getelementptr i8, ptr %1, i64 304
   %1365 = load ptr, ptr %1364, align 8
   %1366 = icmp eq ptr %1365, null
-  br i1 %1366, label %.thread104, label %1367
+  br i1 %1366, label %.thread106, label %1367
 
 1367:                                             ; preds = %1363
   %1368 = getelementptr i8, ptr %1, i64 328
   %1369 = load ptr, ptr %1368, align 8
   %1370 = icmp eq ptr %1369, null
-  br i1 %1370, label %.thread104, label %1371
+  br i1 %1370, label %.thread106, label %1371
 
 1371:                                             ; preds = %1367
   %1372 = getelementptr i8, ptr %1, i64 296
   %1373 = load ptr, ptr %1372, align 8
   %1374 = icmp eq ptr %1373, null
-  br i1 %1374, label %.preheader, label %.thread104
+  br i1 %1374, label %.preheader, label %.thread106
 
 .preheader:                                       ; preds = %1371, %1381
   %1375 = phi i32 [ %1383, %1381 ], [ 1, %1371 ]
   %1376 = sext i32 %1375 to i64
   %1377 = getelementptr i8, ptr %1365, i64 %1376
   %1378 = load i8, ptr %1377, align 1
-  switch i8 %1378, label %.thread104 [
+  switch i8 %1378, label %.thread106 [
     i8 3, label %1380
     i8 1, label %1379
     i8 2, label %1381
@@ -5648,7 +5658,7 @@ default.unreachable218:                           ; preds = %1146
 
 1379:                                             ; preds = %.preheader
   %switch = icmp ult i32 %1375, 2
-  br i1 %switch, label %.thread104, label %1384
+  br i1 %switch, label %.thread106, label %1384
 
 1380:                                             ; preds = %.preheader
   br label %1381
@@ -5675,7 +5685,7 @@ default.unreachable218:                           ; preds = %1146
   %1393 = getelementptr inbounds i8, ptr %1, i64 384
   store ptr %1392, ptr %1393, align 8
   %1394 = icmp eq ptr %1392, null
-  br i1 %1394, label %.thread104, label %1395
+  br i1 %1394, label %.thread106, label %1395
 
 1395:                                             ; preds = %1387
   store i8 1, ptr %1392, align 1
@@ -5691,26 +5701,26 @@ default.unreachable218:                           ; preds = %1146
   %1402 = getelementptr i8, ptr %1389, i64 %1376
   %1403 = getelementptr i8, ptr %1402, i64 -1
   store ptr %1403, ptr %1364, align 8
-  br label %.thread104
+  br label %.thread106
 
-.thread104:                                       ; preds = %.preheader, %1379, %1395, %1387, %1371, %1367, %1363, %1354, %1345
+.thread106:                                       ; preds = %.preheader, %1379, %1395, %1387, %1371, %1367, %1363, %1354, %1345
   br i1 %26, label %1406, label %1404
 
-1404:                                             ; preds = %.thread104
+1404:                                             ; preds = %.thread106
   %1405 = load ptr, ptr %25, align 8
   br label %1406
 
-1406:                                             ; preds = %1404, %.thread104
-  %1407 = phi ptr [ %1405, %1404 ], [ null, %.thread104 ]
+1406:                                             ; preds = %1404, %.thread106
+  %1407 = phi ptr [ %1405, %1404 ], [ null, %.thread106 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1407, i32 noundef 1, ptr noundef nonnull @.str.108) #17
-  br label %.thread90
+  br label %.thread92
 
 1408:                                             ; preds = %1263, %1343
   call void @kfree(ptr noundef nonnull %1244) #17
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(96) %1247, i8 0, i64 96, i1 false)
-  br label %.thread90
+  br label %.thread92
 
-.thread90:                                        ; preds = %1234, %1219, %.loopexit, %1408, %1406, %1242, %1238, %1182, %1174, %.loopexit112, %96, %86, %22, %11
+.thread92:                                        ; preds = %1234, %1219, %.loopexit, %1408, %1406, %1242, %1238, %1182, %1174, %.loopexit114, %96, %86, %22, %11
   ret void
 }
 

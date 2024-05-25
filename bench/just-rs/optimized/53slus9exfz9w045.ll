@@ -13033,13 +13033,16 @@ _ZN4just5lexer5Lexer4rest17h9dc0b956cc9a07d5E.exit.i: ; preds = %"_ZN4core3str21
   %757 = trunc nuw i8 %756 to i1
   %758 = getelementptr inbounds i8, ptr %755, i64 1
   %759 = load i8, ptr %758, align 1, !range !1222, !noalias !2298, !noundef !4
-  switch i8 %759, label %default.unreachable [
+  switch i8 %759, label %.lr.ph.i.i.i.unreachabledefault [
     i8 0, label %760
     i8 1, label %761
     i8 2, label %762
   ]
 
-default.unreachable:                              ; preds = %.lr.ph.i.i.i, %848, %765
+.lr.ph.i.i.i.unreachabledefault:                  ; preds = %.lr.ph.i.i.i
+  unreachable
+
+default.unreachable:                              ; preds = %848, %765
   unreachable
 
 760:                                              ; preds = %.lr.ph.i.i.i

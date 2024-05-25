@@ -1184,10 +1184,11 @@ define internal noundef ptr @pci_mmcfg_intel_945() #0 section ".init.text" align
 8:                                                ; preds = %0
   %9 = lshr i32 %5, 1
   %10 = and i32 %9, 3
-  switch i32 %10, label %26 [
+  switch i32 %10, label %default.unreachable1 [
     i32 0, label %13
     i32 1, label %11
     i32 2, label %12
+    i32 3, label %26
   ]
 
 11:                                               ; preds = %8
@@ -1196,7 +1197,7 @@ define internal noundef ptr @pci_mmcfg_intel_945() #0 section ".init.text" align
 12:                                               ; preds = %8
   br label %13
 
-13:                                               ; preds = %12, %11, %8
+13:                                               ; preds = %8, %12, %11
   %14 = phi i32 [ -67108864, %12 ], [ -134217728, %11 ], [ -268435456, %8 ]
   %15 = phi i32 [ 63, %12 ], [ 127, %11 ], [ 255, %8 ]
   %16 = and i32 %14, %5
@@ -1213,7 +1214,10 @@ define internal noundef ptr @pci_mmcfg_intel_945() #0 section ".init.text" align
   %25 = select i1 %24, ptr null, ptr @.str.12
   br label %26
 
-26:                                               ; preds = %21, %13, %8, %0
+default.unreachable1:                             ; preds = %8
+  unreachable
+
+26:                                               ; preds = %8, %21, %13, %0
   %27 = phi ptr [ null, %0 ], [ null, %8 ], [ null, %13 ], [ %25, %21 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #11
   ret ptr %27

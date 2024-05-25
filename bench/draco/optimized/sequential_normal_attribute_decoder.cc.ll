@@ -5416,6 +5416,9 @@ _ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread110: ; preds = %49, %47
   %54 = sub nsw i32 0, %40
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit
 
+default.unreachable:                              ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge
+  unreachable
+
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit: ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread100, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread105, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread110
   %.0.i89195.neg = phi i32 [ -3, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread110 ], [ -2, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread105 ], [ -1, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread100 ]
   %.sroa.550.0 = phi i32 [ %41, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread110 ], [ %53, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread105 ], [ %51, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread100 ]
@@ -5486,10 +5489,11 @@ _ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13: ; 
 
 _ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge: ; preds = %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13
   %89 = and i32 %.0.i892.neg, 3
-  switch i32 %89, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17 [
+  switch i32 %89, label %default.unreachable [
     i32 1, label %90
     i32 2, label %92
     i32 3, label %95
+    i32 0, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17
   ]
 
 90:                                               ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge

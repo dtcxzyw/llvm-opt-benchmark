@@ -1649,10 +1649,11 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr nocaptur
   %45 = and i32 %43, 1
   %46 = lshr i32 %43, 1
   %47 = and i32 %46, 1
-  switch i32 %44, label %_ZN13MarchingCubes9SetVertexEiPKdd.exit [
+  switch i32 %44, label %.unreachabledefault [
     i32 0, label %48
     i32 1, label %67
     i32 2, label %85
+    i32 3, label %_ZN13MarchingCubes9SetVertexEiPKdd.exit
   ]
 
 48:                                               ; preds = %42
@@ -1726,7 +1727,10 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr nocaptur
   store double %.sink.i, ptr %100, align 8
   br label %_ZN13MarchingCubes9SetVertexEiPKdd.exit
 
-_ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %42, %40
+.unreachabledefault:                              ; preds = %42
+  unreachable
+
+_ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %42, %.sink.split.i, %40
   %101 = shl i32 %.041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12

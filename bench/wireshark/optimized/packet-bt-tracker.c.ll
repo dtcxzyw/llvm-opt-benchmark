@@ -288,7 +288,7 @@ get_message_type.exit:                            ; preds = %11, %14, %17, %20, 
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %43, %40, %get_message_type.exit
-  switch i32 %.0.i, label %dissect_bt_tracker_msg.exit [
+  switch i32 %.0.i, label %default.unreachable [
     i32 0, label %47
     i32 1, label %54
     i32 2, label %61
@@ -296,6 +296,7 @@ proto_item_set_generated.exit.i:                  ; preds = %43, %40, %get_messa
     i32 4, label %199
     i32 5, label %213
     i32 6, label %231
+    i32 7, label %dissect_bt_tracker_msg.exit
   ]
 
 47:                                               ; preds = %proto_item_set_generated.exit.i
@@ -601,6 +602,9 @@ is_ipv4_format.exit.i:                            ; preds = %157, %155, %.tail.i
   %237 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %236, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0) #4
   %238 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %dissect_bt_tracker_msg.exit
+
+default.unreachable:                              ; preds = %proto_item_set_generated.exit.i
+  unreachable
 
 dissect_bt_tracker_msg.exit:                      ; preds = %.lr.ph.i, %.lr.ph219.i, %proto_item_set_generated.exit.i, %47, %54, %dissect_bt_tracker_extension.exit.i, %123, %._crit_edge.i, %199, %213, %231
   %.3.i = phi i32 [ 0, %proto_item_set_generated.exit.i ], [ %238, %231 ], [ %.0.lcssa.i, %._crit_edge.i ], [ 20, %123 ], [ %.034.i.i, %dissect_bt_tracker_extension.exit.i ], [ 16, %54 ], [ 16, %47 ], [ 16, %199 ], [ 8, %213 ], [ %210, %.lr.ph219.i ], [ %228, %.lr.ph.i ]

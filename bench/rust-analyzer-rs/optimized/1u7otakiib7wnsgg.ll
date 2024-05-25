@@ -340,11 +340,15 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$either..Either$LT$syntax..a
 11:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %13 [
+  switch i64 %2, label %default.unreachable1.i [
     i64 0, label %19
     i64 1, label %25
     i64 2, label %31
+    i64 3, label %13
   ]
+
+default.unreachable1.i:                           ; preds = %11
+  unreachable
 
 13:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
@@ -584,9 +588,9 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$$u5b$either..Either$LT$synt
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr121drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..Attr$C$syntax..ast..generated..nodes..AssocItem$GT$$GT$17hf5f895e11cf6470bE.llvm.13346703328537446882.exit"
-  %.07 = phi i64 [ %5, %"_ZN4core3ptr121drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..Attr$C$syntax..ast..generated..nodes..AssocItem$GT$$GT$17hf5f895e11cf6470bE.llvm.13346703328537446882.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %0, i64 0, i64 %.07
-  %5 = add nuw i64 %.07, 1
+  %.08 = phi i64 [ %5, %"_ZN4core3ptr121drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..Attr$C$syntax..ast..generated..nodes..AssocItem$GT$$GT$17hf5f895e11cf6470bE.llvm.13346703328537446882.exit" ], [ 0, %2 ]
+  %4 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %0, i64 0, i64 %.08
+  %5 = add nuw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %6 = load i64, ptr %4, align 8, !range !93, !alias.scope !200, !noundef !4
   %7 = icmp eq i64 %6, 4
@@ -609,11 +613,15 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$$u5b$either..Either$LT$synt
 15:                                               ; preds = %.lr.ph
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
   %16 = getelementptr inbounds i8, ptr %4, i64 8
-  switch i64 %6, label %17 [
+  switch i64 %6, label %default.unreachable1.i.i [
     i64 0, label %23
     i64 1, label %29
     i64 2, label %35
+    i64 3, label %17
   ]
+
+default.unreachable1.i.i:                         ; preds = %15
+  unreachable
 
 17:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
@@ -5736,7 +5744,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..node
 define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17hcb09c93f2910b6e8E.llvm.13346703328537446882"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !2787, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
@@ -5752,7 +5760,11 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..node
     i64 12, label %82
     i64 13, label %88
     i64 14, label %94
+    i64 15, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2788)
@@ -8202,11 +8214,15 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..node
 define hidden void @"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..AssocItem$GT$17h5b4e775d99b40294E.llvm.13346703328537446882"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !740, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  switch i64 %2, label %4 [
+  switch i64 %2, label %default.unreachable1 [
     i64 0, label %10
     i64 1, label %16
     i64 2, label %22
+    i64 3, label %4
   ]
+
+default.unreachable1:                             ; preds = %1
+  unreachable
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4161)

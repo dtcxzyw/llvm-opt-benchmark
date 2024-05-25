@@ -1069,20 +1069,22 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %128 = add nsw i32 %114, -9
   %129 = shl i64 %113, 9
   %130 = icmp sgt i64 %113, -1
-  switch i32 %118, label %200 [
+  switch i32 %118, label %default.unreachable149 [
     i32 3, label %189
     i32 2, label %195
     i32 1, label %194
+    i32 0, label %200
   ]
 
 131:                                              ; preds = %200, %189
   %132 = phi i32 [ %191, %189 ], [ %201, %200 ]
   %133 = phi i64 [ %193, %189 ], [ %129, %200 ]
   %134 = phi i32 [ %192, %189 ], [ %128, %200 ]
-  switch i32 %121, label %146 [
+  switch i32 %121, label %default.unreachable149 [
     i32 3, label %136
     i32 2, label %135
     i32 1, label %142
+    i32 0, label %146
   ]
 
 135:                                              ; preds = %131
@@ -1097,13 +1099,13 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %141 = shl i64 %133, 4
   br label %149
 
-142:                                              ; preds = %135, %131
+142:                                              ; preds = %131, %135
   %143 = phi i32 [ -1, %135 ], [ %121, %131 ]
   %144 = add nsw i32 %143, %76
   %145 = icmp slt i32 %144, 0
   br i1 %145, label %199, label %146
 
-146:                                              ; preds = %142, %131
+146:                                              ; preds = %131, %142
   %147 = phi i32 [ %144, %142 ], [ %76, %131 ]
   %148 = icmp ugt i32 %147, 16
   br i1 %148, label %203, label %149
@@ -1112,10 +1114,11 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %150 = phi i32 [ %139, %136 ], [ %147, %146 ]
   %151 = phi i64 [ %141, %136 ], [ %133, %146 ]
   %152 = phi i32 [ %140, %136 ], [ %134, %146 ]
-  switch i32 %124, label %164 [
+  switch i32 %124, label %default.unreachable149 [
     i32 3, label %154
     i32 2, label %153
     i32 1, label %160
+    i32 0, label %164
   ]
 
 153:                                              ; preds = %149
@@ -1130,13 +1133,13 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %159 = shl i64 %151, 4
   br label %167
 
-160:                                              ; preds = %153, %149
+160:                                              ; preds = %149, %153
   %161 = phi i32 [ -1, %153 ], [ %124, %149 ]
   %162 = add nsw i32 %161, %77
   %163 = icmp slt i32 %162, 0
   br i1 %163, label %199, label %164
 
-164:                                              ; preds = %160, %149
+164:                                              ; preds = %149, %160
   %165 = phi i32 [ %162, %160 ], [ %77, %149 ]
   %166 = icmp ugt i32 %165, 16
   br i1 %166, label %203, label %167
@@ -1145,10 +1148,11 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %168 = phi i32 [ %157, %154 ], [ %165, %164 ]
   %169 = phi i64 [ %159, %154 ], [ %151, %164 ]
   %170 = phi i32 [ %158, %154 ], [ %152, %164 ]
-  switch i32 %127, label %182 [
+  switch i32 %127, label %default.unreachable149 [
     i32 3, label %172
     i32 2, label %171
     i32 1, label %178
+    i32 0, label %182
   ]
 
 171:                                              ; preds = %167
@@ -1163,13 +1167,13 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %177 = shl i64 %169, 4
   br label %185
 
-178:                                              ; preds = %171, %167
+178:                                              ; preds = %167, %171
   %179 = phi i32 [ -1, %171 ], [ %127, %167 ]
   %180 = add nsw i32 %179, %78
   %181 = icmp slt i32 %180, 0
   br i1 %181, label %199, label %182
 
-182:                                              ; preds = %178, %167
+182:                                              ; preds = %167, %178
   %183 = phi i32 [ %180, %178 ], [ %78, %167 ]
   %184 = icmp ugt i32 %183, 16
   br i1 %184, label %203, label %185
@@ -1190,7 +1194,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
 194:                                              ; preds = %112
   br label %195
 
-195:                                              ; preds = %194, %112
+195:                                              ; preds = %112, %194
   %196 = phi i32 [ 1, %194 ], [ -1, %112 ]
   %197 = add nsw i32 %196, %75
   %198 = icmp slt i32 %197, 0
@@ -1200,7 +1204,10 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10ByteStreamE) #19
   unreachable
 
-200:                                              ; preds = %195, %112
+default.unreachable149:                           ; preds = %167, %149, %131, %112
+  unreachable
+
+200:                                              ; preds = %112, %195
   %201 = phi i32 [ %197, %195 ], [ %75, %112 ]
   %202 = icmp ugt i32 %201, 16
   br i1 %202, label %203, label %131

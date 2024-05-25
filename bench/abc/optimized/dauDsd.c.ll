@@ -4364,26 +4364,26 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 
 .lr.ph.lr.ph:                                     ; preds = %17
   %narrow = add nsw i32 %.028, -1
-  %indvars.iv.next5683 = sext i32 %narrow to i64
+  %indvars.iv.next5685 = sext i32 %narrow to i64
   %20 = add nsw i32 %.028, -2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %._crit_edge
-  %indvars.iv.next5686 = phi i64 [ %indvars.iv.next5683, %.lr.ph.lr.ph ], [ %indvars.iv.next56, %._crit_edge ]
-  %.185 = phi i32 [ %.028, %.lr.ph.lr.ph ], [ %.3, %._crit_edge ]
-  %indvars.iv84 = phi i32 [ %20, %.lr.ph.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %21 = trunc i64 %indvars.iv.next5686 to i32
-  %22 = zext i32 %indvars.iv84 to i64
-  %23 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next5686
-  %24 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next5686
+  %indvars.iv.next5688 = phi i64 [ %indvars.iv.next5685, %.lr.ph.lr.ph ], [ %indvars.iv.next56, %._crit_edge ]
+  %.187 = phi i32 [ %.028, %.lr.ph.lr.ph ], [ %.3, %._crit_edge ]
+  %indvars.iv86 = phi i32 [ %20, %.lr.ph.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
+  %21 = trunc i64 %indvars.iv.next5688 to i32
+  %22 = zext i32 %indvars.iv86 to i64
+  %23 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next5688
+  %24 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next5688
   %25 = shl nuw i32 1, %21
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.next5686
+  %27 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.next5688
   br label %28
 
 28:                                               ; preds = %.lr.ph, %233
   %indvars.iv53 = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next54, %233 ]
-  %.239 = phi i32 [ %.185, %.lr.ph ], [ %.3, %233 ]
+  %.239 = phi i32 [ %.187, %.lr.ph ], [ %.3, %233 ]
   %29 = load i32, ptr %23, align 4
   %30 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv53
   %31 = load i32, ptr %30, align 4
@@ -4424,10 +4424,11 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %28
   %59 = or disjoint i32 %53, %58
   %60 = trunc nuw nsw i32 %59 to i8
   store i8 %60, ptr %34, align 1
-  switch i32 %59, label %Dau_Dsd6DecomposeDoubleVarsOne.exit [
+  switch i32 %59, label %Dau_Dsd6FindSupportOne.exit.i.unreachabledefault [
     i32 3, label %61
     i32 2, label %92
     i32 1, label %143
+    i32 0, label %Dau_Dsd6DecomposeDoubleVarsOne.exit
   ]
 
 61:                                               ; preds = %Dau_Dsd6FindSupportOne.exit.i
@@ -4656,6 +4657,9 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %219 = call i32 @Dau_Dsd6DecomposeSingleVar(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %218)
   br label %Dau_Dsd6DecomposeDoubleVarsOne.exit
 
+Dau_Dsd6FindSupportOne.exit.i.unreachabledefault: ; preds = %Dau_Dsd6FindSupportOne.exit.i
+  unreachable
+
 Dau_Dsd6DecomposeDoubleVarsOne.exit:              ; preds = %Dau_Dsd6FindSupportOne.exit.i, %61, %70, %118, %170, %Dau_DsdAddVarDef.exit.i, %217
   %.0.i30 = phi i32 [ %.239, %Dau_Dsd6FindSupportOne.exit.i ], [ %.239, %118 ], [ %.239, %170 ], [ %.239, %61 ], [ %.239, %70 ], [ %219, %217 ], [ %211, %Dau_DsdAddVarDef.exit.i ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6)
@@ -4694,9 +4698,9 @@ Abc_Clock.exit32:                                 ; preds = %221, %224
   br i1 %235, label %28, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %233
-  %indvars.iv.next = add i32 %indvars.iv84, -1
-  %indvars.iv.next56 = add nsw i64 %indvars.iv.next5686, -1
-  %236 = icmp sgt i64 %indvars.iv.next5686, 1
+  %indvars.iv.next = add i32 %indvars.iv86, -1
+  %indvars.iv.next56 = add nsw i64 %indvars.iv.next5688, -1
+  %236 = icmp sgt i64 %indvars.iv.next5688, 1
   br i1 %236, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !77
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %231, %17

@@ -681,55 +681,59 @@ declare noundef i32 @_Z5CRC32jPKvm(i32 noundef, ptr noundef, i64 noundef) local_
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5RarVM8ReadDataER8BitInput(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %3 = trunc i32 %2 to i16
-  %trunc = and i16 %3, -16384
-  switch i16 %trunc, label %18 [
-    i16 0, label %4
-    i16 16384, label %7
-    i16 -32768, label %16
+  %3 = lshr i32 %2, 14
+  %4 = and i32 %3, 3
+  switch i32 %4, label %default.unreachable [
+    i32 0, label %5
+    i32 1, label %8
+    i32 2, label %17
+    i32 3, label %19
   ]
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 6)
-  %5 = lshr i32 %2, 10
-  %6 = and i32 %5, 15
-  br label %23
+  %6 = lshr i32 %2, 10
+  %7 = and i32 %6, 15
+  br label %24
 
-7:                                                ; preds = %1
-  %8 = and i32 %2, 15360
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+8:                                                ; preds = %1
+  %9 = and i32 %2, 15360
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-10:                                               ; preds = %7
-  %11 = lshr i32 %2, 2
-  %12 = or i32 %11, -256
+11:                                               ; preds = %8
+  %12 = lshr i32 %2, 2
+  %13 = or i32 %12, -256
   tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 14)
-  br label %23
+  br label %24
 
-13:                                               ; preds = %7
-  %14 = lshr i32 %2, 6
-  %15 = and i32 %14, 255
+14:                                               ; preds = %8
+  %15 = lshr i32 %2, 6
+  %16 = and i32 %15, 255
   tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 10)
-  br label %23
+  br label %24
 
-16:                                               ; preds = %1
+17:                                               ; preds = %1
   tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2)
-  %17 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %18 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 16)
-  br label %23
+  br label %24
 
-18:                                               ; preds = %1
+default.unreachable:                              ; preds = %1
+  unreachable
+
+19:                                               ; preds = %1
   tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2)
-  %19 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %20 = shl i32 %19, 16
+  %20 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %21 = shl i32 %20, 16
   tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 16)
-  %21 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %22 = or i32 %21, %20
+  %22 = tail call noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %23 = or i32 %22, %21
   tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 16)
-  br label %23
+  br label %24
 
-23:                                               ; preds = %10, %13, %18, %16, %4
-  %.021 = phi i32 [ %22, %18 ], [ %17, %16 ], [ %6, %4 ], [ %12, %10 ], [ %15, %13 ]
+24:                                               ; preds = %11, %14, %19, %17, %5
+  %.021 = phi i32 [ %23, %19 ], [ %18, %17 ], [ %7, %5 ], [ %13, %11 ], [ %16, %14 ]
   ret i32 %.021
 }
 

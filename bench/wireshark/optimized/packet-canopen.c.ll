@@ -528,7 +528,7 @@ define internal i32 @dissect_canopen(ptr noundef %0, ptr nocapture noundef reado
   %13 = and i32 %.sroa.0.0.copyload, 127
   %14 = lshr i32 %.sroa.0.0.copyload, 7
   %15 = and i32 %14, 15
-  switch i32 %15, label %31 [
+  switch i32 %15, label %default.unreachable [
     i32 0, label %canopen_detect_msg_type.exit.thread
     i32 1, label %16
     i32 2, label %18
@@ -544,6 +544,7 @@ define internal i32 @dissect_canopen(ptr noundef %0, ptr nocapture noundef reado
     i32 12, label %28
     i32 14, label %29
     i32 15, label %30
+    i32 13, label %31
   ]
 
 16:                                               ; preds = %9
@@ -591,6 +592,9 @@ define internal i32 @dissect_canopen(ptr noundef %0, ptr nocapture noundef reado
     i32 101, label %canopen_detect_msg_type.exit.thread142
     i32 100, label %33
   ]
+
+default.unreachable:                              ; preds = %9
+  unreachable
 
 31:                                               ; preds = %9
   br label %canopen_detect_msg_type.exit.thread
