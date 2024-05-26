@@ -115,8 +115,8 @@ define void @dlaqr0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %81 = add nsw i32 %68, 1
   store i32 %81, ptr %17, align 4, !tbaa !3
   call void @dlaqr3_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %17, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %12, ptr noundef nonnull %29, ptr noundef nonnull %26, ptr noundef %7, ptr noundef %8, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %13, ptr noundef nonnull @c_n1) #5
-  %82 = mul nuw nsw i32 %80, 3
-  %83 = lshr i32 %82, 1
+  %82 = lshr i32 %80, 1
+  %83 = add nuw nsw i32 %82, %80
   store i32 %83, ptr %17, align 4, !tbaa !3
   %84 = load double, ptr %13, align 8, !tbaa !8
   %85 = fptosi double %84 to i32

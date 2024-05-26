@@ -14617,8 +14617,8 @@ charclass.exit:                                   ; preds = %701, %711
   br i1 %.not671.i, label %moresubs.exit, label %736
 
 736:                                              ; preds = %731
-  %737 = mul nsw i64 %734, 3
-  %738 = lshr i64 %737, 1
+  %737 = lshr i64 %734, 1
+  %738 = add nsw i64 %737, %734
   %739 = load ptr, ptr %50, align 8
   %740 = icmp eq ptr %739, %52
   %741 = shl i64 %738, 3

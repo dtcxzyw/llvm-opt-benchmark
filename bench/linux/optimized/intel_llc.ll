@@ -56,14 +56,14 @@ define dso_local void @intel_llc_enable(ptr noundef %0) local_unnamed_addr #0 al
   %37 = icmp ugt i32 %35, %34
   br i1 %37, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %19, %68
-  %38 = phi i32 [ %77, %68 ], [ %35, %19 ]
+.preheader:                                       ; preds = %19, %66
+  %38 = phi i32 [ %75, %66 ], [ %35, %19 ]
   %39 = load ptr, ptr %2, align 8
   %40 = sub i32 %35, %38
   %41 = getelementptr inbounds i8, ptr %39, i64 7176
   %42 = load i8, ptr %41, align 8
   %43 = icmp ugt i8 %42, 8
-  br i1 %43, label %68, label %44
+  br i1 %43, label %66, label %44
 
 44:                                               ; preds = %.preheader
   %45 = icmp eq i8 %42, 8
@@ -71,50 +71,48 @@ define dso_local void @intel_llc_enable(ptr noundef %0) local_unnamed_addr #0 al
 
 46:                                               ; preds = %44
   %47 = tail call i32 @llvm.umax.i32(i32 %33, i32 %38)
-  br label %68
+  br label %66
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %39, i64 7184
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 4194304
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %61, label %53
+  br i1 %52, label %59, label %53
 
 53:                                               ; preds = %48
   %54 = lshr i32 %38, 2
   %55 = and i32 %38, 3
   %56 = mul i32 %54, 5
-  %57 = mul nuw nsw i32 %55, 5
-  %58 = lshr i32 %57, 2
-  %59 = add i32 %58, %56
-  %60 = tail call i32 @llvm.umax.i32(i32 %33, i32 %59)
-  br label %68
+  %57 = add i32 %56, %55
+  %58 = tail call i32 @llvm.umax.i32(i32 %33, i32 %57)
+  br label %66
 
-61:                                               ; preds = %48
-  %62 = icmp ult i32 %38, 15
-  br i1 %62, label %68, label %63
+59:                                               ; preds = %48
+  %60 = icmp ult i32 %38, 15
+  br i1 %60, label %66, label %61
 
-63:                                               ; preds = %61
-  %64 = mul i32 %40, 180
-  %65 = ashr exact i32 %64, 1
-  %66 = sub nsw i32 %36, %65
-  %67 = udiv i32 %66, 100
-  br label %68
+61:                                               ; preds = %59
+  %62 = mul i32 %40, 180
+  %63 = ashr exact i32 %62, 1
+  %64 = sub nsw i32 %36, %63
+  %65 = udiv i32 %64, 100
+  br label %66
 
-68:                                               ; preds = %63, %61, %53, %46, %.preheader
-  %69 = phi i32 [ %47, %46 ], [ %60, %53 ], [ %38, %.preheader ], [ 0, %61 ], [ 0, %63 ]
-  %70 = phi i32 [ 0, %46 ], [ 0, %53 ], [ 0, %.preheader ], [ 8, %61 ], [ %67, %63 ]
-  %71 = load ptr, ptr %22, align 8
-  %72 = shl i32 %70, 8
-  %73 = shl i32 %69, 16
-  %74 = or i32 %73, %72
-  %75 = or i32 %74, %38
-  %76 = tail call i32 @snb_pcode_write_timeout(ptr noundef %71, i32 noundef 8, i32 noundef %75, i32 noundef 500, i32 noundef 0) #4
-  %77 = add i32 %38, -1
-  %78 = icmp ult i32 %77, %34
-  br i1 %78, label %.thread, label %.preheader, !llvm.loop !5
+66:                                               ; preds = %61, %59, %53, %46, %.preheader
+  %67 = phi i32 [ %47, %46 ], [ %58, %53 ], [ %38, %.preheader ], [ 0, %59 ], [ 0, %61 ]
+  %68 = phi i32 [ 0, %46 ], [ 0, %53 ], [ 0, %.preheader ], [ 8, %59 ], [ %65, %61 ]
+  %69 = load ptr, ptr %22, align 8
+  %70 = shl i32 %68, 8
+  %71 = shl i32 %67, 16
+  %72 = or i32 %71, %70
+  %73 = or i32 %72, %38
+  %74 = tail call i32 @snb_pcode_write_timeout(ptr noundef %69, i32 noundef 8, i32 noundef %73, i32 noundef 500, i32 noundef 0) #4
+  %75 = add i32 %38, -1
+  %76 = icmp ult i32 %75, %34
+  br i1 %76, label %.thread, label %.preheader, !llvm.loop !5
 
-.thread:                                          ; preds = %68, %1, %19
+.thread:                                          ; preds = %66, %1, %19
   ret void
 }
 
