@@ -580,7 +580,7 @@ Multilevel_init.exit:                             ; preds = %11, %gv_alloc.exit.
   %.tr25.i = phi ptr [ %29, %Multilevel_init.exit.i ], [ %.0.i, %Multilevel_init.exit ]
   %25 = getelementptr inbounds i8, ptr %.tr25.i, i64 8
   %26 = load ptr, ptr %25, align 8
-  call void @Multilevel_coarsen(ptr noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull readonly byval(%struct.Multilevel_control) align 8 %6)
+  call void @Multilevel_coarsen(ptr noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull byval(%struct.Multilevel_control) align 8 %6)
   %27 = load ptr, ptr %5, align 8
   %.not17.i = icmp eq ptr %27, null
   br i1 %.not17.i, label %Multilevel_establish.exit, label %28

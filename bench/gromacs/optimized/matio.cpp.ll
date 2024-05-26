@@ -32480,13 +32480,13 @@ common.resume:                                    ; preds = %36, %44, %61, %234,
   br i1 %exitcond.not.i.i, label %_ZL19write_xpm_map_splitP8_IO_FILEiiPKiff5t_rgbS3_bPiffS3_S3_.exit, label %.lr.ph.i.i, !llvm.loop !288
 
 97:                                               ; preds = %71
-  tail call fastcc void @_ZL14pr_simple_cmapP8_IO_FILEffi5t_rgbS1_i(ptr noundef %0, float noundef %16, float noundef %17, i32 noundef %74, ptr noundef nonnull readonly byval(%struct.t_rgb) align 8 %20, ptr noundef nonnull readonly byval(%struct.t_rgb) align 8 %21, i32 noundef 0)
+  tail call fastcc void @_ZL14pr_simple_cmapP8_IO_FILEffi5t_rgbS1_i(ptr noundef %0, float noundef %16, float noundef %17, i32 noundef %74, ptr noundef nonnull byval(%struct.t_rgb) align 8 %20, ptr noundef nonnull byval(%struct.t_rgb) align 8 %21, i32 noundef 0)
   br label %_ZL19write_xpm_map_splitP8_IO_FILEiiPKiff5t_rgbS3_bPiffS3_S3_.exit
 
 _ZL19write_xpm_map_splitP8_IO_FILEiiPKiff5t_rgbS3_bPiffS3_S3_.exit: ; preds = %.lr.ph.i.i, %75, %97
   %98 = load i32, ptr %13, align 4
   %99 = load i32, ptr %18, align 4
-  tail call fastcc void @_ZL14pr_simple_cmapP8_IO_FILEffi5t_rgbS1_i(ptr noundef %0, float noundef %11, float noundef %12, i32 noundef %98, ptr noundef nonnull readonly byval(%struct.t_rgb) align 8 %14, ptr noundef nonnull readonly byval(%struct.t_rgb) align 8 %15, i32 noundef %99)
+  tail call fastcc void @_ZL14pr_simple_cmapP8_IO_FILEffi5t_rgbS1_i(ptr noundef %0, float noundef %11, float noundef %12, i32 noundef %98, ptr noundef nonnull byval(%struct.t_rgb) align 8 %14, ptr noundef nonnull byval(%struct.t_rgb) align 8 %15, i32 noundef %99)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25)
   %100 = sext i32 %6 to i64
   %101 = getelementptr inbounds float, ptr %8, i64 %100

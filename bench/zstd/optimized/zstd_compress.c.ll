@@ -8036,7 +8036,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams1.i, ptr noundef nonnull readonly align 8 dereferenceable(28) %cParams6, i64 28, i1 false)
   %customMem2.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem2.i, i8 0, i64 24, i1 false)
-  %call3.i = call ptr @ZSTD_createCDict_advanced2(ptr noundef %dict, i64 noundef %dictSize, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %cctxParams.i, ptr noundef nonnull readonly byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
+  %call3.i = call ptr @ZSTD_createCDict_advanced2(ptr noundef %dict, i64 noundef %dictSize, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %cctxParams.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams6)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %cctxParams.i)
   %tobool.not = icmp eq ptr %call3.i, null
@@ -8068,7 +8068,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams1.i, ptr noundef nonnull readonly align 8 dereferenceable(28) %cParams6, i64 28, i1 false)
   %customMem2.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem2.i, i8 0, i64 24, i1 false)
-  %call3.i = call ptr @ZSTD_createCDict_advanced2(ptr noundef %dict, i64 noundef %dictSize, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %cctxParams.i, ptr noundef nonnull readonly byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
+  %call3.i = call ptr @ZSTD_createCDict_advanced2(ptr noundef %dict, i64 noundef %dictSize, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %cctxParams.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams6)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %cctxParams.i)
   %tobool.not = icmp eq ptr %call3.i, null

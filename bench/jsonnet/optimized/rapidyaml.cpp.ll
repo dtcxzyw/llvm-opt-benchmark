@@ -2005,7 +2005,7 @@ define dso_local noalias noundef ptr @_ZN2c43yml13allocate_implEmPvS1_(i64 nound
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %5, ptr noundef nonnull align 16 dereferenceable(26) @__const._ZN2c43yml13allocate_implEmPvS1_.msg, i64 26, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call void @_ZN2c43yml17report_error_implEPKcmNS0_8LocationEP8_IO_FILE(ptr noundef nonnull %5, i64 noundef 25, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef null)
+  call void @_ZN2c43yml17report_error_implEPKcmNS0_8LocationEP8_IO_FILE(ptr noundef nonnull %5, i64 noundef 25, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef null)
   call void @abort() #38
   unreachable
 
@@ -19852,7 +19852,7 @@ _ZN2c43yml6Parser41_maybe_set_indentation_from_anchor_or_tagEv.exit190: ; preds 
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %447 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %448 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %447(ptr noundef nonnull @.str.242, i64 noundef 57, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %448)
+  call void %447(ptr noundef nonnull @.str.242, i64 noundef 57, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %448)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   br label %449
 
@@ -21290,7 +21290,7 @@ _ZN2c43yml6Parser20_append_key_val_nullEPKc.exit: ; preds = %150, %157
   store i64 127, ptr %.sroa.5.0..sroa_idx.i, align 8
   %176 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %177 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %176(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %14, ptr noundef %177)
+  call void %176(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %14, ptr noundef %177)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   %.pre.i = load ptr, ptr %43, align 8
   %.pre2.i = load i32, ptr %.pre.i, align 8
@@ -25627,7 +25627,7 @@ define dso_local void @_ZN2c43yml6Parser10_start_seqEb(ptr noundef nonnull align
   store i64 127, ptr %.sroa.5.0..sroa_idx.i, align 8
   %141 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %142 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %141(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %20, ptr noundef %142)
+  call void %141(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %20, ptr noundef %142)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
   %.pre.i = load ptr, ptr %31, align 8
   %.pre4.i = load i32, ptr %.pre.i, align 8
@@ -26022,7 +26022,7 @@ _ZN2c43yml4Tree6to_seqEmm.exit:                   ; preds = %268, %273, %277
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %316 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %317 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %316(ptr noundef nonnull @.str.343, i64 noundef 46, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %11, ptr noundef %317)
+  call void %316(ptr noundef nonnull @.str.343, i64 noundef 46, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %11, ptr noundef %317)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %.pre101 = load ptr, ptr %45, align 8
   %.pre102 = load ptr, ptr %.pre101, align 8
@@ -26869,7 +26869,7 @@ _ZN2c43yml4Tree6to_mapEmm.exit:                   ; preds = %219, %224, %228
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %282 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %283 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %282(ptr noundef nonnull @.str.343, i64 noundef 46, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %11, ptr noundef %283)
+  call void %282(ptr noundef nonnull @.str.343, i64 noundef 46, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %11, ptr noundef %283)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %.pre101 = load ptr, ptr %35, align 8
   %.pre102 = load ptr, ptr %.pre101, align 8
@@ -27263,7 +27263,7 @@ define linkonce_odr dso_local void @_ZN2c43yml6Parser18_store_scalar_nullEPKc(pt
   store i64 127, ptr %.sroa.5.0..sroa_idx.i, align 8
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %28 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %27(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %28)
+  call void %27(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %28)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %.pre.i = load ptr, ptr %21, align 8
   %.pre2.i = load i32, ptr %.pre.i, align 8
@@ -29451,7 +29451,7 @@ define dso_local { ptr, i64 } @_ZN2c43yml6Parser15_consume_scalarEv(ptr nocaptur
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %9 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %8(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %9)
+  tail call void %8(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %.pre = load ptr, ptr %3, align 8
   %.pre4 = load i32, ptr %.pre, align 8
@@ -29629,7 +29629,7 @@ define dso_local noundef ptr @_ZN2c43yml6Parser15_append_key_valENS_15basic_subs
   store i64 127, ptr %.sroa.5.0..sroa_idx.i, align 8
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %40 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %39(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %9, ptr noundef %40)
+  call void %39(ptr noundef nonnull @.str.351, i64 noundef 35, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %9, ptr noundef %40)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   %.pre.i = load ptr, ptr %14, align 8
   %.pre4.i = load i32, ptr %.pre.i, align 8
@@ -30090,7 +30090,7 @@ define dso_local void @_ZN2c43yml6Parser9_stop_mapEv(ptr noundef nonnull align 8
   store i64 127, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %56 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %55(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef %56)
+  call void %55(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef %56)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %.pre.i.i = load ptr, ptr %11, align 8
   %.pre2.i.i = load i32, ptr %.pre.i.i, align 8
@@ -30300,7 +30300,7 @@ define dso_local void @_ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcE
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %13 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %12(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %13)
+  tail call void %12(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.pre = load ptr, ptr %6, align 8
   %.pre2 = load i32, ptr %.pre, align 8
@@ -31176,7 +31176,7 @@ define dso_local void @_ZN2c43yml6Parser14_start_seqimapEv(ptr noundef nonnull a
   store i64 127, ptr %.sroa.5.0..sroa_idx.i, align 8
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %47 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %46(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %47)
+  call void %46(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %47)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.pre.i = load ptr, ptr %8, align 8
   %.pre2.i = load i32, ptr %.pre.i, align 8
@@ -31256,7 +31256,7 @@ _ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi.exit: ; preds = %37,
   store i64 127, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %80 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %81 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %80(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %81)
+  call void %80(ptr noundef nonnull @.str.350, i64 noundef 28, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %81)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %.pre.i.i = load ptr, ptr %8, align 8
   %.pre2.i.i = load i32, ptr %.pre.i.i, align 8
@@ -42112,7 +42112,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit82:     ; preds = %151, %170
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %190 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %191 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %190(ptr noundef nonnull @.str.314, i64 noundef 34, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %10, ptr noundef %191)
+  call void %190(ptr noundef nonnull @.str.314, i64 noundef 34, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %10, ptr noundef %191)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br label %192
 
@@ -43612,7 +43612,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit: ; preds = %32
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %42 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %41(ptr noundef nonnull @.str.333, i64 noundef 46, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %42)
+  tail call void %41(ptr noundef nonnull @.str.333, i64 noundef 46, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %42)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %.pre = load ptr, ptr %26, align 8
   %.pre52 = load ptr, ptr %.pre, align 8
@@ -49468,7 +49468,7 @@ _ZNK2c415basic_substringIKcE9ends_withEc.exit:    ; preds = %_ZNK2c415basic_subs
   store i64 127, ptr %.sroa.5.0..sroa_idx, align 8
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %15 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %14(ptr noundef nonnull @.str.448, i64 noundef 30, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %6, ptr noundef %15)
+  tail call void %14(ptr noundef nonnull @.str.448, i64 noundef 30, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %6, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %16
 
@@ -50170,7 +50170,7 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit50: ; preds = %.lr.ph.i44, %65, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %70 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %71 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %70(ptr noundef nonnull %4, i64 noundef 1023, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %71)
+  call void %70(ptr noundef nonnull %4, i64 noundef 1023, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %71)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   br label %.critedge
 
@@ -50474,7 +50474,7 @@ _ZNK2c415basic_substringIKcE9ends_withES2_.exit:  ; preds = %99, %91
   store i64 127, ptr %.sroa.5196.0..sroa_idx, align 8
   %104 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %105 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %104(ptr noundef nonnull @.str.452, i64 noundef 68, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %105)
+  tail call void %104(ptr noundef nonnull @.str.452, i64 noundef 68, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %5, ptr noundef %105)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit.thread
 
@@ -50619,7 +50619,7 @@ _ZNK2c415basic_substringIKcE9ends_withES2_.exit131: ; preds = %162, %150
   store i64 127, ptr %.sroa.5185.0..sroa_idx, align 8
   %167 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %168 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %167(ptr noundef nonnull @.str.453, i64 noundef 68, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef %168)
+  tail call void %167(ptr noundef nonnull @.str.453, i64 noundef 68, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef %168)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit131.thread
 
@@ -50820,7 +50820,7 @@ _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit14
   store i64 127, ptr %.sroa.5163.0..sroa_idx, align 8
   %260 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %261 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  tail call void %260(ptr noundef nonnull @.str.455, i64 noundef 49, ptr noundef nonnull readonly byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %261)
+  tail call void %260(ptr noundef nonnull @.str.455, i64 noundef 49, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %261)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   br label %262
 

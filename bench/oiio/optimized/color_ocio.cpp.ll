@@ -13186,7 +13186,7 @@ entry:
   store ptr %10, ptr %agg.tmp11.i, align 8, !noalias !179
   %m_len.i9.i = getelementptr inbounds i8, ptr %agg.tmp11.i, i64 8
   store i64 %11, ptr %m_len.i9.i, align 8, !noalias !179
-  %call.i = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11ociodisplayERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEES8_S8_S8_bbS8_S8_PKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i, ptr noundef nonnull %agg.tmp4.i, ptr noundef nonnull %agg.tmp6.i, i1 noundef zeroext %unpremult, i1 noundef zeroext false, ptr noundef nonnull %agg.tmp9.i, ptr noundef nonnull %agg.tmp11.i, ptr noundef %colorconfig, ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  %call.i = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11ociodisplayERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEES8_S8_S8_bbS8_S8_PKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i, ptr noundef nonnull %agg.tmp4.i, ptr noundef nonnull %agg.tmp6.i, i1 noundef zeroext %unpremult, i1 noundef zeroext false, ptr noundef nonnull %agg.tmp9.i, ptr noundef nonnull %agg.tmp11.i, ptr noundef %colorconfig, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont14.i unwind label %lpad.i
 
 invoke.cont14.i:                                  ; preds = %entry

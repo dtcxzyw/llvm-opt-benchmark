@@ -1685,7 +1685,7 @@ call.i.i2.i.i.noexc:                              ; preds = %sw.bb78
   store ptr %call.i.i2.i.i273, ptr %agg.tmp2.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5warp_IccEEbRNS0_8ImageBufERKS4_RKN9Imath_2_58Matrix33IfEEPKNS0_8Filter2DENS4_8WrapModeEbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5warp_IccEEbRNS0_8ImageBufERKS4_RKN9Imath_2_58Matrix33IfEEPKNS0_8Filter2DENS4_8WrapModeEbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %dst_roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %dst_roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i271
 
 invoke.cont.i:                                    ; preds = %call.i.i2.i.i.noexc
@@ -1773,7 +1773,7 @@ call.i.i2.i.i.noexc305:                           ; preds = %sw.bb84
   store ptr %call.i.i2.i.i306, ptr %agg.tmp2.i280, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5warp_IssEEbRNS0_8ImageBufERKS4_RKN9Imath_2_58Matrix33IfEEPKNS0_8Filter2DENS4_8WrapModeEbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i288, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5warp_IssEEbRNS0_8ImageBufERKS4_RKN9Imath_2_58Matrix33IfEEPKNS0_8Filter2DENS4_8WrapModeEbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr %_M_manager.i.i.i287, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %dst_roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i279, ptr noundef nonnull %agg.tmp2.i280)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %dst_roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i279, ptr noundef nonnull %agg.tmp2.i280)
           to label %invoke.cont.i300 unwind label %lpad.i294
 
 invoke.cont.i300:                                 ; preds = %call.i.i2.i.i.noexc305
@@ -1861,7 +1861,7 @@ call.i.i2.i.i.noexc339:                           ; preds = %sw.bb90
   store ptr %call.i.i2.i.i340, ptr %agg.tmp2.i314, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5warp_IjjEEbRNS0_8ImageBufERKS4_RKN9Imath_2_58Matrix33IfEEPKNS0_8Filter2DENS4_8WrapModeEbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i322, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5warp_IjjEEbRNS0_8ImageBufERKS4_RKN9Imath_2_58Matrix33IfEEPKNS0_8Filter2DENS4_8WrapModeEbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr %_M_manager.i.i.i321, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %dst_roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i313, ptr noundef nonnull %agg.tmp2.i314)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %dst_roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i313, ptr noundef nonnull %agg.tmp2.i314)
           to label %invoke.cont.i334 unwind label %lpad.i328
 
 invoke.cont.i334:                                 ; preds = %call.i.i2.i.i.noexc339
@@ -1949,7 +1949,7 @@ call.i.i2.i.i.noexc373:                           ; preds = %sw.bb96
   store ptr %call.i.i2.i.i374, ptr %agg.tmp2.i348, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5warp_IiiEEbRNS0_8ImageBufERKS4_RKN9Imath_2_58Matrix33IfEEPKNS0_8Filter2DENS4_8WrapModeEbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i356, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5warp_IiiEEbRNS0_8ImageBufERKS4_RKN9Imath_2_58Matrix33IfEEPKNS0_8Filter2DENS4_8WrapModeEbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr %_M_manager.i.i.i355, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %dst_roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i347, ptr noundef nonnull %agg.tmp2.i348)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %dst_roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i347, ptr noundef nonnull %agg.tmp2.i348)
           to label %invoke.cont.i368 unwind label %lpad.i362
 
 invoke.cont.i368:                                 ; preds = %call.i.i2.i.i.noexc373
@@ -2037,7 +2037,7 @@ call.i.i2.i.i.noexc407:                           ; preds = %sw.bb102
   store ptr %call.i.i2.i.i408, ptr %agg.tmp2.i382, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5warp_IddEEbRNS0_8ImageBufERKS4_RKN9Imath_2_58Matrix33IfEEPKNS0_8Filter2DENS4_8WrapModeEbS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i390, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5warp_IddEEbRNS0_8ImageBufERKS4_RKN9Imath_2_58Matrix33IfEEPKNS0_8Filter2DENS4_8WrapModeEbS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr %_M_manager.i.i.i389, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %dst_roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i381, ptr noundef nonnull %agg.tmp2.i382)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %dst_roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i381, ptr noundef nonnull %agg.tmp2.i382)
           to label %invoke.cont.i402 unwind label %lpad.i396
 
 invoke.cont.i402:                                 ; preds = %call.i.i2.i.i.noexc407
@@ -2533,7 +2533,7 @@ entry:
   br i1 %cmp.i.not, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1.i4 = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L9warp_implERNS_8ImageBufERKS0_RKN9Imath_2_58Matrix33IfEEPKNS_8Filter2DEbNS0_8WrapModeEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull align 4 dereferenceable(36) %M.coerce, ptr noundef nonnull %2, i1 noundef zeroext %recompute_roi, i32 noundef %wrap, i1 noundef zeroext false, ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  %call1.i4 = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L9warp_implERNS_8ImageBufERKS0_RKN9Imath_2_58Matrix33IfEEPKNS_8Filter2DEbNS0_8WrapModeEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull align 4 dereferenceable(36) %M.coerce, ptr noundef nonnull %2, i1 noundef zeroext %recompute_roi, i32 noundef %wrap, i1 noundef zeroext false, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end
@@ -2867,7 +2867,7 @@ _ZNSt12__shared_ptrIN18OpenImageIO_v2_6_08Filter2DELN9__gnu_cxx12_Lock_policyE2E
 define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo4warpERKNS_8ImageBufENS_11MatrixParamIfLi3EEEPKNS_8Filter2DEbNS1_8WrapModeENS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr %M.coerce, ptr noundef %filter, i1 noundef zeroext %recompute_roi, i32 noundef %wrap, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_08ImageBufC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
-  %call1.i2 = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L9warp_implERNS_8ImageBufERKS0_RKN9Imath_2_58Matrix33IfEEPKNS_8Filter2DEbNS0_8WrapModeEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull align 4 dereferenceable(36) %M.coerce, ptr noundef %filter, i1 noundef zeroext %recompute_roi, i32 noundef %wrap, i1 noundef zeroext false, ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  %call1.i2 = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L9warp_implERNS_8ImageBufERKS0_RKN9Imath_2_58Matrix33IfEEPKNS_8Filter2DEbNS0_8WrapModeEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull align 4 dereferenceable(36) %M.coerce, ptr noundef %filter, i1 noundef zeroext %recompute_roi, i32 noundef %wrap, i1 noundef zeroext false, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2988,7 +2988,7 @@ entry:
   br i1 %cmp.i.not, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call3.i4 = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L9warp_implERNS_8ImageBufERKS0_RKN9Imath_2_58Matrix33IfEEPKNS_8Filter2DEbNS0_8WrapModeEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull align 4 dereferenceable(36) %M.coerce, ptr noundef nonnull %2, i1 noundef zeroext %recompute_roi, i32 noundef %wrap, i1 noundef zeroext %edgeclamp, ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  %call3.i4 = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L9warp_implERNS_8ImageBufERKS0_RKN9Imath_2_58Matrix33IfEEPKNS_8Filter2DEbNS0_8WrapModeEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull align 4 dereferenceable(36) %M.coerce, ptr noundef nonnull %2, i1 noundef zeroext %recompute_roi, i32 noundef %wrap, i1 noundef zeroext %edgeclamp, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end
@@ -3080,7 +3080,7 @@ _ZNSt10shared_ptrIN18OpenImageIO_v2_6_08Filter2DEED2Ev.exit: ; preds = %cleanup,
 define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo4warpERKNS_8ImageBufENS_11MatrixParamIfLi3EEEPKNS_8Filter2DEbNS1_8WrapModeEbNS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr %M.coerce, ptr noundef %filter, i1 noundef zeroext %recompute_roi, i32 noundef %wrap, i1 noundef zeroext %edgeclamp, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_08ImageBufC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
-  %call3.i2 = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L9warp_implERNS_8ImageBufERKS0_RKN9Imath_2_58Matrix33IfEEPKNS_8Filter2DEbNS0_8WrapModeEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull align 4 dereferenceable(36) %M.coerce, ptr noundef %filter, i1 noundef zeroext %recompute_roi, i32 noundef %wrap, i1 noundef zeroext %edgeclamp, ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  %call3.i2 = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L9warp_implERNS_8ImageBufERKS0_RKN9Imath_2_58Matrix33IfEEPKNS_8Filter2DEbNS0_8WrapModeEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull align 4 dereferenceable(36) %M.coerce, ptr noundef %filter, i1 noundef zeroext %recompute_roi, i32 noundef %wrap, i1 noundef zeroext %edgeclamp, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -3285,7 +3285,7 @@ for.inc23.i:                                      ; preds = %for.inc20.i
 _ZN9Imath_2_58Matrix33IfEmLERKS1_.exit:           ; preds = %for.inc23.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %M, ptr noundef nonnull align 4 dereferenceable(36) %tmp.i, i64 36, i1 false)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %tmp.i)
-  %call1.i = call fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L9warp_implERNS_8ImageBufERKS0_RKN9Imath_2_58Matrix33IfEEPKNS_8Filter2DEbNS0_8WrapModeEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull align 4 dereferenceable(36) %M, ptr noundef %filter, i1 noundef zeroext %recompute_roi, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  %call1.i = call fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L9warp_implERNS_8ImageBufERKS0_RKN9Imath_2_58Matrix33IfEEPKNS_8Filter2DEbNS0_8WrapModeEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull align 4 dereferenceable(36) %M, ptr noundef %filter, i1 noundef zeroext %recompute_roi, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
   ret i1 %call1.i
 }
 
@@ -3578,7 +3578,7 @@ call.i.i2.i.i.noexc:                              ; preds = %sw.bb
   store ptr %call.i.i2.i.i165, ptr %agg.tmp2.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IffEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IffEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i163
 
 invoke.cont.i:                                    ; preds = %call.i.i2.i.i.noexc
@@ -3653,7 +3653,7 @@ call.i.i2.i.i.noexc191:                           ; preds = %sw.bb39
   store ptr %call.i.i2.i.i192, ptr %agg.tmp2.i170, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IhhEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i177, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IhhEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i176, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i169, ptr noundef nonnull %agg.tmp2.i170)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i169, ptr noundef nonnull %agg.tmp2.i170)
           to label %invoke.cont.i186 unwind label %lpad.i180
 
 invoke.cont.i186:                                 ; preds = %call.i.i2.i.i.noexc191
@@ -3728,7 +3728,7 @@ call.i.i2.i.i.noexc219:                           ; preds = %sw.bb44
   store ptr %call.i.i2.i.i220, ptr %agg.tmp2.i198, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IttEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i205, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IttEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i204, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i197, ptr noundef nonnull %agg.tmp2.i198)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i197, ptr noundef nonnull %agg.tmp2.i198)
           to label %invoke.cont.i214 unwind label %lpad.i208
 
 invoke.cont.i214:                                 ; preds = %call.i.i2.i.i.noexc219
@@ -3803,7 +3803,7 @@ call.i.i2.i.i.noexc247:                           ; preds = %sw.bb49
   store ptr %call.i.i2.i.i248, ptr %agg.tmp2.i226, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_I4halfS4_EEbRNS0_8ImageBufERKS5_PNS0_8Filter2DES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i233, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_I4halfS4_EEbRNS0_8ImageBufERKS5_PNS0_8Filter2DES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %_M_manager.i.i.i232, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i225, ptr noundef nonnull %agg.tmp2.i226)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i225, ptr noundef nonnull %agg.tmp2.i226)
           to label %invoke.cont.i242 unwind label %lpad.i236
 
 invoke.cont.i242:                                 ; preds = %call.i.i2.i.i.noexc247
@@ -3878,7 +3878,7 @@ call.i.i2.i.i.noexc275:                           ; preds = %sw.bb54
   store ptr %call.i.i2.i.i276, ptr %agg.tmp2.i254, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IccEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i261, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IccEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i260, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i253, ptr noundef nonnull %agg.tmp2.i254)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i253, ptr noundef nonnull %agg.tmp2.i254)
           to label %invoke.cont.i270 unwind label %lpad.i264
 
 invoke.cont.i270:                                 ; preds = %call.i.i2.i.i.noexc275
@@ -3953,7 +3953,7 @@ call.i.i2.i.i.noexc303:                           ; preds = %sw.bb59
   store ptr %call.i.i2.i.i304, ptr %agg.tmp2.i282, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IssEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i289, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IssEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i288, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i281, ptr noundef nonnull %agg.tmp2.i282)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i281, ptr noundef nonnull %agg.tmp2.i282)
           to label %invoke.cont.i298 unwind label %lpad.i292
 
 invoke.cont.i298:                                 ; preds = %call.i.i2.i.i.noexc303
@@ -4028,7 +4028,7 @@ call.i.i2.i.i.noexc331:                           ; preds = %sw.bb64
   store ptr %call.i.i2.i.i332, ptr %agg.tmp2.i310, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IjjEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i317, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IjjEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i316, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i309, ptr noundef nonnull %agg.tmp2.i310)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i309, ptr noundef nonnull %agg.tmp2.i310)
           to label %invoke.cont.i326 unwind label %lpad.i320
 
 invoke.cont.i326:                                 ; preds = %call.i.i2.i.i.noexc331
@@ -4103,7 +4103,7 @@ call.i.i2.i.i.noexc359:                           ; preds = %sw.bb69
   store ptr %call.i.i2.i.i360, ptr %agg.tmp2.i338, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IiiEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i345, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IiiEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i344, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i337, ptr noundef nonnull %agg.tmp2.i338)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i337, ptr noundef nonnull %agg.tmp2.i338)
           to label %invoke.cont.i354 unwind label %lpad.i348
 
 invoke.cont.i354:                                 ; preds = %call.i.i2.i.i.noexc359
@@ -4178,7 +4178,7 @@ call.i.i2.i.i.noexc387:                           ; preds = %sw.bb74
   store ptr %call.i.i2.i.i388, ptr %agg.tmp2.i366, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IddEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i373, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L7resize_IddEEbRNS0_8ImageBufERKS4_PNS0_8Filter2DES1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager.i.i.i372, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i365, ptr noundef nonnull %agg.tmp2.i366)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i365, ptr noundef nonnull %agg.tmp2.i366)
           to label %invoke.cont.i382 unwind label %lpad.i376
 
 invoke.cont.i382:                                 ; preds = %call.i.i2.i.i.noexc387
@@ -7770,7 +7770,7 @@ entry:
   store ptr @.str.9, ptr %agg.tmp1.i, align 8, !noalias !34
   %m_len.i1.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
   store i64 9, ptr %m_len.i1.i, align 8, !noalias !34
-  %call.i = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo3fitERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEEfS8_bNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull %agg.tmp.i, float noundef %filterwidth, ptr noundef nonnull %agg.tmp1.i, i1 noundef zeroext %exact, ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  %call.i = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo3fitERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEEfS8_bNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull %agg.tmp.i, float noundef %filterwidth, ptr noundef nonnull %agg.tmp1.i, i1 noundef zeroext %exact, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %entry
@@ -7808,7 +7808,7 @@ entry:
   store ptr @.str.9, ptr %agg.tmp.i, align 8, !noalias !37
   %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 9, ptr %m_len.i.i, align 8, !noalias !37
-  %call.i = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo3fitERNS_8ImageBufERKS1_PNS_8Filter2DENS_17basic_string_viewIcSt11char_traitsIcEEEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef %filter, ptr noundef nonnull %agg.tmp.i, i1 noundef zeroext %exact, ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  %call.i = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo3fitERNS_8ImageBufERKS1_PNS_8Filter2DENS_17basic_string_viewIcSt11char_traitsIcEEEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef %filter, ptr noundef nonnull %agg.tmp.i, i1 noundef zeroext %exact, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %entry
@@ -8364,7 +8364,7 @@ call.i.i2.i.i.noexc:                              ; preds = %cond.end.i
   store ptr %call.i.i2.i.i223, ptr %agg.tmp6.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9resample_IccEEbRNS0_8ImageBufERKS4_bS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9resample_IccEEbRNS0_8ImageBufERKS4_bS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp81218, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp5.i, ptr noundef nonnull %agg.tmp6.i)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp81218, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp5.i, ptr noundef nonnull %agg.tmp6.i)
           to label %invoke.cont.i unwind label %lpad.i219
 
 invoke.cont.i:                                    ; preds = %call.i.i2.i.i.noexc
@@ -8460,7 +8460,7 @@ call.i.i2.i.i.noexc256:                           ; preds = %cond.end.i229
   store ptr %call.i.i2.i.i257, ptr %agg.tmp6.i227, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9resample_IssEEbRNS0_8ImageBufERKS4_bS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i236, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9resample_IssEEbRNS0_8ImageBufERKS4_bS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager.i.i.i235, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp87224, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp5.i226, ptr noundef nonnull %agg.tmp6.i227)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp87224, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp5.i226, ptr noundef nonnull %agg.tmp6.i227)
           to label %invoke.cont.i245 unwind label %lpad.i239
 
 invoke.cont.i245:                                 ; preds = %call.i.i2.i.i.noexc256
@@ -8556,7 +8556,7 @@ call.i.i2.i.i.noexc292:                           ; preds = %cond.end.i265
   store ptr %call.i.i2.i.i293, ptr %agg.tmp6.i263, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9resample_IjjEEbRNS0_8ImageBufERKS4_bS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i272, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9resample_IjjEEbRNS0_8ImageBufERKS4_bS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager.i.i.i271, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp93260, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp5.i262, ptr noundef nonnull %agg.tmp6.i263)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp93260, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp5.i262, ptr noundef nonnull %agg.tmp6.i263)
           to label %invoke.cont.i281 unwind label %lpad.i275
 
 invoke.cont.i281:                                 ; preds = %call.i.i2.i.i.noexc292
@@ -8652,7 +8652,7 @@ call.i.i2.i.i.noexc328:                           ; preds = %cond.end.i301
   store ptr %call.i.i2.i.i329, ptr %agg.tmp6.i299, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9resample_IiiEEbRNS0_8ImageBufERKS4_bS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i308, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9resample_IiiEEbRNS0_8ImageBufERKS4_bS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager.i.i.i307, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp99296, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp5.i298, ptr noundef nonnull %agg.tmp6.i299)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp99296, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp5.i298, ptr noundef nonnull %agg.tmp6.i299)
           to label %invoke.cont.i317 unwind label %lpad.i311
 
 invoke.cont.i317:                                 ; preds = %call.i.i2.i.i.noexc328
@@ -8748,7 +8748,7 @@ call.i.i2.i.i.noexc364:                           ; preds = %cond.end.i337
   store ptr %call.i.i2.i.i365, ptr %agg.tmp6.i335, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9resample_IddEEbRNS0_8ImageBufERKS4_bS1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %_M_invoker.i.i344, align 8
   store ptr @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9resample_IddEEbRNS0_8ImageBufERKS4_bS1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager.i.i.i343, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp105332, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp5.i334, ptr noundef nonnull %agg.tmp6.i335)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp105332, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp5.i334, ptr noundef nonnull %agg.tmp6.i335)
           to label %invoke.cont.i353 unwind label %lpad.i347
 
 invoke.cont.i353:                                 ; preds = %call.i.i2.i.i.noexc364
@@ -10945,7 +10945,7 @@ entry:
   %add1.i = add nsw i32 %3, %2
   %conv2.i = sitofp i32 %add1.i to float
   %mul3.i = fmul float %conv2.i, 5.000000e-01
-  %call.i2 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo6rotateERNS_8ImageBufERKS1_fffPNS_8Filter2DEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef %angle, float noundef %mul.i, float noundef %mul3.i, ptr noundef %filter, i1 noundef zeroext %recompute_roi, ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  %call.i2 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo6rotateERNS_8ImageBufERKS1_fffPNS_8Filter2DEbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef %angle, float noundef %mul.i, float noundef %mul3.i, ptr noundef %filter, i1 noundef zeroext %recompute_roi, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -11004,7 +11004,7 @@ entry:
   store ptr %0, ptr %agg.tmp.i, align 8
   %m_len.i.i2 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 %1, ptr %m_len.i.i2, align 8
-  %call.i3 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo6rotateERNS_8ImageBufERKS1_fffNS_17basic_string_viewIcSt11char_traitsIcEEEfbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef %angle, float noundef %mul.i, float noundef %mul3.i, ptr noundef nonnull %agg.tmp.i, float noundef %filterwidth, i1 noundef zeroext %recompute_roi, ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  %call.i3 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo6rotateERNS_8ImageBufERKS1_fffNS_17basic_string_viewIcSt11char_traitsIcEEEfbNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, float noundef %angle, float noundef %mul.i, float noundef %mul3.i, ptr noundef nonnull %agg.tmp.i, float noundef %filterwidth, i1 noundef zeroext %recompute_roi, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %.noexc

@@ -17930,7 +17930,7 @@ define void @ImageAlphaCrop(ptr nocapture noundef %0, float noundef %1) local_un
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) %0, i64 24, i1 false)
-  %15 = tail call ptr @LoadImageColors(ptr noundef nonnull readonly byval(%struct.Image) align 8 %3)
+  %15 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %3)
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %GetImageAlphaBorder.exit, label %.preheader50.i
 
@@ -24127,7 +24127,7 @@ define void @DrawTexture(ptr nocapture noundef readonly byval(%struct.Texture) a
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load <2 x i32>, ptr %.sroa.3.0..sroa_idx, align 4
   %8 = sitofp <2 x i32> %.sroa.3.0.copyload to <2 x float>
-  tail call void @DrawTexturePro(ptr noundef nonnull readonly byval(%struct.Texture) align 8 %0, <2 x float> zeroinitializer, <2 x float> %8, <2 x float> %7, <2 x float> %8, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %3)
+  tail call void @DrawTexturePro(ptr noundef nonnull byval(%struct.Texture) align 8 %0, <2 x float> zeroinitializer, <2 x float> %8, <2 x float> %7, <2 x float> %8, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %3)
   ret void
 }
 
@@ -24148,7 +24148,7 @@ define void @DrawTextureV(ptr nocapture noundef readonly byval(%struct.Texture) 
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load <2 x i32>, ptr %.sroa.3.0..sroa_idx, align 4
   %4 = sitofp <2 x i32> %.sroa.3.0.copyload to <2 x float>
-  tail call void @DrawTexturePro(ptr noundef nonnull readonly byval(%struct.Texture) align 8 %0, <2 x float> zeroinitializer, <2 x float> %4, <2 x float> %1, <2 x float> %4, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %2)
+  tail call void @DrawTexturePro(ptr noundef nonnull byval(%struct.Texture) align 8 %0, <2 x float> zeroinitializer, <2 x float> %4, <2 x float> %1, <2 x float> %4, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %2)
   ret void
 }
 

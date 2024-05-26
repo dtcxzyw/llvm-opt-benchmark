@@ -1133,7 +1133,7 @@ invoke.cont13.i.i:                                ; preds = %invoke.cont8.i.i
   %vtable.i.i = load ptr, ptr %4, align 8, !noalias !20
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 48
   %24 = load ptr, ptr %vfn.i.i, align 8, !noalias !14
-  invoke void %24(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull readonly byval(%"struct.arrow::internal::TaskHints") align 8 %agg.tmp1.i, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef nonnull %agg.tmp9.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i.i)
+  invoke void %24(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull byval(%"struct.arrow::internal::TaskHints") align 8 %agg.tmp1.i, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef nonnull %agg.tmp9.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit.i.i unwind label %lpad14.i.i, !noalias !14
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %invoke.cont13.i.i

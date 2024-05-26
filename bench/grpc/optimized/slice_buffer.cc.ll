@@ -1434,7 +1434,7 @@ if.end4:                                          ; preds = %if.end
 for.body.i:                                       ; preds = %if.end4, %for.body.i
   %i.04.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end4 ]
   %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %15, i64 %i.04.i
-  tail call void @grpc_slice_buffer_add(ptr noundef %dst, ptr noundef nonnull readonly byval(%struct.grpc_slice) align 8 %arrayidx.i)
+  tail call void @grpc_slice_buffer_add(ptr noundef %dst, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx.i)
   %inc.i = add nuw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %0
   br i1 %exitcond.not.i, label %grpc_slice_buffer_addn.exit, label %for.body.i, !llvm.loop !30

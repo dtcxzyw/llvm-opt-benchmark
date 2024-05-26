@@ -983,11 +983,11 @@ define void @qasm_recordMultiStateControlledUnitary(ptr nocapture noundef readon
   %40 = getelementptr inbounds i8, ptr %13, i64 16
   %41 = load double, ptr %12, align 8
   store double %41, ptr %40, align 16
-  call void @addGateToQASM(ptr noundef nonnull readonly byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef readonly %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %13, i32 noundef 3)
-  call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull readonly byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.28)
+  call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 10, ptr noundef readonly %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %13, i32 noundef 3)
+  call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.28)
   %42 = load double, ptr %9, align 8
   store double %42, ptr %14, align 8
-  call void @addGateToQASM(ptr noundef nonnull readonly byval(%struct.Qureg) align 8 %0, i32 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %14, i32 noundef 1)
+  call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %14, i32 noundef 1)
   br label %qasm_recordMultiControlledUnitary.exit
 
 qasm_recordMultiControlledUnitary.exit:           ; preds = %._crit_edge, %30
@@ -1296,7 +1296,7 @@ define void @qasm_recordInitClassical(ptr nocapture noundef readonly byval(%stru
 
 19:                                               ; preds = %17
   %20 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @addGateToQASM(ptr noundef nonnull readonly byval(%struct.Qureg) align 8 %0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef %20, ptr noundef null, i32 noundef 0)
+  tail call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef %20, ptr noundef null, i32 noundef 0)
   br label %qasm_recordGate.exit
 
 qasm_recordGate.exit:                             ; preds = %19, %17, %14

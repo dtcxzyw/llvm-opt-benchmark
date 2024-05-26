@@ -1726,18 +1726,18 @@ for.body:                                         ; preds = %for.cond.preheader,
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.body
-  call void @_ZNK4pbrt17PerspectiveCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull writeonly sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull align 8 dereferenceable(1448) %3, ptr noundef nonnull readonly byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr nonnull readnone align 4 poison)
+  call void @_ZNK4pbrt17PerspectiveCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull writeonly sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull align 8 dereferenceable(1448) %3, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr nonnull readnone align 4 poison)
   br label %_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE.exit
 
 sw.bb3.i.i.i:                                     ; preds = %for.body
-  call void @_ZNK4pbrt18OrthographicCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull writeonly sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull align 8 dereferenceable(1440) %3, ptr noundef nonnull readonly byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr nonnull readnone align 4 poison)
+  call void @_ZNK4pbrt18OrthographicCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull writeonly sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull align 8 dereferenceable(1440) %3, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr nonnull readnone align 4 poison)
   br label %_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE.exit
 
 sw.bb4.i.i.i:                                     ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i), !noalias !77
   %or.i.i.i.i.i.i.i = or disjoint i64 %and.i.i.i28, 432345564227567616
   store i64 %or.i.i.i.i.i.i.i, ptr %agg.tmp.i.i.i.i.i, align 8, !noalias !84
-  call void @_ZN4pbrt10CameraBase23GenerateRayDifferentialENS_6CameraENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull writeonly sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull %agg.tmp.i.i.i.i.i, ptr noundef nonnull readonly byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
+  call void @_ZN4pbrt10CameraBase23GenerateRayDifferentialENS_6CameraENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull writeonly sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull %agg.tmp.i.i.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i), !noalias !77
   br label %_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE.exit
 
@@ -1745,7 +1745,7 @@ sw.default.i.i.i:                                 ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i), !noalias !87
   %or.i.i.i.i17.i.i.i = or disjoint i64 %and.i.i.i28, 576460752303423488
   store i64 %or.i.i.i.i17.i.i.i, ptr %agg.tmp.i.i15.i.i.i, align 8, !noalias !90
-  call void @_ZN4pbrt10CameraBase23GenerateRayDifferentialENS_6CameraENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull writeonly sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull %agg.tmp.i.i15.i.i.i, ptr noundef nonnull readonly byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
+  call void @_ZN4pbrt10CameraBase23GenerateRayDifferentialENS_6CameraENS_12CameraSampleERNS_18SampledWavelengthsE(ptr nonnull writeonly sret(%"class.pstd::optional.10") align 8 %crd, ptr noundef nonnull %agg.tmp.i.i15.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::CameraSample") align 8 %agg.tmp27, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i15.i.i.i), !noalias !87
   br label %_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE.exit
 

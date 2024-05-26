@@ -1095,7 +1095,7 @@ _ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit: ; preds = %2
   br i1 %.not.i28, label %_ZN5mmu_t9translateE17mem_access_info_tm.exit, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call noundef i64 @_ZN5mmu_t4walkE17mem_access_info_t(ptr noundef nonnull align 8 dereferenceable(43168) %0, ptr noundef nonnull readonly byval(%struct.mem_access_info_t) align 8 %3)
+  %22 = tail call noundef i64 @_ZN5mmu_t4walkE17mem_access_info_t(ptr noundef nonnull align 8 dereferenceable(43168) %0, ptr noundef nonnull byval(%struct.mem_access_info_t) align 8 %3)
   %23 = and i64 %1, 4095
   %24 = or i64 %22, %23
   %25 = tail call noundef zeroext i1 @_ZN5mmu_t6pmp_okEmm11access_typem(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %24, i64 noundef 2, i32 noundef 2, i64 noundef %.sroa.3.0)
@@ -1927,7 +1927,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %4, %12
 27:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.thread
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %28 = tail call noundef i64 @_ZN5mmu_t4walkE17mem_access_info_t(ptr noundef nonnull align 8 dereferenceable(43168) %0, ptr noundef nonnull readonly byval(%struct.mem_access_info_t) align 8 %3)
+  %28 = tail call noundef i64 @_ZN5mmu_t4walkE17mem_access_info_t(ptr noundef nonnull align 8 dereferenceable(43168) %0, ptr noundef nonnull byval(%struct.mem_access_info_t) align 8 %3)
   %29 = and i64 %.sroa.0.0.copyload, 4095
   %30 = or i64 %28, %29
   %31 = tail call noundef zeroext i1 @_ZN5mmu_t6pmp_okEmm11access_typem(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %30, i64 noundef %1, i32 noundef %.sroa.654.0.copyload, i64 noundef %.sroa.4.0.copyload)
@@ -2463,7 +2463,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %5, %12
 28:                                               ; preds = %_ZNK13xlate_flags_t17is_special_accessEv.exit.thread
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %29 = tail call noundef i64 @_ZN5mmu_t4walkE17mem_access_info_t(ptr noundef nonnull align 8 dereferenceable(43168) %0, ptr noundef nonnull readonly byval(%struct.mem_access_info_t) align 8 %3)
+  %29 = tail call noundef i64 @_ZN5mmu_t4walkE17mem_access_info_t(ptr noundef nonnull align 8 dereferenceable(43168) %0, ptr noundef nonnull byval(%struct.mem_access_info_t) align 8 %3)
   %30 = and i64 %.sroa.0.0.copyload, 4095
   %31 = or i64 %29, %30
   %32 = tail call noundef zeroext i1 @_ZN5mmu_t6pmp_okEmm11access_typem(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %31, i64 noundef %1, i32 noundef %.sroa.648.0.copyload, i64 noundef %.sroa.4.0.copyload)

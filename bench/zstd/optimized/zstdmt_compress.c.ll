@@ -107,7 +107,7 @@ if.end22.i:                                       ; preds = %if.else.i, %if.then
   %call26.i = tail call fastcc ptr @ZSTDMT_createCCtxPool(i32 noundef %cond.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem1)
   %cctxPool.i = getelementptr inbounds i8, ptr %retval.0.i44.i, i64 24
   store ptr %call26.i, ptr %cctxPool.i, align 8
-  %call.i39.i = tail call fastcc ptr @ZSTDMT_createBufferPool(i32 noundef %cond.i, ptr noundef nonnull readonly byval(%struct.ZSTD_customMem) align 8 %cMem1)
+  %call.i39.i = tail call fastcc ptr @ZSTDMT_createBufferPool(i32 noundef %cond.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem1)
   %cmp.i.i = icmp eq ptr %call.i39.i, null
   br i1 %cmp.i.i, label %ZSTDMT_createSeqPool.exit.i, label %if.end.i40.i
 

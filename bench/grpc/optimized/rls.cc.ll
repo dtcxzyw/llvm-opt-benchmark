@@ -27239,7 +27239,7 @@ if.end49.i:                                       ; preds = %call42.i.noexc, %if
   %vtable.i.i = load ptr, ptr %child_policy_wrapper.1.val12.i, align 8, !noalias !235
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %302 = load ptr, ptr %vfn.i.i, align 8, !noalias !235
-  invoke void %302(ptr sret(%"struct.grpc_core::LoadBalancingPolicy::PickResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %child_policy_wrapper.1.val12.i, ptr noundef nonnull readonly byval(%"struct.grpc_core::LoadBalancingPolicy::PickArgs") align 8 %agg.tmp144139)
+  invoke void %302(ptr sret(%"struct.grpc_core::LoadBalancingPolicy::PickResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %child_policy_wrapper.1.val12.i, ptr noundef nonnull byval(%"struct.grpc_core::LoadBalancingPolicy::PickArgs") align 8 %agg.tmp144139)
           to label %_ZN9grpc_core12_GLOBAL__N_15RlsLb5Cache5Entry4PickENS_19LoadBalancingPolicy8PickArgsE.exit unwind label %lpad24.loopexit.split-lp.loopexit.split-lp
 
 eh.resume.i147:                                   ; preds = %lpad33.i, %lpad.i156
@@ -27287,7 +27287,7 @@ if.end164.invoke:                                 ; preds = %if.then158, %if.the
   %vtable.i91 = load ptr, ptr %call90.val.sink, align 8, !noalias !238
   %vfn.i92 = getelementptr inbounds i8, ptr %vtable.i91, i64 24
   %305 = load ptr, ptr %vfn.i92, align 8, !noalias !238
-  invoke void %305(ptr sret(%"struct.grpc_core::LoadBalancingPolicy::PickResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %call90.val.sink, ptr noundef nonnull readonly byval(%"struct.grpc_core::LoadBalancingPolicy::PickArgs") align 8 %args)
+  invoke void %305(ptr sret(%"struct.grpc_core::LoadBalancingPolicy::PickResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %call90.val.sink, ptr noundef nonnull byval(%"struct.grpc_core::LoadBalancingPolicy::PickArgs") align 8 %args)
           to label %cleanup unwind label %lpad24.loopexit.split-lp.loopexit.split-lp
 
 if.end169:                                        ; preds = %if.then155

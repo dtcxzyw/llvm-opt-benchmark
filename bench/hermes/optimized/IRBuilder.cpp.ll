@@ -169,7 +169,7 @@ _ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescEN4llvh9StringRefENS_8Functio
   %OriginalName.sroa.0.0.i.i = phi ptr [ %call.i.i.i.i, %entry ], [ %call.i.i.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit.i.i ]
   %call5.i.i = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #14
   %4 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes8FunctionC2ENS_9ValueKindEPNS_6ModuleEPNS_9ScopeDescENS_10IdentifierENS0_14DefinitionKindEbNS_16SourceVisibilityEbN4llvh7SMRangeEPS0_(ptr noundef nonnull align 8 dereferenceable(304) %call5.i.i, i8 noundef zeroext -128, ptr noundef %4, ptr noundef %scopeDesc, ptr %OriginalName.sroa.0.0.i.i, i32 noundef 0, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, i1 noundef zeroext true, ptr noundef nonnull readonly byval(%"class.llvh::SMRange") align 8 %agg.tmp52.i, ptr noundef null) #15
+  tail call void @_ZN6hermes8FunctionC2ENS_9ValueKindEPNS_6ModuleEPNS_9ScopeDescENS_10IdentifierENS0_14DefinitionKindEbNS_16SourceVisibilityEbN4llvh7SMRangeEPS0_(ptr noundef nonnull align 8 dereferenceable(304) %call5.i.i, i8 noundef zeroext -128, ptr noundef %4, ptr noundef %scopeDesc, ptr %OriginalName.sroa.0.0.i.i, i32 noundef 0, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, i1 noundef zeroext true, ptr noundef nonnull byval(%"class.llvh::SMRange") align 8 %agg.tmp52.i, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp52.i)
   ret ptr %call5.i.i
 }
@@ -209,7 +209,7 @@ _ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function
   %OriginalName.sroa.0.0.i = phi ptr [ %call.i.i.i, %cond.end ], [ %call.i.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit.i ]
   %call5.i = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #14
   %4 = load ptr, ptr %this, align 8
-  tail call void @_ZN6hermes8FunctionC2ENS_9ValueKindEPNS_6ModuleEPNS_9ScopeDescENS_10IdentifierENS0_14DefinitionKindEbNS_16SourceVisibilityEbN4llvh7SMRangeEPS0_(ptr noundef nonnull align 8 dereferenceable(304) %call5.i, i8 noundef zeroext -128, ptr noundef %4, ptr noundef %scopeDesc, ptr %OriginalName.sroa.0.0.i, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, i1 noundef zeroext %isGlobal, ptr noundef nonnull readonly byval(%"class.llvh::SMRange") align 8 %agg.tmp52, ptr noundef %insertBefore) #15
+  tail call void @_ZN6hermes8FunctionC2ENS_9ValueKindEPNS_6ModuleEPNS_9ScopeDescENS_10IdentifierENS0_14DefinitionKindEbNS_16SourceVisibilityEbN4llvh7SMRangeEPS0_(ptr noundef nonnull align 8 dereferenceable(304) %call5.i, i8 noundef zeroext -128, ptr noundef %4, ptr noundef %scopeDesc, ptr %OriginalName.sroa.0.0.i, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, i1 noundef zeroext %isGlobal, ptr noundef nonnull byval(%"class.llvh::SMRange") align 8 %agg.tmp52, ptr noundef %insertBefore) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp52)
   ret ptr %call5.i
 }

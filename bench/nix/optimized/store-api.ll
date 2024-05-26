@@ -5152,7 +5152,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %33 = load ptr, ptr %7, align 8, !noalias !9
   %34 = getelementptr inbounds i8, ptr %7, i64 8
   %35 = load i64, ptr %34, align 8, !noalias !9
-  invoke void @_ZNK3nix14StoreDirConfig13makeStorePathESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr dead_on_unwind writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %26, ptr %25, i64 %35, ptr %33, ptr noundef nonnull readonly byval(%"class.std::basic_string_view") align 8 %8)
+  invoke void @_ZNK3nix14StoreDirConfig13makeStorePathESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr dead_on_unwind writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %26, ptr %25, i64 %35, ptr %33, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %8)
           to label %36 unwind label %42
 
 36:                                               ; preds = %.noexc15
@@ -5374,7 +5374,7 @@ define void @_ZNK3nix14StoreDirConfig19makeFixedOutputPathESt17basic_string_view
   %49 = load ptr, ptr %8, align 8, !noalias !12
   %50 = getelementptr inbounds i8, ptr %8, i64 8
   %51 = load i64, ptr %50, align 8, !noalias !12
-  invoke void @_ZNK3nix14StoreDirConfig13makeStorePathESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr dead_on_unwind writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %48, ptr %46, i64 %51, ptr %49, ptr noundef nonnull readonly byval(%"class.std::basic_string_view") align 8 %9)
+  invoke void @_ZNK3nix14StoreDirConfig13makeStorePathESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr dead_on_unwind writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %48, ptr %46, i64 %51, ptr %49, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %9)
           to label %52 unwind label %58
 
 52:                                               ; preds = %.noexc
@@ -5551,7 +5551,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47
   %106 = load ptr, ptr %6, align 8, !noalias !15
   %107 = getelementptr inbounds i8, ptr %6, i64 8
   %108 = load i64, ptr %107, align 8, !noalias !15
-  invoke void @_ZNK3nix14StoreDirConfig13makeStorePathESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr dead_on_unwind writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 10, ptr nonnull @.str.14, i64 %108, ptr %106, ptr noundef nonnull readonly byval(%"class.std::basic_string_view") align 8 %7)
+  invoke void @_ZNK3nix14StoreDirConfig13makeStorePathESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr dead_on_unwind writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 10, ptr nonnull @.str.14, i64 %108, ptr %106, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %7)
           to label %109 unwind label %115
 
 109:                                              ; preds = %.noexc55
@@ -6219,7 +6219,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EEC2ERKS5_.exit.i.i.i.i.i.i: ; preds
   %42 = load ptr, ptr %6, align 8, !noalias !35
   %43 = getelementptr inbounds i8, ptr %6, i64 8
   %44 = load i64, ptr %43, align 8, !noalias !35
-  invoke void @_ZNK3nix14StoreDirConfig13makeStorePathESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr dead_on_unwind writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %41, ptr %39, i64 %44, ptr %42, ptr noundef nonnull readonly byval(%"class.std::basic_string_view") align 8 %7)
+  invoke void @_ZNK3nix14StoreDirConfig13makeStorePathESt17basic_string_viewIcSt11char_traitsIcEES4_S4_(ptr dead_on_unwind writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %41, ptr %39, i64 %44, ptr %42, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %7)
           to label %45 unwind label %51
 
 45:                                               ; preds = %.noexc10.i.i.i.i.i.i

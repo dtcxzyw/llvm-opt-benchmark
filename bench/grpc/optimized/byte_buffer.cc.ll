@@ -102,7 +102,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   br label %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i
 
 _ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i: ; preds = %if.then.i.i, %for.body.i
-  tail call void @grpc_slice_buffer_add(ptr noundef nonnull %slice_buffer.i, ptr noundef nonnull readonly byval(%struct.grpc_slice) align 8 %arrayidx.i)
+  tail call void @grpc_slice_buffer_add(ptr noundef nonnull %slice_buffer.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx.i)
   %inc.i = add nuw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %nslices
   br i1 %exitcond.not.i, label %grpc_raw_compressed_byte_buffer_create.exit, label %for.body.i, !llvm.loop !4
@@ -215,7 +215,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   br label %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i
 
 _ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i: ; preds = %if.then.i.i, %for.body.i
-  tail call void @grpc_slice_buffer_add(ptr noundef nonnull %slice_buffer.i, ptr noundef nonnull readonly byval(%struct.grpc_slice) align 8 %arrayidx.i)
+  tail call void @grpc_slice_buffer_add(ptr noundef nonnull %slice_buffer.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx.i)
   %inc.i = add nuw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %2
   br i1 %exitcond.not.i, label %grpc_raw_compressed_byte_buffer_create.exit, label %for.body.i, !llvm.loop !4

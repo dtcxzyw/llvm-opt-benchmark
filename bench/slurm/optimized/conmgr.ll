@@ -3492,7 +3492,7 @@ define internal range(i32 -1, 1) i32 @_create_socket(ptr noundef %0, ptr nocaptu
   %43 = load ptr, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
-  %44 = call fastcc ptr @_add_connection(i32 noundef %41, ptr noundef null, i32 noundef %17, i32 noundef %17, ptr noundef nonnull readonly byval(%struct.conmgr_events_t) align 8 %4, ptr noundef nonnull %5, i32 noundef 110, i1 noundef zeroext true, ptr noundef nonnull %19, ptr noundef %43)
+  %44 = call fastcc ptr @_add_connection(i32 noundef %41, ptr noundef null, i32 noundef %17, i32 noundef %17, ptr noundef nonnull byval(%struct.conmgr_events_t) align 8 %4, ptr noundef nonnull %5, i32 noundef 110, i1 noundef zeroext true, ptr noundef nonnull %19, ptr noundef %43)
   %.not.i = icmp eq ptr %44, null
   br i1 %.not.i, label %conmgr_process_fd_unix_listen.exit, label %45
 
@@ -3593,7 +3593,7 @@ conmgr_process_fd_unix_listen.exit:               ; preds = %39, %45
   %91 = load ptr, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
-  %92 = call fastcc ptr @_add_connection(i32 noundef %88, ptr noundef null, i32 noundef %65, i32 noundef %65, ptr noundef nonnull readonly byval(%struct.conmgr_events_t) align 8 %3, ptr noundef %89, i32 noundef %90, i1 noundef zeroext true, ptr noundef null, ptr noundef %91)
+  %92 = call fastcc ptr @_add_connection(i32 noundef %88, ptr noundef null, i32 noundef %65, i32 noundef %65, ptr noundef nonnull byval(%struct.conmgr_events_t) align 8 %3, ptr noundef %89, i32 noundef %90, i1 noundef zeroext true, ptr noundef null, ptr noundef %91)
   %.not.i79.not = icmp eq ptr %92, null
   br i1 %.not.i79.not, label %conmgr_process_fd_listen.exit.thread, label %conmgr_process_fd_listen.exit
 

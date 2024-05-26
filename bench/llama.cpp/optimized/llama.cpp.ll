@@ -12781,7 +12781,7 @@ if.then:                                          ; preds = %_ZN22llama_beam_sea
   store i32 %49, ptr %agg.tmp17.sroa.4.0.agg.tmp1728.sroa_idx, align 8
   store i32 1, ptr %agg.tmp17.sroa.5.0.agg.tmp1728.sroa_idx, align 4
   store i32 0, ptr %agg.tmp17.sroa.6.0.agg.tmp1728.sroa_idx, align 8
-  %call.i = call fastcc noundef i32 @_ZL21llama_decode_internalR13llama_context11llama_batch(ptr noundef nonnull align 8 dereferenceable(5384) %47, ptr noundef nonnull readonly byval(%struct.llama_batch) align 8 %agg.tmp1728)
+  %call.i = call fastcc noundef i32 @_ZL21llama_decode_internalR13llama_context11llama_batch(ptr noundef nonnull align 8 dereferenceable(5384) %47, ptr noundef nonnull byval(%struct.llama_batch) align 8 %agg.tmp1728)
   %cmp.i29 = icmp slt i32 %call.i, 0
   br i1 %cmp.i29, label %if.then.i, label %llama_decode.exit
 
@@ -30369,7 +30369,7 @@ if.then52:                                        ; preds = %if.else50
   store i32 1, ptr %agg.tmp53.sroa.5.0.agg.tmp5360.sroa_idx, align 4
   %agg.tmp53.sroa.6.0.agg.tmp5360.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp5360, i64 64
   store i32 0, ptr %agg.tmp53.sroa.6.0.agg.tmp5360.sroa_idx, align 8
-  %call.i = tail call fastcc noundef i32 @_ZL21llama_decode_internalR13llama_context11llama_batch(ptr noundef nonnull align 8 dereferenceable(5384) %43, ptr noundef nonnull readonly byval(%struct.llama_batch) align 8 %agg.tmp5360)
+  %call.i = tail call fastcc noundef i32 @_ZL21llama_decode_internalR13llama_context11llama_batch(ptr noundef nonnull align 8 dereferenceable(5384) %43, ptr noundef nonnull byval(%struct.llama_batch) align 8 %agg.tmp5360)
   %cmp.i61 = icmp slt i32 %call.i, 0
   br i1 %cmp.i61, label %if.then.i62, label %llama_decode.exit
 

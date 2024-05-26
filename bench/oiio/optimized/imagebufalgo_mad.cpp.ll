@@ -10022,7 +10022,7 @@ entry:
   store ptr %ref.tmp3.i, ptr %m_val.i4.i, align 8
   %m_size.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 24
   store i64 1, ptr %m_size.i.i5.i, align 8
-  %call.i2 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo3madERNS_8ImageBufENS_14Image_or_ConstES3_S3_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::Image_or_Const") align 8 %agg.tmp.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::Image_or_Const") align 8 %agg.tmp1.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::Image_or_Const") align 8 %agg.tmp2.i, ptr noundef nonnull readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
+  %call.i2 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo3madERNS_8ImageBufENS_14Image_or_ConstES3_S3_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::Image_or_Const") align 8 %agg.tmp.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::Image_or_Const") align 8 %agg.tmp1.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::Image_or_Const") align 8 %agg.tmp2.i, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry

@@ -531,7 +531,7 @@ max_supported_imm_int.exit.thread.i.i:            ; preds = %max_supported_imm_i
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %147, i64 40
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   %190 = load i32, ptr %.037.i.i.i, align 8
-  %191 = tail call zeroext i1 @int_fits(ptr noundef nonnull readonly byval(%struct.Int) align 8 %189, i32 noundef %190) #4
+  %191 = tail call zeroext i1 @int_fits(ptr noundef nonnull byval(%struct.Int) align 8 %189, i32 noundef %190) #4
   br i1 %191, label %197, label %192
 
 192:                                              ; preds = %188

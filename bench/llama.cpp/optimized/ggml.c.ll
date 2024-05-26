@@ -21549,7 +21549,7 @@ if.then31.i:                                      ; preds = %lor.lhs.false27.i, 
   %iter32.i = getelementptr inbounds i8, ptr %opt, i64 128
   %21 = load i32, ptr %iter32.i, align 8
   %22 = load ptr, ptr %opt, align 8
-  tail call void @ggml_opt_init(ptr noundef %22, ptr noundef nonnull %opt, ptr noundef nonnull readonly byval(%struct.ggml_opt_params) align 8 %params18, i64 noundef %nx.0.lcssa.i)
+  tail call void @ggml_opt_init(ptr noundef %22, ptr noundef nonnull %opt, ptr noundef nonnull byval(%struct.ggml_opt_params) align 8 %params18, i64 noundef %nx.0.lcssa.i)
   store i32 %21, ptr %iter32.i, align 8
   %past61.phi.trans.insert.i = getelementptr inbounds i8, ptr %params18, i64 20
   %.pre.i = load i32, ptr %past61.phi.trans.insert.i, align 4
@@ -22313,7 +22313,7 @@ if.then55.i:                                      ; preds = %lor.lhs.false47.i, 
   %conv57.pre-phi.i = phi i64 [ %.pre793.i, %for.end.if.then55_crit_edge.i ], [ %conv39.i, %lor.lhs.false47.i ], [ %conv39.i, %lor.lhs.false42.i ], [ %conv39.i, %lor.lhs.false37.i ]
   %iter56.i = getelementptr inbounds i8, ptr %opt, i64 128
   %147 = load i32, ptr %iter56.i, align 8
-  tail call void @ggml_opt_init(ptr noundef %ctx, ptr noundef nonnull %opt, ptr noundef nonnull readonly byval(%struct.ggml_opt_params) align 8 %params19, i64 noundef %conv57.pre-phi.i)
+  tail call void @ggml_opt_init(ptr noundef %ctx, ptr noundef nonnull %opt, ptr noundef nonnull byval(%struct.ggml_opt_params) align 8 %params19, i64 noundef %conv57.pre-phi.i)
   store i32 %147, ptr %iter56.i, align 8
   %past75.phi.trans.insert.i = getelementptr inbounds i8, ptr %params19, i64 20
   %.pre.i28 = load i32, ptr %past75.phi.trans.insert.i, align 4

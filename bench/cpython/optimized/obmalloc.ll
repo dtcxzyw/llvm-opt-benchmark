@@ -8447,7 +8447,7 @@ if.else23.i.i:                                    ; preds = %if.end18.i.i
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else23.i.i, %if.then20.i.i, %if.else.i.i, %if.then5.i.i, %if.then5
-  tail call void @_mi_os_free_ex(ptr noundef %p, i64 noundef %size, i1 noundef zeroext true, ptr noundef nonnull readonly byval(%struct.mi_memid_s) align 8 %memid, ptr readnone poison)
+  tail call void @_mi_os_free_ex(ptr noundef %p, i64 noundef %size, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, ptr readnone poison)
   br label %if.end45
 
 if.else:                                          ; preds = %if.end3
@@ -9273,7 +9273,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   %mul.i.i.i = shl i64 %.val.i, 25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %memid15.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid15.i, ptr noundef nonnull align 1 dereferenceable(24) %memid.i, i64 24, i1 false)
-  tail call void @_mi_os_free_ex(ptr noundef %6, i64 noundef %mul.i.i.i, i1 noundef zeroext true, ptr noundef nonnull readonly byval(%struct.mi_memid_s) align 8 %memid15.i, ptr nonnull readnone poison)
+  tail call void @_mi_os_free_ex(ptr noundef %6, i64 noundef %mul.i.i.i, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid15.i, ptr nonnull readnone poison)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid15.i)
   br label %if.end.i
 
@@ -9290,7 +9290,7 @@ if.end.i:                                         ; preds = %if.then4.i, %land.l
   br i1 %11, label %if.then.i.i, label %mi_arena_meta_free.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  tail call void @_mi_os_free_ex(ptr noundef nonnull %2, i64 noundef %8, i1 noundef zeroext true, ptr noundef nonnull readonly byval(%struct.mi_memid_s) align 8 %meta_memid16.i, ptr nonnull readnone poison)
+  tail call void @_mi_os_free_ex(ptr noundef nonnull %2, i64 noundef %8, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %meta_memid16.i, ptr nonnull readnone poison)
   br label %mi_arena_meta_free.exit.i
 
 mi_arena_meta_free.exit.i:                        ; preds = %if.then.i.i, %if.end.i
@@ -10037,7 +10037,7 @@ if.end17:                                         ; preds = %if.end10
 
 if.then19:                                        ; preds = %if.end17
   %6 = load i64, ptr %hsize, align 8
-  call void @_mi_os_free_ex(ptr noundef nonnull %call11, i64 noundef %6, i1 noundef zeroext true, ptr noundef nonnull readonly byval(%struct.mi_memid_s) align 8 %memid, ptr nonnull readnone poison)
+  call void @_mi_os_free_ex(ptr noundef nonnull %call11, i64 noundef %6, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, ptr nonnull readnone poison)
   br label %return
 
 return:                                           ; preds = %if.end17, %if.end, %if.then19, %if.then16
@@ -12259,7 +12259,7 @@ if.then6.i:                                       ; preds = %if.then.i52
   %memid.i = getelementptr inbounds i8, ptr %55, i64 4664
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %memid7.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid7.i, ptr noundef nonnull align 1 dereferenceable(24) %memid.i, i64 24, i1 false)
-  tail call void @_mi_os_free_ex(ptr noundef nonnull %55, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull readonly byval(%struct.mi_memid_s) align 8 %memid7.i, ptr nonnull readnone poison)
+  tail call void @_mi_os_free_ex(ptr noundef nonnull %55, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid7.i, ptr nonnull readnone poison)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid7.i)
   br label %for.inc.i53
 
@@ -14224,7 +14224,7 @@ if.then6:                                         ; preds = %if.then
   %memid = getelementptr inbounds i8, ptr %2, i64 4664
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %memid7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid7, ptr noundef nonnull align 1 dereferenceable(24) %memid, i64 24, i1 false)
-  tail call void @_mi_os_free_ex(ptr noundef nonnull %2, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull readonly byval(%struct.mi_memid_s) align 8 %memid7, ptr nonnull readnone poison)
+  tail call void @_mi_os_free_ex(ptr noundef nonnull %2, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid7, ptr nonnull readnone poison)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid7)
   br label %for.inc
 
@@ -14968,7 +14968,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i
   %memid.i.i = getelementptr inbounds i8, ptr %18, i64 4664
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %memid6.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid6.i.i, ptr noundef nonnull align 1 dereferenceable(24) %memid.i.i, i64 24, i1 false)
-  tail call void @_mi_os_free_ex(ptr noundef nonnull %18, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull readonly byval(%struct.mi_memid_s) align 8 %memid6.i.i, ptr nonnull readnone poison)
+  tail call void @_mi_os_free_ex(ptr noundef nonnull %18, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid6.i.i, ptr nonnull readnone poison)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid6.i.i)
   br label %if.end13
 

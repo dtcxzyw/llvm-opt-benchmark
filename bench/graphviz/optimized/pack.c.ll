@@ -1670,7 +1670,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   store i64 %.06366.i, ptr %21, align 8
   %22 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.06366.i
   %23 = load i32, ptr %9, align 8
-  tail call fastcc void @genBox(ptr noundef readonly byval(%struct.boxf) align 8 %22, ptr noundef %20, i32 noundef %11, i32 noundef %23, i64 0, ptr noundef nonnull @.str.33)
+  tail call fastcc void @genBox(ptr noundef byval(%struct.boxf) align 8 %22, ptr noundef %20, i32 noundef %11, i32 noundef %23, i64 0, ptr noundef nonnull @.str.33)
   %24 = add nuw i64 %.06366.i, 1
   %exitcond.not.i = icmp eq i64 %24, %0
   br i1 %exitcond.not.i, label %.lr.ph69.preheader.i, label %.lr.ph.i

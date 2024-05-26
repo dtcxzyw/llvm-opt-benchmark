@@ -8124,7 +8124,7 @@ if.end16:                                         ; preds = %if.end12
   store ptr %builder_script_optional.sroa.2.0, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp12.sroa_idx, align 8
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp12.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
   store i8 %builder_script_optional.sroa.3.1, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp12.sroa_idx, align 8
-  %call.i = call noundef i32 @_ZN4node29BuildSnapshotWithoutCodeCacheEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_St8optionalISt17basic_string_viewIcS6_EERKNS_14SnapshotConfigE(ptr noundef nonnull %data, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(24) %exec_args, ptr noundef nonnull readonly byval(%"class.std::optional.85") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(48) %config)
+  %call.i = call noundef i32 @_ZN4node29BuildSnapshotWithoutCodeCacheEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_St8optionalISt17basic_string_viewIcS6_EERKNS_14SnapshotConfigE(ptr noundef nonnull %data, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(24) %exec_args, ptr noundef nonnull byval(%"class.std::optional.85") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(48) %config)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i13, label %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit.thread16
 

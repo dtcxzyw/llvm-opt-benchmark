@@ -7882,7 +7882,7 @@ define dso_local ptr @ZSTD_createCDict(ptr noundef %0, i64 noundef %1, i32 nound
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull readonly align 8 dereferenceable(28) %5, i64 28, i1 false)
   %8 = getelementptr inbounds i8, ptr %4, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %9 = call ptr @ZSTD_createCDict_advanced2(ptr noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull readonly byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
+  %9 = call ptr @ZSTD_createCDict_advanced2(ptr noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4)
   %.not = icmp eq ptr %9, null
@@ -7913,7 +7913,7 @@ define dso_local ptr @ZSTD_createCDict_byReference(ptr noundef %0, i64 noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull readonly align 8 dereferenceable(28) %5, i64 28, i1 false)
   %8 = getelementptr inbounds i8, ptr %4, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %9 = call ptr @ZSTD_createCDict_advanced2(ptr noundef %0, i64 noundef %1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull readonly byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
+  %9 = call ptr @ZSTD_createCDict_advanced2(ptr noundef %0, i64 noundef %1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4)
   %.not = icmp eq ptr %9, null

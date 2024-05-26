@@ -5428,7 +5428,7 @@ while.body.i:                                     ; preds = %if.end58.i, %while.
   %chunk_size.037.i = phi i32 [ %chunk_size.033.i, %while.body.lr.ph.i ], [ %chunk_size.0.i, %if.end58.i ]
   %size.036.i = phi i32 [ %retval.0.i28.i, %while.body.lr.ph.i ], [ %sub46.i, %if.end58.i ]
   %ptr.addr.035.i = phi ptr [ %storemerge.i27.i, %while.body.lr.ph.i ], [ %add.ptr60.i, %if.end58.i ]
-  %call3.i = tail call fastcc noundef ptr @"_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0EES7_S7_S7_T_"(ptr noundef %ptr.addr.035.i, ptr noundef %4, ptr noundef nonnull readonly byval(%class.anon) align 8 %agg.tmp1)
+  %call3.i = tail call fastcc noundef ptr @"_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0EES7_S7_S7_T_"(ptr noundef %ptr.addr.035.i, ptr noundef %4, ptr noundef nonnull byval(%class.anon) align 8 %agg.tmp1)
   %cmp4.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.i, label %"_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0ZNS2_16ReadPackedVarintISH_EES8_S8_T_EUliE_EES8_S8_SJ_T0_.exit", label %if.end6.i
 
@@ -5450,7 +5450,7 @@ while.end.i:                                      ; preds = %if.end6.i
   %sext18.i = shl i64 %sub.ptr.sub10.i, 32
   %idx.ext30.i = ashr exact i64 %sext18.i, 32
   %add.ptr31.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext30.i
-  %call33.i = call fastcc noundef ptr @"_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0EES7_S7_S7_T_"(ptr noundef nonnull %add.ptr31.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull readonly byval(%class.anon) align 8 %agg.tmp1)
+  %call33.i = call fastcc noundef ptr @"_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0EES7_S7_S7_T_"(ptr noundef nonnull %add.ptr31.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull byval(%class.anon) align 8 %agg.tmp1)
   %cmp35.not.i = icmp eq ptr %call33.i, %add.ptr.i
   br i1 %cmp35.not.i, label %if.end37.i, label %"_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0ZNS2_16ReadPackedVarintISH_EES8_S8_T_EUliE_EES8_S8_SJ_T0_.exit"
 
@@ -5489,7 +5489,7 @@ while.end66.i:                                    ; preds = %if.end58.i, %if.end
   %size.0.lcssa.i = phi i32 [ %retval.0.i28.i, %if.end.i ], [ %sub46.i, %if.end58.i ]
   %idx.ext68.i = sext i32 %size.0.lcssa.i to i64
   %add.ptr69.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i, i64 %idx.ext68.i
-  %call71.i = tail call fastcc noundef ptr @"_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0EES7_S7_S7_T_"(ptr noundef %ptr.addr.0.lcssa.i, ptr noundef %add.ptr69.i, ptr noundef nonnull readonly byval(%class.anon) align 8 %agg.tmp1)
+  %call71.i = tail call fastcc noundef ptr @"_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0EES7_S7_S7_T_"(ptr noundef %ptr.addr.0.lcssa.i, ptr noundef %add.ptr69.i, ptr noundef nonnull byval(%class.anon) align 8 %agg.tmp1)
   %cmp72.i = icmp eq ptr %add.ptr69.i, %call71.i
   %cond.i = select i1 %cmp72.i, ptr %call71.i, ptr null
   br label %"_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0ZNS2_16ReadPackedVarintISH_EES8_S8_T_EUliE_EES8_S8_SJ_T0_.exit"

@@ -42957,7 +42957,7 @@ define void @DrawBillboard(ptr nocapture noundef readonly byval(%struct.Camera3D
   %.sroa.01.0.vec.insert = insertelement <2 x float> poison, float %4, i64 0
   %.sroa.01.4.vec.insert = shufflevector <2 x float> %.sroa.01.0.vec.insert, <2 x float> poison, <2 x i32> zeroinitializer
   %10 = tail call <2 x float> @Vector2Zero() #53
-  tail call void @DrawBillboardPro(ptr noundef nonnull readonly byval(%struct.Camera3D) align 8 %0, ptr noundef nonnull readonly byval(%struct.Texture) align 8 %1, <2 x float> zeroinitializer, <2 x float> %9, <2 x float> %2, float %3, <2 x float> <float 0.000000e+00, float 1.000000e+00>, float 0.000000e+00, <2 x float> %.sroa.01.4.vec.insert, <2 x float> %10, float noundef 0.000000e+00, i32 %5)
+  tail call void @DrawBillboardPro(ptr noundef nonnull byval(%struct.Camera3D) align 8 %0, ptr noundef nonnull byval(%struct.Texture) align 8 %1, <2 x float> zeroinitializer, <2 x float> %9, <2 x float> %2, float %3, <2 x float> <float 0.000000e+00, float 1.000000e+00>, float 0.000000e+00, <2 x float> %.sroa.01.4.vec.insert, <2 x float> %10, float noundef 0.000000e+00, i32 %5)
   ret void
 }
 

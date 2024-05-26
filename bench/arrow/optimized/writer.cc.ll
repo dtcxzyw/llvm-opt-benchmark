@@ -2777,7 +2777,7 @@ invoke.cont13.i.i.i.i.i:                          ; preds = %invoke.cont8.i.i.i.
   %vtable.i.i.i.i.i = load ptr, ptr %call11.i, align 8, !noalias !64
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 48
   %72 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !67
-  invoke void %72(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp4.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call11.i, ptr noundef nonnull readonly byval(%"struct.arrow::internal::TaskHints") align 8 %agg.tmp1.i.i.i.i, ptr noundef nonnull %agg.tmp5.i.i.i.i.i, ptr noundef nonnull %agg.tmp9.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i.i.i.i.i)
+  invoke void %72(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp4.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call11.i, ptr noundef nonnull byval(%"struct.arrow::internal::TaskHints") align 8 %agg.tmp1.i.i.i.i, ptr noundef nonnull %agg.tmp5.i.i.i.i.i, ptr noundef nonnull %agg.tmp9.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i.i.i.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i unwind label %lpad14.i.i.i.i.i, !noalias !67
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i.i:              ; preds = %invoke.cont13.i.i.i.i.i

@@ -2896,7 +2896,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -18192,7 +18192,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -31841,7 +31841,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -45494,7 +45494,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -59222,7 +59222,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7
@@ -74113,7 +74113,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7
@@ -88546,7 +88546,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -101409,7 +101409,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -114266,7 +114266,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -127129,7 +127129,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -140067,7 +140067,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7
@@ -154310,7 +154310,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull readonly byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7

@@ -33341,7 +33341,7 @@ _ZNK5vcpkg13ToolCacheImpl19get_config_contentsB5cxx11Ev.exit: ; preds = %_ZN5vcp
   store ptr @.str.215, ptr %6, align 8, !noalias !327
   %61 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 5, ptr %61, align 8, !noalias !327
-  call void @_ZN5vcpkg24parse_tool_data_from_xmlENS_10StringViewES0_S0_S0_(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.3") align 8 %11, ptr %58, i64 %60, ptr %51, i64 %52, ptr noundef nonnull readonly byval(%"struct.vcpkg::StringView") align 8 %7, ptr noundef nonnull byval(%"struct.vcpkg::StringView") align 8 %6)
+  call void @_ZN5vcpkg24parse_tool_data_from_xmlENS_10StringViewES0_S0_S0_(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.3") align 8 %11, ptr %58, i64 %60, ptr %51, i64 %52, ptr noundef nonnull byval(%"struct.vcpkg::StringView") align 8 %7, ptr noundef nonnull byval(%"struct.vcpkg::StringView") align 8 %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %62 = load i8, ptr %11, align 8

@@ -43678,7 +43678,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false10.i, 
   %7 = load <2 x float>, ptr %bounds.i, align 8
   %8 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %9 = load <2 x float>, ptr %8, align 8
-  %call14.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i, ptr noundef nonnull %buffer.i, <2 x float> %7, <2 x float> %9, ptr noundef nonnull readonly byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %siz.0.lcssa.i, i32 noundef %align, i32 noundef 0, ptr noundef nonnull %contextual_button.i, ptr noundef %6, ptr noundef %cond.i)
+  %call14.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i, ptr noundef nonnull %buffer.i, <2 x float> %7, <2 x float> %9, ptr noundef nonnull byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %siz.0.lcssa.i, i32 noundef %align, i32 noundef 0, ptr noundef nonnull %contextual_button.i, ptr noundef %6, ptr noundef %cond.i)
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool15.not.i, label %nk_contextual_item_image_text.exit, label %lor.lhs.false.i14.i
 
@@ -45432,7 +45432,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false10.i, 
   %5 = load <2 x float>, ptr %bounds.i, align 8
   %6 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %7 = load <2 x float>, ptr %6, align 8
-  %call14.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i, ptr noundef nonnull %buffer.i, <2 x float> %5, <2 x float> %7, ptr noundef nonnull readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align, i32 noundef 0, ptr noundef nonnull %contextual_button.i, ptr noundef %4, ptr noundef %cond.i)
+  %call14.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i, ptr noundef nonnull %buffer.i, <2 x float> %5, <2 x float> %7, ptr noundef nonnull byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align, i32 noundef 0, ptr noundef nonnull %contextual_button.i, ptr noundef %4, ptr noundef %cond.i)
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool15.not.i, label %nk_contextual_item_image_text.exit, label %lor.lhs.false.i14.i
 
@@ -53450,7 +53450,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false13.i, 
   %5 = load <2 x float>, ptr %bounds.i, align 8
   %6 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %7 = load <2 x float>, ptr %6, align 8
-  %call16.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i, ptr noundef nonnull %buffer.i, <2 x float> %5, <2 x float> %7, ptr noundef nonnull readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align, i32 noundef %3, ptr noundef nonnull %button, ptr noundef %4, ptr noundef %cond.i)
+  %call16.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i, ptr noundef nonnull %buffer.i, <2 x float> %5, <2 x float> %7, ptr noundef nonnull byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align, i32 noundef %3, ptr noundef nonnull %button, ptr noundef %4, ptr noundef %cond.i)
   br label %nk_button_image_text_styled.exit
 
 nk_button_image_text_styled.exit:                 ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false2.i, %if.end.i, %cond.end.i
@@ -53525,7 +53525,7 @@ cond.end.i.i:                                     ; preds = %lor.lhs.false13.i.i
   %7 = load <2 x float>, ptr %bounds.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %bounds.i.i, i64 8
   %9 = load <2 x float>, ptr %8, align 8
-  %call16.i.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i.i, ptr noundef nonnull %buffer.i.i, <2 x float> %7, <2 x float> %9, ptr noundef nonnull readonly byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %siz.0.lcssa.i, i32 noundef %align, i32 noundef %5, ptr noundef nonnull %button.i, ptr noundef %6, ptr noundef %cond.i.i)
+  %call16.i.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i.i, ptr noundef nonnull %buffer.i.i, <2 x float> %7, <2 x float> %9, ptr noundef nonnull byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %siz.0.lcssa.i, i32 noundef %align, i32 noundef %5, ptr noundef nonnull %button.i, ptr noundef %6, ptr noundef %cond.i.i)
   br label %nk_button_image_text.exit
 
 nk_button_image_text.exit:                        ; preds = %nk_strlen.exit, %lor.lhs.false.i.i, %lor.lhs.false2.i.i, %if.end.i.i, %cond.end.i.i
@@ -53599,7 +53599,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false13.i, 
   %7 = load <2 x float>, ptr %bounds.i, align 8
   %8 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %9 = load <2 x float>, ptr %8, align 8
-  %call16.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i, ptr noundef nonnull %buffer.i, <2 x float> %7, <2 x float> %9, ptr noundef nonnull readonly byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %siz.0.lcssa.i, i32 noundef %text_alignment, i32 noundef %5, ptr noundef %style, ptr noundef %6, ptr noundef %cond.i)
+  %call16.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i, ptr noundef nonnull %buffer.i, <2 x float> %7, <2 x float> %9, ptr noundef nonnull byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %siz.0.lcssa.i, i32 noundef %text_alignment, i32 noundef %5, ptr noundef %style, ptr noundef %6, ptr noundef %cond.i)
   br label %nk_button_image_text_styled.exit
 
 nk_button_image_text_styled.exit:                 ; preds = %nk_strlen.exit, %lor.lhs.false.i, %lor.lhs.false2.i, %if.end.i, %cond.end.i
@@ -68855,7 +68855,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false10.i, 
   %5 = load <2 x float>, ptr %bounds.i, align 8
   %6 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %7 = load <2 x float>, ptr %6, align 8
-  %call14.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i, ptr noundef nonnull %buffer.i, <2 x float> %5, <2 x float> %7, ptr noundef nonnull readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %alignment, i32 noundef 0, ptr noundef nonnull %contextual_button.i, ptr noundef %4, ptr noundef %cond.i)
+  %call14.i = tail call fastcc i32 @nk_do_button_text_image(ptr noundef nonnull %last_widget_state.i, ptr noundef nonnull %buffer.i, <2 x float> %5, <2 x float> %7, ptr noundef nonnull byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %alignment, i32 noundef 0, ptr noundef nonnull %contextual_button.i, ptr noundef %4, ptr noundef %cond.i)
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool15.not.i, label %nk_contextual_item_image_text.exit, label %lor.lhs.false.i14.i
 

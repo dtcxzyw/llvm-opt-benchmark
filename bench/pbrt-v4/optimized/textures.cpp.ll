@@ -12560,7 +12560,7 @@ sw.bb5.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp1.i63)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp1.i63, ptr noundef nonnull align 4 dereferenceable(76) %72, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %result.i.i)
-  %call.i.i64 = call noundef i32 @_ZNK4pbrt15PtexTextureBase13SampleTextureENS_18TextureEvalContextEPf(ptr noundef nonnull align 8 dereferenceable(52) %ptr, ptr noundef nonnull readonly byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp1.i63, ptr noundef nonnull %result.i.i)
+  %call.i.i64 = call noundef i32 @_ZNK4pbrt15PtexTextureBase13SampleTextureENS_18TextureEvalContextEPf(ptr noundef nonnull align 8 dereferenceable(52) %ptr, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp1.i63, ptr noundef nonnull %result.i.i)
   %cmp.i.i = icmp eq i32 %call.i.i64, 1
   %73 = load float, ptr %result.i.i, align 4
   br i1 %cmp.i.i, label %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatPtexTextureEEEDaS2_.exit, label %do.end.i.i

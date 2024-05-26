@@ -24658,7 +24658,7 @@ _ZN22hb_serialize_context_t4pushIvEEPT_v.exit:    ; preds = %_ZN11hb_vector_tIjL
   %v.sroa.2.0.v2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %opszr, ptr %v.sroa.2.0.v2.sroa_idx.i.i.i.i, align 8, !alias.scope !174
   store ptr %sizes, ptr %ref.tmp8, align 8
-  call void @_ZN9hb_sink_tIR11hb_vector_tIjLb0EEEclI13hb_map_iter_tI13hb_zip_iter_tI10hb_array_tIKN3CFF27cff1_font_dict_values_mod_tEESB_EZNS8_7FDArrayIN2OT7IntTypeItLj2EEEE9serializeIS9_S9_SC_30cff1_font_dict_op_serializer_tEEbP22hb_serialize_context_tT1_RT2_EUlRK9hb_pair_tIRSA_SQ_EE_L24hb_function_sortedness_t0ELPv0EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSZ_6item_tEEE5valueEvE4typeELSW_0EEEvSZ_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull readonly byval(%struct.hb_map_iter_t.214) align 8 %ref.tmp)
+  call void @_ZN9hb_sink_tIR11hb_vector_tIjLb0EEEclI13hb_map_iter_tI13hb_zip_iter_tI10hb_array_tIKN3CFF27cff1_font_dict_values_mod_tEESB_EZNS8_7FDArrayIN2OT7IntTypeItLj2EEEE9serializeIS9_S9_SC_30cff1_font_dict_op_serializer_tEEbP22hb_serialize_context_tT1_RT2_EUlRK9hb_pair_tIRSA_SQ_EE_L24hb_function_sortedness_t0ELPv0EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSZ_6item_tEEE5valueEvE4typeELSW_0EEEvSZ_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull byval(%struct.hb_map_iter_t.214) align 8 %ref.tmp)
   %10 = load ptr, ptr %c.addr, align 8
   %head11 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %head11, align 8

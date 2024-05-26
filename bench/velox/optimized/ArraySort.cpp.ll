@@ -13769,13 +13769,13 @@ if.then.i.i:                                      ; preds = %for.end
   %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %idx.ext5, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %16, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  tail call fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_T1_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr6, i64 noundef %mul.i.i, ptr noundef nonnull readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp11)
+  tail call fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_T1_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr6, i64 noundef %mul.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp11)
   %cmp.i.i.i = icmp sgt i32 %2, 16
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
-  tail call fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp11)
+  tail call fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp27.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp27.sroa.0.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp11, i64 32, i1 false)
   %17 = getelementptr inbounds i8, ptr %agg.tmp4.i.i.i.i, i64 8
@@ -13948,7 +13948,7 @@ while.body.i.backedge.i.i.i.i:                    ; preds = %_ZNRSt8optionalIiE5
   br label %"_ZSt4sortIPiZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS2_17SelectivityVectorERKNS2_11ArrayVectorERKNS2_10BaseVectorEbRNS2_4exec7EvalCtxEbENK3$_0clEiEUlRiSI_E_EvT_SK_T0_.exit"
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  tail call fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr6, ptr noundef nonnull readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp11)
+  tail call fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp11)
   br label %"_ZSt4sortIPiZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS2_17SelectivityVectorERKNS2_11ArrayVectorERKNS2_10BaseVectorEbRNS2_4exec7EvalCtxEbENK3$_0clEiEUlRiSI_E_EvT_SK_T0_.exit"
 
 "_ZSt4sortIPiZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS2_17SelectivityVectorERKNS2_11ArrayVectorERKNS2_10BaseVectorEbRNS2_4exec7EvalCtxEbENK3$_0clEiEUlRiSI_E_EvT_SK_T0_.exit": ; preds = %for.end, %"_ZSt26__unguarded_insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_.exit.i.i.i", %if.else.i.i.i

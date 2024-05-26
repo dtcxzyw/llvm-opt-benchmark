@@ -3833,7 +3833,7 @@ _ZN12_GLOBAL__N_130determineCapturedVariableUsageEPN6hermes8FunctionERN4llvh8Den
   store ptr %capturedVariableUsage, ptr %agg.tmp1.sroa.3.0.agg.tmp126.sroa_idx, align 8
   %scopeDesc_.i.i27 = getelementptr inbounds i8, ptr %250, i64 72
   %251 = load ptr, ptr %scopeDesc_.i.i27, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %250, ptr noundef %251, ptr noundef nonnull readonly byval(%class.anon.136) align 8 %agg.tmp126)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %250, ptr noundef %251, ptr noundef nonnull byval(%class.anon.136) align 8 %agg.tmp126)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp126)
   %252 = load ptr, ptr %F.addr, align 8
   %parent_.i.i = getelementptr inbounds i8, ptr %252, i64 56
@@ -3856,7 +3856,7 @@ _ZN12_GLOBAL__N_130determineCapturedVariableUsageEPN6hermes8FunctionERN4llvh8Den
   store ptr %capturedVariableUsage, ptr %agg.tmp2.sroa.6.0.agg.tmp229.sroa_idx, align 8
   %scopeDesc_.i.i30 = getelementptr inbounds i8, ptr %252, i64 72
   %254 = load ptr, ptr %scopeDesc_.i.i30, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_2EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %252, ptr noundef %254, ptr noundef nonnull readonly byval(%class.anon.140) align 8 %agg.tmp229)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_2EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %252, ptr noundef %254, ptr noundef nonnull byval(%class.anon.140) align 8 %agg.tmp229)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp229)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %alreadyProcessed, i8 0, i64 20, i1 false)
   %255 = load ptr, ptr %F.addr, align 8
@@ -4436,7 +4436,7 @@ while.end:                                        ; preds = %while.cond
   store ptr %changed, ptr %agg.tmp62.sroa.7.0.agg.tmp62233.sroa_idx, align 8
   %scopeDesc_.i.i234 = getelementptr inbounds i8, ptr %336, i64 72
   %337 = load ptr, ptr %scopeDesc_.i.i234, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_3EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %336, ptr noundef %337, ptr noundef nonnull readonly byval(%class.anon.149) align 8 %agg.tmp62233)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_3EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %336, ptr noundef %337, ptr noundef nonnull byval(%class.anon.149) align 8 %agg.tmp62233)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp62233)
   br label %cleanup
 
@@ -4694,7 +4694,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS_8DenseSetIPNS2_8Var
   store ptr %__begin167.sroa.0.01017, ptr %agg.tmp91.sroa.8.0.agg.tmp91332.sroa_idx, align 8
   %scopeDesc_.i.i333 = getelementptr inbounds i8, ptr %362, i64 72
   %363 = load ptr, ptr %scopeDesc_.i.i333, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_4EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %362, ptr noundef %363, ptr noundef nonnull readonly byval(%class.anon.157) align 8 %agg.tmp91332)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_4EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %362, ptr noundef %363, ptr noundef nonnull byval(%class.anon.157) align 8 %agg.tmp91332)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp91332)
   br label %for.inc92
 

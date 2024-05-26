@@ -7861,7 +7861,7 @@ if.then51.i484:                                   ; preds = %if.else.i483
   %ref.tmp53.sroa.3.0.ref.tmp52.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp52.i, i64 16
   store i64 %.fca.1.load.i.i.i, ptr %ref.tmp53.sroa.3.0.ref.tmp52.sroa_idx.i, align 8
   store ptr %new_to_old_gid_list, ptr %ref.tmp56.i, align 8
-  call void @_ZN9hb_sink_tIR11hb_vector_tI9hb_pair_tIjjELb1EEEclI13hb_zip_iter_tI14hb_iota_iter_tIjjEN23hb_bit_set_invertible_t6iter_tEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSE_6item_tEEE5valueEvE4typeELPv0EEEvSE_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp56.i, ptr noundef nonnull readonly byval(%struct.hb_zip_iter_t.824) align 8 %ref.tmp52.i)
+  call void @_ZN9hb_sink_tIR11hb_vector_tI9hb_pair_tIjjELb1EEEclI13hb_zip_iter_tI14hb_iota_iter_tIjjEN23hb_bit_set_invertible_t6iter_tEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSE_6item_tEEE5valueEvE4typeELPv0EEEvSE_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp56.i, ptr noundef nonnull byval(%struct.hb_zip_iter_t.824) align 8 %ref.tmp52.i)
   %length.i485 = getelementptr inbounds i8, ptr %this, i64 196
   %680 = load i32, ptr %length.i485, align 4
   store i32 %680, ptr %_num_output_glyphs, align 8

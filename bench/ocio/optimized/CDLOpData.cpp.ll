@@ -3185,7 +3185,7 @@ invoke.cont17:                                    ; preds = %switch.lookup
 
 invoke.cont19:                                    ; preds = %invoke.cont17
   %m_slopeParams.i = getelementptr inbounds i8, ptr %this, i64 176
-  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull readonly byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_slopeParams.i)
+  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_slopeParams.i)
           to label %invoke.cont21 unwind label %lpad2
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -3199,7 +3199,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 invoke.cont25:                                    ; preds = %invoke.cont23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   %m_offsetParams.i = getelementptr inbounds i8, ptr %this, i64 200
-  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp27, ptr noundef nonnull readonly byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_offsetParams.i)
+  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp27, ptr noundef nonnull byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_offsetParams.i)
           to label %invoke.cont28 unwind label %lpad2
 
 invoke.cont28:                                    ; preds = %invoke.cont25
@@ -3213,7 +3213,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
 invoke.cont32:                                    ; preds = %invoke.cont30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #19
   %m_powerParams.i = getelementptr inbounds i8, ptr %this, i64 224
-  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp34, ptr noundef nonnull readonly byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_powerParams.i)
+  invoke void @_ZN19OpenColorIO_v2_4dev9CDLOpData26GetChannelParametersStringB5cxx11ENS0_13ChannelParamsE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp34, ptr noundef nonnull byval(%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams") align 8 %m_powerParams.i)
           to label %invoke.cont35 unwind label %lpad2
 
 invoke.cont35:                                    ; preds = %invoke.cont32
