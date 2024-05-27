@@ -55206,7 +55206,7 @@ _ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9R
   br label %if.end109
 
 if.end109.critedge:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESt6vectorISA_SaISA_EEEEPSA_SA_ET0_T_SJ_SI_RSaIT1_E.exit
-  %add.ptr58.c = getelementptr %"class.ue2::graph_detail::vertex_descriptor", ptr %2, i64 %sub.ptr.div.i.i.i
+  %add.ptr58.c = getelementptr nusw %"class.ue2::graph_detail::vertex_descriptor", ptr %2, i64 %sub.ptr.div.i.i.i
   store ptr %add.ptr58.c, ptr %_M_finish, align 8
   br label %if.end109
 

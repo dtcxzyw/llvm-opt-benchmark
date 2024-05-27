@@ -19243,7 +19243,7 @@ _ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds 
   br label %if.end121
 
 if.end121.critedge:                               ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit
-  %add.ptr66.c = getelementptr %"class.ue2::CharReach", ptr %2, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr66.c = getelementptr nusw %"class.ue2::CharReach", ptr %2, i64 %sub.ptr.div.i.i.i.i
   store ptr %add.ptr66.c, ptr %_M_finish, align 8
   br label %if.end121
 
@@ -29940,7 +29940,7 @@ _ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8N
   br label %if.end121
 
 if.end121.critedge:                               ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESt6vectorISB_SaISB_EEEEESC_SB_ET0_T_SJ_SI_RSaIT1_E.exit
-  %add.ptr66.c = getelementptr %"class.ue2::graph_detail::vertex_descriptor", ptr %2, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr66.c = getelementptr nusw %"class.ue2::graph_detail::vertex_descriptor", ptr %2, i64 %sub.ptr.div.i.i.i.i
   store ptr %add.ptr66.c, ptr %_M_finish, align 8
   br label %if.end121
 
