@@ -176,8 +176,8 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader20NarrowWideBitPatternE
 38:                                               ; preds = %32
   %39 = add nuw nsw i32 %23, %21
   %40 = lshr i32 %39, 1
-  %41 = lshr i32 %23, 1
-  %42 = add nuw nsw i32 %41, %23
+  %41 = mul nuw nsw i32 %23, 3
+  %42 = lshr i32 %41, 1
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %40, i32 %42)
   %43 = trunc i32 %.sroa.speculated.i to i16
   store i16 %43, ptr %indvars.iv27.i.sroa.phi, align 2

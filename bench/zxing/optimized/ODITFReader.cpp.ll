@@ -276,8 +276,8 @@ _ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZN5ZXing11
 92:                                               ; preds = %86
   %93 = add nuw nsw i32 %77, %75
   %94 = lshr i32 %93, 1
-  %95 = lshr i32 %77, 1
-  %96 = add nuw nsw i32 %95, %77
+  %95 = mul nuw nsw i32 %77, 3
+  %96 = lshr i32 %95, 1
   %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %94, i32 %96)
   %97 = trunc i32 %.sroa.speculated.i to i16
   store i16 %97, ptr %indvars.iv27.i.sroa.phi, align 2

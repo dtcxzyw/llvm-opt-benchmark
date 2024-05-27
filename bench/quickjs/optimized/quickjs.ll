@@ -13668,8 +13668,8 @@ define internal fastcc range(i32 -1, 1) i32 @JS_NewClass1(ptr noundef %0, i32 no
 
 16:                                               ; preds = %6
   %17 = add nuw nsw i32 %1, 1
-  %18 = lshr i32 %8, 1
-  %19 = add nuw nsw i32 %18, %8
+  %18 = mul nuw nsw i32 %8, 3
+  %19 = lshr i32 %18, 1
   %20 = tail call i32 @llvm.umax.i32(i32 %17, i32 %19)
   %21 = tail call i32 @llvm.umax.i32(i32 %20, i32 58)
   %22 = getelementptr inbounds i8, ptr %0, i64 120
@@ -13683,6 +13683,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_NewClass1(ptr noundef %0, i32 no
   %24 = shl nuw nsw i64 %.pre73, 4
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %wide.trip.count = zext nneg i32 %21 to i64
   br label %27
 
 27:                                               ; preds = %.lr.ph70, %._crit_edge
@@ -13710,7 +13711,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_NewClass1(ptr noundef %0, i32 no
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 8
   store i64 2, ptr %.sroa.21.0..sroa_idx, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre73
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32

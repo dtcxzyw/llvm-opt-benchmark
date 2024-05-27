@@ -1215,8 +1215,8 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
   br i1 %71, label %dom_deep_ns_redef.exit, label %72
 
 72:                                               ; preds = %70
-  %73 = lshr i64 %.183114.i, 1
-  %74 = add nuw nsw i64 %73, %.183114.i
+  %73 = mul nuw nsw i64 %.183114.i, 3
+  %74 = lshr i64 %73, 1
   %75 = shl nuw i64 %74, 4
   %76 = tail call ptr @_erealloc(ptr noundef %.190112.i, i64 noundef %75) #11
   br label %77

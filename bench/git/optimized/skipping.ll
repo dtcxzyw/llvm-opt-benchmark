@@ -300,18 +300,20 @@ if.else21.i.i:                                    ; preds = %if.end13.i.i
   %25 = load i16, ptr %ttl.i.i, align 2
   %tobool22.not.i.i = icmp eq i16 %25, 0
   %26 = load i16, ptr %original_ttl24.i.i, align 8
-  %27 = lshr i16 %26, 1
-  %div20.i.i = add i16 %26, 1
-  %add.i.i = add i16 %div20.i.i, %27
-  %cond.i.i = select i1 %tobool22.not.i.i, i16 %add.i.i, i16 %26
+  %conv25.i.i = zext i16 %26 to i32
+  %mul.i.i = mul nuw nsw i32 %conv25.i.i, 3
+  %div20.i.i = lshr i32 %mul.i.i, 1
+  %27 = trunc i32 %div20.i.i to i16
+  %28 = add i16 %27, 1
+  %cond.i.i = select i1 %tobool22.not.i.i, i16 %28, i16 %26
   %original_ttl38.i.i = getelementptr inbounds i8, ptr %parent_entry.0.i.i, i64 8
-  %28 = load i16, ptr %original_ttl38.i.i, align 8
-  %cmp41.i.i = icmp ult i16 %28, %cond.i.i
+  %29 = load i16, ptr %original_ttl38.i.i, align 8
+  %cmp41.i.i = icmp ult i16 %29, %cond.i.i
   br i1 %cmp41.i.i, label %if.then43.i.i, label %push_parent.exit.i
 
 if.then43.i.i:                                    ; preds = %if.else21.i.i
   %sub.i.i = add i16 %25, -1
-  %cond36.i.i = select i1 %tobool22.not.i.i, i16 %add.i.i, i16 %sub.i.i
+  %cond36.i.i = select i1 %tobool22.not.i.i, i16 %28, i16 %sub.i.i
   store i16 %cond.i.i, ptr %original_ttl38.i.i, align 8
   %ttl45.i.i = getelementptr inbounds i8, ptr %parent_entry.0.i.i, i64 10
   store i16 %cond36.i.i, ptr %ttl45.i.i, align 2
@@ -328,8 +330,8 @@ push_parent.exit.i:                               ; preds = %if.then43.i.i, %if.
 for.end.i:                                        ; preds = %push_parent.exit.i, %if.end20.i
   %parent_pushed.0.lcssa.i = phi i32 [ 0, %if.end20.i ], [ %or24.i, %push_parent.exit.i ]
   %bf.load26.i = load i32, ptr %3, align 8
-  %29 = and i32 %bf.load26.i, 64
-  %tobool29.i = icmp ne i32 %29, 0
+  %30 = and i32 %bf.load26.i, 64
+  %tobool29.i = icmp ne i32 %30, 0
   %tobool31.i = icmp ne i32 %parent_pushed.0.lcssa.i, 0
   %or.cond.i = select i1 %tobool29.i, i1 true, i1 %tobool31.i
   call void @free(ptr noundef %call.i) #6

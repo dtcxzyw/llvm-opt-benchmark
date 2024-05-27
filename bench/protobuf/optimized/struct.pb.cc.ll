@@ -3742,9 +3742,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then14.i, label %if.end11
 
 if.then14.i:                                      ; preds = %if.else.i
-  %7 = lshr i64 %conv, 2
-  %div169.i = add nuw nsw i64 %conv, 1
-  %add.i = add nuw nsw i64 %div169.i, %7
+  %mul15.i = mul nuw nsw i64 %conv, 5
+  %div169.i = lshr i64 %mul15.i, 2
+  %add.i = add nuw nsw i64 %div169.i, 1
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then14.i
@@ -3757,25 +3757,25 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.t
 while.end.i:                                      ; preds = %while.cond.i
   %sh_prom.i = trunc i64 %lg2_of_size_reduction_factor.0.i to i32
   %shr.i = lshr i32 %5, %sh_prom.i
-  %8 = tail call i32 @llvm.umax.i32(i32 %shr.i, i32 2)
-  %cmp24.not.i = icmp eq i32 %8, %5
+  %7 = tail call i32 @llvm.umax.i32(i32 %shr.i, i32 2)
+  %cmp24.not.i = icmp eq i32 %7, %5
   br i1 %cmp24.not.i, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %while.end.i, %if.then8.i
-  %.sink.i = phi i32 [ %mul.i, %if.then8.i ], [ %8, %while.end.i ]
+  %.sink.i = phi i32 [ %mul.i, %if.then8.i ], [ %7, %while.end.i ]
   tail call void @_ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6ResizeEj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %.sink.i)
   %call.i.i.i11 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %k) #23
-  %9 = extractvalue { i64, ptr } %call.i.i.i11, 0
-  %10 = extractvalue { i64, ptr } %call.i.i.i11, 1
-  %call10 = tail call { ptr, i32 } @_ZNK6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10FindHelperESt17basic_string_viewIcS6_EPN4absl12lts_2023080218container_internal14btree_iteratorINSE_10btree_nodeINSE_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISI_ENS1_12MapAllocatorISt4pairIKSI_SK_EEELi256ELb0EEEEERSQ_PSQ_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %9, ptr %10, ptr noundef null)
-  %11 = extractvalue { ptr, i32 } %call10, 1
+  %8 = extractvalue { i64, ptr } %call.i.i.i11, 0
+  %9 = extractvalue { i64, ptr } %call.i.i.i11, 1
+  %call10 = tail call { ptr, i32 } @_ZNK6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10FindHelperESt17basic_string_viewIcS6_EPN4absl12lts_2023080218container_internal14btree_iteratorINSE_10btree_nodeINSE_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISI_ENS1_12MapAllocatorISt4pairIKSI_SK_EEELi256ELb0EEEEERSQ_PSQ_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %8, ptr %9, ptr noundef null)
+  %10 = extractvalue { ptr, i32 } %call10, 1
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then.i, %if.else.i, %while.end.i, %if.then6
-  %p.sroa.4.0 = phi i32 [ %11, %if.then6 ], [ %3, %while.end.i ], [ %3, %if.else.i ], [ %3, %if.then.i ]
+  %p.sroa.4.0 = phi i32 [ %10, %if.then6 ], [ %3, %while.end.i ], [ %3, %if.else.i ], [ %3, %if.then.i ]
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %12 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i.i
 
 if.then.i.i:                                      ; preds = %if.end11
@@ -3783,60 +3783,60 @@ if.then.i.i:                                      ; preds = %if.end11
   br label %if.then17
 
 if.else.i.i.i:                                    ; preds = %if.end11
-  %call2.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %12, i64 noundef 72)
+  %call2.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %11, i64 noundef 72)
   br label %if.then17
 
 if.then17:                                        ; preds = %if.else.i.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i.i.i, %if.else.i.i.i ]
   %kv = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  %13 = load ptr, ptr %alloc_.i, align 8
+  %12 = load ptr, ptr %alloc_.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %kv, ptr noundef nonnull align 8 dereferenceable(32) %k)
-  %cmp.not.i = icmp eq ptr %13, null
+  %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %if.end22, label %_ZN6google8protobuf5Arena26RegisterDestructorInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_PS1_St17integral_constantIbLb0EE.exit.i
 
 _ZN6google8protobuf5Arena26RegisterDestructorInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_PS1_St17integral_constantIbLb0EE.exit.i: ; preds = %if.then17
-  tail call void @_ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull %kv, ptr noundef nonnull @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
+  tail call void @_ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull %kv, ptr noundef nonnull @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
   br label %if.end22
 
 if.end22:                                         ; preds = %_ZN6google8protobuf5Arena26RegisterDestructorInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_PS1_St17integral_constantIbLb0EE.exit.i, %if.then17
   %second = getelementptr inbounds i8, ptr %retval.0.i.i, i64 40
-  %14 = load ptr, ptr %alloc_.i, align 8
-  tail call void @_ZN6google8protobuf5ValueC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %second, ptr noundef %14)
+  %13 = load ptr, ptr %alloc_.i, align 8
+  tail call void @_ZN6google8protobuf5ValueC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %second, ptr noundef %13)
   %table_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %15 = load ptr, ptr %table_.i.i, align 8
+  %14 = load ptr, ptr %table_.i.i, align 8
   %idxprom.i.i = zext i32 %p.sroa.4.0 to i64
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %15, i64 %idxprom.i.i
-  %16 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp.i.i.i = icmp eq i64 %16, 0
+  %arrayidx.i.i = getelementptr inbounds i64, ptr %14, i64 %idxprom.i.i
+  %15 = load i64, ptr %arrayidx.i.i, align 8
+  %cmp.i.i.i = icmp eq i64 %15, 0
   br i1 %cmp.i.i.i, label %if.then.i13, label %if.else.i12
 
 if.then.i13:                                      ; preds = %if.end22
   store ptr null, ptr %retval.0.i.i, align 8
-  %17 = ptrtoint ptr %retval.0.i.i to i64
-  %18 = load ptr, ptr %table_.i.i, align 8
-  %arrayidx14.i.i = getelementptr inbounds i64, ptr %18, i64 %idxprom.i.i
-  store i64 %17, ptr %arrayidx14.i.i, align 8
+  %16 = ptrtoint ptr %retval.0.i.i to i64
+  %17 = load ptr, ptr %table_.i.i, align 8
+  %arrayidx14.i.i = getelementptr inbounds i64, ptr %17, i64 %idxprom.i.i
+  store i64 %16, ptr %arrayidx14.i.i, align 8
   %index_of_first_non_null_.i = getelementptr inbounds i8, ptr %this, i64 12
-  %19 = load i32, ptr %index_of_first_non_null_.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %19, i32 %p.sroa.4.0)
+  %18 = load i32, ptr %index_of_first_non_null_.i, align 4
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %18, i32 %p.sroa.4.0)
   store i32 %.sroa.speculated.i, ptr %index_of_first_non_null_.i, align 4
   br label %_ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InsertUniqueEjPNS1_7KeyNodeIS8_EE.exit
 
 if.else.i12:                                      ; preds = %if.end22
-  %and.i.i.i.i.i = and i64 %16, 1
+  %and.i.i.i.i.i = and i64 %15, 1
   %cmp.i.not.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i.i, label %land.lhs.true.i, label %if.else7.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i12
-  %20 = inttoptr i64 %16 to ptr
+  %19 = inttoptr i64 %15 to ptr
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %land.lhs.true.i
-  %node.addr.0.i.i.i = phi ptr [ %20, %land.lhs.true.i ], [ %21, %do.body.i.i.i ]
+  %node.addr.0.i.i.i = phi ptr [ %19, %land.lhs.true.i ], [ %20, %do.body.i.i.i ]
   %count.0.i.i.i = phi i64 [ 0, %land.lhs.true.i ], [ %inc.i.i.i, %do.body.i.i.i ]
   %inc.i.i.i = add i64 %count.0.i.i.i, 1
-  %21 = load ptr, ptr %node.addr.0.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %21, null
+  %20 = load ptr, ptr %node.addr.0.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, label %do.body.i.i.i, !llvm.loop !24
 
 _ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i: ; preds = %do.body.i.i.i
@@ -3844,11 +3844,11 @@ _ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i: ; pr
   br i1 %cmp1.i.i.i, label %if.else7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i
-  store ptr %20, ptr %retval.0.i.i, align 8
-  %22 = ptrtoint ptr %retval.0.i.i to i64
-  %23 = load ptr, ptr %table_.i.i, align 8
-  %arrayidx14.i12.i = getelementptr inbounds i64, ptr %23, i64 %idxprom.i.i
-  store i64 %22, ptr %arrayidx14.i12.i, align 8
+  store ptr %19, ptr %retval.0.i.i, align 8
+  %21 = ptrtoint ptr %retval.0.i.i to i64
+  %22 = load ptr, ptr %table_.i.i, align 8
+  %arrayidx14.i12.i = getelementptr inbounds i64, ptr %22, i64 %idxprom.i.i
+  store i64 %21, ptr %arrayidx14.i12.i, align 8
   br label %_ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InsertUniqueEjPNS1_7KeyNodeIS8_EE.exit
 
 if.else7.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, %if.else.i12
@@ -3856,8 +3856,8 @@ if.else7.i:                                       ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InsertUniqueEjPNS1_7KeyNodeIS8_EE.exit
 
 _ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InsertUniqueEjPNS1_7KeyNodeIS8_EE.exit: ; preds = %if.then.i13, %if.then6.i, %if.else7.i
-  %24 = load i32, ptr %this, align 8
-  %inc = add i32 %24, 1
+  %23 = load i32, ptr %this, align 8
+  %inc = add i32 %23, 1
   store i32 %inc, ptr %this, align 8
   br label %return
 

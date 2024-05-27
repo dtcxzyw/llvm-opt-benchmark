@@ -63666,11 +63666,11 @@ walHashGet.exit:                                  ; preds = %3
   %.idx = select i1 %15, i64 136, i64 0
   %16 = getelementptr inbounds i8, ptr %13, i64 %.idx
   %17 = icmp eq i32 %12, 0
-  br i1 %17, label %18, label %82
+  br i1 %17, label %18, label %83
 
 walHashGet.exit.thread:                           ; preds = %3
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %12, i32 1)
-  br label %82
+  br label %83
 
 18:                                               ; preds = %walHashGet.exit
   %19 = shl i32 %10, 12
@@ -63678,127 +63678,129 @@ walHashGet.exit.thread:                           ; preds = %3
   %21 = select i1 %15, i32 0, i32 %20
   %22 = sub i32 %1, %21
   %23 = icmp eq i32 %22, 1
-  br i1 %23, label %24, label %26
+  br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = sub nuw nsw i64 32768, %.idx
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %16, i8 0, i64 %25, i1 false)
-  br label %26
+  %25 = shl nuw nsw i64 %.idx, 32
+  %sext = sub nuw nsw i64 140737488355328, %25
+  %26 = lshr exact i64 %sext, 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %16, i8 0, i64 %26, i1 false)
+  br label %27
 
-26:                                               ; preds = %24, %18
-  %27 = sext i32 %22 to i64
-  %28 = getelementptr i32, ptr %16, i64 %27
-  %29 = getelementptr i8, ptr %28, i64 -4
-  %30 = load volatile i32, ptr %29, align 4
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %67, label %31
+27:                                               ; preds = %24, %18
+  %28 = sext i32 %22 to i64
+  %29 = getelementptr i32, ptr %16, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 -4
+  %31 = load volatile i32, ptr %30, align 4
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %68, label %32
 
-31:                                               ; preds = %26
+32:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %walCleanupHash.exit, label %35
+  %33 = getelementptr inbounds i8, ptr %0, i64 88
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %walCleanupHash.exit, label %36
 
-35:                                               ; preds = %31
-  %36 = add i32 %33, 4096
-  %37 = zext i32 %36 to i64
-  %38 = add nuw nsw i64 %37, 17592186040353
-  %39 = lshr i64 %38, 12
-  %40 = trunc i64 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
-  %42 = call fastcc i32 @walIndexPage(ptr noundef nonnull %0, i32 noundef %40, ptr noundef nonnull %41)
-  %43 = load ptr, ptr %41, align 8
-  %.not.i.i = icmp eq ptr %43, null
+36:                                               ; preds = %32
+  %37 = add i32 %34, 4096
+  %38 = zext i32 %37 to i64
+  %39 = add nuw nsw i64 %38, 17592186040353
+  %40 = lshr i64 %39, 12
+  %41 = trunc i64 %40 to i32
+  %42 = getelementptr inbounds i8, ptr %4, i64 8
+  %43 = call fastcc i32 @walIndexPage(ptr noundef nonnull %0, i32 noundef %41, ptr noundef nonnull %42)
+  %44 = load ptr, ptr %42, align 8
+  %.not.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i, label %walCleanupHash.exit, label %walHashGet.exit.i
 
-walHashGet.exit.i:                                ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %43, i64 16384
-  %45 = icmp eq i32 %40, 0
-  %.idx.i = select i1 %45, i64 136, i64 0
-  %46 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
-  %.not.i22 = icmp eq i32 %42, 0
-  br i1 %.not.i22, label %47, label %walCleanupHash.exit
+walHashGet.exit.i:                                ; preds = %36
+  %45 = getelementptr inbounds i8, ptr %44, i64 16384
+  %46 = icmp eq i32 %41, 0
+  %.idx.i = select i1 %46, i64 136, i64 0
+  %47 = getelementptr inbounds i8, ptr %44, i64 %.idx.i
+  %.not.i22 = icmp eq i32 %43, 0
+  br i1 %.not.i22, label %48, label %walCleanupHash.exit
 
-47:                                               ; preds = %walHashGet.exit.i
-  %48 = shl i32 %40, 12
-  %49 = add i32 %48, -34
-  %50 = select i1 %45, i32 0, i32 %49
-  %51 = load i32, ptr %32, align 8
-  %52 = sub i32 %51, %50
-  br label %53
+48:                                               ; preds = %walHashGet.exit.i
+  %49 = shl i32 %41, 12
+  %50 = add i32 %49, -34
+  %51 = select i1 %46, i32 0, i32 %50
+  %52 = load i32, ptr %33, align 8
+  %53 = sub i32 %52, %51
+  br label %54
 
-53:                                               ; preds = %59, %47
-  %indvars.iv.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i, %59 ]
-  %54 = getelementptr inbounds i16, ptr %44, i64 %indvars.iv.i
-  %55 = load volatile i16, ptr %54, align 2
-  %56 = zext i16 %55 to i32
-  %57 = icmp slt i32 %52, %56
-  br i1 %57, label %58, label %59
+54:                                               ; preds = %60, %48
+  %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %60 ]
+  %55 = getelementptr inbounds i16, ptr %45, i64 %indvars.iv.i
+  %56 = load volatile i16, ptr %55, align 2
+  %57 = zext i16 %56 to i32
+  %58 = icmp slt i32 %53, %57
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %53
-  store volatile i16 0, ptr %54, align 2
-  br label %59
+59:                                               ; preds = %54
+  store volatile i16 0, ptr %55, align 2
+  br label %60
 
-59:                                               ; preds = %58, %53
+60:                                               ; preds = %59, %54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8192
-  br i1 %exitcond.not.i, label %60, label %53, !llvm.loop !284
+  br i1 %exitcond.not.i, label %61, label %54, !llvm.loop !284
 
-60:                                               ; preds = %59
-  %61 = sext i32 %52 to i64
-  %62 = getelementptr inbounds i32, ptr %46, i64 %61
-  %63 = ptrtoint ptr %44 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %63, %64
-  %sext.i = shl i64 %65, 32
-  %66 = ashr exact i64 %sext.i, 32
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %62, i8 0, i64 %66, i1 false)
+61:                                               ; preds = %60
+  %62 = sext i32 %53 to i64
+  %63 = getelementptr inbounds i32, ptr %47, i64 %62
+  %64 = ptrtoint ptr %45 to i64
+  %65 = ptrtoint ptr %63 to i64
+  %66 = sub i64 %64, %65
+  %sext.i = shl i64 %66, 32
+  %67 = ashr exact i64 %sext.i, 32
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %63, i8 0, i64 %67, i1 false)
   br label %walCleanupHash.exit
 
-walCleanupHash.exit:                              ; preds = %31, %35, %walHashGet.exit.i, %60
+walCleanupHash.exit:                              ; preds = %32, %36, %walHashGet.exit.i, %61
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %67
+  br label %68
 
-67:                                               ; preds = %walCleanupHash.exit, %26
-  %68 = mul i32 %2, 383
-  %.01927 = and i32 %68, 8191
-  %69 = zext nneg i32 %.01927 to i64
-  %70 = getelementptr inbounds i16, ptr %14, i64 %69
-  %71 = load volatile i16, ptr %70, align 2
-  %.not2128 = icmp eq i16 %71, 0
+68:                                               ; preds = %walCleanupHash.exit, %27
+  %69 = mul i32 %2, 383
+  %.01927 = and i32 %69, 8191
+  %70 = zext nneg i32 %.01927 to i64
+  %71 = getelementptr inbounds i16, ptr %14, i64 %70
+  %72 = load volatile i16, ptr %71, align 2
+  %.not2128 = icmp eq i16 %72, 0
   br i1 %.not2128, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %67, %74
-  %.01930 = phi i32 [ %.019, %74 ], [ %.01927, %67 ]
-  %.02029 = phi i32 [ %75, %74 ], [ %22, %67 ]
-  %72 = icmp eq i32 %.02029, 0
-  br i1 %72, label %73, label %74
-
-73:                                               ; preds = %.lr.ph
-  tail call void (i32, ptr, ...) @sqlite3_log(i32 noundef 11, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.102, i32 noundef 66063, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 20))
-  br label %82
+.lr.ph:                                           ; preds = %68, %75
+  %.01930 = phi i32 [ %.019, %75 ], [ %.01927, %68 ]
+  %.02029 = phi i32 [ %76, %75 ], [ %22, %68 ]
+  %73 = icmp eq i32 %.02029, 0
+  br i1 %73, label %74, label %75
 
 74:                                               ; preds = %.lr.ph
-  %75 = add nsw i32 %.02029, -1
-  %76 = add nuw nsw i32 %.01930, 1
-  %.019 = and i32 %76, 8191
-  %77 = zext nneg i32 %.019 to i64
-  %78 = getelementptr inbounds i16, ptr %14, i64 %77
-  %79 = load volatile i16, ptr %78, align 2
-  %.not21 = icmp eq i16 %79, 0
+  tail call void (i32, ptr, ...) @sqlite3_log(i32 noundef 11, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.102, i32 noundef 66063, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 20))
+  br label %83
+
+75:                                               ; preds = %.lr.ph
+  %76 = add nsw i32 %.02029, -1
+  %77 = add nuw nsw i32 %.01930, 1
+  %.019 = and i32 %77, 8191
+  %78 = zext nneg i32 %.019 to i64
+  %79 = getelementptr inbounds i16, ptr %14, i64 %78
+  %80 = load volatile i16, ptr %79, align 2
+  %.not21 = icmp eq i16 %80, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !285
 
-._crit_edge:                                      ; preds = %74, %67
-  %.lcssa26 = phi i64 [ %69, %67 ], [ %77, %74 ]
-  %80 = getelementptr inbounds i16, ptr %14, i64 %.lcssa26
-  store volatile i32 %2, ptr %29, align 4
-  %81 = trunc i32 %22 to i16
-  store atomic volatile i16 %81, ptr %80 monotonic, align 2
-  br label %82
+._crit_edge:                                      ; preds = %75, %68
+  %.lcssa26 = phi i64 [ %70, %68 ], [ %78, %75 ]
+  %81 = getelementptr inbounds i16, ptr %14, i64 %.lcssa26
+  store volatile i32 %2, ptr %30, align 4
+  %82 = trunc i32 %22 to i16
+  store atomic volatile i16 %82, ptr %81 monotonic, align 2
+  br label %83
 
-82:                                               ; preds = %walHashGet.exit.thread, %walHashGet.exit, %._crit_edge, %73
-  %.0 = phi i32 [ 11, %73 ], [ 0, %._crit_edge ], [ %12, %walHashGet.exit ], [ %spec.store.select.i, %walHashGet.exit.thread ]
+83:                                               ; preds = %walHashGet.exit.thread, %walHashGet.exit, %._crit_edge, %74
+  %.0 = phi i32 [ 11, %74 ], [ 0, %._crit_edge ], [ %12, %walHashGet.exit ], [ %spec.store.select.i, %walHashGet.exit.thread ]
   ret i32 %.0
 }
 

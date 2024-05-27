@@ -30655,11 +30655,10 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %19, %.noexc23, %_ZN
           to label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i24 unwind label %37
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i24: ; preds = %44
-  %46 = lshr i32 %13, 1
-  %47 = add nuw nsw i32 %46, %13
+  %46 = mul nuw nsw i32 %13, 3
+  %47 = lshr i32 %46, 1
   %48 = zext nneg i32 %47 to i64
-  %.not.i.i.i.i25 = icmp eq i32 %47, 0
-  br i1 %.not.i.i.i.i25, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit30, label %49
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit30, label %49
 
 49:                                               ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i24
   %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #32

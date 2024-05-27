@@ -68,8 +68,8 @@ if.end:                                           ; preds = %entry
 
 invoke.cont4:                                     ; preds = %if.end
   store ptr %call5, ptr %_tmpBuffer, align 8
-  %2 = lshr i64 %maxScanLineSize, 1
-  %div4 = add nuw nsw i64 %2, %maxScanLineSize
+  %mul.i = mul nuw nsw i64 %maxScanLineSize, 3
+  %div4 = lshr i64 %mul.i, 1
   %call10 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %div4) #12
           to label %invoke.cont9 unwind label %lpad3
 

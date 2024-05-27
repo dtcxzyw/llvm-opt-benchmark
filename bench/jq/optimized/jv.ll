@@ -927,8 +927,8 @@ define { i64, ptr } @jv_array_set(i64 %0, ptr %1, i32 noundef %2, i64 %3, ptr %4
 35:                                               ; preds = %21, %.thread
   %36 = add nuw nsw i32 %.0104, 1
   %..i52.i = tail call i32 @llvm.smax.i32(i32 %36, i32 %.sroa.10.0.extract.trunc)
-  %37 = lshr i32 %..i52.i, 1
-  %38 = add nuw nsw i32 %37, %..i52.i
+  %37 = mul nuw nsw i32 %..i52.i, 3
+  %38 = lshr i32 %37, 1
   %39 = zext nneg i32 %38 to i64
   %40 = shl nuw nsw i64 %39, 4
   %41 = add nuw nsw i64 %40, 16

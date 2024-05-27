@@ -364,9 +364,9 @@ _ZN5ZXing11PatternView5shiftEi.exit:              ; preds = %_ZN5ZXing11PatternV
   br i1 %85, label %_ZN5ZXing4OneD7DataBar7IsGuardEii.exit.i, label %_ZN5ZXing11PatternView5shiftEi.exit55
 
 _ZN5ZXing4OneD7DataBar7IsGuardEii.exit.i:         ; preds = %79
-  %86 = lshr i32 %59, 2
-  %87 = add nuw nsw i32 %59, 2
-  %88 = add nuw nsw i32 %87, %86
+  %86 = mul nuw nsw i32 %59, 5
+  %87 = lshr i32 %86, 2
+  %88 = add nuw nsw i32 %87, 2
   %89 = icmp ugt i32 %88, %81
   br i1 %89, label %.lr.ph.i.i.i.i.i.i, label %_ZN5ZXing11PatternView5shiftEi.exit55
 
@@ -507,9 +507,9 @@ _ZN5ZXing11PatternView5shiftEi.exit55:            ; preds = %_ZN5ZXing4OneDL10Is
   br i1 %161, label %_ZN5ZXing4OneD7DataBar7IsGuardEii.exit.i57, label %_ZN5ZXing11PatternView5shiftEi.exit80
 
 _ZN5ZXing4OneD7DataBar7IsGuardEii.exit.i57:       ; preds = %154
-  %162 = lshr i32 %157, 2
-  %163 = add nuw nsw i32 %157, 2
-  %164 = add nuw nsw i32 %163, %162
+  %162 = mul nuw nsw i32 %157, 5
+  %163 = lshr i32 %162, 2
+  %164 = add nuw nsw i32 %163, 2
   %165 = icmp ugt i32 %164, %134
   br i1 %165, label %.lr.ph.i.i.i.i.i.i58, label %_ZN5ZXing11PatternView5shiftEi.exit80
 
