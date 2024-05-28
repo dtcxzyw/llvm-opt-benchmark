@@ -23636,8 +23636,7 @@ invoke.cont348:                                   ; preds = %invoke.cont343
   %129 = load i64, ptr %nStored.i.i262, align 8
   %conv.i.i = trunc i64 %129 to i32
   store i32 %conv.i.i, ptr %vb.i, align 4
-  %sext.i = shl i64 %129, 32
-  %cmp.not.i = icmp ult i64 %sext.i, 8589934593
+  %cmp.not.i = icmp ult i32 %conv.i.i, 3
   br i1 %cmp.not.i, label %if.then.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %invoke.cont348

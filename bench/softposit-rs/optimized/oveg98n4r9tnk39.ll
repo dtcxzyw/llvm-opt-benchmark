@@ -227,10 +227,9 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %.sroa.51.0.in.i = phi i8 [ %100, %99 ], [ %94, %93 ]
   %.sroa.0.0.i = phi i16 [ %103, %99 ], [ %98, %93 ]
   %.sroa.51.0.i = sext i8 %.sroa.51.0.in.i to i64
-  %.sroa.51.0.insert.ext.i = shl nsw i64 %.sroa.51.0.i, 32
   %.sroa.6.0.extract.shift = and i64 %.sroa.51.0.i, 4294967295
   %.sroa.6.0.extract.trunc = sext i8 %.sroa.51.0.in.i to i32
-  %104 = icmp ugt i64 %.sroa.51.0.insert.ext.i, 64424509439
+  %104 = icmp ugt i8 %.sroa.51.0.in.i, 14
   br i1 %104, label %197, label %194
 
 105:                                              ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit255
@@ -449,7 +448,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
 
 210:                                              ; preds = %207
   %211 = zext nneg i8 %.2182 to i16
-  %212 = sub i8 13, %.sroa.51.0.in.i
+  %212 = sub nsw i8 13, %.sroa.51.0.in.i
   %213 = and i8 %212, 15
   %214 = zext nneg i8 %213 to i16
   %215 = shl i16 %211, %214

@@ -3220,15 +3220,13 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit67: ; preds
 _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = %72, %78
   %.sroa.51.0.in.i = phi i8 [ %79, %78 ], [ %73, %72 ]
   %.sroa.0.0.i = phi i16 [ %82, %78 ], [ %77, %72 ]
-  %.sroa.51.0.i = sext i8 %.sroa.51.0.in.i to i64
-  %.sroa.51.0.insert.ext.i = shl nsw i64 %.sroa.51.0.i, 32
-  %83 = icmp ugt i64 %.sroa.51.0.insert.ext.i, 64424509439
+  %83 = icmp ugt i8 %.sroa.51.0.in.i, 14
   br i1 %83, label %108, label %84
 
 84:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
-  %.sroa.6.0.extract.trunc = sext i8 %.sroa.51.0.in.i to i32
   %85 = and i32 %.152, 1073741823
-  %86 = add nuw nsw i32 %.sroa.6.0.extract.trunc, 1
+  %narrow = add nuw nsw i8 %.sroa.51.0.in.i, 1
+  %86 = zext nneg i8 %narrow to i32
   %87 = lshr i32 %85, %86
   %88 = lshr i32 %87, 16
   %89 = trunc nuw nsw i32 %88 to i16
@@ -3239,7 +3237,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %.08.i = select i1 %90, i1 %91, i1 %93
   %.1.i68 = select i1 %90, i16 0, i16 %89
   %94 = zext nneg i8 %.046 to i16
-  %95 = sub i8 13, %.sroa.51.0.in.i
+  %95 = sub nsw i8 13, %.sroa.51.0.in.i
   %96 = and i8 %95, 15
   %97 = zext nneg i8 %96 to i16
   %98 = shl i16 %94, %97
@@ -3420,9 +3418,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit60: ; preds
 _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = %58, %64
   %.sroa.51.0.in.i = phi i8 [ %65, %64 ], [ %59, %58 ]
   %.sroa.0.0.i = phi i16 [ %68, %64 ], [ %63, %58 ]
-  %.sroa.51.0.i = sext i8 %.sroa.51.0.in.i to i64
-  %.sroa.51.0.insert.ext.i = shl nsw i64 %.sroa.51.0.i, 32
-  %69 = icmp ugt i64 %.sroa.51.0.insert.ext.i, 64424509439
+  %69 = icmp ugt i8 %.sroa.51.0.in.i, 14
   br i1 %69, label %99, label %75
 
 70:                                               ; preds = %48
@@ -3434,9 +3430,9 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   br label %56
 
 75:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
-  %.sroa.6.0.extract.trunc = sext i8 %.sroa.51.0.in.i to i32
   %76 = and i32 %.044, 1073741823
-  %77 = add nuw nsw i32 %.sroa.6.0.extract.trunc, 1
+  %narrow = add nuw nsw i8 %.sroa.51.0.in.i, 1
+  %77 = zext nneg i8 %narrow to i32
   %78 = lshr i32 %76, %77
   %79 = lshr i32 %78, 16
   %80 = trunc nuw nsw i32 %79 to i16
@@ -3447,7 +3443,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %.08.i = select i1 %81, i1 %82, i1 %84
   %.1.i61 = select i1 %81, i16 0, i16 %80
   %85 = zext nneg i8 %.039 to i16
-  %86 = sub i8 13, %.sroa.51.0.in.i
+  %86 = sub nsw i8 13, %.sroa.51.0.in.i
   %87 = and i8 %86, 15
   %88 = zext nneg i8 %87 to i16
   %89 = shl i16 %85, %88
@@ -3694,10 +3690,8 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit51: ; preds
 _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = %54, %60
   %.sroa.51.0.in.i = phi i8 [ %61, %60 ], [ %55, %54 ]
   %.sroa.0.0.i = phi i16 [ %64, %60 ], [ %59, %54 ]
-  %.sroa.51.0.i = sext i8 %.sroa.51.0.in.i to i64
-  %.sroa.51.0.insert.ext.i = shl nsw i64 %.sroa.51.0.i, 32
-  %65 = icmp ugt i64 %.sroa.51.0.insert.ext.i, 64424509439
-  br i1 %65, label %97, label %71
+  %65 = icmp ugt i8 %.sroa.51.0.in.i, 14
+  br i1 %65, label %96, label %71
 
 66:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit51
   %67 = icmp ne i8 %.028, 0
@@ -3709,48 +3703,48 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
 
 71:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
   %72 = and i32 %.032, 268435455
-  %73 = add nuw i8 %.sroa.51.0.in.i, 31
-  %74 = and i8 %73, 31
-  %75 = zext nneg i8 %74 to i32
-  %76 = lshr i32 %72, %75
-  %77 = lshr i32 %76, 16
-  %78 = trunc nuw nsw i32 %77 to i16
-  %79 = icmp eq i8 %.sroa.51.0.in.i, 14
-  %80 = icmp ne i8 %.1, 0
-  %81 = and i32 %76, 32768
-  %82 = icmp ne i32 %81, 0
-  %.08.i = select i1 %79, i1 %80, i1 %82
-  %.1.i52 = select i1 %79, i16 0, i16 %78
-  %83 = zext nneg i8 %.1 to i16
-  %84 = sub i8 13, %.sroa.51.0.in.i
-  %85 = and i8 %84, 15
-  %86 = zext nneg i8 %85 to i16
-  %87 = shl i16 %83, %86
-  %.011.i = select i1 %79, i16 0, i16 %87
-  %88 = add i16 %.011.i, %.sroa.0.0.i
-  %89 = add i16 %88, %.1.i52
-  br i1 %.08.i, label %90, label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$7form_ui17h54757fb1168219bbE.exit"
+  %narrow = add nuw nsw i8 %.sroa.51.0.in.i, 31
+  %73 = and i8 %narrow, 31
+  %74 = zext nneg i8 %73 to i32
+  %75 = lshr i32 %72, %74
+  %76 = lshr i32 %75, 16
+  %77 = trunc nuw nsw i32 %76 to i16
+  %78 = icmp eq i8 %.sroa.51.0.in.i, 14
+  %79 = icmp ne i8 %.1, 0
+  %80 = and i32 %75, 32768
+  %81 = icmp ne i32 %80, 0
+  %.08.i = select i1 %78, i1 %79, i1 %81
+  %.1.i52 = select i1 %78, i16 0, i16 %77
+  %82 = zext nneg i8 %.1 to i16
+  %83 = sub nsw i8 13, %.sroa.51.0.in.i
+  %84 = and i8 %83, 15
+  %85 = zext nneg i8 %84 to i16
+  %86 = shl i16 %82, %85
+  %.011.i = select i1 %78, i16 0, i16 %86
+  %87 = add i16 %.011.i, %.sroa.0.0.i
+  %88 = add i16 %87, %.1.i52
+  br i1 %.08.i, label %89, label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$7form_ui17h54757fb1168219bbE.exit"
 
-90:                                               ; preds = %71
-  %.not.i = icmp ne i32 %76, 0
-  %.110.i53 = and i1 %79, %.not.i
-  %91 = and i32 %76, 32767
-  %92 = icmp ne i32 %91, 0
-  %spec.select13.i = or i1 %92, %.110.i53
-  %93 = and i16 %89, 1
-  %94 = zext i1 %spec.select13.i to i16
-  %95 = or i16 %93, %94
-  %96 = add i16 %95, %89
+89:                                               ; preds = %71
+  %.not.i = icmp ne i32 %75, 0
+  %.110.i53 = and i1 %78, %.not.i
+  %90 = and i32 %75, 32767
+  %91 = icmp ne i32 %90, 0
+  %spec.select13.i = or i1 %91, %.110.i53
+  %92 = and i16 %88, 1
+  %93 = zext i1 %spec.select13.i to i16
+  %94 = or i16 %92, %93
+  %95 = add i16 %94, %88
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$7form_ui17h54757fb1168219bbE.exit"
 
-97:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
+96:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
   %. = select i1 %53, i16 1, i16 32767
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$7form_ui17h54757fb1168219bbE.exit"
 
-"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$7form_ui17h54757fb1168219bbE.exit": ; preds = %90, %71, %97
-  %.031 = phi i16 [ %., %97 ], [ %96, %90 ], [ %89, %71 ]
-  %98 = sub i16 0, %.031
-  %.0.i54 = select i1 %12, i16 %98, i16 %.031
+"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$7form_ui17h54757fb1168219bbE.exit": ; preds = %89, %71, %96
+  %.031 = phi i16 [ %., %96 ], [ %95, %89 ], [ %88, %71 ]
+  %97 = sub i16 0, %.031
+  %.0.i54 = select i1 %12, i16 %97, i16 %.031
   br label %51
 }
 
@@ -3915,16 +3909,13 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit81: ; preds
 _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = %64, %70
   %.sroa.51.0.in.i = phi i8 [ %71, %70 ], [ %65, %64 ]
   %.sroa.0.0.i = phi i16 [ %74, %70 ], [ %69, %64 ]
-  %.sroa.51.0.i = sext i8 %.sroa.51.0.in.i to i64
-  %.sroa.51.0.insert.ext.i = shl nsw i64 %.sroa.51.0.i, 32
   %.sroa.6.0.extract.trunc = sext i8 %.sroa.51.0.in.i to i32
-  %75 = icmp ugt i64 %.sroa.51.0.insert.ext.i, 64424509439
+  %75 = icmp ugt i8 %.sroa.51.0.in.i, 14
   br i1 %75, label %79, label %76
 
 76:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
-  %.sroa.6.0.extract.shift = and i64 %.sroa.51.0.i, 4294967295
   %77 = and i32 %.153, 16383
-  %78 = icmp eq i64 %.sroa.6.0.extract.shift, 14
+  %78 = icmp eq i8 %.sroa.51.0.in.i, 14
   br i1 %78, label %80, label %82
 
 79:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
@@ -3948,7 +3939,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %.049.in = phi i1 [ %81, %80 ], [ %85, %82 ]
   %.048 = phi i16 [ 0, %80 ], [ %88, %82 ]
   %90 = zext nneg i8 %.3 to i16
-  %91 = sub i8 13, %.sroa.51.0.in.i
+  %91 = sub nsw i8 13, %.sroa.51.0.in.i
   %92 = and i8 %91, 15
   %93 = zext nneg i8 %92 to i16
   %94 = shl i16 %90, %93

@@ -54,18 +54,16 @@ define noundef i8 @"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire
 _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit: ; preds = %9, %14
   %.sroa.51.0.in.i = phi i8 [ %.neg, %14 ], [ %10, %9 ]
   %.sroa.3.0.i = phi i8 [ %16, %14 ], [ %13, %9 ]
-  %.sroa.51.0.i = sext i8 %.sroa.51.0.in.i to i64
-  %.sroa.51.0.insert.ext.i = shl nsw i64 %.sroa.51.0.i, 32
-  %17 = icmp ugt i64 %.sroa.51.0.insert.ext.i, 30064771071
+  %17 = icmp ugt i8 %.sroa.51.0.in.i, 6
   br i1 %17, label %27, label %18
 
 18:                                               ; preds = %_ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit
-  %.sroa.6.0.extract.trunc = sext i8 %.sroa.51.0.in.i to i32
+  %.sroa.6.0.extract.trunc = zext nneg i8 %.sroa.51.0.in.i to i32
   %19 = and i32 %6, 2147483646
   %20 = add nuw nsw i32 %.sroa.6.0.extract.trunc, 25
   %21 = lshr i32 %19, %20
   %22 = trunc nuw nsw i32 %21 to i8
-  %23 = add i8 %.sroa.3.0.i, %22
+  %23 = add nuw i8 %.sroa.3.0.i, %22
   %24 = shl nuw nsw i32 16777216, %.sroa.6.0.extract.trunc
   %25 = and i32 %24, %6
   %26 = icmp eq i32 %25, 0
@@ -82,7 +80,7 @@ _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit: ; preds = %9
   %32 = and i8 %23, 1
   %33 = zext i1 %31 to i8
   %34 = or i8 %32, %33
-  %35 = add i8 %34, %23
+  %35 = add nuw i8 %34, %23
   br label %36
 
 36:                                               ; preds = %27, %18, %28
@@ -207,18 +205,16 @@ define noundef i8 @"_ZN89_$LT$softposit..quire8..Q8E0$u20$as$u20$softposit..Quir
 _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i: ; preds = %13, %8
   %.sroa.51.0.in.i.i = phi i8 [ %.neg.i, %13 ], [ %9, %8 ]
   %.sroa.3.0.i.i = phi i8 [ %15, %13 ], [ %12, %8 ]
-  %.sroa.51.0.i.i = sext i8 %.sroa.51.0.in.i.i to i64
-  %.sroa.51.0.insert.ext.i.i = shl nsw i64 %.sroa.51.0.i.i, 32
-  %16 = icmp ugt i64 %.sroa.51.0.insert.ext.i.i, 30064771071
+  %16 = icmp ugt i8 %.sroa.51.0.in.i.i, 6
   br i1 %16, label %26, label %17
 
 17:                                               ; preds = %_ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i
-  %.sroa.6.0.extract.trunc.i = sext i8 %.sroa.51.0.in.i.i to i32
+  %.sroa.6.0.extract.trunc.i = zext nneg i8 %.sroa.51.0.in.i.i to i32
   %18 = and i32 %5, 2147483646
   %19 = add nuw nsw i32 %.sroa.6.0.extract.trunc.i, 25
   %20 = lshr i32 %18, %19
   %21 = trunc nuw nsw i32 %20 to i8
-  %22 = add i8 %.sroa.3.0.i.i, %21
+  %22 = add nuw i8 %.sroa.3.0.i.i, %21
   %23 = shl nuw nsw i32 16777216, %.sroa.6.0.extract.trunc.i
   %24 = and i32 %23, %5
   %25 = icmp eq i32 %24, 0
@@ -235,7 +231,7 @@ _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i: ; preds = 
   %31 = and i8 %22, 1
   %32 = zext i1 %30 to i8
   %33 = or i8 %31, %32
-  %34 = add i8 %33, %22
+  %34 = add nuw i8 %33, %22
   br label %35
 
 35:                                               ; preds = %27, %26, %17
@@ -347,18 +343,16 @@ define noundef zeroext i1 @"_ZN62_$LT$softposit..quire8..Q8E0$u20$as$u20$core..f
 _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i: ; preds = %16, %11
   %.sroa.51.0.in.i.i = phi i8 [ %.neg.i, %16 ], [ %12, %11 ]
   %.sroa.3.0.i.i = phi i8 [ %18, %16 ], [ %15, %11 ]
-  %.sroa.51.0.i.i = sext i8 %.sroa.51.0.in.i.i to i64
-  %.sroa.51.0.insert.ext.i.i = shl nsw i64 %.sroa.51.0.i.i, 32
-  %19 = icmp ugt i64 %.sroa.51.0.insert.ext.i.i, 30064771071
+  %19 = icmp ugt i8 %.sroa.51.0.in.i.i, 6
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %_ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i
-  %.sroa.6.0.extract.trunc.i = sext i8 %.sroa.51.0.in.i.i to i32
+  %.sroa.6.0.extract.trunc.i = zext nneg i8 %.sroa.51.0.in.i.i to i32
   %21 = and i32 %8, 2147483646
   %22 = add nuw nsw i32 %.sroa.6.0.extract.trunc.i, 25
   %23 = lshr i32 %21, %22
   %24 = trunc nuw nsw i32 %23 to i8
-  %25 = add i8 %.sroa.3.0.i.i, %24
+  %25 = add nuw i8 %.sroa.3.0.i.i, %24
   %26 = shl nuw nsw i32 16777216, %.sroa.6.0.extract.trunc.i
   %27 = and i32 %26, %8
   %28 = icmp eq i32 %27, 0
@@ -375,7 +369,7 @@ _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i: ; preds = 
   %34 = and i8 %25, 1
   %35 = zext i1 %33 to i8
   %36 = or i8 %34, %35
-  %37 = add i8 %36, %25
+  %37 = add nuw i8 %36, %25
   br label %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit"
 
 "_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit": ; preds = %30, %29, %20

@@ -861,14 +861,12 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.729031739036
 _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit: ; preds = %47, %52
   %.sroa.51.0.in.i = phi i8 [ %53, %52 ], [ %48, %47 ]
   %.sroa.3.0.i = phi i8 [ %55, %52 ], [ %51, %47 ]
-  %.sroa.51.0.i = sext i8 %.sroa.51.0.in.i to i64
-  %.sroa.51.0.insert.ext.i = shl nsw i64 %.sroa.51.0.i, 32
-  %56 = icmp ugt i64 %.sroa.51.0.insert.ext.i, 30064771071
+  %56 = icmp ugt i8 %.sroa.51.0.in.i, 6
   br i1 %56, label %67, label %57
 
 57:                                               ; preds = %_ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit
   %58 = and i16 %.031, 127
-  %59 = sext i8 %.sroa.51.0.in.i to i16
+  %59 = zext nneg i8 %.sroa.51.0.in.i to i16
   %60 = add nuw nsw i16 %59, 1
   %61 = lshr i16 %58, %60
   %62 = trunc nuw nsw i16 %61 to i8
@@ -1032,9 +1030,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.729031739036
 _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i: ; preds = %49, %44
   %.sroa.51.0.in.i.i = phi i8 [ %50, %49 ], [ %45, %44 ]
   %.sroa.3.0.i.i = phi i8 [ %52, %49 ], [ %48, %44 ]
-  %.sroa.51.0.i.i = sext i8 %.sroa.51.0.in.i.i to i64
-  %.sroa.51.0.insert.ext.i.i = shl nsw i64 %.sroa.51.0.i.i, 32
-  %53 = icmp ugt i64 %.sroa.51.0.insert.ext.i.i, 30064771071
+  %53 = icmp ugt i8 %.sroa.51.0.in.i.i, 6
   br i1 %53, label %63, label %54
 
 54:                                               ; preds = %_ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i
@@ -1192,9 +1188,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.729031739036
 _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i: ; preds = %47, %42
   %.sroa.51.0.in.i.i = phi i8 [ %48, %47 ], [ %43, %42 ]
   %.sroa.3.0.i.i = phi i8 [ %50, %47 ], [ %46, %42 ]
-  %.sroa.51.0.i.i = sext i8 %.sroa.51.0.in.i.i to i64
-  %.sroa.51.0.insert.ext.i.i = shl nsw i64 %.sroa.51.0.i.i, 32
-  %51 = icmp ugt i64 %.sroa.51.0.insert.ext.i.i, 30064771071
+  %51 = icmp ugt i8 %.sroa.51.0.in.i.i, 6
   br i1 %51, label %61, label %52
 
 52:                                               ; preds = %_ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i
@@ -1380,9 +1374,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.729031739036
 _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i: ; preds = %63, %58
   %.sroa.51.0.in.i.i = phi i8 [ %64, %63 ], [ %59, %58 ]
   %.sroa.3.0.i.i = phi i8 [ %66, %63 ], [ %62, %58 ]
-  %.sroa.51.0.i.i = sext i8 %.sroa.51.0.in.i.i to i64
-  %.sroa.51.0.insert.ext.i.i = shl nsw i64 %.sroa.51.0.i.i, 32
-  %67 = icmp ugt i64 %.sroa.51.0.insert.ext.i.i, 30064771071
+  %67 = icmp ugt i8 %.sroa.51.0.in.i.i, 6
   br i1 %67, label %77, label %68
 
 68:                                               ; preds = %_ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i

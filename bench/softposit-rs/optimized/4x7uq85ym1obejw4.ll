@@ -194,10 +194,8 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit196: ; preds 
 _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit: ; preds = %70, %75
   %.sroa.51.0.in.i = phi i8 [ %76, %75 ], [ %71, %70 ]
   %.sroa.3.0.i = phi i8 [ %78, %75 ], [ %74, %70 ]
-  %.sroa.51.0.i = sext i8 %.sroa.51.0.in.i to i64
-  %.sroa.51.0.insert.ext.i = shl nsw i64 %.sroa.51.0.i, 32
   %.sroa.6.0.extract.trunc = sext i8 %.sroa.51.0.in.i to i16
-  %79 = icmp ugt i64 %.sroa.51.0.insert.ext.i, 30064771071
+  %79 = icmp ugt i8 %.sroa.51.0.in.i, 6
   br i1 %79, label %168, label %160
 
 80:                                               ; preds = %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit196
