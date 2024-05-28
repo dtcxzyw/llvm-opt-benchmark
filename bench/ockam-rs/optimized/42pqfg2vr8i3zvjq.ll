@@ -1023,9 +1023,8 @@ define hidden void @"_ZN18tracing_subscriber8registry14Scope$LT$R$GT$9from_root1
   %.sroa.75.0.copyload = load i64, ptr %4, align 8, !noalias !232
   call void @llvm.lifetime.end.p0(i64 656, ptr nonnull %3), !noalias !224
   %10 = icmp ugt i64 %.sroa.75.0.copyload, 16
-  %11 = icmp ne i64 %.sroa.0.0.copyload, 0
-  %12 = icmp eq i64 %.sroa.0.0.copyload, 0
-  %.sink.i = select i1 %10, i1 %11, i1 %12
+  %11 = icmp eq i64 %.sroa.0.0.copyload, 0
+  %.sink.i = xor i1 %11, %10
   %.sink4.i6.i = select i1 %10, i64 %.sroa.53.0.copyload, i64 %.sroa.75.0.copyload
   call void @llvm.assume(i1 %.sink.i)
   %spec.select = select i1 %10, i64 %.sroa.75.0.copyload, i64 0
@@ -1398,18 +1397,17 @@ define hidden void @"_ZN89_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter
   %5 = load i64, ptr %1, align 8, !range !41, !noalias !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = icmp ne i64 %5, 0
-  %9 = icmp eq i64 %5, 0
-  %.sink = select i1 %4, i1 %8, i1 %9
+  %8 = icmp eq i64 %5, 0
+  %.sink = xor i1 %4, %8
   %.sink4.i6 = select i1 %4, i64 %7, i64 %3
   %.sink2.i = select i1 %4, ptr %6, ptr %2
   tail call void @llvm.assume(i1 %.sink)
   store i64 0, ptr %.sink2.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef nonnull align 8 dereferenceable(656) %1, i64 656, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 656
-  store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 664
-  store i64 %.sink4.i6, ptr %11, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 656
+  store i64 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 664
+  store i64 %.sink4.i6, ptr %10, align 8
   ret void
 }
 

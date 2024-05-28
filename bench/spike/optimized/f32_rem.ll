@@ -6,191 +6,189 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = icmp sgt i32 %0, -1
-  %5 = icmp slt i32 %0, 0
-  %6 = lshr i64 %3, 23
-  %7 = and i64 %6, 255
-  %8 = and i64 %3, 8388607
-  %9 = zext i32 %1 to i64
-  %10 = lshr i64 %9, 23
-  %11 = and i64 %10, 255
-  %12 = and i64 %9, 8388607
-  %13 = icmp eq i64 %7, 255
-  br i1 %13, label %14, label %18
+  %4 = lshr i64 %3, 23
+  %5 = and i64 %4, 255
+  %6 = and i64 %3, 8388607
+  %7 = zext i32 %1 to i64
+  %8 = lshr i64 %7, 23
+  %9 = and i64 %8, 255
+  %10 = and i64 %7, 8388607
+  %11 = icmp eq i64 %5, 255
+  br i1 %11, label %12, label %16
 
-14:                                               ; preds = %2
-  %.not111 = icmp eq i64 %8, 0
-  br i1 %.not111, label %15, label %92
+12:                                               ; preds = %2
+  %.not111 = icmp eq i64 %6, 0
+  br i1 %.not111, label %13, label %90
 
-15:                                               ; preds = %14
-  %16 = icmp eq i64 %11, 255
-  %17 = icmp ne i64 %12, 0
-  %or.cond = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond, label %92, label %95
+13:                                               ; preds = %12
+  %14 = icmp eq i64 %9, 255
+  %15 = icmp ne i64 %10, 0
+  %or.cond = select i1 %14, i1 %15, i1 false
+  br i1 %or.cond, label %90, label %93
 
-18:                                               ; preds = %2
-  %trunc = trunc i64 %10 to i8
-  switch i8 %trunc, label %25 [
-    i8 -1, label %19
-    i8 0, label %20
+16:                                               ; preds = %2
+  %trunc = trunc i64 %8 to i8
+  switch i8 %trunc, label %23 [
+    i8 -1, label %17
+    i8 0, label %18
   ]
 
+17:                                               ; preds = %16
+  %.not110 = icmp eq i64 %10, 0
+  br i1 %.not110, label %94, label %90
+
+18:                                               ; preds = %16
+  %.not102 = icmp eq i64 %10, 0
+  br i1 %.not102, label %93, label %19
+
 19:                                               ; preds = %18
-  %.not110 = icmp eq i64 %12, 0
-  br i1 %.not110, label %96, label %92
+  %20 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %10) #3
+  %21 = extractvalue { i64, i64 } %20, 0
+  %22 = extractvalue { i64, i64 } %20, 1
+  br label %23
 
-20:                                               ; preds = %18
-  %.not102 = icmp eq i64 %12, 0
-  br i1 %.not102, label %95, label %21
+23:                                               ; preds = %16, %19
+  %.085 = phi i64 [ %22, %19 ], [ %10, %16 ]
+  %.084 = phi i64 [ %21, %19 ], [ %9, %16 ]
+  %.not103 = icmp eq i64 %5, 0
+  br i1 %.not103, label %24, label %29
 
-21:                                               ; preds = %20
-  %22 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %12) #3
-  %23 = extractvalue { i64, i64 } %22, 0
-  %24 = extractvalue { i64, i64 } %22, 1
-  br label %25
+24:                                               ; preds = %23
+  %.not104 = icmp eq i64 %6, 0
+  br i1 %.not104, label %94, label %25
 
-25:                                               ; preds = %18, %21
-  %.085 = phi i64 [ %24, %21 ], [ %12, %18 ]
-  %.084 = phi i64 [ %23, %21 ], [ %11, %18 ]
-  %.not103 = icmp eq i64 %7, 0
-  br i1 %.not103, label %26, label %31
+25:                                               ; preds = %24
+  %26 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %6) #3
+  %27 = extractvalue { i64, i64 } %26, 0
+  %28 = extractvalue { i64, i64 } %26, 1
+  br label %29
 
-26:                                               ; preds = %25
-  %.not104 = icmp eq i64 %8, 0
-  br i1 %.not104, label %96, label %27
+29:                                               ; preds = %25, %23
+  %.083 = phi i64 [ %6, %23 ], [ %28, %25 ]
+  %.0 = phi i64 [ %5, %23 ], [ %27, %25 ]
+  %30 = trunc i64 %.083 to i32
+  %31 = or i32 %30, 8388608
+  %32 = or i64 %.085, 8388608
+  %33 = sub nsw i64 %.0, %.084
+  %34 = icmp slt i64 %33, 1
+  br i1 %34, label %35, label %47
 
-27:                                               ; preds = %26
-  %28 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %8) #3
-  %29 = extractvalue { i64, i64 } %28, 0
-  %30 = extractvalue { i64, i64 } %28, 1
-  br label %31
+35:                                               ; preds = %29
+  %36 = icmp slt i64 %33, -1
+  br i1 %36, label %94, label %37
 
-31:                                               ; preds = %27, %25
-  %.083 = phi i64 [ %8, %25 ], [ %30, %27 ]
-  %.0 = phi i64 [ %7, %25 ], [ %29, %27 ]
-  %32 = trunc i64 %.083 to i32
-  %33 = or i32 %32, 8388608
-  %34 = or i64 %.085, 8388608
-  %35 = sub nsw i64 %.0, %.084
-  %36 = icmp slt i64 %35, 1
-  br i1 %36, label %37, label %49
-
-37:                                               ; preds = %31
-  %38 = icmp slt i64 %35, -1
-  br i1 %38, label %96, label %39
+37:                                               ; preds = %35
+  %38 = shl i64 %32, 6
+  %.not105 = icmp eq i64 %.0, %.084
+  br i1 %.not105, label %41, label %39
 
 39:                                               ; preds = %37
-  %40 = shl i64 %34, 6
-  %.not105 = icmp eq i64 %.0, %.084
-  br i1 %.not105, label %43, label %41
+  %40 = shl i32 %31, 5
+  br label %76
 
-41:                                               ; preds = %39
-  %42 = shl i32 %33, 5
+41:                                               ; preds = %37
+  %42 = shl i32 %31, 6
+  %43 = zext i32 %42 to i64
+  %.not = icmp ugt i64 %38, %43
+  br i1 %.not, label %76, label %44
+
+44:                                               ; preds = %41
+  %45 = trunc i64 %38 to i32
+  %46 = sub i32 %42, %45
+  br label %76
+
+47:                                               ; preds = %29
+  %48 = shl i64 %32, 8
+  %49 = and i64 %48, 4294967040
+  %50 = udiv i64 9223372036854775807, %49
+  %51 = shl i32 %31, 7
+  %52 = add nsw i64 %33, -31
+  %53 = shl i64 %32, 6
+  %54 = zext i32 %51 to i64
+  %55 = mul nuw i64 %50, %54
+  %56 = lshr i64 %55, 32
+  %57 = trunc nuw i64 %56 to i32
+  %58 = icmp ult i64 %33, 31
+  %.pre = trunc i64 %53 to i32
+  br i1 %58, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %47, %.lr.ph
+  %59 = phi i32 [ %66, %.lr.ph ], [ %57, %47 ]
+  %.092115 = phi i64 [ %62, %.lr.ph ], [ %52, %47 ]
+  %60 = mul i32 %59, %.pre
+  %61 = sub i32 0, %60
+  %62 = add nsw i64 %.092115, -29
+  %63 = zext i32 %61 to i64
+  %64 = mul nuw i64 %50, %63
+  %65 = lshr i64 %64, 32
+  %66 = trunc nuw i64 %65 to i32
+  %67 = icmp ult i64 %.092115, 29
+  br i1 %67, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %47
+  %.092.lcssa = phi i64 [ %52, %47 ], [ %62, %.lr.ph ]
+  %.088.lcssa = phi i32 [ %51, %47 ], [ %61, %.lr.ph ]
+  %.lcssa114 = phi i32 [ %57, %47 ], [ %66, %.lr.ph ]
+  %68 = trunc i64 %.092.lcssa to i32
+  %69 = and i32 %68, 31
+  %70 = xor i32 %69, 31
+  %71 = lshr i32 %.lcssa114, %70
+  %72 = add nsw i32 %68, 30
+  %73 = shl i32 %.088.lcssa, %72
+  %74 = mul i32 %71, %.pre
+  %75 = sub i32 %73, %74
+  br label %76
+
+76:                                               ; preds = %39, %44, %41, %._crit_edge
+  %.090 = phi i32 [ 0, %39 ], [ 1, %44 ], [ 0, %41 ], [ %71, %._crit_edge ]
+  %.189 = phi i32 [ %40, %39 ], [ %46, %44 ], [ %42, %41 ], [ %75, %._crit_edge ]
+  %.1 = phi i64 [ %38, %39 ], [ %38, %44 ], [ %38, %41 ], [ %53, %._crit_edge ]
+  %77 = trunc i64 %.1 to i32
   br label %78
 
-43:                                               ; preds = %39
-  %44 = shl i32 %33, 6
-  %45 = zext i32 %44 to i64
-  %.not = icmp ugt i64 %40, %45
-  br i1 %.not, label %78, label %46
+78:                                               ; preds = %78, %76
+  %.191 = phi i32 [ %.090, %76 ], [ %79, %78 ]
+  %.2 = phi i32 [ %.189, %76 ], [ %80, %78 ]
+  %79 = add i32 %.191, 1
+  %80 = sub i32 %.2, %77
+  %.not106 = icmp sgt i32 %80, -1
+  br i1 %.not106, label %78, label %81, !llvm.loop !4
 
-46:                                               ; preds = %43
-  %47 = trunc i64 %40 to i32
-  %48 = sub i32 %44, %47
-  br label %78
+81:                                               ; preds = %78
+  %82 = add i32 %80, %.2
+  %.not107 = icmp sgt i32 %82, -1
+  br i1 %.not107, label %83, label %85
 
-49:                                               ; preds = %31
-  %50 = shl i64 %34, 8
-  %51 = and i64 %50, 4294967040
-  %52 = udiv i64 9223372036854775807, %51
-  %53 = shl i32 %33, 7
-  %54 = add nsw i64 %35, -31
-  %55 = shl i64 %34, 6
-  %56 = zext i32 %53 to i64
-  %57 = mul nuw i64 %52, %56
-  %58 = lshr i64 %57, 32
-  %59 = trunc nuw i64 %58 to i32
-  %60 = icmp ult i64 %35, 31
-  %.pre = trunc i64 %55 to i32
-  br i1 %60, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %49, %.lr.ph
-  %61 = phi i32 [ %68, %.lr.ph ], [ %59, %49 ]
-  %.092115 = phi i64 [ %64, %.lr.ph ], [ %54, %49 ]
-  %62 = mul i32 %61, %.pre
-  %63 = sub i32 0, %62
-  %64 = add nsw i64 %.092115, -29
-  %65 = zext i32 %63 to i64
-  %66 = mul nuw i64 %52, %65
-  %67 = lshr i64 %66, 32
-  %68 = trunc nuw i64 %67 to i32
-  %69 = icmp ult i64 %.092115, 29
-  br i1 %69, label %._crit_edge, label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph, %49
-  %.092.lcssa = phi i64 [ %54, %49 ], [ %64, %.lr.ph ]
-  %.088.lcssa = phi i32 [ %53, %49 ], [ %63, %.lr.ph ]
-  %.lcssa114 = phi i32 [ %59, %49 ], [ %68, %.lr.ph ]
-  %70 = trunc i64 %.092.lcssa to i32
-  %71 = and i32 %70, 31
-  %72 = xor i32 %71, 31
-  %73 = lshr i32 %.lcssa114, %72
-  %74 = add nsw i32 %70, 30
-  %75 = shl i32 %.088.lcssa, %74
-  %76 = mul i32 %73, %.pre
-  %77 = sub i32 %75, %76
-  br label %78
-
-78:                                               ; preds = %41, %46, %43, %._crit_edge
-  %.090 = phi i32 [ 0, %41 ], [ 1, %46 ], [ 0, %43 ], [ %73, %._crit_edge ]
-  %.189 = phi i32 [ %42, %41 ], [ %48, %46 ], [ %44, %43 ], [ %77, %._crit_edge ]
-  %.1 = phi i64 [ %40, %41 ], [ %40, %46 ], [ %40, %43 ], [ %55, %._crit_edge ]
-  %79 = trunc i64 %.1 to i32
-  br label %80
-
-80:                                               ; preds = %80, %78
-  %.191 = phi i32 [ %.090, %78 ], [ %81, %80 ]
-  %.2 = phi i32 [ %.189, %78 ], [ %82, %80 ]
-  %81 = add i32 %.191, 1
-  %82 = sub i32 %.2, %79
-  %.not106 = icmp sgt i32 %82, -1
-  br i1 %.not106, label %80, label %83, !llvm.loop !4
-
-83:                                               ; preds = %80
-  %84 = add i32 %82, %.2
-  %.not107 = icmp sgt i32 %84, -1
-  br i1 %.not107, label %85, label %87
-
-85:                                               ; preds = %83
-  %.not108 = icmp eq i32 %84, 0
-  %86 = and i32 %.191, 1
-  %.not109.not = icmp eq i32 %86, 0
+83:                                               ; preds = %81
+  %.not108 = icmp eq i32 %82, 0
+  %84 = and i32 %.191, 1
+  %.not109.not = icmp eq i32 %84, 0
   %or.cond112 = select i1 %.not108, i1 %.not109.not, i1 false
-  br i1 %or.cond112, label %87, label %88
+  br i1 %or.cond112, label %85, label %86
 
-87:                                               ; preds = %85, %83
-  br label %88
+85:                                               ; preds = %83, %81
+  br label %86
 
-88:                                               ; preds = %87, %85
-  %.3 = phi i32 [ %.2, %87 ], [ %82, %85 ]
-  %89 = icmp slt i32 %.3, 0
+86:                                               ; preds = %85, %83
+  %.3 = phi i32 [ %.2, %85 ], [ %80, %83 ]
   %spec.select = tail call i32 @llvm.abs.i32(i32 %.3, i1 false)
-  %spec.select113 = select i1 %89, i1 %4, i1 %5
-  %90 = zext i32 %spec.select to i64
-  %91 = tail call i32 @softfloat_normRoundPackToF32(i1 noundef zeroext %spec.select113, i64 noundef %.084, i64 noundef %90) #3
-  br label %96
+  %87 = xor i32 %.3, %0
+  %spec.select113 = icmp slt i32 %87, 0
+  %88 = zext i32 %spec.select to i64
+  %89 = tail call i32 @softfloat_normRoundPackToF32(i1 noundef zeroext %spec.select113, i64 noundef %.084, i64 noundef %88) #3
+  br label %94
 
-92:                                               ; preds = %19, %14, %15
-  %93 = tail call i64 @softfloat_propagateNaNF32UI(i64 noundef %3, i64 noundef %9) #3
-  %94 = trunc i64 %93 to i32
-  br label %96
+90:                                               ; preds = %17, %12, %13
+  %91 = tail call i64 @softfloat_propagateNaNF32UI(i64 noundef %3, i64 noundef %7) #3
+  %92 = trunc i64 %91 to i32
+  br label %94
 
-95:                                               ; preds = %20, %15
+93:                                               ; preds = %18, %13
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  br label %96
+  br label %94
 
-96:                                               ; preds = %92, %95, %37, %26, %19, %88
-  %.sroa.082.0 = phi i32 [ %91, %88 ], [ %0, %19 ], [ %0, %26 ], [ %0, %37 ], [ %94, %92 ], [ 2143289344, %95 ]
+94:                                               ; preds = %90, %93, %35, %24, %17, %86
+  %.sroa.082.0 = phi i32 [ %89, %86 ], [ %0, %17 ], [ %0, %24 ], [ %0, %35 ], [ %92, %90 ], [ 2143289344, %93 ]
   ret i32 %.sroa.082.0
 }
 

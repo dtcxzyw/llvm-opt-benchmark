@@ -13987,8 +13987,7 @@ define internal fastcc range(i32 0, 2) i32 @cli_chkpua(ptr noundef %0, ptr nocap
   %38 = and i32 %2, 256
   %.not40 = icmp eq i32 %38, 0
   %.not42 = icmp eq ptr %37, null
-  %.not41 = icmp ne ptr %37, null
-  %.0.in = select i1 %.not40, i1 %.not41, i1 %.not42
+  %.0.in = xor i1 %.not40, %.not42
   br i1 %.0.in, label %39, label %40
 
 39:                                               ; preds = %30

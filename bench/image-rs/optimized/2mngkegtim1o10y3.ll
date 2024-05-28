@@ -31427,18 +31427,17 @@ define hidden void @"_ZN89_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter
   %5 = load i64, ptr %1, align 8, !range !132, !noalias !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = icmp ne i64 %5, 0
-  %9 = icmp eq i64 %5, 0
-  %.sink = select i1 %4, i1 %8, i1 %9
+  %8 = icmp eq i64 %5, 0
+  %.sink = xor i1 %4, %8
   %.sink2.i8 = select i1 %4, i64 %7, i64 %3
   %.sink2.i2 = select i1 %4, ptr %6, ptr %2
   tail call void @llvm.assume(i1 %.sink)
   store i64 0, ptr %.sink2.i2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  store i64 %.sink2.i8, ptr %11, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 %.sink2.i8, ptr %10, align 8
   ret void
 }
 

@@ -11047,7 +11047,7 @@ define noundef zeroext i1 @"_ZN126_$LT$ockam_node..storage..database..migrations
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp ne ptr %5, null
-  %.02.in = select i1 %4, i1 %6, i1 %7
+  %.02.in = xor i1 %4, %7
   br i1 %.02.in, label %8, label %24
 
 8:                                                ; preds = %2
