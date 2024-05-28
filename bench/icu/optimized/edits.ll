@@ -2300,8 +2300,8 @@ while.body:                                       ; preds = %land.rhs.preheader,
   %indvars.iv.next = add nsw i64 %indvars.iv146, 1
   %18 = trunc i64 %indvars.iv.next to i32
   store i32 %18, ptr %index24, align 8
-  %add45 = add nuw i32 %storemerge113147, 1
-  %add47 = add nuw i32 %add45, %conv41148
+  %add45 = add nuw nsw i32 %storemerge113147, 1
+  %add47 = add nuw nsw i32 %add45, %conv41148
   store i32 %add47, ptr %oldLength_, align 8
   %exitcond.not = icmp eq i32 %11, %18
   br i1 %exitcond.not, label %while.end.loopexit, label %land.rhs, !llvm.loop !13

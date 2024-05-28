@@ -10939,8 +10939,8 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
   %25 = add nuw nsw i32 %24, %22
   %26 = and i32 %25, 31
   %27 = lshr i32 %25, 16
-  %28 = add nuw i32 %27, %.03
-  %29 = add nuw i32 %28, %26
+  %28 = add nuw nsw i32 %27, %.03
+  %29 = add nuw nsw i32 %28, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !88
@@ -10976,8 +10976,8 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
   %52 = add nuw nsw i32 %51, %49
   %53 = and i32 %52, 31
   %54 = lshr i32 %52, 16
-  %55 = add nuw i32 %54, %.0.lcssa
-  %56 = add nuw i32 %55, %53
+  %55 = add nuw nsw i32 %54, %.0.lcssa
+  %56 = add nuw nsw i32 %55, %53
   br label %.loopexit
 
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
@@ -11003,8 +11003,8 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
   %74 = add nuw nsw i32 %73, %71
   %75 = and i32 %74, 31
   %76 = lshr i32 %74, 16
-  %77 = add nuw i32 %76, %.16
-  %78 = add nuw i32 %77, %75
+  %77 = add nuw nsw i32 %76, %.16
+  %78 = add nuw nsw i32 %77, %75
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next13, %wide.trip.count15
   br i1 %exitcond16.not, label %.loopexit, label %.lr.ph7, !llvm.loop !89

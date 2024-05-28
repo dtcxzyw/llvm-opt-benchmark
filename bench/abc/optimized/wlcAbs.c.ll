@@ -453,8 +453,8 @@ define i32 @Wlc_NtkNumPiBits(ptr nocapture noundef readonly %0) local_unnamed_ad
   %.val11 = load i32, ptr %12, align 4
   %13 = sub nsw i32 %.val10, %.val11
   %14 = tail call i32 @llvm.abs.i32(i32 %13, i1 true)
-  %15 = add nuw i32 %.013, 1
-  %16 = add nuw i32 %15, %14
+  %15 = add nuw nsw i32 %.013, 1
+  %16 = add nuw nsw i32 %15, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !10
@@ -1880,8 +1880,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %76 = sext i32 %51 to i64
   %77 = getelementptr inbounds i32, ptr %74, i64 %76
   store i32 %.04675, ptr %77, align 4
-  %78 = add nuw i32 %.04675, 1
-  %79 = add nuw i32 %78, %50
+  %78 = add nuw nsw i32 %.04675, 1
+  %79 = add nuw nsw i32 %78, %50
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %.val47 = load i32, ptr %24, align 4
   %80 = sext i32 %.val47 to i64
@@ -2275,8 +2275,8 @@ Abc_Clock.exit.i:                                 ; preds = %11, %3
   %.val11.i.i = load i32, ptr %26, align 4
   %27 = sub nsw i32 %.val10.i.i, %.val11.i.i
   %28 = call i32 @llvm.abs.i32(i32 %27, i1 true)
-  %29 = add nuw i32 %.013.i.i, 1
-  %30 = add nuw i32 %29, %28
+  %29 = add nuw nsw i32 %.013.i.i, 1
+  %30 = add nuw nsw i32 %29, %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %Wlc_NtkNumPiBits.exit.i, label %20, !llvm.loop !10
@@ -2355,7 +2355,7 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %36, %Wlc_NtkNumPiBi
   %65 = getelementptr inbounds i8, ptr %33, i64 24
   %66 = getelementptr inbounds i8, ptr %34, i64 72
   %67 = getelementptr inbounds i8, ptr %34, i64 232
-  %68 = sext i32 %.0.lcssa.i.i to i64
+  %68 = zext nneg i32 %.0.lcssa.i.i to i64
   %69 = sext i32 %32 to i64
   br label %.preheader143.i.i
 
@@ -2382,7 +2382,7 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %36, %Wlc_NtkNumPiBi
   %.val112.i22.i = phi i32 [ %.val112.i24.i, %.lr.ph154.i.i ], [ %.val112.i.i, %171 ]
   %indvars.iv.i47.i = phi i64 [ 0, %.lr.ph154.i.i ], [ %indvars.iv.next.i48.i, %171 ]
   %.not92.i.i = icmp sge i64 %indvars.iv.i47.i, %69
-  %75 = icmp slt i64 %indvars.iv.i47.i, %68
+  %75 = icmp ult i64 %indvars.iv.i47.i, %68
   %or.cond.i.i = select i1 %.not92.i.i, i1 %75, i1 false
   br i1 %or.cond.i.i, label %76, label %115
 
@@ -3146,8 +3146,8 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
   %25 = add nuw nsw i32 %24, %22
   %26 = and i32 %25, 31
   %27 = lshr i32 %25, 16
-  %28 = add nuw i32 %27, %.03
-  %29 = add nuw i32 %28, %26
+  %28 = add nuw nsw i32 %27, %.03
+  %29 = add nuw nsw i32 %28, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !40
@@ -3183,8 +3183,8 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
   %52 = add nuw nsw i32 %51, %49
   %53 = and i32 %52, 31
   %54 = lshr i32 %52, 16
-  %55 = add nuw i32 %54, %.0.lcssa
-  %56 = add nuw i32 %55, %53
+  %55 = add nuw nsw i32 %54, %.0.lcssa
+  %56 = add nuw nsw i32 %55, %53
   br label %.loopexit
 
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
@@ -3210,8 +3210,8 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
   %74 = add nuw nsw i32 %73, %71
   %75 = and i32 %74, 31
   %76 = lshr i32 %74, 16
-  %77 = add nuw i32 %76, %.16
-  %78 = add nuw i32 %77, %75
+  %77 = add nuw nsw i32 %76, %.16
+  %78 = add nuw nsw i32 %77, %75
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next13, %wide.trip.count15
   br i1 %exitcond16.not, label %.loopexit, label %.lr.ph7, !llvm.loop !41
@@ -5402,8 +5402,8 @@ Vec_BitStart.exit85.i:                            ; preds = %109, %Vec_BitStart.
   %.val11.i95.i = load i32, ptr %161, align 4
   %162 = sub nsw i32 %.val10.i94.i, %.val11.i95.i
   %163 = call i32 @llvm.abs.i32(i32 %162, i1 true)
-  %164 = add nuw i32 %.013.i93.i, 1
-  %165 = add nuw i32 %164, %163
+  %164 = add nuw nsw i32 %.013.i93.i, 1
+  %165 = add nuw nsw i32 %164, %163
   %indvars.iv.next.i96.i = add nuw nsw i64 %indvars.iv.i92.i, 1
   %exitcond.not.i97.i = icmp eq i64 %indvars.iv.next.i96.i, %wide.trip.count.i91.i
   br i1 %exitcond.not.i97.i, label %.loopexit.i, label %155, !llvm.loop !10
@@ -5440,8 +5440,8 @@ Vec_BitStart.exit85.i:                            ; preds = %109, %Vec_BitStart.
   %.val11.i.i.i = load i32, ptr %179, align 4
   %180 = sub nsw i32 %.val10.i.i.i, %.val11.i.i.i
   %181 = call i32 @llvm.abs.i32(i32 %180, i1 true)
-  %182 = add nuw i32 %.013.i.i.i, 1
-  %183 = add nuw i32 %182, %181
+  %182 = add nuw nsw i32 %.013.i.i.i, 1
+  %183 = add nuw nsw i32 %182, %181
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %Wlc_NtkNumPiBits.exit.i.i, label %173, !llvm.loop !10
@@ -5533,8 +5533,8 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %193, %Wlc_NtkNumPiB
   %226 = getelementptr inbounds i8, ptr %191, i64 72
   %227 = getelementptr inbounds i8, ptr %191, i64 232
   %228 = sext i32 %221 to i64
-  %229 = sext i32 %.0.lcssa.i.i.i to i64
-  %230 = sext i32 %.0.lcssa.i87.i to i64
+  %229 = zext nneg i32 %.0.lcssa.i.i.i to i64
+  %230 = zext nneg i32 %.0.lcssa.i87.i to i64
   %231 = add i32 %185, %.val68.i
   br label %.preheader216.i.i
 
@@ -5559,11 +5559,11 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %193, %Wlc_NtkNumPiB
 236:                                              ; preds = %403, %.lr.ph227.i.i
   %indvars.iv.i101.i = phi i64 [ 0, %.lr.ph227.i.i ], [ %indvars.iv.next.i102.i, %403 ]
   %.val172226.i.i = phi ptr [ %.val172223.i.i, %.lr.ph227.i.i ], [ %.val172.i.i, %403 ]
-  %.not148.i.i = icmp slt i64 %indvars.iv.i101.i, %230
+  %.not148.i.i = icmp ult i64 %indvars.iv.i101.i, %230
   br i1 %.not148.i.i, label %369, label %237
 
 237:                                              ; preds = %236
-  %238 = icmp slt i64 %indvars.iv.i101.i, %229
+  %238 = icmp ult i64 %indvars.iv.i101.i, %229
   br i1 %238, label %239, label %383
 
 239:                                              ; preds = %237

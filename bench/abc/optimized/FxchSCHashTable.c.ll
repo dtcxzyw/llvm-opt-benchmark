@@ -621,8 +621,8 @@ Vec_IntPush.exit134:                              ; preds = %.Vec_IntGrow.exit10
   %290 = add nuw nsw i32 %289, %287
   %291 = and i32 %290, 31
   %292 = lshr i32 %290, 16
-  %293 = add nuw i32 %292, %.096138
-  %294 = add nuw i32 %293, %291
+  %293 = add nuw nsw i32 %292, %.096138
+  %294 = add nuw nsw i32 %293, %291
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !7
@@ -1238,8 +1238,8 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
   %112 = add nuw nsw i32 %111, %109
   %113 = and i32 %112, 31
   %114 = lshr i32 %112, 16
-  %115 = add nuw i32 %114, %.0120
-  %116 = add nuw i32 %115, %113
+  %115 = add nuw nsw i32 %114, %.0120
+  %116 = add nuw nsw i32 %115, %113
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
   br i1 %exitcond152.not, label %.preheader, label %.lr.ph121, !llvm.loop !14

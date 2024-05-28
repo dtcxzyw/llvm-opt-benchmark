@@ -26990,11 +26990,11 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hd2fed02b73605b76E.exit.threa
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8683e9f204495d3dE.exit.i.i": ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h651a0ec025149889E.exit.thread.i.i"
   %72 = icmp eq i64 %spec.store.select.i11.i.i21.i.i, 2
-  %73 = add nuw i64 %spec.store.select.i11.i.i21.i.i, 1
+  %73 = add nuw nsw i64 %spec.store.select.i11.i.i21.i.i, 1
   %74 = icmp eq i64 %68, 2
   %spec.select62.i.i.i.i = select i1 %74, i64 0, i64 %68
   %75 = select i1 %72, i64 1, i64 %73
-  %76 = add nuw i64 %spec.select62.i.i.i.i, %75
+  %76 = add nuw nsw i64 %spec.select62.i.i.i.i, %75
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h6cfa0aed698faaa2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %69, i64 noundef %76)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9cdd517ae1240802E.exit.i.i" unwind label %.loopexit.split-lp
 
@@ -33823,11 +33823,11 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hd2fed02b73605b76E.exit.threa
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h81a57b5640ecfd49E.exit.i.i": ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57a4ffbe61e76370E.exit.thread.i.i"
   %70 = icmp eq i64 %spec.store.select.i11.i.i21.i.i, 2
-  %71 = add nuw i64 %spec.store.select.i11.i.i21.i.i, 1
+  %71 = add nuw nsw i64 %spec.store.select.i11.i.i21.i.i, 1
   %72 = icmp eq i64 %66, 2
   %spec.select62.i.i.i.i = select i1 %72, i64 0, i64 %66
   %73 = select i1 %70, i64 1, i64 %71
-  %74 = add nuw i64 %spec.select62.i.i.i.i, %73
+  %74 = add nuw nsw i64 %spec.select62.i.i.i.i, %73
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h6cfa0aed698faaa2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %67, i64 noundef %74)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9cdd517ae1240802E.exit.i.i" unwind label %.loopexit.split-lp
 

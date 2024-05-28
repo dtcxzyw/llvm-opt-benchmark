@@ -781,8 +781,8 @@ select.unfold.i52:                                ; preds = %select.unfold.i52, 
   %64 = add nuw nsw i32 %63, %61
   %65 = and i32 %64, 31
   %66 = lshr i32 %64, 16
-  %67 = add nuw i32 %66, %.08.i
-  %68 = add nuw i32 %67, %65
+  %67 = add nuw nsw i32 %66, %.08.i
+  %68 = add nuw nsw i32 %67, %65
   %69 = icmp ugt i64 %indvars.iv.i53, 1
   br i1 %69, label %select.unfold.i52, label %Kit_TruthCountOnes.exit, !llvm.loop !18
 

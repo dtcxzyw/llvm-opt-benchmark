@@ -693,8 +693,8 @@ dissect_attribute.exit.i.i:                       ; preds = %234, %230, %225, %2
   %.1165.i.i = phi i32 [ %.0171.i.i, %.lr.ph.i.i ], [ %.0171.i.i, %234 ], [ %.0171.i.i, %230 ], [ 0, %225 ], [ 0, %212 ], [ 0, %167 ], [ 0, %200 ], [ 0, %188 ]
   %242 = sub nsw i32 0, %152
   %243 = and i32 %242, 3
-  %244 = add nuw i32 %243, %.0127173.i.i
-  %245 = add nuw i32 %244, %153
+  %244 = add nuw nsw i32 %243, %.0127173.i.i
+  %245 = add nuw nsw i32 %244, %153
   %246 = icmp ult i32 %245, %144
   br i1 %246, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
 

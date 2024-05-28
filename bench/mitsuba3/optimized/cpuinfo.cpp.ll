@@ -216,7 +216,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %154 = zext nneg i32 %153 to i64
   %155 = or disjoint i64 %122, %154
   %156 = or disjoint i64 %155, %141
-  %157 = add nuw i64 %156, %152
+  %157 = add nuw nsw i64 %156, %152
   %158 = icmp ne i32 %105, 0
   %159 = icmp ne i32 %109, 0
   %160 = select i1 %158, i1 %159, i1 false

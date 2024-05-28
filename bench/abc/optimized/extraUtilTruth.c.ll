@@ -3423,8 +3423,8 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %29 = add nuw nsw i32 %28, %26
   %30 = and i32 %29, 31
   %31 = lshr i32 %29, 16
-  %32 = add nuw i32 %31, %.08.i
-  %33 = add nuw i32 %32, %30
+  %32 = add nuw nsw i32 %31, %.08.i
+  %33 = add nuw nsw i32 %32, %30
   %34 = icmp ugt i64 %indvars.iv.i, 1
   br i1 %34, label %select.unfold.i, label %Extra_TruthCountOnes.exit, !llvm.loop !87
 

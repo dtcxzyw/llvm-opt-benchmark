@@ -7052,7 +7052,7 @@ ModeToVerifyOptions.exit:                         ; preds = %if.end, %if.then5.i
   %bf.lshr25 = lshr i8 %retval.sroa.0.0.i, 3
   %9 = zext nneg i8 %bf.lshr25 to i64
   %bf.shl31 = shl nuw nsw i64 %9, 9
-  %bf.set22 = add nuw i64 %bf.set11, %bf.shl31
+  %bf.set22 = add nuw nsw i64 %bf.set11, %bf.shl31
   %bf.set33 = or disjoint i64 %bf.set22, %bf.shl20
   store i64 %bf.set33, ptr %verifyNone, align 8
   %verifyCallback = getelementptr inbounds i8, ptr %ssl, i64 160

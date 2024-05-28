@@ -1436,8 +1436,8 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
   %107 = add nuw nsw i32 %106, %104
   %108 = and i32 %107, 31
   %109 = lshr i32 %107, 16
-  %110 = add nuw i32 %109, %.076115
-  %111 = add nuw i32 %110, %108
+  %110 = add nuw nsw i32 %109, %.076115
+  %111 = add nuw nsw i32 %110, %108
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 16384
   br i1 %exitcond141.not, label %112, label %.preheader, !llvm.loop !24

@@ -160,10 +160,10 @@ define i32 @Aig_ManPackCountCares(ptr nocapture noundef readonly %0) local_unnam
   %49 = add nuw nsw i32 %48, %46
   %50 = and i32 %49, 31
   %51 = lshr i32 %49, 16
-  %52 = add nuw i32 %51, %.012
-  %53 = add nuw i32 %52, %50
-  %54 = add nuw i32 %53, %32
-  %55 = add nuw i32 %54, %31
+  %52 = add nuw nsw i32 %51, %.012
+  %53 = add nuw nsw i32 %52, %50
+  %54 = add nuw nsw i32 %53, %32
+  %55 = add nuw nsw i32 %54, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !4
@@ -248,10 +248,10 @@ define void @Aig_ManPackFree(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %56 = add nuw nsw i32 %55, %53
   %57 = and i32 %56, 31
   %58 = lshr i32 %56, 16
-  %59 = add nuw i32 %58, %.012.i
-  %60 = add nuw i32 %59, %57
-  %61 = add nuw i32 %60, %39
-  %62 = add nuw i32 %61, %38
+  %59 = add nuw nsw i32 %58, %.012.i
+  %60 = add nuw nsw i32 %59, %57
+  %61 = add nuw nsw i32 %60, %39
+  %62 = add nuw nsw i32 %61, %38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Aig_ManPackCountCares.exit.loopexit, label %17, !llvm.loop !4

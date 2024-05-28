@@ -1206,8 +1206,8 @@ fasthuf_read_bits.exit111.i:                      ; preds = %fasthuf_read_bits.e
   %sh_prom.i101.i = zext nneg i32 %sub.i100.i to i64
   %shr.i102.i = lshr i64 %currBits.4.i, %sh_prom.i101.i
   %and.i103.i = and i64 %shr.i102.i, 255
-  %sub.i = add nuw i64 %symbol.0176.i, 5
-  %add53.i = add nuw i64 %sub.i, %and.i103.i
+  %sub.i = add nuw nsw i64 %symbol.0176.i, 5
+  %add53.i = add nuw nsw i64 %sub.i, %and.i103.i
   br label %if.end59.i
 
 if.else54.i:                                      ; preds = %if.else.i
@@ -1448,8 +1448,8 @@ fasthuf_read_bits.exit139.i:                      ; preds = %fasthuf_read_bits.e
   %sh_prom.i129.i = zext nneg i32 %sub.i128.i to i64
   %shr.i130.i = lshr i64 %currBits.11.i, %sh_prom.i129.i
   %and.i131.i = and i64 %shr.i130.i, 255
-  %sub239.i = add nuw i64 %symbol201.0199.i, 5
-  %add240.i = add nuw i64 %sub239.i, %and.i131.i
+  %sub239.i = add nuw nsw i64 %symbol201.0199.i, 5
+  %add240.i = add nuw nsw i64 %sub239.i, %and.i131.i
   br label %for.inc247.i
 
 if.else241.i:                                     ; preds = %if.else233.i

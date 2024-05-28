@@ -1907,7 +1907,7 @@ if.end42:                                         ; preds = %if.then40, %if.end3
   %arrayidx44 = getelementptr inbounds i8, ptr %dst.addr.0, i64 %idxprom43
   store i8 46, ptr %arrayidx44, align 1
   %add45 = add nuw nsw i32 %fractional_digits, 1
-  %add46 = add nuw i32 %add45, %integer_digits.0
+  %add46 = add nuw nsw i32 %add45, %integer_digits.0
   %add.ptr48 = getelementptr inbounds i8, ptr %arrayidx44, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr48, i8 48, i64 %idxprom15, i1 false)
   %sub50 = add nuw i32 %integer_digits.0, %fractional_digits

@@ -4239,8 +4239,8 @@ Nf_CutMergeOrder.exit.thread.us:                  ; preds = %623, %.lr.ph134.i.u
   %943 = getelementptr inbounds i8, ptr %942, i64 16
   %944 = load i32, ptr %943, align 8
   %945 = lshr i32 %944, 27
-  %946 = add nuw i32 %.04352.i, 1
-  %947 = add nuw i32 %946, %945
+  %946 = add nuw nsw i32 %.04352.i, 1
+  %947 = add nuw nsw i32 %946, %945
   %exitcond.not.i327 = icmp eq i64 %indvars.iv.next.i326, %wide.trip.count.i323
   br i1 %exitcond.not.i327, label %._crit_edge.i320, label %.lr.ph.i324, !llvm.loop !51
 

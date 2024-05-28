@@ -207,8 +207,8 @@ define i32 @Ssw_SmlNodeNotEquWeight(ptr nocapture noundef readonly %0, i32 nound
   %37 = add nuw nsw i32 %36, %34
   %38 = and i32 %37, 31
   %39 = lshr i32 %37, 16
-  %40 = add nuw i32 %39, %.015
-  %41 = add nuw i32 %40, %38
+  %40 = add nuw nsw i32 %39, %.015
+  %41 = add nuw nsw i32 %40, %38
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -386,8 +386,8 @@ define i32 @Ssw_SmlCountXorImplication(ptr nocapture noundef readonly %0, ptr no
   %61 = add nuw nsw i32 %60, %58
   %62 = and i32 %61, 31
   %63 = lshr i32 %61, 16
-  %64 = add nuw i32 %63, %.034
-  %65 = add nuw i32 %64, %62
+  %64 = add nuw nsw i32 %63, %.034
+  %65 = add nuw nsw i32 %64, %62
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
@@ -430,8 +430,8 @@ define i32 @Ssw_SmlCountXorImplication(ptr nocapture noundef readonly %0, ptr no
   %92 = add nuw nsw i32 %91, %89
   %93 = and i32 %92, 31
   %94 = lshr i32 %92, 16
-  %95 = add nuw i32 %94, %.136
-  %96 = add nuw i32 %95, %93
+  %95 = add nuw nsw i32 %94, %.136
+  %96 = add nuw nsw i32 %95, %93
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
   br i1 %exitcond46.not, label %.loopexit, label %.lr.ph37, !llvm.loop !12
@@ -493,8 +493,8 @@ define i32 @Ssw_SmlCountEqual(ptr nocapture noundef readonly %0, ptr nocapture n
   %42 = add nuw nsw i32 %41, %39
   %43 = and i32 %42, 31
   %44 = lshr i32 %42, 16
-  %45 = add nuw i32 %44, %.015
-  %46 = add nuw i32 %45, %43
+  %45 = add nuw nsw i32 %44, %.015
+  %46 = add nuw nsw i32 %45, %43
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -621,8 +621,8 @@ define i32 @Ssw_SmlNodeCountOnesReal(ptr nocapture noundef readonly %0, ptr noun
   %40 = add nuw nsw i32 %39, %37
   %41 = and i32 %40, 31
   %42 = lshr i32 %40, 16
-  %43 = add nuw i32 %42, %.021
-  %44 = add nuw i32 %43, %41
+  %43 = add nuw nsw i32 %42, %.021
+  %44 = add nuw nsw i32 %43, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
@@ -650,8 +650,8 @@ define i32 @Ssw_SmlNodeCountOnesReal(ptr nocapture noundef readonly %0, ptr noun
   %62 = add nuw nsw i32 %61, %59
   %63 = and i32 %62, 31
   %64 = lshr i32 %62, 16
-  %65 = add nuw i32 %64, %.123
-  %66 = add nuw i32 %65, %63
+  %65 = add nuw nsw i32 %64, %.123
+  %66 = add nuw nsw i32 %65, %63
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
   br i1 %exitcond33.not, label %.loopexit, label %.lr.ph24, !llvm.loop !16
@@ -739,8 +739,8 @@ define i32 @Ssw_SmlNodeCountOnesRealVec(ptr nocapture noundef readonly %0, ptr n
   %44 = add nuw nsw i32 %43, %41
   %45 = and i32 %44, 31
   %46 = lshr i32 %44, 16
-  %47 = add nuw i32 %46, %.032.us
-  %48 = add nuw i32 %47, %45
+  %47 = add nuw nsw i32 %46, %.032.us
+  %48 = add nuw nsw i32 %47, %45
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %.loopexit, label %.preheader.us, !llvm.loop !18

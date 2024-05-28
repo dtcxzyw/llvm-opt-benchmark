@@ -583,8 +583,8 @@ Vec_IntGrow.exit.i166:                            ; preds = %195, %193
   %.val141 = load i32, ptr %227, align 4
   %228 = sub nsw i32 %.val140, %.val141
   %229 = call i32 @llvm.abs.i32(i32 %228, i1 true)
-  %230 = add nuw i32 %.0117210, 1
-  %231 = add nuw i32 %230, %229
+  %230 = add nuw nsw i32 %.0117210, 1
+  %231 = add nuw nsw i32 %230, %229
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count
   br i1 %exitcond.not, label %.critedge7, label %221, !llvm.loop !6
@@ -3702,8 +3702,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val283 = load i32, ptr %318, align 4
   %319 = sub nsw i32 %.val282, %.val283
   %320 = tail call i32 @llvm.abs.i32(i32 %319, i1 true)
-  %321 = add nuw i32 %.0223332, 1
-  %322 = add nuw i32 %321, %320
+  %321 = add nuw nsw i32 %.0223332, 1
+  %322 = add nuw nsw i32 %321, %320
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count
   br i1 %exitcond.not, label %.critedge13, label %312, !llvm.loop !27

@@ -2428,8 +2428,8 @@ entry:
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %shr = lshr i32 %length, 4
-  %add = add nuw i32 %length, 4
-  %add1 = add nuw i32 %add, %shr
+  %add = add nuw nsw i32 %length, 4
+  %add1 = add nuw nsw i32 %add, %shr
   %cmp.inv = icmp sgt i32 %length, 27
   %fBuffer.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
   %fArray.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24

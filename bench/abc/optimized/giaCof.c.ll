@@ -497,9 +497,9 @@ Vec_IntPush.exit144:                              ; preds = %.Vec_IntGrow.exit10
   %269 = lshr i32 %.val129, 4
   %270 = and i32 %269, 15
   %271 = lshr i32 %.val129, 8
-  %narrow.i145 = add nuw i32 %.0152, 6
-  %narrow2.i = add nuw i32 %narrow.i145, %271
-  %272 = add nuw i32 %narrow2.i, %270
+  %narrow.i145 = add nuw nsw i32 %.0152, 6
+  %narrow2.i = add nuw nsw i32 %narrow.i145, %271
+  %272 = add nuw nsw i32 %narrow2.i, %270
   %273 = load i32, ptr %48, align 8
   %274 = add nsw i32 %273, 1
   store i32 %274, ptr %48, align 8
@@ -911,9 +911,9 @@ define void @Cof_ManCleanValue(ptr nocapture noundef readonly %0) local_unnamed_
   %10 = lshr i32 %.val7, 4
   %11 = and i32 %10, 15
   %12 = lshr i32 %.val7, 8
-  %narrow.i = add nuw i32 %.08, 6
-  %narrow2.i = add nuw i32 %narrow.i, %12
-  %13 = add nuw i32 %narrow2.i, %11
+  %narrow.i = add nuw nsw i32 %.08, 6
+  %narrow2.i = add nuw nsw i32 %narrow.i, %12
+  %13 = add nuw nsw i32 %narrow2.i, %11
   %14 = load i32, ptr %3, align 8
   %15 = icmp slt i32 %13, %14
   br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !13
@@ -1212,9 +1212,9 @@ Vec_PtrAlloc.exit:                                ; preds = %2, %6
   %28 = lshr i32 %.val15, 4
   %29 = and i32 %28, 15
   %30 = lshr i32 %.val15, 8
-  %narrow.i20 = add nuw i32 %.022, 6
-  %narrow2.i = add nuw i32 %narrow.i20, %30
-  %31 = add nuw i32 %narrow2.i, %29
+  %narrow.i20 = add nuw nsw i32 %.022, 6
+  %narrow2.i = add nuw nsw i32 %narrow.i20, %30
+  %31 = add nuw nsw i32 %narrow2.i, %29
   %32 = icmp slt i32 %31, %27
   br i1 %32, label %.lr.ph, label %.critedge, !llvm.loop !14
 
@@ -1935,9 +1935,9 @@ define void @Cof_ManPrintFanio(ptr nocapture noundef readonly %0) local_unnamed_
   %38 = lshr i32 %.val180, 4
   %39 = and i32 %38, 15
   %40 = lshr i32 %.val180, 8
-  %narrow.i = add nuw i32 %.0152260, 6
-  %narrow2.i = add nuw i32 %narrow.i, %40
-  %41 = add nuw i32 %narrow2.i, %39
+  %narrow.i = add nuw nsw i32 %.0152260, 6
+  %narrow2.i = add nuw nsw i32 %narrow.i, %40
+  %41 = add nuw nsw i32 %narrow2.i, %39
   %42 = icmp slt i32 %41, %37
   br i1 %42, label %.lr.ph, label %.critedge, !llvm.loop !20
 
@@ -2346,9 +2346,9 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   %232 = lshr i32 %.val179, 4
   %233 = and i32 %232, 15
   %234 = lshr i32 %.val179, 8
-  %narrow.i234 = add nuw i32 %.1153273, 6
-  %narrow2.i235 = add nuw i32 %narrow.i234, %234
-  %235 = add nuw i32 %narrow2.i235, %233
+  %narrow.i234 = add nuw nsw i32 %.1153273, 6
+  %narrow2.i235 = add nuw nsw i32 %narrow.i234, %234
+  %235 = add nuw nsw i32 %narrow2.i235, %233
   %236 = load i32, ptr %4, align 8
   %237 = icmp slt i32 %235, %236
   br i1 %237, label %103, label %.critedge2.loopexit, !llvm.loop !22
@@ -2580,9 +2580,9 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %27 = lshr i32 %.val7.i.i, 4
   %28 = and i32 %27, 15
   %29 = lshr i32 %.val7.i.i, 8
-  %narrow.i.i.i = add nuw i32 %.08.i.i, 6
-  %narrow2.i.i.i = add nuw i32 %narrow.i.i.i, %29
-  %30 = add nuw i32 %narrow2.i.i.i, %28
+  %narrow.i.i.i = add nuw nsw i32 %.08.i.i, 6
+  %narrow2.i.i.i = add nuw nsw i32 %narrow.i.i.i, %29
+  %30 = add nuw nsw i32 %narrow2.i.i.i, %28
   %31 = icmp slt i32 %30, %21
   br i1 %31, label %.lr.ph.i.i, label %Cof_ManResetTravId.exit, !llvm.loop !13
 

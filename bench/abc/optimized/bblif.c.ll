@@ -383,8 +383,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val22 = load i32, ptr %76, align 4
   %77 = lshr i32 %.val22, 2
   %78 = and i32 %77, 1073741820
-  %narrow.i = add nuw i32 %.027, 12
-  %79 = add nuw i32 %narrow.i, %78
+  %narrow.i = add nuw nsw i32 %.027, 12
+  %79 = add nuw nsw i32 %narrow.i, %78
   %80 = load ptr, ptr %25, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
@@ -431,8 +431,8 @@ define void @Bbl_ManPrintStats(ptr nocapture noundef readonly %0) local_unnamed_
   %14 = add nuw nsw i32 %13, %.02338
   %15 = lshr i32 %.val30, 2
   %16 = and i32 %15, 1073741820
-  %narrow.i = add nuw i32 %.02537, 12
-  %17 = add nuw i32 %narrow.i, %16
+  %narrow.i = add nuw nsw i32 %.02537, 12
+  %17 = add nuw nsw i32 %narrow.i, %16
   %18 = icmp slt i32 %17, %5
   br i1 %18, label %.lr.ph.split, label %.critedge, !llvm.loop !7
 
@@ -1570,8 +1570,8 @@ define range(i32 0, 2) i32 @Bbl_ManCheck(ptr nocapture noundef readonly %0) loca
   %.4 = phi i32 [ 0, %48 ], [ %.3, %39 ]
   %51 = lshr i32 %.val30, 2
   %52 = and i32 %51, 1073741820
-  %narrow.i = add nuw i32 %.02237, 12
-  %53 = add nuw i32 %narrow.i, %52
+  %narrow.i = add nuw nsw i32 %.02237, 12
+  %53 = add nuw nsw i32 %narrow.i, %52
   %54 = load ptr, ptr %2, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4

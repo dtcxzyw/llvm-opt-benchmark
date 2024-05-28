@@ -17,7 +17,7 @@ define void @rk_seed(i64 noundef %0, ptr nocapture noundef writeonly %1) local_u
   %6 = xor i64 %5, %.09
   %7 = mul nuw nsw i64 %6, 1812433253
   %8 = add nuw nsw i64 %indvars.iv, 1
-  %9 = add nuw i64 %8, %7
+  %9 = add nuw nsw i64 %8, %7
   %exitcond.not = icmp eq i64 %8, 624
   br i1 %exitcond.not, label %10, label %3
 

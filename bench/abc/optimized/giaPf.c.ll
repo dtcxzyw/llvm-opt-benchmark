@@ -4157,8 +4157,8 @@ Pf_SetAddCut.exit371.us:                          ; preds = %730, %.lr.ph134.i.u
   %1155 = getelementptr inbounds i8, ptr %1154, i64 16
   %1156 = load i32, ptr %1155, align 8
   %1157 = lshr i32 %1156, 27
-  %1158 = add nuw i32 %.04352.i, 1
-  %1159 = add nuw i32 %1158, %1157
+  %1158 = add nuw nsw i32 %.04352.i, 1
+  %1159 = add nuw nsw i32 %1158, %1157
   %exitcond.not.i379 = icmp eq i64 %indvars.iv.next.i378, %wide.trip.count.i375
   br i1 %exitcond.not.i379, label %._crit_edge.i372, label %.lr.ph.i376, !llvm.loop !51
 

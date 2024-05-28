@@ -6361,8 +6361,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
 
 2661:                                             ; preds = %2659
   %2662 = add nsw i32 %.526813372, 1
-  %2663 = add nuw i32 %.02767, 1
-  %2664 = add nuw i32 %2663, %.12711
+  %2663 = add nuw nsw i32 %.02767, 1
+  %2664 = add nuw nsw i32 %2663, %.12711
   store i32 %2664, ptr %.326123376, align 4
   %2665 = getelementptr inbounds i8, ptr %.326123376, i64 4
   store i32 0, ptr %2665, align 4
@@ -6385,8 +6385,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
 
 2673:                                             ; preds = %2671
   %2674 = add nsw i32 %.526813372, 1
-  %2675 = add nuw i32 %.02767, 1
-  %2676 = add nuw i32 %2675, %.12711
+  %2675 = add nuw nsw i32 %.02767, 1
+  %2676 = add nuw nsw i32 %2675, %.12711
   store i32 %2676, ptr %.326123376, align 4
   %2677 = getelementptr inbounds i8, ptr %.326123376, i64 4
   store i32 0, ptr %2677, align 4
@@ -6426,8 +6426,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
 
 2699:                                             ; preds = %2697
   %2700 = add nsw i32 %.526813372, 1
-  %2701 = add nuw i32 %.02767, 1
-  %2702 = add nuw i32 %2701, %.12711
+  %2701 = add nuw nsw i32 %.02767, 1
+  %2702 = add nuw nsw i32 %2701, %.12711
   store i32 %2702, ptr %.326123376, align 4
   %2703 = getelementptr inbounds i8, ptr %.326123376, i64 4
   store i32 0, ptr %2703, align 4
@@ -6727,8 +6727,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
 
 2822:                                             ; preds = %2820
   %2823 = add nsw i32 %.526813372, 1
-  %2824 = add nuw i32 %.02767, 1
-  %2825 = add nuw i32 %2824, %.12711
+  %2824 = add nuw nsw i32 %.02767, 1
+  %2825 = add nuw nsw i32 %2824, %.12711
   store i32 %2825, ptr %.326123376, align 4
   %2826 = getelementptr inbounds i8, ptr %.326123376, i64 4
   store i32 0, ptr %2826, align 4
@@ -6782,8 +6782,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
 
 2856:                                             ; preds = %2854
   %2857 = add nsw i32 %.526813372, 1
-  %2858 = add nuw i32 %.02767, 1
-  %2859 = add nuw i32 %2858, %.12711
+  %2858 = add nuw nsw i32 %.02767, 1
+  %2859 = add nuw nsw i32 %2858, %.12711
   store i32 %2859, ptr %.326123376, align 4
   %2860 = getelementptr inbounds i8, ptr %.326123376, i64 4
   store i32 0, ptr %2860, align 4
@@ -6808,8 +6808,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
 
 2870:                                             ; preds = %2868
   %2871 = add nsw i32 %.026293373, 1
-  %2872 = add nuw i32 %.02767, 1
-  %2873 = add nuw i32 %2872, %.12711
+  %2872 = add nuw nsw i32 %.02767, 1
+  %2873 = add nuw nsw i32 %2872, %.12711
   store i32 %2873, ptr %.026013377, align 4
   %2874 = getelementptr inbounds i8, ptr %.026013377, i64 4
   store i32 0, ptr %2874, align 4
@@ -6905,8 +6905,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
   br i1 %2924, label %2925, label %more_workspace.exit.thread
 
 2925:                                             ; preds = %2922
-  %2926 = add nuw i32 %.02767, 1
-  %2927 = add nuw i32 %2926, %.12711
+  %2926 = add nuw nsw i32 %.02767, 1
+  %2927 = add nuw nsw i32 %2926, %.12711
   store i32 %2927, ptr %.026013377, align 4
   %2928 = getelementptr inbounds i8, ptr %.026013377, i64 4
   store i32 0, ptr %2928, align 4
@@ -6991,8 +6991,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
   br i1 %2973, label %2974, label %more_workspace.exit.thread
 
 2974:                                             ; preds = %2971
-  %2975 = add nuw i32 %.02767, 1
-  %2976 = add nuw i32 %2975, %.12711
+  %2975 = add nuw nsw i32 %.02767, 1
+  %2976 = add nuw nsw i32 %2975, %.12711
   store i32 %2976, ptr %.026013377, align 4
   %2977 = getelementptr inbounds i8, ptr %.026013377, i64 4
   store i32 0, ptr %2977, align 4
@@ -7138,8 +7138,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
 
 3068:                                             ; preds = %3067
   %3069 = add nsw i32 %.526813372, 1
-  %3070 = add nuw i32 %.02767, 3
-  %3071 = add nuw i32 %3070, %.12711
+  %3070 = add nuw nsw i32 %.02767, 3
+  %3071 = add nuw nsw i32 %3070, %.12711
   store i32 %3071, ptr %.326123376, align 4
   %3072 = getelementptr inbounds i8, ptr %.326123376, i64 4
   store i32 0, ptr %3072, align 4
@@ -7169,8 +7169,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
   br i1 %3083, label %3084, label %more_workspace.exit.thread
 
 3084:                                             ; preds = %3081
-  %3085 = add nuw i32 %.02767, 3
-  %3086 = add nuw i32 %3085, %.12711
+  %3085 = add nuw nsw i32 %.02767, 3
+  %3086 = add nuw nsw i32 %3085, %.12711
   store i32 %3086, ptr %.026013377, align 4
   %3087 = getelementptr inbounds i8, ptr %.026013377, i64 4
   store i32 0, ptr %3087, align 4
@@ -7744,8 +7744,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
 
 3408:                                             ; preds = %3406
   %3409 = add nsw i32 %.026293373, 1
-  %3410 = add nuw i32 %.02767, 3
-  %3411 = add nuw i32 %3410, %3392
+  %3410 = add nuw nsw i32 %.02767, 3
+  %3411 = add nuw nsw i32 %3410, %3392
   store i32 %3411, ptr %.026013377, align 4
   %3412 = getelementptr inbounds i8, ptr %.026013377, i64 4
   store i32 0, ptr %3412, align 4
@@ -7800,8 +7800,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
 
 3440:                                             ; preds = %3439
   %3441 = add nsw i32 %.026293373, 1
-  %3442 = add nuw i32 %.02767, 3
-  %3443 = add nuw i32 %3442, %3392
+  %3442 = add nuw nsw i32 %.02767, 3
+  %3443 = add nuw nsw i32 %3442, %3392
   store i32 %3443, ptr %.026013377, align 4
   %3444 = getelementptr inbounds i8, ptr %.026013377, i64 4
   store i32 0, ptr %3444, align 4
@@ -7909,8 +7909,8 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
 
 3512:                                             ; preds = %3511
   %3513 = add nsw i32 %.026293373, 1
-  %3514 = add nuw i32 %.02767, 3
-  %3515 = add nuw i32 %3514, %3392
+  %3514 = add nuw nsw i32 %.02767, 3
+  %3515 = add nuw nsw i32 %3514, %3392
   store i32 %3515, ptr %.026013377, align 4
   %3516 = getelementptr inbounds i8, ptr %.026013377, i64 4
   store i32 0, ptr %3516, align 4

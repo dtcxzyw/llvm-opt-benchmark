@@ -1581,8 +1581,8 @@ define i32 @Kit_TruthCofactor0Count(ptr nocapture noundef readonly %0, i32 nound
   %26 = add nuw nsw i32 %25, %23
   %27 = and i32 %26, 15
   %28 = lshr i32 %26, 16
-  %29 = add nuw i32 %28, %.086
-  %30 = add nuw i32 %29, %27
+  %29 = add nuw nsw i32 %28, %.086
+  %30 = add nuw nsw i32 %29, %27
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
   br i1 %exitcond128.not, label %.loopexit, label %.lr.ph87, !llvm.loop !44
@@ -1606,8 +1606,8 @@ define i32 @Kit_TruthCofactor0Count(ptr nocapture noundef readonly %0, i32 nound
   %44 = add nuw nsw i32 %43, %41
   %45 = and i32 %44, 15
   %46 = lshr i32 %44, 16
-  %47 = add nuw i32 %46, %.182
-  %48 = add nuw i32 %47, %45
+  %47 = add nuw nsw i32 %46, %.182
+  %48 = add nuw nsw i32 %47, %45
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
   br i1 %exitcond123.not, label %.loopexit, label %.lr.ph83, !llvm.loop !45
@@ -1631,8 +1631,8 @@ define i32 @Kit_TruthCofactor0Count(ptr nocapture noundef readonly %0, i32 nound
   %62 = add nuw nsw i32 %61, %59
   %63 = and i32 %62, 15
   %64 = lshr i32 %62, 16
-  %65 = add nuw i32 %64, %.278
-  %66 = add nuw i32 %65, %63
+  %65 = add nuw nsw i32 %64, %.278
+  %66 = add nuw nsw i32 %65, %63
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
   br i1 %exitcond118.not, label %.loopexit, label %.lr.ph79, !llvm.loop !46
@@ -1656,8 +1656,8 @@ define i32 @Kit_TruthCofactor0Count(ptr nocapture noundef readonly %0, i32 nound
   %80 = add nuw nsw i32 %79, %77
   %81 = and i32 %80, 15
   %82 = lshr i32 %80, 16
-  %83 = add nuw i32 %82, %.374
-  %84 = add nuw i32 %83, %81
+  %83 = add nuw nsw i32 %82, %.374
+  %84 = add nuw nsw i32 %83, %81
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
   br i1 %exitcond113.not, label %.loopexit, label %.lr.ph75, !llvm.loop !47
@@ -1681,8 +1681,8 @@ define i32 @Kit_TruthCofactor0Count(ptr nocapture noundef readonly %0, i32 nound
   %98 = add nuw nsw i32 %97, %95
   %99 = and i32 %98, 15
   %100 = lshr i32 %98, 8
-  %101 = add nuw i32 %99, %.472
-  %102 = add nuw i32 %101, %100
+  %101 = add nuw nsw i32 %99, %.472
+  %102 = add nuw nsw i32 %101, %100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
@@ -3457,8 +3457,8 @@ define i32 @Kit_TruthBooleanDiffCount(ptr nocapture noundef readonly %0, i32 nou
   %28 = add nuw nsw i32 %27, %25
   %29 = and i32 %28, 15
   %30 = lshr i32 %28, 16
-  %31 = add nuw i32 %30, %.0100
-  %32 = add nuw i32 %31, %29
+  %31 = add nuw nsw i32 %30, %.0100
+  %32 = add nuw nsw i32 %31, %29
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
   br i1 %exitcond142.not, label %.loopexit, label %.lr.ph101, !llvm.loop !115
@@ -3484,8 +3484,8 @@ define i32 @Kit_TruthBooleanDiffCount(ptr nocapture noundef readonly %0, i32 nou
   %48 = add nuw nsw i32 %47, %45
   %49 = and i32 %48, 15
   %50 = lshr i32 %48, 16
-  %51 = add nuw i32 %50, %.196
-  %52 = add nuw i32 %51, %49
+  %51 = add nuw nsw i32 %50, %.196
+  %52 = add nuw nsw i32 %51, %49
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
   br i1 %exitcond137.not, label %.loopexit, label %.lr.ph97, !llvm.loop !116
@@ -3511,8 +3511,8 @@ define i32 @Kit_TruthBooleanDiffCount(ptr nocapture noundef readonly %0, i32 nou
   %68 = add nuw nsw i32 %67, %65
   %69 = and i32 %68, 15
   %70 = lshr i32 %68, 16
-  %71 = add nuw i32 %70, %.292
-  %72 = add nuw i32 %71, %69
+  %71 = add nuw nsw i32 %70, %.292
+  %72 = add nuw nsw i32 %71, %69
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
   br i1 %exitcond132.not, label %.loopexit, label %.lr.ph93, !llvm.loop !117
@@ -3538,8 +3538,8 @@ define i32 @Kit_TruthBooleanDiffCount(ptr nocapture noundef readonly %0, i32 nou
   %88 = add nuw nsw i32 %87, %85
   %89 = and i32 %88, 15
   %90 = lshr i32 %88, 16
-  %91 = add nuw i32 %90, %.388
-  %92 = add nuw i32 %91, %89
+  %91 = add nuw nsw i32 %90, %.388
+  %92 = add nuw nsw i32 %91, %89
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
   br i1 %exitcond127.not, label %.loopexit, label %.lr.ph89, !llvm.loop !118
@@ -3565,8 +3565,8 @@ define i32 @Kit_TruthBooleanDiffCount(ptr nocapture noundef readonly %0, i32 nou
   %108 = add nuw nsw i32 %107, %105
   %109 = and i32 %108, 15
   %110 = lshr i32 %108, 8
-  %111 = add nuw i32 %109, %.486
-  %112 = add nuw i32 %111, %110
+  %111 = add nuw nsw i32 %109, %.486
+  %112 = add nuw nsw i32 %111, %110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !119
@@ -3678,8 +3678,8 @@ define i32 @Kit_TruthXorCount(ptr nocapture noundef readonly %0, ptr nocapture n
   %29 = add nuw nsw i32 %28, %26
   %30 = and i32 %29, 31
   %31 = lshr i32 %29, 16
-  %32 = add nuw i32 %31, %.011
-  %33 = add nuw i32 %32, %30
+  %32 = add nuw nsw i32 %31, %.011
+  %33 = add nuw nsw i32 %32, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
@@ -6234,8 +6234,8 @@ select.unfold.i:                                  ; preds = %11, %select.unfold.
   %30 = add nuw nsw i32 %29, %27
   %31 = and i32 %30, 31
   %32 = lshr i32 %30, 16
-  %33 = add nuw i32 %32, %.08.i
-  %34 = add nuw i32 %33, %31
+  %33 = add nuw nsw i32 %32, %.08.i
+  %34 = add nuw nsw i32 %33, %31
   %35 = icmp ugt i64 %indvars.iv.i, 1
   br i1 %35, label %select.unfold.i, label %Kit_TruthCountOnes.exit, !llvm.loop !156
 
@@ -6272,8 +6272,8 @@ select.unfold.i22:                                ; preds = %Kit_TruthCountOnes.
   %56 = add nuw nsw i32 %55, %53
   %57 = and i32 %56, 31
   %58 = lshr i32 %56, 16
-  %59 = add nuw i32 %58, %.08.i24
-  %60 = add nuw i32 %59, %57
+  %59 = add nuw nsw i32 %58, %.08.i24
+  %60 = add nuw nsw i32 %59, %57
   %61 = icmp ugt i64 %indvars.iv.i23, 1
   br i1 %61, label %select.unfold.i22, label %Kit_TruthCountOnes.exit26, !llvm.loop !156
 
@@ -6373,8 +6373,8 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %32 = add nuw nsw i32 %31, %29
   %33 = and i32 %32, 31
   %34 = lshr i32 %32, 16
-  %35 = add nuw i32 %34, %.08.i
-  %36 = add nuw i32 %35, %33
+  %35 = add nuw nsw i32 %34, %.08.i
+  %36 = add nuw nsw i32 %35, %33
   %37 = icmp ugt i64 %indvars.iv.i, 1
   br i1 %37, label %select.unfold.i, label %Kit_TruthCountOnes.exit, !llvm.loop !156
 
@@ -7810,8 +7810,8 @@ Kit_TruthCofactor1New.exit362:                    ; preds = %.lr.ph.i317, %.lr.p
   %348 = add nuw nsw i32 %347, %345
   %349 = and i32 %348, 31
   %350 = lshr i32 %348, 16
-  %351 = add nuw i32 %350, %.011.i
-  %352 = add nuw i32 %351, %349
+  %351 = add nuw nsw i32 %350, %.011.i
+  %352 = add nuw nsw i32 %351, %349
   %indvars.iv.next.i367 = add nuw nsw i64 %indvars.iv.i366, 1
   %exitcond.not.i368 = icmp eq i64 %indvars.iv.next.i367, %wide.trip.count.i245
   br i1 %exitcond.not.i368, label %.lr.ph.i372, label %.lr.ph.i365, !llvm.loop !122
@@ -7842,8 +7842,8 @@ Kit_TruthCofactor1New.exit362:                    ; preds = %.lr.ph.i317, %.lr.p
   %373 = add nuw nsw i32 %372, %370
   %374 = and i32 %373, 31
   %375 = lshr i32 %373, 16
-  %376 = add nuw i32 %375, %.011.i374
-  %377 = add nuw i32 %376, %374
+  %376 = add nuw nsw i32 %375, %.011.i374
+  %377 = add nuw nsw i32 %376, %374
   %indvars.iv.next.i375 = add nuw nsw i64 %indvars.iv.i373, 1
   %exitcond.not.i376 = icmp eq i64 %indvars.iv.next.i375, %wide.trip.count.i245
   br i1 %exitcond.not.i376, label %.lr.ph.i381, label %.lr.ph.i372, !llvm.loop !122
@@ -7874,8 +7874,8 @@ Kit_TruthCofactor1New.exit362:                    ; preds = %.lr.ph.i317, %.lr.p
   %398 = add nuw nsw i32 %397, %395
   %399 = and i32 %398, 31
   %400 = lshr i32 %398, 16
-  %401 = add nuw i32 %400, %.011.i383
-  %402 = add nuw i32 %401, %399
+  %401 = add nuw nsw i32 %400, %.011.i383
+  %402 = add nuw nsw i32 %401, %399
   %indvars.iv.next.i384 = add nuw nsw i64 %indvars.iv.i382, 1
   %exitcond.not.i385 = icmp eq i64 %indvars.iv.next.i384, %wide.trip.count.i245
   br i1 %exitcond.not.i385, label %Kit_TruthXorCount.exit386, label %.lr.ph.i381, !llvm.loop !122
@@ -7910,8 +7910,8 @@ Kit_TruthXorCount.exit386:                        ; preds = %.lr.ph.i381
   %424 = add nuw nsw i32 %423, %421
   %425 = and i32 %424, 31
   %426 = lshr i32 %424, 16
-  %427 = add nuw i32 %426, %.011.i392
-  %428 = add nuw i32 %427, %425
+  %427 = add nuw nsw i32 %426, %.011.i392
+  %428 = add nuw nsw i32 %427, %425
   %indvars.iv.next.i393 = add nuw nsw i64 %indvars.iv.i391, 1
   %exitcond.not.i394 = icmp eq i64 %indvars.iv.next.i393, %wide.trip.count.i245
   br i1 %exitcond.not.i394, label %Kit_TruthXorCount.exit395, label %.lr.ph.i390, !llvm.loop !122
@@ -7946,8 +7946,8 @@ Kit_TruthXorCount.exit395:                        ; preds = %.lr.ph.i390
   %450 = add nuw nsw i32 %449, %447
   %451 = and i32 %450, 31
   %452 = lshr i32 %450, 16
-  %453 = add nuw i32 %452, %.011.i401
-  %454 = add nuw i32 %453, %451
+  %453 = add nuw nsw i32 %452, %.011.i401
+  %454 = add nuw nsw i32 %453, %451
   %indvars.iv.next.i402 = add nuw nsw i64 %indvars.iv.i400, 1
   %exitcond.not.i403 = icmp eq i64 %indvars.iv.next.i402, %wide.trip.count.i245
   br i1 %exitcond.not.i403, label %Kit_TruthXorCount.exit404, label %.lr.ph.i399, !llvm.loop !122
@@ -7982,8 +7982,8 @@ Kit_TruthXorCount.exit404:                        ; preds = %.lr.ph.i399
   %476 = add nuw nsw i32 %475, %473
   %477 = and i32 %476, 31
   %478 = lshr i32 %476, 16
-  %479 = add nuw i32 %478, %.011.i410
-  %480 = add nuw i32 %479, %477
+  %479 = add nuw nsw i32 %478, %.011.i410
+  %480 = add nuw nsw i32 %479, %477
   %indvars.iv.next.i411 = add nuw nsw i64 %indvars.iv.i409, 1
   %exitcond.not.i412 = icmp eq i64 %indvars.iv.next.i411, %wide.trip.count.i245
   br i1 %exitcond.not.i412, label %Kit_TruthXorCount.exit413.loopexit, label %.lr.ph.i408, !llvm.loop !122

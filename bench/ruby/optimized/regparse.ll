@@ -11263,7 +11263,7 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr nocapture noun
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %59 = shl i32 %indvars.iv.tr, 5
   %60 = or disjoint i32 %58, %59
-  %61 = add nuw i32 %60, %57
+  %61 = add nuw nsw i32 %60, %57
   br label %62
 
 62:                                               ; preds = %32, %39

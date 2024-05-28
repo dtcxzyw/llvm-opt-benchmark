@@ -5180,8 +5180,8 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_isis_trill_clv(ptr noundef 
 
 207:                                              ; preds = %202, %200
   %.pre-phi = phi i32 [ %204, %202 ], [ %.pre, %200 ]
-  %208 = add nuw i32 %.1376, 5
-  %209 = add nuw i32 %208, %.pre-phi
+  %208 = add nuw nsw i32 %.1376, 5
+  %209 = add nuw nsw i32 %208, %.pre-phi
   %210 = icmp slt i32 %209, %190
   br i1 %210, label %.lr.ph377, label %.loopexit, !llvm.loop !48
 

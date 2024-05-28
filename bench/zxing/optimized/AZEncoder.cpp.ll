@@ -929,7 +929,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN5ZXing5Azte
   %343 = xor i64 %indvars.iv, -1
   %344 = getelementptr i32, ptr %336, i64 %343
   store i32 %342, ptr %344, align 4
-  %345 = add nuw i32 %334, %340
+  %345 = add nuw nsw i32 %334, %340
   %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   store i32 %345, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

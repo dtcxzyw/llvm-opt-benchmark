@@ -6788,7 +6788,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %48 = zext i8 %47 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %50 = add nuw i32 %49, %48
+  %50 = add nuw nsw i32 %49, %48
   %51 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = zext nneg i32 %50 to i64

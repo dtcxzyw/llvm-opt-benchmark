@@ -3424,8 +3424,8 @@ Of_SetAddCut.exit457.us:                          ; preds = %954, %.lr.ph134.i.u
   %1368 = getelementptr inbounds i8, ptr %1367, i64 16
   %1369 = load i32, ptr %1368, align 8
   %1370 = lshr i32 %1369, 27
-  %1371 = add nuw i32 %.03945.i, 4
-  %1372 = add nuw i32 %1371, %1370
+  %1371 = add nuw nsw i32 %.03945.i, 4
+  %1372 = add nuw nsw i32 %1371, %1370
   %indvars.iv.next.i464 = add nuw nsw i64 %indvars.iv.i463, 1
   %exitcond.not.i465 = icmp eq i64 %indvars.iv.next.i464, %wide.trip.count.i461
   br i1 %exitcond.not.i465, label %._crit_edge.i458, label %.lr.ph.i462, !llvm.loop !32

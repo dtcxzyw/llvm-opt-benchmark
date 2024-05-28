@@ -566,8 +566,8 @@ Wlc_ObjHasArray.exit.thread.i.i.us:               ; preds = %Wlc_ObjHasArray.exi
   %.val10.us = load i32, ptr %14, align 4
   %15 = sub nsw i32 %.val9.us, %.val10.us
   %16 = tail call i32 @llvm.abs.i32(i32 %15, i1 true)
-  %17 = add nuw i32 %.013.us, 1
-  %18 = add nuw i32 %17, %16
+  %17 = add nuw nsw i32 %.013.us, 1
+  %18 = add nuw nsw i32 %17, %16
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
   br i1 %exitcond36.not, label %.critedge, label %Wlc_ObjHasArray.exit.thread.i.i.us, !llvm.loop !10
@@ -602,8 +602,8 @@ Wlc_ObjHasArray.exit.thread.i.i.us16:             ; preds = %Wlc_ObjHasArray.exi
   %.val10.us19 = load i32, ptr %27, align 4
   %28 = sub nsw i32 %.val9.us18, %.val10.us19
   %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
-  %30 = add nuw i32 %.013.us14, 1
-  %31 = add nuw i32 %30, %29
+  %30 = add nuw nsw i32 %.013.us14, 1
+  %31 = add nuw nsw i32 %30, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %Wlc_ObjHasArray.exit.thread.i.i.us16, !llvm.loop !10
@@ -621,8 +621,8 @@ Wlc_ObjFaninId.exit:                              ; preds = %Wlc_ObjFaninId.exit
   %.val10 = load i32, ptr %37, align 4
   %38 = sub nsw i32 %.val9, %.val10
   %39 = tail call i32 @llvm.abs.i32(i32 %38, i1 true)
-  %40 = add nuw i32 %.013, 1
-  %41 = add nuw i32 %40, %39
+  %40 = add nuw nsw i32 %.013, 1
+  %41 = add nuw nsw i32 %40, %39
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
   br i1 %exitcond31.not, label %.critedge, label %Wlc_ObjFaninId.exit, !llvm.loop !10
@@ -1195,8 +1195,8 @@ Wlc_ObjHasArray.exit.thread.i.i.us.i:             ; preds = %Wlc_ObjHasArray.exi
   %.val10.us.i = load i32, ptr %256, align 4
   %257 = sub nsw i32 %.val9.us.i, %.val10.us.i
   %258 = call i32 @llvm.abs.i32(i32 %257, i1 true)
-  %259 = add nuw i32 %.013.us.i, 1
-  %260 = add nuw i32 %259, %258
+  %259 = add nuw nsw i32 %.013.us.i, 1
+  %260 = add nuw nsw i32 %259, %258
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
   br i1 %exitcond36.not.i, label %Wlc_ObjFaninBitNum.exit, label %Wlc_ObjHasArray.exit.thread.i.i.us.i, !llvm.loop !10
@@ -1231,8 +1231,8 @@ Wlc_ObjHasArray.exit.thread.i.i.us16.i:           ; preds = %Wlc_ObjHasArray.exi
   %.val10.us19.i = load i32, ptr %269, align 4
   %270 = sub nsw i32 %.val9.us18.i, %.val10.us19.i
   %271 = call i32 @llvm.abs.i32(i32 %270, i1 true)
-  %272 = add nuw i32 %.013.us14.i, 1
-  %273 = add nuw i32 %272, %271
+  %272 = add nuw nsw i32 %.013.us14.i, 1
+  %273 = add nuw nsw i32 %272, %271
   %indvars.iv.next.i933 = add nuw nsw i64 %indvars.iv.i932, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i933, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Wlc_ObjFaninBitNum.exit, label %Wlc_ObjHasArray.exit.thread.i.i.us16.i, !llvm.loop !10
@@ -1250,8 +1250,8 @@ Wlc_ObjFaninId.exit.i:                            ; preds = %Wlc_ObjFaninId.exit
   %.val10.i = load i32, ptr %279, align 4
   %280 = sub nsw i32 %.val9.i, %.val10.i
   %281 = call i32 @llvm.abs.i32(i32 %280, i1 true)
-  %282 = add nuw i32 %.013.i934, 1
-  %283 = add nuw i32 %282, %281
+  %282 = add nuw nsw i32 %.013.i934, 1
+  %283 = add nuw nsw i32 %282, %281
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
   br i1 %exitcond31.not.i, label %Wlc_ObjFaninBitNum.exit, label %Wlc_ObjFaninId.exit.i, !llvm.loop !10

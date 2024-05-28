@@ -1699,8 +1699,8 @@ decode_sse.exit.i:                                ; preds = %444, %418, %407, %4
   br i1 %exitcond163.not.i.i, label %.loopexit.i.i, label %667, !llvm.loop !7
 
 .loopexit.i.i:                                    ; preds = %667, %._crit_edge.i.i, %590
-  %673 = add nuw i32 %.0137151.i.i, 1
-  %674 = add nuw i32 %673, %.pre-phi.i.i
+  %673 = add nuw nsw i32 %.0137151.i.i, 1
+  %674 = add nuw nsw i32 %673, %.pre-phi.i.i
   %675 = add i32 %.pre-phi.i.i, %579
   %676 = icmp ult i32 %674, %521
   br i1 %676, label %.lr.ph154.i.i, label %dissect_ase.exit.i, !llvm.loop !8

@@ -95,8 +95,8 @@ _ZL7polyvaldPKdi.exit41:                          ; preds = %.lr.ph.i37, %_ZL7po
   %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %43
   store double %42, ptr %gep, align 8
   %44 = fmul double %.02945, %0
-  %45 = add nuw i32 %.02747, 1
-  %46 = add nuw i32 %45, %13
+  %45 = add nuw nsw i32 %.02747, 1
+  %46 = add nuw nsw i32 %45, %13
   %47 = icmp ult i32 %41, 6
   br i1 %47, label %11, label %.loopexit, !llvm.loop !6
 

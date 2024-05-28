@@ -1169,9 +1169,9 @@ define internal fastcc void @Tab_TabHashAdd(ptr nocapture noundef %0, ptr nocapt
   %51 = mul nuw nsw i32 %43, 100663319
   %52 = mul nuw nsw i32 %46, 201326611
   %53 = mul nuw nsw i32 %48, 402653189
-  %54 = add nuw i32 %53, %50
-  %55 = add nuw i32 %54, %51
-  %56 = add nuw i32 %55, %52
+  %54 = add nuw nsw i32 %53, %50
+  %55 = add nuw nsw i32 %54, %51
+  %56 = add nuw nsw i32 %55, %52
   %57 = and i32 %56, %49
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %36, i64 %58

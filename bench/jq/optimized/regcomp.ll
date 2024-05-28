@@ -4141,8 +4141,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1460 = sdiv exact i64 %1459, 24
   %1461 = getelementptr inbounds i32, ptr %1454, i64 %1460
   store i32 59, ptr %1461, align 4
-  %1462 = add nuw i32 %1422, 3
-  %1463 = add nuw i32 %1462, %.0124.i
+  %1462 = add nuw nsw i32 %1422, 3
+  %1463 = add nuw nsw i32 %1462, %.0124.i
   %1464 = load ptr, ptr %5, align 8
   %1465 = getelementptr inbounds i8, ptr %1464, i64 8
   store i32 %1463, ptr %1465, align 8
@@ -15415,8 +15415,8 @@ len_multiply_cmp.exit:                            ; preds = %109, %111
 
 onig_positive_int_multiply.exit.thread83:         ; preds = %186, %181
   %.0.i7385 = phi i32 [ 0, %181 ], [ %189, %186 ]
-  %191 = add nuw i32 %179, 3
-  %192 = add nuw i32 %191, %.0.i7385
+  %191 = add nuw nsw i32 %179, 3
+  %192 = add nuw nsw i32 %191, %.0.i7385
   br label %common.ret161
 
 193:                                              ; preds = %171
@@ -15525,8 +15525,8 @@ common.ret161:                                    ; preds = %186, %283, %279, %2
   br i1 %244, label %common.ret161, label %245
 
 245:                                              ; preds = %242
-  %246 = add nuw i32 %.039.i, 13
-  %247 = add nuw i32 %246, %243
+  %246 = add nuw nsw i32 %.039.i, 13
+  %247 = add nuw nsw i32 %246, %243
   br label %248
 
 248:                                              ; preds = %245, %238
@@ -15535,7 +15535,7 @@ common.ret161:                                    ; preds = %186, %283, %279, %2
   %250 = load i32, ptr %249, align 4
   %251 = lshr i32 %250, 1
   %252 = and i32 %251, 2
-  %spec.select.i61 = add i32 %252, %.038.i
+  %spec.select.i61 = add nuw i32 %252, %.038.i
   br label %common.ret161
 
 253:                                              ; preds = %223
@@ -15563,8 +15563,8 @@ common.ret161:                                    ; preds = %186, %283, %279, %2
   br i1 %267, label %common.ret161, label %268
 
 268:                                              ; preds = %265
-  %269 = add nuw i32 %.039.i, 15
-  %270 = add nuw i32 %269, %266
+  %269 = add nuw nsw i32 %.039.i, 15
+  %270 = add nuw nsw i32 %269, %266
   br label %271
 
 271:                                              ; preds = %268, %261
@@ -15573,7 +15573,7 @@ common.ret161:                                    ; preds = %186, %283, %279, %2
   %273 = load i32, ptr %272, align 4
   %274 = lshr i32 %273, 1
   %275 = and i32 %274, 2
-  %spec.select53.i = add i32 %275, %.1.i59
+  %spec.select53.i = add nuw i32 %275, %.1.i59
   br label %common.ret161
 
 276:                                              ; preds = %tailrecurse

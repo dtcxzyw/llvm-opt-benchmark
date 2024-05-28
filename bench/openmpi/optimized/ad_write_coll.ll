@@ -1625,7 +1625,7 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   %.0250.lcssa = phi i32 [ 0, %31 ], [ %spec.select, %.lr.ph ]
   %.0248.lcssa = phi i32 [ 0, %31 ], [ %.1249, %.lr.ph ]
   %.0235.lcssa = phi i32 [ 0, %31 ], [ %41, %.lr.ph ]
-  %48 = add i32 %.0250.lcssa, 1
+  %48 = add nsw i32 %.0250.lcssa, 1
   %49 = sext i32 %48 to i64
   %50 = shl nsw i64 %49, 3
   %51 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %50, i32 noundef 561, ptr noundef nonnull @.str) #6
@@ -1853,7 +1853,7 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
   br label %185
 
 162:                                              ; preds = %154
-  %163 = add i32 %48, %.0248.lcssa
+  %163 = add nsw i32 %48, %.0248.lcssa
   %164 = sext i32 %163 to i64
   %165 = shl nsw i64 %164, 3
   %166 = call ptr @ADIOI_Malloc_fn(i64 noundef %165, i32 noundef 656, ptr noundef nonnull @.str) #6

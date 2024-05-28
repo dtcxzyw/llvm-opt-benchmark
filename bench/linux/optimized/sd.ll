@@ -3323,8 +3323,8 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
 921:                                              ; preds = %893, %906
   %922 = phi i32 [ 2, %906 ], [ %901, %893 ]
   %923 = phi i32 [ %909, %906 ], [ %898, %893 ]
-  %924 = add nuw i32 %922, %868
-  %925 = add nuw i32 %924, %923
+  %924 = add nuw nsw i32 %922, %868
+  %925 = add nuw nsw i32 %924, %923
   %926 = icmp slt i32 %925, %844
   br i1 %926, label %.lr.ph, label %._crit_edge
 

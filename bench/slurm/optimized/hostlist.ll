@@ -1823,8 +1823,8 @@ _test_box.exit.thread:                            ; preds = %.lr.ph.i, %_test_bo
 
 145:                                              ; preds = %138
   %146 = shl nuw nsw i32 %.0, 1
-  %147 = add nuw i32 %146, 3
-  %148 = add nuw i32 %147, %143
+  %147 = add nuw nsw i32 %146, 3
+  %148 = add nuw nsw i32 %147, %143
   %149 = zext nneg i32 %148 to i64
   %.not147 = icmp ult i64 %149, %1
   br i1 %.not147, label %150, label %183
@@ -8186,7 +8186,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
 
 46:                                               ; preds = %40
   %47 = add nuw nsw i32 %5, 2
-  %48 = add nuw i32 %47, %.1
+  %48 = add nuw nsw i32 %47, %.1
   %49 = zext nneg i32 %48 to i64
   %50 = icmp ugt i64 %49, %1
   br i1 %50, label %87, label %51

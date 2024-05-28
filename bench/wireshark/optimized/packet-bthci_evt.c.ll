@@ -9087,8 +9087,8 @@ define internal fastcc void @save_remote_device_name(ptr noundef %0, i32 noundef
   br label %106
 
 106:                                              ; preds = %49, %53
-  %107 = add nuw i32 %.041, 1
-  %108 = add nuw i32 %107, %47
+  %107 = add nuw nsw i32 %.041, 1
+  %108 = add nuw nsw i32 %107, %47
   %109 = icmp ult i32 %108, %24
   br i1 %109, label %44, label %.loopexit, !llvm.loop !18
 

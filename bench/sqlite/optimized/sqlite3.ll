@@ -128962,8 +128962,8 @@ balance_quick.exit:                               ; preds = %315, %316, %399, %4
   %683 = getelementptr inbounds i8, ptr %674, i64 24
   %684 = load i16, ptr %683, align 8
   %685 = zext i16 %684 to i32
-  %686 = add nuw i32 %.0471672.i, 4
-  %687 = add nuw i32 %686, %685
+  %686 = add nuw nsw i32 %.0471672.i, 4
+  %687 = add nuw nsw i32 %686, %685
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %688 = icmp eq i64 %indvars.iv.i, 0
   br i1 %688, label %790, label %689
@@ -371825,7 +371825,7 @@ define internal fastcc range(i32 0, 8) i32 @jsonStringGrow(ptr noundef %0, i32 n
   %6 = icmp ugt i64 %5, %3
   %7 = shl i64 %5, 1
   %8 = add nuw nsw i64 %3, 10
-  %9 = add nuw i64 %8, %5
+  %9 = add nuw nsw i64 %8, %5
   %10 = select i1 %6, i64 %7, i64 %9
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load i8, ptr %11, align 8

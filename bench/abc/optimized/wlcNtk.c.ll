@@ -10054,8 +10054,8 @@ define i32 @Wlc_NtkCountObjBits(ptr nocapture noundef readonly %0, ptr nocapture
   %.val12 = load i32, ptr %13, align 4
   %14 = sub nsw i32 %.val11, %.val12
   %15 = tail call i32 @llvm.abs.i32(i32 %14, i1 true)
-  %16 = add nuw i32 %.014, 1
-  %17 = add nuw i32 %16, %15
+  %16 = add nuw nsw i32 %.014, 1
+  %17 = add nuw nsw i32 %16, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !88

@@ -539,9 +539,9 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
   %36 = getelementptr inbounds i8, ptr %.02515.i, i64 %indvars.iv.i
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
-  %39 = add nuw i32 %.02210.i, %32
-  %40 = add nuw i32 %39, %35
-  %41 = add nuw i32 %40, %38
+  %39 = add nuw nsw i32 %.02210.i, %32
+  %40 = add nuw nsw i32 %39, %35
+  %41 = add nuw nsw i32 %40, %38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %42, label %29, !llvm.loop !7
@@ -605,9 +605,9 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
   %69 = getelementptr inbounds i8, ptr %.02514.i, i64 %indvars.iv.i11
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
-  %72 = add nuw i32 %.0229.i, %65
-  %73 = add nuw i32 %72, %68
-  %74 = add nuw i32 %73, %71
+  %72 = add nuw nsw i32 %.0229.i, %65
+  %73 = add nuw nsw i32 %72, %68
+  %74 = add nuw nsw i32 %73, %71
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 3
   br i1 %exitcond.not.i13, label %75, label %62, !llvm.loop !9

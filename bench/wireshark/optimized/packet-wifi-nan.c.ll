@@ -1954,8 +1954,8 @@ define internal fastcc void @dissect_attr_public_availability(ptr noundef %0, pt
   %27 = load i32, ptr @hf_nan_time_bitmap, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %27, ptr noundef %1, i32 noundef %26, i32 noundef %23, i32 noundef 0) #4
   %29 = add i32 %26, %23
-  %30 = add nuw i32 %.03133, 4
-  %31 = add nuw i32 %30, %23
+  %30 = add nuw nsw i32 %.03133, 4
+  %31 = add nuw nsw i32 %30, %23
   %32 = icmp ult i32 %31, %6
   br i1 %32, label %14, label %.loopexit, !llvm.loop !11
 
@@ -2082,8 +2082,8 @@ define internal fastcc void @dissect_attr_ranging_setup(ptr noundef %0, ptr noun
   %54 = load i32, ptr @hf_nan_time_bitmap, align 4
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %54, ptr noundef %1, i32 noundef %53, i32 noundef %50, i32 noundef 0) #4
   %56 = add i32 %53, %50
-  %57 = add nuw i32 %.16265, 4
-  %58 = add nuw i32 %57, %50
+  %57 = add nuw nsw i32 %.16265, 4
+  %58 = add nuw nsw i32 %57, %50
   %59 = icmp ult i32 %58, %6
   br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
@@ -3479,8 +3479,8 @@ define internal fastcc void @dissect_attr_ndl(ptr noundef %0, ptr noundef %1, i3
   %61 = load i32, ptr @hf_nan_time_bitmap, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %61, ptr noundef %1, i32 noundef %60, i32 noundef %57, i32 noundef 0) #4
   %63 = add i32 %60, %57
-  %64 = add nuw i32 %.27175, 4
-  %65 = add nuw i32 %64, %57
+  %64 = add nuw nsw i32 %.27175, 4
+  %65 = add nuw nsw i32 %64, %57
   %66 = icmp ult i32 %65, %6
   br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !23
 

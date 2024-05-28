@@ -1027,7 +1027,7 @@ pcie_clkpm_cap_init.exit:                         ; preds = %pcie_aspm_cap_init.
   %563 = or disjoint i16 %559, %562
   %564 = or disjoint i16 %563, %561
   %565 = add nuw nsw i16 %564, %556
-  %566 = add nuw i16 %565, %560
+  %566 = add nuw nsw i16 %565, %560
   store i16 %566, ptr %557, align 4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14

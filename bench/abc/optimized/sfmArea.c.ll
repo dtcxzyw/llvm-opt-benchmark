@@ -640,8 +640,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %37 = load i32, ptr %36, align 8
   %38 = lshr i32 %37, 28
   %39 = mul nuw nsw i32 %38, 3
-  %40 = add nuw i32 %.089, 3
-  %41 = add nuw i32 %40, %39
+  %40 = add nuw nsw i32 %.089, 3
+  %41 = add nuw nsw i32 %40, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14

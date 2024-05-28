@@ -53712,7 +53712,7 @@ for.body.lr.ph.i:                                 ; preds = %do.end238.i
   %add316.i = add nsw i64 %conv315.i, 16
   %mul317.i = mul nsw i64 %add316.i, %conv314.i
   %cmp336520.i = icmp sgt i32 %and4.i.i, %conv.i
-  %add343.i = add nuw i64 %sub.i, 1
+  %add343.i = add nuw nsw i64 %sub.i, 1
   %conv353.i = trunc i64 %1 to i32
   %data355.i = getelementptr inbounds i8, ptr %k, i64 280
   %data365.i = getelementptr inbounds i8, ptr %q, i64 280
@@ -53796,7 +53796,7 @@ for.body312.us.us.us.i:                           ; preds = %for.inc572.us.us.us
   br i1 %cmp336520.i, label %for.body338.us.us.us.i, label %for.end.us.us.us.i
 
 for.end.us.us.us.i:                               ; preds = %for.body338.us.us.us.i, %for.body312.us.us.us.i
-  %add344.us.us.us.i = add nuw i64 %add343.i, %indvars.iv584.i
+  %add344.us.us.us.i = add nuw nsw i64 %add343.i, %indvars.iv584.i
   %cond347.us.us.us.i = select i1 %masked, i64 %add344.us.us.us.i, i64 %8
   %cmp349522.us.us.us.i = icmp sgt i64 %cond347.us.us.us.i, 0
   br i1 %cmp349522.us.us.us.i, label %for.body351.lr.ph.us.us.us.i, label %for.end377.us.us.us.i

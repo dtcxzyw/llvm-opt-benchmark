@@ -362,8 +362,8 @@ Gia_ManCountMintermsInCube.exit.us:               ; preds = %._crit_edge41.us.i.
   %100 = add nuw nsw i32 %99, %97
   %101 = and i32 %100, 31
   %102 = lshr i32 %100, 16
-  %103 = add nuw i32 %102, %.036
-  %104 = add nuw i32 %103, %101
+  %103 = add nuw nsw i32 %102, %.036
+  %104 = add nuw nsw i32 %103, %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond42.not, label %._crit_edge.thread, label %.lr.ph37, !llvm.loop !9

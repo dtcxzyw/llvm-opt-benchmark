@@ -2483,7 +2483,7 @@ if.then15:                                        ; preds = %_ZNK6icu_759UVector
   %and5.i = shl i32 %shr.i, 24
   %shl6.i = and i32 %and5.i, 1056964608
   %conv7.i = zext nneg i32 %shl6.i to i64
-  %add4.i = add nuw i64 %shl.i, 4629700417037541888
+  %add4.i = add nuw nsw i64 %shl.i, 4629700417037541888
   %add8.i = add nuw nsw i64 %add4.i, %shl3.i
   %add11.i = add nuw nsw i64 %add8.i, %conv7.i
   br label %return
@@ -2667,7 +2667,7 @@ if.end55:                                         ; preds = %cond.true.i119, %if
   %and5.i135 = shl i32 %index26.0, 24
   %shl6.i136 = and i32 %and5.i135, 1056964608
   %conv7.i137 = zext nneg i32 %shl6.i136 to i64
-  %add4.i134 = add nuw i64 %shl.i129, 4629700417037541632
+  %add4.i134 = add nuw nsw i64 %shl.i129, 4629700417037541632
   %add8.i138 = add nuw nsw i64 %add4.i134, %shl3.i133
   %add11.i139 = add nuw nsw i64 %add8.i138, %conv7.i137
   br label %return
@@ -2860,7 +2860,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit188:      ; preds = %if.then105, %cond.t
   %shl9.i = shl nuw nsw i32 %strength.0, 8
   %conv10.i = zext nneg i32 %shl9.i to i64
   %add.i192 = or disjoint i64 %conv10.i, 4629700417037541376
-  %add4.i196 = add nuw i64 %add.i192, %shl.i191
+  %add4.i196 = add nuw nsw i64 %add.i192, %shl.i191
   %add8.i200 = add nuw nsw i64 %add4.i196, %shl3.i195
   %add11.i201 = add nuw nsw i64 %add8.i200, %conv7.i199
   br label %if.end126
@@ -2989,7 +2989,7 @@ if.end147:                                        ; preds = %cond.true.i265, %if
   %shl9.i285 = shl nuw nsw i32 %strength.0, 8
   %conv10.i286 = zext nneg i32 %shl9.i285 to i64
   %add.i276 = or disjoint i64 %conv10.i286, 4629700417037541376
-  %add4.i280 = add nuw i64 %add.i276, %shl.i275
+  %add4.i280 = add nuw nsw i64 %add.i276, %shl.i275
   %add8.i284 = add nuw nsw i64 %add4.i280, %shl3.i279
   %add11.i287 = add nuw nsw i64 %add8.i284, %conv7.i283
   br label %return
@@ -3040,7 +3040,7 @@ if.then163:                                       ; preds = %for.end
   %shl9.i316 = shl nuw nsw i32 %strength.0, 8
   %conv10.i317 = zext nneg i32 %shl9.i316 to i64
   %add.i307 = or disjoint i64 %conv10.i317, 4629700417037541376
-  %add4.i311 = add nuw i64 %add.i307, %shl.i306
+  %add4.i311 = add nuw nsw i64 %add.i307, %shl.i306
   %add8.i315 = add nuw nsw i64 %add4.i311, %shl3.i310
   %add11.i318 = add nuw nsw i64 %add8.i315, %conv7.i314
   br label %return

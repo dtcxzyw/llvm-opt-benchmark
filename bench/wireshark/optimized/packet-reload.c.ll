@@ -2398,7 +2398,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   %.0214243 = phi i32 [ 0, %.lr.ph244 ], [ %186, %184 ]
   %.0215242 = phi i32 [ 0, %.lr.ph244 ], [ %187, %184 ]
   %24 = add nuw nsw i32 %22, %.0214243
-  %25 = add nuw i32 %24, 1
+  %25 = add nuw nsw i32 %24, 1
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %25) #5
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 3
@@ -2407,8 +2407,8 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %31, 1
   %33 = add nuw nsw i32 %32, %28
-  %34 = add nuw i32 %24, 4
-  %35 = add nuw i32 %34, %33
+  %34 = add nuw nsw i32 %24, 4
+  %35 = add nuw nsw i32 %34, %33
   %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %35) #5
   %37 = trunc nuw nsw i32 %33 to i16
   %38 = add nuw nsw i16 %37, 5
@@ -2419,7 +2419,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
 
 41:                                               ; preds = %23
   %42 = zext nneg i16 %38 to i32
-  %43 = add nuw i32 %25, %42
+  %43 = add nuw nsw i32 %25, %42
   %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #5
   %45 = zext i8 %44 to i16
   %46 = add nuw nsw i16 %37, 7
@@ -2454,8 +2454,8 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   %67 = trunc i32 %24 to i16
   %68 = tail call fastcc i32 @dissect_ipaddressport(i32 noundef %66, ptr noundef %0, ptr noundef %65, i16 noundef zeroext %67)
   %69 = load i32, ptr @hf_reload_overlaylink_type, align 4
-  %70 = add nuw i32 %24, 2
-  %71 = add nuw i32 %70, %27
+  %70 = add nuw nsw i32 %24, 2
+  %71 = add nuw nsw i32 %70, %27
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %69, ptr noundef %0, i32 noundef %71, i32 noundef 1, i32 noundef 0) #5
   %73 = load i32, ptr @hf_reload_icecandidate_foundation, align 4
   %74 = trunc i32 %29 to i16
@@ -2512,8 +2512,8 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   %108 = add nuw nsw i32 %106, %.0218240
   %109 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %108) #5
   %110 = zext i16 %109 to i32
-  %111 = add nuw i32 %108, 2
-  %112 = add nuw i32 %111, %110
+  %111 = add nuw nsw i32 %108, 2
+  %112 = add nuw nsw i32 %111, %110
   %113 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %112) #5
   %114 = add nuw nsw i32 %.0218240, 4
   %115 = add nuw nsw i32 %114, %110

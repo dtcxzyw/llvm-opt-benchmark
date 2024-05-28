@@ -42,8 +42,8 @@ define void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %17, 1
-  %spec.select.v = add nuw i32 %17, 34
-  %spec.select = add nuw i32 %spec.select.v, %24
+  %spec.select.v = add nuw nsw i32 %17, 34
+  %spec.select = add nuw nsw i32 %spec.select.v, %24
   %25 = zext nneg i32 %spec.select to i64
   %26 = getelementptr inbounds i8, ptr %13, i64 %25
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %23, i32 1)

@@ -722,8 +722,8 @@ select.unfold.i:                                  ; preds = %12, %select.unfold.
   %31 = add nuw nsw i32 %30, %28
   %32 = and i32 %31, 31
   %33 = lshr i32 %31, 16
-  %34 = add nuw i32 %33, %.08.i
-  %35 = add nuw i32 %34, %32
+  %34 = add nuw nsw i32 %33, %.08.i
+  %35 = add nuw nsw i32 %34, %32
   %36 = icmp ugt i64 %indvars.iv.i, 1
   br i1 %36, label %select.unfold.i, label %Kit_TruthCountOnes.exit, !llvm.loop !19
 
@@ -798,8 +798,8 @@ select.unfold.i39:                                ; preds = %Aig_RManSortNums.ex
   %70 = add nuw nsw i32 %69, %67
   %71 = and i32 %70, 31
   %72 = lshr i32 %70, 16
-  %73 = add nuw i32 %72, %.08.i41
-  %74 = add nuw i32 %73, %71
+  %73 = add nuw nsw i32 %72, %.08.i41
+  %74 = add nuw nsw i32 %73, %71
   %75 = icmp ugt i64 %indvars.iv.i40, 1
   br i1 %75, label %select.unfold.i39, label %Kit_TruthCountOnes.exit43, !llvm.loop !19
 

@@ -1071,8 +1071,8 @@ define i32 @Abc_ZddCof0(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   %14 = load ptr, ptr %13, align 8
   %15 = mul nuw nsw i32 %1, 12582917
   %16 = mul nsw i32 %2, 4256249
-  %17 = add nuw i32 %15, 5190199
-  %18 = add nuw i32 %17, %16
+  %17 = add nuw nsw i32 %15, 5190199
+  %18 = add nuw nsw i32 %17, %16
   %19 = getelementptr inbounds i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, %18
@@ -1167,8 +1167,8 @@ define i32 @Abc_ZddCof1(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   %14 = load ptr, ptr %13, align 8
   %15 = mul nuw nsw i32 %1, 12582917
   %16 = mul nsw i32 %2, 4256249
-  %17 = add nuw i32 %15, 5931656
-  %18 = add nuw i32 %17, %16
+  %17 = add nuw nsw i32 %15, 5931656
+  %18 = add nuw nsw i32 %17, %16
   %19 = getelementptr inbounds i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, %18

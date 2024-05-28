@@ -1583,7 +1583,7 @@ entry:
   %retval.sroa.2.0.insert.shift.i = and i32 %retval.sroa.2.0.insert.ext.i, 65280
   %retval.sroa.2.0.insert.insert.i = add nuw nsw i32 %retval.sroa.2.0.insert.shift.i, %cond10.i
   %retval.sroa.3.0.insert.insert.i = add nuw nsw i32 %retval.sroa.2.0.insert.insert.i, %retval.sroa.3.0.insert.shift.i
-  %retval.sroa.0.0.insert.insert.i = add nuw i32 %retval.sroa.3.0.insert.insert.i, %retval.sroa.4.0.insert.ext.i
+  %retval.sroa.0.0.insert.insert.i = add nuw nsw i32 %retval.sroa.3.0.insert.insert.i, %retval.sroa.4.0.insert.ext.i
   ret i32 %retval.sroa.0.0.insert.insert.i
 }
 

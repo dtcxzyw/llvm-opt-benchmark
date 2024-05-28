@@ -1259,7 +1259,7 @@ for.body40.us.us:                                 ; preds = %for.body40.us.us, %
   store i32 126, ptr %arrayidx.us.us, align 4, !tbaa.struct !91
   %25 = load ptr, ptr %data, align 8, !tbaa !59
   %minimap_scan.us.1.us = getelementptr inbounds i8, ptr %25, i64 100
-  %26 = add nuw i64 %indvars.iv.next.us, %indvars.iv.us
+  %26 = add nuw nsw i64 %indvars.iv.next.us, %indvars.iv.us
   %arrayidx.us.1.us = getelementptr inbounds [262144 x %struct.MinimapPixel], ptr %minimap_scan.us.1.us, i64 0, i64 %26
   %air_count.us.1.us = getelementptr inbounds i8, ptr %arrayidx.us.1.us, i64 6
   store i16 0, ptr %air_count.us.1.us, align 2, !tbaa !87
@@ -1296,7 +1296,7 @@ for.body40.us:                                    ; preds = %for.cond36.preheade
   store i32 126, ptr %arrayidx.us, align 4, !tbaa.struct !91
   %32 = load ptr, ptr %data, align 8, !tbaa !59
   %minimap_scan.us.1 = getelementptr inbounds i8, ptr %32, i64 100
-  %33 = add nuw i64 %indvars.iv.next, %indvars.iv
+  %33 = add nuw nsw i64 %indvars.iv.next, %indvars.iv
   %arrayidx.us.1 = getelementptr inbounds [262144 x %struct.MinimapPixel], ptr %minimap_scan.us.1, i64 0, i64 %33
   %air_count.us.1 = getelementptr inbounds i8, ptr %arrayidx.us.1, i64 6
   store i16 0, ptr %air_count.us.1, align 2, !tbaa !87

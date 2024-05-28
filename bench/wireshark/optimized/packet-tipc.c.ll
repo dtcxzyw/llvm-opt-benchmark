@@ -2199,8 +2199,8 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %.not849 = icmp eq i32 %151, 0
   %152 = sub nuw nsw i32 4, %151
   %153 = select i1 %.not849, i32 0, i32 %152
-  %154 = add nuw i32 %139, %.3854
-  %155 = add nuw i32 %154, %153
+  %154 = add nuw nsw i32 %139, %.3854
+  %155 = add nuw nsw i32 %154, %153
   %156 = icmp ult i32 %155, %4
   br i1 %156, label %136, label %.loopexit, !llvm.loop !8
 

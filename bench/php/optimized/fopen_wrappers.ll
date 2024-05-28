@@ -1089,7 +1089,7 @@ tsrm_realpath_str.exit309.preheader:              ; preds = %53
   %invariant.gep = getelementptr inbounds i8, ptr %4, i64 1
   %55 = icmp ugt i64 %1, 4094
   %56 = add i64 %1, -4094
-  %57 = add nuw i64 %1, 1
+  %57 = add nuw nsw i64 %1, 1
   br label %70
 
 58:                                               ; preds = %43, %53, %50, %46
@@ -1229,7 +1229,7 @@ tsrm_realpath_str.exit309.backedge:               ; preds = %127, %144, %111, %1
   %117 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0234323) #17
   %118 = icmp ugt i64 %117, 4096
   %or.cond7 = select i1 %55, i1 true, i1 %118
-  %119 = add nuw i64 %57, %117
+  %119 = add nuw nsw i64 %57, %117
   %120 = icmp ugt i64 %119, 4094
   %or.cond328 = select i1 %or.cond7, i1 true, i1 %120
   br i1 %or.cond328, label %.critedge3, label %121

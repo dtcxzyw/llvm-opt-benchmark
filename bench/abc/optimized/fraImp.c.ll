@@ -82,8 +82,8 @@ define noalias noundef ptr @Fra_SmlSortUsingOnes(ptr nocapture noundef readonly 
   %43 = add nuw nsw i32 %42, %40
   %44 = and i32 %43, 31
   %45 = lshr i32 %43, 16
-  %46 = add nuw i32 %45, %.011.i.i
-  %47 = add nuw i32 %46, %44
+  %46 = add nuw nsw i32 %45, %.011.i.i
+  %47 = add nuw nsw i32 %46, %44
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %Fra_SmlCountOnesOne.exit.i, label %.lr.ph.i.i, !llvm.loop !4
@@ -941,8 +941,8 @@ Sml_NodeCheckImp.exit165:                         ; preds = %.lr.ph.i159
   %139 = add nuw nsw i32 %138, %136
   %140 = and i32 %139, 31
   %141 = lshr i32 %139, 16
-  %142 = add nuw i32 %141, %.015.i
-  %143 = add nuw i32 %142, %140
+  %142 = add nuw nsw i32 %141, %.015.i
+  %143 = add nuw nsw i32 %142, %140
   %indvars.iv.next.i169 = add nsw i64 %indvars.iv.i168, 1
   %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, %wide.trip.count.i
   br i1 %exitcond.not.i170, label %Sml_NodeNotImpWeight.exit.loopexit, label %.lr.ph.i167, !llvm.loop !20
@@ -1898,8 +1898,8 @@ Sml_NodeSaveNotImpPatterns.exit:                  ; preds = %Sml_NodeSaveNotImpP
   %82 = add nuw nsw i32 %81, %79
   %83 = and i32 %82, 31
   %84 = lshr i32 %82, 16
-  %85 = add nuw i32 %84, %.011.i
-  %86 = add nuw i32 %85, %83
+  %85 = add nuw nsw i32 %84, %.011.i
+  %86 = add nuw nsw i32 %85, %83
   %indvars.iv.next.i29 = add nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Fra_SmlCountOnesOne.exit.loopexit, label %.lr.ph.i27, !llvm.loop !4

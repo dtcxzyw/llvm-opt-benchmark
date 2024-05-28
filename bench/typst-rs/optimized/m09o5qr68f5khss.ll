@@ -49032,9 +49032,9 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit52.threa
   %32 = phi i32 [ %29, %27 ], [ 32, %_ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit43.thread.i.i ], [ 32, %_ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit34.thread.i.i ], [ 32, %19 ]
   %33 = zext i8 %31 to i32
   %34 = shl nuw nsw i32 %33, 16
-  %35 = add nuw i32 %30, %22
+  %35 = add nuw nsw i32 %30, %22
   %36 = or disjoint i32 %35, %32
-  %37 = add nuw i32 %36, %34
+  %37 = add nuw nsw i32 %36, %34
   br label %_ZN10ttf_parser3Tag16from_bytes_lossy17h0606b4080ca59b7eE.exit.i
 
 _ZN10ttf_parser3Tag16from_bytes_lossy17h0606b4080ca59b7eE.exit.i: ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit52.thread.i.i, %9
@@ -150720,9 +150720,9 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit52.threa
   %33 = phi i32 [ %30, %28 ], [ 32, %_ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit43.thread.i ], [ 32, %_ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit34.thread.i ], [ 32, %20 ]
   %34 = zext i8 %32 to i32
   %35 = shl nuw nsw i32 %34, 16
-  %36 = add nuw i32 %31, %23
+  %36 = add nuw nsw i32 %31, %23
   %37 = or disjoint i32 %36, %33
-  %38 = add nuw i32 %37, %35
+  %38 = add nuw nsw i32 %37, %35
   br label %_ZN10ttf_parser3Tag16from_bytes_lossy17h0606b4080ca59b7eE.exit
 
 _ZN10ttf_parser3Tag16from_bytes_lossy17h0606b4080ca59b7eE.exit: ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit52.thread.i, %10
@@ -150844,9 +150844,9 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit52.threa
   %46 = phi i32 [ %43, %40 ], [ 32, %_ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit43.thread.i ], [ 32, %_ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit34.thread.i ], [ 32, %30 ]
   %47 = zext i8 %45 to i32
   %48 = shl nuw nsw i32 %47, 16
-  %49 = add nuw i32 %44, %33
+  %49 = add nuw nsw i32 %44, %33
   %50 = or disjoint i32 %49, %46
-  %51 = add nuw i32 %50, %48
+  %51 = add nuw nsw i32 %50, %48
   br label %_ZN10ttf_parser3Tag16from_bytes_lossy17h0606b4080ca59b7eE.exit
 
 _ZN10ttf_parser3Tag16from_bytes_lossy17h0606b4080ca59b7eE.exit: ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17he018fcb19ae7a455E.exit52.thread.i, %"_ZN72_$LT$typst..foundations..str..Str$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8fe2695b9fbc6f75E.exit"

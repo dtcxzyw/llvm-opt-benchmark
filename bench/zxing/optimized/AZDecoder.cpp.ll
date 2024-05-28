@@ -604,7 +604,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %29
   %61 = xor i64 %indvars.iv.i, -1
   %62 = getelementptr i32, ptr %54, i64 %61
   store i32 %60, ptr %62, align 4, !noalias !6
-  %63 = add nuw i32 %52, %58
+  %63 = add nuw nsw i32 %52, %58
   %gep.i = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.i
   store i32 %63, ptr %gep.i, align 4, !noalias !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

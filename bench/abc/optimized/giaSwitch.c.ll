@@ -698,8 +698,8 @@ Gia_ManSwiSimulateNode.exit.i:                    ; preds = %.lr.ph.i59.i, %.lr.
   %281 = add nuw nsw i32 %280, %278
   %282 = and i32 %281, 31
   %283 = lshr i32 %281, 16
-  %284 = add nuw i32 %283, %.02.i77.i
-  %285 = add nuw i32 %284, %282
+  %284 = add nuw nsw i32 %283, %.02.i77.i
+  %285 = add nuw nsw i32 %284, %282
   %286 = icmp ugt i64 %indvars.iv.i76.i, 1
   br i1 %286, label %.lr.ph.i75.i, label %.sink.split.i, !llvm.loop !17
 

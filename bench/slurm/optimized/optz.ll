@@ -129,8 +129,8 @@ define noundef i32 @optz_append(ptr nocapture noundef %0, ptr noundef readonly %
 
 .critedge2:                                       ; preds = %.lr.ph41, %.critedge
   %.026.lcssa = phi i32 [ 0, %.critedge ], [ %11, %.lr.ph41 ]
-  %14 = add nuw i32 %.027.lcssa, 2
-  %15 = add nuw i32 %14, %.026.lcssa
+  %14 = add nuw nsw i32 %.027.lcssa, 2
+  %15 = add nuw nsw i32 %14, %.026.lcssa
   %16 = zext nneg i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 5
   %18 = call ptr @slurm_xrecalloc(ptr noundef nonnull %3, i64 noundef 1, i64 noundef %17, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @__func__.optz_append) #4

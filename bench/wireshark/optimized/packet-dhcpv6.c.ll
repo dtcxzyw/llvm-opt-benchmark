@@ -1556,8 +1556,8 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
 
 119:                                              ; preds = %113, %117, %107
   %.3 = phi i32 [ %110, %107 ], [ %116, %113 ], [ %118, %117 ]
-  %120 = add nuw i32 %.0238284, 2
-  %121 = add nuw i32 %120, %103
+  %120 = add nuw nsw i32 %.0238284, 2
+  %121 = add nuw nsw i32 %120, %103
   %122 = icmp ult i32 %121, %17
   br i1 %122, label %.preheader270, label %.loopexit, !llvm.loop !8
 
@@ -2414,8 +2414,8 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %144 = load i32, ptr @hf_option_userclass_opaque_data, align 4
   %145 = add i32 %132, 2
   %146 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %144, ptr noundef %0, i32 noundef %145, i32 noundef %134, i32 noundef 0) #6
-  %147 = add nuw i32 %.011971405, 2
-  %148 = add nuw i32 %147, %134
+  %147 = add nuw nsw i32 %.011971405, 2
+  %148 = add nuw nsw i32 %147, %134
   %149 = icmp ult i32 %148, %26
   br i1 %149, label %.lr.ph1406, label %proto_item_set_url.exit, !llvm.loop !14
 

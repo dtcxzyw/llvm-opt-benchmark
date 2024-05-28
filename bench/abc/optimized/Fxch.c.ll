@@ -1260,8 +1260,8 @@ define void @Fxch_CubesUnGruping(ptr nocapture noundef %0) local_unnamed_addr #0
   %45 = add nuw nsw i32 %44, %42
   %46 = and i32 %45, 31
   %47 = lshr i32 %45, 16
-  %48 = add nuw i32 %47, %.063
-  %49 = add nuw i32 %48, %46
+  %48 = add nuw nsw i32 %47, %.063
+  %49 = add nuw nsw i32 %48, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader61, label %.lr.ph, !llvm.loop !20

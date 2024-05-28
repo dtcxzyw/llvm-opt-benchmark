@@ -1760,8 +1760,8 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i:  ; preds = %539, %539, %539, %5
   br i1 %.not113.i39, label %._crit_edge142.i, label %.lr.ph141.i, !llvm.loop !7
 
 ._crit_edge142.i:                                 ; preds = %.lr.ph141.i, %666
-  %671 = add nuw i64 %.098143.i, 2
-  %672 = add nuw i64 %671, %653
+  %671 = add nuw nsw i64 %.098143.i, 2
+  %672 = add nuw nsw i64 %671, %653
   %673 = icmp ult i64 %672, %633
   br i1 %673, label %644, label %.loopexit.i, !llvm.loop !8
 

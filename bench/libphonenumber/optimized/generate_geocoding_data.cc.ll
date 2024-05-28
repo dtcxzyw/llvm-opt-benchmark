@@ -5473,7 +5473,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112
   %61 = zext i8 %60 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %63 = add nuw i32 %62, %61
+  %63 = add nuw nsw i32 %62, %61
   %64 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8
   %66 = zext nneg i32 %63 to i64
@@ -6389,7 +6389,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %48 = zext i8 %47 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %50 = add nuw i32 %49, %48
+  %50 = add nuw nsw i32 %49, %48
   %51 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = zext nneg i32 %50 to i64
@@ -7595,7 +7595,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %57 = zext i8 %56 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %59 = add nuw i32 %58, %57
+  %59 = add nuw nsw i32 %58, %57
   %60 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8
   %62 = zext nneg i32 %59 to i64

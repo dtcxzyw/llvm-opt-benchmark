@@ -10194,8 +10194,8 @@ _ZN3gmx11ISerializer13doDoubleArrayEPdi.exit181.i: ; preds = %.noexc414, %860, %
   %1041 = sub nsw i32 %1034, %1030
   %1042 = getelementptr inbounds i8, ptr %771, i64 212
   store i32 %1041, ptr %1042, align 4
-  %1043 = add nuw i32 %1030, 1
-  %1044 = add nuw i32 %1043, %1034
+  %1043 = add nuw nsw i32 %1030, 1
+  %1044 = add nuw nsw i32 %1043, %1034
   %1045 = getelementptr inbounds i8, ptr %771, i64 216
   store i32 %1044, ptr %1045, align 8
   %1046 = icmp slt i32 %1041, 0

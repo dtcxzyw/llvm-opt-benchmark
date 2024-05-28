@@ -70,9 +70,9 @@ opal_atomic_lock.exit:                            ; preds = %11, %6
 
 ._crit_edge:                                      ; preds = %18
   %29 = extractelement <2 x i32> %25, i64 0
-  %30 = add nuw i32 %29, 2
+  %30 = add nuw nsw i32 %29, 2
   %31 = extractelement <2 x i32> %25, i64 1
-  %32 = add nuw i32 %30, %31
+  %32 = add nuw nsw i32 %30, %31
   %33 = zext nneg i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 3
   %35 = tail call noalias ptr @malloc(i64 noundef %34) #7

@@ -56,9 +56,9 @@ define void @pmix_class_initialize(ptr nocapture noundef %0) local_unnamed_addr 
 
 ._crit_edge:                                      ; preds = %12
   %23 = extractelement <2 x i32> %19, i64 0
-  %24 = add nuw i32 %23, 2
+  %24 = add nuw nsw i32 %23, 2
   %25 = extractelement <2 x i32> %19, i64 1
-  %26 = add nuw i32 %24, %25
+  %26 = add nuw nsw i32 %24, %25
   %27 = zext nneg i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 3
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #10

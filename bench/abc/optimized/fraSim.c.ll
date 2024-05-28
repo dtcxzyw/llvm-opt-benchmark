@@ -194,8 +194,8 @@ define i32 @Fra_SmlNodeNotEquWeight(ptr nocapture noundef readonly %0, i32 nound
   %37 = add nuw nsw i32 %36, %34
   %38 = and i32 %37, 31
   %39 = lshr i32 %37, 16
-  %40 = add nuw i32 %39, %.015
-  %41 = add nuw i32 %40, %38
+  %40 = add nuw nsw i32 %39, %.015
+  %41 = add nuw nsw i32 %40, %38
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -282,8 +282,8 @@ define i32 @Fra_SmlNodeCountOnes(ptr nocapture noundef readonly %0, ptr nocaptur
   %29 = add nuw nsw i32 %28, %26
   %30 = and i32 %29, 31
   %31 = lshr i32 %29, 16
-  %32 = add nuw i32 %31, %.010
-  %33 = add nuw i32 %32, %30
+  %32 = add nuw nsw i32 %31, %.010
+  %33 = add nuw nsw i32 %32, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10

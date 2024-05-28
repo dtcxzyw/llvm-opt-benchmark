@@ -9292,8 +9292,8 @@ Mf_SetAddCut.exit457.us:                          ; preds = %1463, %.lr.ph134.i.
   %2444 = getelementptr inbounds i8, ptr %2443, i64 16
   %2445 = load i32, ptr %2444, align 8
   %2446 = lshr i32 %2445, 27
-  %2447 = add nuw i32 %.041.i, 1
-  %2448 = add nuw i32 %2447, %2446
+  %2447 = add nuw nsw i32 %.041.i, 1
+  %2448 = add nuw nsw i32 %2447, %2446
   %indvars.iv.next.i468 = add nuw nsw i64 %indvars.iv.i467, 1
   %exitcond.not.i469 = icmp eq i64 %indvars.iv.next.i468, %wide.trip.count.i465
   br i1 %exitcond.not.i469, label %._crit_edge.i458, label %.lr.ph.i466, !llvm.loop !93

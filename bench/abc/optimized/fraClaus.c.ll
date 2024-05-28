@@ -6548,8 +6548,8 @@ Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %
   %130 = add nuw nsw i32 %129, %127
   %131 = and i32 %130, 31
   %132 = lshr i32 %130, 16
-  %133 = add nuw i32 %132, %.084
-  %134 = add nuw i32 %133, %131
+  %133 = add nuw nsw i32 %132, %.084
+  %134 = add nuw nsw i32 %133, %131
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 2048
   br i1 %exitcond100.not, label %135, label %.critedge, !llvm.loop !92

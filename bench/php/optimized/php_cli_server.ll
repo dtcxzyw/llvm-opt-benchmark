@@ -8595,7 +8595,7 @@ define internal noundef i32 @php_cli_server_client_read_request_on_query_string(
   %17 = icmp uge i64 %14, %16
   tail call void @llvm.assume(i1 %17)
   %18 = add nuw nsw i64 %2, 1
-  %19 = add nuw i64 %18, %16
+  %19 = add nuw nsw i64 %18, %16
   %20 = tail call ptr @__zend_realloc(ptr noundef nonnull %7, i64 noundef %19) #37
   store ptr %20, ptr %6, align 8
   %21 = load i64, ptr %15, align 8

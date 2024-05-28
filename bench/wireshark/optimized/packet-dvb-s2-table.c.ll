@@ -2692,8 +2692,8 @@ switch.lookup:                                    ; preds = %.lr.ph395.i
   %933 = add i32 %931, %.095.i
   %934 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %933) #3
   %935 = zext i8 %934 to i32
-  %936 = add nuw i32 %.095.i, 2
-  %937 = add nuw i32 %936, %935
+  %936 = add nuw nsw i32 %.095.i, 2
+  %937 = add nuw nsw i32 %936, %935
   %938 = add i32 %.09094.i, 1
   %939 = icmp ult i32 %937, %930
   br i1 %939, label %932, label %._crit_edge.i349, !llvm.loop !25
@@ -2754,8 +2754,8 @@ switch.lookup:                                    ; preds = %.lr.ph395.i
   %974 = add i32 %972, %.197.i
   %975 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %974) #3
   %976 = zext i8 %975 to i32
-  %977 = add nuw i32 %.197.i, 2
-  %978 = add nuw i32 %977, %976
+  %977 = add nuw nsw i32 %.197.i, 2
+  %978 = add nuw nsw i32 %977, %976
   %979 = add i32 %.19196.i, 1
   %980 = icmp ult i32 %978, %971
   br i1 %980, label %973, label %._crit_edge100.i, !llvm.loop !26

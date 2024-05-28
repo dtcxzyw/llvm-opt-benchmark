@@ -1665,8 +1665,8 @@ define internal fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %
   %.0150.lcssa = phi i32 [ 0, %23 ], [ %spec.select, %.lr.ph ]
   %.0148.lcssa = phi i32 [ 0, %23 ], [ %.1149, %.lr.ph ]
   %.0146.lcssa = phi i64 [ 0, %23 ], [ %32, %.lr.ph ]
-  %37 = add i32 %.0150.lcssa, 1
-  %38 = add i32 %37, %.0148.lcssa
+  %37 = add nsw i32 %.0150.lcssa, 1
+  %38 = add nsw i32 %37, %.0148.lcssa
   %39 = sext i32 %38 to i64
   %40 = shl nsw i64 %39, 3
   %41 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %40, i32 noundef 790, ptr noundef nonnull @.str) #5

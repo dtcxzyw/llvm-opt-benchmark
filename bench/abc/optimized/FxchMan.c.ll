@@ -1600,8 +1600,8 @@ Vec_IntPush.exit69:                               ; preds = %.Vec_IntGrow.exit10
   %119 = add nuw nsw i32 %118, %116
   %120 = and i32 %119, 31
   %121 = lshr i32 %119, 16
-  %122 = add nuw i32 %121, %.05171
-  %123 = add nuw i32 %122, %120
+  %122 = add nuw nsw i32 %121, %.05171
+  %123 = add nuw nsw i32 %122, %120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21

@@ -1915,8 +1915,8 @@ entry:
   %cmp.i = icmp slt i32 %inhwm_, 1
   %cmp6.i = icmp eq i32 %0, 0
   %or.cond10.i = select i1 %cmp.i, i1 true, i1 %cmp6.i
-  %add.i = add nuw i32 %inhwm_, 1
-  %2 = add nuw i32 %add.i, %.sroa.speculated7.i
+  %add.i = add nuw nsw i32 %inhwm_, 1
+  %2 = add nuw nsw i32 %add.i, %.sroa.speculated7.i
   %cmp7.i = icmp slt i32 %outhwm_, 1
   %cmp10.i = icmp eq i32 %1, 0
   %or.cond.i = select i1 %cmp7.i, i1 true, i1 %cmp10.i
@@ -1943,8 +1943,8 @@ entry:
   %cmp = icmp slt i32 %inhwm_, 1
   %cmp6 = icmp eq i32 %0, 0
   %or.cond10 = select i1 %cmp, i1 true, i1 %cmp6
-  %add = add nuw i32 %inhwm_, 1
-  %2 = add nuw i32 %add, %.sroa.speculated7
+  %add = add nuw nsw i32 %inhwm_, 1
+  %2 = add nuw nsw i32 %add, %.sroa.speculated7
   %cmp7 = icmp slt i32 %outhwm_, 1
   %cmp10 = icmp eq i32 %1, 0
   %or.cond = select i1 %cmp7, i1 true, i1 %cmp10

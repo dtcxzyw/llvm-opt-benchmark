@@ -196,8 +196,8 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 111:                                              ; preds = %95
   %112 = mul nuw nsw i32 %40, 3
   %113 = shl nsw i32 %41, 5
-  %114 = shl nuw i32 %40, 2
-  %115 = add nuw i32 %114, %113
+  %114 = shl nuw nsw i32 %40, 2
+  %115 = add nuw nsw i32 %114, %113
   switch i8 %46, label %119 [
     i8 111, label %116
     i8 79, label %116

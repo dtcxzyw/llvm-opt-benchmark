@@ -253,9 +253,9 @@ define void @Gli_ManPrintObjects(ptr nocapture noundef readonly %0) local_unname
   %46 = lshr i32 %.val29, 4
   %47 = and i32 %46, 7
   %48 = lshr i32 %.val29, 7
-  %49 = add nuw i32 %.02235, 8
-  %narrow.i = add nuw i32 %49, %48
-  %50 = add nuw i32 %narrow.i, %47
+  %49 = add nuw nsw i32 %.02235, 8
+  %narrow.i = add nuw nsw i32 %49, %48
+  %50 = add nuw nsw i32 %narrow.i, %47
   %51 = load i32, ptr %3, align 8
   %52 = icmp slt i32 %50, %51
   br i1 %52, label %.lr.ph36, label %.critedge, !llvm.loop !7
@@ -292,9 +292,9 @@ define void @Gli_ManFinalize(ptr nocapture noundef readonly %0) local_unnamed_ad
   %11 = lshr i32 %.val8, 4
   %12 = and i32 %11, 7
   %13 = lshr i32 %.val8, 7
-  %14 = add nuw i32 %.09, 8
-  %narrow.i = add nuw i32 %14, %13
-  %15 = add nuw i32 %narrow.i, %12
+  %14 = add nuw nsw i32 %.09, 8
+  %narrow.i = add nuw nsw i32 %14, %13
+  %15 = add nuw nsw i32 %narrow.i, %12
   %16 = load i32, ptr %3, align 8
   %17 = icmp slt i32 %15, %16
   br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !8
@@ -1102,9 +1102,9 @@ Gli_NodeComputeValue.exit:                        ; preds = %16, %11
   %46 = lshr i32 %.val12, 4
   %47 = and i32 %46, 7
   %48 = lshr i32 %.val12, 7
-  %49 = add nuw i32 %.014, 8
-  %narrow.i = add nuw i32 %49, %48
-  %50 = add nuw i32 %narrow.i, %47
+  %49 = add nuw nsw i32 %.014, 8
+  %narrow.i = add nuw nsw i32 %49, %48
+  %50 = add nuw nsw i32 %narrow.i, %47
   %51 = icmp slt i32 %50, %45
   br i1 %51, label %.lr.ph, label %.critedge, !llvm.loop !13
 
@@ -1836,9 +1836,9 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
   %.pre-phi197 = phi i32 [ %.pre196, %._crit_edge194 ], [ %45, %Gli_ManSimulateSeqNode.exit ]
   %78 = phi i32 [ %38, %._crit_edge194 ], [ %.pre, %Gli_ManSimulateSeqNode.exit ]
   %79 = lshr i32 %.val97, 7
-  %80 = add nuw i32 %.2137, 8
-  %narrow.i = add nuw i32 %80, %79
-  %81 = add nuw i32 %narrow.i, %.pre-phi197
+  %80 = add nuw nsw i32 %.2137, 8
+  %narrow.i = add nuw nsw i32 %80, %79
+  %81 = add nuw nsw i32 %narrow.i, %.pre-phi197
   %82 = icmp slt i32 %81, %78
   br i1 %82, label %.lr.ph138, label %.critedge4.loopexit, !llvm.loop !25
 
@@ -2156,9 +2156,9 @@ Gli_NodeComputeValue.exit:                        ; preds = %43, %39
   %71 = lshr i32 %.val27, 4
   %72 = and i32 %71, 7
   %73 = lshr i32 %.val27, 7
-  %74 = add nuw i32 %.134, 8
-  %narrow.i = add nuw i32 %74, %73
-  %75 = add nuw i32 %narrow.i, %72
+  %74 = add nuw nsw i32 %.134, 8
+  %narrow.i = add nuw nsw i32 %74, %73
+  %75 = add nuw nsw i32 %narrow.i, %72
   %76 = icmp slt i32 %75, %70
   br i1 %76, label %.lr.ph35, label %.critedge2, !llvm.loop !32
 
@@ -2528,9 +2528,9 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %23 = lshr i32 %.val8.i, 4
   %24 = and i32 %23, 7
   %25 = lshr i32 %.val8.i, 7
-  %26 = add nuw i32 %.09.i, 8
-  %narrow.i.i = add nuw i32 %26, %25
-  %27 = add nuw i32 %narrow.i.i, %24
+  %26 = add nuw nsw i32 %.09.i, 8
+  %narrow.i.i = add nuw nsw i32 %26, %25
+  %27 = add nuw nsw i32 %narrow.i.i, %24
   %28 = load i32, ptr %15, align 8
   %29 = icmp slt i32 %27, %28
   br i1 %29, label %.lr.ph.i, label %Gli_ManFinalize.exit, !llvm.loop !8
@@ -2628,9 +2628,9 @@ Gli_NodeComputeValue.exit.i:                      ; preds = %46, %41
   %76 = lshr i32 %.val12.i, 4
   %77 = and i32 %76, 7
   %78 = lshr i32 %.val12.i, 7
-  %79 = add nuw i32 %.014.i, 8
-  %narrow.i.i30 = add nuw i32 %79, %78
-  %80 = add nuw i32 %narrow.i.i30, %77
+  %79 = add nuw nsw i32 %.014.i, 8
+  %narrow.i.i30 = add nuw nsw i32 %79, %78
+  %80 = add nuw nsw i32 %narrow.i.i30, %77
   %81 = icmp slt i32 %80, %75
   br i1 %81, label %.lr.ph.i27, label %Gli_ManSwitching.exit, !llvm.loop !13
 
@@ -2738,9 +2738,9 @@ Gli_NodeComputeValue.exit.i46.us:                 ; preds = %103, %98
   %133 = lshr i32 %.val12.i37.us, 4
   %134 = and i32 %133, 7
   %135 = lshr i32 %.val12.i37.us, 7
-  %136 = add nuw i32 %.014.i32.us, 8
-  %narrow.i.i38.us = add nuw i32 %136, %135
-  %137 = add nuw i32 %narrow.i.i38.us, %134
+  %136 = add nuw nsw i32 %.014.i32.us, 8
+  %narrow.i.i38.us = add nuw nsw i32 %136, %135
+  %137 = add nuw nsw i32 %narrow.i.i38.us, %134
   %138 = icmp slt i32 %137, %132
   br i1 %138, label %.lr.ph.i31.us, label %Gli_ManSwitching.exit49.us, !llvm.loop !13
 

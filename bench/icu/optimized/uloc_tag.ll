@@ -6438,8 +6438,8 @@ do.body.i.i:                                      ; preds = %if.end9.i.i125
   %arrayidx14.i.i = getelementptr inbounds [100 x i8], ptr %attrBuf.i.i, i64 0, i64 %idxprom13.i.i
   store i8 0, ptr %arrayidx14.i.i, align 1
   store ptr %arrayidx.i.i, ptr %call7.i.i.i, align 8
-  %add17.i.i = add nuw i32 %attrBufIdx.0270.i.i, 1
-  %add18.i.i = add nuw i32 %add17.i.i, %104
+  %add17.i.i = add nuw nsw i32 %attrBufIdx.0270.i.i, 1
+  %add18.i.i = add nuw nsw i32 %add17.i.i, %104
   %cmp.i107.i.i = icmp eq ptr %attrFirst.0269.i.i, null
   br i1 %cmp.i107.i.i, label %_ZL19_addAttributeToListPP18AttributeListEntryS0_.exit.sink.split.i.i, label %if.end.i108.preheader.i.i
 

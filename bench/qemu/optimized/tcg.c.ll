@@ -17889,7 +17889,7 @@ entry:
   %and1 = shl i32 %subop, 3
   %shl = and i32 %and1, 56
   %add = or disjoint i32 %and, 3
-  %add2 = add nuw i32 %add, %shl
+  %add2 = add nuw nsw i32 %add, %shl
   tail call fastcc void @tcg_out_opc(ptr noundef %s, i32 noundef %add2, i32 noundef %dest, i32 noundef %src, i32 noundef 0)
   %and.i = shl i32 %dest, 3
   %and1.i = and i32 %src, 7
@@ -21133,7 +21133,7 @@ if.else5.i:                                       ; preds = %entry
   %and1.i11.i = shl i32 %add6.i, 3
   %shl.i.i = and i32 %and1.i11.i, 56
   %add.i.i = or disjoint i32 %and.i10.i, 3
-  %add2.i.i = add nuw i32 %add.i.i, %shl.i.i
+  %add2.i.i = add nuw nsw i32 %add.i.i, %shl.i.i
   tail call fastcc void @tcg_out_opc(ptr noundef %s, i32 noundef %add2.i.i, i32 noundef %conv7.i, i32 noundef %conv8.i, i32 noundef 0)
   %and.i.i.i = shl i32 %conv7.i, 3
   %and1.i.i.i = and i32 %conv8.i, 7
@@ -21242,7 +21242,7 @@ if.else5.i:                                       ; preds = %do_ltu.thread, %do_
   %and1.i11.i = shl i32 %add6.i, 3
   %shl.i.i = and i32 %and1.i11.i, 56
   %add.i.i = or disjoint i32 %and.i10.i, 3
-  %add2.i.i = add nuw i32 %add.i.i, %shl.i.i
+  %add2.i.i = add nuw nsw i32 %add.i.i, %shl.i.i
   tail call fastcc void @tcg_out_opc(ptr noundef %s, i32 noundef %add2.i.i, i32 noundef %conv7.i398, i32 noundef %conv8.i, i32 noundef 0)
   %and.i.i.i = shl i32 %conv7.i398, 3
   %and1.i.i.i = and i32 %conv8.i, 7
@@ -21265,7 +21265,7 @@ tcg_out_cmp.exit:                                 ; preds = %if.then1.i, %if.els
   %and1.i = shl i32 %add, 3
   %shl.i = and i32 %and1.i, 56
   %add.i59 = or disjoint i32 %and.i, 3
-  %add2.i = add nuw i32 %add.i59, %shl.i
+  %add2.i = add nuw nsw i32 %add.i59, %shl.i
   tail call fastcc void @tcg_out_opc(ptr noundef %s, i32 noundef %add2.i, i32 noundef %conv13, i32 noundef %conv13, i32 noundef 0)
   %and.i.i60 = shl i32 %conv13, 3
   %and1.i.i61 = and i32 %conv13, 7
@@ -21717,7 +21717,7 @@ if.else5.i118:                                    ; preds = %if.end66.thread, %i
   %and1.i11.i122 = shl i32 %add6.i119, 3
   %shl.i.i123 = and i32 %and1.i11.i122, 56
   %add.i.i124 = or disjoint i32 %and.i10.i121, 3
-  %add2.i.i125 = add nuw i32 %add.i.i124, %shl.i.i123
+  %add2.i.i125 = add nuw nsw i32 %add.i.i124, %shl.i.i123
   tail call fastcc void @tcg_out_opc(ptr noundef %s, i32 noundef %add2.i.i125, i32 noundef %conv7.i105420, i32 noundef %conv8.i120, i32 noundef 0)
   %and.i.i.i126 = shl i32 %conv7.i105420, 3
   %and1.i.i.i127 = and i32 %conv8.i120, 7
@@ -21971,7 +21971,7 @@ if.else5.i:                                       ; preds = %entry
   %and1.i11.i = shl i32 %add6.i, 3
   %shl.i.i = and i32 %and1.i11.i, 56
   %add.i.i = or disjoint i32 %and.i10.i, 3
-  %add2.i.i = add nuw i32 %add.i.i, %shl.i.i
+  %add2.i.i = add nuw nsw i32 %add.i.i, %shl.i.i
   tail call fastcc void @tcg_out_opc(ptr noundef %s, i32 noundef %add2.i.i, i32 noundef %c1, i32 noundef %conv8.i, i32 noundef 0)
   %and.i.i.i = shl i32 %c1, 3
   %and1.i.i.i = and i32 %conv8.i, 7

@@ -4290,7 +4290,7 @@ define internal fastcc noundef i32 @MIMO_UL_IE(ptr noundef %0, ptr noundef %1, i
   %6 = sdiv i32 %2, 2
   %7 = and i32 %2, 1
   %8 = add i32 %7, %3
-  %9 = add nuw i32 %8, 1
+  %9 = add nuw nsw i32 %8, 1
   %10 = lshr i32 %9, 1
   %11 = load i32, ptr @ett_299, align 4
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %4, i32 noundef %6, i32 noundef %10, i32 noundef %11, ptr noundef null, ptr noundef nonnull @.str.553) #4

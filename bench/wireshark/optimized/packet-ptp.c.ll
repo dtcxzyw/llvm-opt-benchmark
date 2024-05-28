@@ -3033,8 +3033,8 @@ define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr 
 
 375:                                              ; preds = %362, %356, %.lr.ph, %369, %373
   %376 = zext i16 %354 to i32
-  %377 = add nuw i32 %.014051623, 4
-  %378 = add nuw i32 %377, %376
+  %377 = add nuw nsw i32 %.014051623, 4
+  %378 = add nuw nsw i32 %377, %376
   %379 = add nuw i32 %378, 4
   %.not1461 = icmp ugt i32 %379, %351
   br i1 %.not1461, label %.loopexit1621, label %.lr.ph, !llvm.loop !4

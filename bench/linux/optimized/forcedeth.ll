@@ -8183,7 +8183,7 @@ define internal fastcc void @nv_gear_backoff_reseed(ptr %.3120.val) unnamed_addr
   %61 = load i32, ptr %60, align 4
   %62 = shl i32 %61, 12
   %63 = and i32 %62, 4190208
-  %64 = add nuw i32 %59, 1879048192
+  %64 = add nuw nsw i32 %59, 1879048192
   %65 = or disjoint i32 %64, %57
   %66 = or disjoint i32 %65, %63
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %66, ptr elementtype(i32) %47) #16, !srcloc !11

@@ -27936,7 +27936,7 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
   %.sroa.2.0.insert.shift.i = zext i16 %43 to i24
   %.sroa.0.0.insert.ext.i = zext nneg i16 %38 to i24
   %.sroa.2.0.insert.insert.i = or disjoint i24 %.sroa.3.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %.sroa.0.0.insert.insert.i = add nuw i24 %.sroa.2.0.insert.insert.i, %.sroa.2.0.insert.shift.i
+  %.sroa.0.0.insert.insert.i = add nuw nsw i24 %.sroa.2.0.insert.insert.i, %.sroa.2.0.insert.shift.i
   store i24 %.sroa.0.0.insert.insert.i, ptr %6, align 4
   %44 = lshr i16 %19, 3
   %45 = lshr i16 %32, 5
@@ -27954,7 +27954,7 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
   %.sroa.2.0.insert.shift.i26 = zext i16 %54 to i24
   %.sroa.0.0.insert.ext.i28 = zext nneg i16 %49 to i24
   %.sroa.2.0.insert.insert.i27 = or disjoint i24 %.sroa.3.0.insert.shift.i25, %.sroa.0.0.insert.ext.i28
-  %.sroa.0.0.insert.insert.i29 = add nuw i24 %.sroa.2.0.insert.insert.i27, %.sroa.2.0.insert.shift.i26
+  %.sroa.0.0.insert.insert.i29 = add nuw nsw i24 %.sroa.2.0.insert.insert.i27, %.sroa.2.0.insert.shift.i26
   %55 = getelementptr inbounds i8, ptr %6, i64 3
   store i24 %.sroa.0.0.insert.insert.i29, ptr %55, align 1
   %56 = icmp ule i16 %30, %32
@@ -28540,7 +28540,7 @@ define internal fastcc void @_ZN5image6codecs3dxt17encode_dxt_colors17h151bdd4f3
   %.sroa.2.0.insert.shift.i = zext i16 %60 to i24
   %.sroa.0.0.insert.ext.i = zext nneg i16 %53 to i24
   %.sroa.2.0.insert.insert.i = or disjoint i24 %.sroa.3.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %.sroa.0.0.insert.insert.i = add nuw i24 %.sroa.2.0.insert.insert.i, %.sroa.2.0.insert.shift.i
+  %.sroa.0.0.insert.insert.i = add nuw nsw i24 %.sroa.2.0.insert.insert.i, %.sroa.2.0.insert.shift.i
   store i24 %.sroa.0.0.insert.insert.i, ptr %.sroa.0229.0.ptr, align 1
   %61 = icmp eq i64 %.sroa.0229.0.add, 48
   br i1 %61, label %41, label %42
@@ -28710,7 +28710,7 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h5aa12293d676241dE.exit: ; p
   %.sroa.2.0.insert.shift.i176 = zext i16 %141 to i24
   %.sroa.0.0.insert.ext.i178 = zext nneg i16 %136 to i24
   %.sroa.2.0.insert.insert.i177 = or disjoint i24 %.sroa.3.0.insert.shift.i175, %.sroa.0.0.insert.ext.i178
-  %.sroa.0.0.insert.insert.i179 = add nuw i24 %.sroa.2.0.insert.insert.i177, %.sroa.2.0.insert.shift.i176
+  %.sroa.0.0.insert.insert.i179 = add nuw nsw i24 %.sroa.2.0.insert.insert.i177, %.sroa.2.0.insert.shift.i176
   %142 = icmp eq i24 %.sroa.0.0.insert.insert.i179, %.sroa.01.0.copyload.i.i.i.i.i.i.i
   br i1 %142, label %146, label %143
 

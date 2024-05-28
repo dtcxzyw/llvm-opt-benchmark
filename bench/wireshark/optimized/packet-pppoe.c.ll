@@ -1071,8 +1071,8 @@ default.unreachable:                              ; preds = %switch.lookup
 
 dissect_pppoe_subtags_dslf.exit.i:                ; preds = %295, %433, %424, %419, %414, %409, %404, %399, %394, %389, %384, %381, %374, %368, %361, %353, %352, %351, %350, %349, %313, %306, %299, %84, %78, %75, %70, %65, %57, %52, %51
   %436 = zext i16 %43 to i32
-  %437 = add nuw i32 %.0195.i, 4
-  %438 = add nuw i32 %437, %436
+  %437 = add nuw nsw i32 %.0195.i, 4
+  %438 = add nuw nsw i32 %437, %436
   %.not.i = icmp sgt i32 %438, %38
   br i1 %.not.i, label %dissect_pppoe_tags.exit, label %40, !llvm.loop !6
 

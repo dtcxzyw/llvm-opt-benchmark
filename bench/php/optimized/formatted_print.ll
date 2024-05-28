@@ -1714,8 +1714,8 @@ php_sprintf_appendchar.exit357:                   ; preds = %656, %697
   br label %720
 
 711:                                              ; preds = %707
-  %712 = add nuw i32 %4, 1
-  %713 = add nuw i32 %712, %.0215489
+  %712 = add nuw nsw i32 %4, 1
+  %713 = add nuw nsw i32 %712, %.0215489
   %714 = add nsw i32 %4, %3
   call void (ptr, ...) @zend_argument_count_error(ptr noundef nonnull @.str.12, i32 noundef %713, i32 noundef %714) #15
   br label %720

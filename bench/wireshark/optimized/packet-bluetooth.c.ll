@@ -4803,8 +4803,8 @@ define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 nound
   br label %55
 
 55:                                               ; preds = %34, %38
-  %56 = add nuw i32 %.028, 1
-  %57 = add nuw i32 %56, %32
+  %56 = add nuw nsw i32 %.028, 1
+  %57 = add nuw nsw i32 %56, %32
   %58 = icmp ult i32 %57, %17
   br i1 %58, label %29, label %.loopexit, !llvm.loop !4
 

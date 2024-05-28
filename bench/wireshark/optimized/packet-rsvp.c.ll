@@ -10234,7 +10234,7 @@ define internal fastcc void @dissect_rsvp_ifid_tlv(ptr noundef %0, ptr noundef %
   %15 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %14) #10
   %16 = zext i16 %15 to i32
   %17 = icmp eq i16 %15, 0
-  %18 = add nuw i32 %.0367375, %16
+  %18 = add nuw nsw i32 %.0367375, %16
   %19 = icmp sgt i32 %18, %5
   %or.cond374 = select i1 %17, i1 true, i1 %19
   br i1 %or.cond374, label %20, label %22
@@ -10509,7 +10509,7 @@ define internal fastcc void @dissect_rsvp_ifid_tlv(ptr noundef %0, ptr noundef %
   br label %178
 
 178:                                              ; preds = %174, %171
-  %179 = add nuw i32 %18, %173
+  %179 = add nuw nsw i32 %18, %173
   %180 = icmp slt i32 %179, %5
   br i1 %180, label %11, label %.loopexit, !llvm.loop !29
 

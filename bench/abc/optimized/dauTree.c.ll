@@ -6318,8 +6318,8 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   %54 = mul nuw nsw i32 %35, 7103
   %55 = mul nuw nsw i32 %25, 7873
   %56 = mul nuw nsw i32 %28, 8147
-  %57 = add nuw i32 %56, %55
-  %58 = add nuw i32 %57, %54
+  %57 = add nuw nsw i32 %56, %55
+  %58 = add nuw nsw i32 %57, %54
   %.not.i.i = icmp ult i64 %51, 576460752303423488
   br i1 %.not.i.i, label %Dss_ManCacheHashKey.exit.i, label %.lr.ph.i.i
 
