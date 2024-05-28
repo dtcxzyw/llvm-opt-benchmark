@@ -1144,9 +1144,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
-  %cmp2.i.i.i.i.i.i.i = icmp eq i64 %i.i.06.i.i.i.i.i.i, 0
-  %conv.i.i.i.i.i.i.i = zext i1 %cmp2.i.i.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i.i = add nuw nsw i64 %i.i.06.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.06.i.i.i.i.i.i, i64 1)
   br label %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.i
@@ -1172,9 +1170,7 @@ for.body.i.i.i.i5.i.i.i:                          ; preds = %if.end.i.i.i.i9.i.i
   br i1 %cmp1.i.i.i.i8.i.i.i, label %if.then.i.i.i.i13.i.i.i, label %if.end.i.i.i.i9.i.i.i
 
 if.then.i.i.i.i13.i.i.i:                          ; preds = %for.body.i.i.i.i5.i.i.i
-  %cmp2.i.i.i.i14.i.i.i = icmp eq i64 %i.i.06.i.i.i6.i.i.i, 0
-  %conv.i.i.i.i15.i.i.i = zext i1 %cmp2.i.i.i.i14.i.i.i to i64
-  %add.i.i.i.i16.i.i.i = add nuw nsw i64 %i.i.06.i.i.i6.i.i.i, %conv.i.i.i.i15.i.i.i
+  %add.i.i.i.i14.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.06.i.i.i6.i.i.i, i64 1)
   br label %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i
 
 if.end.i.i.i.i9.i.i.i:                            ; preds = %for.body.i.i.i.i5.i.i.i
@@ -1183,7 +1179,7 @@ if.end.i.i.i.i9.i.i.i:                            ; preds = %for.body.i.i.i.i5.i
   br i1 %exitcond.not.i.i.i11.i.i.i, label %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i, label %for.body.i.i.i.i5.i.i.i, !llvm.loop !8
 
 _ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i: ; preds = %if.end.i.i.i.i9.i.i.i, %if.then.i.i.i.i13.i.i.i
-  %retval.i.0.i.i.i12.i.i.i = phi i64 [ %add.i.i.i.i16.i.i.i, %if.then.i.i.i.i13.i.i.i ], [ 20, %if.end.i.i.i.i9.i.i.i ]
+  %retval.i.0.i.i.i12.i.i.i = phi i64 [ %add.i.i.i.i14.i.i.i, %if.then.i.i.i.i13.i.i.i ], [ 20, %if.end.i.i.i.i9.i.i.i ]
   store i64 %retval.i.0.i.i.i12.i.i.i, ptr %arrayinit.element16.i.i.i, align 8
   %arrayinit.element19.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 32
   store i64 2, ptr %arrayinit.element19.i.i.i, align 16
@@ -1192,12 +1188,12 @@ _ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i
-  %size.020.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
-  %__begin0.0.idx19.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i ], [ %__begin0.0.add.i.i.i, %for.body.i.i.i ]
-  %__begin0.0.ptr.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 %__begin0.0.idx19.i.i.i
+  %size.018.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
+  %__begin0.0.idx17.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i ], [ %__begin0.0.add.i.i.i, %for.body.i.i.i ]
+  %__begin0.0.ptr.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 %__begin0.0.idx17.i.i.i
   %4 = load i64, ptr %__begin0.0.ptr.i.i.i, align 8
-  %add.i.i.i = add i64 %4, %size.020.i.i.i
-  %__begin0.0.add.i.i.i = add nuw nsw i64 %__begin0.0.idx19.i.i.i, 8
+  %add.i.i.i = add i64 %4, %size.018.i.i.i
+  %__begin0.0.add.i.i.i = add nuw nsw i64 %__begin0.0.idx17.i.i.i, 8
   %cmp.not.i.i.i = icmp eq i64 %__begin0.0.add.i.i.i, 48
   br i1 %cmp.not.i.i.i, label %_ZN5folly6detail15reserveInTargetIA6_cmJA21_cjA2_cPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit.i, label %for.body.i.i.i
 
@@ -2868,10 +2864,8 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
-  %cmp2.i.i.i.i.i.i = icmp eq i64 %i.i.i.015.i.i.i.i, 0
-  %conv.i.i.i.i.i.i = zext i1 %cmp2.i.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i = add nuw nsw i64 %i.i.i.015.i.i.i.i, %conv.i.i.i.i.i.i
-  %cmp.i16.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i, 2
+  %add.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)
+  %cmp.i16.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %while.end.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
@@ -2932,14 +2926,12 @@ if.end.i.i.i.i.i.i18:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i20, label %while.body.i.preheader.i.i.i.i21, label %for.body.i.i.i.i.i.i14, !llvm.loop !8
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42: ; preds = %for.body.i.i.i.i.i.i14
-  %cmp2.i.i.i.i.i.i43 = icmp eq i64 %i.i.i.015.i.i.i.i15, 0
-  %conv.i.i.i.i.i.i44 = zext i1 %cmp2.i.i.i.i.i.i43 to i64
-  %add.i.i.i.i.i.i45 = add nuw nsw i64 %i.i.i.015.i.i.i.i15, %conv.i.i.i.i.i.i44
-  %cmp.i16.i.i.i.i46 = icmp ugt i64 %add.i.i.i.i.i.i45, 2
-  br i1 %cmp.i16.i.i.i.i46, label %while.body.i.preheader.i.i.i.i21, label %while.end.i.i.i.i.i32
+  %add.i.i.i.i.i.i43 = call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i15, i64 1)
+  %cmp.i16.i.i.i.i44 = icmp ugt i64 %i.i.i.015.i.i.i.i15, 2
+  br i1 %cmp.i16.i.i.i.i44, label %while.body.i.preheader.i.i.i.i21, label %while.end.i.i.i.i.i32
 
 while.body.i.preheader.i.i.i.i21:                 ; preds = %if.end.i.i.i.i.i.i18, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42
-  %retval.i.i.024.i.i.i.i22 = phi i64 [ %add.i.i.i.i.i.i45, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42 ], [ 20, %if.end.i.i.i.i.i.i18 ]
+  %retval.i.i.024.i.i.i.i22 = phi i64 [ %add.i.i.i.i.i.i43, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42 ], [ 20, %if.end.i.i.i.i.i.i18 ]
   br label %while.body.i.i.i.i.i23
 
 while.body.i.i.i.i.i23:                           ; preds = %while.body.i.i.i.i.i23, %while.body.i.preheader.i.i.i.i21
@@ -2956,8 +2948,8 @@ while.body.i.i.i.i.i23:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i31, label %while.body.i.i.i.i.i23, label %while.end.i.i.i.i.i32, !llvm.loop !10
 
 while.end.i.i.i.i.i32:                            ; preds = %while.body.i.i.i.i.i23, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42
-  %retval.i.i.023.i.i.i.i33 = phi i64 [ %add.i.i.i.i.i.i45, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42 ], [ %retval.i.i.024.i.i.i.i22, %while.body.i.i.i.i.i23 ]
-  %pos.i.0.lcssa.i.i.i.i34 = phi i64 [ %add.i.i.i.i.i.i45, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42 ], [ %sub.i.i.i.i.i26, %while.body.i.i.i.i.i23 ]
+  %retval.i.i.023.i.i.i.i33 = phi i64 [ %add.i.i.i.i.i.i43, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42 ], [ %retval.i.i.024.i.i.i.i22, %while.body.i.i.i.i.i23 ]
+  %pos.i.0.lcssa.i.i.i.i34 = phi i64 [ %add.i.i.i.i.i.i43, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42 ], [ %sub.i.i.i.i.i26, %while.body.i.i.i.i.i23 ]
   %v.addr.i4.0.lcssa.i.i.i.i35 = phi i64 [ %conv.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i42 ], [ %div.i.i.i.i.i27, %while.body.i.i.i.i.i23 ]
   %arrayidx2.i.i.i.i.i36 = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i35
   %9 = load i16, ptr %arrayidx2.i.i.i.i.i36, align 2
@@ -2977,7 +2969,7 @@ if.else.i.i.i.i.i38:                              ; preds = %while.end.i.i.i.i.i
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit: ; preds = %if.then.i.i.i.i.i41, %if.else.i.i.i.i.i38
   %call1.i40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %buffer.i13, i64 noundef %retval.i.i.023.i.i.i.i33)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buffer.i13)
-  %call.i47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %v7)
+  %call.i45 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %v7)
   ret void
 }
 
@@ -3188,14 +3180,14 @@ return:                                           ; preds = %_ZN5folly2io6detail
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3214,8 +3206,8 @@ attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nounwind }
 attributes #20 = { noreturn nounwind }
 attributes #21 = { cold noreturn }
