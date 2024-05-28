@@ -24105,7 +24105,7 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 16
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = getelementptr inbounds i8, ptr %8, i64 24
-  %.sroa.10.8..sroa_idx26 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.10.8..sroa_idx29 = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
   %17 = getelementptr inbounds i8, ptr %2, i64 4280
   %18 = load i64, ptr %17, align 8
@@ -24122,8 +24122,8 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
   %.sroa.9.0..sroa_idx3.i = getelementptr inbounds i8, ptr %5, i64 40
   %.sroa.7.0..sroa_idx2.i = getelementptr inbounds i8, ptr %5, i64 8
   %. = select i1 %19, i1 %23, i1 %21
-  %.39 = select i1 %19, ptr %25, ptr %22
-  %.40 = select i1 %19, i64 %26, i64 %18
+  %.45 = select i1 %19, ptr %25, ptr %22
+  %.46 = select i1 %19, i64 %26, i64 %18
   br label %28
 
 28:                                               ; preds = %56, %4
@@ -24142,7 +24142,7 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
 .thread:                                          ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9), !noalias !4917
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
-  br label %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..17"
+  br label %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute18"
 
 30:                                               ; preds = %.noexc
   %.sroa.04.0.copyload.i = load i64, ptr %14, align 8, !noalias !4917
@@ -24206,14 +24206,14 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
 46:                                               ; preds = %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h818f1ca6d74440ceE.exit.i"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !4920
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.45.0..sroa_idx.i, i64 56, i1 false), !noalias !4917
-  %.sroa.6.8.copyload25 = load i64, ptr %8, align 8, !noalias !4914
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx26, i64 72, i1 false), !noalias !4914
+  %.sroa.6.8.copyload28 = load i64, ptr %8, align 8, !noalias !4914
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx29, i64 72, i1 false), !noalias !4914
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9), !noalias !4917
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
-  %47 = icmp eq i64 %.sroa.6.8.copyload25, -9223372036854775808
-  br i1 %47, label %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..17", label %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i"
+  %47 = icmp eq i64 %.sroa.6.8.copyload28, -9223372036854775808
+  br i1 %47, label %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute18", label %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i"
 
-"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..17": ; preds = %46, %.thread
+"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute18": ; preds = %46, %.thread
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.10)
   call void @"_ZN4core3ptr607drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h79a4b8bf5d52cb53E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12)
@@ -24221,23 +24221,23 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
   br label %52
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i": ; preds = %46
-  store i64 %.sroa.6.8.copyload25, ptr %11, align 8
+  store i64 %.sroa.6.8.copyload28, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6), !noalias !4938
   call void @llvm.assume(i1 %.)
-  invoke fastcc void @_ZN3exr5block17UncompressedBlock17compress_to_chunk17hef288b2afbe80015E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %6, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(80) %11, ptr noalias noundef nonnull readonly align 8 %.39, i64 noundef %.40)
-          to label %.noexc18 unwind label %.loopexit
+  invoke fastcc void @_ZN3exr5block17UncompressedBlock17compress_to_chunk17hef288b2afbe80015E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %6, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(80) %11, ptr noalias noundef nonnull readonly align 8 %.45, i64 noundef %.46)
+          to label %.noexc19 unwind label %.loopexit
 
-.noexc18:                                         ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i"
+.noexc19:                                         ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i"
   %48 = load i64, ptr %6, align 8, !range !4942, !noalias !4938, !noundef !4
   %49 = icmp eq i64 %48, -9223372036854775805
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false), !noalias !4938
   br i1 %49, label %51, label %50
 
-50:                                               ; preds = %.noexc18
+50:                                               ; preds = %.noexc19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.9.0..sroa_idx3.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx.i, i64 56, i1 false), !noalias !4938
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6), !noalias !4938
   store i64 %48, ptr %5, align 8, !noalias !4938
@@ -24245,12 +24245,12 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
   invoke fastcc void @"_ZN107_$LT$exr..block..writer..OnProgressChunkWriter$LT$W$C$F$GT$$u20$as$u20$exr..block..writer..ChunksWriter$GT$11write_chunk17h4500149ef07fcdd0E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.sroa.04.0.copyload.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %5)
           to label %53 unwind label %.loopexit
 
-51:                                               ; preds = %.noexc18
+51:                                               ; preds = %.noexc19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6), !noalias !4938
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !4943
   br label %53
 
-52:                                               ; preds = %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..21", %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..17"
+52:                                               ; preds = %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute23", %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute18"
   ret void
 
 53:                                               ; preds = %51, %50
@@ -24258,14 +24258,14 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i)
   %54 = load i64, ptr %10, align 8, !range !87, !noundef !4
   %55 = icmp eq i64 %54, 4
-  br i1 %55, label %56, label %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..21"
+  br i1 %55, label %56, label %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute23"
 
 56:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.10)
   br label %28
 
-"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..21": ; preds = %53
+"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute23": ; preds = %53
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -24307,7 +24307,7 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 16
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = getelementptr inbounds i8, ptr %8, i64 24
-  %.sroa.10.8..sroa_idx26 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.10.8..sroa_idx29 = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
   %17 = getelementptr inbounds i8, ptr %2, i64 4280
   %18 = load i64, ptr %17, align 8
@@ -24324,8 +24324,8 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
   %.sroa.9.0..sroa_idx3.i = getelementptr inbounds i8, ptr %5, i64 40
   %.sroa.7.0..sroa_idx2.i = getelementptr inbounds i8, ptr %5, i64 8
   %. = select i1 %19, i1 %23, i1 %21
-  %.39 = select i1 %19, ptr %25, ptr %22
-  %.40 = select i1 %19, i64 %26, i64 %18
+  %.45 = select i1 %19, ptr %25, ptr %22
+  %.46 = select i1 %19, i64 %26, i64 %18
   br label %28
 
 28:                                               ; preds = %56, %4
@@ -24344,7 +24344,7 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
 .thread:                                          ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9), !noalias !4947
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
-  br label %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..17"
+  br label %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute18"
 
 30:                                               ; preds = %.noexc
   %.sroa.04.0.copyload.i = load i64, ptr %14, align 8, !noalias !4947
@@ -24408,14 +24408,14 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
 46:                                               ; preds = %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h45f932515845ba9fE.exit.i"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !4950
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.45.0..sroa_idx.i, i64 56, i1 false), !noalias !4947
-  %.sroa.6.8.copyload25 = load i64, ptr %8, align 8, !noalias !4944
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx26, i64 72, i1 false), !noalias !4944
+  %.sroa.6.8.copyload28 = load i64, ptr %8, align 8, !noalias !4944
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx29, i64 72, i1 false), !noalias !4944
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9), !noalias !4947
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
-  %47 = icmp eq i64 %.sroa.6.8.copyload25, -9223372036854775808
-  br i1 %47, label %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..17", label %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i"
+  %47 = icmp eq i64 %.sroa.6.8.copyload28, -9223372036854775808
+  br i1 %47, label %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute18", label %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i"
 
-"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..17": ; preds = %46, %.thread
+"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute18": ; preds = %46, %.thread
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.10)
   call void @"_ZN4core3ptr607drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h79a4b8bf5d52cb53E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12)
@@ -24423,23 +24423,23 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
   br label %52
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i": ; preds = %46
-  store i64 %.sroa.6.8.copyload25, ptr %11, align 8
+  store i64 %.sroa.6.8.copyload28, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6), !noalias !4968
   call void @llvm.assume(i1 %.)
-  invoke fastcc void @_ZN3exr5block17UncompressedBlock17compress_to_chunk17hef288b2afbe80015E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %6, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(80) %11, ptr noalias noundef nonnull readonly align 8 %.39, i64 noundef %.40)
-          to label %.noexc18 unwind label %.loopexit
+  invoke fastcc void @_ZN3exr5block17UncompressedBlock17compress_to_chunk17hef288b2afbe80015E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %6, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(80) %11, ptr noalias noundef nonnull readonly align 8 %.45, i64 noundef %.46)
+          to label %.noexc19 unwind label %.loopexit
 
-.noexc18:                                         ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i"
+.noexc19:                                         ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i"
   %48 = load i64, ptr %6, align 8, !range !4942, !noalias !4968, !noundef !4
   %49 = icmp eq i64 %48, -9223372036854775805
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false), !noalias !4968
   br i1 %49, label %51, label %50
 
-50:                                               ; preds = %.noexc18
+50:                                               ; preds = %.noexc19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.9.0..sroa_idx3.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx.i, i64 56, i1 false), !noalias !4968
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6), !noalias !4968
   store i64 %48, ptr %5, align 8, !noalias !4968
@@ -24447,12 +24447,12 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
   invoke fastcc void @"_ZN107_$LT$exr..block..writer..OnProgressChunkWriter$LT$W$C$F$GT$$u20$as$u20$exr..block..writer..ChunksWriter$GT$11write_chunk17h4500149ef07fcdd0E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.sroa.04.0.copyload.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %5)
           to label %53 unwind label %.loopexit
 
-51:                                               ; preds = %.noexc18
+51:                                               ; preds = %.noexc19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6), !noalias !4968
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !4972
   br label %53
 
-52:                                               ; preds = %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..21", %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..17"
+52:                                               ; preds = %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute23", %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute18"
   ret void
 
 53:                                               ; preds = %51, %50
@@ -24460,14 +24460,14 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_bl
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i)
   %54 = load i64, ptr %10, align 8, !range !87, !noundef !4
   %55 = icmp eq i64 %54, 4
-  br i1 %55, label %56, label %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..21"
+  br i1 %55, label %56, label %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute23"
 
 56:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.10)
   br label %28
 
-"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..21": ; preds = %53
+"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute23": ; preds = %53
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -25945,12 +25945,12 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %19 = alloca { { ptr, ptr }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, align 8
   %20 = alloca { i64, [3 x i64] }, align 8
   %21 = alloca { ptr, ptr, i64 }, align 8
-  %.sroa.738.i.i = alloca { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } }, align 8
+  %.sroa.736.i.i = alloca { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } }, align 8
   %.sroa.217.i = alloca [3 x i64], align 8
   %22 = alloca { { { i64, [9 x i64] }, i64 }, { ptr, i64 }, i64, { i64, i64 }, i64 }, align 8
   %23 = alloca { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, ptr }, align 8
   %24 = alloca { { { ptr, { { { i64, i8 }, { i64, i8 } }, { i64, i8 } } } }, { ptr, ptr, i8, i8, [6 x i8] } }, align 8
-  %.sroa.637.i = alloca [3 x i64], align 8
+  %.sroa.635.i = alloca [3 x i64], align 8
   %25 = alloca { i64, [553 x i64] }, align 8
   %.sroa.7.i = alloca [4 x i64], align 8
   %.sroa.9.i = alloca [549 x i64], align 8
@@ -26001,9 +26001,9 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 47:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit"
   %48 = getelementptr inbounds i8, ptr %31, i64 888
   invoke void @"_ZN120_$LT$exr..image..SpecificChannels$LT$Storage$C$Channels$GT$$u20$as$u20$exr..image..write..channels..WritableChannels$GT$13create_writer17h71f59efee5962734E.llvm.15361875792781664197"(ptr noalias nocapture noundef nonnull sret({ ptr, { { { i64, i8 }, { i64, i8 } }, { i64, i8 } } }) align 8 dereferenceable(56) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(1424) %.sink3.i)
-          to label %.noexc8 unwind label %187
+          to label %.noexc6 unwind label %187
 
-.noexc8:                                          ; preds = %47
+.noexc6:                                          ; preds = %47
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(56) %27, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %27)
@@ -26026,7 +26026,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %55, i64 32, i1 false), !noalias !5245
   br i1 %54, label %181, label %56
 
-56:                                               ; preds = %.noexc8
+56:                                               ; preds = %.noexc6
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4392) %.sroa.9.i, ptr noundef nonnull align 8 dereferenceable(4392) %.sroa.5.0..sroa_idx.i, i64 4392, i1 false), !noalias !5245
   call void @llvm.lifetime.end.p0(i64 4432, ptr nonnull %25), !noalias !5245
@@ -26039,7 +26039,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %26), !noalias !5245
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %26, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.9.4296..sroa_idx.i, i64 136, i1 false), !noalias !5245
   call void @llvm.lifetime.end.p0(i64 4392, ptr nonnull %.sroa.9.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.637.i)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.635.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24), !noalias !5245
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull readonly align 8 dereferenceable(80) %28, i64 80, i1 false), !noalias !5249
   store i64 %53, ptr %23, align 8, !noalias !5245
@@ -26048,12 +26048,12 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @llvm.experimental.noalias.scope.decl(metadata !5250)
   call void @llvm.experimental.noalias.scope.decl(metadata !5253)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !5245
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.738.i.i)
+  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.736.i.i)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %16), !noalias !5255
   invoke void @_ZN3exr4meta8MetaData38enumerate_ordered_header_block_indices17h70939567b76a8603E(ptr noalias nocapture noundef nonnull sret({ { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } }) align 8 dereferenceable(88) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(4296) %23)
           to label %60 unwind label %58, !noalias !5263
 
-58:                                               ; preds = %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..7", %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..6", %73, %68, %56
+58:                                               ; preds = %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute22", %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute19", %73, %68, %56
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -26064,7 +26064,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
           to label %.body.thread.i unwind label %179, !noalias !5264
 
 60:                                               ; preds = %56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.738.i.i, ptr noundef nonnull align 8 dereferenceable(88) %16, i64 88, i1 false), !noalias !5265
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.736.i.i, ptr noundef nonnull align 8 dereferenceable(88) %16, i64 88, i1 false), !noalias !5265
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16), !noalias !5255
   %61 = getelementptr inbounds i8, ptr %24, i64 64
   %62 = load ptr, ptr %61, align 8, !alias.scope !5250, !noalias !5266, !nonnull !4, !noundef !4
@@ -26084,8 +26084,8 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   store ptr %24, ptr %17, align 8, !noalias !5267
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %23, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !5267
-  %.sroa.738.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.738.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.738.i.i, i64 88, i1 false), !noalias !5267
+  %.sroa.736.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.736.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.736.i.i, i64 88, i1 false), !noalias !5267
   invoke fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_blocks_sequential17h6549718b274a28d9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(4296) %23, ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %17)
           to label %110 unwind label %58, !noalias !5264
 
@@ -26093,10 +26093,10 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20), !noalias !5267
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %19), !noalias !5267
   store ptr %24, ptr %19, align 8, !noalias !5267
-  %.sroa.6.0..sroa_idx36.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr %23, ptr %.sroa.6.0..sroa_idx36.i.i, align 8, !noalias !5267
-  %.sroa.738.0..sroa_idx39.i.i = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.738.0..sroa_idx39.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.738.i.i, i64 88, i1 false), !noalias !5267
+  %.sroa.6.0..sroa_idx34.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %23, ptr %.sroa.6.0..sroa_idx34.i.i, align 8, !noalias !5267
+  %.sroa.736.0..sroa_idx37.i.i = getelementptr inbounds i8, ptr %19, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.736.0..sroa_idx37.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.736.i.i, i64 88, i1 false), !noalias !5267
   call void @llvm.experimental.noalias.scope.decl(metadata !5268)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10), !noalias !5267
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %15), !noalias !5271
@@ -26127,7 +26127,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %.sroa.45.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %77 = getelementptr inbounds i8, ptr %11, i64 8
   %78 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sroa.10.8..sroa_idx24.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.10.8..sroa_idx27.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.10.8..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   br label %79
 
@@ -26142,12 +26142,12 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 .noexc.i.i.i:                                     ; preds = %79
   %80 = load i64, ptr %8, align 8, !range !19, !noalias !5281, !noundef !4
   %trunc.i.i.i.i = trunc nuw i64 %80 to i1
-  br i1 %trunc.i.i.i.i, label %81, label %.thread32.i.i.i
+  br i1 %trunc.i.i.i.i, label %81, label %.thread35.i.i.i
 
-.thread32.i.i.i:                                  ; preds = %.noexc.i.i.i
+.thread35.i.i.i:                                  ; preds = %.noexc.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !5281
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7), !noalias !5271
-  br label %.loopexit37.i.i.i
+  br label %.loopexit40.i.i.i
 
 81:                                               ; preds = %.noexc.i.i.i
   %.sroa.04.0.copyload.i.i.i.i = load i64, ptr %76, align 8, !noalias !5281
@@ -26211,20 +26211,20 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 97:                                               ; preds = %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h45f932515845ba9fE.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !5284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %78, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.45.0..sroa_idx.i.i.i.i, i64 56, i1 false), !noalias !5281
-  %.sroa.6.8.copyload23.i.i.i = load i64, ptr %7, align 8, !noalias !5302
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx24.i.i.i, i64 72, i1 false), !noalias !5302
+  %.sroa.6.8.copyload26.i.i.i = load i64, ptr %7, align 8, !noalias !5302
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx27.i.i.i, i64 72, i1 false), !noalias !5302
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !5281
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7), !noalias !5271
-  %98 = icmp eq i64 %.sroa.6.8.copyload23.i.i.i, -9223372036854775808
-  br i1 %98, label %.loopexit37.i.i.i, label %99
+  %98 = icmp eq i64 %.sroa.6.8.copyload26.i.i.i, -9223372036854775808
+  br i1 %98, label %.loopexit40.i.i.i, label %99
 
-.loopexit37.i.i.i:                                ; preds = %97, %.thread32.i.i.i
+.loopexit40.i.i.i:                                ; preds = %97, %.thread35.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.10.i.i.i)
   invoke void @"_ZN4core3ptr607drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h79a4b8bf5d52cb53E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %75)
-          to label %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..6" unwind label %100, !noalias !5275
+          to label %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute19" unwind label %100, !noalias !5275
 
 99:                                               ; preds = %97
-  store i64 %.sroa.6.8.copyload23.i.i.i, ptr %10, align 8, !noalias !5271
+  store i64 %.sroa.6.8.copyload26.i.i.i, ptr %10, align 8, !noalias !5271
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.i.i.i, i64 72, i1 false), !noalias !5271
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !5271
   invoke fastcc void @"_ZN3exr5block6writer33ParallelBlocksCompressor$LT$W$GT$30add_block_to_compression_queue17hd45a469ece46dcccE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(136) %15, i64 noundef %.sroa.04.0.copyload.i.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %10)
@@ -26235,18 +26235,18 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   invoke void @"_ZN4core3ptr261drop_in_place$LT$exr..block..writer..ParallelBlocksCompressor$LT$exr..block..writer..OnProgressChunkWriter$LT$exr..block..writer..ChunkWriter$LT$$RF$mut$u20$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$C$fn$LP$f64$RP$$GT$$GT$$GT$17hd2d628cbed14bec1E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %15) #44
           to label %.body.i.i unwind label %107, !noalias !5275
 
-100:                                              ; preds = %106, %.loopexit37.i.i.i
+100:                                              ; preds = %106, %.loopexit40.i.i.i
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute.."
 
-"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..6": ; preds = %.loopexit37.i.i.i
+"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute19": ; preds = %.loopexit40.i.i.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11), !noalias !5271
   store i64 4, ptr %20, align 8, !alias.scope !5268, !noalias !5303
   invoke void @"_ZN4core3ptr261drop_in_place$LT$exr..block..writer..ParallelBlocksCompressor$LT$exr..block..writer..OnProgressChunkWriter$LT$exr..block..writer..ChunkWriter$LT$$RF$mut$u20$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$C$fn$LP$f64$RP$$GT$$GT$$GT$17hd2d628cbed14bec1E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %15)
-          to label %.thread41.i.i unwind label %58, !noalias !5264
+          to label %.thread39.i.i unwind label %58, !noalias !5264
 
-.thread41.i.i:                                    ; preds = %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..6"
+.thread39.i.i:                                    ; preds = %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute19"
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %15), !noalias !5271
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10), !noalias !5267
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %19), !noalias !5267
@@ -26270,14 +26270,14 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   store i64 %103, ptr %20, align 8, !alias.scope !5268, !noalias !5303
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.10.i.i.i)
   invoke void @"_ZN4core3ptr607drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h79a4b8bf5d52cb53E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %75)
-          to label %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..7" unwind label %100, !noalias !5275
+          to label %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute22" unwind label %100, !noalias !5275
 
-"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..7": ; preds = %106
+"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute22": ; preds = %106
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11), !noalias !5271
   invoke void @"_ZN4core3ptr261drop_in_place$LT$exr..block..writer..ParallelBlocksCompressor$LT$exr..block..writer..OnProgressChunkWriter$LT$exr..block..writer..ChunkWriter$LT$$RF$mut$u20$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$C$fn$LP$f64$RP$$GT$$GT$$GT$17hd2d628cbed14bec1E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %15)
           to label %.thread.i.i unwind label %58, !noalias !5264
 
-.thread.i.i:                                      ; preds = %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..7"
+.thread.i.i:                                      ; preds = %"_ZN4core3ptr1338drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute22"
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %15), !noalias !5271
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10), !noalias !5267
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %19), !noalias !5267
@@ -26292,7 +26292,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 109:                                              ; preds = %69
   %lpad.thr_comm.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr607drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h79a4b8bf5d52cb53E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %.sroa.738.0..sroa_idx39.i.i)
+  invoke void @"_ZN4core3ptr607drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h79a4b8bf5d52cb53E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %.sroa.736.0..sroa_idx37.i.i)
           to label %.body.i.i unwind label %107, !noalias !5304
 
 110:                                              ; preds = %68
@@ -26307,12 +26307,12 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 
 114:                                              ; preds = %110
   %.sroa.422.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %18, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.637.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.422.0..sroa_idx.i.i, i64 24, i1 false), !noalias !5305
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.635.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.422.0..sroa_idx.i.i, i64 24, i1 false), !noalias !5305
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !5267
   br label %145
 
 115:                                              ; preds = %177, %113
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.738.i.i)
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.736.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !5306)
   call void @llvm.experimental.noalias.scope.decl(metadata !5309)
   call void @llvm.experimental.noalias.scope.decl(metadata !5312)
@@ -26323,7 +26323,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 
 119:                                              ; preds = %115
   %120 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h16097df1ecbd8881E"(ptr noalias noundef nonnull align 8 dereferenceable(4288) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8554c8e21b8cbc9380508c54347b7519.94.llvm.9832446184049035033)
-          to label %.noexc.i unwind label %.body.thread45.i, !noalias !5317
+          to label %.noexc.i unwind label %.body.thread43.i, !noalias !5317
 
 .noexc.i:                                         ; preds = %119
   %121 = extractvalue { ptr, i64 } %120, 0
@@ -26333,7 +26333,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 123:                                              ; preds = %125, %.noexc.i
   %.0.i.i.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %127, %125 ]
   %124 = icmp eq i64 %.0.i.i.i.i.i.i, %122
-  br i1 %124, label %.thread48.i, label %125
+  br i1 %124, label %.thread46.i, label %125
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %121, i64 0, i64 %.0.i.i.i.i.i.i
@@ -26377,15 +26377,15 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %144 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %142, ptr %144, align 8, !noalias !5318
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$exr..meta..header..Header$GT$$GT$17h9f4fbd5a961d3b7eE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-          to label %.noexc33.i unwind label %.body.thread45.i, !noalias !5317
+          to label %.noexc31.i unwind label %.body.thread43.i, !noalias !5317
 
-.noexc33.i:                                       ; preds = %137
+.noexc31.i:                                       ; preds = %137
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !5318
-  br label %.thread48.i
+  br label %.thread46.i
 
 145:                                              ; preds = %178, %114
-  %.sroa.0.038.i = phi i64 [ %.pr54.i.i, %178 ], [ %111, %114 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.738.i.i)
+  %.sroa.0.036.i = phi i64 [ %.pr52.i.i, %178 ], [ %111, %114 ]
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.736.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !5319)
   call void @llvm.experimental.noalias.scope.decl(metadata !5322)
   call void @llvm.experimental.noalias.scope.decl(metadata !5325)
@@ -26396,27 +26396,27 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 
 149:                                              ; preds = %145
   %150 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h16097df1ecbd8881E"(ptr noalias noundef nonnull align 8 dereferenceable(4288) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8554c8e21b8cbc9380508c54347b7519.94.llvm.9832446184049035033)
-          to label %.noexc34.i unwind label %.body.thread45.i, !noalias !5317
+          to label %.noexc32.i unwind label %.body.thread43.i, !noalias !5317
 
-.noexc34.i:                                       ; preds = %149
+.noexc32.i:                                       ; preds = %149
   %151 = extractvalue { ptr, i64 } %150, 0
   %152 = extractvalue { ptr, i64 } %150, 1
   br label %153
 
-153:                                              ; preds = %155, %.noexc34.i
-  %.0.i.i.i.i32.i.i = phi i64 [ 0, %.noexc34.i ], [ %157, %155 ]
-  %154 = icmp eq i64 %.0.i.i.i.i32.i.i, %152
+153:                                              ; preds = %155, %.noexc32.i
+  %.0.i.i.i.i30.i.i = phi i64 [ 0, %.noexc32.i ], [ %157, %155 ]
+  %154 = icmp eq i64 %.0.i.i.i.i30.i.i, %152
   br i1 %154, label %182, label %155
 
 155:                                              ; preds = %153
-  %156 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %151, i64 0, i64 %.0.i.i.i.i32.i.i
-  %157 = add i64 %.0.i.i.i.i32.i.i, 1
+  %156 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %151, i64 0, i64 %.0.i.i.i.i30.i.i
+  %157 = add i64 %.0.i.i.i.i30.i.i, 1
   invoke void @"_ZN4core3ptr46drop_in_place$LT$exr..meta..header..Header$GT$17h4a22aa7ffa93e00fE"(ptr noalias noundef nonnull align 8 dereferenceable(1424) %156)
           to label %153 unwind label %160
 
 158:                                              ; preds = %162, %160
-  %.1.i.i.i.i33.i.i = phi i64 [ %157, %160 ], [ %164, %162 ]
-  %159 = icmp eq i64 %.1.i.i.i.i33.i.i, %152
+  %.1.i.i.i.i31.i.i = phi i64 [ %157, %160 ], [ %164, %162 ]
+  %159 = icmp eq i64 %.1.i.i.i.i31.i.i, %152
   br i1 %159, label %.body.thread.i, label %162
 
 160:                                              ; preds = %155
@@ -26425,8 +26425,8 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   br label %158
 
 162:                                              ; preds = %158
-  %163 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %151, i64 0, i64 %.1.i.i.i.i33.i.i
-  %164 = add i64 %.1.i.i.i.i33.i.i, 1
+  %163 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %151, i64 0, i64 %.1.i.i.i.i31.i.i
+  %164 = add i64 %.1.i.i.i.i31.i.i, 1
   invoke void @"_ZN4core3ptr46drop_in_place$LT$exr..meta..header..Header$GT$17h4a22aa7ffa93e00fE"(ptr noalias noundef nonnull align 8 dereferenceable(1424) %163) #44
           to label %158 unwind label %165
 
@@ -26450,14 +26450,14 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %174 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %172, ptr %174, align 8, !noalias !5329
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$exr..meta..header..Header$GT$$GT$17h9f4fbd5a961d3b7eE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %.thread50.i unwind label %.body.thread45.i, !noalias !5317
+          to label %.thread48.i unwind label %.body.thread43.i, !noalias !5317
 
-.thread50.i:                                      ; preds = %167
+.thread48.i:                                      ; preds = %167
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5329
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !5245
   call void @llvm.lifetime.end.p0(i64 4304, ptr nonnull %23), !noalias !5245
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24), !noalias !5245
-  br label %.noexc10
+  br label %.noexc8
 
 175:                                              ; preds = %73
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12), !noalias !5271
@@ -26470,14 +26470,14 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %176 = icmp eq i64 %.pr.pre.i.i, 4
   br i1 %176, label %177, label %178
 
-177:                                              ; preds = %175, %.thread41.i.i
+177:                                              ; preds = %175, %.thread39.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !5267
   br label %115
 
 178:                                              ; preds = %175, %.thread.i.i
-  %.pr54.i.i = phi i64 [ %103, %.thread.i.i ], [ %.pr.pre.i.i, %175 ]
+  %.pr52.i.i = phi i64 [ %103, %.thread.i.i ], [ %.pr.pre.i.i, %175 ]
   %.sroa.416.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.637.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.0..sroa_idx.i.i, i64 24, i1 false), !noalias !5305
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.635.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.0..sroa_idx.i.i, i64 24, i1 false), !noalias !5305
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !5267
   br label %145
 
@@ -26487,32 +26487,32 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #43, !noalias !5264
   unreachable
 
-181:                                              ; preds = %.noexc8
+181:                                              ; preds = %.noexc6
   call void @llvm.lifetime.end.p0(i64 4432, ptr nonnull %25), !noalias !5245
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !5330
   call void @llvm.lifetime.end.p0(i64 4392, ptr nonnull %.sroa.9.i)
   br label %186
 
-.body.thread45.i:                                 ; preds = %167, %149, %137, %119
+.body.thread43.i:                                 ; preds = %167, %149, %137, %119
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i
 
-.thread48.i:                                      ; preds = %123, %.noexc33.i
+.thread46.i:                                      ; preds = %123, %.noexc31.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !5245
   call void @llvm.lifetime.end.p0(i64 4304, ptr nonnull %23), !noalias !5245
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24), !noalias !5245
-  br label %.noexc9
+  br label %.noexc7
 
 182:                                              ; preds = %153
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !5245
   call void @llvm.lifetime.end.p0(i64 4304, ptr nonnull %23), !noalias !5245
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24), !noalias !5245
-  %183 = icmp eq i64 %.sroa.0.038.i, 4
-  br i1 %183, label %.noexc9, label %.noexc10
+  %183 = icmp eq i64 %.sroa.0.036.i, 4
+  br i1 %183, label %.noexc7, label %.noexc8
 
-.noexc9:                                          ; preds = %182, %.thread48.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.637.i)
+.noexc7:                                          ; preds = %182, %.thread46.i
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.635.i)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %22), !noalias !5245
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef nonnull align 8 dereferenceable(136) %26, i64 136, i1 false), !noalias !5245
   call fastcc void @"_ZN3exr5block6writer20ChunkWriter$LT$W$GT$18complete_meta_data17hdf15fa97aa600abeE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %22)
@@ -26520,18 +26520,18 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %26), !noalias !5245
   br label %186
 
-.noexc10:                                         ; preds = %182, %.thread50.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.217.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.637.i, i64 24, i1 false), !noalias !5245
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.637.i)
-  store i64 %.sroa.0.038.i, ptr %0, align 8, !alias.scope !5242, !noalias !5330
+.noexc8:                                          ; preds = %182, %.thread48.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.217.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.635.i, i64 24, i1 false), !noalias !5245
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.635.i)
+  store i64 %.sroa.0.036.i, ptr %0, align 8, !alias.scope !5242, !noalias !5330
   %.sroa.217.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.217.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.217.i, i64 24, i1 false), !noalias !5330
   call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8de955774efcecb2E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %26)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %26), !noalias !5245
   br label %186
 
-.body.thread.i:                                   ; preds = %158, %128, %.body.thread45.i, %.body.i.i
-  %eh.lpad-body43.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread45.i ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %131, %128 ], [ %161, %158 ]
+.body.thread.i:                                   ; preds = %158, %128, %.body.thread43.i, %.body.i.i
+  %eh.lpad-body41.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread43.i ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %131, %128 ], [ %161, %158 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8de955774efcecb2E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %26)
           to label %.body.thread unwind label %184, !noalias !5317
 
@@ -26541,7 +26541,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #43, !noalias !5317
   unreachable
 
-186:                                              ; preds = %.noexc10, %.noexc9, %181
+186:                                              ; preds = %.noexc8, %.noexc7, %181
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.217.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28)
@@ -26562,8 +26562,8 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   unreachable
 
 .body.thread:                                     ; preds = %.body.thread.i, %187
-  %eh.lpad-body14 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %187 ], [ %eh.lpad-body43.i, %.body.thread.i ]
-  resume { ptr, i32 } %eh.lpad-body14
+  %eh.lpad-body12 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %187 ], [ %eh.lpad-body41.i, %.body.thread.i ]
+  resume { ptr, i32 } %eh.lpad-body12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26587,12 +26587,12 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %19 = alloca { { ptr, ptr }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, align 8
   %20 = alloca { i64, [3 x i64] }, align 8
   %21 = alloca { ptr, ptr, i64 }, align 8
-  %.sroa.738.i.i = alloca { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } }, align 8
+  %.sroa.736.i.i = alloca { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } }, align 8
   %.sroa.217.i = alloca [3 x i64], align 8
   %22 = alloca { { { i64, [9 x i64] }, i64 }, { ptr, i64 }, i64, { i64, i64 }, i64 }, align 8
   %23 = alloca { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, ptr }, align 8
   %24 = alloca { { { ptr, { { { { i64, i8 }, { i64, i8 } }, { i64, i8 } }, { i64, i8 } } } }, { ptr, ptr, i8, i8, [6 x i8] } }, align 8
-  %.sroa.637.i = alloca [3 x i64], align 8
+  %.sroa.635.i = alloca [3 x i64], align 8
   %25 = alloca { i64, [553 x i64] }, align 8
   %.sroa.7.i = alloca [4 x i64], align 8
   %.sroa.9.i = alloca [549 x i64], align 8
@@ -26668,7 +26668,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %26), !noalias !5339
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %26, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.9.4296..sroa_idx.i, i64 136, i1 false), !noalias !5339
   call void @llvm.lifetime.end.p0(i64 4392, ptr nonnull %.sroa.9.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.637.i)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.635.i)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %24), !noalias !5339
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull readonly align 8 dereferenceable(96) %27, i64 96, i1 false), !noalias !5343
   store i64 %50, ptr %23, align 8, !noalias !5339
@@ -26677,12 +26677,12 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @llvm.experimental.noalias.scope.decl(metadata !5344)
   call void @llvm.experimental.noalias.scope.decl(metadata !5347)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !5339
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.738.i.i)
+  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.736.i.i)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %16), !noalias !5349
   invoke void @_ZN3exr4meta8MetaData38enumerate_ordered_header_block_indices17h70939567b76a8603E(ptr noalias nocapture noundef nonnull sret({ { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } }) align 8 dereferenceable(88) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(4296) %23)
           to label %57 unwind label %55, !noalias !5357
 
-55:                                               ; preds = %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..6", %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..5", %70, %65, %53
+55:                                               ; preds = %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute22", %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute19", %70, %65, %53
   %56 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -26693,7 +26693,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
           to label %.body.thread.i unwind label %176, !noalias !5358
 
 57:                                               ; preds = %53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.738.i.i, ptr noundef nonnull align 8 dereferenceable(88) %16, i64 88, i1 false), !noalias !5359
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.736.i.i, ptr noundef nonnull align 8 dereferenceable(88) %16, i64 88, i1 false), !noalias !5359
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16), !noalias !5349
   %58 = getelementptr inbounds i8, ptr %24, i64 80
   %59 = load ptr, ptr %58, align 8, !alias.scope !5344, !noalias !5360, !nonnull !4, !noundef !4
@@ -26713,8 +26713,8 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   store ptr %24, ptr %17, align 8, !noalias !5361
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %23, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !5361
-  %.sroa.738.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.738.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.738.i.i, i64 88, i1 false), !noalias !5361
+  %.sroa.736.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.736.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.736.i.i, i64 88, i1 false), !noalias !5361
   invoke fastcc void @_ZN3exr5block6writer12ChunksWriter30compress_all_blocks_sequential17h2715cb9294ab27b2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(4296) %23, ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %17)
           to label %107 unwind label %55, !noalias !5358
 
@@ -26722,10 +26722,10 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20), !noalias !5361
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %19), !noalias !5361
   store ptr %24, ptr %19, align 8, !noalias !5361
-  %.sroa.6.0..sroa_idx36.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr %23, ptr %.sroa.6.0..sroa_idx36.i.i, align 8, !noalias !5361
-  %.sroa.738.0..sroa_idx39.i.i = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.738.0..sroa_idx39.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.738.i.i, i64 88, i1 false), !noalias !5361
+  %.sroa.6.0..sroa_idx34.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %23, ptr %.sroa.6.0..sroa_idx34.i.i, align 8, !noalias !5361
+  %.sroa.736.0..sroa_idx37.i.i = getelementptr inbounds i8, ptr %19, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.736.0..sroa_idx37.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.736.i.i, i64 88, i1 false), !noalias !5361
   call void @llvm.experimental.noalias.scope.decl(metadata !5362)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10), !noalias !5361
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %15), !noalias !5365
@@ -26756,7 +26756,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %.sroa.45.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %74 = getelementptr inbounds i8, ptr %11, i64 8
   %75 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sroa.10.8..sroa_idx24.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.10.8..sroa_idx27.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.10.8..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   br label %76
 
@@ -26771,12 +26771,12 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 .noexc.i.i.i:                                     ; preds = %76
   %77 = load i64, ptr %8, align 8, !range !19, !noalias !5375, !noundef !4
   %trunc.i.i.i.i = trunc nuw i64 %77 to i1
-  br i1 %trunc.i.i.i.i, label %78, label %.thread32.i.i.i
+  br i1 %trunc.i.i.i.i, label %78, label %.thread35.i.i.i
 
-.thread32.i.i.i:                                  ; preds = %.noexc.i.i.i
+.thread35.i.i.i:                                  ; preds = %.noexc.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !5375
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7), !noalias !5365
-  br label %.loopexit37.i.i.i
+  br label %.loopexit40.i.i.i
 
 78:                                               ; preds = %.noexc.i.i.i
   %.sroa.04.0.copyload.i.i.i.i = load i64, ptr %73, align 8, !noalias !5375
@@ -26840,20 +26840,20 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 94:                                               ; preds = %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h818f1ca6d74440ceE.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !5378
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.45.0..sroa_idx.i.i.i.i, i64 56, i1 false), !noalias !5375
-  %.sroa.6.8.copyload23.i.i.i = load i64, ptr %7, align 8, !noalias !5396
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx24.i.i.i, i64 72, i1 false), !noalias !5396
+  %.sroa.6.8.copyload26.i.i.i = load i64, ptr %7, align 8, !noalias !5396
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx27.i.i.i, i64 72, i1 false), !noalias !5396
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !5375
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7), !noalias !5365
-  %95 = icmp eq i64 %.sroa.6.8.copyload23.i.i.i, -9223372036854775808
-  br i1 %95, label %.loopexit37.i.i.i, label %96
+  %95 = icmp eq i64 %.sroa.6.8.copyload26.i.i.i, -9223372036854775808
+  br i1 %95, label %.loopexit40.i.i.i, label %96
 
-.loopexit37.i.i.i:                                ; preds = %94, %.thread32.i.i.i
+.loopexit40.i.i.i:                                ; preds = %94, %.thread35.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.10.i.i.i)
   invoke void @"_ZN4core3ptr607drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h79a4b8bf5d52cb53E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %72)
-          to label %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..5" unwind label %97, !noalias !5369
+          to label %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute19" unwind label %97, !noalias !5369
 
 96:                                               ; preds = %94
-  store i64 %.sroa.6.8.copyload23.i.i.i, ptr %10, align 8, !noalias !5365
+  store i64 %.sroa.6.8.copyload26.i.i.i, ptr %10, align 8, !noalias !5365
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.8..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10.i.i.i, i64 72, i1 false), !noalias !5365
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !5365
   invoke fastcc void @"_ZN3exr5block6writer33ParallelBlocksCompressor$LT$W$GT$30add_block_to_compression_queue17hd45a469ece46dcccE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(136) %15, i64 noundef %.sroa.04.0.copyload.i.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %10)
@@ -26864,18 +26864,18 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   invoke void @"_ZN4core3ptr261drop_in_place$LT$exr..block..writer..ParallelBlocksCompressor$LT$exr..block..writer..OnProgressChunkWriter$LT$exr..block..writer..ChunkWriter$LT$$RF$mut$u20$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$C$fn$LP$f64$RP$$GT$$GT$$GT$17hd2d628cbed14bec1E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %15) #44
           to label %.body.i.i unwind label %104, !noalias !5369
 
-97:                                               ; preds = %103, %.loopexit37.i.i.i
+97:                                               ; preds = %103, %.loopexit40.i.i.i
   %98 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute.."
 
-"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..5": ; preds = %.loopexit37.i.i.i
+"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute19": ; preds = %.loopexit40.i.i.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11), !noalias !5365
   store i64 4, ptr %20, align 8, !alias.scope !5362, !noalias !5397
   invoke void @"_ZN4core3ptr261drop_in_place$LT$exr..block..writer..ParallelBlocksCompressor$LT$exr..block..writer..OnProgressChunkWriter$LT$exr..block..writer..ChunkWriter$LT$$RF$mut$u20$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$C$fn$LP$f64$RP$$GT$$GT$$GT$17hd2d628cbed14bec1E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %15)
-          to label %.thread41.i.i unwind label %55, !noalias !5358
+          to label %.thread39.i.i unwind label %55, !noalias !5358
 
-.thread41.i.i:                                    ; preds = %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..5"
+.thread39.i.i:                                    ; preds = %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute19"
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %15), !noalias !5365
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10), !noalias !5361
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %19), !noalias !5361
@@ -26899,14 +26899,14 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   store i64 %100, ptr %20, align 8, !alias.scope !5362, !noalias !5397
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.10.i.i.i)
   invoke void @"_ZN4core3ptr607drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h79a4b8bf5d52cb53E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %72)
-          to label %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..6" unwind label %97, !noalias !5369
+          to label %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute22" unwind label %97, !noalias !5369
 
-"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..6": ; preds = %103
+"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute22": ; preds = %103
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11), !noalias !5365
   invoke void @"_ZN4core3ptr261drop_in_place$LT$exr..block..writer..ParallelBlocksCompressor$LT$exr..block..writer..OnProgressChunkWriter$LT$exr..block..writer..ChunkWriter$LT$$RF$mut$u20$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$C$fn$LP$f64$RP$$GT$$GT$$GT$17hd2d628cbed14bec1E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %15)
           to label %.thread.i.i unwind label %55, !noalias !5358
 
-.thread.i.i:                                      ; preds = %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute..6"
+.thread.i.i:                                      ; preds = %"_ZN4core3ptr1381drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$exr..meta..MetaData..collect_ordered_blocks$LT$exr..meta..MetaData..collect_ordered_block_data$LT$exr..image..write..WriteImageWithOptions$LT$exr..image..Layer$LT$exr..image..SpecificChannels$LT$image..codecs..openexr..write_buffer$LT$$RF$mut$u20$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$exr..meta..attribute..ChannelDescription$C$exr..meta..attribute22"
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %15), !noalias !5365
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10), !noalias !5361
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %19), !noalias !5361
@@ -26921,7 +26921,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 106:                                              ; preds = %66
   %lpad.thr_comm.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr607drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h79a4b8bf5d52cb53E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %.sroa.738.0..sroa_idx39.i.i)
+  invoke void @"_ZN4core3ptr607drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$exr..meta..header..Header$GT$$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$usize$C$exr..meta..TileIndices$RP$$u2b$core..marker..Send$GT$$C$exr..block..enumerate_ordered_header_block_indices..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h79a4b8bf5d52cb53E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %.sroa.736.0..sroa_idx37.i.i)
           to label %.body.i.i unwind label %104, !noalias !5398
 
 107:                                              ; preds = %65
@@ -26936,12 +26936,12 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 
 111:                                              ; preds = %107
   %.sroa.422.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %18, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.637.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.422.0..sroa_idx.i.i, i64 24, i1 false), !noalias !5399
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.635.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.422.0..sroa_idx.i.i, i64 24, i1 false), !noalias !5399
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !5361
   br label %142
 
 112:                                              ; preds = %174, %110
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.738.i.i)
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.736.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !5400)
   call void @llvm.experimental.noalias.scope.decl(metadata !5403)
   call void @llvm.experimental.noalias.scope.decl(metadata !5406)
@@ -26952,7 +26952,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 
 116:                                              ; preds = %112
   %117 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h16097df1ecbd8881E"(ptr noalias noundef nonnull align 8 dereferenceable(4288) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8554c8e21b8cbc9380508c54347b7519.94.llvm.9832446184049035033)
-          to label %.noexc.i unwind label %.body.thread45.i, !noalias !5411
+          to label %.noexc.i unwind label %.body.thread43.i, !noalias !5411
 
 .noexc.i:                                         ; preds = %116
   %118 = extractvalue { ptr, i64 } %117, 0
@@ -26962,7 +26962,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 120:                                              ; preds = %122, %.noexc.i
   %.0.i.i.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %124, %122 ]
   %121 = icmp eq i64 %.0.i.i.i.i.i.i, %119
-  br i1 %121, label %.thread48.i, label %122
+  br i1 %121, label %.thread46.i, label %122
 
 122:                                              ; preds = %120
   %123 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %118, i64 0, i64 %.0.i.i.i.i.i.i
@@ -27006,15 +27006,15 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %141 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %139, ptr %141, align 8, !noalias !5412
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$exr..meta..header..Header$GT$$GT$17h9f4fbd5a961d3b7eE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-          to label %.noexc33.i unwind label %.body.thread45.i, !noalias !5411
+          to label %.noexc31.i unwind label %.body.thread43.i, !noalias !5411
 
-.noexc33.i:                                       ; preds = %134
+.noexc31.i:                                       ; preds = %134
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !5412
-  br label %.thread48.i
+  br label %.thread46.i
 
 142:                                              ; preds = %175, %111
-  %.sroa.0.038.i = phi i64 [ %.pr54.i.i, %175 ], [ %108, %111 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.738.i.i)
+  %.sroa.0.036.i = phi i64 [ %.pr52.i.i, %175 ], [ %108, %111 ]
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.736.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !5413)
   call void @llvm.experimental.noalias.scope.decl(metadata !5416)
   call void @llvm.experimental.noalias.scope.decl(metadata !5419)
@@ -27025,27 +27025,27 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 
 146:                                              ; preds = %142
   %147 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h16097df1ecbd8881E"(ptr noalias noundef nonnull align 8 dereferenceable(4288) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8554c8e21b8cbc9380508c54347b7519.94.llvm.9832446184049035033)
-          to label %.noexc34.i unwind label %.body.thread45.i, !noalias !5411
+          to label %.noexc32.i unwind label %.body.thread43.i, !noalias !5411
 
-.noexc34.i:                                       ; preds = %146
+.noexc32.i:                                       ; preds = %146
   %148 = extractvalue { ptr, i64 } %147, 0
   %149 = extractvalue { ptr, i64 } %147, 1
   br label %150
 
-150:                                              ; preds = %152, %.noexc34.i
-  %.0.i.i.i.i32.i.i = phi i64 [ 0, %.noexc34.i ], [ %154, %152 ]
-  %151 = icmp eq i64 %.0.i.i.i.i32.i.i, %149
+150:                                              ; preds = %152, %.noexc32.i
+  %.0.i.i.i.i30.i.i = phi i64 [ 0, %.noexc32.i ], [ %154, %152 ]
+  %151 = icmp eq i64 %.0.i.i.i.i30.i.i, %149
   br i1 %151, label %179, label %152
 
 152:                                              ; preds = %150
-  %153 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %148, i64 0, i64 %.0.i.i.i.i32.i.i
-  %154 = add i64 %.0.i.i.i.i32.i.i, 1
+  %153 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %148, i64 0, i64 %.0.i.i.i.i30.i.i
+  %154 = add i64 %.0.i.i.i.i30.i.i, 1
   invoke void @"_ZN4core3ptr46drop_in_place$LT$exr..meta..header..Header$GT$17h4a22aa7ffa93e00fE"(ptr noalias noundef nonnull align 8 dereferenceable(1424) %153)
           to label %150 unwind label %157
 
 155:                                              ; preds = %159, %157
-  %.1.i.i.i.i33.i.i = phi i64 [ %154, %157 ], [ %161, %159 ]
-  %156 = icmp eq i64 %.1.i.i.i.i33.i.i, %149
+  %.1.i.i.i.i31.i.i = phi i64 [ %154, %157 ], [ %161, %159 ]
+  %156 = icmp eq i64 %.1.i.i.i.i31.i.i, %149
   br i1 %156, label %.body.thread.i, label %159
 
 157:                                              ; preds = %152
@@ -27054,8 +27054,8 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   br label %155
 
 159:                                              ; preds = %155
-  %160 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %148, i64 0, i64 %.1.i.i.i.i33.i.i
-  %161 = add i64 %.1.i.i.i.i33.i.i, 1
+  %160 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %148, i64 0, i64 %.1.i.i.i.i31.i.i
+  %161 = add i64 %.1.i.i.i.i31.i.i, 1
   invoke void @"_ZN4core3ptr46drop_in_place$LT$exr..meta..header..Header$GT$17h4a22aa7ffa93e00fE"(ptr noalias noundef nonnull align 8 dereferenceable(1424) %160) #44
           to label %155 unwind label %162
 
@@ -27079,14 +27079,14 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %171 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %169, ptr %171, align 8, !noalias !5423
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$exr..meta..header..Header$GT$$GT$17h9f4fbd5a961d3b7eE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %.thread50.i unwind label %.body.thread45.i, !noalias !5411
+          to label %.thread48.i unwind label %.body.thread43.i, !noalias !5411
 
-.thread50.i:                                      ; preds = %164
+.thread48.i:                                      ; preds = %164
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5423
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !5339
   call void @llvm.lifetime.end.p0(i64 4304, ptr nonnull %23), !noalias !5339
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24), !noalias !5339
-  br label %.noexc8
+  br label %.noexc6
 
 172:                                              ; preds = %70
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12), !noalias !5365
@@ -27099,14 +27099,14 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   %173 = icmp eq i64 %.pr.pre.i.i, 4
   br i1 %173, label %174, label %175
 
-174:                                              ; preds = %172, %.thread41.i.i
+174:                                              ; preds = %172, %.thread39.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !5361
   br label %112
 
 175:                                              ; preds = %172, %.thread.i.i
-  %.pr54.i.i = phi i64 [ %100, %.thread.i.i ], [ %.pr.pre.i.i, %172 ]
+  %.pr52.i.i = phi i64 [ %100, %.thread.i.i ], [ %.pr.pre.i.i, %172 ]
   %.sroa.416.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.637.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.0..sroa_idx.i.i, i64 24, i1 false), !noalias !5399
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.635.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.0..sroa_idx.i.i, i64 24, i1 false), !noalias !5399
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !5361
   br label %142
 
@@ -27122,26 +27122,26 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @llvm.lifetime.end.p0(i64 4392, ptr nonnull %.sroa.9.i)
   br label %183
 
-.body.thread45.i:                                 ; preds = %164, %146, %134, %116
+.body.thread43.i:                                 ; preds = %164, %146, %134, %116
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i
 
-.thread48.i:                                      ; preds = %120, %.noexc33.i
+.thread46.i:                                      ; preds = %120, %.noexc31.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !5339
   call void @llvm.lifetime.end.p0(i64 4304, ptr nonnull %23), !noalias !5339
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24), !noalias !5339
-  br label %.noexc7
+  br label %.noexc5
 
 179:                                              ; preds = %150
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !5339
   call void @llvm.lifetime.end.p0(i64 4304, ptr nonnull %23), !noalias !5339
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24), !noalias !5339
-  %180 = icmp eq i64 %.sroa.0.038.i, 4
-  br i1 %180, label %.noexc7, label %.noexc8
+  %180 = icmp eq i64 %.sroa.0.036.i, 4
+  br i1 %180, label %.noexc5, label %.noexc6
 
-.noexc7:                                          ; preds = %179, %.thread48.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.637.i)
+.noexc5:                                          ; preds = %179, %.thread46.i
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.635.i)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %22), !noalias !5339
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef nonnull align 8 dereferenceable(136) %26, i64 136, i1 false), !noalias !5339
   call fastcc void @"_ZN3exr5block6writer20ChunkWriter$LT$W$GT$18complete_meta_data17hdf15fa97aa600abeE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %22)
@@ -27149,18 +27149,18 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %26), !noalias !5339
   br label %183
 
-.noexc8:                                          ; preds = %179, %.thread50.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.217.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.637.i, i64 24, i1 false), !noalias !5339
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.637.i)
-  store i64 %.sroa.0.038.i, ptr %0, align 8, !alias.scope !5336, !noalias !5424
+.noexc6:                                          ; preds = %179, %.thread48.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.217.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.635.i, i64 24, i1 false), !noalias !5339
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.635.i)
+  store i64 %.sroa.0.036.i, ptr %0, align 8, !alias.scope !5336, !noalias !5424
   %.sroa.217.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.217.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.217.i, i64 24, i1 false), !noalias !5424
   call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8de955774efcecb2E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %26)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %26), !noalias !5339
   br label %183
 
-.body.thread.i:                                   ; preds = %155, %125, %.body.thread45.i, %.body.i.i
-  %eh.lpad-body43.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread45.i ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %128, %125 ], [ %158, %155 ]
+.body.thread.i:                                   ; preds = %155, %125, %.body.thread43.i, %.body.i.i
+  %eh.lpad-body41.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread43.i ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %128, %125 ], [ %158, %155 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8de955774efcecb2E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(88) %26)
           to label %.body.thread unwind label %181, !noalias !5411
 
@@ -27170,7 +27170,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #43, !noalias !5411
   unreachable
 
-183:                                              ; preds = %.noexc8, %.noexc7, %178
+183:                                              ; preds = %.noexc6, %.noexc5, %178
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.217.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %27)
@@ -27192,8 +27192,8 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
   unreachable
 
 .body.thread:                                     ; preds = %.body.thread.i, %184
-  %eh.lpad-body11 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %184 ], [ %eh.lpad-body43.i, %.body.thread.i ]
-  resume { ptr, i32 } %eh.lpad-body11
+  %eh.lpad-body9 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %184 ], [ %eh.lpad-body41.i, %.body.thread.i ]
+  resume { ptr, i32 } %eh.lpad-body9
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

@@ -67997,7 +67997,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61), !noalias !13985
   store i128 %79, ptr %61, align 16, !noalias !13985
   invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h5d5e5799fb700214E.llvm.13383457361836014260"(ptr noalias noundef nonnull align 8 dereferenceable(72) %62, ptr noalias noundef nonnull readonly align 1 %61, i64 noundef 16)
-          to label %.noexc50 unwind label %.thread265.loopexit.split-lp
+          to label %.noexc50 unwind label %.thread266.loopexit.split-lp
 
 .noexc50:                                         ; preds = %95
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61), !noalias !13985
@@ -68015,7 +68015,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %109 = xor i64 %108, %106
   store i64 %109, ptr %107, align 8, !noalias !14000
   invoke void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8c_rounds17h335b7146b8b370bdE.llvm.13383457361836014260"(ptr noalias noundef nonnull align 8 dereferenceable(32) %60)
-          to label %.noexc51 unwind label %.thread265.loopexit.split-lp
+          to label %.noexc51 unwind label %.thread266.loopexit.split-lp
 
 .noexc51:                                         ; preds = %.noexc50
   %110 = load <2 x i64>, ptr %60, align 16, !noalias !14000
@@ -68023,7 +68023,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %112 = xor <2 x i64> %110, %111
   store <2 x i64> %112, ptr %60, align 16, !noalias !14000
   invoke void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8d_rounds17hb9c1f1437bde9803E.llvm.13383457361836014260"(ptr noalias noundef nonnull align 8 dereferenceable(32) %60)
-          to label %.noexc52 unwind label %.thread265.loopexit.split-lp
+          to label %.noexc52 unwind label %.thread266.loopexit.split-lp
 
 .noexc52:                                         ; preds = %.noexc51
   %113 = load <4 x i64>, ptr %60, align 16, !noalias !14000
@@ -68120,7 +68120,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %158 = getelementptr inbounds i8, ptr %156, i64 -320
   %159 = getelementptr inbounds i8, ptr %156, i64 -288
   %160 = invoke fastcc noundef zeroext i1 @"_ZN72_$LT$comemo..track..Tracked$LT$T$GT$$u20$as$u20$comemo..input..Input$GT$8validate17h0fe0a080474df773E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 %159)
-          to label %.noexc53 unwind label %.thread265.loopexit
+          to label %.noexc53 unwind label %.thread266.loopexit
 
 .noexc53:                                         ; preds = %155
   br i1 %160, label %161, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hc0bb51b4226dc88bE.exit.i.i"
@@ -68128,7 +68128,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 161:                                              ; preds = %.noexc53
   %162 = getelementptr inbounds i8, ptr %156, i64 -232
   %163 = invoke fastcc noundef zeroext i1 @"_ZN72_$LT$comemo..track..Tracked$LT$T$GT$$u20$as$u20$comemo..input..Input$GT$8validate17h96b62aaee2c3bdddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %146, ptr noundef nonnull align 8 %162)
-          to label %.noexc54 unwind label %.thread265.loopexit
+          to label %.noexc54 unwind label %.thread266.loopexit
 
 .noexc54:                                         ; preds = %161
   br i1 %163, label %164, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hc0bb51b4226dc88bE.exit.i.i"
@@ -68136,7 +68136,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 164:                                              ; preds = %.noexc54
   %165 = getelementptr inbounds i8, ptr %156, i64 -176
   %166 = invoke fastcc noundef zeroext i1 @"_ZN72_$LT$comemo..track..Tracked$LT$T$GT$$u20$as$u20$comemo..input..Input$GT$8validate17h790d02fcd211e22cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %147, ptr noundef nonnull align 8 %165)
-          to label %.noexc55 unwind label %.thread265.loopexit
+          to label %.noexc55 unwind label %.thread266.loopexit
 
 .noexc55:                                         ; preds = %164
   br i1 %166, label %167, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hc0bb51b4226dc88bE.exit.i.i"
@@ -68144,14 +68144,14 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 167:                                              ; preds = %.noexc55
   %168 = getelementptr inbounds i8, ptr %156, i64 -120
   %169 = invoke fastcc noundef zeroext i1 @"_ZN72_$LT$comemo..track..Tracked$LT$T$GT$$u20$as$u20$comemo..input..Input$GT$8validate17he8fba32b9379126fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %148, ptr noundef nonnull align 8 %168)
-          to label %.noexc56 unwind label %.thread265.loopexit
+          to label %.noexc56 unwind label %.thread266.loopexit
 
 .noexc56:                                         ; preds = %167
   br i1 %169, label %170, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hc0bb51b4226dc88bE.exit.i.i"
 
 170:                                              ; preds = %.noexc56
   %171 = invoke fastcc noundef zeroext i1 @"_ZN75_$LT$comemo..track..TrackedMut$LT$T$GT$$u20$as$u20$comemo..input..Input$GT$8validate17hda58bb8cf706a266E"(ptr nonnull %.val.i.i.i.i.i.i, ptr noundef nonnull align 8 %158)
-          to label %.noexc57 unwind label %.thread265.loopexit
+          to label %.noexc57 unwind label %.thread266.loopexit
 
 .noexc57:                                         ; preds = %170
   br i1 %171, label %172, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hc0bb51b4226dc88bE.exit.i.i"
@@ -68176,7 +68176,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E.exit.i.i.i.i.i.i.i.i.i, %177, %172
   %182 = invoke noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock16lock_shared_slow17hf932928bd3b28915E(ptr noundef nonnull align 8 %173, i1 noundef zeroext false, i64 undef, i32 noundef 1000000000)
-          to label %.noexc58 unwind label %.thread265.loopexit
+          to label %.noexc58 unwind label %.thread266.loopexit
 
 .noexc58:                                         ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E.exit.thread.i.i.i.i.i.i.i.i.i, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E.exit.i.i.i.i.i.i.i.i.i
   %183 = invoke { ptr, ptr } @_ZN6comemo10accelerate3get17he26a47592d37f2c6E(i64 noundef %153)
@@ -68188,11 +68188,11 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %186 = atomicrmw sub ptr %173, i64 16 release, align 8, !noalias !14038
   %187 = and i64 %186, -14
   %188 = icmp eq i64 %187, 18
-  br i1 %188, label %189, label %.thread253
+  br i1 %188, label %189, label %.thread254
 
 189:                                              ; preds = %184
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hd3ffab90b943f315E(ptr noundef nonnull align 8 %173)
-          to label %.thread253 unwind label %289, !noalias !14049
+          to label %.thread254 unwind label %289, !noalias !14049
 
 190:                                              ; preds = %.noexc58
   %191 = extractvalue { ptr, ptr } %183, 0
@@ -68484,7 +68484,7 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
   %315 = phi ptr [ %191, %316 ], [ %280, %284 ], [ %280, %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$u128$C$u128$GT$$GT$$GT$$GT$17h50dbb0137f54f74eE.exit.i.i.i.i.i.i.i.i.i" ]
   %.3.i.i.i.i.i.i.i.i.i = phi i8 [ %.2.i.i.i.i.i.i.i.i.i, %316 ], [ %.09.i.i.i.i.i.i.i.i.i, %284 ], [ %.09.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$u128$C$u128$GT$$GT$$GT$$GT$17h50dbb0137f54f74eE.exit.i.i.i.i.i.i.i.i.i" ]
   %.pn13.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %317, %316 ], [ %.pn11.i.i.i.i.i.i.i.i.i, %284 ], [ %.pn11.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$u128$C$u128$GT$$GT$$GT$$GT$17h50dbb0137f54f74eE.exit.i.i.i.i.i.i.i.i.i" ]
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.thread253, label %325
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.thread254, label %325
 
 316:                                              ; preds = %288
   %317 = landingpad { ptr, i32 }
@@ -68506,24 +68506,24 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
 
 324:                                              ; preds = %320
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hd3ffab90b943f315E(ptr noundef nonnull align 8 %191)
-          to label %.noexc59 unwind label %.thread265.loopexit
+          to label %.noexc59 unwind label %.thread266.loopexit
 
 .noexc59:                                         ; preds = %324
   br i1 %.0.in.i.i.i.i.i.i.i.i.i, label %333, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hc0bb51b4226dc88bE.exit.i.i"
 
 325:                                              ; preds = %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..constraint..EntryMap$LT$typst..foundations..context.._..__ComemoCall$GT$$GT$$GT$17h3d81bd3a392e6ef8E.exit47.i.i.i.i.i.i.i.i.i"
   %326 = trunc nuw i8 %.3.i.i.i.i.i.i.i.i.i to i1
-  br i1 %326, label %327, label %.thread253
+  br i1 %326, label %327, label %.thread254
 
 327:                                              ; preds = %325
   %328 = atomicrmw sub ptr %315, i64 16 release, align 8
   %329 = and i64 %328, -14
   %330 = icmp eq i64 %329, 18
-  br i1 %330, label %331, label %.thread253
+  br i1 %330, label %331, label %.thread254
 
 331:                                              ; preds = %327
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hd3ffab90b943f315E(ptr noundef nonnull align 8 %315)
-          to label %.thread253 unwind label %289
+          to label %.thread254 unwind label %289
 
 "_ZN109_$LT$comemo..input..Args$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$RP$$GT$$u20$as$u20$comemo..input..Input$GT$8validate17hef00e3fa810143c9E.exit.i.i.i.i.i": ; preds = %320, %318, %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..constraint..EntryMap$LT$typst..foundations..context.._..__ComemoCall$GT$$GT$$GT$17h3d81bd3a392e6ef8E.exit49.i.i.i.i.i.i.i.i.i"
   br i1 %.0.in.i.i.i.i.i.i.i.i.i, label %333, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hc0bb51b4226dc88bE.exit.i.i"
@@ -68532,18 +68532,18 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
   %332 = icmp eq ptr %140, %157
   br i1 %332, label %.loopexit, label %155
 
-.thread265.loopexit:                              ; preds = %324, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E.exit.thread.i.i.i.i.i.i.i.i.i, %170, %167, %164, %161, %155
+.thread266.loopexit:                              ; preds = %324, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E.exit.thread.i.i.i.i.i.i.i.i.i, %170, %167, %164, %161, %155
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %.thread253
+  br label %.thread254
 
-.thread265.loopexit.split-lp:                     ; preds = %376, %368, %364, %333, %.noexc51, %.noexc50, %95
+.thread266.loopexit.split-lp:                     ; preds = %376, %368, %364, %333, %.noexc51, %.noexc50, %95
   %.2.ph.ph = phi i1 [ true, %95 ], [ true, %.noexc50 ], [ true, %.noexc51 ], [ true, %333 ], [ false, %364 ], [ false, %368 ], [ false, %376 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread253
+  br label %.thread254
 
-"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit160.thread": ; preds = %338
+"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit161.thread": ; preds = %338
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %979
@@ -68552,7 +68552,7 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
   %334 = getelementptr inbounds i8, ptr %156, i64 -8
   store atomic i64 0, ptr %334 seq_cst, align 8, !noalias !14116
   invoke fastcc void @"_ZN75_$LT$comemo..track..TrackedMut$LT$T$GT$$u20$as$u20$comemo..input..Input$GT$6replay17hfa1f284b36815d31E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %149, ptr noundef nonnull align 8 %158)
-          to label %339 unwind label %.thread265.loopexit.split-lp
+          to label %339 unwind label %.thread266.loopexit.split-lp
 
 .loopexit:                                        ; preds = %122, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hc0bb51b4226dc88bE.exit.i.i", %90, %137
   %335 = atomicrmw sub ptr %80, i64 16 release, align 8
@@ -68562,7 +68562,7 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
 
 338:                                              ; preds = %.loopexit
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hd3ffab90b943f315E(ptr noundef nonnull align 8 %80)
-          to label %385 unwind label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit160.thread"
+          to label %385 unwind label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit161.thread"
 
 339:                                              ; preds = %333
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %68)
@@ -68571,8 +68571,8 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0.copyload = load ptr, ptr %146, align 8
-  %.sroa.10.0..sroa_idx163 = getelementptr inbounds i8, ptr %1, i64 56
-  %.sroa.10.0.copyload = load ptr, ptr %.sroa.10.0..sroa_idx163, align 8
+  %.sroa.10.0..sroa_idx164 = getelementptr inbounds i8, ptr %1, i64 56
+  %.sroa.10.0.copyload = load ptr, ptr %.sroa.10.0..sroa_idx164, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 64
   %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0.copyload = load ptr, ptr %147, align 8
@@ -68678,14 +68678,14 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
           cleanup
   %363 = getelementptr inbounds i8, ptr %68, i64 168
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h38dcb05e7e53488bE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(16) %363)
-          to label %.thread253 unwind label %383
+          to label %.thread254 unwind label %383
 
 364:                                              ; preds = %339
   %365 = getelementptr inbounds i8, ptr %68, i64 168
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h38dcb05e7e53488bE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(16) %365)
-          to label %"_ZN4core3ptr1856drop_in_place$LT$$LP$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableConstraint$LT$typst..fo64" unwind label %.thread265.loopexit.split-lp
+          to label %"_ZN4core3ptr1856drop_in_place$LT$$LP$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableConstraint$LT$typst..65" unwind label %.thread266.loopexit.split-lp
 
-"_ZN4core3ptr1856drop_in_place$LT$$LP$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableConstraint$LT$typst..fo64": ; preds = %364
+"_ZN4core3ptr1856drop_in_place$LT$$LP$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableConstraint$LT$typst..65": ; preds = %364
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %68)
   call void @llvm.experimental.noalias.scope.decl(metadata !14122)
   call void @llvm.experimental.noalias.scope.decl(metadata !14125)
@@ -68693,106 +68693,106 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
   %367 = icmp eq i8 %366, 30
   br i1 %367, label %369, label %368
 
-368:                                              ; preds = %"_ZN4core3ptr1856drop_in_place$LT$$LP$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableConstraint$LT$typst..fo64"
+368:                                              ; preds = %"_ZN4core3ptr1856drop_in_place$LT$$LP$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableConstraint$LT$typst..65"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56), !noalias !14127
   invoke fastcc void @"_ZN71_$LT$typst..foundations..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17ha48c16cb206e134aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %56, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %157)
-          to label %.noexc67 unwind label %.thread265.loopexit.split-lp
+          to label %.noexc68 unwind label %.thread266.loopexit.split-lp
 
-.noexc67:                                         ; preds = %368
+.noexc68:                                         ; preds = %368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 32, i1 false), !noalias !14125
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56), !noalias !14127
   br label %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit"
 
-369:                                              ; preds = %"_ZN4core3ptr1856drop_in_place$LT$$LP$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableConstraint$LT$typst..fo64"
+369:                                              ; preds = %"_ZN4core3ptr1856drop_in_place$LT$$LP$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableConstraint$LT$typst..65"
   %370 = getelementptr inbounds i8, ptr %156, i64 -344
-  %.val.i65 = load ptr, ptr %370, align 8, !alias.scope !14125, !noalias !14122, !nonnull !9, !noundef !9
+  %.val.i66 = load ptr, ptr %370, align 8, !alias.scope !14125, !noalias !14122, !nonnull !9, !noundef !9
   %371 = getelementptr inbounds i8, ptr %156, i64 -336
-  %.val1.i66 = load i64, ptr %371, align 8, !alias.scope !14125, !noalias !14122
-  %.not.i.i = icmp eq ptr %.val.i65, inttoptr (i64 16 to ptr)
+  %.val1.i67 = load i64, ptr %371, align 8, !alias.scope !14125, !noalias !14122
+  %.not.i.i = icmp eq ptr %.val.i66, inttoptr (i64 16 to ptr)
   br i1 %.not.i.i, label %"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i", label %372
 
 372:                                              ; preds = %369
-  %373 = getelementptr inbounds i8, ptr %.val.i65, i64 -16
+  %373 = getelementptr inbounds i8, ptr %.val.i66, i64 -16
   %374 = atomicrmw add ptr %373, i64 1 monotonic, align 8, !noalias !14127
   %375 = icmp slt i64 %374, 0
   br i1 %375, label %376, label %"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i"
 
 376:                                              ; preds = %372
-  invoke void @_ZN4ecow3vec18ref_count_overflow17h5bf1cdbba85cb289E(ptr noundef nonnull %.val.i65, i64 noundef %.val1.i66) #61
-          to label %.noexc68 unwind label %.thread265.loopexit.split-lp
+  invoke void @_ZN4ecow3vec18ref_count_overflow17h5bf1cdbba85cb289E(ptr noundef nonnull %.val.i66, i64 noundef %.val1.i67) #61
+          to label %.noexc69 unwind label %.thread266.loopexit.split-lp
 
-.noexc68:                                         ; preds = %376
+.noexc69:                                         ; preds = %376
   unreachable
 
 "_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i": ; preds = %372, %369
   %377 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.val.i65, ptr %377, align 8, !alias.scope !14122, !noalias !14125
+  store ptr %.val.i66, ptr %377, align 8, !alias.scope !14122, !noalias !14125
   %378 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.val1.i66, ptr %378, align 8, !alias.scope !14122, !noalias !14125
+  store i64 %.val1.i67, ptr %378, align 8, !alias.scope !14122, !noalias !14125
   store i8 30, ptr %0, align 8, !alias.scope !14122, !noalias !14125
   br label %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit"
 
-"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit": ; preds = %"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i", %.noexc67
+"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit": ; preds = %"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i", %.noexc68
   %379 = atomicrmw sub ptr %80, i64 16 release, align 8
   %380 = and i64 %379, -14
   %381 = icmp eq i64 %380, 18
-  br i1 %381, label %382, label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit70"
+  br i1 %381, label %382, label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit71"
 
 382:                                              ; preds = %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit"
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hd3ffab90b943f315E(ptr noundef nonnull align 8 %80)
-  br label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit70"
+  br label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit71"
 
-"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit70": ; preds = %382, %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit", %"_ZN4core3ptr817drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h83e0cd5cbb2a6e37E.llvm.12850028421071809815.exit158"
+"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit71": ; preds = %382, %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit", %"_ZN4core3ptr817drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h83e0cd5cbb2a6e37E.llvm.12850028421071809815.exit159"
   ret void
 
-383:                                              ; preds = %979, %978, %887, %361, %.thread274, %973
+383:                                              ; preds = %979, %978, %887, %361, %.thread275, %973
   %384 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #64
   unreachable
 
 385:                                              ; preds = %338, %.loopexit
-  %.sroa.0204.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.4205.0.copyload = load ptr, ptr %70, align 8
-  %.sroa.5206.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
-  %386 = load <2 x ptr>, ptr %.sroa.5206.0..sroa_idx, align 8
-  %.sroa.7208.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
-  %.sroa.7208.0.copyload = load ptr, ptr %.sroa.7208.0..sroa_idx, align 8
-  %.sroa.8209.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
-  %.sroa.8209.0.copyload = load i64, ptr %.sroa.8209.0..sroa_idx, align 8
-  %.sroa.9210.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
-  %.sroa.9210.0.copyload = load ptr, ptr %.sroa.9210.0..sroa_idx, align 8
-  %.sroa.10211.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
-  %.sroa.10211.0.copyload = load ptr, ptr %.sroa.10211.0..sroa_idx, align 8
-  %.sroa.11212.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 64
-  %.sroa.11212.0.copyload = load i64, ptr %.sroa.11212.0..sroa_idx, align 8
-  %.sroa.12213.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 72
-  %.sroa.12213.0.copyload = load ptr, ptr %.sroa.12213.0..sroa_idx, align 8
-  %.sroa.13214.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 80
-  %.sroa.13214.0.copyload = load ptr, ptr %.sroa.13214.0..sroa_idx, align 8
-  %.sroa.14215.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 88
-  %.sroa.14215.0.copyload = load i64, ptr %.sroa.14215.0..sroa_idx, align 8
-  %.sroa.15216.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 96
-  %.sroa.15216.0.copyload = load ptr, ptr %.sroa.15216.0..sroa_idx, align 8
-  %.sroa.16217.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 104
-  %.sroa.16217.0.copyload = load ptr, ptr %.sroa.16217.0..sroa_idx, align 8
-  %.sroa.17218.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 112
-  %.sroa.17218.0.copyload = load i64, ptr %.sroa.17218.0..sroa_idx, align 8
-  %.sroa.18219.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 120
-  %.sroa.18219.0.copyload = load ptr, ptr %.sroa.18219.0..sroa_idx, align 8
-  %.sroa.19220.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 128
-  %.sroa.19220.0.copyload = load ptr, ptr %.sroa.19220.0..sroa_idx, align 8
-  %.sroa.20221.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 136
-  %.sroa.20221.0.copyload = load ptr, ptr %.sroa.20221.0..sroa_idx, align 8
-  %.sroa.21222.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 144
-  %.sroa.21222.0.copyload = load ptr, ptr %.sroa.21222.0..sroa_idx, align 8
-  %.sroa.22223.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 152
-  %.sroa.22223.0.copyload = load i64, ptr %.sroa.22223.0..sroa_idx, align 8
+  %.sroa.0205.0.copyload = load ptr, ptr %1, align 8
+  %.sroa.4206.0.copyload = load ptr, ptr %70, align 8
+  %.sroa.5207.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %386 = load <2 x ptr>, ptr %.sroa.5207.0..sroa_idx, align 8
+  %.sroa.7209.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.7209.0.copyload = load ptr, ptr %.sroa.7209.0..sroa_idx, align 8
+  %.sroa.8210.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.8210.0.copyload = load i64, ptr %.sroa.8210.0..sroa_idx, align 8
+  %.sroa.9211.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.9211.0.copyload = load ptr, ptr %.sroa.9211.0..sroa_idx, align 8
+  %.sroa.10212.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
+  %.sroa.10212.0.copyload = load ptr, ptr %.sroa.10212.0..sroa_idx, align 8
+  %.sroa.11213.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 64
+  %.sroa.11213.0.copyload = load i64, ptr %.sroa.11213.0..sroa_idx, align 8
+  %.sroa.12214.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 72
+  %.sroa.12214.0.copyload = load ptr, ptr %.sroa.12214.0..sroa_idx, align 8
+  %.sroa.13215.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 80
+  %.sroa.13215.0.copyload = load ptr, ptr %.sroa.13215.0..sroa_idx, align 8
+  %.sroa.14216.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 88
+  %.sroa.14216.0.copyload = load i64, ptr %.sroa.14216.0..sroa_idx, align 8
+  %.sroa.15217.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 96
+  %.sroa.15217.0.copyload = load ptr, ptr %.sroa.15217.0..sroa_idx, align 8
+  %.sroa.16218.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 104
+  %.sroa.16218.0.copyload = load ptr, ptr %.sroa.16218.0..sroa_idx, align 8
+  %.sroa.17219.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 112
+  %.sroa.17219.0.copyload = load i64, ptr %.sroa.17219.0..sroa_idx, align 8
+  %.sroa.18220.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 120
+  %.sroa.18220.0.copyload = load ptr, ptr %.sroa.18220.0..sroa_idx, align 8
+  %.sroa.19221.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 128
+  %.sroa.19221.0.copyload = load ptr, ptr %.sroa.19221.0..sroa_idx, align 8
+  %.sroa.20222.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 136
+  %.sroa.20222.0.copyload = load ptr, ptr %.sroa.20222.0..sroa_idx, align 8
+  %.sroa.21223.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 144
+  %.sroa.21223.0.copyload = load ptr, ptr %.sroa.21223.0..sroa_idx, align 8
+  %.sroa.22224.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 152
+  %.sroa.22224.0.copyload = load i64, ptr %.sroa.22224.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55), !noalias !14128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false)
-  %387 = icmp ne ptr %.sroa.0204.0.copyload, null
+  %387 = icmp ne ptr %.sroa.0205.0.copyload, null
   call void @llvm.assume(i1 %387)
-  %388 = icmp ne ptr %.sroa.4205.0.copyload, null
+  %388 = icmp ne ptr %.sroa.4206.0.copyload, null
   call void @llvm.assume(i1 %388)
   %389 = extractelement <2 x ptr> %386, i64 0
   %390 = icmp ne ptr %389, null
@@ -68801,32 +68801,32 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
   %392 = icmp ne ptr %391, null
   call void @llvm.assume(i1 %392)
   %393 = getelementptr inbounds i8, ptr %2, i64 32
-  %394 = icmp ne ptr %.sroa.9210.0.copyload, null
+  %394 = icmp ne ptr %.sroa.9211.0.copyload, null
   call void @llvm.assume(i1 %394)
   %395 = getelementptr inbounds i8, ptr %2, i64 88
-  %396 = icmp ne ptr %.sroa.12213.0.copyload, null
+  %396 = icmp ne ptr %.sroa.12214.0.copyload, null
   call void @llvm.assume(i1 %396)
   %397 = getelementptr inbounds i8, ptr %2, i64 144
-  %398 = icmp ne ptr %.sroa.15216.0.copyload, null
+  %398 = icmp ne ptr %.sroa.15217.0.copyload, null
   call void @llvm.assume(i1 %398)
   %399 = getelementptr inbounds i8, ptr %2, i64 200
-  %400 = icmp ne ptr %.sroa.18219.0.copyload, null
+  %400 = icmp ne ptr %.sroa.18220.0.copyload, null
   call void @llvm.assume(i1 %400)
-  %401 = icmp ne ptr %.sroa.20221.0.copyload, null
+  %401 = icmp ne ptr %.sroa.20222.0.copyload, null
   call void @llvm.assume(i1 %401)
   %402 = getelementptr inbounds i8, ptr %2, i64 256
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %67)
-  store ptr %.sroa.7208.0.copyload, ptr %67, align 8
+  store ptr %.sroa.7209.0.copyload, ptr %67, align 8
   %.sroa.26.184..sroa_idx = getelementptr inbounds i8, ptr %67, i64 8
-  store ptr %.sroa.10211.0.copyload, ptr %.sroa.26.184..sroa_idx, align 8
+  store ptr %.sroa.10212.0.copyload, ptr %.sroa.26.184..sroa_idx, align 8
   %.sroa.27.184..sroa_idx = getelementptr inbounds i8, ptr %67, i64 16
-  store ptr %.sroa.13214.0.copyload, ptr %.sroa.27.184..sroa_idx, align 8
+  store ptr %.sroa.13215.0.copyload, ptr %.sroa.27.184..sroa_idx, align 8
   %.sroa.28.184..sroa_idx = getelementptr inbounds i8, ptr %67, i64 24
-  store ptr %.sroa.16217.0.copyload, ptr %.sroa.28.184..sroa_idx, align 8
+  store ptr %.sroa.16218.0.copyload, ptr %.sroa.28.184..sroa_idx, align 8
   %.sroa.29.184..sroa_idx = getelementptr inbounds i8, ptr %67, i64 32
-  store ptr %.sroa.19220.0.copyload, ptr %.sroa.29.184..sroa_idx, align 8
+  store ptr %.sroa.19221.0.copyload, ptr %.sroa.29.184..sroa_idx, align 8
   %.sroa.30.184..sroa_idx = getelementptr inbounds i8, ptr %67, i64 40
-  store ptr %.sroa.21222.0.copyload, ptr %.sroa.30.184..sroa_idx, align 8
+  store ptr %.sroa.21223.0.copyload, ptr %.sroa.30.184..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66)
   call void @llvm.experimental.noalias.scope.decl(metadata !14132)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
@@ -68835,7 +68835,7 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %52)
-  %403 = getelementptr inbounds i8, ptr %.sroa.4205.0.copyload, i64 128
+  %403 = getelementptr inbounds i8, ptr %.sroa.4206.0.copyload, i64 128
   %404 = invoke noundef i8 @_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %403)
           to label %408 unwind label %.thread.i, !range !1131, !noalias !14128
 
@@ -68940,7 +68940,7 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %54, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !noalias !14128
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i)
-  %432 = getelementptr inbounds i8, ptr %.sroa.4205.0.copyload, i64 40
+  %432 = getelementptr inbounds i8, ptr %.sroa.4206.0.copyload, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !14147)
   call void @llvm.experimental.noalias.scope.decl(metadata !14150)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25), !noalias !14153
@@ -68980,13 +68980,13 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
 439:                                              ; preds = %428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(56) %25, i64 56, i1 false), !noalias !14160
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25), !noalias !14153
-  %440 = getelementptr inbounds i8, ptr %.sroa.4205.0.copyload, i64 96
+  %440 = getelementptr inbounds i8, ptr %.sroa.4206.0.copyload, i64 96
   %441 = load i64, ptr %440, align 8, !alias.scope !14161, !noalias !14164, !noundef !9
-  %442 = getelementptr inbounds i8, ptr %.sroa.4205.0.copyload, i64 104
+  %442 = getelementptr inbounds i8, ptr %.sroa.4206.0.copyload, i64 104
   %443 = load i64, ptr %442, align 8, !alias.scope !14161, !noalias !14164, !noundef !9
-  %444 = getelementptr inbounds i8, ptr %.sroa.4205.0.copyload, i64 120
+  %444 = getelementptr inbounds i8, ptr %.sroa.4206.0.copyload, i64 120
   %445 = load i8, ptr %444, align 8, !range !153, !alias.scope !14147, !noalias !14165, !noundef !9
-  %446 = getelementptr inbounds i8, ptr %.sroa.4205.0.copyload, i64 112
+  %446 = getelementptr inbounds i8, ptr %.sroa.4206.0.copyload, i64 112
   %447 = load ptr, ptr %446, align 8, !alias.scope !14147, !noalias !14165, !noundef !9
   invoke void @"_ZN4core3ptr119drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$ecow..string..EcoString$C$typst..foundations..scope..Slot$GT$$GT$17h62bb9e0e59423b31E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %54)
           to label %"_ZN4core3ptr53drop_in_place$LT$typst..foundations..scope..Scope$GT$17h344c0731e869ad94E.exit.i" unwind label %.thread353.i, !noalias !14128
@@ -69050,28 +69050,28 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.119.llvm.11057974413330164255, i64 32, i1 false), !noalias !14177
   store <2 x i64> %455, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !14166, !noalias !14177
   %456 = getelementptr inbounds i8, ptr %53, i64 56
-  store ptr %.sroa.15216.0.copyload, ptr %456, align 8, !noalias !14132
-  %.sroa.21238.96..sroa_idx = getelementptr inbounds i8, ptr %53, i64 64
-  store ptr %399, ptr %.sroa.21238.96..sroa_idx, align 8, !noalias !14132
-  %.sroa.22239.96..sroa_idx = getelementptr inbounds i8, ptr %53, i64 72
-  store i64 %.sroa.17218.0.copyload, ptr %.sroa.22239.96..sroa_idx, align 8, !noalias !14132
+  store ptr %.sroa.15217.0.copyload, ptr %456, align 8, !noalias !14132
+  %.sroa.21239.96..sroa_idx = getelementptr inbounds i8, ptr %53, i64 64
+  store ptr %399, ptr %.sroa.21239.96..sroa_idx, align 8, !noalias !14132
+  %.sroa.22240.96..sroa_idx = getelementptr inbounds i8, ptr %53, i64 72
+  store i64 %.sroa.17219.0.copyload, ptr %.sroa.22240.96..sroa_idx, align 8, !noalias !14132
   %457 = getelementptr inbounds i8, ptr %52, i64 80
-  store ptr %.sroa.12213.0.copyload, ptr %457, align 16, !noalias !14132
-  %.sroa.17235.72..sroa_idx = getelementptr inbounds i8, ptr %52, i64 88
-  store ptr %397, ptr %.sroa.17235.72..sroa_idx, align 8, !noalias !14132
-  %.sroa.18236.72..sroa_idx = getelementptr inbounds i8, ptr %52, i64 96
-  store i64 %.sroa.14215.0.copyload, ptr %.sroa.18236.72..sroa_idx, align 16, !noalias !14132
+  store ptr %.sroa.12214.0.copyload, ptr %457, align 16, !noalias !14132
+  %.sroa.17236.72..sroa_idx = getelementptr inbounds i8, ptr %52, i64 88
+  store ptr %397, ptr %.sroa.17236.72..sroa_idx, align 8, !noalias !14132
+  %.sroa.18237.72..sroa_idx = getelementptr inbounds i8, ptr %52, i64 96
+  store i64 %.sroa.14216.0.copyload, ptr %.sroa.18237.72..sroa_idx, align 16, !noalias !14132
   store <2 x ptr> %386, ptr %52, align 16, !noalias !14132
-  %.sroa.9229.16..sroa_idx = getelementptr inbounds i8, ptr %52, i64 16
-  store ptr %393, ptr %.sroa.9229.16..sroa_idx, align 16, !noalias !14132
-  %.sroa.10230.16..sroa_idx = getelementptr inbounds i8, ptr %52, i64 24
-  store i64 %.sroa.8209.0.copyload, ptr %.sroa.10230.16..sroa_idx, align 8, !noalias !14132
+  %.sroa.9230.16..sroa_idx = getelementptr inbounds i8, ptr %52, i64 16
+  store ptr %393, ptr %.sroa.9230.16..sroa_idx, align 16, !noalias !14132
+  %.sroa.10231.16..sroa_idx = getelementptr inbounds i8, ptr %52, i64 24
+  store i64 %.sroa.8210.0.copyload, ptr %.sroa.10231.16..sroa_idx, align 8, !noalias !14132
   %458 = getelementptr inbounds i8, ptr %52, i64 48
-  store ptr %.sroa.9210.0.copyload, ptr %458, align 16, !noalias !14132
-  %.sroa.13232.48..sroa_idx = getelementptr inbounds i8, ptr %52, i64 56
-  store ptr %395, ptr %.sroa.13232.48..sroa_idx, align 8, !noalias !14132
-  %.sroa.14233.48..sroa_idx = getelementptr inbounds i8, ptr %52, i64 64
-  store i64 %.sroa.11212.0.copyload, ptr %.sroa.14233.48..sroa_idx, align 16, !noalias !14132
+  store ptr %.sroa.9211.0.copyload, ptr %458, align 16, !noalias !14132
+  %.sroa.13233.48..sroa_idx = getelementptr inbounds i8, ptr %52, i64 56
+  store ptr %395, ptr %.sroa.13233.48..sroa_idx, align 8, !noalias !14132
+  %.sroa.14234.48..sroa_idx = getelementptr inbounds i8, ptr %52, i64 64
+  store i64 %.sroa.11213.0.copyload, ptr %.sroa.14234.48..sroa_idx, align 16, !noalias !14132
   %.sroa.4.0..sroa_idx339.i = getelementptr inbounds i8, ptr %52, i64 104
   store i64 1, ptr %.sroa.4.0..sroa_idx339.i, align 8, !noalias !14128
   %.sroa.5340.0..sroa_idx.i = getelementptr inbounds i8, ptr %52, i64 112
@@ -69081,7 +69081,7 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
   %459 = getelementptr inbounds i8, ptr %52, i64 72
   store ptr %53, ptr %459, align 8, !noalias !14128
   %460 = getelementptr inbounds i8, ptr %52, i64 32
-  store ptr %.sroa.18219.0.copyload, ptr %460, align 16, !noalias !14128
+  store ptr %.sroa.18220.0.copyload, ptr %460, align 16, !noalias !14128
   %461 = getelementptr inbounds i8, ptr %52, i64 40
   store ptr %2, ptr %461, align 8, !noalias !14128
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %51), !noalias !14128
@@ -69134,21 +69134,21 @@ thread-pre-split.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc54.i.i.i.i.i.
   %479 = getelementptr inbounds i8, ptr %51, i64 312
   store i64 %.0.i.i, ptr %479, align 8, !alias.scope !14178, !noalias !14192
   %480 = getelementptr inbounds i8, ptr %51, i64 288
-  store ptr %.sroa.20221.0.copyload, ptr %480, align 8, !alias.scope !14195, !noalias !14196
-  %.sroa.4247.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 296
-  store ptr %402, ptr %.sroa.4247.0..sroa_idx, align 8, !alias.scope !14195, !noalias !14196
-  %.sroa.5248.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 304
-  store i64 %.sroa.22223.0.copyload, ptr %.sroa.5248.0..sroa_idx, align 8, !alias.scope !14195, !noalias !14196
+  store ptr %.sroa.20222.0.copyload, ptr %480, align 8, !alias.scope !14195, !noalias !14196
+  %.sroa.4248.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 296
+  store ptr %402, ptr %.sroa.4248.0..sroa_idx, align 8, !alias.scope !14195, !noalias !14196
+  %.sroa.5249.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 304
+  store i64 %.sroa.22224.0.copyload, ptr %.sroa.5249.0..sroa_idx, align 8, !alias.scope !14195, !noalias !14196
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %50), !noalias !14128
   %.not.i = icmp eq ptr %.0195.i, null
   br i1 %.not.i, label %491, label %481
 
 481:                                              ; preds = %476
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49), !noalias !14128
-  %.val.i123 = load i64, ptr %.sroa.0204.0.copyload, align 8, !range !4898, !noalias !14128, !noundef !9
-  %482 = getelementptr i8, ptr %.sroa.0204.0.copyload, i64 8
+  %.val.i124 = load i64, ptr %.sroa.0205.0.copyload, align 8, !range !4898, !noalias !14128, !noundef !9
+  %482 = getelementptr i8, ptr %.sroa.0205.0.copyload, i64 8
   %.val277.i = load ptr, ptr %482, align 8, !noalias !14128, !nonnull !9, !noundef !9
-  switch i64 %.val.i123, label %default.unreachable [
+  switch i64 %.val.i124, label %default.unreachable [
     i64 0, label %503
     i64 1, label %503
     i64 2, label %483
@@ -69208,12 +69208,12 @@ default.unreachable:                              ; preds = %481
   br label %.body314.i
 
 503:                                              ; preds = %487, %483, %481, %481
-  %504 = getelementptr inbounds i8, ptr %.sroa.0204.0.copyload, i64 16
+  %504 = getelementptr inbounds i8, ptr %.sroa.0205.0.copyload, i64 16
   %505 = load i64, ptr %504, align 8, !range !1465, !noalias !14128, !noundef !9
   %506 = getelementptr inbounds i8, ptr %49, i64 8
-  store i64 %.val.i123, ptr %506, align 8, !noalias !14128
-  %.sroa.4.0..sroa_idx.i124 = getelementptr inbounds i8, ptr %49, i64 16
-  store ptr %.val277.i, ptr %.sroa.4.0..sroa_idx.i124, align 8, !noalias !14128
+  store i64 %.val.i124, ptr %506, align 8, !noalias !14128
+  %.sroa.4.0..sroa_idx.i125 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr %.val277.i, ptr %.sroa.4.0..sroa_idx.i125, align 8, !noalias !14128
   %.sroa.55.0..sroa_idx.i = getelementptr inbounds i8, ptr %49, i64 24
   store i64 %505, ptr %.sroa.55.0..sroa_idx.i, align 8, !noalias !14128
   store i8 24, ptr %49, align 8, !noalias !14128
@@ -69237,15 +69237,15 @@ default.unreachable:                              ; preds = %481
 
 "_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit290.i": ; preds = %508
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48), !noalias !14128
-  %513 = getelementptr inbounds i8, ptr %.sroa.4205.0.copyload, i64 160
+  %513 = getelementptr inbounds i8, ptr %.sroa.4206.0.copyload, i64 160
   %514 = load i64, ptr %513, align 16, !noalias !14128, !noundef !9
   %515 = sub i64 %511, %514
   %.not246.i = icmp ult i64 %511, %514
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47), !noalias !14128
   store i64 -9223372036854775808, ptr %47, align 8, !noalias !14128
-  %516 = getelementptr inbounds i8, ptr %.sroa.4205.0.copyload, i64 24
+  %516 = getelementptr inbounds i8, ptr %.sroa.4206.0.copyload, i64 24
   %517 = load ptr, ptr %516, align 8, !noalias !14128, !nonnull !9, !noundef !9
-  %518 = getelementptr inbounds i8, ptr %.sroa.4205.0.copyload, i64 32
+  %518 = getelementptr inbounds i8, ptr %.sroa.4206.0.copyload, i64 32
   %519 = load i64, ptr %518, align 16, !noalias !14128, !noundef !9
   %520 = getelementptr inbounds { i8, [31 x i8] }, ptr %517, i64 %519
   %521 = invoke { ptr, ptr } @_ZN12typst_syntax3ast6Params8children17h6b1851315e228be8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.0194.i)
@@ -69261,7 +69261,7 @@ default.unreachable:                              ; preds = %481
   %.not253.i = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %.not253.i, label %.body314.i, label %762
 
-.loopexit.i:                                      ; preds = %.lr.ph.i.i125
+.loopexit.i:                                      ; preds = %.lr.ph.i.i126
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..args..Args$GT$17hdfe1dcbdaaf78d65E.exit.i"
@@ -69327,22 +69327,22 @@ default.unreachable:                              ; preds = %481
   %.sroa.3.0504.i = phi ptr [ undef, %.lr.ph.i.preheader.lr.ph.i ], [ %.sroa.3.1.i, %652 ]
   %.sroa.0345.0502.i = phi ptr [ %523, %.lr.ph.i.preheader.lr.ph.i ], [ %534, %652 ]
   %.sroa.0343.0501.i = phi ptr [ %517, %.lr.ph.i.preheader.lr.ph.i ], [ %.sroa.0343.1.i, %652 ]
-  br label %.lr.ph.i.i125
+  br label %.lr.ph.i.i126
 
-.lr.ph.i.i125:                                    ; preds = %536, %.lr.ph.i.preheader.i
+.lr.ph.i.i126:                                    ; preds = %536, %.lr.ph.i.preheader.i
   %533 = phi ptr [ %534, %536 ], [ %.sroa.0345.0502.i, %.lr.ph.i.preheader.i ]
   %534 = getelementptr inbounds i8, ptr %533, i64 32
   invoke void @"_ZN71_$LT$typst_syntax..ast..Param$u20$as$u20$typst_syntax..ast..AstNode$GT$12from_untyped17hb2b2ffd5d24d0547E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %533)
           to label %.noexc291.i unwind label %.loopexit.i
 
-.noexc291.i:                                      ; preds = %.lr.ph.i.i125
+.noexc291.i:                                      ; preds = %.lr.ph.i.i126
   %535 = load i64, ptr %23, align 8, !range !14200, !noalias !14201, !noundef !9
   %.not3.i.i = icmp eq i64 %535, 62
   br i1 %.not3.i.i, label %536, label %539
 
 536:                                              ; preds = %.noexc291.i
   %537 = icmp eq ptr %534, %524
-  br i1 %537, label %.loopexit452.i, label %.lr.ph.i.i125
+  br i1 %537, label %.loopexit452.i, label %.lr.ph.i.i126
 
 .loopexit452.i:                                   ; preds = %652, %536
   %.sroa.3.0500.i = phi ptr [ %.sroa.3.0504.i, %536 ], [ %.sroa.3.1.i, %652 ]
@@ -69888,8 +69888,8 @@ default.unreachable:                              ; preds = %481
 
 .noexc310.i:                                      ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc6bebb4b4f0ab03dE.llvm.16845035774076767816.exit.i.i.i"
   %712 = load i64, ptr %531, align 8, !range !56, !noalias !14232, !noundef !9
-  %.not.i.i.i.i.i126 = icmp eq i64 %712, 0
-  br i1 %.not.i.i.i.i.i126, label %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$typst..foundations..args..Arg$GT$$GT$17h4fd723a6b29b689cE.exit.i.i", label %713
+  %.not.i.i.i.i.i127 = icmp eq i64 %712, 0
+  br i1 %.not.i.i.i.i.i127, label %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$typst..foundations..args..Arg$GT$$GT$17h4fd723a6b29b689cE.exit.i.i", label %713
 
 713:                                              ; preds = %.noexc310.i
   %714 = load i64, ptr %532, align 8, !noalias !14232, !noundef !9
@@ -70043,15 +70043,15 @@ default.unreachable:                              ; preds = %481
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %53), !noalias !14128
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %54), !noalias !14128
   %760 = trunc nuw i8 %.9.i to i1
-  br i1 %760, label %761, label %.noexc127
+  br i1 %760, label %761, label %.noexc128
 
-.noexc127:                                        ; preds = %761, %"_ZN4core3ptr59drop_in_place$LT$typst..introspection..locator..Locator$GT$17h1cc5911ea18adbe1E.exit323.i"
+.noexc128:                                        ; preds = %761, %"_ZN4core3ptr59drop_in_place$LT$typst..introspection..locator..Locator$GT$17h1cc5911ea18adbe1E.exit323.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55), !noalias !14128
   br label %772
 
 761:                                              ; preds = %"_ZN4core3ptr59drop_in_place$LT$typst..introspection..locator..Locator$GT$17h1cc5911ea18adbe1E.exit323.i"
   call void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h38dcb05e7e53488bE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(16) %492)
-  br label %.noexc127
+  br label %.noexc128
 
 762:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..args..Args$GT$17hdfe1dcbdaaf78d65E.exit.i"
   %763 = trunc nuw i8 %.0227.ph.i to i1
@@ -70098,7 +70098,7 @@ default.unreachable:                              ; preds = %481
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h38dcb05e7e53488bE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(16) %771)
           to label %"_ZN4core3ptr1115drop_in_place$LT$comemo..input..Args$LT$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableCons" unwind label %561, !noalias !14128
 
-772:                                              ; preds = %.noexc127, %"_ZN4core3ptr59drop_in_place$LT$typst..introspection..locator..Locator$GT$17h1cc5911ea18adbe1E.exit299.i"
+772:                                              ; preds = %.noexc128, %"_ZN4core3ptr59drop_in_place$LT$typst..introspection..locator..Locator$GT$17h1cc5911ea18adbe1E.exit299.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.387.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
@@ -70106,27 +70106,27 @@ default.unreachable:                              ; preds = %481
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %52)
   invoke fastcc void @"_ZN6comemo5input145_$LT$impl$u20$comemo..constraint..Join$LT$$LP$Z$C$Y$C$X$C$W$C$V$C$U$C$T$C$S$C$R$RP$$GT$$u20$for$u20$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$RP$$GT$4join17h00a77adaa47872adE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %67, ptr noundef nonnull align 8 %2)
-          to label %773 unwind label %.thread282
+          to label %773 unwind label %.thread283
 
-.thread282:                                       ; preds = %772, %773, %776
-  %lpad.thr_comm280 = landingpad { ptr, i32 }
+.thread283:                                       ; preds = %772, %773, %776
+  %lpad.thr_comm281 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread274
+  br label %.thread275
 
 773:                                              ; preds = %772
   %774 = invoke noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h723476af123b3e02E.llvm.4622153547959463051"(ptr noundef nonnull align 8 %3, ptr noundef nonnull align 8 %3)
-          to label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hbb42325efc2efd45E.exit131" unwind label %.thread282
+          to label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hbb42325efc2efd45E.exit132" unwind label %.thread283
 
-"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hbb42325efc2efd45E.exit131": ; preds = %773
+"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hbb42325efc2efd45E.exit132": ; preds = %773
   %775 = cmpxchg weak ptr %774, i64 0, i64 8 acquire monotonic, align 8
   %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %775, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.llvm.12850028421071809815.exit", label %776
 
-776:                                              ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hbb42325efc2efd45E.exit131"
+776:                                              ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hbb42325efc2efd45E.exit132"
   %777 = invoke noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock19lock_exclusive_slow17hb9df2711adca4db4E(ptr noundef nonnull align 8 %774, i64 undef, i32 noundef 1000000000)
-          to label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.llvm.12850028421071809815.exit" unwind label %.thread282
+          to label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.llvm.12850028421071809815.exit" unwind label %.thread283
 
-"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.llvm.12850028421071809815.exit": ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hbb42325efc2efd45E.exit131", %776
+"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.llvm.12850028421071809815.exit": ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hbb42325efc2efd45E.exit132", %776
   %778 = getelementptr inbounds i8, ptr %774, i64 8
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %65)
   call void @llvm.experimental.noalias.scope.decl(metadata !14249)
@@ -70148,8 +70148,8 @@ default.unreachable:                              ; preds = %481
 .noexc.i.i:                                       ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h5ec50950922529e8E.llvm.12850028421071809815.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5), !noalias !14256
   %782 = load i64, ptr %14, align 8, !range !117, !alias.scope !14259, !noalias !14262, !noundef !9
-  %trunc.i.i.i.i133 = trunc nuw i64 %782 to i1
-  br i1 %trunc.i.i.i.i133, label %783, label %788
+  %trunc.i.i.i.i134 = trunc nuw i64 %782 to i1
+  br i1 %trunc.i.i.i.i134, label %783, label %788
 
 783:                                              ; preds = %.noexc.i.i
   invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.db70647216840ea9fd0320153731fc7a.239.llvm.4930786928582598558, i64 noundef 70, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.db70647216840ea9fd0320153731fc7a.158.llvm.4930786928582598558, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.db70647216840ea9fd0320153731fc7a.241.llvm.4930786928582598558) #61
@@ -70163,23 +70163,23 @@ default.unreachable:                              ; preds = %481
           cleanup
   %786 = cmpxchg ptr %393, i64 8, i64 0 release monotonic, align 8, !noalias !14255
   %.sroa.18.0.in.i.i.i.i.i.i = extractvalue { i64, i1 } %786, 1
-  br i1 %.sroa.18.0.in.i.i.i.i.i.i, label %.body140, label %787
+  br i1 %.sroa.18.0.in.i.i.i.i.i.i, label %.body141, label %787
 
 787:                                              ; preds = %784
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17hcf9677d60cb425c6E(ptr noundef nonnull align 8 %393, i1 noundef zeroext false)
-          to label %.body140 unwind label %794, !noalias !14255
+          to label %.body141 unwind label %794, !noalias !14255
 
 788:                                              ; preds = %.noexc.i.i
   %789 = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5), !noalias !14256
   %790 = getelementptr inbounds i8, ptr %2, i64 40
-  %.sroa.4.0..sroa_idx.i.i134 = getelementptr inbounds i8, ptr %19, i64 8
-  %.sroa.2.0..sroa_idx.i.i135 = getelementptr inbounds i8, ptr %2, i64 72
+  %.sroa.4.0..sroa_idx.i.i135 = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.2.0..sroa_idx.i.i136 = getelementptr inbounds i8, ptr %2, i64 72
   %791 = load <2 x i64>, ptr %789, align 8, !alias.scope !14259, !noalias !14262
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !14256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx.i.i134, ptr noundef nonnull align 8 dereferenceable(48) %790, i64 48, i1 false), !noalias !14249
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx.i.i135, ptr noundef nonnull align 8 dereferenceable(48) %790, i64 48, i1 false), !noalias !14249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %790, ptr noundef nonnull align 8 dereferenceable(32) @anon.db70647216840ea9fd0320153731fc7a.243.llvm.4930786928582598558, i64 32, i1 false), !noalias !14255
-  store <2 x i64> %791, ptr %.sroa.2.0..sroa_idx.i.i135, align 8, !noalias !14255
+  store <2 x i64> %791, ptr %.sroa.2.0..sroa_idx.i.i136, align 8, !noalias !14255
   store i64 0, ptr %19, align 8, !alias.scope !14252, !noalias !14249
   %792 = cmpxchg ptr %393, i64 8, i64 0 release monotonic, align 8, !noalias !14255
   %.sroa.18.0.in.i.i.i.i6.i.i = extractvalue { i64, i1 } %792, 1
@@ -70264,8 +70264,8 @@ default.unreachable:                              ; preds = %481
 .body.i:                                          ; preds = %.body33.i, %814, %804, %801
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %815, %814 ], [ %802, %804 ], [ %802, %801 ], [ %.pn.pn.pn.pn.i, %.body33.i ]
   %813 = getelementptr inbounds i8, ptr %19, i64 40
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hc0eab2c14e0f97c3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i.i134, ptr noalias noundef nonnull readonly align 1 %813, i64 noundef 64, i64 noundef 16)
-          to label %.body140 unwind label %884, !noalias !14249
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hc0eab2c14e0f97c3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i.i135, ptr noalias noundef nonnull readonly align 1 %813, i64 noundef 64, i64 noundef 16)
+          to label %.body141 unwind label %884, !noalias !14249
 
 814:                                              ; preds = %810, %797
   %815 = landingpad { ptr, i32 }
@@ -70456,7 +70456,7 @@ default.unreachable:                              ; preds = %481
           to label %"_ZN91_$LT$comemo..constraint..MutableConstraint$LT$T$GT$$u20$as$u20$comemo..constraint..Join$GT$4take17h3bfbc06af1879173E.exit.i" unwind label %863, !noalias !14249
 
 "_ZN4core3ptr102drop_in_place$LT$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$17h1970a992b8b4ce51E.exit.i": ; preds = %.body73.i, %863
-  %.pn.pn.i = phi { ptr, i32 } [ %864, %863 ], [ %.pn.i136, %.body73.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %864, %863 ], [ %.pn.i137, %.body73.i ]
   %862 = getelementptr inbounds i8, ptr %16, i64 40
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h5c66fc72b3939a66E(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i44.i, ptr noalias noundef nonnull readonly align 1 %862, i64 noundef 64, i64 noundef 16)
           to label %.body49.i unwind label %884, !noalias !14249
@@ -70530,7 +70530,7 @@ default.unreachable:                              ; preds = %481
   unreachable
 
 .body73.i:                                        ; preds = %882, %873, %870
-  %.pn.i136 = phi { ptr, i32 } [ %883, %882 ], [ %871, %873 ], [ %871, %870 ]
+  %.pn.i137 = phi { ptr, i32 } [ %883, %882 ], [ %871, %873 ], [ %871, %870 ]
   invoke void @"_ZN4core3ptr123drop_in_place$LT$alloc..vec..Vec$LT$comemo..constraint..ConstraintEntry$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$GT$17h91707d284387b2abE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i55.i)
           to label %"_ZN4core3ptr102drop_in_place$LT$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$17h1970a992b8b4ce51E.exit.i" unwind label %884, !noalias !14249
 
@@ -70545,20 +70545,20 @@ default.unreachable:                              ; preds = %481
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #64, !noalias !14249
   unreachable
 
-.body140:                                         ; preds = %963, %956, %888, %.body.i, %787, %784, %973
+.body141:                                         ; preds = %963, %956, %888, %.body.i, %787, %784, %973
   %.pn = phi { ptr, i32 } [ %974, %973 ], [ %889, %888 ], [ %785, %787 ], [ %785, %784 ], [ %.pn.pn.pn.pn.pn.i, %.body.i ], [ %eh.lpad-body.ph.i, %963 ], [ %957, %956 ]
   %886 = cmpxchg ptr %774, i64 8, i64 0 release monotonic, align 8, !noalias !14320
-  %.sroa.18.0.in.i.i.i.i142 = extractvalue { i64, i1 } %886, 1
-  br i1 %.sroa.18.0.in.i.i.i.i142, label %.thread274, label %887
+  %.sroa.18.0.in.i.i.i.i143 = extractvalue { i64, i1 } %886, 1
+  br i1 %.sroa.18.0.in.i.i.i.i143, label %.thread275, label %887
 
-887:                                              ; preds = %.body140
+887:                                              ; preds = %.body141
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17hcf9677d60cb425c6E(ptr noundef nonnull align 8 %774, i1 noundef zeroext false)
-          to label %.thread274 unwind label %383
+          to label %.thread275 unwind label %383
 
 888:                                              ; preds = %793, %780
   %889 = landingpad { ptr, i32 }
           cleanup
-  br label %.body140
+  br label %.body141
 
 890:                                              ; preds = %879, %874
   %891 = getelementptr inbounds i8, ptr %65, i64 32
@@ -70572,8 +70572,8 @@ default.unreachable:                              ; preds = %481
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
   %895 = getelementptr inbounds i8, ptr %65, i64 256
   store i64 0, ptr %895, align 8, !alias.scope !14249
-  %.sroa.4.0..sroa_idx.i137 = getelementptr inbounds i8, ptr %65, i64 264
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %.sroa.4.0..sroa_idx.i137, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.i, i64 48, i1 false)
+  %.sroa.4.0..sroa_idx.i138 = getelementptr inbounds i8, ptr %65, i64 264
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %.sroa.4.0..sroa_idx.i138, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.i, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !14249
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16), !noalias !14249
@@ -70590,53 +70590,53 @@ default.unreachable:                              ; preds = %481
 898:                                              ; preds = %890
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !14330
   invoke fastcc void @"_ZN71_$LT$typst..foundations..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17ha48c16cb206e134aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %66)
-          to label %.noexc148 unwind label %973
+          to label %.noexc149 unwind label %973
 
-.noexc148:                                        ; preds = %898
+.noexc149:                                        ; preds = %898
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !14328
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !14330
-  br label %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit150"
+  br label %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit151"
 
 899:                                              ; preds = %890
   %900 = getelementptr inbounds i8, ptr %66, i64 8
-  %.val.i144 = load ptr, ptr %900, align 8, !alias.scope !14328, !noalias !14325, !nonnull !9, !noundef !9
+  %.val.i145 = load ptr, ptr %900, align 8, !alias.scope !14328, !noalias !14325, !nonnull !9, !noundef !9
   %901 = getelementptr inbounds i8, ptr %66, i64 16
-  %.val1.i145 = load i64, ptr %901, align 8, !alias.scope !14328, !noalias !14325
-  %.not.i.i146 = icmp eq ptr %.val.i144, inttoptr (i64 16 to ptr)
-  br i1 %.not.i.i146, label %"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i147", label %902
+  %.val1.i146 = load i64, ptr %901, align 8, !alias.scope !14328, !noalias !14325
+  %.not.i.i147 = icmp eq ptr %.val.i145, inttoptr (i64 16 to ptr)
+  br i1 %.not.i.i147, label %"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i148", label %902
 
 902:                                              ; preds = %899
-  %903 = getelementptr inbounds i8, ptr %.val.i144, i64 -16
+  %903 = getelementptr inbounds i8, ptr %.val.i145, i64 -16
   %904 = atomicrmw add ptr %903, i64 1 monotonic, align 8, !noalias !14330
   %905 = icmp slt i64 %904, 0
-  br i1 %905, label %906, label %"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i147"
+  br i1 %905, label %906, label %"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i148"
 
 906:                                              ; preds = %902
-  invoke void @_ZN4ecow3vec18ref_count_overflow17h5bf1cdbba85cb289E(ptr noundef nonnull %.val.i144, i64 noundef %.val1.i145) #61
-          to label %.noexc149 unwind label %973
+  invoke void @_ZN4ecow3vec18ref_count_overflow17h5bf1cdbba85cb289E(ptr noundef nonnull %.val.i145, i64 noundef %.val1.i146) #61
+          to label %.noexc150 unwind label %973
 
-.noexc149:                                        ; preds = %906
+.noexc150:                                        ; preds = %906
   unreachable
 
-"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i147": ; preds = %902, %899
+"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i148": ; preds = %902, %899
   %907 = getelementptr inbounds i8, ptr %64, i64 8
-  store ptr %.val.i144, ptr %907, align 8, !alias.scope !14325, !noalias !14328
+  store ptr %.val.i145, ptr %907, align 8, !alias.scope !14325, !noalias !14328
   %908 = getelementptr inbounds i8, ptr %64, i64 16
-  store i64 %.val1.i145, ptr %908, align 8, !alias.scope !14325, !noalias !14328
+  store i64 %.val1.i146, ptr %908, align 8, !alias.scope !14325, !noalias !14328
   store i8 30, ptr %64, align 8, !alias.scope !14325, !noalias !14328
-  br label %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit150"
+  br label %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit151"
 
-"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit150": ; preds = %"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i147", %.noexc148
+"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit151": ; preds = %"_ZN65_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h298673cdb62347d2E.exit.i148", %.noexc149
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !14331
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h6bbf5fa043a4aa3aE"(ptr noalias nocapture noundef nonnull sret({ i128, [4 x i64] }) align 16 dereferenceable(48) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %778, i128 noundef %79)
           to label %911 unwind label %909, !noalias !14336
 
-909:                                              ; preds = %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit150"
+909:                                              ; preds = %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit151"
   %910 = landingpad { ptr, i32 }
           cleanup
   br label %960
 
-911:                                              ; preds = %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit150"
+911:                                              ; preds = %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf6a6afb8d69048aE.exit151"
   %912 = load i128, ptr %7, align 16, !range !7473, !noalias !14331, !noundef !9
   %913 = icmp eq i128 %912, 2
   br i1 %913, label %916, label %914
@@ -70660,10 +70660,10 @@ default.unreachable:                              ; preds = %481
   store i128 %.sroa.011.0.copyload.i, ptr %6, align 16, !noalias !14337
   %918 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %918, align 16, !noalias !14343
-  %.sroa.4.0..sroa_idx.i.i152 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i.i152, align 8, !noalias !14343
-  %.sroa.5.0..sroa_idx.i.i153 = getelementptr inbounds i8, ptr %6, i64 32
-  store i64 0, ptr %.sroa.5.0..sroa_idx.i.i153, align 16, !noalias !14343
+  %.sroa.4.0..sroa_idx.i.i153 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i.i153, align 8, !noalias !14343
+  %.sroa.5.0..sroa_idx.i.i154 = getelementptr inbounds i8, ptr %6, i64 32
+  store i64 0, ptr %.sroa.5.0..sroa_idx.i.i154, align 16, !noalias !14343
   %919 = invoke noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h0d15703798b524f2E.llvm.11057974413330164255(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.513.0.copyload.i, i64 noundef %.sroa.412.0.copyload.i)
           to label %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h75b603ad08c87ba4E.exit.i.i" unwind label %920, !noalias !14344
 
@@ -70714,7 +70714,7 @@ default.unreachable:                              ; preds = %481
 
 948:                                              ; preds = %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h75b603ad08c87ba4E.exit.i.i", %914
   %.pn.i.i = phi ptr [ %938, %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h75b603ad08c87ba4E.exit.i.i" ], [ %915, %914 ]
-  %.0.i.i151 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -32
+  %.0.i.i152 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %8), !noalias !14331
   %949 = getelementptr inbounds i8, ptr %8, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %949, ptr noundef nonnull align 8 dereferenceable(312) %65, i64 312, i1 false), !noalias !14353
@@ -70723,12 +70723,12 @@ default.unreachable:                              ; preds = %481
   store i64 0, ptr %950, align 8, !noalias !14331
   %951 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -16
   %952 = load i64, ptr %951, align 8, !alias.scope !14355, !noalias !14358, !noundef !9
-  %953 = load i64, ptr %.0.i.i151, align 8, !alias.scope !14355, !noalias !14358, !noundef !9
+  %953 = load i64, ptr %.0.i.i152, align 8, !alias.scope !14355, !noalias !14358, !noundef !9
   %954 = icmp eq i64 %952, %953
   br i1 %954, label %955, label %964
 
 955:                                              ; preds = %948
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha3591c03d62b0e2fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0.i.i151, i64 noundef %952)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha3591c03d62b0e2fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0.i.i152, i64 noundef %952)
           to label %._crit_edge.i.i unwind label %956, !noalias !14358
 
 ._crit_edge.i.i:                                  ; preds = %955
@@ -70739,7 +70739,7 @@ default.unreachable:                              ; preds = %481
   %957 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr739drop_in_place$LT$comemo..cache..CacheEntry$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$17he95b66fb5fa2f36bE"(ptr noalias noundef nonnull align 8 dereferenceable(352) %8) #63
-          to label %.body140 unwind label %958, !noalias !14336
+          to label %.body141 unwind label %958, !noalias !14336
 
 958:                                              ; preds = %956
   %959 = landingpad { ptr, i32 }
@@ -70760,7 +70760,7 @@ default.unreachable:                              ; preds = %481
 
 963:                                              ; preds = %960
   invoke fastcc void @"_ZN4core3ptr586drop_in_place$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$GT$17hff69a14e4bb29d99E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %65) #63
-          to label %.body140 unwind label %961
+          to label %.body141 unwind label %961
 
 964:                                              ; preds = %._crit_edge.i.i, %948
   %965 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %952, %948 ]
@@ -70776,50 +70776,50 @@ default.unreachable:                              ; preds = %481
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %65)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %66, i64 32, i1 false)
   %971 = cmpxchg ptr %774, i64 8, i64 0 release monotonic, align 8, !noalias !14361
-  %.sroa.18.0.in.i.i.i.i156 = extractvalue { i64, i1 } %971, 1
-  br i1 %.sroa.18.0.in.i.i.i.i156, label %"_ZN4core3ptr817drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h83e0cd5cbb2a6e37E.llvm.12850028421071809815.exit158", label %972
+  %.sroa.18.0.in.i.i.i.i157 = extractvalue { i64, i1 } %971, 1
+  br i1 %.sroa.18.0.in.i.i.i.i157, label %"_ZN4core3ptr817drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h83e0cd5cbb2a6e37E.llvm.12850028421071809815.exit159", label %972
 
 972:                                              ; preds = %964
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17hcf9677d60cb425c6E(ptr noundef nonnull align 8 %774, i1 noundef zeroext false)
-  br label %"_ZN4core3ptr817drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h83e0cd5cbb2a6e37E.llvm.12850028421071809815.exit158"
+  br label %"_ZN4core3ptr817drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h83e0cd5cbb2a6e37E.llvm.12850028421071809815.exit159"
 
-"_ZN4core3ptr817drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h83e0cd5cbb2a6e37E.llvm.12850028421071809815.exit158": ; preds = %972, %964
+"_ZN4core3ptr817drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h83e0cd5cbb2a6e37E.llvm.12850028421071809815.exit159": ; preds = %972, %964
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %67)
-  br label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit70"
+  br label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit71"
 
 973:                                              ; preds = %898, %906
   %974 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr586drop_in_place$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$GT$17hff69a14e4bb29d99E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %65) #63
-          to label %.body140 unwind label %383
+          to label %.body141 unwind label %383
 
-.thread274:                                       ; preds = %887, %.body140, %.thread282
-  %.pn36277 = phi { ptr, i32 } [ %lpad.thr_comm280, %.thread282 ], [ %.pn, %.body140 ], [ %.pn, %887 ]
+.thread275:                                       ; preds = %887, %.body141, %.thread283
+  %.pn36278 = phi { ptr, i32 } [ %lpad.thr_comm281, %.thread283 ], [ %.pn, %.body141 ], [ %.pn, %887 ]
   invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$17hb2be8dac754e5a6aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %66) #63
           to label %"_ZN4core3ptr1115drop_in_place$LT$comemo..input..Args$LT$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableCons" unwind label %383
 
-.thread253:                                       ; preds = %.thread265.loopexit, %.thread265.loopexit.split-lp, %184, %189, %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..constraint..EntryMap$LT$typst..foundations..context.._..__ComemoCall$GT$$GT$$GT$17h3d81bd3a392e6ef8E.exit47.i.i.i.i.i.i.i.i.i", %325, %327, %331, %361
-  %.pn38258 = phi { ptr, i32 } [ %362, %361 ], [ %.pn13.i.i.i.i.i.i.i.i.i, %327 ], [ %.pn13.i.i.i.i.i.i.i.i.i, %331 ], [ %185, %184 ], [ %185, %189 ], [ %.pn13.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..constraint..EntryMap$LT$typst..foundations..context.._..__ComemoCall$GT$$GT$$GT$17h3d81bd3a392e6ef8E.exit47.i.i.i.i.i.i.i.i.i" ], [ %.pn13.i.i.i.i.i.i.i.i.i, %325 ], [ %lpad.loopexit, %.thread265.loopexit ], [ %lpad.loopexit.split-lp, %.thread265.loopexit.split-lp ]
-  %.1257 = phi i1 [ false, %361 ], [ true, %327 ], [ true, %331 ], [ true, %184 ], [ true, %189 ], [ true, %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..constraint..EntryMap$LT$typst..foundations..context.._..__ComemoCall$GT$$GT$$GT$17h3d81bd3a392e6ef8E.exit47.i.i.i.i.i.i.i.i.i" ], [ true, %325 ], [ true, %.thread265.loopexit ], [ %.2.ph.ph, %.thread265.loopexit.split-lp ]
+.thread254:                                       ; preds = %.thread266.loopexit, %.thread266.loopexit.split-lp, %184, %189, %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..constraint..EntryMap$LT$typst..foundations..context.._..__ComemoCall$GT$$GT$$GT$17h3d81bd3a392e6ef8E.exit47.i.i.i.i.i.i.i.i.i", %325, %327, %331, %361
+  %.pn38259 = phi { ptr, i32 } [ %362, %361 ], [ %.pn13.i.i.i.i.i.i.i.i.i, %327 ], [ %.pn13.i.i.i.i.i.i.i.i.i, %331 ], [ %185, %184 ], [ %185, %189 ], [ %.pn13.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..constraint..EntryMap$LT$typst..foundations..context.._..__ComemoCall$GT$$GT$$GT$17h3d81bd3a392e6ef8E.exit47.i.i.i.i.i.i.i.i.i" ], [ %.pn13.i.i.i.i.i.i.i.i.i, %325 ], [ %lpad.loopexit, %.thread266.loopexit ], [ %lpad.loopexit.split-lp, %.thread266.loopexit.split-lp ]
+  %.1258 = phi i1 [ false, %361 ], [ true, %327 ], [ true, %331 ], [ true, %184 ], [ true, %189 ], [ true, %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..constraint..EntryMap$LT$typst..foundations..context.._..__ComemoCall$GT$$GT$$GT$17h3d81bd3a392e6ef8E.exit47.i.i.i.i.i.i.i.i.i" ], [ true, %325 ], [ true, %.thread266.loopexit ], [ %.2.ph.ph, %.thread266.loopexit.split-lp ]
   %975 = atomicrmw sub ptr %80, i64 16 release, align 8
   %976 = and i64 %975, -14
   %977 = icmp eq i64 %976, 18
-  br i1 %977, label %978, label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit160"
+  br i1 %977, label %978, label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit161"
 
-978:                                              ; preds = %.thread253
+978:                                              ; preds = %.thread254
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hd3ffab90b943f315E(ptr noundef nonnull align 8 %80)
-          to label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit160" unwind label %383
+          to label %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit161" unwind label %383
 
-"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit160": ; preds = %.thread253, %978
-  br i1 %.1257, label %979, label %"_ZN4core3ptr1115drop_in_place$LT$comemo..input..Args$LT$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableCons"
+"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit161": ; preds = %.thread254, %978
+  br i1 %.1258, label %979, label %"_ZN4core3ptr1115drop_in_place$LT$comemo..input..Args$LT$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableCons"
 
-"_ZN4core3ptr1115drop_in_place$LT$comemo..input..Args$LT$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableCons": ; preds = %.thread274, %405, %.thread443.i, %979, %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit160"
-  %.pn40290 = phi { ptr, i32 } [ %.pn38258, %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit160" ], [ %.pn40291, %979 ], [ %.pn36277, %.thread274 ], [ %.pn264359.ph.i, %405 ], [ %.pn266352.i, %.thread443.i ]
-  resume { ptr, i32 } %.pn40290
+"_ZN4core3ptr1115drop_in_place$LT$comemo..input..Args$LT$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableCons": ; preds = %.thread275, %405, %.thread443.i, %979, %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit161"
+  %.pn40291 = phi { ptr, i32 } [ %.pn38259, %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit161" ], [ %.pn40292, %979 ], [ %.pn36278, %.thread275 ], [ %.pn264359.ph.i, %405 ], [ %.pn266352.i, %.thread443.i ]
+  resume { ptr, i32 } %.pn40291
 
-979:                                              ; preds = %.thread, %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit160.thread", %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit160"
-  %.pn40291 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit160.thread" ], [ %.pn38258, %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit160" ], [ %lpad.thr_comm, %.thread ]
+979:                                              ; preds = %.thread, %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit161.thread", %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit161"
+  %.pn40292 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit161.thread" ], [ %.pn38259, %"_ZN4core3ptr816drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$LP$$RP$$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$C$comemo..constraint..ImmutableConstraint$LT$typst..foundations..context.._..__ComemoCall$GT$$C$$LP$$RP$$RP$$C$core..result..Result$LT$typst..foundations..value..Value$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$$GT$17h8b7e66f1fa9465c5E.exit161" ], [ %lpad.thr_comm, %.thread ]
   %980 = getelementptr inbounds i8, ptr %1, i64 168
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h38dcb05e7e53488bE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(16) %980)
           to label %"_ZN4core3ptr1115drop_in_place$LT$comemo..input..Args$LT$$LP$$RF$typst..foundations..func..Func$C$$RF$typst..util..hash..LazyHash$LT$typst..foundations..func..Closure$GT$$C$comemo..track..Tracked$LT$dyn$u20$typst..World$C$comemo..constraint..ImmutableConstraint$LT$typst.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..introspector..Introspector$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..engine..Route$C$comemo..constraint..ImmutableConstraint$LT$typst..engine.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..introspection..locator..Locator$C$comemo..constraint..ImmutableConstraint$LT$typst..introspection..locator.._..__ComemoCall$GT$$GT$$C$comemo..track..TrackedMut$LT$typst..eval..tracer..Tracer$C$comemo..constraint..MutableConstraint$LT$typst..eval..tracer.._..__ComemoCall$GT$$GT$$C$comemo..track..Tracked$LT$typst..foundations..context..Context$C$comemo..constraint..ImmutableCons" unwind label %383

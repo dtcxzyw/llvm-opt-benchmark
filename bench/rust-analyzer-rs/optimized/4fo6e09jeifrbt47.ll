@@ -5610,8 +5610,8 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   ret void
 
 .body.thread:                                     ; preds = %25, %21, %32
-  %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm, %32 ], [ %22, %21 ], [ %22, %25 ]
-  resume { ptr, i32 } %eh.lpad-body16
+  %eh.lpad-body15 = phi { ptr, i32 } [ %lpad.thr_comm, %32 ], [ %22, %21 ], [ %22, %25 ]
+  resume { ptr, i32 } %eh.lpad-body15
 
 32:                                               ; preds = %4, %15
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -5733,8 +5733,8 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   ret void
 
 .body.thread:                                     ; preds = %25, %21, %32
-  %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm, %32 ], [ %22, %21 ], [ %22, %25 ]
-  resume { ptr, i32 } %eh.lpad-body16
+  %eh.lpad-body15 = phi { ptr, i32 } [ %lpad.thr_comm, %32 ], [ %22, %21 ], [ %22, %25 ]
+  resume { ptr, i32 } %eh.lpad-body15
 
 32:                                               ; preds = %4, %15
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -6012,8 +6012,8 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   ret void
 
 .body.thread:                                     ; preds = %25, %21, %32
-  %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm, %32 ], [ %22, %21 ], [ %22, %25 ]
-  resume { ptr, i32 } %eh.lpad-body16
+  %eh.lpad-body15 = phi { ptr, i32 } [ %lpad.thr_comm, %32 ], [ %22, %21 ], [ %22, %25 ]
+  resume { ptr, i32 } %eh.lpad-body15
 
 32:                                               ; preds = %4, %15
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -6208,8 +6208,8 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   ret void
 
 .body.thread:                                     ; preds = %25, %21, %32
-  %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm, %32 ], [ %22, %21 ], [ %22, %25 ]
-  resume { ptr, i32 } %eh.lpad-body16
+  %eh.lpad-body15 = phi { ptr, i32 } [ %lpad.thr_comm, %32 ], [ %22, %21 ], [ %22, %25 ]
+  resume { ptr, i32 } %eh.lpad-body15
 
 32:                                               ; preds = %4, %15
   %lpad.thr_comm = landingpad { ptr, i32 }

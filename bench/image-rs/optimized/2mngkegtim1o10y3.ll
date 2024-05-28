@@ -17345,7 +17345,7 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %.sroa.273 = alloca [3 x i64], align 8
   %.sroa.267 = alloca [3 x i64], align 8
   %21 = alloca { { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] } }, align 8
-  %.sroa.6121 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, align 8
+  %.sroa.6124 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, align 8
   %22 = alloca { { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i64 } }, { ptr, i64, ptr, ptr, {}, { {} } }, i64 }, ptr, i64 }, align 8
   %23 = alloca { i64, [3 x i64] }, align 8
   %24 = alloca { { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i64 } }, { ptr, i64, ptr, ptr, {}, { {} } }, i64 }, ptr, i64 }, align 8
@@ -17356,13 +17356,13 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %.sroa.016.sroa.7 = alloca [4368 x i8], align 8
   %.sroa.515.sroa.6 = alloca [24 x i8], align 8
   %28 = alloca { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, align 8
-  %.sroa.4115 = alloca [4 x i64], align 8
+  %.sroa.4118 = alloca [4 x i64], align 8
   %.sroa.6 = alloca [154 x i64], align 8
   %.sroa.12 = alloca [4 x i64], align 8
   %.sroa.14 = alloca [17 x i8], align 1
   %.sroa.78 = alloca [4 x i64], align 8
   %29 = alloca { { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] } }, align 8
-  %.sroa.5113 = alloca [154 x i64], align 8
+  %.sroa.5116 = alloca [154 x i64], align 8
   %.sroa.7 = alloca [4 x i64], align 8
   %30 = alloca { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, align 8
   %31 = getelementptr inbounds i8, ptr %1, i64 240
@@ -17373,7 +17373,7 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %36 = trunc nuw i8 %35 to i1
   %37 = getelementptr inbounds i8, ptr %1, i64 224
   call void @llvm.lifetime.start.p0(i64 1240, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 1232, ptr nonnull %.sroa.5113)
+  call void @llvm.lifetime.start.p0(i64 1232, ptr nonnull %.sroa.5116)
   %38 = getelementptr inbounds i8, ptr %2, i64 4280
   %39 = load i64, ptr %38, align 8, !alias.scope !1288, !noalias !1293, !noundef !4
   %40 = icmp ugt i64 %39, 3
@@ -17450,21 +17450,21 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %58 = getelementptr inbounds i8, ptr %16, i64 8
   br label %59
 
-59:                                               ; preds = %"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr.88", %56
-  %60 = phi i64 [ %.sroa.0.0.i.i24.i.i, %"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr.88" ], [ 3, %56 ]
+59:                                               ; preds = %"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr6", %56
+  %60 = phi i64 [ %.sroa.0.0.i.i26.i.i, %"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr6" ], [ 3, %56 ]
   %61 = icmp eq i64 %60, 3
   br i1 %61, label %"_ZN4core3ptr1098drop_in_place$LT$core..option..Option$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha", label %62
 
 62:                                               ; preds = %59
   store i64 2, ptr %19, align 8, !alias.scope !1303, !noalias !1310
   %.not.i.i.i = icmp eq i64 %60, 2
-  br i1 %.not.i.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.thread18.i.i, label %106
+  br i1 %.not.i.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.thread20.i.i, label %106
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.thread18.i.i: ; preds = %62
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.thread20.i.i: ; preds = %62
   store i64 3, ptr %19, align 8, !alias.scope !1315, !noalias !1316
   br label %"_ZN4core3ptr1098drop_in_place$LT$core..option..Option$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha"
 
-"_ZN4core3ptr1098drop_in_place$LT$core..option..Option$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.thread18.i.i, %59
+"_ZN4core3ptr1098drop_in_place$LT$core..option..Option$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.thread20.i.i, %59
   call void @llvm.experimental.noalias.scope.decl(metadata !1317)
   %63 = load ptr, ptr %.sroa.613.0..sroa_idx.i, align 8, !alias.scope !1320, !noalias !1321, !noundef !4
   %64 = icmp eq ptr %63, null
@@ -17549,7 +17549,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.sroa.5.0..sroa_idx.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 32, i1 false), !noalias !1341
   store i64 2, ptr %17, align 8, !noalias !1341
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %16), !noalias !1341
-  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.thread22.i.i"
+  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.thread24.i.i"
 
 92:                                               ; preds = %"_ZN3exr5image4read6layers20LayerReader$LT$C$GT$3new17hbcaf0385832c3995E.exit.i.i.i.i.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.43.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !1359
@@ -17560,13 +17560,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   store i64 2, ptr %17, align 8, !alias.scope !1354, !noalias !1360
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %16), !noalias !1341
-  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.thread22.i.i"
+  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.thread24.i.i"
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.thread22.i.i": ; preds = %92, %.thread3.i.i.i.i.i.i
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.thread24.i.i": ; preds = %92, %.thread3.i.i.i.i.i.i
   invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$exr..error..Error$GT$17hc6fd24adc79ac6c3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.01.sroa.5.0..sroa_idx.i.i.i.i.i.i.i)
-          to label %.noexc27.i unwind label %.loopexit.i, !noalias !1345
+          to label %.noexc26.i unwind label %.loopexit.i, !noalias !1345
 
-.noexc27.i:                                       ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.thread22.i.i"
+.noexc26.i:                                       ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.thread24.i.i"
   call void @llvm.lifetime.end.p0(i64 1240, ptr nonnull %17), !noalias !1341
   br label %99
 
@@ -17607,41 +17607,41 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !1295
   %98 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 -9223372036854775808, ptr %98, align 8, !noalias !1295
-  %.sroa.421.0..sroa_idx32.i = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr @anon.ac22d30623b4aa6a7590c0e28ed98fa6.0, ptr %.sroa.421.0..sroa_idx32.i, align 8, !noalias !1295
-  %.sroa.522.0..sroa_idx33.i = getelementptr inbounds i8, ptr %18, i64 24
-  store i64 57, ptr %.sroa.522.0..sroa_idx33.i, align 8, !noalias !1295
+  %.sroa.421.0..sroa_idx29.i = getelementptr inbounds i8, ptr %18, i64 16
+  store ptr @anon.ac22d30623b4aa6a7590c0e28ed98fa6.0, ptr %.sroa.421.0..sroa_idx29.i, align 8, !noalias !1295
+  %.sroa.522.0..sroa_idx30.i = getelementptr inbounds i8, ptr %18, i64 24
+  store i64 57, ptr %.sroa.522.0..sroa_idx30.i, align 8, !noalias !1295
   store i64 2, ptr %18, align 8, !noalias !1295
-  br label %.thread44.i
+  br label %.thread41.i
 
-99:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.i.i", %.noexc27.i
-  %.sroa.0.0.i.i24.i.i = phi i64 [ 2, %.noexc27.i ], [ %.sroa.0.sroa.0.sroa.0.i.sroa.0.0.copyload.i.i.i.i.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.i.i" ]
+99:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.i.i", %.noexc26.i
+  %.sroa.0.0.i.i26.i.i = phi i64 [ 2, %.noexc26.i ], [ %.sroa.0.sroa.0.sroa.0.i.sroa.0.0.copyload.i.i.i.i.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.i.i" ]
   %100 = load i64, ptr %19, align 8, !range !1363, !alias.scope !1367, !noalias !1370, !noundef !4
   %switch.not.i.i.i = icmp ult i64 %100, 2
-  br i1 %switch.not.i.i.i, label %101, label %"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr.88"
+  br i1 %switch.not.i.i.i, label %101, label %"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr6"
 
 101:                                              ; preds = %99
   invoke void @"_ZN4core3ptr1060drop_in_place$LT$exr..image..read..layers..LayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReader$LT$f32$GT$$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$GT$$GT$$GT$17h709b1082b7637b24E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(1232) %19)
-          to label %"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr.88" unwind label %102, !noalias !1371
+          to label %"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr6" unwind label %102, !noalias !1371
 
 102:                                              ; preds = %101
   %103 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.0.0.i.i24.i.i, ptr %19, align 8, !alias.scope !1300, !noalias !1370
+  store i64 %.sroa.0.0.i.i26.i.i, ptr %19, align 8, !alias.scope !1300, !noalias !1370
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.411.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.8.i.i, i64 1232, i1 false), !noalias !1370
   br label %.body.i
 
-"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr.88": ; preds = %101, %99
-  store i64 %.sroa.0.0.i.i24.i.i, ptr %19, align 8, !alias.scope !1300, !noalias !1370
+"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr6": ; preds = %101, %99
+  store i64 %.sroa.0.0.i.i26.i.i, ptr %19, align 8, !alias.scope !1300, !noalias !1370
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.411.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.8.i.i, i64 1232, i1 false), !noalias !1370
   br label %59
 
-.loopexit.i:                                      ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.thread22.i.i", %68
+.loopexit.i:                                      ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h178f18a4a5118ff1E.exit.thread24.i.i", %68
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.loopexit.split-lp.i:                             ; preds = %.thread46.i
+.loopexit.split-lp.i:                             ; preds = %.thread43.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -17664,10 +17664,10 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   %.sroa.522.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 24
   store i64 57, ptr %.sroa.522.0..sroa_idx.i, align 8, !noalias !1295
   store i64 2, ptr %18, align 8, !noalias !1295
-  br i1 %.not.i1.i.i, label %.thread44.i, label %.thread46.i
+  br i1 %.not.i1.i.i, label %.thread41.i, label %.thread43.i
 
-.thread44.i:                                      ; preds = %104, %.thread.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5113, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !noalias !1372
+.thread41.i:                                      ; preds = %104, %.thread.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5116, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !noalias !1372
   br label %108
 
 106:                                              ; preds = %62
@@ -17675,15 +17675,15 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !1295
   %107 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 -9223372036854775808, ptr %107, align 8, !noalias !1295
-  %.sroa.421.0..sroa_idx39.i = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr @anon.ac22d30623b4aa6a7590c0e28ed98fa6.0, ptr %.sroa.421.0..sroa_idx39.i, align 8, !noalias !1295
-  %.sroa.522.0..sroa_idx40.i = getelementptr inbounds i8, ptr %18, i64 24
-  store i64 57, ptr %.sroa.522.0..sroa_idx40.i, align 8, !noalias !1295
+  %.sroa.421.0..sroa_idx36.i = getelementptr inbounds i8, ptr %18, i64 16
+  store ptr @anon.ac22d30623b4aa6a7590c0e28ed98fa6.0, ptr %.sroa.421.0..sroa_idx36.i, align 8, !noalias !1295
+  %.sroa.522.0..sroa_idx37.i = getelementptr inbounds i8, ptr %18, i64 24
+  store i64 57, ptr %.sroa.522.0..sroa_idx37.i, align 8, !noalias !1295
   store i64 2, ptr %18, align 8, !noalias !1295
-  br label %.thread46.i
+  br label %.thread43.i
 
-108:                                              ; preds = %.thread46.i, %.thread44.i
-  %.sroa.0.0122 = phi i64 [ 2, %.thread44.i ], [ %.lcssa.sink.i, %.thread46.i ]
+108:                                              ; preds = %.thread43.i, %.thread41.i
+  %.sroa.0.0125 = phi i64 [ 2, %.thread41.i ], [ %.lcssa.sink.i, %.thread43.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !1295
   %109 = load i64, ptr %19, align 8, !range !1363, !alias.scope !1373, !noalias !1295, !noundef !4
   %switch.not.i.i.i.i = icmp ult i64 %109, 2
@@ -17706,8 +17706,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
 
 "_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr.": ; preds = %110, %108
   %115 = load i64, ptr %.sroa.512.0..sroa_idx.i, align 8, !range !1363, !alias.scope !1383, !noalias !1295, !noundef !4
-  %switch.not.i4.i.i.i = icmp ult i64 %115, 2
-  br i1 %switch.not.i4.i.i.i, label %116, label %121
+  %switch.not.i5.i.i.i = icmp ult i64 %115, 2
+  br i1 %switch.not.i5.i.i.i, label %116, label %121
 
 116:                                              ; preds = %"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr."
   invoke void @"_ZN4core3ptr1060drop_in_place$LT$exr..image..read..layers..LayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReader$LT$f32$GT$$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$GT$$GT$$GT$17h709b1082b7637b24E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(1232) %.sroa.512.0..sroa_idx.i)
@@ -17719,10 +17719,10 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49, !noalias !1345
   unreachable
 
-.thread46.i:                                      ; preds = %106, %104
+.thread43.i:                                      ; preds = %106, %104
   %.lcssa.sink.i = phi i64 [ %60, %106 ], [ %96, %104 ]
   %.sroa.411.0..sroa_idx.sink.i = phi ptr [ %.sroa.411.0..sroa_idx.i, %106 ], [ %.sroa.512.sroa.4.0..sroa.512.0..sroa_idx.sroa_idx.i, %104 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.5113, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.411.0..sroa_idx.sink.i, i64 1232, i1 false), !noalias !1372
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.5116, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.411.0..sroa_idx.sink.i, i64 1232, i1 false), !noalias !1372
   invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$exr..error..Error$GT$17hc6fd24adc79ac6c3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18)
           to label %108 unwind label %.loopexit.split-lp.i, !noalias !1345
 
@@ -17735,20 +17735,20 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
 121:                                              ; preds = %"_ZN4core3ptr1128drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr.", %116
   call void @llvm.lifetime.end.p0(i64 2512, ptr nonnull %19), !noalias !1295
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  %122 = icmp eq i64 %.sroa.0.0122, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5113, i64 32, i1 false)
+  %122 = icmp eq i64 %.sroa.0.0125, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5116, i64 32, i1 false)
   br i1 %122, label %.critedge, label %123
 
 123:                                              ; preds = %121
-  %.sroa.5113.40..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5113, i64 32
+  %.sroa.5116.40..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5116, i64 32
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.5113.40..sroa_idx, i64 1200, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.5113)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.5116.40..sroa_idx, i64 1200, i1 false)
+  call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.5116)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
-  store i64 %.sroa.0.0122, ptr %30, align 8
+  store i64 %.sroa.0.0125, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 1376, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.4115)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.4118)
   call void @llvm.lifetime.start.p0(i64 1232, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.12)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %.sroa.14)
@@ -17762,17 +17762,17 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   call void @llvm.assume(i1 %128)
   %129 = getelementptr inbounds i8, ptr %2, i64 8
   %130 = invoke noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h881c48122848fbccE.llvm.6924994955228445577"(ptr noundef nonnull readonly %129)
-          to label %.noexc92 unwind label %277
+          to label %.noexc91 unwind label %277
 
-.noexc92:                                         ; preds = %127
+.noexc91:                                         ; preds = %127
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %141
 
-132:                                              ; preds = %.noexc92
+132:                                              ; preds = %.noexc91
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.485243c0b6e0c52e847d698bbee735f0.6.llvm.6924994955228445577, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.485243c0b6e0c52e847d698bbee735f0.150.llvm.6924994955228445577) #47
-          to label %.noexc93 unwind label %277
+          to label %.noexc92 unwind label %277
 
-.noexc93:                                         ; preds = %132
+.noexc92:                                         ; preds = %132
   unreachable
 
 133:                                              ; preds = %123
@@ -17785,7 +17785,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   br label %141
 
 .critedge:                                        ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.5113)
+  call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.5116)
   %139 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   store i64 2, ptr %0, align 8
@@ -17795,16 +17795,16 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
 140:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E.exit.i"
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread132.thread
+  br label %.thread135.thread
 
-141:                                              ; preds = %133, %.noexc92
-  %.sink5.i.i90 = phi ptr [ %136, %133 ], [ %130, %.noexc92 ]
-  %.sink3.i.i91 = phi i64 [ %138, %133 ], [ %124, %.noexc92 ]
+141:                                              ; preds = %133, %.noexc91
+  %.sink5.i.i89 = phi ptr [ %136, %133 ], [ %130, %.noexc91 ]
+  %.sink3.i.i90 = phi i64 [ %138, %133 ], [ %124, %.noexc91 ]
   call void @llvm.lifetime.start.p0(i64 1240, ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1240) %28, ptr noundef nonnull align 8 dereferenceable(1240) %30, i64 1240, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !1393)
   call void @llvm.lifetime.start.p0(i64 1232, ptr nonnull %.sroa.02.i.sroa.5)
-  %.not.i = icmp eq i64 %.sink3.i.i91, 0
+  %.not.i = icmp eq i64 %.sink3.i.i90, 0
   br i1 %.not.i, label %142, label %143
 
 142:                                              ; preds = %141
@@ -17812,37 +17812,37 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
           to label %161 unwind label %159, !noalias !1396
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1224
+  %144 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1224
   call void @llvm.experimental.noalias.scope.decl(metadata !1399)
-  %145 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1296
+  %145 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1296
   %146 = load float, ptr %145, align 8, !alias.scope !1402, !noalias !1403, !noundef !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5.i.i)
-  %147 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1300
+  %147 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1300
   %148 = load i32, ptr %147, align 4, !range !1079, !alias.scope !1402, !noalias !1403, !noundef !4
   %trunc.i.i = trunc nuw i32 %148 to i1
   br i1 %trunc.i.i, label %149, label %151
 
 149:                                              ; preds = %143
-  %150 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1304
+  %150 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.5.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %150, i64 32, i1 false), !noalias !1403
   br label %151
 
 151:                                              ; preds = %149, %143
   %.sroa.0.0.i.i = phi i32 [ 1, %149 ], [ 0, %143 ]
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %.sroa.53.i.i)
-  %152 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1336
+  %152 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1336
   %153 = load i8, ptr %152, align 8, !range !398, !alias.scope !1402, !noalias !1403, !noundef !4
   %154 = icmp eq i8 %153, 2
   br i1 %154, label %156, label %155
 
 155:                                              ; preds = %151
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1337
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1337
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.sroa.53.i.i, ptr noundef nonnull readonly align 1 dereferenceable(17) %.sroa.4.0..sroa_idx.i.i, i64 17, i1 false), !noalias !1403
   br label %156
 
 156:                                              ; preds = %155, %151
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.05.sroa.0.i.i), !noalias !1405
-  %157 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1256
+  %157 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1256
   %158 = load <2 x i64>, ptr %157, align 8, !alias.scope !1406, !noalias !1411
   invoke void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h452c8cff2fab1adbE"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64, i64, i64 }, {}, {} }) align 8 dereferenceable(32) %.sroa.05.sroa.0.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %144)
           to label %164 unwind label %159, !noalias !1413
@@ -17872,18 +17872,18 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.5.i.i)
   %.sroa.02.i.sroa.0.0.copyload = load i64, ptr %28, align 8, !noalias !1414
   %.sroa.02.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4115, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.02.i.sroa.4.0..sroa_idx, i64 32, i1 false), !noalias !1393
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4118, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.02.i.sroa.4.0..sroa_idx, i64 32, i1 false), !noalias !1393
   %.sroa.02.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.02.i.sroa.5, ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.02.i.sroa.5.0..sroa_idx, i64 1200, i1 false), !noalias !1414
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.02.i.sroa.5, i64 1232, i1 false), !noalias !1415
   call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.02.i.sroa.5)
   call void @llvm.lifetime.end.p0(i64 1240, ptr nonnull %28)
   %165 = icmp eq i64 %.sroa.02.i.sroa.0.0.copyload, 2
-  br i1 %165, label %"_ZN4core3ptr1128drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$159", label %166
+  br i1 %165, label %"_ZN4core3ptr1128drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$163", label %166
 
 166:                                              ; preds = %164
-  %167 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1272
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.78, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4115, i64 32, i1 false)
+  %167 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1272
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.78, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4118, i64 32, i1 false)
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.515.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.6, i64 1232, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.515.sroa.6)
@@ -17892,7 +17892,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.515.sroa.9.0..sroa.515.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.12, i64 32, i1 false)
   %.sroa.515.sroa.11.0..sroa.515.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %29, i64 1353
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.515.sroa.11.0..sroa.515.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(17) %.sroa.14, i64 17, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4115)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4118)
   call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.12)
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %.sroa.14)
@@ -17917,9 +17917,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   invoke void @"_ZN3exr5block6reader15Reader$LT$R$GT$13filter_chunks17h235c46c77e2c5c63E"(ptr noalias nocapture noundef nonnull sret({ i64, [550 x i64] }) align 8 dereferenceable(4408) %27, ptr noalias nocapture noundef nonnull align 8 dereferenceable(4368) %26, i1 noundef zeroext %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(1376) %29)
           to label %169 unwind label %273
 
-"_ZN4core3ptr1128drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$159": ; preds = %164
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.78, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4115, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4115)
+"_ZN4core3ptr1128drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$163": ; preds = %164
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.78, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4118, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4118)
   call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.12)
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %.sroa.14)
@@ -18001,7 +18001,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   br label %206
 
 184:                                              ; preds = %240, %181
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %.sroa.6121)
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %.sroa.6124)
   call void @llvm.lifetime.start.p0(i64 1376, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1376) %21, ptr noundef nonnull align 8 dereferenceable(1376) %29, i64 1376, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %13), !noalias !1416
@@ -18062,7 +18062,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
 .body.i.i:                                        ; preds = %200, %188
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %201, %200 ], [ %189, %188 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..LayerAttributes$GT$17h191c845f9656e941E"(ptr noalias noundef nonnull align 8 dereferenceable(848) %12) #48
-          to label %.body.i97 unwind label %202, !noalias !1427
+          to label %.body.i96 unwind label %202, !noalias !1427
 
 202:                                              ; preds = %.body.i.i
   %203 = landingpad { ptr, i32 }
@@ -18070,11 +18070,11 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49, !noalias !1427
   unreachable
 
-.body.i97:                                        ; preds = %.body.i.i
+.body.i96:                                        ; preds = %.body.i.i
   invoke void @"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %13) #48
-          to label %.thread132.thread unwind label %204, !noalias !1416
+          to label %.thread135.thread unwind label %204, !noalias !1416
 
-204:                                              ; preds = %.body.i97
+204:                                              ; preds = %.body.i96
   %205 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49, !noalias !1416
@@ -18098,9 +18098,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
 
 211:                                              ; preds = %206
   invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h683f2c9d5a8ca801E.llvm.15361875792781664197(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %207)
-          to label %.noexc.i101 unwind label %233
+          to label %.noexc.i102 unwind label %233
 
-.noexc.i101:                                      ; preds = %211
+.noexc.i102:                                      ; preds = %211
   call void @llvm.experimental.noalias.scope.decl(metadata !1463)
   %212 = add i64 %209, 1
   %213 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %212, i64 392)
@@ -18125,7 +18125,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   %228 = icmp eq i64 %224, 0
   br i1 %228, label %"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E.exit.i", label %229
 
-229:                                              ; preds = %.noexc.i101
+229:                                              ; preds = %.noexc.i102
   %230 = load ptr, ptr %207, align 8, !alias.scope !1466, !nonnull !4, !noundef !4
   %231 = sub nsw i64 0, %221
   %232 = getelementptr inbounds i8, ptr %230, i64 %231
@@ -18136,9 +18136,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   %234 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr1060drop_in_place$LT$exr..image..read..layers..LayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReader$LT$f32$GT$$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$GT$$GT$$GT$17h709b1082b7637b24E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(1232) %29)
-          to label %.thread132.thread unwind label %235
+          to label %.thread135.thread unwind label %235
 
-"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E.exit.i": ; preds = %229, %.noexc.i101, %206
+"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E.exit.i": ; preds = %229, %.noexc.i102, %206
   invoke void @"_ZN4core3ptr1060drop_in_place$LT$exr..image..read..layers..LayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReader$LT$f32$GT$$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$GT$$GT$$GT$17h709b1082b7637b24E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(1232) %29)
           to label %"_ZN4core3ptr1128drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$" unwind label %140
 
@@ -18178,17 +18178,17 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   %.sroa.0.848..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.i, i64 848
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.848..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %245, i64 40, i1 false), !alias.scope !1467
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %11)
-  %.sroa.4119.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1168
+  %.sroa.4122.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1168
   %246 = load <2 x i64>, ptr %244, align 8, !alias.scope !1424, !noalias !1427
   call void @llvm.lifetime.end.p0(i64 1240, ptr nonnull %12), !noalias !1416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6121, ptr noundef nonnull align 8 dereferenceable(136) %13, i64 136, i1 false), !noalias !1468
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6124, ptr noundef nonnull align 8 dereferenceable(136) %13, i64 136, i1 false), !noalias !1468
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %13), !noalias !1416
   call void @llvm.lifetime.end.p0(i64 1376, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef nonnull align 8 dereferenceable(1168) %.sroa.0.i, i64 1168, i1 false)
-  store <2 x i64> %246, ptr %.sroa.4119.0..sroa_idx, align 8
-  %.sroa.6121.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6121.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6121, i64 136, i1 false)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.6121)
+  store <2 x i64> %246, ptr %.sroa.4122.0..sroa_idx, align 8
+  %.sroa.6124.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6124.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6124, i64 136, i1 false)
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.6124)
   call void @llvm.lifetime.end.p0(i64 4368, ptr nonnull %.sroa.016.sroa.7)
   call void @llvm.lifetime.end.p0(i64 1376, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 1240, ptr nonnull %30)
@@ -18260,11 +18260,11 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3335da1a82d69c5aE.exit.threa
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49
   unreachable
 
-common.resume:                                    ; preds = %.thread132.thread, %279, %247
-  %common.resume.op = phi { ptr, i32 } [ %248, %247 ], [ %280, %279 ], [ %.pn85, %.thread132.thread ]
+common.resume:                                    ; preds = %.thread135.thread, %279, %247
+  %common.resume.op = phi { ptr, i32 } [ %248, %247 ], [ %280, %279 ], [ %.pn85, %.thread135.thread ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr1779drop_in_place$LT$exr..image..read..image..ReadImage$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..read..layers..ReadFirstValidLayer$LT$exr..image..read..specific_channels..CollectPixels$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..recursive..NoneMore$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$C$alloc..vec..Vec$LT$f32$GT$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered.": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i111", %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i109", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i", %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i"
+"_ZN4core3ptr1779drop_in_place$LT$exr..image..read..image..ReadImage$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..read..layers..ReadFirstValidLayer$LT$exr..image..read..specific_channels..CollectPixels$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..recursive..NoneMore$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$C$alloc..vec..Vec$LT$f32$GT$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered.": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i113", %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i111", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i", %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i"
   ret void
 
 "_ZN4core3ptr1128drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$": ; preds = %"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E.exit.i"
@@ -18276,9 +18276,9 @@ common.resume:                                    ; preds = %.thread132.thread, 
   %274 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr1128drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReader$LT$f32$GT$$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$GT$$GT$$GT$$GT$17hd9f9f502ec3d0296E"(ptr noalias noundef nonnull align 8 dereferenceable(1376) %29) #48
-          to label %.thread132.thread unwind label %275
+          to label %.thread135.thread unwind label %275
 
-275:                                              ; preds = %277, %.thread, %.thread132.thread, %273
+275:                                              ; preds = %277, %.thread, %.thread135.thread, %273
   %276 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49
@@ -18314,9 +18314,9 @@ common.resume:                                    ; preds = %.thread132.thread, 
   %285 = load i64, ptr %284, align 8, !alias.scope !1520, !noundef !4
   %286 = icmp ugt i64 %285, 24
   %287 = load i8, ptr %283, align 8, !range !116, !alias.scope !1520, !noundef !4
-  br i1 %286, label %289, label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i109"
+  br i1 %286, label %289, label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i111"
 
-"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i109": ; preds = %282
+"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i111": ; preds = %282
   %288 = icmp eq i8 %287, 0
   call void @llvm.assume(i1 %288)
   br label %"_ZN4core3ptr1779drop_in_place$LT$exr..image..read..image..ReadImage$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..read..layers..ReadFirstValidLayer$LT$exr..image..read..specific_channels..CollectPixels$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..recursive..NoneMore$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$C$alloc..vec..Vec$LT$f32$GT$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered."
@@ -18338,17 +18338,17 @@ common.resume:                                    ; preds = %.thread132.thread, 
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5), !noalias !1528
   %297 = getelementptr inbounds i8, ptr %4, i64 8
   %298 = load i64, ptr %297, align 8, !range !125, !noalias !1521, !noundef !4
-  %.not.i.i.i.i.i.i.i.i.i.i110 = icmp eq i64 %298, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i110, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i111", label %299
+  %.not.i.i.i.i.i.i.i.i.i.i112 = icmp eq i64 %298, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i112, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i113", label %299
 
 299:                                              ; preds = %289
   %300 = load ptr, ptr %4, align 8, !noalias !1521, !nonnull !4, !noundef !4
   %301 = getelementptr inbounds i8, ptr %4, i64 16
   %302 = load i64, ptr %301, align 8, !noalias !1521, !noundef !4
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %296, ptr noundef nonnull %300, i64 noundef %298, i64 noundef %302), !noalias !1528
-  br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i111"
+  br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i113"
 
-"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i111": ; preds = %299, %289
+"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i113": ; preds = %299, %289
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1521
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1520
   br label %"_ZN4core3ptr1779drop_in_place$LT$exr..image..read..image..ReadImage$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..read..layers..ReadFirstValidLayer$LT$exr..image..read..specific_channels..CollectPixels$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..recursive..NoneMore$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$C$alloc..vec..Vec$LT$f32$GT$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered."
@@ -18359,24 +18359,24 @@ common.resume:                                    ; preds = %.thread132.thread, 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49
   unreachable
 
-305:                                              ; preds = %"_ZN4core3ptr1128drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$159", %.critedge
+305:                                              ; preds = %"_ZN4core3ptr1128drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$163", %.critedge
   invoke void @"_ZN4core3ptr115drop_in_place$LT$exr..block..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h0590c39c61ced690E"(ptr noalias noundef nonnull align 8 dereferenceable(4368) %2)
           to label %278 unwind label %306
 
-.thread132.thread:                                ; preds = %.body.i97, %273, %233, %140, %.thread, %306
-  %.pn85 = phi { ptr, i32 } [ %307, %306 ], [ %.pn.pn125, %.thread ], [ %234, %233 ], [ %lpad.thr_comm.split-lp, %140 ], [ %274, %273 ], [ %eh.lpad-body.i.i, %.body.i97 ]
+.thread135.thread:                                ; preds = %.body.i96, %273, %233, %140, %.thread, %306
+  %.pn85 = phi { ptr, i32 } [ %307, %306 ], [ %.pn.pn128, %.thread ], [ %234, %233 ], [ %lpad.thr_comm.split-lp, %140 ], [ %274, %273 ], [ %eh.lpad-body.i.i, %.body.i96 ]
   invoke void @"_ZN4core3ptr1779drop_in_place$LT$exr..image..read..image..ReadImage$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..read..layers..ReadFirstValidLayer$LT$exr..image..read..specific_channels..CollectPixels$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..recursive..NoneMore$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$C$alloc..vec..Vec$LT$f32$GT$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h584f7586e7e72be9E"(ptr noalias noundef nonnull align 8 dereferenceable(248) %1) #48
           to label %common.resume unwind label %275
 
 306:                                              ; preds = %305
   %307 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread132.thread
+  br label %.thread135.thread
 
 .thread:                                          ; preds = %159, %277, %.body.i, %111, %114, %54
-  %.pn.pn125 = phi { ptr, i32 } [ %55, %54 ], [ %112, %114 ], [ %112, %111 ], [ %eh.lpad-body.i, %.body.i ], [ %160, %159 ], [ %lpad.thr_comm, %277 ]
+  %.pn.pn128 = phi { ptr, i32 } [ %55, %54 ], [ %112, %114 ], [ %112, %111 ], [ %eh.lpad-body.i, %.body.i ], [ %160, %159 ], [ %lpad.thr_comm, %277 ]
   invoke void @"_ZN4core3ptr115drop_in_place$LT$exr..block..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h0590c39c61ced690E"(ptr noalias noundef nonnull align 8 dereferenceable(4368) %2) #48
-          to label %.thread132.thread unwind label %275
+          to label %.thread135.thread unwind label %275
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -18412,7 +18412,7 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %.sroa.273 = alloca [3 x i64], align 8
   %.sroa.267 = alloca [3 x i64], align 8
   %21 = alloca { { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] } }, align 8
-  %.sroa.6121 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, align 8
+  %.sroa.6124 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, align 8
   %22 = alloca { { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { ptr, i64 }, i64 }, i64 } }, { ptr, i64, ptr, ptr, {}, { {} } }, i64 }, ptr, i64 }, align 8
   %23 = alloca { i64, [3 x i64] }, align 8
   %24 = alloca { { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { ptr, i64 }, i64 }, i64 } }, { ptr, i64, ptr, ptr, {}, { {} } }, i64 }, ptr, i64 }, align 8
@@ -18423,13 +18423,13 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %.sroa.016.sroa.7 = alloca [4344 x i8], align 8
   %.sroa.515.sroa.6 = alloca [24 x i8], align 8
   %28 = alloca { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, align 8
-  %.sroa.4115 = alloca [4 x i64], align 8
+  %.sroa.4118 = alloca [4 x i64], align 8
   %.sroa.6 = alloca [154 x i64], align 8
   %.sroa.12 = alloca [4 x i64], align 8
   %.sroa.14 = alloca [17 x i8], align 1
   %.sroa.78 = alloca [4 x i64], align 8
   %29 = alloca { { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] } }, align 8
-  %.sroa.5113 = alloca [154 x i64], align 8
+  %.sroa.5116 = alloca [154 x i64], align 8
   %.sroa.7 = alloca [4 x i64], align 8
   %30 = alloca { { { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { { i64, [2 x i64] }, { i32, [2 x i32] }, i8, [3 x i8] }, { { { i64, ptr }, i64 }, { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, ptr, {} }, { i64, i64 } }, i64 }, align 8
   %31 = getelementptr inbounds i8, ptr %1, i64 240
@@ -18440,7 +18440,7 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %36 = trunc nuw i8 %35 to i1
   %37 = getelementptr inbounds i8, ptr %1, i64 224
   call void @llvm.lifetime.start.p0(i64 1240, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 1232, ptr nonnull %.sroa.5113)
+  call void @llvm.lifetime.start.p0(i64 1232, ptr nonnull %.sroa.5116)
   %38 = getelementptr inbounds i8, ptr %2, i64 4280
   %39 = load i64, ptr %38, align 8, !alias.scope !1529, !noalias !1534, !noundef !4
   %40 = icmp ugt i64 %39, 3
@@ -18517,21 +18517,21 @@ define hidden void @"_ZN3exr5image4read5image22ReadImage$LT$F$C$L$GT$11from_chun
   %58 = getelementptr inbounds i8, ptr %16, i64 8
   br label %59
 
-59:                                               ; preds = %"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha88", %56
-  %60 = phi i64 [ %.sroa.0.0.i.i24.i.i, %"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha88" ], [ 3, %56 ]
+59:                                               ; preds = %"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_ch6", %56
+  %60 = phi i64 [ %.sroa.0.0.i.i26.i.i, %"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_ch6" ], [ 3, %56 ]
   %61 = icmp eq i64 %60, 3
   br i1 %61, label %"_ZN4core3ptr1072drop_in_place$LT$core..option..Option$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReade", label %62
 
 62:                                               ; preds = %59
   store i64 2, ptr %19, align 8, !alias.scope !1544, !noalias !1551
   %.not.i.i.i = icmp eq i64 %60, 2
-  br i1 %.not.i.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.thread18.i.i, label %106
+  br i1 %.not.i.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.thread20.i.i, label %106
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.thread18.i.i: ; preds = %62
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.thread20.i.i: ; preds = %62
   store i64 3, ptr %19, align 8, !alias.scope !1556, !noalias !1557
   br label %"_ZN4core3ptr1072drop_in_place$LT$core..option..Option$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReade"
 
-"_ZN4core3ptr1072drop_in_place$LT$core..option..Option$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReade": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.thread18.i.i, %59
+"_ZN4core3ptr1072drop_in_place$LT$core..option..Option$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReade": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.thread20.i.i, %59
   call void @llvm.experimental.noalias.scope.decl(metadata !1558)
   %63 = load ptr, ptr %.sroa.613.0..sroa_idx.i, align 8, !alias.scope !1561, !noalias !1562, !noundef !4
   %64 = icmp eq ptr %63, null
@@ -18616,7 +18616,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.sroa.5.0..sroa_idx.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 32, i1 false), !noalias !1582
   store i64 2, ptr %17, align 8, !noalias !1582
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %16), !noalias !1582
-  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.thread22.i.i"
+  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.thread24.i.i"
 
 92:                                               ; preds = %"_ZN3exr5image4read6layers20LayerReader$LT$C$GT$3new17h90f8d40510cb38deE.exit.i.i.i.i.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.43.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !1600
@@ -18627,13 +18627,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   store i64 2, ptr %17, align 8, !alias.scope !1595, !noalias !1601
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %16), !noalias !1582
-  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.thread22.i.i"
+  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.thread24.i.i"
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.thread22.i.i": ; preds = %92, %.thread3.i.i.i.i.i.i
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.thread24.i.i": ; preds = %92, %.thread3.i.i.i.i.i.i
   invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$exr..error..Error$GT$17hc6fd24adc79ac6c3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.01.sroa.5.0..sroa_idx.i.i.i.i.i.i.i)
-          to label %.noexc27.i unwind label %.loopexit.i, !noalias !1586
+          to label %.noexc26.i unwind label %.loopexit.i, !noalias !1586
 
-.noexc27.i:                                       ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.thread22.i.i"
+.noexc26.i:                                       ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.thread24.i.i"
   call void @llvm.lifetime.end.p0(i64 1240, ptr nonnull %17), !noalias !1582
   br label %99
 
@@ -18674,41 +18674,41 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !1536
   %98 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 -9223372036854775808, ptr %98, align 8, !noalias !1536
-  %.sroa.421.0..sroa_idx32.i = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr @anon.ac22d30623b4aa6a7590c0e28ed98fa6.0, ptr %.sroa.421.0..sroa_idx32.i, align 8, !noalias !1536
-  %.sroa.522.0..sroa_idx33.i = getelementptr inbounds i8, ptr %18, i64 24
-  store i64 57, ptr %.sroa.522.0..sroa_idx33.i, align 8, !noalias !1536
+  %.sroa.421.0..sroa_idx29.i = getelementptr inbounds i8, ptr %18, i64 16
+  store ptr @anon.ac22d30623b4aa6a7590c0e28ed98fa6.0, ptr %.sroa.421.0..sroa_idx29.i, align 8, !noalias !1536
+  %.sroa.522.0..sroa_idx30.i = getelementptr inbounds i8, ptr %18, i64 24
+  store i64 57, ptr %.sroa.522.0..sroa_idx30.i, align 8, !noalias !1536
   store i64 2, ptr %18, align 8, !noalias !1536
-  br label %.thread44.i
+  br label %.thread41.i
 
-99:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.i.i", %.noexc27.i
-  %.sroa.0.0.i.i24.i.i = phi i64 [ 2, %.noexc27.i ], [ %.sroa.0.sroa.0.sroa.0.i.sroa.0.0.copyload.i.i.i.i.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.i.i" ]
+99:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.i.i", %.noexc26.i
+  %.sroa.0.0.i.i26.i.i = phi i64 [ 2, %.noexc26.i ], [ %.sroa.0.sroa.0.sroa.0.i.sroa.0.0.copyload.i.i.i.i.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.i.i" ]
   %100 = load i64, ptr %19, align 8, !range !1363, !alias.scope !1607, !noalias !1610, !noundef !4
   %switch.not.i.i.i = icmp ult i64 %100, 2
-  br i1 %switch.not.i.i.i, label %101, label %"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha88"
+  br i1 %switch.not.i.i.i, label %101, label %"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_ch6"
 
 101:                                              ; preds = %99
   invoke void @"_ZN4core3ptr1034drop_in_place$LT$exr..image..read..layers..LayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReader$LT$f32$GT$$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$GT$$GT$$GT$17hab25e7d73e931b4aE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(1232) %19)
-          to label %"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha88" unwind label %102, !noalias !1611
+          to label %"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_ch6" unwind label %102, !noalias !1611
 
 102:                                              ; preds = %101
   %103 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.0.0.i.i24.i.i, ptr %19, align 8, !alias.scope !1541, !noalias !1610
+  store i64 %.sroa.0.0.i.i26.i.i, ptr %19, align 8, !alias.scope !1541, !noalias !1610
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.411.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.8.i.i, i64 1232, i1 false), !noalias !1610
   br label %.body.i
 
-"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha88": ; preds = %101, %99
-  store i64 %.sroa.0.0.i.i24.i.i, ptr %19, align 8, !alias.scope !1541, !noalias !1610
+"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_ch6": ; preds = %101, %99
+  store i64 %.sroa.0.0.i.i26.i.i, ptr %19, align 8, !alias.scope !1541, !noalias !1610
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.411.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.8.i.i, i64 1232, i1 false), !noalias !1610
   br label %59
 
-.loopexit.i:                                      ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.thread22.i.i", %68
+.loopexit.i:                                      ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4893f0c4c350ac89E.exit.thread24.i.i", %68
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.loopexit.split-lp.i:                             ; preds = %.thread46.i
+.loopexit.split-lp.i:                             ; preds = %.thread43.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -18731,10 +18731,10 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   %.sroa.522.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 24
   store i64 57, ptr %.sroa.522.0..sroa_idx.i, align 8, !noalias !1536
   store i64 2, ptr %18, align 8, !noalias !1536
-  br i1 %.not.i1.i.i, label %.thread44.i, label %.thread46.i
+  br i1 %.not.i1.i.i, label %.thread41.i, label %.thread43.i
 
-.thread44.i:                                      ; preds = %104, %.thread.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5113, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !noalias !1612
+.thread41.i:                                      ; preds = %104, %.thread.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5116, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !noalias !1612
   br label %108
 
 106:                                              ; preds = %62
@@ -18742,15 +18742,15 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !1536
   %107 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 -9223372036854775808, ptr %107, align 8, !noalias !1536
-  %.sroa.421.0..sroa_idx39.i = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr @anon.ac22d30623b4aa6a7590c0e28ed98fa6.0, ptr %.sroa.421.0..sroa_idx39.i, align 8, !noalias !1536
-  %.sroa.522.0..sroa_idx40.i = getelementptr inbounds i8, ptr %18, i64 24
-  store i64 57, ptr %.sroa.522.0..sroa_idx40.i, align 8, !noalias !1536
+  %.sroa.421.0..sroa_idx36.i = getelementptr inbounds i8, ptr %18, i64 16
+  store ptr @anon.ac22d30623b4aa6a7590c0e28ed98fa6.0, ptr %.sroa.421.0..sroa_idx36.i, align 8, !noalias !1536
+  %.sroa.522.0..sroa_idx37.i = getelementptr inbounds i8, ptr %18, i64 24
+  store i64 57, ptr %.sroa.522.0..sroa_idx37.i, align 8, !noalias !1536
   store i64 2, ptr %18, align 8, !noalias !1536
-  br label %.thread46.i
+  br label %.thread43.i
 
-108:                                              ; preds = %.thread46.i, %.thread44.i
-  %.sroa.0.0122 = phi i64 [ 2, %.thread44.i ], [ %.lcssa.sink.i, %.thread46.i ]
+108:                                              ; preds = %.thread43.i, %.thread41.i
+  %.sroa.0.0125 = phi i64 [ 2, %.thread41.i ], [ %.lcssa.sink.i, %.thread43.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !1536
   %109 = load i64, ptr %19, align 8, !range !1363, !alias.scope !1613, !noalias !1536, !noundef !4
   %switch.not.i.i.i.i = icmp ult i64 %109, 2
@@ -18773,8 +18773,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
 
 "_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha": ; preds = %110, %108
   %115 = load i64, ptr %.sroa.512.0..sroa_idx.i, align 8, !range !1363, !alias.scope !1623, !noalias !1536, !noundef !4
-  %switch.not.i4.i.i.i = icmp ult i64 %115, 2
-  br i1 %switch.not.i4.i.i.i, label %116, label %121
+  %switch.not.i5.i.i.i = icmp ult i64 %115, 2
+  br i1 %switch.not.i5.i.i.i, label %116, label %121
 
 116:                                              ; preds = %"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha"
   invoke void @"_ZN4core3ptr1034drop_in_place$LT$exr..image..read..layers..LayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReader$LT$f32$GT$$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$GT$$GT$$GT$17hab25e7d73e931b4aE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(1232) %.sroa.512.0..sroa_idx.i)
@@ -18786,10 +18786,10 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49, !noalias !1586
   unreachable
 
-.thread46.i:                                      ; preds = %106, %104
+.thread43.i:                                      ; preds = %106, %104
   %.lcssa.sink.i = phi i64 [ %60, %106 ], [ %96, %104 ]
   %.sroa.411.0..sroa_idx.sink.i = phi ptr [ %.sroa.411.0..sroa_idx.i, %106 ], [ %.sroa.512.sroa.4.0..sroa.512.0..sroa_idx.sroa_idx.i, %104 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.5113, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.411.0..sroa_idx.sink.i, i64 1232, i1 false), !noalias !1612
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.5116, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.411.0..sroa_idx.sink.i, i64 1232, i1 false), !noalias !1612
   invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$exr..error..Error$GT$17hc6fd24adc79ac6c3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18)
           to label %108 unwind label %.loopexit.split-lp.i, !noalias !1586
 
@@ -18802,20 +18802,20 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
 121:                                              ; preds = %"_ZN4core3ptr1102drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_cha", %116
   call void @llvm.lifetime.end.p0(i64 2512, ptr nonnull %19), !noalias !1536
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  %122 = icmp eq i64 %.sroa.0.0122, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5113, i64 32, i1 false)
+  %122 = icmp eq i64 %.sroa.0.0125, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5116, i64 32, i1 false)
   br i1 %122, label %.critedge, label %123
 
 123:                                              ; preds = %121
-  %.sroa.5113.40..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5113, i64 32
+  %.sroa.5116.40..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5116, i64 32
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.5113.40..sroa_idx, i64 1200, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.5113)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.5116.40..sroa_idx, i64 1200, i1 false)
+  call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.5116)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
-  store i64 %.sroa.0.0122, ptr %30, align 8
+  store i64 %.sroa.0.0125, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 1376, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.4115)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.4118)
   call void @llvm.lifetime.start.p0(i64 1232, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.12)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %.sroa.14)
@@ -18829,17 +18829,17 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   call void @llvm.assume(i1 %128)
   %129 = getelementptr inbounds i8, ptr %2, i64 8
   %130 = invoke noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h881c48122848fbccE.llvm.6924994955228445577"(ptr noundef nonnull readonly %129)
-          to label %.noexc92 unwind label %277
+          to label %.noexc91 unwind label %277
 
-.noexc92:                                         ; preds = %127
+.noexc91:                                         ; preds = %127
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %141
 
-132:                                              ; preds = %.noexc92
+132:                                              ; preds = %.noexc91
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.485243c0b6e0c52e847d698bbee735f0.6.llvm.6924994955228445577, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.485243c0b6e0c52e847d698bbee735f0.150.llvm.6924994955228445577) #47
-          to label %.noexc93 unwind label %277
+          to label %.noexc92 unwind label %277
 
-.noexc93:                                         ; preds = %132
+.noexc92:                                         ; preds = %132
   unreachable
 
 133:                                              ; preds = %123
@@ -18852,7 +18852,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   br label %141
 
 .critedge:                                        ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.5113)
+  call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.5116)
   %139 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   store i64 2, ptr %0, align 8
@@ -18862,16 +18862,16 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
 140:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E.exit.i"
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread132.thread
+  br label %.thread135.thread
 
-141:                                              ; preds = %133, %.noexc92
-  %.sink5.i.i90 = phi ptr [ %136, %133 ], [ %130, %.noexc92 ]
-  %.sink3.i.i91 = phi i64 [ %138, %133 ], [ %124, %.noexc92 ]
+141:                                              ; preds = %133, %.noexc91
+  %.sink5.i.i89 = phi ptr [ %136, %133 ], [ %130, %.noexc91 ]
+  %.sink3.i.i90 = phi i64 [ %138, %133 ], [ %124, %.noexc91 ]
   call void @llvm.lifetime.start.p0(i64 1240, ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1240) %28, ptr noundef nonnull align 8 dereferenceable(1240) %30, i64 1240, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !1633)
   call void @llvm.lifetime.start.p0(i64 1232, ptr nonnull %.sroa.02.i.sroa.5)
-  %.not.i = icmp eq i64 %.sink3.i.i91, 0
+  %.not.i = icmp eq i64 %.sink3.i.i90, 0
   br i1 %.not.i, label %142, label %143
 
 142:                                              ; preds = %141
@@ -18879,37 +18879,37 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
           to label %161 unwind label %159, !noalias !1636
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1224
+  %144 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1224
   call void @llvm.experimental.noalias.scope.decl(metadata !1639)
-  %145 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1296
+  %145 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1296
   %146 = load float, ptr %145, align 8, !alias.scope !1642, !noalias !1643, !noundef !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5.i.i)
-  %147 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1300
+  %147 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1300
   %148 = load i32, ptr %147, align 4, !range !1079, !alias.scope !1642, !noalias !1643, !noundef !4
   %trunc.i.i = trunc nuw i32 %148 to i1
   br i1 %trunc.i.i, label %149, label %151
 
 149:                                              ; preds = %143
-  %150 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1304
+  %150 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.5.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %150, i64 32, i1 false), !noalias !1643
   br label %151
 
 151:                                              ; preds = %149, %143
   %.sroa.0.0.i.i = phi i32 [ 1, %149 ], [ 0, %143 ]
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %.sroa.53.i.i)
-  %152 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1336
+  %152 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1336
   %153 = load i8, ptr %152, align 8, !range !398, !alias.scope !1642, !noalias !1643, !noundef !4
   %154 = icmp eq i8 %153, 2
   br i1 %154, label %156, label %155
 
 155:                                              ; preds = %151
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1337
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1337
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.sroa.53.i.i, ptr noundef nonnull readonly align 1 dereferenceable(17) %.sroa.4.0..sroa_idx.i.i, i64 17, i1 false), !noalias !1643
   br label %156
 
 156:                                              ; preds = %155, %151
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.05.sroa.0.i.i), !noalias !1645
-  %157 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1256
+  %157 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1256
   %158 = load <2 x i64>, ptr %157, align 8, !alias.scope !1646, !noalias !1651
   invoke void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h452c8cff2fab1adbE"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64, i64, i64 }, {}, {} }) align 8 dereferenceable(32) %.sroa.05.sroa.0.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %144)
           to label %164 unwind label %159, !noalias !1653
@@ -18939,18 +18939,18 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.5.i.i)
   %.sroa.02.i.sroa.0.0.copyload = load i64, ptr %28, align 8, !noalias !1654
   %.sroa.02.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4115, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.02.i.sroa.4.0..sroa_idx, i64 32, i1 false), !noalias !1633
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4118, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.02.i.sroa.4.0..sroa_idx, i64 32, i1 false), !noalias !1633
   %.sroa.02.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.02.i.sroa.5, ptr noundef nonnull align 8 dereferenceable(1200) %.sroa.02.i.sroa.5.0..sroa_idx, i64 1200, i1 false), !noalias !1654
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.02.i.sroa.5, i64 1232, i1 false), !noalias !1655
   call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.02.i.sroa.5)
   call void @llvm.lifetime.end.p0(i64 1240, ptr nonnull %28)
   %165 = icmp eq i64 %.sroa.02.i.sroa.0.0.copyload, 2
-  br i1 %165, label %"_ZN4core3ptr1102drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific159", label %166
+  br i1 %165, label %"_ZN4core3ptr1102drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..speci163", label %166
 
 166:                                              ; preds = %164
-  %167 = getelementptr inbounds i8, ptr %.sink5.i.i90, i64 1272
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.78, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4115, i64 32, i1 false)
+  %167 = getelementptr inbounds i8, ptr %.sink5.i.i89, i64 1272
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.78, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4118, i64 32, i1 false)
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.515.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(1232) %.sroa.6, i64 1232, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.515.sroa.6)
@@ -18959,7 +18959,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.515.sroa.9.0..sroa.515.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.12, i64 32, i1 false)
   %.sroa.515.sroa.11.0..sroa.515.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %29, i64 1353
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.515.sroa.11.0..sroa.515.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(17) %.sroa.14, i64 17, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4115)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4118)
   call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.12)
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %.sroa.14)
@@ -18984,9 +18984,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   invoke void @"_ZN3exr5block6reader15Reader$LT$R$GT$13filter_chunks17h754c56564d615831E"(ptr noalias nocapture noundef nonnull sret({ i64, [547 x i64] }) align 8 dereferenceable(4384) %27, ptr noalias nocapture noundef nonnull align 8 dereferenceable(4344) %26, i1 noundef zeroext %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(1376) %29)
           to label %169 unwind label %273
 
-"_ZN4core3ptr1102drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific159": ; preds = %164
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.78, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4115, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4115)
+"_ZN4core3ptr1102drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..speci163": ; preds = %164
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.78, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4118, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4118)
   call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.12)
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %.sroa.14)
@@ -19068,7 +19068,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   br label %206
 
 184:                                              ; preds = %240, %181
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %.sroa.6121)
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %.sroa.6124)
   call void @llvm.lifetime.start.p0(i64 1376, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1376) %21, ptr noundef nonnull align 8 dereferenceable(1376) %29, i64 1376, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %13), !noalias !1656
@@ -19129,7 +19129,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
 .body.i.i:                                        ; preds = %200, %188
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %201, %200 ], [ %189, %188 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..LayerAttributes$GT$17h191c845f9656e941E"(ptr noalias noundef nonnull align 8 dereferenceable(848) %12) #48
-          to label %.body.i97 unwind label %202, !noalias !1667
+          to label %.body.i96 unwind label %202, !noalias !1667
 
 202:                                              ; preds = %.body.i.i
   %203 = landingpad { ptr, i32 }
@@ -19137,11 +19137,11 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49, !noalias !1667
   unreachable
 
-.body.i97:                                        ; preds = %.body.i.i
+.body.i96:                                        ; preds = %.body.i.i
   invoke void @"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %13) #48
-          to label %.thread132.thread unwind label %204, !noalias !1656
+          to label %.thread135.thread unwind label %204, !noalias !1656
 
-204:                                              ; preds = %.body.i97
+204:                                              ; preds = %.body.i96
   %205 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49, !noalias !1656
@@ -19165,9 +19165,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
 
 211:                                              ; preds = %206
   invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h683f2c9d5a8ca801E.llvm.15361875792781664197(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %207)
-          to label %.noexc.i101 unwind label %233
+          to label %.noexc.i102 unwind label %233
 
-.noexc.i101:                                      ; preds = %211
+.noexc.i102:                                      ; preds = %211
   call void @llvm.experimental.noalias.scope.decl(metadata !1703)
   %212 = add i64 %209, 1
   %213 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %212, i64 392)
@@ -19192,7 +19192,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   %228 = icmp eq i64 %224, 0
   br i1 %228, label %"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E.exit.i", label %229
 
-229:                                              ; preds = %.noexc.i101
+229:                                              ; preds = %.noexc.i102
   %230 = load ptr, ptr %207, align 8, !alias.scope !1706, !nonnull !4, !noundef !4
   %231 = sub nsw i64 0, %221
   %232 = getelementptr inbounds i8, ptr %230, i64 %231
@@ -19203,9 +19203,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   %234 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr1034drop_in_place$LT$exr..image..read..layers..LayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReader$LT$f32$GT$$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$GT$$GT$$GT$17hab25e7d73e931b4aE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(1232) %29)
-          to label %.thread132.thread unwind label %235
+          to label %.thread135.thread unwind label %235
 
-"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E.exit.i": ; preds = %229, %.noexc.i101, %206
+"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E.exit.i": ; preds = %229, %.noexc.i102, %206
   invoke void @"_ZN4core3ptr1034drop_in_place$LT$exr..image..read..layers..LayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReader$LT$f32$GT$$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$GT$$GT$$GT$17hab25e7d73e931b4aE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(1232) %29)
           to label %"_ZN4core3ptr1102drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific" unwind label %140
 
@@ -19245,17 +19245,17 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   %.sroa.0.848..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.i, i64 848
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.848..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %245, i64 40, i1 false), !alias.scope !1707
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %11)
-  %.sroa.4119.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1168
+  %.sroa.4122.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1168
   %246 = load <2 x i64>, ptr %244, align 8, !alias.scope !1664, !noalias !1667
   call void @llvm.lifetime.end.p0(i64 1240, ptr nonnull %12), !noalias !1656
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6121, ptr noundef nonnull align 8 dereferenceable(136) %13, i64 136, i1 false), !noalias !1708
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6124, ptr noundef nonnull align 8 dereferenceable(136) %13, i64 136, i1 false), !noalias !1708
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %13), !noalias !1656
   call void @llvm.lifetime.end.p0(i64 1376, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef nonnull align 8 dereferenceable(1168) %.sroa.0.i, i64 1168, i1 false)
-  store <2 x i64> %246, ptr %.sroa.4119.0..sroa_idx, align 8
-  %.sroa.6121.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6121.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6121, i64 136, i1 false)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.6121)
+  store <2 x i64> %246, ptr %.sroa.4122.0..sroa_idx, align 8
+  %.sroa.6124.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6124.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6124, i64 136, i1 false)
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.6124)
   call void @llvm.lifetime.end.p0(i64 4344, ptr nonnull %.sroa.016.sroa.7)
   call void @llvm.lifetime.end.p0(i64 1376, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 1240, ptr nonnull %30)
@@ -19327,11 +19327,11 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1995f83a836331c8E.exit.threa
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49
   unreachable
 
-common.resume:                                    ; preds = %.thread132.thread, %279, %247
-  %common.resume.op = phi { ptr, i32 } [ %248, %247 ], [ %280, %279 ], [ %.pn85, %.thread132.thread ]
+common.resume:                                    ; preds = %.thread135.thread, %279, %247
+  %common.resume.op = phi { ptr, i32 } [ %248, %247 ], [ %280, %279 ], [ %.pn85, %.thread135.thread ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr1701drop_in_place$LT$exr..image..read..image..ReadImage$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..read..layers..ReadFirstValidLayer$LT$exr..image..read..specific_channels..CollectPixels$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..recursive..NoneMore$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$C$alloc..vec..Vec$LT$f32$GT$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i111", %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i109", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i", %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i"
+"_ZN4core3ptr1701drop_in_place$LT$exr..image..read..image..ReadImage$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..read..layers..ReadFirstValidLayer$LT$exr..image..read..specific_channels..CollectPixels$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..recursive..NoneMore$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$C$alloc..vec..Vec$LT$f32$GT$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i113", %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i111", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i", %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i"
   ret void
 
 "_ZN4core3ptr1102drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific": ; preds = %"_ZN4core3ptr55drop_in_place$LT$exr..meta..header..ImageAttributes$GT$17h6f2f33ca9e5fd4b8E.exit.i"
@@ -19343,9 +19343,9 @@ common.resume:                                    ; preds = %.thread132.thread, 
   %274 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr1102drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..OptionalSampleReader$LT$f32$GT$$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$GT$$GT$$GT$$GT$17h4bc2090796f83486E"(ptr noalias noundef nonnull align 8 dereferenceable(1376) %29) #48
-          to label %.thread132.thread unwind label %275
+          to label %.thread135.thread unwind label %275
 
-275:                                              ; preds = %277, %.thread, %.thread132.thread, %273
+275:                                              ; preds = %277, %.thread, %.thread135.thread, %273
   %276 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49
@@ -19381,9 +19381,9 @@ common.resume:                                    ; preds = %.thread132.thread, 
   %285 = load i64, ptr %284, align 8, !alias.scope !1760, !noundef !4
   %286 = icmp ugt i64 %285, 24
   %287 = load i8, ptr %283, align 8, !range !116, !alias.scope !1760, !noundef !4
-  br i1 %286, label %289, label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i109"
+  br i1 %286, label %289, label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i111"
 
-"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i109": ; preds = %282
+"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h3226bec8f0e0c6cbE.exit.i.i.i.i.i.i.i111": ; preds = %282
   %288 = icmp eq i8 %287, 0
   call void @llvm.assume(i1 %288)
   br label %"_ZN4core3ptr1701drop_in_place$LT$exr..image..read..image..ReadImage$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..read..layers..ReadFirstValidLayer$LT$exr..image..read..specific_channels..CollectPixels$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..recursive..NoneMore$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$C$alloc..vec..Vec$LT$f32$GT$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$"
@@ -19405,17 +19405,17 @@ common.resume:                                    ; preds = %.thread132.thread, 
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5), !noalias !1768
   %297 = getelementptr inbounds i8, ptr %4, i64 8
   %298 = load i64, ptr %297, align 8, !range !125, !noalias !1761, !noundef !4
-  %.not.i.i.i.i.i.i.i.i.i.i110 = icmp eq i64 %298, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i110, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i111", label %299
+  %.not.i.i.i.i.i.i.i.i.i.i112 = icmp eq i64 %298, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i112, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i113", label %299
 
 299:                                              ; preds = %289
   %300 = load ptr, ptr %4, align 8, !noalias !1761, !nonnull !4, !noundef !4
   %301 = getelementptr inbounds i8, ptr %4, i64 16
   %302 = load i64, ptr %301, align 8, !noalias !1761, !noundef !4
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %296, ptr noundef nonnull %300, i64 noundef %298, i64 noundef %302), !noalias !1768
-  br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i111"
+  br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i113"
 
-"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i111": ; preds = %299, %289
+"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E.exit.i.i.i.i.i.i.i113": ; preds = %299, %289
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1761
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1760
   br label %"_ZN4core3ptr1701drop_in_place$LT$exr..image..read..image..ReadImage$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..read..layers..ReadFirstValidLayer$LT$exr..image..read..specific_channels..CollectPixels$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..recursive..NoneMore$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$C$alloc..vec..Vec$LT$f32$GT$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$"
@@ -19426,24 +19426,24 @@ common.resume:                                    ; preds = %.thread132.thread, 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49
   unreachable
 
-305:                                              ; preds = %"_ZN4core3ptr1102drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific159", %.critedge
+305:                                              ; preds = %"_ZN4core3ptr1102drop_in_place$LT$exr..image..read..image..ImageWithAttributesReader$LT$exr..image..read..layers..FirstValidLayerReader$LT$exr..image..read..specific_channels..SpecificChannelsReader$LT$alloc..vec..Vec$LT$f32$GT$$C$$RF$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..Recursive$LT$exr..image..recursive..NoneMore$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..specific_channels..SampleReader$LT$f32$GT$$GT$$C$exr..image..read..speci163", %.critedge
   invoke void @"_ZN4core3ptr102drop_in_place$LT$exr..block..reader..Reader$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h314cb8c62eab15dbE"(ptr noalias noundef nonnull align 8 dereferenceable(4344) %2)
           to label %278 unwind label %306
 
-.thread132.thread:                                ; preds = %.body.i97, %273, %233, %140, %.thread, %306
-  %.pn85 = phi { ptr, i32 } [ %307, %306 ], [ %.pn.pn125, %.thread ], [ %234, %233 ], [ %lpad.thr_comm.split-lp, %140 ], [ %274, %273 ], [ %eh.lpad-body.i.i, %.body.i97 ]
+.thread135.thread:                                ; preds = %.body.i96, %273, %233, %140, %.thread, %306
+  %.pn85 = phi { ptr, i32 } [ %307, %306 ], [ %.pn.pn128, %.thread ], [ %234, %233 ], [ %lpad.thr_comm.split-lp, %140 ], [ %274, %273 ], [ %eh.lpad-body.i.i, %.body.i96 ]
   invoke void @"_ZN4core3ptr1701drop_in_place$LT$exr..image..read..image..ReadImage$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$exr..image..read..layers..ReadFirstValidLayer$LT$exr..image..read..specific_channels..CollectPixels$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$exr..image..recursive..NoneMore$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$f32$GT$$C$$LP$f32$C$f32$C$f32$C$f32$RP$$C$alloc..vec..Vec$LT$f32$GT$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image_with_progress$LT$$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$u20$as$u20$image..image..ImageDecoder$GT$..read_image..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h8fda8b960abceea0E"(ptr noalias noundef nonnull align 8 dereferenceable(248) %1) #48
           to label %common.resume unwind label %275
 
 306:                                              ; preds = %305
   %307 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread132.thread
+  br label %.thread135.thread
 
 .thread:                                          ; preds = %159, %277, %.body.i, %111, %114, %54
-  %.pn.pn125 = phi { ptr, i32 } [ %55, %54 ], [ %112, %114 ], [ %112, %111 ], [ %eh.lpad-body.i, %.body.i ], [ %160, %159 ], [ %lpad.thr_comm, %277 ]
+  %.pn.pn128 = phi { ptr, i32 } [ %55, %54 ], [ %112, %114 ], [ %112, %111 ], [ %eh.lpad-body.i, %.body.i ], [ %160, %159 ], [ %lpad.thr_comm, %277 ]
   invoke void @"_ZN4core3ptr102drop_in_place$LT$exr..block..reader..Reader$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h314cb8c62eab15dbE"(ptr noalias noundef nonnull align 8 dereferenceable(4344) %2) #48
-          to label %.thread132.thread unwind label %275
+          to label %.thread135.thread unwind label %275
 }
 
 ; Function Attrs: nonlazybind uwtable

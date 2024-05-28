@@ -74874,14 +74874,14 @@ define hidden noundef nonnull ptr @"_ZN8chalk_ir13Goal$LT$I$GT$3all17h65c04036d2
   %38 = load ptr, ptr %15, align 8, !alias.scope !18720, !noalias !18721, !nonnull !14, !noundef !14
   %39 = load ptr, ptr %17, align 8, !alias.scope !18720, !noalias !18721, !nonnull !14, !noundef !14
   %40 = icmp eq ptr %39, %38
-  br i1 %40, label %.thread114, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha927ac0beeca2246E.llvm.6150282900714191917.exit.i28"
+  br i1 %40, label %.thread116, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha927ac0beeca2246E.llvm.6150282900714191917.exit.i28"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha927ac0beeca2246E.llvm.6150282900714191917.exit.i28": ; preds = %37
   %41 = getelementptr inbounds i8, ptr %39, i64 40
   store ptr %41, ptr %17, align 8, !alias.scope !18720, !noalias !18721
   %.sroa.0.0.copyload1.i29 = load i64, ptr %39, align 8, !noalias !18720
   %42 = icmp eq i64 %.sroa.0.0.copyload1.i29, 6
-  br i1 %42, label %.thread114, label %43
+  br i1 %42, label %.thread116, label %43
 
 43:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha927ac0beeca2246E.llvm.6150282900714191917.exit.i28"
   %.sroa.6.0..sroa_idx2.i30 = getelementptr inbounds i8, ptr %39, i64 8
@@ -74953,17 +74953,17 @@ define hidden noundef nonnull ptr @"_ZN8chalk_ir13Goal$LT$I$GT$3all17h65c04036d2
 .noexc46:                                         ; preds = %59
   unreachable
 
-.body42.thread95:                                 ; preds = %60, %63
+.body42.thread97:                                 ; preds = %60, %63
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.body42.thread91
+  br label %.body42.thread93
 
 .body42:                                          ; preds = %43
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body42.thread
 
-.thread114:                                       ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha927ac0beeca2246E.llvm.6150282900714191917.exit.i28", %37
+.thread116:                                       ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha927ac0beeca2246E.llvm.6150282900714191917.exit.i28", %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %89
 
@@ -74977,16 +74977,16 @@ define hidden noundef nonnull ptr @"_ZN8chalk_ir13Goal$LT$I$GT$3all17h65c04036d2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !18757
   store i64 1, ptr %5, align 8, !noalias !18758
-  %.sroa.470.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %28, ptr %.sroa.470.0..sroa_idx, align 8, !noalias !18758
-  %.sroa.571.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 1, ptr %.sroa.571.0..sroa_idx, align 8, !noalias !18758
-  %.sroa.672.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %49, ptr %.sroa.672.0..sroa_idx, align 8, !noalias !18758
+  %.sroa.472.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %28, ptr %.sroa.472.0..sroa_idx, align 8, !noalias !18758
+  %.sroa.573.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 1, ptr %.sroa.573.0..sroa_idx, align 8, !noalias !18758
+  %.sroa.674.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %49, ptr %.sroa.674.0..sroa_idx, align 8, !noalias !18758
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %2, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !18759
   invoke void @_ZN4core4iter8adapters11try_process17h54322e1af2c342e5E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %5)
-          to label %.noexc49 unwind label %.body42.thread95
+          to label %.noexc49 unwind label %.body42.thread97
 
 .noexc49:                                         ; preds = %60
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !18741
@@ -74998,29 +74998,29 @@ define hidden noundef nonnull ptr @"_ZN8chalk_ir13Goal$LT$I$GT$3all17h65c04036d2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !18757
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !18760
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1ef3bb95f0992d135edd81c3172b80ca.329.llvm.6150282900714191917, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1ef3bb95f0992d135edd81c3172b80ca.331.llvm.6150282900714191917, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1ef3bb95f0992d135edd81c3172b80ca.517.llvm.6150282900714191917) #65
-          to label %.noexc50 unwind label %.body42.thread95
+          to label %.noexc50 unwind label %.body42.thread97
 
 .noexc50:                                         ; preds = %63
   unreachable
 
 64:                                               ; preds = %.noexc49
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.577.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.579.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !18761
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.577.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.579.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !18757
   store i64 1, ptr %4, align 8, !noalias !18761
   %65 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 14, ptr %65, align 8
-  %.sroa.476.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %61, ptr %.sroa.476.0..sroa_idx, align 8
+  %.sroa.478.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %61, ptr %.sroa.478.0..sroa_idx, align 8
   %66 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.10169251571672223956(ptr noalias noundef nonnull readonly align 1 @anon.1dac31fa3210420145aae2dceea84124.25.llvm.10169251571672223956, i64 noundef 8, i64 noundef 48, i1 noundef zeroext false)
           to label %.noexc.i unwind label %70, !noalias !18761
 
 .noexc.i:                                         ; preds = %64
   %67 = extractvalue { ptr, i64 } %66, 0
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %.thread117
+  br i1 %68, label %69, label %.thread119
 
 69:                                               ; preds = %.noexc.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 48) #65
@@ -75033,7 +75033,7 @@ define hidden noundef nonnull ptr @"_ZN8chalk_ir13Goal$LT$I$GT$3all17h65c04036d2
   %71 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$chalk_ir..GoalData$LT$hir_ty..interner..Interner$GT$$GT$17h4ef924f17a616c78E.llvm.11905809803391100490"(ptr noalias noundef nonnull align 8 dereferenceable(40) %65)
-          to label %.body42.thread91 unwind label %72, !noalias !18761
+          to label %.body42.thread93 unwind label %72, !noalias !18761
 
 72:                                               ; preds = %70
   %73 = landingpad { ptr, i32 }
@@ -75041,14 +75041,14 @@ define hidden noundef nonnull ptr @"_ZN8chalk_ir13Goal$LT$I$GT$3all17h65c04036d2
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #66, !noalias !18761
   unreachable
 
-.thread117:                                       ; preds = %.noexc.i
+.thread119:                                       ; preds = %.noexc.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !18761
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br label %"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$all64"
+  br label %"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$a65"
 
 .body42.thread:                                   ; preds = %52, %.body42
-  %eh.lpad-body4390 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body42 ], [ %53, %52 ]
+  %eh.lpad-body4392 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body42 ], [ %53, %52 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17h4a9f2c9ddca8bed6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12) #67
           to label %101 unwind label %74
 
@@ -75065,22 +75065,22 @@ define hidden noundef nonnull ptr @"_ZN8chalk_ir13Goal$LT$I$GT$3all17h65c04036d2
 
 78:                                               ; preds = %.noexc45
   %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.480.sroa.4.0..sroa.480.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.482.sroa.4.0..sroa.482.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !18764
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.480.sroa.4.0..sroa.480.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.46.0..sroa_idx.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.482.sroa.4.0..sroa.482.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.46.0..sroa_idx.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !18734
   store i64 1, ptr %3, align 8, !noalias !18764
   %79 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 14, ptr %79, align 8
-  %.sroa.480.sroa.3.0..sroa.480.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %57, ptr %.sroa.480.sroa.3.0..sroa.480.0..sroa_idx.sroa_idx, align 8
+  %.sroa.482.sroa.3.0..sroa.482.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %57, ptr %.sroa.482.sroa.3.0..sroa.482.0..sroa_idx.sroa_idx, align 8
   %80 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.10169251571672223956(ptr noalias noundef nonnull readonly align 1 @anon.1dac31fa3210420145aae2dceea84124.25.llvm.10169251571672223956, i64 noundef 8, i64 noundef 48, i1 noundef zeroext false)
           to label %.noexc.i58 unwind label %84, !noalias !18764
 
 .noexc.i58:                                       ; preds = %78
   %81 = extractvalue { ptr, i64 } %80, 0
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %.thread106
+  br i1 %82, label %83, label %.thread108
 
 83:                                               ; preds = %.noexc.i58
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 48) #65
@@ -75101,28 +75101,28 @@ define hidden noundef nonnull ptr @"_ZN8chalk_ir13Goal$LT$I$GT$3all17h65c04036d2
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #66, !noalias !18764
   unreachable
 
-.thread106:                                       ; preds = %.noexc.i58
+.thread108:                                       ; preds = %.noexc.i58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !18764
   br label %89
 
-"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$all64": ; preds = %89, %.thread117
-  %.1112 = phi ptr [ %67, %.thread117 ], [ %.1113, %89 ]
-  %.016110 = phi i8 [ 0, %.thread117 ], [ %.016111, %89 ]
+"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$a65": ; preds = %89, %.thread119
+  %.1114 = phi ptr [ %67, %.thread119 ], [ %.1115, %89 ]
+  %.016112 = phi i8 [ 0, %.thread119 ], [ %.016113, %89 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   %88 = load ptr, ptr %13, align 8, !noundef !14
   %.not26 = icmp eq ptr %88, null
-  br i1 %.not26, label %"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17h4a9f2c9ddca8bed6E.exit65", label %93
+  br i1 %.not26, label %"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17h4a9f2c9ddca8bed6E.exit66", label %93
 
-89:                                               ; preds = %.thread114, %.thread106
-  %.1113 = phi ptr [ %81, %.thread106 ], [ %28, %.thread114 ]
-  %.016111 = phi i8 [ 1, %.thread106 ], [ 0, %.thread114 ]
+89:                                               ; preds = %.thread116, %.thread108
+  %.1115 = phi ptr [ %81, %.thread108 ], [ %28, %.thread116 ]
+  %.016113 = phi i8 [ 1, %.thread108 ], [ 0, %.thread116 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5aa725d3d0c1c2b7E.llvm.11905809803391100490"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-          to label %"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$all64" unwind label %91
+          to label %"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$a65" unwind label %91
 
-.body42.thread91:                                 ; preds = %101, %.body42.thread95, %70, %91
-  %.218 = phi i8 [ %.016111, %91 ], [ 0, %.body42.thread95 ], [ 0, %70 ], [ %.117.ph, %101 ]
-  %.pn22 = phi { ptr, i32 } [ %92, %91 ], [ %lpad.thr_comm, %.body42.thread95 ], [ %71, %70 ], [ %.pn.ph, %101 ]
+.body42.thread93:                                 ; preds = %101, %.body42.thread97, %70, %91
+  %.218 = phi i8 [ %.016113, %91 ], [ 0, %.body42.thread97 ], [ 0, %70 ], [ %.117.ph, %101 ]
+  %.pn22 = phi { ptr, i32 } [ %92, %91 ], [ %lpad.thr_comm, %.body42.thread97 ], [ %71, %70 ], [ %.pn.ph, %101 ]
   %90 = load ptr, ptr %13, align 8, !noundef !14
   %.not24 = icmp eq ptr %90, null
   br i1 %.not24, label %"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$all", label %102
@@ -75130,15 +75130,15 @@ define hidden noundef nonnull ptr @"_ZN8chalk_ir13Goal$LT$I$GT$3all17h65c04036d2
 91:                                               ; preds = %89
   %92 = landingpad { ptr, i32 }
           cleanup
-  br label %.body42.thread91
+  br label %.body42.thread93
 
-93:                                               ; preds = %"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$all64"
-  %94 = trunc nuw i8 %.016110 to i1
-  br i1 %94, label %95, label %"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17h4a9f2c9ddca8bed6E.exit65"
+93:                                               ; preds = %"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$a65"
+  %94 = trunc nuw i8 %.016112 to i1
+  br i1 %94, label %95, label %"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17h4a9f2c9ddca8bed6E.exit66"
 
-"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17h4a9f2c9ddca8bed6E.exit65": ; preds = %98, %95, %93, %"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$all64"
+"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17h4a9f2c9ddca8bed6E.exit66": ; preds = %98, %95, %93, %"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$a65"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  ret ptr %.1112
+  ret ptr %.1114
 
 95:                                               ; preds = %93
   call void @llvm.experimental.noalias.scope.decl(metadata !18767)
@@ -75146,26 +75146,26 @@ define hidden noundef nonnull ptr @"_ZN8chalk_ir13Goal$LT$I$GT$3all17h65c04036d2
   call void @llvm.experimental.noalias.scope.decl(metadata !18773)
   %96 = atomicrmw sub ptr %88, i64 1 release, align 8, !noalias !18776
   %97 = icmp eq i64 %96, 1
-  br i1 %97, label %98, label %"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17h4a9f2c9ddca8bed6E.exit65"
+  br i1 %97, label %98, label %"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17h4a9f2c9ddca8bed6E.exit66"
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr %13, align 8, !alias.scope !18776, !nonnull !14, !noundef !14
   %100 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h2321e173eb5e90a6E.llvm.11905809803391100490(ptr noundef nonnull %99, i8 noundef 2), !noalias !18776
   call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h7a2d6c48d86c4b6eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
-  br label %"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17h4a9f2c9ddca8bed6E.exit65"
+  br label %"_ZN4core3ptr69drop_in_place$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$17h4a9f2c9ddca8bed6E.exit66"
 
 101:                                              ; preds = %.body42.thread, %76, %84
   %.117.ph = phi i8 [ 0, %.body42.thread ], [ 1, %76 ], [ 1, %84 ]
-  %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body4390, %.body42.thread ], [ %77, %76 ], [ %85, %84 ]
+  %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body4392, %.body42.thread ], [ %77, %76 ], [ %85, %84 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5aa725d3d0c1c2b7E.llvm.11905809803391100490"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-          to label %.body42.thread91 unwind label %74
+          to label %.body42.thread93 unwind label %74
 
-102:                                              ; preds = %.body42.thread91
+102:                                              ; preds = %.body42.thread93
   %103 = trunc nuw i8 %.218 to i1
   br i1 %103, label %104, label %"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$all"
 
-"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$all": ; preds = %.body, %104, %102, %.body42.thread91
-  %.pn22.pn = phi { ptr, i32 } [ %.pn22, %104 ], [ %.pn22, %102 ], [ %.pn22, %.body42.thread91 ], [ %eh.lpad-body, %.body ]
+"_ZN4core3ptr1546drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$C$hir_ty..method_resolution..find_matching_impl$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..chain..Chain$LT$core..slice..iter..Iter$LT$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$C$core..option..IntoIter$LT$$RF$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$GT$$GT$$C$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$$RF$std..collections..hash..map..HashMap$LT$core..option..Option$LT$hir_ty..method_resolution..TyFingerprint$GT$$C$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$$RF$alloc..boxed..Box$LT$$u5b$hir_def..ImplId$u5d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$all": ; preds = %.body, %104, %102, %.body42.thread93
+  %.pn22.pn = phi { ptr, i32 } [ %.pn22, %104 ], [ %.pn22, %102 ], [ %.pn22, %.body42.thread93 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn22.pn
 
 104:                                              ; preds = %102

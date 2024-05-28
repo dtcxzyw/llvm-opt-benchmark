@@ -1484,8 +1484,8 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   ret { i64, i64 } %33
 
 .body.thread:                                     ; preds = %24, %20, %34
-  %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm, %34 ], [ %21, %20 ], [ %21, %24 ]
-  resume { ptr, i32 } %eh.lpad-body16
+  %eh.lpad-body15 = phi { ptr, i32 } [ %lpad.thr_comm, %34 ], [ %21, %20 ], [ %21, %24 ]
+  resume { ptr, i32 } %eh.lpad-body15
 
 34:                                               ; preds = %3, %14
   %lpad.thr_comm = landingpad { ptr, i32 }
