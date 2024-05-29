@@ -2142,8 +2142,8 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %.prehead
 
 52:                                               ; preds = %73
   %53 = add nuw nsw i32 %.0172239.i, 1
-  %exitcond247.not.i = icmp eq i32 %53, 4
-  br i1 %exitcond247.not.i, label %79, label %.preheader235.i, !llvm.loop !46
+  %exitcond248.not.i = icmp eq i32 %53, 4
+  br i1 %exitcond248.not.i, label %79, label %.preheader235.i, !llvm.loop !46
 
 .preheader235.i:                                  ; preds = %52, %.lr.ph
   %.0172239.i = phi i32 [ 0, %.lr.ph ], [ %53, %52 ]
@@ -2206,8 +2206,8 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %.prehead
 
 82:                                               ; preds = %81
   %83 = add nuw nsw i32 %.0175240.i, 1
-  %exitcond248.not.i = icmp eq i32 %83, 4
-  br i1 %exitcond248.not.i, label %84, label %81, !llvm.loop !48
+  %exitcond249.not.i = icmp eq i32 %83, 4
+  br i1 %exitcond249.not.i, label %84, label %81, !llvm.loop !48
 
 84:                                               ; preds = %82, %81
   %.0174.i = phi i32 [ -1, %82 ], [ %.0175240.i, %81 ]
@@ -2224,23 +2224,23 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %.prehead
 
 86:                                               ; preds = %85
   %87 = add nuw nsw i32 %.1176241.i, 1
-  %exitcond249.not.i = icmp eq i32 %87, 4
-  br i1 %exitcond249.not.i, label %88, label %85, !llvm.loop !49
+  %exitcond250.not.i = icmp eq i32 %87, 4
+  br i1 %exitcond250.not.i, label %88, label %85, !llvm.loop !49
 
 88:                                               ; preds = %86, %85
   %.0173.i = phi i32 [ -1, %86 ], [ %.1176241.i, %85 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.loopexit.i, %88
-  %indvars.iv258.i = phi i64 [ 0, %88 ], [ %indvars.iv.next259.i, %.loopexit.i ]
-  %89 = trunc nuw nsw i64 %indvars.iv258.i to i32
+  %indvars.iv259.i = phi i64 [ 0, %88 ], [ %indvars.iv.next260.i, %.loopexit.i ]
+  %89 = trunc nuw nsw i64 %indvars.iv259.i to i32
   %90 = lshr i32 %89, 1
   br label %91
 
 91:                                               ; preds = %108, %.preheader.i
-  %indvars.iv250.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next251.i, %108 ]
+  %indvars.iv251.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next252.i, %108 ]
   %.2183242.i = phi i32 [ 0, %.preheader.i ], [ %.3.i, %108 ]
-  %92 = trunc nuw nsw i64 %indvars.iv250.i to i32
+  %92 = trunc nuw nsw i64 %indvars.iv251.i to i32
   %93 = lshr i32 %92, %.136
   %94 = xor i32 %93, %89
   %95 = and i32 %94, 1
@@ -2254,7 +2254,7 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %.prehead
   br i1 %100, label %101, label %108
 
 101:                                              ; preds = %97
-  %102 = shl nuw nsw i64 %indvars.iv250.i, 1
+  %102 = shl nuw nsw i64 %indvars.iv251.i, 1
   %103 = lshr i64 %.0.lcssa.i, %102
   %104 = trunc i64 %103 to i32
   %105 = and i32 %104, 3
@@ -2264,9 +2264,9 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %.prehead
 
 108:                                              ; preds = %101, %97, %91
   %.3.i = phi i32 [ %107, %101 ], [ %.2183242.i, %97 ], [ %.2183242.i, %91 ]
-  %indvars.iv.next251.i = add nuw nsw i64 %indvars.iv250.i, 1
-  %exitcond253.not.i = icmp eq i64 %indvars.iv.next251.i, 16
-  br i1 %exitcond253.not.i, label %109, label %91, !llvm.loop !50
+  %indvars.iv.next252.i = add nuw nsw i64 %indvars.iv251.i, 1
+  %exitcond254.not.i = icmp eq i64 %indvars.iv.next252.i, 16
+  br i1 %exitcond254.not.i, label %109, label %91, !llvm.loop !50
 
 109:                                              ; preds = %108
   %110 = and i32 %.3.i, 15
@@ -2315,9 +2315,9 @@ Abc_Tt6FirstBit.exit.i:                           ; preds = %116, %114
   %133 = sext i32 %.025.i.i to i64
   %134 = getelementptr inbounds [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %133
   %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %indvars.iv258.i
+  %136 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %indvars.iv259.i
   store i64 %135, ptr %136, align 8
-  %137 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 %indvars.iv258.i
+  %137 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 %indvars.iv259.i
   store i64 -1, ptr %137, align 8
   br label %.loopexit.i
 
@@ -2408,14 +2408,14 @@ Abc_Tt6FirstBit.exit234.i:                        ; preds = %161, %Abc_Tt6FirstB
   %190 = load i64, ptr %189, align 8
   %191 = and i64 %190, 3689348814741910323
   %192 = or disjoint i64 %191, %187
-  %193 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %indvars.iv258.i
+  %193 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %indvars.iv259.i
   store i64 %192, ptr %193, align 8
-  %194 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 %indvars.iv258.i
+  %194 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 %indvars.iv259.i
   br label %195
 
 195:                                              ; preds = %221, %Abc_Tt6FirstBit.exit234.i
-  %indvars.iv254.i = phi i64 [ 0, %Abc_Tt6FirstBit.exit234.i ], [ %indvars.iv.next255.i, %221 ]
-  %196 = trunc nuw nsw i64 %indvars.iv254.i to i32
+  %indvars.iv255.i = phi i64 [ 0, %Abc_Tt6FirstBit.exit234.i ], [ %indvars.iv.next256.i, %221 ]
+  %196 = trunc nuw nsw i64 %indvars.iv255.i to i32
   %197 = lshr i32 %196, %.136
   %198 = xor i32 %197, %89
   %199 = and i32 %198, 1
@@ -2429,7 +2429,7 @@ Abc_Tt6FirstBit.exit234.i:                        ; preds = %161, %Abc_Tt6FirstB
   br i1 %204, label %205, label %221
 
 205:                                              ; preds = %201
-  %206 = shl nuw nsw i64 %indvars.iv254.i, 1
+  %206 = shl nuw nsw i64 %indvars.iv255.i, 1
   %207 = lshr i64 %.0.lcssa.i, %206
   %208 = and i64 %207, 3
   %209 = icmp eq i64 %208, %184
@@ -2450,19 +2450,19 @@ Abc_Tt6FirstBit.exit234.i:                        ; preds = %161, %Abc_Tt6FirstB
   br label %221
 
 221:                                              ; preds = %210, %205, %201, %195
-  %indvars.iv.next255.i = add nuw nsw i64 %indvars.iv254.i, 1
-  %exitcond257.not.i = icmp eq i64 %indvars.iv.next255.i, 16
-  br i1 %exitcond257.not.i, label %.loopexit.i, label %195, !llvm.loop !51
+  %indvars.iv.next256.i = add nuw nsw i64 %indvars.iv255.i, 1
+  %exitcond258.not.i = icmp eq i64 %indvars.iv.next256.i, 16
+  br i1 %exitcond258.not.i, label %.loopexit.i, label %195, !llvm.loop !51
 
 .loopexit.i:                                      ; preds = %221, %Abc_Tt6FirstBit.exit.i, %109
-  %222 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 %indvars.iv258.i
+  %222 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 %indvars.iv259.i
   %223 = load i64, ptr %222, align 8
   %224 = and i64 %223, 15
   %225 = mul nuw i64 %224, 1229782938247303441
   store i64 %225, ptr %222, align 8
-  %indvars.iv.next259.i = add nuw nsw i64 %indvars.iv258.i, 1
-  %exitcond261.not.i = icmp eq i64 %indvars.iv.next259.i, 4
-  br i1 %exitcond261.not.i, label %226, label %.preheader.i, !llvm.loop !52
+  %indvars.iv.next260.i = add nuw nsw i64 %indvars.iv259.i, 1
+  %exitcond262.not.i = icmp eq i64 %indvars.iv.next260.i, 4
+  br i1 %exitcond262.not.i, label %226, label %.preheader.i, !llvm.loop !52
 
 226:                                              ; preds = %.loopexit.i
   %227 = getelementptr inbounds i8, ptr %4, i64 8

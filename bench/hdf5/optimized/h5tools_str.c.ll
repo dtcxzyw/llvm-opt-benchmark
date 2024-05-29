@@ -857,7 +857,7 @@ define void @h5tools_str_dump_space_blocks(ptr nocapture noundef %0, i64 noundef
   %31 = call noalias ptr @malloc(i64 noundef %30) #21
   %32 = call i32 @H5Sget_select_hyper_blocklist(i64 noundef %1, i64 noundef 0, i64 noundef %16, ptr noundef %31) #20
   %33 = getelementptr inbounds i8, ptr %2, i64 392
-  %factor.op.mul48 = shl nuw nsw i64 %28, 1
+  %factor.op.mul49 = shl nuw nsw i64 %28, 1
   %invariant.gep50 = getelementptr i64, ptr %31, i64 %28
   %.not68 = icmp eq i32 %.fr67, 0
   br i1 %.not68, label %.preheader, label %.lr.ph.us.us
@@ -868,8 +868,8 @@ define void @h5tools_str_dump_space_blocks(ptr nocapture noundef %0, i64 noundef
   %.not41.us.us = icmp eq i64 %.03752.us.us, 0
   %35 = select i1 %.not41.us.us, ptr @.str.17, ptr @.str.16
   %36 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef %34, ptr noundef nonnull %35, i64 noundef %.03752.us.us)
-  %factor.op.mul.us.us = mul i64 %factor.op.mul48, %.03752.us.us
-  %37 = getelementptr i64, ptr %31, i64 %factor.op.mul.us.us
+  %factor.op.mul.reass.us.us = mul i64 %factor.op.mul49, %.03752.us.us
+  %37 = getelementptr i64, ptr %31, i64 %factor.op.mul.reass.us.us
   br label %42
 
 38:                                               ; preds = %..preheader_crit_edge.us.us, %38
@@ -895,7 +895,7 @@ define void @h5tools_str_dump_space_blocks(ptr nocapture noundef %0, i64 noundef
   br i1 %exitcond.not, label %..preheader_crit_edge.us.us, label %42
 
 ..preheader_crit_edge.us.us:                      ; preds = %42
-  %gep51.us.us = getelementptr i64, ptr %invariant.gep50, i64 %factor.op.mul.us.us
+  %gep51.us.us = getelementptr i64, ptr %invariant.gep50, i64 %factor.op.mul.reass.us.us
   br label %38
 
 ._crit_edge.us.us:                                ; preds = %38

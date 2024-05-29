@@ -4261,24 +4261,24 @@ define internal fastcc void @unquantize_intra_differences(ptr nocapture noundef 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.split
   %indvars.iv39 = phi i64 [ 0, %.preheader.lr.ph.split ], [ %indvars.iv.next40, %.split ]
   %28 = trunc nuw nsw i64 %indvars.iv39 to i32
-  %29 = mul i32 %factor.op.mul, %28
-  %30 = sext i32 %29 to i64
-  br label %31
+  %.reass = mul i32 %factor.op.mul, %28
+  %29 = sext i32 %.reass to i64
+  br label %30
 
-31:                                               ; preds = %.preheader, %31
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %31 ]
-  %32 = add nsw i64 %indvars.iv, %30
-  %33 = getelementptr inbounds i32, ptr %4, i64 %32
-  %34 = load i32, ptr %33, align 4
-  %35 = sitofp i32 %34 to double
-  %36 = fmul double %35, %3
-  %37 = getelementptr inbounds double, ptr %0, i64 %32
-  store double %36, ptr %37, align 8
+30:                                               ; preds = %.preheader, %30
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %30 ]
+  %31 = add nsw i64 %indvars.iv, %29
+  %32 = getelementptr inbounds i32, ptr %4, i64 %31
+  %33 = load i32, ptr %32, align 4
+  %34 = sitofp i32 %33 to double
+  %35 = fmul double %34, %3
+  %36 = getelementptr inbounds double, ptr %0, i64 %31
+  store double %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split, label %31, !llvm.loop !34
+  br i1 %exitcond.not, label %.split, label %30, !llvm.loop !34
 
-.split:                                           ; preds = %31
+.split:                                           ; preds = %30
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count55
   br i1 %exitcond42.not, label %._crit_edge, label %.preheader, !llvm.loop !37
@@ -4354,24 +4354,24 @@ define internal fastcc void @unquantize_intra_differences_float(ptr nocapture no
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.split
   %indvars.iv39 = phi i64 [ 0, %.preheader.lr.ph.split ], [ %indvars.iv.next40, %.split ]
   %28 = trunc nuw nsw i64 %indvars.iv39 to i32
-  %29 = mul i32 %factor.op.mul, %28
-  %30 = sext i32 %29 to i64
-  br label %31
+  %.reass = mul i32 %factor.op.mul, %28
+  %29 = sext i32 %.reass to i64
+  br label %30
 
-31:                                               ; preds = %.preheader, %31
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %31 ]
-  %32 = add nsw i64 %indvars.iv, %30
-  %33 = getelementptr inbounds i32, ptr %4, i64 %32
-  %34 = load i32, ptr %33, align 4
-  %35 = sitofp i32 %34 to float
-  %36 = fmul float %35, %3
-  %37 = getelementptr inbounds float, ptr %0, i64 %32
-  store float %36, ptr %37, align 4
+30:                                               ; preds = %.preheader, %30
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %30 ]
+  %31 = add nsw i64 %indvars.iv, %29
+  %32 = getelementptr inbounds i32, ptr %4, i64 %31
+  %33 = load i32, ptr %32, align 4
+  %34 = sitofp i32 %33 to float
+  %35 = fmul float %34, %3
+  %36 = getelementptr inbounds float, ptr %0, i64 %31
+  store float %35, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split, label %31, !llvm.loop !39
+  br i1 %exitcond.not, label %.split, label %30, !llvm.loop !39
 
-.split:                                           ; preds = %31
+.split:                                           ; preds = %30
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count55
   br i1 %exitcond42.not, label %._crit_edge, label %.preheader, !llvm.loop !40
@@ -4443,22 +4443,22 @@ define internal fastcc void @unquantize_intra_differences_int(ptr nocapture noun
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.split
   %indvars.iv38 = phi i64 [ 0, %.preheader.lr.ph.split ], [ %indvars.iv.next39, %.split ]
   %23 = trunc nuw nsw i64 %indvars.iv38 to i32
-  %24 = mul i32 %factor.op.mul, %23
-  %25 = sext i32 %24 to i64
-  br label %26
+  %.reass = mul i32 %factor.op.mul, %23
+  %24 = sext i32 %.reass to i64
+  br label %25
 
-26:                                               ; preds = %.preheader, %26
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %26 ]
-  %27 = add nsw i64 %indvars.iv, %25
-  %28 = getelementptr inbounds i32, ptr %3, i64 %27
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i32, ptr %0, i64 %27
-  store i32 %29, ptr %30, align 4
+25:                                               ; preds = %.preheader, %25
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
+  %26 = add nsw i64 %indvars.iv, %24
+  %27 = getelementptr inbounds i32, ptr %3, i64 %26
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr inbounds i32, ptr %0, i64 %26
+  store i32 %28, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split, label %26, !llvm.loop !42
+  br i1 %exitcond.not, label %.split, label %25, !llvm.loop !42
 
-.split:                                           ; preds = %26
+.split:                                           ; preds = %25
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count54
   br i1 %exitcond41.not, label %._crit_edge, label %.preheader, !llvm.loop !43

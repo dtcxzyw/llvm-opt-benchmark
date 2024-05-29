@@ -1400,10 +1400,10 @@ for.inc.us:                                       ; preds = %if.then12.us, %for.
 
 for.cond4.preheader.us:                           ; preds = %for.body.us
   %10 = trunc nuw nsw i64 %indvars.iv29 to i32
-  %factor.op.mul.us = mul i32 %factor.op.mul20, %10
+  %factor.op.mul.reass.us = mul i32 %factor.op.mul20, %10
   %11 = mul nsw i64 %5, %4
   %add.ptr.i.us = getelementptr inbounds i8, ptr %output, i64 %11
-  %12 = sext i32 %factor.op.mul.us to i64
+  %12 = sext i32 %factor.op.mul.reass.us to i64
   br label %for.body6.us
 
 for.end22:                                        ; preds = %for.inc20.us, %entry
@@ -2438,10 +2438,10 @@ for.inc.us.i:                                     ; preds = %if.then12.us.i, %fo
 
 for.cond4.preheader.us.i:                         ; preds = %for.body.us.i
   %77 = trunc nuw nsw i64 %indvars.iv29.i to i32
-  %factor.op.mul.us.i = mul i32 %factor.op.mul20.i, %77
+  %factor.op.mul.reass.us.i = mul i32 %factor.op.mul20.i, %77
   %78 = mul nsw i64 %72, %56
   %add.ptr.i.us.i = getelementptr inbounds i8, ptr %output, i64 %78
-  %79 = sext i32 %factor.op.mul.us.i to i64
+  %79 = sext i32 %factor.op.mul.reass.us.i to i64
   br label %for.body6.us.i
 
 if.end239:                                        ; preds = %for.inc20.us.i, %if.end238, %if.end189
@@ -2644,10 +2644,10 @@ for.inc.us.i430:                                  ; preds = %if.then12.us.i433, 
 
 for.cond4.preheader.us.i422:                      ; preds = %for.body.us.i414
   %119 = trunc nuw nsw i64 %indvars.iv29.i415 to i32
-  %factor.op.mul.us.i423 = mul i32 %factor.op.mul20.i408, %119
+  %factor.op.mul.reass.us.i423 = mul i32 %factor.op.mul20.i408, %119
   %120 = mul nsw i64 %114, %98
   %add.ptr.i.us.i424 = getelementptr inbounds i8, ptr %output, i64 %120
-  %121 = sext i32 %factor.op.mul.us.i423 to i64
+  %121 = sext i32 %factor.op.mul.reass.us.i423 to i64
   br label %for.body6.us.i425
 
 if.end372:                                        ; preds = %for.inc20.us.i419, %if.end371, %if.end319
@@ -2888,8 +2888,8 @@ for.cond19.preheader.lr.ph.split.us:              ; preds = %entry
 for.cond19.preheader.us:                          ; preds = %for.cond19.for.inc37_crit_edge.us, %for.cond19.preheader.lr.ph.split.us
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %for.cond19.for.inc37_crit_edge.us ], [ 0, %for.cond19.preheader.lr.ph.split.us ]
   %7 = trunc nuw nsw i64 %indvars.iv34 to i32
-  %factor.op.mul.us = mul i32 %factor.op.mul26, %7
-  %idx.ext.us = sext i32 %factor.op.mul.us to i64
+  %factor.op.mul.reass.us = mul i32 %factor.op.mul26, %7
+  %idx.ext.us = sext i32 %factor.op.mul.reass.us to i64
   %add.ptr.us = getelementptr inbounds i8, ptr %pixels, i64 %idx.ext.us
   %8 = add nsw i64 %indvars.iv34, %5
   %9 = mul nsw i64 %8, %6

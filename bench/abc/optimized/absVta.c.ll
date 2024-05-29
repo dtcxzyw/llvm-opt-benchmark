@@ -629,9 +629,9 @@ define noundef i32 @Vec_IntDoubleWidth(ptr nocapture noundef %0, i32 noundef %1)
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %13 = trunc nuw nsw i64 %indvars.iv36 to i32
-  %factor.op.mul.us = mul i32 %factor.op.mul30, %13
+  %factor.op.mul.reass.us = mul i32 %factor.op.mul30, %13
   %14 = mul nuw nsw i64 %indvars.iv36, %12
-  %15 = sext i32 %factor.op.mul.us to i64
+  %15 = sext i32 %factor.op.mul.reass.us to i64
   %invariant.gep = getelementptr inbounds i32, ptr %11, i64 %14
   %invariant.gep42 = getelementptr i32, ptr %6, i64 %15
   br label %16
@@ -5460,9 +5460,9 @@ Abc_Clock.exit309:                                ; preds = %87, %94
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.lr.ph.split.us.i
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.split.us.i ]
   %180 = trunc nuw nsw i64 %indvars.iv36.i to i32
-  %factor.op.mul.us.i = mul i32 %factor.op.mul30.i, %180
+  %factor.op.mul.reass.us.i = mul i32 %factor.op.mul30.i, %180
   %181 = mul nuw nsw i64 %indvars.iv36.i, %179
-  %182 = sext i32 %factor.op.mul.us.i to i64
+  %182 = sext i32 %factor.op.mul.reass.us.i to i64
   %invariant.gep.i = getelementptr inbounds i32, ptr %178, i64 %181
   %invariant.gep42.i = getelementptr i32, ptr %173, i64 %182
   br label %183

@@ -336,11 +336,11 @@ define i32 @ompi_coll_base_allgather_intra_recursivedoubling(ptr noundef %0, i32
   %.1 = select i1 %39, i32 %.06788, i32 %41
   %.pn91.in = select i1 %39, i32 %40, i32 %41
   %.pn91 = sext i32 %.pn91.in to i64
-  %.pn86 = mul i64 %factor.op.mul, %.pn91
+  %.pn86.reass = mul i64 %factor.op.mul, %.pn91
   %.pn90 = sext i32 %.06788 to i64
-  %.pn85 = mul i64 %factor.op.mul92, %.pn90
-  %.0 = getelementptr inbounds i8, ptr %3, i64 %.pn86
-  %.066 = getelementptr inbounds i8, ptr %3, i64 %.pn85
+  %.pn85.reass = mul i64 %factor.op.mul92, %.pn90
+  %.0 = getelementptr inbounds i8, ptr %3, i64 %.pn86.reass
+  %.066 = getelementptr inbounds i8, ptr %3, i64 %.pn85.reass
   %42 = icmp eq i32 %.06887, 0
   br i1 %42, label %43, label %45
 

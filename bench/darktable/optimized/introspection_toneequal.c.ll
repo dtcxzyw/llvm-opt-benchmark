@@ -9723,8 +9723,8 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   %56 = insertelement <8 x i64> poison, i64 %47, i64 0
   %57 = shufflevector <8 x i64> %56, <8 x i64> poison, <8 x i32> zeroinitializer
   %58 = icmp eq i64 %53, %19
-  %.scalar54 = fdiv reassoc nsz arcp contract afn float %17, %50
-  %59 = insertelement <8 x float> poison, float %.scalar54, i64 0
+  %.scalar59 = fdiv reassoc nsz arcp contract afn float %17, %50
+  %59 = insertelement <8 x float> poison, float %.scalar59, i64 0
   %60 = shufflevector <8 x float> %59, <8 x float> poison, <8 x i32> zeroinitializer
   %61 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %51
   %62 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %50
@@ -9750,7 +9750,7 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   %80 = getelementptr float, ptr %0, i64 %75
   %81 = getelementptr float, ptr %0, i64 %76
   %82 = getelementptr float, ptr %23, i64 %79
-  br i1 %52, label %.preheader74, label %83
+  br i1 %52, label %.preheader79, label %83
 
 83:                                               ; preds = %63
   %84 = insertelement <8 x float> poison, float %78, i64 0
@@ -9797,14 +9797,14 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   br i1 %121, label %122, label %86, !llvm.loop !462
 
 122:                                              ; preds = %86
-  br i1 %58, label %.loopexit46, label %.preheader74
+  br i1 %58, label %.loopexit46, label %.preheader79
 
-.preheader74:                                     ; preds = %122, %63
-  %.ph75 = phi i64 [ %53, %122 ], [ 0, %63 ]
+.preheader79:                                     ; preds = %122, %63
+  %.ph80 = phi i64 [ %53, %122 ], [ 0, %63 ]
   br label %123
 
-123:                                              ; preds = %.preheader74, %123
-  %124 = phi i64 [ %156, %123 ], [ %.ph75, %.preheader74 ]
+123:                                              ; preds = %.preheader79, %123
+  %124 = phi i64 [ %156, %123 ], [ %.ph80, %.preheader79 ]
   %125 = uitofp i64 %124 to float
   %126 = fmul reassoc nsz arcp contract afn float %17, %125
   %127 = fmul reassoc nsz arcp contract afn float %126, %62
@@ -9917,8 +9917,8 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   %216 = insertelement <8 x i64> poison, i64 %203, i64 0
   %217 = shufflevector <8 x i64> %216, <8 x i64> poison, <8 x i32> zeroinitializer
   %218 = icmp eq i64 %213, %1
-  %.scalar56 = fdiv reassoc nsz arcp contract afn float %206, %17
-  %219 = insertelement <8 x float> poison, float %.scalar56, i64 0
+  %.scalar61 = fdiv reassoc nsz arcp contract afn float %206, %17
+  %219 = insertelement <8 x float> poison, float %.scalar61, i64 0
   %220 = shufflevector <8 x float> %219, <8 x float> poison, <8 x i32> zeroinitializer
   %221 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %14
   %222 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %17
@@ -10116,10 +10116,10 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   br i1 %164, label %439, label %384
 
 384:                                              ; preds = %383
-  br i1 %170, label %.preheader71, label %.preheader44
+  br i1 %170, label %.preheader76, label %.preheader44
 
-.preheader71:                                     ; preds = %398, %384
-  %.ph72 = phi i64 [ %171, %398 ], [ 0, %384 ]
+.preheader76:                                     ; preds = %398, %384
+  %.ph77 = phi i64 [ %171, %398 ], [ 0, %384 ]
   br label %425
 
 .preheader44:                                     ; preds = %384, %.preheader44
@@ -10140,13 +10140,13 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   br i1 %397, label %398, label %.preheader44, !llvm.loop !476
 
 398:                                              ; preds = %.preheader44
-  br i1 %174, label %.loopexit41, label %.preheader71
+  br i1 %174, label %.loopexit41, label %.preheader76
 
 399:                                              ; preds = %382
   br i1 %164, label %439, label %400
 
 400:                                              ; preds = %399
-  br i1 %170, label %.preheader69, label %.preheader42
+  br i1 %170, label %.preheader74, label %.preheader42
 
 .preheader42:                                     ; preds = %400, %.preheader42
   %401 = phi i64 [ %410, %.preheader42 ], [ 0, %400 ]
@@ -10164,14 +10164,14 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   br i1 %411, label %412, label %.preheader42, !llvm.loop !477
 
 412:                                              ; preds = %.preheader42
-  br i1 %174, label %.loopexit41, label %.preheader69
+  br i1 %174, label %.loopexit41, label %.preheader74
 
-.preheader69:                                     ; preds = %412, %400
-  %.ph70 = phi i64 [ %171, %412 ], [ 0, %400 ]
+.preheader74:                                     ; preds = %412, %400
+  %.ph75 = phi i64 [ %171, %412 ], [ 0, %400 ]
   br label %413
 
-413:                                              ; preds = %.preheader69, %413
-  %414 = phi i64 [ %423, %413 ], [ %.ph70, %.preheader69 ]
+413:                                              ; preds = %.preheader74, %413
+  %414 = phi i64 [ %423, %413 ], [ %.ph75, %.preheader74 ]
   %415 = getelementptr inbounds float, ptr %23, i64 %414
   %416 = load float, ptr %415, align 4, !tbaa !6, !alias.scope !471, !noalias !474
   %417 = tail call reassoc nsz arcp contract afn float @llvm.log2.f32(float %416)
@@ -10185,8 +10185,8 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   %424 = icmp eq i64 %423, %20
   br i1 %424, label %.loopexit41, label %413, !llvm.loop !478
 
-425:                                              ; preds = %.preheader71, %425
-  %426 = phi i64 [ %437, %425 ], [ %.ph72, %.preheader71 ]
+425:                                              ; preds = %.preheader76, %425
+  %426 = phi i64 [ %437, %425 ], [ %.ph77, %.preheader76 ]
   %427 = getelementptr inbounds float, ptr %23, i64 %426
   %428 = load float, ptr %427, align 4, !tbaa !6, !alias.scope !471, !noalias !474
   %429 = tail call reassoc nsz arcp contract afn float @llvm.log2.f32(float %428)
@@ -10297,10 +10297,10 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
 
 .loopexit39:                                      ; preds = %.preheader38, %495, %476
   tail call void @dt_box_mean(ptr noundef nonnull %445, i64 noundef %16, i64 noundef %19, i32 noundef 4, i64 noundef %166, i32 noundef 1) #32, !noalias !495
-  br i1 %197, label %.preheader67, label %.preheader37
+  br i1 %197, label %.preheader72, label %.preheader37
 
-.preheader67:                                     ; preds = %521, %.loopexit39
-  %.ph68 = phi i64 [ %190, %521 ], [ 0, %.loopexit39 ]
+.preheader72:                                     ; preds = %521, %.loopexit39
+  %.ph73 = phi i64 [ %190, %521 ], [ 0, %.loopexit39 ]
   br label %557
 
 .preheader37:                                     ; preds = %.loopexit39, %.preheader37
@@ -10331,7 +10331,7 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   br i1 %520, label %521, label %.preheader37, !llvm.loop !500
 
 521:                                              ; preds = %.preheader37
-  br i1 %193, label %.loopexit36, label %.preheader67
+  br i1 %193, label %.loopexit36, label %.preheader72
 
 .preheader38:                                     ; preds = %495, %.preheader38
   %522 = phi i64 [ %552, %.preheader38 ], [ %496, %495 ]
@@ -10382,8 +10382,8 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   %556 = icmp eq ptr %555, null
   br i1 %556, label %589, label %.loopexit36
 
-557:                                              ; preds = %.preheader67, %557
-  %558 = phi i64 [ %584, %557 ], [ %.ph68, %.preheader67 ]
+557:                                              ; preds = %.preheader72, %557
+  %558 = phi i64 [ %584, %557 ], [ %.ph73, %.preheader72 ]
   %559 = shl i64 %558, 2
   %560 = or disjoint i64 %559, 2
   %561 = getelementptr inbounds float, ptr %445, i64 %560
@@ -10433,7 +10433,7 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   br i1 %586, label %.loopexit35, label %591
 
 591:                                              ; preds = %590
-  br i1 %194, label %.preheader65, label %.preheader
+  br i1 %194, label %.preheader70, label %.preheader
 
 .preheader:                                       ; preds = %591, %.preheader
   %592 = phi i64 [ %633, %.preheader ], [ 0, %591 ]
@@ -10486,14 +10486,14 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   br i1 %634, label %635, label %.preheader, !llvm.loop !508
 
 635:                                              ; preds = %.preheader
-  br i1 %196, label %.loopexit35, label %.preheader65
+  br i1 %196, label %.loopexit35, label %.preheader70
 
-.preheader65:                                     ; preds = %635, %591
-  %.ph66 = phi i64 [ %195, %635 ], [ 0, %591 ]
+.preheader70:                                     ; preds = %635, %591
+  %.ph71 = phi i64 [ %195, %635 ], [ 0, %591 ]
   br label %636
 
-636:                                              ; preds = %.preheader65, %636
-  %637 = phi i64 [ %649, %636 ], [ %.ph66, %.preheader65 ]
+636:                                              ; preds = %.preheader70, %636
+  %637 = phi i64 [ %649, %636 ], [ %.ph71, %.preheader70 ]
   %638 = getelementptr inbounds float, ptr %23, i64 %637
   %639 = load float, ptr %638, align 4, !tbaa !6, !alias.scope !503, !noalias !506
   %640 = shl i64 %637, 1
@@ -10522,7 +10522,7 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
 
 654:                                              ; preds = %653
   %655 = icmp ult i64 %21, 32
-  br i1 %655, label %.preheader61, label %656
+  br i1 %655, label %.preheader66, label %656
 
 656:                                              ; preds = %654
   %657 = and i64 %21, -32
@@ -10580,14 +10580,14 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
 
 702:                                              ; preds = %658
   %703 = icmp eq i64 %21, %657
-  br i1 %703, label %.loopexit, label %.preheader61
+  br i1 %703, label %.loopexit, label %.preheader66
 
-.preheader61:                                     ; preds = %702, %654
+.preheader66:                                     ; preds = %702, %654
   %.ph = phi i64 [ %657, %702 ], [ 0, %654 ]
   br label %704
 
-704:                                              ; preds = %.preheader61, %704
-  %705 = phi i64 [ %717, %704 ], [ %.ph, %.preheader61 ]
+704:                                              ; preds = %.preheader66, %704
+  %705 = phi i64 [ %717, %704 ], [ %.ph, %.preheader66 ]
   %706 = getelementptr inbounds float, ptr %0, i64 %705
   %707 = load float, ptr %706, align 4, !tbaa !6, !alias.scope !510, !noalias !513
   %708 = shl i64 %705, 1
@@ -10611,7 +10611,7 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
 
 720:                                              ; preds = %719
   %721 = icmp ult i64 %21, 8
-  br i1 %721, label %.preheader62, label %722
+  br i1 %721, label %.preheader67, label %722
 
 722:                                              ; preds = %720
   %723 = and i64 %21, -8
@@ -10638,14 +10638,14 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
 
 740:                                              ; preds = %724
   %741 = icmp eq i64 %21, %723
-  br i1 %741, label %.loopexit, label %.preheader62
+  br i1 %741, label %.loopexit, label %.preheader67
 
-.preheader62:                                     ; preds = %740, %720
-  %.ph63 = phi i64 [ %723, %740 ], [ 0, %720 ]
+.preheader67:                                     ; preds = %740, %720
+  %.ph68 = phi i64 [ %723, %740 ], [ 0, %720 ]
   br label %742
 
-742:                                              ; preds = %.preheader62, %742
-  %743 = phi i64 [ %757, %742 ], [ %.ph63, %.preheader62 ]
+742:                                              ; preds = %.preheader67, %742
+  %743 = phi i64 [ %757, %742 ], [ %.ph68, %.preheader67 ]
   %744 = getelementptr inbounds float, ptr %0, i64 %743
   %745 = load float, ptr %744, align 4, !tbaa !6, !alias.scope !517, !noalias !520
   %746 = shl i64 %743, 1

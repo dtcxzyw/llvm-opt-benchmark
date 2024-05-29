@@ -1517,9 +1517,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br label %344
 
 344:                                              ; preds = %340, %333
-  %.sink20 = phi <4 x float> [ %328, %340 ], [ %339, %333 ]
+  %.sink21 = phi <4 x float> [ %328, %340 ], [ %339, %333 ]
   %.sink = phi <4 x float> [ %343, %340 ], [ %337, %333 ]
-  %345 = fadd reassoc nsz arcp contract afn <4 x float> %.sink, %.sink20
+  %345 = fadd reassoc nsz arcp contract afn <4 x float> %.sink, %.sink21
   br i1 %117, label %346, label %379
 
 346:                                              ; preds = %344

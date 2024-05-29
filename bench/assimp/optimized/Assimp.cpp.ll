@@ -13647,9 +13647,9 @@ for.cond47.preheader.us:                          ; preds = %for.cond47.for.inc7
   %23 = trunc i64 %indvars.iv72 to i32
   %24 = mul i32 %14, %23
   %25 = add i32 %24, %13
-  %mul64.us = mul i32 %25, %factor.op.mul
+  %mul64.us.reass = mul i32 %25, %factor.op.mul
   %26 = mul nuw nsw i64 %indvars.iv72, %21
-  %idx.ext.us = zext i32 %mul64.us to i64
+  %idx.ext.us = zext i32 %mul64.us.reass to i64
   %add.ptr.us = getelementptr inbounds i8, ptr %call.i.i, i64 %idx.ext.us
   br label %for.body49.us
 

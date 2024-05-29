@@ -1969,13 +1969,13 @@ define internal fastcc range(i32 -1, 1) i32 @fft_mul(ptr noundef %0, ptr nocaptu
   br label %.lr.ph.preheader.i
 
 22:                                               ; preds = %92, %16
-  %indvars.iv100.i = phi i64 [ 0, %16 ], [ %indvars.iv.next101.i, %92 ]
-  %23 = getelementptr [5 x i64], ptr @ntt_mods, i64 0, i64 %indvars.iv100.i
+  %indvars.iv101.i = phi i64 [ 0, %16 ], [ %indvars.iv.next102.i, %92 ]
+  %23 = getelementptr [5 x i64], ptr @ntt_mods, i64 0, i64 %indvars.iv101.i
   %24 = load i64, ptr %23, align 8
   %25 = zext i64 %24 to i128
   %26 = udiv i128 42535295865117307932921825928971026432, %25
   %27 = trunc i128 %26 to i64
-  %28 = getelementptr [5 x i64], ptr %17, i64 0, i64 %indvars.iv100.i
+  %28 = getelementptr [5 x i64], ptr %17, i64 0, i64 %indvars.iv101.i
   store i64 %27, ptr %28, align 8
   %29 = add i64 %24, 1
   %30 = lshr i64 %29, 1
@@ -1988,7 +1988,7 @@ define internal fastcc range(i32 -1, 1) i32 @fft_mul(ptr noundef %0, ptr nocaptu
 35:                                               ; preds = %35, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %35 ]
   %.06481.i = phi i64 [ 1, %22 ], [ %60, %35 ]
-  %36 = getelementptr [5 x [52 x [2 x i64]]], ptr %18, i64 0, i64 %indvars.iv100.i, i64 %indvars.iv.i
+  %36 = getelementptr [5 x [52 x [2 x i64]]], ptr %18, i64 0, i64 %indvars.iv101.i, i64 %indvars.iv.i
   store i64 %.06481.i, ptr %36, align 8
   %37 = zext i64 %.06481.i to i128
   %38 = shl nuw i128 %37, 64
@@ -2021,22 +2021,22 @@ define internal fastcc range(i32 -1, 1) i32 @fft_mul(ptr noundef %0, ptr nocaptu
 
 .preheader80.i:                                   ; preds = %35, %91
   %61 = phi i1 [ false, %91 ], [ true, %35 ]
-  %indvars.iv97.i = phi i64 [ 1, %91 ], [ 0, %35 ]
-  %62 = getelementptr [2 x [5 x i64]], ptr @ntt_proot, i64 0, i64 %indvars.iv97.i, i64 %indvars.iv100.i
+  %indvars.iv98.i = phi i64 [ 1, %91 ], [ 0, %35 ]
+  %62 = getelementptr [2 x [5 x i64]], ptr @ntt_proot, i64 0, i64 %indvars.iv98.i, i64 %indvars.iv101.i
   %63 = load i64, ptr %62, align 8
   br label %64
 
 64:                                               ; preds = %64, %.preheader80.i
-  %indvars.iv93.i = phi i64 [ 0, %.preheader80.i ], [ %indvars.iv.next94.i, %64 ]
-  %.06584.i = phi i64 [ %63, %.preheader80.i ], [ %90, %64 ]
-  %65 = sub nuw nsw i64 51, %indvars.iv93.i
-  %66 = getelementptr [5 x [2 x [52 x i64]]], ptr %19, i64 0, i64 %indvars.iv100.i, i64 %indvars.iv97.i, i64 %65
-  store i64 %.06584.i, ptr %66, align 8
-  %67 = zext i64 %.06584.i to i128
+  %indvars.iv94.i = phi i64 [ 0, %.preheader80.i ], [ %indvars.iv.next95.i, %64 ]
+  %.06585.i = phi i64 [ %63, %.preheader80.i ], [ %90, %64 ]
+  %65 = sub nuw nsw i64 51, %indvars.iv94.i
+  %66 = getelementptr [5 x [2 x [52 x i64]]], ptr %19, i64 0, i64 %indvars.iv101.i, i64 %indvars.iv98.i, i64 %65
+  store i64 %.06585.i, ptr %66, align 8
+  %67 = zext i64 %.06585.i to i128
   %68 = shl nuw i128 %67, 64
   %69 = udiv i128 %68, %25
   %70 = trunc i128 %69 to i64
-  %71 = getelementptr [5 x [2 x [52 x i64]]], ptr %20, i64 0, i64 %indvars.iv100.i, i64 %indvars.iv97.i, i64 %65
+  %71 = getelementptr [5 x [2 x [52 x i64]]], ptr %20, i64 0, i64 %indvars.iv101.i, i64 %indvars.iv98.i, i64 %65
   store i64 %70, ptr %71, align 8
   %72 = mul nuw i128 %67, %67
   %73 = lshr i128 %72, 61
@@ -2057,37 +2057,37 @@ define internal fastcc range(i32 -1, 1) i32 @fft_mul(ptr noundef %0, ptr nocaptu
   %88 = trunc nuw i128 %87 to i64
   %89 = and i64 %24, %88
   %90 = add i64 %89, %86
-  %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
-  %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 51
-  br i1 %exitcond96.not.i, label %91, label %64, !llvm.loop !29
+  %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
+  %exitcond97.not.i = icmp eq i64 %indvars.iv.next95.i, 51
+  br i1 %exitcond97.not.i, label %91, label %64, !llvm.loop !29
 
 91:                                               ; preds = %64
   br i1 %61, label %.preheader80.i, label %92, !llvm.loop !30
 
 92:                                               ; preds = %91
-  %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
-  %exitcond103.not.i = icmp eq i64 %indvars.iv.next101.i, 5
-  br i1 %exitcond103.not.i, label %.preheader.i, label %22, !llvm.loop !31
+  %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
+  %exitcond104.not.i = icmp eq i64 %indvars.iv.next102.i, 5
+  br i1 %exitcond104.not.i, label %.preheader.i, label %22, !llvm.loop !31
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
-  %93 = add nuw nsw i32 %.17090.i, 1
-  %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
-  %exitcond110.not.i = icmp eq i32 %93, 4
-  br i1 %exitcond110.not.i, label %.loopexit.loopexit, label %.lr.ph.preheader.i, !llvm.loop !32
+  %93 = add nuw nsw i32 %.17091.i, 1
+  %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
+  %exitcond111.not.i = icmp eq i32 %93, 4
+  br i1 %exitcond111.not.i, label %.loopexit.loopexit, label %.lr.ph.preheader.i, !llvm.loop !32
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit.i, %.preheader.i
-  %indvars.iv104.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next105.i, %.loopexit.i ]
-  %.06691.i = phi i32 [ 0, %.preheader.i ], [ %105, %.loopexit.i ]
-  %.17090.i = phi i32 [ 0, %.preheader.i ], [ %93, %.loopexit.i ]
+  %indvars.iv105.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next106.i, %.loopexit.i ]
+  %.06692.i = phi i32 [ 0, %.preheader.i ], [ %105, %.loopexit.i ]
+  %.17091.i = phi i32 [ 0, %.preheader.i ], [ %93, %.loopexit.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv106.i = phi i64 [ %indvars.iv104.i, %.lr.ph.preheader.i ], [ %indvars.iv.next107.i, %.lr.ph.i ]
-  %.16789.i = phi i32 [ %.06691.i, %.lr.ph.preheader.i ], [ %105, %.lr.ph.i ]
-  %94 = sext i32 %.16789.i to i64
+  %indvars.iv107.i = phi i64 [ %indvars.iv105.i, %.lr.ph.preheader.i ], [ %indvars.iv.next108.i, %.lr.ph.i ]
+  %.16790.i = phi i32 [ %.06692.i, %.lr.ph.preheader.i ], [ %105, %.lr.ph.i ]
+  %94 = sext i32 %.16790.i to i64
   %95 = getelementptr [10 x i64], ptr @ntt_mods_cr, i64 0, i64 %94
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr [5 x i64], ptr @ntt_mods, i64 0, i64 %indvars.iv106.i
+  %97 = getelementptr [5 x i64], ptr @ntt_mods, i64 0, i64 %indvars.iv107.i
   %98 = load i64, ptr %97, align 8
   %99 = zext i64 %96 to i128
   %100 = shl nuw i128 %99, 64
@@ -2096,10 +2096,10 @@ define internal fastcc range(i32 -1, 1) i32 @fft_mul(ptr noundef %0, ptr nocaptu
   %103 = trunc i128 %102 to i64
   %104 = getelementptr [10 x i64], ptr %21, i64 0, i64 %94
   store i64 %103, ptr %104, align 8
-  %105 = add i32 %.16789.i, 1
-  %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
-  %exitcond109.not.i = icmp eq i64 %indvars.iv.next107.i, 5
-  br i1 %exitcond109.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !33
+  %105 = add i32 %.16790.i, 1
+  %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
+  %exitcond110.not.i = icmp eq i64 %indvars.iv.next108.i, 5
+  br i1 %exitcond110.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !33
 
 .loopexit.loopexit:                               ; preds = %.loopexit.i
   %.pre = load ptr, ptr %11, align 8
@@ -2323,29 +2323,29 @@ bf_resize.exit131.thread:                         ; preds = %196
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %bf_resize.exit131.thread, %.lr.ph
-  %.083212215 = phi ptr [ %185, %.lr.ph ], [ %197, %bf_resize.exit131.thread ]
-  %wide.trip.count208 = zext nneg i32 %.133.i to i64
+  %.083213216 = phi ptr [ %185, %.lr.ph ], [ %197, %bf_resize.exit131.thread ]
+  %wide.trip.count209 = zext nneg i32 %.133.i to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %209
-  %indvars.iv204 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next205, %209 ]
-  %200 = trunc i64 %indvars.iv204 to i32
+  %indvars.iv205 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next206, %209 ]
+  %200 = trunc i64 %indvars.iv205 to i32
   %201 = sub i32 %200, %.133.i
   %202 = add i32 %201, 5
-  tail call fastcc void @limb_to_ntt(ptr noundef nonnull %106, ptr noundef nonnull %.083212215, i64 noundef %147, ptr noundef %.085, i64 noundef %.086, i32 noundef %.2.i, i32 noundef %202, i32 noundef 1)
-  %203 = shl i64 %indvars.iv204, %145
+  tail call fastcc void @limb_to_ntt(ptr noundef nonnull %106, ptr noundef nonnull %.083213216, i64 noundef %147, ptr noundef %.085, i64 noundef %.086, i32 noundef %.2.i, i32 noundef %202, i32 noundef 1)
+  %203 = shl i64 %indvars.iv205, %145
   %204 = getelementptr i64, ptr %168, i64 %203
-  %205 = trunc nuw nsw i64 %indvars.iv204 to i32
+  %205 = trunc nuw nsw i64 %indvars.iv205 to i32
   %206 = add i32 %170, %205
   %207 = sext i32 %206 to i64
-  %208 = tail call fastcc i32 @ntt_conv(ptr noundef nonnull %106, ptr noundef %204, ptr noundef nonnull %.083212215, i32 noundef %.136.i, i32 noundef %.136.i, i64 noundef %207)
+  %208 = tail call fastcc i32 @ntt_conv(ptr noundef nonnull %106, ptr noundef %204, ptr noundef nonnull %.083213216, i32 noundef %.136.i, i32 noundef %.136.i, i64 noundef %207)
   %.not103.us = icmp eq i32 %208, 0
   br i1 %.not103.us, label %209, label %ntt_free.exit162
 
 209:                                              ; preds = %.lr.ph.split.us
-  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %exitcond209.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count208
-  br i1 %exitcond209.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !35
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
+  %exitcond210.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count209
+  br i1 %exitcond210.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !35
 
 210:                                              ; preds = %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2366,7 +2366,7 @@ bf_resize.exit131.thread:                         ; preds = %196
 
 ._crit_edge:                                      ; preds = %210, %209, %bf_resize.exit131.thread, %bf_resize.exit131
   %218 = phi i1 [ false, %bf_resize.exit131.thread ], [ false, %bf_resize.exit131 ], [ true, %209 ], [ true, %210 ]
-  %.083213 = phi ptr [ %197, %bf_resize.exit131.thread ], [ %185, %bf_resize.exit131 ], [ %.083212215, %209 ], [ %185, %210 ]
+  %.083214 = phi ptr [ %197, %bf_resize.exit131.thread ], [ %185, %bf_resize.exit131 ], [ %.083213216, %209 ], [ %185, %210 ]
   br i1 %.not97, label %219, label %ntt_free.exit145
 
 219:                                              ; preds = %._crit_edge
@@ -2392,7 +2392,7 @@ ntt_free.exit:                                    ; preds = %219, %222
   %.val.i.i = load ptr, ptr %.val104, align 8
   %228 = getelementptr i8, ptr %.val104, i64 8
   %.val3.i.i = load ptr, ptr %228, align 8
-  %229 = tail call ptr %.val3.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %.083213, i64 noundef 0) #17
+  %229 = tail call ptr %.val3.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %.083214, i64 noundef 0) #17
   %230 = load i64, ptr %220, align 8
   %.not.i137 = icmp eq i64 %230, %107
   br i1 %.not.i137, label %bf_resize.exit141.thread, label %231
@@ -2421,7 +2421,7 @@ ntt_free.exit145:                                 ; preds = %._crit_edge
   %.val.i.i143 = load ptr, ptr %.val, align 8
   %241 = getelementptr i8, ptr %.val, i64 8
   %.val3.i.i144 = load ptr, ptr %241, align 8
-  %242 = tail call ptr %.val3.i.i144(ptr noundef %.val.i.i143, ptr noundef nonnull %.083213, i64 noundef 0) #17
+  %242 = tail call ptr %.val3.i.i144(ptr noundef %.val.i.i143, ptr noundef nonnull %.083214, i64 noundef 0) #17
   br label %bf_resize.exit141.thread
 
 bf_resize.exit141.thread:                         ; preds = %ntt_free.exit, %240, %ntt_free.exit145
@@ -2653,11 +2653,11 @@ bf_resize.exit141.thread:                         ; preds = %ntt_free.exit, %240
   br i1 %exitcond228.not.i, label %._crit_edge174.i.loopexit, label %349, !llvm.loop !41
 
 ._crit_edge174.i.loopexit:                        ; preds = %349
-  %.pre210 = zext nneg i32 %.2.lcssa246.i to i64
+  %.pre211 = zext nneg i32 %.2.lcssa246.i to i64
   br label %._crit_edge174.i
 
 ._crit_edge174.i:                                 ; preds = %._crit_edge174.i.loopexit, %._crit_edge167.i
-  %.pre-phi = phi i64 [ %.pre210, %._crit_edge174.i.loopexit ], [ %266, %._crit_edge167.i ]
+  %.pre-phi = phi i64 [ %.pre211, %._crit_edge174.i.loopexit ], [ %266, %._crit_edge167.i ]
   %.1.lcssa.i = phi i64 [ %361, %._crit_edge174.i.loopexit ], [ %343, %._crit_edge167.i ]
   %363 = getelementptr [5 x i64], ptr %10, i64 0, i64 %.pre-phi
   %364 = load i64, ptr %363, align 8
@@ -2796,7 +2796,7 @@ ntt_free.exit158:                                 ; preds = %.loopexit144.i, %bf
   br label %ntt_static_init.exit.sink.split
 
 ntt_free.exit162:                                 ; preds = %.lr.ph.split, %.lr.ph.split.us, %231, %196, %184
-  %.1 = phi ptr [ null, %196 ], [ null, %184 ], [ null, %231 ], [ %.083212215, %.lr.ph.split.us ], [ %185, %.lr.ph.split ]
+  %.1 = phi ptr [ null, %196 ], [ null, %184 ], [ null, %231 ], [ %.083213216, %.lr.ph.split.us ], [ %185, %.lr.ph.split ]
   %.val106 = load ptr, ptr %106, align 8
   %.val.i.i160 = load ptr, ptr %.val106, align 8
   %424 = getelementptr i8, ptr %.val106, i64 8
@@ -29438,8 +29438,8 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
 21:                                               ; preds = %17
   %22 = getelementptr [5 x i64], ptr @ntt_mods, i64 0, i64 %7
   %23 = load i64, ptr %22, align 8
-  %.not192 = icmp eq i64 %5, 0
-  br i1 %.not192, label %ntt_free.exit, label %.preheader180.lr.ph
+  %.not194 = icmp eq i64 %5, 0
+  br i1 %.not194, label %ntt_free.exit, label %.preheader180.lr.ph
 
 .preheader180.lr.ph:                              ; preds = %21
   %24 = getelementptr inbounds i8, ptr %0, i64 48
@@ -29451,7 +29451,7 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = getelementptr [5 x i64], ptr %30, i64 0, i64 %7
   %32 = load i64, ptr %31, align 8
-  %.not193 = icmp eq i64 %4, 0
+  %.not195 = icmp eq i64 %4, 0
   %.not117 = icmp eq i32 %6, 0
   %33 = zext i64 %23 to i128
   %34 = zext i64 %32 to i128
@@ -29462,9 +29462,9 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
   br label %.preheader180
 
 .preheader180:                                    ; preds = %.preheader180.lr.ph, %._crit_edge
-  %.0103191 = phi i64 [ 0, %.preheader180.lr.ph ], [ %162, %._crit_edge ]
-  %.0104190 = phi i64 [ 1, %.preheader180.lr.ph ], [ %148, %._crit_edge ]
-  br i1 %.not193, label %.preheader179.preheader, label %.preheader177
+  %.0103193 = phi i64 [ 0, %.preheader180.lr.ph ], [ %162, %._crit_edge ]
+  %.0104192 = phi i64 [ 1, %.preheader180.lr.ph ], [ %148, %._crit_edge ]
+  br i1 %.not195, label %.preheader179.preheader, label %.preheader177
 
 .preheader179.preheader:                          ; preds = %49, %.preheader180
   br label %.preheader179
@@ -29478,7 +29478,7 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
 
 42:                                               ; preds = %.preheader177, %42
   %.0100182 = phi i64 [ 0, %.preheader177 ], [ %48, %42 ]
-  %43 = or disjoint i64 %.0100182, %.0103191
+  %43 = or disjoint i64 %.0100182, %.0103193
   %44 = getelementptr i64, ptr %40, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = mul i64 %.0100182, %4
@@ -29490,24 +29490,24 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
 
 49:                                               ; preds = %42
   %50 = add nuw i64 %.0101183, 1
-  %exitcond195.not = icmp eq i64 %50, %4
-  br i1 %exitcond195.not, label %.preheader179.preheader, label %.preheader177, !llvm.loop !129
+  %exitcond197.not = icmp eq i64 %50, %4
+  br i1 %exitcond197.not, label %.preheader179.preheader, label %.preheader177, !llvm.loop !129
 
 .preheader178:                                    ; preds = %mul_trig.exit134
-  br i1 %.not193, label %._crit_edge, label %.preheader
+  br i1 %.not195, label %._crit_edge, label %.preheader
 
 .preheader179:                                    ; preds = %.preheader179.preheader, %mul_trig.exit134
-  %.1186 = phi i64 [ %149, %mul_trig.exit134 ], [ 0, %.preheader179.preheader ]
-  %.1105185 = phi i64 [ %148, %mul_trig.exit134 ], [ %.0104190, %.preheader179.preheader ]
-  %51 = mul i64 %.1186, %4
+  %.1187 = phi i64 [ %149, %mul_trig.exit134 ], [ 0, %.preheader179.preheader ]
+  %.1105186 = phi i64 [ %148, %mul_trig.exit134 ], [ %.0104192, %.preheader179.preheader ]
+  %51 = mul i64 %.1187, %4
   %52 = getelementptr i64, ptr %20, i64 %51
   br i1 %.not117, label %.thread, label %.split107
 
 .split107:                                        ; preds = %.preheader179
-  br i1 %.not193, label %.thread155, label %.lr.ph.i
+  br i1 %.not195, label %.thread155, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split107
-  %53 = zext i64 %.1105185 to i128
+  %53 = zext i64 %.1105186 to i128
   %54 = shl nuw i128 %53, 64
   %55 = udiv i128 %54, %33
   %56 = and i128 %55, 18446744073709551615
@@ -29543,7 +29543,7 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
   %81 = mul nuw i128 %56, %61
   %82 = lshr i128 %81, 64
   %83 = trunc nuw i128 %82 to i64
-  %84 = mul i64 %.01518.i, %.1105185
+  %84 = mul i64 %.01518.i, %.1105186
   %85 = mul i64 %23, %83
   %86 = sub i64 %84, %85
   %.not.i.i = icmp ult i64 %86, %23
@@ -29569,10 +29569,10 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
   br i1 %.not118149, label %.thread150, label %.thread159
 
 .thread150:                                       ; preds = %.thread
-  br i1 %.not193, label %mul_trig.exit134, label %.lr.ph.i128
+  br i1 %.not195, label %mul_trig.exit134, label %.lr.ph.i128
 
 .lr.ph.i128:                                      ; preds = %.thread150
-  %93 = zext i64 %.1105185 to i128
+  %93 = zext i64 %.1105186 to i128
   %94 = shl nuw i128 %93, 64
   %95 = udiv i128 %94, %33
   %96 = and i128 %95, 18446744073709551615
@@ -29608,7 +29608,7 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
   %121 = mul nuw i128 %96, %101
   %122 = lshr i128 %121, 64
   %123 = trunc nuw i128 %122 to i64
-  %124 = mul i64 %.01518.i130, %.1105185
+  %124 = mul i64 %.01518.i130, %.1105186
   %125 = mul i64 %23, %123
   %126 = sub i64 %124, %125
   %.not.i.i131 = icmp ult i64 %126, %23
@@ -29619,7 +29619,7 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
   br i1 %exitcond.not.i133, label %mul_trig.exit134, label %97, !llvm.loop !130
 
 mul_trig.exit134:                                 ; preds = %97, %89, %.thread155, %.thread150
-  %129 = zext i64 %.1105185 to i128
+  %129 = zext i64 %.1105186 to i128
   %130 = mul nuw i128 %129, %38
   %131 = lshr i128 %130, 61
   %132 = and i128 %131, 18446744073709551615
@@ -29639,36 +29639,36 @@ mul_trig.exit134:                                 ; preds = %97, %89, %.thread15
   %146 = trunc nuw i128 %145 to i64
   %147 = and i64 %23, %146
   %148 = add i64 %147, %144
-  %149 = add nuw nsw i64 %.1186, 1
-  %exitcond196.not = icmp eq i64 %149, 16
-  br i1 %exitcond196.not, label %.preheader178, label %.preheader179, !llvm.loop !131
+  %149 = add nuw nsw i64 %.1187, 1
+  %exitcond198.not = icmp eq i64 %149, 16
+  br i1 %exitcond198.not, label %.preheader178, label %.preheader179, !llvm.loop !131
 
 .preheader:                                       ; preds = %.preheader178, %160
-  %.1102189 = phi i64 [ %161, %160 ], [ 0, %.preheader178 ]
-  %150 = getelementptr i64, ptr %20, i64 %.1102189
-  %151 = mul i64 %.1102189, %5
+  %.1102191 = phi i64 [ %161, %160 ], [ 0, %.preheader178 ]
+  %150 = getelementptr i64, ptr %20, i64 %.1102191
+  %151 = mul i64 %.1102191, %5
   %152 = getelementptr i64, ptr %1, i64 %151
   br label %153
 
 153:                                              ; preds = %.preheader, %153
-  %.2188 = phi i64 [ 0, %.preheader ], [ %159, %153 ]
-  %154 = mul i64 %.2188, %4
+  %.2190 = phi i64 [ 0, %.preheader ], [ %159, %153 ]
+  %154 = mul i64 %.2190, %4
   %155 = getelementptr i64, ptr %150, i64 %154
   %156 = load i64, ptr %155, align 8
-  %157 = or disjoint i64 %.2188, %.0103191
+  %157 = or disjoint i64 %.2190, %.0103193
   %158 = getelementptr i64, ptr %152, i64 %157
   store i64 %156, ptr %158, align 8
-  %159 = add nuw nsw i64 %.2188, 1
-  %exitcond197.not = icmp eq i64 %159, 16
-  br i1 %exitcond197.not, label %160, label %153, !llvm.loop !132
+  %159 = add nuw nsw i64 %.2190, 1
+  %exitcond199.not = icmp eq i64 %159, 16
+  br i1 %exitcond199.not, label %160, label %153, !llvm.loop !132
 
 160:                                              ; preds = %153
-  %161 = add nuw i64 %.1102189, 1
-  %exitcond198.not = icmp eq i64 %161, %4
-  br i1 %exitcond198.not, label %._crit_edge, label %.preheader, !llvm.loop !133
+  %161 = add nuw i64 %.1102191, 1
+  %exitcond200.not = icmp eq i64 %161, %4
+  br i1 %exitcond200.not, label %._crit_edge, label %.preheader, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %160, %.preheader178
-  %162 = add i64 %.0103191, 16
+  %162 = add i64 %.0103193, 16
   %163 = icmp ult i64 %162, %5
   br i1 %163, label %.preheader180, label %ntt_free.exit, !llvm.loop !134
 

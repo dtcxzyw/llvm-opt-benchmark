@@ -40,7 +40,7 @@ define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1
   %29 = load i64, ptr %28, align 8
   %30 = mul nsw i64 %25, %1
   %31 = add nsw i64 %29, %30
-  br label %73
+  br label %72
 
 32:                                               ; preds = %4
   %33 = load ptr, ptr %22, align 8
@@ -55,7 +55,7 @@ define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1
 
 40:                                               ; preds = %32
   store i32 0, ptr %3, align 4
-  br label %75
+  br label %74
 
 41:                                               ; preds = %32
   %42 = sdiv i64 %39, %25
@@ -72,53 +72,53 @@ define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1
   %factor.op.mul = mul i64 %25, %45
   %49 = getelementptr inbounds i8, ptr %34, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = shl i64 %factor.op.mul, 32
-  %52 = ashr exact i64 %51, 32
-  br label %54
+  %.reass = shl i64 %factor.op.mul, 32
+  %51 = ashr exact i64 %.reass, 32
+  br label %53
 
-53:                                               ; preds = %54
+52:                                               ; preds = %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %47
-  br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !4
+  br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !4
 
-54:                                               ; preds = %.lr.ph, %53
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
-  %.04156 = phi i64 [ 0, %.lr.ph ], [ %57, %53 ]
-  %55 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv
-  %56 = load i64, ptr %55, align 8
-  %57 = add nsw i64 %56, %.04156
-  %58 = icmp sgt i64 %57, %52
-  br i1 %58, label %59, label %53
+53:                                               ; preds = %.lr.ph, %52
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
+  %.04156 = phi i64 [ 0, %.lr.ph ], [ %56, %52 ]
+  %54 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv
+  %55 = load i64, ptr %54, align 8
+  %56 = add nsw i64 %55, %.04156
+  %57 = icmp sgt i64 %56, %51
+  br i1 %57, label %58, label %52
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %34, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv
-  %63 = load i64, ptr %62, align 8
-  %64 = sub i64 %52, %.04156
-  %65 = add i64 %64, %63
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds i8, ptr %34, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i64, ptr %60, i64 %indvars.iv
+  %62 = load i64, ptr %61, align 8
+  %63 = sub i64 %51, %.04156
+  %64 = add i64 %63, %62
   br label %.loopexit
 
-.loopexit:                                        ; preds = %53, %41, %59
-  %.042 = phi i64 [ %65, %59 ], [ 0, %41 ], [ 0, %53 ]
-  %66 = getelementptr inbounds i8, ptr %0, i64 104
-  %67 = load i64, ptr %66, align 8
+.loopexit:                                        ; preds = %52, %41, %58
+  %.042 = phi i64 [ %64, %58 ], [ 0, %41 ], [ 0, %52 ]
+  %65 = getelementptr inbounds i8, ptr %0, i64 104
+  %66 = load i64, ptr %65, align 8
   %sext51 = shl i64 %44, 32
-  %68 = ashr exact i64 %sext51, 32
-  %69 = load i64, ptr %10, align 8
-  %70 = mul nsw i64 %69, %68
-  %71 = add i64 %67, %.042
-  %72 = add i64 %71, %70
-  br label %73
+  %67 = ashr exact i64 %sext51, 32
+  %68 = load i64, ptr %10, align 8
+  %69 = mul nsw i64 %68, %67
+  %70 = add i64 %66, %.042
+  %71 = add i64 %70, %69
+  br label %72
 
-73:                                               ; preds = %.loopexit, %27
-  %.040 = phi i64 [ %31, %27 ], [ %72, %.loopexit ]
-  %74 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.040, ptr %74, align 8
-  br label %75
+72:                                               ; preds = %.loopexit, %27
+  %.040 = phi i64 [ %31, %27 ], [ %71, %.loopexit ]
+  %73 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %.040, ptr %73, align 8
+  br label %74
 
-75:                                               ; preds = %73, %40
-  %.0 = phi i64 [ %.040, %73 ], [ 0, %40 ]
+74:                                               ; preds = %72, %40
+  %.0 = phi i64 [ %.040, %72 ], [ 0, %40 ]
   ret i64 %.0
 }
 

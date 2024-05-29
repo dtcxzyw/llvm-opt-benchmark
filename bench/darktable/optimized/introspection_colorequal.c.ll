@@ -1083,10 +1083,10 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
 
 330:                                              ; preds = %329
   %331 = icmp ult i64 %41, 16
-  br i1 %331, label %.preheader70, label %332
+  br i1 %331, label %.preheader72, label %332
 
-.preheader70:                                     ; preds = %388, %351, %332, %330
-  %.ph71 = phi i64 [ %360, %388 ], [ 0, %330 ], [ 0, %332 ], [ 0, %351 ]
+.preheader72:                                     ; preds = %388, %351, %332, %330
+  %.ph73 = phi i64 [ %360, %388 ], [ 0, %330 ], [ 0, %332 ], [ 0, %351 ]
   br label %563
 
 332:                                              ; preds = %330
@@ -1108,7 +1108,7 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
   %348 = or i1 %337, %342
   %349 = or i1 %345, %348
   %350 = or i1 %347, %349
-  br i1 %350, label %.preheader70, label %351
+  br i1 %350, label %.preheader72, label %351
 
 351:                                              ; preds = %332
   %352 = shl i64 %41, 4
@@ -1118,7 +1118,7 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
   %356 = icmp ult ptr %317, %355
   %357 = icmp ult ptr %319, %353
   %358 = and i1 %357, %356
-  br i1 %358, label %.preheader70, label %359
+  br i1 %358, label %.preheader72, label %359
 
 359:                                              ; preds = %351
   %360 = and i64 %41, 2305843009213693944
@@ -1156,7 +1156,7 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
 
 388:                                              ; preds = %361
   %389 = icmp eq i64 %41, %360
-  br i1 %389, label %.loopexit62, label %.preheader70
+  br i1 %389, label %.loopexit62, label %.preheader72
 
 .preheader:                                       ; preds = %313, %.preheader
   %390 = phi i64 [ %430, %.preheader ], [ %314, %313 ]
@@ -1221,10 +1221,10 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
 
 435:                                              ; preds = %.loopexit62
   %436 = icmp ult i64 %41, 16
-  br i1 %436, label %.preheader68, label %437
+  br i1 %436, label %.preheader70, label %437
 
-.preheader68:                                     ; preds = %561, %464, %437, %435
-  %.ph69 = phi i64 [ %490, %561 ], [ 0, %435 ], [ 0, %437 ], [ 0, %464 ]
+.preheader70:                                     ; preds = %561, %464, %437, %435
+  %.ph71 = phi i64 [ %490, %561 ], [ 0, %435 ], [ 0, %437 ], [ 0, %464 ]
   br label %598
 
 437:                                              ; preds = %435
@@ -1254,7 +1254,7 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
   %461 = or i1 %452, %460
   %462 = or i1 %455, %461
   %463 = or i1 %458, %462
-  br i1 %463, label %.preheader68, label %464
+  br i1 %463, label %.preheader70, label %464
 
 464:                                              ; preds = %437
   %465 = shl i64 %41, 4
@@ -1281,7 +1281,7 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
   %486 = icmp ult ptr %319, %467
   %487 = and i1 %485, %486
   %488 = or i1 %487, %484
-  br i1 %488, label %.preheader68, label %489
+  br i1 %488, label %.preheader70, label %489
 
 489:                                              ; preds = %464
   %490 = and i64 %41, -8
@@ -1375,10 +1375,10 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
 
 561:                                              ; preds = %493
   %562 = icmp eq i64 %41, %490
-  br i1 %562, label %.loopexit61, label %.preheader68
+  br i1 %562, label %.loopexit61, label %.preheader70
 
-563:                                              ; preds = %.preheader70, %563
-  %564 = phi i64 [ %595, %563 ], [ %.ph71, %.preheader70 ]
+563:                                              ; preds = %.preheader72, %563
+  %564 = phi i64 [ %595, %563 ], [ %.ph73, %.preheader72 ]
   %565 = shl i64 %564, 1
   %566 = getelementptr inbounds float, ptr %319, i64 %565
   %567 = load float, ptr %566, align 4, !tbaa !6
@@ -1422,8 +1422,8 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
   %597 = icmp eq ptr %319, %0
   br i1 %597, label %676, label %675
 
-598:                                              ; preds = %.preheader68, %653
-  %599 = phi i64 [ %673, %653 ], [ %.ph69, %.preheader68 ]
+598:                                              ; preds = %.preheader70, %653
+  %599 = phi i64 [ %673, %653 ], [ %.ph71, %.preheader70 ]
   %600 = shl i64 %599, 2
   %601 = getelementptr inbounds float, ptr %317, i64 %600
   %602 = load float, ptr %601, align 16, !tbaa !6
@@ -2019,9 +2019,9 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
 
 1081:                                             ; preds = %1077
   %1082 = icmp ult i64 %33, 8
-  br i1 %1082, label %.preheader67, label %1083
+  br i1 %1082, label %.preheader69, label %1083
 
-.preheader67:                                     ; preds = %1168, %1094, %1083, %1081
+.preheader69:                                     ; preds = %1168, %1094, %1083, %1081
   %.ph = phi i64 [ %1108, %1168 ], [ 0, %1081 ], [ 0, %1083 ], [ 0, %1094 ]
   br label %1170
 
@@ -2036,7 +2036,7 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
   %1091 = icmp ult ptr %1090, %0
   %1092 = or i1 %1089, %1091
   %1093 = or i1 %1088, %1092
-  br i1 %1093, label %.preheader67, label %1094
+  br i1 %1093, label %.preheader69, label %1094
 
 1094:                                             ; preds = %1083
   %1095 = shl i64 %33, 3
@@ -2051,7 +2051,7 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
   %1104 = icmp ult ptr %1079, %1096
   %1105 = and i1 %1104, %1103
   %1106 = or i1 %1102, %1105
-  br i1 %1106, label %.preheader67, label %1107
+  br i1 %1106, label %.preheader69, label %1107
 
 1107:                                             ; preds = %1094
   %1108 = and i64 %33, 4611686018427387896
@@ -2121,15 +2121,15 @@ define hidden void @_prefilter_chromaticity(ptr noalias noundef %0, ptr noalias 
 
 1168:                                             ; preds = %1111
   %1169 = icmp eq i64 %33, %1108
-  br i1 %1169, label %.loopexit, label %.preheader67
+  br i1 %1169, label %.loopexit, label %.preheader69
 
 .loopexit:                                        ; preds = %1170, %1168, %1077
   call void @free(ptr noundef %1078) #30
   call void @free(ptr noundef %1079) #30
   ret void
 
-1170:                                             ; preds = %.preheader67, %1170
-  %1171 = phi i64 [ %1226, %1170 ], [ %.ph, %.preheader67 ]
+1170:                                             ; preds = %.preheader69, %1170
+  %1171 = phi i64 [ %1226, %1170 ], [ %.ph, %.preheader69 ]
   %1172 = shl i64 %1171, 1
   %1173 = getelementptr inbounds float, ptr %0, i64 %1172
   %1174 = shl i64 %1171, 2

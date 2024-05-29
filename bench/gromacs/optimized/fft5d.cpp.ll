@@ -2353,43 +2353,43 @@ _ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit: ; preds = %58, %61, %64
   %76 = load i32, ptr %75, align 4
   %77 = icmp sgt i32 %76, 0
   %78 = load i32, ptr %7, align 4
-  %.fr44 = freeze i32 %78
+  %.fr45 = freeze i32 %78
   %79 = getelementptr inbounds i8, ptr %6, i64 8
   %80 = load i32, ptr %79, align 4
-  %factor.op.mul39 = shl i32 %80, 1
+  %factor.op.mul40 = shl i32 %80, 1
   %81 = getelementptr inbounds i8, ptr %6, i64 4
   %82 = load i32, ptr %81, align 4
-  %factor.op.mul37 = shl i32 %82, 1
+  %factor.op.mul38 = shl i32 %82, 1
   %83 = load i32, ptr %6, align 4
   %.lobit = lshr exact i32 %11, 2
   %84 = xor i32 %.lobit, 1
   br i1 %77, label %.preheader31.lr.ph.split.us, label %._crit_edge
 
 .preheader31.lr.ph.split.us:                      ; preds = %.preheader31.lr.ph
-  %85 = icmp sgt i32 %.fr44, 0
+  %85 = icmp sgt i32 %.fr45, 0
   br i1 %85, label %.preheader31.us.us, label %.preheader31.us
 
-.preheader31.us.us:                               ; preds = %.preheader31.lr.ph.split.us, %._crit_edge36.split.us.us.us
-  %.02538.us.us = phi i32 [ %110, %._crit_edge36.split.us.us.us ], [ 0, %.preheader31.lr.ph.split.us ]
-  %factor.op.mul.us.us = mul i32 %.02538.us.us, %factor.op.mul39
+.preheader31.us.us:                               ; preds = %.preheader31.lr.ph.split.us, %._crit_edge37.split.us.us.us
+  %.02539.us.us = phi i32 [ %110, %._crit_edge37.split.us.us.us ], [ 0, %.preheader31.lr.ph.split.us ]
+  %factor.op.mul.reass.us.us = mul i32 %.02539.us.us, %factor.op.mul40
   br label %.preheader.lr.ph.us.us.us
 
 .preheader.lr.ph.us.us.us:                        ; preds = %._crit_edge.us.us.us, %.preheader31.us.us
-  %.02335.us.us.us = phi i32 [ 0, %.preheader31.us.us ], [ %109, %._crit_edge.us.us.us ]
+  %.02336.us.us.us = phi i32 [ 0, %.preheader31.us.us ], [ %109, %._crit_edge.us.us.us ]
   %86 = load ptr, ptr @debug, align 8
   %87 = load i32, ptr %8, align 4
   %88 = load i32, ptr %69, align 4
   %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.15, i32 noundef %87, i32 noundef %88) #10
-  %factor.op.mul33.us.us.us = mul i32 %.02335.us.us.us, %factor.op.mul37
-  %90 = add i32 %factor.op.mul33.us.us.us, %factor.op.mul.us.us
+  %factor.op.mul33.reass.us.us.us = mul i32 %.02336.us.us.us, %factor.op.mul38
+  %90 = add i32 %factor.op.mul33.reass.us.us.us, %factor.op.mul.reass.us.us
   br label %.preheader.us.us.us
 
 91:                                               ; preds = %94
   %92 = load ptr, ptr @debug, align 8
   %fputc27.us.us.us = tail call i32 @fputc(i32 44, ptr %92)
-  %93 = add nuw nsw i32 %.034.us.us.us, 1
-  %exitcond49.not = icmp eq i32 %93, %.fr44
-  br i1 %exitcond49.not, label %._crit_edge.us.us.us, label %.preheader.us.us.us, !llvm.loop !32
+  %93 = add nuw nsw i32 %.035.us.us.us, 1
+  %exitcond50.not = icmp eq i32 %93, %.fr45
+  br i1 %exitcond50.not, label %._crit_edge.us.us.us, label %.preheader.us.us.us, !llvm.loop !32
 
 94:                                               ; preds = %.preheader.us.us.us, %94
   %indvars.iv = phi i64 [ 0, %.preheader.us.us.us ], [ %indvars.iv.next, %94 ]
@@ -2408,45 +2408,45 @@ _ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit: ; preds = %58, %61, %64
   br i1 %105, label %94, label %91, !llvm.loop !33
 
 .preheader.us.us.us:                              ; preds = %91, %.preheader.lr.ph.us.us.us
-  %.034.us.us.us = phi i32 [ 0, %.preheader.lr.ph.us.us.us ], [ %93, %91 ]
-  %106 = mul nsw i32 %83, %.034.us.us.us
+  %.035.us.us.us = phi i32 [ 0, %.preheader.lr.ph.us.us.us ], [ %93, %91 ]
+  %106 = mul nsw i32 %83, %.035.us.us.us
   %107 = shl i32 %106, %84
   br label %94
 
 ._crit_edge.us.us.us:                             ; preds = %91
   %108 = load ptr, ptr @debug, align 8
   %fputc.us.us.us = tail call i32 @fputc(i32 10, ptr %108)
-  %109 = add nuw nsw i32 %.02335.us.us.us, 1
-  %exitcond50.not = icmp eq i32 %109, %76
-  br i1 %exitcond50.not, label %._crit_edge36.split.us.us.us, label %.preheader.lr.ph.us.us.us, !llvm.loop !34
+  %109 = add nuw nsw i32 %.02336.us.us.us, 1
+  %exitcond51.not = icmp eq i32 %109, %76
+  br i1 %exitcond51.not, label %._crit_edge37.split.us.us.us, label %.preheader.lr.ph.us.us.us, !llvm.loop !34
 
-._crit_edge36.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %110 = add nuw nsw i32 %.02538.us.us, 1
-  %exitcond51.not = icmp eq i32 %110, %73
-  br i1 %exitcond51.not, label %._crit_edge, label %.preheader31.us.us, !llvm.loop !35
+._crit_edge37.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
+  %110 = add nuw nsw i32 %.02539.us.us, 1
+  %exitcond52.not = icmp eq i32 %110, %73
+  br i1 %exitcond52.not, label %._crit_edge, label %.preheader31.us.us, !llvm.loop !35
 
-.preheader31.us:                                  ; preds = %.preheader31.lr.ph.split.us, %._crit_edge36.split.us42
-  %.02538.us = phi i32 [ %118, %._crit_edge36.split.us42 ], [ 0, %.preheader31.lr.ph.split.us ]
+.preheader31.us:                                  ; preds = %.preheader31.lr.ph.split.us, %._crit_edge37.split.us43
+  %.02539.us = phi i32 [ %118, %._crit_edge37.split.us43 ], [ 0, %.preheader31.lr.ph.split.us ]
   br label %111
 
 111:                                              ; preds = %.preheader31.us, %111
-  %.02335.us40 = phi i32 [ 0, %.preheader31.us ], [ %117, %111 ]
+  %.02336.us41 = phi i32 [ 0, %.preheader31.us ], [ %117, %111 ]
   %112 = load ptr, ptr @debug, align 8
   %113 = load i32, ptr %8, align 4
   %114 = load i32, ptr %69, align 4
   %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.15, i32 noundef %113, i32 noundef %114) #10
   %116 = load ptr, ptr @debug, align 8
-  %fputc.us41 = tail call i32 @fputc(i32 10, ptr %116)
-  %117 = add nuw nsw i32 %.02335.us40, 1
+  %fputc.us42 = tail call i32 @fputc(i32 10, ptr %116)
+  %117 = add nuw nsw i32 %.02336.us41, 1
   %exitcond.not = icmp eq i32 %117, %76
-  br i1 %exitcond.not, label %._crit_edge36.split.us42, label %111, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge37.split.us43, label %111, !llvm.loop !34
 
-._crit_edge36.split.us42:                         ; preds = %111
-  %118 = add nuw nsw i32 %.02538.us, 1
-  %exitcond47.not = icmp eq i32 %118, %73
-  br i1 %exitcond47.not, label %._crit_edge, label %.preheader31.us, !llvm.loop !35
+._crit_edge37.split.us43:                         ; preds = %111
+  %118 = add nuw nsw i32 %.02539.us, 1
+  %exitcond48.not = icmp eq i32 %118, %73
+  br i1 %exitcond48.not, label %._crit_edge, label %.preheader31.us, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %._crit_edge36.split.us42, %._crit_edge36.split.us.us.us, %.preheader31.lr.ph, %_ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit
+._crit_edge:                                      ; preds = %._crit_edge37.split.us43, %._crit_edge37.split.us.us.us, %.preheader31.lr.ph, %_ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit
   ret void
 }
 

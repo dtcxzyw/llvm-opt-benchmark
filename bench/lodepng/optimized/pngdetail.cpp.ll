@@ -5273,14 +5273,14 @@ for.cond14.preheader.us.preheader:                ; preds = %invoke.cont13
 
 for.cond14.preheader.us:                          ; preds = %for.cond14.preheader.us.preheader, %for.cond14.for.inc108_crit_edge.us
   %y.0126.us = phi i32 [ %inc109.us, %for.cond14.for.inc108_crit_edge.us ], [ 0, %for.cond14.preheader.us.preheader ]
-  %factor.op.mul.us = mul i32 %factor.op.mul124, %y.0126.us
+  %factor.op.mul.reass.us = mul i32 %factor.op.mul124, %y.0126.us
   br label %invoke.cont94.us
 
 invoke.cont94.us:                                 ; preds = %for.cond14.preheader.us, %invoke.cont97.us
   %indvars.iv = phi i64 [ 0, %for.cond14.preheader.us ], [ %indvars.iv.next, %invoke.cont97.us ]
   %1 = trunc nuw i64 %indvars.iv to i32
   %mul18.us = shl i32 %1, 3
-  %add.us = add i32 %mul18.us, %factor.op.mul.us
+  %add.us = add i32 %mul18.us, %factor.op.mul.reass.us
   %conv.us = zext i32 %add.us to i64
   %2 = load ptr, ptr %image, align 8
   %add.ptr.i.us = getelementptr inbounds i8, ptr %2, i64 %conv.us

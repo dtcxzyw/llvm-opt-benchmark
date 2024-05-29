@@ -90699,8 +90699,8 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit125:                ; preds = %.loopexit, %.loopex
   %indvars.iv246 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next247, %379 ]
   %.084219.us = phi i8 [ 0, %.preheader.us.preheader ], [ %spec.select93.us, %379 ]
   %377 = trunc nuw nsw i64 %indvars.iv246 to i32
-  %factor.op.mul.us = mul i32 %358, %377
-  %378 = sext i32 %factor.op.mul.us to i64
+  %factor.op.mul.reass.us = mul i32 %358, %377
+  %378 = sext i32 %factor.op.mul.reass.us to i64
   br label %380
 
 379:                                              ; preds = %._crit_edge.us

@@ -501,10 +501,10 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %335 = urem i64 %334, 3
   %336 = udiv i64 %334, 3
   %337 = icmp ult i64 %51, 48
-  br i1 %337, label %.preheader65, label %338
+  br i1 %337, label %.preheader72, label %338
 
-.preheader65:                                     ; preds = %723, %397, %338, %329
-  %.ph66 = phi i64 [ %664, %723 ], [ 0, %329 ], [ 0, %338 ], [ 0, %397 ]
+.preheader72:                                     ; preds = %723, %397, %338, %329
+  %.ph73 = phi i64 [ %664, %723 ], [ 0, %329 ], [ 0, %338 ], [ 0, %397 ]
   br label %725
 
 338:                                              ; preds = %329
@@ -566,7 +566,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %394 = or i1 %379, %393
   %395 = or i1 %382, %394
   %396 = or i1 %385, %395
-  br i1 %396, label %.preheader65, label %397
+  br i1 %396, label %.preheader72, label %397
 
 397:                                              ; preds = %338
   %398 = mul nuw nsw i64 %333, 12
@@ -581,8 +581,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %406 = mul nuw nsw i64 %336, 12
   %407 = sub nsw i64 %349, %406
   %408 = getelementptr i8, ptr %317, i64 %407
-  %reass.sub52 = sub i64 %401, %406
-  %409 = add i64 %reass.sub52, -4
+  %reass.sub59 = sub i64 %401, %406
+  %409 = add i64 %reass.sub59, -4
   %410 = getelementptr i8, ptr %317, i64 %409
   %411 = getelementptr i8, ptr %318, i64 %407
   %412 = getelementptr i8, ptr %318, i64 %409
@@ -836,7 +836,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %660 = icmp ult ptr %422, %417
   %661 = and i1 %659, %660
   %662 = or i1 %661, %658
-  br i1 %662, label %.preheader65, label %663
+  br i1 %662, label %.preheader72, label %663
 
 663:                                              ; preds = %397
   %664 = and i64 %51, 2305843009213693944
@@ -912,7 +912,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 723:                                              ; preds = %671
   %724 = icmp eq i64 %51, %664
-  br i1 %724, label %.loopexit43, label %.preheader65
+  br i1 %724, label %.loopexit43, label %.preheader72
 
 .loopexit43:                                      ; preds = %725, %723, %327
   call void @dt_gaussian_blur_4c(ptr noundef nonnull %325, ptr noundef %317, ptr noundef %319) #19, !noalias !62
@@ -921,8 +921,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   call fastcc void @normalize_manifolds(ptr noundef %316, ptr noundef %320, ptr noundef %319, i64 noundef %49, i64 noundef %50, i32 noundef %36), !noalias !62
   br i1 %321, label %902, label %778
 
-725:                                              ; preds = %.preheader65, %725
-  %726 = phi i64 [ %776, %725 ], [ %.ph66, %.preheader65 ]
+725:                                              ; preds = %.preheader72, %725
+  %726 = phi i64 [ %776, %725 ], [ %.ph73, %.preheader72 ]
   %727 = shl i64 %726, 2
   %728 = add i64 %727, %330
   %729 = getelementptr inbounds float, ptr %53, i64 %728
@@ -1160,13 +1160,13 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %924 = icmp ult ptr %923, %922
   %925 = getelementptr i8, ptr %55, i64 %909
   %926 = icmp ult ptr %925, %55
-  %op.rdx58 = or i1 %910, %918
-  %op.rdx59 = or i1 %912, %915
-  %op.rdx60 = or i1 %921, %924
-  %op.rdx61 = or i1 %op.rdx58, %op.rdx59
-  %op.rdx62 = or i1 %op.rdx60, %926
-  %op.rdx63 = or i1 %op.rdx61, %op.rdx62
-  br i1 %op.rdx63, label %959, label %927
+  %op.rdx65 = or i1 %910, %918
+  %op.rdx66 = or i1 %912, %915
+  %op.rdx67 = or i1 %921, %924
+  %op.rdx68 = or i1 %op.rdx65, %op.rdx66
+  %op.rdx69 = or i1 %op.rdx67, %926
+  %op.rdx70 = or i1 %op.rdx68, %op.rdx69
+  br i1 %op.rdx70, label %959, label %927
 
 927:                                              ; preds = %905
   %928 = and i64 %51, -8
@@ -1384,12 +1384,12 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1098 = getelementptr i8, ptr %1081, i64 %1048
   %1099 = icmp ult ptr %1098, %1081
   %op.rdx = or i1 %1049, %1093
-  %op.rdx53 = or i1 %1089, %1091
-  %op.rdx54 = or i1 %1095, %1097
-  %op.rdx55 = or i1 %op.rdx, %op.rdx53
-  %op.rdx56 = or i1 %op.rdx54, %1099
-  %op.rdx57 = or i1 %op.rdx55, %op.rdx56
-  br i1 %op.rdx57, label %1245, label %1100
+  %op.rdx60 = or i1 %1089, %1091
+  %op.rdx61 = or i1 %1095, %1097
+  %op.rdx62 = or i1 %op.rdx, %op.rdx60
+  %op.rdx63 = or i1 %op.rdx61, %1099
+  %op.rdx64 = or i1 %op.rdx62, %op.rdx63
+  br i1 %op.rdx64, label %1245, label %1100
 
 1100:                                             ; preds = %1079
   %1101 = insertelement <8 x i64> poison, i64 %1074, i64 0
@@ -1978,7 +1978,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1577 = urem i64 %1576, 3
   %1578 = udiv i64 %1576, 3
   %1579 = icmp ult i64 %1026, 8
-  br i1 %1579, label %.preheader64, label %1580
+  br i1 %1579, label %.preheader71, label %1580
 
 1580:                                             ; preds = %1570
   %1581 = add nsw i64 %1026, -1
@@ -1999,7 +1999,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1596 = icmp ult ptr %1595, %1593
   %1597 = or i1 %1594, %1596
   %1598 = or i1 %1589, %1597
-  br i1 %1598, label %.preheader64, label %1599
+  br i1 %1598, label %.preheader71, label %1599
 
 1599:                                             ; preds = %1580
   %1600 = getelementptr i8, ptr %3, i64 %1582
@@ -2015,7 +2015,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1610 = icmp ult ptr %1602, %1609
   %1611 = icmp ult ptr %1607, %1605
   %1612 = and i1 %1610, %1611
-  br i1 %1612, label %.preheader64, label %1613
+  br i1 %1612, label %.preheader71, label %1613
 
 1613:                                             ; preds = %1599
   %1614 = and i64 %1026, 2305843009213693944
@@ -2089,14 +2089,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 1677:                                             ; preds = %1623
   %1678 = icmp eq i64 %1026, %1614
-  br i1 %1678, label %.loopexit, label %.preheader64
+  br i1 %1678, label %.loopexit, label %.preheader71
 
-.preheader64:                                     ; preds = %1677, %1599, %1580, %1570
+.preheader71:                                     ; preds = %1677, %1599, %1580, %1570
   %.ph = phi i64 [ %1614, %1677 ], [ 0, %1570 ], [ 0, %1580 ], [ 0, %1599 ]
   br label %1679
 
-1679:                                             ; preds = %.preheader64, %1679
-  %1680 = phi i64 [ %1733, %1679 ], [ %.ph, %.preheader64 ]
+1679:                                             ; preds = %.preheader71, %1679
+  %1680 = phi i64 [ %1733, %1679 ], [ %.ph, %.preheader71 ]
   %1681 = shl i64 %1680, 2
   %1682 = getelementptr inbounds float, ptr %1565, i64 %1681
   %1683 = load float, ptr %1682, align 16, !tbaa !48, !noalias !127

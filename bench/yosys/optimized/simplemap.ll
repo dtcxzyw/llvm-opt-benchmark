@@ -15575,8 +15575,8 @@ define void @_ZN5Yosys13simplemap_sopEPNS_5RTLIL6ModuleEPNS0_4CellE(ptr noundef 
 
 .lr.ph.preheader:                                 ; preds = %65
   %66 = trunc nuw nsw i64 %indvars.iv299 to i32
-  %factor.op.mul = mul i32 %38, %66
-  %67 = sext i32 %factor.op.mul to i64
+  %factor.op.mul.reass = mul i32 %38, %66
+  %67 = sext i32 %factor.op.mul.reass to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit129.thread

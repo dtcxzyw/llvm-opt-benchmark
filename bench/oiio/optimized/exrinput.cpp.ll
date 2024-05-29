@@ -13159,7 +13159,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %mul50 = mul nsw i32 %sub13, %xbegin
   %idx.ext51 = sext i32 %mul50 to i64
   %idx.neg52 = sub nsw i64 0, %idx.ext51
-  %mul57 = sub i64 0, %factor.op.mul
+  %mul57.reass = sub i64 0, %factor.op.mul
   %17 = sext i32 %val.i.1 to i64
   br label %for.body
 
@@ -13176,7 +13176,7 @@ invoke.cont65:                                    ; preds = %for.body
   %21 = sub nsw i64 %indvars.iv, %conv17
   %add.ptr49 = getelementptr inbounds ptr, ptr %20, i64 %21
   %add.ptr53 = getelementptr inbounds ptr, ptr %add.ptr49, i64 %idx.neg52
-  %add.ptr59 = getelementptr inbounds ptr, ptr %add.ptr53, i64 %mul57
+  %add.ptr59 = getelementptr inbounds ptr, ptr %add.ptr53, i64 %mul57.reass
   invoke void @_ZN7Imf_2_59DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %slice, i32 noundef %19, ptr noundef nonnull %add.ptr59, i64 noundef %mul61, i64 noundef %mul64, i64 noundef %call66, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont67 unwind label %lpad40.loopexit
 

@@ -3189,7 +3189,7 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
 
 .preheader241:                                    ; preds = %87
   %90 = getelementptr inbounds i8, ptr %14, i64 392
-  %factor.op.mul246 = shl nuw nsw i64 %66, 1
+  %factor.op.mul247 = shl nuw nsw i64 %66, 1
   %invariant.gep248 = getelementptr i64, ptr %69, i64 %66
   %.not263 = icmp eq i32 %.fr262, 0
   br i1 %.not263, label %.preheader, label %.lr.ph.us
@@ -3200,8 +3200,8 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
   %.not213.us = icmp eq i64 %.0176250.us, 0
   %92 = select i1 %.not213.us, ptr @.str, ptr @.str.64
   %93 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %5, ptr noundef %91, ptr noundef nonnull %92, i64 noundef %.0176250.us) #12
-  %factor.op.mul.us = mul i64 %factor.op.mul246, %.0176250.us
-  %94 = getelementptr i64, ptr %69, i64 %factor.op.mul.us
+  %factor.op.mul.reass.us = mul i64 %factor.op.mul247, %.0176250.us
+  %94 = getelementptr i64, ptr %69, i64 %factor.op.mul.reass.us
   br label %101
 
 ._crit_edge.us:                                   ; preds = %97
@@ -3210,8 +3210,8 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
   %exitcond275.not = icmp eq i64 %96, %19
   br i1 %exitcond275.not, label %.split.us, label %.lr.ph.us
 
-97:                                               ; preds = %.lr.ph245.us, %97
-  %indvars.iv270 = phi i64 [ 0, %.lr.ph245.us ], [ %indvars.iv.next271, %97 ]
+97:                                               ; preds = %.lr.ph246.us, %97
+  %indvars.iv270 = phi i64 [ 0, %.lr.ph246.us ], [ %indvars.iv.next271, %97 ]
   %.not214.us = icmp eq i64 %indvars.iv270, 0
   %98 = select i1 %.not214.us, ptr @.str.66, ptr @.str.8
   %gep.us = getelementptr i64, ptr %gep249.us, i64 %indvars.iv270
@@ -3230,10 +3230,10 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
   %105 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %5, ptr noundef nonnull @.str.65, ptr noundef nonnull %102, i64 noundef %104) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %66
-  br i1 %exitcond.not, label %.lr.ph245.us, label %101
+  br i1 %exitcond.not, label %.lr.ph246.us, label %101
 
-.lr.ph245.us:                                     ; preds = %101
-  %gep249.us = getelementptr i64, ptr %invariant.gep248, i64 %factor.op.mul.us
+.lr.ph246.us:                                     ; preds = %101
+  %gep249.us = getelementptr i64, ptr %invariant.gep248, i64 %factor.op.mul.reass.us
   br label %97
 
 106:                                              ; preds = %87
@@ -3770,7 +3770,7 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
 
 ._crit_edge212.i:                                 ; preds = %410, %.lr.ph211.preheader.i
   store i64 0, ptr %12, align 8
-  %415 = mul i64 %factor.op.mul246, %.0140218.i
+  %415 = mul i64 %factor.op.mul247, %.0140218.i
   store i64 %415, ptr %391, align 8
   %416 = load i64, ptr %394, align 8
   store i64 %416, ptr %395, align 8

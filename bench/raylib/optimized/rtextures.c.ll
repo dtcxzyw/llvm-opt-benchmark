@@ -28097,7 +28097,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__create_png_image(ptr nocapture
 
 15:                                               ; preds = %7
   %16 = tail call fastcc i32 @stbi__create_png_image_raw(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %12, i32 noundef %14, i32 noundef %4, i32 noundef %5)
-  br label %97
+  br label %96
 
 17:                                               ; preds = %7
   %18 = or i32 %14, %12
@@ -28142,12 +28142,12 @@ stbi__malloc_mad3.exit:                           ; preds = %24, %stbi__mul2size
 
 stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i, %17, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit12.i.i, %stbi__malloc_mad3.exit
   store ptr @.str.93, ptr @stbi__g_failure_reason, align 8
-  br label %97
+  br label %96
 
-32:                                               ; preds = %.preheader88, %95
-  %indvars.iv100 = phi i64 [ 0, %.preheader88 ], [ %indvars.iv.next101, %95 ]
-  %.07394 = phi ptr [ %1, %.preheader88 ], [ %.1, %95 ]
-  %.07493 = phi i32 [ %2, %.preheader88 ], [ %.175, %95 ]
+32:                                               ; preds = %.preheader88, %94
+  %indvars.iv100 = phi i64 [ 0, %.preheader88 ], [ %indvars.iv.next101, %94 ]
+  %.07394 = phi ptr [ %1, %.preheader88 ], [ %.1, %94 ]
+  %.07493 = phi i32 [ %2, %.preheader88 ], [ %.175, %94 ]
   %33 = load ptr, ptr %0, align 8
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds [7 x i32], ptr @__const.stbi__create_png_image.xorig, i64 0, i64 %indvars.iv100
@@ -28171,7 +28171,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %53 = icmp ule i32 %38, %41
   %54 = icmp ule i32 %48, %51
   %or.cond = select i1 %53, i1 %54, i1 false
-  br i1 %or.cond, label %55, label %95
+  br i1 %or.cond, label %55, label %94
 
 55:                                               ; preds = %32
   %56 = getelementptr inbounds i8, ptr %33, i64 8
@@ -28184,7 +28184,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %63 = mul nsw i32 %62, %52
   %64 = tail call fastcc i32 @stbi__create_png_image_raw(ptr noundef nonnull %0, ptr noundef %.07394, i32 noundef %.07493, i32 noundef %3, i32 noundef %42, i32 noundef %52, i32 noundef %4, i32 noundef %5)
   %.not83 = icmp eq i32 %64, 0
-  br i1 %.not83, label %90, label %.preheader87
+  br i1 %.not83, label %89, label %.preheader87
 
 .preheader87:                                     ; preds = %55
   %65 = icmp sgt i32 %52, 0
@@ -28208,56 +28208,56 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %73 = trunc i64 %indvars.iv97 to i32
   %74 = mul i32 %48, %73
   %75 = add i32 %74, %46
-  %76 = mul i32 %75, %factor.op.mul
-  %77 = mul nuw nsw i64 %indvars.iv97, %71
-  %78 = zext i32 %76 to i64
-  %79 = getelementptr inbounds i8, ptr %29, i64 %78
-  br label %80
+  %.reass = mul i32 %75, %factor.op.mul
+  %76 = mul nuw nsw i64 %indvars.iv97, %71
+  %77 = zext i32 %.reass to i64
+  %78 = getelementptr inbounds i8, ptr %29, i64 %77
+  br label %79
 
-80:                                               ; preds = %.preheader.us, %80
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %80 ]
-  %81 = mul nsw i64 %indvars.iv, %69
-  %82 = add nsw i64 %81, %70
-  %83 = mul nsw i64 %82, %31
-  %84 = getelementptr inbounds i8, ptr %79, i64 %83
-  %85 = add nuw nsw i64 %indvars.iv, %77
-  %86 = mul nsw i64 %85, %31
-  %87 = getelementptr inbounds i8, ptr %68, i64 %86
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %87, i64 %31, i1 false)
+79:                                               ; preds = %.preheader.us, %79
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %79 ]
+  %80 = mul nsw i64 %indvars.iv, %69
+  %81 = add nsw i64 %80, %70
+  %82 = mul nsw i64 %81, %31
+  %83 = getelementptr inbounds i8, ptr %78, i64 %82
+  %84 = add nuw nsw i64 %indvars.iv, %76
+  %85 = mul nsw i64 %84, %31
+  %86 = getelementptr inbounds i8, ptr %68, i64 %85
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr align 1 %86, i64 %31, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = icmp ult i64 %indvars.iv.next, %71
-  br i1 %88, label %80, label %._crit_edge.us
+  %87 = icmp ult i64 %indvars.iv.next, %71
+  br i1 %87, label %79, label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %80
+._crit_edge.us:                                   ; preds = %79
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %89 = icmp ult i64 %indvars.iv.next98, %72
-  br i1 %89, label %.preheader.us, label %._crit_edge91
+  %88 = icmp ult i64 %indvars.iv.next98, %72
+  br i1 %88, label %.preheader.us, label %._crit_edge91
 
-90:                                               ; preds = %55
+89:                                               ; preds = %55
   tail call void @free(ptr noundef %29) #49
-  br label %97
+  br label %96
 
 ._crit_edge91:                                    ; preds = %._crit_edge.us, %.preheader87
-  %91 = load ptr, ptr %30, align 8
-  tail call void @free(ptr noundef %91) #49
-  %92 = zext i32 %63 to i64
-  %93 = getelementptr inbounds i8, ptr %.07394, i64 %92
-  %94 = sub i32 %.07493, %63
-  br label %95
+  %90 = load ptr, ptr %30, align 8
+  tail call void @free(ptr noundef %90) #49
+  %91 = zext i32 %63 to i64
+  %92 = getelementptr inbounds i8, ptr %.07394, i64 %91
+  %93 = sub i32 %.07493, %63
+  br label %94
 
-95:                                               ; preds = %32, %._crit_edge91
-  %.175 = phi i32 [ %94, %._crit_edge91 ], [ %.07493, %32 ]
-  %.1 = phi ptr [ %93, %._crit_edge91 ], [ %.07394, %32 ]
+94:                                               ; preds = %32, %._crit_edge91
+  %.175 = phi i32 [ %93, %._crit_edge91 ], [ %.07493, %32 ]
+  %.1 = phi ptr [ %92, %._crit_edge91 ], [ %.07394, %32 ]
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next101, 7
-  br i1 %exitcond.not, label %96, label %32
+  br i1 %exitcond.not, label %95, label %32
 
-96:                                               ; preds = %95
+95:                                               ; preds = %94
   store ptr %29, ptr %30, align 8
-  br label %97
+  br label %96
 
-97:                                               ; preds = %96, %90, %stbi__malloc_mad3.exit.thread, %15
-  %.0 = phi i32 [ 0, %90 ], [ 1, %96 ], [ 0, %stbi__malloc_mad3.exit.thread ], [ %16, %15 ]
+96:                                               ; preds = %95, %89, %stbi__malloc_mad3.exit.thread, %15
+  %.0 = phi i32 [ 0, %89 ], [ 1, %95 ], [ 0, %stbi__malloc_mad3.exit.thread ], [ %16, %15 ]
   ret i32 %.0
 }
 

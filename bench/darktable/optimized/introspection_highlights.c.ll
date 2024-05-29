@@ -15969,8 +15969,8 @@ define internal fastcc void @interpolate_bilinear(ptr noalias nocapture noundef 
   %25 = insertelement <8 x i64> poison, i64 %10, i64 0
   %26 = shufflevector <8 x i64> %25, <8 x i64> poison, <8 x i32> zeroinitializer
   %27 = icmp eq i64 %22, %4
-  %.scalar10 = fdiv reassoc nsz arcp contract afn float %16, %15
-  %28 = insertelement <8 x float> poison, float %.scalar10, i64 0
+  %.scalar12 = fdiv reassoc nsz arcp contract afn float %16, %15
+  %28 = insertelement <8 x float> poison, float %.scalar12, i64 0
   %29 = shufflevector <8 x float> %28, <8 x float> poison, <8 x i32> zeroinitializer
   %30 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %13
   %31 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %15
