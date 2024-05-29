@@ -1924,30 +1924,30 @@ define internal fastcc noundef zeroext i1 @rate_control_cap_mask(ptr nocapture n
   %12 = getelementptr [6 x i32], ptr %8, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   store i32 %13, ptr %3, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 4280
+  %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, 7
-  %17 = select i1 %16, i32 64, i32 0
-  %18 = icmp eq i32 %15, 6
-  %19 = select i1 %18, i32 32, i32 %17
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.loopexit, label %23
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.loopexit, label %17
 
-23:                                               ; preds = %6
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+17:                                               ; preds = %6
+  %18 = getelementptr inbounds i8, ptr %0, i64 4280
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp eq i32 %19, 6
+  %21 = icmp eq i32 %19, 7
+  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = select i1 %21, i32 -65, i32 -1
+  %24 = select i1 %20, i32 -33, i32 %23
   br label %25
 
-25:                                               ; preds = %39, %23
-  %26 = phi i32 [ %21, %23 ], [ %40, %39 ]
-  %27 = phi i32 [ %13, %23 ], [ %41, %39 ]
-  %28 = phi i64 [ 0, %23 ], [ %42, %39 ]
-  %29 = load ptr, ptr %24, align 8
+25:                                               ; preds = %39, %17
+  %26 = phi i32 [ %15, %17 ], [ %40, %39 ]
+  %27 = phi i32 [ %13, %17 ], [ %41, %39 ]
+  %28 = phi i64 [ 0, %17 ], [ %42, %39 ]
+  %29 = load ptr, ptr %22, align 8
   %30 = getelementptr %struct.ieee80211_rate, ptr %29, i64 %28
   %31 = load i32, ptr %30, align 4
-  %32 = and i32 %31, %19
-  %33 = icmp eq i32 %32, %19
+  %32 = or i32 %31, %24
+  %33 = icmp eq i32 %32, -1
   br i1 %33, label %39, label %34
 
 34:                                               ; preds = %25
@@ -1956,7 +1956,7 @@ define internal fastcc noundef zeroext i1 @rate_control_cap_mask(ptr nocapture n
   %37 = xor i32 %36, -1
   %38 = and i32 %27, %37
   store i32 %38, ptr %3, align 4
-  %.pre = load i32, ptr %20, align 8
+  %.pre = load i32, ptr %14, align 8
   br label %39
 
 39:                                               ; preds = %34, %25

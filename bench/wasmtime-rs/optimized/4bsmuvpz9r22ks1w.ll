@@ -1441,7 +1441,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN17cranelift_codegen3isa3x644inst131_$LT$impl$u20$cranelift_codegen..machinst..MachInst$u20$for$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7is_term17hc62a5629790a2964E" = private unnamed_addr constant [9 x i8] c"\02\02\00\01\00\03\00\04\05", align 1
 @switch.table._ZN17cranelift_codegen8verifier8Verifier14verify_bitcast17hc74eab17e1c0de94E = private unnamed_addr constant [10 x i32] [i32 8, i32 16, i32 32, i32 64, i32 128, i32 32, i32 64, i32 8, i32 32, i32 64], align 4
 @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.114 = private unnamed_addr constant [10 x i32] [i32 8, i32 16, i32 32, i32 64, i32 128, i32 32, i32 64, i32 0, i32 32, i32 64], align 4
-@switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.118 = private unnamed_addr constant [4 x i64] [i64 255, i64 65535, i64 4294967295, i64 -1], align 8
+@switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.118 = private unnamed_addr constant [4 x i64] [i64 -256, i64 -65536, i64 -4294967296, i64 0], align 8
 @"switch.table._ZN86_$LT$cranelift_codegen..ir..extfunc..ArgumentExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h615cc8cd7ac02e02E" = private unnamed_addr constant [3 x ptr] [ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.40, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.945, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.946], align 8
 @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E = private unnamed_addr constant [36 x i64] [i64 1, i64 1, i64 1, i64 1, i64 2, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 2, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1], align 8
 @"switch.table._ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$as$u20$core..fmt..Display$GT$3fmt17h831042fcbb93a931E" = private unnamed_addr constant [3 x i64] [i64 4, i64 5, i64 14], align 8
@@ -50676,7 +50676,7 @@ switch.lookup6528:                                ; preds = %2768
   %2773 = getelementptr inbounds i8, ptr %2762, i64 8
   %2774 = load i64, ptr %2773, align 8, !alias.scope !6452, !noalias !6451, !noundef !4
   %2775 = and i64 %2774, %switch.load6531
-  %.not.i260 = icmp eq i64 %2775, %2774
+  %.not.i260 = icmp eq i64 %2775, 0
   br i1 %.not.i260, label %.backedge, label %2776
 
 2776:                                             ; preds = %switch.lookup6528

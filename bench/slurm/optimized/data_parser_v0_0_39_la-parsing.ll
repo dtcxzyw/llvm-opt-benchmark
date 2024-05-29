@@ -1699,7 +1699,7 @@ _flag_parent_path.exit:                           ; preds = %2, %15
 
 21:                                               ; preds = %.lr.ph, %_set_flag_bit.exit
   %.04351 = phi i1 [ false, %.lr.ph ], [ %spec.select, %_set_flag_bit.exit ]
-  %.04450 = phi i8 [ 0, %.lr.ph ], [ %168, %_set_flag_bit.exit ]
+  %.04450 = phi i8 [ 0, %.lr.ph ], [ %166, %_set_flag_bit.exit ]
   %22 = load ptr, ptr %18, align 8
   %23 = sext i8 %.04450 to i64
   %24 = getelementptr inbounds %struct.flag_bit_t, ptr %22, i64 %23
@@ -1711,9 +1711,9 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %spec.select = select i1 %.not, i1 true, i1 %.04351
   %29 = getelementptr inbounds i8, ptr %24, i64 16
   %30 = load i32, ptr %29, align 8
-  switch i32 %30, label %165 [
+  switch i32 %30, label %163 [
     i32 2, label %31
-    i32 1, label %76
+    i32 1, label %75
   ]
 
 31:                                               ; preds = %21
@@ -1722,271 +1722,269 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %34 = getelementptr inbounds i8, ptr %24, i64 48
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, %33
-  br i1 %.not, label %42, label %37
+  br i1 %.not, label %41, label %37
 
 37:                                               ; preds = %31
   %38 = load i64, ptr %19, align 8
-  %39 = xor i64 %38, -1
-  %40 = and i64 %36, %39
-  %41 = icmp eq i64 %40, %36
-  br i1 %41, label %42, label %_set_flag_bit.exit
+  %39 = and i64 %38, %36
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %41, label %_set_flag_bit.exit
 
-42:                                               ; preds = %37, %31
+41:                                               ; preds = %37, %31
   %.val = load i64, ptr %20, align 8
-  switch i64 %.val, label %75 [
-    i64 8, label %43
-    i64 4, label %51
-    i64 2, label %59
-    i64 1, label %67
+  switch i64 %.val, label %74 [
+    i64 8, label %42
+    i64 4, label %50
+    i64 2, label %58
+    i64 1, label %66
   ]
 
+42:                                               ; preds = %41
+  br i1 %.not, label %43, label %46
+
 43:                                               ; preds = %42
-  br i1 %.not, label %44, label %47
-
-44:                                               ; preds = %43
-  %45 = load i64, ptr %5, align 8
-  %46 = or i64 %45, %36
-  store i64 %46, ptr %5, align 8
+  %44 = load i64, ptr %5, align 8
+  %45 = or i64 %44, %36
+  store i64 %45, ptr %5, align 8
   br label %_set_flag_bit.exit
 
-47:                                               ; preds = %43
-  %48 = xor i64 %36, -1
-  %49 = load i64, ptr %5, align 8
-  %50 = and i64 %49, %48
-  store i64 %50, ptr %5, align 8
+46:                                               ; preds = %42
+  %47 = xor i64 %36, -1
+  %48 = load i64, ptr %5, align 8
+  %49 = and i64 %48, %47
+  store i64 %49, ptr %5, align 8
   br label %_set_flag_bit.exit
 
-51:                                               ; preds = %42
-  %52 = load i32, ptr %5, align 4
-  %53 = trunc i64 %36 to i32
-  br i1 %.not, label %54, label %56
+50:                                               ; preds = %41
+  %51 = load i32, ptr %5, align 4
+  %52 = trunc i64 %36 to i32
+  br i1 %.not, label %53, label %55
 
-54:                                               ; preds = %51
-  %55 = or i32 %52, %53
-  store i32 %55, ptr %5, align 4
+53:                                               ; preds = %50
+  %54 = or i32 %51, %52
+  store i32 %54, ptr %5, align 4
   br label %_set_flag_bit.exit
 
-56:                                               ; preds = %51
-  %57 = xor i32 %53, -1
-  %58 = and i32 %52, %57
-  store i32 %58, ptr %5, align 4
+55:                                               ; preds = %50
+  %56 = xor i32 %52, -1
+  %57 = and i32 %51, %56
+  store i32 %57, ptr %5, align 4
   br label %_set_flag_bit.exit
 
-59:                                               ; preds = %42
-  %60 = load i16, ptr %5, align 2
-  %61 = trunc i64 %36 to i16
-  br i1 %.not, label %62, label %64
+58:                                               ; preds = %41
+  %59 = load i16, ptr %5, align 2
+  %60 = trunc i64 %36 to i16
+  br i1 %.not, label %61, label %63
 
-62:                                               ; preds = %59
-  %63 = or i16 %60, %61
-  store i16 %63, ptr %5, align 2
+61:                                               ; preds = %58
+  %62 = or i16 %59, %60
+  store i16 %62, ptr %5, align 2
   br label %_set_flag_bit.exit
 
-64:                                               ; preds = %59
-  %65 = xor i16 %61, -1
-  %66 = and i16 %60, %65
-  store i16 %66, ptr %5, align 2
+63:                                               ; preds = %58
+  %64 = xor i16 %60, -1
+  %65 = and i16 %59, %64
+  store i16 %65, ptr %5, align 2
   br label %_set_flag_bit.exit
 
-67:                                               ; preds = %42
-  %68 = load i8, ptr %5, align 1
-  %69 = trunc i64 %36 to i8
-  br i1 %.not, label %70, label %72
+66:                                               ; preds = %41
+  %67 = load i8, ptr %5, align 1
+  %68 = trunc i64 %36 to i8
+  br i1 %.not, label %69, label %71
 
-70:                                               ; preds = %67
-  %71 = or i8 %68, %69
-  store i8 %71, ptr %5, align 1
+69:                                               ; preds = %66
+  %70 = or i8 %67, %68
+  store i8 %70, ptr %5, align 1
   br label %_set_flag_bit.exit
 
-72:                                               ; preds = %67
-  %73 = xor i8 %69, -1
-  %74 = and i8 %68, %73
-  store i8 %74, ptr %5, align 1
+71:                                               ; preds = %66
+  %72 = xor i8 %68, -1
+  %73 = and i8 %67, %72
+  store i8 %73, ptr %5, align 1
   br label %_set_flag_bit.exit
 
-75:                                               ; preds = %42
+74:                                               ; preds = %41
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__._set_flag_bit, i64 noundef %.val) #6
   unreachable
 
-76:                                               ; preds = %21
-  br i1 %.not, label %84, label %77
+75:                                               ; preds = %21
+  br i1 %.not, label %82, label %76
 
-77:                                               ; preds = %76
-  %78 = load i64, ptr %19, align 8
-  %79 = xor i64 %78, -1
-  %80 = getelementptr inbounds i8, ptr %24, i64 24
-  %81 = load i64, ptr %80, align 8
-  %82 = and i64 %81, %79
-  %83 = icmp eq i64 %82, %81
-  br i1 %83, label %84, label %_set_flag_bit_equal.exit
+76:                                               ; preds = %75
+  %77 = load i64, ptr %19, align 8
+  %78 = getelementptr inbounds i8, ptr %24, i64 24
+  %79 = load i64, ptr %78, align 8
+  %80 = and i64 %79, %77
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %82, label %_set_flag_bit_equal.exit
 
-84:                                               ; preds = %77, %76
+82:                                               ; preds = %76, %75
   %.val46 = load i64, ptr %20, align 8
-  switch i64 %.val46, label %162 [
-    i64 8, label %85
-    i64 4, label %102
-    i64 2, label %122
-    i64 1, label %142
+  switch i64 %.val46, label %160 [
+    i64 8, label %83
+    i64 4, label %100
+    i64 2, label %120
+    i64 1, label %140
   ]
 
-85:                                               ; preds = %84
-  br i1 %.not, label %86, label %96
+83:                                               ; preds = %82
+  br i1 %.not, label %84, label %94
 
-86:                                               ; preds = %85
-  %87 = load i64, ptr %5, align 8
-  %88 = getelementptr inbounds i8, ptr %24, i64 24
-  %89 = load i64, ptr %88, align 8
-  %90 = xor i64 %89, -1
-  %91 = and i64 %87, %90
-  %92 = getelementptr inbounds i8, ptr %24, i64 48
-  %93 = load i64, ptr %92, align 8
-  %94 = and i64 %93, %89
-  %95 = or i64 %94, %91
-  store i64 %95, ptr %5, align 8
+84:                                               ; preds = %83
+  %85 = load i64, ptr %5, align 8
+  %86 = getelementptr inbounds i8, ptr %24, i64 24
+  %87 = load i64, ptr %86, align 8
+  %88 = xor i64 %87, -1
+  %89 = and i64 %85, %88
+  %90 = getelementptr inbounds i8, ptr %24, i64 48
+  %91 = load i64, ptr %90, align 8
+  %92 = and i64 %91, %87
+  %93 = or i64 %92, %89
+  store i64 %93, ptr %5, align 8
   br label %_set_flag_bit_equal.exit
 
-96:                                               ; preds = %85
-  %97 = getelementptr inbounds i8, ptr %24, i64 24
-  %98 = load i64, ptr %97, align 8
-  %99 = xor i64 %98, -1
-  %100 = load i64, ptr %5, align 8
-  %101 = and i64 %100, %99
-  store i64 %101, ptr %5, align 8
+94:                                               ; preds = %83
+  %95 = getelementptr inbounds i8, ptr %24, i64 24
+  %96 = load i64, ptr %95, align 8
+  %97 = xor i64 %96, -1
+  %98 = load i64, ptr %5, align 8
+  %99 = and i64 %98, %97
+  store i64 %99, ptr %5, align 8
   br label %_set_flag_bit_equal.exit
 
-102:                                              ; preds = %84
-  br i1 %.not, label %103, label %115
+100:                                              ; preds = %82
+  br i1 %.not, label %101, label %113
 
-103:                                              ; preds = %102
-  %104 = load i32, ptr %5, align 4
-  %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds i8, ptr %24, i64 24
-  %107 = load i64, ptr %106, align 8
-  %108 = xor i64 %107, -1
-  %109 = and i64 %105, %108
-  %110 = getelementptr inbounds i8, ptr %24, i64 48
-  %111 = load i64, ptr %110, align 8
-  %112 = and i64 %111, %107
-  %113 = or i64 %112, %109
-  %114 = trunc i64 %113 to i32
-  store i32 %114, ptr %5, align 4
+101:                                              ; preds = %100
+  %102 = load i32, ptr %5, align 4
+  %103 = zext i32 %102 to i64
+  %104 = getelementptr inbounds i8, ptr %24, i64 24
+  %105 = load i64, ptr %104, align 8
+  %106 = xor i64 %105, -1
+  %107 = and i64 %103, %106
+  %108 = getelementptr inbounds i8, ptr %24, i64 48
+  %109 = load i64, ptr %108, align 8
+  %110 = and i64 %109, %105
+  %111 = or i64 %110, %107
+  %112 = trunc i64 %111 to i32
+  store i32 %112, ptr %5, align 4
   br label %_set_flag_bit_equal.exit
 
-115:                                              ; preds = %102
-  %116 = getelementptr inbounds i8, ptr %24, i64 24
-  %117 = load i64, ptr %116, align 8
-  %118 = load i32, ptr %5, align 4
-  %119 = trunc i64 %117 to i32
-  %120 = xor i32 %119, -1
-  %121 = and i32 %118, %120
-  store i32 %121, ptr %5, align 4
+113:                                              ; preds = %100
+  %114 = getelementptr inbounds i8, ptr %24, i64 24
+  %115 = load i64, ptr %114, align 8
+  %116 = load i32, ptr %5, align 4
+  %117 = trunc i64 %115 to i32
+  %118 = xor i32 %117, -1
+  %119 = and i32 %116, %118
+  store i32 %119, ptr %5, align 4
   br label %_set_flag_bit_equal.exit
 
-122:                                              ; preds = %84
-  br i1 %.not, label %123, label %135
+120:                                              ; preds = %82
+  br i1 %.not, label %121, label %133
 
-123:                                              ; preds = %122
-  %124 = load i16, ptr %5, align 2
-  %125 = zext i16 %124 to i64
-  %126 = getelementptr inbounds i8, ptr %24, i64 24
-  %127 = load i64, ptr %126, align 8
-  %128 = xor i64 %127, -1
-  %129 = and i64 %125, %128
-  %130 = getelementptr inbounds i8, ptr %24, i64 48
-  %131 = load i64, ptr %130, align 8
-  %132 = and i64 %131, %127
-  %133 = or i64 %132, %129
-  %134 = trunc i64 %133 to i16
-  store i16 %134, ptr %5, align 2
+121:                                              ; preds = %120
+  %122 = load i16, ptr %5, align 2
+  %123 = zext i16 %122 to i64
+  %124 = getelementptr inbounds i8, ptr %24, i64 24
+  %125 = load i64, ptr %124, align 8
+  %126 = xor i64 %125, -1
+  %127 = and i64 %123, %126
+  %128 = getelementptr inbounds i8, ptr %24, i64 48
+  %129 = load i64, ptr %128, align 8
+  %130 = and i64 %129, %125
+  %131 = or i64 %130, %127
+  %132 = trunc i64 %131 to i16
+  store i16 %132, ptr %5, align 2
   br label %_set_flag_bit_equal.exit
 
-135:                                              ; preds = %122
-  %136 = getelementptr inbounds i8, ptr %24, i64 24
-  %137 = load i64, ptr %136, align 8
-  %138 = load i16, ptr %5, align 2
-  %139 = trunc i64 %137 to i16
-  %140 = xor i16 %139, -1
-  %141 = and i16 %138, %140
-  store i16 %141, ptr %5, align 2
+133:                                              ; preds = %120
+  %134 = getelementptr inbounds i8, ptr %24, i64 24
+  %135 = load i64, ptr %134, align 8
+  %136 = load i16, ptr %5, align 2
+  %137 = trunc i64 %135 to i16
+  %138 = xor i16 %137, -1
+  %139 = and i16 %136, %138
+  store i16 %139, ptr %5, align 2
   br label %_set_flag_bit_equal.exit
 
-142:                                              ; preds = %84
-  br i1 %.not, label %143, label %155
+140:                                              ; preds = %82
+  br i1 %.not, label %141, label %153
 
-143:                                              ; preds = %142
-  %144 = load i8, ptr %5, align 1
-  %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds i8, ptr %24, i64 24
-  %147 = load i64, ptr %146, align 8
-  %148 = xor i64 %147, -1
-  %149 = and i64 %145, %148
-  %150 = getelementptr inbounds i8, ptr %24, i64 48
-  %151 = load i64, ptr %150, align 8
-  %152 = and i64 %151, %147
-  %153 = or i64 %152, %149
-  %154 = trunc i64 %153 to i8
-  store i8 %154, ptr %5, align 1
+141:                                              ; preds = %140
+  %142 = load i8, ptr %5, align 1
+  %143 = zext i8 %142 to i64
+  %144 = getelementptr inbounds i8, ptr %24, i64 24
+  %145 = load i64, ptr %144, align 8
+  %146 = xor i64 %145, -1
+  %147 = and i64 %143, %146
+  %148 = getelementptr inbounds i8, ptr %24, i64 48
+  %149 = load i64, ptr %148, align 8
+  %150 = and i64 %149, %145
+  %151 = or i64 %150, %147
+  %152 = trunc i64 %151 to i8
+  store i8 %152, ptr %5, align 1
   br label %_set_flag_bit_equal.exit
 
-155:                                              ; preds = %142
-  %156 = getelementptr inbounds i8, ptr %24, i64 24
-  %157 = load i64, ptr %156, align 8
-  %158 = load i8, ptr %5, align 1
-  %159 = trunc i64 %157 to i8
-  %160 = xor i8 %159, -1
-  %161 = and i8 %158, %160
-  store i8 %161, ptr %5, align 1
+153:                                              ; preds = %140
+  %154 = getelementptr inbounds i8, ptr %24, i64 24
+  %155 = load i64, ptr %154, align 8
+  %156 = load i8, ptr %5, align 1
+  %157 = trunc i64 %155 to i8
+  %158 = xor i8 %157, -1
+  %159 = and i8 %156, %158
+  store i8 %159, ptr %5, align 1
   br label %_set_flag_bit_equal.exit
 
-162:                                              ; preds = %84
+160:                                              ; preds = %82
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__._set_flag_bit_equal, i64 noundef %.val46) #6
   unreachable
 
-_set_flag_bit_equal.exit:                         ; preds = %155, %143, %135, %123, %115, %103, %96, %86, %77
-  %163 = getelementptr inbounds i8, ptr %24, i64 24
-  %164 = load i64, ptr %163, align 8
+_set_flag_bit_equal.exit:                         ; preds = %153, %141, %133, %121, %113, %101, %94, %84, %76
+  %161 = getelementptr inbounds i8, ptr %24, i64 24
+  %162 = load i64, ptr %161, align 8
   br label %_set_flag_bit.exit
 
-165:                                              ; preds = %21
+163:                                              ; preds = %21
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__._foreach_flag_parser) #6
   unreachable
 
-_set_flag_bit.exit:                               ; preds = %37, %44, %47, %54, %56, %62, %64, %70, %72, %_set_flag_bit_equal.exit
-  %.sink59 = phi i64 [ %164, %_set_flag_bit_equal.exit ], [ %36, %72 ], [ %36, %70 ], [ %36, %64 ], [ %36, %62 ], [ %36, %56 ], [ %36, %54 ], [ %36, %47 ], [ %36, %44 ], [ %36, %37 ]
-  %166 = load i64, ptr %19, align 8
-  %167 = or i64 %166, %.sink59
-  store i64 %167, ptr %19, align 8
-  %168 = add i8 %.04450, 1
-  %169 = sext i8 %168 to i32
-  %170 = load i8, ptr %16, align 8
-  %171 = zext i8 %170 to i32
-  %172 = icmp slt i32 %169, %171
-  br i1 %172, label %21, label %._crit_edge, !llvm.loop !14
+_set_flag_bit.exit:                               ; preds = %37, %43, %46, %53, %55, %61, %63, %69, %71, %_set_flag_bit_equal.exit
+  %.sink59 = phi i64 [ %162, %_set_flag_bit_equal.exit ], [ %36, %71 ], [ %36, %69 ], [ %36, %63 ], [ %36, %61 ], [ %36, %55 ], [ %36, %53 ], [ %36, %46 ], [ %36, %43 ], [ %36, %37 ]
+  %164 = load i64, ptr %19, align 8
+  %165 = or i64 %164, %.sink59
+  store i64 %165, ptr %19, align 8
+  %166 = add i8 %.04450, 1
+  %167 = sext i8 %166 to i32
+  %168 = load i8, ptr %16, align 8
+  %169 = zext i8 %168 to i32
+  %170 = icmp slt i32 %167, %169
+  br i1 %170, label %21, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_set_flag_bit.exit
+  %171 = load i64, ptr %10, align 8
+  %172 = add nsw i64 %171, 1
+  store i64 %172, ptr %10, align 8
+  br i1 %spec.select, label %183, label %175
+
+.critedge:                                        ; preds = %_flag_parent_path.exit
   %173 = load i64, ptr %10, align 8
   %174 = add nsw i64 %173, 1
   store i64 %174, ptr %10, align 8
-  br i1 %spec.select, label %185, label %177
+  br label %175
 
-.critedge:                                        ; preds = %_flag_parent_path.exit
-  %175 = load i64, ptr %10, align 8
-  %176 = add nsw i64 %175, 1
-  store i64 %176, ptr %10, align 8
-  br label %177
+175:                                              ; preds = %.critedge, %._crit_edge
+  %176 = getelementptr inbounds i8, ptr %7, i64 8
+  %177 = load i32, ptr %176, align 8
+  %178 = getelementptr inbounds i8, ptr %1, i64 8
+  %179 = load ptr, ptr %178, align 8
+  %180 = load ptr, ptr %3, align 8
+  %181 = call ptr @data_get_string(ptr noundef %0) #5
+  %182 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 60138, i32 noundef %177, ptr noundef %179, i32 noundef 9207, ptr noundef %180, ptr noundef nonnull @__func__._foreach_flag_parser, ptr noundef nonnull @.str.16, ptr noundef %181) #5
+  br label %183
 
-177:                                              ; preds = %.critedge, %._crit_edge
-  %178 = getelementptr inbounds i8, ptr %7, i64 8
-  %179 = load i32, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %1, i64 8
-  %181 = load ptr, ptr %180, align 8
-  %182 = load ptr, ptr %3, align 8
-  %183 = call ptr @data_get_string(ptr noundef %0) #5
-  %184 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 60138, i32 noundef %179, ptr noundef %181, i32 noundef 9207, ptr noundef %182, ptr noundef nonnull @__func__._foreach_flag_parser, ptr noundef nonnull @.str.16, ptr noundef %183) #5
-  br label %185
-
-185:                                              ; preds = %._crit_edge, %177
-  %.0 = phi i32 [ 4, %177 ], [ 1, %._crit_edge ]
+183:                                              ; preds = %._crit_edge, %175
+  %.0 = phi i32 [ 4, %175 ], [ 1, %._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %3) #5
   ret i32 %.0
 }

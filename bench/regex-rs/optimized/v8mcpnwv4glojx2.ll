@@ -3294,11 +3294,11 @@ define void @"_ZN92_$LT$regex_syntax..utf8..Utf8Sequences$u20$as$u20$core..iter.
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   store i8 4, ptr %0, align 1
-  br label %156
+  br label %155
 
 _ZN12regex_syntax4utf811ScalarRange5split17hcac8709af350bed5E.exit: ; preds = %.outer87, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42, %.outer
   %29 = phi i64 [ %39, %.outer ], [ %217, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42 ], [ %186, %.outer87 ]
-  %.sroa.12.0.lcssa = phi i32 [ %.sroa.12.0.ph, %.outer ], [ %.0.i249, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42 ], [ %storemerge, %.outer87 ]
+  %.sroa.12.0.lcssa = phi i32 [ %.sroa.12.0.ph, %.outer ], [ %.0.i248, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42 ], [ %storemerge, %.outer87 ]
   %30 = load i64, ptr %1, align 8, !alias.scope !519, !noundef !4
   %31 = icmp eq i64 %29, %30
   br i1 %31, label %32, label %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit
@@ -3329,12 +3329,12 @@ _ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit: ; preds = %
 
 .preheader86:                                     ; preds = %.lr.ph.split, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42
   %41 = phi i64 [ %217, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42 ], [ %188, %.lr.ph.split ]
-  %.sroa.12.0123137 = phi i32 [ %.0.i249, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42 ], [ %.sroa.12.0.ph88157, %.lr.ph.split ]
+  %.sroa.12.0123137 = phi i32 [ %.0.i248, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42 ], [ %.sroa.12.0.ph88157, %.lr.ph.split ]
   br label %45
 
 42:                                               ; preds = %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit
-  %exitcond228.not = icmp eq i64 %46, 4
-  br i1 %exitcond228.not, label %.split, label %45
+  %exitcond227.not = icmp eq i64 %46, 4
+  br i1 %exitcond227.not, label %.split, label %45
 
 .split:                                           ; preds = %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us.thread, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread, %189, %42
   %43 = phi i64 [ %41, %42 ], [ %206, %189 ], [ %41, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread ], [ %206, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us.thread ]
@@ -3375,13 +3375,13 @@ _ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit: ; preds = %45
   %52 = icmp ule i32 %23, %.0.i
   %53 = icmp ult i32 %.0.i, %.sroa.12.0123137
   %or.cond = and i1 %52, %53
-  br i1 %or.cond, label %.loopexit256, label %42
+  br i1 %or.cond, label %.loopexit255, label %42
 
 _ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread: ; preds = %45
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %54 = icmp ugt i32 %.sroa.12.0123137, 65535
-  %or.cond248 = and i1 %28, %54
-  br i1 %or.cond248, label %.loopexit256, label %.split
+  %or.cond247 = and i1 %28, %54
+  br i1 %or.cond247, label %.loopexit255, label %.split
 
 55:                                               ; preds = %.split
   %56 = trunc i32 %23 to i8
@@ -3391,7 +3391,7 @@ _ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread: ; pred
   store i8 %56, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.58.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %.sroa.521.0.extract.trunc, ptr %.sroa.58.0..sroa_idx, align 1
-  br label %156
+  br label %155
 
 57:                                               ; preds = %160
   %58 = xor i32 %23, 55296
@@ -3470,9 +3470,9 @@ _ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread: ; pred
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %73, %75, %82, %93
-  %.sroa.20237.0 = phi i8 [ 0, %73 ], [ 0, %75 ], [ 0, %82 ], [ %108, %93 ]
-  %.sroa.16235.0 = phi i8 [ 0, %73 ], [ 0, %75 ], [ %92, %82 ], [ %105, %93 ]
-  %.sroa.10232.0 = phi i8 [ 0, %73 ], [ %81, %75 ], [ %89, %82 ], [ %101, %93 ]
+  %.sroa.20236.0 = phi i8 [ 0, %73 ], [ 0, %75 ], [ 0, %82 ], [ %108, %93 ]
+  %.sroa.16234.0 = phi i8 [ 0, %73 ], [ 0, %75 ], [ %92, %82 ], [ %105, %93 ]
+  %.sroa.10231.0 = phi i8 [ 0, %73 ], [ %81, %75 ], [ %89, %82 ], [ %101, %93 ]
   %.sroa.0.0 = phi i8 [ %74, %73 ], [ %78, %75 ], [ %85, %82 ], [ %97, %93 ]
   %109 = phi i64 [ 1, %73 ], [ 2, %75 ], [ 3, %82 ], [ 4, %93 ]
   %110 = icmp ult i32 %.us-phi133, 2048
@@ -3514,14 +3514,14 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %73
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit12.i
 
 _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit12.i: ; preds = %125, %117, %113
-  %.sroa.20246.0 = phi i8 [ 0, %113 ], [ 0, %117 ], [ %137, %125 ]
-  %.sroa.16244.0 = phi i8 [ 0, %113 ], [ %124, %117 ], [ %134, %125 ]
-  %.sroa.10241.0.in.in.in = phi i32 [ %.us-phi133, %113 ], [ %121, %117 ], [ %130, %125 ]
-  %.sroa.0238.0 = phi i8 [ %116, %113 ], [ %120, %117 ], [ %129, %125 ]
+  %.sroa.20245.0 = phi i8 [ 0, %113 ], [ 0, %117 ], [ %137, %125 ]
+  %.sroa.16243.0 = phi i8 [ 0, %113 ], [ %124, %117 ], [ %134, %125 ]
+  %.sroa.10240.0.in.in.in = phi i32 [ %.us-phi133, %113 ], [ %121, %117 ], [ %130, %125 ]
+  %.sroa.0237.0 = phi i8 [ %116, %113 ], [ %120, %117 ], [ %129, %125 ]
   %138 = phi i64 [ 2, %113 ], [ 3, %117 ], [ 4, %125 ]
-  %.sroa.10241.0.in.in = trunc i32 %.sroa.10241.0.in.in.in to i8
-  %.sroa.10241.0.in = and i8 %.sroa.10241.0.in.in, 63
-  %.sroa.10241.0 = or disjoint i8 %.sroa.10241.0.in, -128
+  %.sroa.10240.0.in.in = trunc i32 %.sroa.10240.0.in.in.in to i8
+  %.sroa.10240.0.in = and i8 %.sroa.10240.0.in.in, 63
+  %.sroa.10240.0 = or disjoint i8 %.sroa.10240.0.in, -128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !530
   store i64 %109, ptr %9, align 8, !noalias !530
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !530
@@ -3575,25 +3575,25 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit12.i: ; preds = %
 
 148:                                              ; preds = %141
   store i8 %.sroa.0.0, ptr %.sroa.4, align 1, !alias.scope !534, !noalias !546
-  store i8 %.sroa.0238.0, ptr %.sroa.767, align 1, !alias.scope !534, !noalias !546
+  store i8 %.sroa.0237.0, ptr %.sroa.767, align 1, !alias.scope !534, !noalias !546
   br label %_ZN12regex_syntax4utf812Utf8Sequence18from_encoded_range17h3f267fb11c439f54E.exit
 
 149:                                              ; preds = %141
   store i8 %.sroa.0.0, ptr %.sroa.4, align 1, !alias.scope !534, !noalias !546
-  store i8 %.sroa.0238.0, ptr %.sroa.767, align 1, !alias.scope !534, !noalias !546
-  store i8 %.sroa.10232.0, ptr %.sroa.10, align 1, !alias.scope !534, !noalias !546
-  store i8 %.sroa.10241.0, ptr %.sroa.13, align 1, !alias.scope !534, !noalias !546
+  store i8 %.sroa.0237.0, ptr %.sroa.767, align 1, !alias.scope !534, !noalias !546
+  store i8 %.sroa.10231.0, ptr %.sroa.10, align 1, !alias.scope !534, !noalias !546
+  store i8 %.sroa.10240.0, ptr %.sroa.13, align 1, !alias.scope !534, !noalias !546
   br label %_ZN12regex_syntax4utf812Utf8Sequence18from_encoded_range17h3f267fb11c439f54E.exit
 
 _ZN12regex_syntax4utf812Utf8Sequence18from_encoded_range17h3f267fb11c439f54E.exit: ; preds = %141, %148, %149
   %.sink27.i.sroa.phi = phi ptr [ %.sroa.16, %149 ], [ %.sroa.10, %148 ], [ %.sroa.4, %141 ]
-  %.sink26.i = phi i8 [ %.sroa.16235.0, %149 ], [ %.sroa.10232.0, %148 ], [ %.sroa.0.0, %141 ]
+  %.sink26.i = phi i8 [ %.sroa.16234.0, %149 ], [ %.sroa.10231.0, %148 ], [ %.sroa.0.0, %141 ]
   %.sink25.i.sroa.phi = phi ptr [ %.sroa.18, %149 ], [ %.sroa.13, %148 ], [ %.sroa.767, %141 ]
-  %.sink24.i = phi i8 [ %.sroa.16244.0, %149 ], [ %.sroa.10241.0, %148 ], [ %.sroa.0238.0, %141 ]
+  %.sink24.i = phi i8 [ %.sroa.16243.0, %149 ], [ %.sroa.10240.0, %148 ], [ %.sroa.0237.0, %141 ]
   %.sink23.i.sroa.phi = phi ptr [ %.sroa.20, %149 ], [ %.sroa.16, %148 ], [ %.sroa.10, %141 ]
-  %.sink22.i = phi i8 [ %.sroa.20237.0, %149 ], [ %.sroa.16235.0, %148 ], [ %.sroa.10232.0, %141 ]
+  %.sink22.i = phi i8 [ %.sroa.20236.0, %149 ], [ %.sroa.16234.0, %148 ], [ %.sroa.10231.0, %141 ]
   %.sink21.i.sroa.phi = phi ptr [ %.sroa.21, %149 ], [ %.sroa.18, %148 ], [ %.sroa.13, %141 ]
-  %.sink20.i = phi i8 [ %.sroa.20246.0, %149 ], [ %.sroa.16244.0, %148 ], [ %.sroa.10241.0, %141 ]
+  %.sink20.i = phi i8 [ %.sroa.20245.0, %149 ], [ %.sroa.16243.0, %148 ], [ %.sroa.10240.0, %141 ]
   %.sink.i = phi i8 [ 3, %149 ], [ 2, %148 ], [ 1, %141 ]
   store i8 %.sink26.i, ptr %.sink27.i.sroa.phi, align 1, !alias.scope !534, !noalias !546
   store i8 %.sink24.i, ptr %.sink25.i.sroa.phi, align 1, !alias.scope !534, !noalias !546
@@ -3632,7 +3632,7 @@ _ZN12regex_syntax4utf812Utf8Sequence18from_encoded_range17h3f267fb11c439f54E.exi
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.18)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.21)
-  br label %156
+  br label %155
 
 .preheader:                                       ; preds = %.split, %160
   %.sroa.010.0155 = phi i64 [ %150, %160 ], [ 1, %.split ]
@@ -3640,31 +3640,31 @@ _ZN12regex_syntax4utf812Utf8Sequence18from_encoded_range17h3f267fb11c439f54E.exi
   %151 = trunc nuw i64 %.sroa.010.0155 to i32
   %152 = mul nuw nsw i32 %151, 6
   %notmask = shl nsw i32 -1, %152
-  %153 = xor i32 %notmask, -1
-  %154 = and i32 %notmask, %23
-  %155 = and i32 %notmask, %.us-phi133
-  %.not25 = icmp eq i32 %154, %155
-  br i1 %.not25, label %160, label %157
+  %153 = and i32 %notmask, %23
+  %154 = and i32 %notmask, %.us-phi133
+  %.not25 = icmp eq i32 %153, %154
+  br i1 %.not25, label %160, label %156
 
-156:                                              ; preds = %55, %_ZN12regex_syntax4utf812Utf8Sequence18from_encoded_range17h3f267fb11c439f54E.exit, %._crit_edge
+155:                                              ; preds = %55, %_ZN12regex_syntax4utf812Utf8Sequence18from_encoded_range17h3f267fb11c439f54E.exit, %._crit_edge
   ret void
 
-157:                                              ; preds = %.preheader
-  %158 = and i32 %23, %153
+156:                                              ; preds = %.preheader
+  %157 = xor i32 %notmask, -1
+  %158 = and i32 %23, %157
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %161, label %163
 
 160:                                              ; preds = %161, %.preheader
-  %exitcond229.not = icmp eq i64 %150, 4
-  br i1 %exitcond229.not, label %57, label %.preheader
+  %exitcond228.not = icmp eq i64 %150, 4
+  br i1 %exitcond228.not, label %57, label %.preheader
 
-161:                                              ; preds = %157
-  %162 = and i32 %.us-phi133, %153
-  %.not26 = icmp eq i32 %162, %153
+161:                                              ; preds = %156
+  %162 = or i32 %notmask, %.us-phi133
+  %.not26 = icmp eq i32 %162, -1
   br i1 %.not26, label %160, label %175
 
-163:                                              ; preds = %157
-  %164 = or i32 %23, %153
+163:                                              ; preds = %156
+  %164 = or i32 %23, %157
   %165 = add i32 %164, 1
   %166 = load i64, ptr %1, align 8, !alias.scope !547, !noundef !4
   %167 = icmp eq i64 %43, %166
@@ -3701,13 +3701,13 @@ _ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit40: ; preds =
   %179 = phi i64 [ %.pre.i.i39, %178 ], [ %43, %175 ]
   %180 = load ptr, ptr %14, align 8, !alias.scope !552, !nonnull !4, !noundef !4
   %181 = getelementptr inbounds { i32, i32 }, ptr %180, i64 %179
-  store i32 %155, ptr %181, align 4
+  store i32 %154, ptr %181, align 4
   %182 = getelementptr inbounds i8, ptr %181, i64 4
   store i32 %.us-phi133, ptr %182, align 4
   %183 = load i64, ptr %11, align 8, !alias.scope !552, !noundef !4
   %184 = add i64 %183, 1
   store i64 %184, ptr %11, align 8, !alias.scope !552
-  %185 = add i32 %155, -1
+  %185 = add i32 %154, -1
   br label %.outer87
 
 .outer87:                                         ; preds = %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit40, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit38
@@ -3749,28 +3749,28 @@ _ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us: ; preds = 
   %193 = icmp ule i32 %23, %.0.i.us
   %194 = icmp ult i32 %.0.i.us, %.sroa.12.0123.us146
   %or.cond.us = and i1 %193, %194
-  br i1 %or.cond.us, label %.loopexit258, label %189
+  br i1 %or.cond.us, label %.loopexit257, label %189
 
 _ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us.thread: ; preds = %190
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %195 = icmp ugt i32 %.sroa.12.0123.us146, 65535
-  %or.cond.us252 = and i1 %27, %195
-  br i1 %or.cond.us252, label %.loopexit258, label %.split
+  %or.cond.us251 = and i1 %27, %195
+  br i1 %or.cond.us251, label %.loopexit257, label %.split
 
-.loopexit258:                                     ; preds = %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us.thread
-  %.0.i.us253 = phi i32 [ 65535, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us.thread ], [ %.0.i.us, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us ]
-  %196 = add nuw nsw i32 %.0.i.us253, 1
+.loopexit257:                                     ; preds = %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us.thread
+  %.0.i.us252 = phi i32 [ 65535, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us.thread ], [ %.0.i.us, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.us ]
+  %196 = add nuw nsw i32 %.0.i.us252, 1
   %197 = load i64, ptr %1, align 8, !alias.scope !557, !noundef !4
   %198 = icmp eq i64 %206, %197
   br i1 %198, label %199, label %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42.us
 
-199:                                              ; preds = %.loopexit258
+199:                                              ; preds = %.loopexit257
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hce43c1cbfcff818bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %206)
   %.pre.i.i41.us = load i64, ptr %11, align 8, !alias.scope !557
   br label %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42.us
 
-_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42.us: ; preds = %199, %.loopexit258
-  %200 = phi i64 [ %.pre.i.i41.us, %199 ], [ %206, %.loopexit258 ]
+_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42.us: ; preds = %199, %.loopexit257
+  %200 = phi i64 [ %.pre.i.i41.us, %199 ], [ %206, %.loopexit257 ]
   %201 = load ptr, ptr %14, align 8, !alias.scope !557, !nonnull !4, !noundef !4
   %202 = getelementptr inbounds { i32, i32 }, ptr %201, i64 %200
   store i32 %196, ptr %202, align 4
@@ -3783,27 +3783,27 @@ _ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42.us: ; pred
 
 .preheader86.us:                                  ; preds = %.lr.ph.split.us, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42.us
   %206 = phi i64 [ %205, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42.us ], [ %188, %.lr.ph.split.us ]
-  %.sroa.12.0123.us146 = phi i32 [ %.0.i.us253, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42.us ], [ %.sroa.12.0.ph88157, %.lr.ph.split.us ]
+  %.sroa.12.0123.us146 = phi i32 [ %.0.i.us252, %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42.us ], [ %.sroa.12.0.ph88157, %.lr.ph.split.us ]
   br label %190
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not169, label %.loopexit, label %.preheader86
 
-.loopexit256:                                     ; preds = %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread
-  %.0.i249 = phi i32 [ 65535, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread ], [ %.0.i, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit ]
+.loopexit255:                                     ; preds = %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread
+  %.0.i248 = phi i32 [ 65535, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread ], [ %.0.i, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit ]
   %207 = phi i1 [ true, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread ], [ false, %_ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit ]
-  %208 = add nuw nsw i32 %.0.i249, 1
+  %208 = add nuw nsw i32 %.0.i248, 1
   %209 = load i64, ptr %1, align 8, !alias.scope !557, !noundef !4
   %210 = icmp eq i64 %41, %209
   br i1 %210, label %211, label %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42
 
-211:                                              ; preds = %.loopexit256
+211:                                              ; preds = %.loopexit255
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hce43c1cbfcff818bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %41)
   %.pre.i.i41 = load i64, ptr %11, align 8, !alias.scope !557
   br label %_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42
 
-_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42: ; preds = %.loopexit256, %211
-  %212 = phi i64 [ %.pre.i.i41, %211 ], [ %41, %.loopexit256 ]
+_ZN12regex_syntax4utf813Utf8Sequences4push17hcd47fb428d9cbd5aE.exit42: ; preds = %.loopexit255, %211
+  %212 = phi i64 [ %.pre.i.i41, %211 ], [ %41, %.loopexit255 ]
   %213 = load ptr, ptr %14, align 8, !alias.scope !557, !nonnull !4, !noundef !4
   %214 = getelementptr inbounds { i32, i32 }, ptr %213, i64 %212
   store i32 %208, ptr %214, align 4

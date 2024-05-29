@@ -1125,7 +1125,6 @@ if.else.i:                                        ; preds = %entry
   %sub4.i = sub i64 %count, %sub.i
   %rem.i = and i64 %sub4.i, 63
   %notmask.i28.i = shl nsw i64 -1, %rem.i
-  %sub.i29.i = xor i64 %notmask.i28.i, -1
   %arrayidx = getelementptr inbounds i64, ptr %bitmap, i64 %div1.i
   %not = xor i64 %retval.0.i22.i, -1
   %0 = atomicrmw and ptr %arrayidx, i64 %not acq_rel, align 8
@@ -1168,8 +1167,8 @@ while.end:                                        ; preds = %while.body, %if.els
 
 if.then12:                                        ; preds = %while.end
   %3 = atomicrmw and ptr %field.0.lcssa, i64 %notmask.i28.i acq_rel, align 8
-  %and16 = and i64 %3, %sub.i29.i
-  %cmp17.not = icmp eq i64 %and16, %sub.i29.i
+  %4 = or i64 %3, %notmask.i28.i
+  %cmp17.not = icmp eq i64 %4, -1
   %spec.select7 = select i1 %cmp17.not, i1 %all_one.1.lcssa, i1 false
   br label %if.end20
 
@@ -1315,7 +1314,6 @@ if.else.i.i:                                      ; preds = %entry
   %sub4.i.i = sub i64 %count, %sub.i.i
   %rem.i.i = and i64 %sub4.i.i, 63
   %notmask.i28.i.i = shl nsw i64 -1, %rem.i.i
-  %sub.i29.i.i = xor i64 %notmask.i28.i.i, -1
   %arrayidx.i = getelementptr inbounds i64, ptr %bitmap, i64 %div1.i.i
   %0 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %and.i = and i64 %0, %retval.0.i22.i.i
@@ -1356,8 +1354,8 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
 
 if.then18.i:                                      ; preds = %while.end.i
   %3 = load atomic i64, ptr %field.0.lcssa.i monotonic, align 8
-  %and20.i = and i64 %3, %sub.i29.i.i
-  %cmp21.not.i = icmp eq i64 %and20.i, %sub.i29.i.i
+  %4 = or i64 %3, %notmask.i28.i.i
+  %cmp21.not.i = icmp eq i64 %4, -1
   %spec.select11.i = select i1 %cmp21.not.i, i1 %all_ones.1.lcssa.i, i1 false
   br label %mi_bitmap_is_claimedx_across.exit
 

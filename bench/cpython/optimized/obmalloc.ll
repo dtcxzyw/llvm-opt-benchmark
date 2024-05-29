@@ -7504,8 +7504,8 @@ if.end.i:                                         ; preds = %if.end29
   store i8 %frombool.i.i, ptr %tmp.sroa.4.0.memid.sroa_idx.i, align 4
   %tmp.sroa.5.0.memid.sroa_idx.i = getelementptr inbounds i8, ptr %memid, i64 13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %tmp.sroa.5.0.memid.sroa_idx.i, i8 0, i64 7, i1 false)
-  %tmp.sroa.5136.0.memid.sroa_idx.i = getelementptr inbounds i8, ptr %memid, i64 20
-  store i32 6, ptr %tmp.sroa.5136.0.memid.sroa_idx.i, align 4
+  %tmp.sroa.5135.0.memid.sroa_idx.i = getelementptr inbounds i8, ptr %memid, i64 20
+  store i32 6, ptr %tmp.sroa.5135.0.memid.sroa_idx.i, align 4
   %is_pinned.i = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i8, ptr %is_pinned.i, align 8
   %is_pinned4.i = getelementptr inbounds i8, ptr %memid, i64 16
@@ -7601,21 +7601,21 @@ if.then13.i:                                      ; preds = %land.lhs.true.i
   %rem.i.i.i34.i = and i64 %21, 63
   %add.i.i35.i = add nuw nsw i64 %rem.i.i.i34.i, %div.i1.i
   %cmp.i.i36.i = icmp ult i64 %add.i.i35.i, 65
-  br i1 %cmp.i.i36.i, label %if.then.i.i58.i, label %if.else.i.i37.i
+  br i1 %cmp.i.i36.i, label %if.then.i.i57.i, label %if.else.i.i37.i
 
-if.then.i.i58.i:                                  ; preds = %if.then13.i
-  %cmp.i.i.i59.i = icmp ugt i64 %sub.i.i, 2147483647
-  br i1 %cmp.i.i.i59.i, label %while.end.thread.i66.i, label %if.end.i.i.i60.i
+if.then.i.i57.i:                                  ; preds = %if.then13.i
+  %cmp.i.i.i58.i = icmp ugt i64 %sub.i.i, 2147483647
+  br i1 %cmp.i.i.i58.i, label %while.end.thread.i65.i, label %if.end.i.i.i59.i
 
-if.end.i.i.i60.i:                                 ; preds = %if.then.i.i58.i
-  %cmp1.i.i.i61.i = icmp ult i64 %sub.i.i, 33554432
-  br i1 %cmp1.i.i.i61.i, label %while.end.thread.i66.i, label %if.end3.i.i.i62.i
+if.end.i.i.i59.i:                                 ; preds = %if.then.i.i57.i
+  %cmp1.i.i.i60.i = icmp ult i64 %sub.i.i, 33554432
+  br i1 %cmp1.i.i.i60.i, label %while.end.thread.i65.i, label %if.end3.i.i.i61.i
 
-if.end3.i.i.i62.i:                                ; preds = %if.end.i.i.i60.i
-  %notmask.i.i.i63.i = shl nsw i64 -1, %div.i1.i
-  %sub.i.i.i64.i = xor i64 %notmask.i.i.i63.i, -1
-  %shl4.i.i.i65.i = shl i64 %sub.i.i.i64.i, %rem.i.i.i34.i
-  br label %while.end.thread.i66.i
+if.end3.i.i.i61.i:                                ; preds = %if.end.i.i.i59.i
+  %notmask.i.i.i62.i = shl nsw i64 -1, %div.i1.i
+  %sub.i.i.i63.i = xor i64 %notmask.i.i.i62.i, -1
+  %shl4.i.i.i64.i = shl i64 %sub.i.i.i63.i, %rem.i.i.i34.i
+  br label %while.end.thread.i65.i
 
 if.else.i.i37.i:                                  ; preds = %if.then13.i
   %sub.i.i38.i = sub nuw nsw i64 64, %rem.i.i.i34.i
@@ -7627,54 +7627,54 @@ if.else.i.i37.i:                                  ; preds = %if.then13.i
   %sub4.i.i44.i = sub nsw i64 %div.i1.i, %sub.i.i38.i
   %rem.i.i46.i = and i64 %sub4.i.i44.i, 63
   %notmask.i28.i.i47.i = shl nsw i64 -1, %rem.i.i46.i
-  %sub.i29.i.i48.i = xor i64 %notmask.i28.i.i47.i, -1
-  %arrayidx.i49.i = getelementptr i64, ptr %20, i64 %div1.i.i33.i
-  %22 = atomicrmw or ptr %arrayidx.i49.i, i64 %retval.0.i22.i.i43.i acq_rel, align 8
-  %and.i50.i = and i64 %22, %retval.0.i22.i.i43.i
-  %cmp.not.i51.i = icmp eq i64 %and.i50.i, 0
-  %field.019.i.i = getelementptr i8, ptr %arrayidx.i49.i, i64 8
+  %sub.i29.i.i.i = xor i64 %notmask.i28.i.i47.i, -1
+  %arrayidx.i48.i = getelementptr i64, ptr %20, i64 %div1.i.i33.i
+  %22 = atomicrmw or ptr %arrayidx.i48.i, i64 %retval.0.i22.i.i43.i acq_rel, align 8
+  %and.i49.i = and i64 %22, %retval.0.i22.i.i43.i
+  %cmp.not.i50.i = icmp eq i64 %and.i49.i, 0
+  %field.019.i.i = getelementptr i8, ptr %arrayidx.i48.i, i64 8
   %cmp6.not20.i.i = icmp ult i64 %sub4.i.i44.i, 64
-  br i1 %cmp6.not20.i.i, label %while.end.i56.i, label %while.body.i52.preheader.i
+  br i1 %cmp6.not20.i.i, label %while.end.i55.i, label %while.body.i51.preheader.i
 
-while.body.i52.preheader.i:                       ; preds = %if.else.i.i37.i
+while.body.i51.preheader.i:                       ; preds = %if.else.i.i37.i
   %div14.i.i45.i = lshr i64 %sub4.i.i44.i, 6
-  br label %while.body.i52.i
+  br label %while.body.i51.i
 
-while.end.thread.i66.i:                           ; preds = %if.end3.i.i.i62.i, %if.end.i.i.i60.i, %if.then.i.i58.i
-  %pre_mask.0.ph.i67.i = phi i64 [ -1, %if.then.i.i58.i ], [ 0, %if.end.i.i.i60.i ], [ %shl4.i.i.i65.i, %if.end3.i.i.i62.i ]
+while.end.thread.i65.i:                           ; preds = %if.end3.i.i.i61.i, %if.end.i.i.i59.i, %if.then.i.i57.i
+  %pre_mask.0.ph.i66.i = phi i64 [ -1, %if.then.i.i57.i ], [ 0, %if.end.i.i.i59.i ], [ %shl4.i.i.i64.i, %if.end3.i.i.i61.i ]
   %arrayidx32.i.i = getelementptr i64, ptr %20, i64 %div1.i.i33.i
-  %23 = atomicrmw or ptr %arrayidx32.i.i, i64 %pre_mask.0.ph.i67.i acq_rel, align 8
-  %and33.i.i = and i64 %23, %pre_mask.0.ph.i67.i
+  %23 = atomicrmw or ptr %arrayidx32.i.i, i64 %pre_mask.0.ph.i66.i acq_rel, align 8
+  %and33.i.i = and i64 %23, %pre_mask.0.ph.i66.i
   %cmp.not34.i.i = icmp eq i64 %and33.i.i, 0
   br label %_mi_bitmap_claim_across.exit.i
 
-while.body.i52.i:                                 ; preds = %while.body.i52.i, %while.body.i52.preheader.i
-  %field.024.i.i = phi ptr [ %field.0.i55.i, %while.body.i52.i ], [ %field.019.i.i, %while.body.i52.preheader.i ]
-  %mid_count.023.i.i = phi i64 [ %dec.i53.i, %while.body.i52.i ], [ %div14.i.i45.i, %while.body.i52.preheader.i ]
-  %all_zero.122.i.i = phi i1 [ %spec.select10.i.i, %while.body.i52.i ], [ %cmp.not.i51.i, %while.body.i52.preheader.i ]
-  %dec.i53.i = add nsw i64 %mid_count.023.i.i, -1
+while.body.i51.i:                                 ; preds = %while.body.i51.i, %while.body.i51.preheader.i
+  %field.024.i.i = phi ptr [ %field.0.i54.i, %while.body.i51.i ], [ %field.019.i.i, %while.body.i51.preheader.i ]
+  %mid_count.023.i.i = phi i64 [ %dec.i52.i, %while.body.i51.i ], [ %div14.i.i45.i, %while.body.i51.preheader.i ]
+  %all_zero.122.i.i = phi i1 [ %spec.select10.i.i, %while.body.i51.i ], [ %cmp.not.i50.i, %while.body.i51.preheader.i ]
+  %dec.i52.i = add nsw i64 %mid_count.023.i.i, -1
   %24 = atomicrmw xchg ptr %field.024.i.i, i64 -1 acq_rel, align 8
-  %cmp11.not.i54.i = icmp eq i64 %24, 0
-  %spec.select10.i.i = select i1 %cmp11.not.i54.i, i1 %all_zero.122.i.i, i1 false
-  %field.0.i55.i = getelementptr i8, ptr %field.024.i.i, i64 8
-  %cmp6.not.i.i = icmp eq i64 %dec.i53.i, 0
-  br i1 %cmp6.not.i.i, label %while.end.i56.i, label %while.body.i52.i, !llvm.loop !29
+  %cmp11.not.i53.i = icmp eq i64 %24, 0
+  %spec.select10.i.i = select i1 %cmp11.not.i53.i, i1 %all_zero.122.i.i, i1 false
+  %field.0.i54.i = getelementptr i8, ptr %field.024.i.i, i64 8
+  %cmp6.not.i.i = icmp eq i64 %dec.i52.i, 0
+  br i1 %cmp6.not.i.i, label %while.end.i55.i, label %while.body.i51.i, !llvm.loop !29
 
-while.end.i56.i:                                  ; preds = %while.body.i52.i, %if.else.i.i37.i
-  %all_zero.1.lcssa.i.i = phi i1 [ %cmp.not.i51.i, %if.else.i.i37.i ], [ %spec.select10.i.i, %while.body.i52.i ]
-  %field.0.lcssa.i57.i = phi ptr [ %field.019.i.i, %if.else.i.i37.i ], [ %field.0.i55.i, %while.body.i52.i ]
+while.end.i55.i:                                  ; preds = %while.body.i51.i, %if.else.i.i37.i
+  %all_zero.1.lcssa.i.i = phi i1 [ %cmp.not.i50.i, %if.else.i.i37.i ], [ %spec.select10.i.i, %while.body.i51.i ]
+  %field.0.lcssa.i56.i = phi ptr [ %field.019.i.i, %if.else.i.i37.i ], [ %field.0.i54.i, %while.body.i51.i ]
   %cmp18.not.i.i = icmp eq i64 %rem.i.i46.i, 0
   br i1 %cmp18.not.i.i, label %_mi_bitmap_claim_across.exit.i, label %if.then19.i.i
 
-if.then19.i.i:                                    ; preds = %while.end.i56.i
-  %25 = atomicrmw or ptr %field.0.lcssa.i57.i, i64 %sub.i29.i.i48.i acq_rel, align 8
-  %and22.i.i = and i64 %25, %sub.i29.i.i48.i
+if.then19.i.i:                                    ; preds = %while.end.i55.i
+  %25 = atomicrmw or ptr %field.0.lcssa.i56.i, i64 %sub.i29.i.i.i acq_rel, align 8
+  %and22.i.i = and i64 %25, %sub.i29.i.i.i
   %cmp23.not.i.i = icmp eq i64 %and22.i.i, 0
   %spec.select11.i.i = select i1 %cmp23.not.i.i, i1 %all_zero.1.lcssa.i.i, i1 false
   br label %_mi_bitmap_claim_across.exit.i
 
-_mi_bitmap_claim_across.exit.i:                   ; preds = %if.then19.i.i, %while.end.i56.i, %while.end.thread.i66.i
-  %all_zero.4.i.i = phi i1 [ %all_zero.1.lcssa.i.i, %while.end.i56.i ], [ %spec.select11.i.i, %if.then19.i.i ], [ %cmp.not34.i.i, %while.end.thread.i66.i ]
+_mi_bitmap_claim_across.exit.i:                   ; preds = %if.then19.i.i, %while.end.i55.i, %while.end.thread.i65.i
+  %all_zero.4.i.i = phi i1 [ %all_zero.1.lcssa.i.i, %while.end.i55.i ], [ %spec.select11.i.i, %if.then19.i.i ], [ %cmp.not34.i.i, %while.end.thread.i65.i ]
   %initially_zero17.i = getelementptr inbounds i8, ptr %memid, i64 18
   %frombool18.i = zext i1 %all_zero.4.i.i to i8
   store i8 %frombool18.i, ptr %initially_zero17.i, align 2
@@ -7699,86 +7699,86 @@ if.then23.i:                                      ; preds = %if.else.i
   store i8 1, ptr %initially_committed24.i, align 1
   %27 = load ptr, ptr %blocks_committed.i, align 8
   %28 = load i64, ptr %bitmap_index.i, align 8
-  %div1.i.i68.i = lshr i64 %28, 6
-  %rem.i.i.i69.i = and i64 %28, 63
-  %add.i.i70.i = add nuw nsw i64 %rem.i.i.i69.i, %div.i1.i
-  %cmp.i.i71.i = icmp ult i64 %add.i.i70.i, 65
-  br i1 %cmp.i.i71.i, label %if.then.i.i117.i, label %if.else.i.i72.i
+  %div1.i.i67.i = lshr i64 %28, 6
+  %rem.i.i.i68.i = and i64 %28, 63
+  %add.i.i69.i = add nuw nsw i64 %rem.i.i.i68.i, %div.i1.i
+  %cmp.i.i70.i = icmp ult i64 %add.i.i69.i, 65
+  br i1 %cmp.i.i70.i, label %if.then.i.i116.i, label %if.else.i.i71.i
 
-if.then.i.i117.i:                                 ; preds = %if.then23.i
-  %cmp.i.i.i118.i = icmp ugt i64 %sub.i.i, 2147483647
-  br i1 %cmp.i.i.i118.i, label %while.end.thread.i125.i, label %if.end.i.i.i119.i
+if.then.i.i116.i:                                 ; preds = %if.then23.i
+  %cmp.i.i.i117.i = icmp ugt i64 %sub.i.i, 2147483647
+  br i1 %cmp.i.i.i117.i, label %while.end.thread.i124.i, label %if.end.i.i.i118.i
 
-if.end.i.i.i119.i:                                ; preds = %if.then.i.i117.i
-  %cmp1.i.i.i120.i = icmp ult i64 %sub.i.i, 33554432
-  br i1 %cmp1.i.i.i120.i, label %while.end.thread.i125.i, label %if.end3.i.i.i121.i
+if.end.i.i.i118.i:                                ; preds = %if.then.i.i116.i
+  %cmp1.i.i.i119.i = icmp ult i64 %sub.i.i, 33554432
+  br i1 %cmp1.i.i.i119.i, label %while.end.thread.i124.i, label %if.end3.i.i.i120.i
 
-if.end3.i.i.i121.i:                               ; preds = %if.end.i.i.i119.i
-  %notmask.i.i.i122.i = shl nsw i64 -1, %div.i1.i
-  %sub.i.i.i123.i = xor i64 %notmask.i.i.i122.i, -1
-  %shl4.i.i.i124.i = shl i64 %sub.i.i.i123.i, %rem.i.i.i69.i
-  br label %while.end.thread.i125.i
+if.end3.i.i.i120.i:                               ; preds = %if.end.i.i.i118.i
+  %notmask.i.i.i121.i = shl nsw i64 -1, %div.i1.i
+  %sub.i.i.i122.i = xor i64 %notmask.i.i.i121.i, -1
+  %shl4.i.i.i123.i = shl i64 %sub.i.i.i122.i, %rem.i.i.i68.i
+  br label %while.end.thread.i124.i
 
-if.else.i.i72.i:                                  ; preds = %if.then23.i
-  %sub.i.i73.i = sub nuw nsw i64 64, %rem.i.i.i69.i
-  %cmp.i15.i.i74.i = icmp eq i64 %rem.i.i.i69.i, 0
-  %notmask.i19.i.i75.i = shl nsw i64 -1, %sub.i.i73.i
-  %sub.i20.i.i76.i = xor i64 %notmask.i19.i.i75.i, -1
-  %shl4.i21.i.i77.i = shl i64 %sub.i20.i.i76.i, %rem.i.i.i69.i
-  %retval.0.i22.i.i78.i = select i1 %cmp.i15.i.i74.i, i64 -1, i64 %shl4.i21.i.i77.i
-  %sub4.i.i79.i = sub nsw i64 %div.i1.i, %sub.i.i73.i
-  %rem.i.i81.i = and i64 %sub4.i.i79.i, 63
-  %notmask.i28.i.i82.i = shl nsw i64 -1, %rem.i.i81.i
-  %sub.i29.i.i83.i = xor i64 %notmask.i28.i.i82.i, -1
-  %arrayidx.i84.i = getelementptr i64, ptr %27, i64 %div1.i.i68.i
-  %29 = atomicrmw or ptr %arrayidx.i84.i, i64 %retval.0.i22.i.i78.i acq_rel, align 8
-  %and.i85.i = and i64 %29, %retval.0.i22.i.i78.i
-  %cmp3.not.i87.i = icmp ne i64 %and.i85.i, %retval.0.i22.i.i78.i
-  %field.019.i89.i = getelementptr i8, ptr %arrayidx.i84.i, i64 8
-  %cmp6.not20.i90.i = icmp ult i64 %sub4.i.i79.i, 64
-  br i1 %cmp6.not20.i90.i, label %while.end.i103.i, label %while.body.i91.preheader.i
+if.else.i.i71.i:                                  ; preds = %if.then23.i
+  %sub.i.i72.i = sub nuw nsw i64 64, %rem.i.i.i68.i
+  %cmp.i15.i.i73.i = icmp eq i64 %rem.i.i.i68.i, 0
+  %notmask.i19.i.i74.i = shl nsw i64 -1, %sub.i.i72.i
+  %sub.i20.i.i75.i = xor i64 %notmask.i19.i.i74.i, -1
+  %shl4.i21.i.i76.i = shl i64 %sub.i20.i.i75.i, %rem.i.i.i68.i
+  %retval.0.i22.i.i77.i = select i1 %cmp.i15.i.i73.i, i64 -1, i64 %shl4.i21.i.i76.i
+  %sub4.i.i78.i = sub nsw i64 %div.i1.i, %sub.i.i72.i
+  %rem.i.i80.i = and i64 %sub4.i.i78.i, 63
+  %notmask.i28.i.i81.i = shl nsw i64 -1, %rem.i.i80.i
+  %sub.i29.i.i82.i = xor i64 %notmask.i28.i.i81.i, -1
+  %arrayidx.i83.i = getelementptr i64, ptr %27, i64 %div1.i.i67.i
+  %29 = atomicrmw or ptr %arrayidx.i83.i, i64 %retval.0.i22.i.i77.i acq_rel, align 8
+  %and.i84.i = and i64 %29, %retval.0.i22.i.i77.i
+  %cmp3.not.i86.i = icmp ne i64 %and.i84.i, %retval.0.i22.i.i77.i
+  %field.019.i88.i = getelementptr i8, ptr %arrayidx.i83.i, i64 8
+  %cmp6.not20.i89.i = icmp ult i64 %sub4.i.i78.i, 64
+  br i1 %cmp6.not20.i89.i, label %while.end.i102.i, label %while.body.i90.preheader.i
 
-while.body.i91.preheader.i:                       ; preds = %if.else.i.i72.i
-  %div14.i.i80.i = lshr i64 %sub4.i.i79.i, 6
-  br label %while.body.i91.i
+while.body.i90.preheader.i:                       ; preds = %if.else.i.i71.i
+  %div14.i.i79.i = lshr i64 %sub4.i.i78.i, 6
+  br label %while.body.i90.i
 
-while.end.thread.i125.i:                          ; preds = %if.end3.i.i.i121.i, %if.end.i.i.i119.i, %if.then.i.i117.i
-  %pre_mask.0.ph.i126.i = phi i64 [ -1, %if.then.i.i117.i ], [ 0, %if.end.i.i.i119.i ], [ %shl4.i.i.i124.i, %if.end3.i.i.i121.i ]
-  %arrayidx32.i127.i = getelementptr i64, ptr %27, i64 %div1.i.i68.i
-  %30 = atomicrmw or ptr %arrayidx32.i127.i, i64 %pre_mask.0.ph.i126.i acq_rel, align 8
-  %and33.i128.i = and i64 %30, %pre_mask.0.ph.i126.i
-  %cmp3.not35.i130.not.i = icmp eq i64 %and33.i128.i, %pre_mask.0.ph.i126.i
-  br i1 %cmp3.not35.i130.not.i, label %mi_arena_try_alloc_at.exit, label %if.then29.i
+while.end.thread.i124.i:                          ; preds = %if.end3.i.i.i120.i, %if.end.i.i.i118.i, %if.then.i.i116.i
+  %pre_mask.0.ph.i125.i = phi i64 [ -1, %if.then.i.i116.i ], [ 0, %if.end.i.i.i118.i ], [ %shl4.i.i.i123.i, %if.end3.i.i.i120.i ]
+  %arrayidx32.i126.i = getelementptr i64, ptr %27, i64 %div1.i.i67.i
+  %30 = atomicrmw or ptr %arrayidx32.i126.i, i64 %pre_mask.0.ph.i125.i acq_rel, align 8
+  %and33.i127.i = and i64 %30, %pre_mask.0.ph.i125.i
+  %cmp3.not35.i129.not.i = icmp eq i64 %and33.i127.i, %pre_mask.0.ph.i125.i
+  br i1 %cmp3.not35.i129.not.i, label %mi_arena_try_alloc_at.exit, label %if.then29.i
 
-while.body.i91.i:                                 ; preds = %while.body.i91.i, %while.body.i91.preheader.i
-  %field.024.i92.i = phi ptr [ %field.0.i101.i, %while.body.i91.i ], [ %field.019.i89.i, %while.body.i91.preheader.i ]
-  %mid_count.023.i93.i = phi i64 [ %dec.i96.i, %while.body.i91.i ], [ %div14.i.i80.i, %while.body.i91.preheader.i ]
-  %any_zero.121.i95.i = phi i1 [ %any_zero.2.i100.i, %while.body.i91.i ], [ %cmp3.not.i87.i, %while.body.i91.preheader.i ]
-  %dec.i96.i = add nsw i64 %mid_count.023.i93.i, -1
-  %31 = atomicrmw xchg ptr %field.024.i92.i, i64 -1 acq_rel, align 8
-  %cmp15.not.i99.i = icmp ne i64 %31, -1
-  %any_zero.2.i100.i = select i1 %cmp15.not.i99.i, i1 true, i1 %any_zero.121.i95.i
-  %field.0.i101.i = getelementptr i8, ptr %field.024.i92.i, i64 8
-  %cmp6.not.i102.i = icmp eq i64 %dec.i96.i, 0
-  br i1 %cmp6.not.i102.i, label %while.end.i103.i, label %while.body.i91.i, !llvm.loop !29
+while.body.i90.i:                                 ; preds = %while.body.i90.i, %while.body.i90.preheader.i
+  %field.024.i91.i = phi ptr [ %field.0.i100.i, %while.body.i90.i ], [ %field.019.i88.i, %while.body.i90.preheader.i ]
+  %mid_count.023.i92.i = phi i64 [ %dec.i95.i, %while.body.i90.i ], [ %div14.i.i79.i, %while.body.i90.preheader.i ]
+  %any_zero.121.i94.i = phi i1 [ %any_zero.2.i99.i, %while.body.i90.i ], [ %cmp3.not.i86.i, %while.body.i90.preheader.i ]
+  %dec.i95.i = add nsw i64 %mid_count.023.i92.i, -1
+  %31 = atomicrmw xchg ptr %field.024.i91.i, i64 -1 acq_rel, align 8
+  %cmp15.not.i98.i = icmp ne i64 %31, -1
+  %any_zero.2.i99.i = select i1 %cmp15.not.i98.i, i1 true, i1 %any_zero.121.i94.i
+  %field.0.i100.i = getelementptr i8, ptr %field.024.i91.i, i64 8
+  %cmp6.not.i101.i = icmp eq i64 %dec.i95.i, 0
+  br i1 %cmp6.not.i101.i, label %while.end.i102.i, label %while.body.i90.i, !llvm.loop !29
 
-while.end.i103.i:                                 ; preds = %while.body.i91.i, %if.else.i.i72.i
-  %any_zero.1.lcssa.i104.i = phi i1 [ %cmp3.not.i87.i, %if.else.i.i72.i ], [ %any_zero.2.i100.i, %while.body.i91.i ]
-  %field.0.lcssa.i106.i = phi ptr [ %field.019.i89.i, %if.else.i.i72.i ], [ %field.0.i101.i, %while.body.i91.i ]
-  %cmp18.not.i107.i = icmp eq i64 %rem.i.i81.i, 0
-  br i1 %cmp18.not.i107.i, label %_mi_bitmap_claim_across.exit132.i, label %if.then19.i108.i
+while.end.i102.i:                                 ; preds = %while.body.i90.i, %if.else.i.i71.i
+  %any_zero.1.lcssa.i103.i = phi i1 [ %cmp3.not.i86.i, %if.else.i.i71.i ], [ %any_zero.2.i99.i, %while.body.i90.i ]
+  %field.0.lcssa.i105.i = phi ptr [ %field.019.i88.i, %if.else.i.i71.i ], [ %field.0.i100.i, %while.body.i90.i ]
+  %cmp18.not.i106.i = icmp eq i64 %rem.i.i80.i, 0
+  br i1 %cmp18.not.i106.i, label %_mi_bitmap_claim_across.exit131.i, label %if.then19.i107.i
 
-if.then19.i108.i:                                 ; preds = %while.end.i103.i
-  %32 = atomicrmw or ptr %field.0.lcssa.i106.i, i64 %sub.i29.i.i83.i acq_rel, align 8
-  %and22.i109.i = and i64 %32, %sub.i29.i.i83.i
-  %cmp27.not.i112.i = icmp ne i64 %and22.i109.i, %sub.i29.i.i83.i
-  %spec.select12.i113.i = select i1 %cmp27.not.i112.i, i1 true, i1 %any_zero.1.lcssa.i104.i
-  br i1 %spec.select12.i113.i, label %if.then29.i, label %mi_arena_try_alloc_at.exit
+if.then19.i107.i:                                 ; preds = %while.end.i102.i
+  %32 = atomicrmw or ptr %field.0.lcssa.i105.i, i64 %sub.i29.i.i82.i acq_rel, align 8
+  %33 = or i64 %32, %notmask.i28.i.i81.i
+  %cmp27.not.i111.i = icmp ne i64 %33, -1
+  %spec.select12.i112.i = select i1 %cmp27.not.i111.i, i1 true, i1 %any_zero.1.lcssa.i103.i
+  br i1 %spec.select12.i112.i, label %if.then29.i, label %mi_arena_try_alloc_at.exit
 
-_mi_bitmap_claim_across.exit132.i:                ; preds = %while.end.i103.i
-  br i1 %any_zero.1.lcssa.i104.i, label %if.then29.i, label %mi_arena_try_alloc_at.exit
+_mi_bitmap_claim_across.exit131.i:                ; preds = %while.end.i102.i
+  br i1 %any_zero.1.lcssa.i103.i, label %if.then29.i, label %mi_arena_try_alloc_at.exit
 
-if.then29.i:                                      ; preds = %_mi_bitmap_claim_across.exit132.i, %if.then19.i108.i, %while.end.thread.i125.i
+if.then29.i:                                      ; preds = %_mi_bitmap_claim_across.exit131.i, %if.then19.i107.i, %while.end.thread.i124.i
   store i8 0, ptr %commit_zero.i, align 1
   %mul.i.i = and i64 %sub.i.i, -33554432
   %call31.i = call zeroext i1 @_mi_os_commit(ptr noundef %add.ptr.i.i, i64 noundef %mul.i.i, ptr noundef nonnull %commit_zero.i, ptr poison)
@@ -7789,8 +7789,8 @@ if.then32.i:                                      ; preds = %if.then29.i
   br label %mi_arena_try_alloc_at.exit
 
 if.else34.i:                                      ; preds = %if.then29.i
-  %33 = load i8, ptr %commit_zero.i, align 1
-  %tobool35.i = trunc i8 %33 to i1
+  %34 = load i8, ptr %commit_zero.i, align 1
+  %tobool35.i = trunc i8 %34 to i1
   br i1 %tobool35.i, label %if.then36.i, label %mi_arena_try_alloc_at.exit
 
 if.then36.i:                                      ; preds = %if.else34.i
@@ -7799,12 +7799,12 @@ if.then36.i:                                      ; preds = %if.else34.i
   br label %mi_arena_try_alloc_at.exit
 
 if.else41.i:                                      ; preds = %if.else.i
-  %34 = load i64, ptr %bitmap_index.i, align 8
-  %div1.i.i.i.i = lshr i64 %34, 6
-  %rem.i.i.i.i.i = and i64 %34, 63
+  %35 = load i64, ptr %bitmap_index.i, align 8
+  %div1.i.i.i.i = lshr i64 %35, 6
+  %rem.i.i.i.i.i = and i64 %35, 63
   %add.i.i.i.i = add nuw nsw i64 %rem.i.i.i.i.i, %div.i1.i
-  %cmp.i.i.i133.i = icmp ult i64 %add.i.i.i.i, 65
-  br i1 %cmp.i.i.i133.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
+  %cmp.i.i.i132.i = icmp ult i64 %add.i.i.i.i, 65
+  br i1 %cmp.i.i.i132.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else41.i
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.i.i, 2147483647
@@ -7821,19 +7821,18 @@ if.end3.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   br label %while.end.thread.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.else41.i
-  %sub.i.i.i134.i = sub nuw nsw i64 64, %rem.i.i.i.i.i
+  %sub.i.i.i133.i = sub nuw nsw i64 64, %rem.i.i.i.i.i
   %cmp.i15.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i, 0
-  %notmask.i19.i.i.i.i = shl nsw i64 -1, %sub.i.i.i134.i
+  %notmask.i19.i.i.i.i = shl nsw i64 -1, %sub.i.i.i133.i
   %sub.i20.i.i.i.i = xor i64 %notmask.i19.i.i.i.i, -1
   %shl4.i21.i.i.i.i = shl i64 %sub.i20.i.i.i.i, %rem.i.i.i.i.i
   %retval.0.i22.i.i.i.i = select i1 %cmp.i15.i.i.i.i, i64 -1, i64 %shl4.i21.i.i.i.i
-  %sub4.i.i.i.i = sub nsw i64 %div.i1.i, %sub.i.i.i134.i
-  %rem.i.i.i135.i = and i64 %sub4.i.i.i.i, 63
-  %notmask.i28.i.i.i.i = shl nsw i64 -1, %rem.i.i.i135.i
-  %sub.i29.i.i.i.i = xor i64 %notmask.i28.i.i.i.i, -1
+  %sub4.i.i.i.i = sub nsw i64 %div.i1.i, %sub.i.i.i133.i
+  %rem.i.i.i134.i = and i64 %sub4.i.i.i.i, 63
+  %notmask.i28.i.i.i.i = shl nsw i64 -1, %rem.i.i.i134.i
   %arrayidx.i.i.i = getelementptr i64, ptr %26, i64 %div1.i.i.i.i
-  %35 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 8
-  %and.i.i.i = and i64 %35, %retval.0.i22.i.i.i.i
+  %36 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 8
+  %and.i.i.i = and i64 %36, %retval.0.i22.i.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %and.i.i.i, %retval.0.i22.i.i.i.i
   %field.017.i.i.i = getelementptr i8, ptr %arrayidx.i.i.i, i64 8
   %cmp6.not18.i.i.i = icmp ult i64 %sub4.i.i.i.i, 64
@@ -7846,8 +7845,8 @@ while.body.i.preheader.i.i:                       ; preds = %if.else.i.i.i.i
 while.end.thread.i.i.i:                           ; preds = %if.end3.i.i.i.i.i, %if.end.i.i.i.i.i, %if.then.i.i.i.i
   %pre_mask.0.ph.i.i.i = phi i64 [ -1, %if.then.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ], [ %shl4.i.i.i.i.i, %if.end3.i.i.i.i.i ]
   %arrayidx30.i.i.i = getelementptr i64, ptr %26, i64 %div1.i.i.i.i
-  %36 = load atomic i64, ptr %arrayidx30.i.i.i monotonic, align 8
-  %and31.i.i.i = and i64 %36, %pre_mask.0.ph.i.i.i
+  %37 = load atomic i64, ptr %arrayidx30.i.i.i monotonic, align 8
+  %and31.i.i.i = and i64 %37, %pre_mask.0.ph.i.i.i
   %cmp.not32.i.i.i = icmp eq i64 %and31.i.i.i, %pre_mask.0.ph.i.i.i
   br label %_mi_bitmap_is_claimed_across.exit.i
 
@@ -7856,8 +7855,8 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %mid_count.021.i.i.i = phi i64 [ %dec.i.i.i, %while.body.i.i.i ], [ %div14.i.i.i.i, %while.body.i.preheader.i.i ]
   %all_ones.120.i.i.i = phi i1 [ %spec.select10.i.i.i, %while.body.i.i.i ], [ %cmp.not.i.i.i, %while.body.i.preheader.i.i ]
   %dec.i.i.i = add nsw i64 %mid_count.021.i.i.i, -1
-  %37 = load atomic i64, ptr %field.022.i.i.i monotonic, align 8
-  %cmp10.not.i.i.i = icmp eq i64 %37, -1
+  %38 = load atomic i64, ptr %field.022.i.i.i monotonic, align 8
+  %cmp10.not.i.i.i = icmp eq i64 %38, -1
   %spec.select10.i.i.i = select i1 %cmp10.not.i.i.i, i1 %all_ones.120.i.i.i, i1 false
   %field.0.i.i.i = getelementptr i8, ptr %field.022.i.i.i, i64 8
   %cmp6.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -7866,13 +7865,13 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.else.i.i.i.i
   %all_ones.1.lcssa.i.i.i = phi i1 [ %cmp.not.i.i.i, %if.else.i.i.i.i ], [ %spec.select10.i.i.i, %while.body.i.i.i ]
   %field.0.lcssa.i.i.i = phi ptr [ %field.017.i.i.i, %if.else.i.i.i.i ], [ %field.0.i.i.i, %while.body.i.i.i ]
-  %cmp17.not.i.i.i = icmp eq i64 %rem.i.i.i135.i, 0
+  %cmp17.not.i.i.i = icmp eq i64 %rem.i.i.i134.i, 0
   br i1 %cmp17.not.i.i.i, label %_mi_bitmap_is_claimed_across.exit.i, label %if.then18.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %while.end.i.i.i
-  %38 = load atomic i64, ptr %field.0.lcssa.i.i.i monotonic, align 8
-  %and20.i.i.i = and i64 %38, %sub.i29.i.i.i.i
-  %cmp21.not.i.i.i = icmp eq i64 %and20.i.i.i, %sub.i29.i.i.i.i
+  %39 = load atomic i64, ptr %field.0.lcssa.i.i.i monotonic, align 8
+  %40 = or i64 %39, %notmask.i28.i.i.i.i
+  %cmp21.not.i.i.i = icmp eq i64 %40, -1
   %spec.select11.i.i.i = select i1 %cmp21.not.i.i.i, i1 %all_ones.1.lcssa.i.i.i, i1 false
   br label %_mi_bitmap_is_claimed_across.exit.i
 
@@ -7883,8 +7882,8 @@ _mi_bitmap_is_claimed_across.exit.i:              ; preds = %if.then18.i.i.i, %w
   store i8 %frombool46.i, ptr %initially_committed45.i, align 1
   br label %mi_arena_try_alloc_at.exit
 
-mi_arena_try_alloc_at.exit:                       ; preds = %if.end29, %if.then21.i, %while.end.thread.i125.i, %if.then19.i108.i, %_mi_bitmap_claim_across.exit132.i, %if.then32.i, %if.else34.i, %if.then36.i, %_mi_bitmap_is_claimed_across.exit.i
-  %retval.0.i = phi ptr [ %add.ptr.i.i, %_mi_bitmap_is_claimed_across.exit.i ], [ %add.ptr.i.i, %if.then32.i ], [ %add.ptr.i.i, %if.then36.i ], [ %add.ptr.i.i, %if.else34.i ], [ %add.ptr.i.i, %_mi_bitmap_claim_across.exit132.i ], [ %add.ptr.i.i, %if.then21.i ], [ null, %if.end29 ], [ %add.ptr.i.i, %if.then19.i108.i ], [ %add.ptr.i.i, %while.end.thread.i125.i ]
+mi_arena_try_alloc_at.exit:                       ; preds = %if.end29, %if.then21.i, %while.end.thread.i124.i, %if.then19.i107.i, %_mi_bitmap_claim_across.exit131.i, %if.then32.i, %if.else34.i, %if.then36.i, %_mi_bitmap_is_claimed_across.exit.i
+  %retval.0.i = phi ptr [ %add.ptr.i.i, %_mi_bitmap_is_claimed_across.exit.i ], [ %add.ptr.i.i, %if.then32.i ], [ %add.ptr.i.i, %if.then36.i ], [ %add.ptr.i.i, %if.else34.i ], [ %add.ptr.i.i, %_mi_bitmap_claim_across.exit131.i ], [ %add.ptr.i.i, %if.then21.i ], [ null, %if.end29 ], [ %add.ptr.i.i, %if.then19.i107.i ], [ %add.ptr.i.i, %while.end.thread.i124.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bitmap_index.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %commit_zero.i)
   br label %return
@@ -8545,7 +8544,6 @@ if.else.i.i38:                                    ; preds = %if.end36
   %sub4.i.i = sub nsw i64 %div.i1.i, %sub.i.i39
   %rem.i.i = and i64 %sub4.i.i, 63
   %notmask.i28.i.i = shl nsw i64 -1, %rem.i.i
-  %sub.i29.i.i = xor i64 %notmask.i28.i.i, -1
   %arrayidx.i = getelementptr i64, ptr %blocks_inuse, i64 %div1.i
   %not.i = xor i64 %retval.0.i22.i.i, -1
   %20 = atomicrmw and ptr %arrayidx.i, i64 %not.i acq_rel, align 8
@@ -8588,8 +8586,8 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
 
 if.then12.i:                                      ; preds = %while.end.i
   %23 = atomicrmw and ptr %field.0.lcssa.i, i64 %notmask.i28.i.i acq_rel, align 8
-  %and16.i = and i64 %23, %sub.i29.i.i
-  %cmp17.not.i = icmp eq i64 %and16.i, %sub.i29.i.i
+  %24 = or i64 %23, %notmask.i28.i.i
+  %cmp17.not.i = icmp eq i64 %24, -1
   %spec.select7.i = select i1 %cmp17.not.i, i1 %all_one.1.lcssa.i, i1 false
   br i1 %spec.select7.i, label %if.end45, label %if.then41
 
@@ -8773,7 +8771,6 @@ if.else.i:                                        ; preds = %entry
   %sub4.i = sub i64 %count, %sub.i
   %rem.i = and i64 %sub4.i, 63
   %notmask.i28.i = shl nsw i64 -1, %rem.i
-  %sub.i29.i = xor i64 %notmask.i28.i, -1
   %arrayidx = getelementptr i64, ptr %bitmap, i64 %div1.i
   %not = xor i64 %retval.0.i22.i, -1
   %0 = atomicrmw and ptr %arrayidx, i64 %not acq_rel, align 8
@@ -8816,8 +8813,8 @@ while.end:                                        ; preds = %while.body, %if.els
 
 if.then12:                                        ; preds = %while.end
   %3 = atomicrmw and ptr %field.0.lcssa, i64 %notmask.i28.i acq_rel, align 8
-  %and16 = and i64 %3, %sub.i29.i
-  %cmp17.not = icmp eq i64 %and16, %sub.i29.i
+  %4 = or i64 %3, %notmask.i28.i
+  %cmp17.not = icmp eq i64 %4, -1
   %spec.select7 = select i1 %cmp17.not, i1 %all_one.1.lcssa, i1 false
   br label %if.end20
 
@@ -11767,7 +11764,6 @@ if.else.i.i:                                      ; preds = %entry
   %sub4.i.i = sub i64 %count, %sub.i.i
   %rem.i.i = and i64 %sub4.i.i, 63
   %notmask.i28.i.i = shl nsw i64 -1, %rem.i.i
-  %sub.i29.i.i = xor i64 %notmask.i28.i.i, -1
   %arrayidx.i = getelementptr i64, ptr %bitmap, i64 %div1.i.i
   %0 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %and.i = and i64 %0, %retval.0.i22.i.i
@@ -11808,8 +11804,8 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
 
 if.then18.i:                                      ; preds = %while.end.i
   %3 = load atomic i64, ptr %field.0.lcssa.i monotonic, align 8
-  %and20.i = and i64 %3, %sub.i29.i.i
-  %cmp21.not.i = icmp eq i64 %and20.i, %sub.i29.i.i
+  %4 = or i64 %3, %notmask.i28.i.i
+  %cmp21.not.i = icmp eq i64 %4, -1
   %spec.select11.i = select i1 %cmp21.not.i, i1 %all_ones.1.lcssa.i, i1 false
   br label %mi_bitmap_is_claimedx_across.exit
 
@@ -28938,7 +28934,6 @@ if.else.i.i.i:                                    ; preds = %entry
   %sub4.i.i.i = sub i64 %blocks, %sub.i.i.i
   %rem.i.i.i = and i64 %sub4.i.i.i, 63
   %notmask.i28.i.i.i = shl nsw i64 -1, %rem.i.i.i
-  %sub.i29.i.i.i = xor i64 %notmask.i28.i.i.i, -1
   %arrayidx.i.i = getelementptr i64, ptr %1, i64 %div1.i.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %and.i.i = and i64 %2, %retval.0.i22.i.i.i
@@ -28979,8 +28974,8 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %if
 
 if.then18.i.i:                                    ; preds = %while.end.i.i
   %5 = load atomic i64, ptr %field.0.lcssa.i.i monotonic, align 8
-  %and20.i.i = and i64 %5, %sub.i29.i.i.i
-  %cmp21.not.i.i = icmp eq i64 %and20.i.i, %sub.i29.i.i.i
+  %6 = or i64 %5, %notmask.i28.i.i.i
+  %cmp21.not.i.i = icmp eq i64 %6, -1
   %spec.select11.i.i = select i1 %cmp21.not.i.i, i1 %all_ones.1.lcssa.i.i, i1 false
   br i1 %spec.select11.i.i, label %if.then, label %if.else
 
@@ -29000,49 +28995,49 @@ if.else:                                          ; preds = %while.end.thread.i.
 if.end.i.i:                                       ; preds = %if.else
   %cmp.i.i.i18 = icmp uge ptr %committed, @_mi_stats_main
   %cmp1.i.i.i = icmp ult ptr %committed, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
-  %6 = select i1 %cmp.i.i.i18, i1 %cmp1.i.i.i, i1 false
+  %7 = select i1 %cmp.i.i.i18, i1 %cmp1.i.i.i, i1 false
   %current2.i.i = getelementptr inbounds i8, ptr %stats, i64 120
-  br i1 %6, label %if.then1.i.i, label %if.else9.i.i
+  br i1 %7, label %if.then1.i.i, label %if.else9.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %7 = atomicrmw add ptr %current2.i.i, i64 %mul.i monotonic, align 8
+  %8 = atomicrmw add ptr %current2.i.i, i64 %mul.i monotonic, align 8
   %peak.i.i = getelementptr inbounds i8, ptr %stats, i64 112
-  %add.i.i = add i64 %7, %mul.i
-  %8 = load atomic i64, ptr %peak.i.i monotonic, align 8
+  %add.i.i = add i64 %8, %mul.i
+  %9 = load atomic i64, ptr %peak.i.i monotonic, align 8
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if.then1.i.i
-  %current.0.i.i.i = phi i64 [ %8, %if.then1.i.i ], [ %11, %land.rhs.i.i.i ]
+  %current.0.i.i.i = phi i64 [ %9, %if.then1.i.i ], [ %12, %land.rhs.i.i.i ]
   %cmp.i21.i.i = icmp slt i64 %current.0.i.i.i, %add.i.i
   br i1 %cmp.i21.i.i, label %land.rhs.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
-  %9 = cmpxchg weak ptr %peak.i.i, i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  br i1 %10, label %mi_atomic_maxi64_relaxed.exit.i.i, label %while.cond.i.i.i, !llvm.loop !5
+  %10 = cmpxchg weak ptr %peak.i.i, i64 %current.0.i.i.i, i64 %add.i.i release monotonic, align 8
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = extractvalue { i64, i1 } %10, 0
+  br i1 %11, label %mi_atomic_maxi64_relaxed.exit.i.i, label %while.cond.i.i.i, !llvm.loop !5
 
 mi_atomic_maxi64_relaxed.exit.i.i:                ; preds = %land.rhs.i.i.i, %while.cond.i.i.i
   %cmp4.i.i = icmp sgt i64 %mul.i, 0
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %mi_atomic_maxi64_relaxed.exit.i.i
-  %12 = atomicrmw add ptr %committed, i64 %mul.i monotonic, align 8
+  %13 = atomicrmw add ptr %committed, i64 %mul.i monotonic, align 8
   br label %if.end
 
 if.else.i.i:                                      ; preds = %mi_atomic_maxi64_relaxed.exit.i.i
   %freed.i.i = getelementptr inbounds i8, ptr %stats, i64 104
   %sub.i.i = sub i64 0, %mul.i
-  %13 = atomicrmw add ptr %freed.i.i, i64 %sub.i.i monotonic, align 8
+  %14 = atomicrmw add ptr %freed.i.i, i64 %sub.i.i monotonic, align 8
   br label %if.end
 
 if.else9.i.i:                                     ; preds = %if.end.i.i
-  %14 = load i64, ptr %current2.i.i, align 8
-  %add11.i.i = add i64 %14, %mul.i
+  %15 = load i64, ptr %current2.i.i, align 8
+  %add11.i.i = add i64 %15, %mul.i
   store i64 %add11.i.i, ptr %current2.i.i, align 8
   %peak13.i.i = getelementptr inbounds i8, ptr %stats, i64 112
-  %15 = load i64, ptr %peak13.i.i, align 8
-  %cmp14.i.i = icmp sgt i64 %add11.i.i, %15
+  %16 = load i64, ptr %peak13.i.i, align 8
+  %cmp14.i.i = icmp sgt i64 %add11.i.i, %16
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.end18.i.i
 
 if.then15.i.i:                                    ; preds = %if.else9.i.i
@@ -29054,22 +29049,22 @@ if.end18.i.i:                                     ; preds = %if.then15.i.i, %if.
   br i1 %cmp19.i.i, label %if.then20.i.i, label %if.else23.i.i
 
 if.then20.i.i:                                    ; preds = %if.end18.i.i
-  %16 = load i64, ptr %committed, align 8
-  %add22.i.i = add i64 %16, %mul.i
+  %17 = load i64, ptr %committed, align 8
+  %add22.i.i = add i64 %17, %mul.i
   store i64 %add22.i.i, ptr %committed, align 8
   br label %if.end
 
 if.else23.i.i:                                    ; preds = %if.end18.i.i
   %freed25.i.i = getelementptr inbounds i8, ptr %stats, i64 104
-  %17 = load i64, ptr %freed25.i.i, align 8
-  %add26.i.i = sub i64 %17, %mul.i
+  %18 = load i64, ptr %freed25.i.i, align 8
+  %add26.i.i = sub i64 %18, %mul.i
   store i64 %add26.i.i, ptr %freed25.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else23.i.i, %if.then20.i.i, %if.else.i.i, %if.then5.i.i, %if.else, %if.then
   %needs_recommit.0.in = phi i1 [ %call.i, %if.then ], [ %call4, %if.else ], [ %call4, %if.then5.i.i ], [ %call4, %if.else.i.i ], [ %call4, %if.then20.i.i ], [ %call4, %if.else23.i.i ]
   %blocks_purge = getelementptr inbounds i8, ptr %arena, i64 128
-  %18 = load ptr, ptr %blocks_purge, align 8
+  %19 = load ptr, ptr %blocks_purge, align 8
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i22
 
 if.then.i.i:                                      ; preds = %if.end
@@ -29081,10 +29076,10 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   %notmask.i.i.i = shl nsw i64 -1, %blocks
   %sub.i.i.i26 = xor i64 %notmask.i.i.i, -1
   %shl4.i.i.i = shl i64 %sub.i.i.i26, %rem.i.i.i.i
-  %19 = xor i64 %shl4.i.i.i, -1
-  %pre_mask.0.ph.i = select i1 %cmp1.i.i.i25, i64 -1, i64 %19
-  %arrayidx22.i = getelementptr i64, ptr %18, i64 %div1.i.i.i
-  %20 = atomicrmw and ptr %arrayidx22.i, i64 %pre_mask.0.ph.i acq_rel, align 8
+  %20 = xor i64 %shl4.i.i.i, -1
+  %pre_mask.0.ph.i = select i1 %cmp1.i.i.i25, i64 -1, i64 %20
+  %arrayidx22.i = getelementptr i64, ptr %19, i64 %div1.i.i.i
+  %21 = atomicrmw and ptr %arrayidx22.i, i64 %pre_mask.0.ph.i acq_rel, align 8
   br i1 %needs_recommit.0.in, label %if.then8.thread, label %if.end12
 
 if.else.i.i22:                                    ; preds = %if.end
@@ -29093,13 +29088,13 @@ if.else.i.i22:                                    ; preds = %if.end
   %notmask.i19.i.i = shl nsw i64 -1, %sub.i.i23
   %sub.i20.i.i = xor i64 %notmask.i19.i.i, -1
   %shl4.i21.i.i = shl i64 %sub.i20.i.i, %rem.i.i.i.i
-  %21 = xor i64 %shl4.i21.i.i, -1
+  %22 = xor i64 %shl4.i21.i.i, -1
   %sub4.i.i = sub i64 %blocks, %sub.i.i23
   %rem.i.i = and i64 %sub4.i.i, 63
   %notmask.i28.i.i = shl nsw i64 -1, %rem.i.i
-  %arrayidx.i = getelementptr i64, ptr %18, i64 %div1.i.i.i
-  %not.i = select i1 %cmp.i15.i.i, i64 0, i64 %21
-  %22 = atomicrmw and ptr %arrayidx.i, i64 %not.i acq_rel, align 8
+  %arrayidx.i = getelementptr i64, ptr %19, i64 %div1.i.i.i
+  %not.i = select i1 %cmp.i15.i.i, i64 0, i64 %22
+  %23 = atomicrmw and ptr %arrayidx.i, i64 %not.i acq_rel, align 8
   %field.011.i = getelementptr i8, ptr %arrayidx.i, i64 8
   %cmp2.not12.i = icmp ult i64 %sub4.i.i, 64
   br i1 %cmp2.not12.i, label %while.end.i, label %while.body.lr.ph.i
@@ -29112,7 +29107,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %field.015.i = phi ptr [ %field.011.i, %while.body.lr.ph.i ], [ %field.0.i, %while.body.i ]
   %mid_count.014.i = phi i64 [ %div14.i.i, %while.body.lr.ph.i ], [ %dec.i, %while.body.i ]
   %dec.i = add nsw i64 %mid_count.014.i, -1
-  %23 = atomicrmw xchg ptr %field.015.i, i64 0 acq_rel, align 8
+  %24 = atomicrmw xchg ptr %field.015.i, i64 0 acq_rel, align 8
   %field.0.i = getelementptr i8, ptr %field.015.i, i64 8
   %cmp2.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp2.not.i, label %while.end.i, label %while.body.i, !llvm.loop !28
@@ -29123,72 +29118,72 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %cmp11.not.i, label %_mi_bitmap_unclaim_across.exit, label %if.then12.i
 
 if.then12.i:                                      ; preds = %while.end.i
-  %24 = atomicrmw and ptr %field.0.lcssa.i, i64 %notmask.i28.i.i acq_rel, align 8
+  %25 = atomicrmw and ptr %field.0.lcssa.i, i64 %notmask.i28.i.i acq_rel, align 8
   br label %_mi_bitmap_unclaim_across.exit
 
 _mi_bitmap_unclaim_across.exit:                   ; preds = %while.end.i, %if.then12.i
   br i1 %needs_recommit.0.in, label %if.then8, label %if.end12
 
 _mi_bitmap_unclaim_across.exit.thread.thread:     ; preds = %if.then.i.i
-  %arrayidx22.i84 = getelementptr i64, ptr %18, i64 %div1.i.i.i
-  %25 = atomicrmw xchg ptr %arrayidx22.i84, i64 0 acq_rel, align 8
+  %arrayidx22.i82 = getelementptr i64, ptr %19, i64 %div1.i.i.i
+  %26 = atomicrmw xchg ptr %arrayidx22.i82, i64 0 acq_rel, align 8
   br i1 %needs_recommit.0.in, label %if.then8.thread.thread, label %if.end12
 
 if.then8.thread.thread:                           ; preds = %_mi_bitmap_unclaim_across.exit.thread.thread
-  %26 = load ptr, ptr %blocks_committed, align 8
-  br label %while.end.thread.i76
+  %27 = load ptr, ptr %blocks_committed, align 8
+  br label %while.end.thread.i74
 
 if.then8.thread:                                  ; preds = %if.end.i.i.i
-  %27 = load ptr, ptr %blocks_committed, align 8
-  br i1 %cmp.i.i.i24, label %while.end.thread.i76, label %if.end.i.i.i70
+  %28 = load ptr, ptr %blocks_committed, align 8
+  br i1 %cmp.i.i.i24, label %while.end.thread.i74, label %if.end.i.i.i68
 
 if.then8:                                         ; preds = %_mi_bitmap_unclaim_across.exit
-  %28 = load ptr, ptr %blocks_committed, align 8
-  %arrayidx.i42 = getelementptr i64, ptr %28, i64 %div1.i.i.i
-  %29 = atomicrmw and ptr %arrayidx.i42, i64 %not.i acq_rel, align 8
-  %field.011.i46 = getelementptr i8, ptr %arrayidx.i42, i64 8
-  br i1 %cmp2.not12.i, label %while.end.i59, label %while.body.lr.ph.i48
+  %29 = load ptr, ptr %blocks_committed, align 8
+  %arrayidx.i41 = getelementptr i64, ptr %29, i64 %div1.i.i.i
+  %30 = atomicrmw and ptr %arrayidx.i41, i64 %not.i acq_rel, align 8
+  %field.011.i45 = getelementptr i8, ptr %arrayidx.i41, i64 8
+  br i1 %cmp2.not12.i, label %while.end.i58, label %while.body.lr.ph.i47
 
-if.end.i.i.i70:                                   ; preds = %if.then8.thread
-  %cmp1.i.i.i71 = icmp eq i64 %blocks, 0
-  br i1 %cmp1.i.i.i71, label %while.end.thread.i76, label %if.end3.i.i.i72
+if.end.i.i.i68:                                   ; preds = %if.then8.thread
+  %cmp1.i.i.i69 = icmp eq i64 %blocks, 0
+  br i1 %cmp1.i.i.i69, label %while.end.thread.i74, label %if.end3.i.i.i70
 
-if.end3.i.i.i72:                                  ; preds = %if.end.i.i.i70
-  %notmask.i.i.i73 = shl nsw i64 -1, %blocks
-  %sub.i.i.i74 = xor i64 %notmask.i.i.i73, -1
-  %shl4.i.i.i75 = shl i64 %sub.i.i.i74, %rem.i.i.i.i
-  %30 = xor i64 %shl4.i.i.i75, -1
-  br label %while.end.thread.i76
+if.end3.i.i.i70:                                  ; preds = %if.end.i.i.i68
+  %notmask.i.i.i71 = shl nsw i64 -1, %blocks
+  %sub.i.i.i72 = xor i64 %notmask.i.i.i71, -1
+  %shl4.i.i.i73 = shl i64 %sub.i.i.i72, %rem.i.i.i.i
+  %31 = xor i64 %shl4.i.i.i73, -1
+  br label %while.end.thread.i74
 
-while.end.thread.i76:                             ; preds = %if.then8.thread.thread, %if.end3.i.i.i72, %if.end.i.i.i70, %if.then8.thread
-  %31 = phi ptr [ %27, %if.then8.thread ], [ %27, %if.end.i.i.i70 ], [ %27, %if.end3.i.i.i72 ], [ %26, %if.then8.thread.thread ]
-  %pre_mask.0.ph.i77 = phi i64 [ 0, %if.then8.thread ], [ -1, %if.end.i.i.i70 ], [ %30, %if.end3.i.i.i72 ], [ 0, %if.then8.thread.thread ]
-  %arrayidx22.i78 = getelementptr i64, ptr %31, i64 %div1.i.i.i
-  %32 = atomicrmw and ptr %arrayidx22.i78, i64 %pre_mask.0.ph.i77 acq_rel, align 8
+while.end.thread.i74:                             ; preds = %if.then8.thread.thread, %if.end3.i.i.i70, %if.end.i.i.i68, %if.then8.thread
+  %32 = phi ptr [ %28, %if.then8.thread ], [ %28, %if.end.i.i.i68 ], [ %28, %if.end3.i.i.i70 ], [ %27, %if.then8.thread.thread ]
+  %pre_mask.0.ph.i75 = phi i64 [ 0, %if.then8.thread ], [ -1, %if.end.i.i.i68 ], [ %31, %if.end3.i.i.i70 ], [ 0, %if.then8.thread.thread ]
+  %arrayidx22.i76 = getelementptr i64, ptr %32, i64 %div1.i.i.i
+  %33 = atomicrmw and ptr %arrayidx22.i76, i64 %pre_mask.0.ph.i75 acq_rel, align 8
   br label %if.end12
 
-while.body.lr.ph.i48:                             ; preds = %if.then8
-  %div14.i.i49 = lshr i64 %sub4.i.i, 6
-  br label %while.body.i50
+while.body.lr.ph.i47:                             ; preds = %if.then8
+  %div14.i.i48 = lshr i64 %sub4.i.i, 6
+  br label %while.body.i49
 
-while.body.i50:                                   ; preds = %while.body.i50, %while.body.lr.ph.i48
-  %field.015.i51 = phi ptr [ %field.011.i46, %while.body.lr.ph.i48 ], [ %field.0.i57, %while.body.i50 ]
-  %mid_count.014.i52 = phi i64 [ %div14.i.i49, %while.body.lr.ph.i48 ], [ %dec.i54, %while.body.i50 ]
-  %dec.i54 = add nsw i64 %mid_count.014.i52, -1
-  %33 = atomicrmw xchg ptr %field.015.i51, i64 0 acq_rel, align 8
-  %field.0.i57 = getelementptr i8, ptr %field.015.i51, i64 8
-  %cmp2.not.i58 = icmp eq i64 %dec.i54, 0
-  br i1 %cmp2.not.i58, label %while.end.i59, label %while.body.i50, !llvm.loop !28
+while.body.i49:                                   ; preds = %while.body.i49, %while.body.lr.ph.i47
+  %field.015.i50 = phi ptr [ %field.011.i45, %while.body.lr.ph.i47 ], [ %field.0.i56, %while.body.i49 ]
+  %mid_count.014.i51 = phi i64 [ %div14.i.i48, %while.body.lr.ph.i47 ], [ %dec.i53, %while.body.i49 ]
+  %dec.i53 = add nsw i64 %mid_count.014.i51, -1
+  %34 = atomicrmw xchg ptr %field.015.i50, i64 0 acq_rel, align 8
+  %field.0.i56 = getelementptr i8, ptr %field.015.i50, i64 8
+  %cmp2.not.i57 = icmp eq i64 %dec.i53, 0
+  br i1 %cmp2.not.i57, label %while.end.i58, label %while.body.i49, !llvm.loop !28
 
-while.end.i59:                                    ; preds = %while.body.i50, %if.then8
-  %field.0.lcssa.i61 = phi ptr [ %field.011.i46, %if.then8 ], [ %field.0.i57, %while.body.i50 ]
-  br i1 %cmp11.not.i, label %if.end12, label %if.then12.i63
+while.end.i58:                                    ; preds = %while.body.i49, %if.then8
+  %field.0.lcssa.i60 = phi ptr [ %field.011.i45, %if.then8 ], [ %field.0.i56, %while.body.i49 ]
+  br i1 %cmp11.not.i, label %if.end12, label %if.then12.i62
 
-if.then12.i63:                                    ; preds = %while.end.i59
-  %34 = atomicrmw and ptr %field.0.lcssa.i61, i64 %notmask.i28.i.i acq_rel, align 8
+if.then12.i62:                                    ; preds = %while.end.i58
+  %35 = atomicrmw and ptr %field.0.lcssa.i60, i64 %notmask.i28.i.i acq_rel, align 8
   br label %if.end12
 
-if.end12:                                         ; preds = %_mi_bitmap_unclaim_across.exit.thread.thread, %if.then12.i63, %while.end.i59, %while.end.thread.i76, %if.end.i.i.i, %_mi_bitmap_unclaim_across.exit
+if.end12:                                         ; preds = %_mi_bitmap_unclaim_across.exit.thread.thread, %if.then12.i62, %while.end.i58, %while.end.thread.i74, %if.end.i.i.i, %_mi_bitmap_unclaim_across.exit
   ret void
 }
 
