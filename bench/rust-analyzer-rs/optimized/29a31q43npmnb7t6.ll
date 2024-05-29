@@ -4214,7 +4214,7 @@ define hidden noundef i8 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %.017.i = phi i64 [ 0, %6 ], [ %12, %10 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 %.017.i
   %.val.i = load i8, ptr %11, align 1, !range !2056, !noundef !11
-  %.0.sroa.speculated.i.i.i.i = tail call noundef i8 @llvm.umax.i8(i8 %.018.i, i8 %.val.i)
+  %.0.sroa.speculated.i.i.i.i = tail call noundef range(i8 0, 4) i8 @llvm.umax.i8(i8 %.018.i, i8 %.val.i)
   %12 = add nuw i64 %.017.i, 1
   %13 = icmp eq i64 %12, %9
   br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hefe6c308d4a67ad4E.llvm.1686074433831124249.exit", label %10
@@ -79821,7 +79821,7 @@ define hidden noundef i8 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20
   %.017 = phi i64 [ 0, %6 ], [ %12, %10 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 %.017
   %.val = load i8, ptr %11, align 1, !range !2056, !noundef !11
-  %.0.sroa.speculated.i.i.i = tail call noundef i8 @llvm.umax.i8(i8 %.018, i8 %.val)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i8 0, 4) i8 @llvm.umax.i8(i8 %.018, i8 %.val)
   %12 = add nuw i64 %.017, 1
   %13 = icmp eq i64 %12, %9
   br i1 %13, label %.loopexit, label %10

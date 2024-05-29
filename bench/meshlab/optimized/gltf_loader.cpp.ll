@@ -36299,7 +36299,7 @@ define noundef range(i32 0, 2) i32 @stbi_write_bmp_to_func(ptr noundef %0, ptr n
   %11 = add nsw i32 %10, %9
   %12 = mul nsw i32 %11, %3
   %13 = add nsw i32 %12, 54
-  %14 = call noundef i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %7, i32 poison, i32 poison, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 1, ptr noundef %5, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.107, i32 noundef 66, i32 noundef 77, i32 noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %14 = call noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %7, i32 poison, i32 poison, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 1, ptr noundef %5, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.107, i32 noundef 66, i32 noundef 77, i32 noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   ret i32 %14
 }
 
@@ -37006,7 +37006,7 @@ define range(i32 0, 2) i32 @stbi_write_bmp(ptr nocapture noundef readonly %0, i3
   %12 = add nsw i32 %11, %10
   %13 = mul nsw i32 %12, %2
   %14 = add nsw i32 %13, 54
-  %15 = call noundef i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %6, i32 poison, i32 poison, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4, i32 noundef 0, i32 noundef %10, ptr noundef nonnull @.str.107, i32 noundef 66, i32 noundef 77, i32 noundef %14, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %15 = call noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %6, i32 poison, i32 poison, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4, i32 noundef 0, i32 noundef %10, ptr noundef nonnull @.str.107, i32 noundef 66, i32 noundef 77, i32 noundef %14, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %16 = tail call i32 @fclose(ptr noundef nonnull %7)
   br label %17
 
@@ -47178,7 +47178,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
   store ptr %46, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %12, i64 192
   store ptr %46, ptr %48, align 8
-  %49 = call fastcc noundef i32 @_ZL16stbi__is_16_mainP13stbi__context(ptr noundef nonnull %12)
+  %49 = call fastcc noundef range(i32 0, 2) i32 @_ZL16stbi__is_16_mainP13stbi__context(ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %12)
   %.not89 = icmp eq i32 %49, 0
   br i1 %.not89, label %58, label %50
@@ -47958,7 +47958,7 @@ define noundef zeroext i1 @_ZN8tinygltf14WriteImageDataEPKNSt7__cxx1112basic_str
   store ptr @_ZN8tinygltfL18WriteToMemory_stbiEPvS0_i, ptr %7, align 8
   %61 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %11, ptr %61, align 8
-  %62 = invoke fastcc noundef i32 @_ZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKvi(ptr noundef nonnull %7, i32 noundef %54, i32 noundef %56, i32 noundef %58, ptr noundef %60, i32 noundef 100)
+  %62 = invoke fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKvi(ptr noundef nonnull %7, i32 noundef %54, i32 noundef %56, i32 noundef %58, ptr noundef %60, i32 noundef 100)
           to label %63 unwind label %24
 
 63:                                               ; preds = %52
@@ -47989,7 +47989,7 @@ define noundef zeroext i1 @_ZN8tinygltf14WriteImageDataEPKNSt7__cxx1112basic_str
   %79 = add nsw i32 %78, %77
   %80 = mul nsw i32 %79, %71
   %81 = add nsw i32 %80, 54
-  %82 = invoke noundef i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %6, i32 poison, i32 poison, i32 noundef %69, i32 noundef %71, i32 noundef %73, i32 noundef 1, ptr noundef %75, i32 noundef 0, i32 noundef %77, ptr noundef nonnull @.str.107, i32 noundef 66, i32 noundef 77, i32 noundef %81, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %69, i32 noundef %71, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %82 = invoke noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %6, i32 poison, i32 poison, i32 noundef %69, i32 noundef %71, i32 noundef %73, i32 noundef 1, ptr noundef %75, i32 noundef 0, i32 noundef %77, ptr noundef nonnull @.str.107, i32 noundef 66, i32 noundef 77, i32 noundef %81, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %69, i32 noundef %71, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
           to label %83 unwind label %24
 
 83:                                               ; preds = %67

@@ -3177,7 +3177,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h45b6dfff9e0631dbE(ptr noal
   %.val28.i = load ptr, ptr %49, align 8, !alias.scope !339, !nonnull !10, !align !11, !noundef !10
   %50 = load ptr, ptr %.val.i, align 8, !noalias !339, !nonnull !10, !align !11, !noundef !10
   %51 = load ptr, ptr %.val28.i, align 8, !noalias !339, !nonnull !10, !align !11, !noundef !10
-  %52 = invoke noundef i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %51)
+  %52 = invoke noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %51)
           to label %.noexc45 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc45:                                         ; preds = %47
@@ -3206,7 +3206,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h45b6dfff9e0631dbE(ptr noal
   %.val29.i = load ptr, ptr %56, align 8, !alias.scope !339, !nonnull !10, !align !11, !noundef !10
   %57 = load ptr, ptr %.val29.i, align 8, !noalias !339, !nonnull !10, !align !11, !noundef !10
   %58 = load ptr, ptr %.val30.i, align 8, !noalias !339, !nonnull !10, !align !11, !noundef !10
-  %59 = invoke noundef i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %58)
+  %59 = invoke noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %58)
           to label %.noexc46 unwind label %.loopexit.split-lp.loopexit
 
 .noexc46:                                         ; preds = %.lr.ph.i
@@ -3225,7 +3225,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h45b6dfff9e0631dbE(ptr noal
   %.val31.i = load ptr, ptr %63, align 8, !alias.scope !339, !nonnull !10, !align !11, !noundef !10
   %64 = load ptr, ptr %.val31.i, align 8, !noalias !339, !nonnull !10, !align !11, !noundef !10
   %65 = load ptr, ptr %.val32.i, align 8, !noalias !339, !nonnull !10, !align !11, !noundef !10
-  %66 = invoke noundef i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %65)
+  %66 = invoke noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %65)
           to label %.noexc47 unwind label %.loopexit85
 
 .noexc47:                                         ; preds = %.lr.ph7.i
@@ -3575,7 +3575,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hb8fb3d1c0feda1eaE.exit: ; preds = %.
   %.val35.i = load ptr, ptr %195, align 8, !alias.scope !370, !nonnull !10, !align !11, !noundef !10
   %196 = load ptr, ptr %.val.i67, align 8, !nonnull !10, !align !11, !noundef !10
   %197 = load ptr, ptr %.val35.i, align 8, !nonnull !10, !align !11, !noundef !10
-  %198 = invoke noundef i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %197)
+  %198 = invoke noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %197)
           to label %199 unwind label %.loopexit14.i
 
 199:                                              ; preds = %.lr.ph29.i
@@ -3603,7 +3603,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hb8fb3d1c0feda1eaE.exit: ; preds = %.
   %.val36.i = load ptr, ptr %208, align 8, !noalias !370, !nonnull !10, !align !11, !noundef !10
   %209 = load ptr, ptr %.028.val.i, align 8, !nonnull !10, !align !11, !noundef !10
   %210 = load ptr, ptr %.val36.i, align 8, !nonnull !10, !align !11, !noundef !10
-  %211 = invoke noundef i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %209, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %210)
+  %211 = invoke noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %209, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %210)
           to label %212 unwind label %.loopexit.split-lp.i
 
 212:                                              ; preds = %.lr.ph.i65
@@ -4449,7 +4449,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h7a
   %.val10.i = load ptr, ptr %10, align 8, !alias.scope !466, !nonnull !10, !align !11, !noundef !10
   %11 = load ptr, ptr %.val.i, align 8, !noalias !466, !nonnull !10, !align !11, !noundef !10
   %12 = load ptr, ptr %.val10.i, align 8, !noalias !466, !nonnull !10, !align !11, !noundef !10
-  %13 = tail call noundef i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %12), !range !320, !noalias !466
+  %13 = tail call noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %12), !range !320, !noalias !466
   %14 = icmp eq i8 %13, -1
   br i1 %14, label %15, label %_ZN4core5slice4sort11insert_tail17h71074deb9be16408E.exit
 
@@ -4479,7 +4479,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h7a
   %.val12.i = load ptr, ptr %20, align 8, !alias.scope !466, !nonnull !10, !align !11, !noundef !10
   %21 = load ptr, ptr %.val.i, align 8, !noalias !466, !nonnull !10, !align !11, !noundef !10
   %22 = load ptr, ptr %.val12.i, align 8, !noalias !466, !nonnull !10, !align !11, !noundef !10
-  %23 = invoke noundef i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %22)
+  %23 = invoke noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %22)
           to label %24 unwind label %27, !noalias !466
 
 24:                                               ; preds = %.lr.ph.i

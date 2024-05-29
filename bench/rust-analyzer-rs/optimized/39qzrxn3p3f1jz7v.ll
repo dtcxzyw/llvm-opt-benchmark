@@ -5535,7 +5535,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN102_$LT$core..iter..adapters..map..
   store ptr %5, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !2176
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %5, ptr %6, align 8, !noalias !2172
-  %7 = call noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf770224526d08968E.llvm.836043833466553463(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4), !range !1230, !noalias !2177
+  %7 = call noundef range(i8 0, 3) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf770224526d08968E.llvm.836043833466553463(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4), !range !1230, !noalias !2177
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !2172
   ret i8 %7
 }

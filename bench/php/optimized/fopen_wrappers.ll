@@ -1646,7 +1646,7 @@ define noalias noundef ptr @php_fopen_with_path(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @php_fopen_and_set_opened_path(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
-  %4 = tail call i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef 1)
+  %4 = tail call range(i32 -1, 1) i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef 1)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %21
 

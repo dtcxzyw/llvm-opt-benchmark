@@ -29,7 +29,7 @@ define range(i8 -1, 2) i8 @"_ZN74_$LT$common..types..ScoredPointOffset$u20$as$u2
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load float, ptr %7, align 4, !noundef !3
   store float %8, ptr %3, align 4
-  %9 = call i8 @"_ZN71_$LT$ordered_float..OrderedFloat$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h9f83a969a9da7109E"(ptr nonnull align 4 %4, ptr nonnull align 4 %3), !range !4
+  %9 = call range(i8 -1, 2) i8 @"_ZN71_$LT$ordered_float..OrderedFloat$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h9f83a969a9da7109E"(ptr nonnull align 4 %4, ptr nonnull align 4 %3), !range !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret i8 %9

@@ -6500,7 +6500,7 @@ _Z16lodepng_add_textP11LodePNGInfoPKcS2_.exit.i:  ; preds = %while.cond.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %a.addr.0.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %call1.i.i = tail call fastcc noundef i32 @_ZL22lodepng_add_text_sizedP11LodePNGInfoPKcS2_m(ptr noundef %dest, ptr noundef %7, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i)
+  %call1.i.i = tail call fastcc noundef range(i32 0, 84) i32 @_ZL22lodepng_add_text_sizedP11LodePNGInfoPKcS2_m(ptr noundef %dest, ptr noundef %7, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i)
   %tobool.not.i24 = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i24, label %for.cond.i, label %return
 
@@ -6552,7 +6552,7 @@ _Z17lodepng_add_itextP11LodePNGInfoPKcS2_S2_S2_.exit.i: ; preds = %while.cond.i.
   %sub.ptr.lhs.cast.i.i.i34 = ptrtoint ptr %a.addr.0.i.i.i31 to i64
   %sub.ptr.rhs.cast.i.i.i35 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i.i34, %sub.ptr.rhs.cast.i.i.i35
-  %call1.i.i37 = tail call fastcc noundef i32 @_ZL23lodepng_add_itext_sizedP11LodePNGInfoPKcS2_S2_S2_m(ptr noundef %dest, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %20, i64 noundef %sub.ptr.sub.i.i.i36)
+  %call1.i.i37 = tail call fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_sizedP11LodePNGInfoPKcS2_S2_S2_m(ptr noundef %dest, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %20, i64 noundef %sub.ptr.sub.i.i.i36)
   %tobool.not.i38 = icmp eq i32 %call1.i.i37, 0
   br i1 %tobool.not.i38, label %for.cond.i40, label %return
 
@@ -11090,7 +11090,7 @@ _Z16lodepng_add_textP11LodePNGInfoPKcS2_.exit:    ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %a.addr.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call.i27 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call1.i = tail call fastcc noundef i32 @_ZL22lodepng_add_text_sizedP11LodePNGInfoPKcS2_m(ptr noundef %info, ptr noundef nonnull %call.i, ptr noundef nonnull %call.i27, i64 noundef %sub.ptr.sub.i.i)
+  %call1.i = tail call fastcc noundef range(i32 0, 84) i32 @_ZL22lodepng_add_text_sizedP11LodePNGInfoPKcS2_m(ptr noundef %info, ptr noundef nonnull %call.i, ptr noundef nonnull %call.i27, i64 noundef %sub.ptr.sub.i.i)
   br label %while.end29
 
 while.end29:                                      ; preds = %entry, %_ZL14lodepng_memcpyPvPKvm.exit, %if.end, %while.end, %_Z16lodepng_add_textP11LodePNGInfoPKcS2_.exit

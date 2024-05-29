@@ -196,7 +196,7 @@ declare void @rb_st_free_table(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 2) i32 @rb_provided(ptr noundef nonnull %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %3 = tail call fastcc i32 @feature_provided(ptr noundef %2, ptr noundef nonnull %0, ptr noundef null)
+  %3 = tail call fastcc range(i32 0, 2) i32 @feature_provided(ptr noundef %2, ptr noundef nonnull %0, ptr noundef null)
   ret i32 %3
 }
 

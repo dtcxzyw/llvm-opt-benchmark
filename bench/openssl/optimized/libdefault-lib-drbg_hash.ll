@@ -392,7 +392,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   %C = getelementptr inbounds i8, ptr %0, i64 151
   %3 = load i64, ptr %2, align 8
   %drbg.val11 = load ptr, ptr %data, align 8
-  %call.i = tail call fastcc i32 @hash_df(i64 %3, ptr %drbg.val11, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @hash_df(i64 %3, ptr %drbg.val11, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
@@ -433,7 +433,7 @@ if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %V, ptr nonnull align 1 %C, i64 %2, i1 false)
   %3 = load i64, ptr %seedlen, align 8
   %drbg.val13 = load ptr, ptr %data, align 8
-  %call.i = tail call fastcc i32 @hash_df(i64 %3, ptr %drbg.val13, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @hash_df(i64 %3, ptr %drbg.val13, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   br label %return
 
 return:                                           ; preds = %entry, %if.end

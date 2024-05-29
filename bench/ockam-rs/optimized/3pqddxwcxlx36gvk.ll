@@ -3127,7 +3127,7 @@ define void @_ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E(ptr noa
 _ZN10ockam_core3api2Id5fresh17h5b2c42eee3d81540E.exit: ; preds = %4
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37b2e958cdac9040E.llvm.6783306594713324768"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %14 = call noundef i32 @llvm.uadd.sat.i32(i32 %8, i32 1)
+  %14 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %8, i32 1)
   store i32 %14, ptr %0, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %15, align 4
@@ -4529,7 +4529,7 @@ _ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i: ; preds = %.
 
 35:                                               ; preds = %_ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !744
-  %36 = call noundef i32 @llvm.uadd.sat.i32(i32 %30, i32 1)
+  %36 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %30, i32 1)
   %37 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %36, ptr %37, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
@@ -4581,7 +4581,7 @@ define void @_ZN10ockam_core3api8Response2ok17ha69cfbf599754aa7E(ptr noalias noc
 _ZN10ockam_core3api8Response7builder17h8e043d9be2671fe4E.exit: ; preds = %1
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37b2e958cdac9040E.llvm.6783306594713324768"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !752
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !752
-  %11 = call noundef i32 @llvm.uadd.sat.i32(i32 %5, i32 1)
+  %11 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %5, i32 1)
   store i32 %11, ptr %0, align 4, !alias.scope !749
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !749
@@ -4648,7 +4648,7 @@ _ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i: ; preds = %.
 
 19:                                               ; preds = %_ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !758
-  %20 = call noundef i32 @llvm.uadd.sat.i32(i32 %12, i32 1)
+  %20 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %12, i32 1)
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %20, ptr %21, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
@@ -4737,7 +4737,7 @@ _ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i: ; preds = %.
 
 19:                                               ; preds = %_ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !766
-  %20 = call noundef i32 @llvm.uadd.sat.i32(i32 %12, i32 1)
+  %20 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %12, i32 1)
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %20, ptr %21, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
@@ -4789,7 +4789,7 @@ define void @_ZN10ockam_core3api8Response15not_implemented17ha6ec5e10e11ebf0bE(p
 _ZN10ockam_core3api8Response7builder17h8e043d9be2671fe4E.exit: ; preds = %2
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37b2e958cdac9040E.llvm.6783306594713324768"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !774
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !774
-  %12 = call noundef i32 @llvm.uadd.sat.i32(i32 %6, i32 1)
+  %12 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %6, i32 1)
   store i32 %12, ptr %0, align 4, !alias.scope !771
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !771
@@ -4831,7 +4831,7 @@ define void @_ZN10ockam_core3api8Response12unauthorized17h6d740cfb6deb4326E(ptr 
 _ZN10ockam_core3api8Response7builder17h8e043d9be2671fe4E.exit: ; preds = %2
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37b2e958cdac9040E.llvm.6783306594713324768"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !780
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !780
-  %12 = call noundef i32 @llvm.uadd.sat.i32(i32 %6, i32 1)
+  %12 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %6, i32 1)
   store i32 %12, ptr %0, align 4, !alias.scope !777
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !777
@@ -4873,7 +4873,7 @@ define void @_ZN10ockam_core3api8Response20forbidden_no_request17h190b647ddc3f93
 _ZN10ockam_core3api8Response7builder17h8e043d9be2671fe4E.exit: ; preds = %2
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37b2e958cdac9040E.llvm.6783306594713324768"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !786
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !786
-  %12 = call noundef i32 @llvm.uadd.sat.i32(i32 %6, i32 1)
+  %12 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %6, i32 1)
   store i32 %12, ptr %0, align 4, !alias.scope !783
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !783
@@ -4962,7 +4962,7 @@ _ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i: ; preds = %.
 
 33:                                               ; preds = %_ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !807
-  %34 = call noundef i32 @llvm.uadd.sat.i32(i32 %28, i32 1)
+  %34 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %28, i32 1)
   %35 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %34, ptr %35, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
@@ -5044,7 +5044,7 @@ _ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i: ; preds = %.
 
 19:                                               ; preds = %_ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !815
-  %20 = call noundef i32 @llvm.uadd.sat.i32(i32 %12, i32 1)
+  %20 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %12, i32 1)
   %21 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %20, ptr %21, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
@@ -5143,7 +5143,7 @@ _ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i: ; preds = %.
 
 33:                                               ; preds = %_ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !838
-  %34 = call noundef i32 @llvm.uadd.sat.i32(i32 %28, i32 1)
+  %34 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %28, i32 1)
   %35 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %34, ptr %35, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
@@ -5255,7 +5255,7 @@ _ZN10ockam_core3api8Response7builder17h8e043d9be2671fe4E.exit.i: ; preds = %.noe
 
 33:                                               ; preds = %_ZN10ockam_core3api8Response7builder17h8e043d9be2671fe4E.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !861
-  %34 = call noundef i32 @llvm.uadd.sat.i32(i32 %28, i32 1)
+  %34 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %28, i32 1)
   %35 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %34, ptr %35, align 8
   %.sroa.431.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
@@ -5343,7 +5343,7 @@ _ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i: ; preds = %.
 
 59:                                               ; preds = %_ZN10ockam_core3api14ResponseHeader3new17hd3daf68d608454d1E.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !885
-  %60 = call noundef i32 @llvm.uadd.sat.i32(i32 %54, i32 1)
+  %60 = call noundef range(i32 1, 0) i32 @llvm.uadd.sat.i32(i32 %54, i32 1)
   %61 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %60, ptr %61, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68

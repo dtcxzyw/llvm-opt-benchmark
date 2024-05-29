@@ -211,7 +211,7 @@ for.end.i:                                        ; preds = %for.body.i
 
 if.then.i366:                                     ; preds = %for.end.i
   %add.i12.i = add i32 %conv29.i, 1
-  %17 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i12.i, i1 true)
+  %17 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i12.i, i1 true)
   %sub.i.i13.i = shl nuw nsw i32 %17, 8
   %mul.i14.i = xor i32 %sub.i.i13.i, 7936
   br label %ZSTD_litLengthPrice.exit
@@ -226,7 +226,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %arrayidx16.i.i = getelementptr inbounds i8, ptr %19, i64 140
   %20 = load i32, ptr %arrayidx16.i.i, align 4
   %add.i32.i = add i32 %20, 1
-  %21 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i32.i, i1 true)
+  %21 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i32.i, i1 true)
   %sub.i.i33.i = shl nuw nsw i32 %21, 8
   %mul.i34.neg.i = add i32 %18, -3584
   %add.i365 = add i32 %mul.i34.neg.i, %sub.i.i33.i
@@ -237,7 +237,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp.i16.i, label %cond.true.i21.i, label %cond.false.i17.i
 
 cond.true.i21.i:                                  ; preds = %if.end5.i
-  %22 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv29.i, i1 true)
+  %22 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv29.i, i1 true)
   %add.i22.i = sub nuw nsw i32 50, %22
   br label %ZSTD_LLcode.exit.i
 
@@ -259,7 +259,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %cond.false.i17.i, %
   %arrayidx16.i = getelementptr inbounds i32, ptr %26, i64 %idxprom.i361
   %27 = load i32, ptr %arrayidx16.i, align 4
   %add.i29.i = add i32 %27, 1
-  %28 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i29.i, i1 true)
+  %28 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i29.i, i1 true)
   %reass.add = add nuw nsw i32 %28, %conv.i
   %reass.mul = shl nuw nsw i32 %reass.add, 8
   %add7.i = add i32 %25, -7936
@@ -291,7 +291,7 @@ if.end.i370:                                      ; preds = %if.end68.i
   %33 = load ptr, ptr %litLengthFreq14.i, align 8
   %34 = load i32, ptr %33, align 4
   %add.i29.i383 = add i32 %34, 1
-  %35 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i29.i383, i1 true)
+  %35 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i29.i383, i1 true)
   %sub.i.i30.i384 = shl nuw nsw i32 %35, 8
   %mul.i31.neg.i385 = add i32 %32, -7936
   %sub.i386 = add i32 %mul.i31.neg.i385, %sub.i.i30.i384
@@ -326,7 +326,7 @@ for.body85.i:                                     ; preds = %for.body85.i.prehea
   br i1 %cmp93.i.not693, label %for.end114.i, label %for.body95.i.lr.ph
 
 for.body95.i.lr.ph:                               ; preds = %for.body85.i
-  %38 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
+  %38 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %36, i1 true)
   %sub.i390 = xor i32 %38, 31
   %idxprom10.i = zext nneg i32 %sub.i390 to i64
   %cmp18.i = icmp ugt i32 %sub.i390, 19
@@ -346,7 +346,7 @@ for.body95.i:                                     ; preds = %for.body95.i.lr.ph,
 
 cond.false.i12:                                   ; preds = %for.body95.i
   %add.i391 = add i32 %pos.i.2694, -2
-  %41 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i391, i1 true)
+  %41 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i391, i1 true)
   %sub.i.i392 = shl nuw nsw i32 %41, 8
   %mul.i393 = xor i32 %sub.i.i392, 7936
   %add3.i = add nuw nsw i32 %mul.i, %mul.i393
@@ -358,14 +358,14 @@ if.end.i5:                                        ; preds = %for.body95.i
   %arrayidx11.i = getelementptr inbounds i32, ptr %43, i64 %idxprom10.i
   %44 = load i32, ptr %arrayidx11.i, align 4
   %add.i394 = add i32 %44, 1
-  %45 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i394, i1 true)
+  %45 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i394, i1 true)
   %sub.i.i395 = shl nuw nsw i32 %45, 8
   %mul.i396.neg729 = add nsw i32 %sub.i.i395, -7936
   %cmp.i397 = icmp ugt i32 %sub.i3, 127
   br i1 %cmp.i397, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i5
-  %46 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i3, i1 true)
+  %46 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i3, i1 true)
   %add.i401 = sub nuw nsw i32 67, %46
   br label %ZSTD_MLcode.exit
 
@@ -387,7 +387,7 @@ ZSTD_MLcode.exit:                                 ; preds = %cond.true.i, %cond.
   %arrayidx37.i = getelementptr inbounds i32, ptr %50, i64 %idxprom26.i
   %51 = load i32, ptr %arrayidx37.i, align 4
   %add.i402 = add i32 %51, 1
-  %52 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i402, i1 true)
+  %52 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i402, i1 true)
   %sub.i.i403 = shl nuw nsw i32 %52, 8
   %mul.i404.neg730 = add nsw i32 %sub.i.i403, -7936
   %reass.add681 = add nuw nsw i32 %sub.i390, %conv.i6
@@ -471,7 +471,7 @@ ZSTD_rawLiteralsCost.exit.thread774:              ; preds = %if.end2.i
   %arrayidx19.us.i = getelementptr inbounds i32, ptr %57, i64 %idxprom18.us.i
   %59 = load i32, ptr %arrayidx19.us.i, align 4
   %add.i17.us.i = add i32 %59, 1
-  %60 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i17.us.i, i1 true)
+  %60 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i17.us.i, i1 true)
   %sub.i.i18.us.i = shl nuw nsw i32 %60, 8
   %mul.i19.us.i = xor i32 %sub.i.i18.us.i, 7936
   %spec.select.us.i = call i32 @llvm.umin.i32(i32 %mul.i19.us.i, i32 %sub.i406)
@@ -495,7 +495,7 @@ if.end5.i454.thread:                              ; preds = %if.end.i410
   %arrayidx16.i.i438 = getelementptr inbounds i8, ptr %62, i64 140
   %63 = load i32, ptr %arrayidx16.i.i438, align 4
   %add.i32.i439 = add i32 %63, 1
-  %64 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i32.i439, i1 true)
+  %64 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i32.i439, i1 true)
   %sub.i.i33.i440 = shl nuw nsw i32 %64, 8
   %mul.i34.neg.i441 = add i32 %add152.i778, -3584
   %add.i443 = add i32 %mul.i34.neg.i441, %61
@@ -507,7 +507,7 @@ if.end5.i412:                                     ; preds = %if.end.i410
   br i1 %cmp.i16.i413, label %cond.true.i21.i433, label %cond.false.i17.i414
 
 cond.true.i21.i433:                               ; preds = %if.end5.i412
-  %65 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %cond142.i, i1 true)
+  %65 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %cond142.i, i1 true)
   %add.i22.i434 = sub nuw nsw i32 50, %65
   br label %if.end.i452
 
@@ -521,11 +521,11 @@ cond.false.i17.i414:                              ; preds = %if.end5.i412
 if.then.i486:                                     ; preds = %ZSTD_rawLiteralsCost.exit.thread, %ZSTD_rawLiteralsCost.exit
   %add152.i632 = phi i32 [ %add152.i629, %ZSTD_rawLiteralsCost.exit.thread ], [ %add152.i, %ZSTD_rawLiteralsCost.exit ]
   %add.i12.i445 = add i32 %cond142.i, 1
-  %67 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i12.i445, i1 true)
+  %67 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i12.i445, i1 true)
   %sub.i.i13.i447 = shl nuw nsw i32 %67, 8
   %mul.i14.i448 = xor i32 %sub.i.i13.i447, 7936
   %add154.i = add nsw i32 %add152.i632, %mul.i14.i448
-  %68 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %cond142.i, i1 true)
+  %68 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %cond142.i, i1 true)
   %sub.i.i13.i489 = shl nuw nsw i32 %68, 8
   %mul.i14.i490 = xor i32 %sub.i.i13.i489, 7936
   br label %ZSTD_litLengthPrice.exit491
@@ -541,7 +541,7 @@ if.end.i452:                                      ; preds = %cond.true.i21.i433,
   %arrayidx16.i427 = getelementptr inbounds i32, ptr %71, i64 %idxprom.i420
   %72 = load i32, ptr %arrayidx16.i427, align 4
   %add.i29.i428 = add i32 %72, 1
-  %73 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i29.i428, i1 true)
+  %73 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i29.i428, i1 true)
   %reass.add675 = add nuw nsw i32 %73, %conv.i422
   %reass.mul676 = shl nuw nsw i32 %reass.add675, 8
   %add7.i425 = add i32 %add152.i778, -7936
@@ -555,7 +555,7 @@ if.end.i.i477:                                    ; preds = %if.end.i452
   %arrayidx16.i.i480 = getelementptr inbounds i8, ptr %71, i64 140
   %74 = load i32, ptr %arrayidx16.i.i480, align 4
   %add.i32.i481 = add i32 %74, 1
-  %75 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i32.i481, i1 true)
+  %75 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i32.i481, i1 true)
   %sub.i.i33.i482 = shl nuw nsw i32 %75, 8
   %mul.i34.neg.i483 = add i32 %70, -3584
   %add.i485 = add i32 %mul.i34.neg.i483, %sub.i.i33.i482
@@ -570,7 +570,7 @@ cond.true.i21.i475:                               ; preds = %if.end5.i454.thread
   %77 = phi i32 [ %61, %if.end5.i454.thread ], [ %70, %if.end5.i454 ]
   %add154.i638647654 = phi i32 [ %add154.i638644, %if.end5.i454.thread ], [ %add154.i638, %if.end5.i454 ]
   %sub155.i639648652 = phi i32 [ 131071, %if.end5.i454.thread ], [ %sub155.i639, %if.end5.i454 ]
-  %78 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub155.i639648652, i1 true)
+  %78 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub155.i639648652, i1 true)
   %add.i22.i476 = sub nuw nsw i32 50, %78
   br label %ZSTD_LLcode.exit.i460
 
@@ -593,7 +593,7 @@ ZSTD_LLcode.exit.i460:                            ; preds = %cond.false.i17.i456
   %arrayidx16.i469 = getelementptr inbounds i32, ptr %80, i64 %idxprom.i462
   %83 = load i32, ptr %arrayidx16.i469, align 4
   %add.i29.i470 = add i32 %83, 1
-  %84 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i29.i470, i1 true)
+  %84 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i29.i470, i1 true)
   %reass.add677 = add nuw nsw i32 %84, %conv.i464
   %reass.mul678 = shl nuw nsw i32 %reass.add677, 8
   %add7.i467 = add i32 %81, -7936
@@ -750,7 +750,7 @@ if.end.i497:                                      ; preds = %cond.end259.i
   %99 = load ptr, ptr %litLengthFreq14.i, align 8
   %100 = load i32, ptr %99, align 4
   %add.i29.i510 = add i32 %100, 1
-  %101 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i29.i510, i1 true)
+  %101 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i29.i510, i1 true)
   %sub.i.i30.i511 = shl nuw nsw i32 %101, 8
   %mul.i31.neg.i512 = add i32 %98, -7936
   %sub.i513 = add i32 %mul.i31.neg.i512, %sub.i.i30.i511
@@ -829,7 +829,7 @@ cond.end346.i:                                    ; preds = %for.body329.i, %con
   br i1 %cmp352.i.not701, label %for.end401.i, label %for.body354.i.lr.ph
 
 for.body354.i.lr.ph:                              ; preds = %cond.end346.i
-  %111 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %107, i1 true)
+  %111 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %107, i1 true)
   %sub.i519 = xor i32 %111, 31
   %idxprom10.i36 = zext nneg i32 %sub.i519 to i64
   %cmp18.i69 = icmp ugt i32 %sub.i519, 19
@@ -851,7 +851,7 @@ for.body354.i:                                    ; preds = %for.body354.i.lr.ph
 
 cond.false.i82:                                   ; preds = %for.body354.i
   %add.i520 = add i32 %mlen348.i.0702, -2
-  %114 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i520, i1 true)
+  %114 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i520, i1 true)
   %sub.i.i521 = shl nuw nsw i32 %114, 8
   %mul.i522 = xor i32 %sub.i.i521, 7936
   %add3.i88 = add nuw nsw i32 %mul.i87, %mul.i522
@@ -863,14 +863,14 @@ if.end.i30:                                       ; preds = %for.body354.i
   %arrayidx11.i37 = getelementptr inbounds i32, ptr %116, i64 %idxprom10.i36
   %117 = load i32, ptr %arrayidx11.i37, align 4
   %add.i523 = add i32 %117, 1
-  %118 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i523, i1 true)
+  %118 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i523, i1 true)
   %sub.i.i524 = shl nuw nsw i32 %118, 8
   %mul.i525.neg731 = add nsw i32 %sub.i.i524, -7936
   %cmp.i526 = icmp ugt i32 %sub.i27, 127
   br i1 %cmp.i526, label %cond.true.i532, label %cond.false.i527
 
 cond.true.i532:                                   ; preds = %if.end.i30
-  %119 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i27, i1 true)
+  %119 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i27, i1 true)
   %add.i533 = sub nuw nsw i32 67, %119
   br label %ZSTD_MLcode.exit534
 
@@ -892,7 +892,7 @@ ZSTD_MLcode.exit534:                              ; preds = %cond.true.i532, %co
   %arrayidx37.i55 = getelementptr inbounds i32, ptr %123, i64 %idxprom26.i46
   %124 = load i32, ptr %arrayidx37.i55, align 4
   %add.i535 = add i32 %124, 1
-  %125 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i535, i1 true)
+  %125 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i535, i1 true)
   %sub.i.i536 = shl nuw nsw i32 %125, 8
   %mul.i537.neg732 = add nsw i32 %sub.i.i536, -7936
   %reass.add679 = add nuw nsw i32 %sub.i519, %conv.i48
@@ -1173,7 +1173,7 @@ if.end.i582:                                      ; preds = %for.end.i579, %if.e
   br i1 %cmp.i13.i, label %cond.true.i.i595, label %cond.false.i.i583
 
 cond.true.i.i595:                                 ; preds = %if.end.i582
-  %142 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %135, i1 true)
+  %142 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %135, i1 true)
   %add.i.i596 = sub nuw nsw i32 50, %142
   br label %ZSTD_LLcode.exit.i586
 
@@ -1195,7 +1195,7 @@ ZSTD_LLcode.exit.i586:                            ; preds = %cond.false.i.i583, 
   %146 = load i32, ptr %litLengthSum.i, align 4
   %inc8.i = add i32 %146, 1
   store i32 %inc8.i, ptr %litLengthSum.i, align 4
-  %147 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %137, i1 true)
+  %147 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %137, i1 true)
   %sub.i.i588 = xor i32 %147, 31
   %148 = load ptr, ptr %offCodeFreq9.i, align 8
   %idxprom10.i589 = zext nneg i32 %sub.i.i588 to i64
@@ -1211,7 +1211,7 @@ ZSTD_LLcode.exit.i586:                            ; preds = %cond.false.i.i583, 
   br i1 %cmp.i15.i, label %cond.true.i21.i593, label %cond.false.i16.i
 
 cond.true.i21.i593:                               ; preds = %ZSTD_LLcode.exit.i586
-  %151 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i591, i1 true)
+  %151 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i591, i1 true)
   %add.i22.i594 = sub nuw nsw i32 67, %151
   br label %ZSTD_updateStats.exit
 
@@ -1405,7 +1405,7 @@ for.end501.i:                                     ; preds = %for.inc499.i, %for.
 if.then.i607:                                     ; preds = %for.end501.i
   %167 = load i32, ptr %litSum.i, align 8
   %add.i16.i = add i32 %167, 1
-  %168 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i16.i, i1 true)
+  %168 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i16.i, i1 true)
   %sub.i.i17.i = shl nuw nsw i32 %168, 8
   %mul.i18.i = xor i32 %sub.i.i17.i, 7936
   store i32 %mul.i18.i, ptr %litSumBasePrice.i, align 8
@@ -1414,17 +1414,17 @@ if.then.i607:                                     ; preds = %for.end501.i
 ZSTD_setBasePrices.exit:                          ; preds = %for.end501.i, %if.then.i607
   %169 = load i32, ptr %litLengthSum.i, align 4
   %add.i25.i = add i32 %169, 1
-  %170 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i25.i, i1 true)
+  %170 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i25.i, i1 true)
   %sub.i.i26.i = shl nuw nsw i32 %170, 8
   %mul.i27.i = xor i32 %sub.i.i26.i, 7936
   %171 = load i32, ptr %matchLengthSum.i, align 8
   %add.i34.i = add i32 %171, 1
-  %172 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i34.i, i1 true)
+  %172 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i34.i, i1 true)
   %sub.i.i35.i = shl nuw nsw i32 %172, 8
   %mul.i36.i = xor i32 %sub.i.i35.i, 7936
   %173 = load i32, ptr %offCodeSum.i, align 4
   %add.i43.i = add i32 %173, 1
-  %174 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i43.i, i1 true)
+  %174 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i43.i, i1 true)
   %sub.i.i44.i = shl nuw nsw i32 %174, 8
   %mul.i45.i = xor i32 %sub.i.i44.i, 7936
   store i32 %mul.i27.i, ptr %litLengthSumBasePrice.i, align 4
@@ -1607,7 +1607,7 @@ for.end.i:                                        ; preds = %for.body.i
 
 if.then.i366:                                     ; preds = %for.end.i
   %add.i12.i = add i32 %conv29.i, 1
-  %17 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i12.i, i1 true)
+  %17 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i12.i, i1 true)
   %sub.i.i.i = xor i32 %17, 31
   %mul.i.i = shl nuw nsw i32 %sub.i.i.i, 8
   %shl.i.i = shl i32 %add.i12.i, 8
@@ -1625,7 +1625,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %arrayidx16.i.i = getelementptr inbounds i8, ptr %19, i64 140
   %20 = load i32, ptr %arrayidx16.i.i, align 4
   %add.i32.i = add i32 %20, 1
-  %21 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i32.i, i1 true)
+  %21 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i32.i, i1 true)
   %sub.i.i36.i = xor i32 %21, 31
   %shl.i38.i = shl i32 %add.i32.i, 8
   %shr.i39.i = lshr i32 %shl.i38.i, %sub.i.i36.i
@@ -1640,7 +1640,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp.i16.i, label %cond.true.i21.i, label %cond.false.i17.i
 
 cond.true.i21.i:                                  ; preds = %if.end5.i
-  %24 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv29.i, i1 true)
+  %24 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv29.i, i1 true)
   %add.i22.i = sub nuw nsw i32 50, %24
   br label %ZSTD_LLcode.exit.i
 
@@ -1662,7 +1662,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %cond.false.i17.i, %
   %arrayidx16.i = getelementptr inbounds i32, ptr %28, i64 %idxprom.i361
   %29 = load i32, ptr %arrayidx16.i, align 4
   %add.i29.i = add i32 %29, 1
-  %30 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i29.i, i1 true)
+  %30 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i29.i, i1 true)
   %sub.i.i24.i = xor i32 %30, 31
   %shl.i26.i = shl i32 %add.i29.i, 8
   %shr.i27.i = lshr i32 %shl.i26.i, %sub.i.i24.i
@@ -1697,7 +1697,7 @@ if.end.i370:                                      ; preds = %if.end68.i
   %35 = load ptr, ptr %litLengthFreq14.i, align 8
   %36 = load i32, ptr %35, align 4
   %add.i29.i383 = add i32 %36, 1
-  %37 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i29.i383, i1 true)
+  %37 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i29.i383, i1 true)
   %sub.i.i24.i384 = xor i32 %37, 31
   %shl.i26.i386 = shl i32 %add.i29.i383, 8
   %shr.i27.i387 = lshr i32 %shl.i26.i386, %sub.i.i24.i384
@@ -1735,7 +1735,7 @@ for.body85.i:                                     ; preds = %for.body85.i.prehea
   br i1 %cmp93.i.not788, label %for.end114.i, label %for.body95.i.lr.ph
 
 for.body95.i.lr.ph:                               ; preds = %for.body85.i
-  %42 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
+  %42 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %40, i1 true)
   %sub.i393 = xor i32 %42, 31
   %idxprom.i8 = zext nneg i32 %sub.i393 to i64
   br label %for.body95.i
@@ -1749,7 +1749,7 @@ for.body95.i:                                     ; preds = %for.body95.i.lr.ph,
 
 cond.true.i16:                                    ; preds = %for.body95.i
   %add.i394 = add i32 %pos.i.2789, -2
-  %44 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i394, i1 true)
+  %44 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i394, i1 true)
   %sub.i.i395 = xor i32 %44, 31
   %shl.i = shl i32 %add.i394, 8
   %shr.i = lshr i32 %shl.i, %sub.i.i395
@@ -1765,7 +1765,7 @@ if.end.i5:                                        ; preds = %for.body95.i
   %arrayidx.i9 = getelementptr inbounds i32, ptr %46, i64 %idxprom.i8
   %47 = load i32, ptr %arrayidx.i9, align 4
   %add.i397 = add i32 %47, 1
-  %48 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i397, i1 true)
+  %48 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i397, i1 true)
   %sub.i.i398 = xor i32 %48, 31
   %shl.i400 = shl i32 %add.i397, 8
   %shr.i401 = lshr i32 %shl.i400, %sub.i.i398
@@ -1773,7 +1773,7 @@ if.end.i5:                                        ; preds = %for.body95.i
   br i1 %cmp.i403, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i5
-  %49 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i3, i1 true)
+  %49 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i3, i1 true)
   %add.i407 = sub nuw nsw i32 67, %49
   br label %ZSTD_MLcode.exit
 
@@ -1795,7 +1795,7 @@ ZSTD_MLcode.exit:                                 ; preds = %cond.true.i, %cond.
   %arrayidx32.i = getelementptr inbounds i32, ptr %53, i64 %idxprom26.i
   %54 = load i32, ptr %arrayidx32.i, align 4
   %add.i408 = add i32 %54, 1
-  %55 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i408, i1 true)
+  %55 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i408, i1 true)
   %sub.i.i409 = xor i32 %55, 31
   %shl.i411 = shl i32 %add.i408, 8
   %shr.i412 = lshr i32 %shl.i411, %sub.i.i409
@@ -1882,7 +1882,7 @@ ZSTD_rawLiteralsCost.exit.thread874:              ; preds = %if.end2.i
   %arrayidx19.us.i = getelementptr inbounds i32, ptr %64, i64 %idxprom18.us.i
   %66 = load i32, ptr %arrayidx19.us.i, align 4
   %add.i17.us.i = add i32 %66, 1
-  %67 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i17.us.i, i1 true)
+  %67 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i17.us.i, i1 true)
   %sub.i.i.i416 = xor i32 %67, 31
   %mul.i.i417 = shl nuw nsw i32 %sub.i.i.i416, 8
   %shl.i.i418 = shl i32 %add.i17.us.i, 8
@@ -1909,7 +1909,7 @@ if.end5.i477.thread:                              ; preds = %if.end.i424
   %arrayidx16.i.i455 = getelementptr inbounds i8, ptr %69, i64 140
   %70 = load i32, ptr %arrayidx16.i.i455, align 4
   %add.i32.i456 = add i32 %70, 1
-  %71 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i32.i456, i1 true)
+  %71 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i32.i456, i1 true)
   %sub.i.i36.i457 = xor i32 %71, 31
   %shl.i38.i459 = shl i32 %add.i32.i456, 8
   %shr.i39.i460 = lshr i32 %shl.i38.i459, %sub.i.i36.i457
@@ -1925,7 +1925,7 @@ if.end5.i426:                                     ; preds = %if.end.i424
   br i1 %cmp.i16.i427, label %cond.true.i21.i450, label %cond.false.i17.i428
 
 cond.true.i21.i450:                               ; preds = %if.end5.i426
-  %74 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %cond142.i, i1 true)
+  %74 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %cond142.i, i1 true)
   %add.i22.i451 = sub nuw nsw i32 50, %74
   br label %if.end.i475
 
@@ -1939,14 +1939,14 @@ cond.false.i17.i428:                              ; preds = %if.end5.i426
 if.then.i515:                                     ; preds = %ZSTD_rawLiteralsCost.exit.thread, %ZSTD_rawLiteralsCost.exit
   %add152.i703 = phi i32 [ %add152.i700, %ZSTD_rawLiteralsCost.exit.thread ], [ %add152.i, %ZSTD_rawLiteralsCost.exit ]
   %add.i12.i465 = add i32 %cond142.i, 1
-  %76 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i12.i465, i1 true)
+  %76 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i12.i465, i1 true)
   %sub.i.i.i467 = xor i32 %76, 31
   %mul.i.i468 = shl nuw nsw i32 %sub.i.i.i467, 8
   %shl.i.i469 = shl i32 %add.i12.i465, 8
   %shr.i.i470 = lshr i32 %shl.i.i469, %sub.i.i.i467
   %add1.i.i471 = add i32 %mul.i.i468, %shr.i.i470
   %add154.i = add nsw i32 %add1.i.i471, %add152.i703
-  %77 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %cond142.i, i1 true)
+  %77 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %cond142.i, i1 true)
   %sub.i.i.i518 = xor i32 %77, 31
   %mul.i.i519 = shl nuw nsw i32 %sub.i.i.i518, 8
   %shl.i.i520 = shl i32 %cond142.i, 8
@@ -1965,7 +1965,7 @@ if.end.i475:                                      ; preds = %cond.true.i21.i450,
   %arrayidx16.i441 = getelementptr inbounds i32, ptr %80, i64 %idxprom.i434
   %81 = load i32, ptr %arrayidx16.i441, align 4
   %add.i29.i442 = add i32 %81, 1
-  %82 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i29.i442, i1 true)
+  %82 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i29.i442, i1 true)
   %sub.i.i24.i443 = xor i32 %82, 31
   %shl.i26.i445 = shl i32 %add.i29.i442, 8
   %shr.i27.i446 = lshr i32 %shl.i26.i445, %sub.i.i24.i443
@@ -1982,7 +1982,7 @@ if.end.i.i503:                                    ; preds = %if.end.i475
   %arrayidx16.i.i506 = getelementptr inbounds i8, ptr %80, i64 140
   %83 = load i32, ptr %arrayidx16.i.i506, align 4
   %add.i32.i507 = add i32 %83, 1
-  %84 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i32.i507, i1 true)
+  %84 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i32.i507, i1 true)
   %sub.i.i36.i508 = xor i32 %84, 31
   %shl.i38.i510 = shl i32 %add.i32.i507, 8
   %shr.i39.i511 = lshr i32 %shl.i38.i510, %sub.i.i36.i508
@@ -2001,7 +2001,7 @@ cond.true.i21.i501:                               ; preds = %if.end5.i477.thread
   %88 = phi i32 [ %68, %if.end5.i477.thread ], [ %79, %if.end5.i477 ]
   %add154.i709718725 = phi i32 [ %add154.i709715, %if.end5.i477.thread ], [ %add154.i709, %if.end5.i477 ]
   %sub155.i710719723 = phi i32 [ 131071, %if.end5.i477.thread ], [ %sub155.i710, %if.end5.i477 ]
-  %89 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub155.i710719723, i1 true)
+  %89 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub155.i710719723, i1 true)
   %add.i22.i502 = sub nuw nsw i32 50, %89
   br label %ZSTD_LLcode.exit.i483
 
@@ -2024,7 +2024,7 @@ ZSTD_LLcode.exit.i483:                            ; preds = %cond.false.i17.i479
   %arrayidx16.i492 = getelementptr inbounds i32, ptr %91, i64 %idxprom.i485
   %94 = load i32, ptr %arrayidx16.i492, align 4
   %add.i29.i493 = add i32 %94, 1
-  %95 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i29.i493, i1 true)
+  %95 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i29.i493, i1 true)
   %sub.i.i24.i494 = xor i32 %95, 31
   %shl.i26.i496 = shl i32 %add.i29.i493, 8
   %shr.i27.i497 = lshr i32 %shl.i26.i496, %sub.i.i24.i494
@@ -2171,7 +2171,7 @@ if.end.i529:                                      ; preds = %cond.end259.i
   %109 = load ptr, ptr %litLengthFreq14.i, align 8
   %110 = load i32, ptr %109, align 4
   %add.i29.i542 = add i32 %110, 1
-  %111 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i29.i542, i1 true)
+  %111 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i29.i542, i1 true)
   %sub.i.i24.i543 = xor i32 %111, 31
   %shl.i26.i545 = shl i32 %add.i29.i542, 8
   %shr.i27.i546 = lshr i32 %shl.i26.i545, %sub.i.i24.i543
@@ -2373,7 +2373,7 @@ cond.end346.i:                                    ; preds = %for.body329.i, %con
   br i1 %cmp352.i.not798, label %for.end401.i, label %for.body354.i.lr.ph
 
 for.body354.i.lr.ph:                              ; preds = %cond.end346.i
-  %133 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %129, i1 true)
+  %133 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %129, i1 true)
   %sub.i568 = xor i32 %133, 31
   %idxprom.i77 = zext nneg i32 %sub.i568 to i64
   br label %for.body354.i
@@ -2389,7 +2389,7 @@ for.body354.i:                                    ; preds = %for.body354.i.lr.ph
 
 cond.true.i89:                                    ; preds = %for.body354.i
   %add.i569 = add i32 %mlen348.i.0799, -2
-  %135 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i569, i1 true)
+  %135 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i569, i1 true)
   %sub.i.i570 = xor i32 %135, 31
   %shl.i572 = shl i32 %add.i569, 8
   %shr.i573 = lshr i32 %shl.i572, %sub.i.i570
@@ -2405,7 +2405,7 @@ if.end.i30:                                       ; preds = %for.body354.i
   %arrayidx.i78 = getelementptr inbounds i32, ptr %137, i64 %idxprom.i77
   %138 = load i32, ptr %arrayidx.i78, align 4
   %add.i575 = add i32 %138, 1
-  %139 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i575, i1 true)
+  %139 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i575, i1 true)
   %sub.i.i576 = xor i32 %139, 31
   %shl.i578 = shl i32 %add.i575, 8
   %shr.i579 = lshr i32 %shl.i578, %sub.i.i576
@@ -2413,7 +2413,7 @@ if.end.i30:                                       ; preds = %for.body354.i
   br i1 %cmp.i581, label %cond.true.i587, label %cond.false.i582
 
 cond.true.i587:                                   ; preds = %if.end.i30
-  %140 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i27, i1 true)
+  %140 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i27, i1 true)
   %add.i588 = sub nuw nsw i32 67, %140
   br label %ZSTD_MLcode.exit589
 
@@ -2435,7 +2435,7 @@ ZSTD_MLcode.exit589:                              ; preds = %cond.true.i587, %co
   %arrayidx32.i66 = getelementptr inbounds i32, ptr %144, i64 %idxprom26.i46
   %145 = load i32, ptr %arrayidx32.i66, align 4
   %add.i590 = add i32 %145, 1
-  %146 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i590, i1 true)
+  %146 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i590, i1 true)
   %sub.i.i591 = xor i32 %146, 31
   %shl.i593 = shl i32 %add.i590, 8
   %shr.i594 = lshr i32 %shl.i593, %sub.i.i591
@@ -2723,7 +2723,7 @@ if.end.i640:                                      ; preds = %for.end.i637, %if.e
   br i1 %cmp.i13.i, label %cond.true.i.i653, label %cond.false.i.i641
 
 cond.true.i.i653:                                 ; preds = %if.end.i640
-  %167 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %160, i1 true)
+  %167 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %160, i1 true)
   %add.i.i654 = sub nuw nsw i32 50, %167
   br label %ZSTD_LLcode.exit.i644
 
@@ -2745,7 +2745,7 @@ ZSTD_LLcode.exit.i644:                            ; preds = %cond.false.i.i641, 
   %171 = load i32, ptr %litLengthSum.i, align 4
   %inc8.i = add i32 %171, 1
   store i32 %inc8.i, ptr %litLengthSum.i, align 4
-  %172 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %162, i1 true)
+  %172 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %162, i1 true)
   %sub.i.i646 = xor i32 %172, 31
   %173 = load ptr, ptr %offCodeFreq.i, align 8
   %idxprom10.i = zext nneg i32 %sub.i.i646 to i64
@@ -2761,7 +2761,7 @@ ZSTD_LLcode.exit.i644:                            ; preds = %cond.false.i.i641, 
   br i1 %cmp.i15.i, label %cond.true.i21.i651, label %cond.false.i16.i
 
 cond.true.i21.i651:                               ; preds = %ZSTD_LLcode.exit.i644
-  %176 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i648, i1 true)
+  %176 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i648, i1 true)
   %add.i22.i652 = sub nuw nsw i32 67, %176
   br label %ZSTD_updateStats.exit
 
@@ -2955,7 +2955,7 @@ for.end501.i:                                     ; preds = %for.inc499.i, %for.
 if.then.i665:                                     ; preds = %for.end501.i
   %192 = load i32, ptr %litSum.i, align 8
   %add.i16.i666 = add i32 %192, 1
-  %193 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i16.i666, i1 true)
+  %193 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i16.i666, i1 true)
   %sub.i.i.i668 = xor i32 %193, 31
   %mul.i.i669 = shl nuw nsw i32 %sub.i.i.i668, 8
   %shl.i.i670 = shl i32 %add.i16.i666, 8
@@ -2967,7 +2967,7 @@ if.then.i665:                                     ; preds = %for.end501.i
 ZSTD_setBasePrices.exit:                          ; preds = %for.end501.i, %if.then.i665
   %194 = load i32, ptr %litLengthSum.i, align 4
   %add.i25.i = add i32 %194, 1
-  %195 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i25.i, i1 true)
+  %195 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i25.i, i1 true)
   %sub.i.i20.i = xor i32 %195, 31
   %mul.i21.i = shl nuw nsw i32 %sub.i.i20.i, 8
   %shl.i22.i = shl i32 %add.i25.i, 8
@@ -2975,7 +2975,7 @@ ZSTD_setBasePrices.exit:                          ; preds = %for.end501.i, %if.t
   %add1.i24.i = add i32 %mul.i21.i, %shr.i23.i
   %196 = load i32, ptr %matchLengthSum.i, align 8
   %add.i28.i = add i32 %196, 1
-  %197 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i28.i, i1 true)
+  %197 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i28.i, i1 true)
   %sub.i.i29.i = xor i32 %197, 31
   %mul.i30.i = shl nuw nsw i32 %sub.i.i29.i, 8
   %shl.i31.i = shl i32 %add.i28.i, 8
@@ -2983,7 +2983,7 @@ ZSTD_setBasePrices.exit:                          ; preds = %for.end501.i, %if.t
   %add1.i33.i = add i32 %mul.i30.i, %shr.i32.i
   %198 = load i32, ptr %offCodeSum.i, align 4
   %add.i37.i = add i32 %198, 1
-  %199 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i37.i, i1 true)
+  %199 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i37.i, i1 true)
   %sub.i.i38.i = xor i32 %199, 31
   %mul.i39.i = shl nuw nsw i32 %sub.i.i38.i, 8
   %shl.i40.i = shl i32 %add.i37.i, 8
@@ -4110,7 +4110,7 @@ sum_u32.exit.i:                                   ; preds = %for.body.i.i
 
 if.end.i:                                         ; preds = %sum_u32.exit.i
   %shr.i113 = lshr i32 %add.i.i, 12
-  %39 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %shr.i113, i1 true)
+  %39 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %shr.i113, i1 true)
   %sub.i.i = xor i32 %39, 31
   br label %for.body.i5.i
 
@@ -4154,7 +4154,7 @@ sum_u32.exit.i122:                                ; preds = %for.body.i.i115
 
 if.end.i125:                                      ; preds = %sum_u32.exit.i122
   %shr.i123 = lshr i32 %add.i.i119, 11
-  %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %shr.i123, i1 true)
+  %43 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %shr.i123, i1 true)
   %sub.i.i126 = xor i32 %43, 31
   br label %for.body.i5.i127
 
@@ -4194,7 +4194,7 @@ sum_u32.exit.i145:                                ; preds = %for.body.i.i138
 
 if.end.i148:                                      ; preds = %sum_u32.exit.i145
   %shr.i146 = lshr i32 %add.i.i142, 11
-  %47 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %shr.i146, i1 true)
+  %47 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %shr.i146, i1 true)
   %sub.i.i149 = xor i32 %47, 31
   br label %for.body.i5.i150
 
@@ -4235,7 +4235,7 @@ sum_u32.exit.i168:                                ; preds = %for.body.i.i161
 
 if.end.i171:                                      ; preds = %sum_u32.exit.i168
   %shr.i169 = lshr i32 %add.i.i165, 11
-  %51 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %shr.i169, i1 true)
+  %51 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %shr.i169, i1 true)
   %sub.i.i172 = xor i32 %51, 31
   br label %for.body.i5.i173
 
@@ -4269,7 +4269,7 @@ if.then.i:                                        ; preds = %if.end147
   %litSum3.i = getelementptr inbounds i8, ptr %optPtr, i64 48
   %54 = load i32, ptr %litSum3.i, align 8
   %add.i16.i = add i32 %54, 1
-  %55 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i16.i, i1 true)
+  %55 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i16.i, i1 true)
   br i1 %tobool1.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then.i
@@ -4295,7 +4295,7 @@ if.end.i185:                                      ; preds = %cond.end.i, %if.end
   %tobool5.not.i = icmp eq i32 %optLevel, 0
   %56 = load i32, ptr %litLengthSum, align 4
   %add.i25.i = add i32 %56, 1
-  %57 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i25.i, i1 true)
+  %57 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i25.i, i1 true)
   br i1 %tobool5.not.i, label %cond.false24.i, label %cond.true22.i
 
 cond.true22.i:                                    ; preds = %if.end.i185
@@ -4307,14 +4307,14 @@ cond.true22.i:                                    ; preds = %if.end.i185
   %matchLengthSum.i = getelementptr inbounds i8, ptr %optPtr, i64 56
   %58 = load i32, ptr %matchLengthSum.i, align 8
   %add.i28.i = add i32 %58, 1
-  %59 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i28.i, i1 true)
+  %59 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i28.i, i1 true)
   %sub.i.i29.i = xor i32 %59, 31
   %mul.i30.i = shl nuw nsw i32 %sub.i.i29.i, 8
   %shl.i31.i = shl i32 %add.i28.i, 8
   %shr.i32.i = lshr i32 %shl.i31.i, %sub.i.i29.i
   %add1.i33.i = add i32 %mul.i30.i, %shr.i32.i
   %add.i37.i = add i32 %53, 1
-  %60 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i37.i, i1 true)
+  %60 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i37.i, i1 true)
   %sub.i.i38.i = xor i32 %60, 31
   %mul.i39.i = shl nuw nsw i32 %sub.i.i38.i, 8
   %shl.i40.i = shl i32 %add.i37.i, 8
@@ -4328,11 +4328,11 @@ cond.false24.i:                                   ; preds = %if.end.i185
   %matchLengthSum17.i = getelementptr inbounds i8, ptr %optPtr, i64 56
   %61 = load i32, ptr %matchLengthSum17.i, align 8
   %add.i34.i = add i32 %61, 1
-  %62 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i34.i, i1 true)
+  %62 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i34.i, i1 true)
   %sub.i.i35.i = shl nuw nsw i32 %62, 8
   %mul.i36.i = xor i32 %sub.i.i35.i, 7936
   %add.i43.i = add i32 %53, 1
-  %63 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add.i43.i, i1 true)
+  %63 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i43.i, i1 true)
   %sub.i.i44.i = shl nuw nsw i32 %63, 8
   %mul.i45.i = xor i32 %sub.i.i44.i, 7936
   br label %ZSTD_setBasePrices.exit

@@ -61888,7 +61888,7 @@ define internal fastcc noundef i8 @_ZN6ide_db7imports13merge_imports39use_tree_c
           to label %.body unwind label %202
 
 141:                                              ; preds = %90
-  %142 = invoke fastcc noundef i8 @"_ZN6ide_db7imports13merge_imports39use_tree_cmp_by_tree_list_glob_or_alias28_$u7b$$u7b$closure$u7d$$u7d$17h449ac710c2f32319E"(ptr readonly %0, ptr nonnull readonly %1)
+  %142 = invoke fastcc noundef range(i8 -1, 2) i8 @"_ZN6ide_db7imports13merge_imports39use_tree_cmp_by_tree_list_glob_or_alias28_$u7b$$u7b$closure$u7d$$u7d$17h449ac710c2f32319E"(ptr readonly %0, ptr nonnull readonly %1)
           to label %_ZN4core3ops8function6FnOnce9call_once17h91d9702f4917041dE.exit unwind label %.loopexit.split-lp.body
 
 _ZN4core3ops8function6FnOnce9call_once17h91d9702f4917041dE.exit: ; preds = %.noexc41, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17hbc647cd816a96750E.exit.sink.split.i", %130, %135, %141

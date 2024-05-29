@@ -1758,7 +1758,7 @@ Vec_StrPush.exit65:                               ; preds = %.Vec_StrGrow.exit10
   %113 = sub nsw i32 %.0.val, %.0.val55
   %114 = tail call i32 @llvm.abs.i32(i32 %113, i1 true)
   %115 = add nuw nsw i32 %114, 1
-  %116 = tail call i32 @llvm.smin.i32(i32 %52, i32 %115)
+  %116 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smin.i32(i32 %52, i32 %115)
   %117 = icmp ult i32 %112, %116
   br i1 %117, label %73, label %.preheader81, !llvm.loop !19
 

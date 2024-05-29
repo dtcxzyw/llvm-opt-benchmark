@@ -267,7 +267,7 @@ define range(i32 -225, 32) i32 @Ifn_NtkLutSizeMax(ptr nocapture noundef readonly
 13:                                               ; preds = %8
   %14 = lshr i32 %10, 3
   %15 = and i32 %14, 31
-  %16 = tail call i32 @llvm.smax.i32(i32 %.011, i32 %15)
+  %16 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 %.011, i32 %15)
   br label %17
 
 17:                                               ; preds = %8, %13
@@ -396,7 +396,7 @@ Inf_ManOpenSymb.exit.thread:                      ; preds = %5, %5, %5, %5
 
 15:                                               ; preds = %13
   %16 = zext nneg i8 %14 to i32
-  %17 = tail call i32 @llvm.smax.i32(i32 %.0, i32 %16)
+  %17 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 %.0, i32 %16)
   %18 = zext nneg i8 %7 to i64
   %19 = add nsw i64 %18, -97
   %20 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %19
@@ -739,7 +739,7 @@ define range(i32 0, 2) i32 @Ifn_ManStrCheck2(ptr noundef %0, ptr nocapture nound
   store i32 2, ptr %18, align 4
   %19 = zext nneg i8 %7 to i32
   %20 = add nsw i32 %19, -97
-  %21 = tail call i32 @llvm.smax.i32(i32 %.0, i32 %20)
+  %21 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 %.0, i32 %20)
   br label %25
 
 22:                                               ; preds = %10
@@ -798,7 +798,7 @@ define range(i32 0, 2) i32 @Ifn_ManStrCheck2(ptr noundef %0, ptr nocapture nound
   store i32 1, ptr %37, align 4
   %40 = zext nneg i8 %27 to i32
   %41 = add nsw i32 %40, -97
-  %42 = tail call i32 @llvm.smax.i32(i32 %.0109, i32 %41)
+  %42 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 %.0109, i32 %41)
   br label %46
 
 43:                                               ; preds = %30

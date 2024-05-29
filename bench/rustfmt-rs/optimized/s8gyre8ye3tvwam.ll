@@ -5718,7 +5718,7 @@ default.unreachable:                              ; preds = %"_ZN80_$LT$rustfmt_
   %39 = icmp ne ptr %.val11.i.i.i, null
   tail call void @llvm.assume(i1 %39)
   call void @_ZN3std4path4Path10components17h483cb2f6996bcf09E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %.val11.i.i.i, i64 noundef %.val12.i.i.i), !noalias !1064
-  %40 = call noundef i8 @_ZN3std4path18compare_components17h0c1ef3c5f3cacc12E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5), !range !1065, !noalias !1064
+  %40 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h0c1ef3c5f3cacc12E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5), !range !1065, !noalias !1064
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1064
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !1064
   switch i8 %40, label %default.unreachable [
@@ -5821,7 +5821,7 @@ default.unreachable:                              ; preds = %"_ZN80_$LT$rustfmt_
   %28 = icmp ne ptr %.val11.i.i, null
   tail call void @llvm.assume(i1 %28)
   call void @_ZN3std4path4Path10components17h483cb2f6996bcf09E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %.val11.i.i, i64 noundef %.val12.i.i), !noalias !1077
-  %29 = call noundef i8 @_ZN3std4path18compare_components17h0c1ef3c5f3cacc12E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5), !range !1065, !noalias !1077
+  %29 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h0c1ef3c5f3cacc12E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5), !range !1065, !noalias !1077
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1077
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !1077
   switch i8 %29, label %default.unreachable [
@@ -5912,7 +5912,7 @@ default.unreachable72:                            ; preds = %"_ZN80_$LT$rustfmt_
   %29 = icmp ne ptr %.val11.i, null
   tail call void @llvm.assume(i1 %29)
   call void @_ZN3std4path4Path10components17h483cb2f6996bcf09E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %.val11.i, i64 noundef %.val12.i), !noalias !1083
-  %30 = call noundef i8 @_ZN3std4path18compare_components17h0c1ef3c5f3cacc12E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4), !range !1065, !noalias !1083
+  %30 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h0c1ef3c5f3cacc12E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4), !range !1065, !noalias !1083
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1083
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1083
   switch i8 %30, label %default.unreachable72 [

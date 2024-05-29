@@ -444,7 +444,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool148.not, label %if.then149, label %if.end156
 
 if.then149:                                       ; preds = %if.else
-  %call.i = call fastcc i32 @push_stash(i32 noundef 0, ptr noundef null, ptr noundef %prefix, i32 noundef 0)
+  %call.i = call fastcc range(i32 -1, 1) i32 @push_stash(i32 noundef 0, ptr noundef null, ptr noundef %prefix, i32 noundef 0)
   br label %return
 
 if.end156:                                        ; preds = %if.else

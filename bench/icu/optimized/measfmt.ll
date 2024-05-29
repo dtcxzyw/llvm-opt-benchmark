@@ -1262,7 +1262,7 @@ delete.notnull:                                   ; preds = %if.end41
 
 delete.end:                                       ; preds = %delete.notnull, %if.end41
   %10 = phi i32 [ %.pre, %delete.notnull ], [ %w, %if.end41 ]
-  %.width.i = tail call noundef i32 @llvm.smin.i32(i32 %10, i32 2)
+  %.width.i = tail call noundef range(i32 -2147483648, 3) i32 @llvm.smin.i32(i32 %10, i32 2)
   %idxprom = zext i32 %.width.i to i64
   %arrayidx = getelementptr inbounds [3 x i32], ptr @_ZZN6icu_7513MeasureFormat17initMeasureFormatERKNS_6LocaleE19UMeasureFormatWidthPNS_12NumberFormatER10UErrorCodeE10listWidths, i64 0, i64 %idxprom
   %11 = load i32, ptr %arrayidx, align 4
@@ -1809,7 +1809,7 @@ if.then6:                                         ; preds = %if.end
   %fWidth = getelementptr inbounds i8, ptr %this, i64 352
   %3 = load i32, ptr %fWidth, align 8
   %currencyFormats.i = getelementptr inbounds i8, ptr %2, i64 40
-  %.width.i.i = call noundef i32 @llvm.smin.i32(i32 %3, i32 2)
+  %.width.i.i = call noundef range(i32 -2147483648, 3) i32 @llvm.smin.i32(i32 %3, i32 2)
   %idxprom.i = zext i32 %.width.i.i to i64
   %arrayidx.i = getelementptr inbounds [3 x ptr], ptr %currencyFormats.i, i64 0, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8

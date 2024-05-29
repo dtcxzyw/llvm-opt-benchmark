@@ -3074,7 +3074,7 @@ _ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit: ; preds = %234, %_Z24t
   br i1 %.not105.not, label %254, label %270
 
 254:                                              ; preds = %_ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit
-  %255 = call noundef i32 @_Z12check_times2ffb(float noundef %250, float noundef %250, i1 zeroext poison)
+  %255 = call noundef range(i32 -1, 2) i32 @_Z12check_times2ffb(float noundef %250, float noundef %250, i1 zeroext poison)
   %256 = icmp sgt i32 %255, 0
   %257 = load float, ptr %24, align 4
   br i1 %256, label %258, label %.thread145
@@ -3093,7 +3093,7 @@ _ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit: ; preds = %234, %_Z24t
   br label %267
 
 .thread145:                                       ; preds = %254
-  %265 = call noundef i32 @_Z12check_times2ffb(float noundef %257, float noundef %257, i1 zeroext poison)
+  %265 = call noundef range(i32 -1, 2) i32 @_Z12check_times2ffb(float noundef %257, float noundef %257, i1 zeroext poison)
   %266 = icmp slt i32 %265, 0
   br i1 %266, label %267, label %270
 

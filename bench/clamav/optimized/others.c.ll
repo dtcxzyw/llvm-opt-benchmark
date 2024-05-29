@@ -1980,7 +1980,7 @@ define void @cli_append_potentially_unwanted_if_heur_exceedsmax(ptr noundef %0, 
   %14 = lshr i32 %13, 3
   %.lobit.i = and i32 %14, 1
   %..i = xor i32 %.lobit.i, 1
-  %15 = tail call fastcc i32 @append_virus(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %..i)
+  %15 = tail call fastcc range(i32 0, 35) i32 @append_virus(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %..i)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.62, ptr noundef %1) #24
   %.pre = load ptr, ptr %7, align 8
   br label %16
@@ -2073,7 +2073,7 @@ define i32 @cli_checklimits(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %31 = lshr i32 %30, 3
   %.lobit.i.i = and i32 %31, 1
   %..i.i = xor i32 %.lobit.i.i, 1
-  %32 = tail call fastcc i32 @append_virus(ptr noundef nonnull %1, ptr noundef nonnull @.str.64, i32 noundef %..i.i)
+  %32 = tail call fastcc range(i32 0, 35) i32 @append_virus(ptr noundef nonnull %1, ptr noundef nonnull @.str.64, i32 noundef %..i.i)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.64) #24
   %.pre.i = load ptr, ptr %24, align 8
   br label %33
@@ -2125,7 +2125,7 @@ define i32 @cli_checklimits(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %58 = lshr i32 %57, 3
   %.lobit.i.i48 = and i32 %58, 1
   %..i.i49 = xor i32 %.lobit.i.i48, 1
-  %59 = tail call fastcc i32 @append_virus(ptr noundef nonnull %1, ptr noundef nonnull @.str.66, i32 noundef %..i.i49)
+  %59 = tail call fastcc range(i32 0, 35) i32 @append_virus(ptr noundef nonnull %1, ptr noundef nonnull @.str.66, i32 noundef %..i.i49)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.66) #24
   %.pre.i50 = load ptr, ptr %51, align 8
   br label %60
@@ -2181,7 +2181,7 @@ define i32 @cli_checklimits(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %86 = lshr i32 %85, 3
   %.lobit.i.i55 = and i32 %86, 1
   %..i.i56 = xor i32 %.lobit.i.i55, 1
-  %87 = tail call fastcc i32 @append_virus(ptr noundef nonnull %1, ptr noundef nonnull @.str.68, i32 noundef %..i.i56)
+  %87 = tail call fastcc range(i32 0, 35) i32 @append_virus(ptr noundef nonnull %1, ptr noundef nonnull @.str.68, i32 noundef %..i.i56)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.68) #24
   %.pre.i57 = load ptr, ptr %79, align 8
   br label %88
@@ -2266,7 +2266,7 @@ define range(i32 0, 22) i32 @cli_checktimelimit(ptr noundef %0) local_unnamed_ad
   %35 = lshr i32 %34, 3
   %.lobit.i.i = and i32 %35, 1
   %..i.i = xor i32 %.lobit.i.i, 1
-  %36 = tail call fastcc i32 @append_virus(ptr noundef nonnull %0, ptr noundef nonnull @.str.70, i32 noundef %..i.i)
+  %36 = tail call fastcc range(i32 0, 35) i32 @append_virus(ptr noundef nonnull %0, ptr noundef nonnull @.str.70, i32 noundef %..i.i)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.70) #24
   %.pre.i = load ptr, ptr %28, align 8
   br label %37
@@ -2644,7 +2644,7 @@ define range(i32 0, 35) i32 @cli_append_virus(ptr noundef %0, ptr noundef %1) lo
   %15 = lshr i32 %14, 3
   %.lobit.i = and i32 %15, 1
   %..i = xor i32 %.lobit.i, 1
-  %16 = tail call fastcc i32 @append_virus(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %..i)
+  %16 = tail call fastcc range(i32 0, 35) i32 @append_virus(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %..i)
   br label %19
 
 17:                                               ; preds = %8
@@ -2753,7 +2753,7 @@ define i32 @cli_recursion_stack_push(ptr noundef %0, ptr noundef %1, i32 noundef
   %33 = lshr i32 %32, 3
   %.lobit.i.i = and i32 %33, 1
   %..i.i = xor i32 %.lobit.i.i, 1
-  %34 = tail call fastcc i32 @append_virus(ptr noundef nonnull %0, ptr noundef nonnull @.str.85, i32 noundef %..i.i)
+  %34 = tail call fastcc range(i32 0, 35) i32 @append_virus(ptr noundef nonnull %0, ptr noundef nonnull @.str.85, i32 noundef %..i.i)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.85) #24
   %.pre.i = load ptr, ptr %26, align 8
   br label %35

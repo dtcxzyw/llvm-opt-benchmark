@@ -10091,7 +10091,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %9 = add nuw i64 %.12312.us19, 1
   %10 = getelementptr inbounds ptr, ptr %0, i64 %9
   %11 = getelementptr inbounds ptr, ptr %0, i64 %.12312.us19
-  %12 = tail call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11), !range !1789
+  %12 = tail call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11), !range !1789
   %13 = icmp eq i8 %12, -1
   br i1 %13, label %._crit_edge.us, label %.lr.ph20
 
@@ -10106,7 +10106,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   br label %.thread
 
 .lr.ph.us:                                        ; preds = %.split.us
-  %15 = tail call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0), !range !1789
+  %15 = tail call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0), !range !1789
   %16 = icmp eq i8 %15, -1
   br i1 %16, label %._crit_edge.us, label %.lr.ph20.preheader
 
@@ -10127,7 +10127,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %22 = icmp ult i64 %21, %1
   call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds ptr, ptr %0, i64 %21
-  %24 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23), !range !1789
+  %24 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23), !range !1789
   %25 = icmp eq i8 %24, -1
   br i1 %25, label %._crit_edge, label %.lr.ph69
 
@@ -10140,7 +10140,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %27 = icmp ult i64 %.1231268, %1
   call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds ptr, ptr %0, i64 %.1231268
-  %29 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28), !range !1789
+  %29 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28), !range !1789
   %30 = icmp eq i8 %29, -1
   br i1 %30, label %.lr.ph.._crit_edge.loopexit_crit_edge, label %.lr.ph69
 
@@ -10191,7 +10191,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   call void @llvm.experimental.noalias.scope.decl(metadata !1795)
   call void @llvm.experimental.noalias.scope.decl(metadata !1798)
   %44 = getelementptr i8, ptr %40, i64 -8
-  %45 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %44), !range !1789
+  %45 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %44), !range !1789
   %46 = icmp eq i8 %45, -1
   br i1 %46, label %47, label %_ZN4core5slice4sort11insert_tail17he09d0248126b6742E.exit.i
 
@@ -10223,7 +10223,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %.sroa.5.08.i.i = phi ptr [ %53, %57 ], [ %44, %47 ]
   %52 = add i64 %.sroa.4.09.i.i, -1
   %53 = getelementptr inbounds ptr, ptr %0, i64 %52
-  %54 = invoke noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %53)
+  %54 = invoke noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %53)
           to label %55 unwind label %59
 
 55:                                               ; preds = %.lr.ph.i.i
@@ -10250,7 +10250,7 @@ common.resume:                                    ; preds = %77, %59
 _ZN4core5slice4sort11insert_tail17he09d0248126b6742E.exit.i: ; preds = %.thread.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9d36ad10e6b61fa8E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !1802)
   call void @llvm.experimental.noalias.scope.decl(metadata !1805)
-  %61 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0), !range !1789
+  %61 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0), !range !1789
   %62 = icmp eq i8 %61, -1
   br i1 %62, label %63, label %_ZN4core5slice4sort26insertion_sort_shift_right17hc142c4fc1c64d171E.exit
 
@@ -10284,7 +10284,7 @@ _ZN4core5slice4sort11insert_tail17he09d0248126b6742E.exit.i: ; preds = %.thread.
   %68 = add nuw i64 %.sroa.02.05.i.i, 1
   call void @llvm.assume(i1 %67)
   %69 = getelementptr inbounds ptr, ptr %0, i64 %.sroa.02.05.i.i
-  %70 = invoke noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+  %70 = invoke noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
           to label %71 unwind label %77
 
 71:                                               ; preds = %.lr.ph.i.i27
@@ -10718,7 +10718,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf6204f2af532297dE.exit: ; preds
   %27 = icmp ult i64 %.0.i, %.sroa.14.0152
   call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %.0.i
-  %29 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28), !range !1789, !noalias !1865
+  %29 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28), !range !1789, !noalias !1865
   %30 = icmp eq i8 %29, -1
   %31 = zext i1 %30 to i64
   %.194.i = add nuw nsw i64 %.093.i, %31
@@ -10728,14 +10728,14 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf6204f2af532297dE.exit: ; preds
   call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %.044.i
   %35 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %.141.i
-  %36 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %35), !range !1789, !noalias !1874
+  %36 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %35), !range !1789, !noalias !1874
   %37 = icmp eq i8 %36, -1
   %38 = zext i1 %37 to i64
   %.295.i = add nuw nsw i64 %.194.i, %38
   %.242.i = select i1 %37, i64 %.044.i, i64 %.141.i
   %39 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %.242.i
   %40 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %32
-  %41 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %40), !range !1789, !noalias !1879
+  %41 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %40), !range !1789, !noalias !1879
   %42 = icmp eq i8 %41, -1
   br i1 %42, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h7d11bc4b52491c82E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h7d11bc4b52491c82E.exit.thread.i"
 
@@ -10750,7 +10750,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf6204f2af532297dE.exit: ; preds
   %47 = icmp ult i64 %44, %.sroa.14.0152
   call void @llvm.assume(i1 %47)
   %48 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %44
-  %49 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %48), !range !1789, !noalias !1884
+  %49 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %48), !range !1789, !noalias !1884
   %50 = icmp eq i8 %49, -1
   %.497.i = zext i1 %50 to i64
   %.1.i = select i1 %50, i64 %44, i64 %21
@@ -10759,14 +10759,14 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf6204f2af532297dE.exit: ; preds
   call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %45
   %54 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %.1.i
-  %55 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %54), !range !1789, !noalias !1893
+  %55 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %54), !range !1789, !noalias !1893
   %56 = icmp eq i8 %55, -1
   %57 = zext i1 %56 to i64
   %.598.i = add nuw nsw i64 %57, %.497.i
   %.2.i = select i1 %56, i64 %45, i64 %.1.i
   %58 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %.2.i
   %59 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %51
-  %60 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %59), !range !1789, !noalias !1898
+  %60 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %59), !range !1789, !noalias !1898
   %61 = icmp eq i8 %60, -1
   %62 = zext i1 %61 to i64
   %.699.i = add nuw nsw i64 %.598.i, %62
@@ -10779,7 +10779,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf6204f2af532297dE.exit: ; preds
   %67 = icmp ult i64 %63, %.sroa.14.0152
   call void @llvm.assume(i1 %67)
   %68 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %63
-  %69 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %68), !range !1789, !noalias !1903
+  %69 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %68), !range !1789, !noalias !1903
   %70 = icmp eq i8 %69, -1
   %71 = zext i1 %70 to i64
   %.7.i = add nuw nsw i64 %.699.i, %71
@@ -10789,14 +10789,14 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf6204f2af532297dE.exit: ; preds
   call void @llvm.assume(i1 %73)
   %74 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %64
   %75 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %.4.i
-  %76 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %75), !range !1789, !noalias !1912
+  %76 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %75), !range !1789, !noalias !1912
   %77 = icmp eq i8 %76, -1
   %78 = zext i1 %77 to i64
   %.8.i = add nuw nsw i64 %.7.i, %78
   %.5.i = select i1 %77, i64 %64, i64 %.4.i
   %79 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %.5.i
   %80 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %72
-  %81 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %80), !range !1789, !noalias !1917
+  %81 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %80), !range !1789, !noalias !1917
   %82 = icmp eq i8 %81, -1
   %83 = zext i1 %82 to i64
   %.9.i = add nuw nsw i64 %.8.i, %83
@@ -10809,7 +10809,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf6204f2af532297dE.exit: ; preds
   %88 = icmp ult i64 %84, %.sroa.14.0152
   call void @llvm.assume(i1 %88)
   %89 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %84
-  %90 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %89), !range !1789, !noalias !1922
+  %90 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %89), !range !1789, !noalias !1922
   %91 = icmp eq i8 %90, -1
   %92 = zext i1 %91 to i64
   %.10.i = add nuw nsw i64 %.9.i, %92
@@ -10819,14 +10819,14 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf6204f2af532297dE.exit: ; preds
   call void @llvm.assume(i1 %94)
   %95 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %85
   %96 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %.145.i
-  %97 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %96), !range !1789, !noalias !1931
+  %97 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %96), !range !1789, !noalias !1931
   %98 = icmp eq i8 %97, -1
   %99 = zext i1 %98 to i64
   %.11.i = add nuw nsw i64 %.10.i, %99
   %.246.i = select i1 %98, i64 %85, i64 %.145.i
   %100 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %.246.i
   %101 = getelementptr inbounds ptr, ptr %.sroa.0.0153, i64 %93
-  %102 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %101), !range !1789, !noalias !1936
+  %102 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %101), !range !1789, !noalias !1936
   %103 = icmp eq i8 %102, -1
   %104 = zext i1 %103 to i64
   %spec.select.i = add nuw nsw i64 %.11.i, %104
@@ -10912,7 +10912,7 @@ _ZN4core5slice4sort12choose_pivot17hbeb4122bdb7bf93dE.exit: ; preds = %"_ZN4core
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %137
   %.02220.i = phi i64 [ %138, %137 ], [ 0, %.lr.ph.i.preheader ]
   %133 = getelementptr inbounds ptr, ptr %130, i64 %.02220.i
-  %134 = invoke noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %133, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
+  %134 = invoke noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %133, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
           to label %135 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 ._crit_edge.i:                                    ; preds = %137, %135
@@ -10938,7 +10938,7 @@ _ZN4core5slice4sort12choose_pivot17hbeb4122bdb7bf93dE.exit: ; preds = %"_ZN4core
   %143 = icmp ult i64 %142, %131
   call void @llvm.assume(i1 %143)
   %144 = getelementptr ptr, ptr %.sroa.0.0153.lcssa192, i64 %.0.i52
-  %145 = invoke noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %144, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
+  %145 = invoke noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %144, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
           to label %149 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 146:                                              ; preds = %149, %139
@@ -11023,7 +11023,7 @@ _ZN4core5slice4sort12choose_pivot17hbeb4122bdb7bf93dE.exit: ; preds = %"_ZN4core
   store i8 %170, ptr %.214614.i.i, align 1, !noalias !1964
   %171 = icmp ne ptr %.016313.i.i, null
   call void @llvm.assume(i1 %171)
-  %172 = invoke noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.016313.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
+  %172 = invoke noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.016313.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
           to label %.noexc30.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc30.i:                                       ; preds = %.lr.ph.i.i
@@ -11055,7 +11055,7 @@ _ZN4core5slice4sort12choose_pivot17hbeb4122bdb7bf93dE.exit: ; preds = %"_ZN4core
   %184 = getelementptr inbounds i8, ptr %.016415.i.i, i64 -8
   %185 = trunc i64 %.sroa.099.016.i.i to i8
   store i8 %185, ptr %.216017.i.i, align 1, !noalias !1964
-  %186 = invoke noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
+  %186 = invoke noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %184, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
           to label %.noexc31.i unwind label %.loopexit3.i
 
 .noexc31.i:                                       ; preds = %.lr.ph18.i.i
@@ -11240,7 +11240,7 @@ common.resume:                                    ; preds = %317, %289, %.loopex
 
 260:                                              ; preds = %123
   %261 = getelementptr inbounds [0 x ptr], ptr %.sroa.0.0153, i64 0, i64 %.sroa.0.0.i
-  %262 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.0.ph160, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %261), !range !1789
+  %262 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.0.ph160, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %261), !range !1789
   %263 = icmp eq i8 %262, -1
   br i1 %263, label %125, label %.outer.i.preheader
 
@@ -11266,7 +11266,7 @@ common.resume:                                    ; preds = %317, %289, %.loopex
   %269 = icmp ult i64 %.0228.i, %267
   call void @llvm.assume(i1 %269)
   %270 = getelementptr inbounds ptr, ptr %266, i64 %.0228.i
-  %271 = invoke noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %270)
+  %271 = invoke noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %270)
           to label %272 unwind label %.loopexit.split-lp.i70
 
 ._crit_edge.i61:                                  ; preds = %274, %272, %.outer.i
@@ -11292,7 +11292,7 @@ common.resume:                                    ; preds = %317, %289, %.loopex
   %279 = icmp ult i64 %277, %267
   call void @llvm.assume(i1 %279)
   %280 = getelementptr ptr, ptr %.sroa.0.0153, i64 %.1.i63
-  %281 = invoke noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %280)
+  %281 = invoke noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %280)
           to label %282 unwind label %.loopexit.i66
 
 282:                                              ; preds = %278
@@ -11373,7 +11373,7 @@ _ZN4core5slice4sort15partition_equal17h70b9edfa7ad64214E.exit: ; preds = %276
   call void @llvm.experimental.noalias.scope.decl(metadata !1985)
   %301 = getelementptr ptr, ptr %.sroa.0.0.lcssa, i64 %.sroa.01.04.i
   %302 = getelementptr i8, ptr %301, i64 -8
-  %303 = call noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %301, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %302), !range !1789
+  %303 = call noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %301, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %302), !range !1789
   %304 = icmp eq i8 %303, -1
   br i1 %304, label %305, label %_ZN4core5slice4sort11insert_tail17he09d0248126b6742E.exit.i
 
@@ -11405,7 +11405,7 @@ _ZN4core5slice4sort15partition_equal17h70b9edfa7ad64214E.exit: ; preds = %276
   %.sroa.5.08.i.i = phi ptr [ %311, %315 ], [ %302, %305 ]
   %310 = add i64 %.sroa.4.09.i.i, -1
   %311 = getelementptr inbounds ptr, ptr %.sroa.0.0.lcssa, i64 %310
-  %312 = invoke noundef i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %311)
+  %312 = invoke noundef range(i8 -1, 2) i8 @_ZN6ide_db7imports13merge_imports12use_tree_cmp17h654dc677c18ef9b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %311)
           to label %313 unwind label %317
 
 313:                                              ; preds = %.lr.ph.i.i74

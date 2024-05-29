@@ -15945,7 +15945,7 @@ define internal fastcc void @"_ZN13wasmtime_wasi3tcp9TcpSocket3new28_$u7b$$u7b$c
 
 23:                                               ; preds = %12
   store i32 %17, ptr %4, align 4
-  %24 = invoke noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  %24 = invoke noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
           to label %30 unwind label %27
 
 25:                                               ; preds = %12
@@ -16098,7 +16098,7 @@ _ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37e
   %.045.in = getelementptr inbounds i8, ptr %1, i64 %trunc
   %.045 = load i16, ptr %.045.in, align 2, !noundef !5
   %34 = icmp ne i16 %.045, 0
-  %35 = call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11), !range !1450, !noalias !3146
+  %35 = call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11), !range !1450, !noalias !3146
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3146
   %36 = zext i1 %34 to i32
   store i32 %36, ptr %5, align 4, !noalias !3146
@@ -17897,19 +17897,19 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket13local_address17hc7dd2f3c5330312bE
   unreachable
 
 11:                                               ; preds = %6
-  %12 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3353
+  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3353
   br label %23
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !3350, !noalias !3353, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %16 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15), !range !1450, !noalias !3355
+  %16 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15), !range !1450, !noalias !3355
   br label %23
 
 17:                                               ; preds = %6, %6
   %.0.i = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3353
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3353
   br label %23
 
 19:                                               ; preds = %2
@@ -17989,7 +17989,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket14remote_address17h1eb38baec7be3e62
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %8, align 8, !alias.scope !3357, !noalias !3360, !nonnull !5, !noundef !5
   %9 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %10 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9), !range !1450, !noalias !3362
+  %10 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9), !range !1450, !noalias !3362
   store i32 %10, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZN3std3net3tcp9TcpStream9peer_addr17h7b2c39bcab6c6bf7E(ptr noalias nocapture noundef nonnull sret({ i16, [15 x i16] }) align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
@@ -18093,7 +18093,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket23set_listen_backlog_size17h
   br label %11
 
 .split11:                                         ; preds = %6
-  %16 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3363
+  %16 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3363
   %17 = zext i32 %16 to i64
   %18 = inttoptr i64 %17 to ptr
   %19 = zext nneg i32 %.0.in.sroa.speculate.load.4.sroa.speculated.i to i64
@@ -18137,25 +18137,25 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket18keep_alive_enabled17hf69113576865
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3370
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3370
   br label %.noexc
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %16, align 8, !alias.scope !3367, !noalias !3370, !nonnull !5, !noundef !5
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %18 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3372
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3372
   br label %.noexc
 
 19:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %1, i64 8
-  %20 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3370
+  %20 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3370
   br label %.noexc
 
 .noexc:                                           ; preds = %19, %15, %13
   %.sroa.4.0.ph = phi i32 [ %20, %19 ], [ %14, %13 ], [ %18, %15 ]
   store i32 %.sroa.4.0.ph, ptr %7, align 4
-  %21 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
+  %21 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !3373
   store i32 4, ptr %6, align 4, !noalias !3373
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3373
@@ -18250,25 +18250,25 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket22set_keep_alive_enabled17hf
   unreachable
 
 10:                                               ; preds = %2
-  %11 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3380
+  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3380
   br label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %13, align 8, !alias.scope !3377, !noalias !3380, !nonnull !5, !noundef !5
   %14 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %15 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14), !range !1450, !noalias !3382
+  %15 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14), !range !1450, !noalias !3382
   br label %18
 
 16:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3380
+  %17 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3380
   br label %18
 
 18:                                               ; preds = %16, %12, %10
   %.sroa.4.0.ph = phi i32 [ %17, %16 ], [ %11, %10 ], [ %15, %12 ]
   store i32 %.sroa.4.0.ph, ptr %4, align 4
-  %19 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  %19 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !3383
   %20 = zext i1 %1 to i32
   store i32 %20, ptr %3, align 4, !noalias !3383
@@ -18331,25 +18331,25 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket20keep_alive_idle_time17h152338cb8b
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3389
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3389
   br label %.noexc
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %16, align 8, !alias.scope !3386, !noalias !3389, !nonnull !5, !noundef !5
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %18 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3391
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3391
   br label %.noexc
 
 19:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %1, i64 8
-  %20 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3389
+  %20 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3389
   br label %.noexc
 
 .noexc:                                           ; preds = %19, %15, %13
   %.sroa.4.0.ph = phi i32 [ %20, %19 ], [ %14, %13 ], [ %18, %15 ]
   store i32 %.sroa.4.0.ph, ptr %7, align 4
-  %21 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
+  %21 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !3392
   store i32 4, ptr %6, align 4, !noalias !3392
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3392
@@ -18443,19 +18443,19 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket24set_keep_alive_idle_time17
   unreachable
 
 11:                                               ; preds = %3
-  %12 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3402
+  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3402
   br label %20
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !3399, !noalias !3402, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %16 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15), !range !1450, !noalias !3404
+  %16 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15), !range !1450, !noalias !3404
   br label %20
 
 17:                                               ; preds = %3, %3
   %.0.i = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3402
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3402
   br label %20
 
 _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread28: ; preds = %3, %3, %3, %3, %3
@@ -18483,7 +18483,7 @@ _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread28:
 _ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i: ; preds = %22, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i"
   %.sroa.4.0.i.i = phi i64 [ 0, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i" ], [ %25, %22 ]
   %.sroa.0.0.in.sroa.speculated.i.i = phi i64 [ 1, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i" ], [ %spec.select12.i, %22 ]
-  %26 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
+  %26 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
   %spec.select.i = add nuw nsw i64 %.sroa.0.0.in.sroa.speculated.i.i, %.sroa.4.0.i.i
   %27 = trunc nuw nsw i64 %spec.select.i to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !3405
@@ -18547,25 +18547,25 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket19keep_alive_interval17h7e7da89f099
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3413
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3413
   br label %.noexc
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %16, align 8, !alias.scope !3410, !noalias !3413, !nonnull !5, !noundef !5
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %18 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3415
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3415
   br label %.noexc
 
 19:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %1, i64 8
-  %20 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3413
+  %20 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3413
   br label %.noexc
 
 .noexc:                                           ; preds = %19, %15, %13
   %.sroa.4.0.ph = phi i32 [ %20, %19 ], [ %14, %13 ], [ %18, %15 ]
   store i32 %.sroa.4.0.ph, ptr %7, align 4
-  %21 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
+  %21 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !3416
   store i32 4, ptr %6, align 4, !noalias !3416
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3416
@@ -18659,19 +18659,19 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket23set_keep_alive_interval17h
   unreachable
 
 11:                                               ; preds = %3
-  %12 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3426
+  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3426
   br label %19
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !3423, !noalias !3426, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %16 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15), !range !1450, !noalias !3428
+  %16 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15), !range !1450, !noalias !3428
   br label %19
 
 17:                                               ; preds = %3, %3
   %.0.i = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3426
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3426
   br label %19
 
 19:                                               ; preds = %17, %13, %11
@@ -18695,7 +18695,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket23set_keep_alive_interval17h
 _ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i: ; preds = %21, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i"
   %.sroa.4.0.i.i = phi i64 [ 0, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i" ], [ %24, %21 ]
   %.sroa.0.0.in.sroa.speculated.i.i = phi i64 [ 1, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i" ], [ %spec.select12.i, %21 ]
-  %25 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
+  %25 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
   %spec.select.i = add nuw nsw i64 %.sroa.0.0.in.sroa.speculated.i.i, %.sroa.4.0.i.i
   %26 = trunc nuw nsw i64 %spec.select.i to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !3429
@@ -18760,25 +18760,25 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket16keep_alive_count17h058114c2176fa4
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3437
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3437
   br label %.noexc
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %16, align 8, !alias.scope !3434, !noalias !3437, !nonnull !5, !noundef !5
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %18 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3439
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3439
   br label %.noexc
 
 19:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %1, i64 8
-  %20 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3437
+  %20 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3437
   br label %.noexc
 
 .noexc:                                           ; preds = %19, %15, %13
   %.sroa.4.0.ph = phi i32 [ %20, %19 ], [ %14, %13 ], [ %18, %15 ]
   store i32 %.sroa.4.0.ph, ptr %7, align 4
-  %21 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
+  %21 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !3440
   store i32 4, ptr %6, align 4, !noalias !3440
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3440
@@ -18871,19 +18871,19 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket20set_keep_alive_count17h950
   unreachable
 
 10:                                               ; preds = %2
-  %11 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3446
+  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3446
   br label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %13, align 8, !alias.scope !3443, !noalias !3446, !nonnull !5, !noundef !5
   %14 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %15 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14), !range !1450, !noalias !3448
+  %15 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14), !range !1450, !noalias !3448
   br label %18
 
 16:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3446
+  %17 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3446
   br label %18
 
 18:                                               ; preds = %16, %12, %10
@@ -18894,7 +18894,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket20set_keep_alive_count17h950
 
 20:                                               ; preds = %18
   %.0.in.sroa.speculate.load.4.sroa.speculated.i.i = tail call i32 @llvm.umin.i32(i32 %1, i32 127)
-  %21 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  %21 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !3449
   store i32 %.0.in.sroa.speculate.load.4.sroa.speculated.i.i, ptr %3, align 4, !noalias !3449
   %22 = zext i32 %21 to i64
@@ -18961,19 +18961,19 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
   unreachable
 
 17:                                               ; preds = %2
-  %18 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3457
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3457
   br label %25
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %20, align 8, !alias.scope !3454, !noalias !3457, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %22 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %21), !range !1450, !noalias !3459
+  %22 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %21), !range !1450, !noalias !3459
   br label %25
 
 23:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3457
+  %24 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3457
   br label %25
 
 25:                                               ; preds = %23, %19, %17
@@ -18982,7 +18982,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
   %26 = getelementptr inbounds i8, ptr %1, i64 68
   %27 = load i8, ptr %26, align 4, !range !1478, !noundef !5
   %trunc26 = trunc nuw i8 %27 to i1
-  %28 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11)
+  %28 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11)
   %29 = zext i32 %28 to i64
   %30 = inttoptr i64 %29 to ptr
   br i1 %trunc26, label %.noexc46, label %.noexc
@@ -19151,19 +19151,19 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket13set_hop_limit17h6b5b5da77f
   unreachable
 
 11:                                               ; preds = %2
-  %12 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3471
+  %12 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3471
   br label %20
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !3468, !noalias !3471, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %16 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15), !range !1450, !noalias !3473
+  %16 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15), !range !1450, !noalias !3473
   br label %20
 
 17:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3471
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3471
   br label %20
 
 _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread47: ; preds = %2, %2, %2, %2, %2
@@ -19184,7 +19184,7 @@ _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread47:
 
 25:                                               ; preds = %24
   %26 = zext i8 %1 to i32
-  %27 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
+  %27 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !3474
   store i32 %26, ptr %4, align 4, !noalias !3474
   %28 = zext i32 %27 to i64
@@ -19201,7 +19201,7 @@ _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread47:
   br i1 %23, label %.thread54, label %35
 
 35:                                               ; preds = %34
-  %36 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
+  %36 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
   %37 = zext i8 %1 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !3479
   store i32 %37, ptr %3, align 4, !noalias !3479
@@ -19270,25 +19270,25 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket19receive_buffer_size17h65874498138
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3487
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3487
   br label %.noexc
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %16, align 8, !alias.scope !3484, !noalias !3487, !nonnull !5, !noundef !5
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %18 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3489
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3489
   br label %.noexc
 
 19:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %1, i64 8
-  %20 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3487
+  %20 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3487
   br label %.noexc
 
 .noexc:                                           ; preds = %19, %15, %13
   %.sroa.4.0.ph = phi i32 [ %20, %19 ], [ %14, %13 ], [ %18, %15 ]
   store i32 %.sroa.4.0.ph, ptr %7, align 4
-  %21 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
+  %21 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !3490
   store i32 4, ptr %6, align 4, !noalias !3490
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3490
@@ -19383,19 +19383,19 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket23set_receive_buffer_size17h
   unreachable
 
 10:                                               ; preds = %2
-  %11 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3501
+  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3501
   br label %19
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %13, align 8, !alias.scope !3498, !noalias !3501, !nonnull !5, !noundef !5
   %14 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %15 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14), !range !1450, !noalias !3503
+  %15 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14), !range !1450, !noalias !3503
   br label %19
 
 16:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3501
+  %17 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3501
   br label %19
 
 _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29: ; preds = %2, %2, %2, %2, %2
@@ -19410,7 +19410,7 @@ _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29:
 
 .noexc:                                           ; preds = %19
   %21 = tail call noundef i64 @_ZN4core3cmp3Ord5clamp17h93d812e144883df6E(i64 noundef %1, i64 noundef 1, i64 noundef 2147483647)
-  %22 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  %22 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   %23 = icmp ugt i64 %21, 2147483647
   br i1 %23, label %.thread35, label %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i
 
@@ -19479,25 +19479,25 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket16send_buffer_size17h1f259a0f55ae15
   unreachable
 
 13:                                               ; preds = %2
-  %14 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3512
+  %14 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !1450, !noalias !3512
   br label %.noexc
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %16, align 8, !alias.scope !3509, !noalias !3512, !nonnull !5, !noundef !5
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %18 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3514
+  %18 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !range !1450, !noalias !3514
   br label %.noexc
 
 19:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %1, i64 8
-  %20 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3512
+  %20 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3512
   br label %.noexc
 
 .noexc:                                           ; preds = %19, %15, %13
   %.sroa.4.0.ph = phi i32 [ %20, %19 ], [ %14, %13 ], [ %18, %15 ]
   store i32 %.sroa.4.0.ph, ptr %7, align 4
-  %21 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
+  %21 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !3515
   store i32 4, ptr %6, align 4, !noalias !3515
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3515
@@ -19592,19 +19592,19 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket20set_send_buffer_size17h53f
   unreachable
 
 10:                                               ; preds = %2
-  %11 = tail call noundef i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3526
+  %11 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp8listener3sys93_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..listener..TcpListener$GT$5as_fd17hd2ff447bbd8c10a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !range !1450, !noalias !3526
   br label %19
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %13, align 8, !alias.scope !3523, !noalias !3526, !nonnull !5, !noundef !5
   %14 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %15 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14), !range !1450, !noalias !3528
+  %15 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14), !range !1450, !noalias !3528
   br label %19
 
 16:                                               ; preds = %2, %2
   %.0.i = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = tail call noundef i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3526
+  %17 = tail call noundef range(i32 0, -1) i32 @"_ZN79_$LT$tokio..net..tcp..socket..TcpSocket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hfa9f1e182b976545E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !1450, !noalias !3526
   br label %19
 
 _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29: ; preds = %2, %2, %2, %2, %2
@@ -19619,7 +19619,7 @@ _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29:
 
 .noexc:                                           ; preds = %19
   %21 = tail call noundef i64 @_ZN4core3cmp3Ord5clamp17h93d812e144883df6E(i64 noundef %1, i64 noundef 1, i64 noundef 2147483647)
-  %22 = call noundef i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  %22 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   %23 = icmp ugt i64 %21, 2147483647
   br i1 %23, label %.thread35, label %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i
 
@@ -19671,7 +19671,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket8shutdown17he69b3ffcaf87d369
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   %8 = getelementptr inbounds i8, ptr %.val, i64 16
-  %9 = tail call noundef i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8), !range !1450
+  %9 = tail call noundef range(i32 0, -1) i32 @"_ZN5tokio3net3tcp6stream3sys89_$LT$impl$u20$std..os..fd..owned..AsFd$u20$for$u20$tokio..net..tcp..stream..TcpStream$GT$5as_fd17hd2d9d0f8907ee278E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8), !range !1450
   store i32 %9, ptr %3, align 4
   %10 = call noundef ptr @_ZN3std3net3tcp9TcpStream8shutdown17h4fcf9a8cbbb6088aE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, i8 noundef %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)

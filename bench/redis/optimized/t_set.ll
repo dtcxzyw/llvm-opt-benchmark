@@ -1880,7 +1880,7 @@ sw.bb13.i.i:                                      ; preds = %while.body
 
 setTypeAdd.exit:                                  ; preds = %while.body, %sw.bb.i.i, %sw.bb3.i.i, %sw.bb5.i.i, %sw.bb9.i.i, %sw.bb13.i.i
   %retval.0.i.i = phi i64 [ %12, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %while.body ]
-  %call1.i = call i32 @setTypeAddAux(ptr noundef %call30, ptr noundef nonnull %7, i64 noundef %retval.0.i.i, i64 noundef 0, i32 noundef 1)
+  %call1.i = call range(i32 0, 256) i32 @setTypeAddAux(ptr noundef %call30, ptr noundef nonnull %7, i64 noundef %retval.0.i.i, i64 noundef 0, i32 noundef 1)
   %call37 = call i32 @setTypeNext(ptr noundef nonnull %call.i, ptr noundef nonnull %str, ptr noundef nonnull %len, ptr noundef nonnull %intobj)
   %cmp38.not = icmp eq i32 %call37, -1
   br i1 %cmp38.not, label %while.end, label %while.body, !llvm.loop !8
@@ -2064,7 +2064,7 @@ sw.bb13.i.i:                                      ; preds = %for.body
 
 setTypeAdd.exit:                                  ; preds = %for.body, %sw.bb.i.i, %sw.bb3.i.i, %sw.bb5.i.i, %sw.bb9.i.i, %sw.bb13.i.i
   %retval.0.i.i = phi i64 [ %25, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %for.body ]
-  %call1.i = tail call i32 @setTypeAddAux(ptr noundef %set.0, ptr noundef nonnull %20, i64 noundef %retval.0.i.i, i64 noundef 0, i32 noundef 1)
+  %call1.i = tail call range(i32 0, 256) i32 @setTypeAddAux(ptr noundef %set.0, ptr noundef nonnull %20, i64 noundef %retval.0.i.i, i64 noundef 0, i32 noundef 1)
   %tobool20.not = icmp ne i32 %call1.i, 0
   %inc = zext i1 %tobool20.not to i32
   %spec.select = add nuw nsw i32 %added.032, %inc
@@ -2393,7 +2393,7 @@ sw.bb13.i.i:                                      ; preds = %if.then13
 
 setTypeIsMember.exit:                             ; preds = %if.then13, %sw.bb.i.i, %sw.bb3.i.i, %sw.bb5.i.i, %sw.bb9.i.i, %sw.bb13.i.i
   %retval.0.i.i = phi i64 [ %14, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %if.then13 ]
-  %call1.i = tail call i32 @setTypeIsMemberAux(ptr noundef nonnull readonly %call, ptr noundef nonnull %9, i64 noundef %retval.0.i.i, i64 noundef 0, i32 noundef 1)
+  %call1.i = tail call range(i32 0, 256) i32 @setTypeIsMemberAux(ptr noundef nonnull readonly %call, ptr noundef nonnull %9, i64 noundef %retval.0.i.i, i64 noundef 0, i32 noundef 1)
   %tobool15.not = icmp eq i32 %call1.i, 0
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
@@ -2579,7 +2579,7 @@ sw.bb13.i.i61:                                    ; preds = %if.end44
 
 setTypeAdd.exit:                                  ; preds = %if.end44, %sw.bb.i.i74, %sw.bb3.i.i71, %sw.bb5.i.i68, %sw.bb9.i.i65, %sw.bb13.i.i61
   %retval.0.i.i63 = phi i64 [ %51, %sw.bb13.i.i61 ], [ %conv12.i.i67, %sw.bb9.i.i65 ], [ %conv8.i.i70, %sw.bb5.i.i68 ], [ %conv4.i.i73, %sw.bb3.i.i71 ], [ %conv2.i.i76, %sw.bb.i.i74 ], [ 0, %if.end44 ]
-  %call1.i64 = tail call i32 @setTypeAddAux(ptr noundef %dstset.0, ptr noundef nonnull %46, i64 noundef %retval.0.i.i63, i64 noundef 0, i32 noundef 1)
+  %call1.i64 = tail call range(i32 0, 256) i32 @setTypeAddAux(ptr noundef %dstset.0, ptr noundef nonnull %46, i64 noundef %retval.0.i.i63, i64 noundef 0, i32 noundef 1)
   %tobool50.not = icmp eq i32 %call1.i64, 0
   br i1 %tobool50.not, label %if.end60, label %if.then51
 
@@ -2681,7 +2681,7 @@ sw.bb13.i.i:                                      ; preds = %if.end
 
 setTypeIsMember.exit:                             ; preds = %if.end, %sw.bb.i.i, %sw.bb3.i.i, %sw.bb5.i.i, %sw.bb9.i.i, %sw.bb13.i.i
   %retval.0.i.i = phi i64 [ %10, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %if.end ]
-  %call1.i = tail call i32 @setTypeIsMemberAux(ptr noundef nonnull readonly %call, ptr noundef nonnull %5, i64 noundef %retval.0.i.i, i64 noundef 0, i32 noundef 1)
+  %call1.i = tail call range(i32 0, 256) i32 @setTypeIsMemberAux(ptr noundef nonnull readonly %call, ptr noundef nonnull %5, i64 noundef %retval.0.i.i, i64 noundef 0, i32 noundef 1)
   %tobool5.not = icmp eq i32 %call1.i, 0
   %.val = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   %.val8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
@@ -2784,7 +2784,7 @@ sw.bb13.i.i:                                      ; preds = %for.body
 
 setTypeIsMember.exit:                             ; preds = %for.body, %sw.bb.i.i, %sw.bb3.i.i, %sw.bb5.i.i, %sw.bb9.i.i, %sw.bb13.i.i
   %retval.0.i.i = phi i64 [ %14, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %for.body ]
-  %call1.i = tail call i32 @setTypeIsMemberAux(ptr noundef nonnull readonly %call, ptr noundef nonnull %9, i64 noundef %retval.0.i.i, i64 noundef 0, i32 noundef 1)
+  %call1.i = tail call range(i32 0, 256) i32 @setTypeIsMemberAux(ptr noundef nonnull readonly %call, ptr noundef nonnull %9, i64 noundef %retval.0.i.i, i64 noundef 0, i32 noundef 1)
   %tobool10.not = icmp eq i32 %call1.i, 0
   %.val = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   %.val21 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8

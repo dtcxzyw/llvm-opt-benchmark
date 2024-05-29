@@ -4511,7 +4511,7 @@ define hidden noundef i8 @_ZN6hir_ty7display12HirFormatter12write_joined17h3f7c2
 27:                                               ; preds = %25
   %.val.i = load ptr, ptr %.sroa.0.0, align 8, !noalias !649, !nonnull !10, !noundef !10
   %28 = getelementptr inbounds i8, ptr %.val.i, i64 8
-  %29 = call noundef i8 @"_ZN81_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h16e980b4854e6a92E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %28, ptr noalias noundef nonnull align 8 dereferenceable(120) %0), !range !648
+  %29 = call noundef range(i8 0, 5) i8 @"_ZN81_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h16e980b4854e6a92E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %28, ptr noalias noundef nonnull align 8 dereferenceable(120) %0), !range !648
   %30 = icmp eq i8 %29, 4
   br i1 %30, label %18, label %.loopexit
 
@@ -4664,7 +4664,7 @@ define hidden noundef range(i8 0, 5) i8 @"_ZN6hir_ty7display26HirDisplayWrapper$
   store i8 %17, ptr %28, align 1
   %.val = load ptr, ptr %6, align 8, !nonnull !10, !noundef !10
   %29 = getelementptr inbounds i8, ptr %.val, i64 16
-  %30 = invoke noundef i8 @"_ZN79_$LT$hir_def..hir..type_ref..TypeRef$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h3c95cc5114f2952dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29, ptr noalias noundef nonnull align 8 dereferenceable(120) %4)
+  %30 = invoke noundef range(i8 0, 5) i8 @"_ZN79_$LT$hir_def..hir..type_ref..TypeRef$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h3c95cc5114f2952dE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %29, ptr noalias noundef nonnull align 8 dereferenceable(120) %4)
           to label %"_ZN73_$LT$intern..Interned$LT$T$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17hd3511c7eaec43939E.exit" unwind label %31
 
 31:                                               ; preds = %2

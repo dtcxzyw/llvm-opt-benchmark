@@ -168,7 +168,7 @@ define ptr @ping_all_controllers() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %1)
   call void @slurm_msg_t_init(ptr noundef nonnull %1) #5
   store i16 1008, ptr %11, align 4
-  %20 = call fastcc i32 @_send_message_controller(i32 noundef %18, ptr noundef nonnull %1)
+  %20 = call fastcc range(i32 -1, 1803) i32 @_send_message_controller(i32 noundef %18, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %1)
   %.not = icmp eq i32 %20, 0
   %21 = getelementptr inbounds i8, ptr %16, i64 8

@@ -376,7 +376,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end.i.i.i.i:                                   ; preds = %if.then
   %dec.i.i.i.i = add nsw i64 %conv.i, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
+  %5 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
   %sub.i.i.i.i.i = xor i64 %5, 63
   %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %mi_span_queue_for.exit.i, label %if.end3.i.i.i.i
@@ -588,7 +588,7 @@ if.then:                                          ; preds = %while.body
 
 if.end.i.i.i.i:                                   ; preds = %if.then
   %dec.i.i.i.i = add nsw i64 %conv.i, -1
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
+  %3 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
   %sub.i.i.i.i.i = xor i64 %3, 63
   %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %mi_span_queue_for.exit.i, label %if.end3.i.i.i.i
@@ -1783,7 +1783,7 @@ entry:
 
 if.end.i.i.i.i:                                   ; preds = %entry
   %dec.i.i.i.i = add nsw i64 %div13, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
   %sub.i.i.i.i.i = xor i64 %1, 63
   %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %mi_span_queue_for.exit.i, label %if.end3.i.i.i.i
@@ -1906,7 +1906,7 @@ cond.false.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %cond.false.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %sub.i28.i, -1
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i.i.i, i1 true)
+  %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i.i.i, i1 true)
   %sub.i.i.i.i.i.i.i = xor i64 %12, 63
   %cmp1.i.i.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i.i.i, label %mi_span_queue_for.exit.i.i.i, label %if.end3.i.i.i.i.i.i
@@ -2344,7 +2344,7 @@ if.then13:                                        ; preds = %if.then10
 
 if.end.i.i.i.i:                                   ; preds = %if.then13
   %dec.i.i.i.i = add nsw i64 %conv12, -1
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
+  %7 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
   %sub.i.i.i.i.i = xor i64 %7, 63
   %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %mi_span_queue_for.exit.i, label %if.end3.i.i.i.i
@@ -2437,7 +2437,7 @@ if.then29:                                        ; preds = %if.then24
 
 if.end.i.i.i.i27:                                 ; preds = %if.then29
   %dec.i.i.i.i28 = add nsw i64 %conv26, -1
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i28, i1 true)
+  %16 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i28, i1 true)
   %sub.i.i.i.i.i29 = xor i64 %16, 63
   %cmp1.i.i.i.i30 = icmp ult i64 %sub.i.i.i.i.i29, 3
   br i1 %cmp1.i.i.i.i30, label %mi_span_queue_for.exit.i38, label %if.end3.i.i.i.i31
@@ -2545,7 +2545,7 @@ cond.false:                                       ; preds = %lor.lhs.false
 
 if.end.i.i.i:                                     ; preds = %cond.false
   %dec.i.i.i = add i64 %slice_count, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i.i, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i, i1 true)
   %sub.i.i.i.i = xor i64 %1, 63
   %cmp1.i.i.i = icmp ult i64 %sub.i.i.i.i, 3
   br i1 %cmp1.i.i.i, label %mi_span_queue_for.exit, label %if.end3.i.i.i
@@ -3337,7 +3337,7 @@ cond.false.i:                                     ; preds = %lor.lhs.false.i
 
 if.end.i.i.i.i:                                   ; preds = %cond.false.i
   %dec.i.i.i.i = add i64 %sub35, -1
-  %26 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
+  %26 = call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
   %sub.i.i.i.i.i = xor i64 %26, 63
   %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, 3
   br i1 %cmp1.i.i.i.i, label %mi_span_queue_for.exit.i, label %if.end3.i.i.i.i

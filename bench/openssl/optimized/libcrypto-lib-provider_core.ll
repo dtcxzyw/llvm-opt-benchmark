@@ -724,7 +724,7 @@ for.body41:                                       ; preds = %for.cond39.preheade
 if.end46:                                         ; preds = %for.body41
   %data = getelementptr inbounds i8, ptr %arrayidx44, i64 16
   %13 = load ptr, ptr %data, align 8
-  %call.i30 = call fastcc i32 @infopair_add(ptr noundef nonnull %parameters, ptr noundef nonnull %11, ptr noundef %13)
+  %call.i30 = call fastcc range(i32 0, 2) i32 @infopair_add(ptr noundef nonnull %parameters, ptr noundef nonnull %11, ptr noundef %13)
   %cmp53.not.not = icmp eq i32 %call.i30, 0
   br i1 %cmp53.not.not, label %return, label %for.inc56
 

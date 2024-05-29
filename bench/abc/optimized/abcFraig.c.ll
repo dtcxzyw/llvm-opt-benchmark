@@ -1941,7 +1941,7 @@ Vec_PtrPush.exit:                                 ; preds = %Vec_PtrPush.exit.si
   %.021.val.val = load i32, ptr %37, align 4
   %38 = add nsw i32 %.021.val.val, %.021.val27
   %39 = sdiv i32 134217728, %38
-  %40 = tail call i32 @llvm.smin.i32(i32 %39, i32 32)
+  %40 = tail call range(i32 -134217728, 134217729) i32 @llvm.smin.i32(i32 %39, i32 32)
   call void @Fraig_ParamsSetDefault(ptr noundef nonnull %4) #11
   %.not = icmp eq i32 %0, 0
   %41 = shl nsw i32 %40, 5

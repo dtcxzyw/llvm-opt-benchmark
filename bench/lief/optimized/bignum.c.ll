@@ -916,7 +916,7 @@ mbedtls_mpi_lset.exit75:                          ; preds = %._crit_edge.i70, %1
   store i32 1, ptr %4, align 8
   store i64 1, ptr %109, align 8
   store ptr %5, ptr %110, align 8
-  %129 = call i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %129 = call range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not61 = icmp eq i32 %129, 0
@@ -7174,7 +7174,7 @@ define internal fastcc i32 @mpi_miller_rabin(ptr noundef %0, i64 noundef %1, ptr
   store i64 1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %6, ptr %18, align 8
-  %19 = call i32 @mbedtls_mpi_sub_mpi(ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %5)
+  %19 = call range(i32 -16, 1) i32 @mbedtls_mpi_sub_mpi(ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.not = icmp eq i32 %19, 0
@@ -8222,7 +8222,7 @@ mbedtls_mpi_mod_int.exit.thread:                  ; preds = %.split, %mbedtls_mp
   store i64 1, ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %13, ptr %151, align 8
-  %152 = call i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %12)
+  %152 = call range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %.not83 = icmp eq i32 %152, 0
@@ -8237,7 +8237,7 @@ mbedtls_mpi_mod_int.exit.thread:                  ; preds = %.split, %mbedtls_mp
   store i64 1, ptr %154, align 8
   %155 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %11, ptr %155, align 8
-  %156 = call i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %10)
+  %156 = call range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %.not82 = icmp eq i32 %156, 0
@@ -8389,7 +8389,7 @@ mpi_check_small_factors.exit.thread.thread105:    ; preds = %204, %166, %214, %m
   store i32 1, ptr %8, align 8
   store i64 1, ptr %162, align 8
   store ptr %9, ptr %163, align 8
-  %216 = call i32 @mbedtls_mpi_add_mpi(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %8)
+  %216 = call range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %.not87 = icmp eq i32 %216, 0
@@ -8402,7 +8402,7 @@ mpi_check_small_factors.exit.thread.thread105:    ; preds = %204, %166, %214, %m
   store i32 1, ptr %6, align 8
   store i64 1, ptr %164, align 8
   store ptr %7, ptr %165, align 8
-  %218 = call i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %6)
+  %218 = call range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not88 = icmp eq i32 %218, 0

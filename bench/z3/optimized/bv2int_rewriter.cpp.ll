@@ -1627,7 +1627,7 @@ sw.bb7:                                           ; preds = %_ZNK4decl13get_decl
   %5 = load ptr, ptr %args, align 8
   %arrayidx9 = getelementptr inbounds i8, ptr %args, i64 8
   %6 = load ptr, ptr %arrayidx9, align 8
-  %call.i = tail call noundef i32 @_ZN15bv2int_rewriter5mk_leEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %6, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %call.i = tail call noundef range(i32 4, 6) i32 @_ZN15bv2int_rewriter5mk_leEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %6, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %return
 
 sw.bb11:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit

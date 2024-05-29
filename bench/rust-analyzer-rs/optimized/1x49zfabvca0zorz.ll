@@ -10095,7 +10095,7 @@ _ZN3hir6Struct12variant_data17hcac0a4ab05b12c3cE.llvm.5762808661252696342.exit: 
   %189 = extractvalue { ptr, ptr } %186, 1
   store ptr %188, ptr %10, align 8
   store ptr %189, ptr %166, align 8
-  %190 = invoke noundef i8 @"_ZN94_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h5b58dea31562c13bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %166, ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
+  %190 = invoke noundef range(i8 0, 5) i8 @"_ZN94_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h5b58dea31562c13bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %166, ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
           to label %"_ZN3hir7display67_$LT$impl$u20$hir_ty..display..HirDisplay$u20$for$u20$hir..Type$GT$7hir_fmt17he4a8dd4a427acda5E.exit" unwind label %191
 
 191:                                              ; preds = %187
@@ -11394,7 +11394,7 @@ define noundef range(i8 0, 5) i8 @"_ZN3hir7display68_$LT$impl$u20$hir_ty..displa
   store ptr %54, ptr %3, align 8
   %56 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %55, ptr %56, align 8
-  %57 = invoke noundef i8 @"_ZN94_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h5b58dea31562c13bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %56, ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
+  %57 = invoke noundef range(i8 0, 5) i8 @"_ZN94_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h5b58dea31562c13bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %56, ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
           to label %"_ZN3hir7display67_$LT$impl$u20$hir_ty..display..HirDisplay$u20$for$u20$hir..Type$GT$7hir_fmt17he4a8dd4a427acda5E.exit" unwind label %67
 
 58:                                               ; preds = %40
@@ -11555,7 +11555,7 @@ define noundef range(i8 0, 5) i8 @"_ZN3hir7display73_$LT$impl$u20$hir_ty..displa
   store ptr %45, ptr %3, align 8
   %47 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %46, ptr %47, align 8
-  %48 = invoke noundef i8 @"_ZN94_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h5b58dea31562c13bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %47, ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
+  %48 = invoke noundef range(i8 0, 5) i8 @"_ZN94_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h5b58dea31562c13bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %47, ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
           to label %"_ZN3hir7display67_$LT$impl$u20$hir_ty..display..HirDisplay$u20$for$u20$hir..Type$GT$7hir_fmt17he4a8dd4a427acda5E.exit" unwind label %58
 
 49:                                               ; preds = %31
@@ -13959,7 +13959,7 @@ define noundef range(i8 0, 5) i8 @"_ZN3hir7display73_$LT$impl$u20$hir_ty..displa
   store ptr %49, ptr %5, align 8
   %51 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %50, ptr %51, align 8
-  %52 = invoke noundef i8 @"_ZN94_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h5b58dea31562c13bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %51, ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
+  %52 = invoke noundef range(i8 0, 5) i8 @"_ZN94_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h5b58dea31562c13bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %51, ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
           to label %"_ZN3hir7display67_$LT$impl$u20$hir_ty..display..HirDisplay$u20$for$u20$hir..Type$GT$7hir_fmt17he4a8dd4a427acda5E.exit" unwind label %62
 
 53:                                               ; preds = %31

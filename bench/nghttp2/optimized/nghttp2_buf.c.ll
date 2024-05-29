@@ -168,7 +168,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -901, 1) i32 @nghttp2_bufs_init(ptr nocapture noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @nghttp2_bufs_init3(ptr noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %max_chunk, i64 noundef 0, ptr noundef %mem)
+  %call.i = tail call range(i32 -901, 1) i32 @nghttp2_bufs_init3(ptr noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %max_chunk, i64 noundef 0, ptr noundef %mem)
   ret i32 %call.i
 }
 

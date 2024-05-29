@@ -10085,7 +10085,7 @@ isimagunit.exit71.thread.i:                       ; preds = %48, %48, %48, %48
   br label %read_rat.exit.i
 
 read_rat.exit.i:                                  ; preds = %57, %54
-  %60 = call fastcc i32 @read_rat_nos(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5)
+  %60 = call fastcc range(i32 0, 2) i32 @read_rat_nos(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5)
   %61 = load ptr, ptr %5, align 8
   store i8 0, ptr %61, align 1
   %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #20

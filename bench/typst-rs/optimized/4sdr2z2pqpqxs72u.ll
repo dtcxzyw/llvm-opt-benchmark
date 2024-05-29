@@ -10205,7 +10205,7 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h2b5d096af3b467fcE.exit.i: ;
 
 411:                                              ; preds = %.noexc57
   %.sroa.072.0.copyload.i = load i32, ptr %.sroa.3.0.copyload.i.i, align 1, !noalias !1883
-  %412 = invoke noundef i8 @_ZN5typst4text4lang4Lang3dir17hcc17b85e87bfe1a7E(i32 %.sroa.072.0.copyload.i)
+  %412 = invoke noundef range(i8 0, 4) i8 @_ZN5typst4text4lang4Lang3dir17hcc17b85e87bfe1a7E(i32 %.sroa.072.0.copyload.i)
           to label %.thread.i48 unwind label %.body43.thread107
 
 .thread.i48:                                      ; preds = %411, %.noexc57, %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h2b5d096af3b467fcE.exit.thread.i

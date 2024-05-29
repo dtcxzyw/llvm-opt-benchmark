@@ -38448,7 +38448,7 @@ define hidden noundef range(i8 0, 8) i8 @"_ZN4core3ops8function5impls79_$LT$impl
   %3 = alloca { { { i64, [2 x i64] } } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %4 = call noundef i8 @_ZN13rust_analyzer3lsp10from_proto11assist_kind17h96a6c4b0ccbb54f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !range !8239, !noalias !8445
+  %4 = call noundef range(i8 0, 8) i8 @_ZN13rust_analyzer3lsp10from_proto11assist_kind17h96a6c4b0ccbb54f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !range !8239, !noalias !8445
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret i8 %4
 }

@@ -1244,8 +1244,8 @@ define hidden { i32, i32 } @_ZN12regex_syntax3hir8interval8Interval5union17h99a0
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %2
-  %.0.sroa.speculated.i.i1 = tail call noundef i32 @llvm.umin.i32(i32 %3, i32 %8)
-  %.0.sroa.speculated.i.i2 = tail call noundef i32 @llvm.umax.i32(i32 %6, i32 %11)
+  %.0.sroa.speculated.i.i1 = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %3, i32 %8)
+  %.0.sroa.speculated.i.i2 = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %6, i32 %11)
   %..i = tail call i32 @llvm.umin.i32(i32 %.0.sroa.speculated.i.i1, i32 %.0.sroa.speculated.i.i2)
   %.6.i = tail call i32 @llvm.umax.i32(i32 %.0.sroa.speculated.i.i1, i32 %.0.sroa.speculated.i.i2)
   br label %15
@@ -2247,13 +2247,13 @@ define hidden noundef i8 @_ZN4core3cmp3Ord3max17h40d34b733519ae5cE.llvm.11684209
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i32 0, 1114112) i32 @_ZN4core3cmp3Ord3max17hc5be960c633ffba5E.llvm.11684209855903828990(i32 noundef %0, i32 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %0, i32 %1)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %0, i32 %1)
   ret i32 %.0.sroa.speculated.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i32 0, 1114112) i32 @_ZN4core3cmp3Ord3min17h69791d31d357e516E.llvm.11684209855903828990(i32 noundef %0, i32 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %0, i32 %1)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %0, i32 %1)
   ret i32 %.0.sroa.speculated.i
 }
 

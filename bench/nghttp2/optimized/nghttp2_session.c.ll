@@ -11678,7 +11678,7 @@ if.end1472:                                       ; preds = %do.end1456
   %sub.ptr.sub.i1177 = sub i64 %sub.ptr.lhs.cast.i1175, %sub.ptr.rhs.cast.i1176
   call void @nghttp2_frame_unpack_altsvc_payload(ptr noundef nonnull %iframe1, i64 noundef %conv.i1171, ptr noundef %352, i64 noundef %sub.ptr.sub.i1177) #17
   call void @nghttp2_buf_wrap_init(ptr noundef nonnull %lbuf.i1172, ptr noundef null, i64 noundef 0) #17
-  %call8.i = call i32 @nghttp2_session_on_altsvc_received(ptr noundef nonnull %session, ptr noundef nonnull %iframe1)
+  %call8.i = call range(i32 -902, 1) i32 @nghttp2_session_on_altsvc_received(ptr noundef nonnull %session, ptr noundef nonnull %iframe1)
   %cmp.i1178 = icmp sgt i32 %call8.i, -901
   br i1 %cmp.i1178, label %if.end1478, label %if.then1476
 

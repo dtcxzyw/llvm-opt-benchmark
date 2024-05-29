@@ -1447,7 +1447,7 @@ define internal noundef range(i32 -1, 2) i32 @"_ZNSt17_Function_handlerIFN3gmx10
   %.val1 = load ptr, ptr %.val, align 8
   %2 = getelementptr i8, ptr %.val, i64 16
   %.val2 = load ptr, ptr %2, align 8
-  %3 = tail call noundef i32 @_ZN3gmx19StopConditionSignal9getSignalEP8_IO_FILE(ptr noundef nonnull align 4 dereferenceable(16) %.val1, ptr noundef %.val2)
+  %3 = tail call noundef range(i32 -1, 2) i32 @_ZN3gmx19StopConditionSignal9getSignalEP8_IO_FILE(ptr noundef nonnull align 4 dereferenceable(16) %.val1, ptr noundef %.val2)
   ret i32 %3
 }
 
@@ -1665,7 +1665,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZNSt17_Function_handlerIFN3gmx10S
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %.val, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef i32 @_ZN3gmx17StopConditionTime9getSignalEblP8_IO_FILEP23gmx_walltime_accounting(ptr noundef nonnull align 4 dereferenceable(20) %2, i1 noundef zeroext %6, i64 noundef %9, ptr noundef %11, ptr noundef %13)
+  %14 = tail call noundef range(i32 0, 2) i32 @_ZN3gmx17StopConditionTime9getSignalEblP8_IO_FILEP23gmx_walltime_accounting(ptr noundef nonnull align 4 dereferenceable(20) %2, i1 noundef zeroext %6, i64 noundef %9, ptr noundef %11, ptr noundef %13)
   ret i32 %14
 }
 

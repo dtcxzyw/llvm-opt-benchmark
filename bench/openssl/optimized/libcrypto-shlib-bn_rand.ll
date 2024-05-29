@@ -381,14 +381,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BN_pseudo_rand(ptr noundef %rnd, i32 noundef %bits, i32 noundef %top, i32 noundef %bottom) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call fastcc i32 @bnrand(i32 noundef 0, ptr noundef %rnd, i32 noundef %bits, i32 noundef %top, i32 noundef %bottom, i32 noundef 0, ptr noundef null)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @bnrand(i32 noundef 0, ptr noundef %rnd, i32 noundef %bits, i32 noundef %top, i32 noundef %bottom, i32 noundef 0, ptr noundef null)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BN_pseudo_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call fastcc i32 @bnrand_range(i32 noundef 0, ptr noundef %r, ptr noundef %range, i32 noundef 0, ptr noundef null)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @bnrand_range(i32 noundef 0, ptr noundef %r, ptr noundef %range, i32 noundef 0, ptr noundef null)
   ret i32 %call.i
 }
 

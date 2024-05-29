@@ -10601,7 +10601,7 @@ _ZN4core3cmp10PartialOrd2gt17h539e6bae9f78b4a8E.exit101.thread: ; preds = %_ZN4c
   store i8 %768, ptr %.sroa.18.0..sroa_idx.i, align 4, !alias.scope !1532, !noalias !1360
   store i8 4, ptr %45, align 8, !alias.scope !1535, !noalias !1536
   %792 = getelementptr inbounds i8, ptr %46, i64 72
-  %793 = invoke noundef i8 @"_ZN2h25codec12framed_write16Encoder$LT$B$GT$6buffer17h6afeb7943c24cce4E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %792, ptr noalias nocapture noundef nonnull align 8 dereferenceable(296) %45)
+  %793 = invoke noundef range(i8 0, 13) i8 @"_ZN2h25codec12framed_write16Encoder$LT$B$GT$6buffer17h6afeb7943c24cce4E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %792, ptr noalias nocapture noundef nonnull align 8 dereferenceable(296) %45)
           to label %"_ZN2h25codec18Codec$LT$T$C$B$GT$6buffer17hc0a37028ac3b7b8dE.exit.i" unwind label %794, !noalias !1418
 
 794:                                              ; preds = %765
@@ -13665,7 +13665,7 @@ default.unreachable1.i.i.i.i.i:                   ; preds = %375
   store i8 %744, ptr %.sroa.18.0..sroa_idx.i, align 4, !alias.scope !1888, !noalias !1727
   store i8 4, ptr %45, align 8, !alias.scope !1891, !noalias !1892
   %768 = getelementptr inbounds i8, ptr %47, i64 72
-  %769 = invoke noundef i8 @"_ZN2h25codec12framed_write16Encoder$LT$B$GT$6buffer17h6afeb7943c24cce4E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %768, ptr noalias nocapture noundef nonnull align 8 dereferenceable(296) %45)
+  %769 = invoke noundef range(i8 0, 13) i8 @"_ZN2h25codec12framed_write16Encoder$LT$B$GT$6buffer17h6afeb7943c24cce4E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %768, ptr noalias nocapture noundef nonnull align 8 dereferenceable(296) %45)
           to label %"_ZN2h25codec18Codec$LT$T$C$B$GT$6buffer17h65a5accbec0b5096E.exit.i" unwind label %770, !noalias !1785
 
 770:                                              ; preds = %741

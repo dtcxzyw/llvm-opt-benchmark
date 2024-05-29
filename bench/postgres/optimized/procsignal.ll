@@ -532,7 +532,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %27
   %.0..0..0..0.11 = load volatile i32, ptr %1, align 4
-  %20 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0..0..0..0.11, i1 true)
+  %20 = call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.0..0..0..0.11, i1 true)
   %cond = icmp eq i32 %20, 0
   br i1 %cond, label %24, label %.thread
 

@@ -21892,7 +21892,7 @@ _ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i.i: ; pred
 
 _ZN5ImStbL30STB_TEXTEDIT_MOVEWORDLEFT_IMPLEP19ImGuiInputTextStatei.exit.i: ; preds = %while.cond.i.i, %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i.i, %if.end78.i
   %.us-phi = phi i32 [ %98, %if.end78.i ], [ %98, %while.cond.i.i ], [ %indvars.i.i, %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i.i ]
-  %cond.i400.i = tail call noundef i32 @llvm.smax.i32(i32 %.us-phi, i32 0)
+  %cond.i400.i = tail call noundef range(i32 -2147483648, 2147483647) i32 @llvm.smax.i32(i32 %.us-phi, i32 0)
   store i32 %cond.i400.i, ptr %Stb, align 4
   store i32 %cond.i400.i, ptr %select_end75.i, align 4
   %109 = getelementptr inbounds i8, ptr %this, i64 12

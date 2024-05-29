@@ -689,7 +689,7 @@ define hidden void @"_ZN10rayon_core8registry8Registry3new28_$u7b$$u7b$closure$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef range(i64 1, 0) i64 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$10clone_span17h3dbc6ee3968ccd3aE.llvm.14686358490642834259"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 736
-  %4 = tail call noundef i64 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$10clone_span17h1f07a45fa9a267bbE"(ptr noundef nonnull align 8 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !range !214
+  %4 = tail call noundef range(i64 1, 0) i64 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$10clone_span17h1f07a45fa9a267bbE"(ptr noundef nonnull align 8 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !range !214
   ret i64 %4
 }
 
@@ -709,7 +709,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..fmt..Subscribe
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h4553f85069026751E.llvm.14686358490642834259"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = tail call noundef i64 @_ZN18tracing_subscriber6filter3env9EnvFilter14max_level_hint17hd99004c2dee036bcE(ptr noundef nonnull align 8 %0), !range !215
+  %2 = tail call noundef range(i64 0, 7) i64 @_ZN18tracing_subscriber6filter3env9EnvFilter14max_level_hint17hd99004c2dee036bcE(ptr noundef nonnull align 8 %0), !range !215
   %3 = getelementptr inbounds i8, ptr %0, i64 1320
   %4 = load i8, ptr %3, align 8, !range !5, !noundef !4
   %5 = trunc nuw i8 %4 to i1
@@ -729,7 +729,7 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..fmt..
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h16eff5102ef565dcE.llvm.14686358490642834259"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = tail call noundef i8 @_ZN18tracing_subscriber6filter3env9EnvFilter17register_callsite17h398de8439957f15cE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !216
+  %3 = tail call noundef range(i8 0, 3) i8 @_ZN18tracing_subscriber6filter3env9EnvFilter17register_callsite17h398de8439957f15cE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !216
   %4 = getelementptr inbounds i8, ptr %0, i64 1321
   %5 = load i8, ptr %4, align 1, !range !5, !noalias !217, !noundef !4
   %6 = trunc nuw i8 %5 to i1
@@ -744,7 +744,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..fmt..Su
   %11 = getelementptr inbounds i8, ptr %0, i64 1317
   %12 = load i8, ptr %11, align 1, !range !5, !noalias !220, !noundef !4
   %13 = trunc nuw i8 %12 to i1
-  %14 = tail call noundef i8 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17hf83e5a6f8d4f1916E"(ptr noundef nonnull align 8 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !216
+  %14 = tail call noundef range(i8 0, 3) i8 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17hf83e5a6f8d4f1916E"(ptr noundef nonnull align 8 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !216
   %15 = icmp ne i8 %14, 0
   %or.cond.not.i.i.i.i = or i1 %15, %13
   br i1 %or.cond.not.i.i.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h2e708cc5fa688d6fE.exit", label %16
@@ -763,7 +763,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..fmt..Su
   %23 = getelementptr inbounds i8, ptr %0, i64 1317
   %24 = load i8, ptr %23, align 1, !range !5, !noalias !224, !noundef !4
   %25 = trunc nuw i8 %24 to i1
-  %26 = tail call noundef i8 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17hf83e5a6f8d4f1916E"(ptr noundef nonnull align 8 %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !216
+  %26 = tail call noundef range(i8 0, 3) i8 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17hf83e5a6f8d4f1916E"(ptr noundef nonnull align 8 %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !216
   %27 = icmp ne i8 %26, 0
   %or.cond.not.i.i11.i.i = or i1 %27, %25
   br i1 %or.cond.not.i.i11.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hfedb0953e611b0d1E.exit13.i.i", label %28
@@ -1125,7 +1125,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..layer..
   %3 = getelementptr inbounds i8, ptr %0, i64 581
   %4 = load i8, ptr %3, align 1, !range !5, !noundef !4
   %5 = trunc nuw i8 %4 to i1
-  %6 = tail call noundef i8 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17hf83e5a6f8d4f1916E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !216
+  %6 = tail call noundef range(i8 0, 3) i8 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17hf83e5a6f8d4f1916E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !216
   %7 = icmp ne i8 %6, 0
   %or.cond.not = or i1 %7, %5
   br i1 %or.cond.not, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17he9f02e8bfd960634E.exit", label %8
@@ -1260,7 +1260,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN113_$LT$tracing_subscriber..layer
 "_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$8new_span17h699839550d6e5b21E.exit": ; preds = %7
   %20 = extractvalue { i64, i64 } %8, 1
   %21 = add i64 %20, 1
-  %22 = call noundef i64 @_ZN12tracing_core4span2Id8from_u6417ha8a3c33800f958cbE(i64 noundef %21), !range !214
+  %22 = call noundef range(i64 1, 0) i64 @_ZN12tracing_core4span2Id8from_u6417ha8a3c33800f958cbE(i64 noundef %21), !range !214
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store i64 %22, ptr %5, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 568

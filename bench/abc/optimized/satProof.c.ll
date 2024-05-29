@@ -1329,7 +1329,7 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr nocapture noundef readonly 
   br i1 %32, label %.thread, label %34
 
 .thread:                                          ; preds = %22, %27
-  %33 = tail call i32 @llvm.smax.i32(i32 %.174, i32 %26)
+  %33 = tail call range(i32 -536870912, 536870912) i32 @llvm.smax.i32(i32 %.174, i32 %26)
   br label %34
 
 34:                                               ; preds = %27, %.thread

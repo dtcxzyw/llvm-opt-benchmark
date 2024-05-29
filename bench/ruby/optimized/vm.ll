@@ -3654,7 +3654,7 @@ vm_search_normal_superclass.exit:                 ; preds = %rb_vm_frame_method_
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 32
   %160 = load i64, ptr %159, align 8
-  %161 = tail call fastcc i32 @method_boundp(i64 noundef %155, i64 noundef %160, i32 noundef 0)
+  %161 = tail call fastcc range(i32 0, 3) i32 @method_boundp(i64 noundef %155, i64 noundef %160, i32 noundef 0)
   %162 = icmp ne i32 %161, 0
   br label %202
 
@@ -22374,7 +22374,7 @@ rb_class_of.exit:                                 ; preds = %12, %15, %16, %17, 
   %.0.i = load i64, ptr %.0.in.i, align 8
   %23 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call fastcc i32 @vm_respond_to(ptr noundef %24, i64 noundef %.0.i, i64 noundef %0, i64 noundef %1, i32 noundef 1)
+  %25 = tail call fastcc range(i32 -1, 2) i32 @vm_respond_to(ptr noundef %24, i64 noundef %.0.i, i64 noundef %0, i64 noundef %1, i32 noundef 1)
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %69, label %26
 
@@ -22548,7 +22548,7 @@ rb_class_of.exit:                                 ; preds = %13, %16, %17, %18, 
   %.0.i = load i64, ptr %.0.in.i, align 8
   %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call fastcc i32 @vm_respond_to(ptr noundef %25, i64 noundef %.0.i, i64 noundef %0, i64 noundef %1, i32 noundef 1)
+  %26 = tail call fastcc range(i32 -1, 2) i32 @vm_respond_to(ptr noundef %25, i64 noundef %.0.i, i64 noundef %0, i64 noundef %1, i32 noundef 1)
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %27, label %28
 

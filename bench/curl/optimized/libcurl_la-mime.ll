@@ -2766,7 +2766,7 @@ if.then127:                                       ; preds = %land.lhs.true58, %i
   %tobool.not.i167 = icmp eq ptr %boundary.0, null
   %cond.i = select i1 %tobool.not.i167, ptr @.str.26, ptr @.str.50
   %cond2.i = select i1 %tobool.not.i167, ptr @.str.26, ptr %boundary.0
-  %call.i168 = tail call i32 (ptr, ptr, ...) @Curl_mime_add_header(ptr noundef nonnull %curlheaders, ptr noundef nonnull @.str.49, ptr noundef nonnull %contenttype.addr.3, ptr noundef nonnull %cond.i, ptr noundef nonnull %cond2.i)
+  %call.i168 = tail call range(i32 0, 28) i32 (ptr, ptr, ...) @Curl_mime_add_header(ptr noundef nonnull %curlheaders, ptr noundef nonnull @.str.49, ptr noundef nonnull %contenttype.addr.3, ptr noundef nonnull %cond.i, ptr noundef nonnull %cond2.i)
   %tobool130.not = icmp eq i32 %call.i168, 0
   br i1 %tobool130.not, label %if.end133, label %return
 

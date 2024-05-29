@@ -84,7 +84,7 @@ if.then48.i.i:                                    ; preds = %if.end37.i.i, %if.e
 SHA224_Update.exit:                               ; preds = %entry, %if.end45.i.i, %if.then48.i.i
   %cmp = icmp eq ptr %out, null
   %spec.store.select = select i1 %cmp, ptr @SHA224.buf, ptr %out
-  %call.i = call i32 @SHA256_Final(ptr noundef nonnull writeonly %spec.store.select, ptr noundef nonnull %ctx)
+  %call.i = call range(i32 0, 2) i32 @SHA256_Final(ptr noundef nonnull writeonly %spec.store.select, ptr noundef nonnull %ctx)
   call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 112) #5
   ret ptr %spec.store.select
 }

@@ -251,7 +251,7 @@ if.then12:                                        ; preds = %land.lhs.true9
   br i1 %or.cond, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %if.then12
-  %call.i = call fastcc i32 @pkey_set_type(ptr noundef nonnull %to, ptr noundef null, i32 noundef %5, ptr noundef null, i32 noundef -1, ptr noundef null)
+  %call.i = call fastcc range(i32 0, 2) i32 @pkey_set_type(ptr noundef nonnull %to, ptr noundef null, i32 noundef %5, ptr noundef null, i32 noundef -1, ptr noundef null)
   %cmp21 = icmp eq i32 %call.i, 0
   br i1 %cmp21, label %end, label %if.then.i
 
@@ -567,7 +567,7 @@ if.else:                                          ; preds = %if.end33
 if.end42:                                         ; preds = %if.then36, %if.else
   %6 = phi ptr [ %call37, %if.then36 ], [ %.pre, %if.else ]
   %allocpkey.0 = phi ptr [ %call37, %if.then36 ], [ null, %if.else ]
-  %call.i = tail call fastcc i32 @pkey_set_type(ptr noundef %6, ptr noundef null, i32 noundef %4, ptr noundef null, i32 noundef -1, ptr noundef null)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @pkey_set_type(ptr noundef %6, ptr noundef null, i32 noundef %4, ptr noundef null, i32 noundef -1, ptr noundef null)
   %tobool44.not = icmp eq i32 %call.i, 0
   br i1 %tobool44.not, label %if.end73, label %if.then45
 
@@ -2139,7 +2139,7 @@ if.end17:                                         ; preds = %if.else, %if.then5,
   br i1 %cmp18, label %return, label %lor.lhs.false19
 
 lor.lhs.false19:                                  ; preds = %if.end17
-  %call.i15 = call fastcc i32 @pkey_set_type(ptr noundef nonnull %pkey, ptr noundef null, i32 noundef %type.addr.0, ptr noundef null, i32 noundef -1, ptr noundef null)
+  %call.i15 = call fastcc range(i32 0, 2) i32 @pkey_set_type(ptr noundef nonnull %pkey, ptr noundef null, i32 noundef %type.addr.0, ptr noundef null, i32 noundef -1, ptr noundef null)
   %tobool.not = icmp eq i32 %call.i15, 0
   br i1 %tobool.not, label %return, label %if.end22
 
@@ -3889,7 +3889,7 @@ if.then24:                                        ; preds = %lor.lhs.false, %if.
   br i1 %cmp26, label %land.lhs.true27, label %if.end32
 
 land.lhs.true27:                                  ; preds = %if.then24
-  %call.i = tail call fastcc i32 @pkey_set_type(ptr noundef nonnull %call, ptr noundef null, i32 noundef %0, ptr noundef null, i32 noundef -1, ptr noundef null)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @pkey_set_type(ptr noundef nonnull %call, ptr noundef null, i32 noundef %0, ptr noundef null, i32 noundef -1, ptr noundef null)
   %cmp30.not = icmp eq i32 %call.i, 0
   br i1 %cmp30.not, label %if.end32, label %done
 

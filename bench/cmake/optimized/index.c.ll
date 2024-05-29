@@ -552,7 +552,7 @@ index_file_size.exit:                             ; preds = %.thread
   br i1 %.not.i, label %index_tree_append.exit, label %110
 
 110:                                              ; preds = %104
-  %111 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %106, i1 true)
+  %111 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %106, i1 true)
   %112 = add nuw nsw i32 %111, 2
   br label %113
 
@@ -956,7 +956,7 @@ tailrecurse:                                      ; preds = %index_tree_append.e
   br i1 %.not.i, label %index_tree_append.exit, label %46
 
 46:                                               ; preds = %39
-  %47 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %42, i1 true)
+  %47 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %42, i1 true)
   %48 = add nuw nsw i32 %47, 2
   br label %49
 
@@ -1200,7 +1200,7 @@ index_dup_stream.exit:                            ; preds = %83, %32
   br i1 %.not.i28, label %index_tree_append.exit, label %99
 
 99:                                               ; preds = %94
-  %100 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %90, i1 true)
+  %100 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %90, i1 true)
   %101 = add nuw nsw i32 %100, 2
   br label %102
 

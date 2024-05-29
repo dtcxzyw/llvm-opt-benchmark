@@ -2734,7 +2734,7 @@ search_header.exit207.thread272:                  ; preds = %125, %search_header
   %.not.i208 = icmp eq ptr %.0106, null
   %149 = select i1 %.not.i208, ptr @.str.26, ptr @.str.50
   %150 = select i1 %.not.i208, ptr @.str.26, ptr %.0106
-  %151 = tail call i32 (ptr, ptr, ...) @Curl_mime_add_header(ptr noundef nonnull %6, ptr noundef nonnull @.str.49, ptr noundef nonnull %.3115, ptr noundef nonnull %149, ptr noundef nonnull %150)
+  %151 = tail call range(i32 0, 28) i32 (ptr, ptr, ...) @Curl_mime_add_header(ptr noundef nonnull %6, ptr noundef nonnull @.str.49, ptr noundef nonnull %.3115, ptr noundef nonnull %149, ptr noundef nonnull %150)
   %.not161 = icmp eq i32 %151, 0
   br i1 %.not161, label %search_header.exit207.thread273, label %.loopexit
 

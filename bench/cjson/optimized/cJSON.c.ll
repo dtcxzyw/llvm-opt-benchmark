@@ -1513,7 +1513,7 @@ print_number.exit:                                ; preds = %188, %189, %._crit_
 214:                                              ; preds = %7
   %215 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %215, align 8
-  %216 = tail call fastcc i32 @print_string_ptr(ptr noundef %.val, ptr noundef nonnull %1)
+  %216 = tail call fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %.val, ptr noundef nonnull %1)
   br label %print_array.exit
 
 217:                                              ; preds = %7

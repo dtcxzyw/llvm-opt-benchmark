@@ -374,7 +374,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_msg_sendto(i32 noundef %0,
   store i32 %12, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %9, ptr %5, align 4
-  %13 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 0, ptr noundef nonnull %5)
+  %13 = call fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %18, label %15
@@ -382,7 +382,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_msg_sendto(i32 noundef %0,
 15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %9, ptr %4, align 4
-  %16 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0, ptr noundef nonnull %4)
+  %16 = call fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %17 = sext i32 %16 to i64
   br label %18

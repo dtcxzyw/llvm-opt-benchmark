@@ -4185,7 +4185,7 @@ sw.bb:                                            ; preds = %entry
   %maxWindowSize = getelementptr inbounds i8, ptr %dctx, i64 30264
   %0 = load i64, ptr %maxWindowSize, align 8
   %conv = trunc i64 %0 to i32
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
+  %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
   %sub.i = xor i32 %1, 31
   br label %do.end14.sink.split
 

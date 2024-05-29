@@ -1176,7 +1176,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t9clear_csrEjm(ptr nocaptur
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t8read_csrEj(ptr nocapture noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef 0, i32 noundef 2)
+  %3 = tail call noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef 0, i32 noundef 2)
   ret i64 %3
 }
 
@@ -1504,7 +1504,7 @@ define void @_ZN5dtm_t5resetEv(ptr nocapture noundef nonnull align 8 dereference
   store i32 %.04, ptr %8, align 4
   tail call void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 dereferenceable(928) %0)
   %18 = load i64, ptr %9, align 8
-  %19 = tail call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 1969, i64 noundef %18, i32 noundef 1)
+  %19 = tail call noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef 1969, i64 noundef %18, i32 noundef 1)
   %20 = add nuw nsw i32 %.04, 1
   %21 = load i32, ptr %2, align 8
   %22 = icmp slt i32 %20, %21

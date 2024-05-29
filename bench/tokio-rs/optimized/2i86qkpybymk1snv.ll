@@ -5128,7 +5128,7 @@ define void @_ZN5tokio3net3tcp6socket9TcpSocket6listen17h027b8de100f4be42E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i32 0, -1) i32 @_ZN5tokio3net3tcp6socket9TcpSocket15from_std_stream17hf5370f33ba92c3e4E(i32 noundef %0) unnamed_addr #4 {
-  %2 = tail call noundef i32 @"_ZN7socket23sys81_$LT$impl$u20$std..os..fd..raw..FromRawFd$u20$for$u20$socket2..socket..Socket$GT$11from_raw_fd17h5ea6761da2499e9cE"(i32 noundef %0), !range !976
+  %2 = tail call noundef range(i32 0, -1) i32 @"_ZN7socket23sys81_$LT$impl$u20$std..os..fd..raw..FromRawFd$u20$for$u20$socket2..socket..Socket$GT$11from_raw_fd17h5ea6761da2499e9cE"(i32 noundef %0), !range !976
   ret i32 %2
 }
 

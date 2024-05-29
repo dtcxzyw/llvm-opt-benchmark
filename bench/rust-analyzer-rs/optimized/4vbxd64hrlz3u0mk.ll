@@ -6444,7 +6444,7 @@ define hidden noundef i32 @"_ZN3hir9semantics19Semantics$LT$DB$GT$16resolve_bin_
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noundef i32 @"_ZN3hir7from_id90_$LT$impl$u20$core..convert..From$LT$hir_def..FunctionId$GT$$u20$for$u20$hir..Function$GT$4from17h91d3ecdd2fc7a380E"(i32 noundef %4), !range !905
+  %7 = tail call noundef range(i32 1, 0) i32 @"_ZN3hir7from_id90_$LT$impl$u20$core..convert..From$LT$hir_def..FunctionId$GT$$u20$for$u20$hir..Function$GT$4from17h91d3ecdd2fc7a380E"(i32 noundef %4), !range !905
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -6460,7 +6460,7 @@ define hidden noundef i32 @"_ZN3hir9semantics19Semantics$LT$DB$GT$16resolve_try_
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noundef i32 @"_ZN3hir7from_id90_$LT$impl$u20$core..convert..From$LT$hir_def..FunctionId$GT$$u20$for$u20$hir..Function$GT$4from17h91d3ecdd2fc7a380E"(i32 noundef %4), !range !905
+  %7 = tail call noundef range(i32 1, 0) i32 @"_ZN3hir7from_id90_$LT$impl$u20$core..convert..From$LT$hir_def..FunctionId$GT$$u20$for$u20$hir..Function$GT$4from17h91d3ecdd2fc7a380E"(i32 noundef %4), !range !905
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -6577,7 +6577,7 @@ define hidden noundef i32 @"_ZN3hir9semantics19Semantics$LT$DB$GT$18resolve_inde
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noundef i32 @"_ZN3hir7from_id90_$LT$impl$u20$core..convert..From$LT$hir_def..FunctionId$GT$$u20$for$u20$hir..Function$GT$4from17h91d3ecdd2fc7a380E"(i32 noundef %4), !range !905
+  %7 = tail call noundef range(i32 1, 0) i32 @"_ZN3hir7from_id90_$LT$impl$u20$core..convert..From$LT$hir_def..FunctionId$GT$$u20$for$u20$hir..Function$GT$4from17h91d3ecdd2fc7a380E"(i32 noundef %4), !range !905
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -6593,7 +6593,7 @@ define hidden noundef i32 @"_ZN3hir9semantics19Semantics$LT$DB$GT$19resolve_pref
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noundef i32 @"_ZN3hir7from_id90_$LT$impl$u20$core..convert..From$LT$hir_def..FunctionId$GT$$u20$for$u20$hir..Function$GT$4from17h91d3ecdd2fc7a380E"(i32 noundef %4), !range !905
+  %7 = tail call noundef range(i32 1, 0) i32 @"_ZN3hir7from_id90_$LT$impl$u20$core..convert..From$LT$hir_def..FunctionId$GT$$u20$for$u20$hir..Function$GT$4from17h91d3ecdd2fc7a380E"(i32 noundef %4), !range !905
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -6609,7 +6609,7 @@ define hidden noundef i32 @"_ZN3hir9semantics19Semantics$LT$DB$GT$21resolve_awai
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noundef i32 @"_ZN3hir7from_id90_$LT$impl$u20$core..convert..From$LT$hir_def..FunctionId$GT$$u20$for$u20$hir..Function$GT$4from17h91d3ecdd2fc7a380E"(i32 noundef %4), !range !905
+  %7 = tail call noundef range(i32 1, 0) i32 @"_ZN3hir7from_id90_$LT$impl$u20$core..convert..From$LT$hir_def..FunctionId$GT$$u20$for$u20$hir..Function$GT$4from17h91d3ecdd2fc7a380E"(i32 noundef %4), !range !905
   br label %8
 
 8:                                                ; preds = %2, %6

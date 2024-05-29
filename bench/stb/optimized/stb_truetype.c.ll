@@ -13369,7 +13369,7 @@ entry:
   %y1.i.i = alloca i32, align 4
   %f = alloca %struct.stbtt_fontinfo, align 8
   store ptr null, ptr %f, align 8
-  %call.i = call i32 @stbtt_InitFont_internal(ptr noundef nonnull %f, ptr noundef %data, i32 noundef %offset)
+  %call.i = call range(i32 0, 2) i32 @stbtt_InitFont_internal(ptr noundef nonnull %f, ptr noundef %data, i32 noundef %offset)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -15783,7 +15783,7 @@ if.end:                                           ; preds = %for.end34
   %10 = load ptr, ptr %spc, align 8
   store ptr %10, ptr %info, align 8
   %call.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %fontdata, i32 noundef %font_index)
-  %call.i35 = call i32 @stbtt_InitFont_internal(ptr noundef nonnull %info, ptr noundef %fontdata, i32 noundef %call.i)
+  %call.i35 = call range(i32 0, 2) i32 @stbtt_InitFont_internal(ptr noundef nonnull %info, ptr noundef %fontdata, i32 noundef %call.i)
   %call40 = call i32 @stbtt_PackFontRangesGatherRects(ptr noundef nonnull %spc, ptr noundef nonnull %info, ptr noundef %ranges, i32 noundef %num_ranges, ptr noundef nonnull %call)
   %cmp35.i.i = icmp sgt i32 %call40, 0
   br i1 %cmp35.i.i, label %for.body.lr.ph.i.i, label %for.end.i.i
@@ -15912,7 +15912,7 @@ define void @stbtt_GetScaledFontVMetrics(ptr noundef %fontdata, i32 noundef %ind
 entry:
   %info = alloca %struct.stbtt_fontinfo, align 8
   %call.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %fontdata, i32 noundef %index)
-  %call.i6 = call i32 @stbtt_InitFont_internal(ptr noundef nonnull %info, ptr noundef %fontdata, i32 noundef %call.i)
+  %call.i6 = call range(i32 0, 2) i32 @stbtt_InitFont_internal(ptr noundef nonnull %info, ptr noundef %fontdata, i32 noundef %call.i)
   %cmp = fcmp ogt float %size, 0.000000e+00
   br i1 %cmp, label %cond.true, label %cond.false
 

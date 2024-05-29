@@ -69,10 +69,7 @@ define hidden void @_ZN10async_lock9once_cell12now_or_never17h6552bc0677508265E.
     i8 4, label %152
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
-
-default.unreachable.i:                            ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hc898936205e5ad2aE.exit.i"
+default.unreachable:                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hc898936205e5ad2aE.exit.i", %1
   unreachable
 
 "_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i": ; preds = %38, %26
@@ -132,7 +129,7 @@ default.unreachable.i:                            ; preds = %"_ZN50_$LT$T$u20$as
   %43 = load ptr, ptr %22, align 16, !nonnull !5, !align !6, !noundef !5
   %44 = getelementptr inbounds i8, ptr %43, i64 48
   %45 = load atomic i64, ptr %44 acquire, align 8
-  %46 = invoke noundef i64 @"_ZN81_$LT$async_lock..once_cell..State$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h5cefd5c049809955E"(i64 noundef %45)
+  %46 = invoke noundef range(i64 0, 3) i64 @"_ZN81_$LT$async_lock..once_cell..State$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h5cefd5c049809955E"(i64 noundef %45)
           to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hc898936205e5ad2aE.exit.i" unwind label %47
 
 47:                                               ; preds = %.preheader.i
@@ -141,7 +138,7 @@ default.unreachable.i:                            ; preds = %"_ZN50_$LT$T$u20$as
   br label %38
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hc898936205e5ad2aE.exit.i": ; preds = %.preheader.i
-  switch i64 %46, label %default.unreachable.i [
+  switch i64 %46, label %default.unreachable [
     i64 0, label %49
     i64 1, label %137
     i64 2, label %.loopexit12.i

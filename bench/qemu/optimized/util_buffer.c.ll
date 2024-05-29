@@ -57,7 +57,7 @@ entry:
   %tobool1.not.i.i = icmp eq i64 %buffer.val, 0
   %conv.i.i = zext i1 %tobool1.not.i.i to i64
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %shr.i.i
-  %cond.i = tail call i64 @llvm.umax.i64(i64 %retval.0.i.i, i64 4096)
+  %cond.i = tail call range(i64 0, -9223372036854775807) i64 @llvm.umax.i64(i64 %retval.0.i.i, i64 4096)
   %add = add nuw i64 %cond.i, %shr
   store i64 %add, ptr %avg_size, align 8
   %shr.i = lshr i64 %add, 7
@@ -71,7 +71,7 @@ entry:
   %tobool1.not.i.i19 = icmp eq i64 %add.i, 0
   %conv.i.i20 = zext i1 %tobool1.not.i.i19 to i64
   %retval.0.i.i21 = select i1 %tobool.not.i.i15, i64 %conv.i.i20, i64 %shr.i.i18
-  %cond.i22 = tail call i64 @llvm.umax.i64(i64 %retval.0.i.i21, i64 4096)
+  %cond.i22 = tail call range(i64 0, -9223372036854775807) i64 @llvm.umax.i64(i64 %retval.0.i.i21, i64 4096)
   %capacity = getelementptr inbounds i8, ptr %buffer, i64 8
   %4 = load i64, ptr %capacity, align 8
   %shr5 = lshr i64 %4, 3
@@ -107,7 +107,7 @@ entry:
   %tobool1.not.i.i = icmp eq i64 %add.i, 0
   %conv.i.i = zext i1 %tobool1.not.i.i to i64
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %shr.i.i
-  %cond.i = tail call i64 @llvm.umax.i64(i64 %retval.0.i.i, i64 4096)
+  %cond.i = tail call range(i64 0, -9223372036854775807) i64 @llvm.umax.i64(i64 %retval.0.i.i, i64 4096)
   store i64 %cond.i, ptr %capacity, align 8
   %buffer2 = getelementptr inbounds i8, ptr %buffer, i64 32
   %3 = load ptr, ptr %buffer2, align 8
@@ -217,7 +217,7 @@ entry:
   %sub2.i.i16.i = add nuw nsw i64 %1, 4294967295
   %sh_prom.i.i17.i = and i64 %sub2.i.i16.i, 4294967295
   %shr.i.i18.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i17.i
-  %cond.i22.i = tail call i64 @llvm.umax.i64(i64 %shr.i.i18.i, i64 4096)
+  %cond.i22.i = tail call range(i64 0, -9223372036854775807) i64 @llvm.umax.i64(i64 %shr.i.i18.i, i64 4096)
   %capacity.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %2 = load i64, ptr %capacity.i, align 8
   %shr5.i = lshr i64 %2, 3
@@ -334,7 +334,7 @@ entry:
   %tobool1.not.i.i.i = icmp eq i64 %2, %len
   %conv.i.i.i = zext i1 %tobool1.not.i.i.i to i64
   %retval.0.i.i.i = select i1 %tobool.not.i.i.i, i64 %conv.i.i.i, i64 %shr.i.i.i
-  %cond.i.i = tail call i64 @llvm.umax.i64(i64 %retval.0.i.i.i, i64 4096)
+  %cond.i.i = tail call range(i64 0, -9223372036854775807) i64 @llvm.umax.i64(i64 %retval.0.i.i.i, i64 4096)
   %add.i = add nuw i64 %cond.i.i, %shr.i
   store i64 %add.i, ptr %avg_size.i, align 8
   %shr.i.i = lshr i64 %add.i, 7
@@ -348,7 +348,7 @@ entry:
   %tobool1.not.i.i19.i = icmp eq i64 %add.i.i, 0
   %conv.i.i20.i = zext i1 %tobool1.not.i.i19.i to i64
   %retval.0.i.i21.i = select i1 %tobool.not.i.i15.i, i64 %conv.i.i20.i, i64 %shr.i.i18.i
-  %cond.i22.i = tail call i64 @llvm.umax.i64(i64 %retval.0.i.i21.i, i64 4096)
+  %cond.i22.i = tail call range(i64 0, -9223372036854775807) i64 @llvm.umax.i64(i64 %retval.0.i.i21.i, i64 4096)
   %capacity.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %6 = load i64, ptr %capacity.i, align 8
   %shr5.i = lshr i64 %6, 3

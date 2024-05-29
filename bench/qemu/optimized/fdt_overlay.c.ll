@@ -41,7 +41,7 @@ if.end5:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end5
   %0 = load i32, ptr %delta, align 4
-  %call.i = call fastcc i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef 0, i32 noundef %0)
+  %call.i = call fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef 0, i32 noundef %0)
   %tobool10.not = icmp eq i32 %call.i, 0
   br i1 %tobool10.not, label %if.end12, label %err
 

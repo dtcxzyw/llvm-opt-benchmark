@@ -113094,7 +113094,7 @@ define noundef range(i8 0, 3) i8 @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call noundef i8 @_ZN6hir_ty3tls10unsafe_tls20with_current_program17hf7e5793c983317e4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !3163
+  %8 = tail call noundef range(i8 0, 3) i8 @_ZN6hir_ty3tls10unsafe_tls20with_current_program17hf7e5793c983317e4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !range !3163
   br label %18
 
 9:                                                ; preds = %2
@@ -119432,7 +119432,7 @@ define hidden noundef range(i8 0, 5) i8 @"_ZN53_$LT$$RF$T$u20$as$u20$hir_ty..dis
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25883)
   %4 = load ptr, ptr %3, align 8, !alias.scope !25883, !noalias !25886, !nonnull !10, !noundef !10
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = tail call noundef i8 @"_ZN81_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h16e980b4854e6a92E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !range !3021, !noalias !25883
+  %6 = tail call noundef range(i8 0, 5) i8 @"_ZN81_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17h16e980b4854e6a92E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !range !3021, !noalias !25883
   ret i8 %6
 }
 

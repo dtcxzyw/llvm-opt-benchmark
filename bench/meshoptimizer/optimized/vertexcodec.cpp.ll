@@ -45,7 +45,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr nonnull align 16 %first_vertex, i64 %vertex_size, i1 false)
   %div.i = udiv i64 8192, %vertex_size
   %and.i = and i64 %div.i, 16368
-  %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %and.i, i64 256)
+  %cond.i = tail call noundef range(i64 0, 8193) i64 @llvm.umin.i64(i64 %and.i, i64 256)
   br i1 %cmp1.not, label %while.end, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end3, %if.end13
@@ -405,7 +405,7 @@ define dso_local i64 @meshopt_encodeVertexBufferBound(i64 noundef %vertex_count,
 entry:
   %div.i = udiv i64 8192, %vertex_size
   %and.i = and i64 %div.i, 16368
-  %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %and.i, i64 256)
+  %cond.i = tail call noundef range(i64 0, 8193) i64 @llvm.umin.i64(i64 %and.i, i64 256)
   %add = add i64 %vertex_count, -1
   %sub = add i64 %add, %cond.i
   %div = udiv i64 %sub, %cond.i
@@ -454,7 +454,7 @@ if.end9:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr nonnull align 1 %add.ptr10, i64 %vertex_size, i1 false)
   %div.i = udiv i64 8192, %vertex_size
   %and.i = and i64 %div.i, 16368
-  %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %and.i, i64 256)
+  %cond.i = tail call noundef range(i64 0, 8193) i64 @llvm.umin.i64(i64 %and.i, i64 256)
   %cmp1126.not = icmp eq i64 %vertex_count, 0
   br i1 %cmp1126.not, label %while.end, label %while.body
 

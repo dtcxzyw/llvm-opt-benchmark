@@ -405,7 +405,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %or.cond.not.i = select i1 %cmp.i147, i1 %cmp1.not.i, i1 false
   %add2.i = zext i1 %or.cond.not.i to i64
   %retsize.0.i = add nsw i64 %div.i, %add2.i
-  %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %retsize.0.i, i64 1)
+  %spec.store.select.i = tail call range(i64 -4294967296, 4294967298) i64 @llvm.smax.i64(i64 %retsize.0.i, i64 1)
   %or.cond = icmp sgt i64 %retsize.0.i, 2147483647
   br i1 %or.cond, label %if.then116, label %if.end122
 
@@ -444,7 +444,7 @@ for.body137:                                      ; preds = %for.body137.prehead
   %or.cond.not.i156 = select i1 %cmp.i153, i1 %cmp1.not.i155, i1 false
   %add2.i157 = zext i1 %or.cond.not.i156 to i64
   %retsize.0.i158 = add nsw i64 %div.i152, %add2.i157
-  %spec.store.select.i159 = tail call i64 @llvm.smax.i64(i64 %retsize.0.i158, i64 1)
+  %spec.store.select.i159 = tail call range(i64 -4294967296, 4294967298) i64 @llvm.smax.i64(i64 %retsize.0.i158, i64 1)
   %or.cond1 = icmp sgt i64 %retsize.0.i158, 2147483647
   br i1 %or.cond1, label %if.then154, label %if.end161
 

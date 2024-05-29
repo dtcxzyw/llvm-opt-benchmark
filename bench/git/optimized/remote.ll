@@ -4307,7 +4307,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %18 = load ptr, ptr %merge.i, align 8
   %arrayidx25.i = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv.i
   %19 = load ptr, ptr %arrayidx25.i, align 8
-  %call.i29.i = call i32 @query_refspecs(ptr noundef nonnull readonly %fetch.i.i, ptr noundef %19)
+  %call.i29.i = call range(i32 -1, 1) i32 @query_refspecs(ptr noundef nonnull readonly %fetch.i.i, ptr noundef %19)
   %tobool27.not.i = icmp eq i32 %call.i29.i, 0
   br i1 %tobool27.not.i, label %for.inc.i, label %lor.lhs.false28.i
 

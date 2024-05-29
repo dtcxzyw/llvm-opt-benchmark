@@ -617,7 +617,7 @@ define hidden range(i32 1, 0) i32 @file_buffer(ptr noundef %0, ptr noundef %1, p
   br i1 %42, label %checkdone.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
+  %44 = call range(i32 -1, 1) i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %45 = icmp eq i32 %44, -1
   %spec.select161 = sext i1 %45 to i32
   %.pre171 = load i32, ptr %22, align 4
@@ -655,7 +655,7 @@ checkdone.exit.thread:                            ; preds = %43, %39, %28
   br i1 %59, label %checkdone.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
+  %61 = call range(i32 -1, 1) i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %62 = icmp eq i32 %61, -1
   %spec.select162 = select i1 %62, i32 -1, i32 %.1131
   %.pre173 = load i32, ptr %22, align 4
@@ -694,7 +694,7 @@ checkdone.exit120.thread:                         ; preds = %60, %56, %checkdone
   br i1 %77, label %checkdone.exit, label %78
 
 78:                                               ; preds = %75
-  %79 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
+  %79 = call range(i32 -1, 1) i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %80 = icmp eq i32 %79, -1
   %spec.select163 = select i1 %80, i32 -1, i32 %.3133
   %.pre175 = load i32, ptr %22, align 4
@@ -732,7 +732,7 @@ checkdone.exit122.thread:                         ; preds = %78, %74, %checkdone
   br i1 %94, label %checkdone.exit, label %95
 
 95:                                               ; preds = %92
-  %96 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
+  %96 = call range(i32 -1, 1) i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %97 = icmp eq i32 %96, -1
   %spec.select164 = select i1 %97, i32 -1, i32 %.5135
   %.pre177 = load i32, ptr %22, align 4
@@ -770,7 +770,7 @@ checkdone.exit124.thread:                         ; preds = %95, %91, %checkdone
   br i1 %111, label %checkdone.exit, label %112
 
 112:                                              ; preds = %109
-  %113 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
+  %113 = call range(i32 -1, 1) i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %114 = icmp eq i32 %113, -1
   %spec.select165 = select i1 %114, i32 -1, i32 %.7137
   %.pre179 = load i32, ptr %22, align 4
@@ -808,7 +808,7 @@ checkdone.exit126.thread:                         ; preds = %112, %108, %checkdo
   br i1 %128, label %checkdone.exit, label %129
 
 129:                                              ; preds = %126
-  %130 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
+  %130 = call range(i32 -1, 1) i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %131 = icmp eq i32 %130, -1
   %spec.select166 = select i1 %131, i32 -1, i32 %.9
   %.pre181 = load i32, ptr %22, align 4

@@ -6773,7 +6773,7 @@ if.end20:                                         ; preds = %if.end
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end20
   %loop.0 = phi ptr [ %3, %if.end20 ], [ @_Py_NoneStruct, %if.end ]
-  %call.i = call fastcc i32 @future_init(ptr noundef %self, ptr noundef %loop.0)
+  %call.i = call fastcc range(i32 -1, 1) i32 @future_init(ptr noundef %self, ptr noundef %loop.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end15, %skip_optional_kwonly

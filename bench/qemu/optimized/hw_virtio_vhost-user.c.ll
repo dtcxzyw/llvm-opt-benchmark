@@ -2059,7 +2059,7 @@ entry:
   store i32 8, ptr %size.i, align 4
   %payload.i = getelementptr inbounds i8, ptr %msg.i, i64 12
   store i64 %or, ptr %payload.i, align 4
-  %call.i = call fastcc i32 @vhost_user_write_sync(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, i1 noundef zeroext %tobool)
+  %call.i = call fastcc range(i32 -2147483648, 1) i32 @vhost_user_write_sync(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, i1 noundef zeroext %tobool)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
   %protocol_features = getelementptr inbounds i8, ptr %dev, i64 480
   %2 = load i64, ptr %protocol_features, align 8
@@ -2240,7 +2240,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 1, ptr %flags.i, align 4
   store i32 8, ptr %size.i, align 4
   store i64 %state.sroa.0.0.insert.insert, ptr %payload.i, align 4
-  %call.i = call fastcc i32 @vhost_user_write_sync(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i, i1 noundef zeroext true)
+  %call.i = call fastcc range(i32 -2147483648, 1) i32 @vhost_user_write_sync(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
   %cmp2 = icmp slt i32 %call.i, 0
   br i1 %cmp2, label %return, label %for.cond
@@ -5710,7 +5710,7 @@ if.end6:                                          ; preds = %if.end
   %payload.i.i9 = getelementptr inbounds i8, ptr %msg.i.i6, i64 12
   store i64 %conv.i7, ptr %payload.i.i9, align 4
   %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i.i6, ptr noundef null, i32 noundef 0)
-  %call5.mux.i.i = call i32 @llvm.smin.i32(i32 %call5.i.i, i32 0)
+  %call5.mux.i.i = call range(i32 -2147483648, 1) i32 @llvm.smin.i32(i32 %call5.i.i, i32 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i6)
   br label %return
 

@@ -665,7 +665,7 @@ define dso_local noundef range(i32 0, 2) i32 @stbi_write_bmp_to_func(ptr noundef
   %11 = add nsw i32 %10, %9
   %12 = mul nsw i32 %11, %3
   %13 = add nsw i32 %12, 54
-  %14 = call noundef i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %7, i32 poison, i32 poison, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 1, ptr noundef %5, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %14 = call noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %7, i32 poison, i32 poison, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 1, ptr noundef %5, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   ret i32 %14
 }
 
@@ -685,7 +685,7 @@ define dso_local range(i32 0, 2) i32 @stbi_write_bmp(ptr nocapture noundef reado
   %12 = add nsw i32 %11, %10
   %13 = mul nsw i32 %12, %2
   %14 = add nsw i32 %13, 54
-  %15 = call noundef i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %6, i32 poison, i32 poison, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4, i32 noundef 0, i32 noundef %10, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %14, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %15 = call noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %6, i32 poison, i32 poison, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4, i32 noundef 0, i32 noundef %10, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %14, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %16 = tail call i32 @fclose(ptr noundef nonnull %7)
   br label %17
 
@@ -4145,7 +4145,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   store ptr @"_ZZNK3tev17StbiLdrImageSaver4saveERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEERKNS1_4__fs10filesystem4pathERKNS1_6vectorIcNS1_9allocatorIcEEEERKN7nanogui5ArrayIiLm2EEEiEN3$_08__invokeEPvSO_i", ptr %10, align 8
   %42 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %1, ptr %42, align 8
-  %43 = invoke fastcc noundef i32 @_ZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKvi(ptr noundef nonnull %10, i32 noundef %38, i32 noundef %40, i32 noundef %5, ptr noundef %41, i32 noundef 100)
+  %43 = invoke fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKvi(ptr noundef nonnull %10, i32 noundef %38, i32 noundef %40, i32 noundef %5, ptr noundef %41, i32 noundef 100)
           to label %stbi_write_jpg_to_func.exit unwind label %48
 
 stbi_write_jpg_to_func.exit:                      ; preds = %37
@@ -4216,7 +4216,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %71 = add nsw i32 %70, %69
   %72 = mul nsw i32 %71, %66
   %73 = add nsw i32 %72, 54
-  %74 = invoke noundef i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %8, i32 poison, i32 poison, i32 noundef %64, i32 noundef %66, i32 noundef %5, i32 noundef 1, ptr noundef %67, i32 noundef 0, i32 noundef %69, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %73, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %64, i32 noundef %66, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %74 = invoke noundef range(i32 0, 2) i32 (ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ...) @_ZL14stbiw__outfileP19stbi__write_contextiiiiiiPviiPKcz(ptr noundef nonnull readonly %8, i32 poison, i32 poison, i32 noundef %64, i32 noundef %66, i32 noundef %5, i32 noundef 1, ptr noundef %67, i32 noundef 0, i32 noundef %69, ptr noundef nonnull @.str.12, i32 noundef 66, i32 noundef 77, i32 noundef %73, i32 noundef 0, i32 noundef 0, i32 noundef 54, i32 noundef 40, i32 noundef %64, i32 noundef %66, i32 noundef 1, i32 noundef 24, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
           to label %stbi_write_bmp_to_func.exit unwind label %48
 
 stbi_write_bmp_to_func.exit:                      ; preds = %63
@@ -4237,7 +4237,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   store ptr @"_ZZNK3tev17StbiLdrImageSaver4saveERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEERKNS1_4__fs10filesystem4pathERKNS1_6vectorIcNS1_9allocatorIcEEEERKN7nanogui5ArrayIiLm2EEEiEN3$_08__invokeEPvSO_i", ptr %7, align 8
   %81 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %1, ptr %81, align 8
-  %82 = invoke fastcc noundef i32 @_ZL19stbi_write_tga_coreP19stbi__write_contextiiiPv(ptr noundef nonnull %7, i32 noundef %77, i32 noundef %79, i32 noundef %5, ptr noundef %80)
+  %82 = invoke fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_tga_coreP19stbi__write_contextiiiPv(ptr noundef nonnull %7, i32 noundef %77, i32 noundef %79, i32 noundef %5, ptr noundef %80)
           to label %stbi_write_tga_to_func.exit unwind label %48
 
 stbi_write_tga_to_func.exit:                      ; preds = %76

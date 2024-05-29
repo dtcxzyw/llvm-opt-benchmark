@@ -2981,7 +2981,7 @@ define void @set_fd_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 
 get_frame_timestamp_precision.exit.i:             ; preds = %25, %20
   %.0.i.i = phi i32 [ %24, %20 ], [ %18, %25 ]
-  %spec.store.select.i.i = tail call i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
+  %spec.store.select.i.i = tail call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
   tail call void @format_nstime_as_iso8601(ptr noundef %2, i64 noundef 2048, ptr noundef nonnull %17, ptr noundef %11, i1 noundef zeroext true, i32 noundef %spec.store.select.i.i) #16
   br label %set_abs_ymd_time.exit
 
@@ -3029,7 +3029,7 @@ get_frame_timestamp_precision.exit.i:             ; preds = %25, %20
 
 set_time_seconds.exit:                            ; preds = %41, %46
   %.0.i.i47 = phi i32 [ %45, %41 ], [ %39, %46 ]
-  %spec.store.select.i.i48 = call i32 @llvm.umin.i32(i32 %.0.i.i47, i32 9)
+  %spec.store.select.i.i48 = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i47, i32 9)
   call void @display_signed_time(ptr noundef %2, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i48) #16
   br label %set_abs_ymd_time.exit
 
@@ -3055,7 +3055,7 @@ set_time_seconds.exit:                            ; preds = %41, %46
 
 set_time_seconds.exit52:                          ; preds = %52, %57
   %.0.i.i50 = phi i32 [ %56, %52 ], [ %50, %57 ]
-  %spec.store.select.i.i51 = call i32 @llvm.umin.i32(i32 %.0.i.i50, i32 9)
+  %spec.store.select.i.i51 = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i50, i32 9)
   call void @display_signed_time(ptr noundef %2, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i51) #16
   br label %set_abs_ymd_time.exit
 
@@ -3106,7 +3106,7 @@ set_time_seconds.exit52:                          ; preds = %52, %57
 
 set_time_seconds.exit56:                          ; preds = %73, %78
   %.0.i.i54 = phi i32 [ %77, %73 ], [ %71, %78 ]
-  %spec.store.select.i.i55 = call i32 @llvm.umin.i32(i32 %.0.i.i54, i32 9)
+  %spec.store.select.i.i55 = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i54, i32 9)
   call void @display_signed_time(ptr noundef %2, i64 noundef 2048, ptr noundef nonnull %5, i32 noundef %spec.store.select.i.i55) #16
   br label %set_abs_ymd_time.exit
 
@@ -3165,7 +3165,7 @@ set_time_seconds.exit56:                          ; preds = %73, %78
 
 set_time_seconds.exit60:                          ; preds = %97, %102
   %.0.i.i58 = phi i32 [ %101, %97 ], [ %95, %102 ]
-  %spec.store.select.i.i59 = call i32 @llvm.umin.i32(i32 %.0.i.i58, i32 9)
+  %spec.store.select.i.i59 = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i58, i32 9)
   call void @display_signed_time(ptr noundef %2, i64 noundef 2048, ptr noundef nonnull %6, i32 noundef %spec.store.select.i.i59) #16
   br label %set_abs_ymd_time.exit
 
@@ -3219,7 +3219,7 @@ set_time_seconds.exit60:                          ; preds = %97, %102
 
 get_frame_timestamp_precision.exit.i62:           ; preds = %124, %119
   %.0.i.i63 = phi i32 [ %123, %119 ], [ %117, %124 ]
-  %spec.store.select.i.i64 = tail call i32 @llvm.umin.i32(i32 %.0.i.i63, i32 9)
+  %spec.store.select.i.i64 = tail call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i63, i32 9)
   tail call void @display_epoch_time(ptr noundef %2, i64 noundef 2048, ptr noundef nonnull %116, i32 noundef %spec.store.select.i.i64) #16
   br label %set_abs_ymd_time.exit
 
@@ -3263,7 +3263,7 @@ get_frame_timestamp_precision.exit.i62:           ; preds = %124, %119
 
 get_frame_timestamp_precision.exit.i66:           ; preds = %144, %139
   %.0.i.i67 = phi i32 [ %143, %139 ], [ %137, %144 ]
-  %spec.store.select.i.i68 = tail call i32 @llvm.umin.i32(i32 %.0.i.i67, i32 9)
+  %spec.store.select.i.i68 = tail call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i67, i32 9)
   tail call void @format_nstime_as_iso8601(ptr noundef %2, i64 noundef 2048, ptr noundef nonnull %136, ptr noundef %130, i1 noundef zeroext false, i32 noundef %spec.store.select.i.i68) #16
   br label %set_abs_ymd_time.exit
 
@@ -3361,7 +3361,7 @@ get_frame_timestamp_precision.exit:               ; preds = %33, %38
   br i1 %.not32, label %48, label %41
 
 41:                                               ; preds = %get_frame_timestamp_precision.exit
-  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %.0.i, i32 9)
+  %spec.store.select.i = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i, i32 9)
   %42 = zext nneg i32 %25 to i64
   %43 = sub nuw nsw i64 2048, %42
   %44 = getelementptr i8, ptr %1, i64 %42
@@ -3459,7 +3459,7 @@ get_frame_timestamp_precision.exit:               ; preds = %39, %44
   br i1 %.not33, label %54, label %47
 
 47:                                               ; preds = %get_frame_timestamp_precision.exit
-  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %.0.i, i32 9)
+  %spec.store.select.i = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i, i32 9)
   %48 = zext nneg i32 %31 to i64
   %49 = sub nuw nsw i64 2048, %48
   %50 = getelementptr i8, ptr %1, i64 %48
@@ -3561,7 +3561,7 @@ get_frame_timestamp_precision.exit:               ; preds = %36, %42
   br i1 %.not63, label %52, label %45
 
 45:                                               ; preds = %get_frame_timestamp_precision.exit
-  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %.0.i, i32 9)
+  %spec.store.select.i = tail call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i, i32 9)
   %46 = tail call i32 @format_fractional_part_nsecs(ptr noundef %32, i64 noundef %33, i32 noundef %.053, ptr noundef %2, i32 noundef %spec.store.select.i) #16
   %47 = zext i32 %46 to i64
   %.not64 = icmp ugt i64 %33, %47
@@ -3699,7 +3699,7 @@ col_get_writable.exit:                            ; preds = %6, %32
 
 get_default_timestamp_precision.exit:             ; preds = %58, %63
   %.0.i26 = phi i32 [ %61, %63 ], [ 9, %58 ]
-  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %.0.i26, i32 9)
+  %spec.store.select.i = tail call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i26, i32 9)
   tail call void @display_signed_time(ptr noundef %60, i64 noundef 2048, ptr noundef %2, i32 noundef %spec.store.select.i) #16
   %66 = load ptr, ptr %59, align 8
   %67 = getelementptr inbounds i8, ptr %53, i64 56
@@ -3940,7 +3940,7 @@ set_epoch_time.exit.thread.i.i.i:                 ; preds = %73
 
 91:                                               ; preds = %88, %83
   %.0.i.i.i.i.i = phi i32 [ %87, %83 ], [ %81, %88 ]
-  %spec.store.select.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %.0.i.i.i.i.i, i32 9)
+  %spec.store.select.i.i.i.i.i = tail call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i.i.i.i, i32 9)
   tail call void @display_epoch_time(ptr noundef %76, i64 noundef 2048, ptr noundef nonnull %80, i32 noundef %spec.store.select.i.i.i.i.i) #16
   %92 = getelementptr inbounds i8, ptr %1, i64 40
   %93 = load ptr, ptr %92, align 8
@@ -5448,7 +5448,7 @@ define internal fastcc void @col_set_abs_ymd_time(ptr noundef %0, ptr nocapture 
 
 get_frame_timestamp_precision.exit.i:             ; preds = %23, %18
   %.0.i.i = phi i32 [ %22, %18 ], [ %16, %23 ]
-  %spec.store.select.i.i = tail call i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
+  %spec.store.select.i.i = tail call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
   tail call void @format_nstime_as_iso8601(ptr noundef %8, i64 noundef 2048, ptr noundef nonnull %15, ptr noundef %9, i1 noundef zeroext true, i32 noundef %spec.store.select.i.i) #16
   br label %set_abs_ymd_time.exit
 
@@ -5530,7 +5530,7 @@ define internal fastcc void @col_set_rel_time(ptr noundef %0, ptr nocapture noun
 
 set_time_seconds.exit:                            ; preds = %27, %32
   %.0.i.i = phi i32 [ %31, %27 ], [ %25, %32 ]
-  %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
+  %spec.store.select.i.i = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
   call void @display_signed_time(ptr noundef %24, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i) #16
   %35 = getelementptr inbounds i8, ptr %1, i64 40
   %36 = load ptr, ptr %35, align 8
@@ -5586,7 +5586,7 @@ set_time_seconds.exit:                            ; preds = %27, %32
 
 set_time_seconds.exit29:                          ; preds = %63, %68
   %.0.i.i27 = phi i32 [ %67, %63 ], [ %61, %68 ]
-  %spec.store.select.i.i28 = call i32 @llvm.umin.i32(i32 %.0.i.i27, i32 9)
+  %spec.store.select.i.i28 = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i27, i32 9)
   call void @display_signed_time(ptr noundef %60, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i28) #16
   br label %72
 
@@ -5665,7 +5665,7 @@ define internal fastcc void @col_set_delta_time(ptr noundef %0, ptr nocapture no
 
 set_time_seconds.exit:                            ; preds = %27, %32
   %.0.i.i = phi i32 [ %31, %27 ], [ %25, %32 ]
-  %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
+  %spec.store.select.i.i = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
   call void @display_signed_time(ptr noundef %24, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i) #16
   %35 = getelementptr inbounds i8, ptr %1, i64 40
   %36 = load ptr, ptr %35, align 8
@@ -5721,7 +5721,7 @@ set_time_seconds.exit:                            ; preds = %27, %32
 
 set_time_seconds.exit29:                          ; preds = %63, %68
   %.0.i.i27 = phi i32 [ %67, %63 ], [ %61, %68 ]
-  %spec.store.select.i.i28 = call i32 @llvm.umin.i32(i32 %.0.i.i27, i32 9)
+  %spec.store.select.i.i28 = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i27, i32 9)
   call void @display_signed_time(ptr noundef %60, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i28) #16
   br label %72
 
@@ -5800,7 +5800,7 @@ define internal fastcc void @col_set_delta_time_dis(ptr noundef %0, ptr nocaptur
 
 set_time_seconds.exit:                            ; preds = %27, %32
   %.0.i.i = phi i32 [ %31, %27 ], [ %25, %32 ]
-  %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
+  %spec.store.select.i.i = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
   call void @display_signed_time(ptr noundef %24, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i) #16
   %35 = getelementptr inbounds i8, ptr %1, i64 40
   %36 = load ptr, ptr %35, align 8
@@ -5856,7 +5856,7 @@ set_time_seconds.exit:                            ; preds = %27, %32
 
 set_time_seconds.exit29:                          ; preds = %63, %68
   %.0.i.i27 = phi i32 [ %67, %63 ], [ %61, %68 ]
-  %spec.store.select.i.i28 = call i32 @llvm.umin.i32(i32 %.0.i.i27, i32 9)
+  %spec.store.select.i.i28 = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i27, i32 9)
   call void @display_signed_time(ptr noundef %60, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i28) #16
   br label %72
 
@@ -5920,7 +5920,7 @@ define internal fastcc void @col_set_utc_ymd_time(ptr noundef %0, ptr nocapture 
 
 get_frame_timestamp_precision.exit.i:             ; preds = %23, %18
   %.0.i.i = phi i32 [ %22, %18 ], [ %16, %23 ]
-  %spec.store.select.i.i = tail call i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
+  %spec.store.select.i.i = tail call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
   tail call void @format_nstime_as_iso8601(ptr noundef %8, i64 noundef 2048, ptr noundef nonnull %15, ptr noundef %9, i1 noundef zeroext false, i32 noundef %spec.store.select.i.i) #16
   br label %set_abs_ymd_time.exit
 

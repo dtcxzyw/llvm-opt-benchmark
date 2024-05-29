@@ -39,7 +39,7 @@ define noundef i32 @_ZN21unicode_normalization9normalize7compose17h4f064d4953ae0
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.exit"
 
 20:                                               ; preds = %10, %4
-  %21 = tail call noundef i32 @_ZN21unicode_normalization7lookups17composition_table17hafb6235aefd656cfE(i32 noundef %0, i32 noundef %1), !range !4
+  %21 = tail call noundef range(i32 0, 1114113) i32 @_ZN21unicode_normalization7lookups17composition_table17hafb6235aefd656cfE(i32 noundef %0, i32 noundef %1), !range !4
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h87725c103e873770E.exit": ; preds = %15, %12, %20

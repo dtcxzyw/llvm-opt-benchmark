@@ -94027,7 +94027,7 @@ define void @_ZN5typst13introspection7counter7Counter4both17hde3c10ae61bfd8f9E(p
   %.val32 = load ptr, ptr %38, align 8, !align !35, !noundef !12
   %97 = getelementptr inbounds i8, ptr %.val31, i64 144
   %98 = load i64, ptr %97, align 8, !noundef !12
-  %.0.i.i = call noundef i64 @llvm.umax.i64(i64 %98, i64 1)
+  %.0.i.i = call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %98, i64 1)
   %.not.i = icmp eq ptr %.val32, null
   br i1 %.not.i, label %118, label %99
 
@@ -164160,7 +164160,7 @@ common.resume:                                    ; preds = %.body, %30, %36
   %.val33 = load ptr, ptr %84, align 8, !align !35, !noundef !12
   %85 = getelementptr inbounds i8, ptr %.val, i64 144
   %86 = load i64, ptr %85, align 8, !noundef !12
-  %.0.i.i = call noundef i64 @llvm.umax.i64(i64 %86, i64 1)
+  %.0.i.i = call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %86, i64 1)
   %.not.i = icmp eq ptr %.val33, null
   br i1 %.not.i, label %106, label %87
 

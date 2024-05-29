@@ -15104,7 +15104,7 @@ trace_pci_nvme_close_zone.exit:                   ; preds = %sw.bb24, %land.lhs.
   br i1 %tobool.not.not, label %if.then.i, label %if.then14.i
 
 if.then.i:                                        ; preds = %trace_pci_nvme_close_zone.exit
-  %call.i242 = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef nonnull %0, ptr noundef %arrayidx)
+  %call.i242 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_close(ptr noundef nonnull %0, ptr noundef %arrayidx)
   br label %sw.epilog
 
 if.then14.i:                                      ; preds = %trace_pci_nvme_close_zone.exit
@@ -15128,7 +15128,7 @@ land.rhs17.i:                                     ; preds = %if.then14.i, %for.c
   br i1 %switch, label %nvme_bulk_proc_zone.exit74.i, label %for.cond15.i
 
 nvme_bulk_proc_zone.exit74.i:                     ; preds = %land.rhs17.i
-  %call.i241 = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.2111.i)
+  %call.i241 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.2111.i)
   %31 = add nsw i16 %call.i241, -1
   %or.cond1.i = icmp ult i16 %31, -2
   br i1 %or.cond1.i, label %sw.epilog, label %for.cond15.i, !llvm.loop !39
@@ -15154,7 +15154,7 @@ land.rhs34.i:                                     ; preds = %for.end31.i, %for.c
   br i1 %switch275.not, label %nvme_bulk_proc_zone.exit86.i, label %for.cond32.i
 
 nvme_bulk_proc_zone.exit86.i:                     ; preds = %land.rhs34.i
-  %call.i = tail call fastcc zeroext i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.3114.i)
+  %call.i = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.3114.i)
   %36 = add nsw i16 %call.i, -1
   %or.cond2.i = icmp ult i16 %36, -2
   br i1 %or.cond2.i, label %sw.epilog, label %for.cond32.i, !llvm.loop !40
@@ -15199,7 +15199,7 @@ trace_pci_nvme_finish_zone.exit:                  ; preds = %sw.bb31, %land.lhs.
   br i1 %tobool.not.not, label %if.then.i160, label %if.else.i114
 
 if.then.i160:                                     ; preds = %trace_pci_nvme_finish_zone.exit
-  %call.i246 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef nonnull %0, ptr noundef %arrayidx)
+  %call.i246 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr noundef nonnull %0, ptr noundef %arrayidx)
   br label %sw.epilog
 
 if.else.i114:                                     ; preds = %trace_pci_nvme_finish_zone.exit
@@ -15224,7 +15224,7 @@ land.rhs.i:                                       ; preds = %if.else.i114, %for.
   br i1 %switch252, label %nvme_bulk_proc_zone.exit.i, label %for.cond.i
 
 nvme_bulk_proc_zone.exit.i:                       ; preds = %land.rhs.i
-  %call.i245 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.0109.i)
+  %call.i245 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.0109.i)
   %47 = add nsw i16 %call.i245, -1
   %or.cond.i = icmp ult i16 %47, -2
   br i1 %or.cond.i, label %sw.epilog, label %for.cond.i, !llvm.loop !41
@@ -15271,7 +15271,7 @@ sw.epilog.i66.i125:                               ; preds = %sw.bb1.i72.i159, %l
   br i1 %tobool13.i68.i127, label %nvme_bulk_proc_zone.exit74.i156, label %for.cond15.i128
 
 nvme_bulk_proc_zone.exit74.i156:                  ; preds = %sw.epilog.i66.i125
-  %call.i244 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.2111.i120)
+  %call.i244 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.2111.i120)
   %54 = add nsw i16 %call.i244, -1
   %or.cond1.i158 = icmp ult i16 %54, -2
   br i1 %or.cond1.i158, label %sw.epilog, label %for.cond15.i128, !llvm.loop !39
@@ -15313,7 +15313,7 @@ sw.epilog.i78.i142:                               ; preds = %sw.bb1.i84.i155, %l
   br i1 %tobool13.i80.i144, label %nvme_bulk_proc_zone.exit86.i152, label %for.cond32.i145
 
 nvme_bulk_proc_zone.exit86.i152:                  ; preds = %sw.epilog.i78.i142
-  %call.i243 = tail call fastcc zeroext i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.3114.i137)
+  %call.i243 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.3114.i137)
   %61 = add nsw i16 %call.i243, -1
   %or.cond2.i154 = icmp ult i16 %61, -2
   br i1 %or.cond2.i154, label %sw.epilog, label %for.cond32.i145, !llvm.loop !40
@@ -21745,7 +21745,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call fastcc zeroext i16 @nvme_zns_check_resources(ptr noundef readonly %ns, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %call.i = tail call fastcc zeroext range(i16 0, 16831) i16 @nvme_zns_check_resources(ptr noundef readonly %ns, i32 noundef 1, i32 noundef 0, i32 noundef 0)
   %tobool.not = icmp eq i16 %call.i, 0
   br i1 %tobool.not, label %if.end, label %return
 

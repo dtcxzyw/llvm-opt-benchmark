@@ -63965,7 +63965,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN4core3ops8function5impls80_$LT$im
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
-  %4 = call noundef i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17ha51df4a1034e9654E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !range !81
+  %4 = call noundef range(i32 1, 0) i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17ha51df4a1034e9654E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !range !81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret i32 %4
 }
@@ -64024,7 +64024,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN4core3ops8function5impls80_$LT$im
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
-  %4 = call noundef i32 @"_ZN62_$LT$hir_def..ImplId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17h606f94983c04b94eE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !range !81
+  %4 = call noundef range(i32 1, 0) i32 @"_ZN62_$LT$hir_def..ImplId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17h606f94983c04b94eE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !range !81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret i32 %4
 }
@@ -76087,7 +76087,7 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT
   %23 = getelementptr i8, ptr %20, i64 16
   %.val5 = load i32, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %24 = call noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %.val5), !range !81, !noalias !14924
+  %24 = call noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %.val5), !range !81, !noalias !14924
   store i32 %24, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   %25 = load ptr, ptr %14, align 8, !invariant.load !26, !nonnull !26
@@ -76255,7 +76255,7 @@ define internal fastcc noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$
   %.val21 = load i32, ptr %22, align 8
   %23 = load i32, ptr %11, align 4, !range !14956, !noalias !15005, !noundef !26
   %24 = load i32, ptr %12, align 4, !noalias !15005
-  %25 = tail call noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %.val21), !range !81, !noalias !15013
+  %25 = tail call noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %.val21), !range !81, !noalias !15013
   %26 = load ptr, ptr %17, align 8, !invariant.load !26, !noalias !15005, !nonnull !26
   %27 = tail call { ptr, ptr } %26(ptr noundef nonnull align 1 %14), !noalias !15005
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15016)
@@ -82123,7 +82123,7 @@ _ZN6hir_ty5utils8Generics8len_self17hebe79316bb9af7a0E.exit: ; preds = %132
 214:                                              ; preds = %212
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %210, ptr %5, align 4
-  %215 = invoke noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17hf159925948e46aabE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
+  %215 = invoke noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17hf159925948e46aabE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
           to label %_ZN4core3ops8function6FnOnce9call_once17h5fdd6cba3228fcd0E.exit unwind label %179
 
 _ZN4core3ops8function6FnOnce9call_once17h5fdd6cba3228fcd0E.exit: ; preds = %214
@@ -83952,7 +83952,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit41.
 153:                                              ; preds = %149
   store ptr %150, ptr %29, align 8, !noalias !16353
   %154 = load i32, ptr %112, align 8, !range !81, !alias.scope !16382, !noalias !16353, !noundef !26
-  %155 = invoke noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %154)
+  %155 = invoke noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %154)
           to label %"_ZN103_$LT$chalk_ir..TraitRef$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TraitRefExt$GT$12hir_trait_id17hf080af3070913096E.exit.i" unwind label %156
 
 .body131.i:                                       ; preds = %339, %338, %247, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h5a58c2ee5f892cbcE.exit.i", %183, %179, %156
@@ -84779,7 +84779,7 @@ define hidden noundef nonnull ptr @_ZN6hir_ty8chalk_db30type_alias_associated_ty
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %76 = load i32, ptr %59, align 8, !range !81, !alias.scope !16508, !noundef !26
-  %77 = invoke noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %76)
+  %77 = invoke noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %76)
           to label %"_ZN103_$LT$chalk_ir..TraitRef$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TraitRefExt$GT$12hir_trait_id17hf080af3070913096E.exit" unwind label %74
 
 "_ZN103_$LT$chalk_ir..TraitRef$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TraitRefExt$GT$12hir_trait_id17hf080af3070913096E.exit": ; preds = %"_ZN4core3ptr78drop_in_place$LT$chalk_ir..VariableKinds$LT$hir_ty..interner..Interner$GT$$GT$17h5d675bfd1839616dE.exit"
@@ -102913,7 +102913,7 @@ default.unreachable:                              ; preds = %"_ZN8chalk_ir21Subs
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21142)
   %26 = load ptr, ptr %22, align 8, !alias.scope !21145, !noalias !21146, !nonnull !26, !noundef !26
   %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = tail call noundef i8 @"_ZN104_$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17hac096c607a7d1637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !range !14064, !noalias !21145
+  %28 = tail call noundef range(i8 0, 5) i8 @"_ZN104_$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17hac096c607a7d1637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !range !14064, !noalias !21145
   br label %"_ZN102_$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17ha923d3b06bedaec1E.exit"
 
 29:                                               ; preds = %"_ZN8chalk_ir21Substitution$LT$I$GT$2at17h2e1186f42789ea8fE.exit"
@@ -102966,7 +102966,7 @@ default.unreachable1:                             ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21154)
   %8 = load ptr, ptr %4, align 8, !alias.scope !21154, !noalias !21157, !nonnull !26, !noundef !26
   %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = tail call noundef i8 @"_ZN104_$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17hac096c607a7d1637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !range !14064, !noalias !21154
+  %10 = tail call noundef range(i8 0, 5) i8 @"_ZN104_$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17hac096c607a7d1637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !range !14064, !noalias !21154
   br label %13
 
 11:                                               ; preds = %2
@@ -103039,7 +103039,7 @@ default.unreachable:                              ; preds = %2
   store ptr %8, ptr %34, align 8, !alias.scope !21165, !noalias !21168
   %35 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 2, ptr %35, align 8, !alias.scope !21165, !noalias !21168
-  %36 = call noundef i8 @_ZN6hir_ty7display12HirFormatter9write_fmt17hfb91d0f0885e32a6E(ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9), !range !14064
+  %36 = call noundef range(i8 0, 5) i8 @_ZN6hir_ty7display12HirFormatter9write_fmt17hfb91d0f0885e32a6E(ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9), !range !14064
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !21162
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !21162
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !21162
@@ -103966,7 +103966,7 @@ common.resume:                                    ; preds = %474, %"_ZN4core3ptr
   store ptr %10, ptr %375, align 8, !alias.scope !21272, !noalias !21275
   %376 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 2, ptr %376, align 8, !alias.scope !21272, !noalias !21275
-  %377 = call noundef i8 @_ZN6hir_ty7display12HirFormatter9write_fmt17hfb91d0f0885e32a6E(ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11), !range !14064
+  %377 = call noundef range(i8 0, 5) i8 @_ZN6hir_ty7display12HirFormatter9write_fmt17hfb91d0f0885e32a6E(ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11), !range !14064
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !21269
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !21269
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !21269
@@ -108408,7 +108408,7 @@ define noundef i8 @"_ZN103_$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Intern
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = tail call noundef i8 @_ZN6hir_ty7display13fmt_trait_ref17hf4ab4dd39b1c67f1E(ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35, i1 noundef zeroext false), !range !14064
+  %36 = tail call noundef range(i8 0, 5) i8 @_ZN6hir_ty7display13fmt_trait_ref17hf4ab4dd39b1c67f1E(ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35, i1 noundef zeroext false), !range !14064
   br label %39
 
 37:                                               ; preds = %21
@@ -108652,7 +108652,7 @@ define noundef range(i8 0, 5) i8 @"_ZN108_$LT$chalk_ir..LifetimeOutlives$LT$hir_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21995)
   %4 = load ptr, ptr %0, align 8, !alias.scope !21995, !noalias !21998, !nonnull !26, !noundef !26
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = tail call noundef i8 @"_ZN104_$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17hac096c607a7d1637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !range !14064, !noalias !21995
+  %6 = tail call noundef range(i8 0, 5) i8 @"_ZN104_$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17hac096c607a7d1637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !range !14064, !noalias !21995
   %7 = icmp eq i8 %6, 4
   br i1 %7, label %8, label %20
 
@@ -108677,7 +108677,7 @@ define noundef range(i8 0, 5) i8 @"_ZN108_$LT$chalk_ir..LifetimeOutlives$LT$hir_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22000)
   %17 = load ptr, ptr %16, align 8, !alias.scope !22000, !noalias !22003, !nonnull !26, !noundef !26
   %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = tail call noundef i8 @"_ZN104_$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17hac096c607a7d1637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !range !14064, !noalias !22000
+  %19 = tail call noundef range(i8 0, 5) i8 @"_ZN104_$LT$chalk_ir..LifetimeData$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17hac096c607a7d1637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !range !14064, !noalias !22000
   br label %20
 
 20:                                               ; preds = %8, %2, %15
@@ -108881,7 +108881,7 @@ _ZN6hir_ty7mapping23lt_from_placeholder_idx17h27c673a774d42120E.exit: ; preds = 
   store ptr %4, ptr %91, align 8, !alias.scope !22023, !noalias !22026
   %92 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %92, align 8, !alias.scope !22023, !noalias !22026
-  %93 = call noundef i8 @_ZN6hir_ty7display12HirFormatter9write_fmt17hfb91d0f0885e32a6E(ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5), !range !14064
+  %93 = call noundef range(i8 0, 5) i8 @_ZN6hir_ty7display12HirFormatter9write_fmt17hfb91d0f0885e32a6E(ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5), !range !14064
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !22020
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !22020
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !22020
@@ -110624,7 +110624,7 @@ common.resume:                                    ; preds = %.body.i68, %341, %.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   %136 = load i32, ptr %30, align 8, !range !81, !alias.scope !22251, !noundef !26
-  %137 = invoke noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %136)
+  %137 = invoke noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %136)
           to label %"_ZN103_$LT$chalk_ir..TraitRef$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TraitRefExt$GT$12hir_trait_id17hf080af3070913096E.exit" unwind label %139
 
 .backedge:                                        ; preds = %"_ZN4core3ptr41drop_in_place$LT$hir_def..attr..Attrs$GT$17h5542636f9c5e45a2E.exit30", %134, %"_ZN4core3ptr92drop_in_place$LT$chalk_ir..Binders$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h3f3c7fd637aefe83E.exit"
@@ -117108,7 +117108,7 @@ define internal fastcc void @_ZN6hir_ty17method_resolution36lookup_impl_assoc_it
   store i32 %2, ptr %23, align 8
   store ptr %5, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
-  %24 = invoke noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %2)
+  %24 = invoke noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %2)
           to label %"_ZN103_$LT$chalk_ir..TraitRef$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TraitRefExt$GT$12hir_trait_id17hf080af3070913096E.exit" unwind label %.loopexit.split-lp
 
 .body102:                                         ; preds = %.loopexit.split-lp, %294, %"_ZN4core3ptr120drop_in_place$LT$triomphe..arc..Arc$LT$$u5b$triomphe..arc..Arc$LT$hir_ty..method_resolution..TraitImpls$GT$$u5d$$GT$$GT$17h3133217d886ae03eE.exit"
@@ -121621,7 +121621,7 @@ define hidden void @_ZN6hir_ty6traits17trait_solve_query17hc23d0986a212f968E(ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
   %81 = getelementptr inbounds i8, ptr %67, i64 32
   %82 = load i32, ptr %81, align 8, !range !81, !alias.scope !25012, !noundef !26
-  %83 = invoke noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %82)
+  %83 = invoke noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %82)
           to label %"_ZN103_$LT$chalk_ir..TraitRef$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TraitRefExt$GT$12hir_trait_id17hf080af3070913096E.exit" unwind label %.thread150
 
 84:                                               ; preds = %74

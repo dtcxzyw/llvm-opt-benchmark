@@ -5932,7 +5932,7 @@ ZSTD_count.exit1411.thread:                       ; preds = %if.then.i1387
   %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i1390, i1 true)
   %shr.i.i1393 = lshr i64 %14, 3
   %conv259.i1523 = trunc i64 %offBase.i.1 to i32
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv259.i1523, i1 true)
+  %15 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv259.i1523, i1 true)
   br label %land.lhs.true267.i
 
 while.cond.i1394:                                 ; preds = %if.then.i1387, %while.body.i1400
@@ -6010,7 +6010,7 @@ ZSTD_count.exit1411:                              ; preds = %if.end47.i1359, %la
   %sub.ptr.rhs.cast.i1409 = ptrtoint ptr %add.ptr250.i to i64
   %sub.ptr.sub.i1410 = sub i64 %sub.ptr.lhs.cast.i1408, %sub.ptr.rhs.cast.i1409
   %conv259.i = trunc i64 %offBase.i.1 to i32
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv259.i, i1 true)
+  %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv259.i, i1 true)
   %cmp265.i = icmp ult i64 %sub.ptr.sub.i1410, -4
   br i1 %cmp265.i, label %land.lhs.true267.i, label %if.end334.i
 
@@ -6060,10 +6060,10 @@ ZSTD_searchMax.exit330:                           ; preds = %sw.bb4.i323, %sw.bb
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %conv346.i = trunc i64 %offBase.i.2 to i32
-  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %23 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %24 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %24 to i32
-  %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %25 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1413 = xor i32 %25, 31
   %matchLength.i.4.tr = trunc i64 %matchLength.i.4 to i32
   %26 = shl i32 %matchLength.i.4.tr, 2
@@ -6676,7 +6676,7 @@ if.then302.i:                                     ; preds = %land.lhs.true297.i
 
 land.lhs.true328.i:                               ; preds = %if.then302.i
   %conv320.i = trunc i64 %offBase.i.1 to i32
-  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
+  %14 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
   %15 = trunc i64 %matchLength.i.3 to i32
   %16 = mul i32 %15, 3
   %17 = add nsw i32 %14, -30
@@ -6719,10 +6719,10 @@ ZSTD_searchMax.exit330:                           ; preds = %sw.bb108.i235, %sw.
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %conv346.i = trunc i64 %offBase.i.3 to i32
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %20 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %20 to i32
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %21 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1337 = xor i32 %21, 31
   %matchLength.i.5.tr = trunc i64 %matchLength.i.5 to i32
   %22 = shl i32 %matchLength.i.5.tr, 2
@@ -7456,7 +7456,7 @@ if.then302.i:                                     ; preds = %land.lhs.true297.i
 
 land.lhs.true328.i:                               ; preds = %if.then302.i
   %conv320.i = trunc i64 %offBase.i.1 to i32
-  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
+  %14 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
   %15 = trunc i64 %matchLength.i.3 to i32
   %16 = mul i32 %15, 3
   %17 = add nsw i32 %14, -30
@@ -7499,10 +7499,10 @@ ZSTD_searchMax.exit330:                           ; preds = %sw.bb162.i191, %sw.
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %conv346.i = trunc i64 %offBase.i.3 to i32
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %20 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %20 to i32
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %21 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1337 = xor i32 %21, 31
   %matchLength.i.5.tr = trunc i64 %matchLength.i.5 to i32
   %22 = shl i32 %matchLength.i.5.tr, 2
@@ -8580,7 +8580,7 @@ ZSTD_count.exit1428.thread:                       ; preds = %if.then.i1404
   %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i1407, i1 true)
   %shr.i.i1410 = lshr i64 %22, 3
   %conv259.i1557 = trunc i64 %offBase.i.1 to i32
-  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv259.i1557, i1 true)
+  %23 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv259.i1557, i1 true)
   br label %land.lhs.true267.i
 
 while.cond.i1411:                                 ; preds = %if.then.i1404, %while.body.i1417
@@ -8658,7 +8658,7 @@ ZSTD_count.exit1428:                              ; preds = %if.end47.i1376, %la
   %sub.ptr.rhs.cast.i1426 = ptrtoint ptr %add.ptr250.i to i64
   %sub.ptr.sub.i1427 = sub i64 %sub.ptr.lhs.cast.i1425, %sub.ptr.rhs.cast.i1426
   %conv259.i = trunc i64 %offBase.i.1 to i32
-  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv259.i, i1 true)
+  %27 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv259.i, i1 true)
   %cmp265.i = icmp ult i64 %sub.ptr.sub.i1427, -4
   br i1 %cmp265.i, label %land.lhs.true267.i, label %if.end334.i
 
@@ -8753,10 +8753,10 @@ ZSTD_searchMax.exit330:                           ; preds = %sw.bb38.i289, %sw.b
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %conv346.i = trunc i64 %offBase.i.2 to i32
-  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %31 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %32 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %32 to i32
-  %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %33 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1430 = xor i32 %33, 31
   %matchLength.i.4.tr = trunc i64 %matchLength.i.4 to i32
   %34 = shl i32 %matchLength.i.4.tr, 2
@@ -9727,7 +9727,7 @@ if.then302.i:                                     ; preds = %land.lhs.true297.i
 
 land.lhs.true328.i:                               ; preds = %if.then302.i
   %conv320.i = trunc i64 %offBase.i.1 to i32
-  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
+  %22 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
   %23 = trunc i64 %matchLength.i.3 to i32
   %24 = mul i32 %23, 3
   %25 = add nsw i32 %22, -30
@@ -9815,10 +9815,10 @@ ZSTD_searchMax.exit330:                           ; preds = %sw.bb145.i201, %sw.
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %conv346.i = trunc i64 %offBase.i.3 to i32
-  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %27 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %28 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %28 to i32
-  %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1351 = xor i32 %29, 31
   %matchLength.i.5.tr = trunc i64 %matchLength.i.5 to i32
   %30 = shl i32 %matchLength.i.5.tr, 2
@@ -10910,7 +10910,7 @@ if.then302.i:                                     ; preds = %land.lhs.true297.i
 
 land.lhs.true328.i:                               ; preds = %if.then302.i
   %conv320.i = trunc i64 %offBase.i.1 to i32
-  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
+  %22 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
   %23 = trunc i64 %matchLength.i.3 to i32
   %24 = mul i32 %23, 3
   %25 = add nsw i32 %22, -30
@@ -10998,10 +10998,10 @@ ZSTD_searchMax.exit330:                           ; preds = %sw.bb199.i157, %sw.
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %conv346.i = trunc i64 %offBase.i.3 to i32
-  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %27 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %28 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %28 to i32
-  %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1351 = xor i32 %29, 31
   %matchLength.i.5.tr = trunc i64 %matchLength.i.5 to i32
   %30 = shl i32 %matchLength.i.5.tr, 2
@@ -11903,7 +11903,7 @@ ZSTD_count.exit1412.thread:                       ; preds = %if.then.i1388
   %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i1391, i1 true)
   %shr.i.i1394 = lshr i64 %14, 3
   %conv259.i1592 = trunc i64 %offBase.i.11638 to i32
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv259.i1592, i1 true)
+  %15 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv259.i1592, i1 true)
   br label %land.lhs.true267.i
 
 while.cond.i1395:                                 ; preds = %if.then.i1388, %while.body.i1401
@@ -11981,7 +11981,7 @@ ZSTD_count.exit1412:                              ; preds = %if.end47.i1360, %la
   %sub.ptr.rhs.cast.i1410 = ptrtoint ptr %add.ptr250.i to i64
   %sub.ptr.sub.i1411 = sub i64 %sub.ptr.lhs.cast.i1409, %sub.ptr.rhs.cast.i1410
   %conv259.i = trunc i64 %offBase.i.11638 to i32
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv259.i, i1 true)
+  %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv259.i, i1 true)
   %cmp265.i = icmp ult i64 %sub.ptr.sub.i1411, -4
   br i1 %cmp265.i, label %land.lhs.true267.i, label %if.end334.i
 
@@ -12028,14 +12028,14 @@ ZSTD_searchMax.exit330:                           ; preds = %sw.bb4.i323, %sw.bb
   %retval.i137.0 = phi i64 [ %call5.i324, %sw.bb4.i323 ], [ %call3.i326, %sw.bb2.i325 ], [ %call.i328, %sw.bb1.i327 ]
   %mul345.i = shl i64 %matchLength.i.4, 2
   %conv346.i = trunc i64 %offBase.i.2 to i32
-  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %23 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %cmp352.i = icmp ugt i64 %retval.i137.0, 3
   br i1 %cmp352.i, label %land.lhs.true354.i, label %land.lhs.true361.i
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %24 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %24 to i32
-  %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %25 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1414 = xor i32 %25, 31
   %26 = trunc i64 %mul345.i to i32
   %27 = add nsw i32 %23, -27
@@ -12209,10 +12209,10 @@ ZSTD_searchMax.exit:                              ; preds = %sw.bb4.i, %sw.bb2.i
 
 land.lhs.true494.i:                               ; preds = %ZSTD_searchMax.exit
   %conv486.i = trunc i64 %offBase.i.4 to i32
-  %35 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
+  %35 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
   %36 = load i64, ptr %ofbCandidate474.i, align 8
   %conv479.i = trunc i64 %36 to i32
-  %37 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
+  %37 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
   %sub.i1482 = xor i32 %37, 31
   %matchLength.i.6.tr = trunc i64 %matchLength.i.6 to i32
   %38 = shl i32 %matchLength.i.6.tr, 2
@@ -12823,7 +12823,7 @@ if.then302.i:                                     ; preds = %land.lhs.true297.i
 
 land.lhs.true328.i:                               ; preds = %if.then302.i
   %conv320.i = trunc i64 %offBase.i.11422 to i32
-  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
+  %14 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
   %15 = trunc i64 %matchLength.i.31423 to i32
   %16 = mul i32 %15, 3
   %17 = add nsw i32 %14, -30
@@ -12862,14 +12862,14 @@ sw.bb108.i235:                                    ; preds = %if.end334.i
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb108.i235, %sw.bb106.i237, %sw.bb104.i239
   %retval.i137.0 = phi i64 [ %call109.i236, %sw.bb108.i235 ], [ %call107.i238, %sw.bb106.i237 ], [ %call105.i240, %sw.bb104.i239 ]
   %conv346.i = trunc i64 %offBase.i.3 to i32
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %cmp352.i = icmp ugt i64 %retval.i137.0, 3
   br i1 %cmp352.i, label %land.lhs.true354.i, label %land.lhs.true361.i
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %20 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %20 to i32
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %21 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1338 = xor i32 %21, 31
   %matchLength.i.5.tr = trunc i64 %matchLength.i.5 to i32
   %22 = shl i32 %matchLength.i.5.tr, 2
@@ -12967,10 +12967,10 @@ ZSTD_searchMax.exit:                              ; preds = %sw.bb108.i, %sw.bb1
 
 land.lhs.true494.i:                               ; preds = %ZSTD_searchMax.exit
   %conv486.i = trunc i64 %offBase.i.5 to i32
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
+  %28 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
   %29 = load i64, ptr %ofbCandidate474.i, align 8
   %conv479.i = trunc i64 %29 to i32
-  %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
+  %30 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
   %sub.i1341 = xor i32 %30, 31
   %matchLength.i.7.tr = trunc i64 %matchLength.i.7 to i32
   %31 = shl i32 %matchLength.i.7.tr, 2
@@ -13702,7 +13702,7 @@ if.then302.i:                                     ; preds = %land.lhs.true297.i
 
 land.lhs.true328.i:                               ; preds = %if.then302.i
   %conv320.i = trunc i64 %offBase.i.11422 to i32
-  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
+  %14 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
   %15 = trunc i64 %matchLength.i.31423 to i32
   %16 = mul i32 %15, 3
   %17 = add nsw i32 %14, -30
@@ -13741,14 +13741,14 @@ sw.bb162.i191:                                    ; preds = %if.end334.i
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb162.i191, %sw.bb160.i193, %sw.bb158.i195
   %retval.i137.0 = phi i64 [ %call163.i192, %sw.bb162.i191 ], [ %call161.i194, %sw.bb160.i193 ], [ %call159.i196, %sw.bb158.i195 ]
   %conv346.i = trunc i64 %offBase.i.3 to i32
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %cmp352.i = icmp ugt i64 %retval.i137.0, 3
   br i1 %cmp352.i, label %land.lhs.true354.i, label %land.lhs.true361.i
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %20 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %20 to i32
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %21 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1338 = xor i32 %21, 31
   %matchLength.i.5.tr = trunc i64 %matchLength.i.5 to i32
   %22 = shl i32 %matchLength.i.5.tr, 2
@@ -13846,10 +13846,10 @@ ZSTD_searchMax.exit:                              ; preds = %sw.bb162.i, %sw.bb1
 
 land.lhs.true494.i:                               ; preds = %ZSTD_searchMax.exit
   %conv486.i = trunc i64 %offBase.i.5 to i32
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
+  %28 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
   %29 = load i64, ptr %ofbCandidate474.i, align 8
   %conv479.i = trunc i64 %29 to i32
-  %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
+  %30 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
   %sub.i1341 = xor i32 %30, 31
   %matchLength.i.7.tr = trunc i64 %matchLength.i.7 to i32
   %31 = shl i32 %matchLength.i.7.tr, 2
@@ -14925,7 +14925,7 @@ ZSTD_count.exit1429.thread:                       ; preds = %if.then.i1405
   %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i1408, i1 true)
   %shr.i.i1411 = lshr i64 %22, 3
   %conv259.i1626 = trunc i64 %offBase.i.11781 to i32
-  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv259.i1626, i1 true)
+  %23 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv259.i1626, i1 true)
   br label %land.lhs.true267.i
 
 while.cond.i1412:                                 ; preds = %if.then.i1405, %while.body.i1418
@@ -15003,7 +15003,7 @@ ZSTD_count.exit1429:                              ; preds = %if.end47.i1377, %la
   %sub.ptr.rhs.cast.i1427 = ptrtoint ptr %add.ptr250.i to i64
   %sub.ptr.sub.i1428 = sub i64 %sub.ptr.lhs.cast.i1426, %sub.ptr.rhs.cast.i1427
   %conv259.i = trunc i64 %offBase.i.11781 to i32
-  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv259.i, i1 true)
+  %27 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv259.i, i1 true)
   %cmp265.i = icmp ult i64 %sub.ptr.sub.i1428, -4
   br i1 %cmp265.i, label %land.lhs.true267.i, label %if.end334.i
 
@@ -15095,14 +15095,14 @@ ZSTD_searchMax.exit330:                           ; preds = %sw.bb38.i289, %sw.b
   %retval.i137.0 = phi i64 [ %call39.i290, %sw.bb38.i289 ], [ %call37.i292, %sw.bb36.i291 ], [ %call35.i294, %sw.bb34.i293 ], [ %call29.i298, %sw.bb28.i297 ], [ %call27.i300, %sw.bb26.i299 ], [ %call25.i302, %sw.bb24.i301 ], [ %call21.i306, %sw.bb20.i305 ], [ %call19.i308, %sw.bb18.i307 ], [ %call17.i310, %sw.bb16.i309 ]
   %mul345.i = shl i64 %matchLength.i.4, 2
   %conv346.i = trunc i64 %offBase.i.2 to i32
-  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %31 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %cmp352.i = icmp ugt i64 %retval.i137.0, 3
   br i1 %cmp352.i, label %land.lhs.true354.i, label %land.lhs.true361.i
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %32 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %32 to i32
-  %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %33 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1431 = xor i32 %33, 31
   %34 = trunc i64 %mul345.i to i32
   %35 = add nsw i32 %31, -27
@@ -15321,10 +15321,10 @@ ZSTD_searchMax.exit:                              ; preds = %sw.bb38.i, %sw.bb36
 
 land.lhs.true494.i:                               ; preds = %ZSTD_searchMax.exit
   %conv486.i = trunc i64 %offBase.i.4 to i32
-  %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
+  %43 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
   %44 = load i64, ptr %ofbCandidate474.i, align 8
   %conv479.i = trunc i64 %44 to i32
-  %45 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
+  %45 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
   %sub.i1499 = xor i32 %45, 31
   %matchLength.i.6.tr = trunc i64 %matchLength.i.6 to i32
   %46 = shl i32 %matchLength.i.6.tr, 2
@@ -16293,7 +16293,7 @@ if.then302.i:                                     ; preds = %land.lhs.true297.i
 
 land.lhs.true328.i:                               ; preds = %if.then302.i
   %conv320.i = trunc i64 %offBase.i.11562 to i32
-  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
+  %22 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
   %23 = trunc i64 %matchLength.i.31563 to i32
   %24 = mul i32 %23, 3
   %25 = add nsw i32 %22, -30
@@ -16377,14 +16377,14 @@ sw.bb145.i201:                                    ; preds = %sw.bb140.i200
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb145.i201, %sw.bb143.i203, %sw.bb141.i205, %sw.bb135.i209, %sw.bb133.i211, %sw.bb131.i213, %sw.bb125.i217, %sw.bb123.i219, %sw.bb121.i221
   %retval.i137.0 = phi i64 [ %call146.i202, %sw.bb145.i201 ], [ %call144.i204, %sw.bb143.i203 ], [ %call142.i206, %sw.bb141.i205 ], [ %call136.i210, %sw.bb135.i209 ], [ %call134.i212, %sw.bb133.i211 ], [ %call132.i214, %sw.bb131.i213 ], [ %call126.i218, %sw.bb125.i217 ], [ %call124.i220, %sw.bb123.i219 ], [ %call122.i222, %sw.bb121.i221 ]
   %conv346.i = trunc i64 %offBase.i.3 to i32
-  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %27 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %cmp352.i = icmp ugt i64 %retval.i137.0, 3
   br i1 %cmp352.i, label %land.lhs.true354.i, label %land.lhs.true361.i
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %28 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %28 to i32
-  %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1352 = xor i32 %29, 31
   %matchLength.i.5.tr = trunc i64 %matchLength.i.5 to i32
   %30 = shl i32 %matchLength.i.5.tr, 2
@@ -16527,10 +16527,10 @@ ZSTD_searchMax.exit:                              ; preds = %sw.bb145.i, %sw.bb1
 
 land.lhs.true494.i:                               ; preds = %ZSTD_searchMax.exit
   %conv486.i = trunc i64 %offBase.i.5 to i32
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
+  %36 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
   %37 = load i64, ptr %ofbCandidate474.i, align 8
   %conv479.i = trunc i64 %37 to i32
-  %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
+  %38 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
   %sub.i1355 = xor i32 %38, 31
   %matchLength.i.7.tr = trunc i64 %matchLength.i.7 to i32
   %39 = shl i32 %matchLength.i.7.tr, 2
@@ -17620,7 +17620,7 @@ if.then302.i:                                     ; preds = %land.lhs.true297.i
 
 land.lhs.true328.i:                               ; preds = %if.then302.i
   %conv320.i = trunc i64 %offBase.i.11562 to i32
-  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
+  %22 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
   %23 = trunc i64 %matchLength.i.31563 to i32
   %24 = mul i32 %23, 3
   %25 = add nsw i32 %22, -30
@@ -17704,14 +17704,14 @@ sw.bb199.i157:                                    ; preds = %sw.bb194.i156
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb199.i157, %sw.bb197.i159, %sw.bb195.i161, %sw.bb189.i165, %sw.bb187.i167, %sw.bb185.i169, %sw.bb179.i173, %sw.bb177.i175, %sw.bb175.i177
   %retval.i137.0 = phi i64 [ %call200.i158, %sw.bb199.i157 ], [ %call198.i160, %sw.bb197.i159 ], [ %call196.i162, %sw.bb195.i161 ], [ %call190.i166, %sw.bb189.i165 ], [ %call188.i168, %sw.bb187.i167 ], [ %call186.i170, %sw.bb185.i169 ], [ %call180.i174, %sw.bb179.i173 ], [ %call178.i176, %sw.bb177.i175 ], [ %call176.i178, %sw.bb175.i177 ]
   %conv346.i = trunc i64 %offBase.i.3 to i32
-  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %27 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %cmp352.i = icmp ugt i64 %retval.i137.0, 3
   br i1 %cmp352.i, label %land.lhs.true354.i, label %land.lhs.true361.i
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %28 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %28 to i32
-  %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1352 = xor i32 %29, 31
   %matchLength.i.5.tr = trunc i64 %matchLength.i.5 to i32
   %30 = shl i32 %matchLength.i.5.tr, 2
@@ -17854,10 +17854,10 @@ ZSTD_searchMax.exit:                              ; preds = %sw.bb199.i, %sw.bb1
 
 land.lhs.true494.i:                               ; preds = %ZSTD_searchMax.exit
   %conv486.i = trunc i64 %offBase.i.5 to i32
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
+  %36 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
   %37 = load i64, ptr %ofbCandidate474.i, align 8
   %conv479.i = trunc i64 %37 to i32
-  %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
+  %38 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
   %sub.i1355 = xor i32 %38, 31
   %matchLength.i.7.tr = trunc i64 %matchLength.i.7 to i32
   %39 = shl i32 %matchLength.i.7.tr, 2
@@ -18898,7 +18898,7 @@ ZSTD_count.exit1460.thread:                       ; preds = %if.then.i1436
   %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i1439, i1 true)
   %shr.i.i1442 = lshr i64 %37, 3
   %conv259.i1877 = trunc i64 %offBase.i.11923 to i32
-  %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv259.i1877, i1 true)
+  %38 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv259.i1877, i1 true)
   br label %land.lhs.true267.i
 
 while.cond.i1443:                                 ; preds = %if.then.i1436, %while.body.i1449
@@ -18976,7 +18976,7 @@ ZSTD_count.exit1460:                              ; preds = %if.end47.i1408, %la
   %sub.ptr.rhs.cast.i1458 = ptrtoint ptr %add.ptr250.i to i64
   %sub.ptr.sub.i1459 = sub i64 %sub.ptr.lhs.cast.i1457, %sub.ptr.rhs.cast.i1458
   %conv259.i = trunc i64 %offBase.i.11923 to i32
-  %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv259.i, i1 true)
+  %42 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv259.i, i1 true)
   %cmp265.i = icmp ult i64 %sub.ptr.sub.i1459, -4
   br i1 %cmp265.i, label %land.lhs.true267.i, label %if.end334.i
 
@@ -19160,7 +19160,7 @@ for.body.us.i.i1564:                              ; preds = %for.body.us.i.i1564
 ZSTD_searchMax.exit330.thread:                    ; preds = %sw.bb7.i319, %sw.bb9.i317, %sw.bb11.i315
   %mul345.i2010 = shl i64 %matchLength.i.4, 2
   %conv346.i2011 = trunc i64 %offBase.i.2 to i32
-  %73 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i2011, i1 true)
+  %73 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i2011, i1 true)
   br label %land.lhs.true361.i
 
 ZSTD_searchMax.exit330:                           ; preds = %for.body.us.i.i1564, %for.body.us4.i.i1525, %for.body.i.i1485, %if.end.i.i1545, %if.end.i.i1506, %if.end.i.i1467
@@ -19169,14 +19169,14 @@ ZSTD_searchMax.exit330:                           ; preds = %for.body.us.i.i1564
   %call.i.i1558 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i, i32 noundef %spec.select1890, i32 noundef 0)
   %mul345.i = shl i64 %matchLength.i.4, 2
   %conv346.i = trunc i64 %offBase.i.2 to i32
-  %74 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %74 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %cmp352.i = icmp ugt i64 %call.i.i1558, 3
   br i1 %cmp352.i, label %land.lhs.true354.i, label %land.lhs.true361.i
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %75 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %75 to i32
-  %76 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %76 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1579 = xor i32 %76, 31
   %77 = trunc i64 %mul345.i to i32
   %78 = add nsw i32 %74, -27
@@ -19492,10 +19492,10 @@ ZSTD_searchMax.exit:                              ; preds = %for.body.us.i.i1749
 
 land.lhs.true494.i:                               ; preds = %ZSTD_searchMax.exit
   %conv486.i = trunc i64 %offBase.i.4 to i32
-  %114 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
+  %114 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
   %115 = load i64, ptr %ofbCandidate474.i, align 8
   %conv479.i = trunc i64 %115 to i32
-  %116 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
+  %116 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
   %sub.i1764 = xor i32 %116, 31
   %matchLength.i.6.tr = trunc i64 %matchLength.i.6 to i32
   %117 = shl i32 %matchLength.i.6.tr, 2
@@ -20242,7 +20242,7 @@ if.then302.i:                                     ; preds = %land.lhs.true297.i
 
 land.lhs.true328.i:                               ; preds = %if.then302.i
   %conv320.i = trunc i64 %offBase.i.11711 to i32
-  %37 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
+  %37 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv320.i, i1 true)
   %38 = trunc i64 %matchLength.i.31712 to i32
   %39 = mul i32 %38, 3
   %40 = add nsw i32 %37, -30
@@ -20415,7 +20415,7 @@ for.body.us.i.i1488:                              ; preds = %for.body.us.i.i1488
 
 ZSTD_searchMax.exit330.thread:                    ; preds = %sw.bb112.i231, %sw.bb114.i229, %sw.bb116.i227
   %conv346.i1793 = trunc i64 %offBase.i.3 to i32
-  %69 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i1793, i1 true)
+  %69 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i1793, i1 true)
   br label %land.lhs.true361.i
 
 ZSTD_searchMax.exit330:                           ; preds = %for.body.us.i.i1488, %for.body.us4.i.i1449, %for.body.i.i1409, %if.end.i.i1469, %if.end.i.i1430, %if.end.i.i1391
@@ -20423,14 +20423,14 @@ ZSTD_searchMax.exit330:                           ; preds = %for.body.us.i.i1488
   store i32 %conv.i.i1479.sink, ptr %nextToUpdate.i.i1361, align 4
   %call.i.i1482 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i, i32 noundef %spec.select1683, i32 noundef 2)
   %conv346.i = trunc i64 %offBase.i.3 to i32
-  %70 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
+  %70 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true)
   %cmp352.i = icmp ugt i64 %call.i.i1482, 3
   br i1 %cmp352.i, label %land.lhs.true354.i, label %land.lhs.true361.i
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
   %71 = load i64, ptr %ofbCandidate.i, align 8
   %conv339.i = trunc i64 %71 to i32
-  %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
+  %72 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true)
   %sub.i1503 = xor i32 %72, 31
   %matchLength.i.5.tr = trunc i64 %matchLength.i.5 to i32
   %73 = shl i32 %matchLength.i.5.tr, 2
@@ -20666,10 +20666,10 @@ ZSTD_searchMax.exit:                              ; preds = %for.body.us.i.i1608
 
 land.lhs.true494.i:                               ; preds = %ZSTD_searchMax.exit
   %conv486.i = trunc i64 %offBase.i.5 to i32
-  %107 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
+  %107 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true)
   %108 = load i64, ptr %ofbCandidate474.i, align 8
   %conv479.i = trunc i64 %108 to i32
-  %109 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
+  %109 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true)
   %sub.i1623 = xor i32 %109, 31
   %matchLength.i.7.tr = trunc i64 %matchLength.i.7 to i32
   %110 = shl i32 %matchLength.i.7.tr, 2
@@ -23093,7 +23093,7 @@ if.then165.i:                                     ; preds = %if.then160.i
 
 land.lhs.true.i:                                  ; preds = %if.then165.i
   %conv179.i = trunc i64 %offBase.i.1 to i32
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv179.i, i1 true)
+  %12 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv179.i, i1 true)
   %13 = trunc i64 %matchLength.i.2 to i32
   %14 = mul i32 %13, 3
   %15 = add nsw i32 %12, -30
@@ -23136,10 +23136,10 @@ ZSTD_searchMax.exit331:                           ; preds = %sw.bb54.i280, %sw.b
 
 land.lhs.true214.i:                               ; preds = %ZSTD_searchMax.exit331
   %conv206.i = trunc i64 %offBase.i.2 to i32
-  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true)
+  %17 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true)
   %18 = load i64, ptr %ofbCandidate194.i, align 8
   %conv199.i = trunc i64 %18 to i32
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true)
+  %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true)
   %sub.i1202 = xor i32 %19, 31
   %matchLength.i.3.tr = trunc i64 %matchLength.i.3 to i32
   %20 = shl i32 %matchLength.i.3.tr, 2
@@ -24154,7 +24154,7 @@ if.then165.i:                                     ; preds = %if.then160.i
 
 land.lhs.true.i:                                  ; preds = %if.then165.i
   %conv179.i = trunc i64 %offBase.i.1 to i32
-  %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv179.i, i1 true)
+  %20 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv179.i, i1 true)
   %21 = trunc i64 %matchLength.i.2 to i32
   %22 = mul i32 %21, 3
   %23 = add nsw i32 %20, -30
@@ -24242,10 +24242,10 @@ ZSTD_searchMax.exit331:                           ; preds = %sw.bb91.i246, %sw.b
 
 land.lhs.true214.i:                               ; preds = %ZSTD_searchMax.exit331
   %conv206.i = trunc i64 %offBase.i.2 to i32
-  %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true)
+  %25 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true)
   %26 = load i64, ptr %ofbCandidate194.i, align 8
   %conv199.i = trunc i64 %26 to i32
-  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true)
+  %27 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true)
   %sub.i1217 = xor i32 %27, 31
   %matchLength.i.3.tr = trunc i64 %matchLength.i.3 to i32
   %28 = shl i32 %matchLength.i.3.tr, 2
@@ -25084,7 +25084,7 @@ if.then165.i:                                     ; preds = %if.then160.i
 
 land.lhs.true.i:                                  ; preds = %if.then165.i
   %conv179.i = trunc i64 %offBase.i.11308 to i32
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv179.i, i1 true)
+  %12 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv179.i, i1 true)
   %13 = trunc i64 %matchLength.i.21309 to i32
   %14 = mul i32 %13, 3
   %15 = add nsw i32 %12, -30
@@ -25124,14 +25124,14 @@ ZSTD_searchMax.exit331:                           ; preds = %sw.bb54.i280, %sw.b
   %retval.i138.0 = phi i64 [ %call55.i281, %sw.bb54.i280 ], [ %call53.i283, %sw.bb52.i282 ], [ %call51.i285, %sw.bb50.i284 ]
   %mul205.i = shl i64 %matchLength.i.3, 2
   %conv206.i = trunc i64 %offBase.i.2 to i32
-  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true)
+  %17 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true)
   %cmp212.i = icmp ugt i64 %retval.i138.0, 3
   br i1 %cmp212.i, label %land.lhs.true214.i, label %land.lhs.true221.i
 
 land.lhs.true214.i:                               ; preds = %ZSTD_searchMax.exit331
   %18 = load i64, ptr %ofbCandidate194.i, align 8
   %conv199.i = trunc i64 %18 to i32
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true)
+  %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true)
   %sub.i1205 = xor i32 %19, 31
   %20 = trunc i64 %mul205.i to i32
   %21 = add nsw i32 %17, -27
@@ -25238,10 +25238,10 @@ ZSTD_searchMax.exit:                              ; preds = %sw.bb54.i, %sw.bb52
 
 land.lhs.true311.i:                               ; preds = %ZSTD_searchMax.exit
   %conv303.i = trunc i64 %offBase.i.3 to i32
-  %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv303.i, i1 true)
+  %26 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv303.i, i1 true)
   %27 = load i64, ptr %ofbCandidate291.i, align 8
   %conv296.i = trunc i64 %27 to i32
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv296.i, i1 true)
+  %28 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv296.i, i1 true)
   %sub.i1214 = xor i32 %28, 31
   %matchLength.i.4.tr = trunc i64 %matchLength.i.4 to i32
   %29 = shl i32 %matchLength.i.4.tr, 2
@@ -26254,7 +26254,7 @@ if.then165.i:                                     ; preds = %if.then160.i
 
 land.lhs.true.i:                                  ; preds = %if.then165.i
   %conv179.i = trunc i64 %offBase.i.11462 to i32
-  %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv179.i, i1 true)
+  %20 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv179.i, i1 true)
   %21 = trunc i64 %matchLength.i.21463 to i32
   %22 = mul i32 %21, 3
   %23 = add nsw i32 %20, -30
@@ -26339,14 +26339,14 @@ ZSTD_searchMax.exit331:                           ; preds = %sw.bb91.i246, %sw.b
   %retval.i138.0 = phi i64 [ %call92.i247, %sw.bb91.i246 ], [ %call90.i249, %sw.bb89.i248 ], [ %call88.i251, %sw.bb87.i250 ], [ %call82.i255, %sw.bb81.i254 ], [ %call80.i257, %sw.bb79.i256 ], [ %call78.i259, %sw.bb77.i258 ], [ %call72.i263, %sw.bb71.i262 ], [ %call70.i265, %sw.bb69.i264 ], [ %call68.i267, %sw.bb67.i266 ]
   %mul205.i = shl i64 %matchLength.i.3, 2
   %conv206.i = trunc i64 %offBase.i.2 to i32
-  %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true)
+  %25 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true)
   %cmp212.i = icmp ugt i64 %retval.i138.0, 3
   br i1 %cmp212.i, label %land.lhs.true214.i, label %land.lhs.true221.i
 
 land.lhs.true214.i:                               ; preds = %ZSTD_searchMax.exit331
   %26 = load i64, ptr %ofbCandidate194.i, align 8
   %conv199.i = trunc i64 %26 to i32
-  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true)
+  %27 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true)
   %sub.i1220 = xor i32 %27, 31
   %28 = trunc i64 %mul205.i to i32
   %29 = add nsw i32 %25, -27
@@ -26498,10 +26498,10 @@ ZSTD_searchMax.exit:                              ; preds = %sw.bb91.i, %sw.bb89
 
 land.lhs.true311.i:                               ; preds = %ZSTD_searchMax.exit
   %conv303.i = trunc i64 %offBase.i.3 to i32
-  %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv303.i, i1 true)
+  %34 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv303.i, i1 true)
   %35 = load i64, ptr %ofbCandidate291.i, align 8
   %conv296.i = trunc i64 %35 to i32
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv296.i, i1 true)
+  %36 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv296.i, i1 true)
   %sub.i1229 = xor i32 %36, 31
   %matchLength.i.4.tr = trunc i64 %matchLength.i.4 to i32
   %37 = shl i32 %matchLength.i.4.tr, 2
@@ -27476,7 +27476,7 @@ if.then165.i:                                     ; preds = %if.then160.i
 
 land.lhs.true.i:                                  ; preds = %if.then165.i
   %conv179.i = trunc i64 %offBase.i.11597 to i32
-  %35 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv179.i, i1 true)
+  %35 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv179.i, i1 true)
   %36 = trunc i64 %matchLength.i.21598 to i32
   %37 = mul i32 %36, 3
   %38 = add nsw i32 %35, -30
@@ -27653,7 +27653,7 @@ for.body.us.i.i1355:                              ; preds = %for.body.us.i.i1355
 ZSTD_searchMax.exit331.thread:                    ; preds = %sw.bb58.i276, %sw.bb60.i274, %sw.bb62.i272
   %mul205.i1679 = shl i64 %matchLength.i.3, 2
   %conv206.i1680 = trunc i64 %offBase.i.2 to i32
-  %67 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv206.i1680, i1 true)
+  %67 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv206.i1680, i1 true)
   br label %land.lhs.true221.i
 
 ZSTD_searchMax.exit331:                           ; preds = %for.body.us.i.i1355, %for.body.us4.i.i1316, %for.body.i.i1276, %if.end.i.i1336, %if.end.i.i1297, %if.end.i.i1258
@@ -27662,14 +27662,14 @@ ZSTD_searchMax.exit331:                           ; preds = %for.body.us.i.i1355
   %call.i.i1349 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate194.i, i32 noundef %spec.select1564, i32 noundef 1)
   %mul205.i = shl i64 %matchLength.i.3, 2
   %conv206.i = trunc i64 %offBase.i.2 to i32
-  %68 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true)
+  %68 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true)
   %cmp212.i = icmp ugt i64 %call.i.i1349, 3
   br i1 %cmp212.i, label %land.lhs.true214.i, label %land.lhs.true221.i
 
 land.lhs.true214.i:                               ; preds = %ZSTD_searchMax.exit331
   %69 = load i64, ptr %ofbCandidate194.i, align 8
   %conv199.i = trunc i64 %69 to i32
-  %70 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true)
+  %70 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true)
   %sub.i1370 = xor i32 %70, 31
   %71 = trunc i64 %mul205.i to i32
   %72 = add nsw i32 %68, -27
@@ -27918,10 +27918,10 @@ ZSTD_searchMax.exit:                              ; preds = %for.body.us.i.i1481
 
 land.lhs.true311.i:                               ; preds = %ZSTD_searchMax.exit
   %conv303.i = trunc i64 %offBase.i.3 to i32
-  %105 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv303.i, i1 true)
+  %105 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv303.i, i1 true)
   %106 = load i64, ptr %ofbCandidate291.i, align 8
   %conv296.i = trunc i64 %106 to i32
-  %107 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv296.i, i1 true)
+  %107 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv296.i, i1 true)
   %sub.i1496 = xor i32 %107, 31
   %matchLength.i.4.tr = trunc i64 %matchLength.i.4 to i32
   %108 = shl i32 %matchLength.i.4.tr, 2
@@ -55384,11 +55384,11 @@ if.then120:                                       ; preds = %if.end117
   %mul131 = shl nsw i32 %conv130, 2
   %sub132 = sub i32 %conv, %matchIndex.2240
   %add133 = add i32 %sub132, 1
-  %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add133, i1 true)
+  %34 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add133, i1 true)
   %sub.i168 = xor i32 %34, 31
   %35 = load i64, ptr %offBasePtr, align 8
   %conv135 = trunc i64 %35 to i32
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv135, i1 true)
+  %36 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv135, i1 true)
   %sub.i169 = xor i32 %36, 31
   %sub137 = sub nsw i32 %sub.i168, %sub.i169
   %cmp138 = icmp sgt i32 %mul131, %sub137
@@ -55569,12 +55569,12 @@ if.then49.i:                                      ; preds = %for.body.i185
   %51 = add i32 %sub.i180, %dictMatchIndex.084.i
   %sub54.i = sub i32 %conv.i184, %51
   %add55.i = add i32 %sub54.i, 1
-  %52 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add55.i, i1 true)
+  %52 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add55.i, i1 true)
   %sub.i.i199 = xor i32 %52, 31
   %53 = load i64, ptr %offBasePtr, align 8
   %conv58.i = trunc i64 %53 to i32
   %add59.i = add i32 %conv58.i, 1
-  %54 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add59.i, i1 true)
+  %54 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add59.i, i1 true)
   %sub.i76.i = xor i32 %54, 31
   %sub61.i = sub nsw i32 %sub.i.i199, %sub.i76.i
   %cmp62.i = icmp sgt i32 %mul53.i, %sub61.i

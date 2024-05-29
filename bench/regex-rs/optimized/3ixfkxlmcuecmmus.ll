@@ -4182,7 +4182,7 @@ _ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len
   %80 = shl nuw i64 %.0.i2.i, 6
   %spec.select.i.i = select i1 %79, i64 -1, i64 %80
   %81 = udiv i64 %spec.select.i.i, %66
-  %82 = tail call noundef i64 @llvm.usub.sat.i64(i64 %81, i64 1)
+  %82 = tail call noundef range(i64 0, -1) i64 @llvm.usub.sat.i64(i64 %81, i64 1)
   %83 = icmp ugt i64 %69, %82
   br i1 %83, label %select.unfold, label %_ZN14regex_automata4meta8wrappers18BoundedBacktracker3get17hc142b96110261c67E.exit
 
@@ -4515,7 +4515,7 @@ _ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len
   %75 = shl nuw i64 %.0.i2.i, 6
   %spec.select.i.i = select i1 %74, i64 -1, i64 %75
   %76 = udiv i64 %spec.select.i.i, %61
-  %77 = tail call noundef i64 @llvm.usub.sat.i64(i64 %76, i64 1)
+  %77 = tail call noundef range(i64 0, -1) i64 @llvm.usub.sat.i64(i64 %76, i64 1)
   %78 = icmp ugt i64 %64, %77
   br i1 %78, label %select.unfold, label %_ZN14regex_automata4meta8wrappers18BoundedBacktracker3get17hc142b96110261c67E.exit
 
@@ -4730,7 +4730,7 @@ _ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len
   %72 = shl nuw i64 %.0.i2.i, 6
   %spec.select.i.i = select i1 %71, i64 -1, i64 %72
   %73 = udiv i64 %spec.select.i.i, %58
-  %74 = tail call noundef i64 @llvm.usub.sat.i64(i64 %73, i64 1)
+  %74 = tail call noundef range(i64 0, -1) i64 @llvm.usub.sat.i64(i64 %73, i64 1)
   %75 = icmp ugt i64 %61, %74
   br i1 %75, label %select.unfold, label %_ZN14regex_automata4meta8wrappers18BoundedBacktracker3get17hc142b96110261c67E.exit
 

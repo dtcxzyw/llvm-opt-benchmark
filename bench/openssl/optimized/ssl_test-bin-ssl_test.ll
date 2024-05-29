@@ -1090,7 +1090,7 @@ check_server_sign_type.exit:                      ; preds = %check_server_sign_h
   %result.val74 = load ptr, ptr %77, align 8
   %78 = getelementptr i8, ptr %test_ctx, i64 496
   %test_ctx.val75 = load ptr, ptr %78, align 8
-  %call.i182 = tail call fastcc i32 @check_ca_names(ptr noundef nonnull @.str.101, ptr noundef %test_ctx.val75, ptr noundef %result.val74)
+  %call.i182 = tail call fastcc range(i32 0, 2) i32 @check_ca_names(ptr noundef nonnull @.str.101, ptr noundef %test_ctx.val75, ptr noundef %result.val74)
   %and35 = and i32 %and33, %call.i182
   %79 = getelementptr i8, ptr %result, i64 120
   %result.val76 = load i32, ptr %79, align 8
@@ -1174,7 +1174,7 @@ check_client_sign_type.exit:                      ; preds = %check_client_sign_h
   %result.val82 = load ptr, ptr %85, align 8
   %86 = getelementptr i8, ptr %test_ctx, i64 520
   %test_ctx.val83 = load ptr, ptr %86, align 8
-  %call.i216 = tail call fastcc i32 @check_ca_names(ptr noundef nonnull @.str.112, ptr noundef %test_ctx.val83, ptr noundef %result.val82)
+  %call.i216 = tail call fastcc range(i32 0, 2) i32 @check_ca_names(ptr noundef nonnull @.str.112, ptr noundef %test_ctx.val83, ptr noundef %result.val82)
   %and43 = and i32 %and41, %call.i216
   br label %if.end
 

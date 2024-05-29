@@ -840,7 +840,7 @@ RSTRING_PTR.exit.i:                               ; preds = %39, %rb_type.exit.t
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %.sroa.2.0.i.i, i64 7
   %48 = add nsw i64 %41, -7
-  %49 = tail call fastcc i32 @rlimit_resource_name2int(ptr noundef readonly %47, i64 noundef %48, i32 noundef 1)
+  %49 = tail call fastcc range(i32 -1, 16) i32 @rlimit_resource_name2int(ptr noundef readonly %47, i64 noundef %48, i32 noundef 1)
   br label %rlimit_type_by_sym.exit
 
 rlimit_type_by_sym.exit:                          ; preds = %RSTRING_PTR.exit.i, %43, %46
@@ -12340,7 +12340,7 @@ RSTRING_PTR.exit:                                 ; preds = %23, %rb_type.exit.t
   %.pn = phi ptr [ %30, %27 ], [ %19, %23 ], [ %19, %rb_type.exit.thread14 ]
   %.08.in = getelementptr inbounds i8, ptr %.pn, i64 16
   %.08 = load i64, ptr %.08.in, align 8
-  %38 = call fastcc i32 @rlimit_resource_name2int(ptr noundef readonly %.09, i64 noundef %.08, i32 noundef 0)
+  %38 = call fastcc range(i32 -1, 16) i32 @rlimit_resource_name2int(ptr noundef readonly %.09, i64 noundef %.08, i32 noundef 0)
   %.not = icmp eq i32 %38, -1
   br i1 %.not, label %39, label %41
 

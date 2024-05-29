@@ -1165,7 +1165,7 @@ entry:
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKcEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %reply, ptr %add.ptr.i.i6, ptr noundef nonnull %accept_ws_suffix, ptr noundef nonnull %add.ptr18)
   %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %tcp_.i, align 8
-  %call2.i8 = call noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %4, ptr noundef nonnull align 8 dereferenceable(24) %reply, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si)
+  %call2.i8 = call noundef range(i32 0, 2) i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %4, ptr noundef nonnull align 8 dereferenceable(24) %reply, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si)
   %inspector_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %inspector_, align 8
   %call24 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
@@ -1533,7 +1533,7 @@ define internal void @_ZN4node9inspector12_GLOBAL__N_111HttpHandler5WriteESt6vec
 entry:
   %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_.i, align 8
-  %call2.i = tail call noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si)
+  %call2.i = tail call noundef range(i32 0, 2) i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si)
   ret void
 }
 
@@ -1560,7 +1560,7 @@ entry:
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8
   %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_.i, align 8
-  %call2.i = call noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_111HttpHandler25ThenCloseAndReportFailureEP10uv_write_si)
+  %call2.i = call noundef range(i32 0, 2) i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_111HttpHandler25ThenCloseAndReportFailureEP10uv_write_si)
   %1 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i
@@ -2727,7 +2727,7 @@ _ZN4node9inspector12_GLOBAL__N_119encode_frame_hybi17ERKSt6vectorIcSaIcEE.exit: 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %extended_payload_length.i)
   %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %tcp_.i, align 8
-  %call2.i = call noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %8, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si)
+  %call2.i = call noundef range(i32 0, 2) i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %8, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_112WriteRequest7CleanupEP10uv_write_si)
   %9 = load ptr, ptr %output, align 8
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i
@@ -2831,7 +2831,7 @@ entry:
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8
   %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tcp_.i, align 8
-  %call2.i = call noundef i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_19WsHandler19OnCloseFrameWrittenEP10uv_write_si)
+  %call2.i = call noundef range(i32 0, 2) i32 @_ZN4node9inspector9TcpHolder8WriteRawERKSt6vectorIcSaIcEEPFvP10uv_write_siE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_19WsHandler19OnCloseFrameWrittenEP10uv_write_si)
   %1 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i

@@ -5651,7 +5651,7 @@ entry:
   br i1 %tobool9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %size, i1 true)
+  %0 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %size, i1 true)
   %1 = getelementptr i8, ptr %mr, i64 80
   %mr.val = load ptr, ptr %1, align 16
   %2 = getelementptr i8, ptr %mr.val, i64 32
@@ -5895,7 +5895,7 @@ entry:
   br i1 %tobool9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %size, i1 true)
+  %0 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %size, i1 true)
   %1 = getelementptr i8, ptr %mr, i64 80
   %mr.val = load ptr, ptr %1, align 16
   %2 = getelementptr i8, ptr %mr.val, i64 32

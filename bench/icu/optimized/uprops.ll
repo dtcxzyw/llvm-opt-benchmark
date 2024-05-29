@@ -1850,7 +1850,7 @@ entry:
   %errorCode.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
   store i32 0, ptr %errorCode.i, align 4
-  %call.i = call fastcc noundef signext i8 @_ZN12_GLOBAL__N_118ulayout_ensureDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
+  %call.i = call fastcc noundef signext range(i8 0, 2) i8 @_ZN12_GLOBAL__N_118ulayout_ensureDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %errorCode.i)
   %tobool = icmp ne i8 %call.i, 0
   %2 = load ptr, ptr @_ZN12_GLOBAL__N_19gInpcTrieE, align 8
@@ -1873,7 +1873,7 @@ entry:
   %errorCode.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
   store i32 0, ptr %errorCode.i, align 4
-  %call.i = call fastcc noundef signext i8 @_ZN12_GLOBAL__N_118ulayout_ensureDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
+  %call.i = call fastcc noundef signext range(i8 0, 2) i8 @_ZN12_GLOBAL__N_118ulayout_ensureDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %errorCode.i)
   %tobool.not = icmp eq i8 %call.i, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1908,7 +1908,7 @@ entry:
   %errorCode.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
   store i32 0, ptr %errorCode.i, align 4
-  %call.i = call fastcc noundef signext i8 @_ZN12_GLOBAL__N_118ulayout_ensureDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
+  %call.i = call fastcc noundef signext range(i8 0, 2) i8 @_ZN12_GLOBAL__N_118ulayout_ensureDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %errorCode.i)
   %tobool = icmp ne i8 %call.i, 0
   %2 = load ptr, ptr @_ZN12_GLOBAL__N_19gInscTrieE, align 8
@@ -1931,7 +1931,7 @@ entry:
   %errorCode.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
   store i32 0, ptr %errorCode.i, align 4
-  %call.i = call fastcc noundef signext i8 @_ZN12_GLOBAL__N_118ulayout_ensureDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
+  %call.i = call fastcc noundef signext range(i8 0, 2) i8 @_ZN12_GLOBAL__N_118ulayout_ensureDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %errorCode.i)
   %tobool = icmp ne i8 %call.i, 0
   %2 = load ptr, ptr @_ZN12_GLOBAL__N_17gVoTrieE, align 8

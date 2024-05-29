@@ -49614,7 +49614,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !12369
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.sroa.4.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx.i.i.i.i, i64 16, i1 false), !noalias !12374
   store i64 %.sroa.08.0.copyload9.i.i.i.i, ptr %4, align 8, !noalias !12374
-  %15 = invoke noundef i8 @_ZN13rust_analyzer3lsp10from_proto11assist_kind17h96a6c4b0ccbb54f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
+  %15 = invoke noundef range(i8 0, 8) i8 @_ZN13rust_analyzer3lsp10from_proto11assist_kind17h96a6c4b0ccbb54f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
           to label %.noexc.i unwind label %19, !noalias !12352
 
 .noexc.i:                                         ; preds = %14
@@ -49704,7 +49704,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !12408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.sroa.4.0..sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx.i.i.i.i.i.i, i64 16, i1 false), !noalias !12413
   store i64 %.sroa.08.0.copyload9.i.i.i.i.i.i, ptr %3, align 8, !noalias !12414
-  %38 = invoke noundef i8 @_ZN13rust_analyzer3lsp10from_proto11assist_kind17h96a6c4b0ccbb54f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
+  %38 = invoke noundef range(i8 0, 8) i8 @_ZN13rust_analyzer3lsp10from_proto11assist_kind17h96a6c4b0ccbb54f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i.i.i unwind label %43, !noalias !12415
 
 .noexc.i.i.i:                                     ; preds = %37

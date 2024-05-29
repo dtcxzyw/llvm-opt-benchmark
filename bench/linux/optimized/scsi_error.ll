@@ -3004,7 +3004,7 @@ scsi_try_host_reset.exit.thread4.i:               ; preds = %464, %447
   br i1 %485, label %scsi_eh_host_reset.exit, label %.preheader75, !llvm.loop !58
 
 scsi_eh_host_reset.exit:                          ; preds = %.preheader75, %426, %430, %439, %scsi_try_host_reset.exit.thread4.i, %470, %476
-  %486 = call fastcc i32 @scsi_eh_test_devices(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i32 noundef 1), !range !53
+  %486 = call fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i32 noundef 1), !range !53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
   %487 = icmp eq i32 %486, 0
   br i1 %487, label %488, label %scsi_eh_offline_sdevs.exit

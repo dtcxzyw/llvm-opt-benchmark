@@ -13981,7 +13981,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %20 = load i32, ptr %19, align 4, !range !73, !alias.scope !4097, !noalias !4102
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !4109
   store i32 %20, ptr %5, align 4, !noalias !4109
-  %21 = call noundef i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17ha51df4a1034e9654E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !range !73, !noalias !4109
+  %21 = call noundef range(i32 1, 0) i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17ha51df4a1034e9654E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !range !73, !noalias !4109
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !4109
   %22 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hda3856ddf2cb8223E"(i64 noundef 4, i1 noundef zeroext false)
   %23 = extractvalue { i64, ptr } %22, 0
@@ -14018,7 +14018,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %35 = load i32, ptr %34, align 4, !range !73, !alias.scope !4116, !noalias !4121
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !4128
   store i32 %35, ptr %4, align 4, !noalias !4128
-  %36 = invoke noundef i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17ha51df4a1034e9654E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  %36 = invoke noundef range(i32 1, 0) i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17ha51df4a1034e9654E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
           to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %33
@@ -45668,7 +45668,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN4core3ops8function5impls80_$LT$im
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
-  %4 = call noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17hf159925948e46aabE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !range !73
+  %4 = call noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17hf159925948e46aabE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !range !73
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret i32 %4
 }

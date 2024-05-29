@@ -10422,7 +10422,7 @@ _ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit47: ; preds = %167
   br label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit
 
 185:                                              ; preds = %157
-  %.0.i43 = tail call noundef i64 @llvm.usub.sat.i64(i64 %152, i64 %148)
+  %.0.i43 = tail call noundef range(i64 -9223372036854775806, -9223372036854775807) i64 @llvm.usub.sat.i64(i64 %152, i64 %148)
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.0.i43, i64 %.ph200)
   %186 = sub nuw i64 %4, %.ph199
   %187 = getelementptr inbounds i8, ptr %3, i64 %.ph199
@@ -10836,7 +10836,7 @@ _ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit47: ; preds = %167
   br label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit
 
 185:                                              ; preds = %157
-  %.0.i43 = tail call noundef i64 @llvm.usub.sat.i64(i64 %152, i64 %148)
+  %.0.i43 = tail call noundef range(i64 -9223372036854775806, -9223372036854775807) i64 @llvm.usub.sat.i64(i64 %152, i64 %148)
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.0.i43, i64 %.ph200)
   %186 = sub nuw i64 %4, %.ph199
   %187 = getelementptr inbounds i8, ptr %3, i64 %.ph199

@@ -5555,7 +5555,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %66, %rb_ec_ractor_p
 
 .lr.ph:                                           ; preds = %71, %.lr.ph
   %.050 = phi i32 [ %77, %.lr.ph ], [ %27, %71 ]
-  %73 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.050, i1 true)
+  %73 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.050, i1 true)
   %74 = xor i32 %73, 31
   %75 = zext nneg i32 %74 to i64
   %76 = shl nuw i32 1, %74

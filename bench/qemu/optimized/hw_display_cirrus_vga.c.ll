@@ -3294,7 +3294,7 @@ if.else333:                                       ; preds = %if.else323
   br i1 %tobool.not.i223, label %if.else.i237, label %if.then.i224
 
 if.then.i224:                                     ; preds = %if.else333
-  %call.i.i = tail call fastcc i32 @cirrus_bitblt_common_patterncopy(ptr noundef nonnull %s)
+  %call.i.i = tail call fastcc range(i32 0, 2) i32 @cirrus_bitblt_common_patterncopy(ptr noundef nonnull %s)
   br label %if.end.i225
 
 if.else.i237:                                     ; preds = %if.else333

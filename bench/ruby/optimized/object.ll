@@ -6260,7 +6260,7 @@ define internal range(i64 0, 21) i64 @rb_mod_gt(i64 noundef %0, i64 noundef %1) 
   unreachable
 
 rb_mod_ge.exit:                                   ; preds = %9
-  %15 = tail call i64 @rb_class_inherited_p(i64 noundef %1, i64 noundef %0) #23
+  %15 = tail call range(i64 0, 21) i64 @rb_class_inherited_p(i64 noundef %1, i64 noundef %0) #23
   br label %16
 
 16:                                               ; preds = %2, %rb_mod_ge.exit

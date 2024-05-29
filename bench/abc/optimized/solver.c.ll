@@ -270,7 +270,7 @@ clause_fetch.exit.i.i:                            ; preds = %112, %clause_fetch.
 clause_act_rescale.exit.i:                        ; preds = %clause_fetch.exit.i.i, %112
   %134 = load i32, ptr %105, align 8
   %135 = lshr i32 %134, 10
-  %136 = tail call i32 @llvm.umax.i32(i32 %135, i32 2048)
+  %136 = tail call range(i32 0, 4194304) i32 @llvm.umax.i32(i32 %135, i32 2048)
   store i32 %136, ptr %105, align 8
   br label %clause_act_bump.exit
 
@@ -1611,7 +1611,7 @@ clause_fetch.exit.i.i.i.i:                        ; preds = %196, %clause_fetch.
 clause_act_rescale.exit.i.i.i:                    ; preds = %clause_fetch.exit.i.i.i.i, %196
   %218 = load i32, ptr %18, align 8
   %219 = lshr i32 %218, 10
-  %220 = call i32 @llvm.umax.i32(i32 %219, i32 2048)
+  %220 = call range(i32 0, 4194304) i32 @llvm.umax.i32(i32 %219, i32 2048)
   store i32 %220, ptr %18, align 8
   %.pre301.i.i = load i32, ptr %165, align 4
   %.pre309.i.i = and i32 %.pre301.i.i, 1

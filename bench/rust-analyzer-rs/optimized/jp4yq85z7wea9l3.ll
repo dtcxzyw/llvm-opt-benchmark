@@ -3744,7 +3744,7 @@ define hidden { i64, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
           to label %.noexc.i unwind label %6, !noalias !1240
 
 .noexc.i:                                         ; preds = %2
-  %5 = invoke noundef i64 @"_ZN3ide5hover12hover_simple28_$u7b$$u7b$closure$u7d$$u7d$17h3646f5c6f1b9fe22E.llvm.15544646111798989001"(ptr noalias nonnull readonly align 1 poison, i16 noundef %4)
+  %5 = invoke noundef range(i64 0, 5) i64 @"_ZN3ide5hover12hover_simple28_$u7b$$u7b$closure$u7d$$u7d$17h3646f5c6f1b9fe22E.llvm.15544646111798989001"(ptr noalias nonnull readonly align 1 poison, i16 noundef %4)
           to label %"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h212200a3e7e62c65E.llvm.15544646111798989001.exit" unwind label %6
 
 6:                                                ; preds = %.noexc.i, %2
@@ -3811,7 +3811,7 @@ define hidden { i64, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
           to label %.noexc.i unwind label %6, !noalias !1269
 
 .noexc.i:                                         ; preds = %2
-  %5 = invoke noundef i64 @"_ZN3ide15goto_definition15goto_definition28_$u7b$$u7b$closure$u7d$$u7d$17hee5969fde9287ea5E.llvm.15544646111798989001"(ptr noalias nonnull readonly align 1 poison, i16 noundef %4)
+  %5 = invoke noundef range(i64 0, 5) i64 @"_ZN3ide15goto_definition15goto_definition28_$u7b$$u7b$closure$u7d$$u7d$17hee5969fde9287ea5E.llvm.15544646111798989001"(ptr noalias nonnull readonly align 1 poison, i16 noundef %4)
           to label %"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17hee203605b14d4336E.llvm.15544646111798989001.exit" unwind label %6
 
 6:                                                ; preds = %.noexc.i, %2
@@ -7659,7 +7659,7 @@ define hidden { i64, ptr } @"_ZN4core4iter6traits8iterator8Iterator10max_by_key3
           to label %.noexc unwind label %6
 
 .noexc:                                           ; preds = %2
-  %5 = invoke noundef i64 @"_ZN3ide5hover12hover_simple28_$u7b$$u7b$closure$u7d$$u7d$17h3646f5c6f1b9fe22E.llvm.15544646111798989001"(ptr noalias nonnull readonly align 1 poison, i16 noundef %4)
+  %5 = invoke noundef range(i64 0, 5) i64 @"_ZN3ide5hover12hover_simple28_$u7b$$u7b$closure$u7d$$u7d$17h3646f5c6f1b9fe22E.llvm.15544646111798989001"(ptr noalias nonnull readonly align 1 poison, i16 noundef %4)
           to label %"_ZN6ide_db7helpers15pick_best_token28_$u7b$$u7b$closure$u7d$$u7d$17h9d9a3a60b141f8b2E.llvm.15544646111798989001.exit" unwind label %6
 
 6:                                                ; preds = %.noexc, %2
@@ -8022,7 +8022,7 @@ define hidden { i64, ptr } @"_ZN4core4iter6traits8iterator8Iterator10max_by_key3
           to label %.noexc unwind label %6
 
 .noexc:                                           ; preds = %2
-  %5 = invoke noundef i64 @"_ZN3ide15goto_definition15goto_definition28_$u7b$$u7b$closure$u7d$$u7d$17hee5969fde9287ea5E.llvm.15544646111798989001"(ptr noalias nonnull readonly align 1 poison, i16 noundef %4)
+  %5 = invoke noundef range(i64 0, 5) i64 @"_ZN3ide15goto_definition15goto_definition28_$u7b$$u7b$closure$u7d$$u7d$17hee5969fde9287ea5E.llvm.15544646111798989001"(ptr noalias nonnull readonly align 1 poison, i16 noundef %4)
           to label %"_ZN6ide_db7helpers15pick_best_token28_$u7b$$u7b$closure$u7d$$u7d$17h91e1301f78408a65E.llvm.15544646111798989001.exit" unwind label %6
 
 6:                                                ; preds = %.noexc, %2

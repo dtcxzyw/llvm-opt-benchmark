@@ -4473,7 +4473,7 @@ define hidden range(i32 0, 2) i32 @tls13_generate_keys(ptr nocapture noundef %0,
   %or.cond.i = icmp ult i8 %43, 19
   %.str.1214..str.1215.i = select i1 %or.cond.i, ptr @.str.1214, ptr @.str.1215
   %44 = trunc i64 %39 to i16
-  %45 = call i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef readonly %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.564, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %44, ptr noundef nonnull %4)
+  %45 = call range(i32 0, 2) i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef readonly %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.564, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %44, ptr noundef nonnull %4)
   %.not63 = icmp eq i32 %45, 0
   br i1 %.not63, label %46, label %47
 
@@ -4482,7 +4482,7 @@ define hidden range(i32 0, 2) i32 @tls13_generate_keys(ptr nocapture noundef %0,
   br label %83
 
 47:                                               ; preds = %38
-  %48 = call i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef readonly %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.566, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext 12, ptr noundef nonnull %5)
+  %48 = call range(i32 0, 2) i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef readonly %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.566, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext 12, ptr noundef nonnull %5)
   %.not64 = icmp eq i32 %48, 0
   br i1 %.not64, label %49, label %50
 
@@ -7422,7 +7422,7 @@ define hidden void @tls13_key_update(ptr nocapture noundef %0, i32 noundef %1) l
   %spec.store.select = select i1 %or.cond4, ptr @.str.654, ptr @.str.653
   %.str.1214..str.1215.i = select i1 %or.cond4, ptr @.str.1214, ptr @.str.1215
   %25 = trunc i32 %14 to i16
-  %26 = call i32 @tls13_hkdf_expand_label_context(i32 noundef %23, ptr noundef nonnull readonly %8, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull %spec.store.select, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %25, ptr noundef nonnull %3)
+  %26 = call range(i32 0, 2) i32 @tls13_hkdf_expand_label_context(i32 noundef %23, ptr noundef nonnull readonly %8, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull %spec.store.select, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %25, ptr noundef nonnull %3)
   %.not37 = icmp eq i32 %26, 0
   br i1 %.not37, label %27, label %28
 

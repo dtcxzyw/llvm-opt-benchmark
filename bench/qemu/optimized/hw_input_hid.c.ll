@@ -197,11 +197,11 @@ hid_pointer_activate.exit:                        ; preds = %entry, %if.then.i
 
 if.then:                                          ; preds = %hid_pointer_activate.exit
   %.val.i = tail call i32 @llvm.smin.i32(i32 %5, i32 127)
-  %retval.0.i = tail call i32 @llvm.smax.i32(i32 %.val.i, i32 -127)
+  %retval.0.i = tail call range(i32 -127, 128) i32 @llvm.smax.i32(i32 %.val.i, i32 -127)
   %ydy = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i32, ptr %ydy, align 4
   %.val.i72 = tail call i32 @llvm.smin.i32(i32 %6, i32 127)
-  %retval.0.i73 = tail call i32 @llvm.smax.i32(i32 %.val.i72, i32 -127)
+  %retval.0.i73 = tail call range(i32 -127, 128) i32 @llvm.smax.i32(i32 %.val.i72, i32 -127)
   %sub4 = sub i32 %5, %retval.0.i
   store i32 %sub4, ptr %arrayidx, align 4
   %sub6 = sub i32 %6, %retval.0.i73
@@ -221,7 +221,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %dz9 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load i32, ptr %dz9, align 4
   %.val.i74 = tail call i32 @llvm.smin.i32(i32 %10, i32 127)
-  %retval.0.i75 = tail call i32 @llvm.smax.i32(i32 %.val.i74, i32 -127)
+  %retval.0.i75 = tail call range(i32 -127, 128) i32 @llvm.smax.i32(i32 %.val.i74, i32 -127)
   %sub12 = sub i32 %10, %retval.0.i75
   store i32 %sub12, ptr %dz9, align 4
   %tobool14.not = icmp ne i32 %2, 0

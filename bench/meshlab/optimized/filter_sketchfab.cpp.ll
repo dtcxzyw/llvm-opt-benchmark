@@ -1964,7 +1964,7 @@ define i32 @mz_compress2(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %
   %15 = trunc nuw i64 %8 to i32
   %16 = getelementptr inbounds i8, ptr %6, i64 32
   store i32 %15, ptr %16, align 8
-  %17 = call i32 @mz_deflateInit2(ptr noundef nonnull %6, i32 noundef %4, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0)
+  %17 = call range(i32 -10000, 1) i32 @mz_deflateInit2(ptr noundef nonnull %6, i32 noundef %4, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %mz_deflateEnd.exit17
 
@@ -2141,7 +2141,7 @@ define range(i64 128, 0) i64 @mz_compressBound(i64 noundef %0) local_unnamed_add
   %6 = mul nuw nsw i64 %5, 5
   %7 = add i64 %0, 133
   %8 = add i64 %7, %6
-  %..i = tail call i64 @llvm.umax.i64(i64 %4, i64 %8)
+  %..i = tail call range(i64 128, 0) i64 @llvm.umax.i64(i64 %4, i64 %8)
   ret i64 %..i
 }
 
@@ -13290,7 +13290,7 @@ define noundef ptr @mz_zip_reader_extract_to_heap(ptr noundef %0, i32 noundef %1
   br i1 %38, label %47, label %39
 
 39:                                               ; preds = %26
-  %40 = tail call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %37, i64 noundef %32, i32 noundef %3, ptr noundef null, i64 noundef 0)
+  %40 = tail call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %37, i64 noundef %32, i32 noundef %3, ptr noundef null, i64 noundef 0)
   %.not46 = icmp eq i32 %40, 0
   br i1 %.not46, label %41, label %45
 
@@ -13391,7 +13391,7 @@ define noundef ptr @mz_zip_reader_extract_file_to_heap(ptr noundef %0, ptr nound
   br i1 %43, label %mz_zip_reader_extract_to_heap.exit, label %44
 
 44:                                               ; preds = %31
-  %45 = tail call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %0, i32 noundef %5, ptr noundef nonnull %42, i64 noundef %37, i32 noundef %3, ptr noundef null, i64 noundef 0)
+  %45 = tail call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %0, i32 noundef %5, ptr noundef nonnull %42, i64 noundef %37, i32 noundef %3, ptr noundef null, i64 noundef 0)
   %.not46.i = icmp eq i32 %45, 0
   br i1 %.not46.i, label %46, label %50
 
@@ -16711,7 +16711,7 @@ define noundef ptr @mz_zip_extract_archive_file_to_heap(ptr noundef readonly %0,
   br i1 %47, label %mz_zip_reader_extract_to_heap.exit, label %48
 
 48:                                               ; preds = %35
-  %49 = call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %5, i32 noundef %14, ptr noundef nonnull %46, i64 noundef %41, i32 noundef %3, ptr noundef null, i64 noundef 0)
+  %49 = call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %5, i32 noundef %14, ptr noundef nonnull %46, i64 noundef %41, i32 noundef %3, ptr noundef null, i64 noundef 0)
   %.not46.i = icmp eq i32 %49, 0
   br i1 %.not46.i, label %50, label %54
 

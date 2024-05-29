@@ -1976,7 +1976,7 @@ return.sink.split.i:                              ; preds = %if.end12.i, %if.end
 
 if.end:                                           ; preds = %if.end.i
   %call.i11 = tail call i32 @geteuid() #23
-  %call1.i = call fastcc i32 @uv__getpwuid_r(ptr noundef nonnull %pwd, i32 noundef %call.i11)
+  %call1.i = call fastcc range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(ptr noundef nonnull %pwd, i32 noundef %call.i11)
   %cmp2.not = icmp eq i32 %call1.i, 0
   br i1 %cmp2.not, label %if.end4, label %return
 

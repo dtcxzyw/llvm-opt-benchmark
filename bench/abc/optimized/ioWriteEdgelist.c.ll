@@ -1984,8 +1984,8 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
 
 51:                                               ; preds = %36
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
-  %52 = tail call i32 @llvm.smax.i32(i32 %29, i32 %43)
-  %53 = tail call i32 @llvm.smax.i32(i32 %37, i32 %52)
+  %52 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 %29, i32 %43)
+  %53 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 %37, i32 %52)
   %.not = icmp sgt i32 %.val186, %53
   br i1 %.not, label %78, label %.preheader211
 
@@ -2534,8 +2534,8 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   br label %210
 
 51:                                               ; preds = %36
-  %52 = tail call i32 @llvm.smax.i32(i32 %29, i32 %43)
-  %53 = tail call i32 @llvm.smax.i32(i32 %37, i32 %52)
+  %52 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 %29, i32 %43)
+  %53 = tail call range(i32 -176, 80) i32 @llvm.smax.i32(i32 %37, i32 %52)
   %.not = icmp sgt i32 %.val154, %53
   br i1 %.not, label %61, label %.preheader179
 

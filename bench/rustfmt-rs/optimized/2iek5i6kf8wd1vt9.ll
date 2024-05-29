@@ -789,7 +789,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN114_$LT$core..iter
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %.critedge.i, %1
-  %8 = tail call noundef i32 @"_ZN99_$LT$rustfmt_nightly..comment..CommentReducer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2861aef0dba363dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !range !100
+  %8 = tail call noundef range(i32 0, 1114113) i32 @"_ZN99_$LT$rustfmt_nightly..comment..CommentReducer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2861aef0dba363dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !range !100
   %.not.i.i = icmp eq i32 %8, 1114112
   br i1 %.not.i.i, label %9, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb8d662079b352997E.exit"
 
@@ -853,7 +853,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN114_$LT$core..iter
 
 27:                                               ; preds = %.loopexit.i
   %28 = getelementptr inbounds i8, ptr %0, i64 136
-  %29 = tail call noundef i32 @"_ZN99_$LT$rustfmt_nightly..comment..CommentReducer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2861aef0dba363dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28), !range !100
+  %29 = tail call noundef range(i32 0, 1114113) i32 @"_ZN99_$LT$rustfmt_nightly..comment..CommentReducer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2861aef0dba363dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28), !range !100
   %.not.i3.i = icmp eq i32 %29, 1114112
   br i1 %.not.i3.i, label %30, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb8d662079b352997E.exit"
 

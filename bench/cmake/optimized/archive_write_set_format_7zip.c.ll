@@ -2093,7 +2093,7 @@ compression_init_encoder_copy.exit:               ; preds = %139, %compression_e
 compression_init_encoder_deflate.exit:            ; preds = %3, %92
   %.sink38 = phi i64 [ 33, %92 ], [ 4611686018427387905, %3 ]
   %150 = getelementptr inbounds i8, ptr %5, i64 136
-  %151 = tail call fastcc i32 @compression_init_encoder_lzma(ptr noundef nonnull %0, ptr noundef nonnull %150, i32 noundef %2, i64 noundef %.sink38)
+  %151 = tail call fastcc range(i32 -30, 1) i32 @compression_init_encoder_lzma(ptr noundef nonnull %0, ptr noundef nonnull %150, i32 noundef %2, i64 noundef %.sink38)
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %compression_init_encoder_deflate.exit.thread35, label %compression_init_encoder_deflate.exit.thread
 

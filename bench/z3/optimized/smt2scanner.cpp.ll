@@ -3013,7 +3013,7 @@ _ZN4smt27scanner11read_symbolEv.exit:             ; preds = %lor.lhs.false.i.i, 
   %inc.i.i4 = add i32 %19, 1
   store i32 %inc.i.i4, ptr %arrayidx10.i.i, align 4
   tail call void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
-  %call4.i = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
+  %call4.i = tail call noundef range(i32 4, 10) i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   br label %return
 
 sw.bb6:                                           ; preds = %if.end
@@ -3071,7 +3071,7 @@ _ZN4smt27scanner11read_symbolEv.exit27:           ; preds = %lor.lhs.false.i.i12
   %inc.i.i19 = add i32 %29, 1
   store i32 %inc.i.i19, ptr %arrayidx10.i.i18, align 4
   tail call void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
-  %call4.i20 = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
+  %call4.i20 = tail call noundef range(i32 4, 10) i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   br label %return
 
 sw.bb12:                                          ; preds = %if.end
@@ -3137,7 +3137,7 @@ _ZN4smt27scanner11read_symbolEv.exit50:           ; preds = %lor.lhs.false.i.i35
   %inc.i.i42 = add i32 %41, 1
   store i32 %inc.i.i42, ptr %arrayidx10.i.i41, align 4
   tail call void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
-  %call4.i43 = tail call noundef i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
+  %call4.i43 = tail call noundef range(i32 4, 10) i32 @_ZN4smt27scanner16read_symbol_coreEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
   br label %return
 
 if.else:                                          ; preds = %sw.bb20

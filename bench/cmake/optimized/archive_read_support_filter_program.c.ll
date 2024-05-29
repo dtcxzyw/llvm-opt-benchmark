@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -30, 1) i32 @archive_read_support_compression_program(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr noundef readonly %1, ptr noundef null, i64 noundef 0)
+  %3 = tail call range(i32 -30, 1) i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr noundef readonly %1, ptr noundef null, i64 noundef 0)
   ret i32 %3
 }
 

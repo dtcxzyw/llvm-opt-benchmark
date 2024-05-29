@@ -16610,7 +16610,7 @@ common.ret:                                       ; preds = %"_ZN25ockam_transpo
 462:                                              ; preds = %460
   %463 = icmp ne ptr %.sroa.453.0.i, null
   call void @llvm.assume(i1 %463)
-  %464 = invoke noundef i8 @"_ZN112_$LT$ockam_transport_core..error..TransportError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h3beb3af3bee63bb0E"(ptr noundef nonnull %.sroa.453.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6fbd00d737ef92c21e315129d89735c1.126)
+  %464 = invoke noundef range(i8 1, 17) i8 @"_ZN112_$LT$ockam_transport_core..error..TransportError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h3beb3af3bee63bb0E"(ptr noundef nonnull %.sroa.453.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6fbd00d737ef92c21e315129d89735c1.126)
           to label %465 unwind label %.body228
 
 465:                                              ; preds = %462

@@ -3232,7 +3232,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   store i8 %28, ptr %16, align 1
-  %34 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 1, ptr noundef %20)
+  %34 = call fastcc range(i32 0, 7) i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
   %.not331 = icmp ne i32 %34, 0
   %or.cond349 = and i1 %.not307, %.not331
@@ -3277,11 +3277,11 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 48:                                               ; preds = %46, %46
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
   store i8 61, ptr %15, align 1
-  %49 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 1, ptr noundef %20)
+  %49 = call fastcc range(i32 0, 7) i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
   store i8 63, ptr %14, align 1
-  %50 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 1, ptr noundef %20)
+  %50 = call fastcc range(i32 0, 7) i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   %51 = ptrtoint ptr %.0248396 to i64
   %52 = ptrtoint ptr %.0238399 to i64
@@ -3450,12 +3450,12 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 131:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
   store i8 13, ptr %13, align 1
-  %132 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 1, ptr noundef %20)
+  %132 = call fastcc range(i32 0, 7) i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   %133 = load i8, ptr %.0248396, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   store i8 %133, ptr %12, align 1
-  %134 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 1, ptr noundef %20)
+  %134 = call fastcc range(i32 0, 7) i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   br label %233
 
@@ -3472,7 +3472,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 138:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   store i8 32, ptr %11, align 1
-  %139 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 1, ptr noundef %20)
+  %139 = call fastcc range(i32 0, 7) i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   br label %233
 
@@ -3624,7 +3624,7 @@ switch.hole_check:                                ; preds = %150
 203:                                              ; preds = %198
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   store i8 %199, ptr %10, align 1
-  %204 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 1, ptr noundef %20)
+  %204 = call fastcc range(i32 0, 7) i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   br label %233
 
@@ -3677,7 +3677,7 @@ switch.hole_check:                                ; preds = %150
   %225 = phi i8 [ %.pre, %219 ], [ %28, %218 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 %225, ptr %9, align 1
-  %226 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, ptr noundef %20)
+  %226 = call fastcc range(i32 0, 7) i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   br label %233
 
@@ -3702,7 +3702,7 @@ switch.hole_check:                                ; preds = %150
 231:                                              ; preds = %230, %227
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 %28, ptr %8, align 1
-  %232 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 1, ptr noundef %20)
+  %232 = call fastcc range(i32 0, 7) i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   br label %233
 
@@ -3746,7 +3746,7 @@ default.unreachable421:                           ; preds = %27
 240:                                              ; preds = %238
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   store i8 61, ptr %7, align 1
-  %241 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 1, ptr noundef %20)
+  %241 = call fastcc range(i32 0, 7) i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %._crit_edge407.thread
 

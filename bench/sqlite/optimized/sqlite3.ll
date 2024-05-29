@@ -44435,7 +44435,7 @@ sqlite3SafetyCheckSickOrOk.exit.i:                ; preds = %sqlite3_mutex_leave
 .split99.thread:                                  ; preds = %25, %sqlite3_mutex_leave.exit.sink.split.i, %sqlite3_mutex_enter.exit.i, %sqlite3SafetyCheckSickOrOk.exit.i, %.split99
   %phi.call163 = phi i32 [ %211, %.split99 ], [ 7, %sqlite3SafetyCheckSickOrOk.exit.i ], [ 7, %sqlite3_mutex_enter.exit.i ], [ 7, %sqlite3_mutex_leave.exit.sink.split.i ], [ 7, %25 ]
   %.094152161 = phi ptr [ %28, %.split99 ], [ %28, %sqlite3SafetyCheckSickOrOk.exit.i ], [ null, %sqlite3_mutex_enter.exit.i ], [ null, %sqlite3_mutex_leave.exit.sink.split.i ], [ null, %25 ]
-  %214 = tail call fastcc i32 @sqlite3Close(ptr noundef %.094152161, i32 noundef 0)
+  %214 = tail call fastcc range(i32 0, 780) i32 @sqlite3Close(ptr noundef %.094152161, i32 noundef 0)
   br label %217
 
 215:                                              ; preds = %.split99
@@ -57786,7 +57786,7 @@ sqlite3_free.exit261.thread:                      ; preds = %37, %33, %sqlite3_f
   store i32 4096, ptr %8, align 4
   %144 = getelementptr i8, ptr %0, i64 4
   %.val.i = load i32, ptr %144, align 4
-  %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %.val.i, i32 80)
+  %spec.select.i.i = tail call range(i32 80, -2147483648) i32 @llvm.smax.i32(i32 %.val.i, i32 80)
   %145 = add nuw nsw i32 %spec.select.i.i, 7
   %146 = and i32 %145, 2147483640
   store ptr null, ptr %140, align 8
@@ -160958,7 +160958,7 @@ sqlite3SchemaToIndex.exit:                        ; preds = %sqlite3TwoPartName.
   store i16 0, ptr %69, align 4
   %70 = getelementptr inbounds i8, ptr %11, i64 48
   store ptr %11, ptr %70, align 8
-  %71 = call fastcc i32 @sqlite3WalkSelect(ptr noundef nonnull %64, ptr noundef %5)
+  %71 = call fastcc range(i32 0, 3) i32 @sqlite3WalkSelect(ptr noundef nonnull %64, ptr noundef %5)
   %.not49 = icmp eq i32 %71, 0
   br i1 %.not49, label %72, label %112
 
@@ -275013,7 +275013,7 @@ sqlite3ExprSkipCollate.exit.i.loopexit.i:         ; preds = %60, %.lr.ph.i.i.i
 
 sqlite3ExprCompareSkip.exit.i:                    ; preds = %66, %.lr.ph.i3.i.i, %sqlite3ExprSkipCollate.exit.i.loopexit.i
   %.0.lcssa.i7.i.i = phi ptr [ null, %sqlite3ExprSkipCollate.exit.i.loopexit.i ], [ %.06.i4.i.i, %.lr.ph.i3.i.i ], [ null, %66 ]
-  %69 = tail call fastcc i32 @sqlite3ExprCompare(ptr noundef null, ptr noundef %.0.lcssa.i.i.ph.i, ptr noundef %.0.lcssa.i7.i.i, i32 noundef %39)
+  %69 = tail call fastcc range(i32 0, 3) i32 @sqlite3ExprCompare(ptr noundef null, ptr noundef %.0.lcssa.i.i.ph.i, ptr noundef %.0.lcssa.i7.i.i, i32 noundef %39)
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %73
 
@@ -277746,7 +277746,7 @@ sqlite3ExprSkipCollate.exit.i:                    ; preds = %47, %.lr.ph.i.i, %3
 
 sqlite3ExprCompareSkip.exit:                      ; preds = %.lr.ph.i3.i, %53, %sqlite3ExprSkipCollate.exit.i
   %.0.lcssa.i7.i = phi ptr [ null, %sqlite3ExprSkipCollate.exit.i ], [ null, %53 ], [ %.06.i4.i, %.lr.ph.i3.i ]
-  %56 = tail call fastcc i32 @sqlite3ExprCompare(ptr noundef null, ptr noundef %.0.lcssa.i.i, ptr noundef %.0.lcssa.i7.i, i32 noundef %21)
+  %56 = tail call fastcc range(i32 0, 3) i32 @sqlite3ExprCompare(ptr noundef null, ptr noundef %.0.lcssa.i.i, ptr noundef %.0.lcssa.i7.i, i32 noundef %21)
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %sqlite3StrICmp.exit
 
@@ -279574,7 +279574,7 @@ sqlite3ExprSkipCollate.exit.i.i:                  ; preds = %295, %.lr.ph.i.i.i
 
 sqlite3ExprCompareSkip.exit.i:                    ; preds = %301, %.lr.ph.i3.i.i, %sqlite3ExprSkipCollate.exit.i.i
   %.0.lcssa.i7.i.i = phi ptr [ null, %sqlite3ExprSkipCollate.exit.i.i ], [ %.06.i4.i.i, %.lr.ph.i3.i.i ], [ null, %301 ]
-  %304 = call fastcc i32 @sqlite3ExprCompare(ptr noundef null, ptr noundef %.0.lcssa.i.i.i, ptr noundef %.0.lcssa.i7.i.i, i32 noundef %234)
+  %304 = call fastcc range(i32 0, 3) i32 @sqlite3ExprCompare(ptr noundef null, ptr noundef %.0.lcssa.i.i.i, ptr noundef %.0.lcssa.i7.i.i, i32 noundef %234)
   %305 = icmp eq i32 %304, 0
   br i1 %305, label %indexMightHelpWithOrderBy.exit, label %sqlite3ExprCompareSkip.exit._crit_edge.i
 
@@ -284949,7 +284949,7 @@ sqlite3ExprSkipCollate.exit.i:                    ; preds = %297, %.lr.ph.i.i
 
 sqlite3ExprCompareSkip.exit:                      ; preds = %.lr.ph.i3.i, %303, %sqlite3ExprSkipCollate.exit.i
   %.0.lcssa.i7.i = phi ptr [ null, %sqlite3ExprSkipCollate.exit.i ], [ null, %303 ], [ %.06.i4.i, %.lr.ph.i3.i ]
-  %306 = call fastcc i32 @sqlite3ExprCompare(ptr noundef null, ptr noundef %.0.lcssa.i.i, ptr noundef %.0.lcssa.i7.i, i32 noundef %81)
+  %306 = call fastcc range(i32 0, 3) i32 @sqlite3ExprCompare(ptr noundef null, ptr noundef %.0.lcssa.i.i, ptr noundef %.0.lcssa.i7.i, i32 noundef %81)
   %.not283 = icmp eq i32 %306, 0
   br i1 %.not283, label %307, label %sqlite3ExprSkipCollateAndLikely.exit348.thread
 

@@ -1118,7 +1118,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   br i1 %258, label %259, label %255
 
 259:                                              ; preds = %257
-  %260 = invoke i64 @_ZN4core4sync6atomic11atomic_load17h3f924b1c8dcdc7f4E(ptr nonnull @_ZN12tracing_core8metadata9MAX_LEVEL17h01006d23ad92a8e5E, i8 0)
+  %260 = invoke range(i64 0, 6) i64 @_ZN4core4sync6atomic11atomic_load17h3f924b1c8dcdc7f4E(ptr nonnull @_ZN12tracing_core8metadata9MAX_LEVEL17h01006d23ad92a8e5E, i8 0)
           to label %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit214 unwind label %.loopexit.split-lp
 
 _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit214: ; preds = %259
@@ -1372,7 +1372,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit214: ; p
           to label %343 unwind label %.loopexit.split-lp
 
 362:                                              ; preds = %339
-  %363 = invoke i64 @_ZN4core4sync6atomic11atomic_load17h3f924b1c8dcdc7f4E(ptr nonnull @_ZN12tracing_core8metadata9MAX_LEVEL17h01006d23ad92a8e5E, i8 0)
+  %363 = invoke range(i64 0, 6) i64 @_ZN4core4sync6atomic11atomic_load17h3f924b1c8dcdc7f4E(ptr nonnull @_ZN12tracing_core8metadata9MAX_LEVEL17h01006d23ad92a8e5E, i8 0)
           to label %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit unwind label %.loopexit.split-lp
 
 _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; preds = %362

@@ -7829,7 +7829,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %56
   %80 = load ptr, ptr %.071.i, align 8
   %81 = load ptr, ptr %.070.i, align 8
   %82 = load ptr, ptr %44, align 8
-  %83 = call fastcc i32 @transcode_restartable(ptr noundef nonnull %.071.i, ptr noundef nonnull %.070.i, ptr noundef %.072.i, ptr noundef %.069.i, ptr noundef %82, i32 noundef %.168.i)
+  %83 = call fastcc range(i32 0, 7) i32 @transcode_restartable(ptr noundef nonnull %.071.i, ptr noundef nonnull %.070.i, ptr noundef %.072.i, ptr noundef %.069.i, ptr noundef %82, i32 noundef %.168.i)
   %84 = getelementptr inbounds i8, ptr %44, i64 40
   store i32 %83, ptr %84, align 8
   %85 = load ptr, ptr %.071.i, align 8

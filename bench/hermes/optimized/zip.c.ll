@@ -1239,7 +1239,7 @@ if.end:                                           ; preds = %entry
   %conv1 = trunc nuw i64 %1 to i32
   %avail_out = getelementptr inbounds i8, ptr %stream, i64 32
   store i32 %conv1, ptr %avail_out, align 8
-  %call.i = call i32 @mz_deflateInit2(ptr noundef nonnull %stream, i32 noundef %level, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0)
+  %call.i = call range(i32 -10000, 1) i32 @mz_deflateInit2(ptr noundef nonnull %stream, i32 noundef %level, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0)
   %cmp2.not = icmp eq i32 %call.i, 0
   br i1 %cmp2.not, label %if.end5, label %return
 
@@ -1418,7 +1418,7 @@ entry:
   %0 = mul nuw nsw i64 %div2.i, 5
   %mul4.i = add i64 %source_len, 133
   %add5.i = add i64 %mul4.i, %0
-  %add.add5.i = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %add5.i)
+  %add.add5.i = tail call range(i64 128, 0) i64 @llvm.umax.i64(i64 %add.i, i64 %add5.i)
   ret i64 %add.add5.i
 }
 
@@ -10490,7 +10490,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end3
-  %call.i = tail call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %pZip, i32 noundef %file_index, ptr noundef nonnull %call7, i64 noundef %cond, i32 noundef %flags, ptr noundef null, i64 noundef 0)
+  %call.i = tail call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %pZip, i32 noundef %file_index, ptr noundef nonnull %call7, i64 noundef %cond, i32 noundef %flags, ptr noundef null, i64 noundef 0)
   %tobool12.not = icmp eq i32 %call.i, 0
   br i1 %tobool12.not, label %if.then13, label %if.end15
 
@@ -10592,7 +10592,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %return, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end3.i
-  %call.i.i = tail call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %pZip, i32 noundef %call, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef %flags, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %pZip, i32 noundef %call, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef %flags, ptr noundef null, i64 noundef 0)
   %tobool12.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool12.not.i, label %if.then13.i, label %if.end15.i
 
@@ -13920,7 +13920,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %if.end11, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end3.i
-  %call.i.i = call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %zip_archive, i32 noundef %call8, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef %flags, ptr noundef null, i64 noundef 0)
+  %call.i.i = call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %zip_archive, i32 noundef %call8, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef %flags, ptr noundef null, i64 noundef 0)
   %tobool12.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool12.not.i, label %if.then13.i, label %if.end15.i
 
@@ -15282,7 +15282,7 @@ if.end3.i:                                        ; preds = %mz_zip_reader_get_c
   br i1 %cmp.i22, label %mz_zip_reader_extract_to_heap.exit.thread, label %if.end10.i23
 
 if.end10.i23:                                     ; preds = %if.end3.i
-  %call.i.i = tail call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %zip, i32 noundef %1, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %zip, i32 noundef %1, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef 0, ptr noundef null, i64 noundef 0)
   %tobool12.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool12.not.i, label %if.then13.i, label %mz_zip_reader_extract_to_heap.exit
 

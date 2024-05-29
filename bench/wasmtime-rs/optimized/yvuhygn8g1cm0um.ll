@@ -4995,7 +4995,7 @@ define range(i8 -1, 2) i8 @"_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = tail call i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h92ed0c60661949ddE"(ptr nonnull align 8 %4, i64 %6, ptr nonnull align 8 %8, i64 %10), !range !7
+  %11 = tail call range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h92ed0c60661949ddE"(ptr nonnull align 8 %4, i64 %6, ptr nonnull align 8 %8, i64 %10), !range !7
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %17
 

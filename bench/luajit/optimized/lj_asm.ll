@@ -5158,7 +5158,7 @@ if.then517.i.i3847:                               ; preds = %if.then510.i.i3837
 
 ra_evict.exit.i3844:                              ; preds = %if.then517.i.i3847, %if.then510.i.i3837, %land.lhs.true507.i.i3833, %if.then.i.i.i.i3804
   %ref.0.i.i3845 = phi i32 [ %conv504.i.i3831, %if.then.i.i.i.i3804 ], [ %conv504.i.i3831, %if.then510.i.i3837 ], [ %conv524.i.i3850, %if.then517.i.i3847 ], [ %conv504.i.i3831, %land.lhs.true507.i.i3833 ]
-  %call.i.i3846 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3845)
+  %call.i.i3846 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3845)
   br label %ra_scratch.exit.i.i3768
 
 if.else.i.i.i.i3766:                              ; preds = %if.else14.i.i3763
@@ -6172,7 +6172,7 @@ if.then517.i.i3552:                               ; preds = %if.then510.i.i3544
 
 ra_evict.exit.i3549:                              ; preds = %if.then517.i.i3552, %if.then510.i.i3544, %land.lhs.true507.i.i3540, %if.then.i.i.i.i3506
   %ref.0.i.i3550 = phi i32 [ %conv504.i.i3538, %if.then.i.i.i.i3506 ], [ %conv504.i.i3538, %if.then510.i.i3544 ], [ %conv524.i.i3555, %if.then517.i.i3552 ], [ %conv504.i.i3538, %land.lhs.true507.i.i3540 ]
-  %call.i.i3551 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3550)
+  %call.i.i3551 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3550)
   br label %ra_scratch.exit.i.i3489
 
 if.else.i.i.i.i3487:                              ; preds = %if.else14.i.i3484
@@ -6402,7 +6402,7 @@ if.then517.i6115:                                 ; preds = %if.then510.i6106
 
 ra_evict.exit6119:                                ; preds = %if.then.i.i.i59.i, %land.lhs.true507.i6102, %if.then510.i6106, %if.then517.i6115
   %ref.0.i6113 = phi i32 [ %conv504.i6100, %if.then.i.i.i59.i ], [ %conv504.i6100, %if.then510.i6106 ], [ %conv524.i6118, %if.then517.i6115 ], [ %conv504.i6100, %land.lhs.true507.i6102 ]
-  %call.i6114 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i6113)
+  %call.i6114 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i6113)
   br label %ra_scratch.exit.i44.i
 
 if.else.i.i.i42.i:                                ; preds = %if.else14.i39.i
@@ -6847,7 +6847,7 @@ if.then517.i.i3429:                               ; preds = %if.then510.i.i3422
 
 ra_evict.exit.i3427:                              ; preds = %if.then517.i.i3429, %if.then510.i.i3422, %land.lhs.true507.i.i3419, %if.then.i.i.i.i3390
   %ref.0.i.i3428 = phi i32 [ %conv504.i.i3417, %if.then.i.i.i.i3390 ], [ %conv504.i.i3417, %if.then510.i.i3422 ], [ %conv524.i.i3432, %if.then517.i.i3429 ], [ %conv504.i.i3417, %land.lhs.true507.i.i3419 ]
-  %call.i33.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3428)
+  %call.i33.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3428)
   br label %ra_scratch.exit.i.i3304
 
 if.else.i.i.i.i3302:                              ; preds = %if.else14.i.i3299
@@ -7048,7 +7048,7 @@ if.then517.i52.i:                                 ; preds = %if.then510.i43.i
 
 ra_evict.exit56.i:                                ; preds = %if.then517.i52.i, %if.then510.i43.i, %land.lhs.true507.i39.i, %if.then.i.i.i3360
   %ref.0.i50.i = phi i32 [ %conv504.i37.i, %if.then.i.i.i3360 ], [ %conv504.i37.i, %if.then510.i43.i ], [ %conv524.i55.i, %if.then517.i52.i ], [ %conv504.i37.i, %land.lhs.true507.i39.i ]
-  %call.i51.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i50.i)
+  %call.i51.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i50.i)
   br label %ra_scratch.exit.i3358
 
 if.else.i.i.i3356:                                ; preds = %cond.false.i
@@ -7235,7 +7235,7 @@ if.then517.i.i3269:                               ; preds = %if.then510.i.i3260
 
 ra_evict.exit.i3266:                              ; preds = %if.then517.i.i3269, %if.then510.i.i3260, %land.lhs.true507.i.i3256, %if.then.i.i.i.i3227
   %ref.0.i.i3267 = phi i32 [ %conv504.i.i3254, %if.then.i.i.i.i3227 ], [ %conv504.i.i3254, %if.then510.i.i3260 ], [ %conv524.i.i3272, %if.then517.i.i3269 ], [ %conv504.i.i3254, %land.lhs.true507.i.i3256 ]
-  %call.i.i3268 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3267)
+  %call.i.i3268 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3267)
   br label %ra_scratch.exit.i.i3187
 
 if.else.i.i.i.i3185:                              ; preds = %if.else14.i.i3182
@@ -7523,7 +7523,7 @@ if.then517.i.i3162:                               ; preds = %if.then510.i.i3156
 
 ra_evict.exit.i3160:                              ; preds = %if.then517.i.i3162, %if.then510.i.i3156, %land.lhs.true507.i.i3153, %if.then.i.i.i.i3124
   %ref.0.i.i3161 = phi i32 [ %conv504.i.i3151, %if.then.i.i.i.i3124 ], [ %conv504.i.i3151, %if.then510.i.i3156 ], [ %conv524.i.i3165, %if.then517.i.i3162 ], [ %conv504.i.i3151, %land.lhs.true507.i.i3153 ]
-  %call.i211.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3161)
+  %call.i211.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i3161)
   br label %ra_scratch.exit.i.i2985
 
 if.else.i.i.i.i2983:                              ; preds = %if.else14.i.i2980
@@ -8248,7 +8248,7 @@ if.then517.i.i.i:                                 ; preds = %if.then510.i.i.i
 
 ra_evict.exit.i.i:                                ; preds = %if.then517.i.i.i, %if.then510.i.i.i, %land.lhs.true507.i.i.i, %if.then.i.i.i.i.i
   %ref.0.i.i.i = phi i32 [ %conv504.i.i.i, %if.then.i.i.i.i.i ], [ %conv504.i.i.i, %if.then510.i.i.i ], [ %conv524.i.i.i, %if.then517.i.i.i ], [ %conv504.i.i.i, %land.lhs.true507.i.i.i ]
-  %call.i181.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i.i)
+  %call.i181.i.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i.i)
   br label %ra_scratch.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.else14.i.i.i
@@ -8473,7 +8473,7 @@ if.then517.i227.i.i:                              ; preds = %if.then510.i218.i.i
 
 ra_evict.exit231.i.i:                             ; preds = %if.then517.i227.i.i, %if.then510.i218.i.i, %land.lhs.true507.i214.i.i, %if.then.i.i.i.i
   %ref.0.i225.i.i = phi i32 [ %conv504.i212.i.i, %if.then.i.i.i.i ], [ %conv504.i212.i.i, %if.then510.i218.i.i ], [ %conv524.i230.i.i, %if.then517.i227.i.i ], [ %conv504.i212.i.i, %land.lhs.true507.i214.i.i ]
-  %call.i226.i.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i225.i.i)
+  %call.i226.i.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i225.i.i)
   br label %ra_scratch.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.else.i140.i
@@ -8969,7 +8969,7 @@ if.then517.i.i2863:                               ; preds = %if.then510.i.i2855
 
 ra_evict.exit.i2860:                              ; preds = %if.then517.i.i2863, %if.then510.i.i2855, %land.lhs.true507.i.i2851, %if.then.i.i.i.i2822
   %ref.0.i.i2861 = phi i32 [ %conv504.i.i2849, %if.then.i.i.i.i2822 ], [ %conv504.i.i2849, %if.then510.i.i2855 ], [ %conv524.i.i2866, %if.then517.i.i2863 ], [ %conv504.i.i2849, %land.lhs.true507.i.i2851 ]
-  %call.i.i2862 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2861)
+  %call.i.i2862 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2861)
   br label %ra_scratch.exit.i.i2778
 
 if.else.i.i.i.i2776:                              ; preds = %if.else14.i.i2773
@@ -9288,7 +9288,7 @@ if.then517.i.i2753:                               ; preds = %if.then510.i.i2744
 
 ra_evict.exit.i2750:                              ; preds = %if.then517.i.i2753, %if.then510.i.i2744, %land.lhs.true507.i.i2740, %if.then.i.i.i.i2711
   %ref.0.i.i2751 = phi i32 [ %conv504.i.i2738, %if.then.i.i.i.i2711 ], [ %conv504.i.i2738, %if.then510.i.i2744 ], [ %conv524.i.i2756, %if.then517.i.i2753 ], [ %conv504.i.i2738, %land.lhs.true507.i.i2740 ]
-  %call.i.i2752 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2751)
+  %call.i.i2752 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2751)
   br label %ra_scratch.exit.i.i2692
 
 if.else.i.i.i.i2690:                              ; preds = %if.else14.i.i2687
@@ -9524,7 +9524,7 @@ if.then517.i.i2667:                               ; preds = %if.then510.i.i2659
 
 ra_evict.exit.i2664:                              ; preds = %if.then517.i.i2667, %if.then510.i.i2659, %land.lhs.true507.i.i2655, %if.then.i.i.i.i2626
   %ref.0.i.i2665 = phi i32 [ %conv504.i.i2653, %if.then.i.i.i.i2626 ], [ %conv504.i.i2653, %if.then510.i.i2659 ], [ %conv524.i.i2670, %if.then517.i.i2667 ], [ %conv504.i.i2653, %land.lhs.true507.i.i2655 ]
-  %call.i.i2666 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2665)
+  %call.i.i2666 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2665)
   br label %ra_scratch.exit.i.i2544
 
 if.else.i.i.i.i2542:                              ; preds = %if.else14.i.i2539
@@ -9966,7 +9966,7 @@ if.then517.i.i2520:                               ; preds = %if.then510.i.i2511
 
 ra_evict.exit.i2517:                              ; preds = %if.then517.i.i2520, %if.then510.i.i2511, %land.lhs.true507.i.i2507, %if.then.i.i.i.i2478
   %ref.0.i.i2518 = phi i32 [ %conv504.i.i2505, %if.then.i.i.i.i2478 ], [ %conv504.i.i2505, %if.then510.i.i2511 ], [ %conv524.i.i2523, %if.then517.i.i2520 ], [ %conv504.i.i2505, %land.lhs.true507.i.i2507 ]
-  %call.i.i2519 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2518)
+  %call.i.i2519 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2518)
   br label %ra_scratch.exit.i.i2462
 
 if.else.i.i.i.i2460:                              ; preds = %if.else14.i.i2457
@@ -10548,7 +10548,7 @@ if.then517.i.i289.i:                              ; preds = %if.then510.i.i281.i
 
 ra_evict.exit.i286.i:                             ; preds = %if.then517.i.i289.i, %if.then510.i.i281.i, %land.lhs.true507.i.i277.i, %if.then.i.i.i248.i
   %ref.0.i.i287.i = phi i32 [ %conv504.i.i275.i, %if.then.i.i.i248.i ], [ %conv504.i.i275.i, %if.then510.i.i281.i ], [ %conv524.i.i292.i, %if.then517.i.i289.i ], [ %conv504.i.i275.i, %land.lhs.true507.i.i277.i ]
-  %call.i.i288.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i287.i)
+  %call.i.i288.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i287.i)
   br label %ra_scratch.exit.i246.i
 
 if.else.i.i.i244.i:                               ; preds = %if.then51.i.i
@@ -11335,7 +11335,7 @@ if.then517.i.i2041:                               ; preds = %if.then510.i.i2033
 
 ra_evict.exit.i2039:                              ; preds = %if.then517.i.i2041, %if.then510.i.i2033, %land.lhs.true507.i.i2030, %if.then.i.i.i1996
   %ref.0.i.i2040 = phi i32 [ %conv504.i.i2028, %if.then.i.i.i1996 ], [ %conv504.i.i2028, %if.then510.i.i2033 ], [ %conv524.i.i2044, %if.then517.i.i2041 ], [ %conv504.i.i2028, %land.lhs.true507.i.i2030 ]
-  %call.i620.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2040)
+  %call.i620.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i2040)
   br label %ra_scratch.exit.i1938
 
 if.else.i.i.i1936:                                ; preds = %if.then.i1932
@@ -14175,7 +14175,7 @@ if.then517.i.i1266:                               ; preds = %if.then510.i.i1257
 
 ra_evict.exit.i1263:                              ; preds = %if.then517.i.i1266, %if.then510.i.i1257, %land.lhs.true507.i.i1253, %if.then.i.i.i.i1247
   %ref.0.i.i1264 = phi i32 [ %conv504.i.i1251, %if.then.i.i.i.i1247 ], [ %conv504.i.i1251, %if.then510.i.i1257 ], [ %conv524.i.i1269, %if.then517.i.i1266 ], [ %conv504.i.i1251, %land.lhs.true507.i.i1253 ]
-  %call.i.i1265 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i1264)
+  %call.i.i1265 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i1264)
   br label %ra_scratch.exit.i.i1125
 
 if.else.i.i.i.i1123:                              ; preds = %if.else14.i.i1120
@@ -15714,7 +15714,7 @@ if.then517.i.i:                                   ; preds = %if.then510.i.i
 
 ra_evict.exit.i:                                  ; preds = %if.then517.i.i, %if.then510.i.i, %land.lhs.true507.i.i, %if.then.i.i.i.i918
   %ref.0.i.i = phi i32 [ %conv504.i.i, %if.then.i.i.i.i918 ], [ %conv504.i.i, %if.then510.i.i ], [ %conv524.i.i, %if.then517.i.i ], [ %conv504.i.i, %land.lhs.true507.i.i ]
-  %call.i434.i = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i)
+  %call.i434.i = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i.i)
   br label %ra_scratch.exit.i.i865
 
 if.else.i.i.i.i863:                               ; preds = %if.else14.i.i
@@ -16134,7 +16134,7 @@ if.then517.i5175:                                 ; preds = %if.then510.i5166
 
 ra_evict.exit5179:                                ; preds = %if.then.i.i.i197.i, %land.lhs.true507.i5162, %if.then510.i5166, %if.then517.i5175
   %ref.0.i5173 = phi i32 [ %conv504.i5160, %if.then.i.i.i197.i ], [ %conv504.i5160, %if.then510.i5166 ], [ %conv524.i5178, %if.then517.i5175 ], [ %conv504.i5160, %land.lhs.true507.i5162 ]
-  %call.i5174 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i5173)
+  %call.i5174 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i5173)
   br label %ra_scratch.exit.i182.i
 
 if.else.i.i.i180.i:                               ; preds = %if.else14.i177.i
@@ -16342,7 +16342,7 @@ if.then517.i5034:                                 ; preds = %if.then510.i5025
 
 ra_evict.exit5038:                                ; preds = %if.then.i.i212.i, %land.lhs.true507.i5021, %if.then510.i5025, %if.then517.i5034
   %ref.0.i5032 = phi i32 [ %conv504.i5019, %if.then.i.i212.i ], [ %conv504.i5019, %if.then510.i5025 ], [ %conv524.i5037, %if.then517.i5034 ], [ %conv504.i5019, %land.lhs.true507.i5021 ]
-  %call.i5033 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i5032)
+  %call.i5033 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i5032)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i854:                                 ; preds = %cond.false99.i
@@ -16562,7 +16562,7 @@ if.then517.i5009:                                 ; preds = %if.then510.i5000
 
 ra_evict.exit5013:                                ; preds = %if.then.i.i.i345.i, %land.lhs.true507.i4996, %if.then510.i5000, %if.then517.i5009
   %ref.0.i5007 = phi i32 [ %conv504.i4994, %if.then.i.i.i345.i ], [ %conv504.i4994, %if.then510.i5000 ], [ %conv524.i5012, %if.then517.i5009 ], [ %conv504.i4994, %land.lhs.true507.i4996 ]
-  %call.i5008 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i5007)
+  %call.i5008 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i5007)
   br label %ra_scratch.exit.i330.i
 
 if.else.i.i.i328.i:                               ; preds = %if.else14.i325.i
@@ -16820,7 +16820,7 @@ if.then517.i4883:                                 ; preds = %if.then510.i4874
 
 ra_evict.exit4887:                                ; preds = %if.then.i.i.i382.i, %land.lhs.true507.i4870, %if.then510.i4874, %if.then517.i4883
   %ref.0.i4881 = phi i32 [ %conv504.i4868, %if.then.i.i.i382.i ], [ %conv504.i4868, %if.then510.i4874 ], [ %conv524.i4886, %if.then517.i4883 ], [ %conv504.i4868, %land.lhs.true507.i4870 ]
-  %call.i4882 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i4881)
+  %call.i4882 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i4881)
   br label %ra_scratch.exit.i367.i
 
 if.else.i.i.i365.i:                               ; preds = %if.else14.i362.i
@@ -17066,7 +17066,7 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i419.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i419.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i4761 = call fastcc i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i)
+  %call.i4761 = call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as_, i32 noundef %ref.0.i)
   br label %ra_scratch.exit.i404.i
 
 if.else.i.i.i402.i:                               ; preds = %if.else14.i399.i
@@ -23631,7 +23631,7 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
+  %call.i = tail call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
@@ -24427,7 +24427,7 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i292 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
+  %call.i292 = tail call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
@@ -24968,7 +24968,7 @@ if.then517.i335:                                  ; preds = %if.then510.i326
 
 ra_evict.exit339:                                 ; preds = %if.then.i.i210, %land.lhs.true507.i322, %if.then510.i326, %if.then517.i335
   %ref.0.i333 = phi i32 [ %conv504.i320, %if.then.i.i210 ], [ %conv504.i320, %if.then510.i326 ], [ %conv524.i338, %if.then517.i335 ], [ %conv504.i320, %land.lhs.true507.i322 ]
-  %call.i334 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i333)
+  %call.i334 = tail call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i333)
   br label %ra_scratch.exit
 
 if.else.i.i:                                      ; preds = %if.then92
@@ -25049,7 +25049,7 @@ if.then.i.i243:                                   ; preds = %if.then112
   %arrayidx19.i342 = getelementptr inbounds i8, ptr %as, i64 4
   %131 = load i32, ptr %arrayidx19.i342, align 4
   %conv504.i344 = and i32 %131, 65535
-  %call.i358 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv504.i344)
+  %call.i358 = tail call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %conv504.i344)
   br label %ra_scratch.exit245
 
 ra_scratch.exit245:                               ; preds = %if.then112, %if.then.i.i243
@@ -25454,7 +25454,7 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i1404 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
+  %call.i1404 = tail call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
@@ -32127,7 +32127,7 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i54 = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
+  %call.i54 = tail call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
   br label %ra_scratch.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.else14.i
@@ -32911,7 +32911,7 @@ if.then517.i:                                     ; preds = %if.then510.i
 
 ra_evict.exit:                                    ; preds = %if.then.i.i.i, %land.lhs.true507.i, %if.then510.i, %if.then517.i
   %ref.0.i = phi i32 [ %conv504.i, %if.then.i.i.i ], [ %conv504.i, %if.then510.i ], [ %conv524.i, %if.then517.i ], [ %conv504.i, %land.lhs.true507.i ]
-  %call.i = tail call fastcc i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
+  %call.i = tail call fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull %as, i32 noundef %ref.0.i)
   %.pre158.pre = load i32, ptr %modset.i, align 4
   br label %ra_scratch.exit.i
 

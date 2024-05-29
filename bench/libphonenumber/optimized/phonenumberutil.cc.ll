@@ -8006,7 +8006,7 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112ba
   br i1 %119, label %121, label %.invoke71
 
 121:                                              ; preds = %120
-  %122 = invoke fastcc noundef i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 8 dereferenceable(280) %.0.i, i32 noundef 11)
+  %122 = invoke fastcc noundef range(i32 0, 6) i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 8 dereferenceable(280) %.0.i, i32 noundef 11)
           to label %_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit unwind label %123
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit: ; preds = %121
@@ -14728,7 +14728,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
           to label %232 unwind label %244
 
 232:                                              ; preds = %230
-  %233 = invoke fastcc noundef i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull readonly align 8 dereferenceable(280) %.149, i32 noundef 11)
+  %233 = invoke fastcc noundef range(i32 0, 6) i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull readonly align 8 dereferenceable(280) %.149, i32 noundef 11)
           to label %_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit unwind label %244
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit: ; preds = %232
@@ -16219,7 +16219,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_17IsMatchERKNS0_10MatcherApiERKNSt7__cxx1112b
   br i1 %138, label %142, label %139
 
 139:                                              ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_17IsMatchERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit81, %_ZN4i18n12phonenumbers12_GLOBAL__N_17IsMatchERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit
-  %140 = invoke fastcc noundef i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(280) %1, i32 noundef 11)
+  %140 = invoke fastcc noundef range(i32 0, 6) i32 @_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(280) %1, i32 noundef 11)
           to label %_ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit unwind label %154
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataE.exit: ; preds = %139

@@ -6010,7 +6010,7 @@ sw.bb66.i:                                        ; preds = %entry
   br i1 %tobool.not.i, label %do_constant_folding_2.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %sw.bb66.i
-  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv67.i, i1 true)
+  %6 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv67.i, i1 true)
   %conv70.i = zext nneg i32 %6 to i64
   br label %do_constant_folding_2.exit
 
@@ -6026,7 +6026,7 @@ sw.bb79.i:                                        ; preds = %entry
   br i1 %tobool81.not.i, label %do_constant_folding_2.exit, label %cond.true82.i
 
 cond.true82.i:                                    ; preds = %sw.bb79.i
-  %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv80.i, i1 true)
+  %8 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %conv80.i, i1 true)
   %conv85.i = zext nneg i32 %8 to i64
   br label %do_constant_folding_2.exit
 

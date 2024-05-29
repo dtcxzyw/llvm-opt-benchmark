@@ -6524,7 +6524,7 @@ _is_fed_job.exit:                                 ; preds = %11
   store i16 %74, ptr %75, align 2
   %76 = getelementptr inbounds i8, ptr %4, i64 192
   store ptr %5, ptr %76, align 8
-  %77 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef %66)
+  %77 = call fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef %66)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
   %.not61 = icmp eq i32 %77, 0
@@ -11015,7 +11015,7 @@ fed_mgr_get_cluster_by_name.exit.thread.i.i.i:    ; preds = %fed_mgr_get_cluster
   %370 = load i16, ptr %369, align 8
   store i16 %370, ptr %49, align 2
   store ptr %13, ptr %50, align 8
-  %371 = call fastcc i32 @_queue_rpc(ptr noundef %.0.i3750.i.i.i, ptr noundef nonnull %12, i32 noundef %368)
+  %371 = call fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr noundef %.0.i3750.i.i.i, ptr noundef nonnull %12, i32 noundef %368)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13)
   br label %_handle_fed_job_submission.exit.i
@@ -11828,7 +11828,7 @@ fed_mgr_get_cluster_by_name.exit.thread.i44.i:    ; preds = %fed_mgr_get_cluster
   %760 = load i16, ptr %759, align 8
   store i16 %760, ptr %43, align 2
   store ptr %8, ptr %44, align 8
-  %761 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %755, ptr noundef nonnull %7, i32 noundef %758)
+  %761 = call fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr noundef nonnull %755, ptr noundef nonnull %7, i32 noundef %758)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   br label %_handle_fed_job_update.exit.i

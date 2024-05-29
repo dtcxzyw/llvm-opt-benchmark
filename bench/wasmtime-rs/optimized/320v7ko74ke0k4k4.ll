@@ -12134,7 +12134,7 @@ default.unreachable9.i68:                         ; preds = %.thread211
   %.val11.i = load ptr, ptr %226, align 8, !noalias !1896, !nonnull !5, !noundef !5
   %242 = getelementptr inbounds i8, ptr %.val11.i, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !1902
-  %243 = invoke noundef i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %242)
+  %243 = invoke noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %242)
           to label %.noexc.i unwind label %247, !noalias !1896
 
 .noexc.i:                                         ; preds = %241
@@ -16724,7 +16724,7 @@ default.unreachable9.i60:                         ; preds = %.thread
   %159 = load i64, ptr %158, align 8, !alias.scope !2574, !noalias !2578
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2580)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22), !noalias !2583
-  %160 = invoke noundef i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %151)
+  %160 = invoke noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %151)
           to label %.noexc.i.i unwind label %161, !noalias !2585
 
 161:                                              ; preds = %.noexc.i.i, %150
@@ -17110,7 +17110,7 @@ common.ret:                                       ; preds = %385, %369, %229
   %.sroa.03.0.i.i93 = select i1 %285, i64 undef, i64 %287
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2643)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13), !noalias !2646
-  %288 = invoke noundef i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %277)
+  %288 = invoke noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %277)
           to label %.noexc.i.i95 unwind label %289, !noalias !2648
 
 289:                                              ; preds = %304, %.noexc.i.i95, %276

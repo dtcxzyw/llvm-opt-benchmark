@@ -1540,7 +1540,7 @@ sat_clause_compute_lbd.exit:                      ; preds = %sat_clause_compute_
 act_clause2_rescale.exit.i:                       ; preds = %.lr.ph.i.i, %148
   %156 = load i32, ptr %142, align 4
   %157 = ashr i32 %156, 14
-  %158 = tail call i32 @llvm.smax.i32(i32 %157, i32 1024)
+  %158 = tail call range(i32 -131072, 131072) i32 @llvm.smax.i32(i32 %157, i32 1024)
   store i32 %158, ptr %142, align 4
   br label %act_clause2_bump.exit
 
@@ -5780,7 +5780,7 @@ veci_push.exit149.i:                              ; preds = %234, %225
 act_clause2_rescale.exit.i.i.i:                   ; preds = %.lr.ph.i.i.i.i, %255
   %262 = load i32, ptr %122, align 4
   %263 = ashr i32 %262, 14
-  %264 = call i32 @llvm.smax.i32(i32 %263, i32 1024)
+  %264 = call range(i32 -131072, 131072) i32 @llvm.smax.i32(i32 %263, i32 1024)
   store i32 %264, ptr %122, align 4
   br label %act_clause2_bump.exit.i.i
 
@@ -5925,7 +5925,7 @@ veci_push.exit146.i:                              ; preds = %312, %var_set_tag.e
 act_var_rescale.exit.i.i.i:                       ; preds = %.lr.ph.i.i170.i.i, %328
   %337 = load i32, ptr %126, align 4
   %338 = ashr i32 %337, 19
-  %339 = call i32 @llvm.smax.i32(i32 %338, i32 16)
+  %339 = call range(i32 -131072, 131072) i32 @llvm.smax.i32(i32 %338, i32 16)
   store i32 %339, ptr %126, align 4
   br label %340
 

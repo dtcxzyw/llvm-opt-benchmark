@@ -27041,7 +27041,7 @@ _ZN6hir_ty7mapping19from_chalk_trait_id17hbddc725e79d97af1E.exit.i.i: ; preds = 
 switch.lookup:                                    ; preds = %.noexc39.i.i
   %switch.offset = sub nsw i8 53, %209
   %214 = icmp eq i8 %.0112.i.i, 3
-  %.0.sroa.speculated.i.i.i.i.i = call i8 @llvm.umax.i8(i8 %.0112.i.i, i8 %switch.offset)
+  %.0.sroa.speculated.i.i.i.i.i = call range(i8 0, 3) i8 @llvm.umax.i8(i8 %.0112.i.i, i8 %switch.offset)
   %.0.i40.i.i = select i1 %214, i8 %switch.offset, i8 %.0.sroa.speculated.i.i.i.i.i
   br label %"_ZN6hir_ty5infer7closure49_$LT$impl$u20$hir_ty..infer..InferenceContext$GT$27fn_trait_kind_from_trait_id17h7e7093a2639f2768E.exit.threadthread-pre-split.i.i"
 
@@ -27845,7 +27845,7 @@ _ZN6hir_ty7mapping19from_chalk_trait_id17hbddc725e79d97af1E.exit.i82.i: ; preds 
 switch.lookup244:                                 ; preds = %.noexc39.i77.i
   %switch.offset247 = sub nsw i8 53, %456
   %461 = icmp eq i8 %.0112.i25.i, 3
-  %.0.sroa.speculated.i.i.i.i79.i = call i8 @llvm.umax.i8(i8 %.0112.i25.i, i8 %switch.offset247)
+  %.0.sroa.speculated.i.i.i.i79.i = call range(i8 0, 3) i8 @llvm.umax.i8(i8 %.0112.i25.i, i8 %switch.offset247)
   %.0.i40.i80.i = select i1 %461, i8 %switch.offset247, i8 %.0.sroa.speculated.i.i.i.i79.i
   br label %"_ZN6hir_ty5infer7closure49_$LT$impl$u20$hir_ty..infer..InferenceContext$GT$27fn_trait_kind_from_trait_id17h7e7093a2639f2768E.exit.threadthread-pre-split.i31.i"
 
@@ -37304,7 +37304,7 @@ select.unfold.i46:                                ; preds = %1198, %"_ZN6hir_ty5
   %switch.i.i.i.i47 = icmp ult i8 %1220, 2
   %..i.i.i.i = select i1 %switch.i.i.i.i47, i8 2, i8 1
   %.04.i.i.i.i = select i1 %1219, i8 0, i8 %..i.i.i.i
-  %.0.sroa.speculated.i.i.i.i.i = call noundef i8 @llvm.umin.i8(i8 %.05.i.i.i.i, i8 %.04.i.i.i.i)
+  %.0.sroa.speculated.i.i.i.i.i = call noundef range(i8 0, 3) i8 @llvm.umin.i8(i8 %.05.i.i.i.i, i8 %.04.i.i.i.i)
   %1221 = icmp eq ptr %1216, %1214
   br i1 %1221, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc7f69de0ba75f287E.exit.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31b6906f569a80b6E.exit.i.i.i.i"
 
@@ -100225,7 +100225,7 @@ _ZN6hir_ty5lower17TyLoweringContext11lower_const17h1c8ef57a01bc81faE.exit: ; pre
   %319 = getelementptr inbounds i8, ptr %316, i64 8
   %320 = getelementptr inbounds i8, ptr %2, i64 16
   %..val2.i = load i64, ptr %320, align 16, !alias.scope !23413
-  %321 = invoke noundef i8 @_ZN6hir_ty5FnAbi8from_str17h3afce03883f9b892E(ptr noalias noundef nonnull readonly align 1 %319, i64 noundef %..val2.i)
+  %321 = invoke noundef range(i8 0, 37) i8 @_ZN6hir_ty5FnAbi8from_str17h3afce03883f9b892E(ptr noalias noundef nonnull readonly align 1 %319, i64 noundef %..val2.i)
           to label %"_ZN4core6option15Option$LT$T$GT$6map_or17h125a1b670be4ba04E.exit" unwind label %330
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h125a1b670be4ba04E.exit": ; preds = %305, %318
@@ -108553,7 +108553,7 @@ define hidden { ptr, i64 } @_ZN6hir_ty5lower34generic_predicates_for_param_query
 128:                                              ; preds = %.noexc80
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !25044
   store i32 %126, ptr %8, align 4, !noalias !25044
-  %129 = invoke noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17hf159925948e46aabE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8)
+  %129 = invoke noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17hf159925948e46aabE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8)
           to label %132 unwind label %130
 
 130:                                              ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hcd23416d29785fcfE.exit", %132, %128, %124, %123, %.noexc77, %115
@@ -109403,7 +109403,7 @@ select.unfold:                                    ; preds = %.sink.split.i5.i, %
 231:                                              ; preds = %.noexc84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21), !noalias !25228
   store i32 %229, ptr %21, align 4, !noalias !25228
-  %232 = invoke noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17hf159925948e46aabE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %21)
+  %232 = invoke noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17hf159925948e46aabE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %21)
           to label %235 unwind label %233
 
 .body93:                                          ; preds = %274, %322, %243, %233
@@ -110723,7 +110723,7 @@ define hidden { ptr, i64 } @_ZN6hir_ty5lower24generic_predicates_query17h9647c64
 119:                                              ; preds = %.noexc76
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !25583
   store i32 %117, ptr %6, align 4, !noalias !25583
-  %120 = invoke noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17hf159925948e46aabE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
+  %120 = invoke noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17hf159925948e46aabE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %123 unwind label %121
 
 121:                                              ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h8e24a3f7db6b2605E.exit", %123, %119, %115, %114, %.noexc73, %106
@@ -111491,7 +111491,7 @@ define hidden void @_ZN6hir_ty5lower13fn_sig_for_fn17he28621985cf2a62fE.llvm.150
   %144 = getelementptr inbounds i8, ptr %141, i64 8
   %145 = getelementptr inbounds i8, ptr %139, i64 136
   %..val2.i = load i64, ptr %145, align 8, !alias.scope !25725
-  %146 = invoke noundef i8 @_ZN6hir_ty5FnAbi8from_str17h3afce03883f9b892E(ptr noalias noundef nonnull readonly align 1 %144, i64 noundef %..val2.i)
+  %146 = invoke noundef range(i8 0, 37) i8 @_ZN6hir_ty5FnAbi8from_str17h3afce03883f9b892E(ptr noalias noundef nonnull readonly align 1 %144, i64 noundef %..val2.i)
           to label %"_ZN4core6option15Option$LT$T$GT$6map_or17h125a1b670be4ba04E.exit" unwind label %190
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h125a1b670be4ba04E.exit": ; preds = %138, %143
@@ -111752,7 +111752,7 @@ define hidden { ptr, ptr } @_ZN6hir_ty5lower11type_for_fn17he721ceba6c8dfe6bE.ll
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %28 = getelementptr inbounds i8, ptr %1, i64 1576
   %29 = load ptr, ptr %28, align 8, !invariant.load !9, !alias.scope !25774, !nonnull !9
-  %30 = invoke noundef i32 %29(ptr noundef nonnull align 1 %0, i32 noundef 0, i32 noundef %2)
+  %30 = invoke noundef range(i32 1, 0) i32 %29(ptr noundef nonnull align 1 %0, i32 noundef 0, i32 noundef %2)
           to label %"_ZN73_$LT$hir_ty..lower..CallableDefId$u20$as$u20$hir_ty..mapping..ToChalk$GT$8to_chalk17he915200869bad1cdE.exit" unwind label %43
 
 .body.thread12:                                   ; preds = %40, %34
@@ -112590,7 +112590,7 @@ default.unreachable22:                            ; preds = %28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %56 = getelementptr inbounds i8, ptr %1, i64 1576
   %57 = load ptr, ptr %56, align 8, !invariant.load !9, !alias.scope !25902, !nonnull !9
-  %58 = invoke noundef i32 %57(ptr noundef nonnull align 1 %0, i32 noundef 1, i32 noundef %2)
+  %58 = invoke noundef range(i32 1, 0) i32 %57(ptr noundef nonnull align 1 %0, i32 noundef 1, i32 noundef %2)
           to label %"_ZN73_$LT$hir_ty..lower..CallableDefId$u20$as$u20$hir_ty..mapping..ToChalk$GT$8to_chalk17he915200869bad1cdE.exit" unwind label %83
 
 .body.thread19:                                   ; preds = %68, %62
@@ -113137,7 +113137,7 @@ default.unreachable22:                            ; preds = %37
   %59 = load i32, ptr %13, align 4, !range !738, !noundef !9
   %60 = getelementptr inbounds i8, ptr %1, i64 1576
   %61 = load ptr, ptr %60, align 8, !invariant.load !9, !alias.scope !25981, !nonnull !9
-  %62 = invoke noundef i32 %61(ptr noundef nonnull align 1 %0, i32 noundef 2, i32 noundef %59)
+  %62 = invoke noundef range(i32 1, 0) i32 %61(ptr noundef nonnull align 1 %0, i32 noundef 2, i32 noundef %59)
           to label %"_ZN73_$LT$hir_ty..lower..CallableDefId$u20$as$u20$hir_ty..mapping..ToChalk$GT$8to_chalk17he915200869bad1cdE.exit" unwind label %87
 
 .body.thread19:                                   ; preds = %72, %66
@@ -124310,7 +124310,7 @@ define hidden void @_ZN6hir_ty3mir7Operand7from_fn17h16fa850f1f1d0cf3E(ptr noali
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %10 = getelementptr inbounds i8, ptr %2, i64 1576
   %11 = load ptr, ptr %10, align 8, !invariant.load !9, !alias.scope !28510, !nonnull !9
-  %12 = invoke noundef i32 %11(ptr noundef nonnull align 1 %1, i32 noundef 0, i32 noundef %3)
+  %12 = invoke noundef range(i32 1, 0) i32 %11(ptr noundef nonnull align 1 %1, i32 noundef 0, i32 noundef %3)
           to label %"_ZN73_$LT$hir_ty..lower..CallableDefId$u20$as$u20$hir_ty..mapping..ToChalk$GT$8to_chalk17he915200869bad1cdE.exit" unwind label %24
 
 "_ZN73_$LT$hir_ty..lower..CallableDefId$u20$as$u20$hir_ty..mapping..ToChalk$GT$8to_chalk17he915200869bad1cdE.exit": ; preds = %5

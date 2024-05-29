@@ -884,7 +884,7 @@ Bac_ManNtk.exit.i39.i:                            ; preds = %Bac_ManNtk.exit.i39
 
 Bac_ManBoxNum.exit.i:                             ; preds = %135, %.critedge.i.i
   %140 = phi ptr [ %139, %135 ], [ null, %.critedge.i.i ]
-  %141 = tail call fastcc i32 @Bac_ManBoxNum_rec(ptr noundef %140)
+  %141 = tail call fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr noundef %140)
   %142 = getelementptr inbounds i8, ptr %.val, i64 40
   %.val60.i = load i32, ptr %41, align 4
   %.not61.i = icmp slt i32 %.val60.i, 1

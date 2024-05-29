@@ -2520,7 +2520,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = tail call i32 @pixman_image_get_width(ptr noundef %vd.val.val) #23
   %sub.i = add i32 %call.i.i, 15
   %and.i = and i32 %sub.i, -16
-  %cond.i = tail call i32 @llvm.smin.i32(i32 %and.i, i32 2560)
+  %cond.i = tail call range(i32 0, -15) i32 @llvm.smin.i32(i32 %and.i, i32 2560)
   %vd.val13 = load ptr, ptr %2, align 8
   %vd.val13.val = load ptr, ptr %vd.val13, align 8
   %call.i.i15 = tail call i32 @pixman_image_get_height(ptr noundef %vd.val13.val) #23
@@ -2892,7 +2892,7 @@ if.then5:                                         ; preds = %if.end2
   %1 = load ptr, ptr %ioc.i.i.i, align 8
   %call.i.i.i = call i64 @qio_channel_read(ptr noundef %1, ptr noundef %call.i.i, i64 noundef 4096, ptr noundef nonnull %err.i.i.i) #23
   %2 = load ptr, ptr %err.i.i.i, align 8
-  %call1.i.i.i = call i64 @vnc_client_io_error(ptr noundef nonnull %opaque, i64 noundef %call.i.i.i, ptr noundef %2)
+  %call1.i.i.i = call range(i64 0, -9223372036854775808) i64 @vnc_client_io_error(ptr noundef nonnull %opaque, i64 noundef %call.i.i.i, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i.i)
   %tobool.not.i.i = icmp eq i64 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i, label %vnc_client_read_plain.exit.i
@@ -3250,7 +3250,7 @@ entry:
   %2 = load ptr, ptr %ioc.i.i, align 8
   %call.i.i = call i64 @qio_channel_write(ptr noundef %2, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %err.i.i) #23
   %3 = load ptr, ptr %err.i.i, align 8
-  %call1.i.i = call i64 @vnc_client_io_error(ptr noundef %vs, i64 noundef %call.i.i, ptr noundef %3)
+  %call1.i.i = call range(i64 0, -9223372036854775808) i64 @vnc_client_io_error(ptr noundef %vs, i64 noundef %call.i.i, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i)
   %tobool.not.i = icmp eq i64 %call1.i.i, 0
   br i1 %tobool.not.i, label %vnc_client_write_plain.exit, label %if.end.i
@@ -7892,7 +7892,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.else.i
   %sub.i.i205 = sub nsw i32 %or.i182, %rem.i.i384.zext
   %sub.i.i.i = add i32 %call.i.i.i.i, 15
   %and.i.i.i = and i32 %sub.i.i.i, -16
-  %cond.i.i.i = tail call i32 @llvm.smin.i32(i32 %and.i.i.i, i32 2560)
+  %cond.i.i.i = tail call range(i32 0, -15) i32 @llvm.smin.i32(i32 %and.i.i.i, i32 2560)
   %cond.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i205, i32 %cond.i.i.i)
   %add.i.i = add nuw nsw i32 %or.i194, %rem.i.i384.zext
   %add9.i.i = add nsw i32 %add.i.i, %cond.i.i
@@ -11899,7 +11899,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %sub.i = sub nsw i32 %x, %rem.i
   %sub.i.i = add i32 %call.i.i.i, 15
   %and.i.i = and i32 %sub.i.i, -16
-  %cond.i.i = tail call i32 @llvm.smin.i32(i32 %and.i.i, i32 2560)
+  %cond.i.i = tail call range(i32 0, -15) i32 @llvm.smin.i32(i32 %and.i.i, i32 2560)
   %cond.i = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %cond.i.i)
   %add.i = add i32 %rem.i, %w
   %add9.i = add i32 %add.i, %cond.i
@@ -12332,7 +12332,7 @@ for.body.lr.ph.i89:                               ; preds = %vnc_colordepth.exit
   %34 = call i32 @llvm.umin.i32(i32 %cond.i27.i84, i32 2048)
   %sub.i = add i32 %call.i.i74, 15
   %and.i = and i32 %sub.i, -16
-  %cond.i75 = call i32 @llvm.smin.i32(i32 %and.i, i32 2560)
+  %cond.i75 = call range(i32 0, -15) i32 @llvm.smin.i32(i32 %and.i, i32 2560)
   %sub.i.i90 = add i32 %call.i.i.i80, 15
   %and.i.i91 = and i32 %sub.i.i90, -16
   %cond.i93 = call i32 @llvm.smin.i32(i32 %and.i.i91, i32 0)

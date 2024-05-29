@@ -2914,7 +2914,7 @@ if.else.i.i:                                      ; preds = %if.then2.i
 
 bdrv_reopen_set_read_only.exit.i:                 ; preds = %if.then2.i
   tail call void @qdict_put_bool(ptr noundef %call.i.i, ptr noundef nonnull @.str.51, i1 noundef zeroext false) #29
-  %call2.i.i = tail call i32 @bdrv_reopen(ptr noundef nonnull %c.val, ptr noundef %call.i.i, i1 noundef zeroext true, ptr noundef %errp)
+  %call2.i.i = tail call range(i32 -2147483648, 1) i32 @bdrv_reopen(ptr noundef nonnull %c.val, ptr noundef %call.i.i, i1 noundef zeroext true, ptr noundef %errp)
   %cmp.i = icmp slt i32 %call2.i.i, 0
   br i1 %cmp.i, label %return, label %if.end6.i
 
@@ -2953,7 +2953,7 @@ if.else.i13.i:                                    ; preds = %if.then14.i
 
 bdrv_reopen_set_read_only.exit15.i:               ; preds = %if.then14.i
   tail call void @qdict_put_bool(ptr noundef %call.i11.i, ptr noundef nonnull @.str.51, i1 noundef zeroext true) #29
-  %call2.i14.i = tail call i32 @bdrv_reopen(ptr noundef nonnull %c.val, ptr noundef %call.i11.i, i1 noundef zeroext true, ptr noundef null)
+  %call2.i14.i = tail call range(i32 -2147483648, 1) i32 @bdrv_reopen(ptr noundef nonnull %c.val, ptr noundef %call.i11.i, i1 noundef zeroext true, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %bdrv_reopen_set_read_only.exit15.i, %if.end12.i, %bdrv_reopen_set_read_only.exit.i, %entry
@@ -10331,7 +10331,7 @@ bdrv_ref.exit:                                    ; preds = %if.end28
   call void @bdrv_drained_begin(ptr noundef %bs) #29
   call void @bdrv_drained_begin(ptr noundef nonnull %call19) #29
   call void @bdrv_graph_wrlock(ptr noundef nonnull %call19) #29
-  %call.i44 = call fastcc i32 @bdrv_replace_node_common(ptr noundef %bs, ptr noundef nonnull %call19, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %spec.select)
+  %call.i44 = call fastcc range(i32 -2147483648, 1) i32 @bdrv_replace_node_common(ptr noundef %bs, ptr noundef nonnull %call19, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %spec.select)
   call void @bdrv_graph_wrunlock(ptr noundef nonnull %call19) #29
   call void @bdrv_drained_end(ptr noundef nonnull %call19) #29
   call void @bdrv_drained_end(ptr noundef %bs) #29

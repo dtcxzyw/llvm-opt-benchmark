@@ -1331,7 +1331,7 @@ Extra_TruthAnd.exit253.i.i.us.us.us.us:           ; preds = %select.unfold.i250.
   %540 = getelementptr inbounds i8, ptr %539, i64 20
   %541 = load i32, ptr %540, align 4
   %542 = lshr i32 %541, 12
-  %543 = tail call i32 @llvm.smax.i32(i32 %.011.i.i.i, i32 %542)
+  %543 = tail call range(i32 0, 1048576) i32 @llvm.smax.i32(i32 %.011.i.i.i, i32 %542)
   %indvars.iv.next.i269.i.i = add nuw nsw i64 %indvars.iv.i268.i.i, 1
   %exitcond.not.i270.i.i = icmp eq i64 %indvars.iv.next.i269.i.i, %wide.trip.count.i267.i.i
   br i1 %exitcond.not.i270.i.i, label %.critedge.loopexit.i.i.i, label %534, !llvm.loop !36
@@ -1602,7 +1602,7 @@ Abc_NodeSuperChoiceLut.exit.thread151:            ; preds = %.critedge2.i
   %656 = getelementptr inbounds i8, ptr %655, i64 20
   %657 = load i32, ptr %656, align 4
   %658 = lshr i32 %657, 12
-  %659 = tail call i32 @llvm.smax.i32(i32 %.011.i.i, i32 %658)
+  %659 = tail call range(i32 0, 1048576) i32 @llvm.smax.i32(i32 %.011.i.i, i32 %658)
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i94.i, 1
   %exitcond.not.i96.i = icmp eq i64 %indvars.iv.next.i95.i, %wide.trip.count.i93.i
   br i1 %exitcond.not.i96.i, label %Abc_NodeSuperChoiceLut.exit, label %650, !llvm.loop !36
@@ -1743,7 +1743,7 @@ Abc_ManSclStop.exit:                              ; preds = %688, %690
   %714 = getelementptr inbounds i8, ptr %.0103, i64 20
   %715 = load i32, ptr %714, align 4
   %716 = lshr i32 %715, 12
-  %717 = tail call i32 @llvm.smax.i32(i32 %.0100222, i32 %716)
+  %717 = tail call range(i32 0, 1048576) i32 @llvm.smax.i32(i32 %.0100222, i32 %716)
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count
   br i1 %exitcond253.not, label %.critedge7, label %695, !llvm.loop !43
@@ -2572,7 +2572,7 @@ define range(i32 1, 1048577) i32 @Abc_NodeGetLevel(ptr nocapture noundef readonl
   %13 = getelementptr inbounds i8, ptr %12, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, 12
-  %16 = tail call i32 @llvm.smax.i32(i32 %.011, i32 %15)
+  %16 = tail call range(i32 0, 1048576) i32 @llvm.smax.i32(i32 %.011, i32 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.loopexit, label %7, !llvm.loop !36

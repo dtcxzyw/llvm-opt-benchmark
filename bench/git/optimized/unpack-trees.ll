@@ -3152,7 +3152,7 @@ if.then33:                                        ; preds = %land.lhs.true29
   br i1 %tobool36.not, label %land.lhs.true37, label %if.end42
 
 land.lhs.true37:                                  ; preds = %if.then33
-  %call.i25 = tail call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %ce, ptr noundef %o, i32 noundef 9)
+  %call.i25 = tail call fastcc range(i32 -1, 1) i32 @verify_uptodate_1(ptr noundef nonnull %ce, ptr noundef %o, i32 noundef 9)
   %tobool38.not = icmp eq i32 %call.i25, 0
   %.pre = load i32, ptr %ce_flags, align 8
   br i1 %tobool38.not, label %if.end42, label %if.then39
@@ -3174,7 +3174,7 @@ land.lhs.true49:                                  ; preds = %land.lhs.true, %if.
   br i1 %tobool52.not, label %if.then53, label %return
 
 if.then53:                                        ; preds = %land.lhs.true49
-  %call.i26 = tail call fastcc i32 @verify_absent_1(ptr noundef nonnull %ce, i32 noundef 11, i32 noundef 0, ptr noundef %o)
+  %call.i26 = tail call fastcc range(i32 -1, 1) i32 @verify_absent_1(ptr noundef nonnull %ce, i32 noundef 11, i32 noundef 0, ptr noundef %o)
   %tobool55.not = icmp eq i32 %call.i26, 0
   br i1 %tobool55.not, label %if.end57, label %return
 

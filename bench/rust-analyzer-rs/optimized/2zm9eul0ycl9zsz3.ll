@@ -20204,7 +20204,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.15040385714620792880.e
   %.0.in.idx.i4.i.i.i.i.i = select i1 %switch.not.not.i3.i.i.i.i.i, i64 4, i64 0
   %.0.in.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i2.i.i.i.i.i, i64 %.0.in.idx.i4.i.i.i.i.i
   %.0.i6.i.i.i.i.i = load i16, ptr %.0.in.i5.i.i.i.i.i, align 4, !noalias !4198, !noundef !9
-  %151 = invoke noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i6.i.i.i.i.i)
+  %151 = invoke noundef range(i16 0, 273) i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i6.i.i.i.i.i)
           to label %.noexc.i.i.i unwind label %152
 
 .noexc.i.i.i:                                     ; preds = %147
@@ -21389,7 +21389,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.18152640266846470746.e
   %.0.in.idx.i4.i.i.i.i.i = select i1 %switch.not.not.i3.i.i.i.i.i, i64 4, i64 0
   %.0.in.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i2.i.i.i.i.i, i64 %.0.in.idx.i4.i.i.i.i.i
   %.0.i6.i.i.i.i.i = load i16, ptr %.0.in.i5.i.i.i.i.i, align 4, !noalias !4407, !noundef !9
-  %307 = invoke noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i6.i.i.i.i.i)
+  %307 = invoke noundef range(i16 0, 273) i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i6.i.i.i.i.i)
           to label %.noexc.i.i.i unwind label %311, !noalias !4379
 
 .noexc.i.i.i:                                     ; preds = %303
@@ -21403,7 +21403,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.18152640266846470746.e
   %.0.in.idx.i4.i7.i.i.i.i = select i1 %switch.not.not.i3.i6.i.i.i.i, i64 4, i64 0
   %.0.in.i5.i8.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i2.i5.i.i.i.i, i64 %.0.in.idx.i4.i7.i.i.i.i
   %.0.i6.i9.i.i.i.i = load i16, ptr %.0.in.i5.i8.i.i.i.i, align 4, !noalias !4411, !noundef !9
-  %310 = invoke noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i6.i9.i.i.i.i)
+  %310 = invoke noundef range(i16 0, 273) i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i6.i9.i.i.i.i)
           to label %"_ZN14ide_completion11completions9item_list10trait_impl20function_declaration28_$u7b$$u7b$closure$u7d$$u7d$17h47e23278901c712eE.exit.i.i.i" unwind label %311, !noalias !4379
 
 311:                                              ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h455fc501deab930dE.exit10.i.i.i.i", %303
@@ -22655,7 +22655,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.15040385714620792880.e
   %.0.in.idx.i4.i.i.i.i.i.i.i = select i1 %switch.not.not.i3.i.i.i.i.i.i.i, i64 4, i64 0
   %.0.in.i5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i2.i.i.i.i.i.i.i, i64 %.0.in.idx.i4.i.i.i.i.i.i.i
   %.0.i6.i.i.i.i.i.i.i = load i16, ptr %.0.in.i5.i.i.i.i.i.i.i, align 4, !noalias !4781, !noundef !9
-  %717 = invoke noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i6.i.i.i.i.i.i.i)
+  %717 = invoke noundef range(i16 0, 273) i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i6.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i unwind label %721, !noalias !4750
 
 .noexc.i.i.i.i.i:                                 ; preds = %713
@@ -22669,7 +22669,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.15040385714620792880.e
   %.0.in.idx.i4.i7.i.i.i.i.i.i = select i1 %switch.not.not.i3.i6.i.i.i.i.i.i, i64 4, i64 0
   %.0.in.i5.i8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i2.i5.i.i.i.i.i.i, i64 %.0.in.idx.i4.i7.i.i.i.i.i.i
   %.0.i6.i9.i.i.i.i.i.i = load i16, ptr %.0.in.i5.i8.i.i.i.i.i.i, align 4, !noalias !4785, !noundef !9
-  %720 = invoke noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i6.i9.i.i.i.i.i.i)
+  %720 = invoke noundef range(i16 0, 273) i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i6.i9.i.i.i.i.i.i)
           to label %"_ZN14ide_completion11completions9item_list10trait_impl23make_const_compl_syntax28_$u7b$$u7b$closure$u7d$$u7d$17h6581ef37d65b7afeE.exit.i.i.i.i.i" unwind label %721, !noalias !4750
 
 721:                                              ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h455fc501deab930dE.exit10.i.i.i.i.i.i", %713

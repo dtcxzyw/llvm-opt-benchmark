@@ -114,7 +114,7 @@ for.cond.i.i:                                     ; preds = %if.end161.i.i, %if.
 if.then18.i.i:                                    ; preds = %for.cond.i.i
   %not.i.i = xor i32 %bitStream.i.0.i, -1
   %or.i.i = or i32 %not.i.i, -2147483648
-  %1 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or.i.i, i1 true)
+  %1 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or.i.i, i1 true)
   %cmp21.i.i11 = icmp ugt i32 %1, 23
   br i1 %cmp21.i.i11, label %while.body.i.i, label %while.end.i.i
 
@@ -137,7 +137,7 @@ while.body.i.i:                                   ; preds = %if.then18.i.i, %whi
   %shr38.i.i = lshr i32 %memPtr.val.i7, %bitCount.i.2.i
   %not39.i.i = xor i32 %shr38.i.i, -1
   %or40.i.i = or i32 %not39.i.i, -2147483648
-  %2 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or40.i.i, i1 true)
+  %2 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or40.i.i, i1 true)
   %cmp21.i.i = icmp ugt i32 %2, 23
   br i1 %cmp21.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !4
 
@@ -236,7 +236,7 @@ if.then120.i.i:                                   ; preds = %if.end107.i.i
   br i1 %cmp121.i.i, label %for.end.i.i, label %if.end124.i.i
 
 if.end124.i.i:                                    ; preds = %if.then120.i.i
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %remaining.i.1.i, i1 true)
+  %4 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %remaining.i.1.i, i1 true)
   %sub.i = xor i32 %4, 31
   %add126.i.i = sub nuw nsw i32 32, %4
   %shl128.i.i = shl nuw nsw i32 1, %sub.i
@@ -374,7 +374,7 @@ for.cond.i:                                       ; preds = %if.end161.i, %if.en
 if.then18.i:                                      ; preds = %for.cond.i
   %not.i = xor i32 %bitStream.i.0, -1
   %or.i = or i32 %not.i, -2147483648
-  %1 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or.i, i1 true)
+  %1 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or.i, i1 true)
   %cmp21.i113 = icmp ugt i32 %1, 23
   br i1 %cmp21.i113, label %while.body.i, label %while.end.i
 
@@ -397,7 +397,7 @@ while.body.i:                                     ; preds = %if.then18.i, %while
   %shr38.i = lshr i32 %memPtr.val.i109, %bitCount.i.2
   %not39.i = xor i32 %shr38.i, -1
   %or40.i = or i32 %not39.i, -2147483648
-  %2 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or40.i, i1 true)
+  %2 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or40.i, i1 true)
   %cmp21.i = icmp ugt i32 %2, 23
   br i1 %cmp21.i, label %while.body.i, label %while.end.i, !llvm.loop !4
 
@@ -495,7 +495,7 @@ if.then120.i:                                     ; preds = %if.end107.i
   br i1 %cmp121.i, label %for.end.i, label %if.end124.i
 
 if.end124.i:                                      ; preds = %if.then120.i
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %remaining.i.1, i1 true)
+  %4 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %remaining.i.1, i1 true)
   %sub.i111 = xor i32 %4, 31
   %add126.i = sub nuw nsw i32 32, %4
   %shl128.i = shl nuw nsw i32 1, %sub.i111
@@ -691,7 +691,7 @@ for.end66.i.i:                                    ; preds = %if.end54.i.i
   br i1 %cmp67.i.i, label %return, label %if.end70.i.i
 
 if.end70.i.i:                                     ; preds = %for.end66.i.i
-  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add63.i.i, i1 true)
+  %11 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add63.i.i, i1 true)
   %sub.i49.i = xor i32 %11, 31
   %cmp73.i.i = icmp ugt i32 %sub.i49.i, 11
   br i1 %cmp73.i.i, label %return, label %if.end76.i.i
@@ -701,7 +701,7 @@ if.end76.i.i:                                     ; preds = %if.end70.i.i
   store i32 %add72.i.i, ptr %tableLogPtr, align 4
   %shl77.i.i = shl nuw nsw i32 2, %sub.i49.i
   %sub78.i.i = sub i32 %shl77.i.i, %add63.i.i
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub78.i.i, i1 true)
+  %12 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub78.i.i, i1 true)
   %sub.i50.i = xor i32 %12, 31
   %shl80.i.i = shl nuw i32 1, %sub.i50.i
   %cmp83.i.not.i = icmp eq i32 %shl80.i.i, %sub78.i.i
@@ -839,7 +839,7 @@ for.end66.i:                                      ; preds = %if.end54.i
   br i1 %cmp67.i, label %HUF_readStats_body.exit, label %if.end70.i
 
 if.end70.i:                                       ; preds = %for.end66.i
-  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add63.i, i1 true)
+  %11 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add63.i, i1 true)
   %sub.i49 = xor i32 %11, 31
   %cmp73.i = icmp ugt i32 %sub.i49, 11
   br i1 %cmp73.i, label %HUF_readStats_body.exit, label %if.end76.i
@@ -849,7 +849,7 @@ if.end76.i:                                       ; preds = %if.end70.i
   store i32 %add72.i, ptr %tableLogPtr, align 4
   %shl77.i = shl nuw nsw i32 2, %sub.i49
   %sub78.i = sub i32 %shl77.i, %add63.i
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub78.i, i1 true)
+  %12 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub78.i, i1 true)
   %sub.i50 = xor i32 %12, 31
   %shl80.i = shl nuw i32 1, %sub.i50
   %cmp83.i.not = icmp eq i32 %shl80.i, %sub78.i

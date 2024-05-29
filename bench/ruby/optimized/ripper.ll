@@ -42183,7 +42183,7 @@ pushback.exit.thread:                             ; preds = %45
   br label %no_digits.exit
 
 no_digits.exit:                                   ; preds = %104, %120, %123
-  %125 = tail call fastcc i32 @set_number_literal(ptr noundef nonnull %0, i32 noundef 314, i32 noundef 0, i32 noundef 10, i32 noundef 0)
+  %125 = tail call fastcc range(i32 314, 318) i32 @set_number_literal(ptr noundef nonnull %0, i32 noundef 314, i32 noundef 0, i32 noundef 10, i32 noundef 0)
   br label %675
 
 126:                                              ; preds = %pushback.exit
@@ -42411,7 +42411,7 @@ pushback.exit317.thread:                          ; preds = %188
   br label %no_digits.exit320
 
 no_digits.exit320:                                ; preds = %218, %234, %237
-  %239 = tail call fastcc i32 @set_number_literal(ptr noundef nonnull %0, i32 noundef 314, i32 noundef 0, i32 noundef 10, i32 noundef 0)
+  %239 = tail call fastcc range(i32 314, 318) i32 @set_number_literal(ptr noundef nonnull %0, i32 noundef 314, i32 noundef 0, i32 noundef 10, i32 noundef 0)
   br label %675
 
 240:                                              ; preds = %pushback.exit317
@@ -42639,7 +42639,7 @@ pushback.exit340.thread:                          ; preds = %280
   br label %no_digits.exit343
 
 no_digits.exit343:                                ; preds = %333, %349, %352
-  %354 = tail call fastcc i32 @set_number_literal(ptr noundef nonnull %0, i32 noundef 314, i32 noundef 0, i32 noundef 10, i32 noundef 0)
+  %354 = tail call fastcc range(i32 314, 318) i32 @set_number_literal(ptr noundef nonnull %0, i32 noundef 314, i32 noundef 0, i32 noundef 10, i32 noundef 0)
   br label %675
 
 355:                                              ; preds = %pushback.exit340

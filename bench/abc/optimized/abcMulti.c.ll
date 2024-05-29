@@ -910,7 +910,7 @@ define internal fastcc void @Abc_NtkMultiSetBounds(ptr nocapture noundef readonl
 
 .preheader:                                       ; preds = %59, %.preheader
   store i32 0, ptr %4, align 4
-  %62 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef nonnull %57, ptr noundef nonnull %3, i32 noundef %2, i32 noundef 1, i32 noundef 1)
+  %62 = tail call range(i32 0, 2) i32 @Abc_NtkMultiLimit_rec(ptr noundef nonnull %57, ptr noundef nonnull %3, i32 noundef %2, i32 noundef 1, i32 noundef 1)
   %.not44 = icmp eq i32 %62, 0
   br i1 %.not44, label %.critedge4.loopexit, label %.preheader, !llvm.loop !17
 

@@ -1218,7 +1218,7 @@ Abc_NtkHaigCheckTfi.exit:                         ; preds = %109, %Vec_IntFill.e
   %127 = load i32, ptr %76, align 8
   %128 = add nsw i32 %127, 1
   store i32 %128, ptr %76, align 8
-  %129 = tail call i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef %111, ptr noundef %113)
+  %129 = tail call range(i32 0, 2) i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef %111, ptr noundef %113)
   %.not62 = icmp eq i32 %129, 0
   br i1 %.not62, label %.preheader, label %.critedge4
 

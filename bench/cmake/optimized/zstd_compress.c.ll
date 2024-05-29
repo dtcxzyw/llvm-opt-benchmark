@@ -2337,7 +2337,7 @@ define dso_local void @ZSTD_adjustCParams(ptr dead_on_unwind noalias nocapture w
   %18 = icmp ult i64 %17, 64
   %19 = trunc nuw i64 %17 to i32
   %20 = add i32 %19, -1
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
+  %21 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %22 = sub nuw nsw i32 32, %21
   %23 = select i1 %18, i32 6, i32 %22
   %spec.select46 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.0, i32 %23)
@@ -2367,7 +2367,7 @@ define dso_local void @ZSTD_adjustCParams(ptr dead_on_unwind noalias nocapture w
 33:                                               ; preds = %31
   %34 = trunc nuw nsw i64 %29 to i32
   %35 = add nsw i32 %34, -1
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %35, i1 true)
+  %36 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %35, i1 true)
   %37 = sub nuw nsw i32 32, %36
   br label %ZSTD_dictAndWindowLog.exit.i
 
@@ -2502,7 +2502,7 @@ ZSTD_overrideCParams.exit:                        ; preds = %8, %5
   %42 = icmp ult i64 %41, 64
   %43 = trunc nuw i64 %41 to i32
   %44 = add i32 %43, -1
-  %45 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %44, i1 true)
+  %45 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %44, i1 true)
   %46 = sub nuw nsw i32 32, %45
   %47 = select i1 %42, i32 6, i32 %46
   %spec.select40 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.1, i32 %47)
@@ -2532,7 +2532,7 @@ ZSTD_overrideCParams.exit:                        ; preds = %8, %5
 57:                                               ; preds = %55
   %58 = trunc nuw nsw i64 %53 to i32
   %59 = add nsw i32 %58, -1
-  %60 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 true)
+  %60 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %59, i1 true)
   %61 = sub nuw nsw i32 32, %60
   br label %ZSTD_dictAndWindowLog.exit.i
 
@@ -2680,7 +2680,7 @@ ZSTD_getCParamRowSize.exit:                       ; preds = %5, %8
   %38 = icmp ult i64 %37, 64
   %39 = trunc nuw i64 %37 to i32
   %40 = add i32 %39, -1
-  %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
+  %41 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %40, i1 true)
   %42 = sub nuw nsw i32 32, %41
   %43 = select i1 %38, i32 6, i32 %42
   %spec.select41 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.0.0.copyload, i32 %43)
@@ -2710,7 +2710,7 @@ ZSTD_getCParamRowSize.exit:                       ; preds = %5, %8
 53:                                               ; preds = %51
   %54 = trunc nuw nsw i64 %49 to i32
   %55 = add nsw i32 %54, -1
-  %56 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %55, i1 true)
+  %56 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %55, i1 true)
   %57 = sub nuw nsw i32 32, %56
   br label %ZSTD_dictAndWindowLog.exit.i
 
@@ -3139,7 +3139,7 @@ ZSTD_getCParamRowSize.exit.i:                     ; preds = %42, %4
 .thread.i.i:                                      ; preds = %ZSTD_getCParamRowSize.exit.i
   %20 = trunc nuw i64 %9 to i32
   %21 = add nsw i32 %20, -1
-  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
+  %22 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %21, i1 true)
   %23 = sub nuw nsw i32 32, %22
   %spec.select41.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.0.0.copyload.i, i32 %23)
   %24 = icmp ugt i32 %.sroa.3.0.copyload.i, 5
@@ -3708,7 +3708,7 @@ define dso_local noundef i32 @ZSTD_seqToCodes(ptr nocapture noundef readonly %0)
   %17 = getelementptr inbounds i8, ptr %16, i64 4
   %18 = load i16, ptr %17, align 4
   %19 = load i32, ptr %16, align 4
-  %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
+  %20 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = getelementptr inbounds i8, ptr %16, i64 6
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
@@ -3717,7 +3717,7 @@ define dso_local noundef i32 @ZSTD_seqToCodes(ptr nocapture noundef readonly %0)
 
 25:                                               ; preds = %.lr.ph
   %26 = zext i16 %18 to i32
-  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %26, i1 true)
+  %27 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %26, i1 true)
   %28 = sub nuw nsw i32 50, %27
   br label %ZSTD_LLcode.exit
 
@@ -3741,7 +3741,7 @@ ZSTD_LLcode.exit:                                 ; preds = %25, %29
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %ZSTD_LLcode.exit
-  %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
+  %42 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %23, i1 true)
   %43 = sub nuw nsw i32 67, %42
   br label %ZSTD_MLcode.exit
 
@@ -5552,7 +5552,7 @@ ZSTD_dictNCountRepeat.exit92:                     ; preds = %78, %.preheader.i87
   %94 = icmp ult i64 %93, 4294836224
   %95 = trunc nuw i64 %93 to i32
   %96 = add nuw i32 %95, 131072
-  %97 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %96, i1 true)
+  %97 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %96, i1 true)
   %98 = xor i32 %97, 31
   %.066 = select i1 %94, i32 %98, i32 31
   %99 = load i32, ptr %6, align 4
@@ -5765,7 +5765,7 @@ ZSTD_shouldAttachDict.exit.thread18.i:            ; preds = %ZSTD_shouldAttachDi
   %63 = icmp ult i64 %7, 64
   %64 = trunc nuw i64 %7 to i32
   %65 = add nsw i32 %64, -1
-  %66 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %65, i1 true)
+  %66 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %65, i1 true)
   %67 = sub nuw nsw i32 32, %66
   %68 = select i1 %63, i32 6, i32 %67
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.0.0.copyload.i.i, i32 %68)
@@ -8172,7 +8172,7 @@ ZSTD_CCtxParams_init_internal.exit:               ; preds = %35, %.thread47, %38
   %50 = tail call i64 @llvm.umin.i64(i64 %4, i64 524288)
   %51 = trunc nuw nsw i64 %50 to i32
   %52 = add nsw i32 %51, -1
-  %53 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
+  %53 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %52, i1 true)
   %54 = sub nuw nsw i32 32, %53
   br label %.split25
 
@@ -13733,7 +13733,7 @@ define internal fastcc void @ZSTD_buildSequencesStatistics(ptr dead_on_unwind no
   %33 = getelementptr inbounds i8, ptr %32, i64 4
   %34 = load i16, ptr %33, align 4
   %35 = load i32, ptr %32, align 4
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %35, i1 true)
+  %36 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %35, i1 true)
   %37 = getelementptr inbounds i8, ptr %32, i64 6
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i32
@@ -13742,7 +13742,7 @@ define internal fastcc void @ZSTD_buildSequencesStatistics(ptr dead_on_unwind no
 
 41:                                               ; preds = %.lr.ph.i
   %42 = zext i16 %34 to i32
-  %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %42, i1 true)
+  %43 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %42, i1 true)
   %44 = sub nuw nsw i32 50, %43
   br label %ZSTD_LLcode.exit.i
 
@@ -13766,7 +13766,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %45, %41
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %ZSTD_LLcode.exit.i
-  %58 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %39, i1 true)
+  %58 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %39, i1 true)
   %59 = sub nuw nsw i32 67, %58
   br label %ZSTD_MLcode.exit.i
 

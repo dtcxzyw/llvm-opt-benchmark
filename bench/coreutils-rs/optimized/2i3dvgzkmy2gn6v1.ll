@@ -4060,7 +4060,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %11 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %.12914.us23
   %.val.i.us = load ptr, ptr %.0.val, align 8, !noalias !796, !nonnull !4, !align !5, !noundef !4
   %.val1.i.us = load ptr, ptr %5, align 8, !noalias !796, !nonnull !4, !align !5, !noundef !4
-  %12 = tail call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.us, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.us, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.us), !range !260
+  %12 = tail call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.us, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.us, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.us), !range !260
   %13 = icmp eq i8 %12, -1
   br i1 %13, label %._crit_edge.us, label %.lr.ph24
 
@@ -4079,7 +4079,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %.val.i.us21 = load ptr, ptr %.0.val, align 8, !noalias !796, !nonnull !4, !align !5, !noundef !4
   %.val1.i.us22 = load ptr, ptr %5, align 8, !noalias !796, !nonnull !4, !align !5, !noundef !4
-  %16 = tail call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.us21, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.us22, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.us22), !range !260
+  %16 = tail call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.us21, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.us22, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.us22), !range !260
   %17 = icmp eq i8 %16, -1
   br i1 %17, label %._crit_edge.us, label %.lr.ph24.preheader
 
@@ -4103,7 +4103,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %24 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %22
   %.val.i70 = load ptr, ptr %.0.val, align 8, !noalias !796, !nonnull !4, !align !5, !noundef !4
   %.val1.i71 = load ptr, ptr %5, align 8, !noalias !796, !nonnull !4, !align !5, !noundef !4
-  %25 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i70, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i71), !range !260
+  %25 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i70, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i71), !range !260
   %26 = icmp eq i8 %25, -1
   br i1 %26, label %._crit_edge, label %.lr.ph73
 
@@ -4118,7 +4118,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %30 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %.1291472
   %.val.i = load ptr, ptr %.0.val, align 8, !noalias !796, !nonnull !4, !align !5, !noundef !4
   %.val1.i = load ptr, ptr %5, align 8, !noalias !796, !nonnull !4, !align !5, !noundef !4
-  %31 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i), !range !260
+  %31 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i), !range !260
   %32 = icmp eq i8 %31, -1
   br i1 %32, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph73
 
@@ -4174,7 +4174,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   call void @llvm.assume(i1 %4)
   %.val.i.i = load ptr, ptr %.0.val, align 8, !noalias !808, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i = load ptr, ptr %5, align 8, !noalias !808, !nonnull !4, !align !5, !noundef !4
-  %48 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %gep, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i), !range !260
+  %48 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %gep, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i), !range !260
   %49 = icmp eq i8 %48, -1
   br i1 %49, label %50, label %_ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit
 
@@ -4198,7 +4198,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %52 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %51
   %.val.i19.i = load ptr, ptr %.0.val, align 8, !noalias !812, !nonnull !4, !align !5, !noundef !4
   %.val1.i20.i = load ptr, ptr %5, align 8, !noalias !812, !nonnull !4, !align !5, !noundef !4
-  %53 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i19.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i20.i)
+  %53 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i19.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i20.i)
           to label %54 unwind label %58
 
 54:                                               ; preds = %.lr.ph.i
@@ -4232,7 +4232,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit: ; preds = %"_ZN1
   call void @llvm.assume(i1 %4)
   %.val.i.i34 = load ptr, ptr %.0.val, align 8, !noalias !819, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i35 = load ptr, ptr %5, align 8, !noalias !819, !nonnull !4, !align !5, !noundef !4
-  %64 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i34, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i35, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i35), !range !260
+  %64 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i34, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i35, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i35), !range !260
   %65 = icmp eq i8 %64, -1
   br i1 %65, label %66, label %_ZN5rayon5slice9quicksort10shift_head17h67d67943c4202bf9E.exit
 
@@ -4256,7 +4256,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit: ; preds = %"_ZN1
   %68 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %43, i64 %.sroa.02.05.i
   %.val.i20.i = load ptr, ptr %.0.val, align 8, !noalias !823, !nonnull !4, !align !5, !noundef !4
   %.val1.i21.i = load ptr, ptr %5, align 8, !noalias !823, !nonnull !4, !align !5, !noundef !4
-  %69 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %68, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i21.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i21.i)
+  %69 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %68, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i21.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i21.i)
           to label %70 unwind label %74
 
 70:                                               ; preds = %.lr.ph.i37
@@ -4347,7 +4347,7 @@ define hidden void @_ZN5rayon5slice9quicksort7recurse17h36db2f346758be6fE(ptr no
   %28 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0.lcssa, i64 %27
   %.val.i.i.i = load ptr, ptr %.val73, align 8, !noalias !833, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i.i = load ptr, ptr %24, align 8, !noalias !833, !nonnull !4, !align !5, !noundef !4
-  %29 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i), !range !260
+  %29 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i), !range !260
   %30 = icmp eq i8 %29, -1
   br i1 %30, label %31, label %_ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i
 
@@ -4371,7 +4371,7 @@ define hidden void @_ZN5rayon5slice9quicksort7recurse17h36db2f346758be6fE(ptr no
   %33 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0.lcssa, i64 %32
   %.val.i19.i.i = load ptr, ptr %.val73, align 8, !noalias !838, !nonnull !4, !align !5, !noundef !4
   %.val1.i20.i.i = load ptr, ptr %24, align 8, !noalias !838, !nonnull !4, !align !5, !noundef !4
-  %34 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i19.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i20.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i20.i.i)
+  %34 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i19.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i20.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i20.i.i)
           to label %35 unwind label %39
 
 35:                                               ; preds = %.lr.ph.i.i
@@ -4433,7 +4433,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %54 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %.0.i
   %.val.i.i.i.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !845, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i.i.i = load ptr, ptr %17, align 8, !noalias !845, !nonnull !4, !align !5, !noundef !4
-  %55 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i.i), !range !260, !noalias !858
+  %55 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i.i), !range !260, !noalias !858
   %56 = icmp eq i8 %55, -1
   %57 = zext i1 %56 to i64
   %.1132.i = add nuw nsw i64 %.0131.i, %57
@@ -4445,7 +4445,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %61 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %.168.i
   %.val.i.i5.i.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !859, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i6.i.i = load ptr, ptr %17, align 8, !noalias !859, !nonnull !4, !align !5, !noundef !4
-  %62 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i5.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i.i), !range !260, !noalias !867
+  %62 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i5.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i.i), !range !260, !noalias !867
   %63 = icmp eq i8 %62, -1
   %64 = zext i1 %63 to i64
   %.2133.i = add nuw nsw i64 %.1132.i, %64
@@ -4454,7 +4454,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %66 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %58
   %.val.i.i9.i.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !868, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i10.i.i = load ptr, ptr %17, align 8, !noalias !868, !nonnull !4, !align !5, !noundef !4
-  %67 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i9.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i.i), !range !260, !noalias !876
+  %67 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i9.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i.i), !range !260, !noalias !876
   %68 = icmp eq i8 %67, -1
   br i1 %68, label %"_ZN5rayon5slice9quicksort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2620faf59e3750a9E.exit.i", label %"_ZN5rayon5slice9quicksort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2620faf59e3750a9E.exit.thread.i"
 
@@ -4471,7 +4471,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %74 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %70
   %.val.i.i.i16.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !877, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i.i17.i = load ptr, ptr %17, align 8, !noalias !877, !nonnull !4, !align !5, !noundef !4
-  %75 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %72, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i16.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i17.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i17.i), !range !260, !noalias !889
+  %75 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %72, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i16.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i17.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i17.i), !range !260, !noalias !889
   %76 = icmp eq i8 %75, -1
   %.4135.i = zext i1 %76 to i64
   %.1.i = select i1 %76, i64 %70, i64 %47
@@ -4482,7 +4482,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %80 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %.1.i
   %.val.i.i5.i20.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !890, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i6.i21.i = load ptr, ptr %17, align 8, !noalias !890, !nonnull !4, !align !5, !noundef !4
-  %81 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i5.i20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i21.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i21.i), !range !260, !noalias !898
+  %81 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i5.i20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i21.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i21.i), !range !260, !noalias !898
   %82 = icmp eq i8 %81, -1
   %83 = zext i1 %82 to i64
   %.5136.i = add nuw nsw i64 %83, %.4135.i
@@ -4491,7 +4491,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %85 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %77
   %.val.i.i9.i24.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !899, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i10.i25.i = load ptr, ptr %17, align 8, !noalias !899, !nonnull !4, !align !5, !noundef !4
-  %86 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i9.i24.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i25.i), !range !260, !noalias !907
+  %86 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i9.i24.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i25.i), !range !260, !noalias !907
   %87 = icmp eq i8 %86, -1
   %88 = zext i1 %87 to i64
   %.6137.i = add nuw nsw i64 %.5136.i, %88
@@ -4506,7 +4506,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %94 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %89
   %.val.i.i.i28.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !908, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i.i29.i = load ptr, ptr %17, align 8, !noalias !908, !nonnull !4, !align !5, !noundef !4
-  %95 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %92, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %94, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i29.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i29.i), !range !260, !noalias !920
+  %95 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %92, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %94, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i29.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i29.i), !range !260, !noalias !920
   %96 = icmp eq i8 %95, -1
   %97 = zext i1 %96 to i64
   %.7.i = add nuw nsw i64 %.6137.i, %97
@@ -4518,7 +4518,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %101 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %.4.i
   %.val.i.i5.i32.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !921, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i6.i33.i = load ptr, ptr %17, align 8, !noalias !921, !nonnull !4, !align !5, !noundef !4
-  %102 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i5.i32.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i33.i), !range !260, !noalias !929
+  %102 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i5.i32.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i33.i), !range !260, !noalias !929
   %103 = icmp eq i8 %102, -1
   %104 = zext i1 %103 to i64
   %.8.i = add nuw nsw i64 %.7.i, %104
@@ -4527,7 +4527,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %106 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %98
   %.val.i.i9.i36.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !930, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i10.i37.i = load ptr, ptr %17, align 8, !noalias !930, !nonnull !4, !align !5, !noundef !4
-  %107 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %106, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i9.i36.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i37.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i37.i), !range !260, !noalias !938
+  %107 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %106, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i9.i36.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i37.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i37.i), !range !260, !noalias !938
   %108 = icmp eq i8 %107, -1
   %109 = zext i1 %108 to i64
   %.9.i = add nuw nsw i64 %.8.i, %109
@@ -4542,7 +4542,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %115 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %110
   %.val.i.i.i40.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !939, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i.i41.i = load ptr, ptr %17, align 8, !noalias !939, !nonnull !4, !align !5, !noundef !4
-  %116 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i40.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i41.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i41.i), !range !260, !noalias !951
+  %116 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i40.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i41.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i41.i), !range !260, !noalias !951
   %117 = icmp eq i8 %116, -1
   %118 = zext i1 %117 to i64
   %.10.i = add nuw nsw i64 %.9.i, %118
@@ -4554,7 +4554,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %122 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %.172.i
   %.val.i.i5.i44.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !952, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i6.i45.i = load ptr, ptr %17, align 8, !noalias !952, !nonnull !4, !align !5, !noundef !4
-  %123 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %122, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i5.i44.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i45.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i45.i), !range !260, !noalias !960
+  %123 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %122, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i5.i44.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i45.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i6.i45.i), !range !260, !noalias !960
   %124 = icmp eq i8 %123, -1
   %125 = zext i1 %124 to i64
   %.11.i = add nuw nsw i64 %.10.i, %125
@@ -4563,7 +4563,7 @@ _ZN5rayon5slice9quicksort10shift_tail17h57ca66f3fd3aa6d3E.exit.i: ; preds = %.th
   %127 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %119
   %.val.i.i9.i48.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !961, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i10.i49.i = load ptr, ptr %17, align 8, !noalias !961, !nonnull !4, !align !5, !noundef !4
-  %128 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %126, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i9.i48.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i49.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i49.i), !range !260, !noalias !969
+  %128 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %126, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i9.i48.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i49.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i10.i49.i), !range !260, !noalias !969
   %129 = icmp eq i8 %128, -1
   %130 = zext i1 %129 to i64
   %spec.select.i = add nuw nsw i64 %.11.i, %130
@@ -4662,7 +4662,7 @@ _ZN5rayon5slice9quicksort12choose_pivot17hb465886067f243f2E.exit: ; preds = %"_Z
   %161 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %159, i64 %.02320.i
   %.val.i.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !990, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i = load ptr, ptr %17, align 8, !noalias !990, !nonnull !4, !align !5, !noundef !4
-  %162 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %161, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i)
+  %162 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %161, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i)
           to label %163 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 ._crit_edge.i:                                    ; preds = %165, %163
@@ -4690,7 +4690,7 @@ _ZN5rayon5slice9quicksort12choose_pivot17hb465886067f243f2E.exit: ; preds = %"_Z
   %172 = getelementptr { { ptr, i64 }, i64 }, ptr %.sroa.0.0231.lcssa269, i64 %.0.i78
   %.val.i31.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !994, !nonnull !4, !align !5, !noundef !4
   %.val1.i32.i = load ptr, ptr %17, align 8, !noalias !994, !nonnull !4, !align !5, !noundef !4
-  %173 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %172, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i31.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i32.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i32.i)
+  %173 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %172, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i31.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i32.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i32.i)
           to label %177 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 174:                                              ; preds = %177, %167
@@ -4779,7 +4779,7 @@ _ZN5rayon5slice9quicksort12choose_pivot17hb465886067f243f2E.exit: ; preds = %"_Z
   call void @llvm.assume(i1 %199)
   %.val.i.i.i82 = load ptr, ptr %.val.i.i15.i, align 8, !noalias !1003, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i.i83 = load ptr, ptr %17, align 8, !noalias !1003, !nonnull !4, !align !5, !noundef !4
-  %200 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.014712.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i82, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i83, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i83)
+  %200 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.014712.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i82, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i83, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i83)
           to label %.noexc35.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc35.i:                                       ; preds = %.lr.ph.i.i81
@@ -4813,7 +4813,7 @@ _ZN5rayon5slice9quicksort12choose_pivot17hb465886067f243f2E.exit: ; preds = %"_Z
   store i8 %213, ptr %.213417.i.i, align 1, !noalias !1001
   %.val.i155.i.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !1007, !nonnull !4, !align !5, !noundef !4
   %.val1.i156.i.i = load ptr, ptr %17, align 8, !noalias !1007, !nonnull !4, !align !5, !noundef !4
-  %214 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %212, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i155.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i156.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i156.i.i)
+  %214 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %212, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i155.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i156.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i156.i.i)
           to label %.noexc36.i unwind label %.loopexit3.i
 
 .noexc36.i:                                       ; preds = %.lr.ph18.i.i
@@ -4999,7 +4999,7 @@ _ZN5rayon5slice9quicksort12choose_pivot17hb465886067f243f2E.exit: ; preds = %"_Z
   %283 = getelementptr inbounds [0 x { { ptr, i64 }, i64 }], ptr %.sroa.0.0231, i64 0, i64 %.sroa.0.0.i
   %.val.i = load ptr, ptr %.val.i.i15.i, align 8, !noalias !1019, !nonnull !4, !align !5, !noundef !4
   %.val1.i = load ptr, ptr %17, align 8, !noalias !1019, !nonnull !4, !align !5, !noundef !4
-  %284 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.0.ph237, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %283, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i), !range !260
+  %284 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.0.ph237, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %283, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i), !range !260
   %285 = icmp eq i8 %284, -1
   br i1 %285, label %155, label %287
 
@@ -5033,7 +5033,7 @@ _ZN5rayon5slice9quicksort12choose_pivot17hb465886067f243f2E.exit: ; preds = %"_Z
   %292 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %288, i64 %.06.i
   %.val.i.i101 = load ptr, ptr %.val.i.i15.i, align 8, !noalias !1031, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i102 = load ptr, ptr %17, align 8, !noalias !1031, !nonnull !4, !align !5, !noundef !4
-  %293 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %292, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i101, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i102, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i102)
+  %293 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %292, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i101, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i102, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i102)
           to label %294 unwind label %.loopexit.split-lp.i103
 
 ._crit_edge.i93:                                  ; preds = %296, %294, %.outer.i
@@ -5061,7 +5061,7 @@ _ZN5rayon5slice9quicksort12choose_pivot17hb465886067f243f2E.exit: ; preds = %"_Z
   %303 = getelementptr { { ptr, i64 }, i64 }, ptr %.sroa.0.0231, i64 %.1.i94
   %.val.i31.i95 = load ptr, ptr %.val.i.i15.i, align 8, !noalias !1035, !nonnull !4, !align !5, !noundef !4
   %.val1.i32.i96 = load ptr, ptr %17, align 8, !noalias !1035, !nonnull !4, !align !5, !noundef !4
-  %304 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %303, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i31.i95, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i32.i96, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i32.i96)
+  %304 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %303, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i31.i95, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i32.i96, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i32.i96)
           to label %305 unwind label %.loopexit.i97
 
 305:                                              ; preds = %300
@@ -5249,7 +5249,7 @@ define internal fastcc void @_ZN5rayon5slice9quicksort8heapsort17h064eb210244fc7
   %19 = getelementptr inbounds [0 x { { ptr, i64 }, i64 }], ptr %0, i64 0, i64 %13
   %.val.i.i = load ptr, ptr %.val23.i, align 8, !noalias !1042, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i = load ptr, ptr %5, align 8, !noalias !1042, !nonnull !4, !align !5, !noundef !4
-  %20 = tail call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i), !range !260
+  %20 = tail call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i), !range !260
   %21 = icmp eq i8 %20, -1
   %..i = select i1 %21, i64 %13, i64 %11
   br label %15
@@ -5263,7 +5263,7 @@ define internal fastcc void @_ZN5rayon5slice9quicksort8heapsort17h064eb210244fc7
   %25 = getelementptr inbounds [0 x { { ptr, i64 }, i64 }], ptr %0, i64 0, i64 %.019.i
   %.val.i24.i = load ptr, ptr %.val23.i, align 8, !noalias !1046, !nonnull !4, !align !5, !noundef !4
   %.val1.i25.i = load ptr, ptr %5, align 8, !noalias !1046, !nonnull !4, !align !5, !noundef !4
-  %26 = tail call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i24.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i25.i), !range !260
+  %26 = tail call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i24.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i25.i), !range !260
   %27 = icmp eq i8 %26, -1
   br i1 %27, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hcc16c947dfc8cb8fE.exit.i", label %"_ZN5rayon5slice9quicksort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h8cf0e57475ebec0fE.exit"
 
@@ -5324,7 +5324,7 @@ define internal fastcc void @_ZN5rayon5slice9quicksort8heapsort17h064eb210244fc7
   %43 = getelementptr inbounds [0 x { { ptr, i64 }, i64 }], ptr %0, i64 0, i64 %37
   %.val.i.i33 = load ptr, ptr %.val23.i32, align 8, !noalias !1062, !nonnull !4, !align !5, !noundef !4
   %.val1.i.i34 = load ptr, ptr %6, align 8, !noalias !1062, !nonnull !4, !align !5, !noundef !4
-  %44 = tail call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i33, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i34, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i34), !range !260
+  %44 = tail call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i33, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i34, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i34), !range !260
   %45 = icmp eq i8 %44, -1
   %..i35 = select i1 %45, i64 %37, i64 %35
   br label %39
@@ -5338,7 +5338,7 @@ define internal fastcc void @_ZN5rayon5slice9quicksort8heapsort17h064eb210244fc7
   %49 = getelementptr inbounds [0 x { { ptr, i64 }, i64 }], ptr %0, i64 0, i64 %.019.i26
   %.val.i24.i28 = load ptr, ptr %.val23.i32, align 8, !noalias !1066, !nonnull !4, !align !5, !noundef !4
   %.val1.i25.i29 = load ptr, ptr %6, align 8, !noalias !1066, !nonnull !4, !align !5, !noundef !4
-  %50 = tail call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i24.i28, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i25.i29, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i25.i29), !range !260
+  %50 = tail call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i24.i28, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i25.i29, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i25.i29), !range !260
   %51 = icmp eq i8 %50, -1
   br i1 %51, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hcc16c947dfc8cb8fE.exit.i30", label %"_ZN5rayon5slice9quicksort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h8cf0e57475ebec0fE.exit36"
 

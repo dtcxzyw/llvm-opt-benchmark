@@ -1199,7 +1199,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h044782b416e32325E(ptr noal
   store i32 %.val.i, ptr %15, align 4, !noalias !280
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14), !noalias !280
   store i32 %.val28.i, ptr %14, align 4, !noalias !280
-  %64 = invoke noundef i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14)
+  %64 = invoke noundef range(i8 -1, 3) i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14)
           to label %.noexc39 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc39:                                         ; preds = %61
@@ -1224,7 +1224,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h044782b416e32325E(ptr noal
   store i32 %.val29.i, ptr %13, align 4, !noalias !280
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12), !noalias !280
   store i32 %.val30.i, ptr %12, align 4, !noalias !280
-  %67 = invoke noundef i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %12)
+  %67 = invoke noundef range(i8 -1, 3) i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %12)
           to label %.noexc40 unwind label %.loopexit.split-lp.loopexit
 
 .noexc40:                                         ; preds = %.lr.ph.i
@@ -1247,7 +1247,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h044782b416e32325E(ptr noal
   store i32 %.val31.i, ptr %11, align 4, !noalias !280
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10), !noalias !280
   store i32 %.val32.i, ptr %10, align 4, !noalias !280
-  %72 = invoke noundef i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %10)
+  %72 = invoke noundef range(i8 -1, 3) i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %10)
           to label %.noexc41 unwind label %.loopexit73
 
 .noexc41:                                         ; preds = %.lr.ph7.i
@@ -1593,7 +1593,7 @@ _ZN4core5slice4sort20provide_sorted_batch17he3fe1beadaa30d71E.exit: ; preds = %.
   store i32 %.val.i59, ptr %7, align 4, !noalias !303
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !303
   store i32 %.val35.i, ptr %6, align 4, !noalias !303
-  %194 = invoke noundef i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
+  %194 = invoke noundef range(i8 -1, 3) i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %195 unwind label %.loopexit14.i
 
 195:                                              ; preds = %.lr.ph29.i
@@ -1625,7 +1625,7 @@ _ZN4core5slice4sort20provide_sorted_batch17he3fe1beadaa30d71E.exit: ; preds = %.
   store i32 %.028.val.i, ptr %5, align 4, !noalias !303
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !303
   store i32 %.val36.i, ptr %4, align 4, !noalias !303
-  %205 = invoke noundef i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  %205 = invoke noundef range(i8 -1, 3) i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
           to label %206 unwind label %.loopexit.split-lp.i
 
 206:                                              ; preds = %.lr.ph.i57
@@ -1736,7 +1736,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h6c
   store i32 %.val.i, ptr %7, align 4, !noalias !319
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !319
   store i32 %.val10.i, ptr %6, align 4, !noalias !319
-  %15 = call noundef i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !range !322, !noalias !319
+  %15 = call noundef range(i8 -1, 3) i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !range !322, !noalias !319
   %16 = icmp eq i8 %15, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !319
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !319
@@ -1776,7 +1776,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h6c
   store i32 %.val.i, ptr %5, align 4, !noalias !319
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !319
   store i32 %.val12.i, ptr %4, align 4, !noalias !319
-  %23 = invoke noundef i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  %23 = invoke noundef range(i8 -1, 3) i8 @"_ZN68_$LT$typst..util..pico..PicoStr$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h548a8bc5d4198e9aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
           to label %24 unwind label %27, !noalias !319
 
 24:                                               ; preds = %.lr.ph.i

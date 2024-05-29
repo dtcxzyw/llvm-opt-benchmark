@@ -308,7 +308,7 @@ define dso_local i32 @ip_forward(ptr noundef %0) local_unnamed_addr #0 align 16 
 
 ip_dst_mtu_maybe_forward.exit:                    ; preds = %176, %183, %194, %198
   %204 = phi i32 [ %177, %176 ], [ %189, %183 ], [ %203, %198 ], [ %193, %194 ]
-  %205 = tail call i32 @llvm.umin.i32(i32 %204, i32 65535)
+  %205 = tail call range(i32 0, 65536) i32 @llvm.umin.i32(i32 %204, i32 65535)
   %206 = getelementptr inbounds i8, ptr %0, i64 112
   %207 = load i32, ptr %206, align 8
   %208 = icmp ugt i32 %207, %205

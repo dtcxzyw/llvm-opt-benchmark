@@ -243,7 +243,7 @@ entry:
   %tmp = alloca %struct.ZSTD_parameters, align 8
   %0 = trunc i64 %dictBufferSize to i32
   %conv = add i32 %0, 131072
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
+  %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
   %sub.i = xor i32 %1, 31
   %cmp4.not.i = icmp eq i32 %nbFiles, 0
   br i1 %cmp4.not.i, label %ZDICT_totalSampleSize.exit, label %for.body.preheader.i

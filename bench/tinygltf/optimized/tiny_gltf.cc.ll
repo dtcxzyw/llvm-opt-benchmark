@@ -15440,7 +15440,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
   store ptr %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %12, i64 200
   store ptr %47, ptr %49, align 8
-  %50 = call fastcc noundef i32 @_ZL16stbi__is_16_mainP13stbi__context(ptr noundef nonnull %12)
+  %50 = call fastcc noundef range(i32 0, 2) i32 @_ZL16stbi__is_16_mainP13stbi__context(ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %12)
   %.not89 = icmp eq i32 %50, 0
   br i1 %.not89, label %60, label %51
@@ -16218,7 +16218,7 @@ define noundef zeroext i1 @_ZN8tinygltf14WriteImageDataEPKNSt7__cxx1112basic_str
   store ptr @_ZN8tinygltfL18WriteToMemory_stbiEPvS0_i, ptr %9, align 8
   %66 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %13, ptr %66, align 8
-  %67 = invoke fastcc noundef i32 @_ZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKvi(ptr noundef nonnull %9, i32 noundef %58, i32 noundef %60, i32 noundef %62, ptr noundef %64, i32 noundef 100)
+  %67 = invoke fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKvi(ptr noundef nonnull %9, i32 noundef %58, i32 noundef %60, i32 noundef %62, ptr noundef %64, i32 noundef 100)
           to label %68 unwind label %28
 
 68:                                               ; preds = %56
@@ -16246,7 +16246,7 @@ define noundef zeroext i1 @_ZN8tinygltf14WriteImageDataEPKNSt7__cxx1112basic_str
   store ptr @_ZN8tinygltfL18WriteToMemory_stbiEPvS0_i, ptr %8, align 8
   %82 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %13, ptr %82, align 8
-  %83 = invoke fastcc noundef i32 @_ZL19stbi_write_bmp_coreP19stbi__write_contextiiiPKv(ptr noundef nonnull %8, i32 noundef %74, i32 noundef %76, i32 noundef %78, ptr noundef readonly %80)
+  %83 = invoke fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_bmp_coreP19stbi__write_contextiiiPKv(ptr noundef nonnull %8, i32 noundef %74, i32 noundef %76, i32 noundef %78, ptr noundef readonly %80)
           to label %84 unwind label %28
 
 84:                                               ; preds = %72

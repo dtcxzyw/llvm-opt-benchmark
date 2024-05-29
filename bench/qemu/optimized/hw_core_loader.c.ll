@@ -4234,7 +4234,7 @@ entry:
   %addr.addr.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %addr.addr.i)
   store i64 %addr, ptr %addr.addr.i, align 8
-  %call.i = call fastcc i64 @load_uboot_image(ptr noundef %filename, ptr noundef null, ptr noundef nonnull %addr.addr.i, ptr noundef null, i8 noundef zeroext 3, ptr noundef null, ptr noundef null, ptr noundef null)
+  %call.i = call fastcc range(i64 -2147483648, 2147483648) i64 @load_uboot_image(ptr noundef %filename, ptr noundef null, ptr noundef nonnull %addr.addr.i, ptr noundef null, i8 noundef zeroext 3, ptr noundef null, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %addr.addr.i)
   ret i64 %call.i
 }

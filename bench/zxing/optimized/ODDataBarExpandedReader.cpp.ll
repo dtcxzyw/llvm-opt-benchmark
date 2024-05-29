@@ -383,9 +383,9 @@ _ZN5ZXing4OneDL9IsL2RPairERKNS_11PatternViewE.exit.thread168.i: ; preds = %_ZN5Z
   br i1 %118, label %_ZN5ZXing4OneD7DataBar7IsGuardEii.exit.i, label %_ZN5ZXing11PatternView5shiftEi.exit30.i
 
 _ZN5ZXing4OneD7DataBar7IsGuardEii.exit.i:         ; preds = %107
-  %119 = mul nuw nsw i32 %114, 5
-  %120 = lshr i32 %119, 2
-  %121 = add nuw nsw i32 %120, 2
+  %119 = lshr i32 %114, 2
+  %120 = add nuw nsw i32 %114, 2
+  %121 = add nuw nsw i32 %120, %119
   %122 = icmp ugt i32 %121, %111
   br i1 %122, label %_ZZN5ZXing4OneDL14ReadRowOfPairsILb1EEESt6vectorINS0_7DataBar4PairESaIS4_EERNS_11PatternViewEiENKUlS4_S7_E_clES4_S7_.exit.preheader.i, label %_ZN5ZXing11PatternView5shiftEi.exit30.i
 
@@ -764,9 +764,9 @@ _ZN5ZXing11PatternView5shiftEi.exit57.i:          ; preds = %218
   br i1 %242, label %243, label %_ZN5ZXing4OneDL14ReadRowOfPairsILb1EEESt6vectorINS0_7DataBar4PairESaIS4_EERNS_11PatternViewEi.exit
 
 243:                                              ; preds = %230
-  %244 = mul nuw nsw i32 %238, 5
-  %245 = lshr i32 %244, 2
-  %246 = add nuw nsw i32 %245, 2
+  %244 = lshr i32 %238, 2
+  %245 = add nuw nsw i32 %238, 2
+  %246 = add nuw nsw i32 %245, %244
   %247 = icmp ugt i32 %246, %235
   br i1 %247, label %_ZZN5ZXing4OneDL14ReadRowOfPairsILb1EEESt6vectorINS0_7DataBar4PairESaIS4_EERNS_11PatternViewEiENKUlS4_S7_E_clES4_S7_.exit.i.backedge, label %_ZN5ZXing4OneDL14ReadRowOfPairsILb1EEESt6vectorINS0_7DataBar4PairESaIS4_EERNS_11PatternViewEi.exit
 

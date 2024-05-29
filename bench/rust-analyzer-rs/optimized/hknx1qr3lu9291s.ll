@@ -7768,7 +7768,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   store i64 %20, ptr %5, align 8, !alias.scope !2697, !noalias !2700
   %21 = getelementptr inbounds i32, ptr %.sink5.i.i.i, i64 %19
   %22 = load i32, ptr %21, align 4, !range !2707, !noalias !2700, !noundef !4
-  %23 = invoke noundef i32 @"_ZN3hir7from_id84_$LT$impl$u20$core..convert..From$LT$hir_def..TraitId$GT$$u20$for$u20$hir..Trait$GT$4from17hf973d0cacb29c6a5E"(i32 noundef %22)
+  %23 = invoke noundef range(i32 1, 0) i32 @"_ZN3hir7from_id84_$LT$impl$u20$core..convert..From$LT$hir_def..TraitId$GT$$u20$for$u20$hir..Trait$GT$4from17hf973d0cacb29c6a5E"(i32 noundef %22)
           to label %.noexc.i unwind label %16, !noalias !2708
 
 .noexc.i:                                         ; preds = %18
@@ -8213,7 +8213,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   %21 = getelementptr inbounds i32, ptr %.sink5.i.i.i, i64 %19
   %22 = load i32, ptr %21, align 4, !range !2707, !noalias !2812, !noundef !4
   %.val.i.i.i = load ptr, ptr %.0.val, align 8, !noalias !2819
-  %23 = invoke noundef i32 @"_ZN3hir7from_id84_$LT$impl$u20$core..convert..From$LT$hir_def..TraitId$GT$$u20$for$u20$hir..Trait$GT$4from17hf973d0cacb29c6a5E"(i32 noundef %22)
+  %23 = invoke noundef range(i32 1, 0) i32 @"_ZN3hir7from_id84_$LT$impl$u20$core..convert..From$LT$hir_def..TraitId$GT$$u20$for$u20$hir..Trait$GT$4from17hf973d0cacb29c6a5E"(i32 noundef %22)
           to label %.noexc.i unwind label %16, !noalias !2819
 
 .noexc.i:                                         ; preds = %18

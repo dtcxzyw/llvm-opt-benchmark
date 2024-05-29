@@ -1843,7 +1843,7 @@ if.end24:                                         ; preds = %if.end7
   br i1 %cmp12, label %if.end31, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %if.end24
-  %call.i21 = tail call i32 @CMS_decrypt_set1_pkey_and_peer(ptr noundef %cms, ptr noundef nonnull %pk, ptr noundef %cert, ptr noundef null)
+  %call.i21 = tail call range(i32 0, 2) i32 @CMS_decrypt_set1_pkey_and_peer(ptr noundef %cms, ptr noundef nonnull %pk, ptr noundef %cert, ptr noundef null)
   %tobool29.not = icmp eq i32 %call.i21, 0
   br i1 %tobool29.not, label %return, label %if.end31
 

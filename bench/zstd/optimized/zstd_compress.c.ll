@@ -2408,7 +2408,7 @@ if.then6.i:                                       ; preds = %entry
   %cmp7.i = icmp ult i64 %add.i, 64
   %conv.i = trunc nuw i64 %add.i to i32
   %sub.i = add i32 %conv.i, -1
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
+  %4 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %add9.i = sub nuw nsw i32 32, %4
   %cond.i = select i1 %cmp7.i, i32 6, i32 %add9.i
   %spec.select36 = tail call i32 @llvm.umin.i32(i32 %cPar2.sroa.0.0, i32 %cond.i)
@@ -2438,7 +2438,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 if.else6.i.i:                                     ; preds = %if.else.i.i
   %conv.i.i = trunc nuw nsw i64 %add.i.i to i32
   %sub.i19.i = add nsw i32 %conv.i.i, -1
-  %5 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true)
+  %5 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true)
   %add7.i.i = sub nuw nsw i32 32, %5
   br label %ZSTD_dictAndWindowLog.exit.i
 
@@ -2574,7 +2574,7 @@ if.then6.i:                                       ; preds = %sw.epilog.i
   %cmp7.i = icmp ult i64 %add.i, 64
   %conv.i = trunc nuw i64 %add.i to i32
   %sub.i = add i32 %conv.i, -1
-  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
+  %11 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %add9.i = sub nuw nsw i32 32, %11
   %cond.i = select i1 %cmp7.i, i32 6, i32 %add9.i
   %spec.select33 = tail call i32 @llvm.umin.i32(i32 %cParams.sroa.0.1, i32 %cond.i)
@@ -2604,7 +2604,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 if.else6.i.i:                                     ; preds = %if.else.i.i
   %conv.i.i = trunc nuw nsw i64 %add.i.i to i32
   %sub.i19.i = add nsw i32 %conv.i.i, -1
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true)
+  %12 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true)
   %add7.i.i = sub nuw nsw i32 32, %12
   br label %ZSTD_dictAndWindowLog.exit.i
 
@@ -2753,7 +2753,7 @@ if.then6.i:                                       ; preds = %sw.epilog.i
   %cmp7.i = icmp ult i64 %add.i15, 64
   %conv.i = trunc nuw i64 %add.i15 to i32
   %sub.i = add i32 %conv.i, -1
-  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
+  %2 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %add9.i = sub nuw nsw i32 32, %2
   %cond.i = select i1 %cmp7.i, i32 6, i32 %add9.i
   %spec.select33 = tail call i32 @llvm.umin.i32(i32 %cp.sroa.0.sroa.0.0.copyload, i32 %cond.i)
@@ -2783,7 +2783,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 if.else6.i.i:                                     ; preds = %if.else.i.i
   %conv.i.i = trunc nuw nsw i64 %add.i.i to i32
   %sub.i19.i = add nsw i32 %conv.i.i, -1
-  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true)
+  %3 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i19.i, i1 true)
   %add7.i.i = sub nuw nsw i32 32, %3
   br label %ZSTD_dictAndWindowLog.exit.i
 
@@ -3224,7 +3224,7 @@ for.body.i:                                       ; preds = %cond.end.i, %for.bo
 if.then6.i.i:                                     ; preds = %for.body.i
   %conv.i.i = trunc nuw i64 %0 to i32
   %sub.i.i = add nsw i32 %conv.i.i, -1
-  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true)
+  %2 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true)
   %add9.i.i = sub nuw nsw i32 32, %2
   %spec.select33.i = tail call i32 @llvm.umin.i32(i32 %cp.sroa.0.sroa.0.0.copyload.i, i32 %add9.i.i)
   %cmp.i20.i.i = icmp ugt i32 %cp.sroa.3.0.copyload.i, 5
@@ -3836,7 +3836,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %litLength = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i16, ptr %litLength, align 4
   %7 = load i32, ptr %arrayidx, align 4
-  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %7, i1 true)
+  %8 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %7, i1 true)
   %mlBase = getelementptr inbounds i8, ptr %arrayidx, i64 6
   %9 = load i16, ptr %mlBase, align 2
   %conv10 = zext i16 %9 to i32
@@ -3845,7 +3845,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 cond.true.i:                                      ; preds = %for.body
   %conv4 = zext i16 %6 to i32
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv4, i1 true)
+  %10 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv4, i1 true)
   %add.i = sub nuw nsw i32 50, %10
   br label %ZSTD_LLcode.exit
 
@@ -3869,7 +3869,7 @@ ZSTD_LLcode.exit:                                 ; preds = %cond.true.i, %cond.
   br i1 %cmp.i22, label %cond.true.i28, label %cond.false.i23
 
 cond.true.i28:                                    ; preds = %ZSTD_LLcode.exit
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv10, i1 true)
+  %13 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv10, i1 true)
   %add.i29 = sub nuw nsw i32 67, %13
   br label %ZSTD_MLcode.exit
 
@@ -5682,7 +5682,7 @@ do.end196:                                        ; preds = %ZSTD_dictNCountRepe
   %cmp211 = icmp ult i64 %sub.ptr.sub210, 4294836224
   %conv = trunc nuw i64 %sub.ptr.sub210 to i32
   %add = add nuw i32 %conv, 131072
-  %11 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add, i1 true)
+  %11 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add, i1 true)
   %sub.i = xor i32 %11, 31
   %offcodeMax.0 = select i1 %cmp211, i32 %sub.i, i32 31
   %12 = load i32, ptr %offcodeMaxValue, align 4
@@ -5897,7 +5897,7 @@ if.then6.i.i.i:                                   ; preds = %if.then.i
   %cmp7.i.i.i = icmp ult i64 %pledgedSrcSize, 64
   %conv.i.i.i = trunc nuw i64 %pledgedSrcSize to i32
   %sub.i28.i.i = add nsw i32 %conv.i.i.i, -1
-  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i28.i.i, i1 true)
+  %11 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i28.i.i, i1 true)
   %add9.i.i.i = sub nuw nsw i32 32, %11
   %cond.i.i.i = select i1 %cmp7.i.i.i, i32 6, i32 %add9.i.i.i
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %adjusted_cdict_cParams.sroa.0.sroa.0.0.copyload.i.i, i32 %cond.i.i.i)
@@ -8331,7 +8331,7 @@ cond.true30:                                      ; preds = %if.then23
   %cond = tail call i64 @llvm.umin.i64(i64 %pledgedSrcSize, i64 524288)
   %conv = trunc nuw nsw i64 %cond to i32
   %sub = add nsw i32 %conv, -1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
+  %7 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
   %add = sub nuw nsw i32 32, %7
   br label %cond.end32
 
@@ -14216,7 +14216,7 @@ for.body.i:                                       ; preds = %ZSTD_MLcode.exit.i,
   %litLength.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %6 = load i16, ptr %litLength.i, align 4
   %7 = load i32, ptr %arrayidx.i, align 4
-  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %7, i1 true)
+  %8 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %7, i1 true)
   %mlBase.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
   %9 = load i16, ptr %mlBase.i, align 2
   %conv10.i = zext i16 %9 to i32
@@ -14225,7 +14225,7 @@ for.body.i:                                       ; preds = %ZSTD_MLcode.exit.i,
 
 cond.true.i.i:                                    ; preds = %for.body.i
   %conv4.i = zext i16 %6 to i32
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv4.i, i1 true)
+  %10 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv4.i, i1 true)
   %add.i.i = sub nuw nsw i32 50, %10
   br label %ZSTD_LLcode.exit.i
 
@@ -14249,7 +14249,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %cond.false.i.i, %co
   br i1 %cmp.i22.i, label %cond.true.i28.i, label %cond.false.i23.i
 
 cond.true.i28.i:                                  ; preds = %ZSTD_LLcode.exit.i
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv10.i, i1 true)
+  %13 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv10.i, i1 true)
   %add.i29.i = sub nuw nsw i32 67, %13
   br label %ZSTD_MLcode.exit.i
 

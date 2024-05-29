@@ -9,7 +9,7 @@ define i64 @_ZN4core3cmp6max_by17h3e69928b781c3692E(i64 %0, i64 %1, ptr align 1 
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   store i64 %1, ptr %4, align 8
-  %6 = call i8 @_ZN4core3ops8function5FnMut8call_mut17h60e8ef0d9f2cd9c2E(ptr align 1 %2, ptr nonnull align 8 %5, ptr nonnull align 8 %4), !range !3
+  %6 = call range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17h60e8ef0d9f2cd9c2E(ptr align 1 %2, ptr nonnull align 8 %5, ptr nonnull align 8 %4), !range !3
   %switch = icmp eq i8 %6, 1
   %.val = load i64, ptr %5, align 8
   %.val4 = load i64, ptr %4, align 8
@@ -23,7 +23,7 @@ define align 8 ptr @_ZN4core3cmp6max_by17h4da1ba4a31c68a77E(ptr align 8 %0, ptr 
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %4, align 8
-  %6 = call i8 @_ZN4core3ops8function5FnMut8call_mut17h802c2afe785edb3aE(ptr align 1 %2, ptr nonnull align 8 %5, ptr nonnull align 8 %4), !range !3
+  %6 = call range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17h802c2afe785edb3aE(ptr align 1 %2, ptr nonnull align 8 %5, ptr nonnull align 8 %4), !range !3
   %switch = icmp eq i8 %6, 1
   %.val = load ptr, ptr %5, align 8
   %.val3 = load ptr, ptr %4, align 8
@@ -119,7 +119,7 @@ define range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN4core5tuple65_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$U$C$T$RP$$GT$2lt17h66f239cd87663d29E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = tail call i8 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$11partial_cmp17hbb613d61f1e38b55E"(ptr align 8 %1, ptr align 8 %0), !range !6
+  %3 = tail call range(i8 -1, 3) i8 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$11partial_cmp17hbb613d61f1e38b55E"(ptr align 8 %1, ptr align 8 %0), !range !6
   %4 = tail call zeroext i1 @_ZN4core5tuple16ordering_is_some17head148c8cefc5499E(i8 %3, i8 0)
   br i1 %4, label %7, label %5
 

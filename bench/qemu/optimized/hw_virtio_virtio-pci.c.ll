@@ -1023,12 +1023,12 @@ kvm_virtio_pci_vector_vq_use.exit:                ; preds = %if.end.i77
   br i1 %cmp64, label %config_assign_error, label %if.end67
 
 if.end67:                                         ; preds = %kvm_virtio_pci_vector_vq_use.exit
-  %call.i80 = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef %d, i32 noundef -1)
+  %call.i80 = tail call fastcc range(i32 -2147483648, 1) i32 @kvm_virtio_pci_vector_use_one(ptr noundef %d, i32 noundef -1)
   %cmp69 = icmp slt i32 %call.i80, 0
   br i1 %cmp69, label %if.then89, label %if.end73
 
 if.end67.thread:                                  ; preds = %virtio_bus_get_device.exit.i70
-  %call.i80108 = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef nonnull %d, i32 noundef -1)
+  %call.i80108 = tail call fastcc range(i32 -2147483648, 1) i32 @kvm_virtio_pci_vector_use_one(ptr noundef nonnull %d, i32 noundef -1)
   %cmp69109 = icmp slt i32 %call.i80108, 0
   br i1 %cmp69109, label %if.then89, label %if.end73.thread113
 

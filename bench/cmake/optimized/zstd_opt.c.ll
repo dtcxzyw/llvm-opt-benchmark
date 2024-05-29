@@ -208,7 +208,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %0, ptr nocaptur
 
 101:                                              ; preds = %98
   %102 = add i32 %84, 1
-  %103 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %102, i1 true)
+  %103 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %102, i1 true)
   %104 = shl nuw nsw i32 %103, 8
   %105 = xor i32 %104, 7936
   br label %ZSTD_litLengthPrice.exit
@@ -223,7 +223,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %0, ptr nocaptur
   %111 = getelementptr inbounds i8, ptr %110, i64 140
   %112 = load i32, ptr %111, align 4
   %113 = add i32 %112, 1
-  %114 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
+  %114 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %115 = shl nuw nsw i32 %114, 8
   %.neg23.i = add i32 %109, -3584
   %116 = add i32 %.neg23.i, %115
@@ -234,7 +234,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %0, ptr nocaptur
   br i1 %118, label %119, label %122
 
 119:                                              ; preds = %117
-  %120 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %84, i1 true)
+  %120 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %84, i1 true)
   %121 = sub nuw nsw i32 50, %120
   br label %ZSTD_LLcode.exit.i
 
@@ -256,7 +256,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %122, %119
   %134 = getelementptr inbounds i32, ptr %133, i64 %128
   %135 = load i32, ptr %134, align 4
   %136 = add i32 %135, 1
-  %137 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %136, i1 true)
+  %137 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %136, i1 true)
   %reass.add = add nuw nsw i32 %137, %131
   %reass.mul = shl nuw nsw i32 %reass.add, 8
   %138 = add i32 %132, -7936
@@ -288,7 +288,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %101, %108, %ZSTD_LL
   %152 = load ptr, ptr %61, align 8
   %153 = load i32, ptr %152, align 4
   %154 = add i32 %153, 1
-  %155 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %154, i1 true)
+  %155 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %154, i1 true)
   %156 = shl nuw nsw i32 %155, 8
   %.neg20.i526 = add i32 %151, -7936
   %157 = add i32 %.neg20.i526, %156
@@ -323,7 +323,7 @@ ZSTD_litLengthPrice.exit528:                      ; preds = %147, %150
   br i1 %.not507641, label %._crit_edge645, label %.lr.ph644
 
 .lr.ph644:                                        ; preds = %.preheader625
-  %165 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %162, i1 true)
+  %165 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %162, i1 true)
   %166 = xor i32 %165, 31
   %167 = zext nneg i32 %166 to i64
   %168 = icmp ugt i32 %166, 19
@@ -343,7 +343,7 @@ ZSTD_litLengthPrice.exit528:                      ; preds = %147, %150
 
 178:                                              ; preds = %174
   %179 = add i32 %.2475642, -2
-  %180 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %179, i1 true)
+  %180 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %179, i1 true)
   %181 = shl nuw nsw i32 %180, 8
   %182 = xor i32 %181, 7936
   %183 = add nuw nsw i32 %173, %182
@@ -355,14 +355,14 @@ ZSTD_litLengthPrice.exit528:                      ; preds = %147, %150
   %187 = getelementptr inbounds i32, ptr %186, i64 %167
   %188 = load i32, ptr %187, align 4
   %189 = add i32 %188, 1
-  %190 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %189, i1 true)
+  %190 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %189, i1 true)
   %191 = shl nuw nsw i32 %190, 8
   %.neg693 = add nsw i32 %191, -7936
   %192 = icmp ugt i32 %175, 127
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %184
-  %194 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %175, i1 true)
+  %194 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %175, i1 true)
   %195 = sub nuw nsw i32 67, %194
   br label %ZSTD_MLcode.exit
 
@@ -384,7 +384,7 @@ ZSTD_MLcode.exit:                                 ; preds = %193, %196
   %208 = getelementptr inbounds i32, ptr %207, i64 %202
   %209 = load i32, ptr %208, align 4
   %210 = add i32 %209, 1
-  %211 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %210, i1 true)
+  %211 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %210, i1 true)
   %212 = shl nuw nsw i32 %211, 8
   %.neg694 = add nsw i32 %212, -7936
   %reass.add621 = add nuw nsw i32 %166, %205
@@ -468,7 +468,7 @@ ZSTD_rawLiteralsCost.exit.thread748:              ; preds = %243
   %251 = getelementptr inbounds i32, ptr %248, i64 %250
   %252 = load i32, ptr %251, align 4
   %253 = add i32 %252, 1
-  %254 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %253, i1 true)
+  %254 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %253, i1 true)
   %255 = shl nuw nsw i32 %254, 8
   %256 = xor i32 %255, 7936
   %spec.select.us.i = call i32 @llvm.umin.i32(i32 %256, i32 %247)
@@ -492,7 +492,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %239
   %266 = getelementptr inbounds i8, ptr %265, i64 140
   %267 = load i32, ptr %266, align 4
   %268 = add i32 %267, 1
-  %269 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %268, i1 true)
+  %269 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %268, i1 true)
   %270 = shl nuw nsw i32 %269, 8
   %.neg23.i532 = add i32 %262, -3584
   %271 = add i32 %.neg23.i532, %264
@@ -504,7 +504,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %239
   br i1 %274, label %275, label %278
 
 275:                                              ; preds = %273
-  %276 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %240, i1 true)
+  %276 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %240, i1 true)
   %277 = sub nuw nsw i32 50, %276
   br label %293
 
@@ -518,11 +518,11 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %239
 283:                                              ; preds = %ZSTD_rawLiteralsCost.exit.thread, %ZSTD_rawLiteralsCost.exit
   %284 = phi i32 [ %245, %ZSTD_rawLiteralsCost.exit.thread ], [ %259, %ZSTD_rawLiteralsCost.exit ]
   %285 = add i32 %240, 1
-  %286 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %285, i1 true)
+  %286 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %285, i1 true)
   %287 = shl nuw nsw i32 %286, 8
   %288 = xor i32 %287, 7936
   %289 = add nsw i32 %284, %288
-  %290 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %240, i1 true)
+  %290 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %240, i1 true)
   %291 = shl nuw nsw i32 %290, 8
   %292 = xor i32 %291, 7936
   br label %ZSTD_litLengthPrice.exit538
@@ -538,7 +538,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %239
   %301 = getelementptr inbounds i32, ptr %300, i64 %295
   %302 = load i32, ptr %301, align 4
   %303 = add i32 %302, 1
-  %304 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %303, i1 true)
+  %304 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %303, i1 true)
   %reass.add612 = add nuw nsw i32 %304, %298
   %reass.mul613 = shl nuw nsw i32 %reass.add612, 8
   %305 = add i32 %262, -7936
@@ -552,7 +552,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %239
   %311 = getelementptr inbounds i8, ptr %300, i64 140
   %312 = load i32, ptr %311, align 4
   %313 = add i32 %312, 1
-  %314 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %313, i1 true)
+  %314 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %313, i1 true)
   %315 = shl nuw nsw i32 %314, 8
   %.neg23.i537 = add i32 %299, -3584
   %316 = add i32 %.neg23.i537, %315
@@ -567,7 +567,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %239
   %321 = phi i32 [ %264, %.thread593 ], [ %299, %317 ]
   %322 = phi i32 [ %272, %.thread593 ], [ %307, %317 ]
   %323 = phi i32 [ 131071, %.thread593 ], [ %308, %317 ]
-  %324 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %323, i1 true)
+  %324 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %323, i1 true)
   %325 = sub nuw nsw i32 50, %324
   br label %ZSTD_LLcode.exit.i534
 
@@ -590,7 +590,7 @@ ZSTD_LLcode.exit.i534:                            ; preds = %326, %319
   %339 = getelementptr inbounds i32, ptr %331, i64 %335
   %340 = load i32, ptr %339, align 4
   %341 = add i32 %340, 1
-  %342 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %341, i1 true)
+  %342 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %341, i1 true)
   %reass.add614 = add nuw nsw i32 %342, %338
   %reass.mul615 = shl nuw nsw i32 %reass.add614, 8
   %343 = add i32 %332, -7936
@@ -747,7 +747,7 @@ ZSTD_newRep.exit:                                 ; preds = %.ZSTD_updateRep.exi
   %412 = load ptr, ptr %61, align 8
   %413 = load i32, ptr %412, align 4
   %414 = add i32 %413, 1
-  %415 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %414, i1 true)
+  %415 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %414, i1 true)
   %416 = shl nuw nsw i32 %415, 8
   %.neg20.i541 = add i32 %411, -7936
   %417 = add i32 %.neg20.i541, %416
@@ -826,7 +826,7 @@ ZSTD_litLengthPrice.exit543:                      ; preds = %406, %410
   br i1 %.not506654, label %._crit_edge659, label %.lr.ph658
 
 .lr.ph658:                                        ; preds = %456
-  %458 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %448, i1 true)
+  %458 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %448, i1 true)
   %459 = xor i32 %458, 31
   %460 = zext nneg i32 %459 to i64
   %461 = icmp ugt i32 %459, 19
@@ -848,7 +848,7 @@ ZSTD_litLengthPrice.exit543:                      ; preds = %406, %410
 
 472:                                              ; preds = %467
   %473 = add i32 %.0478655, -2
-  %474 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %473, i1 true)
+  %474 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %473, i1 true)
   %475 = shl nuw nsw i32 %474, 8
   %476 = xor i32 %475, 7936
   %477 = add nuw nsw i32 %466, %476
@@ -860,14 +860,14 @@ ZSTD_litLengthPrice.exit543:                      ; preds = %406, %410
   %481 = getelementptr inbounds i32, ptr %480, i64 %460
   %482 = load i32, ptr %481, align 4
   %483 = add i32 %482, 1
-  %484 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %483, i1 true)
+  %484 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %483, i1 true)
   %485 = shl nuw nsw i32 %484, 8
   %.neg695 = add nsw i32 %485, -7936
   %486 = icmp ugt i32 %469, 127
   br i1 %486, label %487, label %490
 
 487:                                              ; preds = %478
-  %488 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %469, i1 true)
+  %488 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %469, i1 true)
   %489 = sub nuw nsw i32 67, %488
   br label %ZSTD_MLcode.exit544
 
@@ -889,7 +889,7 @@ ZSTD_MLcode.exit544:                              ; preds = %487, %490
   %502 = getelementptr inbounds i32, ptr %501, i64 %496
   %503 = load i32, ptr %502, align 4
   %504 = add i32 %503, 1
-  %505 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %504, i1 true)
+  %505 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %504, i1 true)
   %506 = shl nuw nsw i32 %505, 8
   %.neg = add nsw i32 %506, -7936
   %reass.add617 = add nuw nsw i32 %459, %499
@@ -1170,7 +1170,7 @@ ZSTD_newRep.exit559:                              ; preds = %.ZSTD_updateRep.exi
   br i1 %596, label %597, label %600
 
 597:                                              ; preds = %595
-  %598 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %574, i1 true)
+  %598 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %574, i1 true)
   %599 = sub nuw nsw i32 50, %598
   br label %ZSTD_LLcode.exit.i561
 
@@ -1192,7 +1192,7 @@ ZSTD_LLcode.exit.i561:                            ; preds = %600, %597
   %611 = load i32, ptr %71, align 4
   %612 = add i32 %611, 1
   store i32 %612, ptr %71, align 4
-  %613 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %578, i1 true)
+  %613 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %578, i1 true)
   %614 = xor i32 %613, 31
   %615 = load ptr, ptr %63, align 8
   %616 = zext nneg i32 %614 to i64
@@ -1208,7 +1208,7 @@ ZSTD_LLcode.exit.i561:                            ; preds = %600, %597
   br i1 %623, label %624, label %627
 
 624:                                              ; preds = %ZSTD_LLcode.exit.i561
-  %625 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %622, i1 true)
+  %625 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %622, i1 true)
   %626 = sub nuw nsw i32 67, %625
   br label %ZSTD_updateStats.exit
 
@@ -1402,7 +1402,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %654, %.lr.ph.i566, 
 713:                                              ; preds = %._crit_edge686
   %714 = load i32, ptr %70, align 8
   %715 = add i32 %714, 1
-  %716 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %715, i1 true)
+  %716 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %715, i1 true)
   %717 = shl nuw nsw i32 %716, 8
   %718 = xor i32 %717, 7936
   store i32 %718, ptr %67, align 8
@@ -1411,17 +1411,17 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %654, %.lr.ph.i566, 
 ZSTD_setBasePrices.exit:                          ; preds = %._crit_edge686, %713
   %719 = load i32, ptr %71, align 4
   %720 = add i32 %719, 1
-  %721 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %720, i1 true)
+  %721 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %720, i1 true)
   %722 = shl nuw nsw i32 %721, 8
   %723 = xor i32 %722, 7936
   %724 = load i32, ptr %73, align 8
   %725 = add i32 %724, 1
-  %726 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %725, i1 true)
+  %726 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %725, i1 true)
   %727 = shl nuw nsw i32 %726, 8
   %728 = xor i32 %727, 7936
   %729 = load i32, ptr %72, align 4
   %730 = add i32 %729, 1
-  %731 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %730, i1 true)
+  %731 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %730, i1 true)
   %732 = shl nuw nsw i32 %731, 8
   %733 = xor i32 %732, 7936
   store i32 %723, ptr %60, align 4
@@ -1602,7 +1602,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %0, ptr nocaptur
 
 103:                                              ; preds = %100
   %104 = add i32 %86, 1
-  %105 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %104, i1 true)
+  %105 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %104, i1 true)
   %106 = xor i32 %105, 31
   %107 = shl nuw nsw i32 %106, 8
   %108 = shl i32 %104, 8
@@ -1620,7 +1620,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %0, ptr nocaptur
   %116 = getelementptr inbounds i8, ptr %115, i64 140
   %117 = load i32, ptr %116, align 4
   %118 = add i32 %117, 1
-  %119 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %118, i1 true)
+  %119 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %118, i1 true)
   %120 = xor i32 %119, 31
   %121 = shl i32 %118, 8
   %122 = lshr i32 %121, %120
@@ -1635,7 +1635,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %0, ptr nocaptur
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %126
-  %129 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %86, i1 true)
+  %129 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %86, i1 true)
   %130 = sub nuw nsw i32 50, %129
   br label %ZSTD_LLcode.exit.i
 
@@ -1657,7 +1657,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %131, %128
   %143 = getelementptr inbounds i32, ptr %142, i64 %137
   %144 = load i32, ptr %143, align 4
   %145 = add i32 %144, 1
-  %146 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %145, i1 true)
+  %146 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %145, i1 true)
   %147 = xor i32 %146, 31
   %148 = shl i32 %145, 8
   %149 = lshr i32 %148, %147
@@ -1692,7 +1692,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %103, %113, %ZSTD_LL
   %164 = load ptr, ptr %60, align 8
   %165 = load i32, ptr %164, align 4
   %166 = add i32 %165, 1
-  %167 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %166, i1 true)
+  %167 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %166, i1 true)
   %168 = xor i32 %167, 31
   %169 = shl i32 %166, 8
   %170 = lshr i32 %169, %168
@@ -1730,7 +1730,7 @@ ZSTD_litLengthPrice.exit526:                      ; preds = %159, %162
   br i1 %.not504691, label %._crit_edge695, label %.lr.ph694
 
 .lr.ph694:                                        ; preds = %.preheader670
-  %181 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %178, i1 true)
+  %181 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %178, i1 true)
   %182 = xor i32 %181, 31
   %183 = zext nneg i32 %182 to i64
   br label %184
@@ -1744,7 +1744,7 @@ ZSTD_litLengthPrice.exit526:                      ; preds = %159, %162
 
 188:                                              ; preds = %184
   %189 = add i32 %.2475692, -2
-  %190 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %189, i1 true)
+  %190 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %189, i1 true)
   %191 = xor i32 %190, 31
   %192 = shl i32 %189, 8
   %193 = lshr i32 %192, %191
@@ -1760,7 +1760,7 @@ ZSTD_litLengthPrice.exit526:                      ; preds = %159, %162
   %199 = getelementptr inbounds i32, ptr %198, i64 %183
   %200 = load i32, ptr %199, align 4
   %201 = add i32 %200, 1
-  %202 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %201, i1 true)
+  %202 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %201, i1 true)
   %203 = xor i32 %202, 31
   %204 = shl i32 %201, 8
   %205 = lshr i32 %204, %203
@@ -1768,7 +1768,7 @@ ZSTD_litLengthPrice.exit526:                      ; preds = %159, %162
   br i1 %206, label %207, label %210
 
 207:                                              ; preds = %196
-  %208 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %185, i1 true)
+  %208 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %185, i1 true)
   %209 = sub nuw nsw i32 67, %208
   br label %ZSTD_MLcode.exit
 
@@ -1790,7 +1790,7 @@ ZSTD_MLcode.exit:                                 ; preds = %207, %210
   %222 = getelementptr inbounds i32, ptr %221, i64 %216
   %223 = load i32, ptr %222, align 4
   %224 = add i32 %223, 1
-  %225 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %224, i1 true)
+  %225 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %224, i1 true)
   %226 = xor i32 %225, 31
   %227 = shl i32 %224, 8
   %228 = lshr i32 %227, %226
@@ -1877,7 +1877,7 @@ ZSTD_rawLiteralsCost.exit.thread809:              ; preds = %261
   %269 = getelementptr inbounds i32, ptr %266, i64 %268
   %270 = load i32, ptr %269, align 4
   %271 = add i32 %270, 1
-  %272 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %271, i1 true)
+  %272 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %271, i1 true)
   %273 = xor i32 %272, 31
   %274 = shl nuw nsw i32 %273, 8
   %275 = shl i32 %271, 8
@@ -1904,7 +1904,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %257
   %287 = getelementptr inbounds i8, ptr %286, i64 140
   %288 = load i32, ptr %287, align 4
   %289 = add i32 %288, 1
-  %290 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %289, i1 true)
+  %290 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %289, i1 true)
   %291 = xor i32 %290, 31
   %292 = shl i32 %289, 8
   %293 = lshr i32 %292, %291
@@ -1920,7 +1920,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %257
   br i1 %299, label %300, label %303
 
 300:                                              ; preds = %298
-  %301 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %258, i1 true)
+  %301 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %258, i1 true)
   %302 = sub nuw nsw i32 50, %301
   br label %324
 
@@ -1934,14 +1934,14 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %257
 308:                                              ; preds = %ZSTD_rawLiteralsCost.exit.thread, %ZSTD_rawLiteralsCost.exit
   %309 = phi i32 [ %263, %ZSTD_rawLiteralsCost.exit.thread ], [ %280, %ZSTD_rawLiteralsCost.exit ]
   %310 = add i32 %258, 1
-  %311 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %310, i1 true)
+  %311 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %310, i1 true)
   %312 = xor i32 %311, 31
   %313 = shl nuw nsw i32 %312, 8
   %314 = shl i32 %310, 8
   %315 = lshr i32 %314, %312
   %316 = add i32 %313, %315
   %317 = add nsw i32 %316, %309
-  %318 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %258, i1 true)
+  %318 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %258, i1 true)
   %319 = xor i32 %318, 31
   %320 = shl nuw nsw i32 %319, 8
   %321 = shl i32 %258, 8
@@ -1960,7 +1960,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %257
   %332 = getelementptr inbounds i32, ptr %331, i64 %326
   %333 = load i32, ptr %332, align 4
   %334 = add i32 %333, 1
-  %335 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %334, i1 true)
+  %335 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %334, i1 true)
   %336 = xor i32 %335, 31
   %337 = shl i32 %334, 8
   %338 = lshr i32 %337, %336
@@ -1977,7 +1977,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %257
   %345 = getelementptr inbounds i8, ptr %331, i64 140
   %346 = load i32, ptr %345, align 4
   %347 = add i32 %346, 1
-  %348 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %347, i1 true)
+  %348 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %347, i1 true)
   %349 = xor i32 %348, 31
   %350 = shl i32 %347, 8
   %351 = lshr i32 %350, %349
@@ -1996,7 +1996,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %257
   %359 = phi i32 [ %285, %.thread603 ], [ %330, %355 ]
   %360 = phi i32 [ %297, %.thread603 ], [ %341, %355 ]
   %361 = phi i32 [ 131071, %.thread603 ], [ %342, %355 ]
-  %362 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %361, i1 true)
+  %362 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %361, i1 true)
   %363 = sub nuw nsw i32 50, %362
   br label %ZSTD_LLcode.exit.i534
 
@@ -2019,7 +2019,7 @@ ZSTD_LLcode.exit.i534:                            ; preds = %364, %357
   %377 = getelementptr inbounds i32, ptr %369, i64 %373
   %378 = load i32, ptr %377, align 4
   %379 = add i32 %378, 1
-  %380 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %379, i1 true)
+  %380 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %379, i1 true)
   %381 = xor i32 %380, 31
   %382 = shl i32 %379, 8
   %383 = lshr i32 %382, %381
@@ -2166,7 +2166,7 @@ ZSTD_newRep.exit:                                 ; preds = %.ZSTD_updateRep.exi
   %447 = load ptr, ptr %60, align 8
   %448 = load i32, ptr %447, align 4
   %449 = add i32 %448, 1
-  %450 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %449, i1 true)
+  %450 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %449, i1 true)
   %451 = xor i32 %450, 31
   %452 = shl i32 %449, 8
   %453 = lshr i32 %452, %451
@@ -2368,7 +2368,7 @@ ZSTD_optLdm_processMatchCandidate.exit.thread:    ; preds = %ZSTD_optLdm_process
   br i1 %.not503707, label %._crit_edge712, label %.lr.ph711
 
 .lr.ph711:                                        ; preds = %544
-  %546 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %536, i1 true)
+  %546 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %536, i1 true)
   %547 = xor i32 %546, 31
   %548 = zext nneg i32 %547 to i64
   br label %549
@@ -2384,7 +2384,7 @@ ZSTD_optLdm_processMatchCandidate.exit.thread:    ; preds = %ZSTD_optLdm_process
 
 554:                                              ; preds = %549
   %555 = add i32 %.0478708, -2
-  %556 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %555, i1 true)
+  %556 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %555, i1 true)
   %557 = xor i32 %556, 31
   %558 = shl i32 %555, 8
   %559 = lshr i32 %558, %557
@@ -2400,7 +2400,7 @@ ZSTD_optLdm_processMatchCandidate.exit.thread:    ; preds = %ZSTD_optLdm_process
   %565 = getelementptr inbounds i32, ptr %564, i64 %548
   %566 = load i32, ptr %565, align 4
   %567 = add i32 %566, 1
-  %568 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %567, i1 true)
+  %568 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %567, i1 true)
   %569 = xor i32 %568, 31
   %570 = shl i32 %567, 8
   %571 = lshr i32 %570, %569
@@ -2408,7 +2408,7 @@ ZSTD_optLdm_processMatchCandidate.exit.thread:    ; preds = %ZSTD_optLdm_process
   br i1 %572, label %573, label %576
 
 573:                                              ; preds = %562
-  %574 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %551, i1 true)
+  %574 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %551, i1 true)
   %575 = sub nuw nsw i32 67, %574
   br label %ZSTD_MLcode.exit547
 
@@ -2430,7 +2430,7 @@ ZSTD_MLcode.exit547:                              ; preds = %573, %576
   %588 = getelementptr inbounds i32, ptr %587, i64 %582
   %589 = load i32, ptr %588, align 4
   %590 = add i32 %589, 1
-  %591 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %590, i1 true)
+  %591 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %590, i1 true)
   %592 = xor i32 %591, 31
   %593 = shl i32 %590, 8
   %594 = lshr i32 %593, %592
@@ -2718,7 +2718,7 @@ ZSTD_newRep.exit562:                              ; preds = %.ZSTD_updateRep.exi
   br i1 %688, label %689, label %692
 
 689:                                              ; preds = %687
-  %690 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %666, i1 true)
+  %690 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %666, i1 true)
   %691 = sub nuw nsw i32 50, %690
   br label %ZSTD_LLcode.exit.i565
 
@@ -2740,7 +2740,7 @@ ZSTD_LLcode.exit.i565:                            ; preds = %692, %689
   %703 = load i32, ptr %73, align 4
   %704 = add i32 %703, 1
   store i32 %704, ptr %73, align 4
-  %705 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %670, i1 true)
+  %705 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %670, i1 true)
   %706 = xor i32 %705, 31
   %707 = load ptr, ptr %62, align 8
   %708 = zext nneg i32 %706 to i64
@@ -2756,7 +2756,7 @@ ZSTD_LLcode.exit.i565:                            ; preds = %692, %689
   br i1 %715, label %716, label %719
 
 716:                                              ; preds = %ZSTD_LLcode.exit.i565
-  %717 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %714, i1 true)
+  %717 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %714, i1 true)
   %718 = sub nuw nsw i32 67, %717
   br label %ZSTD_updateStats.exit
 
@@ -2950,7 +2950,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %746, %.lr.ph.i570, 
 805:                                              ; preds = %._crit_edge737
   %806 = load i32, ptr %72, align 8
   %807 = add i32 %806, 1
-  %808 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %807, i1 true)
+  %808 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %807, i1 true)
   %809 = xor i32 %808, 31
   %810 = shl nuw nsw i32 %809, 8
   %811 = shl i32 %807, 8
@@ -2962,7 +2962,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %746, %.lr.ph.i570, 
 ZSTD_setBasePrices.exit:                          ; preds = %._crit_edge737, %805
   %814 = load i32, ptr %73, align 4
   %815 = add i32 %814, 1
-  %816 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %815, i1 true)
+  %816 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %815, i1 true)
   %817 = xor i32 %816, 31
   %818 = shl nuw nsw i32 %817, 8
   %819 = shl i32 %815, 8
@@ -2970,7 +2970,7 @@ ZSTD_setBasePrices.exit:                          ; preds = %._crit_edge737, %80
   %821 = add i32 %818, %820
   %822 = load i32, ptr %75, align 8
   %823 = add i32 %822, 1
-  %824 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %823, i1 true)
+  %824 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %823, i1 true)
   %825 = xor i32 %824, 31
   %826 = shl nuw nsw i32 %825, 8
   %827 = shl i32 %823, 8
@@ -2978,7 +2978,7 @@ ZSTD_setBasePrices.exit:                          ; preds = %._crit_edge737, %80
   %829 = add i32 %826, %828
   %830 = load i32, ptr %74, align 4
   %831 = add i32 %830, 1
-  %832 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %831, i1 true)
+  %832 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %831, i1 true)
   %833 = xor i32 %832, 31
   %834 = shl nuw nsw i32 %833, 8
   %835 = shl i32 %831, 8
@@ -4096,7 +4096,7 @@ sum_u32.exit.i:                                   ; preds = %.lr.ph.i.i
 
 146:                                              ; preds = %sum_u32.exit.i
   %147 = lshr i32 %143, 12
-  %148 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %147, i1 true)
+  %148 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %147, i1 true)
   %149 = xor i32 %148, 31
   br label %.split.i.i
 
@@ -4140,7 +4140,7 @@ sum_u32.exit.i104:                                ; preds = %.lr.ph.i.i100
 
 164:                                              ; preds = %sum_u32.exit.i104
   %165 = lshr i32 %161, 11
-  %166 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %165, i1 true)
+  %166 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %165, i1 true)
   %167 = xor i32 %166, 31
   br label %.split.i.i105
 
@@ -4180,7 +4180,7 @@ sum_u32.exit.i116:                                ; preds = %.lr.ph.i.i112
 
 180:                                              ; preds = %sum_u32.exit.i116
   %181 = lshr i32 %177, 11
-  %182 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %181, i1 true)
+  %182 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %181, i1 true)
   %183 = xor i32 %182, 31
   br label %.split.i.i117
 
@@ -4221,7 +4221,7 @@ sum_u32.exit.i128:                                ; preds = %.lr.ph.i.i124
 
 197:                                              ; preds = %sum_u32.exit.i128
   %198 = lshr i32 %194, 11
-  %199 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %198, i1 true)
+  %199 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %198, i1 true)
   %200 = xor i32 %199, 31
   br label %.split.i.i129
 
@@ -4255,7 +4255,7 @@ sum_u32.exit.i128:                                ; preds = %.lr.ph.i.i124
   %209 = getelementptr inbounds i8, ptr %0, i64 48
   %210 = load i32, ptr %209, align 8
   %211 = add i32 %210, 1
-  %212 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %211, i1 true)
+  %212 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %211, i1 true)
   br i1 %.not16.i, label %219, label %213
 
 213:                                              ; preds = %208
@@ -4281,7 +4281,7 @@ sum_u32.exit.i128:                                ; preds = %.lr.ph.i.i124
   %.not17.i = icmp eq i32 %3, 0
   %226 = load i32, ptr %8, align 4
   %227 = add i32 %226, 1
-  %228 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %227, i1 true)
+  %228 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %227, i1 true)
   br i1 %.not17.i, label %251, label %229
 
 229:                                              ; preds = %225
@@ -4293,14 +4293,14 @@ sum_u32.exit.i128:                                ; preds = %.lr.ph.i.i124
   %235 = getelementptr inbounds i8, ptr %0, i64 56
   %236 = load i32, ptr %235, align 8
   %237 = add i32 %236, 1
-  %238 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %237, i1 true)
+  %238 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %237, i1 true)
   %239 = xor i32 %238, 31
   %240 = shl nuw nsw i32 %239, 8
   %241 = shl i32 %237, 8
   %242 = lshr i32 %241, %239
   %243 = add i32 %240, %242
   %244 = add i32 %207, 1
-  %245 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %244, i1 true)
+  %245 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %244, i1 true)
   %246 = xor i32 %245, 31
   %247 = shl nuw nsw i32 %246, 8
   %248 = shl i32 %244, 8
@@ -4314,11 +4314,11 @@ sum_u32.exit.i128:                                ; preds = %.lr.ph.i.i124
   %254 = getelementptr inbounds i8, ptr %0, i64 56
   %255 = load i32, ptr %254, align 8
   %256 = add i32 %255, 1
-  %257 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %256, i1 true)
+  %257 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %256, i1 true)
   %258 = shl nuw nsw i32 %257, 8
   %259 = xor i32 %258, 7936
   %260 = add i32 %207, 1
-  %261 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %260, i1 true)
+  %261 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %260, i1 true)
   %262 = shl nuw nsw i32 %261, 8
   %263 = xor i32 %262, 7936
   br label %ZSTD_setBasePrices.exit

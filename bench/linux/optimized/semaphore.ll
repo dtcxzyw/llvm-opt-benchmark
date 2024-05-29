@@ -94,7 +94,7 @@ define dso_local noundef range(i32 -62, 1) i32 @down_interruptible(ptr noundef %
   br label %11
 
 9:                                                ; preds = %1
-  %10 = tail call fastcc noundef i32 @__down_common(ptr noundef %0, i64 noundef 1, i64 noundef 9223372036854775807), !range !7
+  %10 = tail call fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef %0, i64 noundef 1, i64 noundef 9223372036854775807), !range !7
   br label %11
 
 11:                                               ; preds = %9, %7
@@ -118,7 +118,7 @@ define dso_local noundef range(i32 -62, 1) i32 @down_killable(ptr noundef %0) #0
   br label %11
 
 9:                                                ; preds = %1
-  %10 = tail call fastcc noundef i32 @__down_common(ptr noundef %0, i64 noundef 258, i64 noundef 9223372036854775807), !range !7
+  %10 = tail call fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef %0, i64 noundef 258, i64 noundef 9223372036854775807), !range !7
   br label %11
 
 11:                                               ; preds = %9, %7
@@ -161,7 +161,7 @@ define dso_local noundef range(i32 -62, 1) i32 @down_timeout(ptr noundef %0, i64
   br label %12
 
 10:                                               ; preds = %2
-  %11 = tail call fastcc noundef i32 @__down_common(ptr noundef %0, i64 noundef 2, i64 noundef %1), !range !7
+  %11 = tail call fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef %0, i64 noundef 2, i64 noundef %1), !range !7
   br label %12
 
 12:                                               ; preds = %10, %8

@@ -16425,7 +16425,7 @@ if.else243:                                       ; preds = %if.then227
   %maxPathLen248 = getelementptr inbounds i8, ptr %cert, i64 837
   %189 = load i8, ptr %maxPathLen248, align 1
   %conv249 = zext i8 %189 to i32
-  %cond.i = call i32 @llvm.umin.i32(i32 %sub247, i32 %conv249)
+  %cond.i = call range(i32 0, 256) i32 @llvm.umin.i32(i32 %sub247, i32 %conv249)
   %conv251 = trunc nuw i32 %cond.i to i8
   store i8 %conv251, ptr %maxPathLen248, align 1
   br label %if.end256

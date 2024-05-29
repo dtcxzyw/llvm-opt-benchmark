@@ -777,7 +777,7 @@ entry:
   store ptr %buf, ptr %iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %buflen, ptr %iov_len, align 8
-  %call.i = call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %errp)
+  %call.i = call range(i32 -1, 2) i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %errp)
   ret i32 %call.i
 }
 
@@ -813,7 +813,7 @@ entry:
   store ptr %buf, ptr %iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %buflen, ptr %iov_len, align 8
-  %call.i = call i32 @qio_channel_writev_full_all(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef %errp)
+  %call.i = call range(i32 -1, 1) i32 @qio_channel_writev_full_all(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef %errp)
   ret i32 %call.i
 }
 

@@ -2505,7 +2505,7 @@ while.body:                                       ; preds = %vorbiscomment_find_
   store ptr null, ptr %entry19.i, align 8
   %25 = load i32, ptr %num_comments.i, align 8
   %sub21.i = add i32 %25, -1
-  %call.i67 = tail call i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef %object, i32 noundef %sub21.i)
+  %call.i67 = tail call range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef %object, i32 noundef %sub21.i)
   %tobool32.not = icmp eq i32 %call.i67, 0
   br i1 %tobool32.not, label %return, label %if.end34
 
@@ -2552,7 +2552,7 @@ if.end43:                                         ; preds = %FLAC__metadata_obje
   br i1 %cmp29, label %while.body, label %return, !llvm.loop !25
 
 if.else45:                                        ; preds = %for.inc.i, %if.end9, %vorbiscomment_find_entry_from_.exit
-  %call.i96 = tail call i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef %object, i32 noundef %0, i32 %entry.coerce0, ptr %entry.coerce1, i32 noundef %copy)
+  %call.i96 = tail call range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef %object, i32 noundef %0, i32 %entry.coerce0, ptr %entry.coerce1, i32 noundef %copy)
   br label %return
 
 return:                                           ; preds = %for.inc.i55, %if.end34, %while.body, %if.end43, %for.inc.i86, %vorbiscomment_find_entry_from_.exit63, %FLAC__metadata_object_vorbiscomment_set_comment.exit.thread, %if.end20, %land.lhs.true, %FLAC__metadata_object_vorbiscomment_set_comment.exit, %if.end, %entry, %if.else45
@@ -2884,7 +2884,7 @@ if.then:                                          ; preds = %FLAC__metadata_obje
   store ptr null, ptr %entry19.i, align 8
   %13 = load i32, ptr %num_comments, align 8
   %sub21.i = add i32 %13, -1
-  %call.i8 = tail call i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef nonnull %object, i32 noundef %sub21.i)
+  %call.i8 = tail call range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef nonnull %object, i32 noundef %sub21.i)
   %tobool5.not = icmp eq i32 %call.i8, 0
   %. = select i1 %tobool5.not, i32 -1, i32 1
   br label %return
@@ -2966,7 +2966,7 @@ if.then:                                          ; preds = %FLAC__metadata_obje
   store ptr null, ptr %entry19.i, align 8
   %13 = load i32, ptr %num_comments, align 8
   %sub21.i = add i32 %13, -1
-  %call.i11 = tail call i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef nonnull %object, i32 noundef %sub21.i)
+  %call.i11 = tail call range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef nonnull %object, i32 noundef %sub21.i)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %FLAC__metadata_object_vorbiscomment_entry_matches.exit, %if.then

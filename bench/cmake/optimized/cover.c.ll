@@ -221,7 +221,7 @@ COVER_checkParameters.exit:                       ; preds = %6
 COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   %66 = add i32 %16, 1
   %67 = sub i32 %66, %14
-  %68 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
+  %68 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %67, i1 true)
   %69 = xor i32 %68, 31
   %70 = sub nuw nsw i32 33, %68
   %71 = getelementptr inbounds i8, ptr %8, i64 8
@@ -2211,7 +2211,7 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %15, 1
   %19 = sub i32 %18, %17
-  %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
+  %20 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = xor i32 %20, 31
   %22 = sub nuw nsw i32 33, %20
   %23 = getelementptr inbounds i8, ptr %4, i64 8

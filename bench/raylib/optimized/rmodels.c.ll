@@ -37469,7 +37469,7 @@ define noalias noundef ptr @LoadMaterials(ptr noundef %0, ptr nocapture noundef 
 
 6:                                                ; preds = %2
   store ptr null, ptr %4, align 8
-  %7 = call fastcc i32 @tinyobj_parse_and_index_mtl_file(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %0, ptr noundef null)
+  %7 = call fastcc range(i32 -3, 1) i32 @tinyobj_parse_and_index_mtl_file(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %0, ptr noundef null)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 

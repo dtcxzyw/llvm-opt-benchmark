@@ -16758,7 +16758,7 @@ gc_marking_enter.exit.i:                          ; preds = %28, %current_proces
 30:                                               ; preds = %gc_marking_enter.exit.i
   %31 = getelementptr inbounds i8, ptr %0, i64 2568
   %32 = load i64, ptr %31, align 8
-  %33 = call fastcc i32 @gc_mark_stacked_objects(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %32)
+  %33 = call fastcc range(i32 0, 2) i32 @gc_mark_stacked_objects(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %32)
   %.not.i7.not.i = icmp eq i32 %33, 0
   br i1 %.not.i7.not.i, label %gc_marks_step.exit.i, label %34
 
@@ -19598,7 +19598,7 @@ define internal fastcc void @gc_marks_rest(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %11, label %.preheader
 
 .preheader:                                       ; preds = %5, %.preheader
-  %9 = tail call fastcc i32 @gc_mark_stacked_objects(ptr noundef %0, i32 noundef 1, i64 noundef 2147483647)
+  %9 = tail call fastcc range(i32 0, 2) i32 @gc_mark_stacked_objects(ptr noundef %0, i32 noundef 1, i64 noundef 2147483647)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !122
 
@@ -19707,7 +19707,7 @@ define internal fastcc void @gc_marks_finish(ptr noundef %0) unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %7, %6
-  %8 = tail call fastcc i32 @gc_mark_stacked_objects(ptr noundef %0, i32 noundef 1, i64 noundef 2147483647)
+  %8 = tail call fastcc range(i32 0, 2) i32 @gc_mark_stacked_objects(ptr noundef %0, i32 noundef 1, i64 noundef 2147483647)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %7, label %10, !llvm.loop !124
 

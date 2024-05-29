@@ -384,12 +384,12 @@ define dso_local range(i32 -1, 1) i32 @fsync_fname_ext(ptr noundef %0, i1 nounde
   br i1 %1, label %8, label %.thread
 
 .thread:                                          ; preds = %4
-  %6 = tail call i32 @OpenTransientFilePerm(ptr noundef %0, i32 noundef 2, i32 noundef %5)
+  %6 = tail call range(i32 -1, -2147483648) i32 @OpenTransientFilePerm(ptr noundef %0, i32 noundef 2, i32 noundef %5)
   %7 = icmp slt i32 %6, 0
   br label %14
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @OpenTransientFilePerm(ptr noundef %0, i32 noundef 0, i32 noundef %5)
+  %9 = tail call range(i32 -1, -2147483648) i32 @OpenTransientFilePerm(ptr noundef %0, i32 noundef 0, i32 noundef %5)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %.thread87
 
@@ -579,7 +579,7 @@ define dso_local range(i32 -1, 1) i32 @durable_rename(ptr noundef %0, ptr nounde
 
 6:                                                ; preds = %3
   %7 = load i32, ptr @pg_file_create_mode, align 4
-  %8 = tail call i32 @OpenTransientFilePerm(ptr noundef %1, i32 noundef 2, i32 noundef %7)
+  %8 = tail call range(i32 -1, -2147483648) i32 @OpenTransientFilePerm(ptr noundef %1, i32 noundef 2, i32 noundef %7)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %18
 
@@ -4883,7 +4883,7 @@ define internal fastcc void @do_syncfs(ptr noundef %0) unnamed_addr #0 {
 
 12:                                               ; preds = %1, %5, %7
   %13 = load i32, ptr @pg_file_create_mode, align 4
-  %14 = call i32 @OpenTransientFilePerm(ptr noundef %0, i32 noundef 0, i32 noundef %13)
+  %14 = call range(i32 -1, -2147483648) i32 @OpenTransientFilePerm(ptr noundef %0, i32 noundef 0, i32 noundef %13)
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %21
 
@@ -4986,7 +4986,7 @@ define internal void @pre_sync_fname(ptr noundef %0, i1 noundef zeroext %1, i32 
 
 15:                                               ; preds = %6, %8, %10
   %16 = load i32, ptr @pg_file_create_mode, align 4
-  %17 = call i32 @OpenTransientFilePerm(ptr noundef %0, i32 noundef 0, i32 noundef %16)
+  %17 = call range(i32 -1, -2147483648) i32 @OpenTransientFilePerm(ptr noundef %0, i32 noundef 0, i32 noundef %16)
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %25
 

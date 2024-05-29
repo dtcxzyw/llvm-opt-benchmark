@@ -5720,7 +5720,7 @@ define internal fastcc i32 @iso8601wknum(ptr nocapture noundef readonly %0) unna
   %6 = add i32 %.val33, 7
   %7 = add i32 %6, %spec.select.i.neg34
   %8 = sdiv i32 %7, 7
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
+  %spec.store.select.i = tail call range(i32 -306783378, 306783379) i32 @llvm.smax.i32(i32 %8, i32 0)
   %9 = srem i32 %.val33, 7
   %10 = sub i32 %.val, %9
   %11 = icmp slt i32 %10, 0

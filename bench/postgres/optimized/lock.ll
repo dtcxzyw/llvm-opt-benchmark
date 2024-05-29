@@ -5849,7 +5849,7 @@ define dso_local noundef zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext 
   store i16 0, ptr %18, align 4
   store i8 5, ptr %19, align 2
   store i8 1, ptr %20, align 1
-  %28 = call i32 @LockAcquireExtended(ptr noundef nonnull %10, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %21, i1 noundef zeroext true, ptr noundef null)
+  %28 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %10, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %21, i1 noundef zeroext true, ptr noundef null)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %XactLockForVirtualXact.exit, label %30
 
@@ -5925,7 +5925,7 @@ XactLockForVirtualXact.exit:                      ; preds = %26, %.thread9.i, %3
   store i16 0, ptr %47, align 4
   store i8 5, ptr %48, align 2
   store i8 1, ptr %49, align 1
-  %57 = call i32 @LockAcquireExtended(ptr noundef nonnull %8, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %50, i1 noundef zeroext true, ptr noundef null)
+  %57 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %8, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %50, i1 noundef zeroext true, ptr noundef null)
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %XactLockForVirtualXact.exit72, label %59
 
@@ -6000,7 +6000,7 @@ XactLockForVirtualXact.exit72:                    ; preds = %55, %.thread9.i67, 
   store i16 0, ptr %76, align 4
   store i8 5, ptr %77, align 2
   store i8 1, ptr %78, align 1
-  %86 = call i32 @LockAcquireExtended(ptr noundef nonnull %6, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %79, i1 noundef zeroext true, ptr noundef null)
+  %86 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %6, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %79, i1 noundef zeroext true, ptr noundef null)
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %XactLockForVirtualXact.exit81, label %88
 
@@ -6092,7 +6092,7 @@ GrantLock.exit:                                   ; preds = %113, %127
   %135 = getelementptr inbounds i8, ptr %40, i64 52
   %136 = load i32, ptr %135, align 4
   call void @LWLockRelease(ptr noundef nonnull %64) #16
-  %137 = call i32 @LockAcquireExtended(ptr noundef nonnull %11, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null)
+  %137 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %11, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null)
   %138 = call zeroext i1 @LockRelease(ptr noundef nonnull %11, i32 noundef 5, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -6136,7 +6136,7 @@ GrantLock.exit:                                   ; preds = %113, %127
   store i16 0, ptr %143, align 4
   store i8 5, ptr %144, align 2
   store i8 1, ptr %145, align 1
-  %152 = call i32 @LockAcquireExtended(ptr noundef nonnull %4, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null)
+  %152 = call range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef nonnull %4, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null)
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %XactLockForVirtualXact.exit90, label %154
 

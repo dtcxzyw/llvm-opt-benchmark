@@ -15486,7 +15486,7 @@ common.ret:                                       ; preds = %1993, %1030, %784, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9702)
   %485 = icmp ne ptr %.sroa.458.0.i.ph, null
   call void @llvm.assume(i1 %485)
-  %486 = invoke noundef i8 @"_ZN112_$LT$ockam_transport_core..error..TransportError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h3beb3af3bee63bb0E"(ptr noundef nonnull %.sroa.458.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c9eb746f0034876a934410877162234d.107)
+  %486 = invoke noundef range(i8 1, 17) i8 @"_ZN112_$LT$ockam_transport_core..error..TransportError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h3beb3af3bee63bb0E"(ptr noundef nonnull %.sroa.458.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c9eb746f0034876a934410877162234d.107)
           to label %487 unwind label %.body428
 
 487:                                              ; preds = %484
@@ -15954,7 +15954,7 @@ common.ret:                                       ; preds = %1993, %1030, %784, 
 632:                                              ; preds = %630
   %633 = getelementptr inbounds i8, ptr %149, i64 8
   %634 = load ptr, ptr %633, align 8, !alias.scope !2034, !noalias !2030, !nonnull !4, !noundef !4
-  %635 = invoke noundef i8 @"_ZN112_$LT$ockam_transport_core..error..TransportError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h3beb3af3bee63bb0E"(ptr noundef nonnull %634, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c9eb746f0034876a934410877162234d.107)
+  %635 = invoke noundef range(i8 1, 17) i8 @"_ZN112_$LT$ockam_transport_core..error..TransportError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h3beb3af3bee63bb0E"(ptr noundef nonnull %634, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c9eb746f0034876a934410877162234d.107)
           to label %642 unwind label %637
 
 636:                                              ; preds = %637, %628

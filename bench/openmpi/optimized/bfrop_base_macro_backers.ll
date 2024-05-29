@@ -2582,7 +2582,7 @@ pmix_bfrops_base_tma_info_free.exit:              ; preds = %2, %._crit_edge.i
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define range(i32 0, 3) i32 @PMIx_Info_true(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 520
-  %3 = tail call fastcc i32 @pmix_bfrops_base_tma_value_true(ptr noundef nonnull readonly %2)
+  %3 = tail call fastcc range(i32 0, 3) i32 @pmix_bfrops_base_tma_value_true(ptr noundef nonnull readonly %2)
   ret i32 %3
 }
 

@@ -15222,7 +15222,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h4576e4efbc8f87a6E
 30:                                               ; preds = %11
   %31 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %31)
-  %32 = call fastcc noundef i64 @_ZN5typst13introspection12introspector1_15__ComemoSurface4page17h940c2608e84190c5E(ptr %.val, ptr %.val1, ptr noalias nocapture noundef nonnull readonly align 16 dereferenceable(32) %6), !noalias !2248
+  %32 = call fastcc noundef range(i64 1, 0) i64 @_ZN5typst13introspection12introspector1_15__ComemoSurface4page17h940c2608e84190c5E(ptr %.val, ptr %.val1, ptr noalias nocapture noundef nonnull readonly align 16 dereferenceable(32) %6), !noalias !2248
   store i8 3, ptr %0, align 8, !alias.scope !2234, !noalias !2237
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %32, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !2234, !noalias !2237
@@ -121610,7 +121610,7 @@ define internal void @"_ZN5typst4text3raw86_$LT$impl$u20$typst..foundations..con
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %7
-  %13 = tail call noundef i64 @_ZN12typst_syntax4span4Span8detached17ha3190c0888ab628eE(), !range !1465, !noalias !25570
+  %13 = tail call noundef range(i64 1, 0) i64 @_ZN12typst_syntax4span4Span8detached17ha3190c0888ab628eE(), !range !1465, !noalias !25570
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h74b1ca725c67dc12E.exit"
 
 14:                                               ; preds = %7
@@ -121763,7 +121763,7 @@ define internal void @"_ZN5typst4text3raw86_$LT$impl$u20$typst..foundations..con
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %5
-  %18 = tail call noundef i64 @_ZN12typst_syntax4span4Span8detached17ha3190c0888ab628eE(), !range !1465, !noalias !25599
+  %18 = tail call noundef range(i64 1, 0) i64 @_ZN12typst_syntax4span4Span8detached17ha3190c0888ab628eE(), !range !1465, !noalias !25599
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hcb340c2afbaf7e2fE.exit"
 
 19:                                               ; preds = %5

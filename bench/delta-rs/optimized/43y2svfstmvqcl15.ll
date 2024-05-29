@@ -102761,7 +102761,7 @@ default.unreachable63:                            ; preds = %2
   %.val57 = load ptr, ptr %143, align 16, !nonnull !5, !noundef !5
   %144 = getelementptr inbounds i8, ptr %1, i64 24
   %.val58 = load i64, ptr %144, align 8, !noundef !5
-  %145 = tail call noundef i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h5b784f6b2cd27f4cE"(ptr noalias noundef nonnull readonly align 16 %.val55, i64 noundef %.val56, ptr noalias noundef nonnull readonly align 16 %.val57, i64 noundef %.val58), !range !15439
+  %145 = tail call noundef range(i8 -1, 3) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h5b784f6b2cd27f4cE"(ptr noalias noundef nonnull readonly align 16 %.val55, i64 noundef %.val56, ptr noalias noundef nonnull readonly align 16 %.val57, i64 noundef %.val58), !range !15439
   br label %44
 }
 

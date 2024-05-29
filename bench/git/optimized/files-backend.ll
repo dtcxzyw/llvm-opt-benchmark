@@ -679,7 +679,7 @@ if.else25.i.i:                                    ; preds = %if.then18.i.i
 
 if.end27.i80.i:                                   ; preds = %sw.epilog.i.i
   %old_oid.i81.i = getelementptr inbounds i8, ptr %call.i78.i, i64 16
-  %call.i42.i.i = call fastcc i32 @read_ref_internal(ptr noundef nonnull readonly %ref_store, ptr noundef nonnull %refname.i, ptr noundef nonnull %old_oid.i81.i, ptr noundef nonnull %referent.i, ptr noundef nonnull %type.i, ptr noundef nonnull writeonly %failure_errno.i.i, i32 noundef 0)
+  %call.i42.i.i = call fastcc range(i32 -1, 1) i32 @read_ref_internal(ptr noundef nonnull readonly %ref_store, ptr noundef nonnull %refname.i, ptr noundef nonnull %old_oid.i81.i, ptr noundef nonnull %referent.i, ptr noundef nonnull %type.i, ptr noundef nonnull writeonly %failure_errno.i.i, i32 noundef 0)
   %tobool30.not.i.i = icmp eq i32 %call.i42.i.i, 0
   br i1 %tobool30.not.i.i, label %if.end20.i, label %if.then31.i.i
 

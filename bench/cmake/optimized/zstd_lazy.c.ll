@@ -1081,7 +1081,7 @@ ZSTD_count.exit1694.thread:                       ; preds = %223
   %225 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %224, i1 true)
   %226 = lshr i64 %225, 3
   %227 = trunc i64 %.115881881 to i32
-  %228 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %227, i1 true)
+  %228 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %227, i1 true)
   br label %261
 
 .preheader.i1686:                                 ; preds = %223, %230
@@ -1159,7 +1159,7 @@ ZSTD_count.exit1694:                              ; preds = %249, %251, %232
   %256 = ptrtoint ptr %220 to i64
   %257 = sub i64 %255, %256
   %258 = trunc i64 %.115881881 to i32
-  %259 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %258, i1 true)
+  %259 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %258, i1 true)
   %260 = icmp ult i64 %257, -4
   br i1 %260, label %261, label %270
 
@@ -1343,7 +1343,7 @@ ZSTD_count.exit1694:                              ; preds = %249, %251, %232
 ZSTD_BtFindBestMatch_noDict_4.exit1704.thread:    ; preds = %271, %303, %335
   %367 = shl i64 %.41583, 2
   %368 = trunc i64 %.21589 to i32
-  %369 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %368, i1 true)
+  %369 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %368, i1 true)
   br label %387
 
 ZSTD_BtFindBestMatch_noDict_4.exit1704:           ; preds = %.lr.ph.split.us.i.i1719, %.lr.ph.split.us2.i.i1709, %.lr.ph.split.i.i1699, %341, %309, %277
@@ -1352,14 +1352,14 @@ ZSTD_BtFindBestMatch_noDict_4.exit1704:           ; preds = %.lr.ph.split.us.i.i
   %370 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %214, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %spec.select1837, i32 noundef 0)
   %371 = shl i64 %.41583, 2
   %372 = trunc i64 %.21589 to i32
-  %373 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %372, i1 true)
+  %373 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %372, i1 true)
   %374 = icmp ugt i64 %370, 3
   br i1 %374, label %375, label %387
 
 375:                                              ; preds = %ZSTD_BtFindBestMatch_noDict_4.exit1704
   %376 = load i64, ptr %7, align 8
   %377 = trunc i64 %376 to i32
-  %378 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %377, i1 true)
+  %378 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %377, i1 true)
   %379 = xor i32 %378, 31
   %380 = trunc i64 %371 to i32
   %381 = add nsw i32 %373, -27
@@ -1675,10 +1675,10 @@ ZSTD_BtFindBestMatch_noDict_4.exit1761:           ; preds = %.lr.ph.split.us.i.i
 
 542:                                              ; preds = %ZSTD_BtFindBestMatch_noDict_4.exit1761
   %543 = trunc i64 %.41591 to i32
-  %544 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %543, i1 true)
+  %544 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %543, i1 true)
   %545 = load i64, ptr %8, align 8
   %546 = trunc i64 %545 to i32
-  %547 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %546, i1 true)
+  %547 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %546, i1 true)
   %548 = xor i32 %547, 31
   %.61585.tr = trunc i64 %.61585 to i32
   %549 = shl i32 %.61585.tr, 2
@@ -2366,7 +2366,7 @@ ZSTD_count.exit1683.thread:                       ; preds = %138
   %140 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %139, i1 true)
   %141 = lshr i64 %140, 3
   %142 = trunc i64 %.115881809 to i32
-  %143 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %142, i1 true)
+  %143 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %142, i1 true)
   br label %176
 
 .preheader.i1675:                                 ; preds = %138, %145
@@ -2444,7 +2444,7 @@ ZSTD_count.exit1683:                              ; preds = %164, %166, %147
   %171 = ptrtoint ptr %135 to i64
   %172 = sub i64 %170, %171
   %173 = trunc i64 %.115881809 to i32
-  %174 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %173, i1 true)
+  %174 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %173, i1 true)
   %175 = icmp ult i64 %172, -4
   br i1 %175, label %176, label %185
 
@@ -2491,14 +2491,14 @@ ZSTD_count.exit1683:                              ; preds = %164, %166, %147
   %.01549 = phi i64 [ %191, %190 ], [ %189, %188 ], [ %187, %186 ]
   %193 = shl i64 %.41583, 2
   %194 = trunc i64 %.21589 to i32
-  %195 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %194, i1 true)
+  %195 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %194, i1 true)
   %196 = icmp ugt i64 %.01549, 3
   br i1 %196, label %197, label %209
 
 197:                                              ; preds = %192
   %198 = load i64, ptr %7, align 8
   %199 = trunc i64 %198 to i32
-  %200 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %199, i1 true)
+  %200 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %199, i1 true)
   %201 = xor i32 %200, 31
   %202 = trunc i64 %193 to i32
   %203 = add nsw i32 %195, -27
@@ -2672,10 +2672,10 @@ ZSTD_count.exit1710:                              ; preds = %245, %247, %228
 
 272:                                              ; preds = %270
   %273 = trunc i64 %.41591 to i32
-  %274 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %273, i1 true)
+  %274 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %273, i1 true)
   %275 = load i64, ptr %8, align 8
   %276 = trunc i64 %275 to i32
-  %277 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %276, i1 true)
+  %277 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %276, i1 true)
   %278 = xor i32 %277, 31
   %.61585.tr = trunc i64 %.61585 to i32
   %279 = shl i32 %.61585.tr, 2
@@ -3365,7 +3365,7 @@ ZSTD_count.exit1680.thread:                       ; preds = %139
   %141 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %140, i1 true)
   %142 = lshr i64 %141, 3
   %143 = trunc i64 %.11588 to i32
-  %144 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %143, i1 true)
+  %144 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %143, i1 true)
   br label %177
 
 .preheader.i1672:                                 ; preds = %139, %146
@@ -3443,7 +3443,7 @@ ZSTD_count.exit1680:                              ; preds = %165, %167, %148
   %172 = ptrtoint ptr %136 to i64
   %173 = sub i64 %171, %172
   %174 = trunc i64 %.11588 to i32
-  %175 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %174, i1 true)
+  %175 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %174, i1 true)
   %176 = icmp ult i64 %173, -4
   br i1 %176, label %177, label %186
 
@@ -3493,10 +3493,10 @@ ZSTD_count.exit1680:                              ; preds = %165, %167, %148
 
 195:                                              ; preds = %193
   %196 = trunc i64 %.21589 to i32
-  %197 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %196, i1 true)
+  %197 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %196, i1 true)
   %198 = load i64, ptr %7, align 8
   %199 = trunc i64 %198 to i32
-  %200 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %199, i1 true)
+  %200 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %199, i1 true)
   %201 = xor i32 %200, 31
   %.41583.tr = trunc i64 %.41583 to i32
   %202 = shl i32 %.41583.tr, 2
@@ -4907,7 +4907,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
 
 207:                                              ; preds = %200
   %208 = trunc i64 %.115881784 to i32
-  %209 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %208, i1 true)
+  %209 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %208, i1 true)
   %210 = trunc i64 %.315821785 to i32
   %211 = mul i32 %210, 3
   %212 = add nsw i32 %209, -30
@@ -5080,7 +5080,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
 
 ZSTD_BtFindBestMatch_dictMatchState_4.exit1673.thread: ; preds = %219, %250, %281
   %312 = trunc i64 %.31590 to i32
-  %313 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %312, i1 true)
+  %313 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %312, i1 true)
   br label %330
 
 ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i1688, %.lr.ph.split.us2.i.i1678, %.lr.ph.split.i.i1668, %287, %256, %225
@@ -5088,14 +5088,14 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   store i32 %.sink1904, ptr %47, align 4
   %314 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %184, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %spec.select1746, i32 noundef 2)
   %315 = trunc i64 %.31590 to i32
-  %316 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %315, i1 true)
+  %316 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %315, i1 true)
   %317 = icmp ugt i64 %314, 3
   br i1 %317, label %318, label %330
 
 318:                                              ; preds = %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673
   %319 = load i64, ptr %7, align 8
   %320 = trunc i64 %319 to i32
-  %321 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %320, i1 true)
+  %321 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %320, i1 true)
   %322 = xor i32 %321, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %323 = shl i32 %.51584.tr, 2
@@ -5331,10 +5331,10 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1703:   ; preds = %.lr.ph.split.us.i.i
 
 460:                                              ; preds = %ZSTD_BtFindBestMatch_dictMatchState_4.exit1703
   %461 = trunc i64 %.51592 to i32
-  %462 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %461, i1 true)
+  %462 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %461, i1 true)
   %463 = load i64, ptr %8, align 8
   %464 = trunc i64 %463 to i32
-  %465 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %464, i1 true)
+  %465 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %464, i1 true)
   %466 = xor i32 %465, 31
   %.71586.tr = trunc i64 %.71586 to i32
   %467 = shl i32 %.71586.tr, 2
@@ -6065,7 +6065,7 @@ default.unreachable:                              ; preds = %192, %136
 
 125:                                              ; preds = %118
   %126 = trunc i64 %.115881711 to i32
-  %127 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %126, i1 true)
+  %127 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %126, i1 true)
   %128 = trunc i64 %.315821712 to i32
   %129 = mul i32 %128, 3
   %130 = add nsw i32 %127, -30
@@ -6104,14 +6104,14 @@ default.unreachable:                              ; preds = %192, %136
 143:                                              ; preds = %141, %139, %137
   %.01549 = phi i64 [ %142, %141 ], [ %140, %139 ], [ %138, %137 ]
   %144 = trunc i64 %.31590 to i32
-  %145 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %144, i1 true)
+  %145 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %144, i1 true)
   %146 = icmp ugt i64 %.01549, 3
   br i1 %146, label %147, label %159
 
 147:                                              ; preds = %143
   %148 = load i64, ptr %7, align 8
   %149 = trunc i64 %148 to i32
-  %150 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %149, i1 true)
+  %150 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %149, i1 true)
   %151 = xor i32 %150, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %152 = shl i32 %.51584.tr, 2
@@ -6209,10 +6209,10 @@ default.unreachable:                              ; preds = %192, %136
 
 201:                                              ; preds = %199
   %202 = trunc i64 %.51592 to i32
-  %203 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %202, i1 true)
+  %203 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %202, i1 true)
   %204 = load i64, ptr %8, align 8
   %205 = trunc i64 %204 to i32
-  %206 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %205, i1 true)
+  %206 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %205, i1 true)
   %207 = xor i32 %206, 31
   %.71586.tr = trunc i64 %.71586 to i32
   %208 = shl i32 %.71586.tr, 2
@@ -6945,7 +6945,7 @@ default.unreachable:                              ; preds = %137
 
 126:                                              ; preds = %119
   %127 = trunc i64 %.11588 to i32
-  %128 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %127, i1 true)
+  %128 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %127, i1 true)
   %129 = trunc i64 %.31582 to i32
   %130 = mul i32 %129, 3
   %131 = add nsw i32 %128, -30
@@ -6988,10 +6988,10 @@ default.unreachable:                              ; preds = %137
 
 146:                                              ; preds = %144
   %147 = trunc i64 %.31590 to i32
-  %148 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %147, i1 true)
+  %148 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %147, i1 true)
   %149 = load i64, ptr %7, align 8
   %150 = trunc i64 %149 to i32
-  %151 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %150, i1 true)
+  %151 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %150, i1 true)
   %152 = xor i32 %151, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %153 = shl i32 %.51584.tr, 2
@@ -8383,7 +8383,7 @@ default.unreachable:                              ; preds = %192, %136
 
 125:                                              ; preds = %118
   %126 = trunc i64 %.115881711 to i32
-  %127 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %126, i1 true)
+  %127 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %126, i1 true)
   %128 = trunc i64 %.315821712 to i32
   %129 = mul i32 %128, 3
   %130 = add nsw i32 %127, -30
@@ -8422,14 +8422,14 @@ default.unreachable:                              ; preds = %192, %136
 143:                                              ; preds = %141, %139, %137
   %.01549 = phi i64 [ %142, %141 ], [ %140, %139 ], [ %138, %137 ]
   %144 = trunc i64 %.31590 to i32
-  %145 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %144, i1 true)
+  %145 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %144, i1 true)
   %146 = icmp ugt i64 %.01549, 3
   br i1 %146, label %147, label %159
 
 147:                                              ; preds = %143
   %148 = load i64, ptr %7, align 8
   %149 = trunc i64 %148 to i32
-  %150 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %149, i1 true)
+  %150 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %149, i1 true)
   %151 = xor i32 %150, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %152 = shl i32 %.51584.tr, 2
@@ -8527,10 +8527,10 @@ default.unreachable:                              ; preds = %192, %136
 
 201:                                              ; preds = %199
   %202 = trunc i64 %.51592 to i32
-  %203 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %202, i1 true)
+  %203 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %202, i1 true)
   %204 = load i64, ptr %8, align 8
   %205 = trunc i64 %204 to i32
-  %206 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %205, i1 true)
+  %206 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %205, i1 true)
   %207 = xor i32 %206, 31
   %.71586.tr = trunc i64 %.71586 to i32
   %208 = shl i32 %.71586.tr, 2
@@ -9263,7 +9263,7 @@ default.unreachable:                              ; preds = %137
 
 126:                                              ; preds = %119
   %127 = trunc i64 %.11588 to i32
-  %128 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %127, i1 true)
+  %128 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %127, i1 true)
   %129 = trunc i64 %.31582 to i32
   %130 = mul i32 %129, 3
   %131 = add nsw i32 %128, -30
@@ -9306,10 +9306,10 @@ default.unreachable:                              ; preds = %137
 
 146:                                              ; preds = %144
   %147 = trunc i64 %.31590 to i32
-  %148 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %147, i1 true)
+  %148 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %147, i1 true)
   %149 = load i64, ptr %7, align 8
   %150 = trunc i64 %149 to i32
-  %151 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %150, i1 true)
+  %151 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %150, i1 true)
   %152 = xor i32 %151, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %153 = shl i32 %.51584.tr, 2
@@ -11045,7 +11045,7 @@ ZSTD_count.exit1690.thread:                       ; preds = %264
   %266 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %265, i1 true)
   %267 = lshr i64 %266, 3
   %268 = trunc i64 %.115881869 to i32
-  %269 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %268, i1 true)
+  %269 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %268, i1 true)
   br label %302
 
 .preheader.i1682:                                 ; preds = %264, %271
@@ -11123,7 +11123,7 @@ ZSTD_count.exit1690:                              ; preds = %290, %292, %273
   %297 = ptrtoint ptr %261 to i64
   %298 = sub i64 %296, %297
   %299 = trunc i64 %.115881869 to i32
-  %300 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %299, i1 true)
+  %300 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %299, i1 true)
   %301 = icmp ult i64 %298, -4
   br i1 %301, label %302, label %311
 
@@ -11215,14 +11215,14 @@ ZSTD_count.exit1690:                              ; preds = %290, %292, %273
   %.01549 = phi i64 [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %325, %324 ], [ %323, %322 ], [ %321, %320 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ]
   %334 = shl i64 %.41583, 2
   %335 = trunc i64 %.21589 to i32
-  %336 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %335, i1 true)
+  %336 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %335, i1 true)
   %337 = icmp ugt i64 %.01549, 3
   br i1 %337, label %338, label %350
 
 338:                                              ; preds = %333
   %339 = load i64, ptr %7, align 8
   %340 = trunc i64 %339 to i32
-  %341 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %340, i1 true)
+  %341 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %340, i1 true)
   %342 = xor i32 %341, 31
   %343 = trunc i64 %334 to i32
   %344 = add nsw i32 %336, -27
@@ -11441,10 +11441,10 @@ ZSTD_count.exit1717:                              ; preds = %386, %388, %369
 
 428:                                              ; preds = %426
   %429 = trunc i64 %.41591 to i32
-  %430 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %429, i1 true)
+  %430 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %429, i1 true)
   %431 = load i64, ptr %8, align 8
   %432 = trunc i64 %431 to i32
-  %433 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %432, i1 true)
+  %433 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %432, i1 true)
   %434 = xor i32 %433, 31
   %.61585.tr = trunc i64 %.61585 to i32
   %435 = shl i32 %.61585.tr, 2
@@ -12492,7 +12492,7 @@ ZSTD_count.exit1687.thread:                       ; preds = %265
   %267 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %266, i1 true)
   %268 = lshr i64 %267, 3
   %269 = trunc i64 %.11588 to i32
-  %270 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %269, i1 true)
+  %270 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %269, i1 true)
   br label %303
 
 .preheader.i1679:                                 ; preds = %265, %272
@@ -12570,7 +12570,7 @@ ZSTD_count.exit1687:                              ; preds = %291, %293, %274
   %298 = ptrtoint ptr %262 to i64
   %299 = sub i64 %297, %298
   %300 = trunc i64 %.11588 to i32
-  %301 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %300, i1 true)
+  %301 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %300, i1 true)
   %302 = icmp ult i64 %299, -4
   br i1 %302, label %303, label %312
 
@@ -12665,10 +12665,10 @@ ZSTD_count.exit1687:                              ; preds = %291, %293, %274
 
 336:                                              ; preds = %334
   %337 = trunc i64 %.21589 to i32
-  %338 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %337, i1 true)
+  %338 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %337, i1 true)
   %339 = load i64, ptr %7, align 8
   %340 = trunc i64 %339 to i32
-  %341 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %340, i1 true)
+  %341 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %340, i1 true)
   %342 = xor i32 %341, 31
   %.41583.tr = trunc i64 %.41583 to i32
   %343 = shl i32 %.41583.tr, 2
@@ -14607,7 +14607,7 @@ default.unreachable:                              ; preds = %348, %341, %334, %3
 
 251:                                              ; preds = %244
   %252 = trunc i64 %.115881768 to i32
-  %253 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %252, i1 true)
+  %253 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %252, i1 true)
   %254 = trunc i64 %.315821769 to i32
   %255 = mul i32 %254, 3
   %256 = add nsw i32 %253, -30
@@ -14691,14 +14691,14 @@ default.unreachable:                              ; preds = %348, %341, %334, %3
 284:                                              ; preds = %282, %280, %278, %275, %273, %271, %268, %266, %264
   %.01549 = phi i64 [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ]
   %285 = trunc i64 %.31590 to i32
-  %286 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %285, i1 true)
+  %286 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %285, i1 true)
   %287 = icmp ugt i64 %.01549, 3
   br i1 %287, label %288, label %300
 
 288:                                              ; preds = %284
   %289 = load i64, ptr %7, align 8
   %290 = trunc i64 %289 to i32
-  %291 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %290, i1 true)
+  %291 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %290, i1 true)
   %292 = xor i32 %291, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %293 = shl i32 %.51584.tr, 2
@@ -14841,10 +14841,10 @@ default.unreachable:                              ; preds = %348, %341, %334, %3
 
 357:                                              ; preds = %355
   %358 = trunc i64 %.51592 to i32
-  %359 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %358, i1 true)
+  %359 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %358, i1 true)
   %360 = load i64, ptr %8, align 8
   %361 = trunc i64 %360 to i32
-  %362 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %361, i1 true)
+  %362 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %361, i1 true)
   %363 = xor i32 %362, 31
   %.71586.tr = trunc i64 %.71586 to i32
   %364 = shl i32 %.71586.tr, 2
@@ -15935,7 +15935,7 @@ default.unreachable:                              ; preds = %278, %271, %264, %2
 
 252:                                              ; preds = %245
   %253 = trunc i64 %.11588 to i32
-  %254 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %253, i1 true)
+  %254 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %253, i1 true)
   %255 = trunc i64 %.31582 to i32
   %256 = mul i32 %255, 3
   %257 = add nsw i32 %254, -30
@@ -16023,10 +16023,10 @@ default.unreachable:                              ; preds = %278, %271, %264, %2
 
 287:                                              ; preds = %285
   %288 = trunc i64 %.31590 to i32
-  %289 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %288, i1 true)
+  %289 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %288, i1 true)
   %290 = load i64, ptr %7, align 8
   %291 = trunc i64 %290 to i32
-  %292 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %291, i1 true)
+  %292 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %291, i1 true)
   %293 = xor i32 %292, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %294 = shl i32 %.51584.tr, 2
@@ -18125,7 +18125,7 @@ default.unreachable:                              ; preds = %348, %341, %334, %3
 
 251:                                              ; preds = %244
   %252 = trunc i64 %.115881768 to i32
-  %253 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %252, i1 true)
+  %253 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %252, i1 true)
   %254 = trunc i64 %.315821769 to i32
   %255 = mul i32 %254, 3
   %256 = add nsw i32 %253, -30
@@ -18209,14 +18209,14 @@ default.unreachable:                              ; preds = %348, %341, %334, %3
 284:                                              ; preds = %282, %280, %278, %275, %273, %271, %268, %266, %264
   %.01549 = phi i64 [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ]
   %285 = trunc i64 %.31590 to i32
-  %286 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %285, i1 true)
+  %286 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %285, i1 true)
   %287 = icmp ugt i64 %.01549, 3
   br i1 %287, label %288, label %300
 
 288:                                              ; preds = %284
   %289 = load i64, ptr %7, align 8
   %290 = trunc i64 %289 to i32
-  %291 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %290, i1 true)
+  %291 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %290, i1 true)
   %292 = xor i32 %291, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %293 = shl i32 %.51584.tr, 2
@@ -18359,10 +18359,10 @@ default.unreachable:                              ; preds = %348, %341, %334, %3
 
 357:                                              ; preds = %355
   %358 = trunc i64 %.51592 to i32
-  %359 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %358, i1 true)
+  %359 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %358, i1 true)
   %360 = load i64, ptr %8, align 8
   %361 = trunc i64 %360 to i32
-  %362 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %361, i1 true)
+  %362 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %361, i1 true)
   %363 = xor i32 %362, 31
   %.71586.tr = trunc i64 %.71586 to i32
   %364 = shl i32 %.71586.tr, 2
@@ -19453,7 +19453,7 @@ default.unreachable:                              ; preds = %278, %271, %264, %2
 
 252:                                              ; preds = %245
   %253 = trunc i64 %.11588 to i32
-  %254 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %253, i1 true)
+  %254 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %253, i1 true)
   %255 = trunc i64 %.31582 to i32
   %256 = mul i32 %255, 3
   %257 = add nsw i32 %254, -30
@@ -19541,10 +19541,10 @@ default.unreachable:                              ; preds = %278, %271, %264, %2
 
 287:                                              ; preds = %285
   %288 = trunc i64 %.31590 to i32
-  %289 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %288, i1 true)
+  %289 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %288, i1 true)
   %290 = load i64, ptr %7, align 8
   %291 = trunc i64 %290 to i32
-  %292 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %291, i1 true)
+  %292 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %291, i1 true)
   %293 = xor i32 %292, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %294 = shl i32 %.51584.tr, 2
@@ -22052,7 +22052,7 @@ default.unreachable:                              ; preds = %138
 
 127:                                              ; preds = %120
   %128 = trunc i64 %.11384 to i32
-  %129 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %128, i1 true)
+  %129 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %128, i1 true)
   %130 = trunc i64 %.21382 to i32
   %131 = mul i32 %130, 3
   %132 = add nsw i32 %129, -30
@@ -22095,10 +22095,10 @@ default.unreachable:                              ; preds = %138
 
 147:                                              ; preds = %145
   %148 = trunc i64 %.21385 to i32
-  %149 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %148, i1 true)
+  %149 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %148, i1 true)
   %150 = load i64, ptr %7, align 8
   %151 = trunc i64 %150 to i32
-  %152 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %151, i1 true)
+  %152 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %151, i1 true)
   %153 = xor i32 %152, 31
   %.3.tr = trunc i64 %.3 to i32
   %154 = shl i32 %.3.tr, 2
@@ -22844,7 +22844,7 @@ default.unreachable:                              ; preds = %198, %137
 
 126:                                              ; preds = %119
   %127 = trunc i64 %.113841503 to i32
-  %128 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %127, i1 true)
+  %128 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %127, i1 true)
   %129 = trunc i64 %.213821504 to i32
   %130 = mul i32 %129, 3
   %131 = add nsw i32 %128, -30
@@ -22884,14 +22884,14 @@ default.unreachable:                              ; preds = %198, %137
   %.01363 = phi i64 [ %143, %142 ], [ %141, %140 ], [ %139, %138 ]
   %145 = shl i64 %.3, 2
   %146 = trunc i64 %.21385 to i32
-  %147 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %146, i1 true)
+  %147 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %146, i1 true)
   %148 = icmp ugt i64 %.01363, 3
   br i1 %148, label %149, label %161
 
 149:                                              ; preds = %144
   %150 = load i64, ptr %7, align 8
   %151 = trunc i64 %150 to i32
-  %152 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %151, i1 true)
+  %152 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %151, i1 true)
   %153 = xor i32 %152, 31
   %154 = trunc i64 %145 to i32
   %155 = add nsw i32 %147, -27
@@ -22998,10 +22998,10 @@ default.unreachable:                              ; preds = %198, %137
 
 207:                                              ; preds = %205
   %208 = trunc i64 %.31386 to i32
-  %209 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %208, i1 true)
+  %209 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %208, i1 true)
   %210 = load i64, ptr %8, align 8
   %211 = trunc i64 %210 to i32
-  %212 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %211, i1 true)
+  %212 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %211, i1 true)
   %213 = xor i32 %212, 31
   %.4.tr = trunc i64 %.4 to i32
   %214 = shl i32 %.4.tr, 2
@@ -23883,7 +23883,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
 
 208:                                              ; preds = %201
   %209 = trunc i64 %.113841576 to i32
-  %210 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %209, i1 true)
+  %210 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %209, i1 true)
   %211 = trunc i64 %.213821577 to i32
   %212 = mul i32 %211, 3
   %213 = add nsw i32 %210, -30
@@ -24060,7 +24060,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
 ZSTD_BtFindBestMatch_extDict_4.exit1456.thread:   ; preds = %220, %252, %284
   %316 = shl i64 %.3, 2
   %317 = trunc i64 %.21385 to i32
-  %318 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %317, i1 true)
+  %318 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %317, i1 true)
   br label %336
 
 ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i1471, %.lr.ph.split.us2.i.i1461, %.lr.ph.split.i.i1451, %290, %258, %226
@@ -24069,14 +24069,14 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   %319 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %181, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %spec.select1532, i32 noundef 1)
   %320 = shl i64 %.3, 2
   %321 = trunc i64 %.21385 to i32
-  %322 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %321, i1 true)
+  %322 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %321, i1 true)
   %323 = icmp ugt i64 %319, 3
   br i1 %323, label %324, label %336
 
 324:                                              ; preds = %ZSTD_BtFindBestMatch_extDict_4.exit1456
   %325 = load i64, ptr %7, align 8
   %326 = trunc i64 %325 to i32
-  %327 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %326, i1 true)
+  %327 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %326, i1 true)
   %328 = xor i32 %327, 31
   %329 = trunc i64 %320 to i32
   %330 = add nsw i32 %322, -27
@@ -24325,10 +24325,10 @@ ZSTD_BtFindBestMatch_extDict_4.exit1487:          ; preds = %.lr.ph.split.us.i.i
 
 474:                                              ; preds = %ZSTD_BtFindBestMatch_extDict_4.exit1487
   %475 = trunc i64 %.31386 to i32
-  %476 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %475, i1 true)
+  %476 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %475, i1 true)
   %477 = load i64, ptr %8, align 8
   %478 = trunc i64 %477 to i32
-  %479 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %478, i1 true)
+  %479 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %478, i1 true)
   %480 = xor i32 %479, 31
   %.4.tr = trunc i64 %.4 to i32
   %481 = shl i32 %.4.tr, 2
@@ -26357,7 +26357,7 @@ default.unreachable:                              ; preds = %279, %272, %265, %2
 
 253:                                              ; preds = %246
   %254 = trunc i64 %.11384 to i32
-  %255 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %254, i1 true)
+  %255 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %254, i1 true)
   %256 = trunc i64 %.21382 to i32
   %257 = mul i32 %256, 3
   %258 = add nsw i32 %255, -30
@@ -26445,10 +26445,10 @@ default.unreachable:                              ; preds = %279, %272, %265, %2
 
 288:                                              ; preds = %286
   %289 = trunc i64 %.21385 to i32
-  %290 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %289, i1 true)
+  %290 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %289, i1 true)
   %291 = load i64, ptr %7, align 8
   %292 = trunc i64 %291 to i32
-  %293 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %292, i1 true)
+  %293 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %292, i1 true)
   %294 = xor i32 %293, 31
   %.3.tr = trunc i64 %.3 to i32
   %295 = shl i32 %.3.tr, 2
@@ -27552,7 +27552,7 @@ default.unreachable:                              ; preds = %354, %347, %340, %3
 
 252:                                              ; preds = %245
   %253 = trunc i64 %.113841572 to i32
-  %254 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %253, i1 true)
+  %254 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %253, i1 true)
   %255 = trunc i64 %.213821573 to i32
   %256 = mul i32 %255, 3
   %257 = add nsw i32 %254, -30
@@ -27637,14 +27637,14 @@ default.unreachable:                              ; preds = %354, %347, %340, %3
   %.01363 = phi i64 [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ]
   %286 = shl i64 %.3, 2
   %287 = trunc i64 %.21385 to i32
-  %288 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %287, i1 true)
+  %288 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %287, i1 true)
   %289 = icmp ugt i64 %.01363, 3
   br i1 %289, label %290, label %302
 
 290:                                              ; preds = %285
   %291 = load i64, ptr %7, align 8
   %292 = trunc i64 %291 to i32
-  %293 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %292, i1 true)
+  %293 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %292, i1 true)
   %294 = xor i32 %293, 31
   %295 = trunc i64 %286 to i32
   %296 = add nsw i32 %288, -27
@@ -27796,10 +27796,10 @@ default.unreachable:                              ; preds = %354, %347, %340, %3
 
 363:                                              ; preds = %361
   %364 = trunc i64 %.31386 to i32
-  %365 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %364, i1 true)
+  %365 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %364, i1 true)
   %366 = load i64, ptr %8, align 8
   %367 = trunc i64 %366 to i32
-  %368 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %367, i1 true)
+  %368 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %367, i1 true)
   %369 = xor i32 %368, 31
   %.4.tr = trunc i64 %.4 to i32
   %370 = shl i32 %.4.tr, 2
@@ -55304,11 +55304,11 @@ ZSTD_count.exit:                                  ; preds = %215, %221, %247
   %269 = shl nsw i32 %268, 2
   %270 = sub i32 %36, %.2289
   %271 = add i32 %270, 1
-  %272 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %271, i1 true)
+  %272 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %271, i1 true)
   %273 = xor i32 %272, 31
   %274 = load i64, ptr %3, align 8
   %275 = trunc i64 %274 to i32
-  %276 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %275, i1 true)
+  %276 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %275, i1 true)
   %277 = xor i32 %276, 31
   %278 = sub nsw i32 %273, %277
   %279 = icmp sgt i32 %269, %278
@@ -55489,12 +55489,12 @@ ZSTD_count.exit:                                  ; preds = %215, %221, %247
   %377 = add i32 %353, %.0107121.i
   %378 = sub i32 %356, %377
   %379 = add i32 %378, 1
-  %380 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %379, i1 true)
+  %380 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %379, i1 true)
   %381 = xor i32 %380, 31
   %382 = load i64, ptr %3, align 8
   %383 = trunc i64 %382 to i32
   %384 = add i32 %383, 1
-  %385 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %384, i1 true)
+  %385 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %384, i1 true)
   %386 = xor i32 %385, 31
   %387 = sub nsw i32 %381, %386
   %388 = icmp sgt i32 %376, %387

@@ -68,7 +68,7 @@ define hidden void @_ZN12aho_corasick9automaton9Automaton25try_find_overlapping_
   %13 = getelementptr i8, ptr %12, i64 16
   %14 = getelementptr inbounds i8, ptr %7, i64 72
   %15 = load ptr, ptr %14, align 8, !invariant.load !4, !noalias !4, !nonnull !4
-  %16 = tail call noundef i8 %15(ptr noundef align 1 %13), !range !22, !noalias !23
+  %16 = tail call noundef range(i8 0, 3) i8 %15(ptr noundef align 1 %13), !range !22, !noalias !23
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %22
 
@@ -79,7 +79,7 @@ define hidden void @_ZN12aho_corasick9automaton9Automaton25try_find_overlapping_
   br i1 %21, label %26, label %29
 
 22:                                               ; preds = %3
-  %23 = tail call noundef i8 %15(ptr noundef align 1 %13), !range !22, !noalias !27
+  %23 = tail call noundef range(i8 0, 3) i8 %15(ptr noundef align 1 %13), !range !22, !noalias !27
   %24 = tail call noundef nonnull align 1 ptr @_ZN12aho_corasick4util5error10MatchError23unsupported_overlapping17hb3bb323cac127fd5E(i8 noundef %23)
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8

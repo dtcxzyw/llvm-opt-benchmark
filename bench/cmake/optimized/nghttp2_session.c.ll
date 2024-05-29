@@ -11201,7 +11201,7 @@ session_call_unpack_extension_callback.exit.i:    ; preds = %1285
   %1316 = sub i64 %1314, %1315
   call void @nghttp2_frame_unpack_altsvc_payload(ptr noundef nonnull %9, i64 noundef %1311, ptr noundef %1312, i64 noundef %1316) #19
   call void @nghttp2_buf_wrap_init(ptr noundef nonnull %38, ptr noundef null, i64 noundef 0) #19
-  %1317 = call i32 @nghttp2_session_on_altsvc_received(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %1317 = call range(i32 -902, 1) i32 @nghttp2_session_on_altsvc_received(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %1318 = icmp sgt i32 %1317, -901
   br i1 %1318, label %1321, label %1319
 

@@ -11498,7 +11498,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2870
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2870
   store i32 %49, ptr %11, align 4, !noalias !2870
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2870
   %51 = icmp ult i64 %50, 2
@@ -11940,7 +11940,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2892
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2892
   store i32 %49, ptr %11, align 4, !noalias !2892
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2892
   %51 = icmp ult i64 %50, 2
@@ -12382,7 +12382,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2913
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2913
   store i32 %49, ptr %11, align 4, !noalias !2913
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2913
   %51 = icmp ult i64 %50, 2
@@ -12822,7 +12822,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2934
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2934
   store i32 %49, ptr %11, align 4, !noalias !2934
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2934
   %51 = icmp ult i64 %50, 2
@@ -13264,7 +13264,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2955
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2955
   store i32 %49, ptr %11, align 4, !noalias !2955
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2955
   %51 = icmp ult i64 %50, 2
@@ -13704,7 +13704,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2976
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2976
   store i32 %49, ptr %11, align 4, !noalias !2976
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2976
   %51 = icmp ult i64 %50, 2
@@ -14144,7 +14144,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2997
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !2997
   store i32 %49, ptr %11, align 4, !noalias !2997
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2997
   %51 = icmp ult i64 %50, 2
@@ -14584,7 +14584,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3018
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3018
   store i32 %49, ptr %11, align 4, !noalias !3018
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3018
   %51 = icmp ult i64 %50, 2
@@ -15024,7 +15024,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3039
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3039
   store i32 %49, ptr %11, align 4, !noalias !3039
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3039
   %51 = icmp ult i64 %50, 2
@@ -15464,7 +15464,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3060
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3060
   store i32 %49, ptr %11, align 4, !noalias !3060
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3060
   %51 = icmp ult i64 %50, 2
@@ -15906,7 +15906,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3081
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3081
   store i32 %49, ptr %11, align 4, !noalias !3081
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3081
   %51 = icmp ult i64 %50, 2
@@ -16346,7 +16346,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3102
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3102
   store i32 %49, ptr %11, align 4, !noalias !3102
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3102
   %51 = icmp ult i64 %50, 2
@@ -16786,7 +16786,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3123
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3123
   store i32 %49, ptr %11, align 4, !noalias !3123
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3123
   %51 = icmp ult i64 %50, 2
@@ -17228,7 +17228,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3144
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3144
   store i32 %49, ptr %11, align 4, !noalias !3144
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3144
   %51 = icmp ult i64 %50, 2
@@ -17668,7 +17668,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3165
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3165
   store i32 %49, ptr %11, align 4, !noalias !3165
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3165
   %51 = icmp ult i64 %50, 2
@@ -18108,7 +18108,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3186
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3186
   store i32 %49, ptr %11, align 4, !noalias !3186
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3186
   %51 = icmp ult i64 %50, 2
@@ -18550,7 +18550,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3207
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3207
   store i32 %49, ptr %11, align 4, !noalias !3207
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3207
   %51 = icmp ult i64 %50, 2
@@ -18990,7 +18990,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3228
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3228
   store i32 %49, ptr %11, align 4, !noalias !3228
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3228
   %51 = icmp ult i64 %50, 2
@@ -19430,7 +19430,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3249
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3249
   store i32 %49, ptr %11, align 4, !noalias !3249
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3249
   %51 = icmp ult i64 %50, 2
@@ -19872,7 +19872,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3270
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3270
   store i32 %49, ptr %11, align 4, !noalias !3270
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3270
   %51 = icmp ult i64 %50, 2
@@ -20312,7 +20312,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3291
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3291
   store i32 %49, ptr %11, align 4, !noalias !3291
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3291
   %51 = icmp ult i64 %50, 2
@@ -20752,7 +20752,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3312
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3312
   store i32 %49, ptr %11, align 4, !noalias !3312
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3312
   %51 = icmp ult i64 %50, 2
@@ -21192,7 +21192,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3333
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3333
   store i32 %49, ptr %11, align 4, !noalias !3333
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3333
   %51 = icmp ult i64 %50, 2
@@ -21632,7 +21632,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3354
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3354
   store i32 %49, ptr %11, align 4, !noalias !3354
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3354
   %51 = icmp ult i64 %50, 2
@@ -22072,7 +22072,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3375
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3375
   store i32 %49, ptr %11, align 4, !noalias !3375
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3375
   %51 = icmp ult i64 %50, 2
@@ -22512,7 +22512,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3396
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3396
   store i32 %49, ptr %11, align 4, !noalias !3396
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3396
   %51 = icmp ult i64 %50, 2
@@ -22952,7 +22952,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3417
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3417
   store i32 %49, ptr %11, align 4, !noalias !3417
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3417
   %51 = icmp ult i64 %50, 2
@@ -23392,7 +23392,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3438
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3438
   store i32 %49, ptr %11, align 4, !noalias !3438
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3438
   %51 = icmp ult i64 %50, 2
@@ -23832,7 +23832,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3459
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3459
   store i32 %49, ptr %11, align 4, !noalias !3459
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3459
   %51 = icmp ult i64 %50, 2
@@ -24272,7 +24272,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3480
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3480
   store i32 %49, ptr %11, align 4, !noalias !3480
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3480
   %51 = icmp ult i64 %50, 2
@@ -24714,7 +24714,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3501
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3501
   store i32 %49, ptr %11, align 4, !noalias !3501
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3501
   %51 = icmp ult i64 %50, 2
@@ -25154,7 +25154,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3522
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3522
   store i32 %49, ptr %11, align 4, !noalias !3522
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3522
   %51 = icmp ult i64 %50, 2
@@ -25596,7 +25596,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3543
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !2869, !noalias !3543
   store i32 %49, ptr %11, align 4, !noalias !3543
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3543
   %51 = icmp ult i64 %50, 2

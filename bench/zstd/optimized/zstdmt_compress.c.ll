@@ -1323,7 +1323,7 @@ if.end70:                                         ; preds = %ZSTDMT_computeTarge
 if.then72:                                        ; preds = %if.end70
   %shr = lshr i64 %47, 10
   %conv74 = trunc i64 %shr to i32
-  %49 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv74, i1 true)
+  %49 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv74, i1 true)
   %add = sub nuw nsw i32 41, %49
   %rsync = getelementptr inbounds i8, ptr %mtctx, i64 2984
   store i64 0, ptr %rsync, align 8
@@ -2801,7 +2801,7 @@ declare ptr @POOL_create_advanced(i64 noundef, i64 noundef, ptr noundef byval(%s
 define internal fastcc noundef ptr @ZSTDMT_createJobsTable(ptr nocapture noundef %nbJobsPtr, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %nbJobsPtr, align 4
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
+  %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %sub.i = xor i32 %1, 31
   %shl = shl nuw i32 2, %sub.i
   %2 = sub nuw nsw i32 32, %1

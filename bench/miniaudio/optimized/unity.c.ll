@@ -38153,7 +38153,7 @@ if.end30:                                         ; preds = %if.then24, %if.end1
   %15 = load i32, ptr %channelsOut, align 8
   %mixingMode.i = getelementptr inbounds i8, ptr %pConfig, i64 32
   %16 = load i32, ptr %mixingMode.i, align 8
-  %call.i = tail call fastcc i32 @ma_channel_map_get_conversion_path(ptr noundef %12, i32 noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef %16)
+  %call.i = tail call fastcc range(i32 1, 6) i32 @ma_channel_map_get_conversion_path(ptr noundef %12, i32 noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef %16)
   %shuffleTableOffset = getelementptr inbounds i8, ptr %pHeapLayout, i64 24
   store i64 %and, ptr %shuffleTableOffset, align 8
   %cmp36 = icmp eq i32 %call.i, 4
@@ -38341,7 +38341,7 @@ if.end30:                                         ; preds = %if.end7.i.i226, %if
   %15 = load ptr, ptr %pChannelMapOut, align 8
   %16 = load i32, ptr %channelsOut, align 8
   %17 = load i32, ptr %mixingMode, align 8
-  %call.i = tail call fastcc i32 @ma_channel_map_get_conversion_path(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef %17)
+  %call.i = tail call fastcc range(i32 1, 6) i32 @ma_channel_map_get_conversion_path(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef %17)
   %conversionPath = getelementptr inbounds i8, ptr %pConverter, i64 16
   store i32 %call.i, ptr %conversionPath, align 8
   %cmp33 = icmp eq i32 %call.i, 4
@@ -40471,7 +40471,7 @@ sw.bb12:                                          ; preds = %if.end6
   %pShuffleTable.i = getelementptr inbounds i8, ptr %pConverter, i64 40
   %70 = load ptr, ptr %pShuffleTable.i, align 8
   %71 = load i32, ptr %pConverter, align 8
-  %call.i = tail call fastcc i32 @ma_channel_map_apply_shuffle_table(ptr noundef nonnull %pFramesOut, i32 noundef %68, ptr noundef nonnull %pFramesIn, i32 noundef %69, i64 noundef %frameCount, ptr noundef %70, i32 noundef %71)
+  %call.i = tail call fastcc range(i32 -2, 1) i32 @ma_channel_map_apply_shuffle_table(ptr noundef nonnull %pFramesOut, i32 noundef %68, ptr noundef nonnull %pFramesIn, i32 noundef %69, i64 noundef %frameCount, ptr noundef %70, i32 noundef %71)
   br label %return
 
 sw.default:                                       ; preds = %if.end6
@@ -59744,7 +59744,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6864
-  %call.i.i.i = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %dr, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %dr, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end12
 
@@ -59903,7 +59903,7 @@ lor.lhs.false.i:                                  ; preds = %ma_dr_mp3_copy_allo
 if.end.i:                                         ; preds = %lor.lhs.false.i, %lor.lhs.false.thread.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i, %lor.lhs.false.thread.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i, %lor.lhs.false.i ]
   %pcmFrames.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6752
-  %call.i.i = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
+  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
   %cmp9.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
@@ -60153,7 +60153,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6752
-  %call.i.i.i = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %ma_dr_mp3_init.exit
 
@@ -60376,7 +60376,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6752
-  %call.i.i.i = call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %ma_dr_mp3_init.exit
 
@@ -60512,7 +60512,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6864
-  %call.i.i.i = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %dr, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %dr, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end4
 
@@ -60681,7 +60681,7 @@ lor.lhs.false.i:                                  ; preds = %ma_dr_mp3_copy_allo
 if.end.i:                                         ; preds = %lor.lhs.false.i, %lor.lhs.false.thread.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i, %lor.lhs.false.thread.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i, %lor.lhs.false.i ]
   %pcmFrames.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6752
-  %call.i.i = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
+  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
   %cmp9.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
@@ -61054,7 +61054,7 @@ while.body.i:                                     ; preds = %while.body, %if.end
   br i1 %cmp28.i, label %ma_dr_mp3_read_pcm_frames_raw.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %while.body.i
-  %call.i.i = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
+  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
   %cmp32.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp32.not.i, label %ma_dr_mp3_read_pcm_frames_raw.exit, label %while.body.i, !llvm.loop !616
 
@@ -61361,7 +61361,7 @@ while.body.us.i.i.i:                              ; preds = %if.end31.us.i.i.i, 
   br i1 %cmp28.us.i.i.i, label %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i, label %if.end31.us.i.i.i
 
 if.end31.us.i.i.i:                                ; preds = %while.body.us.i.i.i
-  %call.i.us.i.i.i = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i.i)
+  %call.i.us.i.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i.i)
   %cmp32.not.us.i.i.i = icmp eq i32 %call.i.us.i.i.i, 0
   br i1 %cmp32.not.us.i.i.i, label %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i, label %while.body.us.i.i.i, !llvm.loop !616
 
@@ -61440,7 +61440,7 @@ while.body.us.i.i.i29:                            ; preds = %if.end31.us.i.i.i41
   br i1 %cmp28.us.i.i.i40, label %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i44, label %if.end31.us.i.i.i41
 
 if.end31.us.i.i.i41:                              ; preds = %while.body.us.i.i.i29
-  %call.i.us.i.i.i42 = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i.i28)
+  %call.i.us.i.i.i42 = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i.i.i28)
   %cmp32.not.us.i.i.i43 = icmp eq i32 %call.i.us.i.i.i42, 0
   br i1 %cmp32.not.us.i.i.i43, label %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i44, label %while.body.us.i.i.i29, !llvm.loop !616
 
@@ -94091,7 +94091,7 @@ if.end:                                           ; preds = %entry
   %0 = load i32, ptr %channels, align 4
   %conv = zext i32 %0 to i64
   %mul = mul i64 %conv, %totalPCMFrameCount
-  %call.i = tail call fastcc i32 @ma_dr_wav_init_memory_write__internal(ptr noundef %pWav, ptr noundef %ppData, ptr noundef %pDataSize, ptr noundef nonnull readonly %pFormat, i64 noundef %mul, i32 noundef 1, ptr noundef %pAllocationCallbacks)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @ma_dr_wav_init_memory_write__internal(ptr noundef %pWav, ptr noundef %ppData, ptr noundef %pDataSize, ptr noundef nonnull readonly %pFormat, i64 noundef %mul, i32 noundef 1, ptr noundef %pAllocationCallbacks)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -106878,7 +106878,7 @@ while.body.us:                                    ; preds = %while.body.preheade
   br i1 %cmp28.us, label %while.end, label %if.end31.us
 
 if.end31.us:                                      ; preds = %while.body.us
-  %call.i.us = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i)
+  %call.i.us = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i)
   %cmp32.not.us = icmp eq i32 %call.i.us, 0
   br i1 %cmp32.not.us, label %while.end, label %while.body.us, !llvm.loop !616
 
@@ -106919,7 +106919,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp28, label %while.end, label %if.end31
 
 if.end31:                                         ; preds = %while.body
-  %call.i = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i)
+  %call.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i)
   %cmp32.not = icmp eq i32 %call.i, 0
   br i1 %cmp32.not, label %while.end, label %while.body, !llvm.loop !616
 
@@ -107685,7 +107685,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %mp3, i64 6752
-  %call.i.i.i = call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end
 
@@ -107937,7 +107937,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %mp3, i64 6752
-  %call.i.i.i = call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end
 
@@ -108035,7 +108035,7 @@ while.body.i:                                     ; preds = %lor.lhs.false.i, %i
   br i1 %cmp28.i, label %ma_dr_mp3_read_pcm_frames_s16.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %while.body.i
-  %call.i.i = tail call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
+  %call.i.i = tail call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %pMP3, ptr noundef nonnull %pcmFrames.i.i)
   %cmp32.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp32.not.i, label %ma_dr_mp3_read_pcm_frames_s16.exit, label %while.body.i, !llvm.loop !616
 
@@ -108244,7 +108244,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %mp3, i64 6752
-  %call.i.i.i = call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end
 
@@ -108338,7 +108338,7 @@ lor.lhs.false.i.i:                                ; preds = %ma_dr_mp3_copy_allo
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.thread.i.i
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i = phi ptr [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx24.i.i, %lor.lhs.false.thread.i.i ], [ %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, %lor.lhs.false.i.i ]
   %pcmFrames.i.i.i = getelementptr inbounds i8, ptr %mp3, i64 6752
-  %call.i.i.i = call fastcc i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
+  %call.i.i.i = call fastcc range(i32 0, 1153) i32 @ma_dr_mp3_decode_next_frame_ex(ptr noundef nonnull %mp3, ptr noundef nonnull %pcmFrames.i.i.i)
   %cmp9.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end
 
@@ -137259,7 +137259,7 @@ if.end53:                                         ; preds = %if.end46, %if.end33
   br i1 %cmp55.not, label %if.else62, label %if.then57
 
 if.then57:                                        ; preds = %if.end53
-  %call.i = tail call fastcc i32 @ma_dr_flac__decode_samples_with_residual__rice__scalar(ptr noundef nonnull %bs, i32 noundef %bitsPerSample, i32 noundef %samplesInPartition.0, i8 noundef zeroext %riceParam.2, i32 noundef %lpcOrder, i32 noundef %lpcShift, i32 noundef %lpcPrecision, ptr noundef %coefficients, ptr noundef %pDecodedSamples.addr.0)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @ma_dr_flac__decode_samples_with_residual__rice__scalar(ptr noundef nonnull %bs, i32 noundef %bitsPerSample, i32 noundef %samplesInPartition.0, i8 noundef zeroext %riceParam.2, i32 noundef %lpcOrder, i32 noundef %lpcShift, i32 noundef %lpcPrecision, ptr noundef %coefficients, ptr noundef %pDecodedSamples.addr.0)
   %tobool59.not = icmp eq i32 %call.i, 0
   %cmp74 = icmp eq i32 %partitionsRemaining.0, 1
   %or.cond = select i1 %tobool59.not, i1 true, i1 %cmp74

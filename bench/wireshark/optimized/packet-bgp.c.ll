@@ -6295,7 +6295,7 @@ define internal fastcc i32 @decode_prefix_MP(ptr noundef %0, i32 noundef %1, i32
 
 19:                                               ; preds = %18, %18, %18
   %20 = add i32 %8, %6
-  %21 = tail call fastcc i32 @detect_add_path_prefix46(ptr noundef %7, i32 noundef %8, i32 noundef %20, i32 noundef 32)
+  %21 = tail call fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef %7, i32 noundef %8, i32 noundef %20, i32 noundef 32)
   %.not932 = icmp eq i32 %21, 0
   br i1 %.not932, label %24, label %22
 
@@ -6689,7 +6689,7 @@ decode_MPLS_stack.exit:                           ; preds = %195, %202
 
 254:                                              ; preds = %253, %253, %253
   %255 = add i32 %8, %6
-  %256 = tail call fastcc i32 @detect_add_path_prefix46(ptr noundef %7, i32 noundef %8, i32 noundef %255, i32 noundef 128)
+  %256 = tail call fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef %7, i32 noundef %8, i32 noundef %255, i32 noundef 128)
   %.not927 = icmp eq i32 %256, 0
   br i1 %.not927, label %281, label %257
 
@@ -10680,7 +10680,7 @@ dissect_bgp_open.exit:                            ; preds = %.loopexit.i, %56, %
   %125 = load i32, ptr @ett_bgp_unfeas, align 4
   %126 = tail call ptr @proto_item_add_subtree(ptr noundef %124, i32 noundef %125) #4
   %127 = add nuw nsw i32 %122, 21
-  %128 = tail call fastcc i32 @detect_add_path_prefix46(ptr noundef %0, i32 noundef 21, i32 noundef %127, i32 noundef 32)
+  %128 = tail call fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef %0, i32 noundef 21, i32 noundef %127, i32 noundef 32)
   %.not92.i = icmp eq i32 %128, 0
   br i1 %.not92.i, label %.preheader97.i, label %.preheader100.i
 
@@ -10742,7 +10742,7 @@ dissect_bgp_open.exit:                            ; preds = %.loopexit.i, %56, %
   br i1 %162, label %163, label %172
 
 163:                                              ; preds = %154
-  %164 = tail call fastcc i32 @detect_add_path_prefix46(ptr noundef %0, i32 noundef %152, i32 noundef %161, i32 noundef 32)
+  %164 = tail call fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef %0, i32 noundef %152, i32 noundef %161, i32 noundef 32)
   %.not95.i = icmp eq i32 %164, 0
   br i1 %.not95.i, label %172, label %.preheader.i
 

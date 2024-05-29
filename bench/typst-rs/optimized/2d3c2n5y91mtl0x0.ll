@@ -24758,7 +24758,7 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5063)
   %5 = getelementptr inbounds i8, ptr %0, i64 316
   %6 = load i8, ptr %5, align 4, !range !216, !alias.scope !5063, !noundef !7
-  %7 = tail call noundef i8 @"_ZN5image6codecs4jpeg7decoder41_$LT$impl$u20$image..color..ColorType$GT$9from_jpeg17h3b006f708201f2e9E"(i8 noundef %6), !range !5056, !noalias !5063
+  %7 = tail call noundef range(i8 0, 10) i8 @"_ZN5image6codecs4jpeg7decoder41_$LT$impl$u20$image..color..ColorType$GT$9from_jpeg17h3b006f708201f2e9E"(i8 noundef %6), !range !5056, !noalias !5063
   %8 = zext nneg i8 %7 to i64
   %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hd523e38a59ea1d97E", i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -31440,7 +31440,7 @@ define hidden void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT
   %20 = load i16, ptr %19, align 2, !alias.scope !6299, !noundef !7
   %21 = getelementptr inbounds i8, ptr %1, i64 316
   %22 = load i8, ptr %21, align 4, !range !216, !alias.scope !6304, !noundef !7
-  %23 = invoke noundef i8 @"_ZN5image6codecs4jpeg7decoder41_$LT$impl$u20$image..color..ColorType$GT$9from_jpeg17h3b006f708201f2e9E"(i8 noundef %22)
+  %23 = invoke noundef range(i8 0, 10) i8 @"_ZN5image6codecs4jpeg7decoder41_$LT$impl$u20$image..color..ColorType$GT$9from_jpeg17h3b006f708201f2e9E"(i8 noundef %22)
           to label %switch.lookup unwind label %24
 
 .body:                                            ; preds = %34, %24, %64
@@ -31454,7 +31454,7 @@ define hidden void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT
   br label %.body
 
 switch.lookup:                                    ; preds = %4
-  %26 = sext i8 %23 to i64
+  %26 = zext nneg i8 %23 to i64
   %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17hd523e38a59ea1d97E", i64 0, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
   %27 = zext i16 %18 to i64
@@ -163714,11 +163714,11 @@ define hidden void @"_ZN5typst9visualize5image6raster11RasterImage3new28_$u7b$$u
   %74 = zext <2 x i16> %73 to <2 x i32>
   %75 = getelementptr inbounds i8, ptr %46, i64 316
   %76 = load i8, ptr %75, align 4, !range !216, !alias.scope !29100, !noalias !29098, !noundef !7
-  %77 = invoke noundef i8 @"_ZN5image6codecs4jpeg7decoder41_$LT$impl$u20$image..color..ColorType$GT$9from_jpeg17h3b006f708201f2e9E"(i8 noundef %76)
+  %77 = invoke noundef range(i8 0, 10) i8 @"_ZN5image6codecs4jpeg7decoder41_$LT$impl$u20$image..color..ColorType$GT$9from_jpeg17h3b006f708201f2e9E"(i8 noundef %76)
           to label %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hf728366d0cffa3e8E.llvm.3683678558897460461.exit.i" unwind label %358, !noalias !29103
 
 "_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hf728366d0cffa3e8E.llvm.3683678558897460461.exit.i": ; preds = %71
-  switch i8 %77, label %default.unreachable.i [
+  switch i8 %77, label %default.unreachable [
     i8 0, label %78
     i8 1, label %81
     i8 2, label %84
@@ -163731,7 +163731,7 @@ define hidden void @"_ZN5typst9visualize5image6raster11RasterImage3new28_$u7b$$u
     i8 9, label %105
   ]
 
-default.unreachable.i:                            ; preds = %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hf728366d0cffa3e8E.llvm.3683678558897460461.exit.i"
+default.unreachable:                              ; preds = %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hf728366d0cffa3e8E.llvm.3683678558897460461.exit.i"
   unreachable
 
 78:                                               ; preds = %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hf728366d0cffa3e8E.llvm.3683678558897460461.exit.i"

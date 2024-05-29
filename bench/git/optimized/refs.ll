@@ -802,7 +802,7 @@ entry.else:                                       ; preds = %entry
   br label %entry.cont
 
 entry.cont:                                       ; preds = %entry, %entry.else
-  %call.i = tail call fastcc i32 @check_or_sanitize_refname(ptr noundef %refname, i32 noundef 1, ptr noundef null)
+  %call.i = tail call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %refname, i32 noundef 1, ptr noundef null)
   %tobool4.not = icmp eq i32 %call.i, 0
   br i1 %tobool4.not, label %if.end11, label %if.then5
 
@@ -857,7 +857,7 @@ if.end31.us.us.us:                                ; preds = %for.body.us.us.us
 
 if.end41.us.us.us:                                ; preds = %if.end31.us.us.us
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
-  %call.i38.us.us.us = call fastcc i32 @check_or_sanitize_refname(ptr noundef %1, i32 noundef 1, ptr noundef null)
+  %call.i38.us.us.us = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %1, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us = icmp eq i32 %call.i38.us.us.us, 0
   %inc.us.us.us = add nuw nsw i32 %symref_count.090.us.us.us, 1
   %cmp.us.us.us = icmp ult i32 %symref_count.090.us.us.us, 4
@@ -883,7 +883,7 @@ if.end31.us.us:                                   ; preds = %for.body.us.us
 
 if.end41.us.us:                                   ; preds = %if.end31.us.us
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
-  %call.i38.us.us = call fastcc i32 @check_or_sanitize_refname(ptr noundef %3, i32 noundef 1, ptr noundef null)
+  %call.i38.us.us = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %3, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us = icmp eq i32 %call.i38.us.us, 0
   %inc.us.us = add nuw nsw i32 %symref_count.090.us.us, 1
   %cmp.us.us = icmp ult i32 %symref_count.090.us.us, 4
@@ -911,7 +911,7 @@ if.end31.us.us102:                                ; preds = %for.body.us.us96
 
 if.end41.us.us110:                                ; preds = %if.end31.us.us102
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
-  %call.i38.us.us111 = call fastcc i32 @check_or_sanitize_refname(ptr noundef %5, i32 noundef 1, ptr noundef null)
+  %call.i38.us.us111 = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %5, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us112 = icmp eq i32 %call.i38.us.us111, 0
   br i1 %tobool47.not.us.us112, label %for.inc.us.us114, label %if.then48.us.us113
 
@@ -945,7 +945,7 @@ if.end31.us:                                      ; preds = %for.body.us
 
 if.end41.us:                                      ; preds = %if.end31.us
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
-  %call.i38.us = call fastcc i32 @check_or_sanitize_refname(ptr noundef %7, i32 noundef 1, ptr noundef null)
+  %call.i38.us = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %7, i32 noundef 1, ptr noundef null)
   %tobool47.not.us = icmp eq i32 %call.i38.us, 0
   br i1 %tobool47.not.us, label %for.inc.us, label %if.then48.us
 
@@ -1281,7 +1281,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %unused_oid.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %read_flags.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %failure_errno.i)
-  %call.i.i = tail call fastcc i32 @check_or_sanitize_refname(ptr noundef %refname, i32 noundef 1, ptr noundef null)
+  %call.i.i = tail call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %refname, i32 noundef 1, ptr noundef null)
   %tobool4.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool4.not.i, label %for.body.us.us.us.i, label %refs_resolve_ref_unsafe.exit
 
@@ -1301,7 +1301,7 @@ if.end31.us.us.us.i:                              ; preds = %for.body.us.us.us.i
 
 if.end41.us.us.us.i:                              ; preds = %if.end31.us.us.us.i
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
-  %call.i38.us.us.us.i = call fastcc i32 @check_or_sanitize_refname(ptr noundef %1, i32 noundef 1, ptr noundef null)
+  %call.i38.us.us.us.i = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %1, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us.i = icmp eq i32 %call.i38.us.us.us.i, 0
   %inc.us.us.us.i = add nuw nsw i32 %symref_count.090.us.us.us.i, 1
   %cmp.us.us.us.i = icmp ult i32 %symref_count.090.us.us.us.i, 4
@@ -1367,7 +1367,7 @@ get_main_ref_store.exit:                          ; preds = %entry, %ref_store_i
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %unused_oid.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %read_flags.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %failure_errno.i.i)
-  %call.i.i.i = tail call fastcc i32 @check_or_sanitize_refname(ptr noundef %refname, i32 noundef 1, ptr noundef null)
+  %call.i.i.i = tail call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %refname, i32 noundef 1, ptr noundef null)
   %tobool4.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool4.not.i.i, label %for.body.us.us.us.i.i, label %refs_ref_exists.exit
 
@@ -1387,7 +1387,7 @@ if.end31.us.us.us.i.i:                            ; preds = %for.body.us.us.us.i
 
 if.end41.us.us.us.i.i:                            ; preds = %if.end31.us.us.us.i.i
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @refs_resolve_ref_unsafe.sb_refname, i64 16), align 8
-  %call.i38.us.us.us.i.i = call fastcc i32 @check_or_sanitize_refname(ptr noundef %7, i32 noundef 1, ptr noundef null)
+  %call.i38.us.us.us.i.i = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %7, i32 noundef 1, ptr noundef null)
   %tobool47.not.us.us.us.i.i = icmp eq i32 %call.i38.us.us.us.i.i, 0
   %inc.us.us.us.i.i = add nuw nsw i32 %symref_count.090.us.us.us.i.i, 1
   %cmp.us.us.us.i.i = icmp ult i32 %symref_count.090.us.us.us.i.i, 4
@@ -2470,7 +2470,7 @@ _.exit:                                           ; preds = %if.then12, %if.end3
 if.end15:                                         ; preds = %if.then9, %_.exit, %if.end7
   %4 = phi ptr [ %call10, %if.then9 ], [ %.pre6, %_.exit ], [ %1, %if.end7 ]
   %call16 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.22, ptr noundef %4) #22
-  %call.i5 = call fastcc i32 @check_or_sanitize_refname(ptr noundef %call16, i32 noundef 0, ptr noundef null)
+  %call.i5 = call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %call16, i32 noundef 0, ptr noundef null)
   %tobool18.not = icmp eq i32 %call.i5, 0
   br i1 %tobool18.not, label %if.end21, label %if.then19
 
@@ -4474,7 +4474,7 @@ is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.
   br i1 %retval.0.in.i.i.i.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %is_null_oid.exit
-  %call.i13 = tail call fastcc i32 @check_or_sanitize_refname(ptr noundef %refname, i32 noundef 1, ptr noundef null)
+  %call.i13 = tail call fastcc range(i32 -1, 1) i32 @check_or_sanitize_refname(ptr noundef %refname, i32 noundef 1, ptr noundef null)
   %tobool5.not = icmp eq i32 %call.i13, 0
   br i1 %tobool5.not, label %if.end, label %if.then
 

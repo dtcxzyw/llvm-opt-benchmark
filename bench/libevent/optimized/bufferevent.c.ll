@@ -2542,7 +2542,7 @@ if.then.i28:                                      ; preds = %if.then46
   br label %bufferevent_decref.exit
 
 bufferevent_decref.exit:                          ; preds = %if.then46, %if.then.i28
-  %call4.i = call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %cond.i)
+  %call4.i = call range(i32 0, 2) i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %cond.i)
   br label %if.end48
 
 if.end48:                                         ; preds = %bufferevent_decref.exit, %if.end42

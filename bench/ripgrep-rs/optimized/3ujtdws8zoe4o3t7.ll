@@ -1639,7 +1639,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function6FnOnce40call_on
   %18 = getelementptr i8, ptr %17, i64 16
   %19 = getelementptr inbounds i8, ptr %7, i64 40
   %20 = load ptr, ptr %19, align 8, !invariant.load !4, !alias.scope !271, !noalias !275, !nonnull !4
-  %21 = invoke noundef i8 %20(ptr noundef align 1 %18, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, ptr noalias noundef nonnull readonly align 1 %.val2, i64 noundef %.val3)
+  %21 = invoke noundef range(i8 -1, 2) i8 %20(ptr noundef align 1 %18, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, ptr noalias noundef nonnull readonly align 1 %.val2, i64 noundef %.val3)
           to label %"_ZN6ignore4walk11WalkBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h487c56a0d1c711ffE.llvm.10367771592465264080.exit.i" unwind label %22
 
 22:                                               ; preds = %3
@@ -1713,7 +1713,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function6FnOnce40call_on
   tail call void @llvm.assume(i1 %23)
   %24 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %24)
-  %25 = invoke noundef i8 %22(ptr noundef align 1 %14, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20)
+  %25 = invoke noundef range(i8 -1, 2) i8 %22(ptr noundef align 1 %14, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20)
           to label %"_ZN6ignore4walk11WalkBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h53dfe517e6dbf5f0E.llvm.10367771592465264080.exit.i" unwind label %26
 
 26:                                               ; preds = %.noexc2.i, %.noexc.i, %3

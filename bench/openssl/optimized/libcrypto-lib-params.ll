@@ -3080,7 +3080,7 @@ land.lhs.true:                                    ; preds = %if.end
 land.lhs.true3:                                   ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max_len.addr.i)
   store i64 0, ptr %max_len.addr.i, align 8
-  %call.i = call fastcc i32 @get_string_internal(ptr noundef nonnull %p.addr.07.i.i, ptr noundef nonnull %buf, ptr noundef nonnull %max_len.addr.i, ptr noundef nonnull %len, i32 noundef 5)
+  %call.i = call fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef nonnull %p.addr.07.i.i, ptr noundef nonnull %buf, ptr noundef nonnull %max_len.addr.i, ptr noundef nonnull %len, i32 noundef 5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %max_len.addr.i)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.end6

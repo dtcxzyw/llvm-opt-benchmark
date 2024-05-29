@@ -15943,7 +15943,7 @@ define internal ptr @os_confstr(ptr nocapture readnone %module, ptr noundef %arg
 entry:
   %buffer.i = alloca [255 x i8], align 16
   %name = alloca i32, align 4
-  %call.i = call fastcc i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_confstr, i64 noundef 27)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_confstr, i64 noundef 27)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -16005,7 +16005,7 @@ exit:                                             ; preds = %entry, %os_confstr_
 define internal ptr @os_sysconf(ptr nocapture readnone %module, ptr noundef %arg) #0 {
 entry:
   %name = alloca i32, align 4
-  %call.i = call fastcc i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_sysconf, i64 noundef 135)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_sysconf, i64 noundef 135)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -16063,7 +16063,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
 if.end5:                                          ; preds = %if.end
   %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
-  %call.i = call fastcc i32 @conv_confname(ptr noundef %1, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %1, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
   %tobool8.not = icmp eq i32 %call.i, 0
   br i1 %tobool8.not, label %exit, label %if.end10
 
@@ -16129,7 +16129,7 @@ if.end:                                           ; preds = %entry, %cond.end
 if.end9:                                          ; preds = %if.end
   %arrayidx10 = getelementptr i8, ptr %cond17, i64 8
   %2 = load ptr, ptr %arrayidx10, align 8
-  %call.i = call fastcc i32 @conv_confname(ptr noundef %2, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
+  %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %2, ptr noundef nonnull writeonly %name, ptr noundef nonnull @posix_constants_pathconf, i64 noundef 20)
   %tobool12.not = icmp eq i32 %call.i, 0
   br i1 %tobool12.not, label %exit, label %if.end14
 
@@ -26092,7 +26092,7 @@ if.end14:                                         ; preds = %if.end
 
 skip_optional_kwonly:                             ; preds = %if.end14, %if.end
   %follow_symlinks.0 = phi i32 [ %call15, %if.end14 ], [ 1, %if.end ]
-  %call.i = call fastcc i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef %self, i32 noundef %follow_symlinks.0, i16 noundef zeroext 16384)
+  %call.i = call fastcc range(i32 -1, 2) i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef %self, i32 noundef %follow_symlinks.0, i16 noundef zeroext 16384)
   %cmp20 = icmp eq i32 %call.i, -1
   br i1 %cmp20, label %land.lhs.true21, label %if.end25
 
@@ -26150,7 +26150,7 @@ if.end14:                                         ; preds = %if.end
 
 skip_optional_kwonly:                             ; preds = %if.end14, %if.end
   %follow_symlinks.0 = phi i32 [ %call15, %if.end14 ], [ 1, %if.end ]
-  %call.i = call fastcc i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef %self, i32 noundef %follow_symlinks.0, i16 noundef zeroext -32768)
+  %call.i = call fastcc range(i32 -1, 2) i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef %self, i32 noundef %follow_symlinks.0, i16 noundef zeroext -32768)
   %cmp20 = icmp eq i32 %call.i, -1
   br i1 %cmp20, label %land.lhs.true21, label %if.end25
 

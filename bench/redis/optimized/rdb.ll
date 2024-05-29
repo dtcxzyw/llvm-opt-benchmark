@@ -13048,7 +13048,7 @@ if.end10:                                         ; preds = %entry
   store ptr %3, ptr %loading_ctx.i, align 8
   %functions_lib_ctx1.i = getelementptr inbounds i8, ptr %loading_ctx.i, i64 8
   store ptr %call.i, ptr %functions_lib_ctx1.i, align 8
-  %call3.i = call i32 @rdbLoadRioWithLoadingCtx(ptr noundef nonnull %rdb, i32 noundef %rdbflags, ptr noundef %rsi, ptr noundef nonnull %loading_ctx.i)
+  %call3.i = call range(i32 -1, 1) i32 @rdbLoadRioWithLoadingCtx(ptr noundef nonnull %rdb, i32 noundef %rdbflags, ptr noundef %rsi, ptr noundef nonnull %loading_ctx.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %loading_ctx.i)
   %call18 = call i32 @fclose(ptr noundef nonnull %call)
   %cmp19.not = icmp eq i32 %call3.i, 0

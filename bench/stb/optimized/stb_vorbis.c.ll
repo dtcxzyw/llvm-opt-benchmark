@@ -3224,18 +3224,18 @@ entry:
 ; Function Attrs: nofree nounwind uwtable
 define i32 @get32_packet(ptr nocapture noundef %f) local_unnamed_addr #16 {
 entry:
-  %call.i = tail call i32 @get8_packet_raw(ptr noundef %f)
+  %call.i = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %f)
   %valid_bits.i = getelementptr inbounds i8, ptr %f, i64 1784
   store i32 0, ptr %valid_bits.i, align 8
-  %call.i7 = tail call i32 @get8_packet_raw(ptr noundef %f)
+  %call.i7 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %f)
   store i32 0, ptr %valid_bits.i, align 8
   %shl = shl nsw i32 %call.i7, 8
   %add = add i32 %shl, %call.i
-  %call.i9 = tail call i32 @get8_packet_raw(ptr noundef %f)
+  %call.i9 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %f)
   store i32 0, ptr %valid_bits.i, align 8
   %shl3 = shl nsw i32 %call.i9, 16
   %add4 = add i32 %add, %shl3
-  %call.i11 = tail call i32 @get8_packet_raw(ptr noundef %f)
+  %call.i11 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %f)
   store i32 0, ptr %valid_bits.i, align 8
   %shl6 = shl i32 %call.i11, 24
   %add7 = add i32 %add4, %shl6
@@ -9026,7 +9026,7 @@ if.end164:                                        ; preds = %if.end160
   br i1 %tobool166.not, label %return, label %if.end168
 
 if.end168:                                        ; preds = %if.end164
-  %call.i862 = tail call i32 @get8_packet_raw(ptr noundef nonnull %f)
+  %call.i862 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %f)
   %valid_bits.i = getelementptr inbounds i8, ptr %f, i64 1784
   store i32 0, ptr %valid_bits.i, align 8
   %cmp170.not = icmp eq i32 %call.i862, 3
@@ -9039,7 +9039,7 @@ if.then172:                                       ; preds = %if.end168
 
 for.body:                                         ; preds = %if.end168, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end168 ]
-  %call.i864 = tail call i32 @get8_packet_raw(ptr noundef nonnull %f)
+  %call.i864 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %f)
   store i32 0, ptr %valid_bits.i, align 8
   %conv178 = trunc i32 %call.i864 to i8
   %arrayidx179 = getelementptr inbounds [6 x i8], ptr %header, i64 0, i64 %indvars.iv
@@ -9082,7 +9082,7 @@ if.then193:                                       ; preds = %if.end185
 
 for.body199:                                      ; preds = %for.body199.preheader, %for.body199
   %indvars.iv1271 = phi i64 [ 0, %for.body199.preheader ], [ %indvars.iv.next1272, %for.body199 ]
-  %call.i871 = tail call i32 @get8_packet_raw(ptr noundef nonnull %f)
+  %call.i871 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %f)
   store i32 0, ptr %valid_bits.i, align 8
   %conv201 = trunc i32 %call.i871 to i8
   %11 = load ptr, ptr %vendor, align 8
@@ -9155,7 +9155,7 @@ if.then248:                                       ; preds = %for.body233
 
 for.body254:                                      ; preds = %for.body254.preheader, %for.body254
   %indvars.iv1275 = phi i64 [ 0, %for.body254.preheader ], [ %indvars.iv.next1276, %for.body254 ]
-  %call.i875 = tail call i32 @get8_packet_raw(ptr noundef nonnull %f)
+  %call.i875 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %f)
   store i32 0, ptr %valid_bits.i, align 8
   %conv256 = trunc i32 %call.i875 to i8
   %16 = load ptr, ptr %comment_list, align 8
@@ -9185,7 +9185,7 @@ for.end264:                                       ; preds = %for.end264.loopexit
   br i1 %cmp231, label %for.body233, label %for.end272, !llvm.loop !90
 
 for.end272:                                       ; preds = %for.end264, %for.end207, %if.end228
-  %call.i877 = tail call i32 @get8_packet_raw(ptr noundef nonnull %f)
+  %call.i877 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %f)
   store i32 0, ptr %valid_bits.i, align 8
   %and276 = and i32 %call.i877, 1
   %tobool277.not = icmp eq i32 %and276, 0
@@ -9269,7 +9269,7 @@ for.end.i:                                        ; preds = %for.body3.i
   br i1 %exitcond12.not.i, label %crc32_init.exit, label %for.body.i, !llvm.loop !7
 
 crc32_init.exit:                                  ; preds = %for.end.i
-  %call.i880 = tail call i32 @get8_packet_raw(ptr noundef %f)
+  %call.i880 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %f)
   store i32 0, ptr %valid_bits.i, align 8
   %cmp303.not = icmp eq i32 %call.i880, 5
   br i1 %cmp303.not, label %for.body311, label %if.then305
@@ -9281,7 +9281,7 @@ if.then305:                                       ; preds = %crc32_init.exit
 
 for.body311:                                      ; preds = %crc32_init.exit, %for.body311
   %indvars.iv1283 = phi i64 [ %indvars.iv.next1284, %for.body311 ], [ 0, %crc32_init.exit ]
-  %call.i883 = tail call i32 @get8_packet_raw(ptr noundef nonnull %f)
+  %call.i883 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %f)
   store i32 0, ptr %valid_bits.i, align 8
   %conv313 = trunc i32 %call.i883 to i8
   %arrayidx315 = getelementptr inbounds [6 x i8], ptr %header, i64 0, i64 %indvars.iv1283
@@ -12429,7 +12429,7 @@ if.then14:                                        ; preds = %if.then10
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.then14
-  %call.i46 = tail call i32 @get8_packet_raw(ptr noundef nonnull %f)
+  %call.i46 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %f)
   store i32 0, ptr %valid_bits.i, align 8
   %cmp17.not = icmp eq i32 %call.i46, -1
   br i1 %cmp17.not, label %while.end, label %while.body
@@ -12461,7 +12461,7 @@ if.then28:                                        ; preds = %if.then25
   br label %while.cond30
 
 while.cond30:                                     ; preds = %while.body34, %if.then28
-  %call.i47 = tail call i32 @get8_packet_raw(ptr noundef nonnull %f)
+  %call.i47 = tail call range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %f)
   store i32 0, ptr %valid_bits.i48, align 8
   %cmp32.not = icmp eq i32 %call.i47, -1
   br i1 %cmp32.not, label %while.end39, label %while.body34

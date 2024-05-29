@@ -2956,7 +2956,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !989)
   %4 = load ptr, ptr %1, align 8, !alias.scope !986, !noalias !989, !nonnull !7, !align !13, !noundef !7
   %5 = load ptr, ptr %2, align 8, !alias.scope !989, !noalias !986, !nonnull !7, !align !13, !noundef !7
-  %6 = tail call noundef i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %4, ptr noundef nonnull align 8 %5), !range !982, !noalias !991
+  %6 = tail call noundef range(i8 -1, 2) i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %4, ptr noundef nonnull align 8 %5), !range !982, !noalias !991
   ret i8 %6
 }
 
@@ -2994,7 +2994,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1017)
   %4 = load ptr, ptr %1, align 8, !alias.scope !1019, !noalias !1020, !nonnull !7, !align !13, !noundef !7
   %5 = load ptr, ptr %2, align 8, !alias.scope !1020, !noalias !1019, !nonnull !7, !align !13, !noundef !7
-  %6 = tail call noundef i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %4, ptr noundef nonnull align 8 %5), !range !982, !noalias !1021
+  %6 = tail call noundef range(i8 -1, 2) i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %4, ptr noundef nonnull align 8 %5), !range !982, !noalias !1021
   ret i8 %6
 }
 

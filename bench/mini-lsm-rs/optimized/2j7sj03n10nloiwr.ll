@@ -8876,7 +8876,7 @@ define hidden void @_ZN13mini_lsm_mvcc5table8iterator15SsTableIterator17seek_to_
   %14 = call { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h8d152a2a152d4dd3E.llvm.15192800734258360407"(ptr noundef nonnull align 8 %11, i64 noundef %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %14, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !1640
-  %15 = call noundef i64 @llvm.usub.sat.i64(i64 %.fca.1.extract.i.i, i64 1)
+  %15 = call noundef range(i64 0, -1) i64 @llvm.usub.sat.i64(i64 %.fca.1.extract.i.i, i64 1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   %16 = call { i64, ptr } @_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached17he99c3321e59f02baE(ptr noundef nonnull align 8 %9, i64 noundef %15)

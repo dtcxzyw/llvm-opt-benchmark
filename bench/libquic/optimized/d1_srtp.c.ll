@@ -131,7 +131,7 @@ entry:
 define hidden range(i32 0, 2) i32 @SSL_CTX_set_tlsext_use_srtp(ptr nocapture noundef writeonly %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
   %srtp_profiles.i = getelementptr inbounds i8, ptr %ctx, i64 568
-  %call.i = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull writeonly %srtp_profiles.i)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull writeonly %srtp_profiles.i)
   %lnot.ext = xor i32 %call.i, 1
   ret i32 %lnot.ext
 }
@@ -140,7 +140,7 @@ entry:
 define hidden range(i32 0, 2) i32 @SSL_set_tlsext_use_srtp(ptr nocapture noundef writeonly %ssl, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
   %srtp_profiles.i = getelementptr inbounds i8, ptr %ssl, i64 328
-  %call.i = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull writeonly %srtp_profiles.i)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull writeonly %srtp_profiles.i)
   %lnot.ext = xor i32 %call.i, 1
   ret i32 %lnot.ext
 }

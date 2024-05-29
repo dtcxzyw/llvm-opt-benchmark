@@ -4249,7 +4249,7 @@ define hidden void @_ZN3mio3net3uds6stream10UnixStream7connect17h446d5cf6d08c6fe
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4, !range !568, !alias.scope !565, !noalias !562, !noundef !4
-  %9 = tail call noundef i32 @_ZN3mio3net3uds6stream10UnixStream8from_std17hcb15665ac4657b47E(i32 noundef %8), !range !568, !noalias !569
+  %9 = tail call noundef range(i32 0, -1) i32 @_ZN3mio3net3uds6stream10UnixStream8from_std17hcb15665ac4657b47E(i32 noundef %8), !range !568, !noalias !569
   %10 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %9, ptr %10, align 4, !alias.scope !562, !noalias !565
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1c6c15965a5bfc2dE.llvm.3022320907263900876.exit"
@@ -4917,7 +4917,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1c6c15965a5bfc2d
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !range !568, !noundef !4
-  %7 = tail call noundef i32 @_ZN3mio3net3uds6stream10UnixStream8from_std17hcb15665ac4657b47E(i32 noundef %6), !range !568
+  %7 = tail call noundef range(i32 0, -1) i32 @_ZN3mio3net3uds6stream10UnixStream8from_std17hcb15665ac4657b47E(i32 noundef %6), !range !568
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
   br label %13

@@ -948,7 +948,7 @@ if.else17:                                        ; preds = %do.end
   unreachable
 
 do.end19:                                         ; preds = %do.end
-  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %addr.0, i1 true)
+  %7 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %addr.0, i1 true)
   %shl = shl nuw i32 1, %7
   %tobool21.not = icmp eq ptr %sizeptr, null
   br i1 %tobool21.not, label %if.end24, label %if.then22

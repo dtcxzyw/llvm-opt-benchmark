@@ -3434,7 +3434,7 @@ if.end3:                                          ; preds = %if.end
   %2 = load i32, ptr @core_sparse_checkout_cone, align 4
   %use_cone_patterns.i = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %2, ptr %use_cone_patterns.i, align 8
-  %call.i3.i = tail call fastcc i32 @add_patterns(ptr noundef %call.i.i, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %call, ptr noundef null, i32 noundef 0, ptr noundef null)
+  %call.i3.i = tail call fastcc range(i32 2, 1) i32 @add_patterns(ptr noundef %call.i.i, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %call, ptr noundef null, i32 noundef 0, ptr noundef null)
   tail call void @free(ptr noundef %call.i.i) #25
   %cmp = icmp slt i32 %call.i3.i, 0
   br i1 %cmp, label %do.body, label %return
@@ -3457,7 +3457,7 @@ entry:
   %0 = load i32, ptr @core_sparse_checkout_cone, align 4
   %use_cone_patterns = getelementptr inbounds i8, ptr %pl, i64 32
   store i32 %0, ptr %use_cone_patterns, align 8
-  %call.i3 = tail call fastcc i32 @add_patterns(ptr noundef %call.i, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %pl, ptr noundef null, i32 noundef 0, ptr noundef null)
+  %call.i3 = tail call fastcc range(i32 2, 1) i32 @add_patterns(ptr noundef %call.i, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %pl, ptr noundef null, i32 noundef 0, ptr noundef null)
   tail call void @free(ptr noundef %call.i) #25
   ret i32 %call.i3
 }
@@ -3494,7 +3494,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %3 = load i32, ptr @core_sparse_checkout_cone, align 4
   %use_cone_patterns.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 %3, ptr %use_cone_patterns.i.i, align 8
-  %call.i3.i.i = tail call fastcc i32 @add_patterns(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %call.i, ptr noundef null, i32 noundef 0, ptr noundef null)
+  %call.i3.i.i = tail call fastcc range(i32 2, 1) i32 @add_patterns(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %call.i, ptr noundef null, i32 noundef 0, ptr noundef null)
   tail call void @free(ptr noundef %call.i.i.i) #25
   %cmp.i = icmp slt i32 %call.i3.i.i, 0
   br i1 %cmp.i, label %do.body.i, label %lor.lhs.false2

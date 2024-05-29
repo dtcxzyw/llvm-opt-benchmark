@@ -2770,7 +2770,7 @@ define internal fastcc void @build_hash_tables(ptr noundef %0) unnamed_addr #1 {
   %30 = fptosi double %29 to i64
   %31 = ashr i64 %30, 1
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %31, i64 %27)
-  %32 = tail call i64 @llvm.smax.i64(i64 %spec.select.i, i64 1)
+  %32 = tail call range(i64 -9223372036854775808, 4611686018427387904) i64 @llvm.smax.i64(i64 %spec.select.i, i64 1)
   %33 = load ptr, ptr %8, align 8
   %34 = load ptr, ptr %9, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 40

@@ -2829,7 +2829,7 @@ if.then76:                                        ; preds = %if.end74
   %root_names. = select i1 %tobool, ptr %root_names, ptr null
   %call.i132 = call ptr @SSL_CTX_get_cert_store(ptr noundef %35)
   %call1.i = call i32 @X509_STORE_set_flags(ptr noundef %call.i132, i64 noundef 557056)
-  %call2.i133 = call fastcc noundef i32 @_ZL21x509_store_load_certsP13x509_store_stPKcmPP18stack_st_X509_NAME(ptr noundef %call.i132, ptr noundef nonnull %33, i64 noundef %call81, ptr noundef %root_names.)
+  %call2.i133 = call fastcc noundef range(i32 0, 13) i32 @_ZL21x509_store_load_certsP13x509_store_stPKcmPP18stack_st_X509_NAME(ptr noundef %call.i132, ptr noundef nonnull %33, i64 noundef %call81, ptr noundef %root_names.)
   %cmp83.not = icmp eq i32 %call2.i133, 0
   br i1 %cmp83.not, label %if.end85, label %if.then84
 

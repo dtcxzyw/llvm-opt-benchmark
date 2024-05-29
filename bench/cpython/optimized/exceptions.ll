@@ -5397,7 +5397,7 @@ return:                                           ; preds = %while.cond, %Py_DEC
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @BaseException_with_traceback(ptr noundef %self, ptr noundef %tb) #1 {
 entry:
-  %call1.i = tail call i32 @BaseException_set_tb(ptr noundef %self, ptr noundef %tb, ptr poison)
+  %call1.i = tail call range(i32 -1, 1) i32 @BaseException_set_tb(ptr noundef %self, ptr noundef %tb, ptr poison)
   %tobool.not = icmp eq i32 %call1.i, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -6811,7 +6811,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %if.then13
 
 if.then13:                                        ; preds = %if.then.i.i.i, %if.end.i.i.i.i
-  %call1.i = tail call i32 @BaseException_set_tb(ptr noundef nonnull %call4, ptr noundef nonnull %3, ptr poison)
+  %call1.i = tail call range(i32 -1, 1) i32 @BaseException_set_tb(ptr noundef nonnull %call4, ptr noundef nonnull %3, ptr poison)
   %5 = load i64, ptr %3, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i79.not = icmp eq i64 %6, 0

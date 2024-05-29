@@ -2877,8 +2877,8 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   unreachable
 
 41:                                               ; preds = %36
-  %42 = mul nsw i32 %37, 3
-  %43 = ashr exact i32 %42, 1
+  %42 = ashr exact i32 %37, 1
+  %43 = add nsw i32 %42, %37
   %44 = icmp eq i32 %43, %4
   br i1 %44, label %46, label %45
 

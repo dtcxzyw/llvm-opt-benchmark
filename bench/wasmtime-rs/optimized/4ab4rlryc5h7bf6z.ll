@@ -1287,7 +1287,7 @@ _ZN17cranelift_bforest11slice_shift17hbb7d6c24393ab507E.exit.thread.i: ; preds =
   br i1 %exitcond.not.i6.i, label %_ZN17cranelift_bforest11slice_shift17hbb7d6c24393ab507E.exit.i, label %.lr.ph.i4.i
 
 "_ZN17cranelift_bforest4node17NodeData$LT$F$GT$12inner_remove17h2ab5c7873b9af020E.exit": ; preds = %63, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6ce7f2c369c148f5E.exit.i"
-  %85 = tail call noundef i8 @_ZN17cranelift_bforest4node7Removed3new17h9dd678f684b3f7eeE(i64 noundef %31, i64 noundef %43, i64 noundef 8), !range !16, !noalias !49
+  %85 = tail call noundef range(i8 0, 4) i8 @_ZN17cranelift_bforest4node7Removed3new17h9dd678f684b3f7eeE(i64 noundef %31, i64 noundef %43, i64 noundef 8), !range !16, !noalias !49
   %86 = tail call fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4path13Path$LT$F$GT$10heal_level17h0a60288c58a131afE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, i8 noundef %85, i64 noundef %27, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   br i1 %trunc, label %90, label %88
 

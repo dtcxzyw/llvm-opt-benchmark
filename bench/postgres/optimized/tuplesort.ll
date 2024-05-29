@@ -2124,7 +2124,7 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   %128 = sub i64 %118, %127
   %129 = sext i32 %119 to i64
   %130 = sdiv i64 %128, %129
-  %spec.select.i = call i64 @llvm.smax.i64(i64 %130, i64 0)
+  %spec.select.i = call range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %130, i64 0)
   %131 = load i8, ptr @trace_sort, align 1
   %132 = trunc i8 %131 to i1
   br i1 %132, label %133, label %140

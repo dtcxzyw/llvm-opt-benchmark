@@ -1045,7 +1045,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NtkRRWindow(ptr nocapture nounde
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = sub nsw i32 %15, %17
-  %19 = tail call noundef i32 @llvm.smax.i32(i32 %18, i32 0)
+  %19 = tail call noundef range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %18, i32 0)
   %20 = getelementptr inbounds i8, ptr %8, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = lshr i32 %21, 12

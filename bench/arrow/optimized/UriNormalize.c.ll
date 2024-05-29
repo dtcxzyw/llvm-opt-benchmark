@@ -1452,7 +1452,7 @@ declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 11) i32 @uriNormalizeSyntaxA(ptr noundef %uri) local_unnamed_addr #0 {
 entry:
-  %call4.i.i = tail call fastcc i32 @uriNormalizeSyntaxEngineA(ptr noundef %uri, i32 noundef -1, ptr noundef null, ptr noundef nonnull @defaultMemoryManager)
+  %call4.i.i = tail call fastcc range(i32 0, 11) i32 @uriNormalizeSyntaxEngineA(ptr noundef %uri, i32 noundef -1, ptr noundef null, ptr noundef nonnull @defaultMemoryManager)
   ret i32 %call4.i.i
 }
 
@@ -2909,7 +2909,7 @@ return:                                           ; preds = %if.else, %do.end
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 11) i32 @uriNormalizeSyntaxW(ptr noundef %uri) local_unnamed_addr #0 {
 entry:
-  %call4.i.i = tail call fastcc i32 @uriNormalizeSyntaxEngineW(ptr noundef %uri, i32 noundef -1, ptr noundef null, ptr noundef nonnull @defaultMemoryManager)
+  %call4.i.i = tail call fastcc range(i32 0, 11) i32 @uriNormalizeSyntaxEngineW(ptr noundef %uri, i32 noundef -1, ptr noundef null, ptr noundef nonnull @defaultMemoryManager)
   ret i32 %call4.i.i
 }
 

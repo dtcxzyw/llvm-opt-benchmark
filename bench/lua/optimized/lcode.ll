@@ -181,7 +181,7 @@ if.end27:                                         ; preds = %lor.lhs.false, %pre
   %shl2.i = add i32 %sub28, -65536
   %or.i = or i32 %shl1.i, %shl2.i
   %or3.i = or disjoint i32 %or.i, 8
-  %call.i = tail call i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or3.i)
+  %call.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or3.i)
   br label %return
 
 return:                                           ; preds = %if.end27, %if.then13
@@ -267,7 +267,7 @@ if.end5:                                          ; preds = %if.then2, %fixjump.
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2147483647) i32 @luaK_jump(ptr nocapture noundef %fs) local_unnamed_addr #4 {
 entry:
-  %call.i = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
+  %call.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
   ret i32 %call.i
 }
 
@@ -283,7 +283,7 @@ entry:
   %add = shl i32 %nret, 16
   %shl2.i = add i32 %add, 65536
   %or3.i = or i32 %or.i, %shl2.i
-  %call.i = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i)
+  %call.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i)
   ret void
 }
 
@@ -624,7 +624,7 @@ if.then:                                          ; preds = %entry
   %shl2.i = add i32 %add.i, 2147450880
   %or.i = or i32 %shl1.i, %shl2.i
   %or3.i = or disjoint i32 %or.i, 1
-  %call.i = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i)
+  %call.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -642,15 +642,15 @@ if.then.i:                                        ; preds = %if.else
   %shl2.i.i = shl i32 %call.i6, 15
   %or.i.i = or i32 %shl1.i.i, %shl2.i.i
   %or3.i.i = or disjoint i32 %or.i.i, 3
-  %call.i.i = call i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i.i)
+  %call.i.i = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i.i)
   br label %if.end
 
 if.else.i:                                        ; preds = %if.else
   %or.i7.i = or disjoint i32 %shl1.i.i, 4
-  %call.i9.i = call i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i7.i)
+  %call.i9.i = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i7.i)
   %shl.i.i = shl i32 %call.i6, 7
   %or.i10.i = or disjoint i32 %shl.i.i, 82
-  %call.i11.i = call i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i10.i)
+  %call.i11.i = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i10.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %if.then
@@ -843,7 +843,7 @@ sw.bb4:                                           ; preds = %entry
   %10 = load i32, ptr %u5, align 8
   %shl2.i = shl i32 %10, 16
   %or3.i = or disjoint i32 %shl2.i, 9
-  %call.i = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i)
+  %call.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i)
   store i32 %call.i, ptr %u5, align 8
   store i32 17, ptr %e, align 8
   br label %sw.epilog
@@ -859,7 +859,7 @@ sw.bb9:                                           ; preds = %entry
   %shl4.i = shl i32 %conv13, 24
   %or3.i40 = or disjoint i32 %shl2.i39, %shl4.i
   %or5.i = or disjoint i32 %or3.i40, 11
-  %call.i41 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or5.i)
+  %call.i41 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or5.i)
   store i32 %call.i41, ptr %u10, align 8
   store i32 17, ptr %e, align 8
   br label %sw.epilog
@@ -889,7 +889,7 @@ freereg.exit:                                     ; preds = %sw.bb17, %if.then.i
   %shl4.i45 = shl i32 %conv26, 24
   %or3.i44 = or disjoint i32 %shl2.i43, %shl4.i45
   %or5.i46 = or disjoint i32 %or3.i44, 13
-  %call.i47 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or5.i46)
+  %call.i47 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or5.i46)
   store i32 %call.i47, ptr %u18, align 8
   store i32 17, ptr %e, align 8
   br label %sw.epilog
@@ -919,7 +919,7 @@ freereg.exit53:                                   ; preds = %sw.bb30, %if.then.i
   %shl4.i56 = shl i32 %conv39, 24
   %or3.i55 = or disjoint i32 %shl2.i54, %shl4.i56
   %or5.i57 = or disjoint i32 %or3.i55, 14
-  %call.i58 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or5.i57)
+  %call.i58 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or5.i57)
   store i32 %call.i58, ptr %u31, align 8
   store i32 17, ptr %e, align 8
   br label %sw.epilog
@@ -983,7 +983,7 @@ freeregs.exit:                                    ; preds = %freereg.exit.i, %fr
   %shl4.i62 = shl i32 %conv55, 24
   %or3.i61 = or disjoint i32 %shl2.i60, %shl4.i62
   %or5.i63 = or disjoint i32 %or3.i61, 12
-  %call.i64 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or5.i63)
+  %call.i64 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or5.i63)
   store i32 %call.i64, ptr %u44, align 8
   store i32 17, ptr %e, align 8
   br label %sw.epilog
@@ -1257,7 +1257,7 @@ if.then8:                                         ; preds = %getjumpcontrol.exit
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then8
-  %call.i.i = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
+  %call.i.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.false
@@ -1268,11 +1268,11 @@ cond.end:                                         ; preds = %if.then8, %cond.fal
   store i32 %22, ptr %lasttarget.i.i, align 4
   %shl1.i.i = shl i32 %reg, 7
   %or.i.i69 = or disjoint i32 %shl1.i.i, 6
-  %call.i.i70 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i.i69)
+  %call.i.i70 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i.i69)
   %23 = load i32, ptr %pc.i.i, align 8
   store i32 %23, ptr %lasttarget.i.i, align 4
   %or.i.i74 = or disjoint i32 %shl1.i.i, 7
-  %call.i.i75 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i.i74)
+  %call.i.i75 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i.i74)
   %24 = load i32, ptr %pc.i.i, align 8
   store i32 %24, ptr %lasttarget.i.i, align 4
   tail call fastcc void @patchlistaux(ptr noundef readonly %fs, i32 noundef %cond, i32 noundef %24, i32 noundef 255, i32 noundef %24)
@@ -1599,7 +1599,7 @@ codeABRK.exit72:                                  ; preds = %sw.bb23, %if.else.i
 
 sw.epilog.sink.split:                             ; preds = %sw.bb1, %codeABRK.exit, %codeABRK.exit42, %codeABRK.exit57, %codeABRK.exit72
   %or7.i.i68.sink = phi i32 [ %or7.i.i68, %codeABRK.exit72 ], [ %or7.i.i53, %codeABRK.exit57 ], [ %or7.i.i38, %codeABRK.exit42 ], [ %or7.i.i, %codeABRK.exit ], [ %or3.i, %sw.bb1 ]
-  %call.i3.i69 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i.i68.sink)
+  %call.i3.i69 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i.i68.sink)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
@@ -1703,7 +1703,7 @@ codeABRK.exit:                                    ; preds = %luaK_reserveregs.ex
   %or3.i.i = or i32 %or.i.i, %retval.0.i.i
   %or5.i.i = or i32 %or3.i.i, %shl4.i.i
   %or7.i.i = or disjoint i32 %or5.i.i, 20
-  %call.i3.i = tail call i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or7.i.i)
+  %call.i3.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or7.i.i)
   %11 = load i32, ptr %key, align 8
   %cmp.i16 = icmp eq i32 %11, 8
   br i1 %cmp.i16, label %if.then.i17, label %freeexp.exit24
@@ -1912,8 +1912,8 @@ removelastinstruction.exit:                       ; preds = %if.then.i.i, %if.el
   %shl1.i.i = and i32 %13, 32640
   %or.i.i = select i1 %tobool.not, i32 32834, i32 66
   %or7.i.i = or disjoint i32 %or.i.i, %shl1.i.i
-  %call.i.i = tail call i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or7.i.i)
-  %call.i.i.i = tail call i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef 2147483448)
+  %call.i.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or7.i.i)
+  %call.i.i.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef 2147483448)
   br label %return
 
 if.then.i:                                        ; preds = %entry.if.then.i_crit_edge, %if.then
@@ -1973,8 +1973,8 @@ freeexp.exit:                                     ; preds = %discharge2anyreg.ex
   %shl6.i.i17 = shl i32 %cond, 15
   %or3.i.i = or i32 %shl6.i.i17, %shl2.i.i
   %or7.i.i18 = or disjoint i32 %or3.i.i, 32707
-  %call.i.i19 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i.i18)
-  %call.i.i.i20 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
+  %call.i.i19 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i.i18)
+  %call.i.i.i20 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
   br label %return
 
 return:                                           ; preds = %freeexp.exit, %removelastinstruction.exit
@@ -2277,7 +2277,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 codeunexpval.exit:                                ; preds = %sw.bb1, %if.then.i.i, %if.then.i.i.i
   %shl2.i.i = shl i32 %call.i, 16
   %or3.i.i = or i32 %shl2.i.i, %add.i
-  %call.i.i = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i.i)
+  %call.i.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i.i)
   %u.i = getelementptr inbounds i8, ptr %e, i64 8
   store i32 %call.i.i, ptr %u.i, align 8
   store i32 17, ptr %e, align 8
@@ -2395,7 +2395,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i17, %i
   %17 = load i32, ptr %u.i10, align 8
   %shl2.i.i11 = shl i32 %17, 16
   %or3.i.i12 = or disjoint i32 %shl2.i.i11, 51
-  %call.i.i13 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i.i12)
+  %call.i.i13 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i.i12)
   store i32 %call.i.i13, ptr %u.i10, align 8
   store i32 17, ptr %e, align 8
   br label %sw.epilog.i
@@ -3133,7 +3133,7 @@ if.else.i111:                                     ; preds = %previousinstruction
   %31 = load i32, ptr %u9.i, align 8
   %shl1.i.i = shl i32 %31, 7
   %or3.i.i = or i32 %shl1.i.i, 131125
-  %call.i.i = tail call i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or3.i.i)
+  %call.i.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or3.i.i)
   %32 = load i32, ptr %e2, align 8
   %cmp.i14.i = icmp eq i32 %32, 8
   br i1 %cmp.i14.i, label %if.then.i15.i, label %freeexp.exit22.i
@@ -3535,8 +3535,8 @@ codeeq.exit:                                      ; preds = %freereg.exit.i.i.i,
   %or3.i.i.i = or disjoint i32 %shl4.i.i.i, %shl6.i.i.i
   %or5.i.i.i = or i32 %or3.i.i.i, %shl2.i.i.i
   %or7.i.i.i = or i32 %or5.i.i.i, %or.i.i.i
-  %call.i.i.i181 = call i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i.i.i)
-  %call.i.i.i20.i = call i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
+  %call.i.i.i181 = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i.i.i)
+  %call.i.i.i20.i = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
   %u12.i = getelementptr inbounds i8, ptr %e1, i64 8
   store i32 %call.i.i.i20.i, ptr %u12.i, align 8
   store i32 16, ptr %e1, align 8
@@ -3726,8 +3726,8 @@ codeorder.exit:                                   ; preds = %freereg.exit.i.i.i2
   %or3.i.i.i226 = or i32 %or.i.i.i225, %shl1.i.i.i222
   %or5.i.i.i227 = or i32 %or3.i.i.i226, %shl2.i.i.i223
   %or7.i.i.i228 = or i32 %or5.i.i.i227, 32768
-  %call.i.i.i229 = call i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i.i.i228)
-  %call.i.i.i42.i = call i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
+  %call.i.i.i229 = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i.i.i228)
+  %call.i.i.i42.i = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
   %u.i230 = getelementptr inbounds i8, ptr %e1, i64 8
   store i32 %call.i.i.i42.i, ptr %u.i230, align 8
   store i32 16, ptr %e1, align 8
@@ -4005,7 +4005,7 @@ if.then2:                                         ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %or7.i = or i32 %or3.i, 32846
-  %call.i19 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i)
+  %call.i19 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i)
   %1 = lshr i32 %nelems, 1
   %shl.i = and i32 %1, 1073741696
   %or.i20 = or disjoint i32 %shl.i, 82
@@ -4013,7 +4013,7 @@ if.else:                                          ; preds = %entry
 
 if.end5:                                          ; preds = %if.else, %if.then2
   %or.i20.sink = phi i32 [ %or.i20, %if.else ], [ %or5.i, %if.then2 ]
-  %call.i21 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i20.sink)
+  %call.i21 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i20.sink)
   %2 = trunc i32 %base to i8
   %conv = add i8 %2, 1
   %freereg = getelementptr inbounds i8, ptr %fs, i64 68
@@ -4378,19 +4378,19 @@ if.then13.i:                                      ; preds = %lor.lhs.false.i, %i
 if.end27.i:                                       ; preds = %lor.lhs.false.i, %previousinstruction.exit.i
   %shl1.i.i = shl i32 %reg, 7
   %or3.i.i = or disjoint i32 %shl1.i.i, 8
-  %call.i.i = tail call i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or3.i.i)
+  %call.i.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or3.i.i)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   %shl1.i = shl i32 %reg, 7
   %or.i30 = or disjoint i32 %shl1.i, 5
-  %call.i = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i30)
+  %call.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i30)
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
   %shl1.i31 = shl i32 %reg, 7
   %or.i32 = or disjoint i32 %shl1.i31, 7
-  %call.i33 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i32)
+  %call.i33 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i32)
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
@@ -4419,15 +4419,15 @@ if.then.i37:                                      ; preds = %sw.bb5
   %shl2.i.i = shl i32 %11, 15
   %or.i.i = or i32 %shl1.i.i36, %shl2.i.i
   %or3.i.i38 = or disjoint i32 %or.i.i, 3
-  %call.i.i39 = call i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i.i38)
+  %call.i.i39 = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i.i38)
   br label %sw.epilog
 
 if.else.i:                                        ; preds = %sw.bb5
   %or.i7.i = or disjoint i32 %shl1.i.i36, 4
-  %call.i9.i = call i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i7.i)
+  %call.i9.i = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i7.i)
   %shl.i.i = shl i32 %11, 7
   %or.i10.i = or disjoint i32 %shl.i.i, 82
-  %call.i11.i = call i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i10.i)
+  %call.i11.i = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i10.i)
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
@@ -4493,14 +4493,14 @@ if.then.i.i50:                                    ; preds = %luaK_numberK.exit.i
 
 if.else.i7.i:                                     ; preds = %luaK_numberK.exit.i
   %or.i7.i.i = or disjoint i32 %shl1.i.i.i, 4
-  %call.i9.i.i = call i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i7.i.i)
+  %call.i9.i.i = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i7.i.i)
   %shl.i.i.i = shl i32 %call6.i.i, 7
   %or.i10.i.i = or disjoint i32 %shl.i.i.i, 82
   br label %luaK_float.exit
 
 luaK_float.exit:                                  ; preds = %if.then.i42, %if.then.i.i50, %if.else.i7.i
   %or.i10.i.sink.i = phi i32 [ %or.i10.i.i, %if.else.i7.i ], [ %or3.i.i.i, %if.then.i.i50 ], [ %or3.i.i46, %if.then.i42 ]
-  %call.i11.i.i = call i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i10.i.sink.i)
+  %call.i11.i.i = call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or.i10.i.sink.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fi.i)
   br label %sw.epilog
 
@@ -4536,7 +4536,7 @@ if.then:                                          ; preds = %sw.bb14
   %shl1.i51 = shl i32 %reg, 7
   %shl2.i = shl i32 %23, 16
   %or3.i = or i32 %shl2.i, %shl1.i51
-  %call.i53 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i)
+  %call.i53 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.else.i, %if.then.i37, %if.end27.i, %if.then13.i, %sw.bb14, %if.then, %sw.bb11, %sw.bb9, %luaK_float.exit, %sw.bb2, %sw.bb1
@@ -4711,7 +4711,7 @@ entry:
   %shl4.i = shl i32 %v2, 24
   %or3.i = or i32 %shl4.i, %op
   %or5.i = or i32 %or3.i, %shl2.i
-  %call.i = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or5.i)
+  %call.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or5.i)
   %0 = load i32, ptr %e1, align 8
   %cmp.i = icmp eq i32 %0, 8
   br i1 %cmp.i, label %cond.true.i, label %cond.end.i
@@ -4790,7 +4790,7 @@ freeexps.exit:                                    ; preds = %freereg.exit.i.i, %
   %or3.i13 = or i32 %or.i, %mmop
   %or5.i15 = or i32 %or3.i13, %shl4.i14
   %or7.i = or i32 %or5.i15, %shl1.i
-  %call.i16 = tail call i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i)
+  %call.i16 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i)
   tail call void @luaK_fixline(ptr noundef %fs, i32 noundef %line)
   ret void
 }

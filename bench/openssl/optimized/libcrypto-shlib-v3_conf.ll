@@ -1060,7 +1060,7 @@ if.end:                                           ; preds = %entry
   %cmp.not.i = icmp eq ptr %cert, null
   %extensions.i = getelementptr inbounds i8, ptr %cert, i64 104
   %spec.select.i = select i1 %cmp.not.i, ptr null, ptr %extensions.i
-  %call.i = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select.i)
+  %call.i = tail call range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select.i)
   tail call void @CONF_set_nconf(ptr noundef nonnull %call, ptr noundef null) #6
   tail call void @NCONF_free(ptr noundef nonnull %call) #6
   br label %return
@@ -1082,7 +1082,7 @@ if.end:                                           ; preds = %entry
   %cmp.not.i = icmp eq ptr %crl, null
   %extensions.i = getelementptr inbounds i8, ptr %crl, i64 56
   %spec.select.i = select i1 %cmp.not.i, ptr null, ptr %extensions.i
-  %call.i = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select.i)
+  %call.i = tail call range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select.i)
   tail call void @CONF_set_nconf(ptr noundef nonnull %call, ptr noundef null) #6
   tail call void @NCONF_free(ptr noundef nonnull %call) #6
   br label %return

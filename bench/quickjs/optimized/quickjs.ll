@@ -2211,7 +2211,7 @@ JS_DupValue.exit.i:                               ; preds = %44, %41
   br label %js_same_value.exit
 
 js_same_value.exit:                               ; preds = %JS_DupValue.exit.i, %49
-  %53 = tail call fastcc i32 @js_strict_eq2(ptr noundef readonly %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef 1)
+  %53 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef 1)
   %.not45 = icmp eq i32 %53, 0
   %.pre = load i64, ptr %11, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 8
@@ -13668,8 +13668,8 @@ define internal fastcc range(i32 -1, 1) i32 @JS_NewClass1(ptr noundef %0, i32 no
 
 16:                                               ; preds = %6
   %17 = add nuw nsw i32 %1, 1
-  %18 = mul nuw nsw i32 %8, 3
-  %19 = lshr i32 %18, 1
+  %18 = lshr i32 %8, 1
+  %19 = add nuw nsw i32 %18, %8
   %20 = tail call i32 @llvm.umax.i32(i32 %17, i32 %19)
   %21 = tail call i32 @llvm.umax.i32(i32 %20, i32 58)
   %22 = getelementptr inbounds i8, ptr %0, i64 120
@@ -13683,7 +13683,6 @@ define internal fastcc range(i32 -1, 1) i32 @JS_NewClass1(ptr noundef %0, i32 no
   %24 = shl nuw nsw i64 %.pre73, 4
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = getelementptr inbounds i8, ptr %0, i64 32
-  %wide.trip.count = zext nneg i32 %21 to i64
   br label %27
 
 27:                                               ; preds = %.lr.ph70, %._crit_edge
@@ -13711,7 +13710,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_NewClass1(ptr noundef %0, i32 no
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 8
   store i64 2, ptr %.sroa.21.0..sroa_idx, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre73
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
@@ -24425,7 +24424,7 @@ JS_FreeValue.exit:                                ; preds = %88, %97, %102
   br label %JS_ToInt32.exit
 
 JS_ToInt32.exit:                                  ; preds = %112, %120
-  %124 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull %9, i64 %115, i64 %117)
+  %124 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull %9, i64 %115, i64 %117)
   %125 = load i32, ptr %8, align 4
   %126 = load i32, ptr %9, align 4
   %127 = icmp ult i32 %125, %126
@@ -27810,7 +27809,7 @@ JS_AtomIsArrayIndex.exit171.thread:               ; preds = %.preheader.i.i152, 
   br label %JS_ToInt32.exit
 
 JS_ToInt32.exit:                                  ; preds = %JS_AtomIsArrayIndex.exit171.thread, %162
-  %166 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull %9, i64 %157, i64 %159)
+  %166 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull %9, i64 %157, i64 %159)
   %167 = add nuw i32 %.1, 1
   %168 = load i32, ptr %9, align 4
   %.not218 = icmp ult i32 %.1, %168
@@ -28517,12 +28516,12 @@ JS_ToInt32.exit:                                  ; preds = %51
   %53 = load i32, ptr %10, align 4
   %54 = add i32 %53, 1
   store i32 %54, ptr %10, align 4
-  %55 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull %6, i64 %2, i64 %3)
+  %55 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull %6, i64 %2, i64 %3)
   %.not46 = icmp eq i32 %55, 0
   br i1 %.not46, label %64, label %57
 
 JS_ToInt32.exit.thread:                           ; preds = %51
-  %56 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull %6, i64 %2, i64 %3)
+  %56 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull %6, i64 %2, i64 %3)
   %.not4658 = icmp eq i32 %56, 0
   br i1 %.not4658, label %64, label %JS_FreeValue.exit56
 
@@ -32466,7 +32465,7 @@ define dso_local range(i32 -1, 1) i32 @JS_ToIndex(ptr noundef %0, ptr nocapture 
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %4, %8
-  %12 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %5, i64 %2, i64 %3)
+  %12 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %5, i64 %2, i64 %3)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %17
 
@@ -35746,7 +35745,7 @@ JS_DupValue.exit.i:                               ; preds = %1418, %1401
   br label %js_same_value.exit
 
 js_same_value.exit:                               ; preds = %JS_DupValue.exit.i, %1424
-  %1428 = call fastcc i32 @js_strict_eq2(ptr noundef nonnull readonly %.0, i64 %1411, i64 %1413, i64 %1414, i64 %1415, i32 noundef 1)
+  %1428 = call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef nonnull readonly %.0, i64 %1411, i64 %1413, i64 %1414, i64 %1415, i32 noundef 1)
   %.not3574 = icmp eq i32 %1428, 0
   br i1 %.not3574, label %1433, label %1429
 
@@ -35870,7 +35869,7 @@ JS_DupValue.exit.i3749:                           ; preds = %1477, %1468
   br label %js_same_value.exit3750
 
 js_same_value.exit3750:                           ; preds = %JS_DupValue.exit.i3749, %1483
-  %1487 = call fastcc i32 @js_strict_eq2(ptr noundef nonnull readonly %.0, i64 %1470, i64 %1472, i64 %1473, i64 %1474, i32 noundef 1)
+  %1487 = call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef nonnull readonly %.0, i64 %1470, i64 %1472, i64 %1473, i64 %1474, i32 noundef 1)
   %.not3569 = icmp eq i32 %1487, 0
   %1488 = load i32, ptr %75, align 4
   br i1 %.not3569, label %1493, label %1489
@@ -46157,8 +46156,8 @@ JS_FreeValue.exit71.i:                            ; preds = %6583, %6578, %6574
   br label %js_shr_slow.exit
 
 js_shr_slow.exit.thread:                          ; preds = %is_math_mode.exit.i6900, %is_math_mode.exit.thread.i
-  %6594 = call fastcc i32 @JS_ToInt32Free(ptr noundef nonnull %.0, ptr noundef nonnull %13, i64 %6539, i64 %6540)
-  %6595 = call fastcc i32 @JS_ToInt32Free(ptr noundef nonnull %.0, ptr noundef nonnull %14, i64 %6554, i64 %6555)
+  %6594 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %.0, ptr noundef nonnull %13, i64 %6539, i64 %6540)
+  %6595 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %.0, ptr noundef nonnull %14, i64 %6554, i64 %6555)
   %6596 = load i32, ptr %13, align 4
   %6597 = load i32, ptr %14, align 4
   %6598 = and i32 %6597, 31
@@ -46527,7 +46526,7 @@ js_shr_slow.exit:                                 ; preds = %6542, %6545, %6550,
   %6741 = getelementptr i8, ptr %.29, i64 -32
   %6742 = load i64, ptr %6741, align 8
   %6743 = load i64, ptr %6733, align 8
-  %6744 = call fastcc i32 @js_strict_eq2(ptr noundef readonly %.0, i64 %6742, i64 %.sroa.2123.0.copyload, i64 %6743, i64 %.sroa.2120.0.copyload, i32 noundef 0)
+  %6744 = call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %.0, i64 %6742, i64 %.sroa.2123.0.copyload, i64 %6743, i64 %.sroa.2120.0.copyload, i32 noundef 0)
   %.sroa.07.0.insert.ext.i = zext nneg i32 %6744 to i64
   store i64 %.sroa.07.0.insert.ext.i, ptr %6741, align 8
   br label %6745
@@ -46561,7 +46560,7 @@ js_shr_slow.exit:                                 ; preds = %6542, %6545, %6550,
   %6756 = getelementptr i8, ptr %.29, i64 -32
   %6757 = load i64, ptr %6756, align 8
   %6758 = load i64, ptr %6748, align 8
-  %6759 = call fastcc i32 @js_strict_eq2(ptr noundef readonly %.0, i64 %6757, i64 %.sroa.2115.0.copyload, i64 %6758, i64 %.sroa.2112.0.copyload, i32 noundef 0)
+  %6759 = call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %.0, i64 %6757, i64 %.sroa.2115.0.copyload, i64 %6758, i64 %.sroa.2112.0.copyload, i32 noundef 0)
   %6760 = xor i32 %6759, 1
   %.sroa.07.0.insert.ext.i6905 = zext nneg i32 %6760 to i64
   store i64 %.sroa.07.0.insert.ext.i6905, ptr %6756, align 8
@@ -54887,7 +54886,7 @@ define dso_local { i64, i64 } @js_string_codePointRange(ptr noundef %0, i64 %1, 
   br label %JS_ToUint32.exit
 
 JS_ToUint32.exit:                                 ; preds = %5, %14
-  %18 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %9, i64 %11)
+  %18 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %9, i64 %11)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %string_buffer_init2.exit
 
@@ -54908,7 +54907,7 @@ JS_ToUint32.exit:                                 ; preds = %5, %14
   br label %JS_ToUint32.exit20
 
 JS_ToUint32.exit20:                               ; preds = %19, %26
-  %30 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %21, i64 %23)
+  %30 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %21, i64 %23)
   %.not18 = icmp eq i32 %30, 0
   br i1 %.not18, label %31, label %string_buffer_init2.exit
 
@@ -55926,7 +55925,7 @@ JS_DupValue.exit.i:                               ; preds = %37, %34
   br label %js_same_value.exit
 
 js_same_value.exit:                               ; preds = %JS_DupValue.exit.i, %43
-  %47 = tail call fastcc i32 @js_strict_eq2(ptr noundef nonnull readonly %0, i64 %30, i64 %31, i64 %.val.val.val, i64 %.val.val.val221, i32 noundef 1)
+  %47 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef nonnull readonly %0, i64 %30, i64 %31, i64 %.val.val.val, i64 %.val.val.val221, i32 noundef 1)
   br i1 %36, label %48, label %JS_FreeValue.exit
 
 48:                                               ; preds = %js_same_value.exit
@@ -62037,7 +62036,7 @@ JS_DupValue.exit.i:                               ; preds = %24
   br label %js_same_value.exit
 
 js_same_value.exit:                               ; preds = %JS_DupValue.exit.i, %34
-  %38 = tail call fastcc i32 @js_strict_eq2(ptr noundef readonly %0, i64 %.sroa.018.sroa.0.0.insert.insert, i64 %.sroa.8.0, i64 %26, i64 %28, i32 noundef 1)
+  %38 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %0, i64 %.sroa.018.sroa.0.0.insert.insert, i64 %.sroa.8.0, i64 %26, i64 %28, i32 noundef 1)
   %.not97 = icmp eq i32 %38, 0
   br i1 %.not97, label %41, label %39
 
@@ -68468,7 +68467,7 @@ define internal { i64, i64 } @js_float_env_constructor(ptr noundef %0, i64 %1, i
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %15, %19
-  %23 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 %16, i64 %13)
+  %23 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 %16, i64 %13)
   %.not40 = icmp eq i32 %23, 0
   br i1 %.not40, label %24, label %JS_NewObjectClass.exit.thread
 
@@ -68508,7 +68507,7 @@ JS_ToInt64Sat.exit:                               ; preds = %15, %19
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %35, %40
-  %44 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef nonnull %0, ptr noundef nonnull writeonly %7, i64 %37, i64 %33)
+  %44 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef nonnull %0, ptr noundef nonnull writeonly %7, i64 %37, i64 %33)
   %.not42 = icmp eq i32 %44, 0
   br i1 %.not42, label %45, label %JS_NewObjectClass.exit.thread
 
@@ -71548,7 +71547,7 @@ define internal { i64, i64 } @js_array_buffer_constructor(ptr noundef %0, i64 %1
   br label %JS_ToInt64Sat.exit.i
 
 JS_ToInt64Sat.exit.i:                             ; preds = %12, %5
-  %16 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9)
+  %16 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %JS_ToIndex.exit.thread
 
@@ -71599,7 +71598,7 @@ define internal { i64, i64 } @js_shared_array_buffer_constructor(ptr noundef %0,
   br label %JS_ToInt64Sat.exit.i
 
 JS_ToInt64Sat.exit.i:                             ; preds = %12, %5
-  %16 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9)
+  %16 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %JS_ToIndex.exit.thread
 
@@ -71670,7 +71669,7 @@ define internal { i64, i64 } @js_typed_array_constructor(ptr noundef %0, i64 %1,
   br label %JS_ToInt64Sat.exit.i
 
 JS_ToInt64Sat.exit.i:                             ; preds = %24, %20
-  %28 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %10, i64 %21, i64 %18)
+  %28 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %10, i64 %21, i64 %18)
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %29, label %JS_ToIndex.exit.thread
 
@@ -71728,7 +71727,7 @@ JS_ToIndex.exit:                                  ; preds = %29
   br label %JS_ToInt64Sat.exit.i108
 
 JS_ToInt64Sat.exit.i108:                          ; preds = %53, %44
-  %57 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %9, i64 %48, i64 %50)
+  %57 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %9, i64 %48, i64 %50)
   %.not.i109 = icmp eq i32 %57, 0
   br i1 %.not.i109, label %58, label %JS_ToIndex.exit115.thread
 
@@ -72298,7 +72297,7 @@ js_get_array_buffer.exit:                         ; preds = %11
   br label %JS_ToInt64Sat.exit.i
 
 JS_ToInt64Sat.exit.i:                             ; preds = %33, %26
-  %37 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %28, i64 %30)
+  %37 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %28, i64 %30)
   %.not.i72 = icmp eq i32 %37, 0
   br i1 %.not.i72, label %38, label %JS_ToIndex.exit.thread
 
@@ -84781,7 +84780,7 @@ define internal fastcc ptr @build_arg_list(ptr noundef %0, ptr nocapture noundef
 
 js_get_length32.exit:                             ; preds = %10
   %14 = extractvalue { i64, i64 } %11, 0
-  %15 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull %5, i64 %14, i64 %12)
+  %15 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull %5, i64 %14, i64 %12)
   %.not42 = icmp eq i32 %15, 0
   br i1 %.not42, label %16, label %js_mallocz.exit.thread
 
@@ -88620,7 +88619,7 @@ JS_FreeValue.exit290:                             ; preds = %126, %130, %135
   %.sroa.0150.3 = phi double [ %165, %164 ], [ %.sroa.0150.1, %119 ], [ %.sroa.0150.1, %117 ]
   %184 = bitcast double %.sroa.0150.3 to i64
   %185 = bitcast double %.sroa.0103.2 to i64
-  %186 = tail call fastcc i32 @js_strict_eq2(ptr noundef readonly %0, i64 %184, i64 %.sroa.28173.3, i64 %185, i64 %.sroa.28.2, i32 noundef 0)
+  %186 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %0, i64 %184, i64 %.sroa.28173.3, i64 %185, i64 %.sroa.28.2, i32 noundef 0)
   br label %JS_FreeValue.exit291
 
 .thread319:                                       ; preds = %.outer.split.split.us.split, %.outer.split.split.split.us, %16
@@ -89151,7 +89150,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_get_length32(ptr noundef %0, ptr
 
 9:                                                ; preds = %4
   %10 = extractvalue { i64, i64 } %5, 0
-  %11 = tail call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef %1, i64 %10, i64 %6)
+  %11 = tail call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef %1, i64 %10, i64 %6)
   br label %12
 
 12:                                               ; preds = %9, %8
@@ -91394,7 +91393,7 @@ JS_GetOpaque2.exit:                               ; preds = %JS_GetOpaque.exit.i
 
 js_get_length32.exit:                             ; preds = %43
   %48 = extractvalue { i64, i64 } %45, 0
-  %49 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %9, i64 %48, i64 %46) #45
+  %49 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %9, i64 %48, i64 %46) #45
   %.not103 = icmp eq i32 %49, 0
   br i1 %.not103, label %js_get_length32.exit._crit_edge, label %js_get_length32.exit.thread
 
@@ -98645,7 +98644,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_WriteArray(ptr noundef %0, i64 %
 
 js_get_length32.exit:                             ; preds = %13
   %20 = extractvalue { i64, i64 } %17, 0
-  %21 = call fastcc i32 @JS_ToInt32Free(ptr noundef %16, ptr noundef nonnull writeonly %4, i64 %20, i64 %18) #45
+  %21 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %16, ptr noundef nonnull writeonly %4, i64 %20, i64 %18) #45
   %.not48 = icmp eq i32 %21, 0
   br i1 %.not48, label %22, label %.loopexit
 
@@ -104803,7 +104802,7 @@ JS_DupValue.exit.i:                               ; preds = %3
   br label %js_same_value.exit
 
 js_same_value.exit:                               ; preds = %JS_DupValue.exit.i, %20
-  %24 = tail call fastcc i32 @js_strict_eq2(ptr noundef nonnull readonly %0, i64 %1, i64 %2, i64 %12, i64 %14, i32 noundef 1)
+  %24 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef nonnull readonly %0, i64 %1, i64 %2, i64 %12, i64 %14, i32 noundef 1)
   %.not62 = icmp eq i32 %24, 0
   br i1 %.not62, label %25, label %45
 
@@ -105252,7 +105251,7 @@ JS_DupValue.exit.i:                               ; preds = %9
   br label %js_same_value.exit
 
 js_same_value.exit:                               ; preds = %JS_DupValue.exit.i, %24
-  %28 = tail call fastcc i32 @js_strict_eq2(ptr noundef nonnull readonly %0, i64 %1, i64 %2, i64 %17, i64 %19, i32 noundef 1)
+  %28 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef nonnull readonly %0, i64 %1, i64 %2, i64 %17, i64 %19, i32 noundef 1)
   %.not27 = icmp eq i32 %28, 0
   br i1 %.not27, label %29, label %46
 
@@ -109506,7 +109505,7 @@ string_indexof_char.exit422.thread:               ; preds = %75, %80, %62, %.pre
   br label %JS_ToUint32.exit
 
 JS_ToUint32.exit:                                 ; preds = %107, %112
-  %116 = call fastcc i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %8, i64 %109, i64 %105)
+  %116 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %8, i64 %109, i64 %105)
   %117 = icmp slt i32 %116, 0
   br i1 %117, label %.loopexit483, label %118
 
@@ -110353,7 +110352,7 @@ JS_DupValue.exit.i:                               ; preds = %15, %8
   br label %js_same_value.exit
 
 js_same_value.exit:                               ; preds = %JS_DupValue.exit.i, %21
-  %25 = tail call fastcc i32 @js_strict_eq2(ptr noundef nonnull readonly %0, i64 %5, i64 %6, i64 %10, i64 %12, i32 noundef 1)
+  %25 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef nonnull readonly %0, i64 %5, i64 %6, i64 %10, i64 %12, i32 noundef 1)
   br i1 %14, label %26, label %JS_FreeValue.exit
 
 26:                                               ; preds = %js_same_value.exit
@@ -111138,7 +111137,7 @@ string_buffer_init.exit:                          ; preds = %js_alloc_string.exi
 
 js_get_length32.exit:                             ; preds = %39
   %43 = extractvalue { i64, i64 } %40, 0
-  %44 = call fastcc i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %5, i64 %43, i64 %41) #45
+  %44 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %5, i64 %43, i64 %41) #45
   %.not140 = icmp eq i32 %44, 0
   br i1 %.not140, label %45, label %.loopexit
 
@@ -111151,7 +111150,7 @@ js_get_length32.exit:                             ; preds = %39
 
 js_get_length32.exit159:                          ; preds = %45
   %49 = extractvalue { i64, i64 } %46, 0
-  %50 = call fastcc i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %4, i64 %49, i64 %47) #45
+  %50 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %4, i64 %49, i64 %47) #45
   %.not141 = icmp eq i32 %50, 0
   br i1 %.not141, label %51, label %.loopexit
 
@@ -111172,7 +111171,7 @@ js_get_length32.exit159:                          ; preds = %45
   br label %JS_ToUint32.exit
 
 JS_ToUint32.exit:                                 ; preds = %51, %58
-  %62 = call fastcc i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %3, i64 %53, i64 %55)
+  %62 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %3, i64 %53, i64 %55)
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %.loopexit, label %64
 
@@ -115076,7 +115075,7 @@ js_get_length32.exit.thread:                      ; preds = %46
 
 js_get_length32.exit:                             ; preds = %46
   %50 = extractvalue { i64, i64 } %47, 0
-  %51 = call fastcc i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %13, i64 %50, i64 %48) #45
+  %51 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %13, i64 %50, i64 %48) #45
   %.not102 = icmp eq i32 %51, 0
   br i1 %.not102, label %54, label %JS_IsArray.exit
 
@@ -116084,7 +116083,7 @@ js_get_length32.exit.thread:                      ; preds = %63
 
 js_get_length32.exit:                             ; preds = %63
   %67 = extractvalue { i64, i64 } %64, 0
-  %68 = call fastcc i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %7, i64 %67, i64 %65) #45
+  %68 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %7, i64 %67, i64 %65) #45
   %.not122 = icmp eq i32 %68, 0
   %.pre211 = load i32, ptr %7, align 4
   br i1 %.not122, label %69, label %js_mallocz.exit.thread
@@ -120063,7 +120062,7 @@ JS_DupValue.exit.i.us:                            ; preds = %60, %.lr.ph.split.u
   %64 = load i32, ptr %53, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %53, align 4
-  %66 = tail call fastcc i32 @js_strict_eq2(ptr noundef readonly %0, i64 %55, i64 %57, i64 %2, i64 %3, i32 noundef 2)
+  %66 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %0, i64 %55, i64 %57, i64 %2, i64 %3, i32 noundef 2)
   %.not15.us = icmp eq i32 %66, 0
   br i1 %.not15.us, label %67, label %.split.us
 
@@ -120093,7 +120092,7 @@ JS_DupValue.exit.i.us:                            ; preds = %60, %.lr.ph.split.u
   br label %JS_DupValue.exit.i
 
 JS_DupValue.exit.i:                               ; preds = %77, %.lr.ph.split
-  %81 = tail call fastcc i32 @js_strict_eq2(ptr noundef readonly %0, i64 %72, i64 %74, i64 %2, i64 %3, i32 noundef 2)
+  %81 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %0, i64 %72, i64 %74, i64 %2, i64 %3, i32 noundef 2)
   %.not15 = icmp eq i32 %81, 0
   br i1 %.not15, label %83, label %.split.us
 
@@ -123238,7 +123237,7 @@ JS_DupValue.exit.i:                               ; preds = %29, %32
   %37 = load i32, ptr %36, align 4
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 4
-  %39 = tail call fastcc i32 @js_strict_eq2(ptr noundef readonly %0, i64 %26, i64 %27, i64 %1, i64 %2, i32 noundef 1)
+  %39 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %0, i64 %26, i64 %27, i64 %1, i64 %2, i32 noundef 1)
   br i1 %31, label %40, label %JS_FreeValue.exit
 
 40:                                               ; preds = %JS_DupValue.exit.i
@@ -125357,7 +125356,7 @@ JS_ToBool.exit:                                   ; preds = %7, %21
   br label %JS_ToInt32.exit
 
 JS_ToInt32.exit:                                  ; preds = %JS_ToBool.exit, %35
-  %39 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %12, i64 %30, i64 %32)
+  %39 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %12, i64 %30, i64 %32)
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %40, label %JS_FreeValue.exit
 
@@ -137872,7 +137871,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_parse_directives(ptr noundef %0)
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %10, ptr %49, align 8
   store i32 %12, ptr %11, align 8
-  %50 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
+  %50 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef nonnull %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %15, %1, %.critedge
@@ -138022,7 +138021,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %13
   %.val = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %.val, ptr %8, align 8
-  %21 = call fastcc i32 @simple_next_token(ptr noundef nonnull %8, i32 noundef 1)
+  %21 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %8, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %22 = icmp eq i32 %21, -57
   br i1 %22, label %23, label %.token_is_pseudo_keyword.exit.threadthread-pre-split_crit_edge
@@ -138036,7 +138035,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %13
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 28
   %27 = load i32, ptr %26, align 4
-  %28 = tail call fastcc i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef %25, i32 noundef %27, i32 noundef 0, ptr noundef null)
+  %28 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef %25, i32 noundef %27, i32 noundef 0, ptr noundef null)
   %.not22 = icmp eq i32 %28, 0
   br i1 %.not22, label %js_parse_import.exit.thread56, label %js_parse_export.exit.thread
 
@@ -138091,7 +138090,7 @@ token_is_pseudo_keyword.exit44:                   ; preds = %43
   %.val157.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %.val157.i, ptr %2, align 8
-  %51 = call fastcc i32 @simple_next_token(ptr noundef nonnull %2, i32 noundef 1)
+  %51 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %2, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %52 = icmp eq i32 %51, -57
   br i1 %52, label %53, label %token_is_pseudo_keyword.exit44.thread
@@ -138441,7 +138440,7 @@ token_is_pseudo_keyword.exit31:                   ; preds = %213
   %.val156.i = load ptr, ptr %220, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %.val156.i, ptr %3, align 8
-  %221 = call fastcc i32 @simple_next_token(ptr noundef nonnull %3, i32 noundef 1)
+  %221 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %222 = icmp eq i32 %221, -57
   br i1 %222, label %223, label %token_is_pseudo_keyword.exit31.thread
@@ -138455,7 +138454,7 @@ token_is_pseudo_keyword.exit31:                   ; preds = %213
   br label %js_parse_export.exit
 
 token_is_pseudo_keyword.exit31.thread:            ; preds = %209, %213, %219, %token_is_pseudo_keyword.exit31
-  %229 = tail call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %229 = tail call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not137.i = icmp eq i32 %229, 0
   br i1 %.not137.i, label %230, label %js_parse_export.exit.thread
 
@@ -138513,7 +138512,7 @@ js_parse_export.exit:                             ; preds = %41, %53, %211, %223
   %.val23 = load ptr, ptr %250, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %.val23, ptr %7, align 8
-  %251 = call fastcc i32 @simple_next_token(ptr noundef nonnull %7, i32 noundef 0)
+  %251 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %7, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   switch i32 %251, label %252 [
     i32 46, label %.thread
@@ -141024,7 +141023,7 @@ is_label.exit:                                    ; preds = %28
   %.val.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr %.val.i, ptr %16, align 8
-  %32 = call fastcc i32 @simple_next_token(ptr noundef nonnull %16, i32 noundef 0)
+  %32 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %16, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %.not = icmp eq i32 %32, 58
   br i1 %.not, label %33, label %is_label.exit.thread-pre-split_crit_edge
@@ -141292,7 +141291,7 @@ thread-pre-split:                                 ; preds = %2, %is_label.exit.t
   br i1 %.not578, label %152, label %154
 
 152:                                              ; preds = %149
-  %153 = tail call fastcc i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %153 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not579 = icmp eq i32 %153, 0
   br i1 %.not579, label %154, label %.loopexit636
 
@@ -141319,7 +141318,7 @@ thread-pre-split:                                 ; preds = %2, %is_label.exit.t
   br label %.loopexit636
 
 163:                                              ; preds = %158
-  %164 = tail call fastcc i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %164 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not572 = icmp eq i32 %164, 0
   br i1 %.not572, label %165, label %.loopexit636
 
@@ -141585,7 +141584,7 @@ new_label.exit738:                                ; preds = %264, %267, %js_real
 
 297:                                              ; preds = %295
   %298 = call fastcc i32 @emit_goto(ptr noundef nonnull %0, i32 noundef 106, i32 noundef %.0.i.i731)
-  %299 = call fastcc i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
+  %299 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
   %.not559 = icmp eq i32 %299, 0
   br i1 %.not559, label %300, label %.loopexit636
 
@@ -141848,7 +141847,7 @@ new_label.exit771:                                ; preds = %410, %413, %js_real
 441:                                              ; preds = %new_label.exit771
   call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %.0.i.i764)
   call fastcc void @set_eval_ret_undefined(ptr noundef nonnull %0)
-  %442 = call fastcc i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
+  %442 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
   %.not553 = icmp eq i32 %442, 0
   br i1 %.not553, label %443, label %.loopexit636
 
@@ -142034,7 +142033,7 @@ new_label.exit771:                                ; preds = %410, %413, %js_real
 
 525:                                              ; preds = %506
   call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %507)
-  %526 = call fastcc i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %526 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not543 = icmp eq i32 %526, 0
   br i1 %.not543, label %527, label %.loopexit636
 
@@ -142064,7 +142063,7 @@ new_label.exit771:                                ; preds = %410, %413, %js_real
   %539 = load i64, ptr %538, align 8
   %540 = trunc i64 %539 to i32
   call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %508)
-  %541 = call fastcc i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %541 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not545 = icmp eq i32 %541, 0
   br i1 %.not545, label %542, label %.loopexit636
 
@@ -142090,7 +142089,7 @@ new_label.exit771:                                ; preds = %410, %413, %js_real
   %550 = load i64, ptr %549, align 8
   %551 = trunc i64 %550 to i32
   call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %509)
-  %552 = call fastcc i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
+  %552 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
   %.not548 = icmp eq i32 %552, 0
   br i1 %.not548, label %553, label %.loopexit636
 
@@ -142304,7 +142303,7 @@ new_label.exit771:                                ; preds = %410, %413, %js_real
 .lr.ph:                                           ; preds = %653, %661
   %.1450655 = phi i32 [ %662, %661 ], [ %.0449, %653 ]
   call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 17)
-  %655 = call fastcc i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %655 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not523 = icmp eq i32 %655, 0
   br i1 %.not523, label %656, label %.loopexit636
 
@@ -142784,7 +142783,7 @@ JS_DupAtom.exit617:                               ; preds = %761, %765
   %885 = call i32 @dbuf_put(ptr noundef nonnull %884, ptr noundef nonnull %8, i64 noundef 2) #42
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   call fastcc void @set_eval_ret_undefined(ptr noundef nonnull %0)
-  %886 = call fastcc i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
+  %886 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
   %.not500 = icmp eq i32 %886, 0
   br i1 %.not500, label %887, label %.loopexit636
 
@@ -142807,7 +142806,7 @@ JS_DupAtom.exit617:                               ; preds = %761, %765
   %.val596 = load ptr, ptr %893, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %.val596, ptr %7, align 8
-  %894 = call fastcc i32 @simple_next_token(ptr noundef nonnull %7, i32 noundef 0)
+  %894 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %7, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %895 = icmp eq i32 %894, 42
   br i1 %895, label %919, label %921
@@ -142860,7 +142859,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %907
   %.val595 = load ptr, ptr %914, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.val595, ptr %6, align 8
-  %915 = call fastcc i32 @simple_next_token(ptr noundef nonnull %6, i32 noundef 1)
+  %915 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %6, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %916 = icmp eq i32 %915, -57
   br i1 %916, label %917, label %token_is_pseudo_keyword.exit.thread
@@ -142879,7 +142878,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %907
   %923 = load ptr, ptr %922, align 8
   %924 = getelementptr inbounds i8, ptr %0, i64 28
   %925 = load i32, ptr %924, align 4
-  %926 = tail call fastcc i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, ptr noundef %923, i32 noundef %925, i32 noundef 0, ptr noundef null)
+  %926 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, ptr noundef %923, i32 noundef %925, i32 noundef 0, ptr noundef null)
   %.not496 = icmp eq i32 %926, 0
   br i1 %.not496, label %js_parse_expect_semi.exit.thread, label %.loopexit636
 
@@ -142920,7 +142919,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %907
   br label %.loopexit636
 
 token_is_pseudo_keyword.exit.thread:              ; preds = %904, %907, %thread-pre-split, %token_is_pseudo_keyword.exit, %913
-  %944 = tail call fastcc i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %944 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not582 = icmp eq i32 %944, 0
   br i1 %.not582, label %945, label %.loopexit636
 
@@ -143239,7 +143238,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %52
   %.val616 = load ptr, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
   store ptr %.val616, ptr %37, align 8
-  %60 = call fastcc i32 @simple_next_token(ptr noundef nonnull %37, i32 noundef 1)
+  %60 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %37, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
   %.not521 = icmp eq i32 %60, 10
   br i1 %.not521, label %token_is_pseudo_keyword.exit.thread, label %61
@@ -144514,7 +144513,7 @@ emit_op.exit673:                                  ; preds = %660, %667
   call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext -84)
   %733 = call fastcc i32 @emit_goto(ptr noundef nonnull %0, i32 noundef 106, i32 noundef %729)
   call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 14)
-  %734 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %734 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not553 = icmp eq i32 %734, 0
   br i1 %.not553, label %735, label %.loopexit
 
@@ -144953,7 +144952,7 @@ emit_op.exit693:                                  ; preds = %._crit_edge, %903
   br i1 %.not579, label %940, label %.loopexit
 
 940:                                              ; preds = %938
-  %941 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %941 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not580 = icmp eq i32 %941, 0
   br i1 %.not580, label %942, label %.loopexit
 
@@ -146602,7 +146601,7 @@ token_is_pseudo_keyword.exit79.thread:            ; preds = %69, %72, %token_is_
   store i32 %8, ptr %83, align 4
   store ptr %10, ptr %14, align 8
   store i32 %12, ptr %11, align 8
-  %84 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %84 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef %0)
   %.not70 = icmp eq i32 %84, 0
   %.149. = select i1 %.not70, i32 %.149, i32 -1
   ret i32 %.149.
@@ -148035,7 +148034,7 @@ emit_op.exit376:                                  ; preds = %725, %731
   %739 = getelementptr inbounds i8, ptr %726, i64 352
   store i32 %738, ptr %739, align 8
   %740 = call i32 @dbuf_putc(ptr noundef nonnull %727, i8 noundef zeroext 14) #42
-  %741 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %741 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not302 = icmp eq i32 %741, 0
   br i1 %.not302, label %742, label %thread-pre-split424
 
@@ -148589,7 +148588,7 @@ emit_op.exit405:                                  ; preds = %1013, %1019
   %1027 = getelementptr inbounds i8, ptr %1014, i64 352
   store i32 %1026, ptr %1027, align 8
   %1028 = call i32 @dbuf_putc(ptr noundef nonnull %1015, i8 noundef zeroext 14) #42
-  %1029 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %1029 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not278 = icmp eq i32 %1029, 0
   br i1 %.not278, label %1030, label %thread-pre-split424
 
@@ -148704,7 +148703,7 @@ emit_op.exit410:                                  ; preds = %1049, %1055
   br label %1081
 
 1081:                                             ; preds = %1080, %1079
-  %1082 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %1082 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not307 = icmp eq i32 %1082, 0
   br i1 %.not307, label %1083, label %JS_FreeAtom.exit
 
@@ -151391,7 +151390,7 @@ token_is_pseudo_keyword.exit131:                  ; preds = %11
   %.val = load ptr, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.val, ptr %6, align 8
-  %30 = call fastcc i32 @simple_next_token(ptr noundef nonnull %6, i32 noundef 1)
+  %30 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %6, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.not109 = icmp eq i32 %30, 10
   br i1 %.not109, label %JS_FreeAtom.exit, label %31
@@ -151600,7 +151599,7 @@ JS_FreeValue.exit:                                ; preds = %129, %124, %118, %1
   br i1 %.not116, label %140, label %JS_FreeAtom.exit152
 
 140:                                              ; preds = %138
-  %141 = tail call fastcc i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %141 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not117 = icmp eq i32 %141, 0
   br i1 %.not117, label %142, label %JS_FreeAtom.exit152
 
@@ -153298,7 +153297,7 @@ js_parse_expect.exit625:                          ; preds = %2
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds i8, ptr %0, i64 28
   %211 = load i32, ptr %210, align 4
-  %212 = tail call fastcc i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 0, ptr noundef %209, i32 noundef %211, i32 noundef 0, ptr noundef null)
+  %212 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 0, ptr noundef %209, i32 noundef %211, i32 noundef 0, ptr noundef null)
   %.not458 = icmp eq i32 %212, 0
   br i1 %.not458, label %js_parse_expr_paren.exit, label %js_parse_expr_paren.exit.thread
 
@@ -153390,7 +153389,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %242
   %.val527 = load ptr, ptr %248, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70)
   store ptr %.val527, ptr %70, align 8
-  %249 = call fastcc i32 @simple_next_token(ptr noundef nonnull %70, i32 noundef 1)
+  %249 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %70, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70)
   %.not448 = icmp eq i32 %249, 10
   br i1 %.not448, label %.thread-pre-split_crit_edge, label %250
@@ -153414,7 +153413,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %242
   br i1 %258, label %259, label %287
 
 259:                                              ; preds = %256
-  %260 = tail call fastcc i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 2, ptr noundef %252, i32 noundef %254, i32 noundef 0, ptr noundef null)
+  %260 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 2, ptr noundef %252, i32 noundef %254, i32 noundef 0, ptr noundef null)
   %.not452 = icmp eq i32 %260, 0
   br i1 %.not452, label %js_parse_expr_paren.exit, label %js_parse_expr_paren.exit.thread
 
@@ -153535,7 +153534,7 @@ JS_DupAtom.exit:                                  ; preds = %token_is_pseudo_key
   br i1 %.not70.i, label %323, label %js_parse_object_literal.exit.thread
 
 323:                                              ; preds = %321
-  %324 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %324 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not71.i = icmp eq i32 %324, 0
   br i1 %.not71.i, label %325, label %js_parse_object_literal.exit.thread
 
@@ -153699,7 +153698,7 @@ emit_op.exit636:                                  ; preds = %emit_op.exit638, %3
 .fold.split.i:                                    ; preds = %409, %407
   %.059.i = phi i32 [ %408, %407 ], [ 6, %409 ]
   %.058.i = phi i32 [ 0, %407 ], [ %spec.select972, %409 ]
-  %411 = call fastcc i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef %.059.i, i32 noundef %.058.i, ptr noundef %318, i32 noundef %319, i32 noundef 0, ptr noundef null)
+  %411 = call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef %.059.i, i32 noundef %.058.i, ptr noundef %318, i32 noundef %319, i32 noundef 0, ptr noundef null)
   %.not69.i = icmp eq i32 %411, 0
   br i1 %.not69.i, label %412, label %.loopexit
 
@@ -153733,7 +153732,7 @@ emit_op.exit636:                                  ; preds = %emit_op.exit638, %3
   br i1 %.not66.i, label %426, label %.loopexit
 
 426:                                              ; preds = %424
-  %427 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %427 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not67.i = icmp eq i32 %427, 0
   br i1 %.not67.i, label %428, label %.loopexit
 
@@ -154009,7 +154008,7 @@ switch.early.test.i:                              ; preds = %.preheader, %580
   ]
 
 573:                                              ; preds = %switch.early.test.i
-  %574 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %574 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not59.i = icmp eq i32 %574, 0
   br i1 %.not59.i, label %575, label %js_parse_expr_paren.exit.thread
 
@@ -154069,7 +154068,7 @@ switch.early.test:                                ; preds = %switch.early.test.l
   br label %617
 
 593:                                              ; preds = %switch.early.test
-  %594 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %594 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not63.i = icmp eq i32 %594, 0
   br i1 %.not63.i, label %595, label %js_parse_expr_paren.exit.thread
 
@@ -154188,12 +154187,12 @@ switch.early.test:                                ; preds = %switch.early.test.l
   br i1 %.not68.i548, label %637, label %js_parse_expr_paren.exit.thread
 
 637:                                              ; preds = %635
-  %638 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %638 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not69.i549 = icmp eq i32 %638, 0
   br i1 %.not69.i549, label %642, label %js_parse_expr_paren.exit.thread
 
 639:                                              ; preds = %633
-  %640 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %640 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not67.i550 = icmp eq i32 %640, 0
   br i1 %.not67.i550, label %641, label %js_parse_expr_paren.exit.thread
 
@@ -154498,7 +154497,7 @@ token_is_pseudo_keyword.exit558.thread:           ; preds = %742, %745, %token_i
   br label %js_parse_expr_paren.exit.thread
 
 768:                                              ; preds = %765
-  %769 = tail call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %769 = tail call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not428 = icmp eq i32 %769, 0
   br i1 %.not428, label %770, label %js_parse_expr_paren.exit.thread
 
@@ -154948,7 +154947,7 @@ emit_op.exit574:                                  ; preds = %955, %961
   br i1 %978, label %986, label %979
 
 979:                                              ; preds = %977
-  %980 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %980 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not491 = icmp eq i32 %980, 0
   br i1 %.not491, label %981, label %js_parse_expr_paren.exit.thread
 
@@ -155051,7 +155050,7 @@ emit_op.exit580:                                  ; preds = %emit_op.exit578, %1
   br i1 %.not496, label %1026, label %js_parse_expr_paren.exit.thread
 
 1026:                                             ; preds = %1024
-  %1027 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %1027 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not497 = icmp eq i32 %1027, 0
   br i1 %.not497, label %1028, label %js_parse_expr_paren.exit.thread
 
@@ -155085,7 +155084,7 @@ emit_op.exit582:                                  ; preds = %1028, %1034
   br label %1077
 
 1044:                                             ; preds = %1022
-  %1045 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %1045 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not495 = icmp eq i32 %1045, 0
   br i1 %.not495, label %1046, label %js_parse_expr_paren.exit.thread
 
@@ -155774,7 +155773,7 @@ get_prev_opcode.exit613:                          ; preds = %1355, %1359
   br i1 %.not481, label %1369, label %js_parse_expr_paren.exit.thread
 
 1369:                                             ; preds = %1367
-  %1370 = call fastcc i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %1370 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
   %.not482 = icmp eq i32 %1370, 0
   br i1 %.not482, label %1371, label %js_parse_expr_paren.exit.thread
 
@@ -156355,7 +156354,7 @@ JS_FreeValue.exit169.us:                          ; preds = %151, %113, %109, %1
   br i1 %.not163.us, label %157, label %.loopexit
 
 157:                                              ; preds = %155
-  %158 = call fastcc i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %158 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not164.us = icmp eq i32 %158, 0
   br i1 %.not164.us, label %159, label %.loopexit
 
@@ -156435,7 +156434,7 @@ JS_FreeValue.exit169.thread:                      ; preds = %184
   br i1 %.not163, label %193, label %.loopexit
 
 193:                                              ; preds = %191
-  %194 = tail call fastcc i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %194 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not164 = icmp eq i32 %194, 0
   br i1 %.not164, label %195, label %.loopexit
 
@@ -156533,7 +156532,7 @@ js_parse_expect.exit:                             ; preds = %1
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %js_parse_expect.exit
-  %7 = tail call fastcc i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %7 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not3 = icmp eq i32 %7, 0
   br i1 %.not3, label %8, label %12
 
@@ -157312,7 +157311,7 @@ find_private_class_field.exit470.thread:          ; preds = %301, %299, %293, %f
   br i1 %.not420, label %371, label %.loopexit
 
 371:                                              ; preds = %369
-  %372 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %372 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not421 = icmp eq i32 %372, 0
   br i1 %.not421, label %374, label %.loopexit
 
@@ -159043,7 +159042,7 @@ define internal fastcc i32 @js_parse_class_default_ctor(ptr noundef %0, i32 noun
   store i32 %7, ptr %21, align 4
   store ptr %9, ptr %14, align 8
   store i32 %11, ptr %10, align 8
-  %22 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
+  %22 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef nonnull %0)
   %23 = or i32 %22, %.021
   ret i32 %23
 }
@@ -160822,7 +160821,7 @@ emit_op.exit:                                     ; preds = %644, %651
   %667 = load ptr, ptr %666, align 8
   %668 = getelementptr inbounds i8, ptr %0, i64 28
   %669 = load i32, ptr %668, align 4
-  %670 = tail call fastcc i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 0, ptr noundef %667, i32 noundef %669, i32 noundef 0, ptr noundef null)
+  %670 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 0, ptr noundef %667, i32 noundef %669, i32 noundef 0, ptr noundef null)
   br label %js_parse_cond_expr.exit.thread
 
 thread-pre-split:                                 ; preds = %662
@@ -160851,7 +160850,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %674
   %.val229 = load ptr, ptr %681, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr %.val229, ptr %10, align 8
-  %682 = call fastcc i32 @simple_next_token(ptr noundef nonnull %10, i32 noundef 1)
+  %682 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %10, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   switch i32 %682, label %683 [
     i32 -57, label %722
@@ -160900,13 +160899,13 @@ thread-pre-split322:                              ; preds = %696
   %.val228 = load ptr, ptr %681, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %.val228, ptr %9, align 8
-  %706 = call fastcc i32 @simple_next_token(ptr noundef nonnull %9, i32 noundef 1)
+  %706 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %9, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %707 = icmp eq i32 %706, -90
   br i1 %707, label %708, label %710
 
 708:                                              ; preds = %705, %696
-  %709 = tail call fastcc i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 2, ptr noundef %685, i32 noundef %687, i32 noundef 0, ptr noundef null)
+  %709 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 2, ptr noundef %685, i32 noundef %687, i32 noundef 0, ptr noundef null)
   br label %js_parse_cond_expr.exit.thread
 
 710:                                              ; preds = %705, %702, %699
@@ -160915,7 +160914,7 @@ thread-pre-split322:                              ; preds = %696
   store i32 %687, ptr %711, align 4
   store ptr %685, ptr %681, align 8
   store i32 %691, ptr %690, align 8
-  %712 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
+  %712 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef nonnull %0)
   %.not207 = icmp eq i32 %712, 0
   br i1 %.not207, label %722, label %js_parse_cond_expr.exit.thread
 
@@ -160924,7 +160923,7 @@ thread-pre-split322:                              ; preds = %696
   %.val = load ptr, ptr %713, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %.val, ptr %8, align 8
-  %714 = call fastcc i32 @simple_next_token(ptr noundef nonnull %8, i32 noundef 1)
+  %714 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %8, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %715 = icmp eq i32 %714, -90
   br i1 %715, label %716, label %722
@@ -160934,7 +160933,7 @@ thread-pre-split322:                              ; preds = %696
   %718 = load ptr, ptr %717, align 8
   %719 = getelementptr inbounds i8, ptr %0, i64 28
   %720 = load i32, ptr %719, align 4
-  %721 = tail call fastcc i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 0, ptr noundef %718, i32 noundef %720, i32 noundef 0, ptr noundef null)
+  %721 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 0, ptr noundef %718, i32 noundef %720, i32 noundef 0, ptr noundef null)
   br label %js_parse_cond_expr.exit.thread
 
 722:                                              ; preds = %671, %680, %680, %710, %.thread325
@@ -161147,7 +161146,7 @@ js_parse_coalesce_expr.exit:                      ; preds = %828, %730
 
 833:                                              ; preds = %831
   %834 = call fastcc i32 @emit_goto(ptr noundef nonnull %0, i32 noundef 106, i32 noundef -1)
-  %835 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %835 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not15.i = icmp eq i32 %835, 0
   br i1 %.not15.i, label %836, label %js_parse_cond_expr.exit.thread
 
@@ -161589,7 +161588,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_parse_expr_binary(ptr noundef %0
   %.val57 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.val57, ptr %6, align 8
-  %20 = call fastcc i32 @simple_next_token(ptr noundef nonnull %6, i32 noundef 0)
+  %20 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %6, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %21 = icmp eq i32 %20, -71
   br i1 %21, label %22, label %116
@@ -164247,7 +164246,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %304
   %.val198 = load ptr, ptr %311, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.val198, ptr %6, align 8
-  %312 = call fastcc i32 @simple_next_token(ptr noundef nonnull %6, i32 noundef 0)
+  %312 = call fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull %6, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %313 = icmp eq i32 %312, -37
   br i1 %313, label %314, label %.token_is_pseudo_keyword.exit.threadthread-pre-split_crit_edge
@@ -164605,12 +164604,12 @@ token_is_pseudo_keyword.exit256:                  ; preds = %478
   br i1 %.not185298, label %504, label %JS_FreeAtom.exit
 
 504:                                              ; preds = %.thread296
-  %505 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %505 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not188 = icmp eq i32 %505, 0
   br i1 %.not188, label %508, label %JS_FreeAtom.exit
 
 506:                                              ; preds = %501
-  %507 = call fastcc i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
+  %507 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not187 = icmp eq i32 %507, 0
   br i1 %.not187, label %512, label %JS_FreeAtom.exit
 
@@ -164704,7 +164703,7 @@ token_is_pseudo_keyword.exit256:                  ; preds = %478
 
 ._crit_edge:                                      ; preds = %554, %519
   call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %.0.i.i207)
-  %560 = call fastcc i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
+  %560 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
   %.not192 = icmp eq i32 %560, 0
   br i1 %.not192, label %561, label %JS_FreeAtom.exit
 
@@ -164834,7 +164833,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %6
   %33 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %18, ptr %33, align 8
   store i32 %20, ptr %19, align 8
-  %34 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
+  %34 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef nonnull %0)
   %.not19 = icmp eq i32 %34, 0
   %spec.select = select i1 %.not19, i32 %.0, i32 -1
   br label %token_is_pseudo_keyword.exit.thread
@@ -173490,7 +173489,7 @@ js_thisBigIntValue.exit:                          ; preds = %5, %JS_DupValue.exi
   br label %JS_ToInt32Sat.exit.i
 
 JS_ToInt32Sat.exit.i:                             ; preds = %34, %30
-  %38 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %31, i64 %28)
+  %38 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %31, i64 %28)
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %39, label %58
 
@@ -173630,7 +173629,7 @@ define internal fastcc range(i32 -1, 37) i32 @js_get_radix(ptr noundef %0, i64 %
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %3, %7
-  %11 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %4, i64 %1, i64 %2)
+  %11 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %4, i64 %1, i64 %2)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %17
 
@@ -173670,7 +173669,7 @@ define internal { i64, i64 } @js_bigint_asUintN(ptr noundef %0, i64 %1, i64 %2, 
   br label %JS_ToInt64Sat.exit.i
 
 JS_ToInt64Sat.exit.i:                             ; preds = %15, %6
-  %19 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %7, i64 %10, i64 %12)
+  %19 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %7, i64 %10, i64 %12)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %20, label %JS_ToIndex.exit.thread
 
@@ -174949,7 +174948,7 @@ js_thisBigFloatValue.exit:                        ; preds = %5, %JS_DupValue.exi
   br label %JS_ToInt32Sat.exit.i
 
 JS_ToInt32Sat.exit.i:                             ; preds = %34, %30
-  %38 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %31, i64 %28)
+  %38 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %31, i64 %28)
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %39, label %58
 
@@ -175145,7 +175144,7 @@ js_thisBigFloatValue.exit:                        ; preds = %5, %JS_DupValue.exi
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %28, %32
-  %36 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %29, i64 %26)
+  %36 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %29, i64 %26)
   %.not49 = icmp eq i32 %36, 0
   br i1 %.not49, label %37, label %77
 
@@ -175331,7 +175330,7 @@ js_thisBigFloatValue.exit:                        ; preds = %5, %JS_DupValue.exi
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %26, %32
-  %36 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %8, i64 %27, i64 %29)
+  %36 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %8, i64 %27, i64 %29)
   %.not40 = icmp eq i32 %36, 0
   br i1 %.not40, label %37, label %93
 
@@ -175366,7 +175365,7 @@ JS_ToInt64Sat.exit:                               ; preds = %26, %32
   br label %JS_ToInt32Sat.exit.i
 
 JS_ToInt32Sat.exit.i:                             ; preds = %51, %44
-  %55 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %46, i64 %48)
+  %55 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %46, i64 %48)
   %.not.i = icmp eq i32 %55, 0
   br i1 %.not.i, label %56, label %bigfloat_get_rnd_mode.exit.thread
 
@@ -175406,7 +175405,7 @@ bigfloat_get_rnd_mode.exit.thread:                ; preds = %58, %JS_ToInt32Sat.
   br label %JS_ToInt32Sat.exit.i42
 
 JS_ToInt32Sat.exit.i42:                           ; preds = %68, %61
-  %72 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %63, i64 %65)
+  %72 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %63, i64 %65)
   %.not.i43 = icmp eq i32 %72, 0
   br i1 %.not.i43, label %73, label %js_get_radix.exit.thread
 
@@ -175554,7 +175553,7 @@ js_thisBigFloatValue.exit:                        ; preds = %5, %JS_DupValue.exi
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %24, %30
-  %34 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %25, i64 %27)
+  %34 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %25, i64 %27)
   %.not54 = icmp eq i32 %34, 0
   br i1 %.not54, label %35, label %82
 
@@ -175698,7 +175697,7 @@ define internal fastcc range(i32 -1, 7) i32 @bigfloat_get_rnd_mode(ptr noundef %
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %3, %7
-  %11 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %4, i64 %1, i64 %2)
+  %11 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %4, i64 %1, i64 %2)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %16
 
@@ -175860,7 +175859,7 @@ define internal { i64, i64 } @js_bigfloat_parseFloat(ptr noundef %0, i64 %1, i64
   br label %JS_ToInt32.exit
 
 JS_ToInt32.exit:                                  ; preds = %12, %19
-  %23 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %14, i64 %16)
+  %23 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %14, i64 %16)
   %.not33 = icmp eq i32 %23, 0
   br i1 %.not33, label %88, label %24
 
@@ -177204,7 +177203,7 @@ JS_GetOpaque2.exit:                               ; preds = %JS_GetOpaque.exit.i
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %26, %29
-  %33 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %10, i64 %3, i64 %4)
+  %33 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %10, i64 %3, i64 %4)
   %.not47 = icmp eq i32 %33, 0
   br i1 %.not47, label %34, label %98
 
@@ -177235,7 +177234,7 @@ JS_ToInt64Sat.exit:                               ; preds = %26, %29
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %40, %43
-  %47 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %9, i64 %3, i64 %4)
+  %47 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %9, i64 %3, i64 %4)
   %.not46 = icmp eq i32 %47, 0
   br i1 %.not46, label %48, label %98
 
@@ -177273,7 +177272,7 @@ JS_ToInt32Sat.exit:                               ; preds = %40, %43
   br label %JS_ToInt32Sat.exit.i
 
 JS_ToInt32Sat.exit.i:                             ; preds = %62, %59
-  %66 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %3, i64 %4)
+  %66 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %3, i64 %4)
   %.not.i48 = icmp eq i32 %66, 0
   br i1 %.not.i48, label %67, label %bigfloat_get_rnd_mode.exit.thread
 
@@ -177445,7 +177444,7 @@ define internal { i64, i64 } @js_float_env_setPrec(ptr noundef %0, i64 %1, i64 %
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %5, %15
-  %19 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %8, i64 %10, i64 %12)
+  %19 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %8, i64 %10, i64 %12)
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %61
 
@@ -177486,7 +177485,7 @@ JS_ToInt64Sat.exit:                               ; preds = %5, %15
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %31, %36
-  %40 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %33, i64 %29)
+  %40 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %33, i64 %29)
   %.not40 = icmp eq i32 %40, 0
   br i1 %.not40, label %41, label %61
 
@@ -178337,7 +178336,7 @@ JS_ToStringFree.exit:                             ; preds = %28, %32, %37
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %42, %46
-  %50 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %43, i64 %26)
+  %50 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %43, i64 %26)
   %.not42 = icmp eq i32 %50, 0
   br i1 %.not42, label %51, label %80
 
@@ -178492,7 +178491,7 @@ js_thisBigDecimalValue.exit:                      ; preds = %5, %JS_DupValue.exi
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %24, %30
-  %34 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %25, i64 %27)
+  %34 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %25, i64 %27)
   %.not33 = icmp eq i32 %34, 0
   br i1 %.not33, label %35, label %65
 
@@ -178647,7 +178646,7 @@ js_thisBigDecimalValue.exit:                      ; preds = %5, %JS_DupValue.exi
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %24, %30
-  %34 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %25, i64 %27)
+  %34 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %25, i64 %27)
   %.not38 = icmp eq i32 %34, 0
   br i1 %.not38, label %35, label %70
 
@@ -181063,7 +181062,7 @@ JS_DupValue.exit.i:                               ; preds = %15, %5
   br label %js_same_value.exit
 
 js_same_value.exit:                               ; preds = %JS_DupValue.exit.i, %21
-  %25 = tail call fastcc i32 @js_strict_eq2(ptr noundef readonly %0, i64 %7, i64 %9, i64 %10, i64 %12, i32 noundef 1)
+  %25 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %0, i64 %7, i64 %9, i64 %10, i64 %12, i32 noundef 1)
   %.sroa.07.0.insert.ext = zext nneg i32 %25 to i64
   %.fca.0.insert5 = insertvalue { i64, i64 } poison, i64 %.sroa.07.0.insert.ext, 0
   %.fca.1.insert6 = insertvalue { i64, i64 } %.fca.0.insert5, i64 1, 1
@@ -184493,7 +184492,7 @@ js_get_length64.exit:                             ; preds = %JS_ToInt64Clamp.exi
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %38, %44
-  %48 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %8, i64 %39, i64 %41)
+  %48 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %8, i64 %39, i64 %41)
   %.not33 = icmp eq i32 %48, 0
   br i1 %.not33, label %49, label %103
 
@@ -184724,7 +184723,7 @@ js_get_length64.exit:                             ; preds = %JS_ToInt64Clamp.exi
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %38, %44
-  %48 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %8, i64 %39, i64 %41)
+  %48 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %8, i64 %39, i64 %41)
   %.not123 = icmp eq i32 %48, 0
   br i1 %.not123, label %49, label %JS_FreeValue.exit
 
@@ -190026,7 +190025,7 @@ JS_ToInt64Clamp.exit244.thread:                   ; preds = %.sink.split.i242, %
   %112 = phi i64 [ %.pre302, %._crit_edge301 ], [ %67, %102 ]
   %113 = phi i64 [ %.pre, %._crit_edge301 ], [ %103, %102 ]
   %114 = sub i64 %113, %112
-  %..i = call noundef i64 @llvm.smax.i64(i64 %114, i64 0)
+  %..i = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %114, i64 0)
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %JS_ToInt64Clamp.exit244.thread, %111
@@ -191248,7 +191247,7 @@ check_function.exit:                              ; preds = %43, %JS_IsFunction.
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %72, %76
-  %80 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %8, i64 %73, i64 %70)
+  %80 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %8, i64 %73, i64 %70)
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %102, label %check_function.exit.thread
 
@@ -191577,7 +191576,7 @@ JS_DupValue.exit.i:                               ; preds = %52
   br label %js_same_value.exit
 
 js_same_value.exit:                               ; preds = %JS_DupValue.exit.i, %61
-  %65 = tail call fastcc i32 @js_strict_eq2(ptr noundef readonly %0, i64 %38, i64 %39, i64 %54, i64 %56, i32 noundef 1)
+  %65 = tail call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %0, i64 %38, i64 %39, i64 %54, i64 %56, i32 noundef 1)
   %.not208 = icmp eq i32 %65, 0
   br i1 %.not208, label %JS_FreeValue.exit215, label %66
 
@@ -193478,7 +193477,7 @@ define internal { i64, i64 } @js_parseInt(ptr noundef %0, i64 %1, i64 %2, i32 %3
   br label %JS_ToInt32.exit
 
 JS_ToInt32.exit:                                  ; preds = %12, %19
-  %23 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %14, i64 %16)
+  %23 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %14, i64 %16)
   %.not24 = icmp eq i32 %23, 0
   br i1 %.not24, label %88, label %24
 
@@ -196368,7 +196367,7 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %35, %31, %JS_ToFloa
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %JS_ToFloat64Free.exit.thread, %42
-  %46 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %37, i64 %39)
+  %46 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %37, i64 %39)
   %.not34 = icmp eq i32 %46, 0
   br i1 %.not34, label %47, label %70
 
@@ -196522,7 +196521,7 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %34, %30, %JS_ToFloa
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %JS_ToFloat64Free.exit.thread, %41
-  %45 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %36, i64 %38)
+  %45 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %36, i64 %38)
   %.not32 = icmp eq i32 %45, 0
   br i1 %.not32, label %46, label %63
 
@@ -196670,7 +196669,7 @@ JS_ToFloat64Free.exit.thread._crit_edge:          ; preds = %JS_ToFloat64Free.ex
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %40, %44
-  %48 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %41, i64 %38)
+  %48 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %41, i64 %38)
   %.not34 = icmp eq i32 %48, 0
   br i1 %.not34, label %49, label %68
 
@@ -196802,7 +196801,7 @@ js_thisNumberValue.exit:                          ; preds = %6, %6, %25
   br label %JS_ToInt32Sat.exit.i
 
 JS_ToInt32Sat.exit.i:                             ; preds = %40, %36
-  %44 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %9, i64 %37, i64 %34)
+  %44 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %9, i64 %37, i64 %34)
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %45, label %193
 
@@ -197656,7 +197655,7 @@ string_buffer_init.exit:                          ; preds = %js_alloc_string.exi
   br label %JS_ToInt32.exit
 
 JS_ToInt32.exit:                                  ; preds = %35, %42
-  %46 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %37, i64 %39)
+  %46 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %37, i64 %39)
   %.not = icmp eq i32 %46, 0
   br i1 %.not, label %47, label %72
 
@@ -198580,7 +198579,7 @@ JS_ToStringCheckObject.exit:                      ; preds = %6
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %15, %21
-  %25 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %16, i64 %18)
+  %25 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %16, i64 %18)
   %.not34 = icmp eq i32 %25, 0
   br i1 %.not34, label %36, label %26
 
@@ -198809,7 +198808,7 @@ JS_ToStringCheckObject.exit:                      ; preds = %5
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %14, %20
-  %24 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %15, i64 %17)
+  %24 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %15, i64 %17)
   %.not27 = icmp eq i32 %24, 0
   br i1 %.not27, label %35, label %25
 
@@ -198985,7 +198984,7 @@ JS_ToStringCheckObject.exit:                      ; preds = %5
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %14, %20
-  %24 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %15, i64 %17)
+  %24 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %15, i64 %17)
   %.not29 = icmp eq i32 %24, 0
   br i1 %.not29, label %35, label %25
 
@@ -200418,7 +200417,7 @@ define internal { i64, i64 } @js_string_split(ptr noundef %0, i64 %1, i64 %2, i3
   br label %JS_ToUint32.exit
 
 JS_ToUint32.exit:                                 ; preds = %42, %45
-  %49 = call fastcc i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %7, i64 %.sroa.0108.0.copyload, i64 %.sroa.4.0.copyload)
+  %49 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %0, ptr noundef nonnull writeonly %7, i64 %.sroa.0108.0.copyload, i64 %.sroa.4.0.copyload)
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %.loopexit234, label %51
 
@@ -201169,7 +201168,7 @@ JS_ToStringCheckObject.exit:                      ; preds = %5
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %15, %21
-  %25 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %7, i64 %16, i64 %18)
+  %25 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %7, i64 %16, i64 %18)
   %.not42 = icmp eq i32 %25, 0
   br i1 %.not42, label %26, label %108
 
@@ -201962,7 +201961,7 @@ JS_ToStringCheckObject.exit:                      ; preds = %6
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %16, %22
-  %26 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %8, i64 %17, i64 %19)
+  %26 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %8, i64 %17, i64 %19)
   %.not67 = icmp eq i32 %26, 0
   br i1 %.not67, label %27, label %JS_FreeValue.exit88
 
@@ -205340,7 +205339,7 @@ define internal { i64, i64 } @js_math_imul(ptr noundef %0, i64 %1, i64 %2, i32 %
   br label %JS_ToUint32.exit
 
 JS_ToUint32.exit:                                 ; preds = %5, %13
-  %17 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %8, i64 %10)
+  %17 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %8, i64 %10)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %35
 
@@ -205361,7 +205360,7 @@ JS_ToUint32.exit:                                 ; preds = %5, %13
   br label %JS_ToUint32.exit14
 
 JS_ToUint32.exit14:                               ; preds = %18, %25
-  %29 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %20, i64 %22)
+  %29 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %20, i64 %22)
   %.not13 = icmp eq i32 %29, 0
   br i1 %.not13, label %30, label %35
 
@@ -205398,7 +205397,7 @@ define internal { i64, i64 } @js_math_clz32(ptr noundef %0, i64 %1, i64 %2, i32 
   br label %JS_ToUint32.exit
 
 JS_ToUint32.exit:                                 ; preds = %5, %12
-  %16 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %7, i64 %9)
+  %16 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %7, i64 %9)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %23
 
@@ -205408,7 +205407,7 @@ JS_ToUint32.exit:                                 ; preds = %5, %12
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %18, i1 true)
+  %21 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %18, i1 true)
   %22 = zext nneg i32 %21 to i64
   br label %23
 
@@ -207036,7 +207035,7 @@ define internal { i64, i64 } @js_atomics_op(ptr noundef %0, i64 %1, i64 %2, i32 
   br label %JS_ToUint32.exit
 
 JS_ToUint32.exit:                                 ; preds = %40, %43
-  %47 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %11, i64 %24, i64 %26)
+  %47 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %11, i64 %24, i64 %26)
   %.not208 = icmp eq i32 %47, 0
   br i1 %.not208, label %48, label %223
 
@@ -207063,7 +207062,7 @@ JS_ToUint32.exit:                                 ; preds = %40, %43
   br label %JS_ToUint32.exit218
 
 JS_ToUint32.exit218:                              ; preds = %52, %59
-  %63 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %11, i64 %54, i64 %56)
+  %63 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %11, i64 %54, i64 %56)
   %.not209 = icmp eq i32 %63, 0
   br i1 %.not209, label %64, label %223
 
@@ -207965,19 +207964,19 @@ JS_ToUint32.exit:                                 ; preds = %264
   %268 = load i32, ptr %267, align 4
   %269 = add i32 %268, 1
   store i32 %269, ptr %267, align 4
-  %270 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %12, i64 %260, i64 %.sroa.4.0.i)
+  %270 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %12, i64 %260, i64 %.sroa.4.0.i)
   %.not68 = icmp eq i32 %270, 0
   br i1 %.not68, label %281, label %273
 
 JS_ToUint32.exit.thread145:                       ; preds = %264
-  %271 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %12, i64 %260, i64 %.sroa.4.0.i)
+  %271 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %12, i64 %260, i64 %.sroa.4.0.i)
   %.not68146 = icmp eq i32 %271, 0
   br i1 %.not68146, label %281, label %JS_FreeValue.exit
 
 JS_ToUint32.exit.thread:                          ; preds = %189, %190
   %.ph = phi i64 [ 0, %190 ], [ %.sroa.071.0.insert.ext.i, %189 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  %272 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %12, i64 %.ph, i64 0)
+  %272 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %12, i64 %.ph, i64 0)
   %.not68118 = icmp eq i32 %272, 0
   br i1 %.not68118, label %281, label %JS_FreeValue.exit
 
@@ -208072,7 +208071,7 @@ define internal { i64, i64 } @js_atomics_isLockFree(ptr noundef %0, i64 %1, i64 
   br label %JS_ToInt32Sat.exit
 
 JS_ToInt32Sat.exit:                               ; preds = %5, %12
-  %16 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %7, i64 %9)
+  %16 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull writeonly %6, i64 %7, i64 %9)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %22
 
@@ -208143,7 +208142,7 @@ define internal { i64, i64 } @js_atomics_wait(ptr noundef %0, i64 %1, i64 %2, i3
   br label %JS_ToInt32.exit
 
 JS_ToInt32.exit:                                  ; preds = %27, %30
-  %34 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %22, i64 %24)
+  %34 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %7, i64 %22, i64 %24)
   %.not54 = icmp eq i32 %34, 0
   br i1 %.not54, label %35, label %142
 
@@ -208578,7 +208577,7 @@ select.unfold2:                                   ; preds = %16, %14
   br label %JS_ToInt64Sat.exit.i
 
 JS_ToInt64Sat.exit.i:                             ; preds = %40, %37
-  %44 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %8, i64 %.0.val, i64 %.8.val)
+  %44 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %8, i64 %.0.val, i64 %.8.val)
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %45, label %JS_ToIndex.exit.thread
 
@@ -208866,7 +208865,7 @@ JS_ToInt64Clamp.exit133.thread:                   ; preds = %.sink.split.i131, %
   %77 = phi i64 [ %.sink.i132, %.sink.split.i131 ], [ %75, %.thread138 ], [ %34, %54 ]
   %78 = load i64, ptr %8, align 8
   %79 = sub i64 %77, %78
-  %..i = call noundef i64 @llvm.smax.i64(i64 %79, i64 0)
+  %..i = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %79, i64 0)
   %80 = call fastcc { i64, i64 } @JS_SpeciesConstructor(ptr noundef %0, i64 %1, i64 %2, i64 0, i64 3)
   %81 = extractvalue { i64, i64 } %80, 0
   %82 = extractvalue { i64, i64 } %80, 1
@@ -209124,7 +209123,7 @@ get_typed_array.exit:                             ; preds = %9
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %20, %26
-  %30 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %21, i64 %23)
+  %30 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %21, i64 %23)
   %.not21 = icmp eq i32 %30, 0
   br i1 %.not21, label %31, label %47
 
@@ -209201,7 +209200,7 @@ get_typed_array.exit:                             ; preds = %9
   br label %JS_ToInt64Sat.exit
 
 JS_ToInt64Sat.exit:                               ; preds = %get_typed_array.exit, %19
-  %23 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %14, i64 %16)
+  %23 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %6, i64 %14, i64 %16)
   %.not43 = icmp eq i32 %23, 0
   br i1 %.not43, label %24, label %JS_FreeValue.exit
 
@@ -209562,7 +209561,7 @@ get_typed_array.exit.i:                           ; preds = %17
   br label %JS_ToInt64Sat.exit.i
 
 JS_ToInt64Sat.exit.i:                             ; preds = %24, %get_typed_array.exit.i
-  %28 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %7, i64 %.sroa.0.0, i64 %.sroa.3.0)
+  %28 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %7, i64 %.sroa.0.0, i64 %.sroa.3.0)
   %.not68.i = icmp eq i32 %28, 0
   br i1 %.not68.i, label %29, label %js_typed_array_set_internal.exit
 
@@ -210198,7 +210197,7 @@ JS_DupValue.exit:                                 ; preds = %30, %36
   br label %JS_ToUint32.exit
 
 JS_ToUint32.exit:                                 ; preds = %46, %52
-  %56 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %10, i64 %47, i64 %49)
+  %56 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %10, i64 %47, i64 %49)
   %.not61 = icmp eq i32 %56, 0
   br i1 %.not61, label %57, label %JS_ToInt32Clamp.exit
 
@@ -214548,7 +214547,7 @@ JS_GetOpaque2.exit:                               ; preds = %JS_GetOpaque.exit.i
   br label %JS_ToInt64Sat.exit.i
 
 JS_ToInt64Sat.exit.i:                             ; preds = %35, %JS_GetOpaque2.exit
-  %39 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %7, i64 %30, i64 %32)
+  %39 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %7, i64 %30, i64 %32)
   %.not.i171 = icmp eq i32 %39, 0
   br i1 %.not.i171, label %40, label %JS_ToIndex.exit.thread
 
@@ -214803,7 +214802,7 @@ JS_GetOpaque2.exit:                               ; preds = %JS_GetOpaque.exit.i
   br label %JS_ToInt64Sat.exit.i
 
 JS_ToInt64Sat.exit.i:                             ; preds = %38, %JS_GetOpaque2.exit
-  %42 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %7, i64 %33, i64 %35)
+  %42 = call fastcc range(i32 -1, 1) i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %7, i64 %33, i64 %35)
   %.not.i59 = icmp eq i32 %42, 0
   br i1 %.not.i59, label %43, label %JS_ToIndex.exit.thread
 
@@ -214844,7 +214843,7 @@ JS_ToIndex.exit.thread:                           ; preds = %JS_ToInt64Sat.exit.
   br label %JS_ToUint32.exit
 
 JS_ToUint32.exit:                                 ; preds = %50, %53
-  %57 = call fastcc i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %10, i64 %.sroa.02.0.copyload, i64 %.sroa.4.0.copyload)
+  %57 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef nonnull writeonly %10, i64 %.sroa.02.0.copyload, i64 %.sroa.4.0.copyload)
   %.not53 = icmp eq i32 %57, 0
   br i1 %.not53, label %81, label %135
 

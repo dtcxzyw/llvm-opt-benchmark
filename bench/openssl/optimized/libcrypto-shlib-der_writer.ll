@@ -433,7 +433,7 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i)
   store i32 0, ptr %v.addr.i, align 4
-  %call.i = call fastcc i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_uint32, ptr noundef nonnull %v.addr.i)
+  %call.i = call fastcc range(i32 0, 2) i32 @int_der_w_integer(ptr noundef %pkt, i32 noundef %tag, ptr noundef nonnull @int_put_bytes_uint32, ptr noundef nonnull %v.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i)
   br label %return
 

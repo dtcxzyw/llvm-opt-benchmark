@@ -13437,7 +13437,7 @@ common.ret:                                       ; preds = %721, %718, %124
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.740.i.i)
   %407 = icmp ne ptr %.sroa.453.0.i.i.ph, null
   call void @llvm.assume(i1 %407)
-  %408 = invoke noundef i8 @"_ZN112_$LT$ockam_transport_core..error..TransportError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h3beb3af3bee63bb0E"(ptr noundef nonnull %.sroa.453.0.i.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9df85fe51b29709ff78870a172da73f9.46)
+  %408 = invoke noundef range(i8 1, 17) i8 @"_ZN112_$LT$ockam_transport_core..error..TransportError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h3beb3af3bee63bb0E"(ptr noundef nonnull %.sroa.453.0.i.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9df85fe51b29709ff78870a172da73f9.46)
           to label %420 unwind label %.body126.i, !noalias !1774
 
 409:                                              ; preds = %389

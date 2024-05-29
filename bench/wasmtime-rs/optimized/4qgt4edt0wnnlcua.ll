@@ -6361,7 +6361,7 @@ common.resume:                                    ; preds = %42, %30
   store i64 %.sroa.648.0.copyload, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !769)
-  %55 = invoke noundef i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %19)
+  %55 = invoke noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %19)
           to label %.noexc unwind label %42
 
 .noexc:                                           ; preds = %54
@@ -7102,7 +7102,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime3sys4unix2vm17MemoryImageSource6
   %11 = load ptr, ptr %10, align 8, !alias.scope !876, !nonnull !4
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %.0.i = select i1 %trunc.i, ptr %9, ptr %12
-  %13 = tail call noundef i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !751, !noalias !879
+  %13 = tail call noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.0.i), !range !751, !noalias !879
   %14 = inttoptr i64 %2 to ptr
   %15 = zext i32 %13 to i64
   %16 = inttoptr i64 %15 to ptr

@@ -704,7 +704,7 @@ define dso_local range(i64 -64, 1) i64 @ZSTDMT_initCStream_internal(ptr noundef 
 ZSTDMT_freeJobsTable.exit.i.i:                    ; preds = %35, %34, %27
   store i32 0, ptr %23, align 8
   %.val12.i.i = load ptr, ptr %30, align 8
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
+  %36 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %37 = xor i32 %36, 31
   %38 = shl nuw i32 2, %37
   %39 = sub nuw nsw i32 32, %36
@@ -1218,7 +1218,7 @@ ZSTDMT_computeTargetJobLog.exit:                  ; preds = %257, %.thread114, %
 285:                                              ; preds = %279
   %286 = lshr i64 %282, 10
   %287 = trunc i64 %286 to i32
-  %288 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %287, i1 true)
+  %288 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %287, i1 true)
   %289 = sub nuw nsw i32 41, %288
   %290 = getelementptr inbounds i8, ptr %0, i64 2808
   store i64 0, ptr %290, align 8

@@ -309,7 +309,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.
 invoke.cont24:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i32 [ %17, %if.then.i.i.i ], [ %18, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i ]
   %19 = and i32 %retval.0.i.i.i, -129
-  %and.i = call noundef i32 @llvm.bswap.i32(i32 %19)
+  %and.i = call noundef range(i32 0, -2147483648) i32 @llvm.bswap.i32(i32 %19)
   %stream = getelementptr inbounds i8, ptr %header, i64 4
   store i32 %and.i, ptr %stream, align 4
   ret i8 0
@@ -1333,7 +1333,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.
 invoke.cont62:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i, %if.then.i.i.i19
   %retval.0.i.i.i = phi i32 [ %27, %if.then.i.i.i19 ], [ %28, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i ]
   %29 = and i32 %retval.0.i.i.i, -129
-  %and.i = call noundef i32 @llvm.bswap.i32(i32 %29)
+  %and.i = call noundef range(i32 0, -2147483648) i32 @llvm.bswap.i32(i32 %29)
   %conv64 = zext nneg i32 %and.i to i64
   store i64 %conv64, ptr %outExAttributes, align 8
   %and67 = and i64 %conv64, 1
@@ -1834,7 +1834,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.
 invoke.cont45:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i, %if.then.i.i.i18
   %retval.0.i.i.i = phi i32 [ %19, %if.then.i.i.i18 ], [ %20, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i ]
   %21 = and i32 %retval.0.i.i.i, -129
-  %and.i = call noundef i32 @llvm.bswap.i32(i32 %21)
+  %and.i = call noundef range(i32 0, -2147483648) i32 @llvm.bswap.i32(i32 %21)
   store i32 %and.i, ptr %outPromisedStream, align 4
   %cmp47 = icmp eq i32 %21, 0
   %and = and i32 %and.i, 1
@@ -2010,7 +2010,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.
 invoke.cont22:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i32 [ %7, %if.then.i.i.i ], [ %8, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i ]
   %9 = and i32 %retval.0.i.i.i, -129
-  %and.i = call noundef i32 @llvm.bswap.i32(i32 %9)
+  %and.i = call noundef range(i32 0, -2147483648) i32 @llvm.bswap.i32(i32 %9)
   store i32 %and.i, ptr %outLastStreamID, align 4
   %10 = load ptr, ptr %crtPos_.i.i.i, align 8
   %11 = ptrtoint ptr %10 to i64
@@ -2198,7 +2198,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.
 invoke.cont19:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i32 [ %6, %if.then.i.i.i ], [ %7, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIjEET_v.exit.i.i.i ]
   %8 = and i32 %retval.0.i.i.i, -129
-  %and.i = call noundef i32 @llvm.bswap.i32(i32 %8)
+  %and.i = call noundef range(i32 0, -2147483648) i32 @llvm.bswap.i32(i32 %8)
   store i32 %and.i, ptr %outAmount, align 4
   br label %return
 

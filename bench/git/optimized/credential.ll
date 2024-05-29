@@ -364,7 +364,7 @@ if.else57:                                        ; preds = %if.else51
   br i1 %tobool59.not, label %if.then60, label %if.else61
 
 if.then60:                                        ; preds = %if.else57
-  %call.i.i = call fastcc i32 @credential_from_url_1(ptr noundef %c, ptr noundef nonnull %incdec.ptr, i32 noundef 0, i32 noundef 0)
+  %call.i.i = call fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef %c, ptr noundef nonnull %incdec.ptr, i32 noundef 0, i32 noundef 0)
   %cmp.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end80
 
@@ -421,7 +421,7 @@ declare i64 @strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local void @credential_from_url(ptr noundef %c, ptr noundef %url) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call fastcc i32 @credential_from_url_1(ptr noundef %c, ptr noundef %url, i32 noundef 0, i32 noundef 0)
+  %call.i = tail call fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef %c, ptr noundef %url, i32 noundef 0, i32 noundef 0)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1608,7 +1608,7 @@ define internal range(i32 0, 2) i32 @match_partial_url(ptr noundef %url, ptr noc
 entry:
   %want = alloca %struct.credential, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %want, ptr noundef nonnull align 8 dereferenceable(128) @__const.match_partial_url.want, i64 128, i1 false)
-  %call.i = call fastcc i32 @credential_from_url_1(ptr noundef nonnull %want, ptr noundef %url, i32 noundef 1, i32 noundef 0)
+  %call.i = call fastcc range(i32 -1, 1) i32 @credential_from_url_1(ptr noundef nonnull %want, ptr noundef %url, i32 noundef 1, i32 noundef 0)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %if.then, label %if.else
 

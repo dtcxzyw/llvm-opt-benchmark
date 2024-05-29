@@ -231,7 +231,7 @@ skip_optional_kwonly:                             ; preds = %if.end, %if.end30, 
   %lo.138 = phi i64 [ %lo.0, %if.end50 ], [ %lo.0, %skip_optional_pos ], [ 0, %if.end ], [ %ival.034, %if.end30 ]
   %key.0 = phi ptr [ %11, %if.end50 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end30 ]
   %12 = load i64, ptr %hi, align 8
-  %call.i = call fastcc i64 @internal_bisect_right(ptr noundef %4, ptr noundef %5, i64 noundef %lo.138, i64 noundef %12, ptr noundef %key.0)
+  %call.i = call fastcc range(i64 -1, -9223372036854775808) i64 @internal_bisect_right(ptr noundef %4, ptr noundef %5, i64 noundef %lo.138, i64 noundef %12, ptr noundef %key.0)
   %cmp53 = icmp eq i64 %call.i, -1
   br i1 %cmp53, label %land.lhs.true54, label %if.end58
 
@@ -537,7 +537,7 @@ skip_optional_kwonly:                             ; preds = %if.end, %if.end30, 
   %lo.138 = phi i64 [ %lo.0, %if.end50 ], [ %lo.0, %skip_optional_pos ], [ 0, %if.end ], [ %ival.034, %if.end30 ]
   %key.0 = phi ptr [ %11, %if.end50 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end30 ]
   %12 = load i64, ptr %hi, align 8
-  %call.i = call fastcc i64 @internal_bisect_left(ptr noundef %4, ptr noundef %5, i64 noundef %lo.138, i64 noundef %12, ptr noundef %key.0)
+  %call.i = call fastcc range(i64 -1, -9223372036854775808) i64 @internal_bisect_left(ptr noundef %4, ptr noundef %5, i64 noundef %lo.138, i64 noundef %12, ptr noundef %key.0)
   %cmp53 = icmp eq i64 %call.i, -1
   br i1 %cmp53, label %land.lhs.true54, label %if.end58
 

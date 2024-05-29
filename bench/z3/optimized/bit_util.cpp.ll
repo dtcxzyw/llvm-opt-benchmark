@@ -76,7 +76,7 @@ if.then:                                          ; preds = %while.body
   br i1 %cmp.not.wide, label %return, label %while.body, !llvm.loop !4
 
 if.else:                                          ; preds = %while.body
-  %4 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
+  %4 = tail call noundef range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %3, i1 true)
   %add2 = or disjoint i32 %4, %r.08
   br label %return
 
@@ -121,7 +121,7 @@ if.then:                                          ; preds = %for.body
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 if.else:                                          ; preds = %for.body
-  %2 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  %2 = tail call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %1, i1 true)
   %add2 = or disjoint i32 %2, %r.08
   br label %return
 

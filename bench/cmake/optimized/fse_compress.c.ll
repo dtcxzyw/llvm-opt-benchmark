@@ -268,7 +268,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
 129:                                              ; preds = %119
   %130 = sext i16 %121 to i32
   %131 = add nsw i32 %130, -1
-  %132 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %131, i1 true)
+  %132 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %131, i1 true)
   %133 = xor i32 %132, 31
   %134 = sub i32 %3, %133
   %135 = shl i32 %130, %134
@@ -604,14 +604,14 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
 define dso_local range(i32 1, 0) i32 @FSE_optimalTableLog_internal(i32 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = trunc i64 %1 to i32
   %6 = add i32 %5, -1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
+  %7 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %6, i1 true)
   %8 = xor i32 %7, 31
   %9 = sub i32 %8, %3
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
+  %10 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %5, i1 true)
   %11 = sub nuw nsw i32 32, %10
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2, i1 true)
+  %12 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %2, i1 true)
   %13 = sub nuw nsw i32 33, %12
-  %14 = tail call i32 @llvm.umin.i32(i32 %11, i32 %13)
+  %14 = tail call range(i32 1, 34) i32 @llvm.umin.i32(i32 %11, i32 %13)
   %15 = icmp eq i32 %0, 0
   %spec.store.select = select i1 %15, i32 11, i32 %0
   %spec.select = tail call i32 @llvm.umin.i32(i32 %9, i32 %spec.store.select)
@@ -625,19 +625,19 @@ define dso_local range(i32 1, 0) i32 @FSE_optimalTableLog_internal(i32 noundef %
 define dso_local range(i32 1, 0) i32 @FSE_optimalTableLog(i32 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = trunc i64 %1 to i32
   %5 = add i32 %4, -1
-  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
+  %6 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %5, i1 true)
   %7 = sub nsw i32 29, %6
-  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %4, i1 true)
+  %8 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %4, i1 true)
   %9 = sub nuw nsw i32 32, %8
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2, i1 true)
+  %10 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %2, i1 true)
   %11 = sub nuw nsw i32 33, %10
-  %12 = tail call i32 @llvm.umin.i32(i32 %9, i32 %11)
+  %12 = tail call range(i32 1, 34) i32 @llvm.umin.i32(i32 %9, i32 %11)
   %13 = icmp eq i32 %0, 0
   %spec.store.select.i = select i1 %13, i32 11, i32 %0
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %7, i32 %spec.store.select.i)
   %.1.i = tail call i32 @llvm.umax.i32(i32 %12, i32 %spec.select.i)
   %spec.store.select1.i = tail call i32 @llvm.umax.i32(i32 %.1.i, i32 5)
-  %spec.store.select2.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select1.i, i32 12)
+  %spec.store.select2.i = tail call range(i32 1, 0) i32 @llvm.umin.i32(i32 %spec.store.select1.i, i32 12)
   ret i32 %spec.store.select2.i
 }
 
@@ -654,11 +654,11 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 
 11:                                               ; preds = %9
   %12 = trunc i64 %3 to i32
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %12, i1 true)
+  %13 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %12, i1 true)
   %14 = sub nuw nsw i32 32, %13
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %4, i1 true)
+  %15 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %4, i1 true)
   %16 = sub nuw nsw i32 33, %15
-  %17 = tail call i32 @llvm.umin.i32(i32 %14, i32 %16)
+  %17 = tail call range(i32 1, 34) i32 @llvm.umin.i32(i32 %14, i32 %16)
   %18 = icmp ult i32 %spec.store.select, %17
   br i1 %18, label %FSE_normalizeM2.exit.thread, label %19
 

@@ -1104,7 +1104,7 @@ err128:                                           ; preds = %if.then89, %if.end6
 define internal void @run_server_thread() #0 {
 entry:
   %0 = load ptr, ptr @globtserv, align 8
-  %call.i = tail call i32 @qtest_create_quic_connection_ex(ptr noundef %0, ptr noundef null, i32 noundef 0)
+  %call.i = tail call range(i32 0, 2) i32 @qtest_create_quic_connection_ex(ptr noundef %0, ptr noundef null, i32 noundef 0)
   store i32 %call.i, ptr @globserverret, align 4
   ret void
 }

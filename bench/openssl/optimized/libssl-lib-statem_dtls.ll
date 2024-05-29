@@ -894,7 +894,7 @@ if.then54.i.i:                                    ; preds = %if.else.i79.i
 
 if.end56.i.i:                                     ; preds = %if.else.i79.i
   %s.val.i.i = load i64, ptr %1, align 8
-  %..i.i.i = call i64 @llvm.umax.i64(i64 %s.val.i.i, i64 17740)
+  %..i.i.i = call range(i64 17740, 0) i64 @llvm.umax.i64(i64 %s.val.i.i, i64 17740)
   %cmp58.i.i = icmp ugt i64 %or6.i.i, %..i.i.i
   br i1 %cmp58.i.i, label %dtls1_process_out_of_seq_message.exit.i, label %if.end61.i.i
 
@@ -1974,7 +1974,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %3 = getelementptr i8, ptr %s, i64 2376
   %s.val = load i64, ptr %3, align 8
-  %..i = tail call i64 @llvm.umax.i64(i64 %s.val, i64 17740)
+  %..i = tail call range(i64 17740, 0) i64 @llvm.umax.i64(i64 %s.val, i64 17740)
   %cmp4 = icmp ugt i64 %2, %..i
   br i1 %cmp4, label %return, label %if.end
 
@@ -2227,7 +2227,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %3 = getelementptr i8, ptr %s, i64 2376
   %s.val = load i64, ptr %3, align 8
-  %..i = tail call i64 @llvm.umax.i64(i64 %s.val, i64 17740)
+  %..i = tail call range(i64 17740, 0) i64 @llvm.umax.i64(i64 %s.val, i64 17740)
   %cmp4 = icmp ugt i64 %0, %..i
   br i1 %cmp4, label %if.then, label %if.end
 

@@ -454,7 +454,7 @@ define void @Dar_LibSetup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i32 %19, 65535
   %21 = xor i32 %20, 65535
-  %..i = tail call i32 @llvm.umin.i32(i32 %21, i32 %19)
+  %..i = tail call range(i32 0, 65536) i32 @llvm.umin.i32(i32 %21, i32 %19)
   %22 = zext nneg i32 %..i to i64
   %23 = getelementptr inbounds i8, ptr %10, i64 %22
   %24 = load i8, ptr %23, align 1
@@ -537,7 +537,7 @@ define void @Dar_LibSetup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   %64 = trunc nuw nsw i64 %63 to i32
   %65 = and i32 %64, 65535
   %66 = xor i32 %65, 65535
-  %..i228 = tail call i32 @llvm.umin.i32(i32 %66, i32 %64)
+  %..i228 = tail call range(i32 0, 65536) i32 @llvm.umin.i32(i32 %66, i32 %64)
   %67 = load ptr, ptr %43, align 8
   %68 = zext nneg i32 %..i228 to i64
   %69 = getelementptr inbounds i8, ptr %67, i64 %68

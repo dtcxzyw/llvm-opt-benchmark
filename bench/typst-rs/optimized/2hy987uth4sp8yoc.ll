@@ -5356,7 +5356,7 @@ define internal fastcc noundef range(i8 0, 16) i8 @_ZN12typst_syntax6parser10mat
   br i1 %55, label %"_ZN4core6option15Option$LT$T$GT$6filter17h3b36d14222e4abcbE.exit.thread", label %56
 
 56:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h3b36d14222e4abcbE.exit"
-  %57 = tail call noundef i8 @_ZN18unicode_math_class5class17hde87cec9e9e68788E(i32 noundef %.sroa.4.0.i.ph51), !range !500
+  %57 = tail call noundef range(i8 0, 16) i8 @_ZN18unicode_math_class5class17hde87cec9e9e68788E(i32 noundef %.sroa.4.0.i.ph51), !range !500
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h3b36d14222e4abcbE.exit.thread"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17h3b36d14222e4abcbE.exit.thread": ; preds = %2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit17.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i", %44, %32, %56, %"_ZN4core6option15Option$LT$T$GT$6filter17h3b36d14222e4abcbE.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit29", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit25", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit"

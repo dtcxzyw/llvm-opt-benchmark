@@ -2868,7 +2868,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h44
   %29 = getelementptr inbounds i8, ptr %25, i64 40
   %30 = load ptr, ptr %26, align 8, !noalias !512, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds i8, ptr %30, i64 40
-  %32 = call noundef i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %29, ptr noundef nonnull align 8 %31), !range !515, !noalias !512
+  %32 = call noundef range(i8 -1, 2) i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %29, ptr noundef nonnull align 8 %31), !range !515, !noalias !512
   %33 = icmp eq i8 %32, -1
   br i1 %33, label %34, label %_ZN4core5slice4sort11insert_tail17h9ddb84e371bdd0ebE.exit
 
@@ -3113,7 +3113,7 @@ select.unfold6.cont:                              ; preds = %select.unfold6.invo
   %130 = getelementptr inbounds i8, ptr %85, i64 40
   %131 = load ptr, ptr %129, align 8, !noalias !512, !nonnull !4, !noundef !4
   %132 = getelementptr inbounds i8, ptr %131, i64 40
-  %133 = invoke noundef i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %130, ptr noundef nonnull align 8 %132)
+  %133 = invoke noundef range(i8 -1, 2) i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %130, ptr noundef nonnull align 8 %132)
           to label %134 unwind label %.loopexit.i, !noalias !512
 
 134:                                              ; preds = %"_ZN8mini_lsm7compact7leveled27LeveledCompactionController23apply_compaction_result28_$u7b$$u7b$closure$u7d$$u7d$17h1c2b39e58acce019E.exit.i.i"
@@ -8768,7 +8768,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %319 = getelementptr inbounds i8, ptr %316, i64 40
   %320 = load ptr, ptr %317, align 8, !noalias !1397, !nonnull !4, !noundef !4
   %321 = getelementptr inbounds i8, ptr %320, i64 40
-  %322 = invoke noundef i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %319, ptr noundef nonnull align 8 %321)
+  %322 = invoke noundef range(i8 -1, 2) i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %319, ptr noundef nonnull align 8 %321)
           to label %.noexc53.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 .noexc53.i.i.i:                                   ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h05594acf37a594fbE.exit.i.i.i.i"
@@ -8816,7 +8816,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %333 = getelementptr inbounds i8, ptr %330, i64 40
   %334 = load ptr, ptr %331, align 8, !noalias !1397, !nonnull !4, !noundef !4
   %335 = getelementptr inbounds i8, ptr %334, i64 40
-  %336 = invoke noundef i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %333, ptr noundef nonnull align 8 %335)
+  %336 = invoke noundef range(i8 -1, 2) i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %333, ptr noundef nonnull align 8 %335)
           to label %.noexc58.i.i.i unwind label %.loopexit.split-lp.loopexit.i.i.i
 
 .noexc58.i.i.i:                                   ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h05594acf37a594fbE.exit37.i.i.i.i"
@@ -8854,7 +8854,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %347 = getelementptr inbounds i8, ptr %344, i64 40
   %348 = load ptr, ptr %345, align 8, !noalias !1397, !nonnull !4, !noundef !4
   %349 = getelementptr inbounds i8, ptr %348, i64 40
-  %350 = invoke noundef i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %347, ptr noundef nonnull align 8 %349)
+  %350 = invoke noundef range(i8 -1, 2) i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %347, ptr noundef nonnull align 8 %349)
           to label %.noexc63.i.i.i unwind label %.loopexit33.i.i.i
 
 .noexc63.i.i.i:                                   ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h05594acf37a594fbE.exit39.i.i.i.i"
@@ -9418,7 +9418,7 @@ select.unfold15.i.i.i.cont:                       ; preds = %select.unfold15.i.i
   %568 = getelementptr inbounds i8, ptr %523, i64 40
   %569 = load ptr, ptr %567, align 8, !nonnull !4, !noundef !4
   %570 = getelementptr inbounds i8, ptr %569, i64 40
-  %571 = invoke noundef i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %568, ptr noundef nonnull align 8 %570)
+  %571 = invoke noundef range(i8 -1, 2) i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %568, ptr noundef nonnull align 8 %570)
           to label %572 unwind label %.loopexit15.i.i.i.i
 
 572:                                              ; preds = %"_ZN8mini_lsm7compact7leveled27LeveledCompactionController23apply_compaction_result28_$u7b$$u7b$closure$u7d$$u7d$17h1c2b39e58acce019E.exit.i.i.i.i.i"
@@ -9667,7 +9667,7 @@ select.unfold21.i.i.i.cont:                       ; preds = %select.unfold21.i.i
   %673 = getelementptr inbounds i8, ptr %628, i64 40
   %674 = load ptr, ptr %672, align 8, !nonnull !4, !noundef !4
   %675 = getelementptr inbounds i8, ptr %674, i64 40
-  %676 = invoke noundef i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %673, ptr noundef nonnull align 8 %675)
+  %676 = invoke noundef range(i8 -1, 2) i8 @"_ZN54_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..Ord$GT$3cmp17h72babf7b5a2d08baE"(ptr noundef nonnull align 8 %673, ptr noundef nonnull align 8 %675)
           to label %677 unwind label %.loopexit.split-lp.loopexit.i.i.i.i
 
 677:                                              ; preds = %"_ZN8mini_lsm7compact7leveled27LeveledCompactionController23apply_compaction_result28_$u7b$$u7b$closure$u7d$$u7d$17h1c2b39e58acce019E.exit.i44.i.i.i.i"

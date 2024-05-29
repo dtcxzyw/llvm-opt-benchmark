@@ -57794,7 +57794,7 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN4core3ops8function5impls80_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !15724
   %4 = load ptr, ptr %0, align 8, !alias.scope !15724, !nonnull !4, !align !12, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !15724
-  %5 = call noundef i32 @_ZN5typst4math5style11styled_char17h6bb08c724ae1549eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %1, i1 noundef zeroext false), !range !15727, !noalias !15724
+  %5 = call noundef range(i32 0, 1114112) i32 @_ZN5typst4math5style11styled_char17h6bb08c724ae1549eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %1, i1 noundef zeroext false), !range !15727, !noalias !15724
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !15724
   ret i32 %5
 }

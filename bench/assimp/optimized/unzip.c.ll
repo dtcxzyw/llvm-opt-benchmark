@@ -2401,7 +2401,7 @@ while.body.lr.ph:                                 ; preds = %unzGoToFirstFile.ex
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end17
-  %call.i17 = call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %file, ptr noundef null, ptr noundef null, ptr noundef nonnull %szCurrentFileName, i64 noundef 256, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i17 = call fastcc range(i32 -103, 1) i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %file, ptr noundef null, ptr noundef null, ptr noundef nonnull %szCurrentFileName, i64 noundef 256, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   %cmp9 = icmp eq i32 %call.i17, 0
   br i1 %cmp9, label %if.then10, label %while.end
 

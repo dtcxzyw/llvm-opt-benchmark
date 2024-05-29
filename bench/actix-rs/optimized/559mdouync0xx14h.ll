@@ -11182,7 +11182,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$6append17h806bad254f566897E"(ptr noalias noundef align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
-  %5 = tail call noundef i8 @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_append217h449f5cdb8f76a865E.llvm.11440381710838953987"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2), !range !29
+  %5 = tail call noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_append217h449f5cdb8f76a865E.llvm.11440381710838953987"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2), !range !29
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   %6 = icmp eq i8 %5, 2
   br i1 %6, label %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h99f75ab566219fbfE.llvm.11440381710838953987.exit"

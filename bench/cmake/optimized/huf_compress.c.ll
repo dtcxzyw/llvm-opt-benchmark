@@ -424,7 +424,7 @@ define dso_local range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr nocapture noun
   %23 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 4
   %25 = icmp ult i32 %24, 165
-  %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
+  %26 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %27 = sub nuw nsw i32 189, %26
   %28 = select i1 %25, i32 %24, i32 %27
   %29 = zext nneg i32 %28 to i64
@@ -463,7 +463,7 @@ define dso_local range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr nocapture noun
   %39 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv58.i
   %40 = load i32, ptr %39, align 4
   %41 = icmp ult i32 %40, 165
-  %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
+  %42 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %40, i1 true)
   %43 = sub nuw nsw i32 189, %42
   %44 = select i1 %41, i32 %40, i32 %43
   %45 = zext nneg i32 %44 to i64
@@ -780,7 +780,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 
 .lr.ph130.i:                                      ; preds = %.preheader107.i, %234
   %.1129.i = phi i32 [ %214, %234 ], [ %169, %.preheader107.i ]
-  %185 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.1129.i, i1 true)
+  %185 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.1129.i, i1 true)
   %.not141.i = icmp eq i32 %185, 31
   br i1 %.not141.i, label %.lr.ph125.i.preheader, label %.lr.ph117.preheader.i
 
@@ -2700,7 +2700,7 @@ define dso_local i32 @HUF_cardinality(ptr nocapture noundef readonly %0, i32 nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i32 1, 33) i32 @HUF_minTableLog(i32 noundef %0) local_unnamed_addr #6 {
-  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
+  %2 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %3 = sub nuw nsw i32 32, %2
   ret i32 %3
 }
@@ -2739,7 +2739,7 @@ define dso_local i32 @HUF_optimalTableLog(i32 noundef %0, i64 noundef %1, i32 no
   br i1 %exitcond.not.i, label %HUF_cardinality.exit, label %.lr.ph.i, !llvm.loop !42
 
 HUF_cardinality.exit:                             ; preds = %.lr.ph.i
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %spec.select.i, i1 true)
+  %19 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %spec.select.i, i1 true)
   %20 = sub nuw nsw i32 32, %19
   %.not4959 = icmp ugt i32 %20, %0
   br i1 %.not4959, label %.loopexit, label %.lr.ph

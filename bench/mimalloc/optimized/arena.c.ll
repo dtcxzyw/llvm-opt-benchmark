@@ -1508,7 +1508,7 @@ for.body:                                         ; preds = %cond.end9, %if.end1
   %inc = zext i1 %cmp13 to i64
   %spec.select = add i64 %div, %inc
   %conv = trunc i64 %numa_node.021 to i32
-  %call.i19 = tail call i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select, i32 noundef %conv, i64 noundef %cond10, i1 noundef zeroext false, ptr noundef null) #12
+  %call.i19 = tail call range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select, i32 noundef %conv, i64 noundef %cond10, i1 noundef zeroext false, ptr noundef null) #12
   %tobool.not = icmp eq i32 %call.i19, 0
   br i1 %tobool.not, label %if.end18, label %return
 
@@ -1575,7 +1575,7 @@ for.body.i:                                       ; preds = %if.end18.i, %cond.e
   %inc.i = zext i1 %cmp13.i to i64
   %spec.select.i = add i64 %div.i, %inc.i
   %conv.i = trunc i64 %numa_node.021.i to i32
-  %call.i19.i = tail call i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select.i, i32 noundef %conv.i, i64 noundef %cond10.i, i1 noundef zeroext false, ptr noundef null) #12
+  %call.i19.i = tail call range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select.i, i32 noundef %conv.i, i64 noundef %cond10.i, i1 noundef zeroext false, ptr noundef null) #12
   %tobool.not.i = icmp eq i32 %call.i19.i, 0
   br i1 %tobool.not.i, label %if.end18.i, label %if.end6
 

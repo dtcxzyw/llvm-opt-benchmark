@@ -5932,7 +5932,7 @@ rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.ex
   br i1 %.not32, label %29, label %34
 
 29:                                               ; preds = %rb_const_lookup.exit.thread, %26, %rb_const_lookup.exit
-  %30 = call fastcc i32 @rb_const_defined_0(i64 noundef %0, i64 noundef %1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %30 = call fastcc range(i32 0, 21) i32 @rb_const_defined_0(i64 noundef %0, i64 noundef %1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
   %.not33 = icmp eq i32 %30, 0
   %31 = call i64 @rb_id2sym(i64 noundef %1) #24
   br i1 %.not33, label %33, label %32

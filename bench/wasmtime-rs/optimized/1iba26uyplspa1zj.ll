@@ -1735,7 +1735,7 @@ _ZN3std2fs11OpenOptions4open17h47986f17f665ad13E.llvm.10443808006054113612.exit:
   br label %.thread
 
 26:                                               ; preds = %21
-  %27 = invoke noundef i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9)
+  %27 = invoke noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9)
           to label %.noexc unwind label %84
 
 .noexc:                                           ; preds = %26

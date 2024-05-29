@@ -66,7 +66,7 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
 
 19:                                               ; preds = %2
   %20 = add i64 %1, 26
-  %21 = tail call noundef i64 @llvm.umax.i64(i64 %20, i64 32)
+  %21 = tail call noundef range(i64 27, 26) i64 @llvm.umax.i64(i64 %20, i64 32)
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #11
   %23 = icmp eq ptr %22, null
   br i1 %23, label %opal_obj_new.exit, label %24

@@ -3051,7 +3051,7 @@ ensure_includable.exit:                           ; preds = %Check_Type.exit.i
   %17 = inttoptr i64 %0 to ptr
   %18 = getelementptr inbounds i8, ptr %17, i64 112
   %19 = load i64, ptr %18, align 8
-  %20 = tail call fastcc i32 @do_include_modules_at(i64 noundef %0, i64 noundef %19, i64 noundef %1, i32 noundef 1, i1 noundef zeroext true)
+  %20 = tail call fastcc range(i32 -1, 2) i32 @do_include_modules_at(i64 noundef %0, i64 noundef %19, i64 noundef %1, i32 noundef 1, i1 noundef zeroext true)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %24
 
@@ -3135,7 +3135,7 @@ ensure_includable.exit:                           ; preds = %Check_Type.exit.i
   %55 = inttoptr i64 %54 to ptr
   %56 = getelementptr inbounds i8, ptr %55, i64 112
   %57 = load i64, ptr %56, align 8
-  %58 = tail call fastcc i32 @do_include_modules_at(i64 noundef %54, i64 noundef %57, i64 noundef %1, i32 noundef 1, i1 noundef zeroext true)
+  %58 = tail call fastcc range(i32 -1, 2) i32 @do_include_modules_at(i64 noundef %54, i64 noundef %57, i64 noundef %1, i32 noundef 1, i1 noundef zeroext true)
   br label %59
 
 59:                                               ; preds = %._crit_edge, %53, %.lr.ph80
@@ -3323,7 +3323,7 @@ rb_obj_write.exit.thread.i.us:                    ; preds = %RCLASS_SET_INCLUDER
   br label %RICLASS_SET_ORIGIN_SHARED_MTBL.exit.us
 
 RICLASS_SET_ORIGIN_SHARED_MTBL.exit.us:           ; preds = %89, %rb_obj_write.exit.thread.i.us, %RCLASS_SET_INCLUDER.exit.us, %57
-  %91 = tail call fastcc i32 @do_include_modules_at(i64 noundef %58, i64 noundef %58, i64 noundef %1, i32 noundef 0, i1 noundef zeroext true)
+  %91 = tail call fastcc range(i32 -1, 2) i32 @do_include_modules_at(i64 noundef %58, i64 noundef %58, i64 noundef %1, i32 noundef 0, i1 noundef zeroext true)
   br label %92
 
 92:                                               ; preds = %RICLASS_SET_ORIGIN_SHARED_MTBL.exit.us, %.lr.ph.split.us
@@ -3341,7 +3341,7 @@ RICLASS_SET_ORIGIN_SHARED_MTBL.exit.us:           ; preds = %89, %rb_obj_write.e
 
 RICLASS_SET_ORIGIN_SHARED_MTBL.exit:              ; preds = %.lr.ph.split
   %97 = load i64, ptr %.168, align 8
-  %98 = tail call fastcc i32 @do_include_modules_at(i64 noundef %97, i64 noundef %97, i64 noundef %1, i32 noundef 0, i1 noundef zeroext true)
+  %98 = tail call fastcc range(i32 -1, 2) i32 @do_include_modules_at(i64 noundef %97, i64 noundef %97, i64 noundef %1, i32 noundef 0, i1 noundef zeroext true)
   br label %99
 
 99:                                               ; preds = %RICLASS_SET_ORIGIN_SHARED_MTBL.exit, %.lr.ph.split

@@ -36378,7 +36378,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.14339125420948612040.e
   %.0.in.idx.i.i.i.i = select i1 %switch.not.not.i.i.i.i, i64 4, i64 0
   %.0.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
   %.0.i.i.i.i237 = load i16, ptr %.0.in.i.i.i.i, align 4, !noundef !23
-  %2193 = invoke noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i.i.i.i237)
+  %2193 = invoke noundef range(i16 0, 273) i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i.i.i.i237)
           to label %_ZN4core3ops8function6FnOnce9call_once17hd9d8c8651a40d774E.exit.i unwind label %.loopexit175.loopexit.split-lp.i
 
 _ZN4core3ops8function6FnOnce9call_once17hd9d8c8651a40d774E.exit.i: ; preds = %2191
@@ -36494,7 +36494,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.14339125420948612040.e
   %.0.in.idx.i.i.i107.i = select i1 %switch.not.not.i.i.i106.i, i64 4, i64 0
   %.0.in.i.i.i108.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i.i105.i, i64 %.0.in.idx.i.i.i107.i
   %.0.i.i.i109.i = load i16, ptr %.0.in.i.i.i108.i, align 4, !noundef !23
-  %2234 = invoke noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i.i.i109.i)
+  %2234 = invoke noundef range(i16 0, 273) i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i.i.i109.i)
           to label %_ZN4core3ops8function6FnOnce9call_once17hd9d8c8651a40d774E.exit111.i unwind label %.loopexit175.loopexit.split-lp.i
 
 _ZN4core3ops8function6FnOnce9call_once17hd9d8c8651a40d774E.exit111.i: ; preds = %2232

@@ -781,7 +781,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %91 = add i16 %90, 1
   store i16 %91, ptr %89, align 2
   %92 = zext i16 %90 to i32
-  %93 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %92, i1 true)
+  %93 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %92, i1 true)
   %94 = xor i32 %93, 31
   %95 = sub i32 %5, %94
   %96 = trunc i32 %95 to i8
@@ -1490,7 +1490,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef %0, ptr nou
 
 BIT_initDStream.exit.thread2457.i:                ; preds = %97
   %102 = zext i8 %101 to i32
-  %103 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %102, i1 true)
+  %103 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %102, i1 true)
   %104 = getelementptr inbounds i8, ptr %9, i64 8
   %105 = trunc nuw i64 %4 to i32
   %106 = shl nuw nsw i32 %105, 3
@@ -1502,7 +1502,7 @@ BIT_initDStream.exit.thread2457.i:                ; preds = %97
 BIT_initDStream.exit.i:                           ; preds = %50
   %108 = lshr i64 %.val.i.i, 56
   %109 = trunc nuw nsw i64 %108 to i32
-  %110 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %109, i1 true)
+  %110 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %109, i1 true)
   %111 = xor i32 %110, 31
   %112 = sub nuw nsw i32 8, %111
   %113 = getelementptr inbounds i8, ptr %9, i64 8
@@ -4445,7 +4445,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 BIT_initDStream.exit.thread1982.i:                ; preds = %85
   %90 = zext i8 %89 to i32
-  %91 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %90, i1 true)
+  %91 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %90, i1 true)
   %92 = getelementptr inbounds i8, ptr %10, i64 8
   %93 = trunc nuw i64 %4 to i32
   %94 = shl nuw nsw i32 %93, 3
@@ -4457,7 +4457,7 @@ BIT_initDStream.exit.thread1982.i:                ; preds = %85
 BIT_initDStream.exit.i:                           ; preds = %38
   %96 = lshr i64 %.val.i.i, 56
   %97 = trunc nuw nsw i64 %96 to i32
-  %98 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %97, i1 true)
+  %98 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %97, i1 true)
   %99 = xor i32 %98, 31
   %100 = sub nuw nsw i32 8, %99
   %101 = getelementptr inbounds i8, ptr %10, i64 8
@@ -6778,7 +6778,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
 
 BIT_initDStream.exit.thread712.i:                 ; preds = %94
   %99 = zext i8 %98 to i32
-  %100 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %99, i1 true)
+  %100 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %99, i1 true)
   %101 = getelementptr inbounds i8, ptr %9, i64 8
   %102 = trunc nuw i64 %4 to i32
   %103 = shl nuw nsw i32 %102, 3
@@ -6790,7 +6790,7 @@ BIT_initDStream.exit.thread712.i:                 ; preds = %94
 BIT_initDStream.exit.i:                           ; preds = %47
   %105 = lshr i64 %.val.i.i, 56
   %106 = trunc nuw nsw i64 %105 to i32
-  %107 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %106, i1 true)
+  %107 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %106, i1 true)
   %108 = xor i32 %107, 31
   %109 = sub nuw nsw i32 8, %108
   %110 = getelementptr inbounds i8, ptr %9, i64 8

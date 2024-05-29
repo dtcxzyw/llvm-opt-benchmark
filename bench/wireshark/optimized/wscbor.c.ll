@@ -726,7 +726,7 @@ define range(i32 0, 2) i32 @wscbor_skip_if_errors(ptr noundef %0, ptr noundef %1
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %2, align 4
-  %12 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null)
+  %12 = tail call fastcc range(i32 0, 2) i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null)
   br label %13
 
 13:                                               ; preds = %4, %9

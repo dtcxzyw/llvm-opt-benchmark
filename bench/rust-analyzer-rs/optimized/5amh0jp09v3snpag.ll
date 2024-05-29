@@ -1819,7 +1819,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE(
   store i8 %.0.sroa.speculated.i, ptr %18, align 4
   %20 = getelementptr inbounds i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8, !range !180, !noundef !4
-  %.0.sroa.speculated.i1 = tail call noundef i32 @llvm.umax.i32(i32 %21, i32 %3)
+  %.0.sroa.speculated.i1 = tail call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %21, i32 %3)
   store i32 %.0.sroa.speculated.i1, ptr %20, align 8
   ret void
 }
@@ -1981,7 +1981,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery18add_synthetic_read17h2bf4062
   store i8 %.0.sroa.speculated.i, ptr %30, align 4
   %32 = getelementptr inbounds i8, ptr %0, i64 72
   %33 = load i32, ptr %32, align 8, !range !180, !noundef !4
-  %.0.sroa.speculated.i4 = tail call noundef i32 @llvm.umax.i32(i32 %33, i32 %2)
+  %.0.sroa.speculated.i4 = tail call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %33, i32 %2)
   store i32 %.0.sroa.speculated.i4, ptr %32, align 8
   ret void
 }
@@ -2037,7 +2037,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE(
   %8 = load i32, ptr %7, align 8, !range !180, !noundef !4
   %9 = getelementptr inbounds i8, ptr %1, i64 72
   %10 = load i32, ptr %9, align 8, !range !180, !noundef !4
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %8, i32 %10)
+  %.0.sroa.speculated.i = tail call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %8, i32 %10)
   store i32 %.0.sroa.speculated.i, ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 76
   %12 = load i8, ptr %11, align 4, !noundef !4

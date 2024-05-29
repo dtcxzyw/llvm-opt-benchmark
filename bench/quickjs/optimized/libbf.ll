@@ -14305,7 +14305,7 @@ bf_get_exp_min.exit276:                           ; preds = %343, %331, %339
 347:                                              ; preds = %bf_get_exp_min.exit276
   %348 = add i64 %332, -1
   %349 = call i32 @bf_mul_si(ptr noundef nonnull %6, ptr noundef %.0148, i64 noundef %348, i64 noundef 64, i32 noundef 1)
-  %350 = call i32 @bf_get_int64(ptr noundef nonnull writeonly %10, ptr noundef nonnull readonly %6, i32 noundef 0)
+  %350 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull writeonly %10, ptr noundef nonnull readonly %6, i32 noundef 0)
   %351 = call i32 @bf_set_ui(ptr noundef nonnull %0, i64 noundef 1)
   %352 = load i64, ptr %10, align 8
   %353 = call i32 @bf_mul_2exp(ptr noundef nonnull %0, i64 noundef %352, i64 noundef %3, i32 noundef %.1150)
@@ -14316,7 +14316,7 @@ bf_get_exp_min.exit276:                           ; preds = %343, %331, %339
   br i1 %355, label %356, label %371
 
 356:                                              ; preds = %354
-  %357 = call i32 @bf_get_int64(ptr noundef nonnull writeonly %11, ptr noundef readonly %.0148, i32 noundef 0)
+  %357 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull writeonly %11, ptr noundef readonly %.0148, i32 noundef 0)
   %358 = load i64, ptr %11, align 8
   %359 = icmp sgt i64 %358, 2305843009213693951
   br i1 %359, label %360, label %369
@@ -14362,7 +14362,7 @@ bf_delete.exit281:                                ; preds = %360, %362, %365
 378:                                              ; preds = %374
   %379 = add i64 %345, -1
   %380 = call i32 @bf_mul_si(ptr noundef nonnull %0, ptr noundef %.0148, i64 noundef %379, i64 noundef 64, i32 noundef 1)
-  %381 = call i32 @bf_get_int64(ptr noundef nonnull writeonly %10, ptr noundef readonly %0, i32 noundef 0)
+  %381 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull writeonly %10, ptr noundef readonly %0, i32 noundef 0)
   %382 = load i64, ptr %10, align 8
   %383 = icmp ugt i64 %382, %3
   br i1 %383, label %400, label %384

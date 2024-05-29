@@ -269,7 +269,7 @@ sw.bb178:                                         ; preds = %for.body168, %for.b
 sw.default:                                       ; preds = %for.body168
   %conv171 = sext i16 %14 to i32
   %sub192 = add nsw i32 %conv171, -1
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub192, i1 true)
+  %15 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub192, i1 true)
   %sub.i = xor i32 %15, 31
   %sub193 = sub i32 %tableLog, %sub.i
   %shl197 = shl i32 %conv171, %sub193
@@ -609,14 +609,14 @@ define range(i32 1, 0) i32 @FSE_optimalTableLog_internal(i32 noundef %maxTableLo
 entry:
   %0 = trunc i64 %srcSize to i32
   %conv = add i32 %0, -1
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
+  %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
   %sub.i = xor i32 %1, 31
   %sub1 = sub i32 %sub.i, %minus
-  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
+  %2 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %add.i = sub nuw nsw i32 32, %2
-  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %maxSymbolValue, i1 true)
+  %3 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %maxSymbolValue, i1 true)
   %add2.i = sub nuw nsw i32 33, %3
-  %cond.i = tail call i32 @llvm.umin.i32(i32 %add.i, i32 %add2.i)
+  %cond.i = tail call range(i32 1, 34) i32 @llvm.umin.i32(i32 %add.i, i32 %add2.i)
   %cmp = icmp eq i32 %maxTableLog, 0
   %spec.store.select = select i1 %cmp, i32 11, i32 %maxTableLog
   %spec.select = tail call i32 @llvm.umin.i32(i32 %sub1, i32 %spec.store.select)
@@ -631,19 +631,19 @@ define range(i32 1, 0) i32 @FSE_optimalTableLog(i32 noundef %maxTableLog, i64 no
 entry:
   %0 = trunc i64 %srcSize to i32
   %conv.i = add i32 %0, -1
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i, i1 true)
+  %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv.i, i1 true)
   %sub1.i = sub nsw i32 29, %1
-  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
+  %2 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %add.i.i = sub nuw nsw i32 32, %2
-  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %maxSymbolValue, i1 true)
+  %3 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %maxSymbolValue, i1 true)
   %add2.i.i = sub nuw nsw i32 33, %3
-  %cond.i.i = tail call i32 @llvm.umin.i32(i32 %add.i.i, i32 %add2.i.i)
+  %cond.i.i = tail call range(i32 1, 34) i32 @llvm.umin.i32(i32 %add.i.i, i32 %add2.i.i)
   %cmp.i = icmp eq i32 %maxTableLog, 0
   %spec.store.select.i = select i1 %cmp.i, i32 11, i32 %maxTableLog
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %sub1.i, i32 %spec.store.select.i)
   %tableLog.1.i = tail call i32 @llvm.umax.i32(i32 %cond.i.i, i32 %spec.select.i)
   %spec.store.select1.i = tail call i32 @llvm.umax.i32(i32 %tableLog.1.i, i32 5)
-  %spec.store.select2.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select1.i, i32 12)
+  %spec.store.select2.i = tail call range(i32 1, 0) i32 @llvm.umin.i32(i32 %spec.store.select1.i, i32 12)
   ret i32 %spec.store.select2.i
 }
 
@@ -661,11 +661,11 @@ if.end3:                                          ; preds = %entry
 
 if.end6:                                          ; preds = %if.end3
   %conv.i = trunc i64 %total to i32
-  %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i, i1 true)
+  %0 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv.i, i1 true)
   %add.i = sub nuw nsw i32 32, %0
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %maxSymbolValue, i1 true)
+  %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %maxSymbolValue, i1 true)
   %add2.i = sub nuw nsw i32 33, %1
-  %cond.i = tail call i32 @llvm.umin.i32(i32 %add.i, i32 %add2.i)
+  %cond.i = tail call range(i32 1, 34) i32 @llvm.umin.i32(i32 %add.i, i32 %add2.i)
   %cmp7 = icmp ult i32 %spec.store.select, %cond.i
   br i1 %cmp7, label %return, label %if.end9
 

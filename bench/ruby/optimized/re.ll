@@ -1322,7 +1322,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %6, %rb_enc_asciicom
 14:                                               ; preds = %rb_enc_asciicompat.exit.thread, %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %15 = call fastcc i32 @unescape_nonascii0(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %9, ptr noundef nonnull %3, ptr noundef nonnull writeonly %8, ptr noundef writeonly %4, i32 noundef %5, i32 noundef 0)
+  %15 = call fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %9, ptr noundef nonnull %3, ptr noundef nonnull writeonly %8, ptr noundef writeonly %4, i32 noundef %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %23

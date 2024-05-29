@@ -392,7 +392,7 @@ if.then27:                                        ; preds = %lor.lhs.false24, %l
 
 if.end28:                                         ; preds = %lor.lhs.false24
   %0 = load i64, ptr %labeled_ikmlen, align 8
-  %call.i = call fastcc i32 @kdf_derive(ptr noundef %kctx, ptr noundef %prk, i64 noundef %prklen, i32 noundef 1, ptr noundef %salt, i64 noundef %saltlen, ptr noundef nonnull %call5, i64 noundef %0, ptr noundef null, i64 noundef 0)
+  %call.i = call fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %kctx, ptr noundef %prk, i64 noundef %prklen, i32 noundef 1, ptr noundef %salt, i64 noundef %saltlen, ptr noundef nonnull %call5, i64 noundef %0, ptr noundef null, i64 noundef 0)
   br label %end
 
 end:                                              ; preds = %if.end28, %if.then27
@@ -498,7 +498,7 @@ if.then33:                                        ; preds = %lor.lhs.false30, %l
 
 if.end34:                                         ; preds = %lor.lhs.false30
   %0 = load i64, ptr %labeled_infolen, align 8
-  %call.i = call fastcc i32 @kdf_derive(ptr noundef %kctx, ptr noundef %okm, i64 noundef %okmlen, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %prk, i64 noundef %prklen, ptr noundef nonnull %call8, i64 noundef %0)
+  %call.i = call fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %kctx, ptr noundef %okm, i64 noundef %okmlen, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %prk, i64 noundef %prklen, ptr noundef nonnull %call8, i64 noundef %0)
   br label %end
 
 end:                                              ; preds = %if.end34, %if.then33

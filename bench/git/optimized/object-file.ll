@@ -683,7 +683,7 @@ entry:
 define dso_local range(i32 -4, 1) i32 @safe_create_leading_directories_const(ptr noundef %path) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @xstrdup(ptr noundef %path) #25
-  %call.i = tail call fastcc i32 @safe_create_leading_directories_1(ptr noundef %call, i32 noundef 1)
+  %call.i = tail call fastcc range(i32 -4, 1) i32 @safe_create_leading_directories_1(ptr noundef %call, i32 noundef 1)
   %call2 = tail call ptr @__errno_location() #27
   %0 = load i32, ptr %call2, align 4
   tail call void @free(ptr noundef %call) #25
@@ -4242,7 +4242,7 @@ freshen_packed_object.exit:                       ; preds = %if.end3.i, %if.end1
 
 lor.lhs.false:                                    ; preds = %if.end41, %if.end.i28, %if.end10.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %e.i)
-  %call.i30 = call fastcc i32 @check_and_freshen(ptr noundef readonly %oid, i32 noundef 1)
+  %call.i30 = call fastcc range(i32 0, 2) i32 @check_and_freshen(ptr noundef readonly %oid, i32 noundef 1)
   %tobool46.not = icmp eq i32 %call.i30, 0
   br i1 %tobool46.not, label %if.end50, label %if.then47
 
@@ -4605,7 +4605,7 @@ freshen_packed_object.exit:                       ; preds = %if.end3.i, %if.end1
 
 lor.lhs.false:                                    ; preds = %write_object_file_prepare.exit, %if.end.i, %if.end10.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %e.i)
-  %call.i7 = call fastcc i32 @check_and_freshen(ptr noundef readonly %oid, i32 noundef 1)
+  %call.i7 = call fastcc range(i32 0, 2) i32 @check_and_freshen(ptr noundef readonly %oid, i32 noundef 1)
   %tobool2.not = icmp eq i32 %call.i7, 0
   br i1 %tobool2.not, label %if.end, label %return
 
@@ -4875,7 +4875,7 @@ freshen_packed_object.exit:                       ; preds = %if.end3.i, %if.end1
 
 lor.lhs.false:                                    ; preds = %if.end, %if.end.i, %if.end10.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %e.i)
-  %call.i10 = call fastcc i32 @check_and_freshen(ptr noundef readonly %oid, i32 noundef 1)
+  %call.i10 = call fastcc range(i32 0, 2) i32 @check_and_freshen(ptr noundef readonly %oid, i32 noundef 1)
   %tobool6.not = icmp eq i32 %call.i10, 0
   br i1 %tobool6.not, label %if.end8, label %cleanup
 
@@ -4899,7 +4899,7 @@ entry:
   %hdr = alloca [32 x i8], align 16
   %0 = getelementptr inbounds i8, ptr %oi, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 64, i1 false)
-  %call.i = tail call fastcc i32 @check_and_freshen(ptr noundef readonly %oid, i32 noundef 0)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @check_and_freshen(ptr noundef readonly %oid, i32 noundef 0)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -5101,7 +5101,7 @@ if.then.i:                                        ; preds = %get_conv_flags.exit
   %1 = load ptr, ptr %buf.i, align 8
   %len.i = getelementptr inbounds i8, ptr %sbuf.i, i64 8
   %2 = load i64, ptr %len.i, align 8
-  %call.i.i = call i32 @write_object_file_flags(ptr noundef %1, i64 noundef %2, i32 noundef 3, ptr noundef %oid, i32 noundef 0)
+  %call.i.i = call range(i32 -1, 1) i32 @write_object_file_flags(ptr noundef %1, i64 noundef %2, i32 noundef 3, ptr noundef %oid, i32 noundef 0)
   br label %index_stream_convert_blob.exit
 
 if.else.i:                                        ; preds = %get_conv_flags.exit.i, %get_conv_flags.exit.thread.i
@@ -5413,7 +5413,7 @@ if.else:                                          ; preds = %if.end15
   %12 = load ptr, ptr %buf19, align 8
   %len20 = getelementptr inbounds i8, ptr %sb, i64 8
   %13 = load i64, ptr %len20, align 8
-  %call.i17 = call i32 @write_object_file_flags(ptr noundef %12, i64 noundef %13, i32 noundef 3, ptr noundef %oid, i32 noundef 0)
+  %call.i17 = call range(i32 -1, 1) i32 @write_object_file_flags(ptr noundef %12, i64 noundef %13, i32 noundef 3, ptr noundef %oid, i32 noundef 0)
   %tobool22.not = icmp eq i32 %call.i17, 0
   br i1 %tobool22.not, label %if.end28, label %if.then23
 
@@ -7197,7 +7197,7 @@ if.end19:                                         ; preds = %if.end17, %if.end8
 
 if.then21:                                        ; preds = %if.end19
   %5 = load i64, ptr %size.addr, align 8
-  %call.i = call i32 @write_object_file_flags(ptr noundef %buf.addr.0, i64 noundef %5, i32 noundef %spec.store.select, ptr noundef %oid, i32 noundef 0)
+  %call.i = call range(i32 -1, 1) i32 @write_object_file_flags(ptr noundef %buf.addr.0, i64 noundef %5, i32 noundef %spec.store.select, ptr noundef %oid, i32 noundef 0)
   br label %if.end23
 
 if.else:                                          ; preds = %if.end19

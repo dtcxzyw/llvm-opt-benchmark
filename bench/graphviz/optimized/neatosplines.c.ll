@@ -1930,7 +1930,7 @@ define void @spline_edges0(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @splineEdges(ptr noundef nonnull %0, ptr noundef nonnull @_spline_edges, i32 noundef %8)
+  %14 = tail call range(i32 0, 2) i32 @splineEdges(ptr noundef nonnull %0, ptr noundef nonnull @_spline_edges, i32 noundef %8)
   br label %15
 
 15:                                               ; preds = %11, %13
@@ -2478,7 +2478,7 @@ define void @spline_edges(ptr noundef %0) local_unnamed_addr #0 {
 
 35:                                               ; preds = %._crit_edge
   %36 = zext nneg i16 %32 to i32
-  %37 = tail call i32 @splineEdges(ptr noundef nonnull %0, ptr noundef nonnull @_spline_edges, i32 noundef %36)
+  %37 = tail call range(i32 0, 2) i32 @splineEdges(ptr noundef nonnull %0, ptr noundef nonnull @_spline_edges, i32 noundef %36)
   br label %spline_edges0.exit
 
 spline_edges0.exit:                               ; preds = %._crit_edge, %35

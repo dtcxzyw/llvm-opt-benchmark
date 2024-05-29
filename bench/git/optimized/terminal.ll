@@ -318,7 +318,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool6.not, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %if.end5
-  %call.i = tail call fastcc i32 @disable_bits(i32 noundef 0, i32 noundef 8)
+  %call.i = tail call fastcc range(i32 -1, 1) i32 @disable_bits(i32 noundef 0, i32 noundef 8)
   %tobool8.not = icmp eq i32 %call.i, 0
   br i1 %tobool8.not, label %if.end12, label %if.then9
 
@@ -380,7 +380,7 @@ entry:
   br i1 %.b11, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = tail call fastcc i32 @disable_bits(i32 noundef 2, i32 noundef 10)
+  %call.i = tail call fastcc range(i32 -1, 1) i32 @disable_bits(i32 noundef 2, i32 noundef 10)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %if.then, label %if.end4
 

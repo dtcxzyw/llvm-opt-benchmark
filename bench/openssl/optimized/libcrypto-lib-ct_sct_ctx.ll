@@ -277,7 +277,7 @@ entry:
   %sctx.val.i = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %sctx, i64 88
   %sctx.val3.i = load ptr, ptr %1, align 8
-  %call.i = tail call fastcc i32 @ct_public_key_hash(ptr %sctx.val.i, ptr %sctx.val3.i, ptr noundef %call, ptr noundef nonnull %ihash.i, ptr noundef nonnull %ihashlen.i)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @ct_public_key_hash(ptr %sctx.val.i, ptr %sctx.val3.i, ptr noundef %call, ptr noundef nonnull %ihash.i, ptr noundef nonnull %ihashlen.i)
   ret i32 %call.i
 }
 

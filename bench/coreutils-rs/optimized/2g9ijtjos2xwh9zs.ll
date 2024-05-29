@@ -5153,7 +5153,7 @@ common.resume:                                    ; preds = %214, %28
   %.val.i = load ptr, ptr %.val, align 8, !noalias !1373, !nonnull !18, !align !223, !noundef !18
   %101 = getelementptr i8, ptr %.val, i64 8
   %.val1.i = load ptr, ptr %101, align 8, !noalias !1373, !nonnull !18, !align !223, !noundef !18
-  %102 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i)
+  %102 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i)
           to label %105 unwind label %.loopexit133
 
 .invoke:                                          ; preds = %95, %93
@@ -5413,7 +5413,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i97: ; preds = %182
   %.val.i.i = load ptr, ptr %.val76, align 8, !noalias !1434, !nonnull !18, !align !223, !noundef !18
   %202 = getelementptr i8, ptr %.val76, i64 8
   %.val1.i.i = load ptr, ptr %202, align 8, !noalias !1434, !nonnull !18, !align !223, !noundef !18
-  %203 = call noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %201, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %200, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i), !range !1438
+  %203 = call noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %201, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %200, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i), !range !1438
   %204 = icmp eq i8 %203, -1
   br i1 %204, label %205, label %_ZN5rayon5slice9mergesort11insert_head17h9c722bca3f6f4e2bE.exit
 
@@ -5437,7 +5437,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i97: ; preds = %182
   %207 = getelementptr inbounds [0 x { { ptr, i64 }, i64 }], ptr %200, i64 0, i64 %.sroa.02.07.i
   %.val.i16.i = load ptr, ptr %.val76, align 8, !noalias !1439, !nonnull !18, !align !223, !noundef !18
   %.val1.i17.i = load ptr, ptr %202, align 8, !noalias !1439, !nonnull !18, !align !223, !noundef !18
-  %208 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %207, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i16.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i17.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i17.i)
+  %208 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %207, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i16.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i17.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i17.i)
           to label %209 unwind label %214
 
 209:                                              ; preds = %.lr.ph.i
@@ -5703,7 +5703,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9mergesort17h9
   %28 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %24
   %.val.i = load ptr, ptr %.val98, align 8, !noalias !1459, !nonnull !18, !align !223, !noundef !18
   %.val1.i = load ptr, ptr %11, align 8, !noalias !1459, !nonnull !18, !align !223, !noundef !18
-  %29 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i)
+  %29 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i)
           to label %43 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf89b29a95cac8a7bE.exit": ; preds = %_ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i, %.thread.thread, %51
@@ -5788,7 +5788,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9mergesort17h9
   %49 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %47
   %.val.i103 = load ptr, ptr %.val98, align 8, !noalias !1470, !nonnull !18, !align !223, !noundef !18
   %.val1.i104 = load ptr, ptr %11, align 8, !noalias !1470, !nonnull !18, !align !223, !noundef !18
-  %50 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i103, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i104, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i104)
+  %50 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i103, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i104, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i104)
           to label %54 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 51:                                               ; preds = %54, %.preheader148
@@ -5838,7 +5838,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9mergesort17h9
   %69 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %67
   %.val.i109 = load ptr, ptr %.val98, align 8, !noalias !1481, !nonnull !18, !align !223, !noundef !18
   %.val1.i110 = load ptr, ptr %11, align 8, !noalias !1481, !nonnull !18, !align !223, !noundef !18
-  %70 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i109, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i110, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i110)
+  %70 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i109, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i110, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i110)
           to label %73 unwind label %.loopexit.split-lp.loopexit
 
 71:                                               ; preds = %.preheader
@@ -6081,7 +6081,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %86
   %177 = getelementptr inbounds i8, ptr %.sroa.17.024.i, i64 -24
   %.val.i.i.i = load ptr, ptr %.val98, align 8, !noalias !1503, !nonnull !18, !align !223, !noundef !18
   %.val1.i.i.i = load ptr, ptr %11, align 8, !noalias !1503, !nonnull !18, !align !223, !noundef !18
-  %178 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %176, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %177, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i)
+  %178 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %176, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %177, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i)
           to label %179 unwind label %.loopexit12.i
 
 179:                                              ; preds = %.lr.ph27.i
@@ -6104,7 +6104,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %86
   call void @llvm.assume(i1 %184)
   %.val.i.i31.i = load ptr, ptr %.val98, align 8, !noalias !1510, !nonnull !18, !align !223, !noundef !18
   %.val1.i.i32.i = load ptr, ptr %11, align 8, !noalias !1510, !nonnull !18, !align !223, !noundef !18
-  %185 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.02321.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.220.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i31.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i32.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i32.i)
+  %185 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.02321.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.220.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i31.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i32.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i32.i)
           to label %186 unwind label %.loopexit.split-lp.i
 
 186:                                              ; preds = %.lr.ph.i
@@ -6201,7 +6201,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %86
   %219 = getelementptr inbounds i8, ptr %108, i64 24
   %.val.i.i.i128 = load ptr, ptr %.val98, align 8, !noalias !1533, !nonnull !18, !align !223, !noundef !18
   %.val1.i.i.i129 = load ptr, ptr %11, align 8, !noalias !1533, !nonnull !18, !align !223, !noundef !18
-  %220 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %219, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %108, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i128, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i129, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i129)
+  %220 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %219, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %108, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i.i128, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i129, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i.i129)
           to label %.noexc133 unwind label %.loopexit144
 
 .noexc133:                                        ; preds = %218
@@ -6228,7 +6228,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %86
   %224 = getelementptr inbounds [0 x { { ptr, i64 }, i64 }], ptr %108, i64 0, i64 %.sroa.02.07.i
   %.val.i.i17.i = load ptr, ptr %.val98, align 8, !noalias !1540, !nonnull !18, !align !223, !noundef !18
   %.val1.i.i18.i = load ptr, ptr %11, align 8, !noalias !1540, !nonnull !18, !align !223, !noundef !18
-  %225 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %224, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i17.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i18.i)
+  %225 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %224, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i17.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i18.i)
           to label %226 unwind label %231
 
 226:                                              ; preds = %.lr.ph.i131
@@ -6332,7 +6332,7 @@ define hidden void @_ZN5rayon5slice9mergesort9par_merge17hf754745caa098405E(ptr 
   tail call void @llvm.assume(i1 %22)
   %.val.i.i = load ptr, ptr %.val34, align 8, !noalias !1547, !nonnull !18, !align !223, !noundef !18
   %.val1.i.i = load ptr, ptr %23, align 8, !noalias !1547, !nonnull !18, !align !223, !noundef !18
-  %35 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i)
+  %35 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i.i)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %33
@@ -6357,7 +6357,7 @@ define hidden void @_ZN5rayon5slice9mergesort9par_merge17hf754745caa098405E(ptr 
   tail call void @llvm.assume(i1 %22)
   %.val.i36.i = load ptr, ptr %.val34, align 8, !noalias !1554, !nonnull !18, !align !223, !noundef !18
   %.val1.i37.i = load ptr, ptr %23, align 8, !noalias !1554, !nonnull !18, !align !223, !noundef !18
-  %46 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i36.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i37.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i37.i)
+  %46 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i36.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i37.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i37.i)
           to label %.noexc36 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc36:                                         ; preds = %44
@@ -6511,7 +6511,7 @@ _ZN10rayon_core8registry9in_worker17he76de8458884a16bE.exit: ; preds = %85, %.no
   %.sroa.12.2133 = phi ptr [ %2, %.lr.ph ], [ %.sroa.12.3, %85 ]
   %.val.i = load ptr, ptr %.val, align 8, !noalias !1571, !nonnull !18, !align !223, !noundef !18
   %.val1.i = load ptr, ptr %20, align 8, !noalias !1571, !nonnull !18, !align !223, !noundef !18
-  %72 = invoke noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.12.2133, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.2135, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i)
+  %72 = invoke noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.12.2133, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.2135, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val1.i)
           to label %85 unwind label %.loopexit
 
 73:                                               ; preds = %_ZN10rayon_core8registry9in_worker17he76de8458884a16bE.exit.thread, %_ZN10rayon_core8registry9in_worker17he76de8458884a16bE.exit

@@ -20828,7 +20828,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..layer..
   %9 = load i8, ptr %8, align 1, !range !202, !noundef !9
   %10 = trunc nuw i8 %9 to i1
   %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = tail call noundef i8 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h343f0d8d728398c6E"(ptr noundef nonnull align 8 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !515
+  %12 = tail call noundef range(i8 0, 3) i8 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h343f0d8d728398c6E"(ptr noundef nonnull align 8 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !515
   %13 = icmp ne i8 %12, 0
   %or.cond.not = or i1 %13, %10
   br i1 %or.cond.not, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17h86b494c356dc02cbE.exit", label %14
@@ -21090,7 +21090,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN113_$LT$tracing_subscriber..layer
 "_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$8new_span17h24f975c7b23d6bd4E.exit": ; preds = %14
   %27 = extractvalue { i64, i64 } %15, 1
   %28 = add i64 %27, 1
-  %29 = call noundef i64 @_ZN12tracing_core4span2Id8from_u6417he09ecc158a61ea57E(i64 noundef %28), !range !2931
+  %29 = call noundef range(i64 1, 0) i64 @_ZN12tracing_core4span2Id8from_u6417he09ecc158a61ea57E(i64 noundef %28), !range !2931
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   store i64 %29, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)

@@ -1118,7 +1118,7 @@ CBS_peek_asn1_tag.exit:                           ; preds = %entry
   br i1 %cmp2.i.not, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %CBS_peek_asn1_tag.exit
-  %call.i = tail call fastcc i32 @cbs_get_asn1(ptr noundef nonnull %cbs, ptr noundef %out, i32 noundef %tag, i32 noundef 1)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @cbs_get_asn1(ptr noundef nonnull %cbs, ptr noundef %out, i32 noundef %tag, i32 noundef 1)
   %tobool2.not = icmp eq i32 %call.i, 0
   br i1 %tobool2.not, label %return, label %if.end4
 

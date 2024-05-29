@@ -21752,7 +21752,7 @@ define noundef range(i8 0, -125) i8 @_ZN7hir_def4attr5Attrs9lang_item17hf64fec65
 
 14:                                               ; preds = %1
   %15 = extractvalue { ptr, i64 } %11, 1
-  %16 = call noundef i8 @_ZN7hir_def9lang_item8LangItem8from_str17hff500ce312801f15E(ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %15), !range !5355
+  %16 = call noundef range(i8 0, -125) i8 @_ZN7hir_def9lang_item8LangItem8from_str17hff500ce312801f15E(ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %15), !range !5355
   br label %17
 
 17:                                               ; preds = %1, %14
@@ -44601,7 +44601,7 @@ define hidden { ptr, ptr } @_ZN7hir_def4data3adt10StructData34struct_data_with_d
 
 97:                                               ; preds = %.noexc73
   %98 = extractvalue { ptr, i64 } %94, 1
-  %99 = invoke noundef i8 @_ZN7hir_def9lang_item8LangItem8from_str17hff500ce312801f15E(ptr noalias noundef nonnull readonly align 1 %95, i64 noundef %98)
+  %99 = invoke noundef range(i8 0, -125) i8 @_ZN7hir_def9lang_item8LangItem8from_str17hff500ce312801f15E(ptr noalias noundef nonnull readonly align 1 %95, i64 noundef %98)
           to label %_ZN7hir_def4attr5Attrs9lang_item17hf64fec65a278c4b7E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN7hir_def4attr5Attrs9lang_item17hf64fec65a278c4b7E.exit: ; preds = %97

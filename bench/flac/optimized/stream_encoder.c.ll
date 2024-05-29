@@ -8649,7 +8649,7 @@ entry:
   %add = add i32 %predictor_order, %residual_samples
   %shr = lshr i32 %add, %max_partition_order
   %shl = shl nuw i32 1, %max_partition_order
-  %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %shr, i1 true)
+  %0 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %shr, i1 true)
   %xor.i = xor i32 %0, 31
   %sub = sub nuw nsw i32 32, %xor.i
   %sub1 = sub nsw i32 0, %predictor_order
@@ -9354,7 +9354,7 @@ if.then6:                                         ; preds = %if.end
 if.then8:                                         ; preds = %if.then6
   %14 = mul i32 %13, 17
   %mul = add i32 %14, -68
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %mul, i1 true)
+  %15 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %mul, i1 true)
   %xor.i = xor i32 %15, 31
   %add = add nuw nsw i32 %xor.i, %subframe_bps
   %cmp11 = icmp ult i32 %add, 32
@@ -10026,7 +10026,7 @@ if.then225:                                       ; preds = %if.end222
   br i1 %cmp226, label %if.then228, label %for.body256.lr.ph
 
 if.then228:                                       ; preds = %if.then225
-  %121 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %lpc_order.0253, i1 true)
+  %121 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %lpc_order.0253, i1 true)
   %122 = sub nsw i32 %121, %subframe_bps
   %sub231 = add nsw i32 %122, 1
   %spec.select224 = call i32 @llvm.umin.i32(i32 %sub231, i32 15)
@@ -10042,7 +10042,7 @@ for.body256.lr.ph:                                ; preds = %if.else249, %if.the
   %min_qlp_coeff_precision.0 = phi i32 [ 5, %if.then228 ], [ %123, %if.else249 ], [ 5, %if.then225 ]
   %max_qlp_coeff_precision.0 = phi i32 [ %cond246, %if.then228 ], [ %123, %if.else249 ], [ 15, %if.then225 ]
   %arrayidx266 = getelementptr inbounds [32 x [32 x float]], ptr %lp_coeff.i, i64 0, i64 %idxprom213
-  %124 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %lpc_order.0253, i1 true)
+  %124 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %lpc_order.0253, i1 true)
   %reass.sub = sub i32 %124, %subframe_bps
   %sub2.i = add i32 %reass.sub, 1
   %idx.ext48.i = zext i32 %lpc_order.0253 to i64
@@ -10380,7 +10380,7 @@ for.end.i:                                        ; preds = %for.body7.i
   %2 = add i32 %residual_sample.038.i, %shr.i
   %3 = sub i32 %2, %sub.i
   %tobool.not.i = icmp eq i32 %rmax.1.i, 0
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %rmax.1.i, i1 true)
+  %4 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %rmax.1.i, i1 true)
   %add13.i = sub nuw nsw i32 33, %4
   %spec.select56.i = select i1 %tobool.not.i, i32 1, i32 %add13.i
   br label %for.end.thread.i

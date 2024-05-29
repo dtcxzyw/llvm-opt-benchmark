@@ -28146,7 +28146,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.val21.i.i = load ptr, ptr %17, align 8, !noalias !4098, !nonnull !14, !noundef !14
   %18 = getelementptr i8, ptr %.sroa.0.023.i.i, i64 16
   %.val22.i.i = load i64, ptr %18, align 8, !noalias !4098, !noundef !14
-  %19 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val20.i.i, ptr noalias noundef nonnull readonly align 8 %.val21.i.i, i64 noundef %.val22.i.i), !range !4099, !noalias !4098
+  %19 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val20.i.i, ptr noalias noundef nonnull readonly align 8 %.val21.i.i, i64 noundef %.val22.i.i), !range !4099, !noalias !4098
   switch i8 %19, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.i
     i8 0, label %.loopexit
@@ -28217,7 +28217,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.val21.i.i = load ptr, ptr %17, align 8, !noalias !4110, !nonnull !14, !noundef !14
   %18 = getelementptr i8, ptr %.sroa.0.023.i.i, i64 16
   %.val22.i.i = load i64, ptr %18, align 8, !noalias !4110, !noundef !14
-  %19 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val20.i.i, ptr noalias noundef nonnull readonly align 8 %.val21.i.i, i64 noundef %.val22.i.i), !range !4099, !noalias !4110
+  %19 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val20.i.i, ptr noalias noundef nonnull readonly align 8 %.val21.i.i, i64 noundef %.val22.i.i), !range !4099, !noalias !4110
   switch i8 %19, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.i
     i8 0, label %.loopexit
@@ -28365,7 +28365,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.val21.i.i = load ptr, ptr %17, align 8, !noalias !4139, !nonnull !14, !noundef !14
   %18 = getelementptr i8, ptr %.sroa.0.023.i.i, i64 16
   %.val22.i.i = load i64, ptr %18, align 8, !noalias !4139, !noundef !14
-  %19 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17ha3e7de8c21540a4bE"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val20.i.i, ptr noalias noundef nonnull readonly align 8 %.val21.i.i, i64 noundef %.val22.i.i), !range !4099, !noalias !4139
+  %19 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17ha3e7de8c21540a4bE"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val20.i.i, ptr noalias noundef nonnull readonly align 8 %.val21.i.i, i64 noundef %.val22.i.i), !range !4099, !noalias !4139
   switch i8 %19, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.i
     i8 0, label %.loopexit
@@ -28729,7 +28729,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.val21.i.i = load ptr, ptr %17, align 8, !noalias !4213, !nonnull !14, !noundef !14
   %18 = getelementptr i8, ptr %.sroa.0.023.i.i, i64 16
   %.val22.i.i = load i64, ptr %18, align 8, !noalias !4213, !noundef !14
-  %19 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val20.i.i, ptr noalias noundef nonnull readonly align 8 %.val21.i.i, i64 noundef %.val22.i.i), !range !4099, !noalias !4213
+  %19 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val20.i.i, ptr noalias noundef nonnull readonly align 8 %.val21.i.i, i64 noundef %.val22.i.i), !range !4099, !noalias !4213
   switch i8 %19, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.i
     i8 0, label %.loopexit
@@ -29309,7 +29309,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %21 = icmp ne ptr %.val21.i.i, null
   tail call void @llvm.assume(i1 %21)
   call void @_ZN3std4path4Path10components17h2e6e43f84c62ec95E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %.val21.i.i, i64 noundef %.val22.i.i), !noalias !4304
-  %22 = call noundef i8 @_ZN3std4path18compare_components17h6299449f3073d33eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5), !range !4099, !noalias !4304
+  %22 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h6299449f3073d33eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5), !range !4099, !noalias !4304
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !4304
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !4304
   switch i8 %22, label %default.unreachable [
@@ -30709,7 +30709,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.val21.i.i = load ptr, ptr %17, align 8, !noalias !4570, !nonnull !14, !noundef !14
   %18 = getelementptr i8, ptr %.sroa.0.023.i.i, i64 16
   %.val22.i.i = load i64, ptr %18, align 8, !noalias !4570, !noundef !14
-  %19 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val20.i.i, ptr noalias noundef nonnull readonly align 8 %.val21.i.i, i64 noundef %.val22.i.i), !range !4099, !noalias !4570
+  %19 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val20.i.i, ptr noalias noundef nonnull readonly align 8 %.val21.i.i, i64 noundef %.val22.i.i), !range !4099, !noalias !4570
   switch i8 %19, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.i
     i8 0, label %.loopexit
@@ -31662,7 +31662,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.val21.i = load ptr, ptr %16, align 8, !noalias !4748, !nonnull !14, !noundef !14
   %17 = getelementptr i8, ptr %.sroa.0.023.i, i64 16
   %.val22.i = load i64, ptr %17, align 8, !noalias !4748, !noundef !14
-  %18 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val20.i, ptr noalias noundef nonnull readonly align 8 %.val21.i, i64 noundef %.val22.i), !range !4099, !noalias !4748
+  %18 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val20.i, ptr noalias noundef nonnull readonly align 8 %.val21.i, i64 noundef %.val22.i), !range !4099, !noalias !4748
   switch i8 %18, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.loopexit
     i8 0, label %.loopexit.loopexit.i
@@ -31782,7 +31782,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %20 = icmp ne ptr %.val21.i, null
   tail call void @llvm.assume(i1 %20)
   call void @_ZN3std4path4Path10components17h2e6e43f84c62ec95E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %.val21.i, i64 noundef %.val22.i), !noalias !4767
-  %21 = call noundef i8 @_ZN3std4path18compare_components17h6299449f3073d33eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5), !range !4099, !noalias !4767
+  %21 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h6299449f3073d33eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5), !range !4099, !noalias !4767
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !4767
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !4767
   switch i8 %21, label %default.unreachable [
@@ -31899,7 +31899,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.val21.i = load ptr, ptr %16, align 8, !noalias !4783, !nonnull !14, !noundef !14
   %17 = getelementptr i8, ptr %.sroa.0.023.i, i64 16
   %.val22.i = load i64, ptr %17, align 8, !noalias !4783, !noundef !14
-  %18 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val20.i, ptr noalias noundef nonnull readonly align 8 %.val21.i, i64 noundef %.val22.i), !range !4099, !noalias !4783
+  %18 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val20.i, ptr noalias noundef nonnull readonly align 8 %.val21.i, i64 noundef %.val22.i), !range !4099, !noalias !4783
   switch i8 %18, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.loopexit
     i8 0, label %.loopexit.loopexit.i
@@ -32632,7 +32632,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.val21.i = load ptr, ptr %16, align 8, !noalias !4938, !nonnull !14, !noundef !14
   %17 = getelementptr i8, ptr %.sroa.0.023.i, i64 16
   %.val22.i = load i64, ptr %17, align 8, !noalias !4938, !noundef !14
-  %18 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val20.i, ptr noalias noundef nonnull readonly align 8 %.val21.i, i64 noundef %.val22.i), !range !4099, !noalias !4938
+  %18 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val20.i, ptr noalias noundef nonnull readonly align 8 %.val21.i, i64 noundef %.val22.i), !range !4099, !noalias !4938
   switch i8 %18, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.loopexit
     i8 0, label %.loopexit.loopexit.i
@@ -33076,7 +33076,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.val21.i = load ptr, ptr %16, align 8, !noalias !5018, !nonnull !14, !noundef !14
   %17 = getelementptr i8, ptr %.sroa.0.023.i, i64 16
   %.val22.i = load i64, ptr %17, align 8, !noalias !5018, !noundef !14
-  %18 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17ha3e7de8c21540a4bE"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val20.i, ptr noalias noundef nonnull readonly align 8 %.val21.i, i64 noundef %.val22.i), !range !4099, !noalias !5018
+  %18 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17ha3e7de8c21540a4bE"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val20.i, ptr noalias noundef nonnull readonly align 8 %.val21.i, i64 noundef %.val22.i), !range !4099, !noalias !5018
   switch i8 %18, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.loopexit
     i8 0, label %.loopexit.loopexit.i
@@ -33336,7 +33336,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.val21.i = load ptr, ptr %16, align 8, !noalias !5060, !nonnull !14, !noundef !14
   %17 = getelementptr i8, ptr %.sroa.0.023.i, i64 16
   %.val22.i = load i64, ptr %17, align 8, !noalias !5060, !noundef !14
-  %18 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val20.i, ptr noalias noundef nonnull readonly align 8 %.val21.i, i64 noundef %.val22.i), !range !4099, !noalias !5060
+  %18 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val20.i, ptr noalias noundef nonnull readonly align 8 %.val21.i, i64 noundef %.val22.i), !range !4099, !noalias !5060
   switch i8 %18, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.loopexit
     i8 0, label %.loopexit.loopexit.i
@@ -33672,7 +33672,7 @@ default.unreachable37:                            ; preds = %"_ZN110_$LT$core..i
   %.val21 = load ptr, ptr %17, align 8, !nonnull !14, !noundef !14
   %18 = getelementptr i8, ptr %.sroa.0.023, i64 16
   %.val22 = load i64, ptr %18, align 8, !noundef !14
-  %19 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val20, ptr noalias noundef nonnull readonly align 8 %.val21, i64 noundef %.val22), !range !4099
+  %19 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val20, ptr noalias noundef nonnull readonly align 8 %.val21, i64 noundef %.val22), !range !4099
   switch i8 %19, label %default.unreachable37 [
     i8 -1, label %.loopexit.loopexit
     i8 0, label %.loopexit
@@ -33963,7 +33963,7 @@ default.unreachable37:                            ; preds = %"_ZN110_$LT$core..i
   %.val21 = load ptr, ptr %17, align 8, !nonnull !14, !noundef !14
   %18 = getelementptr i8, ptr %.sroa.0.023, i64 16
   %.val22 = load i64, ptr %18, align 8, !noundef !14
-  %19 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val20, ptr noalias noundef nonnull readonly align 8 %.val21, i64 noundef %.val22), !range !4099
+  %19 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf1e0996e43c17408E"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val20, ptr noalias noundef nonnull readonly align 8 %.val21, i64 noundef %.val22), !range !4099
   switch i8 %19, label %default.unreachable37 [
     i8 -1, label %.loopexit.loopexit
     i8 0, label %.loopexit
@@ -34594,7 +34594,7 @@ default.unreachable37:                            ; preds = %"_ZN110_$LT$core..i
   %.val21 = load ptr, ptr %17, align 8, !nonnull !14, !noundef !14
   %18 = getelementptr i8, ptr %.sroa.0.023, i64 16
   %.val22 = load i64, ptr %18, align 8, !noundef !14
-  %19 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val20, ptr noalias noundef nonnull readonly align 8 %.val21, i64 noundef %.val22), !range !4099
+  %19 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val20, ptr noalias noundef nonnull readonly align 8 %.val21, i64 noundef %.val22), !range !4099
   switch i8 %19, label %default.unreachable37 [
     i8 -1, label %.loopexit.loopexit
     i8 0, label %.loopexit
@@ -34993,7 +34993,7 @@ default.unreachable37:                            ; preds = %"_ZN110_$LT$core..i
   %.val21 = load ptr, ptr %17, align 8, !nonnull !14, !noundef !14
   %18 = getelementptr i8, ptr %.sroa.0.023, i64 16
   %.val22 = load i64, ptr %18, align 8, !noundef !14
-  %19 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val20, ptr noalias noundef nonnull readonly align 8 %.val21, i64 noundef %.val22), !range !4099
+  %19 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hc4d357c9cbe0dac1E"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val20, ptr noalias noundef nonnull readonly align 8 %.val21, i64 noundef %.val22), !range !4099
   switch i8 %19, label %default.unreachable37 [
     i8 -1, label %.loopexit.loopexit
     i8 0, label %.loopexit
@@ -35459,7 +35459,7 @@ default.unreachable37:                            ; preds = %"_ZN110_$LT$core..i
   %21 = icmp ne ptr %.val21, null
   tail call void @llvm.assume(i1 %21)
   call void @_ZN3std4path4Path10components17h2e6e43f84c62ec95E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %.val21, i64 noundef %.val22)
-  %22 = call noundef i8 @_ZN3std4path18compare_components17h6299449f3073d33eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4), !range !4099
+  %22 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h6299449f3073d33eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4), !range !4099
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   switch i8 %22, label %default.unreachable37 [
@@ -35560,7 +35560,7 @@ default.unreachable37:                            ; preds = %"_ZN110_$LT$core..i
   %.val21 = load ptr, ptr %17, align 8, !nonnull !14, !noundef !14
   %18 = getelementptr i8, ptr %.sroa.0.023, i64 16
   %.val22 = load i64, ptr %18, align 8, !noundef !14
-  %19 = tail call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17ha3e7de8c21540a4bE"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val20, ptr noalias noundef nonnull readonly align 8 %.val21, i64 noundef %.val22), !range !4099
+  %19 = tail call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17ha3e7de8c21540a4bE"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val20, ptr noalias noundef nonnull readonly align 8 %.val21, i64 noundef %.val22), !range !4099
   switch i8 %19, label %default.unreachable37 [
     i8 -1, label %.loopexit.loopexit
     i8 0, label %.loopexit

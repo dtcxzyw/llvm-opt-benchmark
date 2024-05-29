@@ -56,7 +56,7 @@ define range(i8 -1, 2) i8 @"_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %6, align 8, !nonnull !3, !align !6, !noundef !3
   %9 = load ptr, ptr %7, align 8, !nonnull !3, !align !6, !noundef !3
-  %10 = tail call i8 @"_ZN61_$LT$cranelift_isle..lexer..Pos$u20$as$u20$core..cmp..Ord$GT$3cmp17hff3025bea9511c9fE"(ptr nonnull align 8 %8, ptr nonnull align 8 %9), !range !7
+  %10 = tail call range(i8 -1, 2) i8 @"_ZN61_$LT$cranelift_isle..lexer..Pos$u20$as$u20$core..cmp..Ord$GT$3cmp17hff3025bea9511c9fE"(ptr nonnull align 8 %8, ptr nonnull align 8 %9), !range !7
   br label %11
 
 11:                                               ; preds = %2, %5

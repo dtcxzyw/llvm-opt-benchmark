@@ -739,8 +739,8 @@ Abc_TtMinBase.exit:                               ; preds = %Abc_TtHasVar.exit.t
   br label %231
 
 221:                                              ; preds = %206
-  %222 = call i32 @llvm.smax.i32(i32 %199, i32 %213)
-  %223 = call i32 @llvm.smax.i32(i32 %207, i32 %222)
+  %222 = call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %199, i32 %213)
+  %223 = call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %207, i32 %222)
   %.not54 = icmp sgt i32 %.049, %223
   br i1 %.not54, label %224, label %231
 
@@ -1112,7 +1112,7 @@ Vec_IntSetEntry.exit:                             ; preds = %22, %Vec_IntGrow.ex
 Vec_IntFree.exit:                                 ; preds = %._crit_edge56, %._crit_edge56.thread
   %.130.lcssa70 = phi i32 [ %.130.lcssa, %._crit_edge56 ], [ %.130.lcssa69, %._crit_edge56.thread ]
   tail call void @free(ptr noundef nonnull %3) #23
-  %71 = tail call i32 @llvm.smax.i32(i32 %.130.lcssa70, i32 1)
+  %71 = tail call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %.130.lcssa70, i32 1)
   ret i32 %71
 }
 
@@ -7782,7 +7782,7 @@ If_CluUns2Grp.exit:                               ; preds = %.preheader212, %91,
 
 148:                                              ; preds = %109, %134, %137, %.thread, %102
   %149 = phi i8 [ %.pre, %109 ], [ %135, %134 ], [ %138, %137 ], [ %115, %.thread ], [ %103, %102 ]
-  br i1 %.not, label %321, label %150
+  br i1 %.not, label %322, label %150
 
 150:                                              ; preds = %148
   %151 = icmp sgt i8 %149, 0
@@ -8093,83 +8093,85 @@ If_CluAdjust.exit189:                             ; preds = %272
   br label %If_CluCopy.exit196
 
 If_CluCopy.exit196:                               ; preds = %.lr.ph.preheader.i190, %300, %If_CluAdjust.exit189
-  %304 = call i32 @llvm.smax.i32(i32 %274, i32 6)
-  %305 = icmp slt i32 %304, %28
-  br i1 %305, label %.lr.ph.i197, label %If_CluAdjustBig.exit
+  %304 = icmp ne i32 %28, %274
+  %305 = call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %274, i32 6)
+  %306 = icmp slt i32 %305, %28
+  %or.cond.i = select i1 %304, i1 %306, i1 false
+  br i1 %or.cond.i, label %.lr.ph.i197, label %If_CluAdjustBig.exit
 
 .lr.ph.i197:                                      ; preds = %If_CluCopy.exit196, %If_CluCopy.exit.i
-  %.012.i198 = phi i32 [ %316, %If_CluCopy.exit.i ], [ %304, %If_CluCopy.exit196 ]
-  %306 = icmp ult i32 %.012.i198, 7
-  %307 = add nsw i32 %.012.i198, -6
-  %308 = shl nuw i32 1, %307
-  %309 = select i1 %306, i32 1, i32 %308
-  %310 = sext i32 %309 to i64
-  %311 = getelementptr i64, ptr %11, i64 %310
-  %312 = icmp sgt i32 %309, 0
-  br i1 %312, label %.lr.ph.preheader.i.i, label %If_CluCopy.exit.i
+  %.012.i198 = phi i32 [ %317, %If_CluCopy.exit.i ], [ %305, %If_CluCopy.exit196 ]
+  %307 = icmp ult i32 %.012.i198, 7
+  %308 = add nsw i32 %.012.i198, -6
+  %309 = shl nuw i32 1, %308
+  %310 = select i1 %307, i32 1, i32 %309
+  %311 = sext i32 %310 to i64
+  %312 = getelementptr i64, ptr %11, i64 %311
+  %313 = icmp sgt i32 %310, 0
+  br i1 %313, label %.lr.ph.preheader.i.i, label %If_CluCopy.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i197
-  %wide.trip.count.i.i200 = zext nneg i32 %309 to i64
+  %wide.trip.count.i.i200 = zext nneg i32 %310 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %313 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv.i.i
-  %314 = load i64, ptr %313, align 8
-  %315 = getelementptr inbounds i64, ptr %311, i64 %indvars.iv.i.i
-  store i64 %314, ptr %315, align 8
+  %314 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv.i.i
+  %315 = load i64, ptr %314, align 8
+  %316 = getelementptr inbounds i64, ptr %312, i64 %indvars.iv.i.i
+  store i64 %315, ptr %316, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i200
   br i1 %exitcond.not.i.i, label %If_CluCopy.exit.i, label %.lr.ph.i.i, !llvm.loop !85
 
 If_CluCopy.exit.i:                                ; preds = %.lr.ph.i.i, %.lr.ph.i197
-  %316 = add nuw nsw i32 %.012.i198, 1
-  %exitcond.not.i199 = icmp eq i32 %316, %28
+  %317 = add nuw nsw i32 %.012.i198, 1
+  %exitcond.not.i199 = icmp eq i32 %317, %28
   br i1 %exitcond.not.i199, label %If_CluAdjustBig.exit, label %.lr.ph.i197, !llvm.loop !130
 
 If_CluAdjustBig.exit:                             ; preds = %If_CluCopy.exit.i, %If_CluCopy.exit196, %._crit_edge225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %8, ptr noundef nonnull align 1 dereferenceable(18) %15, i64 18, i1 false)
   %.not139 = icmp eq ptr %9, null
-  br i1 %.not139, label %319, label %317
+  br i1 %.not139, label %320, label %318
 
-317:                                              ; preds = %If_CluAdjustBig.exit
-  %318 = load i64, ptr %17, align 16
-  store i64 %318, ptr %9, align 8
-  br label %319
+318:                                              ; preds = %If_CluAdjustBig.exit
+  %319 = load i64, ptr %17, align 16
+  store i64 %319, ptr %9, align 8
+  br label %320
 
-319:                                              ; preds = %317, %If_CluAdjustBig.exit
+320:                                              ; preds = %318, %If_CluAdjustBig.exit
   %.not140 = icmp eq ptr %10, null
-  br i1 %.not140, label %321, label %320
+  br i1 %.not140, label %322, label %321
 
-320:                                              ; preds = %319
+321:                                              ; preds = %320
   store i64 %.035.i, ptr %10, align 8
-  br label %321
+  br label %322
 
-321:                                              ; preds = %319, %320, %148
+322:                                              ; preds = %320, %321, %148
   %.not141 = icmp eq ptr %.0112, null
   br i1 %.not141, label %If_CluSupport.exit.thread, label %.preheader211
 
-.preheader211:                                    ; preds = %321, %.preheader211
-  %indvars.iv.i201 = phi i64 [ %indvars.iv.next.i204, %.preheader211 ], [ 0, %321 ]
-  %.078.i202 = phi i32 [ %328, %.preheader211 ], [ 0, %321 ]
-  %322 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i201
-  %323 = load i8, ptr %322, align 1
-  %324 = and i8 %323, 15
-  %325 = zext nneg i8 %324 to i32
+.preheader211:                                    ; preds = %322, %.preheader211
+  %indvars.iv.i201 = phi i64 [ %indvars.iv.next.i204, %.preheader211 ], [ 0, %322 ]
+  %.078.i202 = phi i32 [ %329, %.preheader211 ], [ 0, %322 ]
+  %323 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i201
+  %324 = load i8, ptr %323, align 1
+  %325 = and i8 %324, 15
+  %326 = zext nneg i8 %325 to i32
   %indvars.iv.tr.i203 = trunc i64 %indvars.iv.i201 to i32
-  %326 = shl i32 %indvars.iv.tr.i203, 2
-  %327 = shl nuw i32 %325, %326
-  %328 = or i32 %327, %.078.i202
+  %327 = shl i32 %indvars.iv.tr.i203, 2
+  %328 = shl nuw i32 %326, %327
+  %329 = or i32 %328, %.078.i202
   %indvars.iv.next.i204 = add nuw nsw i64 %indvars.iv.i201, 1
   %exitcond.not.i205 = icmp eq i64 %indvars.iv.next.i204, 8
   br i1 %exitcond.not.i205, label %If_CluSupport.exit.thread.sink.split, label %.preheader211, !llvm.loop !127
 
 If_CluSupport.exit.thread.sink.split:             ; preds = %.preheader211, %.preheader
-  %.lcssa252.sink = phi i32 [ %147, %.preheader ], [ %328, %.preheader211 ]
+  %.lcssa252.sink = phi i32 [ %147, %.preheader ], [ %329, %.preheader211 ]
   store i32 %.lcssa252.sink, ptr %.0112, align 4
   br label %If_CluSupport.exit.thread
 
-If_CluSupport.exit.thread:                        ; preds = %If_CluSupport.exit.thread.sink.split, %If_CluCopy.exit151, %.lr.ph.i152, %._crit_edge, %321, %140, %If_CluSupport.exit, %86
+If_CluSupport.exit.thread:                        ; preds = %If_CluSupport.exit.thread.sink.split, %If_CluCopy.exit151, %.lr.ph.i152, %._crit_edge, %322, %140, %If_CluSupport.exit, %86
   ret void
 }
 
@@ -9281,12 +9283,12 @@ define float @If_CutDelayLutStruct(ptr noundef %0, ptr nocapture noundef %1, ptr
   br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !143
 
 .critedge:                                        ; preds = %37, %43
-  %47 = tail call i32 @llvm.smax.i32(i32 %18, i32 %26)
+  %47 = tail call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %18, i32 %26)
   %.not73 = icmp sgt i32 %11, %47
   br i1 %.not73, label %69, label %49
 
 .critedge.thread:                                 ; preds = %.preheader105
-  %48 = tail call i32 @llvm.smax.i32(i32 %18, i32 %26)
+  %48 = tail call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 %18, i32 %26)
   %.not73155 = icmp sgt i32 %11, %48
   br i1 %.not73155, label %69, label %If_CluDelayMax.exit
 

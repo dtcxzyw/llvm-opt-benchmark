@@ -44,7 +44,7 @@ define i64 @_ZN4core3cmp6min_by17hdc34f5aa650df896E(i64 %0, i64 %1, ptr align 1 
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   store i64 %1, ptr %4, align 8
-  %6 = call i8 @_ZN4core3ops8function5FnMut8call_mut17ha5446a07d00bf8c5E(ptr align 1 %2, ptr nonnull align 8 %5, ptr nonnull align 8 %4), !range !4
+  %6 = call range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17ha5446a07d00bf8c5E(ptr align 1 %2, ptr nonnull align 8 %5, ptr nonnull align 8 %4), !range !4
   %switch = icmp eq i8 %6, 1
   %.val = load i64, ptr %4, align 8
   %.val4 = load i64, ptr %5, align 8

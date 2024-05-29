@@ -64921,7 +64921,7 @@ for.end:                                          ; preds = %for.body, %if.end
   %selected_color.i = getelementptr inbounds i8, ptr %ctx, i64 5716
   %2 = load i32, ptr %color.i, align 8
   %3 = load i32, ptr %selected_color.i, align 4
-  %call.i = tail call i32 @nk_chart_begin_colored(ptr noundef nonnull %ctx, i32 noundef %type, i32 %2, i32 %3, i32 noundef %count, float noundef %min_value.0.lcssa, float noundef %max_value.0.lcssa)
+  %call.i = tail call range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef nonnull %ctx, i32 noundef %type, i32 %2, i32 %3, i32 noundef %count, float noundef %min_value.0.lcssa, float noundef %max_value.0.lcssa)
   %tobool23.not = icmp eq i32 %call.i, 0
   br i1 %tobool23.not, label %if.end35, label %for.cond25.preheader
 
@@ -64937,7 +64937,7 @@ for.body27:                                       ; preds = %for.body27.preheade
   %indvars.iv44 = phi i64 [ 0, %for.body27.preheader ], [ %indvars.iv.next45, %for.body27 ]
   %gep51 = getelementptr float, ptr %invariant.gep50, i64 %indvars.iv44
   %4 = load float, ptr %gep51, align 4
-  %call.i34 = tail call i32 @nk_chart_push_slot(ptr noundef nonnull %ctx, float noundef %4, i32 noundef 0)
+  %call.i34 = tail call range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef nonnull %ctx, float noundef %4, i32 noundef 0)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count48
   br i1 %exitcond49.not, label %lor.lhs.false.i, label %for.body27, !llvm.loop !226
@@ -65010,7 +65010,7 @@ for.end:                                          ; preds = %for.body, %if.end
   %selected_color.i = getelementptr inbounds i8, ptr %ctx, i64 5716
   %0 = load i32, ptr %color.i, align 8
   %1 = load i32, ptr %selected_color.i, align 4
-  %call.i = tail call i32 @nk_chart_begin_colored(ptr noundef nonnull %ctx, i32 noundef %type, i32 %0, i32 %1, i32 noundef %count, float noundef %min_value.0.lcssa, float noundef %max_value.0.lcssa)
+  %call.i = tail call range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef nonnull %ctx, i32 noundef %type, i32 %0, i32 %1, i32 noundef %count, float noundef %min_value.0.lcssa, float noundef %max_value.0.lcssa)
   %tobool12.not = icmp eq i32 %call.i, 0
   br i1 %tobool12.not, label %if.end23, label %for.cond14.preheader
 
@@ -65021,7 +65021,7 @@ for.body16:                                       ; preds = %for.cond14.preheade
   %i.134 = phi i32 [ %inc21, %for.body16 ], [ 0, %for.cond14.preheader ]
   %add17 = add nsw i32 %i.134, %offset
   %call18 = tail call float %value_getter(ptr noundef %userdata, i32 noundef %add17) #51
-  %call.i27 = tail call i32 @nk_chart_push_slot(ptr noundef nonnull %ctx, float noundef %call18, i32 noundef 0)
+  %call.i27 = tail call range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef nonnull %ctx, float noundef %call18, i32 noundef 0)
   %inc21 = add nuw nsw i32 %i.134, 1
   %exitcond35.not = icmp eq i32 %inc21, %count
   br i1 %exitcond35.not, label %lor.lhs.false.i, label %for.body16, !llvm.loop !228
@@ -69240,7 +69240,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.preheade
 
 nk_combo_begin_label.exit:                        ; preds = %while.body.i.i, %nk_panel_get_padding.exit, %land.rhs.i.preheader.i
   %siz.0.lcssa.i.i = phi i32 [ 0, %nk_panel_get_padding.exit ], [ 0, %land.rhs.i.preheader.i ], [ %inc.i.i, %while.body.i.i ]
-  %call1.i = tail call i32 @nk_combo_begin_text(ptr noundef nonnull %ctx, ptr noundef %4, i32 noundef %siz.0.lcssa.i.i, <2 x float> %size.sroa.0.4.vec.insert)
+  %call1.i = tail call range(i32 0, 2) i32 @nk_combo_begin_text(ptr noundef nonnull %ctx, ptr noundef %4, i32 noundef %siz.0.lcssa.i.i, <2 x float> %size.sroa.0.4.vec.insert)
   %tobool21.not = icmp eq i32 %call1.i, 0
   br i1 %tobool21.not, label %return, label %lor.lhs.false.i.i
 
@@ -69338,7 +69338,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %selected.addr.038 = phi i32 [ %selected, %for.body.preheader ], [ %spec.select, %for.body ]
   %arrayidx27 = getelementptr inbounds ptr, ptr %items, i64 %indvars.iv
   %20 = load ptr, ptr %arrayidx27, align 8
-  %call.i = tail call i32 @nk_contextual_item_label(ptr noundef nonnull %ctx, ptr noundef %20, i32 noundef 17)
+  %call.i = tail call range(i32 0, 2) i32 @nk_contextual_item_label(ptr noundef nonnull %ctx, ptr noundef %20, i32 noundef 17)
   %tobool29.not = icmp eq i32 %call.i, 0
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %tobool29.not, i32 %selected.addr.038, i32 %21
@@ -70028,7 +70028,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.preheade
 
 nk_combo_begin_label.exit:                        ; preds = %while.body.i.i, %nk_panel_get_padding.exit, %land.rhs.i.preheader.i
   %siz.0.lcssa.i.i = phi i32 [ 0, %nk_panel_get_padding.exit ], [ 0, %land.rhs.i.preheader.i ], [ %inc.i.i, %while.body.i.i ]
-  %call1.i = call i32 @nk_combo_begin_text(ptr noundef nonnull %ctx, ptr noundef %4, i32 noundef %siz.0.lcssa.i.i, <2 x float> %size.sroa.0.4.vec.insert)
+  %call1.i = call range(i32 0, 2) i32 @nk_combo_begin_text(ptr noundef nonnull %ctx, ptr noundef %4, i32 noundef %siz.0.lcssa.i.i, <2 x float> %size.sroa.0.4.vec.insert)
   %tobool19.not = icmp eq i32 %call1.i, 0
   br i1 %tobool19.not, label %return, label %lor.lhs.false.i.i
 
@@ -70122,7 +70122,7 @@ for.body:                                         ; preds = %nk_layout_row_dynam
   %i.036 = phi i32 [ %inc, %for.body ], [ 0, %nk_layout_row_dynamic.exit ]
   call void %item_getter(ptr noundef %userdata, i32 noundef %i.036, ptr noundef nonnull %item) #51
   %20 = load ptr, ptr %item, align 8
-  %call.i = call i32 @nk_contextual_item_label(ptr noundef nonnull %ctx, ptr noundef %20, i32 noundef 17)
+  %call.i = call range(i32 0, 2) i32 @nk_contextual_item_label(ptr noundef nonnull %ctx, ptr noundef %20, i32 noundef 17)
   %tobool25.not = icmp eq i32 %call.i, 0
   %spec.select = select i1 %tobool25.not, i32 %selected.addr.037, i32 %i.036
   %inc = add nuw nsw i32 %i.036, 1
@@ -76535,7 +76535,7 @@ nk_is_word_boundary.exit.i:                       ; preds = %if.end2.i.i
   br i1 %cmp23.i.not.i, label %nk_textedit_move_to_word_previous.exit, label %while.cond.i, !llvm.loop !254
 
 nk_textedit_move_to_word_previous.exit:           ; preds = %while.cond.i, %nk_is_word_boundary.exit.i, %nk_is_word_boundary.exit.thread.i
-  %spec.store.select.i = call i32 @llvm.smax.i32(i32 %c.0.i, i32 0)
+  %spec.store.select.i = call range(i32 -2147483648, 2147483647) i32 @llvm.smax.i32(i32 %c.0.i, i32 0)
   store i32 %spec.store.select.i, ptr %cursor.i285, align 8
   store i32 %spec.store.select.i, ptr %select_end86, align 8
   %len.i287 = getelementptr inbounds i8, ptr %state, i64 144

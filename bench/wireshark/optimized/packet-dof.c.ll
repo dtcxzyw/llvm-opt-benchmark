@@ -14591,7 +14591,7 @@ define internal i32 @dissect_2008_16_security_6_1(ptr noundef %0, ptr noundef %1
   br label %dissect_2008_16_security_13.exit
 
 dissect_2008_16_security_13.exit:                 ; preds = %4, %15
-  %17 = tail call fastcc i32 @dissect_2008_1_dsp_1(ptr noundef %8, ptr noundef %1, ptr noundef %12)
+  %17 = tail call fastcc range(i32 4, 260) i32 @dissect_2008_1_dsp_1(ptr noundef %8, ptr noundef %1, ptr noundef %12)
   %18 = add nuw nsw i32 %17, 1
   tail call void @tvb_set_reported_length(ptr noundef %8, i32 noundef %17) #20
   tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %17) #20

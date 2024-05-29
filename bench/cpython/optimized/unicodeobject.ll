@@ -8720,7 +8720,7 @@ sw.bb:                                            ; preds = %if.end36, %if.end36
   br i1 %cmp38, label %if.end44, label %cond.end
 
 cond.end:                                         ; preds = %sw.bb
-  %call.i = call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef 0, i32 noundef 65535)
+  %call.i = call range(i32 -1, 1) i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef 0, i32 noundef 65535)
   %cmp41 = icmp slt i32 %call.i, 0
   br i1 %cmp41, label %onError, label %if.end44thread-pre-split
 
@@ -13635,7 +13635,7 @@ sw.bb123:                                         ; preds = %if.end111
   br i1 %cmp125, label %if.end131, label %cond.end
 
 cond.end:                                         ; preds = %sw.bb123
-  %call.i294 = call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef 0, i32 noundef 65535)
+  %call.i294 = call range(i32 -1, 1) i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef 0, i32 noundef 65535)
   %cmp128 = icmp slt i32 %call.i294, 0
   br i1 %cmp128, label %onError, label %if.end131
 
@@ -52993,7 +52993,7 @@ if.then63:                                        ; preds = %for.cond27.preheade
 if.then66:                                        ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i)
   call fastcc void @ucs2lib__preprocess(ptr noundef %p, i64 noundef %m, ptr noundef nonnull %p.i)
-  %call.i = call fastcc i64 @ucs2lib__two_way(ptr noundef readonly %add.ptr, i64 noundef %sub67, ptr noundef nonnull %p.i)
+  %call.i = call fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 @ucs2lib__two_way(ptr noundef readonly %add.ptr, i64 noundef %sub67, ptr noundef nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %p.i)
   %cmp68 = icmp eq i64 %call.i, -1
   %add70 = add i64 %call.i, %.us-phi89
@@ -54348,7 +54348,7 @@ if.then46:                                        ; preds = %for.cond19.preheade
 if.then48:                                        ; preds = %if.then46
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i)
   call fastcc void @ucs4lib__preprocess(ptr noundef %p, i64 noundef %m, ptr noundef nonnull %p.i)
-  %call.i = call fastcc i64 @ucs4lib__two_way(ptr noundef readonly %add.ptr, i64 noundef %sub49, ptr noundef nonnull %p.i)
+  %call.i = call fastcc range(i64 -2305843009213693952, 2305843009213693952) i64 @ucs4lib__two_way(ptr noundef readonly %add.ptr, i64 noundef %sub49, ptr noundef nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %p.i)
   %cmp50 = icmp eq i64 %call.i, -1
   %add51 = add i64 %call.i, %.us-phi89

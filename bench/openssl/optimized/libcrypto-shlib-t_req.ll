@@ -44,7 +44,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %fp) #3
-  %call.i = tail call i32 @X509_REQ_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef 0, i64 noundef 0)
+  %call.i = tail call range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef 0, i64 noundef 0)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #3
   br label %return
 

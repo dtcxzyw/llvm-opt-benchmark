@@ -194,7 +194,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %ht_used = getelementptr inbounds i8, ptr %d, i64 24
   %2 = load i64, ptr %ht_used, align 8
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %2, i64 4)
-  %call.i = tail call i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %spec.store.select, ptr noundef null)
+  %call.i = tail call range(i32 0, 2) i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %spec.store.select, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1047,7 +1047,7 @@ dictTypeExpandAllowed.exit.if.end54_crit_edge.i:  ; preds = %dictTypeExpandAllow
 if.end54.i:                                       ; preds = %dictTypeExpandAllowed.exit.if.end54_crit_edge.i, %if.then51.i
   %21 = phi i64 [ %.pre23.i, %dictTypeExpandAllowed.exit.if.end54_crit_edge.i ], [ %16, %if.then51.i ]
   %add.i = add i64 %21, 1
-  %call.i13.i = tail call i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %add.i, ptr noundef null)
+  %call.i13.i = tail call range(i32 0, 2) i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %add.i, ptr noundef null)
   %22 = icmp eq i32 %call.i13.i, 0
   br i1 %22, label %for.cond.preheader, label %return
 

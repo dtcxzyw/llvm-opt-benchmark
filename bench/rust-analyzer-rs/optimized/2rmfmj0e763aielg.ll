@@ -265,7 +265,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nocap
   %.tr.i.i.i = trunc i64 %.sroa.0.0167.i.i.i to i32
   %65 = shl i32 %.tr.i.i.i, 4
   %66 = or disjoint i32 %65, 1
-  %67 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %64, i1 true)
+  %67 = call noundef range(i32 0, 17) i32 @llvm.cttz.i32(i32 %64, i1 true)
   %68 = icmp ugt i32 %67, 15
   br i1 %68, label %.backedge.i.i.i, label %.lr.ph.preheader.i.i.i
 
@@ -300,7 +300,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nocap
   store i64 %79, ptr %17, align 8, !alias.scope !57, !noalias !60
   %80 = shl nsw i32 -2, %70
   %81 = and i32 %80, %.023166.i.i.i
-  %82 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %81, i1 false)
+  %82 = call noundef range(i32 0, 17) i32 @llvm.cttz.i32(i32 %81, i1 false)
   %83 = icmp ugt i32 %82, 15
   br i1 %83, label %.backedge.i.i.i, label %.lr.ph.i.i.i
 

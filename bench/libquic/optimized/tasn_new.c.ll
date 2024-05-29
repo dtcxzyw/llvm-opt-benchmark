@@ -10,7 +10,7 @@ define hidden ptr @ASN1_item_new(ptr noundef %it) local_unnamed_addr #0 {
 entry:
   %ret = alloca ptr, align 8
   store ptr null, ptr %ret, align 8
-  %call.i = call fastcc i32 @asn1_item_ex_combine_new(ptr noundef nonnull %ret, ptr noundef %it, i32 noundef 0)
+  %call.i = call fastcc range(i32 0, 2) i32 @asn1_item_ex_combine_new(ptr noundef nonnull %ret, ptr noundef %it, i32 noundef 0)
   %cmp.not = icmp eq i32 %call.i, 0
   %0 = load ptr, ptr %ret, align 8
   %retval.0 = select i1 %cmp.not, ptr null, ptr %0

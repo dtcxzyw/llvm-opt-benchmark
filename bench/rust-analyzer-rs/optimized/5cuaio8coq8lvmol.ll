@@ -17289,7 +17289,7 @@ define void @_ZN10hir_expand5eager24expand_eager_macro_input17hba28bc1984deb789E
   store i32 %8, ptr %38, align 4
   %39 = getelementptr inbounds i8, ptr %2, i64 384
   %40 = load ptr, ptr %39, align 8, !invariant.load !17, !noalias !17, !nonnull !17
-  %41 = call noundef i32 %40(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %34), !range !3192, !noalias !4636
+  %41 = call noundef range(i32 1, 0) i32 %40(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %34), !range !3192, !noalias !4636
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32)
   %42 = getelementptr inbounds i8, ptr %2, i64 432
@@ -17682,7 +17682,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr103dro
   store ptr %141, ptr %.sroa.712.0..sroa_idx, align 8
   %159 = getelementptr inbounds i8, ptr %23, i64 28
   store i32 %8, ptr %159, align 4
-  %160 = invoke noundef i32 %40(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %23)
+  %160 = invoke noundef range(i32 1, 0) i32 %40(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %23)
           to label %"_ZN63_$LT$hir_expand..MacroCallLoc$u20$as$u20$hir_expand..Intern$GT$6intern17h3def78fd5e0eaa17E.exit" unwind label %122
 
 "_ZN63_$LT$hir_expand..MacroCallLoc$u20$as$u20$hir_expand..Intern$GT$6intern17h3def78fd5e0eaa17E.exit": ; preds = %156
@@ -18763,7 +18763,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %217
   store ptr null, ptr %.sroa.72.0..sroa_idx.i, align 8, !noalias !5026
   store i32 %9, ptr %84, align 4, !noalias !5019
   %310 = load ptr, ptr %85, align 8, !invariant.load !17, !alias.scope !5027, !noalias !5030, !nonnull !17
-  %311 = invoke noundef i32 %310(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %20)
+  %311 = invoke noundef range(i32 1, 0) i32 %310(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %20)
           to label %.noexc221 unwind label %.loopexit533
 
 .noexc221:                                        ; preds = %.noexc220
@@ -23579,7 +23579,7 @@ define noundef range(i32 1, 0) i32 @_ZN10hir_expand10MacroDefId9make_call17h0f16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6721)
   %11 = getelementptr inbounds i8, ptr %2, i64 384
   %12 = load ptr, ptr %11, align 8, !invariant.load !17, !alias.scope !6721, !noalias !6724, !nonnull !17
-  %13 = call noundef i32 %12(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %7), !range !3192, !noalias !6721
+  %13 = call noundef range(i32 1, 0) i32 %12(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %7), !range !3192, !noalias !6721
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   ret i32 %13
 }

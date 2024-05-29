@@ -5463,7 +5463,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 trace_nbd_negotiate_handle_starttls.exit.i:       ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end.i155
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %48 = load ptr, ptr %ioc, align 8
-  %call.i.i156 = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i.i156 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   %cmp2.i = icmp slt i32 %call.i.i156, 0
   br i1 %cmp2.i, label %nbd_negotiate_handle_starttls.exit.thread, label %if.end4.i
 
@@ -5719,7 +5719,7 @@ nbd_negotiate_send_rep_list.exit.i:               ; preds = %if.end35.i.i
   br i1 %tobool.not.i174, label %for.end.i, label %for.body.i, !llvm.loop !27
 
 for.end.i:                                        ; preds = %nbd_negotiate_send_rep_list.exit.i, %for.cond.preheader.i
-  %call.i7.i = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i7.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   br label %if.end146
 
 if.end146.thread:                                 ; preds = %if.end17.i.i, %cleanup.sink.split.i.i
@@ -5731,7 +5731,7 @@ if.end146.thread:                                 ; preds = %if.end17.i.i, %clea
   br label %return
 
 sw.bb72:                                          ; preds = %if.then64
-  %call.i176 = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef null)
+  %call.i176 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef null)
   br label %return
 
 sw.bb74:                                          ; preds = %if.then64
@@ -6155,7 +6155,7 @@ if.then142.i:                                     ; preds = %land.lhs.true136.i
   br label %nbd_negotiate_handle_info.exit.thread
 
 if.end144.i:                                      ; preds = %land.lhs.true136.i, %land.lhs.true134.i, %if.end130.i
-  %call.i149.i = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i149.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   %cmp146.i = icmp slt i32 %call.i149.i, 0
   br i1 %cmp146.i, label %nbd_negotiate_handle_info.exit.thread, label %if.end149.i
 
@@ -6293,7 +6293,7 @@ if.then111:                                       ; preds = %if.else108
   br label %if.end146
 
 if.else113:                                       ; preds = %if.else108
-  %call.i226 = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i226 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   store i32 3, ptr %mode, align 4
   br label %if.end146
 
@@ -7279,7 +7279,7 @@ for.inc100.i:                                     ; preds = %if.end98.i, %for.bo
 
 for.end102.i:                                     ; preds = %for.inc100.i, %if.end78.i
   %count.2.lcssa.i = phi i64 [ %count.1.i, %if.end78.i ], [ %count.3.ph.i, %for.inc100.i ]
-  %call.i77.i = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i77.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   %cmp104.i = icmp eq i32 %call.i77.i, 0
   br i1 %cmp104.i, label %if.then106.i, label %nbd_negotiate_meta_queries.exit
 
@@ -7329,7 +7329,7 @@ if.then128:                                       ; preds = %if.else125
   br label %if.end146
 
 if.else130:                                       ; preds = %if.else125
-  %call.i305 = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i305 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   store i32 4, ptr %mode, align 4
   br label %if.end146
 

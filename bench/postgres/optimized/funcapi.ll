@@ -130,7 +130,7 @@ define dso_local void @InitMaterializedSRF(ptr nocapture noundef readonly %0, i3
   %43 = load i32, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %41, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = call fastcc i32 @internal_get_result_type(i32 noundef %43, ptr noundef %45, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %3)
+  %46 = call fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef %43, ptr noundef %45, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %3)
   %.not19 = icmp eq i32 %46, 1
   br i1 %.not19, label %50, label %47
 

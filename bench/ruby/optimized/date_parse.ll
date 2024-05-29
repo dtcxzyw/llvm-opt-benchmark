@@ -1160,7 +1160,7 @@ check_class.exit:                                 ; preds = %RSTRING_PTR.exit36.
 parse_day.exit:                                   ; preds = %45, %48
   %51 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %52 = load i64, ptr @parse_day.pat, align 8
-  %53 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %51, i64 noundef %52, i64 noundef %15, ptr noundef nonnull @parse_day_cb)
+  %53 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %51, i64 noundef %52, i64 noundef %15, ptr noundef nonnull @parse_day_cb)
   %.pr.pre = load i64, ptr %20, align 8
   br label %54
 
@@ -1231,7 +1231,7 @@ check_class.exit167:                              ; preds = %RSTRING_PTR.exit36.
 parse_time.exit:                                  ; preds = %76, %79
   %82 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %83 = load i64, ptr @parse_time.pat, align 8
-  %84 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %82, i64 noundef %83, i64 noundef %15, ptr noundef nonnull @parse_time_cb)
+  %84 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %82, i64 noundef %83, i64 noundef %15, ptr noundef nonnull @parse_time_cb)
   %.pr617.pre = load i64, ptr %20, align 8
   br label %check_class.exit167.thread
 
@@ -1302,7 +1302,7 @@ check_class.exit189:                              ; preds = %RSTRING_PTR.exit36.
 parse_eu.exit:                                    ; preds = %107, %110
   %113 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %114 = load i64, ptr @parse_eu.pat, align 8
-  %115 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %113, i64 noundef %114, i64 noundef %15, ptr noundef nonnull @parse_eu_cb)
+  %115 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %113, i64 noundef %114, i64 noundef %15, ptr noundef nonnull @parse_eu_cb)
   %.not115 = icmp eq i32 %115, 0
   br i1 %.not115, label %116, label %parse_vms.exit
 
@@ -1321,7 +1321,7 @@ parse_eu.exit:                                    ; preds = %107, %110
 parse_us.exit:                                    ; preds = %116, %119
   %122 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %123 = load i64, ptr @parse_us.pat, align 8
-  %124 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %122, i64 noundef %123, i64 noundef %15, ptr noundef nonnull @parse_us_cb)
+  %124 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %122, i64 noundef %123, i64 noundef %15, ptr noundef nonnull @parse_us_cb)
   %.not116 = icmp eq i32 %124, 0
   br i1 %.not116, label %parse_us.exit._crit_edge, label %parse_vms.exit
 
@@ -1404,7 +1404,7 @@ check_class.exit211:                              ; preds = %RSTRING_PTR.exit36.
 parse_iso.exit:                                   ; preds = %154, %157
   %160 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %161 = load i64, ptr @parse_iso.pat, align 8
-  %162 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %160, i64 noundef %161, i64 noundef %15, ptr noundef nonnull @parse_iso_cb)
+  %162 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %160, i64 noundef %161, i64 noundef %15, ptr noundef nonnull @parse_iso_cb)
   %.not117 = icmp eq i32 %162, 0
   br i1 %.not117, label %parse_iso.exit.check_class.exit211.thread_crit_edge, label %parse_vms.exit
 
@@ -1487,7 +1487,7 @@ check_class.exit233:                              ; preds = %RSTRING_PTR.exit36.
 parse_jis.exit:                                   ; preds = %191, %194
   %197 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %198 = load i64, ptr @parse_jis.pat, align 8
-  %199 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %197, i64 noundef %198, i64 noundef %15, ptr noundef nonnull @parse_jis_cb)
+  %199 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %197, i64 noundef %198, i64 noundef %15, ptr noundef nonnull @parse_jis_cb)
   %.not118 = icmp eq i32 %199, 0
   br i1 %.not118, label %parse_jis.exit._crit_edge, label %parse_vms.exit
 
@@ -1570,7 +1570,7 @@ check_class.exit255:                              ; preds = %RSTRING_PTR.exit36.
 parse_vms11.exit.i:                               ; preds = %232, %229
   %235 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %236 = load i64, ptr @parse_vms11.pat, align 8
-  %237 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %235, i64 noundef %236, i64 noundef %15, ptr noundef nonnull @parse_vms11_cb)
+  %237 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %235, i64 noundef %236, i64 noundef %15, ptr noundef nonnull @parse_vms11_cb)
   %.not.i256 = icmp eq i32 %237, 0
   br i1 %.not.i256, label %238, label %parse_vms.exit
 
@@ -1589,7 +1589,7 @@ parse_vms11.exit.i:                               ; preds = %232, %229
 parse_vms12.exit.i:                               ; preds = %241, %238
   %244 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %245 = load i64, ptr @parse_vms12.pat, align 8
-  %246 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %244, i64 noundef %245, i64 noundef %15, ptr noundef nonnull @parse_vms12_cb)
+  %246 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %244, i64 noundef %245, i64 noundef %15, ptr noundef nonnull @parse_vms12_cb)
   %.not5.i = icmp eq i32 %246, 0
   br i1 %.not5.i, label %parse_vms12.exit.i.check_class.exit255.thread_crit_edge, label %parse_vms.exit
 
@@ -1672,7 +1672,7 @@ check_class.exit278:                              ; preds = %RSTRING_PTR.exit36.
 parse_sla.exit:                                   ; preds = %275, %278
   %281 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %282 = load i64, ptr @parse_sla.pat, align 8
-  %283 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %281, i64 noundef %282, i64 noundef %15, ptr noundef nonnull @parse_sla_cb)
+  %283 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %281, i64 noundef %282, i64 noundef %15, ptr noundef nonnull @parse_sla_cb)
   %.not120 = icmp eq i32 %283, 0
   br i1 %.not120, label %parse_sla.exit._crit_edge, label %parse_vms.exit
 
@@ -1755,7 +1755,7 @@ check_class.exit300:                              ; preds = %RSTRING_PTR.exit36.
 parse_dot.exit:                                   ; preds = %313, %316
   %319 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %320 = load i64, ptr @parse_dot.pat, align 8
-  %321 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %319, i64 noundef %320, i64 noundef %15, ptr noundef nonnull @parse_dot_cb)
+  %321 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %319, i64 noundef %320, i64 noundef %15, ptr noundef nonnull @parse_dot_cb)
   %.not121 = icmp eq i32 %321, 0
   br i1 %.not121, label %parse_dot.exit.check_class.exit300.thread_crit_edge, label %parse_vms.exit
 
@@ -1830,7 +1830,7 @@ check_class.exit322:                              ; preds = %RSTRING_PTR.exit36.
 parse_iso21.exit.i:                               ; preds = %346, %343
   %349 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %350 = load i64, ptr @parse_iso21.pat, align 8
-  %351 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %349, i64 noundef %350, i64 noundef %15, ptr noundef nonnull @parse_iso21_cb)
+  %351 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %349, i64 noundef %350, i64 noundef %15, ptr noundef nonnull @parse_iso21_cb)
   %.not.i323 = icmp eq i32 %351, 0
   br i1 %.not.i323, label %352, label %parse_vms.exit
 
@@ -1849,7 +1849,7 @@ parse_iso21.exit.i:                               ; preds = %346, %343
 parse_iso22.exit.i:                               ; preds = %355, %352
   %358 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %359 = load i64, ptr @parse_iso22.pat, align 8
-  %360 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %358, i64 noundef %359, i64 noundef %15, ptr noundef nonnull @parse_iso22_cb)
+  %360 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %358, i64 noundef %359, i64 noundef %15, ptr noundef nonnull @parse_iso22_cb)
   %.not13.i = icmp eq i32 %360, 0
   br i1 %.not13.i, label %361, label %parse_vms.exit
 
@@ -1868,7 +1868,7 @@ parse_iso22.exit.i:                               ; preds = %355, %352
 parse_iso23.exit.i:                               ; preds = %364, %361
   %367 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %368 = load i64, ptr @parse_iso23.pat, align 8
-  %369 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %367, i64 noundef %368, i64 noundef %15, ptr noundef nonnull @parse_iso23_cb)
+  %369 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %367, i64 noundef %368, i64 noundef %15, ptr noundef nonnull @parse_iso23_cb)
   %.not14.i = icmp eq i32 %369, 0
   br i1 %.not14.i, label %370, label %parse_vms.exit
 
@@ -1887,7 +1887,7 @@ parse_iso23.exit.i:                               ; preds = %364, %361
 parse_iso24.exit.i:                               ; preds = %373, %370
   %376 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %377 = load i64, ptr @parse_iso24.pat, align 8
-  %378 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %376, i64 noundef %377, i64 noundef %15, ptr noundef nonnull @parse_iso24_cb)
+  %378 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %376, i64 noundef %377, i64 noundef %15, ptr noundef nonnull @parse_iso24_cb)
   %.not15.i = icmp eq i32 %378, 0
   br i1 %.not15.i, label %379, label %parse_vms.exit
 
@@ -1972,7 +1972,7 @@ check_class.exit346:                              ; preds = %RSTRING_PTR.exit36.
 parse_year.exit:                                  ; preds = %404, %407
   %410 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %411 = load i64, ptr @parse_year.pat, align 8
-  %412 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %410, i64 noundef %411, i64 noundef %15, ptr noundef nonnull @parse_year_cb)
+  %412 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %410, i64 noundef %411, i64 noundef %15, ptr noundef nonnull @parse_year_cb)
   %.not125 = icmp eq i32 %412, 0
   br i1 %.not125, label %parse_year.exit.check_class.exit346.thread_crit_edge, label %parse_vms.exit
 
@@ -2047,7 +2047,7 @@ check_class.exit368:                              ; preds = %RSTRING_PTR.exit36.
 parse_mon.exit:                                   ; preds = %434, %437
   %440 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %441 = load i64, ptr @parse_mon.pat, align 8
-  %442 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %440, i64 noundef %441, i64 noundef %15, ptr noundef nonnull @parse_mon_cb)
+  %442 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %440, i64 noundef %441, i64 noundef %15, ptr noundef nonnull @parse_mon_cb)
   %.not127 = icmp eq i32 %442, 0
   br i1 %.not127, label %parse_mon.exit._crit_edge, label %parse_vms.exit
 
@@ -2191,7 +2191,7 @@ check_class.exit412:                              ; preds = %RSTRING_PTR.exit36.
 parse_bc.exit:                                    ; preds = %494, %497
   %500 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %501 = load i64, ptr @parse_bc.pat, align 8
-  %502 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %500, i64 noundef %501, i64 noundef %15, ptr noundef nonnull @parse_bc_cb)
+  %502 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %500, i64 noundef %501, i64 noundef %15, ptr noundef nonnull @parse_bc_cb)
   %.pr613.pre = load i64, ptr %20, align 8
   br label %503
 
@@ -2262,7 +2262,7 @@ check_class.exit434:                              ; preds = %RSTRING_PTR.exit36.
 parse_frag.exit:                                  ; preds = %525, %528
   %531 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.7, i64 noundef 1) #13
   %532 = load i64, ptr @parse_frag.pat, align 8
-  %533 = tail call fastcc i32 @subx(i64 noundef %10, i64 noundef %531, i64 noundef %532, i64 noundef %15, ptr noundef nonnull @parse_frag_cb)
+  %533 = tail call fastcc range(i32 0, 2) i32 @subx(i64 noundef %10, i64 noundef %531, i64 noundef %532, i64 noundef %15, ptr noundef nonnull @parse_frag_cb)
   br label %check_class.exit434.thread
 
 check_class.exit434.thread:                       ; preds = %parse_vms.exit, %503, %parse_frag.exit, %check_class.exit434

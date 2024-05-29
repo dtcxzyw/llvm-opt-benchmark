@@ -1220,7 +1220,7 @@ define noalias noundef ptr @Aig_ManLevelize(ptr nocapture noundef readonly %0) l
   %16 = lshr i64 %15, 32
   %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 16777215
-  %19 = tail call i32 @llvm.smax.i32(i32 %.011.i, i32 %18)
+  %19 = tail call range(i32 0, 16777216) i32 @llvm.smax.i32(i32 %.011.i, i32 %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Aig_ManLevelNum.exit.loopexit, label %7, !llvm.loop !14
@@ -1445,7 +1445,7 @@ define range(i32 0, 16777216) i32 @Aig_ManLevelNum(ptr nocapture noundef readonl
   %16 = lshr i64 %15, 32
   %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 16777215
-  %19 = tail call i32 @llvm.smax.i32(i32 %.011, i32 %18)
+  %19 = tail call range(i32 0, 16777216) i32 @llvm.smax.i32(i32 %.011, i32 %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !14

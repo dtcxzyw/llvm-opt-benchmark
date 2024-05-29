@@ -10254,7 +10254,7 @@ GC_base.exit.thread:                              ; preds = %46, %GC_find_starti
   unreachable
 
 GC_general_register_disappearing_link.exit:       ; preds = %62
-  %66 = tail call fastcc i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (i8, ptr @GC_arrays, i64 336), ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.41)
+  %66 = tail call fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (i8, ptr @GC_arrays, i64 336), ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.41)
   ret i32 %66
 }
 
@@ -20753,7 +20753,7 @@ GC_lock.exit41:                                   ; preds = %.preheader.i.i39, %
   unreachable
 
 GC_general_register_disappearing_link.exit:       ; preds = %165
-  %173 = tail call fastcc i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (i8, ptr @GC_arrays, i64 336), ptr noundef nonnull %168, ptr noundef nonnull %66, ptr noundef nonnull @.str.41)
+  %173 = tail call fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (i8, ptr @GC_arrays, i64 336), ptr noundef nonnull %168, ptr noundef nonnull %66, ptr noundef nonnull @.str.41)
   %174 = icmp eq i32 %173, 2
   br i1 %174, label %175, label %GC_malloc_explicitly_typed.exit
 
@@ -39906,7 +39906,7 @@ min_bytes_allocd.exit:                            ; preds = %5, %7
   %43 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 88), align 8
   %44 = add nsw i64 %spec.select.i2, %43
   %45 = lshr i64 %35, 3
-  %.1.i = tail call i64 @llvm.smax.i64(i64 %44, i64 %45)
+  %.1.i = tail call range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %44, i64 %45)
   %46 = load i64, ptr @GC_should_collect.last_min_bytes_allocd, align 8
   %47 = icmp uge i64 %.1.i, %46
   %48 = zext i1 %47 to i32

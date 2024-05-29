@@ -2234,7 +2234,7 @@ define internal noundef range(i8 0, 3) i8 @"_ZN4core3ops8function6FnOnce40call_o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %5 = load <2 x ptr>, ptr %0, align 8
   store <2 x ptr> %5, ptr %4, align 16, !noalias !727
-  %6 = call noundef i8 @"_ZN7hir_def9find_path15find_in_prelude28_$u7b$$u7b$closure$u7d$$u7d$17h38a8505aace03899E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %1, i32 noundef %2), !range !732
+  %6 = call noundef range(i8 0, 3) i8 @"_ZN7hir_def9find_path15find_in_prelude28_$u7b$$u7b$closure$u7d$$u7d$17h38a8505aace03899E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %1, i32 noundef %2), !range !732
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret i8 %6
 }

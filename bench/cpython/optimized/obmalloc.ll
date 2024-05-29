@@ -10493,7 +10493,7 @@ for.body:                                         ; preds = %cond.end9, %if.end1
   %inc = zext i1 %cmp13 to i64
   %spec.select = add i64 %div, %inc
   %conv = trunc i64 %numa_node.020 to i32
-  %call.i = call i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select, i32 noundef %conv, i64 noundef %cond10, i1 noundef zeroext false, ptr noundef null)
+  %call.i = call range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %spec.select, i32 noundef %conv, i64 noundef %cond10, i1 noundef zeroext false, ptr noundef null)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.end18, label %return
 
@@ -10562,7 +10562,7 @@ mi_bitmap_mask_.exit:                             ; preds = %if.end, %if.end.i, 
   %retval.0.i = phi i64 [ %sub.i, %if.end3.i ], [ -1, %if.end ], [ 0, %if.end.i ]
   %sub = sub i64 64, %count
   %not = xor i64 %0, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not, i1 true)
   %cmp2.not22 = icmp ugt i64 %1, %sub
   br i1 %cmp2.not22, label %return, label %while.cond.outer.split.lr.ph
 
@@ -10663,7 +10663,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.end.i.us:                                      ; preds = %for.body.us
   %not.i.us = xor i64 %0, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i.us, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us, i1 true)
   %cmp2.not22.i.us = icmp ugt i64 %1, %sub.i
   br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
 
@@ -10720,7 +10720,7 @@ for.body.us27:                                    ; preds = %for.body.lr.ph.spli
 
 if.end.i.us35:                                    ; preds = %for.body.us27
   %not.i.us38 = xor i64 %5, -1
-  %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i.us38, i1 true)
+  %6 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us38, i1 true)
   %cmp2.not22.i.us39 = icmp ugt i64 %6, %sub.i
   br i1 %cmp2.not22.i.us39, label %for.inc.us42, label %while.cond.outer.split.lr.ph.i.us40
 
@@ -10779,7 +10779,7 @@ for.body.us50:                                    ; preds = %for.body.lr.ph.spli
 
 if.end.i.us58:                                    ; preds = %for.body.us50
   %not.i.us61 = xor i64 %12, -1
-  %13 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i.us61, i1 true)
+  %13 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us61, i1 true)
   %cmp2.not22.i.us62 = icmp ugt i64 %13, %sub.i
   br i1 %cmp2.not22.i.us62, label %for.inc.us85, label %while.cond.outer.split.i.us65.preheader
 
@@ -10814,7 +10814,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 
 if.end.i:                                         ; preds = %for.body
   %not.i = xor i64 %17, -1
-  %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
+  %18 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
   %cmp2.not22.i = icmp ugt i64 %18, %sub.i
   br i1 %cmp2.not22.i, label %for.inc, label %while.cond.outer.split.lr.ph.i
 
@@ -10900,7 +10900,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.end.i.us:                                      ; preds = %for.body.us
   %not.i.us = xor i64 %0, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i.us, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us, i1 true)
   %cmp2.not22.i.us = icmp ugt i64 %1, %sub.i
   br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
 
@@ -10985,7 +10985,7 @@ for.body.us40.us:                                 ; preds = %for.body.lr.ph.spli
 
 if.end.i.us48.us:                                 ; preds = %for.body.us40.us
   %not.i.us53.us = xor i64 %9, -1
-  %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i.us53.us, i1 true)
+  %10 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us53.us, i1 true)
   %cmp2.not22.i.us54.us = icmp ugt i64 %10, %sub.i
   br i1 %cmp2.not22.i.us54.us, label %for.inc.us57.us, label %while.cond.outer.split.lr.ph.i.us55.us
 
@@ -11041,7 +11041,7 @@ for.body.us40:                                    ; preds = %for.body.lr.ph.spli
 
 if.end.i.us48:                                    ; preds = %for.body.us40
   %not.i.us53 = xor i64 %16, -1
-  %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i.us53, i1 true)
+  %17 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us53, i1 true)
   %cmp2.not22.i.us54 = icmp ugt i64 %17, %sub.i
   br i1 %cmp2.not22.i.us54, label %for.inc.us57, label %while.cond.outer.split.lr.ph.i.us55
 
@@ -11106,7 +11106,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.end.i:                                         ; preds = %for.body
   %not.i = xor i64 %23, -1
-  %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
+  %24 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
   %cmp2.not22.i = icmp ugt i64 %24, %sub.i
   br i1 %cmp2.not22.i, label %for.inc, label %while.cond.outer.split.lr.ph.i
 
@@ -11374,7 +11374,7 @@ if.then6:                                         ; preds = %for.body
 
 if.end.i:                                         ; preds = %if.then6
   %not.i = xor i64 %0, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
   %cmp2.not22.i = icmp ugt i64 %1, %sub.i
   br i1 %cmp2.not22.i, label %if.end10, label %while.cond.outer.split.lr.ph.i
 
@@ -11448,7 +11448,7 @@ if.then2.i:                                       ; preds = %if.end.i18
 
 if.end.i.i20:                                     ; preds = %if.then2.i
   %not.i.i = xor i64 %13, -1
-  %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i.i, i1 true)
+  %14 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.i, i1 true)
   %cmp2.not22.i.i = icmp ugt i64 %14, %sub.i
   br i1 %cmp2.not22.i.i, label %for.inc, label %while.cond.outer.split.lr.ph.i.i
 
@@ -14461,7 +14461,7 @@ if.then3:                                         ; preds = %mi_stats_reset.exit
 if.then6:                                         ; preds = %if.then3
   %conv = trunc i64 %call5 to i32
   %mul = mul nuw nsw i64 %cond5.i, 500
-  %call.i16 = call i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %cond5.i, i32 noundef %conv, i64 noundef %mul, i1 noundef zeroext false, ptr noundef null)
+  %call.i16 = call range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %cond5.i, i32 noundef %conv, i64 noundef %mul, i1 noundef zeroext false, ptr noundef null)
   br label %if.end11
 
 if.else:                                          ; preds = %if.then3
@@ -14481,7 +14481,7 @@ if.then13:                                        ; preds = %if.end11
 
 if.then17:                                        ; preds = %if.then13
   %mul18 = shl i64 %call14, 10
-  %call.i19 = call i32 @mi_reserve_os_memory_ex(i64 noundef %mul18, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null)
+  %call.i19 = call range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %mul18, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null)
   br label %if.end21
 
 if.end21:                                         ; preds = %entry, %if.then13, %if.then17, %mi_atomic_once.exit, %if.end11

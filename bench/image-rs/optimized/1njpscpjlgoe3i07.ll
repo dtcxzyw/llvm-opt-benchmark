@@ -4738,7 +4738,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef range(i8 0, 16) i8 @_ZN4core3ops8function6FnOnce9call_once17hfadd8089dce0de15E.llvm.98706352026558795(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = tail call noundef i8 @_ZN5image5image11ImageFormat14from_extension5inner17hac98f55216d8d95fE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1), !range !545
+  %3 = tail call noundef range(i8 0, 16) i8 @_ZN5image5image11ImageFormat14from_extension5inner17hac98f55216d8d95fE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1), !range !545
   ret i8 %3
 }
 
@@ -33000,7 +33000,7 @@ define void @_ZN5image5image11ImageFormat9from_path5inner17h6ae9c81d5ddc1348E(pt
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call noundef i8 @_ZN5image5image11ImageFormat14from_extension5inner17hac98f55216d8d95fE(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract), !range !545
+  %8 = tail call noundef range(i8 0, 16) i8 @_ZN5image5image11ImageFormat14from_extension5inner17hac98f55216d8d95fE(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract), !range !545
   %9 = icmp eq i8 %8, 15
   br i1 %9, label %11, label %23
 

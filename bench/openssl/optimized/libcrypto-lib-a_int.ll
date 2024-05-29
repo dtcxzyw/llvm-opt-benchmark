@@ -841,7 +841,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc i32 @asn1_string_get_int64(ptr noundef nonnull writeonly %r, ptr noundef nonnull %a, i32 noundef 2)
+  %call.i = call fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef nonnull writeonly %r, ptr noundef nonnull %a, i32 noundef 2)
   %cmp1 = icmp eq i32 %call.i, 0
   %0 = load i64, ptr %r, align 8
   %spec.select = select i1 %cmp1, i64 -1, i64 %0
@@ -1115,7 +1115,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  %call.i = call fastcc i32 @asn1_string_get_int64(ptr noundef nonnull writeonly %r, ptr noundef nonnull %a, i32 noundef 10)
+  %call.i = call fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef nonnull writeonly %r, ptr noundef nonnull %a, i32 noundef 10)
   %cmp7 = icmp eq i32 %call.i, 0
   %2 = load i64, ptr %r, align 8
   %spec.select = select i1 %cmp7, i64 -1, i64 %2

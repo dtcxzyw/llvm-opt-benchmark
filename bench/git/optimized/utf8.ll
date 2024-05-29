@@ -1495,7 +1495,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %buf3, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
-  %call1.i = call i32 @utf8_strnwidth(ptr noundef %1, i64 noundef %call.i, i32 noundef 0)
+  %call1.i = call range(i32 0, -2147483648) i32 @utf8_strnwidth(ptr noundef %1, i64 noundef %call.i, i32 noundef 0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

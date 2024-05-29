@@ -1367,7 +1367,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %fp) #10
-  %call.i = tail call i32 @PEM_read_bio_ex(ptr noundef nonnull %call1, ptr noundef writeonly %name, ptr noundef %header, ptr noundef %data, ptr noundef writeonly %len, i32 noundef 2)
+  %call.i = tail call range(i32 0, 2) i32 @PEM_read_bio_ex(ptr noundef nonnull %call1, ptr noundef writeonly %name, ptr noundef %header, ptr noundef %data, ptr noundef writeonly %len, i32 noundef 2)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #10
   br label %return
 

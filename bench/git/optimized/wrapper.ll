@@ -1332,7 +1332,7 @@ define dso_local range(i32 0, -2147483648) i32 @xmkstemp_mode(ptr noundef %filen
 entry:
   %origtemplate = alloca [4096 x i8], align 16
   %call = call i64 @gitstrlcpy(ptr noundef nonnull %origtemplate, ptr noundef %filename_template, i64 noundef 4096) #19
-  %call.i = call i32 @git_mkstemps_mode(ptr noundef %filename_template, i32 noundef 0, i32 noundef %mode)
+  %call.i = call range(i32 -1, -2147483648) i32 @git_mkstemps_mode(ptr noundef %filename_template, i32 noundef 0, i32 noundef %mode)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %if.then, label %if.end7
 

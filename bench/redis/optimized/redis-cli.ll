@@ -12205,7 +12205,7 @@ for.end.i298:                                     ; preds = %for.inc.i314, %if.e
   %507 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 448), align 8
   %sub58.i = sub nsw i32 %add.i280, %got_comma.0.lcssa.i
   %508 = load i64, ptr getelementptr inbounds (i8, ptr @config, i64 112), align 8
-  %call.i.i300 = call fastcc i32 @issueCommandRepeat(i32 noundef %sub58.i, ptr noundef nonnull %call24.i, i64 noundef %508)
+  %call.i.i300 = call fastcc range(i32 -1, 1) i32 @issueCommandRepeat(i32 noundef %sub58.i, ptr noundef nonnull %call24.i, i64 noundef %508)
   %tobool60.not.i = icmp eq i32 %507, 0
   br i1 %tobool60.not.i, label %evalMode.exit, label %if.then61.i301
 
@@ -12302,7 +12302,7 @@ if.end28.i:                                       ; preds = %if.end16.i, %if.els
   %argc.addr.0.i = phi i32 [ %add.i324, %if.then4.i323 ], [ %sub, %if.end16.i ], [ %sub, %if.else.i337 ]
   %sds_args.0.i = phi ptr [ %call5.i327, %if.then4.i323 ], [ %call.i320, %if.end16.i ], [ %call.i320, %if.else.i337 ]
   %517 = load i64, ptr getelementptr inbounds (i8, ptr @config, i64 112), align 8
-  %call.i.i331 = tail call fastcc i32 @issueCommandRepeat(i32 noundef %argc.addr.0.i, ptr noundef nonnull %sds_args.0.i, i64 noundef %517)
+  %call.i.i331 = tail call fastcc range(i32 -1, 1) i32 @issueCommandRepeat(i32 noundef %argc.addr.0.i, ptr noundef nonnull %sds_args.0.i, i64 noundef %517)
   tail call void @hi_sdsfreesplitres(ptr noundef nonnull %sds_args.0.i, i32 noundef %argc.addr.0.i) #33
   %518 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 144), align 8
   %tobool30.not22.i = icmp eq i32 %518, 0

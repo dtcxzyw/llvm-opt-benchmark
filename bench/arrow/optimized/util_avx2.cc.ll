@@ -62,7 +62,7 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
   store i64 %add.i, ptr %add.ptr.i, align 8
   %add8.i = add i64 %base.035.i, 578721382704613384
   %and.i = and i64 %word.037.i, 255
-  %5 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i)
+  %5 = tail call noundef range(i64 0, 17) i64 @llvm.ctpop.i64(i64 %and.i)
   %conv.i = trunc nuw nsw i64 %5 to i32
   %add10.i = add nuw nsw i32 %num_indexes_loop.036.i, %conv.i
   %shr.i = lshr i64 %word.037.i, 8
@@ -147,7 +147,7 @@ while.body6.i10:                                  ; preds = %for.body.i8, %while
   store i64 %add.i12, ptr %add.ptr.i14, align 8
   %add8.i15 = add i64 %base.034.i, 578721382704613384
   %and.i16 = and i64 %word.036.i, 255
-  %14 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i16)
+  %14 = tail call noundef range(i64 0, 17) i64 @llvm.ctpop.i64(i64 %and.i16)
   %conv.i17 = trunc nuw nsw i64 %14 to i32
   %add10.i18 = add nuw nsw i32 %num_indexes_loop.035.i, %conv.i17
   %shr.i19 = lshr i64 %word.036.i, 8
@@ -250,7 +250,7 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
   %add.ptr29.i = getelementptr inbounds i16, ptr %indexes, i64 %idx.ext28.i
   store <32 x i8> %18, ptr %add.ptr29.i, align 1
   %and.i = and i64 %word.0100.i, 65535
-  %19 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i)
+  %19 = tail call noundef range(i64 0, 17) i64 @llvm.ctpop.i64(i64 %and.i)
   %conv.i = trunc nuw nsw i64 %19 to i32
   %add.i = add nsw i32 %num_indexes.1101.i, %conv.i
   %shr.i = lshr i64 %word.0100.i, 16
@@ -316,7 +316,7 @@ while.body6.i13:                                  ; preds = %while.body6.i13, %w
   %add.ptr29.i22 = getelementptr inbounds i16, ptr %indexes, i64 %idx.ext28.i21
   store <32 x i8> %38, ptr %add.ptr29.i22, align 1
   %and.i23 = and i64 %word.099.i, 65535
-  %39 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i23)
+  %39 = tail call noundef range(i64 0, 17) i64 @llvm.ctpop.i64(i64 %and.i23)
   %conv.i24 = trunc nuw nsw i64 %39 to i32
   %add.i25 = add nsw i32 %num_indexes.1100.i, %conv.i24
   %shr.i26 = lshr i64 %word.099.i, 16

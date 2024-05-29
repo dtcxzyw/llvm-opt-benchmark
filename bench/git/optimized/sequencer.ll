@@ -10903,7 +10903,7 @@ if.then.i.i68:                                    ; preds = %if.end77
 
 save_head.exit:                                   ; preds = %if.end77, %if.then.i.i68
   %52 = phi ptr [ %call.i.i69, %if.then.i.i68 ], [ %51, %if.end77 ]
-  %call2.i67 = call fastcc i32 @write_message(ptr noundef %call78, i64 noundef %call.i65, ptr noundef %52, i32 noundef 1)
+  %call2.i67 = call fastcc range(i32 -1, 1) i32 @write_message(ptr noundef %call78, i64 noundef %call.i65, ptr noundef %52, i32 noundef 1)
   %tobool80.not = icmp eq i32 %call2.i67, 0
   br i1 %tobool80.not, label %if.end82, label %return
 

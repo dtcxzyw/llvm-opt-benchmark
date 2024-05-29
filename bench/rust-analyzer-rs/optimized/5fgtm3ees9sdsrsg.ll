@@ -5692,7 +5692,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i: ; preds = %
 
 29:                                               ; preds = %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i, %10
   store ptr %.val.i.i.i.i, ptr %0, align 8, !alias.scope !2128, !noalias !2131
-  %30 = call noundef i8 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h257f9bedd9b02582E.llvm.6055058659040047083"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noundef nonnull %.val.i.i.i8.i), !range !2140, !noalias !2125
+  %30 = call noundef range(i8 0, 3) i8 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h257f9bedd9b02582E.llvm.6055058659040047083"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noundef nonnull %.val.i.i.i8.i), !range !2140, !noalias !2125
   %31 = icmp eq i8 %30, 2
   br i1 %31, label %8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h811389c0a92a8118E.llvm.6055058659040047083.exit
 
@@ -45152,7 +45152,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i: ; preds = %8
 
 24:                                               ; preds = %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i, %5
   store ptr %.val.i.i.i, ptr %0, align 8, !alias.scope !13725
-  %25 = tail call noundef i8 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h257f9bedd9b02582E.llvm.6055058659040047083"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull %.val.i.i.i8), !range !2140
+  %25 = tail call noundef range(i8 0, 3) i8 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h257f9bedd9b02582E.llvm.6055058659040047083"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull %.val.i.i.i8), !range !2140
   %26 = icmp eq i8 %25, 2
   br i1 %26, label %3, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h726d9af0acf65284E.llvm.6055058659040047083.exit"
 

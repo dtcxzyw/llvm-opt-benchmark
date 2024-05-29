@@ -5468,7 +5468,7 @@ define hidden void @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg10s
   %3 = getelementptr inbounds i8, ptr %0, i64 105
   %4 = load i8, ptr %3, align 1, !range !1074, !noundef !7
   %.not = icmp eq i8 %4, 3
-  %.0.sroa.speculated.i = tail call i8 @llvm.umax.i8(i8 %4, i8 %1)
+  %.0.sroa.speculated.i = tail call range(i8 0, 3) i8 @llvm.umax.i8(i8 %4, i8 %1)
   %storemerge = select i1 %.not, i8 %1, i8 %.0.sroa.speculated.i
   store i8 %storemerge, ptr %3, align 1
   ret void

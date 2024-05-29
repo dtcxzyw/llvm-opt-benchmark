@@ -1268,7 +1268,7 @@ define hidden void @_ZN3std9panicking3try17h4dcc6a37eef72b6fE(ptr noalias nocapt
   %8 = load i32, ptr %.sroa.0.sroa.5.0.copyload, align 4, !noalias !118, !noundef !4
   %9 = load ptr, ptr %.sroa.0.sroa.6.0.copyload, align 8, !noalias !118, !noundef !4
   %10 = load i32, ptr %.sroa.0.sroa.7.0.copyload, align 4, !noalias !118, !noundef !4
-  %11 = invoke noundef i8 @_ZN16wasmtime_runtime8libcalls10table_fill17h37bf9472b3060d1bE(ptr noundef nonnull align 16 %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10)
+  %11 = invoke noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8libcalls10table_fill17h37bf9472b3060d1bE(ptr noundef nonnull align 16 %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10)
           to label %18 unwind label %12
 
 12:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h119cabf50644a6f3E.exit.i", %5
@@ -1681,7 +1681,7 @@ define hidden void @_ZN3std9panicking3try17h7361e3b48859230cE(ptr noalias nocapt
   %9 = load i32, ptr %.sroa.0.sroa.6.0.copyload, align 4, !noalias !160, !noundef !4
   %10 = load i32, ptr %.sroa.0.sroa.7.0.copyload, align 4, !noalias !160, !noundef !4
   %11 = load i32, ptr %.sroa.0.sroa.8.0.copyload, align 4, !noalias !160, !noundef !4
-  %12 = invoke noundef i8 @_ZN16wasmtime_runtime8instance8Instance10table_init17hf1b9f4b38dcbfd48E(ptr noundef nonnull align 16 %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
+  %12 = invoke noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8instance8Instance10table_init17hf1b9f4b38dcbfd48E(ptr noundef nonnull align 16 %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11)
           to label %19 unwind label %13
 
 13:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h41c9d646d67671e9E.exit.i", %5
@@ -2354,7 +2354,7 @@ define hidden void @_ZN3std9panicking3try17h94795e12b3604df3E(ptr noalias nocapt
   %9 = load i32, ptr %.sroa.0.sroa.6.0.copyload, align 4, !noalias !249, !noundef !4
   %10 = load i64, ptr %.sroa.0.sroa.7.0.copyload, align 8, !noalias !249, !noundef !4
   %11 = trunc i32 %9 to i8
-  %12 = invoke noundef i8 @_ZN16wasmtime_runtime8instance8Instance11memory_fill17h1790c157d4a1d3b0E(ptr noundef nonnull align 16 %6, i32 noundef %7, i64 noundef %8, i8 noundef %11, i64 noundef %10)
+  %12 = invoke noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8instance8Instance11memory_fill17h1790c157d4a1d3b0E(ptr noundef nonnull align 16 %6, i32 noundef %7, i64 noundef %8, i8 noundef %11, i64 noundef %10)
           to label %19 unwind label %13
 
 13:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha1ca71accf09369dE.exit.i", %5
@@ -2604,7 +2604,7 @@ define hidden void @_ZN3std9panicking3try17had0125d90d546180E(ptr noalias nocapt
   %8 = load i32, ptr %.sroa.0.sroa.5.0.copyload, align 4, !noalias !271, !noundef !4
   %9 = load ptr, ptr %.sroa.0.sroa.6.0.copyload, align 8, !noalias !271, !noundef !4
   %10 = load i32, ptr %.sroa.0.sroa.7.0.copyload, align 4, !noalias !271, !noundef !4
-  %11 = invoke noundef i8 @_ZN16wasmtime_runtime8libcalls10table_fill17h37bf9472b3060d1bE(ptr noundef nonnull align 16 %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10)
+  %11 = invoke noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8libcalls10table_fill17h37bf9472b3060d1bE(ptr noundef nonnull align 16 %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10)
           to label %18 unwind label %12
 
 12:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0ae49430eef5815bE.exit.i", %5
@@ -3275,7 +3275,7 @@ define hidden void @_ZN3std9panicking3try17hf039e7e0c6cdc586E(ptr noalias nocapt
   %9 = load i32, ptr %.sroa.0.sroa.6.0.copyload, align 4, !noalias !357, !noundef !4
   %10 = load i64, ptr %.sroa.0.sroa.7.0.copyload, align 8, !noalias !357, !noundef !4
   %11 = load i64, ptr %.sroa.0.sroa.8.0.copyload, align 8, !noalias !357, !noundef !4
-  %12 = invoke noundef i8 @_ZN16wasmtime_runtime8instance8Instance11memory_copy17h049dc6af59b76089E(ptr noundef nonnull align 16 %6, i32 noundef %7, i64 noundef %8, i32 noundef %9, i64 noundef %10, i64 noundef %11)
+  %12 = invoke noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8instance8Instance11memory_copy17h049dc6af59b76089E(ptr noundef nonnull align 16 %6, i32 noundef %7, i64 noundef %8, i32 noundef %9, i64 noundef %10, i64 noundef %11)
           to label %19 unwind label %13
 
 13:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h64e0be835562243cE.exit.i", %5
@@ -3389,7 +3389,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h09d429f39441f924E.llvm.70733
   %8 = load i32, ptr %.sroa.4.0.copyload, align 4, !noalias !390, !noundef !4
   %9 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !390, !noundef !4
   %10 = trunc i32 %8 to i8
-  %11 = tail call noundef i8 @_ZN16wasmtime_runtime8instance8Instance11memory_fill17h1790c157d4a1d3b0E(ptr noundef nonnull align 16 %5, i32 noundef %6, i64 noundef %7, i8 noundef %10, i64 noundef %9), !range !50, !noalias !390
+  %11 = tail call noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8instance8Instance11memory_fill17h1790c157d4a1d3b0E(ptr noundef nonnull align 16 %5, i32 noundef %6, i64 noundef %7, i8 noundef %10, i64 noundef %9), !range !50, !noalias !390
   store i8 %11, ptr %0, align 8
   ret void
 }
@@ -3470,7 +3470,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h1846869122023639E.llvm.70733
   %8 = load i32, ptr %.sroa.4.0.copyload, align 4, !noalias !418, !noundef !4
   %9 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !418, !noundef !4
   %10 = load i64, ptr %.sroa.6.0.copyload, align 8, !noalias !418, !noundef !4
-  %11 = tail call noundef i8 @_ZN16wasmtime_runtime8instance8Instance11memory_copy17h049dc6af59b76089E(ptr noundef nonnull align 16 %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %10), !range !50, !noalias !418
+  %11 = tail call noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8instance8Instance11memory_copy17h049dc6af59b76089E(ptr noundef nonnull align 16 %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %10), !range !50, !noalias !418
   store i8 %11, ptr %0, align 8
   ret void
 }
@@ -3503,7 +3503,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h235f19fcf2ae0008E.llvm.70733
   %8 = load i32, ptr %.sroa.4.0.copyload, align 4, !noalias !429, !noundef !4
   %9 = load i32, ptr %.sroa.5.0.copyload, align 4, !noalias !429, !noundef !4
   %10 = load i32, ptr %.sroa.6.0.copyload, align 4, !noalias !429, !noundef !4
-  %11 = tail call noundef i8 @_ZN16wasmtime_runtime8instance8Instance10table_init17hf1b9f4b38dcbfd48E(ptr noundef nonnull align 16 %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10), !range !50, !noalias !429
+  %11 = tail call noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8instance8Instance10table_init17hf1b9f4b38dcbfd48E(ptr noundef nonnull align 16 %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10), !range !50, !noalias !429
   store i8 %11, ptr %0, align 8
   ret void
 }
@@ -3655,7 +3655,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h37c8d1c576e4ee31E.llvm.70733
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h36f79551f0092e0fE.exit": ; preds = %6, %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.i.i.i.i.i.i", %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.thread.i.i.i.i.i.i"
   %.sroa.3.0.i.i.i.i.i.i = phi i32 [ %32, %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.thread.i.i.i.i.i.i" ], [ 0, %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.i.i.i.i.i.i" ], [ 0, %6 ]
   %.sroa.0.0.i.i.i.i.i.i = phi i32 [ %30, %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.thread.i.i.i.i.i.i" ], [ 0, %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.i.i.i.i.i.i" ], [ 0, %6 ]
-  %50 = call noundef i8 @_ZN16wasmtime_runtime8instance8Instance19memory_init_segment17h6cf0566741a90641E.llvm.3622975676230304285(ptr noundef nonnull align 16 %7, i32 noundef %8, i32 noundef %.sroa.0.0.i.i.i.i.i.i, i32 noundef %.sroa.3.0.i.i.i.i.i.i, i64 noundef %10, i32 noundef %11, i32 noundef %12), !range !50, !noalias !453
+  %50 = call noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8instance8Instance19memory_init_segment17h6cf0566741a90641E.llvm.3622975676230304285(ptr noundef nonnull align 16 %7, i32 noundef %8, i32 noundef %.sroa.0.0.i.i.i.i.i.i, i32 noundef %.sroa.3.0.i.i.i.i.i.i, i64 noundef %10, i32 noundef %11, i32 noundef %12), !range !50, !noalias !453
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !453
   store i8 %50, ptr %0, align 8
   ret void
@@ -3793,7 +3793,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4dbc277a3eeced76E.llvm.70733
   %41 = getelementptr inbounds i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8, !invariant.load !4, !noalias !498, !nonnull !4
   %43 = tail call noundef align 8 dereferenceable(56) ptr %42(ptr noundef nonnull align 1 %36), !noalias !498
-  %44 = tail call noundef i8 @_ZN16wasmtime_runtime5table5Table4copy17h0fc2c9f439a1de37E(ptr noalias noundef nonnull align 8 dereferenceable(56) %43, ptr noundef %12, ptr noundef %13, i32 noundef %9, i32 noundef %10, i32 noundef %11), !range !50, !noalias !498
+  %44 = tail call noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime5table5Table4copy17h0fc2c9f439a1de37E(ptr noalias noundef nonnull align 8 dereferenceable(56) %43, ptr noundef %12, ptr noundef %13, i32 noundef %9, i32 noundef %10, i32 noundef %11), !range !50, !noalias !498
   store i8 %44, ptr %0, align 8
   ret void
 }
@@ -4517,7 +4517,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hf02110a739ba80c2E.llvm.70733
   %7 = load i32, ptr %.sroa.3.0.copyload, align 4, !noalias !693, !noundef !4
   %8 = load ptr, ptr %.sroa.4.0.copyload, align 8, !noalias !693, !noundef !4
   %9 = load i32, ptr %.sroa.5.0.copyload, align 4, !noalias !693, !noundef !4
-  %10 = tail call noundef i8 @_ZN16wasmtime_runtime8libcalls10table_fill17h37bf9472b3060d1bE(ptr noundef nonnull align 16 %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9), !range !50, !noalias !693
+  %10 = tail call noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8libcalls10table_fill17h37bf9472b3060d1bE(ptr noundef nonnull align 16 %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9), !range !50, !noalias !693
   store i8 %10, ptr %0, align 8
   ret void
 }
@@ -4652,7 +4652,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hfbe0af33732ef78bE.llvm.70733
   %7 = load i32, ptr %.sroa.3.0.copyload, align 4, !noalias !736, !noundef !4
   %8 = load ptr, ptr %.sroa.4.0.copyload, align 8, !noalias !736, !noundef !4
   %9 = load i32, ptr %.sroa.5.0.copyload, align 4, !noalias !736, !noundef !4
-  %10 = tail call noundef i8 @_ZN16wasmtime_runtime8libcalls10table_fill17h37bf9472b3060d1bE(ptr noundef nonnull align 16 %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9), !range !50, !noalias !736
+  %10 = tail call noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime8libcalls10table_fill17h37bf9472b3060d1bE(ptr noundef nonnull align 16 %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9), !range !50, !noalias !736
   store i8 %10, ptr %0, align 8
   ret void
 }

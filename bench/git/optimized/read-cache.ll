@@ -7780,7 +7780,7 @@ if.then.i20:                                      ; preds = %sw.bb
   unreachable
 
 add_file_to_index.exit:                           ; preds = %sw.bb
-  %call2.i = call i32 @add_to_index(ptr noundef %12, ptr noundef %4, ptr noundef nonnull %st.i, i32 noundef %13)
+  %call2.i = call range(i32 -1, 1) i32 @add_to_index(ptr noundef %12, ptr noundef %4, ptr noundef nonnull %st.i, i32 noundef %13)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   %tobool7.not = icmp eq i32 %call2.i, 0
   br i1 %tobool7.not, label %for.inc, label %if.then8

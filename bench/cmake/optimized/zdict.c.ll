@@ -236,7 +236,7 @@ define internal fastcc i64 @ZDICT_analyzeEntropy(ptr noundef %0, i64 noundef %1,
   %21 = alloca %struct.ZSTD_parameters, align 8
   %22 = trunc i64 %7 to i32
   %23 = add i32 %22, 131072
-  %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
+  %24 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %23, i1 true)
   %25 = xor i32 %24, 31
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %ZDICT_totalSampleSize.exit, label %.lr.ph.preheader.i

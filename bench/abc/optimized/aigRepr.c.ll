@@ -1139,7 +1139,7 @@ define void @Aig_ManMarkValidChoices(ptr noundef %0) local_unnamed_addr #6 {
 
 35:                                               ; preds = %29
   tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #18
-  %36 = tail call i32 @Aig_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull %27)
+  %36 = tail call range(i32 0, 2) i32 @Aig_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull %27)
   %.not34 = icmp eq i32 %36, 0
   br i1 %.not34, label %40, label %37
 

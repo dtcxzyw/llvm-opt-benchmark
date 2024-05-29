@@ -26473,7 +26473,7 @@ define hidden void @_ZN5wasmi4func4Func4call17h71e1de5a1992ed72E(ptr noalias noc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4913)
   %16 = load ptr, ptr %15, align 8, !alias.scope !4916, !noalias !4917, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = call noundef i8 @_ZN5wasmi6engine11EngineInner17resolve_func_type17h9ab6f79df94be71cE.llvm.7325118056162354838(ptr noundef nonnull align 8 %17, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.0.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %8), !range !244, !noalias !4913
+  %18 = call noundef range(i8 0, 6) i8 @_ZN5wasmi6engine11EngineInner17resolve_func_type17h9ab6f79df94be71cE.llvm.7325118056162354838(ptr noundef nonnull align 8 %17, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.0.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %8), !range !244, !noalias !4913
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !4911
   %19 = icmp eq i8 %18, 5
   br i1 %19, label %21, label %25

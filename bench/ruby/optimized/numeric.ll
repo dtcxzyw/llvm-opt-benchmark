@@ -11843,7 +11843,7 @@ rb_ulong2num_inline.exit.i.i:                     ; preds = %32, %28
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_int_digits(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 {
-  %4 = tail call fastcc i32 @rb_num_negative_int_p(i64 noundef %2)
+  %4 = tail call fastcc range(i32 0, 2) i32 @rb_num_negative_int_p(i64 noundef %2)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 

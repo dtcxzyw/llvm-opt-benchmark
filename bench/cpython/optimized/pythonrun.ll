@@ -4134,7 +4134,7 @@ PyRun_StringFlags.exit:                           ; preds = %entry, %if.end11.i.
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @PyRun_SimpleString(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @_PyRun_SimpleStringFlagsWithName(ptr noundef %s, ptr noundef null, ptr noundef null)
+  %call.i = tail call range(i32 -1, 1) i32 @_PyRun_SimpleStringFlagsWithName(ptr noundef %s, ptr noundef null, ptr noundef null)
   ret i32 %call.i
 }
 

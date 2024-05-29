@@ -348,7 +348,7 @@ qed_write_l1_table.exit:                          ; preds = %entry, %if.then.i
   %3 = load i64, ptr %l1_table_offset.i, align 8
   %l1_table.i = getelementptr inbounds i8, ptr %s, i64 120
   %4 = load ptr, ptr %l1_table.i, align 8
-  %call.i = tail call i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %3, ptr noundef %4, i32 noundef %index, i32 noundef %n, i1 noundef zeroext false)
+  %call.i = tail call range(i32 -2147483648, 1) i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %3, ptr noundef %4, i32 noundef %index, i32 noundef %n, i1 noundef zeroext false)
   ret i32 %call.i
 }
 
@@ -474,7 +474,7 @@ qed_write_l2_table.exit:                          ; preds = %entry, %if.then.i
   %offset.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %offset.i, align 8
   %5 = load ptr, ptr %3, align 8
-  %call.i = tail call i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %4, ptr noundef %5, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush)
+  %call.i = tail call range(i32 -2147483648, 1) i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %4, ptr noundef %5, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush)
   ret i32 %call.i
 }
 

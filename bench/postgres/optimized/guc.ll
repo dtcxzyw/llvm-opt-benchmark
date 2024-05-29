@@ -580,7 +580,7 @@ set_guc_source.exit:                              ; preds = %124
 
 ._crit_edge256:                                   ; preds = %140, %134
   %141 = load ptr, ptr %101, align 8
-  %142 = call i32 @set_config_with_handle(ptr noundef %141, ptr noundef null, ptr noundef null, i32 noundef %0, i32 noundef 0, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %142 = call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %141, ptr noundef null, ptr noundef null, i32 noundef %0, i32 noundef 0, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   %143 = icmp sgt i32 %142, 0
   %or.cond26 = and i1 %97, %143
   br i1 %or.cond26, label %144, label %.backedge
@@ -603,9 +603,9 @@ set_guc_source.exit:                              ; preds = %124
 
 150:                                              ; preds = %._crit_edge261
   call fastcc void @InitializeGUCOptionsFromEnvironment()
-  %151 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.111, ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %151 = call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.111, ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   %152 = call ptr @GetDatabaseEncodingName() #28
-  %153 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef %152, i32 noundef 4, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %153 = call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef %152, i32 noundef 4, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %154
 
 154:                                              ; preds = %._crit_edge261, %150
@@ -643,7 +643,7 @@ set_guc_source.exit:                              ; preds = %124
   %167 = load ptr, ptr %.2169267, align 8
   %168 = getelementptr inbounds i8, ptr %.2169267, i64 8
   %169 = load ptr, ptr %168, align 8
-  %170 = call i32 @set_config_with_handle(ptr noundef %167, ptr noundef null, ptr noundef %169, i32 noundef %0, i32 noundef 3, i32 noundef 10, i32 noundef 0, i1 noundef zeroext %1, i32 noundef 0, i1 noundef zeroext false)
+  %170 = call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %167, ptr noundef null, ptr noundef %169, i32 noundef %0, i32 noundef 3, i32 noundef 10, i32 noundef 0, i1 noundef zeroext %1, i32 noundef 0, i1 noundef zeroext false)
   %171 = icmp sgt i32 %170, 0
   br i1 %171, label %172, label %183
 
@@ -1077,7 +1077,7 @@ define internal fastcc void @InitializeGUCOptionsFromEnvironment() unnamed_addr 
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.102, ptr noundef null, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %4 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.102, ptr noundef null, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %5
 
 5:                                                ; preds = %3, %0
@@ -1086,7 +1086,7 @@ define internal fastcc void @InitializeGUCOptionsFromEnvironment() unnamed_addr 
   br i1 %.not17, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.104, ptr noundef null, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %8 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.104, ptr noundef null, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -1095,7 +1095,7 @@ define internal fastcc void @InitializeGUCOptionsFromEnvironment() unnamed_addr 
   br i1 %.not18, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %12 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 2, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %13
 
 13:                                               ; preds = %11, %9
@@ -1110,7 +1110,7 @@ define internal fastcc void @InitializeGUCOptionsFromEnvironment() unnamed_addr 
   %. = select i1 %18, i64 %17, i64 2048
   %.19 = select i1 %18, i32 2, i32 1
   %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 16, ptr noundef nonnull @.str.106, i64 noundef %.) #28
-  %20 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.107, ptr noundef null, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %.19, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %20 = call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.107, ptr noundef null, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %.19, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %21
 
 21:                                               ; preds = %15, %13
@@ -1130,7 +1130,7 @@ define dso_local void @SetConfigOption(ptr noundef %0, ptr noundef %1, i32 nound
 
 set_config_option.exit:                           ; preds = %4, %7
   %.0.i = phi i32 [ %8, %7 ], [ 10, %4 ]
-  %9 = tail call i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %.0.i, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %9 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %.0.i, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   ret void
 }
 
@@ -2109,9 +2109,9 @@ define dso_local void @InitializeGUCOptions() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   store i1 false, ptr @reporting_enabled, align 1
-  %8 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
-  %9 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
-  %10 = call i32 @set_config_with_handle(ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %8 = call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %9 = call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %10 = call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   call fastcc void @InitializeGUCOptionsFromEnvironment()
   ret void
 }
@@ -2457,13 +2457,13 @@ define dso_local noundef zeroext i1 @SelectConfigFiles(ptr noundef %0, ptr nound
 33:                                               ; preds = %.thread, %19
   %34 = phi ptr [ %21, %.thread ], [ %20, %19 ]
   %35 = tail call ptr @make_absolute_path(ptr noundef nonnull %34) #28
-  %36 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef %35, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %36 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef %35, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @free(ptr noundef %35) #28
   br label %guc_free.exit
 
 37:                                               ; preds = %22
   %38 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %26, ptr noundef nonnull @.str.26, ptr noundef nonnull %.045, ptr noundef nonnull @.str.27) #28
-  %39 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef nonnull %26, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %39 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef nonnull %26, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @pfree(ptr noundef nonnull %26) #28
   br label %guc_free.exit
 
@@ -2501,9 +2501,9 @@ guc_free.exit:                                    ; preds = %37, %33
   %.mux = select i1 %.not55, ptr %51, ptr %.045
   tail call void @SetDataDir(ptr noundef nonnull %.mux) #28
   %55 = load ptr, ptr @DataDir, align 8
-  %56 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef %55, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %56 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef %55, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @ProcessConfigFile(i32 noundef 1) #28
-  %57 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.111, ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %57 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.111, ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   %58 = load ptr, ptr @HbaFileName, align 8
   %.not56.not = icmp eq ptr %58, null
   br i1 %.not56.not, label %59, label %guc_free.exit60
@@ -2534,7 +2534,7 @@ guc_free.exit:                                    ; preds = %37, %33
 
 guc_free.exit60:                                  ; preds = %54
   %72 = tail call ptr @make_absolute_path(ptr noundef nonnull %58) #28
-  %73 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef %72, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %73 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef %72, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @free(ptr noundef %72) #28
   %74 = load ptr, ptr @IdentFileName, align 8
   %.not57.not = icmp eq ptr %74, null
@@ -2542,7 +2542,7 @@ guc_free.exit60:                                  ; preds = %54
 
 guc_free.exit60.thread:                           ; preds = %60
   %75 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %64, ptr noundef nonnull @.str.26, ptr noundef nonnull %.045, ptr noundef nonnull @.str.32) #28
-  %76 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef nonnull %64, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %76 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef nonnull %64, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @pfree(ptr noundef nonnull %64) #28
   %77 = load ptr, ptr @IdentFileName, align 8
   %.not57.not81 = icmp eq ptr %77, null
@@ -2575,13 +2575,13 @@ guc_free.exit60.thread:                           ; preds = %60
 90:                                               ; preds = %guc_free.exit60.thread, %guc_free.exit60
   %91 = phi ptr [ %77, %guc_free.exit60.thread ], [ %74, %guc_free.exit60 ]
   %92 = tail call ptr @make_absolute_path(ptr noundef nonnull %91) #28
-  %93 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef %92, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %93 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef %92, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @free(ptr noundef %92) #28
   br label %guc_free.exit63
 
 94:                                               ; preds = %.thread82
   %95 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %82, ptr noundef nonnull @.str.26, ptr noundef nonnull %.045, ptr noundef nonnull @.str.35) #28
-  %96 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef nonnull %82, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %96 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef nonnull %82, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @pfree(ptr noundef nonnull %82) #28
   br label %guc_free.exit63
 
@@ -4753,7 +4753,7 @@ define dso_local void @BeginReportingGUCOptions() local_unnamed_addr #0 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 0, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %6 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 0, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %7
 
 7:                                                ; preds = %5, %3
@@ -4862,7 +4862,7 @@ define dso_local void @ReportChangedGUCOptions() local_unnamed_addr #0 {
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @set_config_with_handle(ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef 0, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %7 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef 0, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   br label %8
 
 8:                                                ; preds = %6, %4, %1
@@ -8916,7 +8916,7 @@ RemoveGUCFromLists.exit:                          ; preds = %44, %48
   %57 = load i32, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %18, i64 64
   %59 = load i32, ptr %58, align 8
-  %60 = call i32 @set_config_with_handle(ptr noundef %53, ptr noundef null, ptr noundef nonnull %51, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
+  %60 = call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %53, ptr noundef null, ptr noundef nonnull %51, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
   br label %61
 
 61:                                               ; preds = %52, %RemoveGUCFromLists.exit
@@ -10457,7 +10457,7 @@ read_gucstate_binary.exit121:                     ; preds = %read_gucstate_binar
   store ptr %.0156, ptr %3, align 16
   store ptr %88, ptr %86, align 8
   store ptr %3, ptr %84, align 8
-  %135 = call i32 @set_config_with_handle(ptr noundef %.0156, ptr noundef null, ptr noundef %88, i32 noundef %133, i32 noundef %122, i32 noundef %134, i32 noundef 0, i1 noundef zeroext true, i32 noundef 21, i1 noundef zeroext true)
+  %135 = call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %.0156, ptr noundef null, ptr noundef %88, i32 noundef %133, i32 noundef %122, i32 noundef %134, i32 noundef 0, i1 noundef zeroext true, i32 noundef 21, i1 noundef zeroext true)
   %136 = icmp slt i32 %135, 1
   br i1 %136, label %137, label %141
 
@@ -10721,7 +10721,7 @@ set_config_option.exit.us25:                      ; preds = %26
   %32 = load ptr, ptr %22, align 8
   %33 = load ptr, ptr %28, align 8
   %34 = tail call i32 @GetUserId() #28
-  %35 = tail call i32 @set_config_with_handle(ptr noundef %32, ptr noundef null, ptr noundef %33, i32 noundef %1, i32 noundef %2, i32 noundef %34, i32 noundef %3, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %35 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %32, ptr noundef null, ptr noundef %33, i32 noundef %1, i32 noundef %2, i32 noundef %34, i32 noundef %3, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @pfree(ptr noundef %32) #28
   tail call void @pfree(ptr noundef %33) #28
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
@@ -10757,7 +10757,7 @@ set_config_option.exit.us25:                      ; preds = %26
 set_config_option.exit:                           ; preds = %47
   %53 = load ptr, ptr %43, align 8
   %54 = load ptr, ptr %49, align 8
-  %55 = tail call i32 @set_config_with_handle(ptr noundef %53, ptr noundef null, ptr noundef %54, i32 noundef %1, i32 noundef %2, i32 noundef 10, i32 noundef %3, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %55 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %53, ptr noundef null, ptr noundef %54, i32 noundef %1, i32 noundef %2, i32 noundef 10, i32 noundef %3, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @pfree(ptr noundef %53) #28
   tail call void @pfree(ptr noundef %54) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10903,7 +10903,7 @@ define internal fastcc zeroext i1 @validate_option_array_item(ptr noundef %0, pt
   %30 = tail call zeroext i1 @superuser() #28
   %31 = select i1 %30, i32 5, i32 6
   %32 = tail call i32 @GetUserId() #28
-  %33 = tail call i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %31, i32 noundef 12, i32 noundef %32, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext false)
+  %33 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %31, i32 noundef 12, i32 noundef %32, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext false)
   br label %34
 
 34:                                               ; preds = %11, %28, %24, %9, %3, %29
@@ -11323,12 +11323,12 @@ define internal fastcc void @reapply_stacked_values(ptr noundef %0, ptr nocaptur
   %29 = load i32, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %2, i64 32
   %31 = load i32, ptr %30, align 8
-  %32 = tail call i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %27, i32 noundef %29, i32 noundef 13, i32 noundef %31, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
+  %32 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %27, i32 noundef %29, i32 noundef 13, i32 noundef %31, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %23, %24, %25
   %.sink = phi i32 [ 1, %25 ], [ 1, %24 ], [ 0, %23 ], [ 2, %11 ]
-  %33 = tail call i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %.sink, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
+  %33 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %.sink, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
   br label %34
 
 34:                                               ; preds = %.sink.split, %11
@@ -11368,7 +11368,7 @@ define internal fastcc void @reapply_stacked_values(ptr noundef %0, ptr nocaptur
   br i1 %.not58, label %57, label %52
 
 52:                                               ; preds = %49, %46, %43, %40
-  %53 = tail call i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
+  %53 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %8, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef 0, i1 noundef zeroext true, i32 noundef 19, i1 noundef zeroext false)
   %54 = load ptr, ptr %9, align 8
   %.not59 = icmp eq ptr %54, null
   br i1 %.not59, label %57, label %55

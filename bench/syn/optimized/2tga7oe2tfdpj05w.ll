@@ -1051,7 +1051,7 @@ define noundef zeroext i1 @"_ZN64_$LT$syn..lifetime..Lifetime$u20$as$u20$core..c
 
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i8 -1, 2) i8 @"_ZN65_$LT$syn..lifetime..Lifetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h348f308acb14133bE"(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #1 {
-  %3 = tail call noundef i8 @"_ZN53_$LT$proc_macro2..Ident$u20$as$u20$core..cmp..Ord$GT$3cmp17h4342977b931df08bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !207
+  %3 = tail call noundef range(i8 -1, 2) i8 @"_ZN53_$LT$proc_macro2..Ident$u20$as$u20$core..cmp..Ord$GT$3cmp17h4342977b931df08bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !range !207
   ret i8 %3
 }
 

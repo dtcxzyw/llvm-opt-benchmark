@@ -491,7 +491,7 @@ define hidden i32 @i2d_SSL_SESSION(ptr noundef %in, ptr noundef %pp) local_unnam
 entry:
   %out = alloca ptr, align 8
   %len = alloca i64, align 8
-  %call.i = call fastcc i32 @SSL_SESSION_to_bytes_full(ptr noundef %in, ptr noundef nonnull %out, ptr noundef nonnull %len, i32 noundef 0)
+  %call.i = call fastcc range(i32 0, 2) i32 @SSL_SESSION_to_bytes_full(ptr noundef %in, ptr noundef nonnull %out, ptr noundef nonnull %len, i32 noundef 0)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.end
 

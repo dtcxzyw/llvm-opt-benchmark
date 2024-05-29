@@ -480,7 +480,7 @@ define noundef i32 @pmix_bfrops_base_copy_buf(ptr nocapture noundef writeonly %0
 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %9, %10
   store ptr %5, ptr %0, align 8
-  %21 = tail call fastcc i32 @pmix_bfrops_base_tma_copy_payload(ptr noundef %5, ptr noundef readonly %1)
+  %21 = tail call fastcc range(i32 -29, 1) i32 @pmix_bfrops_base_tma_copy_payload(ptr noundef %5, ptr noundef readonly %1)
   ret i32 0
 }
 

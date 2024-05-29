@@ -422,11 +422,11 @@ test_x509_sig_aid.exit:                           ; preds = %if.end12, %if.end.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i)
   %24 = load ptr, ptr @eecert_filename, align 8
   %call.i7 = call ptr @X509_get_X509_PUBKEY(ptr noundef nonnull %call5) #6
-  %call1.i8 = call fastcc i32 @test_spki_aid(ptr noundef %call.i7, ptr noundef %24)
+  %call1.i8 = call fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %call.i7, ptr noundef %24)
   %and = and i32 %call1.i8, %ret.0.i
   %25 = load ptr, ptr @cacert_filename, align 8
   %call.i9 = call ptr @X509_get_X509_PUBKEY(ptr noundef nonnull %call9) #6
-  %call1.i10 = call fastcc i32 @test_spki_aid(ptr noundef %call.i9, ptr noundef %25)
+  %call1.i10 = call fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %call.i9, ptr noundef %25)
   %and16 = and i32 %and, %call1.i10
   br label %end
 

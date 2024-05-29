@@ -3444,7 +3444,7 @@ define ptr @PQexec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %3, label %4, label %PQexecFinish.exit
 
 4:                                                ; preds = %2
-  %5 = tail call fastcc i32 @PQsendQueryInternal(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
+  %5 = tail call fastcc range(i32 0, 2) i32 @PQsendQueryInternal(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %PQexecFinish.exit, label %6
 

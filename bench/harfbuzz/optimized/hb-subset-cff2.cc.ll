@@ -2262,7 +2262,7 @@ if.then22:                                        ; preds = %if.end20
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %.conv.i.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i, i64 128)
+  %.conv.i.i.i.i = tail call noundef range(i64 -9223372036854775808, 2147483648) i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i, i64 128)
   %conv.i.i.i = trunc i64 %.conv.i.i.i.i to i32
   store ptr %8, ptr %ref.tmp.i.i.i, align 8
   %length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
@@ -2299,7 +2299,7 @@ if.end.i:                                         ; preds = %if.then22
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %.conv.i.i.i.i.i = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i.i, i64 128)
+  %.conv.i.i.i.i.i = call noundef range(i64 -9223372036854775808, 2147483648) i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i.i, i64 128)
   %conv.i.i.i.i = trunc i64 %.conv.i.i.i.i.i to i32
   store ptr %14, ptr %ref.tmp.i.i.i.i, align 8
   %length.i.i.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
@@ -4423,7 +4423,7 @@ if.end.i:                                         ; preds = %_ZN11hb_vector_tIPN
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %.conv.i.i.i.i.i = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i.i, i64 128)
+  %.conv.i.i.i.i.i = call noundef range(i64 -9223372036854775808, 2147483648) i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i.i, i64 128)
   %conv.i.i.i.i = trunc i64 %.conv.i.i.i.i.i to i32
   store ptr %12, ptr %ref.tmp.i.i.i.i, align 8
   store i32 %conv.i.i.i.i, ptr %length.i.i.i.i.i, align 8

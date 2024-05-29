@@ -3286,7 +3286,7 @@ call.i.noexc6:                                    ; preds = %invoke.cont9
           to label %call2.i.noexc unwind label %lpad4
 
 call2.i.noexc:                                    ; preds = %call.i.noexc6
-  %call3.i9 = invoke fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i8, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
+  %call3.i9 = invoke fastcc noundef range(i32 0, 64) i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i8, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
           to label %invoke.cont11 unwind label %lpad4
 
 invoke.cont11:                                    ; preds = %call2.i.noexc
@@ -3456,7 +3456,7 @@ call.i.noexc6:                                    ; preds = %invoke.cont9
           to label %call2.i.noexc unwind label %lpad4
 
 call2.i.noexc:                                    ; preds = %call.i.noexc6
-  %call3.i9 = invoke fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i8, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
+  %call3.i9 = invoke fastcc noundef range(i32 0, 64) i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i8, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
           to label %invoke.cont11 unwind label %lpad4
 
 invoke.cont11:                                    ; preds = %call2.i.noexc
@@ -3618,7 +3618,7 @@ call.i.noexc:                                     ; preds = %invoke.cont12
           to label %call2.i.noexc unwind label %lpad2
 
 call2.i.noexc:                                    ; preds = %call.i.noexc
-  %call3.i7 = invoke fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i6, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
+  %call3.i7 = invoke fastcc noundef range(i32 0, 64) i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i6, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
           to label %invoke.cont15 unwind label %lpad2
 
 invoke.cont15:                                    ; preds = %call2.i.noexc
@@ -3770,7 +3770,7 @@ call.i.noexc:                                     ; preds = %invoke.cont12
           to label %call2.i.noexc unwind label %lpad2
 
 call2.i.noexc:                                    ; preds = %call.i.noexc
-  %call3.i7 = invoke fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i6, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
+  %call3.i7 = invoke fastcc noundef range(i32 0, 64) i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i6, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
           to label %invoke.cont15 unwind label %lpad2
 
 invoke.cont15:                                    ; preds = %call2.i.noexc
@@ -4160,7 +4160,7 @@ call.i.noexc:                                     ; preds = %if.else
 
 call2.i.noexc:                                    ; preds = %call.i.noexc
   %_channelNamePrefix.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call3.i23 = invoke fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i22, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix.i)
+  %call3.i23 = invoke fastcc noundef range(i32 0, 64) i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i22, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix.i)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %call2.i.noexc
@@ -4397,7 +4397,7 @@ delete.end:                                       ; preds = %_ZN7Imf_3_213RgbaIn
   %4 = load ptr, ptr %_inputPart, align 8
   %call.i = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %call2.i = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %call.i)
-  %call3.i = call fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
+  %call3.i = call fastcc noundef range(i32 0, 64) i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
   %tobool.not = icmp ult i32 %call3.i, 32
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -4521,7 +4521,7 @@ invoke.cont:                                      ; preds = %delete.end5
   %5 = load ptr, ptr %_inputPart, align 8
   %call.i = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %call2.i = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %call.i)
-  %call3.i = call fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
+  %call3.i = call fastcc noundef range(i32 0, 64) i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
   %tobool.not = icmp ult i32 %call3.i, 32
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -4711,7 +4711,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %call2.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %call.i)
   %_channelNamePrefix.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call3.i = tail call fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix.i)
+  %call3.i = tail call fastcc noundef range(i32 0, 64) i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix.i)
   %and = and i32 %call3.i, 16
   %tobool4.not = icmp eq i32 %and, 0
   br i1 %tobool4.not, label %if.end27, label %if.then5

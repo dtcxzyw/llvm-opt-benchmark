@@ -161,7 +161,7 @@ define dso_local void @nghttp2_buf_wrap_init(ptr nocapture noundef writeonly %0,
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_init(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = tail call i32 @nghttp2_bufs_init3(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %2, i64 noundef 0, ptr noundef %3)
+  %5 = tail call range(i32 -901, 1) i32 @nghttp2_bufs_init3(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %2, i64 noundef 0, ptr noundef %3)
   ret i32 %5
 }
 

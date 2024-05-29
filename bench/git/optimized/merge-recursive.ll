@@ -2166,7 +2166,7 @@ if.then8.i.i:                                     ; preds = %if.end.i.i145, %if.
   %298 = icmp ne i32 %297, 0
   %lor.ext.i.i.i = zext i1 %298 to i32
   %lnot.ext.i.i.i = zext i1 %tobool.not.i29.i.i to i32
-  %call.i30.i.i = call fastcc i32 @update_file_flags(ptr noundef %opt, ptr noundef %281, ptr noundef %file_path.05.i.i, i32 noundef %lor.ext.i.i.i, i32 noundef %lnot.ext.i.i.i)
+  %call.i30.i.i = call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef %opt, ptr noundef %281, ptr noundef %file_path.05.i.i, i32 noundef %lor.ext.i.i.i, i32 noundef %lnot.ext.i.i.i)
   %tobool10.not.i.i148 = icmp eq i32 %call.i30.i.i, 0
   br i1 %tobool10.not.i.i148, label %if.end12.i.i, label %sw.epilog.i
 
@@ -2199,7 +2199,7 @@ if.else.i.i146:                                   ; preds = %if.end.i.i145, %wou
   %305 = load i32, ptr %304, align 8
   %tobool.not.i32.i.i = icmp eq i32 %305, 0
   %lnot.ext.i34.i.i = zext i1 %tobool.not.i32.i.i to i32
-  %call.i35.i.i = call fastcc i32 @update_file_flags(ptr noundef %opt, ptr noundef %281, ptr noundef %303, i32 noundef 1, i32 noundef %lnot.ext.i34.i.i)
+  %call.i35.i.i = call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef %opt, ptr noundef %281, ptr noundef %303, i32 noundef 1, i32 noundef %lnot.ext.i34.i.i)
   %tobool36.not.i.i147 = icmp eq i32 %call.i35.i.i, 0
   %.26.i.i = select i1 %tobool36.not.i.i147, i32 1, i32 -1
   br label %sw.epilog.i
@@ -2573,7 +2573,7 @@ cond.end59.i.i:                                   ; preds = %cond.false57.i.i, %
   %413 = icmp ne i32 %412, 0
   %lor.ext.i.i273.i = zext i1 %413 to i32
   %lnot.ext.i.i274.i = zext i1 %tobool.not.i.i272.i to i32
-  %call.i71.i.i = call fastcc i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %mfi.i236.i, ptr noundef %cond60.i.i, i32 noundef %lor.ext.i.i273.i, i32 noundef %lnot.ext.i.i274.i)
+  %call.i71.i.i = call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %mfi.i236.i, ptr noundef %cond60.i.i, i32 noundef %lor.ext.i.i273.i, i32 noundef %lnot.ext.i.i274.i)
   %tobool62.not.i.i = icmp eq i32 %call.i71.i.i, 0
   br i1 %tobool62.not.i.i, label %if.end64.i.i, label %handle_rename_rename_1to2.exit.thread.i
 
@@ -2740,7 +2740,7 @@ cond.end131.i.i:                                  ; preds = %cond.false129.i.i, 
   %445 = icmp ne i32 %444, 0
   %lor.ext.i100.i.i = zext i1 %445 to i32
   %lnot.ext.i101.i.i = zext i1 %tobool.not.i99.i.i to i32
-  %call.i102.i.i = call fastcc i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %mfi.i236.i, ptr noundef %cond132.i.i, i32 noundef %lor.ext.i100.i.i, i32 noundef %lnot.ext.i101.i.i)
+  %call.i102.i.i = call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %mfi.i236.i, ptr noundef %cond132.i.i, i32 noundef %lor.ext.i100.i.i, i32 noundef %lnot.ext.i101.i.i)
   %tobool134.not.i.i = icmp eq i32 %call.i102.i.i, 0
   br i1 %tobool134.not.i.i, label %if.end136.i.i, label %handle_rename_rename_1to2.exit.thread.i
 
@@ -3111,7 +3111,7 @@ _.exit350.i:                                      ; preds = %if.end3.i347.i, %if
   %529 = icmp ne i32 %528, 0
   %lor.ext.i.i174 = zext i1 %529 to i32
   %lnot.ext.i.i = zext i1 %tobool.not.i352.i to i32
-  %call.i353.i = call fastcc i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %contents.0.i, ptr noundef %call134.i, i32 noundef %lor.ext.i.i174, i32 noundef %lnot.ext.i.i)
+  %call.i353.i = call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %contents.0.i, ptr noundef %call134.i, i32 noundef %lor.ext.i.i174, i32 noundef %lnot.ext.i.i)
   %tobool137.not.i = icmp eq i32 %call.i353.i, 0
   br i1 %tobool137.not.i, label %if.else139.i, label %if.end148.i
 
@@ -7305,7 +7305,7 @@ if.end40:                                         ; preds = %if.end33
   %43 = icmp ne i32 %42, 0
   %lor.ext.i = zext i1 %43 to i32
   %lnot.ext.i = zext i1 %tobool.not.i113 to i32
-  %call.i114 = call fastcc i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %mfi, ptr noundef %update_path.0, i32 noundef %lor.ext.i, i32 noundef %lnot.ext.i)
+  %call.i114 = call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %mfi, ptr noundef %update_path.0, i32 noundef %lor.ext.i, i32 noundef %lnot.ext.i)
   %tobool49.not = icmp eq i32 %call.i114, 0
   br i1 %tobool49.not, label %if.end51, label %return
 
@@ -7710,7 +7710,7 @@ _.exit125:                                        ; preds = %if.end128, %if.end3
   %60 = icmp ne i32 %59, 0
   %lor.ext.i = zext i1 %60 to i32
   %lnot.ext.i = zext i1 %tobool.not.i to i32
-  %call.i127 = tail call fastcc i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %mfi, ptr noundef %call124, i32 noundef %lor.ext.i, i32 noundef %lnot.ext.i)
+  %call.i127 = tail call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %mfi, ptr noundef %call124, i32 noundef %lor.ext.i, i32 noundef %lnot.ext.i)
   %tobool132.not = icmp eq i32 %call.i127, 0
   tail call void @free(ptr noundef %call124) #21
   br i1 %tobool132.not, label %if.end134, label %return
@@ -7732,7 +7732,7 @@ if.else138:                                       ; preds = %if.end86
   %64 = icmp ne i32 %63, 0
   %lor.ext.i130 = zext i1 %64 to i32
   %lnot.ext.i131 = zext i1 %tobool.not.i129 to i32
-  %call.i132 = tail call fastcc i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %mfi, ptr noundef %path, i32 noundef %lor.ext.i130, i32 noundef %lnot.ext.i131)
+  %call.i132 = tail call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef nonnull %mfi, ptr noundef %path, i32 noundef %lor.ext.i130, i32 noundef %lnot.ext.i131)
   %tobool145.not.not = icmp eq i32 %call.i132, 0
   br i1 %tobool145.not.not, label %if.else138.land.rhs150_crit_edge, label %return
 
@@ -9332,7 +9332,7 @@ if.end40.sink.split:                              ; preds = %if.end34, %_.exit66
   %20 = icmp ne i32 %19, 0
   %lor.ext.i74 = zext i1 %20 to i32
   %lnot.ext.i75 = zext i1 %tobool.not.i73 to i32
-  %call.i76 = tail call fastcc i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef %changed.sink, ptr noundef %update_path.0, i32 noundef %lor.ext.i74, i32 noundef %lnot.ext.i75)
+  %call.i76 = tail call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef %changed.sink, ptr noundef %update_path.0, i32 noundef %lor.ext.i74, i32 noundef %lnot.ext.i75)
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end40.sink.split, %if.end34, %if.then11

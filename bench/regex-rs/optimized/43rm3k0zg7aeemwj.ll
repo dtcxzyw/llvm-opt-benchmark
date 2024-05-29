@@ -491,7 +491,7 @@ define hidden noundef i8 @_ZN4core3cmp3Ord3max17h009d6e9ae968e063E.llvm.13935734
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i32 0, 1114112) i32 @_ZN4core3cmp3Ord3max17hc9b1305afad62e0fE.llvm.13935734079504969398(i32 noundef %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %0, i32 %1)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %0, i32 %1)
   ret i32 %.0.sroa.speculated.i
 }
 
@@ -503,7 +503,7 @@ define hidden noundef i8 @_ZN4core3cmp3Ord3min17h909e68aa3fee0043E.llvm.13935734
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i32 0, 1114112) i32 @_ZN4core3cmp3Ord3min17hb44f7d34a9752dddE.llvm.13935734079504969398(i32 noundef %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %0, i32 %1)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %0, i32 %1)
   ret i32 %.0.sroa.speculated.i
 }
 
@@ -1788,8 +1788,8 @@ define hidden { i32, i32 } @_ZN12regex_syntax3hir8interval8Interval5union17h4b6d
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %2
-  %.0.sroa.speculated.i.i1 = tail call noundef i32 @llvm.umin.i32(i32 %3, i32 %6)
-  %.0.sroa.speculated.i.i2 = tail call noundef i32 @llvm.umax.i32(i32 %5, i32 %8)
+  %.0.sroa.speculated.i.i1 = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %3, i32 %6)
+  %.0.sroa.speculated.i.i2 = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %5, i32 %8)
   %..i = tail call i32 @llvm.umin.i32(i32 %.0.sroa.speculated.i.i1, i32 %.0.sroa.speculated.i.i2)
   %.6.i = tail call i32 @llvm.umax.i32(i32 %.0.sroa.speculated.i.i1, i32 %.0.sroa.speculated.i.i2)
   br label %11
@@ -1827,12 +1827,12 @@ define hidden i24 @_ZN12regex_syntax3hir8interval8Interval9intersect17h350064540
 define hidden { i32, i32 } @_ZN12regex_syntax3hir8interval8Interval9intersect17h92c9ddbe23aa6816E(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %0, align 4, !range !74, !alias.scope !152, !noundef !4
   %4 = load i32, ptr %1, align 4, !range !74, !alias.scope !155, !noundef !4
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umax.i32(i32 %3, i32 %4)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %3, i32 %4)
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !range !74, !alias.scope !158, !noundef !4
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !range !74, !alias.scope !161, !noundef !4
-  %.0.sroa.speculated.i.i1 = tail call noundef i32 @llvm.umin.i32(i32 %6, i32 %8)
+  %.0.sroa.speculated.i.i1 = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %6, i32 %8)
   %.not = icmp ugt i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i1
   %spec.select = select i1 %.not, i32 1114112, i32 %.0.sroa.speculated.i.i
   %9 = insertvalue { i32, i32 } poison, i32 %spec.select, 0
@@ -1957,8 +1957,8 @@ define hidden void @_ZN12regex_syntax3hir8interval8Interval10difference17h9e5157
   br i1 %spec.select.i, label %9, label %7
 
 7:                                                ; preds = %3
-  %.0.sroa.speculated.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val20)
-  %.0.sroa.speculated.i.i1.i = tail call noundef i32 @llvm.umin.i32(i32 %.val19, i32 %.val21)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %.val, i32 %.val20)
+  %.0.sroa.speculated.i.i1.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %.val19, i32 %.val21)
   %8 = icmp ugt i32 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i.i1.i
   br i1 %8, label %13, label %10
 
@@ -2096,8 +2096,8 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax3hir8interval8Interval21is_in
   %6 = load i32, ptr %1, align 4, !range !74, !alias.scope !194, !noundef !4
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !range !74, !alias.scope !197, !noundef !4
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umax.i32(i32 %3, i32 %6)
-  %.0.sroa.speculated.i.i1 = tail call noundef i32 @llvm.umin.i32(i32 %5, i32 %8)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %3, i32 %6)
+  %.0.sroa.speculated.i.i1 = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %5, i32 %8)
   %9 = icmp ugt i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i1
   ret i1 %9
 }

@@ -4033,7 +4033,7 @@ tailrecurse.i.i.i:                                ; preds = %.lr.ph.i.i.i
 spl_array_next.exit:                              ; preds = %tailrecurse._crit_edge.i.i.i, %63, %72, %80, %81, %90
   %.0.i.i.i = phi ptr [ %61, %63 ], [ %61, %tailrecurse._crit_edge.i.i.i ], [ %.tr31.i.i.i, %72 ], [ %78, %81 ], [ %78, %90 ], [ %78, %80 ]
   %93 = load ptr, ptr %.0.i.i.i, align 8
-  %94 = call fastcc i32 @spl_array_next_ex(ptr noundef nonnull %6, ptr noundef %93)
+  %94 = call fastcc range(i32 -1, 1) i32 @spl_array_next_ex(ptr noundef nonnull %6, ptr noundef %93)
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %54, label %.critedge
 

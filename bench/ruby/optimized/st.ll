@@ -32,7 +32,7 @@ get_power2.exit:                                  ; preds = %3
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = sub nuw nsw i32 64, %8
-  %10 = tail call i32 @llvm.umax.i32(i32 %9, i32 2)
+  %10 = tail call range(i32 0, 63) i32 @llvm.umax.i32(i32 %9, i32 2)
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %11, align 8
   %12 = trunc nuw nsw i32 %10 to i8
@@ -109,7 +109,7 @@ get_power2.exit.i:                                ; preds = %2
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 false)
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = sub nuw nsw i32 64, %8
-  %10 = tail call i32 @llvm.umax.i32(i32 %9, i32 2)
+  %10 = tail call range(i32 0, 63) i32 @llvm.umax.i32(i32 %9, i32 2)
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %11, align 8
   %12 = trunc nuw nsw i32 %10 to i8

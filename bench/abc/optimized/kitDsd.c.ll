@@ -6737,7 +6737,7 @@ define range(i32 0, 2) i32 @Kit_DsdCheckVar4Dec2(ptr nocapture noundef readonly 
   %4 = load i16, ptr %3, align 2
   %5 = lshr i16 %4, 1
   %6 = zext nneg i16 %5 to i32
-  %7 = tail call i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly %0, i32 noundef %6, i32 noundef 2)
+  %7 = tail call range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly %0, i32 noundef %6, i32 noundef 2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %Kit_DsdRootNodeHasCommonVars.exit
 
@@ -6746,7 +6746,7 @@ define range(i32 0, 2) i32 @Kit_DsdCheckVar4Dec2(ptr nocapture noundef readonly 
   %10 = load i16, ptr %9, align 2
   %11 = lshr i16 %10, 1
   %12 = zext nneg i16 %11 to i32
-  %13 = tail call i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly %1, i32 noundef %12, i32 noundef 2)
+  %13 = tail call range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly %1, i32 noundef %12, i32 noundef 2)
   %.not4 = icmp eq i32 %13, 0
   br i1 %.not4, label %14, label %Kit_DsdRootNodeHasCommonVars.exit
 
@@ -8879,7 +8879,7 @@ define void @Kit_DsdPrecompute4Vars() local_unnamed_addr #0 {
   %15 = load i16, ptr %14, align 2
   %16 = lshr i16 %15, 1
   %17 = zext nneg i16 %16 to i32
-  %18 = call i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly %13, i32 noundef %17, i32 noundef 3)
+  %18 = call range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly %13, i32 noundef %17, i32 noundef 3)
   %.not23 = icmp eq i32 %18, 0
   br i1 %.not23, label %31, label %19
 

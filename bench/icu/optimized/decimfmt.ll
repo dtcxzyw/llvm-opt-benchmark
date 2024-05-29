@@ -2296,7 +2296,7 @@ _ZNK6icu_7513DecimalFormat18getMultiplierScaleEv.exit: ; preds = %if.end3
 _ZNK6icu_7513DecimalFormat15getGroupingSizeEv.exit: ; preds = %if.end3
   %groupingSize4.i = getelementptr inbounds i8, ptr %1, i64 84
   %groupingSize.0.i = load i32, ptr %groupingSize4.i, align 4
-  %.groupingSize.0.i = tail call noundef i32 @llvm.smax.i32(i32 %groupingSize.0.i, i32 0)
+  %.groupingSize.0.i = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %groupingSize.0.i, i32 0)
   br label %return
 
 sw.bb39:                                          ; preds = %if.end3
@@ -2323,7 +2323,7 @@ sw.bb47:                                          ; preds = %if.end3
 _ZNK6icu_7513DecimalFormat24getSecondaryGroupingSizeEv.exit: ; preds = %if.end3
   %secondaryGroupingSize3.i = getelementptr inbounds i8, ptr %1, i64 760
   %grouping2.0.i = load i32, ptr %secondaryGroupingSize3.i, align 8
-  %.grouping2.0.i = tail call noundef i32 @llvm.smax.i32(i32 %grouping2.0.i, i32 0)
+  %.grouping2.0.i = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %grouping2.0.i, i32 0)
   br label %return
 
 _ZNK6icu_7513DecimalFormat17isParseNoExponentEv.exit: ; preds = %if.end3

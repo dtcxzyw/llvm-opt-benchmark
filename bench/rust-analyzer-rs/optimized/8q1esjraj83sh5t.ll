@@ -29261,7 +29261,7 @@ _ZN6hir_ty3mir4eval7Address8to_bytes17hdbcf93b2d9ef7bb3E.exit544.i: ; preds = %8
 
 885:                                              ; preds = %882
   %886 = extractvalue { ptr, i64 } %881, 1
-  %887 = invoke noundef i8 @_ZN7hir_def9lang_item8LangItem8from_str17hff500ce312801f15E(ptr noalias noundef nonnull readonly align 1 %883, i64 noundef %886)
+  %887 = invoke noundef range(i8 0, -125) i8 @_ZN7hir_def9lang_item8LangItem8from_str17hff500ce312801f15E(ptr noalias noundef nonnull readonly align 1 %883, i64 noundef %886)
           to label %_ZN4core3ops8function6FnOnce9call_once17h970e8ec931a756b6E.exit.i unwind label %871
 
 _ZN4core3ops8function6FnOnce9call_once17h970e8ec931a756b6E.exit.i: ; preds = %885

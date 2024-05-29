@@ -1494,7 +1494,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !232, !noalias !228
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !232, !noalias !228
   store i32 %49, ptr %11, align 4, !noalias !228
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !228
   %51 = icmp ult i64 %50, 2
@@ -1934,7 +1934,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !232, !noalias !251
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !232, !noalias !251
   store i32 %49, ptr %11, align 4, !noalias !251
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !251
   %51 = icmp ult i64 %50, 2
@@ -2374,7 +2374,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %.val, i64 128
   %48 = getelementptr inbounds [3 x { { i32 } }], ptr %47, i64 0, i64 %44
-  %49 = call noundef i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !232, !noalias !272
+  %49 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %48), !range !232, !noalias !272
   store i32 %49, ptr %11, align 4, !noalias !272
   %50 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !272
   %51 = icmp ult i64 %50, 2

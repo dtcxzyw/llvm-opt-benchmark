@@ -2160,7 +2160,7 @@ Abc_Clock.exit68:                                 ; preds = %80, %83
   br i1 %.not65, label %94, label %92
 
 92:                                               ; preds = %91
-  %93 = call i32 @llvm.smin.i32(i32 %90, i32 %5)
+  %93 = call range(i32 1, 0) i32 @llvm.smin.i32(i32 %90, i32 %5)
   br label %94
 
 94:                                               ; preds = %91, %92, %88

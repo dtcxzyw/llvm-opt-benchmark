@@ -2111,7 +2111,7 @@ sw.bb1:                                           ; preds = %entry
   %call.i6 = call i32 @hllPatLen(ptr noundef %ele, i64 noundef %elesize, ptr noundef nonnull %index.i5)
   %conv.i = trunc i32 %call.i6 to i8
   %9 = load i64, ptr %index.i5, align 8
-  %call1.i = tail call i32 @hllSparseSet(ptr noundef nonnull %o, i64 noundef %9, i8 noundef zeroext %conv.i)
+  %call1.i = tail call range(i32 -1, 2) i32 @hllSparseSet(ptr noundef nonnull %o, i64 noundef %9, i8 noundef zeroext %conv.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %index.i5)
   br label %return
 

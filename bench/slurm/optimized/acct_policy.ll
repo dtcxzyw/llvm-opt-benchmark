@@ -2889,7 +2889,7 @@ _apply_limit_factor.exit200:                      ; preds = %134, %155, %.sink.s
   %171 = load ptr, ptr %170, align 8
   %172 = load ptr, ptr %98, align 8
   %173 = load ptr, ptr %99, align 8
-  %174 = call fastcc i32 @_validate_tres_usage_limits(ptr noundef nonnull writeonly %5, ptr noundef readonly %171, ptr noundef %172, ptr noundef nonnull readonly %13, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef %173, i1 noundef zeroext %.not183, i1 noundef zeroext false)
+  %174 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull writeonly %5, ptr noundef readonly %171, ptr noundef %172, ptr noundef nonnull readonly %13, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef %173, i1 noundef zeroext %.not183, i1 noundef zeroext false)
   switch i32 %174, label %default.unreachable [
     i32 1, label %175
     i32 2, label %223
@@ -3783,7 +3783,7 @@ define internal fastcc range(i32 0, 2) i32 @_qos_job_runnable_post_select(ptr no
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 496
   %68 = load ptr, ptr %67, align 8
-  %69 = call fastcc i32 @_validate_tres_usage_limits(ptr noundef nonnull writeonly %6, ptr noundef readonly %64, ptr noundef %66, ptr noundef readonly %4, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %68, i1 noundef zeroext %.not, i1 noundef zeroext true)
+  %69 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull writeonly %6, ptr noundef readonly %64, ptr noundef %66, ptr noundef readonly %4, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %68, i1 noundef zeroext %.not, i1 noundef zeroext true)
   switch i32 %69, label %default.unreachable [
     i32 1, label %70
     i32 2, label %112
@@ -4688,7 +4688,7 @@ _validate_tres_limits_for_qos.exit241:            ; preds = %544
   %579 = getelementptr inbounds i8, ptr %57, i64 24
   %580 = load ptr, ptr %579, align 8
   %581 = load ptr, ptr %67, align 8
-  %582 = call fastcc i32 @_validate_tres_usage_limits(ptr noundef nonnull writeonly %6, ptr noundef readonly %576, ptr noundef %578, ptr noundef readonly %3, ptr noundef %580, ptr noundef null, ptr noundef %581, i1 noundef zeroext true, i1 noundef zeroext true)
+  %582 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull writeonly %6, ptr noundef readonly %576, ptr noundef %578, ptr noundef readonly %3, ptr noundef %580, ptr noundef null, ptr noundef %581, i1 noundef zeroext true, i1 noundef zeroext true)
   store i64 %572, ptr %204, align 8
   switch i32 %582, label %628 [
     i32 3, label %604
@@ -4765,7 +4765,7 @@ _validate_tres_limits_for_qos.exit241:            ; preds = %544
   %635 = getelementptr inbounds i8, ptr %62, i64 24
   %636 = load ptr, ptr %635, align 8
   %637 = load ptr, ptr %67, align 8
-  %638 = call fastcc i32 @_validate_tres_usage_limits(ptr noundef nonnull writeonly %6, ptr noundef readonly %632, ptr noundef %634, ptr noundef nonnull readonly %3, ptr noundef %636, ptr noundef null, ptr noundef %637, i1 noundef zeroext true, i1 noundef zeroext true)
+  %638 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull writeonly %6, ptr noundef readonly %632, ptr noundef %634, ptr noundef nonnull readonly %3, ptr noundef %636, ptr noundef null, ptr noundef %637, i1 noundef zeroext true, i1 noundef zeroext true)
   store i64 %572, ptr %204, align 8
   switch i32 %638, label %682 [
     i32 3, label %658

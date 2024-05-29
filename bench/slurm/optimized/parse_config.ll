@@ -3141,7 +3141,7 @@ _handle_array.exit:                               ; preds = %84, %89
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr @_hashtbl_copy_keys(ptr noundef %107)
   %109 = load ptr, ptr %0, align 8
-  %110 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %108, ptr noundef %109, ptr noundef %1, i32 noundef 0)
+  %110 = tail call range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef %108, ptr noundef %109, ptr noundef %1, i32 noundef 0)
   %.not.i60 = icmp eq i32 %110, 0
   br i1 %.not.i60, label %111, label %113
 
@@ -3664,7 +3664,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @s_p_parse_line_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
+  %6 = tail call range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %9
 
@@ -3825,7 +3825,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
   store ptr %58, ptr %59, align 8
   tail call fastcc void @_hashtbl_plain_to_string(ptr noundef %58)
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %60, ptr noundef %3, ptr noundef %57, i32 noundef 0)
+  %61 = tail call range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef %60, ptr noundef %3, ptr noundef %57, i32 noundef 0)
   %.not53 = icmp eq i32 %61, 0
   br i1 %.not53, label %62, label %56
 
@@ -3868,7 +3868,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %.094, align 8
   %76 = load ptr, ptr %66, align 8
-  %77 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %74, ptr noundef %75, ptr noundef %76, i32 noundef 0)
+  %77 = tail call range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef %74, ptr noundef %75, ptr noundef %76, i32 noundef 0)
   %.not70.i = icmp eq i32 %77, 0
   br i1 %.not70.i, label %78, label %72
 

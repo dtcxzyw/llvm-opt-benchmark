@@ -1603,7 +1603,7 @@ is_power_of_2.exit:                               ; preds = %entry
   br i1 %tobool1.not.i, label %if.then1, label %if.else3
 
 if.then1:                                         ; preds = %is_power_of_2.exit
-  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %arg2, i1 true)
+  %7 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %arg2, i1 true)
   %cmp2.i = icmp eq i32 %7, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 

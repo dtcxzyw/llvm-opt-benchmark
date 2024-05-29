@@ -231,7 +231,7 @@ if.then5.i:                                       ; preds = %if.end26
 COVER_warnOnSmallCorpus.exit:                     ; preds = %if.end26, %if.then5.i
   %sub = add i32 %2, 1
   %add = sub i32 %sub, %1
-  %17 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add, i1 true)
+  %17 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add, i1 true)
   %sub.i.i = xor i32 %17, 31
   %add.i = sub nuw nsw i32 33, %17
   %sizeLog.i = getelementptr inbounds i8, ptr %activeDmers, i64 8
@@ -2276,7 +2276,7 @@ entry:
   %4 = load i32, ptr %d, align 4
   %sub = add i32 %3, 1
   %add = sub i32 %sub, %4
-  %5 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add, i1 true)
+  %5 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add, i1 true)
   %sub.i.i = xor i32 %5, 31
   %add.i = sub nuw nsw i32 33, %5
   %sizeLog.i = getelementptr inbounds i8, ptr %activeDmers, i64 8

@@ -625,7 +625,7 @@ if.then.i56:                                      ; preds = %if.then5
   unreachable
 
 local_tzoffset.exit:                              ; preds = %if.then5
-  %call1.i57 = call fastcc i32 @local_time_tzoffset(i64 noundef %git_time, ptr noundef nonnull %tm.i)
+  %call1.i57 = call fastcc range(i32 -59652359, 59652360) i32 @local_time_tzoffset(i64 noundef %git_time, ptr noundef nonnull %tm.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm.i)
   br label %if.end7
 

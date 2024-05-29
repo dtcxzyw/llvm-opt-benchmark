@@ -3570,7 +3570,7 @@ define dso_local range(i64 -40, 1) i64 @ZSTD_DCtx_getParameter(ptr nocapture nou
   %5 = getelementptr inbounds i8, ptr %0, i64 30256
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %7, i1 true)
+  %8 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %7, i1 true)
   %9 = xor i32 %8, 31
   br label %.sink.split
 

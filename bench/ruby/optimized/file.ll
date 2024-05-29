@@ -5227,7 +5227,7 @@ utime_internal_i.exit:                            ; preds = %rb_check_arity.exit
   %27 = getelementptr i8, ptr %1, i64 16
   %28 = add nsw i32 %0, -2
   store ptr %.0.i, ptr %4, align 8
-  %29 = call fastcc i64 @apply2files(ptr noundef nonnull @utime_internal, i32 noundef %28, ptr noundef readonly %27, ptr noundef nonnull %4)
+  %29 = call fastcc range(i64 1, 0) i64 @apply2files(ptr noundef nonnull @utime_internal, i32 noundef %28, ptr noundef readonly %27, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret i64 %29
@@ -5418,7 +5418,7 @@ utime_internal_i.exit:                            ; preds = %rb_check_arity.exit
   %27 = getelementptr i8, ptr %1, i64 16
   %28 = add nsw i32 %0, -2
   store ptr %.0.i, ptr %4, align 8
-  %29 = call fastcc i64 @apply2files(ptr noundef nonnull @utime_internal, i32 noundef %28, ptr noundef readonly %27, ptr noundef nonnull %4)
+  %29 = call fastcc range(i64 1, 0) i64 @apply2files(ptr noundef nonnull @utime_internal, i32 noundef %28, ptr noundef readonly %27, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret i64 %29

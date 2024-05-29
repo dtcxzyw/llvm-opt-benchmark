@@ -58756,7 +58756,7 @@ default.unreachable144:                           ; preds = %2
 
 194:                                              ; preds = %191
   %195 = extractvalue { ptr, i64 } %175, 1
-  %196 = call noundef i8 @_ZN7hir_def12builtin_type11BuiltinUint11from_suffix17hc0236f35dfd81633E(ptr noalias noundef nonnull readonly align 1 %192, i64 noundef %195), !range !2795, !alias.scope !15666
+  %196 = call noundef range(i8 0, 7) i8 @_ZN7hir_def12builtin_type11BuiltinUint11from_suffix17hc0236f35dfd81633E(ptr noalias noundef nonnull readonly align 1 %192, i64 noundef %195), !range !2795, !alias.scope !15666
   %.not58 = icmp eq i8 %196, 6
   br i1 %.not58, label %.thread139, label %197
 
@@ -58787,7 +58787,7 @@ default.unreachable144:                           ; preds = %2
 
 207:                                              ; preds = %204
   %208 = extractvalue { ptr, i64 } %198, 1
-  %209 = call noundef i8 @_ZN7hir_def12builtin_type10BuiltinInt11from_suffix17hb6aa8a0507b0e10dE(ptr noalias noundef nonnull readonly align 1 %205, i64 noundef %208), !range !2795, !alias.scope !15669
+  %209 = call noundef range(i8 0, 7) i8 @_ZN7hir_def12builtin_type10BuiltinInt11from_suffix17hb6aa8a0507b0e10dE(ptr noalias noundef nonnull readonly align 1 %205, i64 noundef %208), !range !2795, !alias.scope !15669
   br label %210
 
 210:                                              ; preds = %207, %204

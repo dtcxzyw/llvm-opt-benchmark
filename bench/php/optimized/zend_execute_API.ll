@@ -2193,7 +2193,7 @@ zend_get_executed_scope.exit:                     ; preds = %11, %9, %zend_get_e
   %13 = phi ptr [ %.pre.i, %zend_get_executed_scope.exit.sink.split ], [ %10, %9 ], [ null, %11 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 0, ptr %2, align 1
-  %14 = call i32 @zval_update_constant_with_ctx(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %2)
+  %14 = call range(i32 -1, 1) i32 @zval_update_constant_with_ctx(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   ret i32 %14
 }

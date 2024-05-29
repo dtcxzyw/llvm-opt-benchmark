@@ -3323,7 +3323,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..GenericShunt
   store ptr %5, ptr %7, align 8, !noalias !693
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %6, ptr %8, align 8, !noalias !693
-  %9 = call noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9a049b026c4e1c27E.llvm.3458943816331328394(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !range !411
+  %9 = call noundef range(i8 0, 3) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9a049b026c4e1c27E.llvm.3458943816331328394(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !range !411
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !693
   %10 = trunc i8 %9 to i1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
@@ -3517,7 +3517,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..GenericShunt
   store ptr %5, ptr %7, align 8, !noalias !748
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %6, ptr %8, align 8, !noalias !748
-  %9 = call noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9a049b026c4e1c27E.llvm.3458943816331328394(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !range !411
+  %9 = call noundef range(i8 0, 3) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9a049b026c4e1c27E.llvm.3458943816331328394(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !range !411
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !748
   %10 = trunc i8 %9 to i1
   ret i1 %10

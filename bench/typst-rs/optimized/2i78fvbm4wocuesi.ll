@@ -57154,7 +57154,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 "_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit": ; preds = %switch.lookup, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd69d8c3994152053E.llvm.16978709814855407318.exit.thread.i", %382, %390, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.i", %393
   %.sink14.i = phi i8 [ 6, %393 ], [ %spec.select135, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd69d8c3994152053E.llvm.16978709814855407318.exit.thread.i" ], [ %spec.select135, %390 ], [ %spec.select135, %382 ], [ %spec.select135, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.i" ], [ %switch.masked, %switch.lookup ]
-  %395 = call noundef i64 @_ZN9hayagriva3csl14WritingContext9push_case17h6fad8e686d52464eE(ptr noalias noundef nonnull align 8 dereferenceable(456) %352, i8 noundef %.sink14.i), !range !3376
+  %395 = call noundef range(i64 1, 0) i64 @_ZN9hayagriva3csl14WritingContext9push_case17h6fad8e686d52464eE(ptr noalias noundef nonnull align 8 dereferenceable(456) %352, i8 noundef %.sink14.i), !range !3376
   %396 = getelementptr inbounds i8, ptr %0, i64 102
   %397 = load i8, ptr %396, align 2, !range !475, !noundef !4
   br i1 %.not129, label %401, label %398
@@ -57636,7 +57636,7 @@ switch.lookup531:                                 ; preds = %select.unfold.i
 
 "_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit.i": ; preds = %switch.lookup531, %595, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.i.i", %592, %585, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd69d8c3994152053E.llvm.16978709814855407318.exit.thread.i.i"
   %.sink14.i.i = phi i8 [ 6, %595 ], [ %570, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd69d8c3994152053E.llvm.16978709814855407318.exit.thread.i.i" ], [ %570, %592 ], [ %570, %585 ], [ %570, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.i.i" ], [ %switch.masked537, %switch.lookup531 ]
-  %596 = call noundef i64 @_ZN9hayagriva3csl14WritingContext9push_case17h6fad8e686d52464eE(ptr noalias noundef nonnull align 8 dereferenceable(456) %352, i8 noundef %.sink14.i.i), !range !3376, !noalias !11426
+  %596 = call noundef range(i64 1, 0) i64 @_ZN9hayagriva3csl14WritingContext9push_case17h6fad8e686d52464eE(ptr noalias noundef nonnull align 8 dereferenceable(456) %352, i8 noundef %.sink14.i.i), !range !3376, !noalias !11426
   br i1 %531, label %598, label %597
 
 597:                                              ; preds = %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit.i"
@@ -59606,7 +59606,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.thread.i": ; preds = %switch.lookup, %98, %.noexc84, %.noexc83, %87, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd69d8c3994152053E.llvm.16978709814855407318.exit.thread.i"
   %.sink14.i = phi i8 [ 6, %98 ], [ %69, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd69d8c3994152053E.llvm.16978709814855407318.exit.thread.i" ], [ %69, %.noexc83 ], [ %69, %87 ], [ %69, %.noexc84 ], [ %switch.masked, %switch.lookup ]
-  %100 = invoke noundef i64 @_ZN9hayagriva3csl14WritingContext9push_case17h6fad8e686d52464eE(ptr noalias noundef nonnull align 8 dereferenceable(456) %47, i8 noundef %.sink14.i)
+  %100 = invoke noundef range(i64 1, 0) i64 @_ZN9hayagriva3csl14WritingContext9push_case17h6fad8e686d52464eE(ptr noalias noundef nonnull align 8 dereferenceable(456) %47, i8 noundef %.sink14.i)
           to label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit" unwind label %.thread164
 
 101:                                              ; preds = %60
@@ -61747,7 +61747,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.thread.i": ; preds = %switch.lookup, %88, %.noexc47, %.noexc46, %77, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd69d8c3994152053E.llvm.16978709814855407318.exit.thread.i"
   %.sink14.i = phi i8 [ 6, %88 ], [ %59, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd69d8c3994152053E.llvm.16978709814855407318.exit.thread.i" ], [ %59, %.noexc46 ], [ %59, %77 ], [ %59, %.noexc47 ], [ %switch.masked, %switch.lookup ]
-  %90 = invoke noundef i64 @_ZN9hayagriva3csl14WritingContext9push_case17h6fad8e686d52464eE(ptr noalias noundef nonnull align 8 dereferenceable(456) %30, i8 noundef %.sink14.i)
+  %90 = invoke noundef range(i64 1, 0) i64 @_ZN9hayagriva3csl14WritingContext9push_case17h6fad8e686d52464eE(ptr noalias noundef nonnull align 8 dereferenceable(456) %30, i8 noundef %.sink14.i)
           to label %"_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit" unwind label %50
 
 "_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.thread.i"
@@ -90223,7 +90223,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 "_ZN9hayagriva3csl16Context$LT$T$GT$9push_case17hfc6ed1518e316664E.exit": ; preds = %switch.lookup, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd69d8c3994152053E.llvm.16978709814855407318.exit.thread.i", %32, %40, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.i", %43
   %.sink14.i = phi i8 [ 6, %43 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd69d8c3994152053E.llvm.16978709814855407318.exit.thread.i" ], [ %14, %40 ], [ %14, %32 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf3f9dfb2435f9684E.llvm.16978709814855407318.exit.i" ], [ %switch.masked, %switch.lookup ]
-  %45 = tail call noundef i64 @_ZN9hayagriva3csl14WritingContext9push_case17h6fad8e686d52464eE(ptr noalias noundef nonnull align 8 dereferenceable(456) %8, i8 noundef %.sink14.i), !range !3376
+  %45 = tail call noundef range(i64 1, 0) i64 @_ZN9hayagriva3csl14WritingContext9push_case17h6fad8e686d52464eE(ptr noalias noundef nonnull align 8 dereferenceable(456) %8, i8 noundef %.sink14.i), !range !3376
   tail call void @"_ZN9hayagriva3csl16Context$LT$T$GT$8push_str17h62fbbe1c0f4af2abE"(ptr noalias noundef nonnull align 8 dereferenceable(664) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   tail call void @_ZN9hayagriva3csl14WritingContext8pop_case17h684b77c8e1d5cff0E(ptr noalias noundef nonnull align 8 dereferenceable(456) %8, i64 noundef %45)
   store i8 0, ptr %12, align 2

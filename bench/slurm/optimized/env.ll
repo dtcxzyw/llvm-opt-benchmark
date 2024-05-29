@@ -330,7 +330,7 @@ define i32 @setenvf(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readon
   br i1 %.not16, label %25, label %23
 
 23:                                               ; preds = %21
-  %24 = call fastcc i32 @_env_array_update(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %10, i1 noundef zeroext true)
+  %24 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %10, i1 noundef zeroext true)
   %. = xor i32 %24, 1
   br label %27
 
@@ -523,7 +523,7 @@ define void @env_array_merge(ptr noundef %0, ptr noundef readonly %1) #0 {
   %29 = sext i32 %26 to i64
   %30 = call i64 @strlcpy(ptr noundef %9, ptr noundef nonnull dereferenceable(1) %23, i64 noundef %29) #18
   %31 = load ptr, ptr %4, align 8
-  %32 = call fastcc i32 @_env_array_update(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %31, i1 noundef zeroext true)
+  %32 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %31, i1 noundef zeroext true)
   br label %_env_array_entry_splitter.exit.thread
 
 _env_array_entry_splitter.exit.thread:            ; preds = %20, %13, %.lr.ph, %28
@@ -593,7 +593,7 @@ define range(i32 0, 2) i32 @env_array_append_fmt(ptr noundef %0, ptr noundef %1,
   call void @llvm.va_start.p0(ptr nonnull %5)
   %7 = call i32 @vsnprintf(ptr noundef %6, i64 noundef 262144, ptr noundef %2, ptr noundef nonnull %5) #18
   call void @llvm.va_end.p0(ptr nonnull %5)
-  %8 = call fastcc i32 @_env_array_update(ptr noundef %0, ptr noundef %1, ptr noundef %6, i1 noundef zeroext false)
+  %8 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %0, ptr noundef %1, ptr noundef %6, i1 noundef zeroext false)
   call void @slurm_xfree(ptr noundef nonnull %4) #18
   ret i32 %8
 }
@@ -613,7 +613,7 @@ define range(i32 0, 2) i32 @env_array_overwrite_fmt(ptr noundef %0, ptr noundef 
   call void @llvm.va_start.p0(ptr nonnull %5)
   %7 = call i32 @vsnprintf(ptr noundef %6, i64 noundef 262144, ptr noundef %2, ptr noundef nonnull %5) #18
   call void @llvm.va_end.p0(ptr nonnull %5)
-  %8 = call fastcc i32 @_env_array_update(ptr noundef %0, ptr noundef %1, ptr noundef %6, i1 noundef zeroext true)
+  %8 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %0, ptr noundef %1, ptr noundef %6, i1 noundef zeroext true)
   call void @slurm_xfree(ptr noundef nonnull %4) #18
   ret i32 %8
 }
@@ -635,16 +635,16 @@ define range(i32 0, 2) i32 @env_array_overwrite_het_fmt(ptr noundef %0, ptr noun
   store ptr null, ptr %7, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.176, ptr noundef %1, i32 noundef %2) #18
   %11 = load ptr, ptr %7, align 8
-  %12 = call fastcc i32 @_env_array_update(ptr noundef %0, ptr noundef %11, ptr noundef %8, i1 noundef zeroext true)
+  %12 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %0, ptr noundef %11, ptr noundef %8, i1 noundef zeroext true)
   call void @slurm_xfree(ptr noundef nonnull %7) #18
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.177, ptr noundef %1, i32 noundef %2) #18
   %13 = load ptr, ptr %7, align 8
-  %14 = call fastcc i32 @_env_array_update(ptr noundef %0, ptr noundef %13, ptr noundef %8, i1 noundef zeroext true)
+  %14 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %0, ptr noundef %13, ptr noundef %8, i1 noundef zeroext true)
   call void @slurm_xfree(ptr noundef nonnull %7) #18
   br label %17
 
 15:                                               ; preds = %4
-  %16 = call fastcc i32 @_env_array_update(ptr noundef %0, ptr noundef %1, ptr noundef %8, i1 noundef zeroext true)
+  %16 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %0, ptr noundef %1, ptr noundef %8, i1 noundef zeroext true)
   br label %17
 
 17:                                               ; preds = %15, %10
@@ -4569,7 +4569,7 @@ define void @env_array_merge_slurm_spank(ptr noundef %0, ptr noundef readonly %1
   br i1 %34, label %35, label %_env_array_entry_splitter.exit.thread
 
 35:                                               ; preds = %32, %27
-  %36 = call fastcc i32 @_env_array_update(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %7, i1 noundef zeroext true)
+  %36 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %7, i1 noundef zeroext true)
   br label %_env_array_entry_splitter.exit.thread
 
 _env_array_entry_splitter.exit.thread:            ; preds = %19, %12, %.lr.ph, %32, %35
@@ -4909,7 +4909,7 @@ define ptr @env_array_user_default(ptr noundef %0, i32 noundef %1, i32 noundef %
   store ptr null, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr %57, ptr %58, align 8
-  %59 = call fastcc i32 @_env_array_update(ptr noundef nonnull %58, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i1 noundef zeroext true)
+  %59 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef nonnull %58, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i1 noundef zeroext true)
   %60 = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %21) #18
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %62, label %._crit_edge113
@@ -5353,7 +5353,7 @@ _bracket_cnt.exit:                                ; preds = %249
 
 .loopexit:                                        ; preds = %_bracket_cnt.exit, %258, %260, %244
   %268 = phi ptr [ %245, %244 ], [ %248, %_bracket_cnt.exit ], [ %.pre115.pre, %258 ], [ %.pre115.pre, %260 ]
-  %269 = call fastcc i32 @_env_array_update(ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef %268, i1 noundef zeroext true)
+  %269 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef %268, i1 noundef zeroext true)
   br label %_env_array_entry_splitter.exit.thread
 
 _env_array_entry_splitter.exit.thread:            ; preds = %234, %239, %226, %219, %215, %.loopexit, %_discard_env.exit
@@ -5610,7 +5610,7 @@ _strip_cr_nl.exit19:                              ; preds = %.lr.ph.i15, %80, %7
   br label %.preheader.backedge
 
 .loopexit:                                        ; preds = %_bracket_cnt.exit, %72, %_strip_cr_nl.exit19, %60
-  %87 = call fastcc i32 @_env_array_update(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %61, i1 noundef zeroext true)
+  %87 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %61, i1 noundef zeroext true)
   br label %_env_array_entry_splitter.exit.thread
 
 _env_array_entry_splitter.exit.thread:            ; preds = %50, %55, %42, %35, %_strip_cr_nl.exit, %.loopexit, %_discard_env.exit
@@ -5753,8 +5753,8 @@ define void @set_env_from_opts(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %43
 
 43:                                               ; preds = %41, %38
-  %44 = tail call fastcc i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.222, i1 noundef zeroext false)
-  %45 = tail call fastcc i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.222, i1 noundef zeroext false)
+  %44 = tail call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.222, i1 noundef zeroext false)
+  %45 = tail call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.222, i1 noundef zeroext false)
   %46 = tail call ptr @getenv(ptr noundef nonnull @.str.224) #18
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %49, label %47
@@ -5765,8 +5765,8 @@ define void @set_env_from_opts(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not7.i, label %49, label %_set_ext_launcher_hydra.exit
 
 49:                                               ; preds = %47, %43
-  %50 = tail call fastcc i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.243, i1 noundef zeroext false)
-  %51 = tail call fastcc i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.222, i1 noundef zeroext false)
+  %50 = tail call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.243, i1 noundef zeroext false)
+  %51 = tail call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.222, i1 noundef zeroext false)
   br label %_set_ext_launcher_hydra.exit
 
 _set_ext_launcher_hydra.exit:                     ; preds = %47, %49
@@ -5780,8 +5780,8 @@ _set_ext_launcher_hydra.exit:                     ; preds = %47, %49
   br i1 %.not7.i50, label %55, label %_set_ext_launcher_hydra.exit51
 
 55:                                               ; preds = %53, %_set_ext_launcher_hydra.exit
-  %56 = tail call fastcc i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.243, i1 noundef zeroext false)
-  %57 = tail call fastcc i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.222, i1 noundef zeroext false)
+  %56 = tail call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.243, i1 noundef zeroext false)
+  %57 = tail call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef %1, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.222, i1 noundef zeroext false)
   br label %_set_ext_launcher_hydra.exit51
 
 _set_ext_launcher_hydra.exit51:                   ; preds = %53, %55

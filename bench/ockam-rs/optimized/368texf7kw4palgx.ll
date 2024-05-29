@@ -1184,7 +1184,7 @@ define hidden noundef nonnull ptr @_ZN4duct10Expression11stdout_file17h3a0695b01
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %11 = tail call noundef i32 @"_ZN110_$LT$std..sys..unix..fd..FileDesc$u20$as$u20$std..sys_common..FromInner$LT$std..os..fd..owned..OwnedFd$GT$$GT$10from_inner17he3820e8033b7642dE"(i32 noundef %8), !range !302
   %12 = tail call noundef i32 @"_ZN107_$LT$std..sys..unix..fs..File$u20$as$u20$std..sys_common..FromInner$LT$std..sys..unix..fd..FileDesc$GT$$GT$10from_inner17h26c53b4c5827f0d4E"(i32 noundef %11), !range !302
-  %13 = tail call noundef i32 @"_ZN92_$LT$std..fs..File$u20$as$u20$std..sys_common..FromInner$LT$std..sys..unix..fs..File$GT$$GT$10from_inner17h31139da22cd74c4fE"(i32 noundef %12), !range !302
+  %13 = tail call noundef range(i32 0, -1) i32 @"_ZN92_$LT$std..fs..File$u20$as$u20$std..sys_common..FromInner$LT$std..sys..unix..fs..File$GT$$GT$10from_inner17h31139da22cd74c4fE"(i32 noundef %12), !range !302
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
   %14 = load ptr, ptr %0, align 8, !alias.scope !303, !nonnull !4, !noundef !4
   %15 = atomicrmw add ptr %14, i64 1 monotonic, align 8, !noalias !303

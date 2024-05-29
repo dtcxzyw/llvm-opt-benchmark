@@ -16403,7 +16403,7 @@ define i32 @zend_fcall_info_call(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %12 = load ptr, ptr %11, align 8
   store i32 0, ptr %9, align 8
   store ptr null, ptr %11, align 8
-  %13 = call i32 @zend_fcall_info_args_ex(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %3)
+  %13 = call range(i32 -1, 1) i32 @zend_fcall_info_args_ex(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %3)
   br label %14
 
 14:                                               ; preds = %8, %4

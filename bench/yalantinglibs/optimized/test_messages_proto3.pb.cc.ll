@@ -75685,9 +75685,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %5 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %3, 2
+  %add.i = add nuw nsw i64 %div1410.i, %5
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -75709,17 +75709,17 @@ if.then5:                                         ; preds = %while.end.i, %if.th
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.321") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %kv, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i64 24, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
-  %5 = load i64, ptr %second.i, align 8
+  %6 = load i64, ptr %second.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %p, i64 24
-  store i64 %5, ptr %second3.i, align 8
+  store i64 %6, ptr %second3.i, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then.i, %if.else.i, %while.end.i, %if.then5
   %second = getelementptr inbounds i8, ptr %p, i64 24
-  %6 = load i64, ptr %second, align 8
+  %7 = load i64, ptr %second, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -75727,25 +75727,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %7, i64 112
-  %8 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %7, i64 noundef 24)
+  %call11.i23.i.i = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef 24)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignEnum>::InnerMap::iterator_base.319") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %6, ptr noundef %retval.0.i.i)
-  %9 = load i64, ptr %this, align 8
-  %inc = add i64 %9, 1
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignEnum>::InnerMap::iterator_base.319") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef %retval.0.i.i)
+  %10 = load i64, ptr %this, align 8
+  %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
@@ -79427,9 +79427,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %5 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %3, 2
+  %add.i = add nuw nsw i64 %div1410.i, %5
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -79451,17 +79451,17 @@ if.then5:                                         ; preds = %while.end.i, %if.th
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.352") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %kv, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i64 24, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
-  %5 = load i64, ptr %second.i, align 8
+  %6 = load i64, ptr %second.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %p, i64 24
-  store i64 %5, ptr %second3.i, align 8
+  store i64 %6, ptr %second3.i, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then.i, %if.else.i, %while.end.i, %if.then5
   %second = getelementptr inbounds i8, ptr %p, i64 24
-  %6 = load i64, ptr %second, align 8
+  %7 = load i64, ptr %second, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -79469,25 +79469,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %7, i64 112
-  %8 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %7, i64 noundef 24)
+  %call11.i23.i.i = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef 24)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedEnum>::InnerMap::iterator_base.351") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %6, ptr noundef %retval.0.i.i)
-  %9 = load i64, ptr %this, align 8
-  %inc = add i64 %9, 1
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedEnum>::InnerMap::iterator_base.351") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef %retval.0.i.i)
+  %10 = load i64, ptr %this, align 8
+  %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
@@ -82690,9 +82690,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %5 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %3, 2
+  %add.i = add nuw nsw i64 %div1410.i, %5
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -82714,17 +82714,17 @@ if.then5:                                         ; preds = %while.end.i, %if.th
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.363") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %kv, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i64 24, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
-  %5 = load i64, ptr %second.i, align 8
+  %6 = load i64, ptr %second.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %p, i64 24
-  store i64 %5, ptr %second3.i, align 8
+  store i64 %6, ptr %second3.i, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then.i, %if.else.i, %while.end.i, %if.then5
   %second = getelementptr inbounds i8, ptr %p, i64 24
-  %6 = load i64, ptr %second, align 8
+  %7 = load i64, ptr %second, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -82732,25 +82732,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %7, i64 112
-  %8 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %7, i64 noundef 24)
+  %call11.i23.i.i = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef 24)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignMessage>::InnerMap::iterator_base.362") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %6, ptr noundef %retval.0.i.i)
-  %9 = load i64, ptr %this, align 8
-  %inc = add i64 %9, 1
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignMessage>::InnerMap::iterator_base.362") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef %retval.0.i.i)
+  %10 = load i64, ptr %this, align 8
+  %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
@@ -86163,9 +86163,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %5 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %3, 2
+  %add.i = add nuw nsw i64 %div1410.i, %5
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -86187,17 +86187,17 @@ if.then5:                                         ; preds = %while.end.i, %if.th
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.374") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %kv, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i64 24, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
-  %5 = load i64, ptr %second.i, align 8
+  %6 = load i64, ptr %second.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %p, i64 24
-  store i64 %5, ptr %second3.i, align 8
+  store i64 %6, ptr %second3.i, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then.i, %if.else.i, %while.end.i, %if.then5
   %second = getelementptr inbounds i8, ptr %p, i64 24
-  %6 = load i64, ptr %second, align 8
+  %7 = load i64, ptr %second, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -86205,25 +86205,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %7, i64 112
-  %8 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %7, i64 noundef 24)
+  %call11.i23.i.i = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef 24)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessage>::InnerMap::iterator_base.373") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %6, ptr noundef %retval.0.i.i)
-  %9 = load i64, ptr %this, align 8
-  %inc = add i64 %9, 1
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap12InsertUniqueEmPNSC_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessage>::InnerMap::iterator_base.373") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef %retval.0.i.i)
+  %10 = load i64, ptr %this, align 8
+  %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
@@ -89420,9 +89420,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %5 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %3, 2
+  %add.i = add nuw nsw i64 %div1410.i, %5
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -89444,17 +89444,17 @@ if.then5:                                         ; preds = %while.end.i, %if.th
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSC_E(ptr nonnull sret(%"struct.std::pair.385") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %kv, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i64 24, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
-  %5 = load i64, ptr %second.i, align 8
+  %6 = load i64, ptr %second.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %p, i64 24
-  store i64 %5, ptr %second3.i, align 8
+  store i64 %6, ptr %second3.i, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then.i, %if.else.i, %while.end.i, %if.then5
   %second = getelementptr inbounds i8, ptr %p, i64 24
-  %6 = load i64, ptr %second, align 8
+  %7 = load i64, ptr %second, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -89462,25 +89462,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap5AllocINS9_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %7, i64 112
-  %8 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %7, i64 noundef 24)
+  %call11.i23.i.i = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef 24)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap5AllocINS9_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap5AllocINS9_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap12InsertUniqueEmPNS9_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::InnerMap::iterator_base.384") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %6, ptr noundef %retval.0.i.i)
-  %9 = load i64, ptr %this, align 8
-  %inc = add i64 %9, 1
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap12InsertUniqueEmPNS9_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::InnerMap::iterator_base.384") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %7, ptr noundef %retval.0.i.i)
+  %10 = load i64, ptr %this, align 8
+  %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
@@ -93756,9 +93756,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %20 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %19, 2
+  %add.i = add nuw nsw i64 %div1410.i, %20
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -93777,25 +93777,25 @@ while.end.i:                                      ; preds = %while.cond.i
 if.then5:                                         ; preds = %while.end.i, %if.then6.i
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   tail call void @_ZN6google8protobuf3MapIbbE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
-  %20 = load i8, ptr %kv, align 8, !noalias !1623
-  %21 = and i8 %20, 1
-  %conv.i.i.i.i4 = zext nneg i8 %21 to i64
-  %22 = load i64, ptr %seed_.i.i.i, align 8, !noalias !1623
-  %add.i.i.i6 = add i64 %22, %conv.i.i.i.i4
-  %23 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !1623
-  %sub.i.i.i8 = add i64 %23, -1
+  %21 = load i8, ptr %kv, align 8, !noalias !1623
+  %22 = and i8 %21, 1
+  %conv.i.i.i.i4 = zext nneg i8 %22 to i64
+  %23 = load i64, ptr %seed_.i.i.i, align 8, !noalias !1623
+  %add.i.i.i6 = add i64 %23, %conv.i.i.i.i4
+  %24 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !1623
+  %sub.i.i.i8 = add i64 %24, -1
   %and.i.i.i9 = and i64 %add.i.i.i6, %sub.i.i.i8
-  %24 = load ptr, ptr %table_.i.i.i, align 8, !noalias !1623
-  %arrayidx.i.i.i.i11 = getelementptr inbounds ptr, ptr %24, i64 %and.i.i.i9
-  %25 = load ptr, ptr %arrayidx.i.i.i.i11, align 8, !noalias !1623
-  %cmp.not.i.i.i.i12 = icmp eq ptr %25, null
+  %25 = load ptr, ptr %table_.i.i.i, align 8, !noalias !1623
+  %arrayidx.i.i.i.i11 = getelementptr inbounds ptr, ptr %25, i64 %and.i.i.i9
+  %26 = load ptr, ptr %arrayidx.i.i.i.i11, align 8, !noalias !1623
+  %cmp.not.i.i.i.i12 = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i.i12, label %if.end9, label %_ZNK6google8protobuf3MapIbbE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13
 
 _ZNK6google8protobuf3MapIbbE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13: ; preds = %if.then5
   %xor.i.i.i.i14 = xor i64 %and.i.i.i9, 1
-  %arrayidx2.i.i.i.i15 = getelementptr inbounds ptr, ptr %24, i64 %xor.i.i.i.i14
-  %26 = load ptr, ptr %arrayidx2.i.i.i.i15, align 8, !noalias !1623
-  %cmp3.i.i.not.i.i16 = icmp eq ptr %25, %26
+  %arrayidx2.i.i.i.i15 = getelementptr inbounds ptr, ptr %25, i64 %xor.i.i.i.i14
+  %27 = load ptr, ptr %arrayidx2.i.i.i.i15, align 8, !noalias !1623
+  %cmp3.i.i.not.i.i16 = icmp eq ptr %26, %27
   %and.i.i31 = and i64 %and.i.i.i9, -2
   %spec.select = select i1 %cmp3.i.i.not.i.i16, i64 %and.i.i31, i64 %and.i.i.i9
   br label %if.end9
@@ -93803,8 +93803,8 @@ _ZNK6google8protobuf3MapIbbE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13: ; 
 if.end9:                                          ; preds = %_ZNK6google8protobuf3MapIbbE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13, %if.then.i, %if.else.i, %while.end.i, %if.then5
   %p.sroa.14.0 = phi i64 [ %and.i.i.i9, %if.then5 ], [ %b.0.sink.i.i.ph, %while.end.i ], [ %b.0.sink.i.i.ph, %if.else.i ], [ %b.0.sink.i.i.ph, %if.then.i ], [ %spec.select, %_ZNK6google8protobuf3MapIbbE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13 ]
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %27 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %27, null
+  %28 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %28, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -93812,25 +93812,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapIbbE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %27, i64 112
-  %28 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %28, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %28, i64 112
+  %29 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %27, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %28, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %27, i64 noundef 24)
+  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %28, i64 noundef 24)
   br label %_ZN6google8protobuf3MapIbbE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapIbbE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
   call void @_ZN6google8protobuf3MapIbbE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<bool, bool>::InnerMap::iterator_base.399") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
-  %29 = load i64, ptr %this, align 8
-  %inc = add i64 %29, 1
+  %30 = load i64, ptr %this, align 8
+  %inc = add i64 %30, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
@@ -97391,9 +97391,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %15 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %14, 2
+  %add.i = add nuw nsw i64 %div1410.i, %15
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -97412,24 +97412,24 @@ while.end.i:                                      ; preds = %while.cond.i
 if.then5:                                         ; preds = %while.end.i, %if.then6.i
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   tail call void @_ZN6google8protobuf3MapIidE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
-  %15 = load i32, ptr %kv, align 8, !noalias !1783
-  %conv.i.i.i.i4 = sext i32 %15 to i64
-  %16 = load i64, ptr %seed_.i.i.i, align 8, !noalias !1783
-  %add.i.i.i6 = add i64 %16, %conv.i.i.i.i4
-  %17 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !1783
-  %sub.i.i.i8 = add i64 %17, -1
+  %16 = load i32, ptr %kv, align 8, !noalias !1783
+  %conv.i.i.i.i4 = sext i32 %16 to i64
+  %17 = load i64, ptr %seed_.i.i.i, align 8, !noalias !1783
+  %add.i.i.i6 = add i64 %17, %conv.i.i.i.i4
+  %18 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !1783
+  %sub.i.i.i8 = add i64 %18, -1
   %and.i.i.i9 = and i64 %sub.i.i.i8, %add.i.i.i6
-  %18 = load ptr, ptr %table_.i.i.i, align 8, !noalias !1783
-  %arrayidx.i.i.i.i11 = getelementptr inbounds ptr, ptr %18, i64 %and.i.i.i9
-  %19 = load ptr, ptr %arrayidx.i.i.i.i11, align 8, !noalias !1783
-  %cmp.not.i.i.i.i12 = icmp eq ptr %19, null
+  %19 = load ptr, ptr %table_.i.i.i, align 8, !noalias !1783
+  %arrayidx.i.i.i.i11 = getelementptr inbounds ptr, ptr %19, i64 %and.i.i.i9
+  %20 = load ptr, ptr %arrayidx.i.i.i.i11, align 8, !noalias !1783
+  %cmp.not.i.i.i.i12 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i.i12, label %if.end9, label %_ZNK6google8protobuf3MapIidE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13
 
 _ZNK6google8protobuf3MapIidE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13: ; preds = %if.then5
   %xor.i.i.i.i14 = xor i64 %and.i.i.i9, 1
-  %arrayidx2.i.i.i.i15 = getelementptr inbounds ptr, ptr %18, i64 %xor.i.i.i.i14
-  %20 = load ptr, ptr %arrayidx2.i.i.i.i15, align 8, !noalias !1783
-  %cmp3.i.i.not.i.i16 = icmp eq ptr %19, %20
+  %arrayidx2.i.i.i.i15 = getelementptr inbounds ptr, ptr %19, i64 %xor.i.i.i.i14
+  %21 = load ptr, ptr %arrayidx2.i.i.i.i15, align 8, !noalias !1783
+  %cmp3.i.i.not.i.i16 = icmp eq ptr %20, %21
   %and.i.i31 = and i64 %and.i.i.i9, -2
   %spec.select = select i1 %cmp3.i.i.not.i.i16, i64 %and.i.i31, i64 %and.i.i.i9
   br label %if.end9
@@ -97437,8 +97437,8 @@ _ZNK6google8protobuf3MapIidE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13: ; 
 if.end9:                                          ; preds = %_ZNK6google8protobuf3MapIidE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13, %if.then.i, %if.else.i, %while.end.i, %if.then5
   %p.sroa.14.0 = phi i64 [ %and.i.i.i9, %if.then5 ], [ %b.0.sink.i.i.ph, %while.end.i ], [ %b.0.sink.i.i.ph, %if.else.i ], [ %b.0.sink.i.i.ph, %if.then.i ], [ %spec.select, %_ZNK6google8protobuf3MapIidE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13 ]
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %21 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %22, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -97446,25 +97446,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapIidE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %21, i64 112
-  %22 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %22, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %21, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %21, i64 noundef 24)
+  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %22, i64 noundef 24)
   br label %_ZN6google8protobuf3MapIidE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapIidE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
   call void @_ZN6google8protobuf3MapIidE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<int, double>::InnerMap::iterator_base.432") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
-  %23 = load i64, ptr %this, align 8
-  %inc = add i64 %23, 1
+  %24 = load i64, ptr %this, align 8
+  %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
@@ -100750,9 +100750,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %15 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %14, 2
+  %add.i = add nuw nsw i64 %div1410.i, %15
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -100771,24 +100771,24 @@ while.end.i:                                      ; preds = %while.cond.i
 if.then5:                                         ; preds = %while.end.i, %if.then6.i
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   tail call void @_ZN6google8protobuf3MapIifE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
-  %15 = load i32, ptr %kv, align 8, !noalias !1938
-  %conv.i.i.i.i4 = sext i32 %15 to i64
-  %16 = load i64, ptr %seed_.i.i.i, align 8, !noalias !1938
-  %add.i.i.i6 = add i64 %16, %conv.i.i.i.i4
-  %17 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !1938
-  %sub.i.i.i8 = add i64 %17, -1
+  %16 = load i32, ptr %kv, align 8, !noalias !1938
+  %conv.i.i.i.i4 = sext i32 %16 to i64
+  %17 = load i64, ptr %seed_.i.i.i, align 8, !noalias !1938
+  %add.i.i.i6 = add i64 %17, %conv.i.i.i.i4
+  %18 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !1938
+  %sub.i.i.i8 = add i64 %18, -1
   %and.i.i.i9 = and i64 %sub.i.i.i8, %add.i.i.i6
-  %18 = load ptr, ptr %table_.i.i.i, align 8, !noalias !1938
-  %arrayidx.i.i.i.i11 = getelementptr inbounds ptr, ptr %18, i64 %and.i.i.i9
-  %19 = load ptr, ptr %arrayidx.i.i.i.i11, align 8, !noalias !1938
-  %cmp.not.i.i.i.i12 = icmp eq ptr %19, null
+  %19 = load ptr, ptr %table_.i.i.i, align 8, !noalias !1938
+  %arrayidx.i.i.i.i11 = getelementptr inbounds ptr, ptr %19, i64 %and.i.i.i9
+  %20 = load ptr, ptr %arrayidx.i.i.i.i11, align 8, !noalias !1938
+  %cmp.not.i.i.i.i12 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i.i12, label %if.end9, label %_ZNK6google8protobuf3MapIifE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13
 
 _ZNK6google8protobuf3MapIifE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13: ; preds = %if.then5
   %xor.i.i.i.i14 = xor i64 %and.i.i.i9, 1
-  %arrayidx2.i.i.i.i15 = getelementptr inbounds ptr, ptr %18, i64 %xor.i.i.i.i14
-  %20 = load ptr, ptr %arrayidx2.i.i.i.i15, align 8, !noalias !1938
-  %cmp3.i.i.not.i.i16 = icmp eq ptr %19, %20
+  %arrayidx2.i.i.i.i15 = getelementptr inbounds ptr, ptr %19, i64 %xor.i.i.i.i14
+  %21 = load ptr, ptr %arrayidx2.i.i.i.i15, align 8, !noalias !1938
+  %cmp3.i.i.not.i.i16 = icmp eq ptr %20, %21
   %and.i.i31 = and i64 %and.i.i.i9, -2
   %spec.select = select i1 %cmp3.i.i.not.i.i16, i64 %and.i.i31, i64 %and.i.i.i9
   br label %if.end9
@@ -100796,8 +100796,8 @@ _ZNK6google8protobuf3MapIifE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13: ; 
 if.end9:                                          ; preds = %_ZNK6google8protobuf3MapIifE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13, %if.then.i, %if.else.i, %while.end.i, %if.then5
   %p.sroa.14.0 = phi i64 [ %and.i.i.i9, %if.then5 ], [ %b.0.sink.i.i.ph, %while.end.i ], [ %b.0.sink.i.i.ph, %if.else.i ], [ %b.0.sink.i.i.ph, %if.then.i ], [ %spec.select, %_ZNK6google8protobuf3MapIifE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13 ]
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %21 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %22, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -100805,25 +100805,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapIifE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %21, i64 112
-  %22 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %22, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %21, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %21, i64 noundef 24)
+  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %22, i64 noundef 24)
   br label %_ZN6google8protobuf3MapIifE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapIifE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
   call void @_ZN6google8protobuf3MapIifE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<int, float>::InnerMap::iterator_base.464") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
-  %23 = load i64, ptr %this, align 8
-  %inc = add i64 %23, 1
+  %24 = load i64, ptr %this, align 8
+  %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
@@ -104234,9 +104234,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %15 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %14, 2
+  %add.i = add nuw nsw i64 %div1410.i, %15
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -104255,23 +104255,23 @@ while.end.i:                                      ; preds = %while.cond.i
 if.then5:                                         ; preds = %while.end.i, %if.then6.i
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   tail call void @_ZN6google8protobuf3MapIllE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
-  %15 = load i64, ptr %kv, align 8, !noalias !2097
-  %16 = load i64, ptr %seed_.i.i.i, align 8, !noalias !2097
-  %add.i.i.i5 = add i64 %16, %15
-  %17 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !2097
-  %sub.i.i.i7 = add i64 %17, -1
+  %16 = load i64, ptr %kv, align 8, !noalias !2097
+  %17 = load i64, ptr %seed_.i.i.i, align 8, !noalias !2097
+  %add.i.i.i5 = add i64 %17, %16
+  %18 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !2097
+  %sub.i.i.i7 = add i64 %18, -1
   %and.i.i.i8 = and i64 %sub.i.i.i7, %add.i.i.i5
-  %18 = load ptr, ptr %table_.i.i.i, align 8, !noalias !2097
-  %arrayidx.i.i.i.i10 = getelementptr inbounds ptr, ptr %18, i64 %and.i.i.i8
-  %19 = load ptr, ptr %arrayidx.i.i.i.i10, align 8, !noalias !2097
-  %cmp.not.i.i.i.i11 = icmp eq ptr %19, null
+  %19 = load ptr, ptr %table_.i.i.i, align 8, !noalias !2097
+  %arrayidx.i.i.i.i10 = getelementptr inbounds ptr, ptr %19, i64 %and.i.i.i8
+  %20 = load ptr, ptr %arrayidx.i.i.i.i10, align 8, !noalias !2097
+  %cmp.not.i.i.i.i11 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i.i11, label %if.end9, label %_ZNK6google8protobuf3MapIllE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i12
 
 _ZNK6google8protobuf3MapIllE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i12: ; preds = %if.then5
   %xor.i.i.i.i13 = xor i64 %and.i.i.i8, 1
-  %arrayidx2.i.i.i.i14 = getelementptr inbounds ptr, ptr %18, i64 %xor.i.i.i.i13
-  %20 = load ptr, ptr %arrayidx2.i.i.i.i14, align 8, !noalias !2097
-  %cmp3.i.i.not.i.i15 = icmp eq ptr %19, %20
+  %arrayidx2.i.i.i.i14 = getelementptr inbounds ptr, ptr %19, i64 %xor.i.i.i.i13
+  %21 = load ptr, ptr %arrayidx2.i.i.i.i14, align 8, !noalias !2097
+  %cmp3.i.i.not.i.i15 = icmp eq ptr %20, %21
   %and.i.i30 = and i64 %and.i.i.i8, -2
   %spec.select = select i1 %cmp3.i.i.not.i.i15, i64 %and.i.i30, i64 %and.i.i.i8
   br label %if.end9
@@ -104279,8 +104279,8 @@ _ZNK6google8protobuf3MapIllE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i12: ; 
 if.end9:                                          ; preds = %_ZNK6google8protobuf3MapIllE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i12, %if.then.i, %if.else.i, %while.end.i, %if.then5
   %p.sroa.14.0 = phi i64 [ %and.i.i.i8, %if.then5 ], [ %b.0.sink.i.i.ph, %while.end.i ], [ %b.0.sink.i.i.ph, %if.else.i ], [ %b.0.sink.i.i.ph, %if.then.i ], [ %spec.select, %_ZNK6google8protobuf3MapIllE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i12 ]
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %21 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %22, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -104288,25 +104288,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapIllE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %21, i64 112
-  %22 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %22, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %21, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %21, i64 noundef 24)
+  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %22, i64 noundef 24)
   br label %_ZN6google8protobuf3MapIllE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapIllE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
   call void @_ZN6google8protobuf3MapIllE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<long, long>::InnerMap::iterator_base.478") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
-  %23 = load i64, ptr %this, align 8
-  %inc = add i64 %23, 1
+  %24 = load i64, ptr %this, align 8
+  %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
@@ -107591,9 +107591,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %15 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %14, 2
+  %add.i = add nuw nsw i64 %div1410.i, %15
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -107612,24 +107612,24 @@ while.end.i:                                      ; preds = %while.cond.i
 if.then5:                                         ; preds = %while.end.i, %if.then6.i
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   tail call void @_ZN6google8protobuf3MapIiiE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
-  %15 = load i32, ptr %kv, align 8, !noalias !2252
-  %conv.i.i.i.i4 = sext i32 %15 to i64
-  %16 = load i64, ptr %seed_.i.i.i, align 8, !noalias !2252
-  %add.i.i.i6 = add i64 %16, %conv.i.i.i.i4
-  %17 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !2252
-  %sub.i.i.i8 = add i64 %17, -1
+  %16 = load i32, ptr %kv, align 8, !noalias !2252
+  %conv.i.i.i.i4 = sext i32 %16 to i64
+  %17 = load i64, ptr %seed_.i.i.i, align 8, !noalias !2252
+  %add.i.i.i6 = add i64 %17, %conv.i.i.i.i4
+  %18 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !2252
+  %sub.i.i.i8 = add i64 %18, -1
   %and.i.i.i9 = and i64 %sub.i.i.i8, %add.i.i.i6
-  %18 = load ptr, ptr %table_.i.i.i, align 8, !noalias !2252
-  %arrayidx.i.i.i.i11 = getelementptr inbounds ptr, ptr %18, i64 %and.i.i.i9
-  %19 = load ptr, ptr %arrayidx.i.i.i.i11, align 8, !noalias !2252
-  %cmp.not.i.i.i.i12 = icmp eq ptr %19, null
+  %19 = load ptr, ptr %table_.i.i.i, align 8, !noalias !2252
+  %arrayidx.i.i.i.i11 = getelementptr inbounds ptr, ptr %19, i64 %and.i.i.i9
+  %20 = load ptr, ptr %arrayidx.i.i.i.i11, align 8, !noalias !2252
+  %cmp.not.i.i.i.i12 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i.i12, label %if.end9, label %_ZNK6google8protobuf3MapIiiE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13
 
 _ZNK6google8protobuf3MapIiiE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13: ; preds = %if.then5
   %xor.i.i.i.i14 = xor i64 %and.i.i.i9, 1
-  %arrayidx2.i.i.i.i15 = getelementptr inbounds ptr, ptr %18, i64 %xor.i.i.i.i14
-  %20 = load ptr, ptr %arrayidx2.i.i.i.i15, align 8, !noalias !2252
-  %cmp3.i.i.not.i.i16 = icmp eq ptr %19, %20
+  %arrayidx2.i.i.i.i15 = getelementptr inbounds ptr, ptr %19, i64 %xor.i.i.i.i14
+  %21 = load ptr, ptr %arrayidx2.i.i.i.i15, align 8, !noalias !2252
+  %cmp3.i.i.not.i.i16 = icmp eq ptr %20, %21
   %and.i.i31 = and i64 %and.i.i.i9, -2
   %spec.select = select i1 %cmp3.i.i.not.i.i16, i64 %and.i.i31, i64 %and.i.i.i9
   br label %if.end9
@@ -107637,8 +107637,8 @@ _ZNK6google8protobuf3MapIiiE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13: ; 
 if.end9:                                          ; preds = %_ZNK6google8protobuf3MapIiiE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13, %if.then.i, %if.else.i, %while.end.i, %if.then5
   %p.sroa.14.0 = phi i64 [ %and.i.i.i9, %if.then5 ], [ %b.0.sink.i.i.ph, %while.end.i ], [ %b.0.sink.i.i.ph, %if.else.i ], [ %b.0.sink.i.i.ph, %if.then.i ], [ %spec.select, %_ZNK6google8protobuf3MapIiiE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13 ]
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %21 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %22, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -107646,25 +107646,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapIiiE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %21, i64 112
-  %22 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %22, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %21, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %21, i64 noundef 24)
+  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %22, i64 noundef 24)
   br label %_ZN6google8protobuf3MapIiiE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapIiiE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
   call void @_ZN6google8protobuf3MapIiiE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<int, int>::InnerMap::iterator_base.510") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
-  %23 = load i64, ptr %this, align 8
-  %inc = add i64 %23, 1
+  %24 = load i64, ptr %this, align 8
+  %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
@@ -111075,9 +111075,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %15 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %14, 2
+  %add.i = add nuw nsw i64 %div1410.i, %15
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -111096,23 +111096,23 @@ while.end.i:                                      ; preds = %while.cond.i
 if.then5:                                         ; preds = %while.end.i, %if.then6.i
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   tail call void @_ZN6google8protobuf3MapImmE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
-  %15 = load i64, ptr %kv, align 8, !noalias !2411
-  %16 = load i64, ptr %seed_.i.i.i, align 8, !noalias !2411
-  %add.i.i.i5 = add i64 %16, %15
-  %17 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !2411
-  %sub.i.i.i7 = add i64 %17, -1
+  %16 = load i64, ptr %kv, align 8, !noalias !2411
+  %17 = load i64, ptr %seed_.i.i.i, align 8, !noalias !2411
+  %add.i.i.i5 = add i64 %17, %16
+  %18 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !2411
+  %sub.i.i.i7 = add i64 %18, -1
   %and.i.i.i8 = and i64 %sub.i.i.i7, %add.i.i.i5
-  %18 = load ptr, ptr %table_.i.i.i, align 8, !noalias !2411
-  %arrayidx.i.i.i.i10 = getelementptr inbounds ptr, ptr %18, i64 %and.i.i.i8
-  %19 = load ptr, ptr %arrayidx.i.i.i.i10, align 8, !noalias !2411
-  %cmp.not.i.i.i.i11 = icmp eq ptr %19, null
+  %19 = load ptr, ptr %table_.i.i.i, align 8, !noalias !2411
+  %arrayidx.i.i.i.i10 = getelementptr inbounds ptr, ptr %19, i64 %and.i.i.i8
+  %20 = load ptr, ptr %arrayidx.i.i.i.i10, align 8, !noalias !2411
+  %cmp.not.i.i.i.i11 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i.i11, label %if.end9, label %_ZNK6google8protobuf3MapImmE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i12
 
 _ZNK6google8protobuf3MapImmE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i12: ; preds = %if.then5
   %xor.i.i.i.i13 = xor i64 %and.i.i.i8, 1
-  %arrayidx2.i.i.i.i14 = getelementptr inbounds ptr, ptr %18, i64 %xor.i.i.i.i13
-  %20 = load ptr, ptr %arrayidx2.i.i.i.i14, align 8, !noalias !2411
-  %cmp3.i.i.not.i.i15 = icmp eq ptr %19, %20
+  %arrayidx2.i.i.i.i14 = getelementptr inbounds ptr, ptr %19, i64 %xor.i.i.i.i13
+  %21 = load ptr, ptr %arrayidx2.i.i.i.i14, align 8, !noalias !2411
+  %cmp3.i.i.not.i.i15 = icmp eq ptr %20, %21
   %and.i.i30 = and i64 %and.i.i.i8, -2
   %spec.select = select i1 %cmp3.i.i.not.i.i15, i64 %and.i.i30, i64 %and.i.i.i8
   br label %if.end9
@@ -111120,8 +111120,8 @@ _ZNK6google8protobuf3MapImmE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i12: ; 
 if.end9:                                          ; preds = %_ZNK6google8protobuf3MapImmE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i12, %if.then.i, %if.else.i, %while.end.i, %if.then5
   %p.sroa.14.0 = phi i64 [ %and.i.i.i8, %if.then5 ], [ %b.0.sink.i.i.ph, %while.end.i ], [ %b.0.sink.i.i.ph, %if.else.i ], [ %b.0.sink.i.i.ph, %if.then.i ], [ %spec.select, %_ZNK6google8protobuf3MapImmE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i12 ]
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %21 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %22, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -111129,25 +111129,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapImmE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %21, i64 112
-  %22 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %22, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %21, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %21, i64 noundef 24)
+  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %22, i64 noundef 24)
   br label %_ZN6google8protobuf3MapImmE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapImmE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
   call void @_ZN6google8protobuf3MapImmE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<unsigned long, unsigned long>::InnerMap::iterator_base.524") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
-  %23 = load i64, ptr %this, align 8
-  %inc = add i64 %23, 1
+  %24 = load i64, ptr %this, align 8
+  %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
@@ -114666,9 +114666,9 @@ if.else.i:                                        ; preds = %if.end
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
 
 if.then12.i:                                      ; preds = %if.else.i
-  %mul13.i = mul nuw nsw i64 %add, 5
-  %div1410.i = lshr i64 %mul13.i, 2
-  %add.i = add nuw nsw i64 %div1410.i, 1
+  %15 = lshr i64 %add, 2
+  %div1410.i = add nsw i64 %14, 2
+  %add.i = add nuw nsw i64 %div1410.i, %15
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then12.i
@@ -114687,24 +114687,24 @@ while.end.i:                                      ; preds = %while.cond.i
 if.then5:                                         ; preds = %while.end.i, %if.then6.i
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   tail call void @_ZN6google8protobuf3MapIjjE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
-  %15 = load i32, ptr %kv, align 8, !noalias !2571
-  %conv.i.i.i.i4 = zext i32 %15 to i64
-  %16 = load i64, ptr %seed_.i.i.i, align 8, !noalias !2571
-  %add.i.i.i6 = add i64 %16, %conv.i.i.i.i4
-  %17 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !2571
-  %sub.i.i.i8 = add i64 %17, -1
+  %16 = load i32, ptr %kv, align 8, !noalias !2571
+  %conv.i.i.i.i4 = zext i32 %16 to i64
+  %17 = load i64, ptr %seed_.i.i.i, align 8, !noalias !2571
+  %add.i.i.i6 = add i64 %17, %conv.i.i.i.i4
+  %18 = load i64, ptr %num_buckets_.i.i.i, align 8, !noalias !2571
+  %sub.i.i.i8 = add i64 %18, -1
   %and.i.i.i9 = and i64 %sub.i.i.i8, %add.i.i.i6
-  %18 = load ptr, ptr %table_.i.i.i, align 8, !noalias !2571
-  %arrayidx.i.i.i.i11 = getelementptr inbounds ptr, ptr %18, i64 %and.i.i.i9
-  %19 = load ptr, ptr %arrayidx.i.i.i.i11, align 8, !noalias !2571
-  %cmp.not.i.i.i.i12 = icmp eq ptr %19, null
+  %19 = load ptr, ptr %table_.i.i.i, align 8, !noalias !2571
+  %arrayidx.i.i.i.i11 = getelementptr inbounds ptr, ptr %19, i64 %and.i.i.i9
+  %20 = load ptr, ptr %arrayidx.i.i.i.i11, align 8, !noalias !2571
+  %cmp.not.i.i.i.i12 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i.i12, label %if.end9, label %_ZNK6google8protobuf3MapIjjE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13
 
 _ZNK6google8protobuf3MapIjjE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13: ; preds = %if.then5
   %xor.i.i.i.i14 = xor i64 %and.i.i.i9, 1
-  %arrayidx2.i.i.i.i15 = getelementptr inbounds ptr, ptr %18, i64 %xor.i.i.i.i14
-  %20 = load ptr, ptr %arrayidx2.i.i.i.i15, align 8, !noalias !2571
-  %cmp3.i.i.not.i.i16 = icmp eq ptr %19, %20
+  %arrayidx2.i.i.i.i15 = getelementptr inbounds ptr, ptr %19, i64 %xor.i.i.i.i14
+  %21 = load ptr, ptr %arrayidx2.i.i.i.i15, align 8, !noalias !2571
+  %cmp3.i.i.not.i.i16 = icmp eq ptr %20, %21
   %and.i.i31 = and i64 %and.i.i.i9, -2
   %spec.select = select i1 %cmp3.i.i.not.i.i16, i64 %and.i.i31, i64 %and.i.i.i9
   br label %if.end9
@@ -114712,8 +114712,8 @@ _ZNK6google8protobuf3MapIjjE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13: ; 
 if.end9:                                          ; preds = %_ZNK6google8protobuf3MapIjjE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13, %if.then.i, %if.else.i, %while.end.i, %if.then5
   %p.sroa.14.0 = phi i64 [ %and.i.i.i9, %if.then5 ], [ %b.0.sink.i.i.ph, %while.end.i ], [ %b.0.sink.i.i.ph, %if.else.i ], [ %b.0.sink.i.i.ph, %if.then.i ], [ %spec.select, %_ZNK6google8protobuf3MapIjjE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i13 ]
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %21 = load ptr, ptr %alloc_.i, align 8
-  %cmp.i.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %alloc_.i, align 8
+  %cmp.i.i = icmp eq ptr %22, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
 
 if.then.i.i:                                      ; preds = %if.end9
@@ -114721,25 +114721,25 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN6google8protobuf3MapIjjE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i: ; preds = %if.end9
-  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %21, i64 112
-  %22 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %22, null
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %21, ptr noundef nonnull @_ZTIh, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull @_ZTIh, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i
-  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %21, i64 noundef 24)
+  %call11.i23.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %22, i64 noundef 24)
   br label %_ZN6google8protobuf3MapIjjE8InnerMap5AllocINS3_4NodeEEEPT_m.exit
 
 _ZN6google8protobuf3MapIjjE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call11.i23.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %kv, i64 16, i1 false)
   call void @_ZN6google8protobuf3MapIjjE8InnerMap12InsertUniqueEmPNS3_4NodeE(ptr nonnull sret(%"class.google::protobuf::Map<unsigned int, unsigned int>::InnerMap::iterator_base.559") align 8 %result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %p.sroa.14.0, ptr noundef %retval.0.i.i)
-  %23 = load i64, ptr %this, align 8
-  %inc = add i64 %23, 1
+  %24 = load i64, ptr %this, align 8
+  %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return

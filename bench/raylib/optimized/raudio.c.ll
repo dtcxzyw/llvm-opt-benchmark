@@ -36922,7 +36922,7 @@ ma_channel_map_is_valid.exit53:                   ; preds = %31, %29, %ma_channe
   %54 = load i32, ptr %9, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 32
   %56 = load i32, ptr %55, align 8
-  %57 = tail call fastcc i32 @ma_channel_map_get_conversion_path(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %56)
+  %57 = tail call fastcc range(i32 1, 6) i32 @ma_channel_map_get_conversion_path(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %56)
   %58 = getelementptr inbounds i8, ptr %1, i64 24
   store i64 %50, ptr %58, align 8
   %59 = icmp eq i32 %57, 4
@@ -37109,7 +37109,7 @@ ma_channel_map_copy_or_default.exit272:           ; preds = %.preheader.i.i267, 
   %72 = load ptr, ptr %48, align 8
   %73 = load i32, ptr %20, align 8
   %74 = load i32, ptr %23, align 8
-  %75 = tail call fastcc i32 @ma_channel_map_get_conversion_path(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef %74)
+  %75 = tail call fastcc range(i32 1, 6) i32 @ma_channel_map_get_conversion_path(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef %74)
   %76 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 %75, ptr %76, align 8
   %77 = icmp eq i32 %75, 4
@@ -58864,7 +58864,7 @@ define hidden range(i32 0, 2) i32 @drwav_init_memory_write_sequential_pcm_frames
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = mul i64 %11, %4
-  %13 = tail call fastcc i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly %3, i64 noundef %12, i32 noundef 1, ptr noundef %5)
+  %13 = tail call fastcc range(i32 0, 2) i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly %3, i64 noundef %12, i32 noundef 1, ptr noundef %5)
   br label %14
 
 14:                                               ; preds = %6, %8
@@ -66168,7 +66168,7 @@ define hidden i32 @stb_vorbis_decode_frame_pushdata(ptr noundef %0, ptr noundef 
   br label %152
 
 152:                                              ; preds = %154, %149
-  %153 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
+  %153 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %151, align 8
   %.not60 = icmp eq i32 %153, -1
   br i1 %.not60, label %156, label %154
@@ -66200,7 +66200,7 @@ define hidden i32 @stb_vorbis_decode_frame_pushdata(ptr noundef %0, ptr noundef 
   br label %169
 
 169:                                              ; preds = %171, %166
-  %170 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
+  %170 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %168, align 8
   %.not58 = icmp eq i32 %170, -1
   br i1 %.not58, label %173, label %171
@@ -69128,7 +69128,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   br i1 %.not1008, label %1276, label %115
 
 115:                                              ; preds = %113
-  %116 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
+  %116 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %0)
   %117 = getelementptr inbounds i8, ptr %0, i64 1784
   store i32 0, ptr %117, align 8
   %.not1009 = icmp eq i32 %116, 3
@@ -69141,7 +69141,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 
 .preheader1140:                                   ; preds = %115, %.preheader1140
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader1140 ], [ 0, %115 ]
-  %120 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
+  %120 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %117, align 8
   %121 = trunc i32 %120 to i8
   %122 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 %indvars.iv
@@ -69184,7 +69184,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv1408 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next1409, %.lr.ph ]
-  %135 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
+  %135 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %117, align 8
   %136 = trunc i32 %135 to i8
   %137 = load ptr, ptr %130, align 8
@@ -69257,7 +69257,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 
 .lr.ph1204:                                       ; preds = %.lr.ph1204.preheader, %.lr.ph1204
   %indvars.iv1412 = phi i64 [ 0, %.lr.ph1204.preheader ], [ %indvars.iv.next1413, %.lr.ph1204 ]
-  %166 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
+  %166 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %117, align 8
   %167 = trunc i32 %166 to i8
   %168 = load ptr, ptr %144, align 8
@@ -69287,7 +69287,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   br i1 %177, label %.lr.ph1208, label %._crit_edge1209
 
 ._crit_edge1209:                                  ; preds = %._crit_edge1205, %._crit_edge, %152
-  %178 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
+  %178 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %117, align 8
   %179 = and i32 %178, 1
   %.not1011 = icmp eq i32 %179, 0
@@ -69371,7 +69371,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   br i1 %exitcond15.not.i, label %crc32_init.exit, label %198
 
 crc32_init.exit:                                  ; preds = %206
-  %208 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0)
+  %208 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %0)
   store i32 0, ptr %117, align 8
   %.not1016 = icmp eq i32 %208, 5
   br i1 %.not1016, label %.preheader1137, label %209
@@ -69383,7 +69383,7 @@ crc32_init.exit:                                  ; preds = %206
 
 .preheader1137:                                   ; preds = %crc32_init.exit, %.preheader1137
   %indvars.iv1420 = phi i64 [ %indvars.iv.next1421, %.preheader1137 ], [ 0, %crc32_init.exit ]
-  %211 = tail call fastcc i32 @get8_packet_raw(ptr noundef nonnull %0)
+  %211 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %117, align 8
   %212 = trunc i32 %211 to i8
   %213 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 %indvars.iv1420
@@ -81282,7 +81282,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %8
 17:                                               ; preds = %14, %.thread.i
   %.sroa.5.0..sroa_idx3234.i = phi ptr [ %.sroa.5.0..sroa_idx31.i, %.thread.i ], [ %.sroa.5.0..sroa_idx.i, %14 ]
   %18 = getelementptr inbounds i8, ptr %0, i64 6752
-  %19 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %18)
+  %19 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %18)
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %29
 
@@ -81379,7 +81379,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %9
 21:                                               ; preds = %18, %.thread.i
   %.sroa.5.0..sroa_idx3234.i = phi ptr [ %.sroa.5.0..sroa_idx31.i, %.thread.i ], [ %.sroa.5.0..sroa_idx.i, %18 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 6752
-  %23 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %22)
+  %23 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %22)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %33
 
@@ -81563,7 +81563,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 18:                                               ; preds = %15, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 6752
-  %20 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %19)
+  %20 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %drmp3_init.exit
 
@@ -81777,7 +81777,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %48
 57:                                               ; preds = %54, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %54 ]
   %58 = getelementptr inbounds i8, ptr %0, i64 6752
-  %59 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %58)
+  %59 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %58)
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %drmp3_init.exit
 
@@ -81925,7 +81925,7 @@ define hidden i64 @drmp3_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr
   br i1 %45, label %drmp3_read_pcm_frames_raw.exit, label %46
 
 46:                                               ; preds = %.preheader.split.i
-  %47 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %12)
+  %47 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %12)
   %.not35.i = icmp eq i32 %47, 0
   br i1 %.not35.i, label %drmp3_read_pcm_frames_raw.exit, label %.preheader.split.i
 
@@ -82009,7 +82009,7 @@ define hidden i64 @drmp3_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr
   br i1 %25, label %drmp3_read_pcm_frames_raw.exit, label %26
 
 26:                                               ; preds = %.preheader.split.us.i
-  %27 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %27 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %.not35.us.i = icmp eq i32 %27, 0
   br i1 %.not35.us.i, label %drmp3_read_pcm_frames_raw.exit, label %.preheader.split.us.i
 
@@ -82050,7 +82050,7 @@ define hidden i64 @drmp3_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr
   br i1 %53, label %drmp3_read_pcm_frames_raw.exit, label %54
 
 54:                                               ; preds = %.preheader.split.i
-  %55 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %55 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %.not35.i = icmp eq i32 %55, 0
   br i1 %.not35.i, label %drmp3_read_pcm_frames_raw.exit, label %.preheader.split.i
 
@@ -82287,7 +82287,7 @@ drmp3__on_seek_64.exit.i:                         ; preds = %.thread.i.i, %48
   br i1 %103, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i, label %104
 
 104:                                              ; preds = %.preheader.split.us.i.i.i.i
-  %105 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %92)
+  %105 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %92)
   %.not35.us.i.i.i.i = icmp eq i32 %105, 0
   br i1 %.not35.us.i.i.i.i, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i, label %.preheader.split.us.i.i.i.i
 
@@ -82366,7 +82366,7 @@ drmp3_seek_to_start_of_stream.exit.i:             ; preds = %112
   br i1 %142, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i22, label %143
 
 143:                                              ; preds = %.preheader.split.us.i.i.i.i17
-  %144 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %129)
+  %144 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %129)
   %.not35.us.i.i.i.i21 = icmp eq i32 %144, 0
   br i1 %.not35.us.i.i.i.i21, label %drmp3_seek_forward_by_pcm_frames__brute_force.exit.i22, label %.preheader.split.us.i.i.i.i17
 
@@ -83142,7 +83142,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 18:                                               ; preds = %15, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
   %19 = getelementptr inbounds i8, ptr %7, i64 6752
-  %20 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19)
+  %20 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %30
 
@@ -83388,7 +83388,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 18:                                               ; preds = %15, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
   %19 = getelementptr inbounds i8, ptr %7, i64 6752
-  %20 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19)
+  %20 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %30
 
@@ -83485,7 +83485,7 @@ define internal fastcc ptr @drmp3__full_read_and_close_s16(ptr noundef %0, ptr n
   br i1 %45, label %drmp3_read_pcm_frames_s16.exit, label %46
 
 46:                                               ; preds = %.preheader.split.i.i
-  %47 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %7)
+  %47 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %7)
   %.not35.i.i = icmp eq i32 %47, 0
   br i1 %.not35.i.i, label %drmp3_read_pcm_frames_s16.exit, label %.preheader.split.i.i
 
@@ -83689,7 +83689,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 20:                                               ; preds = %17, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %17 ]
   %21 = getelementptr inbounds i8, ptr %6, i64 6752
-  %22 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21)
+  %22 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %32
 
@@ -83782,7 +83782,7 @@ drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
 20:                                               ; preds = %17, %.thread.i.i
   %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %17 ]
   %21 = getelementptr inbounds i8, ptr %6, i64 6752
-  %22 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21)
+  %22 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %32
 
@@ -94641,7 +94641,7 @@ drwav_init_memory.exit.thread:                    ; preds = %15, %drwav_init_mem
   %.sroa.5.0..sroa_idx31.i.i.i = getelementptr inbounds i8, ptr %5, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i.i, align 8
   %90 = getelementptr inbounds i8, ptr %5, i64 6752
-  %91 = call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %5, ptr noundef nonnull %90)
+  %91 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %5, ptr noundef nonnull %90)
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %drmp3_open_memory_and_read_pcm_frames_f32.exit
 
@@ -96368,7 +96368,7 @@ drmp3_fopen.exit.i:                               ; preds = %101
   %.sroa.5.0..sroa_idx31.i.i.i = getelementptr inbounds i8, ptr %99, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i.i, align 8
   %110 = getelementptr inbounds i8, ptr %99, i64 6752
-  %111 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %99, ptr noundef nonnull %110)
+  %111 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %99, ptr noundef nonnull %110)
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %113, label %125
 
@@ -97099,7 +97099,7 @@ LoadAudioStream.exit81:                           ; preds = %87, %91
   %.sroa.5.0..sroa_idx31.i.i = getelementptr inbounds i8, ptr %103, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i, align 8
   %117 = getelementptr inbounds i8, ptr %103, i64 6752
-  %118 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %103, ptr noundef nonnull %117)
+  %118 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %103, ptr noundef nonnull %117)
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %130
 
@@ -118857,18 +118857,18 @@ define internal fastcc range(i32 0, 2) i32 @start_packet(ptr nocapture noundef %
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc i32 @get32_packet(ptr nocapture noundef %0) unnamed_addr #7 {
-  %2 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0)
+  %2 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 1784
   store i32 0, ptr %3, align 8
-  %4 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0)
+  %4 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %0)
   store i32 0, ptr %3, align 8
   %5 = shl nsw i32 %4, 8
   %6 = add i32 %5, %2
-  %7 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0)
+  %7 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %0)
   store i32 0, ptr %3, align 8
   %8 = shl nsw i32 %7, 16
   %9 = add i32 %6, %8
-  %10 = tail call fastcc i32 @get8_packet_raw(ptr noundef %0)
+  %10 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %0)
   store i32 0, ptr %3, align 8
   %11 = shl i32 %10, 24
   %12 = add i32 %9, %11

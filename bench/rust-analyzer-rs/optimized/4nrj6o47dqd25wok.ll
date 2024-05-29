@@ -91592,7 +91592,7 @@ define hidden noundef i8 @_ZN6hir_ty7display12HirFormatter12write_joined17hee6ec
   br i1 %.0.i24, label %35, label %32
 
 32:                                               ; preds = %27
-  %33 = call noundef i8 @"_ZN85_$LT$hir_ty..diagnostics..match_check..Pat$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17hbd9973e756c8b1dfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(120) %0), !range !10151
+  %33 = call noundef range(i8 0, 5) i8 @"_ZN85_$LT$hir_ty..diagnostics..match_check..Pat$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17hbd9973e756c8b1dfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(120) %0), !range !10151
   %34 = icmp eq i8 %33, 4
   br i1 %34, label %20, label %.loopexit
 

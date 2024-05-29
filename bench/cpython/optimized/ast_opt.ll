@@ -1442,7 +1442,7 @@ for.body225:                                      ; preds = %cond.end221
 land.lhs.true232:                                 ; preds = %for.body225
   %39 = getelementptr i8, ptr %38, i64 8
   %.val = load ptr, ptr %39, align 8
-  %call.i445 = tail call fastcc i32 @astfold_expr(ptr noundef %.val, ptr noundef %ctx_, ptr noundef %state)
+  %call.i445 = tail call fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef %.val, ptr noundef %ctx_, ptr noundef %state)
   %tobool234.not = icmp eq i32 %call.i445, 0
   br i1 %tobool234.not, label %return, label %for.inc237
 

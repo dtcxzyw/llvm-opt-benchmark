@@ -7113,7 +7113,7 @@ define internal fastcc noundef i32 @spl_filesystem_file_read_csv(ptr noundef %0,
   %.pre = load ptr, ptr %6, align 8
   %.not.i48 = icmp ne ptr %.pre, null
   %9 = zext i1 %.not.i48 to i64
-  %10 = tail call fastcc i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %9, i1 noundef zeroext true)
+  %10 = tail call fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %9, i1 noundef zeroext true)
   %.not49 = icmp eq i32 %10, 0
   br i1 %.not49, label %.lr.ph, label %.loopexit
 
@@ -7161,7 +7161,7 @@ is_line_empty.exit.thread42:                      ; preds = %.lr.ph
 .backedge:                                        ; preds = %is_line_empty.exit.thread42, %is_line_empty.exit
   %.not.i = icmp ne ptr %11, null
   %25 = zext i1 %.not.i to i64
-  %26 = tail call fastcc i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %25, i1 noundef zeroext true)
+  %26 = tail call fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %25, i1 noundef zeroext true)
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %.lr.ph, label %.loopexit
 
@@ -7907,7 +7907,7 @@ define hidden void @zim_SplFileObject_fscanf(ptr nocapture noundef readonly %0, 
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp ne ptr %24, null
   %25 = zext i1 %.not.i to i64
-  %26 = call fastcc i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %8, i1 noundef zeroext false, i64 noundef %25, i1 noundef zeroext false)
+  %26 = call fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %8, i1 noundef zeroext false, i64 noundef %25, i1 noundef zeroext false)
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %28, label %31
 
@@ -10320,7 +10320,7 @@ spl_filesystem_file_free_line.exit33:             ; preds = %51, %57, %62
   %75 = load ptr, ptr %74, align 8
   %.not.i34 = icmp ne ptr %75, null
   %76 = zext i1 %.not.i34 to i64
-  %77 = tail call fastcc i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %1, i1 noundef zeroext true, i64 noundef %76, i1 noundef zeroext false)
+  %77 = tail call fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_ex(ptr noundef nonnull %1, i1 noundef zeroext true, i64 noundef %76, i1 noundef zeroext false)
   br label %78
 
 78:                                               ; preds = %34, %spl_filesystem_file_free_line.exit, %73, %spl_filesystem_file_free_line.exit33, %41, %7

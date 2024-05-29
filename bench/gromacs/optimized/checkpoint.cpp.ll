@@ -4084,14 +4084,14 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12do_cpt_stateP3XDRiP7t_
 53:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store ptr %47, ptr %17, align 8
-  %54 = call fastcc noundef i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 0, i32 noundef %23, i64 noundef 7, ptr noundef nonnull %17, ptr noundef null, ptr noundef %3, i32 noundef 1)
+  %54 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 0, i32 noundef %23, i64 noundef 7, ptr noundef nonnull %17, ptr noundef null, ptr noundef %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %131
 
 55:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr %46, ptr %16, align 8
-  %56 = call fastcc noundef i32 @_ZL12do_cpte_intsI10StateEntryEiP3XDRT_iiPPiP8_IO_FILE(ptr noundef %0, i32 noundef 24, i32 noundef %23, i32 noundef 1, ptr noundef nonnull %16, ptr noundef %3)
+  %56 = call fastcc noundef range(i32 -1, 1) i32 @_ZL12do_cpte_intsI10StateEntryEiP3XDRT_iiPPiP8_IO_FILE(ptr noundef %0, i32 noundef 24, i32 noundef %23, i32 noundef 1, ptr noundef nonnull %16, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   br label %131
 
@@ -4204,43 +4204,43 @@ _ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit115: ; preds = %87
   br label %131
 
 93:                                               ; preds = %52
-  %94 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 5, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %38, ptr noundef %3)
+  %94 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 5, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %38, ptr noundef %3)
   br label %131
 
 95:                                               ; preds = %52
-  %96 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 18, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %37, ptr noundef %3)
+  %96 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 18, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %37, ptr noundef %3)
   br label %131
 
 97:                                               ; preds = %52
-  %98 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 21, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %36, ptr noundef %3)
+  %98 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 21, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %36, ptr noundef %3)
   br label %131
 
 99:                                               ; preds = %52
-  %100 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 22, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %35, ptr noundef %3)
+  %100 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 22, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %35, ptr noundef %3)
   br label %131
 
 101:                                              ; preds = %52
-  %102 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 6, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %34, ptr noundef %3)
+  %102 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 6, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %34, ptr noundef %3)
   br label %131
 
 103:                                              ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
-  %104 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 27, i32 noundef %23, i64 noundef 1, ptr noundef nonnull %9, ptr noundef null, ptr noundef %3)
+  %104 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 27, i32 noundef %23, i64 noundef 1, ptr noundef nonnull %9, ptr noundef null, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %131
 
 105:                                              ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %32, ptr %8, align 8
-  %106 = call fastcc noundef i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 19, i32 noundef %23, i64 noundef 1, ptr noundef nonnull %8, ptr noundef null, ptr noundef %3, i32 noundef 1)
+  %106 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 19, i32 noundef %23, i64 noundef 1, ptr noundef nonnull %8, ptr noundef null, ptr noundef %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %131
 
 107:                                              ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %31, ptr %7, align 8
-  %108 = call fastcc noundef i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 20, i32 noundef %23, i64 noundef 1, ptr noundef nonnull %7, ptr noundef null, ptr noundef %3, i32 noundef 1)
+  %108 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 20, i32 noundef %23, i64 noundef 1, ptr noundef nonnull %7, ptr noundef null, ptr noundef %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %131
 
@@ -4261,27 +4261,27 @@ _ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit115: ; preds = %87
 117:                                              ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %28, ptr %6, align 8
-  %118 = call fastcc noundef i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 13, i32 noundef %23, i64 noundef 1, ptr noundef nonnull %6, ptr noundef null, ptr noundef %3, i32 noundef 1)
+  %118 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 13, i32 noundef %23, i64 noundef 1, ptr noundef nonnull %6, ptr noundef null, ptr noundef %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %131
 
 119:                                              ; preds = %52
-  %120 = call fastcc noundef i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 14, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %27, ptr noundef %3, i32 noundef 1)
+  %120 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 14, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %27, ptr noundef %3, i32 noundef 1)
   br label %131
 
 121:                                              ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %26, ptr %5, align 8
-  %122 = call fastcc noundef i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 15, i32 noundef %23, i64 noundef 1, ptr noundef nonnull %5, ptr noundef null, ptr noundef %3, i32 noundef 1)
+  %122 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 15, i32 noundef %23, i64 noundef 1, ptr noundef nonnull %5, ptr noundef null, ptr noundef %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %131
 
 123:                                              ; preds = %52
-  %124 = call fastcc noundef i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 16, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %25, ptr noundef %3, i32 noundef 1)
+  %124 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 16, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %25, ptr noundef %3, i32 noundef 1)
   br label %131
 
 125:                                              ; preds = %52
-  %126 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 28, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %24, ptr noundef %3)
+  %126 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 28, i32 noundef %23, i64 noundef -1, ptr noundef null, ptr noundef nonnull %24, ptr noundef %3)
   br label %131
 
 127:                                              ; preds = %52
@@ -4498,14 +4498,14 @@ _ZL14do_cpte_matrixI17StateKineticEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit: ; preds =
 82:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %15, ptr %6, align 8
-  %83 = call fastcc noundef i32 @_ZL11doVectorLowIfSaIfE17StateKineticEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 2, i32 noundef %1, i64 noundef 1, ptr noundef nonnull %6, ptr noundef %3, i32 noundef 1)
+  %83 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE17StateKineticEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 2, i32 noundef %1, i64 noundef 1, ptr noundef nonnull %6, ptr noundef %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %90
 
 84:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %14, ptr %5, align 8
-  %85 = call fastcc noundef i32 @_ZL11doVectorLowIfSaIfE17StateKineticEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 3, i32 noundef %1, i64 noundef 1, ptr noundef nonnull %5, ptr noundef %3, i32 noundef 1)
+  %85 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE17StateKineticEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 3, i32 noundef %1, i64 noundef 1, ptr noundef nonnull %5, ptr noundef %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %90
 
@@ -4723,11 +4723,11 @@ _ZL11do_cpte_intI16StateEnergyEntryEiP3XDRT_iPiP8_IO_FILE.exit: ; preds = %56, %
   br label %.loopexit
 
 86:                                               ; preds = %53
-  %87 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 1, i32 noundef %2, i64 noundef -1, ptr noundef null, ptr noundef nonnull %48, ptr noundef %4)
+  %87 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 1, i32 noundef %2, i64 noundef -1, ptr noundef null, ptr noundef nonnull %48, ptr noundef %4)
   br label %.loopexit
 
 88:                                               ; preds = %53
-  %89 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 2, i32 noundef %2, i64 noundef -1, ptr noundef null, ptr noundef nonnull %47, ptr noundef %4)
+  %89 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 2, i32 noundef %2, i64 noundef -1, ptr noundef null, ptr noundef nonnull %47, ptr noundef %4)
   br label %.loopexit
 
 90:                                               ; preds = %53
@@ -4756,7 +4756,7 @@ _ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit:    ; preds = %96, %97
   br label %.loopexit
 
 101:                                              ; preds = %53
-  %102 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 4, i32 noundef %2, i64 noundef -1, ptr noundef null, ptr noundef nonnull %45, ptr noundef %4)
+  %102 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 4, i32 noundef %2, i64 noundef -1, ptr noundef null, ptr noundef nonnull %45, ptr noundef %4)
   br label %.loopexit
 
 103:                                              ; preds = %53
@@ -5295,7 +5295,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %280, %281
   %285 = getelementptr inbounds i8, ptr %.086247, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %285, ptr %7, align 8
-  %286 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 10, i32 noundef %2, i64 noundef 1, ptr noundef nonnull %7, ptr noundef null, ptr noundef %4)
+  %286 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 10, i32 noundef %2, i64 noundef 1, ptr noundef nonnull %7, ptr noundef null, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.loopexit
 
@@ -5303,7 +5303,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %280, %281
   %288 = getelementptr inbounds i8, ptr %.086247, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %288, ptr %6, align 8
-  %289 = call fastcc noundef i32 @_ZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 11, i32 noundef %2, i64 noundef 1, ptr noundef nonnull %6, ptr noundef null, ptr noundef %4)
+  %289 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 11, i32 noundef %2, i64 noundef 1, ptr noundef nonnull %6, ptr noundef null, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
@@ -6148,7 +6148,7 @@ _ZNSt10unique_ptrI12df_history_tSt14default_deleteIS0_EED2Ev.exit._crit_edge: ; 
   store i32 %40, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %8, ptr %7, align 8
-  %41 = invoke fastcc noundef i32 @_ZL12do_cpte_intsI13StateFepEntryEiP3XDRT_iiPPiP8_IO_FILE(ptr noundef %0, i32 noundef 0, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %7, ptr noundef %4)
+  %41 = invoke fastcc noundef range(i32 -1, 1) i32 @_ZL12do_cpte_intsI13StateFepEntryEiP3XDRT_iiPPiP8_IO_FILE(ptr noundef %0, i32 noundef 0, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %7, ptr noundef %4)
           to label %_ZL12do_cpte_boolI13StateFepEntryEiP3XDRT_iPbP8_IO_FILE.exit unwind label %.loopexit.loopexit
 
 _ZL12do_cpte_boolI13StateFepEntryEiP3XDRT_iPbP8_IO_FILE.exit: ; preds = %37
@@ -6167,7 +6167,7 @@ _ZL12do_cpte_boolI13StateFepEntryEiP3XDRT_iPbP8_IO_FILE.exit: ; preds = %37
 47:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %29, ptr %6, align 8
-  %48 = invoke fastcc noundef i32 @_ZL11doVectorLowIfSaIfE13StateFepEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 3, i32 noundef %1, i64 noundef 1, ptr noundef nonnull %6, ptr noundef %4, i32 noundef 1)
+  %48 = invoke fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE13StateFepEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef 3, i32 noundef %1, i64 noundef 1, ptr noundef nonnull %6, ptr noundef %4, i32 noundef 1)
           to label %_ZL12do_cpte_realI13StateFepEntryEiP3XDRT_iPfP8_IO_FILE.exit unwind label %.loopexit.loopexit
 
 _ZL12do_cpte_realI13StateFepEntryEiP3XDRT_iPfP8_IO_FILE.exit: ; preds = %47
@@ -6188,7 +6188,7 @@ _ZL12do_cpte_realI13StateFepEntryEiP3XDRT_iPfP8_IO_FILE.exit: ; preds = %47
 
 .invoke:                                          ; preds = %36, %49, %50, %51, %52
   %53 = phi ptr [ %24, %52 ], [ %26, %51 ], [ %27, %50 ], [ %28, %49 ], [ %30, %36 ]
-  %54 = invoke fastcc noundef i32 @_ZL11doVectorLowIfSaIfE13StateFepEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef %.sroa.0.0125, i32 noundef %1, i64 noundef %25, ptr noundef nonnull %53, ptr noundef %4, i32 noundef 1)
+  %54 = invoke fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE13StateFepEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef %.sroa.0.0125, i32 noundef %1, i64 noundef %25, ptr noundef nonnull %53, ptr noundef %4, i32 noundef 1)
           to label %_ZL13do_cpte_realsI13StateFepEntryEiP3XDRT_iiPPfP8_IO_FILE.exit unwind label %.loopexit.loopexit
 
 55:                                               ; preds = %36
@@ -9130,7 +9130,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12doRvecVectorIN3gmx12Pa
   %30 = ptrtoint ptr %spec.select.i.i to i64
   %31 = sub i64 %30, %21
   %32 = ashr exact i64 %31, 2
-  %33 = call fastcc noundef i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %32, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef 1)
+  %33 = call fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementType(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %32, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %43
 

@@ -3880,7 +3880,7 @@ if.then:                                          ; preds = %land.lhs.true
   %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or1.i.i, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %4 to i8
   %sub.i.i.i = sub nuw nsw i8 64, %cast.i.i.i
-  %call1.i = tail call fastcc i32 @dictresize(ptr noundef %interp, ptr noundef nonnull %mp, i8 noundef zeroext %sub.i.i.i, i32 noundef 0)
+  %call1.i = tail call fastcc range(i32 -1, 1) i32 @dictresize(ptr noundef %interp, ptr noundef nonnull %mp, i8 noundef zeroext %sub.i.i.i, i32 noundef 0)
   %cmp3 = icmp slt i32 %call1.i, 0
   br i1 %cmp3, label %Fail, label %if.end6
 
@@ -4036,7 +4036,7 @@ if.then30:                                        ; preds = %_PyDict_NotifyEvent
   %31 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or1.i.i98, i1 true)
   %cast.i.i.i99 = trunc nuw nsw i64 %31 to i8
   %sub.i.i.i100 = sub nuw nsw i8 64, %cast.i.i.i99
-  %call1.i101 = tail call fastcc i32 @dictresize(ptr noundef nonnull %interp, ptr noundef nonnull %mp, i8 noundef zeroext %sub.i.i.i100, i32 noundef 1)
+  %call1.i101 = tail call fastcc range(i32 -1, 1) i32 @dictresize(ptr noundef nonnull %interp, ptr noundef nonnull %mp, i8 noundef zeroext %sub.i.i.i100, i32 noundef 1)
   %cmp32 = icmp slt i32 %call1.i101, 0
   br i1 %cmp32, label %Fail, label %if.then30.if.end36_crit_edge
 
@@ -7421,7 +7421,7 @@ if.then26:                                        ; preds = %land.lhs.true
   %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or1.i.i, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %13 to i8
   %sub.i.i.i = sub nuw nsw i8 64, %cast.i.i.i
-  %call1.i = tail call fastcc i32 @dictresize(ptr noundef %2, ptr noundef nonnull %d, i8 noundef zeroext %sub.i.i.i, i32 noundef 0)
+  %call1.i = tail call fastcc range(i32 -1, 1) i32 @dictresize(ptr noundef %2, ptr noundef nonnull %d, i8 noundef zeroext %sub.i.i.i, i32 noundef 0)
   %cmp28 = icmp slt i32 %call1.i, 0
   br i1 %cmp28, label %return, label %if.end32
 
@@ -7513,7 +7513,7 @@ if.then46:                                        ; preds = %_PyDict_NotifyEvent
   %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or1.i.i83, i1 true)
   %cast.i.i.i84 = trunc nuw nsw i64 %25 to i8
   %sub.i.i.i85 = sub nuw nsw i8 64, %cast.i.i.i84
-  %call1.i86 = tail call fastcc i32 @dictresize(ptr noundef nonnull %2, ptr noundef nonnull %d, i8 noundef zeroext %sub.i.i.i85, i32 noundef 1)
+  %call1.i86 = tail call fastcc range(i32 -1, 1) i32 @dictresize(ptr noundef nonnull %2, ptr noundef nonnull %d, i8 noundef zeroext %sub.i.i.i85, i32 noundef 1)
   %cmp48 = icmp slt i32 %call1.i86, 0
   br i1 %cmp48, label %return, label %if.then46.if.end52_crit_edge
 
@@ -11311,7 +11311,7 @@ if.then.i:                                        ; preds = %if.then8
   %16 = load ptr, ptr %1, align 8
   %interp.i.i.i = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load ptr, ptr %interp.i.i.i, align 8
-  %call1.i.i = tail call fastcc i32 @dict_merge(ptr noundef %17, ptr noundef nonnull %call.i, ptr noundef nonnull %14, i32 noundef 1)
+  %call1.i.i = tail call fastcc range(i32 -1, 1) i32 @dict_merge(ptr noundef %17, ptr noundef nonnull %call.i, ptr noundef nonnull %14, i32 noundef 1)
   br label %dict_update_arg.exit
 
 if.end.i22:                                       ; preds = %if.then8
@@ -11327,7 +11327,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %18 = load ptr, ptr %1, align 8
   %interp.i.i8.i = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %interp.i.i8.i, align 8
-  %call1.i9.i = tail call fastcc i32 @dict_merge(ptr noundef %19, ptr noundef nonnull %call.i, ptr noundef nonnull %14, i32 noundef 1)
+  %call1.i9.i = tail call fastcc range(i32 -1, 1) i32 @dict_merge(ptr noundef %19, ptr noundef nonnull %call.i, ptr noundef nonnull %14, i32 noundef 1)
   br label %dict_update_arg.exit
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -16320,7 +16320,7 @@ if.then.i:                                        ; preds = %if.end7
   %7 = load ptr, ptr %6, align 8
   %interp.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %interp.i.i.i, align 8
-  %call1.i.i = tail call fastcc i32 @dict_merge(ptr noundef %8, ptr noundef nonnull %call5, ptr noundef nonnull %other, i32 noundef 1)
+  %call1.i.i = tail call fastcc range(i32 -1, 1) i32 @dict_merge(ptr noundef %8, ptr noundef nonnull %call5, ptr noundef nonnull %other, i32 noundef 1)
   br label %dict_update_arg.exit
 
 if.end.i12:                                       ; preds = %if.end7
@@ -16337,7 +16337,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %10 = load ptr, ptr %9, align 8
   %interp.i.i8.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %interp.i.i8.i, align 8
-  %call1.i9.i = tail call fastcc i32 @dict_merge(ptr noundef %11, ptr noundef nonnull %call5, ptr noundef nonnull %other, i32 noundef 1)
+  %call1.i9.i = tail call fastcc range(i32 -1, 1) i32 @dict_merge(ptr noundef %11, ptr noundef nonnull %call5, ptr noundef nonnull %other, i32 noundef 1)
   br label %dict_update_arg.exit
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -16383,7 +16383,7 @@ if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %1, align 8
   %interp.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i.i, align 8
-  %call1.i.i = tail call fastcc i32 @dict_merge(ptr noundef %3, ptr noundef %self, ptr noundef nonnull %other, i32 noundef 1)
+  %call1.i.i = tail call fastcc range(i32 -1, 1) i32 @dict_merge(ptr noundef %3, ptr noundef %self, ptr noundef nonnull %other, i32 noundef 1)
   br label %dict_update_arg.exit
 
 if.end.i:                                         ; preds = %entry
@@ -16400,7 +16400,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %5 = load ptr, ptr %4, align 8
   %interp.i.i8.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %interp.i.i8.i, align 8
-  %call1.i9.i = tail call fastcc i32 @dict_merge(ptr noundef %6, ptr noundef %self, ptr noundef nonnull %other, i32 noundef 1)
+  %call1.i9.i = tail call fastcc range(i32 -1, 1) i32 @dict_merge(ptr noundef %6, ptr noundef %self, ptr noundef nonnull %other, i32 noundef 1)
   br label %dict_update_arg.exit
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -17538,7 +17538,7 @@ if.then.i:                                        ; preds = %if.then1
   %3 = load ptr, ptr %2, align 8
   %interp.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %interp.i.i.i, align 8
-  %call1.i.i = call fastcc i32 @dict_merge(ptr noundef %4, ptr noundef %self, ptr noundef nonnull %0, i32 noundef 1)
+  %call1.i.i = call fastcc range(i32 -1, 1) i32 @dict_merge(ptr noundef %4, ptr noundef %self, ptr noundef nonnull %0, i32 noundef 1)
   br label %if.end3
 
 if.end.i:                                         ; preds = %if.then1
@@ -17555,7 +17555,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %6 = load ptr, ptr %5, align 8
   %interp.i.i8.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %interp.i.i8.i, align 8
-  %call1.i9.i = call fastcc i32 @dict_merge(ptr noundef %7, ptr noundef %self, ptr noundef nonnull %0, i32 noundef 1)
+  %call1.i9.i = call fastcc range(i32 -1, 1) i32 @dict_merge(ptr noundef %7, ptr noundef %self, ptr noundef nonnull %0, i32 noundef 1)
   br label %if.end3
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -17579,7 +17579,7 @@ if.then9:                                         ; preds = %if.then6
   %9 = load ptr, ptr %8, align 8
   %interp.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %interp.i.i, align 8
-  %call1.i = call fastcc i32 @dict_merge(ptr noundef %10, ptr noundef %self, ptr noundef nonnull %kwds, i32 noundef 1)
+  %call1.i = call fastcc range(i32 -1, 1) i32 @dict_merge(ptr noundef %10, ptr noundef %self, ptr noundef nonnull %kwds, i32 noundef 1)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end.i, %entry, %if.then6, %if.then9, %if.end3

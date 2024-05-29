@@ -51919,7 +51919,7 @@ common.ret:                                       ; preds = %1794, %1791, %400
 792:                                              ; preds = %789
   %793 = getelementptr inbounds i8, ptr %63, i64 8
   %794 = load ptr, ptr %793, align 8, !alias.scope !6973, !noalias !6974, !nonnull !4, !noundef !4
-  %795 = invoke noundef i8 @"_ZN112_$LT$ockam_transport_core..error..TransportError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h3beb3af3bee63bb0E"(ptr noundef nonnull %794, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e229703e6de9cc80bf05c236c76a4379.501)
+  %795 = invoke noundef range(i8 1, 17) i8 @"_ZN112_$LT$ockam_transport_core..error..TransportError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h3beb3af3bee63bb0E"(ptr noundef nonnull %794, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e229703e6de9cc80bf05c236c76a4379.501)
           to label %804 unwind label %797, !noalias !6904
 
 796:                                              ; preds = %797, %787

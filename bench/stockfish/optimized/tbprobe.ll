@@ -3900,7 +3900,7 @@ define dso_local noundef zeroext i1 @_ZN9Stockfish10Tablebases10root_probeERNS_8
 
 26:                                               ; preds = %18
   store i32 1, ptr %4, align 4
-  %27 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_16searchILb0EEENS_10Tablebases8WDLScoreERNS_8PositionEPNS2_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull %4)
+  %27 = call fastcc noundef range(i32 -2, -2147483648) i32 @_ZN9Stockfish12_GLOBAL__N_16searchILb0EEENS_10Tablebases8WDLScoreERNS_8PositionEPNS2_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull %4)
   switch i32 %27, label %28 [
     i32 -2, label %.critedge
     i32 -1, label %.fold.split.i
@@ -4062,7 +4062,7 @@ define dso_local noundef zeroext i1 @_ZN9Stockfish10Tablebases14root_probe_wdlER
 
 14:                                               ; preds = %.lr.ph.split.us
   store i32 1, ptr %4, align 4
-  %15 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_16searchILb0EEENS_10Tablebases8WDLScoreERNS_8PositionEPNS2_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull %4)
+  %15 = call fastcc noundef range(i32 -2, -2147483648) i32 @_ZN9Stockfish12_GLOBAL__N_16searchILb0EEENS_10Tablebases8WDLScoreERNS_8PositionEPNS2_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull %4)
   %16 = sub nsw i32 0, %15
   %.pre29 = load i32, ptr %4, align 4
   br label %17
@@ -4104,7 +4104,7 @@ define dso_local noundef zeroext i1 @_ZN9Stockfish10Tablebases14root_probe_wdlER
 
 35:                                               ; preds = %.lr.ph.split
   store i32 1, ptr %4, align 4
-  %36 = call fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_16searchILb0EEENS_10Tablebases8WDLScoreERNS_8PositionEPNS2_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull %4)
+  %36 = call fastcc noundef range(i32 -2, -2147483648) i32 @_ZN9Stockfish12_GLOBAL__N_16searchILb0EEENS_10Tablebases8WDLScoreERNS_8PositionEPNS2_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull %4)
   %37 = sub nsw i32 0, %36
   %.pre = load i32, ptr %4, align 4
   br label %38

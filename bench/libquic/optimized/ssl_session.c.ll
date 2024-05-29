@@ -665,7 +665,7 @@ if.then46:                                        ; preds = %if.end42
 if.then48:                                        ; preds = %if.then46
   %initial_ctx = getelementptr inbounds i8, ptr %ssl, i64 320
   %31 = load ptr, ptr %initial_ctx, align 8
-  %call.i21 = call fastcc i32 @remove_session_lock(ptr noundef %31, ptr noundef nonnull %29, i32 noundef 1)
+  %call.i21 = call fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %31, ptr noundef nonnull %29, i32 noundef 1)
   %.pre31 = load ptr, ptr %session, align 8
   br label %no_session
 
@@ -1250,7 +1250,7 @@ if.then:                                          ; preds = %land.lhs.true1
   %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
   %2 = load ptr, ptr %ctx, align 8
   %3 = load ptr, ptr %session, align 8
-  %call.i = tail call fastcc i32 @remove_session_lock(ptr noundef %2, ptr noundef %3, i32 noundef 1)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %2, ptr noundef %3, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %land.lhs.true1, %if.then

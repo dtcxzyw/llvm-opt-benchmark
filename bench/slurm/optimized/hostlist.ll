@@ -5875,7 +5875,7 @@ define noalias noundef nonnull ptr @hostlist_ranged_string_malloc(ptr noundef %0
   %3 = zext nneg i32 %.0912 to i64
   %4 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %5 = zext i16 %4 to i32
-  %6 = tail call i64 @hostlist_ranged_string_dims(ptr noundef %0, i64 noundef %3, ptr noundef nonnull writeonly %.013, i32 noundef %5, i32 noundef 1)
+  %6 = tail call range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_dims(ptr noundef %0, i64 noundef %3, ptr noundef nonnull writeonly %.013, i32 noundef %5, i32 noundef 1)
   %7 = icmp slt i64 %6, 0
   br i1 %7, label %8, label %.critedge
 
@@ -6547,7 +6547,7 @@ define range(i64 -2147483648, 2147483648) i64 @hostset_ranged_string(ptr nocaptu
   %4 = load ptr, ptr %0, align 8
   %5 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %6 = zext i16 %5 to i32
-  %7 = tail call i64 @hostlist_ranged_string_dims(ptr noundef %4, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %6, i32 noundef 1)
+  %7 = tail call range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_dims(ptr noundef %4, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %6, i32 noundef 1)
   ret i64 %7
 }
 
@@ -6556,7 +6556,7 @@ define range(i64 -1, 2147483648) i64 @hostset_deranged_string(ptr nocapture noun
   %4 = load ptr, ptr %0, align 8
   %5 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %6 = zext i16 %5 to i32
-  %7 = tail call i64 @hostlist_deranged_string_dims(ptr noundef %4, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %6)
+  %7 = tail call range(i64 -1, 2147483648) i64 @hostlist_deranged_string_dims(ptr noundef %4, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %6)
   ret i64 %7
 }
 

@@ -270,7 +270,7 @@ return:                                           ; preds = %if.then57.i, %if.en
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 11) i32 @uriComposeQueryMallocA(ptr noundef %dest, ptr noundef %queryList) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @uriComposeQueryMallocExMmA(ptr noundef %dest, ptr noundef %queryList, i32 noundef 1, i32 noundef 1, ptr noundef null)
+  %call.i = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef %dest, ptr noundef %queryList, i32 noundef 1, i32 noundef 1, ptr noundef null)
   ret i32 %call.i
 }
 
@@ -452,7 +452,7 @@ return:                                           ; preds = %while.body, %do.end
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 11) i32 @uriDissectQueryMallocA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @uriDissectQueryMallocExMmA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef 1, i32 noundef 3, ptr noundef null)
+  %call.i = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef 1, i32 noundef 3, ptr noundef null)
   ret i32 %call.i
 }
 
@@ -1159,7 +1159,7 @@ return:                                           ; preds = %if.then57.i, %if.en
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 11) i32 @uriComposeQueryMallocW(ptr noundef %dest, ptr noundef %queryList) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @uriComposeQueryMallocExMmW(ptr noundef %dest, ptr noundef %queryList, i32 noundef 1, i32 noundef 1, ptr noundef null)
+  %call.i = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef %dest, ptr noundef %queryList, i32 noundef 1, i32 noundef 1, ptr noundef null)
   ret i32 %call.i
 }
 
@@ -1340,7 +1340,7 @@ return:                                           ; preds = %while.body, %do.end
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 11) i32 @uriDissectQueryMallocW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @uriDissectQueryMallocExMmW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef 1, i32 noundef 3, ptr noundef null)
+  %call.i = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef 1, i32 noundef 3, ptr noundef null)
   ret i32 %call.i
 }
 

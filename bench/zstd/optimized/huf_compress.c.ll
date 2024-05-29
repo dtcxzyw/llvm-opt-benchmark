@@ -455,7 +455,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %arrayidx.i = getelementptr inbounds i32, ptr %count, i64 %indvars.iv.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %cmp.i.i = icmp ult i32 %2, 165
-  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2, i1 true)
+  %3 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %2, i1 true)
   %add2.i.i = sub nuw nsw i32 189, %3
   %cond.i.i = select i1 %cmp.i.i, i32 %2, i32 %add2.i.i
   %idxprom1.i = zext nneg i32 %cond.i.i to i64
@@ -494,7 +494,7 @@ for.body28.i:                                     ; preds = %for.body28.i, %for.
   %arrayidx30.i = getelementptr inbounds i32, ptr %count, i64 %indvars.iv45.i
   %7 = load i32, ptr %arrayidx30.i, align 4
   %cmp.i34.i = icmp ult i32 %7, 165
-  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %7, i1 true)
+  %8 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %7, i1 true)
   %add2.i35.i = sub nuw nsw i32 189, %8
   %cond.i36.i = select i1 %cmp.i34.i, i32 %7, i32 %add2.i35.i
   %9 = zext nneg i32 %cond.i36.i to i64
@@ -811,7 +811,7 @@ while.body140.lr.ph.lr.ph.i:                      ; preds = %while.cond137.prehe
 
 while.body51.i:                                   ; preds = %while.cond48.preheader.i, %if.end135.i
   %totalCost.197.i = phi i32 [ %sub93.i, %if.end135.i ], [ %shr.i, %while.cond48.preheader.i ]
-  %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %totalCost.197.i, i1 true)
+  %42 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %totalCost.197.i, i1 true)
   %cmp5487.not.i = icmp eq i32 %42, 31
   br i1 %cmp5487.not.i, label %land.rhs.i.preheader, label %for.body56.preheader.i
 
@@ -2760,7 +2760,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 1, 33) i32 @HUF_minTableLog(i32 noundef %symbolCardinality) local_unnamed_addr #7 {
 entry:
-  %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %symbolCardinality, i1 true)
+  %0 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %symbolCardinality, i1 true)
   %add = sub nuw nsw i32 32, %0
   ret i32 %add
 }
@@ -2800,7 +2800,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %HUF_cardinality.exit, label %for.body.i, !llvm.loop !41
 
 HUF_cardinality.exit:                             ; preds = %for.body.i
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %spec.select.i, i1 true)
+  %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %spec.select.i, i1 true)
   %add.i28 = sub nuw nsw i32 32, %1
   %cmp.not40 = icmp ugt i32 %add.i28, %maxTableLog
   br i1 %cmp.not40, label %return, label %do.end4.lr.ph

@@ -1601,7 +1601,7 @@ ar_each_key.exit:                                 ; preds = %.lr.ph.split.us.i
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %.lr.ph
-  %24 = tail call fastcc i64 @any_hash(i64 noundef %21, ptr noundef nonnull @obj_any_hash)
+  %24 = tail call fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 @any_hash(i64 noundef %21, ptr noundef nonnull @obj_any_hash)
   br label %25
 
 25:                                               ; preds = %.lr.ph, %23
@@ -1707,7 +1707,7 @@ define internal fastcc range(i32 -1, 2) i32 @ar_update(i64 noundef %0, i64 nound
   %6 = alloca i64, align 8
   store i64 %1, ptr %5, align 8
   store i64 0, ptr %6, align 8
-  %7 = tail call fastcc i64 @any_hash(i64 noundef %1, ptr noundef nonnull @obj_any_hash)
+  %7 = tail call fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 @any_hash(i64 noundef %1, ptr noundef nonnull @obj_any_hash)
   %8 = inttoptr i64 %0 to ptr
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 32768
@@ -2195,7 +2195,7 @@ define internal fastcc i32 @hash_stlike_lookup(i64 noundef %0, i64 noundef %1, p
   br i1 %9, label %ar_lookup.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call fastcc i64 @any_hash(i64 noundef %1, ptr noundef nonnull @obj_any_hash)
+  %11 = tail call fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 @any_hash(i64 noundef %1, ptr noundef nonnull @obj_any_hash)
   %12 = load i64, ptr %4, align 8
   %13 = and i64 %12, 32768
   %.not.i.i = icmp eq i64 %13, 0
@@ -2532,7 +2532,7 @@ define hidden i32 @rb_hash_stlike_delete(i64 noundef %0, ptr noundef %1, ptr nou
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %1, align 8
-  %9 = tail call fastcc i64 @any_hash(i64 noundef %8, ptr noundef nonnull @obj_any_hash)
+  %9 = tail call fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 @any_hash(i64 noundef %8, ptr noundef nonnull @obj_any_hash)
   %10 = load i64, ptr %4, align 8
   %11 = and i64 %10, 32768
   %.not.i.i = icmp eq i64 %11, 0
@@ -10669,7 +10669,7 @@ declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @ar_insert(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = inttoptr i64 %0 to ptr
-  %5 = tail call fastcc i64 @any_hash(i64 noundef %1, ptr noundef nonnull @obj_any_hash)
+  %5 = tail call fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 @any_hash(i64 noundef %1, ptr noundef nonnull @obj_any_hash)
   %6 = load i64, ptr %4, align 8
   %7 = and i64 %6, 32768
   %.not.i = icmp eq i64 %7, 0

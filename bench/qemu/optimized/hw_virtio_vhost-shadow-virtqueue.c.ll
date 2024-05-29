@@ -284,7 +284,7 @@ if.else12:                                        ; preds = %if.end7
   %in_num.i = getelementptr inbounds i8, ptr %storemerge17, i64 16
   %9 = load i32, ptr %in_num.i, align 8
   %conv1.i = zext i32 %9 to i64
-  %call.i = tail call i32 @vhost_svq_add(ptr noundef nonnull %svq, ptr noundef %6, i64 noundef %conv.i, ptr noundef %8, i64 noundef %conv1.i, ptr noundef nonnull %storemerge17)
+  %call.i = tail call range(i32 -28, 1) i32 @vhost_svq_add(ptr noundef nonnull %svq, ptr noundef %6, i64 noundef %conv.i, ptr noundef %8, i64 noundef %conv1.i, ptr noundef nonnull %storemerge17)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else12, %if.then9

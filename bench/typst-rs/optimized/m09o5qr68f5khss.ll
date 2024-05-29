@@ -23183,7 +23183,7 @@ _ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit26.thread.i: ; p
 
 _ZN5typst11foundations4calc3gcd17h816237eb723fc610E.exit.i: ; preds = %63, %58
   %.0.lcssa.i.i = phi i64 [ %16, %58 ], [ %.0912.i.i, %63 ]
-  %.010.i.i = tail call noundef i64 @llvm.abs.i64(i64 %.0.lcssa.i.i, i1 false)
+  %.010.i.i = tail call noundef range(i64 0, -9223372036854775807) i64 @llvm.abs.i64(i64 %.0.lcssa.i.i, i1 false)
   store i8 3, ptr %0, align 8, !alias.scope !5931, !noalias !5934
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.010.i.i, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !5931, !noalias !5934
@@ -106878,7 +106878,7 @@ _ZN5typst11foundations4calc3gcd17h816237eb723fc610E.exit: ; preds = %11, %6
   br label %36
 
 16:                                               ; preds = %_ZN5typst11foundations4calc3gcd17h816237eb723fc610E.exit
-  %.010.i = tail call noundef i64 @llvm.abs.i64(i64 %.0.lcssa.i, i1 false)
+  %.010.i = tail call noundef range(i64 0, -9223372036854775807) i64 @llvm.abs.i64(i64 %.0.lcssa.i, i1 false)
   %17 = sdiv i64 %1, %.010.i
   %18 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %17, i64 %2)
   %19 = extractvalue { i64, i1 } %18, 1

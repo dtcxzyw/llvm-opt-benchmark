@@ -3498,7 +3498,7 @@ if.end10:                                         ; preds = %lua_getstack.exit94
   br i1 %cmp21.i.i193, label %for.body.i.preheader.i.lr.ph, label %while.end, !llvm.loop !20
 
 if.end11:                                         ; preds = %while.body
-  %call.i = call i32 @lj_debug_getinfo(ptr noundef %L1, ptr noundef nonnull readonly @.str.26, ptr noundef nonnull %ar, i32 noundef 0)
+  %call.i = call range(i32 0, 2) i32 @lj_debug_getinfo(ptr noundef %L1, ptr noundef nonnull readonly @.str.26, ptr noundef nonnull %ar, i32 noundef 0)
   %41 = load ptr, ptr %top13, align 8
   %add.ptr = getelementptr inbounds i8, ptr %41, i64 -8
   %42 = load i64, ptr %add.ptr, align 8

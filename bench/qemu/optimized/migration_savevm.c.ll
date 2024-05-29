@@ -1246,7 +1246,7 @@ savevm_state_handler_remove.exit:                 ; preds = %save_state_priority
   br label %if.end
 
 if.end:                                           ; preds = %for.inc.i, %entry, %savevm_state_handler_remove.exit
-  %call.i7 = tail call i32 @vmstate_register_with_alias_id(ptr noundef %obj, i32 noundef %instance_id, ptr noundef nonnull %vmsd, ptr noundef %opaque, i32 noundef -1, i32 noundef 0, ptr noundef null)
+  %call.i7 = tail call range(i32 -1, 1) i32 @vmstate_register_with_alias_id(ptr noundef %obj, i32 noundef %instance_id, ptr noundef nonnull %vmsd, ptr noundef %opaque, i32 noundef -1, i32 noundef 0, ptr noundef null)
   ret i32 %call.i7
 }
 

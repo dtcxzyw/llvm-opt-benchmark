@@ -10234,7 +10234,7 @@ fons__allocFont.exit:                             ; preds = %21
   %48 = getelementptr inbounds i8, ptr %0, i64 20616
   store i32 0, ptr %48, align 8
   store ptr %0, ptr %39, align 8
-  %49 = tail call i32 @stbtt_InitFont(ptr noundef nonnull writeonly %39, ptr noundef %2, i32 noundef 0)
+  %49 = tail call range(i32 0, 2) i32 @stbtt_InitFont(ptr noundef nonnull writeonly %39, ptr noundef %2, i32 noundef 0)
   %.not = icmp eq i32 %49, 0
   br i1 %.not, label %91, label %50
 

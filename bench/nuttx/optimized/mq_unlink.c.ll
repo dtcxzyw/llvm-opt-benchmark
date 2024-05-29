@@ -117,7 +117,7 @@ define range(i32 -2147483648, 1) i32 @nxmq_unlink(ptr noundef %0) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @mq_unlink(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @file_mq_unlink(ptr noundef %0)
+  %2 = tail call range(i32 -2147483648, 1) i32 @file_mq_unlink(ptr noundef %0)
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %7
 

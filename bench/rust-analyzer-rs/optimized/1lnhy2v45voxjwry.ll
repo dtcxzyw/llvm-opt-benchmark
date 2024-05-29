@@ -74151,7 +74151,7 @@ define hidden void @_ZN3std9panicking3try17h1cd89da48423d84fE(ptr noalias nocapt
   %.val.i.i.i = load i32, ptr %.sroa.0.sroa.5.0.copyload, align 4, !noalias !11981, !noundef !137
   %3 = getelementptr i8, ptr %.sroa.0.sroa.5.0.copyload, i64 4
   %.val1.i.i.i = load i32, ptr %3, align 4, !range !342, !noalias !11981, !noundef !137
-  %4 = invoke noundef i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17hdfa16b3a323ed45fE"(i32 noundef %.val1.i.i.i)
+  %4 = invoke noundef range(i32 1, 0) i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17hdfa16b3a323ed45fE"(i32 noundef %.val1.i.i.i)
           to label %.noexc unwind label %6
 
 .noexc:                                           ; preds = %2
@@ -76964,7 +76964,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h61373a0335595755E.llvm.38648
   %.val.i.i = load i32, ptr %.sroa.3.0.copyload, align 4, !noalias !12506, !noundef !137
   %2 = getelementptr i8, ptr %.sroa.3.0.copyload, i64 4
   %.val1.i.i = load i32, ptr %2, align 4, !range !342, !noalias !12506, !noundef !137
-  %3 = tail call noundef i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17hdfa16b3a323ed45fE"(i32 noundef %.val1.i.i), !range !342, !noalias !12511
+  %3 = tail call noundef range(i32 1, 0) i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17hdfa16b3a323ed45fE"(i32 noundef %.val1.i.i), !range !342, !noalias !12511
   %4 = tail call noundef nonnull ptr @_ZN6hir_ty8chalk_db30type_alias_associated_ty_value17hc4490eb4865e5a38E.llvm.2869318172927361419(ptr noundef nonnull align 1 %.sroa.0.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.2.0.copyload, i32 noundef %.val.i.i, i32 noundef %3), !noalias !12506
   store ptr %4, ptr %0, align 8
   ret void
@@ -115697,7 +115697,7 @@ _ZN6hir_ty7display14SizedByDefault14is_sized_trait17h32647e1fb8a0d7eeE.exit.thre
   call void @llvm.experimental.noalias.scope.decl(metadata !21427)
   %182 = getelementptr inbounds i8, ptr %.sroa.0425.0.ph620.i, i64 16
   %183 = load i32, ptr %182, align 8, !range !342, !alias.scope !21430, !noalias !21421, !noundef !137
-  %184 = call noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %183), !range !342, !noalias !21427
+  %184 = call noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %183), !range !342, !noalias !21427
   store i32 %184, ptr %48, align 4, !noalias !21426
   %185 = load ptr, ptr %98, align 8, !alias.scope !21421, !noalias !21424, !nonnull !137, !align !277, !noundef !137
   %186 = load ptr, ptr %99, align 8, !alias.scope !21421, !noalias !21424, !nonnull !137, !align !1688, !noundef !137
@@ -115730,7 +115730,7 @@ _ZN6hir_ty7display14SizedByDefault14is_sized_trait17h32647e1fb8a0d7eeE.exit.thre
   call void @llvm.experimental.noalias.scope.decl(metadata !21427)
   %196 = getelementptr inbounds i8, ptr %.sroa.0425.0567.us592.i, i64 16
   %197 = load i32, ptr %196, align 8, !range !342, !alias.scope !21430, !noalias !21421, !noundef !137
-  %198 = call noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %197), !range !342, !noalias !21427
+  %198 = call noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %197), !range !342, !noalias !21427
   store i32 %198, ptr %48, align 4, !noalias !21426
   %199 = load ptr, ptr %98, align 8, !alias.scope !21421, !noalias !21424, !nonnull !137, !align !277, !noundef !137
   %200 = load ptr, ptr %99, align 8, !alias.scope !21421, !noalias !21424, !nonnull !137, !align !1688, !noundef !137
@@ -116010,7 +116010,7 @@ _ZN6hir_ty7display12HirFormatter9write_fmt17hfb91d0f0885e32a6E.exit333.i: ; pred
   call void @llvm.experimental.noalias.scope.decl(metadata !21427)
   %321 = getelementptr inbounds i8, ptr %.sroa.0425.0.ph620.i, i64 16
   %322 = load i32, ptr %321, align 8, !range !342, !alias.scope !21430, !noalias !21421, !noundef !137
-  %323 = call noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %322), !range !342, !noalias !21427
+  %323 = call noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %322), !range !342, !noalias !21427
   store i32 %323, ptr %48, align 4, !noalias !21426
   %324 = load ptr, ptr %98, align 8, !alias.scope !21421, !noalias !21424, !nonnull !137, !align !277, !noundef !137
   %325 = load ptr, ptr %99, align 8, !alias.scope !21421, !noalias !21424, !nonnull !137, !align !1688, !noundef !137
@@ -116685,7 +116685,7 @@ _ZN6hir_ty7display12HirFormatter9write_fmt17hfb91d0f0885e32a6E.exit379.i: ; pred
   %592 = getelementptr inbounds i8, ptr %.us-phi576.i, i64 8
   %593 = getelementptr inbounds i8, ptr %.us-phi576.i, i64 16
   %594 = load i32, ptr %593, align 8, !range !342, !alias.scope !21424, !noalias !21421, !noundef !137
-  %595 = call noundef i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17hdfa16b3a323ed45fE"(i32 noundef %594), !range !342
+  %595 = call noundef range(i32 1, 0) i32 @"_ZN67_$LT$hir_def..TypeAliasId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17hdfa16b3a323ed45fE"(i32 noundef %594), !range !342
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29), !noalias !21426
   %596 = load ptr, ptr %98, align 8, !alias.scope !21421, !noalias !21424, !nonnull !137, !align !277, !noundef !137
   %597 = load ptr, ptr %99, align 8, !alias.scope !21421, !noalias !21424, !nonnull !137, !align !1688, !noundef !137
@@ -117547,7 +117547,7 @@ _ZN6hir_ty7display12HirFormatter9write_fmt17hfb91d0f0885e32a6E.exit56: ; preds =
   call void @llvm.experimental.noalias.scope.decl(metadata !21877)
   %141 = getelementptr inbounds i8, ptr %1, i64 8
   %142 = load i32, ptr %141, align 8, !range !342, !alias.scope !21877, !noundef !137
-  %143 = call noundef i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %142), !range !342, !noalias !21877
+  %143 = call noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %142), !range !342, !noalias !21877
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @"_ZN84_$LT$hir_def..ModuleDefId$u20$as$u20$core..convert..From$LT$hir_def..TraitId$GT$$GT$4from17hb706df0e2bb28477E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 4 dereferenceable(16) %9, i32 noundef %143)
   call void @llvm.experimental.noalias.scope.decl(metadata !21880)
@@ -120542,7 +120542,7 @@ _ZN15ra_ap_rustc_abi7Integer10fit_signed17hbdda0f86c7938073E.exit: ; preds = %_Z
 
 _ZN15ra_ap_rustc_abi7Integer10fit_signed17hbdda0f86c7938073E.exit42: ; preds = %_ZN15ra_ap_rustc_abi7Integer10fit_signed17hbdda0f86c7938073E.exit, %21, %23, %25
   %.0.i41 = phi i8 [ 0, %_ZN15ra_ap_rustc_abi7Integer10fit_signed17hbdda0f86c7938073E.exit ], [ 1, %21 ], [ %..i40, %25 ], [ 2, %23 ]
-  %.0.sroa.speculated.i43 = tail call noundef i8 @llvm.umax.i8(i8 %.0.i35, i8 %.0.i41)
+  %.0.sroa.speculated.i43 = tail call noundef range(i8 0, 5) i8 @llvm.umax.i8(i8 %.0.i35, i8 %.0.i41)
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = load i8, ptr %27, align 8, !range !22222, !noundef !137
   %.not = icmp eq i8 %28, 3
@@ -120621,7 +120621,7 @@ _ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit: ; preds = %29, 
   %.026 = select i1 %.not33, i8 0, i8 %53
   %54 = icmp slt i128 %2, 0
   %.0.sroa.speculated.i43..0.i = select i1 %54, i8 %.0.sroa.speculated.i43, i8 %.0.i
-  %.0.sroa.speculated.i46 = tail call noundef i8 @llvm.umax.i8(i8 %.0.sroa.speculated.i43..0.i, i8 %.026)
+  %.0.sroa.speculated.i46 = tail call noundef range(i8 0, 5) i8 @llvm.umax.i8(i8 %.0.sroa.speculated.i43..0.i, i8 %.026)
   %.lobit = lshr i128 %2, 127
   %55 = trunc nuw nsw i128 %.lobit to i8
   br label %56

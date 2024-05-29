@@ -1639,7 +1639,7 @@ default.unreachable669:                           ; preds = %189
 44:                                               ; preds = %37, %32
   %.0.i.i.i = phi i64 [ %43, %37 ], [ 0, %32 ]
   %45 = shl i64 %36, 1
-  %46 = tail call noundef i64 @llvm.usub.sat.i64(i64 %.0.i.i.i, i64 %45)
+  %46 = tail call noundef range(i64 0, 4294967296) i64 @llvm.usub.sat.i64(i64 %.0.i.i.i, i64 %45)
   %47 = icmp ugt i64 %46, 32
   br i1 %47, label %396, label %48
 
@@ -5174,7 +5174,7 @@ _ZN14regex_automata4util8captures9GroupInfo17explicit_slot_len17h2cef1599428c388
   %14 = load i32, ptr %13, align 4, !alias.scope !674, !noalias !679, !noundef !4
   %15 = zext i32 %14 to i64
   %16 = shl i64 %9, 1
-  %17 = tail call noundef i64 @llvm.usub.sat.i64(i64 %15, i64 %16)
+  %17 = tail call noundef range(i64 0, 4294967296) i64 @llvm.usub.sat.i64(i64 %15, i64 %16)
   %.not.not = icmp ult i64 %16, %15
   br i1 %.not.not, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h6efd3ef198b7e614E.llvm.3371294817895845771.exit.i.i"
 
@@ -5236,7 +5236,7 @@ define void @_ZN14regex_automata3dfa7onepass5Cache5reset17hab80fc3b862ab6ddE(ptr
 _ZN14regex_automata4util8captures9GroupInfo17explicit_slot_len17h2cef1599428c3881E.llvm.17849184579231348327.exit: ; preds = %2, %9
   %.0.i.i.i = phi i64 [ %15, %9 ], [ 0, %2 ]
   %16 = shl i64 %8, 1
-  %17 = tail call noundef i64 @llvm.usub.sat.i64(i64 %.0.i.i.i, i64 %16)
+  %17 = tail call noundef range(i64 0, 4294967296) i64 @llvm.usub.sat.i64(i64 %.0.i.i.i, i64 %16)
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !alias.scope !697, !noundef !4
   %20 = icmp ult i64 %19, %17

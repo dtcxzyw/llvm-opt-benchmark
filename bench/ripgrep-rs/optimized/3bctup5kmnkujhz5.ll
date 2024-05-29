@@ -92,8 +92,8 @@ define hidden { i32, i32 } @_ZN12regex_syntax3hir8interval8Interval5union17hf680
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %2
-  %.0.sroa.speculated.i.i1 = tail call noundef i32 @llvm.umin.i32(i32 %3, i32 %6)
-  %.0.sroa.speculated.i.i2 = tail call noundef i32 @llvm.umax.i32(i32 %5, i32 %8)
+  %.0.sroa.speculated.i.i1 = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %3, i32 %6)
+  %.0.sroa.speculated.i.i2 = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %5, i32 %8)
   %..i = tail call i32 @llvm.umin.i32(i32 %.0.sroa.speculated.i.i1, i32 %.0.sroa.speculated.i.i2)
   %.6.i = tail call i32 @llvm.umax.i32(i32 %.0.sroa.speculated.i.i1, i32 %.0.sroa.speculated.i.i2)
   br label %11
@@ -158,7 +158,7 @@ define hidden noundef i8 @_ZN4core3cmp3Ord3max17h9e74ed02bed021f8E.llvm.81183062
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i32 0, 1114112) i32 @_ZN4core3cmp3Ord3max17hd3678ba51d4b90fdE.llvm.8118306253422699639(i32 noundef %0, i32 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %0, i32 %1)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %0, i32 %1)
   ret i32 %.0.sroa.speculated.i
 }
 
@@ -170,7 +170,7 @@ define hidden noundef i8 @_ZN4core3cmp3Ord3min17h2977db0d09c0cccaE.llvm.81183062
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i32 0, 1114112) i32 @_ZN4core3cmp3Ord3min17haffe6a0b3bd0de8fE.llvm.8118306253422699639(i32 noundef %0, i32 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %0, i32 %1)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %0, i32 %1)
   ret i32 %.0.sroa.speculated.i
 }
 

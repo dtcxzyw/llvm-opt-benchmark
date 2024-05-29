@@ -29688,7 +29688,7 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen5write17decorate_functio
 38:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
   call void @_ZN17cranelift_codegen5write9alias_map17h6919605361564a9eE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, {} }) align 8 dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %3)
-  %39 = invoke noundef i8 @_ZN17cranelift_codegen5write10FuncWriter14super_preamble17he2ea757d1ee7468bE(ptr noalias noundef nonnull readnone align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %3)
+  %39 = invoke noundef range(i8 0, 3) i8 @_ZN17cranelift_codegen5write10FuncWriter14super_preamble17he2ea757d1ee7468bE(ptr noalias noundef nonnull readnone align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %3)
           to label %_ZN17cranelift_codegen5write10FuncWriter14write_preamble17he1dbe29a34e8b0e0E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit:                                        ; preds = %142

@@ -9,7 +9,7 @@ entry:
   %add = add i32 %predictor_order, %residual_samples
   %shr = lshr i32 %add, %max_partition_order
   %shl = shl nuw i32 1, %max_partition_order
-  %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %shr, i1 true)
+  %0 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %shr, i1 true)
   %xor.i = xor i32 %0, 31
   %sub = sub nuw nsw i32 32, %xor.i
   %sub1 = sub nsw i32 0, %predictor_order

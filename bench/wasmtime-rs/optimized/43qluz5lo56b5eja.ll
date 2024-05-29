@@ -25,7 +25,7 @@ define range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20
   %8 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = tail call i8 @"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17hfcfc25dadbf82116E"(ptr nonnull align 1 %5, i64 %7, ptr nonnull align 1 %8, i64 %10), !range !5
+  %11 = tail call range(i8 -1, 2) i8 @"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17hfcfc25dadbf82116E"(ptr nonnull align 1 %5, i64 %7, ptr nonnull align 1 %8, i64 %10), !range !5
   ret i8 %11
 }
 

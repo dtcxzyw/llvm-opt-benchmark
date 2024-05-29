@@ -1892,7 +1892,7 @@ define dso_local i32 @__udp6_lib_rcv(ptr noundef %0, ptr noundef %1, i32 noundef
 
 udp6_unicast_rcv_skb.exit:                        ; preds = %129, %.thread17, %139, %143, %148, %153
   %167 = tail call fastcc i32 @udpv6_queue_rcv_skb(ptr noundef nonnull %114, ptr noundef %0)
-  %168 = tail call i32 @llvm.smax.i32(i32 %167, i32 0)
+  %168 = tail call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %167, i32 0)
   %169 = icmp eq i8 %113, 0
   br i1 %169, label %sock_put.exit.thread19, label %170
 

@@ -495,7 +495,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc i32 @do_dtls1_write(ptr noundef %ssl, i32 noundef 23, ptr noundef %buf_, i32 noundef %len, i32 noundef 1)
+  %call.i = tail call fastcc range(i32 -2147483648, 16385) i32 @do_dtls1_write(ptr noundef %ssl, i32 noundef 23, ptr noundef %buf_, i32 noundef %len, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

@@ -12887,7 +12887,7 @@ sw.bb82.i:                                        ; preds = %entry
   %loc.sroa.5.8.insert.shift.i = shl nuw i64 %loc.sroa.5.8.insert.ext.i352, 32
   %loc.sroa.3.8.insert.ext.i = zext i32 %2 to i64
   %loc.sroa.3.8.insert.insert.i = or disjoint i64 %loc.sroa.5.8.insert.shift.i, %loc.sroa.3.8.insert.ext.i
-  %call.i353 = tail call fastcc i32 @starunpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i351, i64 %loc.sroa.3.8.insert.insert.i, ptr noundef %145, i32 noundef 0, i32 noundef 49, i32 noundef 105, i32 noundef 107, i32 noundef 0)
+  %call.i353 = tail call fastcc range(i32 -1, 1) i32 @starunpack_helper(ptr noundef %c, i64 %loc.sroa.0.0.insert.insert.i351, i64 %loc.sroa.3.8.insert.insert.i, ptr noundef %145, i32 noundef 0, i32 noundef 49, i32 noundef 105, i32 noundef 107, i32 noundef 0)
   br label %compiler_visit_expr1.exit
 
 sw.bb84.i:                                        ; preds = %entry
@@ -12895,7 +12895,7 @@ sw.bb84.i:                                        ; preds = %entry
   %generators.i343 = getelementptr inbounds i8, ptr %e, i64 16
   %146 = load ptr, ptr %generators.i343, align 8
   %147 = load ptr, ptr %v.i342, align 8
-  %call.i344 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24424), ptr noundef %146, ptr noundef %147, ptr noundef null)
+  %call.i344 = tail call fastcc range(i32 -1, 1) i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24424), ptr noundef %146, ptr noundef %147, ptr noundef null)
   br label %compiler_visit_expr1.exit
 
 sw.bb86.i:                                        ; preds = %entry
@@ -12903,7 +12903,7 @@ sw.bb86.i:                                        ; preds = %entry
   %generators.i340 = getelementptr inbounds i8, ptr %e, i64 16
   %148 = load ptr, ptr %generators.i340, align 8
   %149 = load ptr, ptr %v.i339, align 8
-  %call.i341 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24536), ptr noundef %148, ptr noundef %149, ptr noundef null)
+  %call.i341 = tail call fastcc range(i32 -1, 1) i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24536), ptr noundef %148, ptr noundef %149, ptr noundef null)
   br label %compiler_visit_expr1.exit
 
 sw.bb88.i:                                        ; preds = %entry
@@ -12911,7 +12911,7 @@ sw.bb88.i:                                        ; preds = %entry
   %generators.i337 = getelementptr inbounds i8, ptr %e, i64 16
   %150 = load ptr, ptr %generators.i337, align 8
   %151 = load ptr, ptr %v.i336, align 8
-  %call.i338 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24696), ptr noundef %150, ptr noundef %151, ptr noundef null)
+  %call.i338 = tail call fastcc range(i32 -1, 1) i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24696), ptr noundef %150, ptr noundef %151, ptr noundef null)
   br label %compiler_visit_expr1.exit
 
 sw.bb90.i:                                        ; preds = %entry
@@ -12921,7 +12921,7 @@ sw.bb90.i:                                        ; preds = %entry
   %153 = load ptr, ptr %v.i333, align 8
   %value.i334 = getelementptr inbounds i8, ptr %e, i64 16
   %154 = load ptr, ptr %value.i334, align 8
-  %call.i335 = tail call fastcc i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24368), ptr noundef %152, ptr noundef %153, ptr noundef %154)
+  %call.i335 = tail call fastcc range(i32 -1, 1) i32 @compiler_comprehension(ptr noundef %c, ptr noundef nonnull %e, i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24368), ptr noundef %152, ptr noundef %153, ptr noundef %154)
   br label %compiler_visit_expr1.exit
 
 sw.bb92.i:                                        ; preds = %entry

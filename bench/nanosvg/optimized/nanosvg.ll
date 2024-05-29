@@ -8085,7 +8085,7 @@ nsvg__parseNameValue.exit.i:                      ; preds = %71, %.critedge6._cr
   %.pre-phi69.i.i = phi i64 [ %.pre68.i.i, %.critedge6._crit_edge.i.i ], [ %72, %71 ]
   %73 = getelementptr inbounds [512 x i8], ptr %4, i64 0, i64 %.pre-phi69.i.i
   store i8 0, ptr %73, align 1
-  %74 = call fastcc i32 @nsvg__parseAttr(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %74 = call fastcc range(i32 0, 2) i32 @nsvg__parseAttr(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
   %75 = load i8, ptr %.2.i, align 1
@@ -9507,7 +9507,7 @@ nsvg__parseNameValue.exit:                        ; preds = %.critedge6.i118.nsv
   %.pre-phi154 = phi i64 [ %.pre153, %.critedge6.i118.nsvg__parseNameValue.exit_crit_edge ], [ %71, %70 ]
   %72 = getelementptr inbounds [512 x i8], ptr %5, i64 0, i64 %.pre-phi154
   store i8 0, ptr %72, align 1
-  %73 = call fastcc i32 @nsvg__parseAttr(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %73 = call fastcc range(i32 0, 2) i32 @nsvg__parseAttr(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
   %74 = load i8, ptr %.2.i, align 1

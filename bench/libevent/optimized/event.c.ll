@@ -5947,7 +5947,7 @@ return:                                           ; preds = %lor.lhs.false, %eve
 define dso_local range(i32 -1, 2) i32 @event_dispatch() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @event_global_current_base_, align 8
-  %call.i = tail call i32 @event_base_loop(ptr noundef %0, i32 noundef 0)
+  %call.i = tail call range(i32 -1, 2) i32 @event_base_loop(ptr noundef %0, i32 noundef 0)
   ret i32 %call.i
 }
 

@@ -1494,7 +1494,7 @@ virtual_filepath_ex.exit:
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
   %9 = add i64 %8, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %7, i64 %9, i1 false)
-  %10 = call i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef readonly %0, ptr noundef nonnull @php_is_file_ok, i32 noundef 1)
+  %10 = call range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef readonly %0, ptr noundef nonnull @php_is_file_ok, i32 noundef 1)
   %11 = load ptr, ptr %2, align 8
   store ptr %11, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)

@@ -14889,7 +14889,7 @@ for.body6.i.i:                                    ; preds = %for.body6.i.i, %if.
   br i1 %exitcond.not.i.i, label %calc_binsize.exit.i, label %for.body6.i.i, !llvm.loop !32
 
 calc_binsize.exit.i:                              ; preds = %for.body6.i.i
-  %.x.0.i.i = call i64 @llvm.smax.i64(i64 %or.i.i, i64 -1)
+  %.x.0.i.i = call range(i64 -1, -9223372036854775808) i64 @llvm.smax.i64(i64 %or.i.i, i64 -1)
   %cmp5.i484 = icmp slt i64 %or.i.i, 0
   br i1 %cmp5.i484, label %if.then6.i, label %if.end8.i485
 
@@ -18009,7 +18009,7 @@ for.body6.i.i1487:                                ; preds = %for.body6.i.i1487, 
   br i1 %exitcond.not.i.i1496, label %calc_binsize.exit.i1497, label %for.body6.i.i1487, !llvm.loop !32
 
 calc_binsize.exit.i1497:                          ; preds = %for.body6.i.i1487
-  %.x.0.i.i1498 = call i64 @llvm.smax.i64(i64 %or.i.i1494, i64 -1)
+  %.x.0.i.i1498 = call range(i64 -1, -9223372036854775808) i64 @llvm.smax.i64(i64 %or.i.i1494, i64 -1)
   %532 = load i64, ptr %memo_size.i.i1564, align 8
   %cmp.not.i.i1500 = icmp ugt i64 %532, %.x.0.i.i1498
   br i1 %cmp.not.i.i1500, label %_Unpickler_MemoGet.exit.i1512, label %if.then7.i1501
@@ -18787,7 +18787,7 @@ sw.bb345:                                         ; preds = %if.end15
   %650 = getelementptr i8, ptr %649, i64 16
   %.val.i1838 = load i64, ptr %650, align 8
   %sub.i1839 = add i64 %.val.i1838, -2
-  %call1.i1840 = call fastcc i32 @do_setitems(ptr noundef readonly %st, ptr noundef nonnull readonly %self, i64 noundef %sub.i1839)
+  %call1.i1840 = call fastcc range(i32 -1, 1) i32 @do_setitems(ptr noundef readonly %st, ptr noundef nonnull readonly %self, i64 noundef %sub.i1839)
   %cmp347 = icmp slt i32 %call1.i1840, 0
   br i1 %cmp347, label %while.end, label %while.body.backedge
 
@@ -19367,7 +19367,7 @@ for.body6.i.i2084:                                ; preds = %for.body6.i.i2084, 
   br i1 %exitcond.not.i.i2093, label %calc_binsize.exit.i2094, label %for.body6.i.i2084, !llvm.loop !32
 
 calc_binsize.exit.i2094:                          ; preds = %for.body6.i.i2084
-  %.x.0.i.i2095 = call i64 @llvm.smax.i64(i64 %or.i.i2091, i64 -1)
+  %.x.0.i.i2095 = call range(i64 -1, -9223372036854775808) i64 @llvm.smax.i64(i64 %or.i.i2091, i64 -1)
   %cmp5.i2096 = icmp slt i64 %or.i.i2091, 0
   br i1 %cmp5.i2096, label %if.then6.i2104, label %if.end8.i2097
 

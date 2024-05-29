@@ -859,14 +859,14 @@ sw.bb3:                                           ; preds = %_ZNK4decl13get_decl
   %2 = load ptr, ptr %args, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx4, align 8
-  %call.i = tail call noundef i32 @_ZN14arith_rewriter16mk_le_ge_eq_coreEP4exprS1_NS_7op_kindER7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %2, ptr noundef %3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %call.i = tail call noundef range(i32 0, 6) i32 @_ZN14arith_rewriter16mk_le_ge_eq_coreEP4exprS1_NS_7op_kindER7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %2, ptr noundef %3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %4 = load ptr, ptr %args, align 8
   %arrayidx8 = getelementptr inbounds i8, ptr %args, i64 8
   %5 = load ptr, ptr %arrayidx8, align 8
-  %call.i75 = tail call noundef i32 @_ZN14arith_rewriter16mk_le_ge_eq_coreEP4exprS1_NS_7op_kindER7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %call.i75 = tail call noundef range(i32 0, 6) i32 @_ZN14arith_rewriter16mk_le_ge_eq_coreEP4exprS1_NS_7op_kindER7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit

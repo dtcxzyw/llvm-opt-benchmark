@@ -1929,62 +1929,65 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef %0, i32 no
 
 37:                                               ; preds = %34
   %.not35 = icmp eq ptr %2, null
-  br i1 %.not35, label %38, label %.loopexit.sink.split
+  br i1 %.not35, label %40, label %38
 
 38:                                               ; preds = %37
-  %39 = load ptr, ptr %18, align 8
-  %40 = load ptr, ptr %20, align 8
-  %41 = load i16, ptr %4, align 4
-  %42 = sext i16 %41 to i64
-  %43 = getelementptr inbounds %struct._PAGE, ptr %40, i64 %42, i32 1
-  %44 = load i16, ptr %43, align 2
-  %45 = sext i16 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %39, i64 %45
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 80
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 64
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 34
-  %53 = load i16, ptr %52, align 2
-  %54 = sext i16 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %51, i64 %54
-  %56 = getelementptr inbounds i8, ptr %49, i64 80
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %49, i64 28
-  %59 = load i16, ptr %58, align 4
-  %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct._PAGE, ptr %57, i64 %60
-  %62 = load i16, ptr %61, align 2
-  %63 = sext i16 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %51, i64 %63
-  %65 = getelementptr inbounds i8, ptr %61, i64 2
-  %66 = load i16, ptr %65, align 2
-  %67 = sext i16 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %51, i64 %67
-  br label %69
-
-69:                                               ; preds = %69, %38
-  %.0.i.i = phi ptr [ %55, %38 ], [ %72, %69 ]
-  %70 = icmp eq ptr %.0.i.i, %68
-  %71 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %72 = select i1 %70, ptr %64, ptr %71
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 48
-  %75 = load i32, ptr %74, align 8
-  %76 = and i32 %75, 3
-  %77 = icmp eq i32 %76, 3
-  %.not.i.i = icmp eq ptr %73, %47
-  %or.cond.i.i = or i1 %.not.i.i, %77
-  br i1 %or.cond.i.i, label %.loopexit.sink.split, label %69, !llvm.loop !16
-
-.loopexit.sink.split:                             ; preds = %69, %37
-  %.lcssa.sink = phi ptr [ %2, %37 ], [ %73, %69 ]
-  %78 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.lcssa.sink)
+  %39 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %2)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %.loopexit.sink.split, %3
-  %.022 = phi i32 [ 0, %3 ], [ %78, %.loopexit.sink.split ], [ -1, %32 ]
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %18, align 8
+  %42 = load ptr, ptr %20, align 8
+  %43 = load i16, ptr %4, align 4
+  %44 = sext i16 %43 to i64
+  %45 = getelementptr inbounds %struct._PAGE, ptr %42, i64 %44, i32 1
+  %46 = load i16, ptr %45, align 2
+  %47 = sext i16 %46 to i64
+  %48 = getelementptr inbounds ptr, ptr %41, i64 %47
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 80
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 64
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %49, i64 34
+  %55 = load i16, ptr %54, align 2
+  %56 = sext i16 %55 to i64
+  %57 = getelementptr inbounds ptr, ptr %53, i64 %56
+  %58 = getelementptr inbounds i8, ptr %51, i64 80
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %51, i64 28
+  %61 = load i16, ptr %60, align 4
+  %62 = sext i16 %61 to i64
+  %63 = getelementptr inbounds %struct._PAGE, ptr %59, i64 %62
+  %64 = load i16, ptr %63, align 2
+  %65 = sext i16 %64 to i64
+  %66 = getelementptr inbounds ptr, ptr %53, i64 %65
+  %67 = getelementptr inbounds i8, ptr %63, i64 2
+  %68 = load i16, ptr %67, align 2
+  %69 = sext i16 %68 to i64
+  %70 = getelementptr inbounds ptr, ptr %53, i64 %69
+  br label %71
+
+71:                                               ; preds = %71, %40
+  %.0.i.i = phi ptr [ %57, %40 ], [ %74, %71 ]
+  %72 = icmp eq ptr %.0.i.i, %70
+  %73 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %74 = select i1 %72, ptr %66, ptr %73
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 48
+  %77 = load i32, ptr %76, align 8
+  %78 = and i32 %77, 3
+  %79 = icmp eq i32 %78, 3
+  %.not.i.i = icmp eq ptr %75, %49
+  %or.cond.i.i = or i1 %.not.i.i, %79
+  br i1 %or.cond.i.i, label %FN_First_Field.exit, label %71, !llvm.loop !16
+
+FN_First_Field.exit:                              ; preds = %71
+  %80 = tail call range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %75)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %32, %3, %FN_First_Field.exit, %38
+  %.022 = phi i32 [ %39, %38 ], [ %80, %FN_First_Field.exit ], [ 0, %3 ], [ -1, %32 ]
   ret i32 %.022
 }
 

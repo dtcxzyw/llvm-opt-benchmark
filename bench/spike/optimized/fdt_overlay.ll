@@ -40,7 +40,7 @@ define i32 @fdt_overlay_apply(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %8, align 4
-  %18 = call fastcc i32 @overlay_adjust_node_phandles(ptr noundef %1, i32 noundef 0, i32 noundef %17)
+  %18 = call fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr noundef %1, i32 noundef 0, i32 noundef %17)
   %.not32 = icmp eq i32 %18, 0
   br i1 %.not32, label %19, label %overlay_update_local_references.exit.thread40
 

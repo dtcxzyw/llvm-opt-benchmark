@@ -1699,7 +1699,7 @@ dissect_configresponse.exit:                      ; preds = %377, %.thread67.i54
   br label %dissect_comrej.exit
 
 573:                                              ; preds = %268
-  %574 = call fastcc i32 @dissect_connresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull readonly %1, ptr noundef %272, ptr noundef %3)
+  %574 = call fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(ptr noundef %0, i32 noundef %286, ptr noundef nonnull readonly %1, ptr noundef %272, ptr noundef %3)
   br label %dissect_comrej.exit
 
 575:                                              ; preds = %268

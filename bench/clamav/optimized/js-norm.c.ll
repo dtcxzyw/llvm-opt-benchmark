@@ -1663,11 +1663,11 @@ parseOperator.exit114.i:                          ; preds = %165
   br label %yylex.exit
 
 173:                                              ; preds = %textbuf_clean.exit.i
-  %174 = call fastcc i32 @parseString(ptr noundef nonnull %4, ptr noundef nonnull %26, i8 noundef signext 34, i32 noundef 4)
+  %174 = call fastcc range(i32 0, 21) i32 @parseString(ptr noundef nonnull %4, ptr noundef nonnull %26, i8 noundef signext 34, i32 noundef 4)
   br label %yylex.exit
 
 175:                                              ; preds = %textbuf_clean.exit.i
-  %176 = call fastcc i32 @parseString(ptr noundef nonnull %4, ptr noundef nonnull %26, i8 noundef signext 39, i32 noundef 5)
+  %176 = call fastcc range(i32 0, 21) i32 @parseString(ptr noundef nonnull %4, ptr noundef nonnull %26, i8 noundef signext 39, i32 noundef 5)
   br label %yylex.exit
 
 177:                                              ; preds = %textbuf_clean.exit.i

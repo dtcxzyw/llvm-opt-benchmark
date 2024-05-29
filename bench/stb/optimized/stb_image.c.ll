@@ -20745,7 +20745,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i, ptr %zout_end.i, align 8
   %z_expandable.i = getelementptr inbounds i8, ptr %a, i64 56
   store i32 1, ptr %z_expandable.i, align 8
-  %call.i5 = call i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 1)
+  %call.i5 = call range(i32 0, 2) i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 1)
   %tobool.not = icmp eq i32 %call.i5, 0
   br i1 %tobool.not, label %if.else, label %if.then3
 
@@ -20797,7 +20797,7 @@ if.end.i:                                         ; preds = %entry
   store ptr %add.ptr.i.i, ptr %zout_end.i.i, align 8
   %z_expandable.i.i = getelementptr inbounds i8, ptr %a.i, i64 56
   store i32 1, ptr %z_expandable.i.i, align 8
-  %call.i5.i = call i32 @stbi__parse_zlib(ptr noundef nonnull %a.i, i32 noundef 1)
+  %call.i5.i = call range(i32 0, 2) i32 @stbi__parse_zlib(ptr noundef nonnull %a.i, i32 noundef 1)
   %tobool.not.i = icmp eq i32 %call.i5.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then3.i
 
@@ -20850,7 +20850,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i, ptr %zout_end.i, align 8
   %z_expandable.i = getelementptr inbounds i8, ptr %a, i64 56
   store i32 1, ptr %z_expandable.i, align 8
-  %call.i5 = call i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef %parse_header)
+  %call.i5 = call range(i32 0, 2) i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef %parse_header)
   %tobool.not = icmp eq i32 %call.i5, 0
   br i1 %tobool.not, label %if.else, label %if.then3
 
@@ -20897,7 +20897,7 @@ entry:
   store ptr %add.ptr.i, ptr %zout_end.i, align 8
   %z_expandable.i = getelementptr inbounds i8, ptr %a, i64 56
   store i32 0, ptr %z_expandable.i, align 8
-  %call.i = call i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 1)
+  %call.i = call range(i32 0, 2) i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 1)
   %tobool.not = icmp eq i32 %call.i, 0
   %0 = load ptr, ptr %zout.i, align 8
   %1 = load ptr, ptr %zout_start.i, align 8
@@ -20932,7 +20932,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i, ptr %zout_end.i, align 8
   %z_expandable.i = getelementptr inbounds i8, ptr %a, i64 56
   store i32 1, ptr %z_expandable.i, align 8
-  %call.i4 = call i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 0)
+  %call.i4 = call range(i32 0, 2) i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 0)
   %tobool.not = icmp eq i32 %call.i4, 0
   br i1 %tobool.not, label %if.else, label %if.then2
 
@@ -20979,7 +20979,7 @@ entry:
   store ptr %add.ptr.i, ptr %zout_end.i, align 8
   %z_expandable.i = getelementptr inbounds i8, ptr %a, i64 56
   store i32 0, ptr %z_expandable.i, align 8
-  %call.i = call i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 0)
+  %call.i = call range(i32 0, 2) i32 @stbi__parse_zlib(ptr noundef nonnull %a, i32 noundef 0)
   %tobool.not = icmp eq i32 %call.i, 0
   %0 = load ptr, ptr %zout.i, align 8
   %1 = load ptr, ptr %zout_start.i, align 8

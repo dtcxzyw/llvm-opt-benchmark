@@ -3941,7 +3941,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %5 = load ptr, ptr %argv, align 8
   %arrayidx9.us = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv26
   %6 = load ptr, ptr %arrayidx9.us, align 8
-  %call.i20.us = tail call i32 @dbGenericDelete(ptr noundef %4, ptr noundef %6, i32 noundef 0, i32 noundef 1)
+  %call.i20.us = tail call range(i32 0, 2) i32 @dbGenericDelete(ptr noundef %4, ptr noundef %6, i32 noundef 0, i32 noundef 1)
   %tobool11.not.us = icmp eq i32 %call.i20.us, 0
   br i1 %tobool11.not.us, label %for.inc.us, label %if.then.us
 
@@ -3985,7 +3985,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %21 = load ptr, ptr %argv, align 8
   %arrayidx4 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
   %22 = load ptr, ptr %arrayidx4, align 8
-  %call.i = tail call i32 @dbGenericDelete(ptr noundef %20, ptr noundef %22, i32 noundef 1, i32 noundef 1)
+  %call.i = tail call range(i32 0, 2) i32 @dbGenericDelete(ptr noundef %20, ptr noundef %22, i32 noundef 1, i32 noundef 1)
   %tobool11.not = icmp eq i32 %call.i, 0
   br i1 %tobool11.not, label %for.inc, label %if.then
 
@@ -6332,7 +6332,7 @@ if.end24:                                         ; preds = %if.then21
   %arrayidx27 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %arrayidx27, align 8
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5336), align 8
-  %call.i = tail call i32 @dbGenericDelete(ptr noundef %18, ptr noundef %20, i32 noundef %21, i32 noundef 1)
+  %call.i = tail call range(i32 0, 2) i32 @dbGenericDelete(ptr noundef %18, ptr noundef %20, i32 noundef %21, i32 noundef 1)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end24, %if.end12
@@ -6358,7 +6358,7 @@ if.end38:                                         ; preds = %if.then34, %if.end2
   %arrayidx41 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %arrayidx41, align 8
   %31 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5336), align 8
-  %call.i35 = tail call i32 @dbGenericDelete(ptr noundef %28, ptr noundef %30, i32 noundef %31, i32 noundef 1)
+  %call.i35 = tail call range(i32 0, 2) i32 @dbGenericDelete(ptr noundef %28, ptr noundef %30, i32 noundef %31, i32 noundef 1)
   %32 = load ptr, ptr %db.i, align 8
   %33 = load ptr, ptr %argv, align 8
   %arrayidx45 = getelementptr inbounds i8, ptr %33, i64 8
@@ -7076,7 +7076,7 @@ if.end36:                                         ; preds = %if.then33, %if.end2
   %arrayidx38 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %arrayidx38, align 8
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5336), align 8
-  %call.i = call i32 @dbGenericDelete(ptr noundef nonnull %1, ptr noundef %26, i32 noundef %27, i32 noundef 1)
+  %call.i = call range(i32 0, 2) i32 @dbGenericDelete(ptr noundef nonnull %1, ptr noundef %26, i32 noundef %27, i32 noundef 1)
   %28 = load ptr, ptr %argv, align 8
   %arrayidx41 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %arrayidx41, align 8
@@ -7392,7 +7392,7 @@ sw.epilog:                                        ; preds = %sw.bb75, %sw.bb73, 
 
 if.then82:                                        ; preds = %sw.epilog
   %46 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5336), align 8
-  %call.i = call i32 @dbGenericDelete(ptr noundef %dst.0.lcssa, ptr noundef %37, i32 noundef %46, i32 noundef 1)
+  %call.i = call range(i32 0, 2) i32 @dbGenericDelete(ptr noundef %dst.0.lcssa, ptr noundef %37, i32 noundef %46, i32 noundef 1)
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then82, %sw.epilog

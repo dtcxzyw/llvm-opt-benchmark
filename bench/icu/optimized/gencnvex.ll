@@ -192,7 +192,7 @@ makeToUTable.exit:                                ; preds = %for.inc.i.i, %for.i
   %call2.i = tail call ptr @utm_open(ptr noundef nonnull @.str.4, i32 noundef 65536, i32 noundef 262144, i32 noundef 2) #14
   %toUUChars.i = getelementptr inbounds i8, ptr %cnvData, i64 48
   store ptr %call2.i, ptr %toUUChars.i, align 8
-  %call3.i = tail call fastcc signext i8 @generateToUTable(ptr noundef %cnvData, ptr noundef nonnull %table, i32 noundef 0, i32 noundef %j.0.lcssa.i.i, i32 noundef 0, i32 noundef 0)
+  %call3.i = tail call fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef %cnvData, ptr noundef nonnull %table, i32 noundef 0, i32 noundef %j.0.lcssa.i.i, i32 noundef 0, i32 noundef 0)
   %tobool3.not = icmp eq i8 %call3.i, 0
   br i1 %tobool3.not, label %return, label %land.rhs
 

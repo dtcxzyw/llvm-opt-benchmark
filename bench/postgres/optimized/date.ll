@@ -3451,7 +3451,7 @@ define dso_local i64 @date_timestamptz(ptr nocapture noundef readonly %0) local_
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call i64 @date2timestamptz_opt_overflow(i32 noundef %4, ptr noundef null)
+  %5 = tail call range(i64 9223372036854775807, 9223371331200000000) i64 @date2timestamptz_opt_overflow(i32 noundef %4, ptr noundef null)
   ret i64 %5
 }
 
@@ -3805,7 +3805,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @timetypmodin(ptr nocapt
 
 anytime_typmodin.exit:                            ; preds = %1
   %13 = load i32, ptr %7, align 4
-  %14 = call i32 @anytime_typmod_check(i1 noundef zeroext false, i32 noundef %13)
+  %14 = call range(i32 0, 7) i32 @anytime_typmod_check(i1 noundef zeroext false, i32 noundef %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %15 = zext nneg i32 %14 to i64
   ret i64 %15
@@ -5091,7 +5091,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @timetztypmodin(ptr noca
 
 anytime_typmodin.exit:                            ; preds = %1
   %13 = load i32, ptr %7, align 4
-  %14 = call i32 @anytime_typmod_check(i1 noundef zeroext true, i32 noundef %13)
+  %14 = call range(i32 0, 7) i32 @anytime_typmod_check(i1 noundef zeroext true, i32 noundef %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %15 = zext nneg i32 %14 to i64
   ret i64 %15

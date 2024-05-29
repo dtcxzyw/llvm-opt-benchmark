@@ -1894,7 +1894,7 @@ define i32 @onig_node_copy(ptr nocapture noundef writeonly %0, ptr nocapture nou
   store ptr %14, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %calloc.i, i64 60
   store i32 0, ptr %17, align 4
-  %18 = tail call i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i, ptr noundef %10, ptr noundef %12)
+  %18 = tail call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i, ptr noundef %10, ptr noundef %12)
   %.not26 = icmp eq i32 %18, 0
   br i1 %.not26, label %42, label %onig_node_free.exit
 
@@ -2352,7 +2352,7 @@ define noundef ptr @onig_node_new_str(ptr noundef %0, ptr noundef %1) local_unna
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %calloc.i.i, i64 24
   store ptr %5, ptr %7, align 8
-  %8 = tail call i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i, ptr noundef %0, ptr noundef %1)
+  %8 = tail call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i, ptr noundef %0, ptr noundef %1)
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %node_new_str.exit, label %onig_node_free.exit.i
 
@@ -9060,7 +9060,7 @@ onig_node_free.exit:                              ; preds = %789, %792
   store ptr %825, ptr %826, align 8
   %827 = getelementptr inbounds i8, ptr %calloc.i.i.i352, i64 24
   store ptr %825, ptr %827, align 8
-  %828 = tail call i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i352, ptr noundef %820, ptr noundef %821)
+  %828 = tail call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i352, ptr noundef %820, ptr noundef %821)
   %.not.i.i = icmp eq i32 %828, 0
   br i1 %.not.i.i, label %node_new_str.exit.i, label %onig_node_free.exit.i.i
 
@@ -9125,7 +9125,7 @@ node_new_str_with_options.exit:                   ; preds = %node_new_str.exit.i
   store ptr %849, ptr %850, align 8
   %851 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i, i64 24
   store ptr %849, ptr %851, align 8
-  %852 = call i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i.i.i, ptr noundef nonnull %11, ptr noundef nonnull %848)
+  %852 = call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i.i.i, ptr noundef nonnull %11, ptr noundef nonnull %848)
   %.not.i.i.i.i = icmp eq i32 %852, 0
   br i1 %.not.i.i.i.i, label %node_new_str.exit.i.i.i, label %onig_node_free.exit.i.i.i.i
 
@@ -9213,7 +9213,7 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
   %890 = load i8, ptr %843, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   store i8 %890, ptr %10, align 1
-  %891 = call i32 @onig_node_str_cat(ptr noundef %889, ptr noundef nonnull %10, ptr noundef nonnull %861)
+  %891 = call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef %889, ptr noundef nonnull %10, ptr noundef nonnull %861)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   %892 = icmp slt i32 %891, 0
   %893 = add nuw nsw i32 %.0288, 1
@@ -9256,7 +9256,7 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
   store ptr %918, ptr %919, align 8
   %920 = getelementptr inbounds i8, ptr %calloc.i.i.i354, i64 24
   store ptr %918, ptr %920, align 8
-  %921 = call i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i354, ptr noundef nonnull %25, ptr noundef nonnull %917)
+  %921 = call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i354, ptr noundef nonnull %25, ptr noundef nonnull %917)
   %.not.i.i355 = icmp eq i32 %921, 0
   br i1 %.not.i.i355, label %node_new_str.exit.i357, label %onig_node_free.exit.i.i356
 
@@ -9344,7 +9344,7 @@ find_str_position.exit.thread:                    ; preds = %._crit_edge.thread.
   store ptr %955, ptr %956, align 8
   %957 = getelementptr inbounds i8, ptr %calloc.i.i.i363, i64 24
   store ptr %955, ptr %957, align 8
-  %958 = tail call i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i363, ptr noundef %931, ptr noundef %.0295)
+  %958 = tail call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i363, ptr noundef %931, ptr noundef %.0295)
   %.not.i.i364 = icmp eq i32 %958, 0
   br i1 %.not.i.i364, label %node_new_str.exit.i366, label %onig_node_free.exit.i.i365
 
@@ -9872,7 +9872,7 @@ node_new_keep.exit:                               ; preds = %1153
   store ptr %1182, ptr %1183, align 8
   %1184 = getelementptr inbounds i8, ptr %calloc.i.i.i.i.i393, i64 24
   store ptr %1182, ptr %1184, align 8
-  %1185 = call i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i.i.i393, ptr noundef nonnull %9, ptr noundef nonnull %1181)
+  %1185 = call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i.i.i393, ptr noundef nonnull %9, ptr noundef nonnull %1181)
   %.not.i.i.i.i394 = icmp eq i32 %1185, 0
   br i1 %.not.i.i.i.i394, label %1186, label %node_new_general_newline.exit.thread.sink.split
 
@@ -12600,7 +12600,7 @@ onig_node_free.exit:                              ; preds = %.lr.ph125, %66
   store ptr %132, ptr %133, align 8
   %134 = getelementptr inbounds i8, ptr %calloc.i.i112, i64 24
   store ptr %132, ptr %134, align 8
-  %135 = call i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i112, ptr noundef nonnull %5, ptr noundef nonnull %131)
+  %135 = call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i112, ptr noundef nonnull %5, ptr noundef nonnull %131)
   %.not.i = icmp eq i32 %135, 0
   br i1 %.not.i, label %node_new_str.exit, label %onig_node_free.exit.i
 
@@ -12947,7 +12947,7 @@ str_node_can_be_split.exit:                       ; preds = %17
   store ptr %44, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %calloc.i.i.i, i64 24
   store ptr %44, ptr %46, align 8
-  %47 = tail call i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i, ptr noundef nonnull %36, ptr noundef %41)
+  %47 = tail call range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef nonnull %calloc.i.i.i, ptr noundef nonnull %36, ptr noundef %41)
   %.not.i.i = icmp eq i32 %47, 0
   br i1 %.not.i.i, label %48, label %onig_node_free.exit.i.i
 

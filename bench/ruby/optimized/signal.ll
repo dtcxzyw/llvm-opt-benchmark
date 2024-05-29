@@ -676,7 +676,7 @@ define hidden noalias noundef ptr @rb_allocate_sigaltstack() local_unnamed_addr 
   %5 = tail call i64 @sysconf(i32 noundef 30) #16
   %6 = trunc i64 %5 to i32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %4, i32 %6)
-  %.1.i = tail call i32 @llvm.smax.i32(i32 %spec.select.i, i32 16384)
+  %.1.i = tail call range(i32 16384, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i, i32 16384)
   store i32 %.1.i, ptr @rb_sigaltstack_size_value, align 4
   br label %7
 
@@ -1359,7 +1359,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   %88 = call i64 @sysconf(i32 noundef 30) #16
   %89 = trunc i64 %88 to i32
   %spec.select.i.i37 = call i32 @llvm.smax.i32(i32 %87, i32 %89)
-  %.1.i.i = call i32 @llvm.smax.i32(i32 %spec.select.i.i37, i32 16384)
+  %.1.i.i = call range(i32 16384, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i.i37, i32 16384)
   store i32 %.1.i.i, ptr @rb_sigaltstack_size_value, align 4
   br label %90
 

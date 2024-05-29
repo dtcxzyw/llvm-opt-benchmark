@@ -3786,7 +3786,7 @@ if.else.i:                                        ; preds = %for.end
   br i1 %cmp3.not.i, label %if.end44, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %23 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
+  %23 = tail call range(i32 0, 9) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
   %idxprom.i = zext nneg i32 %23 to i64
   %arrayidx.i = getelementptr [9 x ptr], ptr @metadata_ol_names, i64 0, i64 %idxprom.i
   %24 = load ptr, ptr %arrayidx.i, align 8
@@ -4229,7 +4229,7 @@ if.else.i95:                                      ; preds = %if.then118
   br i1 %cmp3.not.i, label %if.end130, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.else.i95
-  %60 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
+  %60 = call range(i32 0, 9) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
   %idxprom.i96 = zext nneg i32 %60 to i64
   %arrayidx.i97 = getelementptr [9 x ptr], ptr @metadata_ol_names, i64 0, i64 %idxprom.i96
   %61 = load ptr, ptr %arrayidx.i97, align 8
@@ -4711,7 +4711,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp3.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.else
-  %3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %call1, i1 true)
+  %3 = tail call range(i32 0, 9) i32 @llvm.cttz.i32(i32 %call1, i1 true)
   %idxprom = zext nneg i32 %3 to i64
   %arrayidx = getelementptr [9 x ptr], ptr @metadata_ol_names, i64 0, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
@@ -4873,7 +4873,7 @@ for.cond.preheader:                               ; preds = %if.else.i
   br i1 %cmp53130.not, label %for.end, label %for.body
 
 if.then4.i:                                       ; preds = %if.else.i
-  %19 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
+  %19 = call range(i32 0, 9) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
   %idxprom.i = zext nneg i32 %19 to i64
   %arrayidx.i = getelementptr [9 x ptr], ptr @metadata_ol_names, i64 0, i64 %idxprom.i
   %20 = load ptr, ptr %arrayidx.i, align 8
@@ -5524,7 +5524,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp3.not.i, label %if.end, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %5 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
+  %5 = tail call range(i32 0, 9) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
   %idxprom.i = zext nneg i32 %5 to i64
   %arrayidx.i = getelementptr [9 x ptr], ptr @metadata_ol_names, i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
@@ -7215,7 +7215,7 @@ if.else.i60:                                      ; preds = %if.end
   br i1 %cmp3.not.i, label %qcow2_pre_write_overlap_check.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.else.i60
-  %10 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
+  %10 = tail call range(i32 0, 9) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
   %idxprom.i61 = zext nneg i32 %10 to i64
   %arrayidx.i62 = getelementptr [9 x ptr], ptr @metadata_ol_names, i64 0, i64 %idxprom.i61
   %11 = load ptr, ptr %arrayidx.i62, align 8
@@ -7486,7 +7486,7 @@ if.else.i:                                        ; preds = %if.end54
   br i1 %cmp3.not.i, label %if.end62, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %22 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
+  %22 = call range(i32 0, 9) i32 @llvm.cttz.i32(i32 %call1.i, i1 true)
   %idxprom.i = zext nneg i32 %22 to i64
   %arrayidx.i = getelementptr [9 x ptr], ptr @metadata_ol_names, i64 0, i64 %idxprom.i
   %23 = load ptr, ptr %arrayidx.i, align 8

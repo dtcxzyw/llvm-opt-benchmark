@@ -6767,7 +6767,7 @@ _ZN6chrono5naive9internals2Of7weekday17h25cee97fdc3a2ca2E.exit.i187: ; preds = %
   br i1 %649, label %653, label %650
 
 650:                                              ; preds = %.noexc183, %648
-  %651 = invoke noundef i32 @"_ZN82_$LT$core..char..ToLowercase$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5198b7526167823bE"(ptr noalias noundef nonnull align 4 dereferenceable(12) %295)
+  %651 = invoke noundef range(i32 0, 1114113) i32 @"_ZN82_$LT$core..char..ToLowercase$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5198b7526167823bE"(ptr noalias noundef nonnull align 4 dereferenceable(12) %295)
           to label %.noexc182 unwind label %.loopexit
 
 .noexc182:                                        ; preds = %650
@@ -6874,7 +6874,7 @@ _ZN6chrono5naive9internals2Of7weekday17h25cee97fdc3a2ca2E.exit.i187: ; preds = %
   br i1 %703, label %.noexc38, label %704
 
 704:                                              ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2f1bc9cd47f2bf82E.exit.thread.i.i"
-  %705 = invoke noundef i32 @"_ZN82_$LT$core..char..ToLowercase$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5198b7526167823bE"(ptr noalias noundef nonnull align 4 dereferenceable(12) %297)
+  %705 = invoke noundef range(i32 0, 1114113) i32 @"_ZN82_$LT$core..char..ToLowercase$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5198b7526167823bE"(ptr noalias noundef nonnull align 4 dereferenceable(12) %297)
           to label %.noexc184 unwind label %.loopexit
 
 .noexc184:                                        ; preds = %704

@@ -1673,7 +1673,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 72
-  %6 = tail call noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2b7ac18ea75d8e27E.llvm.16801050463324468979(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %5), !range !318
+  %6 = tail call noundef range(i8 0, 35) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2b7ac18ea75d8e27E.llvm.16801050463324468979(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %5), !range !318
   %7 = icmp eq i8 %6, 34
   br i1 %7, label %8, label %11
 
@@ -1701,7 +1701,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   %16 = getelementptr inbounds i8, ptr %3, i64 72
-  %17 = invoke noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2b7ac18ea75d8e27E.llvm.16801050463324468979(ptr noalias noundef nonnull align 8 dereferenceable(72) %3, ptr noalias noundef nonnull align 1 %16)
+  %17 = invoke noundef range(i8 0, 35) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2b7ac18ea75d8e27E.llvm.16801050463324468979(ptr noalias noundef nonnull align 8 dereferenceable(72) %3, ptr noalias noundef nonnull align 1 %16)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %11
@@ -1725,7 +1725,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i8 %18, ptr %23, align 1
   %24 = add i64 %19, 1
   store i64 %24, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !319, !noalias !324
-  %25 = invoke noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2b7ac18ea75d8e27E.llvm.16801050463324468979(ptr noalias noundef nonnull align 8 dereferenceable(72) %3, ptr noalias noundef nonnull align 1 %16)
+  %25 = invoke noundef range(i8 0, 35) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2b7ac18ea75d8e27E.llvm.16801050463324468979(ptr noalias noundef nonnull align 8 dereferenceable(72) %3, ptr noalias noundef nonnull align 1 %16)
           to label %.noexc6 unwind label %.loopexit
 
 .noexc6:                                          ; preds = %.noexc5

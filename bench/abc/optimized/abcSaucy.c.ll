@@ -837,7 +837,7 @@ fix_fronts.exit:                                  ; preds = %fix_fronts.exit.loo
   %288 = getelementptr inbounds i8, ptr %1, i64 8
   %289 = load <2 x ptr>, ptr %70, align 8
   store <2 x ptr> %289, ptr %288, align 8
-  %290 = tail call fastcc i32 @refine(ptr noundef nonnull %1, ptr noundef nonnull %173)
+  %290 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef nonnull %1, ptr noundef nonnull %173)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %291 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
   %puts187 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
@@ -3376,7 +3376,7 @@ add_induce.exit68:                                ; preds = %74, %78
 ._crit_edge80:                                    ; preds = %add_induce.exit68, %.preheader
   %93 = load <2 x ptr>, ptr %21, align 8
   store <2 x ptr> %93, ptr %13, align 8
-  %94 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %94 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %95
 
 95:                                               ; preds = %._crit_edge80, %._crit_edge
@@ -3567,7 +3567,7 @@ add_induce.exit58:                                ; preds = %66, %70
 ._crit_edge63:                                    ; preds = %add_induce.exit58, %.preheader
   %85 = load <2 x ptr>, ptr %19, align 8
   store <2 x ptr> %85, ptr %10, align 8
-  %86 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
+  %86 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
   br label %87
 
 87:                                               ; preds = %._crit_edge63, %._crit_edge
@@ -3859,7 +3859,7 @@ add_induce.exit74:                                ; preds = %108, %112
 ._crit_edge85:                                    ; preds = %add_induce.exit74, %Vec_PtrPush.exit
   %127 = load <2 x ptr>, ptr %22, align 8
   store <2 x ptr> %127, ptr %13, align 8
-  %128 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %128 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %.pre = load ptr, ptr %38, align 8
   br label %133
 
@@ -4138,7 +4138,7 @@ add_induce.exit64:                                ; preds = %100, %104
 ._crit_edge69:                                    ; preds = %add_induce.exit64, %Vec_PtrPush.exit
   %119 = load <2 x ptr>, ptr %20, align 8
   store <2 x ptr> %119, ptr %10, align 8
-  %120 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
+  %120 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
   %.pre = load ptr, ptr %30, align 8
   br label %125
 
@@ -4739,7 +4739,7 @@ add_induce.exit66:                                ; preds = %84, %88
 ._crit_edge70:                                    ; preds = %add_induce.exit66, %.preheader
   %103 = load <2 x ptr>, ptr %26, align 8
   store <2 x ptr> %103, ptr %17, align 8
-  %104 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
+  %104 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
   br label %105
 
 105:                                              ; preds = %._crit_edge70, %._crit_edge
@@ -4948,7 +4948,7 @@ add_induce.exit69:                                ; preds = %88, %92
 ._crit_edge73:                                    ; preds = %add_induce.exit69, %.preheader
   %107 = load <2 x ptr>, ptr %28, align 8
   store <2 x ptr> %107, ptr %19, align 8
-  %108 = tail call fastcc i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
+  %108 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
   br label %109
 
 109:                                              ; preds = %._crit_edge73, %._crit_edge
@@ -10781,7 +10781,7 @@ define internal fastcc range(i32 0, 2) i32 @descend(ptr noundef %0, ptr noundef 
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %52, align 8
   store <2 x ptr> %55, ptr %53, align 8
-  %56 = tail call fastcc i32 @refine(ptr noundef %0, ptr noundef nonnull %1)
+  %56 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef %0, ptr noundef nonnull %1)
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %double_check_OPP_isomorphism.exit, label %57
 

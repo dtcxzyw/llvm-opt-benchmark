@@ -1288,7 +1288,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_get_next_event(
   br label %65
 
 __hrtimer_get_next_event.exit:                    ; preds = %68, %71
-  %102 = tail call i64 @llvm.smax.i64(i64 %67, i64 0)
+  %102 = tail call range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %67, i64 0)
   br label %103
 
 103:                                              ; preds = %__hrtimer_get_next_event.exit, %0

@@ -3069,7 +3069,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h111e2dca10c5a557E(ptr noal
   %86 = load i64, ptr %85, align 8, !alias.scope !1004, !noalias !1007
   %.sink5.i7.i.i.i.i = select i1 %82, ptr %84, ptr %83
   %.sink4.i8.i.i.i.i = select i1 %82, i64 %86, i64 %81
-  %87 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i, i64 noundef %.sink4.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i, i64 noundef %.sink4.i8.i.i.i.i)
+  %87 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i, i64 noundef %.sink4.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i, i64 noundef %.sink4.i8.i.i.i.i)
           to label %.noexc39 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc39:                                         ; preds = %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.thread2.i.i.i"
@@ -3157,7 +3157,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h111e2dca10c5a557E(ptr noal
   %125 = load i64, ptr %124, align 8, !alias.scope !1039, !noalias !1042
   %.sink5.i7.i.i.i34.i = select i1 %121, ptr %123, ptr %122
   %.sink4.i8.i.i.i35.i = select i1 %121, i64 %125, i64 %120
-  %126 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i32.i, i64 noundef %.sink4.i.i.i.i33.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i34.i, i64 noundef %.sink4.i8.i.i.i35.i)
+  %126 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i32.i, i64 noundef %.sink4.i.i.i.i33.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i34.i, i64 noundef %.sink4.i8.i.i.i35.i)
           to label %.noexc40 unwind label %.loopexit.split-lp.loopexit
 
 .noexc40:                                         ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h50cea70a270a9368E.exit37.i"
@@ -3242,7 +3242,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h111e2dca10c5a557E(ptr noal
   %165 = load i64, ptr %164, align 8, !alias.scope !1074, !noalias !1077
   %.sink5.i7.i.i.i44.i = select i1 %161, ptr %163, ptr %162
   %.sink4.i8.i.i.i45.i = select i1 %161, i64 %165, i64 %160
-  %166 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i42.i, i64 noundef %.sink4.i.i.i.i43.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i44.i, i64 noundef %.sink4.i8.i.i.i45.i)
+  %166 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i42.i, i64 noundef %.sink4.i.i.i.i43.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i44.i, i64 noundef %.sink4.i8.i.i.i45.i)
           to label %.noexc41 unwind label %.loopexit83
 
 .noexc41:                                         ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h50cea70a270a9368E.exit47.i"
@@ -3656,7 +3656,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hd162451a410b4359E.exit: ; preds = %.
   %325 = load i64, ptr %324, align 8, !alias.scope !1130, !noalias !1133
   %.sink5.i7.i.i.i.i66 = select i1 %321, ptr %323, ptr %322
   %.sink4.i8.i.i.i.i67 = select i1 %321, i64 %325, i64 %320
-  %326 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i64, i64 noundef %.sink4.i.i.i.i.i65, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i66, i64 noundef %.sink4.i8.i.i.i.i67)
+  %326 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i64, i64 noundef %.sink4.i.i.i.i.i65, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i66, i64 noundef %.sink4.i8.i.i.i.i67)
           to label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h50cea70a270a9368E.exit.i" unwind label %.loopexit30.i
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h50cea70a270a9368E.exit.i": ; preds = %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.thread2.i.i.i63"
@@ -3750,7 +3750,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hd162451a410b4359E.exit: ; preds = %.
   %369 = load i64, ptr %368, align 8, !alias.scope !1162, !noalias !1165
   %.sink5.i7.i.i.i41.i = select i1 %365, ptr %367, ptr %366
   %.sink4.i8.i.i.i42.i = select i1 %365, i64 %369, i64 %364
-  %370 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i39.i, i64 noundef %.sink4.i.i.i.i40.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i41.i, i64 noundef %.sink4.i8.i.i.i42.i)
+  %370 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i39.i, i64 noundef %.sink4.i.i.i.i40.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i41.i, i64 noundef %.sink4.i8.i.i.i42.i)
           to label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h50cea70a270a9368E.exit45.i" unwind label %.loopexit.split-lp.i
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h50cea70a270a9368E.exit45.i": ; preds = %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.thread2.i.i38.i"
@@ -4013,7 +4013,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h4bdc8ffb3b38f2ebE(ptr noal
   %86 = load i64, ptr %85, align 8, !alias.scope !1229, !noalias !1232
   %.sink5.i7.i.i.i.i = select i1 %82, ptr %84, ptr %83
   %.sink4.i8.i.i.i.i = select i1 %82, i64 %86, i64 %81
-  %87 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i, i64 noundef %.sink4.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i, i64 noundef %.sink4.i8.i.i.i.i)
+  %87 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i, i64 noundef %.sink4.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i, i64 noundef %.sink4.i8.i.i.i.i)
           to label %.noexc39 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc39:                                         ; preds = %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.thread2.i.i.i"
@@ -4101,7 +4101,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h4bdc8ffb3b38f2ebE(ptr noal
   %125 = load i64, ptr %124, align 8, !alias.scope !1264, !noalias !1267
   %.sink5.i7.i.i.i34.i = select i1 %121, ptr %123, ptr %122
   %.sink4.i8.i.i.i35.i = select i1 %121, i64 %125, i64 %120
-  %126 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i32.i, i64 noundef %.sink4.i.i.i.i33.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i34.i, i64 noundef %.sink4.i8.i.i.i35.i)
+  %126 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i32.i, i64 noundef %.sink4.i.i.i.i33.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i34.i, i64 noundef %.sink4.i8.i.i.i35.i)
           to label %.noexc40 unwind label %.loopexit.split-lp.loopexit
 
 .noexc40:                                         ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd22013b21b3d0418E.exit37.i"
@@ -4186,7 +4186,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h4bdc8ffb3b38f2ebE(ptr noal
   %165 = load i64, ptr %164, align 8, !alias.scope !1299, !noalias !1302
   %.sink5.i7.i.i.i44.i = select i1 %161, ptr %163, ptr %162
   %.sink4.i8.i.i.i45.i = select i1 %161, i64 %165, i64 %160
-  %166 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i42.i, i64 noundef %.sink4.i.i.i.i43.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i44.i, i64 noundef %.sink4.i8.i.i.i45.i)
+  %166 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i42.i, i64 noundef %.sink4.i.i.i.i43.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i44.i, i64 noundef %.sink4.i8.i.i.i45.i)
           to label %.noexc41 unwind label %.loopexit83
 
 .noexc41:                                         ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd22013b21b3d0418E.exit47.i"
@@ -4600,7 +4600,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h4a5ead9ea3fed1adE.exit: ; preds = %.
   %325 = load i64, ptr %324, align 8, !alias.scope !1355, !noalias !1358
   %.sink5.i7.i.i.i.i66 = select i1 %321, ptr %323, ptr %322
   %.sink4.i8.i.i.i.i67 = select i1 %321, i64 %325, i64 %320
-  %326 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i64, i64 noundef %.sink4.i.i.i.i.i65, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i66, i64 noundef %.sink4.i8.i.i.i.i67)
+  %326 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i64, i64 noundef %.sink4.i.i.i.i.i65, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i66, i64 noundef %.sink4.i8.i.i.i.i67)
           to label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd22013b21b3d0418E.exit.i" unwind label %.loopexit30.i
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd22013b21b3d0418E.exit.i": ; preds = %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.thread2.i.i.i63"
@@ -4694,7 +4694,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h4a5ead9ea3fed1adE.exit: ; preds = %.
   %369 = load i64, ptr %368, align 8, !alias.scope !1387, !noalias !1390
   %.sink5.i7.i.i.i41.i = select i1 %365, ptr %367, ptr %366
   %.sink4.i8.i.i.i42.i = select i1 %365, i64 %369, i64 %364
-  %370 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i39.i, i64 noundef %.sink4.i.i.i.i40.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i41.i, i64 noundef %.sink4.i8.i.i.i42.i)
+  %370 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i39.i, i64 noundef %.sink4.i.i.i.i40.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i41.i, i64 noundef %.sink4.i8.i.i.i42.i)
           to label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd22013b21b3d0418E.exit45.i" unwind label %.loopexit.split-lp.i
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd22013b21b3d0418E.exit45.i": ; preds = %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.thread2.i.i38.i"
@@ -11902,7 +11902,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h87
   %48 = load i64, ptr %47, align 8, !alias.scope !2334, !noalias !2337
   %.sink5.i7.i.i.i.i = select i1 %44, ptr %46, ptr %45
   %.sink4.i8.i.i.i.i = select i1 %44, i64 %48, i64 %43
-  %49 = call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i, i64 noundef %.sink4.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i, i64 noundef %.sink4.i8.i.i.i.i), !range !2339
+  %49 = call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i, i64 noundef %.sink4.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i, i64 noundef %.sink4.i8.i.i.i.i), !range !2339
   %50 = icmp eq i8 %49, -1
   br i1 %50, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h50cea70a270a9368E.exit.thread.i", label %_ZN4core5slice4sort11insert_tail17hfb3cabea3d19f012E.exit
 
@@ -11986,7 +11986,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h87
   %81 = load i64, ptr %80, align 8, !alias.scope !2367, !noalias !2370
   %.sink5.i7.i.i.i19.i = select i1 %77, ptr %79, ptr %78
   %.sink4.i8.i.i.i20.i = select i1 %77, i64 %81, i64 %76
-  %82 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i17.i, i64 noundef %.sink4.i.i.i.i18.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i19.i, i64 noundef %.sink4.i8.i.i.i20.i)
+  %82 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i17.i, i64 noundef %.sink4.i.i.i.i18.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i19.i, i64 noundef %.sink4.i8.i.i.i20.i)
           to label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h50cea70a270a9368E.exit22.i" unwind label %84
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h50cea70a270a9368E.exit22.i": ; preds = %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.thread2.i.i16.i"
@@ -12335,7 +12335,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h99
   %48 = load i64, ptr %47, align 8, !alias.scope !2455, !noalias !2458
   %.sink5.i7.i.i.i.i = select i1 %44, ptr %46, ptr %45
   %.sink4.i8.i.i.i.i = select i1 %44, i64 %48, i64 %43
-  %49 = call noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i, i64 noundef %.sink4.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i, i64 noundef %.sink4.i8.i.i.i.i), !range !2339
+  %49 = call noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i.i, i64 noundef %.sink4.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i.i, i64 noundef %.sink4.i8.i.i.i.i), !range !2339
   %50 = icmp eq i8 %49, -1
   br i1 %50, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd22013b21b3d0418E.exit.thread.i", label %_ZN4core5slice4sort11insert_tail17h9ce11f6b73410887E.exit
 
@@ -12419,7 +12419,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h99
   %81 = load i64, ptr %80, align 8, !alias.scope !2487, !noalias !2490
   %.sink5.i7.i.i.i19.i = select i1 %77, ptr %79, ptr %78
   %.sink4.i8.i.i.i20.i = select i1 %77, i64 %81, i64 %76
-  %82 = invoke noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i17.i, i64 noundef %.sink4.i.i.i.i18.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i19.i, i64 noundef %.sink4.i8.i.i.i20.i)
+  %82 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hd98884339065aebeE"(ptr noalias noundef nonnull readonly align 8 %.sink5.i.i.i.i17.i, i64 noundef %.sink4.i.i.i.i18.i, ptr noalias noundef nonnull readonly align 8 %.sink5.i7.i.i.i19.i, i64 noundef %.sink4.i8.i.i.i20.i)
           to label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd22013b21b3d0418E.exit22.i" unwind label %84
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd22013b21b3d0418E.exit22.i": ; preds = %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.thread2.i.i16.i"

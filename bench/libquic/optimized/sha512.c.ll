@@ -122,7 +122,7 @@ return.sink.split.i.i:                            ; preds = %if.end26.i.i, %if.e
 SHA384_Update.exit:                               ; preds = %entry, %if.end34.i.i, %return.sink.split.i.i
   %cmp = icmp eq ptr %out, null
   %spec.store.select = select i1 %cmp, ptr @SHA384.buf, ptr %out
-  %call.i = call i32 @SHA512_Final(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %ctx)
+  %call.i = call range(i32 0, 2) i32 @SHA512_Final(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %ctx)
   call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 216) #5
   ret ptr %spec.store.select
 }

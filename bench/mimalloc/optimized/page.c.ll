@@ -41,17 +41,16 @@ if.else3.i:                                       ; preds = %if.else.i
 
 if.else7.i:                                       ; preds = %if.else3.i
   %dec.i = add nsw i64 %div1.i.i, -1
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i, i1 true)
+  %2 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i, i1 true)
   %3 = trunc nuw nsw i64 %2 to i8
   %4 = xor i8 %3, -1
   %shl.i = shl i8 %4, 2
-  %sub.i = sub nsw i64 61, %2
-  %sh_prom.i = and i64 %sub.i, 4294967295
-  %shr.i = lshr i64 %dec.i, %sh_prom.i
+  %sub.i = sub nuw nsw i64 61, %2
+  %shr.i = lshr i64 %dec.i, %sub.i
   %5 = trunc i64 %shr.i to i8
   %conv13.i = and i8 %5, 3
-  %add15.i = add i8 %shl.i, -3
-  %sub16.i = add i8 %add15.i, %conv13.i
+  %add15.i = add nsw i8 %shl.i, -3
+  %sub16.i = add nuw nsw i8 %add15.i, %conv13.i
   br label %mi_bin.exit
 
 mi_bin.exit:                                      ; preds = %entry, %if.then2.i, %if.else3.i, %if.else7.i
@@ -91,12 +90,11 @@ if.then2.i:                                       ; preds = %if.else.i
 
 if.else7.i:                                       ; preds = %if.else.i
   %dec.i = add nsw i64 %div1.i.i, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i, i1 true)
+  %1 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i, i1 true)
   %2 = shl nuw nsw i64 %1, 2
   %shl.i = xor i64 %2, 252
-  %sub.i = sub nsw i64 61, %1
-  %sh_prom.i = and i64 %sub.i, 4294967295
-  %shr.i = lshr i64 %dec.i, %sh_prom.i
+  %sub.i = sub nuw nsw i64 61, %1
+  %shr.i = lshr i64 %dec.i, %sub.i
   %conv13.i = and i64 %shr.i, 3
   %add15.i = add nuw nsw i64 %shl.i, 253
   %sub16.i = add nuw nsw i64 %add15.i, %conv13.i
@@ -321,17 +319,16 @@ if.then2.i:                                       ; preds = %if.else.i
 
 if.else7.i:                                       ; preds = %if.else.i
   %dec.i = add nsw i64 %div1.i, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i, i1 true)
+  %5 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i, i1 true)
   %6 = trunc nuw nsw i64 %5 to i8
   %7 = xor i8 %6, -1
   %shl.i = shl i8 %7, 2
-  %sub.i19 = sub nsw i64 61, %5
-  %sh_prom.i = and i64 %sub.i19, 4294967295
-  %shr.i = lshr i64 %dec.i, %sh_prom.i
+  %sub.i19 = sub nuw nsw i64 61, %5
+  %shr.i = lshr i64 %dec.i, %sub.i19
   %8 = trunc i64 %shr.i to i8
   %conv13.i = and i8 %8, 3
   %add15.i = add nsw i8 %shl.i, -3
-  %sub16.i = add nsw i8 %add15.i, %conv13.i
+  %sub16.i = add nuw nsw i8 %add15.i, %conv13.i
   br label %mi_bin.exit
 
 mi_bin.exit:                                      ; preds = %if.then2.i, %if.else7.i
@@ -339,69 +336,68 @@ mi_bin.exit:                                      ; preds = %if.then2.i, %if.els
   %pages = getelementptr inbounds i8, ptr %heap, i64 1040
   br label %while.cond
 
-while.cond:                                       ; preds = %mi_bin.exit39, %mi_bin.exit
-  %pq.pn = phi ptr [ %pq, %mi_bin.exit ], [ %prev.0, %mi_bin.exit39 ]
+while.cond:                                       ; preds = %mi_bin.exit38, %mi_bin.exit
+  %pq.pn = phi ptr [ %pq, %mi_bin.exit ], [ %prev.0, %mi_bin.exit38 ]
   %prev.0 = getelementptr inbounds i8, ptr %pq.pn, i64 -24
   %block_size11 = getelementptr inbounds i8, ptr %pq.pn, i64 -8
   %9 = load i64, ptr %block_size11, align 8
   %sub.i.i20 = add i64 %9, 7
   %div1.i.i21 = lshr i64 %sub.i.i20, 3
   %cmp.i22 = icmp ult i64 %sub.i.i20, 16
-  br i1 %cmp.i22, label %mi_bin.exit39, label %if.else.i23
+  br i1 %cmp.i22, label %mi_bin.exit38, label %if.else.i23
 
 if.else.i23:                                      ; preds = %while.cond
   %cmp1.i24 = icmp ult i64 %sub.i.i20, 72
-  br i1 %cmp1.i24, label %if.then2.i37, label %if.else3.i25
+  br i1 %cmp1.i24, label %if.then2.i36, label %if.else3.i25
 
-if.then2.i37:                                     ; preds = %if.else.i23
+if.then2.i36:                                     ; preds = %if.else.i23
   %10 = trunc nuw i64 %div1.i.i21 to i8
   %11 = add nuw nsw i8 %10, 1
-  %conv.i38 = and i8 %11, 30
-  br label %mi_bin.exit39
+  %conv.i37 = and i8 %11, 30
+  br label %mi_bin.exit38
 
 if.else3.i25:                                     ; preds = %if.else.i23
   %cmp4.i26 = icmp ugt i64 %sub.i.i20, 131079
-  br i1 %cmp4.i26, label %mi_bin.exit39, label %if.else7.i27
+  br i1 %cmp4.i26, label %mi_bin.exit38, label %if.else7.i27
 
 if.else7.i27:                                     ; preds = %if.else3.i25
   %dec.i28 = add nsw i64 %div1.i.i21, -1
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i28, i1 true)
+  %12 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i28, i1 true)
   %13 = trunc nuw nsw i64 %12 to i8
   %14 = xor i8 %13, -1
   %shl.i29 = shl i8 %14, 2
-  %sub.i30 = sub nsw i64 61, %12
-  %sh_prom.i31 = and i64 %sub.i30, 4294967295
-  %shr.i32 = lshr i64 %dec.i28, %sh_prom.i31
-  %15 = trunc i64 %shr.i32 to i8
-  %conv13.i33 = and i8 %15, 3
-  %add15.i34 = add i8 %shl.i29, -3
-  %sub16.i35 = add i8 %add15.i34, %conv13.i33
-  br label %mi_bin.exit39
+  %sub.i30 = sub nuw nsw i64 61, %12
+  %shr.i31 = lshr i64 %dec.i28, %sub.i30
+  %15 = trunc i64 %shr.i31 to i8
+  %conv13.i32 = and i8 %15, 3
+  %add15.i33 = add nsw i8 %shl.i29, -3
+  %sub16.i34 = add nuw nsw i8 %add15.i33, %conv13.i32
+  br label %mi_bin.exit38
 
-mi_bin.exit39:                                    ; preds = %while.cond, %if.then2.i37, %if.else3.i25, %if.else7.i27
-  %bin.0.i36 = phi i8 [ %conv.i38, %if.then2.i37 ], [ %sub16.i35, %if.else7.i27 ], [ 1, %while.cond ], [ 73, %if.else3.i25 ]
-  %cmp14 = icmp eq i8 %bin.0.i, %bin.0.i36
+mi_bin.exit38:                                    ; preds = %while.cond, %if.then2.i36, %if.else3.i25, %if.else7.i27
+  %bin.0.i35 = phi i8 [ %conv.i37, %if.then2.i36 ], [ %sub16.i34, %if.else7.i27 ], [ 1, %while.cond ], [ 73, %if.else3.i25 ]
+  %cmp14 = icmp eq i8 %bin.0.i, %bin.0.i35
   %cmp17 = icmp ugt ptr %prev.0, %pages
   %16 = select i1 %cmp14, i1 %cmp17, i1 false
   br i1 %16, label %while.cond, label %if.end25, !llvm.loop !8
 
-if.end25:                                         ; preds = %mi_bin.exit39
+if.end25:                                         ; preds = %mi_bin.exit38
   %add = add nuw nsw i64 %div1.i.i21, 1
   %cmp21.not = icmp ult i64 %div1.i.i21, %div1.i
   %spec.select = select i1 %cmp21.not, i64 %add, i64 %div1.i
-  %cmp26.not42 = icmp ugt i64 %spec.select, %div1.i
-  br i1 %cmp26.not42, label %for.end, label %for.body.preheader
+  %cmp26.not41 = icmp ugt i64 %spec.select, %div1.i
+  br i1 %cmp26.not41, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end7, %if.end25
-  %sz.043.ph = phi i64 [ 0, %if.end7 ], [ %spec.select, %if.end25 ]
+  %sz.042.ph = phi i64 [ 0, %if.end7 ], [ %spec.select, %if.end25 ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %sz.043 = phi i64 [ %inc, %for.body ], [ %sz.043.ph, %for.body.preheader ]
-  %arrayidx28 = getelementptr inbounds ptr, ptr %pages_free_direct, i64 %sz.043
+  %sz.042 = phi i64 [ %inc, %for.body ], [ %sz.042.ph, %for.body.preheader ]
+  %arrayidx28 = getelementptr inbounds ptr, ptr %pages_free_direct, i64 %sz.042
   store ptr %spec.store.select, ptr %arrayidx28, align 8
-  %inc = add nuw nsw i64 %sz.043, 1
-  %exitcond.not = icmp eq i64 %sz.043, %div1.i
+  %inc = add nuw nsw i64 %sz.042, 1
+  %exitcond.not = icmp eq i64 %sz.042, %div1.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %if.end25, %if.end, %entry
@@ -614,12 +610,11 @@ if.else3.i.i.i:                                   ; preds = %if.else.i.i.i
 
 if.else7.i.i.i:                                   ; preds = %if.else3.i.i.i
   %dec.i.i.i = add nsw i64 %div1.i.i.i.i, -1
-  %5 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i.i, i1 true)
+  %5 = call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i.i.i, i1 true)
   %6 = shl nuw nsw i64 %5, 2
   %shl.i.i.i = xor i64 %6, 252
-  %sub.i.i.i3 = sub nsw i64 61, %5
-  %sh_prom.i.i.i = and i64 %sub.i.i.i3, 4294967295
-  %shr.i.i.i = lshr i64 %dec.i.i.i, %sh_prom.i.i.i
+  %sub.i.i.i3 = sub nuw nsw i64 61, %5
+  %shr.i.i.i = lshr i64 %dec.i.i.i, %sub.i.i.i3
   %conv13.i.i.i = and i64 %shr.i.i.i, 3
   %add15.i.i.i = add nuw nsw i64 %shl.i.i.i, 253
   %sub16.i.i.i = add nuw nsw i64 %add15.i.i.i, %conv13.i.i.i
@@ -831,12 +826,11 @@ if.else3.i.i:                                     ; preds = %if.else.i.i
 
 if.else7.i.i:                                     ; preds = %if.else3.i.i
   %dec.i.i = add nsw i64 %div1.i.i.i, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i, i1 true)
+  %5 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i.i, i1 true)
   %6 = shl nuw nsw i64 %5, 2
   %shl.i.i = xor i64 %6, 252
-  %sub.i.i = sub nsw i64 61, %5
-  %sh_prom.i.i = and i64 %sub.i.i, 4294967295
-  %shr.i.i = lshr i64 %dec.i.i, %sh_prom.i.i
+  %sub.i.i = sub nuw nsw i64 61, %5
+  %shr.i.i = lshr i64 %dec.i.i, %sub.i.i
   %conv13.i.i = and i64 %shr.i.i, 3
   %add15.i.i = add nuw nsw i64 %shl.i.i, 253
   %sub16.i.i = add nuw nsw i64 %add15.i.i, %conv13.i.i
@@ -1117,12 +1111,11 @@ mi_page_queue_of.exit.thread32:                   ; preds = %if.else3.i.i
 
 if.else7.i.i:                                     ; preds = %if.else3.i.i
   %dec.i.i = add nsw i64 %div1.i.i.i, -1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i, i1 true)
+  %4 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i.i, i1 true)
   %5 = shl nuw nsw i64 %4, 2
   %shl.i.i = xor i64 %5, 252
-  %sub.i.i = sub nsw i64 61, %4
-  %sh_prom.i.i = and i64 %sub.i.i, 4294967295
-  %shr.i.i = lshr i64 %dec.i.i, %sh_prom.i.i
+  %sub.i.i = sub nuw nsw i64 61, %4
+  %shr.i.i = lshr i64 %dec.i.i, %sub.i.i
   %conv13.i.i = and i64 %shr.i.i, 3
   %add15.i.i = add nuw nsw i64 %shl.i.i, 253
   %sub16.i.i = add nuw nsw i64 %add15.i.i, %conv13.i.i
@@ -1651,12 +1644,11 @@ if.else3.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
 
 if.else7.i.i.i.i:                                 ; preds = %if.else3.i.i.i.i
   %dec.i.i.i.i = add nsw i64 %div1.i.i.i.i.i, -1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
+  %4 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
   %5 = shl nuw nsw i64 %4, 2
   %shl.i.i.i.i = xor i64 %5, 252
-  %sub.i.i.i.i = sub nsw i64 61, %4
-  %sh_prom.i.i.i.i = and i64 %sub.i.i.i.i, 4294967295
-  %shr.i.i.i.i = lshr i64 %dec.i.i.i.i, %sh_prom.i.i.i.i
+  %sub.i.i.i.i = sub nuw nsw i64 61, %4
+  %shr.i.i.i.i = lshr i64 %dec.i.i.i.i, %sub.i.i.i.i
   %conv13.i.i.i.i = and i64 %shr.i.i.i.i, 3
   %add15.i.i.i.i = add nuw nsw i64 %shl.i.i.i.i, 253
   %sub16.i.i.i.i = add nuw nsw i64 %add15.i.i.i.i, %conv13.i.i.i.i
@@ -1694,40 +1686,39 @@ if.else12:                                        ; preds = %entry
   %sub.i.i.i.i.i7 = add nuw nsw i64 %size, 7
   %div1.i.i.i.i.i8 = lshr i64 %sub.i.i.i.i.i7, 3
   %cmp.i.i.i.i9 = icmp ult i64 %size, 9
-  br i1 %cmp.i.i.i.i9, label %mi_page_queue.exit.i23, label %if.else.i.i.i.i10
+  br i1 %cmp.i.i.i.i9, label %mi_page_queue.exit.i22, label %if.else.i.i.i.i10
 
 if.else.i.i.i.i10:                                ; preds = %if.else12
   %cmp1.i.i.i.i11 = icmp ult i64 %size, 65
-  br i1 %cmp1.i.i.i.i11, label %if.then2.i.i.i.i28, label %if.else7.i.i.i.i14
+  br i1 %cmp1.i.i.i.i11, label %if.then2.i.i.i.i27, label %if.else7.i.i.i.i14
 
-if.then2.i.i.i.i28:                               ; preds = %if.else.i.i.i.i10
+if.then2.i.i.i.i27:                               ; preds = %if.else.i.i.i.i10
   %10 = add nuw nsw i64 %div1.i.i.i.i.i8, 1
-  %conv.i.i.i.i29 = and i64 %10, 30
-  br label %mi_page_queue.exit.i23
+  %conv.i.i.i.i28 = and i64 %10, 30
+  br label %mi_page_queue.exit.i22
 
 if.else7.i.i.i.i14:                               ; preds = %if.else.i.i.i.i10
   %dec.i.i.i.i15 = add nsw i64 %div1.i.i.i.i.i8, -1
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i15, i1 true)
+  %11 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i15, i1 true)
   %12 = shl nuw nsw i64 %11, 2
   %shl.i.i.i.i16 = xor i64 %12, 252
-  %sub.i.i.i.i17 = sub nsw i64 61, %11
-  %sh_prom.i.i.i.i18 = and i64 %sub.i.i.i.i17, 4294967295
-  %shr.i.i.i.i19 = lshr i64 %dec.i.i.i.i15, %sh_prom.i.i.i.i18
-  %conv13.i.i.i.i20 = and i64 %shr.i.i.i.i19, 3
-  %add15.i.i.i.i21 = add nuw nsw i64 %shl.i.i.i.i16, 253
-  %sub16.i.i.i.i22 = add nuw nsw i64 %add15.i.i.i.i21, %conv13.i.i.i.i20
-  %13 = and i64 %sub16.i.i.i.i22, 255
-  br label %mi_page_queue.exit.i23
+  %sub.i.i.i.i17 = sub nuw nsw i64 61, %11
+  %shr.i.i.i.i18 = lshr i64 %dec.i.i.i.i15, %sub.i.i.i.i17
+  %conv13.i.i.i.i19 = and i64 %shr.i.i.i.i18, 3
+  %add15.i.i.i.i20 = add nuw nsw i64 %shl.i.i.i.i16, 253
+  %sub16.i.i.i.i21 = add nuw nsw i64 %add15.i.i.i.i20, %conv13.i.i.i.i19
+  %13 = and i64 %sub16.i.i.i.i21, 255
+  br label %mi_page_queue.exit.i22
 
-mi_page_queue.exit.i23:                           ; preds = %if.else7.i.i.i.i14, %if.then2.i.i.i.i28, %if.else12
-  %bin.0.i.i.i.i24 = phi i64 [ %conv.i.i.i.i29, %if.then2.i.i.i.i28 ], [ %13, %if.else7.i.i.i.i14 ], [ 1, %if.else12 ]
-  %pages.i.i25 = getelementptr inbounds i8, ptr %heap, i64 1040
-  %arrayidx.i.i26 = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i.i25, i64 0, i64 %bin.0.i.i.i.i24
-  %14 = load ptr, ptr %arrayidx.i.i26, align 8
+mi_page_queue.exit.i22:                           ; preds = %if.else7.i.i.i.i14, %if.then2.i.i.i.i27, %if.else12
+  %bin.0.i.i.i.i23 = phi i64 [ %conv.i.i.i.i28, %if.then2.i.i.i.i27 ], [ %13, %if.else7.i.i.i.i14 ], [ 1, %if.else12 ]
+  %pages.i.i24 = getelementptr inbounds i8, ptr %heap, i64 1040
+  %arrayidx.i.i25 = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i.i24, i64 0, i64 %bin.0.i.i.i.i23
+  %14 = load ptr, ptr %arrayidx.i.i25, align 8
   %cmp.not.i = icmp eq ptr %14, null
   br i1 %cmp.not.i, label %if.end3.i, label %if.then.i
 
-if.then.i:                                        ; preds = %mi_page_queue.exit.i23
+if.then.i:                                        ; preds = %mi_page_queue.exit.i22
   %xthread_free.i.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %15 = load atomic i64, ptr %xthread_free.i.i.i monotonic, align 8
   %cmp.not.i.i = icmp ult i64 %15, 4
@@ -1748,8 +1739,8 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
   %and.i.le.i.i.i = and i64 %tfree.0.i.i.i, -4
   %20 = inttoptr i64 %and.i.le.i.i.i to ptr
-  %cmp.i.i.i27 = icmp eq i64 %and.i.le.i.i.i, 0
-  br i1 %cmp.i.i.i27, label %if.end.i.i, label %if.end.i.i.i
+  %cmp.i.i.i26 = icmp eq i64 %and.i.le.i.i.i, 0
+  br i1 %cmp.i.i.i26, label %if.end.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %do.end.i.i.i
   %capacity.i.i.i = getelementptr inbounds i8, ptr %14, i64 10
@@ -1818,14 +1809,14 @@ if.end26.sink.split.i.i:                          ; preds = %if.then2.i.i
 _mi_page_free_collect.exit.i:                     ; preds = %if.end.i.i
   br i1 %29, label %if.end3.i, label %return.sink.split.i
 
-if.end3.i:                                        ; preds = %_mi_page_free_collect.exit.i, %mi_page_queue.exit.i23
-  %last.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i26, i64 8
-  %block_size.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i26, i64 16
+if.end3.i:                                        ; preds = %_mi_page_free_collect.exit.i, %mi_page_queue.exit.i22
+  %last.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i25, i64 8
+  %block_size.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i25, i64 16
   br label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %if.then9.i.i, %if.end3.i
   %first_try.tr.i.i = phi i1 [ true, %if.end3.i ], [ false, %if.then9.i.i ]
-  %30 = load ptr, ptr %arrayidx.i.i26, align 8
+  %30 = load ptr, ptr %arrayidx.i.i25, align 8
   %cond26.i.i = icmp eq ptr %30, null
   br i1 %cond26.i.i, label %if.then9.i.i, label %while.body.i.i
 
@@ -1981,14 +1972,14 @@ if.then11.i.i.i.i:                                ; preds = %if.end9.i.i.i.i
   br label %if.end14.i.i.i.i
 
 if.end14.i.i.i.i:                                 ; preds = %if.then11.i.i.i.i, %if.end9.i.i.i.i
-  %57 = load ptr, ptr %arrayidx.i.i26, align 8
+  %57 = load ptr, ptr %arrayidx.i.i25, align 8
   %cmp15.i.i.i.i = icmp eq ptr %57, %page.027.i.i
   br i1 %cmp15.i.i.i.i, label %if.then16.i.i.i.i, label %if.end19.i.i.i.i
 
 if.then16.i.i.i.i:                                ; preds = %if.end14.i.i.i.i
   %58 = load ptr, ptr %next1.i.i, align 8
-  store ptr %58, ptr %arrayidx.i.i26, align 8
-  tail call fastcc void @mi_heap_queue_first_update(ptr noundef %52, ptr noundef nonnull %arrayidx.i.i26) #13
+  store ptr %58, ptr %arrayidx.i.i25, align 8
+  tail call fastcc void @mi_heap_queue_first_update(ptr noundef %52, ptr noundef nonnull %arrayidx.i.i25) #13
   br label %if.end19.i.i.i.i
 
 if.end19.i.i.i.i:                                 ; preds = %if.then16.i.i.i.i, %if.end14.i.i.i.i
@@ -2114,7 +2105,7 @@ mi_page_to_full.exit.i.i:                         ; preds = %if.end26.sink.split
 if.then9.i.i:                                     ; preds = %mi_page_to_full.exit.i.i, %tailrecurse.i.i
   tail call void @_mi_heap_collect_retired(ptr noundef %heap, i1 noundef zeroext false) #13
   %77 = load i64, ptr %block_size.i.i.i, align 8
-  %call.i.i.i = tail call fastcc ptr @mi_page_fresh_alloc(ptr noundef %heap, ptr noundef nonnull %arrayidx.i.i26, i64 noundef %77, i64 noundef 0) #13
+  %call.i.i.i = tail call fastcc ptr @mi_page_fresh_alloc(ptr noundef %heap, ptr noundef nonnull %arrayidx.i.i25, i64 noundef %77, i64 noundef 0) #13
   %cmp11.i.i = icmp eq ptr %call.i.i.i, null
   %brmerge.not.i.i = and i1 %first_try.tr.i.i, %cmp11.i.i
   br i1 %brmerge.not.i.i, label %tailrecurse.i.i, label %return

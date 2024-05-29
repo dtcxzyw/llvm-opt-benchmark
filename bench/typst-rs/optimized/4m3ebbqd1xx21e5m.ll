@@ -59934,7 +59934,7 @@ _ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit: ; preds = %368, %357, %34
   br label %268
 
 378:                                              ; preds = %276
-  %.0.sroa.speculated.i = call noundef i8 @llvm.umax.i8(i8 %.080415, i8 %.sroa.761.0.copyload)
+  %.0.sroa.speculated.i = call noundef range(i8 0, 3) i8 @llvm.umax.i8(i8 %.080415, i8 %.sroa.761.0.copyload)
   %379 = extractelement <2 x double> %274, i64 0
   %380 = fneg double %379
   %381 = bitcast double %380 to i64
@@ -75799,7 +75799,7 @@ _ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit: ; preds = %135, %124, %11
   %.0.i.i41 = getelementptr inbounds i8, ptr %4, i64 %.0.idx.i.i40
   %153 = load i8, ptr %.0.i.i41, align 1, !range !1919, !noundef !4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  %.0.sroa.speculated.i = call noundef i8 @llvm.umin.i8(i8 %.020126, i8 %153)
+  %.0.sroa.speculated.i = call noundef range(i8 0, 3) i8 @llvm.umin.i8(i8 %.020126, i8 %153)
   br label %157
 
 154:                                              ; preds = %138, %138
@@ -75811,7 +75811,7 @@ _ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit: ; preds = %135, %124, %11
   %.0.i.i43 = getelementptr inbounds i8, ptr %3, i64 %.0.idx.i.i42
   %156 = load i8, ptr %.0.i.i43, align 1, !range !1919, !noundef !4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  %.0.sroa.speculated.i45 = call noundef i8 @llvm.umax.i8(i8 %.020126, i8 %156)
+  %.0.sroa.speculated.i45 = call noundef range(i8 0, 3) i8 @llvm.umax.i8(i8 %.020126, i8 %156)
   br label %157
 
 157:                                              ; preds = %154, %151

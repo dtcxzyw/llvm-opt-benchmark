@@ -321,7 +321,7 @@ if.end28:                                         ; preds = %if.end20
   %master_key.i = getelementptr inbounds i8, ptr %13, i64 80
   %master_key_length.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i64, ptr %master_key_length.i, align 8
-  %call.i22 = call fastcc i32 @tls1_PRF(ptr noundef nonnull %s, ptr noundef nonnull @.str.6, i64 noundef 13, ptr noundef nonnull %server_random.i, i64 noundef 32, ptr noundef nonnull %client_random.i, i64 noundef 32, ptr noundef null, i64 noundef 0, ptr noundef nonnull %master_key.i, i64 noundef %14, ptr noundef nonnull %call24, i64 noundef %mul, i32 noundef 1)
+  %call.i22 = call fastcc range(i32 0, 2) i32 @tls1_PRF(ptr noundef nonnull %s, ptr noundef nonnull @.str.6, i64 noundef 13, ptr noundef nonnull %server_random.i, i64 noundef 32, ptr noundef nonnull %client_random.i, i64 noundef 32, ptr noundef null, i64 noundef 0, ptr noundef nonnull %master_key.i, i64 noundef %14, ptr noundef nonnull %call24, i64 noundef %mul, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then27, %entry, %if.then19, %if.then1

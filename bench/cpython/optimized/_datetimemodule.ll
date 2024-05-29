@@ -3809,7 +3809,7 @@ if.then.i36.i:                                    ; preds = %normalize_pair.exit
 
 normalize_datetime.exit:                          ; preds = %normalize_pair.exit32.i, %if.then.i36.i
   %hour.1 = phi i32 [ %hour.0, %normalize_pair.exit32.i ], [ %storemerge.i.i42.i, %if.then.i36.i ]
-  %call.i = call fastcc i32 @normalize_date(ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
+  %call.i = call fastcc range(i32 -1, 1) i32 @normalize_date(ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end
 

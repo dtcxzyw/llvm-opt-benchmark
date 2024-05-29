@@ -984,7 +984,7 @@ dissect_frame_padding.exit.i177:                  ; preds = %143, %140, %135
 
 161:                                              ; preds = %92
   %162 = or i8 %60, 32
-  %163 = call fastcc i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %32, i32 noundef 9, i8 noundef zeroext %162)
+  %163 = call fastcc range(i32 9, 16) i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %32, i32 noundef 9, i8 noundef zeroext %162)
   br label %dissect_http2_headers.exit
 
 164:                                              ; preds = %92
