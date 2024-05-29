@@ -1747,11 +1747,11 @@ define linkonce_odr hidden void @_ZN7mitsuba16embree_intersectIfN5drjit6MatrixIN
   %19 = alloca %"class.std::__1::basic_string", align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8
-  switch i32 %21, label %366 [
+  switch i32 %21, label %364 [
     i32 1, label %22
     i32 4, label %76
-    i32 8, label %174
-    i32 16, label %270
+    i32 8, label %172
+    i32 16, label %268
   ]
 
 22:                                               ; preds = %1
@@ -1835,7 +1835,7 @@ define linkonce_odr hidden void @_ZN7mitsuba16embree_intersectIfN5drjit6MatrixIN
 _ZN7mitsuba23embree_intersect_scalarIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEvPiPvjjjP6RTCRayP6RTCHit.exit: ; preds = %22, %37, %69
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18)
-  br label %371
+  br label %369
 
 76:                                               ; preds = %1
   %77 = load ptr, ptr %0, align 8
@@ -1962,52 +1962,50 @@ _ZN7mitsubaplIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   %142 = getelementptr inbounds i8, ptr %16, i64 16
   %143 = load <4 x float>, ptr %16, align 16
   %144 = fcmp contract une <4 x float> %143, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
-  %145 = shufflevector <4 x i1> %144, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %146 = and <8 x i1> %145, %92
-  %147 = load <4 x float>, ptr %95, align 16
-  %148 = shufflevector <8 x i1> %146, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %149 = select contract <4 x i1> %148, <4 x float> %143, <4 x float> %147
+  %145 = and <4 x i1> %144, %91
+  %146 = load <4 x float>, ptr %95, align 16
+  %147 = select contract <4 x i1> %145, <4 x float> %143, <4 x float> %146
   call void @llvm.assume(i1 true) [ "align"(ptr %117, i64 16) ]
-  store <4 x float> %149, ptr %117, align 16
-  %150 = getelementptr inbounds i8, ptr %89, i64 240
-  call void @llvm.assume(i1 true) [ "align"(ptr %150, i64 16) ]
-  %151 = load <4 x float>, ptr %150, align 16
-  %152 = load <4 x float>, ptr %142, align 16
-  %153 = select contract <4 x i1> %148, <4 x float> %152, <4 x float> %151
-  call void @llvm.assume(i1 true) [ "align"(ptr %150, i64 16) ]
-  store <4 x float> %153, ptr %150, align 16
-  %154 = getelementptr inbounds i8, ptr %89, i64 256
-  %155 = getelementptr inbounds i8, ptr %16, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %154, i64 16) ]
-  %156 = load <4 x float>, ptr %154, align 16
-  %157 = load <4 x float>, ptr %155, align 16
-  %158 = select contract <4 x i1> %148, <4 x float> %157, <4 x float> %156
-  call void @llvm.assume(i1 true) [ "align"(ptr %154, i64 16) ]
-  store <4 x float> %158, ptr %154, align 16
-  %159 = getelementptr inbounds i8, ptr %89, i64 288
-  %160 = insertelement <4 x i32> poison, i32 %81, i64 0
-  %161 = shufflevector <4 x i32> %160, <4 x i32> poison, <4 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %159, i64 16) ]
-  %162 = load <4 x i32>, ptr %159, align 16
-  %163 = select <4 x i1> %148, <4 x i32> %161, <4 x i32> %162
-  call void @llvm.assume(i1 true) [ "align"(ptr %159, i64 16) ]
-  store <4 x i32> %163, ptr %159, align 16
-  %164 = getelementptr inbounds i8, ptr %89, i64 272
-  %165 = insertelement <4 x i32> poison, i32 %87, i64 0
-  %166 = shufflevector <4 x i32> %165, <4 x i32> poison, <4 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %164, i64 16) ]
-  %167 = load <4 x i32>, ptr %164, align 16
-  %168 = select <4 x i1> %148, <4 x i32> %166, <4 x i32> %167
-  call void @llvm.assume(i1 true) [ "align"(ptr %164, i64 16) ]
-  store <4 x i32> %168, ptr %164, align 16
-  %169 = getelementptr inbounds i8, ptr %89, i64 304
-  %170 = insertelement <4 x i32> poison, i32 %85, i64 0
-  %171 = shufflevector <4 x i32> %170, <4 x i32> poison, <4 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %169, i64 16) ]
-  %172 = load <4 x i32>, ptr %169, align 16
-  %173 = select <4 x i1> %148, <4 x i32> %171, <4 x i32> %172
-  call void @llvm.assume(i1 true) [ "align"(ptr %169, i64 16) ]
-  store <4 x i32> %173, ptr %169, align 16
+  store <4 x float> %147, ptr %117, align 16
+  %148 = getelementptr inbounds i8, ptr %89, i64 240
+  call void @llvm.assume(i1 true) [ "align"(ptr %148, i64 16) ]
+  %149 = load <4 x float>, ptr %148, align 16
+  %150 = load <4 x float>, ptr %142, align 16
+  %151 = select contract <4 x i1> %145, <4 x float> %150, <4 x float> %149
+  call void @llvm.assume(i1 true) [ "align"(ptr %148, i64 16) ]
+  store <4 x float> %151, ptr %148, align 16
+  %152 = getelementptr inbounds i8, ptr %89, i64 256
+  %153 = getelementptr inbounds i8, ptr %16, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %152, i64 16) ]
+  %154 = load <4 x float>, ptr %152, align 16
+  %155 = load <4 x float>, ptr %153, align 16
+  %156 = select contract <4 x i1> %145, <4 x float> %155, <4 x float> %154
+  call void @llvm.assume(i1 true) [ "align"(ptr %152, i64 16) ]
+  store <4 x float> %156, ptr %152, align 16
+  %157 = getelementptr inbounds i8, ptr %89, i64 288
+  %158 = insertelement <4 x i32> poison, i32 %81, i64 0
+  %159 = shufflevector <4 x i32> %158, <4 x i32> poison, <4 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %157, i64 16) ]
+  %160 = load <4 x i32>, ptr %157, align 16
+  %161 = select <4 x i1> %145, <4 x i32> %159, <4 x i32> %160
+  call void @llvm.assume(i1 true) [ "align"(ptr %157, i64 16) ]
+  store <4 x i32> %161, ptr %157, align 16
+  %162 = getelementptr inbounds i8, ptr %89, i64 272
+  %163 = insertelement <4 x i32> poison, i32 %87, i64 0
+  %164 = shufflevector <4 x i32> %163, <4 x i32> poison, <4 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %162, i64 16) ]
+  %165 = load <4 x i32>, ptr %162, align 16
+  %166 = select <4 x i1> %145, <4 x i32> %164, <4 x i32> %165
+  call void @llvm.assume(i1 true) [ "align"(ptr %162, i64 16) ]
+  store <4 x i32> %166, ptr %162, align 16
+  %167 = getelementptr inbounds i8, ptr %89, i64 304
+  %168 = insertelement <4 x i32> poison, i32 %85, i64 0
+  %169 = shufflevector <4 x i32> %168, <4 x i32> poison, <4 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %167, i64 16) ]
+  %170 = load <4 x i32>, ptr %167, align 16
+  %171 = select <4 x i1> %145, <4 x i32> %169, <4 x i32> %170
+  call void @llvm.assume(i1 true) [ "align"(ptr %167, i64 16) ]
+  store <4 x i32> %171, ptr %167, align 16
   br label %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm4E7RTCRay47RTCHit4EEvPiPvjjjPT2_PT3_.exit
 
 _ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm4E7RTCRay47RTCHit4EEvPiPvjjjPT2_PT3_.exit: ; preds = %76, %_ZN7mitsubaplIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i
@@ -2016,380 +2014,380 @@ _ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEE
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16)
-  br label %371
+  br label %369
 
-174:                                              ; preds = %1
-  %175 = load ptr, ptr %0, align 8
-  %176 = getelementptr inbounds i8, ptr %0, i64 8
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %0, i64 44
-  %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds i8, ptr %0, i64 24
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 16
+172:                                              ; preds = %1
+  %173 = load ptr, ptr %0, align 8
+  %174 = getelementptr inbounds i8, ptr %0, i64 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds i8, ptr %0, i64 44
+  %177 = load i32, ptr %176, align 4
+  %178 = getelementptr inbounds i8, ptr %0, i64 24
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds i8, ptr %179, i64 16
+  %181 = load i32, ptr %180, align 8
+  %182 = getelementptr inbounds i8, ptr %0, i64 16
   %183 = load i32, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %0, i64 16
-  %185 = load i32, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %0, i64 32
-  %187 = load ptr, ptr %186, align 8
+  %184 = getelementptr inbounds i8, ptr %0, i64 32
+  %185 = load ptr, ptr %184, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %11)
-  call void @llvm.assume(i1 true) [ "align"(ptr %175, i64 32) ]
-  %188 = load <8 x i32>, ptr %175, align 32
-  %189 = icmp ne <8 x i32> %188, zeroinitializer
-  %190 = bitcast <8 x i1> %189 to i8
-  %191 = icmp eq i8 %190, 0
-  br i1 %191, label %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm8E7RTCRay87RTCHit8EEvPiPvjjjPT2_PT3_.exit, label %192
+  call void @llvm.assume(i1 true) [ "align"(ptr %173, i64 32) ]
+  %186 = load <8 x i32>, ptr %173, align 32
+  %187 = icmp ne <8 x i32> %186, zeroinitializer
+  %188 = bitcast <8 x i1> %187 to i8
+  %189 = icmp eq i8 %188, 0
+  br i1 %189, label %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm8E7RTCRay87RTCHit8EEvPiPvjjjPT2_PT3_.exit, label %190
 
-192:                                              ; preds = %174
-  %193 = getelementptr inbounds i8, ptr %9, i64 192
-  store <8 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %193, align 32
-  %194 = getelementptr inbounds i8, ptr %9, i64 224
-  call void @llvm.assume(i1 true) [ "align"(ptr %187, i64 32) ]
-  %195 = load <8 x float>, ptr %187, align 32
-  store <8 x float> %195, ptr %9, align 32
-  %196 = getelementptr inbounds i8, ptr %187, i64 32
-  call void @llvm.assume(i1 true) [ "align"(ptr %196, i64 32) ]
-  %197 = load <8 x float>, ptr %196, align 32
-  %198 = getelementptr inbounds i8, ptr %9, i64 32
-  store <8 x float> %197, ptr %198, align 32
-  %199 = getelementptr inbounds i8, ptr %187, i64 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %199, i64 32) ]
-  %200 = load <8 x float>, ptr %199, align 32
-  %201 = getelementptr inbounds i8, ptr %9, i64 64
-  store <8 x float> %200, ptr %201, align 32
-  %202 = getelementptr inbounds i8, ptr %187, i64 128
-  call void @llvm.assume(i1 true) [ "align"(ptr %202, i64 32) ]
-  %203 = load <8 x float>, ptr %202, align 32
-  %204 = getelementptr inbounds i8, ptr %9, i64 96
-  store <8 x float> %203, ptr %204, align 32
-  %205 = getelementptr inbounds i8, ptr %187, i64 160
-  call void @llvm.assume(i1 true) [ "align"(ptr %205, i64 32) ]
-  %206 = load <8 x float>, ptr %205, align 32
-  %207 = getelementptr inbounds i8, ptr %9, i64 128
-  store <8 x float> %206, ptr %207, align 32
-  %208 = getelementptr inbounds i8, ptr %187, i64 192
-  call void @llvm.assume(i1 true) [ "align"(ptr %208, i64 32) ]
-  %209 = load <8 x float>, ptr %208, align 32
-  %210 = getelementptr inbounds i8, ptr %9, i64 160
-  store <8 x float> %209, ptr %210, align 32
-  %211 = getelementptr inbounds i8, ptr %187, i64 224
+190:                                              ; preds = %172
+  %191 = getelementptr inbounds i8, ptr %9, i64 192
+  store <8 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %191, align 32
+  %192 = getelementptr inbounds i8, ptr %9, i64 224
+  call void @llvm.assume(i1 true) [ "align"(ptr %185, i64 32) ]
+  %193 = load <8 x float>, ptr %185, align 32
+  store <8 x float> %193, ptr %9, align 32
+  %194 = getelementptr inbounds i8, ptr %185, i64 32
+  call void @llvm.assume(i1 true) [ "align"(ptr %194, i64 32) ]
+  %195 = load <8 x float>, ptr %194, align 32
+  %196 = getelementptr inbounds i8, ptr %9, i64 32
+  store <8 x float> %195, ptr %196, align 32
+  %197 = getelementptr inbounds i8, ptr %185, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %197, i64 32) ]
+  %198 = load <8 x float>, ptr %197, align 32
+  %199 = getelementptr inbounds i8, ptr %9, i64 64
+  store <8 x float> %198, ptr %199, align 32
+  %200 = getelementptr inbounds i8, ptr %185, i64 128
+  call void @llvm.assume(i1 true) [ "align"(ptr %200, i64 32) ]
+  %201 = load <8 x float>, ptr %200, align 32
+  %202 = getelementptr inbounds i8, ptr %9, i64 96
+  store <8 x float> %201, ptr %202, align 32
+  %203 = getelementptr inbounds i8, ptr %185, i64 160
+  call void @llvm.assume(i1 true) [ "align"(ptr %203, i64 32) ]
+  %204 = load <8 x float>, ptr %203, align 32
+  %205 = getelementptr inbounds i8, ptr %9, i64 128
+  store <8 x float> %204, ptr %205, align 32
+  %206 = getelementptr inbounds i8, ptr %185, i64 192
+  call void @llvm.assume(i1 true) [ "align"(ptr %206, i64 32) ]
+  %207 = load <8 x float>, ptr %206, align 32
+  %208 = getelementptr inbounds i8, ptr %9, i64 160
+  store <8 x float> %207, ptr %208, align 32
+  %209 = getelementptr inbounds i8, ptr %185, i64 224
+  call void @llvm.assume(i1 true) [ "align"(ptr %209, i64 32) ]
+  %210 = load <8 x float>, ptr %209, align 32
+  store <8 x float> %210, ptr %192, align 32
+  %211 = getelementptr inbounds i8, ptr %185, i64 96
   call void @llvm.assume(i1 true) [ "align"(ptr %211, i64 32) ]
   %212 = load <8 x float>, ptr %211, align 32
-  store <8 x float> %212, ptr %194, align 32
-  %213 = getelementptr inbounds i8, ptr %187, i64 96
+  %213 = getelementptr inbounds i8, ptr %185, i64 256
   call void @llvm.assume(i1 true) [ "align"(ptr %213, i64 32) ]
   %214 = load <8 x float>, ptr %213, align 32
-  %215 = getelementptr inbounds i8, ptr %187, i64 256
-  call void @llvm.assume(i1 true) [ "align"(ptr %215, i64 32) ]
-  %216 = load <8 x float>, ptr %215, align 32
-  br label %217
+  br label %215
 
-217:                                              ; preds = %217, %192
-  %.04.i.i.i31 = phi i64 [ 0, %192 ], [ %219, %217 ]
-  %218 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %7, i64 0, i64 %.04.i.i.i31
-  store <8 x float> %214, ptr %218, align 32, !noalias !27
-  %219 = add nuw nsw i64 %.04.i.i.i31, 1
-  %exitcond.not.i.i.i32 = icmp eq i64 %219, 3
-  br i1 %exitcond.not.i.i.i32, label %_ZN7mitsuba6VectorIN5drjit6PacketIfLm8EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i, label %217, !llvm.loop !30
+215:                                              ; preds = %215, %190
+  %.04.i.i.i31 = phi i64 [ 0, %190 ], [ %217, %215 ]
+  %216 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %7, i64 0, i64 %.04.i.i.i31
+  store <8 x float> %212, ptr %216, align 32, !noalias !27
+  %217 = add nuw nsw i64 %.04.i.i.i31, 1
+  %exitcond.not.i.i.i32 = icmp eq i64 %217, 3
+  br i1 %exitcond.not.i.i.i32, label %_ZN7mitsuba6VectorIN5drjit6PacketIfLm8EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i, label %215, !llvm.loop !30
 
-_ZN7mitsuba6VectorIN5drjit6PacketIfLm8EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i: ; preds = %217
+_ZN7mitsuba6VectorIN5drjit6PacketIfLm8EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i: ; preds = %215
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  br label %220
+  br label %218
 
-220:                                              ; preds = %220, %_ZN7mitsuba6VectorIN5drjit6PacketIfLm8EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i
-  %.034.i.i33 = phi i64 [ 0, %_ZN7mitsuba6VectorIN5drjit6PacketIfLm8EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i ], [ %227, %220 ]
-  %221 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %204, i64 0, i64 %.034.i.i33
-  %222 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %7, i64 0, i64 %.034.i.i33
-  %223 = load <8 x float>, ptr %221, align 32, !noalias !31
-  %224 = load <8 x float>, ptr %222, align 32, !noalias !31
-  %225 = fmul contract <8 x float> %223, %224
-  %226 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %10, i64 0, i64 %.034.i.i33
-  store <8 x float> %225, ptr %226, align 32, !alias.scope !31
-  %227 = add nuw nsw i64 %.034.i.i33, 1
-  %exitcond.not.i.i34 = icmp eq i64 %227, 3
-  br i1 %exitcond.not.i.i34, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i, label %220, !llvm.loop !34
+218:                                              ; preds = %218, %_ZN7mitsuba6VectorIN5drjit6PacketIfLm8EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i
+  %.034.i.i33 = phi i64 [ 0, %_ZN7mitsuba6VectorIN5drjit6PacketIfLm8EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i ], [ %225, %218 ]
+  %219 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %202, i64 0, i64 %.034.i.i33
+  %220 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %7, i64 0, i64 %.034.i.i33
+  %221 = load <8 x float>, ptr %219, align 32, !noalias !31
+  %222 = load <8 x float>, ptr %220, align 32, !noalias !31
+  %223 = fmul contract <8 x float> %221, %222
+  %224 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %10, i64 0, i64 %.034.i.i33
+  store <8 x float> %223, ptr %224, align 32, !alias.scope !31
+  %225 = add nuw nsw i64 %.034.i.i33, 1
+  %exitcond.not.i.i34 = icmp eq i64 %225, 3
+  br i1 %exitcond.not.i.i34, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i, label %218, !llvm.loop !34
 
-_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i: ; preds = %220
+_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i: ; preds = %218
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  br label %228
+  br label %226
 
-228:                                              ; preds = %228, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i
-  %.034.i.i.i35 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i ], [ %235, %228 ]
-  %229 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %9, i64 0, i64 %.034.i.i.i35
-  %230 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %10, i64 0, i64 %.034.i.i.i35
-  %231 = load <8 x float>, ptr %229, align 32, !noalias !41
-  %232 = load <8 x float>, ptr %230, align 32
-  %233 = fadd contract <8 x float> %231, %232
-  %234 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %8, i64 0, i64 %.034.i.i.i35
-  store <8 x float> %233, ptr %234, align 32, !alias.scope !41
-  %235 = add nuw nsw i64 %.034.i.i.i35, 1
-  %exitcond.not.i.i395.i36 = icmp eq i64 %235, 3
-  br i1 %exitcond.not.i.i395.i36, label %_ZN7mitsubaplIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i, label %228, !llvm.loop !42
+226:                                              ; preds = %226, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i
+  %.034.i.i.i35 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i ], [ %233, %226 ]
+  %227 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %9, i64 0, i64 %.034.i.i.i35
+  %228 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %10, i64 0, i64 %.034.i.i.i35
+  %229 = load <8 x float>, ptr %227, align 32, !noalias !41
+  %230 = load <8 x float>, ptr %228, align 32
+  %231 = fadd contract <8 x float> %229, %230
+  %232 = getelementptr inbounds [3 x %"struct.drjit::Packet.108"], ptr %8, i64 0, i64 %.034.i.i.i35
+  store <8 x float> %231, ptr %232, align 32, !alias.scope !41
+  %233 = add nuw nsw i64 %.034.i.i.i35, 1
+  %exitcond.not.i.i395.i36 = icmp eq i64 %233, 3
+  br i1 %exitcond.not.i.i395.i36, label %_ZN7mitsubaplIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i, label %226, !llvm.loop !42
 
-_ZN7mitsubaplIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i: ; preds = %228
+_ZN7mitsubaplIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i: ; preds = %226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %9, ptr noundef nonnull align 32 dereferenceable(96) %8, i64 96, i1 false)
-  %236 = fsub contract <8 x float> %216, %214
-  store <8 x float> %236, ptr %193, align 32
-  %237 = load ptr, ptr %177, align 16
-  %238 = getelementptr inbounds i8, ptr %237, i64 208
-  %239 = load ptr, ptr %238, align 8
-  call void %239(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.105") align 32 %11, ptr noundef nonnull align 16 dereferenceable(403) %177, ptr noundef nonnull align 32 dereferenceable(272) %9, i32 noundef %185, i8 %190)
-  %240 = getelementptr inbounds i8, ptr %11, i64 32
-  %241 = load <8 x float>, ptr %11, align 32
-  %242 = fcmp contract une <8 x float> %241, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
-  %243 = and <8 x i1> %242, %189
-  %244 = load <8 x float>, ptr %193, align 32
-  %245 = select contract <8 x i1> %243, <8 x float> %241, <8 x float> %244
-  call void @llvm.assume(i1 true) [ "align"(ptr %215, i64 32) ]
-  store <8 x float> %245, ptr %215, align 32
-  %246 = getelementptr inbounds i8, ptr %187, i64 480
-  call void @llvm.assume(i1 true) [ "align"(ptr %246, i64 32) ]
-  %247 = load <8 x float>, ptr %246, align 32
-  %248 = load <8 x float>, ptr %240, align 32
-  %249 = select contract <8 x i1> %243, <8 x float> %248, <8 x float> %247
-  call void @llvm.assume(i1 true) [ "align"(ptr %246, i64 32) ]
-  store <8 x float> %249, ptr %246, align 32
-  %250 = getelementptr inbounds i8, ptr %187, i64 512
-  %251 = getelementptr inbounds i8, ptr %11, i64 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %250, i64 32) ]
-  %252 = load <8 x float>, ptr %250, align 32
-  %253 = load <8 x float>, ptr %251, align 32
-  %254 = select contract <8 x i1> %243, <8 x float> %253, <8 x float> %252
-  call void @llvm.assume(i1 true) [ "align"(ptr %250, i64 32) ]
-  store <8 x float> %254, ptr %250, align 32
-  %255 = getelementptr inbounds i8, ptr %187, i64 576
-  %256 = insertelement <8 x i32> poison, i32 %179, i64 0
-  %257 = shufflevector <8 x i32> %256, <8 x i32> poison, <8 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %255, i64 32) ]
-  %258 = load <8 x i32>, ptr %255, align 32
-  %259 = select <8 x i1> %243, <8 x i32> %257, <8 x i32> %258
-  call void @llvm.assume(i1 true) [ "align"(ptr %255, i64 32) ]
-  store <8 x i32> %259, ptr %255, align 32
-  %260 = getelementptr inbounds i8, ptr %187, i64 544
-  %261 = insertelement <8 x i32> poison, i32 %185, i64 0
-  %262 = shufflevector <8 x i32> %261, <8 x i32> poison, <8 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %260, i64 32) ]
-  %263 = load <8 x i32>, ptr %260, align 32
-  %264 = select <8 x i1> %243, <8 x i32> %262, <8 x i32> %263
-  call void @llvm.assume(i1 true) [ "align"(ptr %260, i64 32) ]
-  store <8 x i32> %264, ptr %260, align 32
-  %265 = getelementptr inbounds i8, ptr %187, i64 608
-  %266 = insertelement <8 x i32> poison, i32 %183, i64 0
-  %267 = shufflevector <8 x i32> %266, <8 x i32> poison, <8 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %265, i64 32) ]
-  %268 = load <8 x i32>, ptr %265, align 32
-  %269 = select <8 x i1> %243, <8 x i32> %267, <8 x i32> %268
-  call void @llvm.assume(i1 true) [ "align"(ptr %265, i64 32) ]
-  store <8 x i32> %269, ptr %265, align 32
+  %234 = fsub contract <8 x float> %214, %212
+  store <8 x float> %234, ptr %191, align 32
+  %235 = load ptr, ptr %175, align 16
+  %236 = getelementptr inbounds i8, ptr %235, i64 208
+  %237 = load ptr, ptr %236, align 8
+  call void %237(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.105") align 32 %11, ptr noundef nonnull align 16 dereferenceable(403) %175, ptr noundef nonnull align 32 dereferenceable(272) %9, i32 noundef %183, i8 %188)
+  %238 = getelementptr inbounds i8, ptr %11, i64 32
+  %239 = load <8 x float>, ptr %11, align 32
+  %240 = fcmp contract une <8 x float> %239, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %241 = and <8 x i1> %240, %187
+  %242 = load <8 x float>, ptr %191, align 32
+  %243 = select contract <8 x i1> %241, <8 x float> %239, <8 x float> %242
+  call void @llvm.assume(i1 true) [ "align"(ptr %213, i64 32) ]
+  store <8 x float> %243, ptr %213, align 32
+  %244 = getelementptr inbounds i8, ptr %185, i64 480
+  call void @llvm.assume(i1 true) [ "align"(ptr %244, i64 32) ]
+  %245 = load <8 x float>, ptr %244, align 32
+  %246 = load <8 x float>, ptr %238, align 32
+  %247 = select contract <8 x i1> %241, <8 x float> %246, <8 x float> %245
+  call void @llvm.assume(i1 true) [ "align"(ptr %244, i64 32) ]
+  store <8 x float> %247, ptr %244, align 32
+  %248 = getelementptr inbounds i8, ptr %185, i64 512
+  %249 = getelementptr inbounds i8, ptr %11, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %248, i64 32) ]
+  %250 = load <8 x float>, ptr %248, align 32
+  %251 = load <8 x float>, ptr %249, align 32
+  %252 = select contract <8 x i1> %241, <8 x float> %251, <8 x float> %250
+  call void @llvm.assume(i1 true) [ "align"(ptr %248, i64 32) ]
+  store <8 x float> %252, ptr %248, align 32
+  %253 = getelementptr inbounds i8, ptr %185, i64 576
+  %254 = insertelement <8 x i32> poison, i32 %177, i64 0
+  %255 = shufflevector <8 x i32> %254, <8 x i32> poison, <8 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %253, i64 32) ]
+  %256 = load <8 x i32>, ptr %253, align 32
+  %257 = select <8 x i1> %241, <8 x i32> %255, <8 x i32> %256
+  call void @llvm.assume(i1 true) [ "align"(ptr %253, i64 32) ]
+  store <8 x i32> %257, ptr %253, align 32
+  %258 = getelementptr inbounds i8, ptr %185, i64 544
+  %259 = insertelement <8 x i32> poison, i32 %183, i64 0
+  %260 = shufflevector <8 x i32> %259, <8 x i32> poison, <8 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %258, i64 32) ]
+  %261 = load <8 x i32>, ptr %258, align 32
+  %262 = select <8 x i1> %241, <8 x i32> %260, <8 x i32> %261
+  call void @llvm.assume(i1 true) [ "align"(ptr %258, i64 32) ]
+  store <8 x i32> %262, ptr %258, align 32
+  %263 = getelementptr inbounds i8, ptr %185, i64 608
+  %264 = insertelement <8 x i32> poison, i32 %181, i64 0
+  %265 = shufflevector <8 x i32> %264, <8 x i32> poison, <8 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %263, i64 32) ]
+  %266 = load <8 x i32>, ptr %263, align 32
+  %267 = select <8 x i1> %241, <8 x i32> %265, <8 x i32> %266
+  call void @llvm.assume(i1 true) [ "align"(ptr %263, i64 32) ]
+  store <8 x i32> %267, ptr %263, align 32
   br label %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm8E7RTCRay87RTCHit8EEvPiPvjjjPT2_PT3_.exit
 
-_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm8E7RTCRay87RTCHit8EEvPiPvjjjPT2_PT3_.exit: ; preds = %174, %_ZN7mitsubaplIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i
+_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm8E7RTCRay87RTCHit8EEvPiPvjjjPT2_PT3_.exit: ; preds = %172, %_ZN7mitsubaplIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %11)
-  br label %371
+  br label %369
 
-270:                                              ; preds = %1
-  %271 = load ptr, ptr %0, align 8
-  %272 = getelementptr inbounds i8, ptr %0, i64 8
-  %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %0, i64 44
-  %275 = load i32, ptr %274, align 4
-  %276 = getelementptr inbounds i8, ptr %0, i64 24
-  %277 = load ptr, ptr %276, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 16
+268:                                              ; preds = %1
+  %269 = load ptr, ptr %0, align 8
+  %270 = getelementptr inbounds i8, ptr %0, i64 8
+  %271 = load ptr, ptr %270, align 8
+  %272 = getelementptr inbounds i8, ptr %0, i64 44
+  %273 = load i32, ptr %272, align 4
+  %274 = getelementptr inbounds i8, ptr %0, i64 24
+  %275 = load ptr, ptr %274, align 8
+  %276 = getelementptr inbounds i8, ptr %275, i64 16
+  %277 = load i32, ptr %276, align 8
+  %278 = getelementptr inbounds i8, ptr %0, i64 16
   %279 = load i32, ptr %278, align 8
-  %280 = getelementptr inbounds i8, ptr %0, i64 16
-  %281 = load i32, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %0, i64 32
-  %283 = load ptr, ptr %282, align 8
+  %280 = getelementptr inbounds i8, ptr %0, i64 32
+  %281 = load ptr, ptr %280, align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 576, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %6)
-  call void @llvm.assume(i1 true) [ "align"(ptr %271, i64 64) ]
-  %284 = load <16 x i32>, ptr %271, align 64
-  %285 = icmp ne <16 x i32> %284, zeroinitializer
-  %286 = bitcast <16 x i1> %285 to i16
-  %287 = icmp eq i16 %286, 0
-  br i1 %287, label %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm16E8RTCRay168RTCHit16EEvPiPvjjjPT2_PT3_.exit, label %288
+  call void @llvm.assume(i1 true) [ "align"(ptr %269, i64 64) ]
+  %282 = load <16 x i32>, ptr %269, align 64
+  %283 = icmp ne <16 x i32> %282, zeroinitializer
+  %284 = bitcast <16 x i1> %283 to i16
+  %285 = icmp eq i16 %284, 0
+  br i1 %285, label %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm16E8RTCRay168RTCHit16EEvPiPvjjjPT2_PT3_.exit, label %286
 
-288:                                              ; preds = %270
-  %289 = getelementptr inbounds i8, ptr %4, i64 384
-  store <16 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %289, align 64
-  %290 = getelementptr inbounds i8, ptr %4, i64 448
-  call void @llvm.assume(i1 true) [ "align"(ptr %283, i64 64) ]
-  %291 = load <16 x float>, ptr %283, align 64
-  store <16 x float> %291, ptr %4, align 64
-  %292 = getelementptr inbounds i8, ptr %283, i64 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %292, i64 64) ]
-  %293 = load <16 x float>, ptr %292, align 64
-  %294 = getelementptr inbounds i8, ptr %4, i64 64
-  store <16 x float> %293, ptr %294, align 64
-  %295 = getelementptr inbounds i8, ptr %283, i64 128
-  call void @llvm.assume(i1 true) [ "align"(ptr %295, i64 64) ]
-  %296 = load <16 x float>, ptr %295, align 64
-  %297 = getelementptr inbounds i8, ptr %4, i64 128
-  store <16 x float> %296, ptr %297, align 64
-  %298 = getelementptr inbounds i8, ptr %283, i64 256
-  call void @llvm.assume(i1 true) [ "align"(ptr %298, i64 64) ]
-  %299 = load <16 x float>, ptr %298, align 64
-  %300 = getelementptr inbounds i8, ptr %4, i64 192
-  store <16 x float> %299, ptr %300, align 64
-  %301 = getelementptr inbounds i8, ptr %283, i64 320
-  call void @llvm.assume(i1 true) [ "align"(ptr %301, i64 64) ]
-  %302 = load <16 x float>, ptr %301, align 64
-  %303 = getelementptr inbounds i8, ptr %4, i64 256
-  store <16 x float> %302, ptr %303, align 64
-  %304 = getelementptr inbounds i8, ptr %283, i64 384
-  call void @llvm.assume(i1 true) [ "align"(ptr %304, i64 64) ]
-  %305 = load <16 x float>, ptr %304, align 64
-  %306 = getelementptr inbounds i8, ptr %4, i64 320
-  store <16 x float> %305, ptr %306, align 64
-  %307 = getelementptr inbounds i8, ptr %283, i64 448
+286:                                              ; preds = %268
+  %287 = getelementptr inbounds i8, ptr %4, i64 384
+  store <16 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %287, align 64
+  %288 = getelementptr inbounds i8, ptr %4, i64 448
+  call void @llvm.assume(i1 true) [ "align"(ptr %281, i64 64) ]
+  %289 = load <16 x float>, ptr %281, align 64
+  store <16 x float> %289, ptr %4, align 64
+  %290 = getelementptr inbounds i8, ptr %281, i64 64
+  call void @llvm.assume(i1 true) [ "align"(ptr %290, i64 64) ]
+  %291 = load <16 x float>, ptr %290, align 64
+  %292 = getelementptr inbounds i8, ptr %4, i64 64
+  store <16 x float> %291, ptr %292, align 64
+  %293 = getelementptr inbounds i8, ptr %281, i64 128
+  call void @llvm.assume(i1 true) [ "align"(ptr %293, i64 64) ]
+  %294 = load <16 x float>, ptr %293, align 64
+  %295 = getelementptr inbounds i8, ptr %4, i64 128
+  store <16 x float> %294, ptr %295, align 64
+  %296 = getelementptr inbounds i8, ptr %281, i64 256
+  call void @llvm.assume(i1 true) [ "align"(ptr %296, i64 64) ]
+  %297 = load <16 x float>, ptr %296, align 64
+  %298 = getelementptr inbounds i8, ptr %4, i64 192
+  store <16 x float> %297, ptr %298, align 64
+  %299 = getelementptr inbounds i8, ptr %281, i64 320
+  call void @llvm.assume(i1 true) [ "align"(ptr %299, i64 64) ]
+  %300 = load <16 x float>, ptr %299, align 64
+  %301 = getelementptr inbounds i8, ptr %4, i64 256
+  store <16 x float> %300, ptr %301, align 64
+  %302 = getelementptr inbounds i8, ptr %281, i64 384
+  call void @llvm.assume(i1 true) [ "align"(ptr %302, i64 64) ]
+  %303 = load <16 x float>, ptr %302, align 64
+  %304 = getelementptr inbounds i8, ptr %4, i64 320
+  store <16 x float> %303, ptr %304, align 64
+  %305 = getelementptr inbounds i8, ptr %281, i64 448
+  call void @llvm.assume(i1 true) [ "align"(ptr %305, i64 64) ]
+  %306 = load <16 x float>, ptr %305, align 64
+  store <16 x float> %306, ptr %288, align 64
+  %307 = getelementptr inbounds i8, ptr %281, i64 192
   call void @llvm.assume(i1 true) [ "align"(ptr %307, i64 64) ]
   %308 = load <16 x float>, ptr %307, align 64
-  store <16 x float> %308, ptr %290, align 64
-  %309 = getelementptr inbounds i8, ptr %283, i64 192
+  %309 = getelementptr inbounds i8, ptr %281, i64 512
   call void @llvm.assume(i1 true) [ "align"(ptr %309, i64 64) ]
   %310 = load <16 x float>, ptr %309, align 64
-  %311 = getelementptr inbounds i8, ptr %283, i64 512
-  call void @llvm.assume(i1 true) [ "align"(ptr %311, i64 64) ]
-  %312 = load <16 x float>, ptr %311, align 64
-  br label %313
+  br label %311
 
-313:                                              ; preds = %313, %288
-  %.04.i.i.i38 = phi i64 [ 0, %288 ], [ %315, %313 ]
-  %314 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %2, i64 0, i64 %.04.i.i.i38
-  store <16 x float> %310, ptr %314, align 64, !noalias !43
-  %315 = add nuw nsw i64 %.04.i.i.i38, 1
-  %exitcond.not.i.i.i39 = icmp eq i64 %315, 3
-  br i1 %exitcond.not.i.i.i39, label %_ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i, label %313, !llvm.loop !46
+311:                                              ; preds = %311, %286
+  %.04.i.i.i38 = phi i64 [ 0, %286 ], [ %313, %311 ]
+  %312 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %2, i64 0, i64 %.04.i.i.i38
+  store <16 x float> %308, ptr %312, align 64, !noalias !43
+  %313 = add nuw nsw i64 %.04.i.i.i38, 1
+  %exitcond.not.i.i.i39 = icmp eq i64 %313, 3
+  br i1 %exitcond.not.i.i.i39, label %_ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i, label %311, !llvm.loop !46
 
-_ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i: ; preds = %313
+_ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i: ; preds = %311
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  br label %316
+  br label %314
 
-316:                                              ; preds = %316, %_ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i
-  %.034.i.i40 = phi i64 [ 0, %_ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i ], [ %323, %316 ]
-  %317 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %300, i64 0, i64 %.034.i.i40
-  %318 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %2, i64 0, i64 %.034.i.i40
-  %319 = load <16 x float>, ptr %317, align 64, !noalias !47
-  %320 = load <16 x float>, ptr %318, align 64, !noalias !47
-  %321 = fmul contract <16 x float> %319, %320
-  %322 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %5, i64 0, i64 %.034.i.i40
-  store <16 x float> %321, ptr %322, align 64, !alias.scope !47
-  %323 = add nuw nsw i64 %.034.i.i40, 1
-  %exitcond.not.i.i41 = icmp eq i64 %323, 3
-  br i1 %exitcond.not.i.i41, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i, label %316, !llvm.loop !50
+314:                                              ; preds = %314, %_ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i
+  %.034.i.i40 = phi i64 [ 0, %_ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS3_.exit.i ], [ %321, %314 ]
+  %315 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %298, i64 0, i64 %.034.i.i40
+  %316 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %2, i64 0, i64 %.034.i.i40
+  %317 = load <16 x float>, ptr %315, align 64, !noalias !47
+  %318 = load <16 x float>, ptr %316, align 64, !noalias !47
+  %319 = fmul contract <16 x float> %317, %318
+  %320 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %5, i64 0, i64 %.034.i.i40
+  store <16 x float> %319, ptr %320, align 64, !alias.scope !47
+  %321 = add nuw nsw i64 %.034.i.i40, 1
+  %exitcond.not.i.i41 = icmp eq i64 %321, 3
+  br i1 %exitcond.not.i.i41, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i, label %314, !llvm.loop !50
 
-_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i: ; preds = %316
+_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i: ; preds = %314
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  br label %324
+  br label %322
 
-324:                                              ; preds = %324, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i
-  %.034.i.i.i42 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i ], [ %331, %324 ]
-  %325 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %4, i64 0, i64 %.034.i.i.i42
-  %326 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %5, i64 0, i64 %.034.i.i.i42
-  %327 = load <16 x float>, ptr %325, align 64, !noalias !57
-  %328 = load <16 x float>, ptr %326, align 64
-  %329 = fadd contract <16 x float> %327, %328
-  %330 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %3, i64 0, i64 %.034.i.i.i42
-  store <16 x float> %329, ptr %330, align 64, !alias.scope !57
-  %331 = add nuw nsw i64 %.034.i.i.i42, 1
-  %exitcond.not.i.i395.i43 = icmp eq i64 %331, 3
-  br i1 %exitcond.not.i.i395.i43, label %_ZN7mitsubaplIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i, label %324, !llvm.loop !58
+322:                                              ; preds = %322, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i
+  %.034.i.i.i42 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit.i ], [ %329, %322 ]
+  %323 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %4, i64 0, i64 %.034.i.i.i42
+  %324 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %5, i64 0, i64 %.034.i.i.i42
+  %325 = load <16 x float>, ptr %323, align 64, !noalias !57
+  %326 = load <16 x float>, ptr %324, align 64
+  %327 = fadd contract <16 x float> %325, %326
+  %328 = getelementptr inbounds [3 x %"struct.drjit::Packet.141"], ptr %3, i64 0, i64 %.034.i.i.i42
+  store <16 x float> %327, ptr %328, align 64, !alias.scope !57
+  %329 = add nuw nsw i64 %.034.i.i.i42, 1
+  %exitcond.not.i.i395.i43 = icmp eq i64 %329, 3
+  br i1 %exitcond.not.i.i395.i43, label %_ZN7mitsubaplIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i, label %322, !llvm.loop !58
 
-_ZN7mitsubaplIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i: ; preds = %324
+_ZN7mitsubaplIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i: ; preds = %322
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(192) %4, ptr noundef nonnull align 64 dereferenceable(192) %3, i64 192, i1 false)
-  %332 = fsub contract <16 x float> %312, %310
-  store <16 x float> %332, ptr %289, align 64
-  %333 = load ptr, ptr %273, align 16
-  %334 = getelementptr inbounds i8, ptr %333, i64 224
-  %335 = load ptr, ptr %334, align 8
-  call void %335(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.138") align 64 %6, ptr noundef nonnull align 16 dereferenceable(403) %273, ptr noundef nonnull align 64 dereferenceable(528) %4, i32 noundef %281, i16 %286)
-  %336 = getelementptr inbounds i8, ptr %6, i64 64
-  %337 = load <16 x float>, ptr %6, align 64
-  %338 = fcmp contract une <16 x float> %337, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
-  %339 = and <16 x i1> %338, %285
-  %340 = load <16 x float>, ptr %289, align 64
-  %341 = select contract <16 x i1> %339, <16 x float> %337, <16 x float> %340
-  call void @llvm.assume(i1 true) [ "align"(ptr %311, i64 64) ]
-  store <16 x float> %341, ptr %311, align 64
-  %342 = getelementptr inbounds i8, ptr %283, i64 960
-  call void @llvm.assume(i1 true) [ "align"(ptr %342, i64 64) ]
-  %343 = load <16 x float>, ptr %342, align 64
-  %344 = load <16 x float>, ptr %336, align 64
-  %345 = select contract <16 x i1> %339, <16 x float> %344, <16 x float> %343
-  call void @llvm.assume(i1 true) [ "align"(ptr %342, i64 64) ]
-  store <16 x float> %345, ptr %342, align 64
-  %346 = getelementptr inbounds i8, ptr %283, i64 1024
-  %347 = getelementptr inbounds i8, ptr %6, i64 128
-  call void @llvm.assume(i1 true) [ "align"(ptr %346, i64 64) ]
-  %348 = load <16 x float>, ptr %346, align 64
-  %349 = load <16 x float>, ptr %347, align 64
-  %350 = select contract <16 x i1> %339, <16 x float> %349, <16 x float> %348
-  call void @llvm.assume(i1 true) [ "align"(ptr %346, i64 64) ]
-  store <16 x float> %350, ptr %346, align 64
-  %351 = getelementptr inbounds i8, ptr %283, i64 1152
-  %352 = insertelement <16 x i32> poison, i32 %275, i64 0
-  %353 = shufflevector <16 x i32> %352, <16 x i32> poison, <16 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %351, i64 64) ]
-  %354 = load <16 x i32>, ptr %351, align 64
-  %355 = select <16 x i1> %339, <16 x i32> %353, <16 x i32> %354
-  call void @llvm.assume(i1 true) [ "align"(ptr %351, i64 64) ]
-  store <16 x i32> %355, ptr %351, align 64
-  %356 = getelementptr inbounds i8, ptr %283, i64 1088
-  %357 = insertelement <16 x i32> poison, i32 %281, i64 0
-  %358 = shufflevector <16 x i32> %357, <16 x i32> poison, <16 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %356, i64 64) ]
-  %359 = load <16 x i32>, ptr %356, align 64
-  %360 = select <16 x i1> %339, <16 x i32> %358, <16 x i32> %359
-  call void @llvm.assume(i1 true) [ "align"(ptr %356, i64 64) ]
-  store <16 x i32> %360, ptr %356, align 64
-  %361 = getelementptr inbounds i8, ptr %283, i64 1216
-  %362 = insertelement <16 x i32> poison, i32 %279, i64 0
-  %363 = shufflevector <16 x i32> %362, <16 x i32> poison, <16 x i32> zeroinitializer
-  call void @llvm.assume(i1 true) [ "align"(ptr %361, i64 64) ]
-  %364 = load <16 x i32>, ptr %361, align 64
-  %365 = select <16 x i1> %339, <16 x i32> %363, <16 x i32> %364
-  call void @llvm.assume(i1 true) [ "align"(ptr %361, i64 64) ]
-  store <16 x i32> %365, ptr %361, align 64
+  %330 = fsub contract <16 x float> %310, %308
+  store <16 x float> %330, ptr %287, align 64
+  %331 = load ptr, ptr %271, align 16
+  %332 = getelementptr inbounds i8, ptr %331, i64 224
+  %333 = load ptr, ptr %332, align 8
+  call void %333(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.138") align 64 %6, ptr noundef nonnull align 16 dereferenceable(403) %271, ptr noundef nonnull align 64 dereferenceable(528) %4, i32 noundef %279, i16 %284)
+  %334 = getelementptr inbounds i8, ptr %6, i64 64
+  %335 = load <16 x float>, ptr %6, align 64
+  %336 = fcmp contract une <16 x float> %335, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %337 = and <16 x i1> %336, %283
+  %338 = load <16 x float>, ptr %287, align 64
+  %339 = select contract <16 x i1> %337, <16 x float> %335, <16 x float> %338
+  call void @llvm.assume(i1 true) [ "align"(ptr %309, i64 64) ]
+  store <16 x float> %339, ptr %309, align 64
+  %340 = getelementptr inbounds i8, ptr %281, i64 960
+  call void @llvm.assume(i1 true) [ "align"(ptr %340, i64 64) ]
+  %341 = load <16 x float>, ptr %340, align 64
+  %342 = load <16 x float>, ptr %334, align 64
+  %343 = select contract <16 x i1> %337, <16 x float> %342, <16 x float> %341
+  call void @llvm.assume(i1 true) [ "align"(ptr %340, i64 64) ]
+  store <16 x float> %343, ptr %340, align 64
+  %344 = getelementptr inbounds i8, ptr %281, i64 1024
+  %345 = getelementptr inbounds i8, ptr %6, i64 128
+  call void @llvm.assume(i1 true) [ "align"(ptr %344, i64 64) ]
+  %346 = load <16 x float>, ptr %344, align 64
+  %347 = load <16 x float>, ptr %345, align 64
+  %348 = select contract <16 x i1> %337, <16 x float> %347, <16 x float> %346
+  call void @llvm.assume(i1 true) [ "align"(ptr %344, i64 64) ]
+  store <16 x float> %348, ptr %344, align 64
+  %349 = getelementptr inbounds i8, ptr %281, i64 1152
+  %350 = insertelement <16 x i32> poison, i32 %273, i64 0
+  %351 = shufflevector <16 x i32> %350, <16 x i32> poison, <16 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %349, i64 64) ]
+  %352 = load <16 x i32>, ptr %349, align 64
+  %353 = select <16 x i1> %337, <16 x i32> %351, <16 x i32> %352
+  call void @llvm.assume(i1 true) [ "align"(ptr %349, i64 64) ]
+  store <16 x i32> %353, ptr %349, align 64
+  %354 = getelementptr inbounds i8, ptr %281, i64 1088
+  %355 = insertelement <16 x i32> poison, i32 %279, i64 0
+  %356 = shufflevector <16 x i32> %355, <16 x i32> poison, <16 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %354, i64 64) ]
+  %357 = load <16 x i32>, ptr %354, align 64
+  %358 = select <16 x i1> %337, <16 x i32> %356, <16 x i32> %357
+  call void @llvm.assume(i1 true) [ "align"(ptr %354, i64 64) ]
+  store <16 x i32> %358, ptr %354, align 64
+  %359 = getelementptr inbounds i8, ptr %281, i64 1216
+  %360 = insertelement <16 x i32> poison, i32 %277, i64 0
+  %361 = shufflevector <16 x i32> %360, <16 x i32> poison, <16 x i32> zeroinitializer
+  call void @llvm.assume(i1 true) [ "align"(ptr %359, i64 64) ]
+  %362 = load <16 x i32>, ptr %359, align 64
+  %363 = select <16 x i1> %337, <16 x i32> %361, <16 x i32> %362
+  call void @llvm.assume(i1 true) [ "align"(ptr %359, i64 64) ]
+  store <16 x i32> %363, ptr %359, align 64
   br label %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm16E8RTCRay168RTCHit16EEvPiPvjjjPT2_PT3_.exit
 
-_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm16E8RTCRay168RTCHit16EEvPiPvjjjPT2_PT3_.exit: ; preds = %270, %_ZN7mitsubaplIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i
+_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm16E8RTCRay168RTCHit16EEvPiPvjjjPT2_PT3_.exit: ; preds = %268, %_ZN7mitsubaplIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6VectorIT1_XT2_EEE.exit.i
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 576, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %6)
-  br label %371
+  br label %369
 
-366:                                              ; preds = %1
-  %367 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
+364:                                              ; preds = %1
+  %365 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
   call void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %19, ptr noundef nonnull @.str.42)
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %367, ptr noundef nonnull @.str, i32 noundef 255, ptr noundef nonnull align 8 dereferenceable(24) %19) #25
-          to label %368 unwind label %369
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %365, ptr noundef nonnull @.str, i32 noundef 255, ptr noundef nonnull align 8 dereferenceable(24) %19) #25
+          to label %366 unwind label %367
 
-368:                                              ; preds = %366
+366:                                              ; preds = %364
   unreachable
 
-369:                                              ; preds = %366
-  %370 = landingpad { ptr, i32 }
+367:                                              ; preds = %364
+  %368 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #26
-  resume { ptr, i32 } %370
+  resume { ptr, i32 } %368
 
-371:                                              ; preds = %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm16E8RTCRay168RTCHit16EEvPiPvjjjPT2_PT3_.exit, %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm8E7RTCRay87RTCHit8EEvPiPvjjjPT2_PT3_.exit, %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm4E7RTCRay47RTCHit4EEvPiPvjjjPT2_PT3_.exit, %_ZN7mitsuba23embree_intersect_scalarIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEvPiPvjjjP6RTCRayP6RTCHit.exit
+369:                                              ; preds = %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm16E8RTCRay168RTCHit16EEvPiPvjjjPT2_PT3_.exit, %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm8E7RTCRay87RTCHit8EEvPiPvjjjPT2_PT3_.exit, %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm4E7RTCRay47RTCHit4EEvPiPvjjjPT2_PT3_.exit, %_ZN7mitsuba23embree_intersect_scalarIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEvPiPvjjjP6RTCRayP6RTCHit.exit
   ret void
 }
 

@@ -55087,14 +55087,10 @@ entry:
   %9 = fcmp ogt <2 x float> %7, %8
   %10 = fneg <2 x float> %6
   %11 = select <2 x i1> %9, <2 x float> %10, <2 x float> zeroinitializer
-  %12 = shufflevector <2 x float> %11, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %13 = shufflevector <2 x float> %3, <2 x float> %5, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %14 = fsub <4 x float> %13, %12
-  %15 = fadd <4 x float> %13, %12
-  %16 = shufflevector <4 x float> %14, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %17 = shufflevector <4 x float> %15, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %16, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %17, 1
+  %12 = fsub <2 x float> %3, %11
+  %13 = fadd <2 x float> %5, %11
+  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %12, 0
+  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %13, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
 
