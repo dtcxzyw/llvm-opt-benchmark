@@ -562,7 +562,7 @@ _ZNK11BigUnsigned8getBlockEj.exit.i:              ; preds = %4
 14:                                               ; preds = %_ZNK11BigUnsigned8getBlockEj.exit.i
   %15 = sub nsw i32 0, %12
   %16 = icmp sgt i32 %12, 0
-  %17 = icmp ult i64 %10, 4294967296
+  %17 = icmp ult i64 %10, 2147483648
   %or.cond13.i = and i1 %17, %16
   br i1 %or.cond13.i, label %_ZNK10BigInteger24convertToSignedPrimitiveIijEET_v.exit, label %18
 

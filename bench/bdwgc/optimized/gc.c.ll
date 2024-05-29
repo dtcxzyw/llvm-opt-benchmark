@@ -2013,7 +2013,7 @@ GC_stop_init.exit:                                ; preds = %405
 426:                                              ; preds = %421
   %427 = load ptr, ptr %4, align 8
   %428 = icmp ne ptr %427, %422
-  %.not.i.i124 = icmp ult i64 %423, 4294967296
+  %.not.i.i124 = icmp ult i64 %423, 2147483648
   %or.cond.i.i125 = and i1 %.not.i.i124, %428
   br i1 %or.cond.i.i125, label %429, label %.thread.i
 
@@ -21743,7 +21743,7 @@ define internal fastcc void @set_incremental_mode_on() unnamed_addr #1 {
 51:                                               ; preds = %46
   %52 = load ptr, ptr %2, align 8
   %53 = icmp ne ptr %52, %47
-  %.not.i.i.i.i = icmp ult i64 %48, 4294967296
+  %.not.i.i.i.i = icmp ult i64 %48, 2147483648
   %or.cond.i.i.i.i = and i1 %.not.i.i.i.i, %53
   br i1 %or.cond.i.i.i.i, label %54, label %ensure_min_linux_ver.exit.thread19.i.i
 

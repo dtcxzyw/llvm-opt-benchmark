@@ -28094,31 +28094,31 @@ define hidden void @_ZN17cranelift_codegen8machinst3reg18AllocationConsumer25nex
   unreachable
 
 16:                                               ; preds = %10
-  %.mask11 = and i32 %12, 192
-  %switch.not.i.i.i.i = icmp eq i32 %.mask11, 192
-  br i1 %switch.not.i.i.i.i, label %17, label %18
+  %17 = and i32 %12, 192
+  %switch.not.i.i.i.i = icmp eq i32 %17, 192
+  br i1 %switch.not.i.i.i.i, label %18, label %19
 
-17:                                               ; preds = %16
+18:                                               ; preds = %16
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.37.llvm.1715581770924364745) #40, !noalias !4771
   unreachable
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread8": ; preds = %2, %22
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread8": ; preds = %2, %23
   ret void
 
-18:                                               ; preds = %16
+19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %19 = trunc i32 %12 to i8
-  store i8 %19, ptr %4, align 1
-  %20 = icmp eq i8 %19, %1
-  br i1 %20, label %22, label %21
+  %20 = trunc i32 %12 to i8
+  store i8 %20, ptr %4, align 1
+  %21 = icmp eq i8 %20, %1
+  br i1 %21, label %23, label %22
 
-21:                                               ; preds = %18
+22:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
   call void @_ZN4core9panicking13assert_failed17hbd9e4c5aafa24b35E(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %5, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.320.llvm.6890334928246803750) #40
   unreachable
 
-22:                                               ; preds = %18
+23:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread8"
 }
