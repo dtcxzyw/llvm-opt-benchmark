@@ -326,7 +326,7 @@ define nonnull ptr @Ppmd7_MakeEscFreq(ptr noundef %0, i32 noundef %1, ptr nocapt
   %4 = load ptr, ptr %0, align 8
   %5 = load i16, ptr %4, align 4
   %.not = icmp eq i16 %5, 256
-  br i1 %.not, label %54, label %6
+  br i1 %.not, label %52, label %6
 
 6:                                                ; preds = %3
   %7 = zext i16 %5 to i32
@@ -374,18 +374,16 @@ define nonnull ptr @Ppmd7_MakeEscFreq(ptr noundef %0, i32 noundef %1, ptr nocapt
   %49 = trunc nuw i32 %48 to i16
   %50 = sub i16 %43, %49
   store i16 %50, ptr %42, align 2
-  %51 = icmp eq i32 %48, 0
-  %52 = zext i1 %51 to i32
-  %53 = add nuw nsw i32 %48, %52
-  br label %56
+  %51 = tail call i32 @llvm.umax.i32(i32 %48, i32 1)
+  br label %54
 
-54:                                               ; preds = %3
-  %55 = getelementptr inbounds i8, ptr %0, i64 1196
-  br label %56
+52:                                               ; preds = %3
+  %53 = getelementptr inbounds i8, ptr %0, i64 1196
+  br label %54
 
-56:                                               ; preds = %54, %6
-  %storemerge = phi i32 [ 1, %54 ], [ %53, %6 ]
-  %.0 = phi ptr [ %55, %54 ], [ %42, %6 ]
+54:                                               ; preds = %52, %6
+  %storemerge = phi i32 [ 1, %52 ], [ %51, %6 ]
+  %.0 = phi ptr [ %53, %52 ], [ %42, %6 ]
   store i32 %storemerge, ptr %2, align 4
   ret ptr %.0
 }
@@ -2111,6 +2109,9 @@ SplitBlock.exit:                                  ; preds = %191, %219
   %.0 = phi ptr [ %157, %155 ], [ %196, %SplitBlock.exit ], [ %185, %182 ], [ null, %164 ]
   ret ptr %.0
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
