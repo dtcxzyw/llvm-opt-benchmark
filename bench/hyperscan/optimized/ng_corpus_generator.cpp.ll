@@ -846,7 +846,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i.i.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i) #24
   %retval.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %i.0.in11.i.i.i.i, 4294967297
   store i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
-  %48 = trunc i64 %i.0.in11.i.i.i.i to i32
+  %48 = trunc nuw i64 %i.0.in11.i.i.i.i to i32
   %49 = trunc i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i.i.i to i32
   %cmp.i.i.i.i.i79 = icmp ult i32 %48, %49
   br i1 %cmp.i.i.i.i.i79, label %call.i.i.i.i.i.i.i.i.noexc.i, label %if.end.i.i80
