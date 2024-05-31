@@ -1259,9 +1259,10 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   %49 = getelementptr inbounds i8, ptr %12, i64 8
   %50 = call i32 @sigemptyset(ptr noundef nonnull %49) #16
+  %switch.i.i = icmp ult ptr @sigbus, inttoptr (i64 2 to ptr)
   store ptr @sigbus, ptr %12, align 8
   %51 = getelementptr inbounds i8, ptr %12, i64 136
-  %52 = select i1 icmp ugt (ptr inttoptr (i64 2 to ptr), ptr @sigbus), i32 134217728, i32 134217732
+  %52 = select i1 %switch.i.i, i32 134217728, i32 134217732
   store i32 %52, ptr %51, align 8
   store volatile i64 1296236546, ptr %14, align 16
   %53 = ptrtoint ptr %13 to i64
@@ -1307,10 +1308,11 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %67 = getelementptr inbounds i8, ptr %8, i64 8
   %68 = call i32 @sigemptyset(ptr noundef nonnull %67) #16
-  %spec.select.i.i30 = select i1 icmp ugt (ptr inttoptr (i64 2 to ptr), ptr @sigill), i32 0, i32 4
+  %switch.i.i30 = icmp ult ptr @sigill, inttoptr (i64 2 to ptr)
+  %spec.select.i.i31 = select i1 %switch.i.i30, i32 0, i32 4
   store ptr @sigill, ptr %8, align 8
   %69 = getelementptr inbounds i8, ptr %8, i64 136
-  store i32 %spec.select.i.i30, ptr %69, align 8
+  store i32 %spec.select.i.i31, ptr %69, align 8
   store volatile i64 1296236546, ptr %10, align 16
   %70 = ptrtoint ptr %9 to i64
   %71 = getelementptr inbounds i8, ptr %10, i64 8
@@ -1325,7 +1327,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   store volatile i64 0, ptr %75, align 8
   %76 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #16, !srcloc !16
   store volatile i64 %76, ptr %11, align 8
-  %.0..0..0..0..0..0..0..0..i.i31 = load volatile i64, ptr %11, align 8
+  %.0..0..0..0..0..0..0..0..i.i32 = load volatile i64, ptr %11, align 8
   %77 = call i32 @sigaction(i32 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %80
@@ -1339,15 +1341,15 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   unreachable
 
 80:                                               ; preds = %63
-  %.010.i.i32 = load ptr, ptr %9, align 8
-  %81 = icmp ne ptr %.010.i.i32, inttoptr (i64 -1 to ptr)
+  %.010.i.i33 = load ptr, ptr %9, align 8
+  %81 = icmp ne ptr %.010.i.i33, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %81)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %82 = icmp eq ptr %.010.i.i32, inttoptr (i64 1 to ptr)
-  %83 = select i1 %82, ptr null, ptr %.010.i.i32
+  %82 = icmp eq ptr %.010.i.i33, inttoptr (i64 1 to ptr)
+  %83 = select i1 %82, ptr null, ptr %.010.i.i33
   store ptr %83, ptr @default_sigill_handler, align 8
   %84 = load i32, ptr @rb_sigaltstack_size_value, align 4
   %.not.i = icmp eq i32 %84, 0
@@ -1358,8 +1360,8 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   %87 = trunc i64 %86 to i32
   %88 = call i64 @sysconf(i32 noundef 30) #16
   %89 = trunc i64 %88 to i32
-  %spec.select.i.i37 = call i32 @llvm.smax.i32(i32 %87, i32 %89)
-  %.1.i.i = call range(i32 16384, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i.i37, i32 16384)
+  %spec.select.i.i38 = call i32 @llvm.smax.i32(i32 %87, i32 %89)
+  %.1.i.i = call range(i32 16384, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i.i38, i32 16384)
   store i32 %.1.i.i, ptr @rb_sigaltstack_size_value, align 4
   br label %90
 
@@ -1395,9 +1397,10 @@ rb_allocate_sigaltstack.exit:                     ; preds = %90
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %101 = getelementptr inbounds i8, ptr %2, i64 8
   %102 = call i32 @sigemptyset(ptr noundef nonnull %101) #16
+  %switch.i.i39 = icmp ult ptr @sigsegv, inttoptr (i64 2 to ptr)
   store ptr @sigsegv, ptr %2, align 8
   %103 = getelementptr inbounds i8, ptr %2, i64 136
-  %104 = select i1 icmp ugt (ptr inttoptr (i64 2 to ptr), ptr @sigsegv), i32 134217728, i32 134217732
+  %104 = select i1 %switch.i.i39, i32 134217728, i32 134217732
   store i32 %104, ptr %103, align 8
   store volatile i64 1296236546, ptr %4, align 16
   %105 = ptrtoint ptr %3 to i64
@@ -1413,21 +1416,21 @@ rb_allocate_sigaltstack.exit:                     ; preds = %90
   store volatile i64 0, ptr %110, align 8
   %111 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #16, !srcloc !16
   store volatile i64 %111, ptr %5, align 8
-  %.0..0..0..0..0..0..0..0..i.i39 = load volatile i64, ptr %5, align 8
+  %.0..0..0..0..0..0..0..0..i.i41 = load volatile i64, ptr %5, align 8
   %112 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
   %113 = icmp slt i32 %112, 0
-  br i1 %113, label %117, label %install_sighandler_core.exit43.thread
+  br i1 %113, label %117, label %install_sighandler_core.exit45.thread
 
-install_sighandler_core.exit43.thread:            ; preds = %rb_allocate_sigaltstack.exit
-  %.010.i.i40 = load ptr, ptr %3, align 8
-  %114 = icmp ne ptr %.010.i.i40, inttoptr (i64 -1 to ptr)
+install_sighandler_core.exit45.thread:            ; preds = %rb_allocate_sigaltstack.exit
+  %.010.i.i42 = load ptr, ptr %3, align 8
+  %114 = icmp ne ptr %.010.i.i42, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %114)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %115 = icmp eq ptr %.010.i.i40, inttoptr (i64 1 to ptr)
-  %116 = select i1 %115, ptr null, ptr %.010.i.i40
+  %115 = icmp eq ptr %.010.i.i42, inttoptr (i64 1 to ptr)
+  %116 = select i1 %115, ptr null, ptr %.010.i.i42
   store ptr %116, ptr @default_sigsegv_handler, align 8
   br label %118
 
@@ -1439,7 +1442,7 @@ install_sighandler_core.exit43.thread:            ; preds = %rb_allocate_sigalts
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @Init_signal.failed.16) #24
   unreachable
 
-118:                                              ; preds = %install_sighandler_core.exit43.thread, %46
+118:                                              ; preds = %install_sighandler_core.exit45.thread, %46
   %119 = call fastcc i32 @install_sighandler_core(i32 noundef 13, ptr noundef nonnull @sig_do_nothing, ptr noundef null)
   %.not23 = icmp eq i32 %119, 0
   br i1 %.not23, label %121, label %120

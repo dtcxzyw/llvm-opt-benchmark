@@ -80,7 +80,7 @@ define internal noundef i32 @debug_thunks(ptr nocapture readnone %0) #0 section 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @callthunks_patch_builtin_calls() local_unnamed_addr #1 section ".init.text" align 16 {
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 371, i32 8, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 86)) #12
-          to label %1 [label %1, label %22], !srcloc !6
+          to label %1 [label %1, label %24], !srcloc !6
 
 1:                                                ; preds = %0, %0
   %2 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #13
@@ -93,45 +93,47 @@ define dso_local void @callthunks_patch_builtin_calls() local_unnamed_addr #1 se
   br label %6
 
 6:                                                ; preds = %4, %1
-  br i1 icmp ult (ptr @__call_sites, ptr @__call_sites_end), label %.preheader1.i, label %.loopexit2.i
+  %7 = icmp ult ptr @__call_sites, @__call_sites_end
+  br i1 %7, label %.preheader1.i, label %.loopexit2.i
 
 .preheader1.i:                                    ; preds = %6, %.preheader1.i
-  %7 = phi ptr [ %11, %.preheader1.i ], [ @__call_sites, %6 ]
-  %8 = load i32, ptr %7, align 4
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr i8, ptr %7, i64 %9
-  tail call fastcc void @patch_call(ptr noundef %10, ptr noundef nonnull @builtin_coretext)
-  %11 = getelementptr i8, ptr %7, i64 4
-  %12 = icmp ult ptr %11, @__call_sites_end
-  br i1 %12, label %.preheader1.i, label %.loopexit2.i, !llvm.loop !7
+  %8 = phi ptr [ %12, %.preheader1.i ], [ @__call_sites, %6 ]
+  %9 = load i32, ptr %8, align 4
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr i8, ptr %8, i64 %10
+  tail call fastcc void @patch_call(ptr noundef %11, ptr noundef nonnull @builtin_coretext)
+  %12 = getelementptr i8, ptr %8, i64 4
+  %13 = icmp ult ptr %12, @__call_sites_end
+  br i1 %13, label %.preheader1.i, label %.loopexit2.i, !llvm.loop !7
 
 .loopexit2.i:                                     ; preds = %.preheader1.i, %6
-  br i1 icmp ult (ptr @__alt_instructions, ptr @__alt_instructions_end), label %.preheader.i, label %.loopexit.i
+  %14 = icmp ult ptr @__alt_instructions, @__alt_instructions_end
+  br i1 %14, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.loopexit2.i, %.preheader.i
-  %13 = phi ptr [ %17, %.preheader.i ], [ @__alt_instructions, %.loopexit2.i ]
-  %14 = load i32, ptr %13, align 1
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr i8, ptr %13, i64 %15
-  tail call fastcc void @patch_call(ptr noundef %16, ptr noundef nonnull @builtin_coretext)
-  %17 = getelementptr i8, ptr %13, i64 14
-  %18 = icmp ult ptr %17, @__alt_instructions_end
-  br i1 %18, label %.preheader.i, label %.loopexit.i, !llvm.loop !10
+  %15 = phi ptr [ %19, %.preheader.i ], [ @__alt_instructions, %.loopexit2.i ]
+  %16 = load i32, ptr %15, align 1
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr i8, ptr %15, i64 %17
+  tail call fastcc void @patch_call(ptr noundef %18, ptr noundef nonnull @builtin_coretext)
+  %19 = getelementptr i8, ptr %15, i64 14
+  %20 = icmp ult ptr %19, @__alt_instructions_end
+  br i1 %20, label %.preheader.i, label %.loopexit.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.loopexit2.i
-  %19 = load i1, ptr @debug_callthunks, align 4
-  br i1 %19, label %20, label %callthunks_setup.exit
+  %21 = load i1, ptr @debug_callthunks, align 4
+  br i1 %21, label %22, label %callthunks_setup.exit
 
-20:                                               ; preds = %.loopexit.i
-  %21 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6) #13
+22:                                               ; preds = %.loopexit.i
+  %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6) #13
   br label %callthunks_setup.exit
 
-callthunks_setup.exit:                            ; preds = %.loopexit.i, %20
+callthunks_setup.exit:                            ; preds = %.loopexit.i, %22
   store i1 true, ptr @thunks_initialized, align 1
   tail call void @mutex_unlock(ptr noundef nonnull @text_mutex) #12
-  br label %22
+  br label %24
 
-22:                                               ; preds = %callthunks_setup.exit, %0
+24:                                               ; preds = %callthunks_setup.exit, %0
   ret void
 }
 
