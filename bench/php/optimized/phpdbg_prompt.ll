@@ -475,7 +475,7 @@ define hidden noundef i32 @phpdbg_do_stdin(ptr nocapture noundef readonly %0) #0
 
 .preheader.us:                                    ; preds = %.split.us
   %22 = zext nneg i32 %20 to i64
-  %gep = getelementptr i8, ptr getelementptr (i8, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1633), i64 -1), i64 %22
+  %gep = getelementptr i8, ptr getelementptr (i8, ptr @phpdbg_globals, i64 1632), i64 %22
   br label %23
 
 23:                                               ; preds = %.preheader.us, %38

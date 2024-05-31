@@ -15946,7 +15946,7 @@ for.body21.i.i.i:                                 ; preds = %for.body21.i.i.i, %
   %25 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %acc.15.i.i.i) #26, !srcloc !454
   %26 = shl nuw nsw i64 %indvars.iv10.i.i.i, 4
   %add.ptr24.i35.i.i = getelementptr inbounds i8, ptr %data, i64 %26
-  %gep = getelementptr i8, ptr getelementptr (i8, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 1), i64 -125), i64 %26
+  %gep = getelementptr i8, ptr getelementptr (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm1EEEmPKvlE12kXxh3Secrets, i64 -124), i64 %26
   %27 = load <2 x i64>, ptr %add.ptr24.i35.i.i, align 1, !alias.scope !452
   %28 = load <2 x i64>, ptr %gep, align 4, !noalias !452
   %29 = xor <2 x i64> %28, %27
