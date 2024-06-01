@@ -189,27 +189,25 @@ _ZN5dracoL14rabs_desc_readEPNS_10AnsDecoderEh.exit: ; preds = %1, %7, %11
   %21 = tail call double @llvm.fmuladd.f64(double %3, double 2.560000e+02, double 5.000000e-01)
   %22 = fptoui double %21 to i32
   %23 = icmp eq i32 %22, 256
-  %.neg.i = sext i1 %23 to i32
-  %24 = add i32 %.neg.i, %22
-  %25 = icmp eq i32 %24, 0
-  %.neg = sext i1 %25 to i32
-  %.neg3 = sub i32 %.neg, %24
-  %26 = lshr i32 %20, 8
-  %27 = and i32 %20, 255
-  %28 = and i32 %.neg3, 255
-  %29 = mul nuw i32 %26, %28
-  %30 = icmp ult i32 %27, %28
-  %31 = add nuw i32 %28, %29
-  %32 = sub i32 %20, %31
-  %33 = add nuw i32 %29, %27
-  %storemerge.i = select i1 %30, i32 %33, i32 %32
+  %24 = tail call i32 @llvm.umax.i32(i32 %22, i32 1)
+  %25 = select i1 %23, i32 255, i32 %24
+  %26 = sub i32 0, %25
+  %27 = lshr i32 %20, 8
+  %28 = and i32 %20, 255
+  %29 = and i32 %26, 255
+  %30 = mul nuw i32 %27, %29
+  %31 = icmp ult i32 %28, %29
+  %32 = add nuw i32 %29, %30
+  %33 = sub i32 %20, %32
+  %34 = add nuw i32 %30, %28
+  %storemerge.i = select i1 %31, i32 %34, i32 %33
   store i32 %storemerge.i, ptr %4, align 4
-  %34 = xor i1 %30, true
-  %35 = uitofp i1 %34 to double
-  %36 = fmul double %35, 7.812500e-03
-  %37 = tail call noundef double @llvm.fmuladd.f64(double %3, double 0x3FEFC00000000000, double %36)
-  store double %37, ptr %2, align 8
-  ret i1 %30
+  %35 = xor i1 %31, true
+  %36 = uitofp i1 %35 to double
+  %37 = fmul double %36, 7.812500e-03
+  %38 = tail call noundef double @llvm.fmuladd.f64(double %3, double 0x3FEFC00000000000, double %37)
+  store double %38, ptr %2, align 8
+  ret i1 %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -230,9 +228,9 @@ define void @_ZN5draco22AdaptiveRAnsBitDecoder28DecodeLeastSignificantBits32EiPj
 8:                                                ; preds = %.lr.ph, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit
   %9 = phi i32 [ %.promoted13, %.lr.ph ], [ %22, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
   %storemerge.i.i12 = phi i32 [ %.promoted11, %.lr.ph ], [ %storemerge.i.i, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
-  %10 = phi double [ %.promoted, %.lr.ph ], [ %40, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
-  %.010 = phi i32 [ 0, %.lr.ph ], [ %42, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
-  %.059 = phi i32 [ %1, %.lr.ph ], [ %43, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
+  %10 = phi double [ %.promoted, %.lr.ph ], [ %41, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
+  %.010 = phi i32 [ 0, %.lr.ph ], [ %43, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
+  %.059 = phi i32 [ %1, %.lr.ph ], [ %44, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
   %11 = shl i32 %.010, 1
   %12 = icmp ult i32 %storemerge.i.i12, 4096
   %13 = icmp sgt i32 %9, 0
@@ -256,34 +254,32 @@ _ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit: ; preds = %8, %14
   %24 = tail call double @llvm.fmuladd.f64(double %10, double 2.560000e+02, double 5.000000e-01)
   %25 = fptoui double %24 to i32
   %26 = icmp eq i32 %25, 256
-  %.neg.i.i = sext i1 %26 to i32
-  %27 = add i32 %.neg.i.i, %25
-  %28 = icmp eq i32 %27, 0
-  %.neg.i = sext i1 %28 to i32
-  %.neg3.i = sub i32 %.neg.i, %27
-  %29 = lshr i32 %23, 8
-  %30 = and i32 %23, 255
-  %31 = and i32 %.neg3.i, 255
-  %32 = mul nuw i32 %29, %31
-  %33 = icmp ult i32 %30, %31
-  %34 = add nuw i32 %31, %32
-  %35 = sub i32 %23, %34
-  %36 = add nuw i32 %32, %30
-  %storemerge.i.i = select i1 %33, i32 %36, i32 %35
+  %27 = tail call i32 @llvm.umax.i32(i32 %25, i32 1)
+  %28 = select i1 %26, i32 255, i32 %27
+  %29 = sub i32 0, %28
+  %30 = lshr i32 %23, 8
+  %31 = and i32 %23, 255
+  %32 = and i32 %29, 255
+  %33 = mul nuw i32 %30, %32
+  %34 = icmp ult i32 %31, %32
+  %35 = add nuw i32 %32, %33
+  %36 = sub i32 %23, %35
+  %37 = add nuw i32 %33, %31
+  %storemerge.i.i = select i1 %34, i32 %37, i32 %36
   store i32 %storemerge.i.i, ptr %5, align 4
-  %37 = xor i1 %33, true
-  %38 = uitofp i1 %37 to double
-  %39 = fmul double %38, 7.812500e-03
-  %40 = tail call noundef double @llvm.fmuladd.f64(double %10, double 0x3FEFC00000000000, double %39)
-  store double %40, ptr %4, align 8
-  %41 = zext i1 %33 to i32
-  %42 = or disjoint i32 %11, %41
-  %43 = add nsw i32 %.059, -1
-  %.not = icmp eq i32 %43, 0
+  %38 = xor i1 %34, true
+  %39 = uitofp i1 %38 to double
+  %40 = fmul double %39, 7.812500e-03
+  %41 = tail call noundef double @llvm.fmuladd.f64(double %10, double 0x3FEFC00000000000, double %40)
+  store double %41, ptr %4, align 8
+  %42 = zext i1 %34 to i32
+  %43 = or disjoint i32 %11, %42
+  %44 = add nsw i32 %.059, -1
+  %.not = icmp eq i32 %44, 0
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %42, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %43, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
   store i32 %.0.lcssa, ptr %2, align 4
   ret void
 }
@@ -294,12 +290,15 @@ declare double @llvm.fmuladd.f64(double, double, double) #6
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_adaptive_rans_bit_decoder.cc() #7 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -309,8 +308,9 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

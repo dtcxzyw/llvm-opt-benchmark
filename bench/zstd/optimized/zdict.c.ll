@@ -264,8 +264,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 ZDICT_totalSampleSize.exit:                       ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %lnot.ext = zext i1 %cmp4.not.i to i32
-  %add2 = add i32 %lnot.ext, %nbFiles
+  %add2 = tail call i32 @llvm.umax.i32(i32 %nbFiles, i32 1)
   %conv3 = zext i32 %add2 to i64
   %div = udiv i64 %total.0.lcssa.i, %conv3
   %cmp = icmp eq i32 %1, 0

@@ -5715,9 +5715,8 @@ for.body14:                                       ; preds = %for.body14, %for.bo
   %shr.i.i.i = lshr i32 %20, 20
   %add.i.i = add nuw nsw i32 %shr.i.i.i, 1
   %cmp.i.i42 = icmp eq i32 %add.i.i, 4095
-  %conv3.i.i = zext i1 %cmp.i.i42 to i32
-  %add4.i.i = add nuw nsw i32 %add.i.i, %conv3.i.i
-  %and1.i.i.i = shl i32 %add4.i.i, 20
+  %23 = shl i32 %add.i.i, 20
+  %and1.i.i.i = select i1 %cmp.i.i42, i32 0, i32 %23
   %or.i.i.i = or disjoint i32 %and1.i.i.i, %and.i.i.i.i
   %add.ptr.i.i26.i = getelementptr inbounds %struct.entity_id, ptr %3, i64 %conv.i.i41
   store i32 %or.i.i.i, ptr %add.ptr.i.i26.i, align 4, !tbaa !21
@@ -5729,21 +5728,21 @@ for.body14:                                       ; preds = %for.body14, %for.bo
   %and.i.i30.i = and i32 %sub.i, 1048575
   %or.i.i32.i = or disjoint i32 %and.i.i30.i, %and1.i.i.i
   store i32 %or.i.i32.i, ptr %arrayidx.i.i.i, align 4, !tbaa !21
-  %23 = load i32, ptr %add.ptr.i21.i.i, align 4, !tbaa !21
-  %and1.i23.i.i = and i32 %23, -1048576
+  %24 = load i32, ptr %add.ptr.i21.i.i, align 4, !tbaa !21
+  %and1.i23.i.i = and i32 %24, -1048576
   %or.i24.i.i = or disjoint i32 %and1.i23.i.i, %and.i.i.i40
-  %and.i.i25.i.i = and i32 %23, 1048575
+  %and.i.i25.i.i = and i32 %24, 1048575
   %conv.i26.i.i = zext nneg i32 %and.i.i25.i.i to i64
   %div5.i28.i.i = lshr i64 %conv.i26.i.i, 12
   %add.ptr.i.i29.i.i = getelementptr inbounds ptr, ptr %2, i64 %div5.i28.i.i
-  %24 = load ptr, ptr %add.ptr.i.i29.i.i, align 8, !tbaa !20
+  %25 = load ptr, ptr %add.ptr.i.i29.i.i, align 8, !tbaa !20
   %and.i6.i30.i.i = and i64 %conv.i26.i.i, 4095
-  %arrayidx.i31.i.i = getelementptr inbounds %struct.entity_id, ptr %24, i64 %and.i6.i30.i.i
+  %arrayidx.i31.i.i = getelementptr inbounds %struct.entity_id, ptr %25, i64 %and.i6.i30.i.i
   store i32 %or.i24.i.i, ptr %arrayidx.i31.i.i, align 4, !tbaa !21
-  %25 = load i32, ptr %add.ptr.i.i26.i, align 4, !tbaa !21
-  %26 = load i32, ptr %add.ptr.i21.i.i, align 4, !tbaa !21
-  store i32 %26, ptr %add.ptr.i.i26.i, align 4, !tbaa !21
-  store i32 %25, ptr %add.ptr.i21.i.i, align 4, !tbaa !21
+  %26 = load i32, ptr %add.ptr.i.i26.i, align 4, !tbaa !21
+  %27 = load i32, ptr %add.ptr.i21.i.i, align 4, !tbaa !21
+  store i32 %27, ptr %add.ptr.i.i26.i, align 4, !tbaa !21
+  store i32 %26, ptr %add.ptr.i21.i.i, align 4, !tbaa !21
   %dec.i45 = add nsw i64 %first.sroa.4.259, -1
   %cmp.i.i38.not = icmp eq i64 %dec.i45, %last.coerce1
   br i1 %cmp.i.i38.not, label %for.cond12.sw.epilog.loopexit57_crit_edge, label %for.body14, !llvm.loop !215
