@@ -12202,8 +12202,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %4
   %23 = shl nsw i64 %22, 3
   %24 = getelementptr i8, ptr %0, i64 8
   %25 = getelementptr i8, ptr %1, i64 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext i32 %7 to i64
   br label %26
 
 26:                                               ; preds = %.lr.ph, %40

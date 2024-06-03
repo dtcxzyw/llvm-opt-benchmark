@@ -37077,8 +37077,7 @@ invoke.cont69.lr.ph:                              ; preds = %for.cond65.preheade
   %59 = load ptr, ptr %m_multiBody, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %59, i64 288
   %60 = load ptr, ptr %m_data.i.i, align 8
-  %smax = call i32 @llvm.smax.i32(i32 %add, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext i32 %add to i64
   br label %invoke.cont69
 
 invoke.cont69:                                    ; preds = %invoke.cont69.lr.ph, %invoke.cont69

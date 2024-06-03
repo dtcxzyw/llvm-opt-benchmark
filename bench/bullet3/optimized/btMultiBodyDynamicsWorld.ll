@@ -2851,11 +2851,11 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   br i1 %cmp32, label %for.body33, label %for.end42.loopexit, !llvm.loop !35
 
 for.end42.loopexit:                               ; preds = %for.body33
-  %.pre985 = load i32, ptr %m_size.i.i198, align 4
+  %.pre983 = load i32, ptr %m_size.i.i198, align 4
   br label %for.end42
 
 for.end42:                                        ; preds = %for.end42.loopexit, %_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE6resizeEiRKS1_.exit
-  %40 = phi i32 [ %.pre985, %for.end42.loopexit ], [ %24, %_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE6resizeEiRKS1_.exit ]
+  %40 = phi i32 [ %.pre983, %for.end42.loopexit ], [ %24, %_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE6resizeEiRKS1_.exit ]
   %cmp.i250 = icmp sgt i32 %40, 1
   br i1 %cmp.i250, label %if.then.i252, label %invoke.cont45
 
@@ -2950,9 +2950,9 @@ for.body93.lr.ph:                                 ; preds = %for.cond88.preheade
   br label %for.body93
 
 for.body93:                                       ; preds = %for.body93.lr.ph, %for.inc461
-  %indvars.iv982 = phi i64 [ 0, %for.body93.lr.ph ], [ %indvars.iv.next983, %for.inc461 ]
+  %indvars.iv980 = phi i64 [ 0, %for.body93.lr.ph ], [ %indvars.iv.next981, %for.inc461 ]
   %53 = load ptr, ptr %m_data.i262, align 8
-  %arrayidx.i264 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv982
+  %arrayidx.i264 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv980
   %54 = load ptr, ptr %arrayidx.i264, align 8
   %m_baseCollider.i = getelementptr inbounds i8, ptr %54, i64 8
   %55 = load ptr, ptr %m_baseCollider.i, align 8
@@ -3161,8 +3161,8 @@ invoke.cont141:                                   ; preds = %if.end.i347, %invok
   %cmp3.i366.not = icmp sgt i32 %79, %78
   %80 = load i32, ptr %m_capacity.i.i.i368, align 8
   %cmp.i.i369.not = icmp sgt i32 %80, %78
-  %or.cond997 = select i1 %cmp3.i366.not, i1 true, i1 %cmp.i.i369.not
-  br i1 %or.cond997, label %invoke.cont142, label %if.then.i.i378
+  %or.cond995 = select i1 %cmp3.i366.not, i1 true, i1 %cmp.i.i369.not
+  br i1 %or.cond995, label %invoke.cont142, label %if.then.i.i378
 
 if.then.i.i378:                                   ; preds = %invoke.cont141
   %tobool.not.i.i.i379 = icmp eq i32 %add139, 0
@@ -3309,7 +3309,7 @@ invoke.cont168:                                   ; preds = %for.body8.lr.ph.i41
 
 invoke.cont229.preheader.lr.ph:                   ; preds = %invoke.cont168
   %m_data.i.i470 = getelementptr inbounds i8, ptr %54, i64 192
-  %.pre986 = load ptr, ptr %m_data.i.i470, align 8
+  %.pre984 = load ptr, ptr %m_data.i.i470, align 8
   br label %invoke.cont229.preheader
 
 for.cond249.preheader:                            ; preds = %for.inc245, %invoke.cont168
@@ -3318,13 +3318,12 @@ for.cond249.preheader:                            ; preds = %for.inc245, %invoke
 
 invoke.cont252.lr.ph:                             ; preds = %for.cond249.preheader
   %m_data.i.i479 = getelementptr inbounds i8, ptr %54, i64 288
-  %smax = call i32 @llvm.smax.i32(i32 %add159, i32 1)
-  %wide.trip.count965 = zext nneg i32 %smax to i64
+  %wide.trip.count965 = zext i32 %add159 to i64
   br label %invoke.cont252
 
 invoke.cont229.preheader:                         ; preds = %invoke.cont229.preheader.lr.ph, %for.inc245
   %99 = phi i32 [ %98, %invoke.cont229.preheader.lr.ph ], [ %110, %for.inc245 ]
-  %100 = phi ptr [ %.pre986, %invoke.cont229.preheader.lr.ph ], [ %111, %for.inc245 ]
+  %100 = phi ptr [ %.pre984, %invoke.cont229.preheader.lr.ph ], [ %111, %for.inc245 ]
   %indvars.iv959 = phi i64 [ 0, %invoke.cont229.preheader.lr.ph ], [ %indvars.iv.next960, %for.inc245 ]
   %arrayidx.i.i472925 = getelementptr inbounds %struct.btMultibodyLink, ptr %100, i64 %indvars.iv959
   %m_posVarCount926 = getelementptr inbounds i8, ptr %arrayidx.i.i472925, i64 560
@@ -3362,11 +3361,11 @@ lpad167:                                          ; preds = %if.then.i.i.i428, %
   br label %ehcleanup458
 
 for.inc245.loopexit:                              ; preds = %invoke.cont236
-  %.pre987 = load i32, ptr %m_size.i.i266, align 4
+  %.pre985 = load i32, ptr %m_size.i.i266, align 4
   br label %for.inc245
 
 for.inc245:                                       ; preds = %for.inc245.loopexit, %invoke.cont229.preheader
-  %110 = phi i32 [ %.pre987, %for.inc245.loopexit ], [ %99, %invoke.cont229.preheader ]
+  %110 = phi i32 [ %.pre985, %for.inc245.loopexit ], [ %99, %invoke.cont229.preheader ]
   %111 = phi ptr [ %106, %for.inc245.loopexit ], [ %100, %invoke.cont229.preheader ]
   %indvars.iv.next960 = add nuw nsw i64 %indvars.iv959, 1
   %112 = sext i32 %110 to i64
@@ -3749,8 +3748,7 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit731: ; preds = %for.body8.i696
 
 for.body368.lr.ph:                                ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit731
   %div = fdiv float %115, 6.000000e+00
-  %smax970 = call i32 @llvm.smax.i32(i32 %add159, i32 1)
-  %wide.trip.count971 = zext nneg i32 %smax970 to i64
+  %wide.trip.count970 = zext i32 %add159 to i64
   br label %for.body368
 
 for.body368:                                      ; preds = %for.body368.lr.ph, %for.body368
@@ -3784,8 +3782,8 @@ for.body368:                                      ; preds = %for.body368.lr.ph, 
   %arrayidx.i737 = getelementptr inbounds float, ptr %call.i.i.i.i729, i64 %indvars.iv967
   store float %mul395, ptr %arrayidx.i737, align 4
   %indvars.iv.next968 = add nuw nsw i64 %indvars.iv967, 1
-  %exitcond972.not = icmp eq i64 %indvars.iv.next968, %wide.trip.count971
-  br i1 %exitcond972.not, label %for.end400, label %for.body368, !llvm.loop !44
+  %exitcond971.not = icmp eq i64 %indvars.iv.next968, %wide.trip.count970
+  br i1 %exitcond971.not, label %for.end400, label %for.body368, !llvm.loop !44
 
 lpad359:                                          ; preds = %invoke.cont357
   %190 = landingpad { ptr, i32 }
@@ -3881,19 +3879,18 @@ invoke.cont407:                                   ; preds = %_Z7btClampIfEvRT_RK
   br i1 %cmp250932, label %for.body423.preheader, label %for.end430
 
 for.body423.preheader:                            ; preds = %invoke.cont407
-  %smax976 = call i32 @llvm.smax.i32(i32 %add159, i32 1)
-  %wide.trip.count977 = zext nneg i32 %smax976 to i64
+  %wide.trip.count975 = zext i32 %add159 to i64
   br label %for.body423
 
 for.body423:                                      ; preds = %for.body423.preheader, %for.body423
-  %indvars.iv973 = phi i64 [ 0, %for.body423.preheader ], [ %indvars.iv.next974, %for.body423 ]
-  %arrayidx.i766 = getelementptr inbounds float, ptr %191, i64 %indvars.iv973
+  %indvars.iv972 = phi i64 [ 0, %for.body423.preheader ], [ %indvars.iv.next973, %for.body423 ]
+  %arrayidx.i766 = getelementptr inbounds float, ptr %191, i64 %indvars.iv972
   %211 = load float, ptr %arrayidx.i766, align 4
-  %arrayidx427 = getelementptr inbounds float, ptr %add.ptr419, i64 %indvars.iv973
+  %arrayidx427 = getelementptr inbounds float, ptr %add.ptr419, i64 %indvars.iv972
   store float %211, ptr %arrayidx427, align 4
-  %indvars.iv.next974 = add nuw nsw i64 %indvars.iv973, 1
-  %exitcond978.not = icmp eq i64 %indvars.iv.next974, %wide.trip.count977
-  br i1 %exitcond978.not, label %for.end430, label %for.body423, !llvm.loop !45
+  %indvars.iv.next973 = add nuw nsw i64 %indvars.iv972, 1
+  %exitcond976.not = icmp eq i64 %indvars.iv.next973, %wide.trip.count975
+  br i1 %exitcond976.not, label %for.end430, label %for.body423, !llvm.loop !45
 
 for.end430:                                       ; preds = %for.body423, %invoke.cont407
   %__posUpdated.i = getelementptr inbounds i8, ptr %54, i64 625
@@ -3907,17 +3904,17 @@ invoke.cont439.lr.ph:                             ; preds = %for.end430
   br label %invoke.cont439
 
 invoke.cont439:                                   ; preds = %invoke.cont439.lr.ph, %for.inc442
-  %indvars.iv979 = phi i64 [ 0, %invoke.cont439.lr.ph ], [ %indvars.iv.next980, %for.inc442 ]
+  %indvars.iv977 = phi i64 [ 0, %invoke.cont439.lr.ph ], [ %indvars.iv.next978, %for.inc442 ]
   %213 = load ptr, ptr %m_data.i.i768, align 8
-  %arrayidx.i.i770 = getelementptr inbounds %struct.btMultibodyLink, ptr %213, i64 %indvars.iv979
+  %arrayidx.i.i770 = getelementptr inbounds %struct.btMultibodyLink, ptr %213, i64 %indvars.iv977
   invoke void @_ZN15btMultibodyLink19updateCacheMultiDofEPf(ptr noundef nonnull align 8 dereferenceable(688) %arrayidx.i.i770, ptr noundef null)
           to label %for.inc442 unwind label %lpad363.loopexit
 
 for.inc442:                                       ; preds = %invoke.cont439
-  %indvars.iv.next980 = add nuw nsw i64 %indvars.iv979, 1
+  %indvars.iv.next978 = add nuw nsw i64 %indvars.iv977, 1
   %214 = load i32, ptr %m_size.i.i266, align 4
   %215 = sext i32 %214 to i64
-  %cmp437 = icmp slt i64 %indvars.iv.next980, %215
+  %cmp437 = icmp slt i64 %indvars.iv.next978, %215
   br i1 %cmp437, label %invoke.cont439, label %for.end444, !llvm.loop !46
 
 for.end444:                                       ; preds = %for.inc442, %for.end430
@@ -4000,10 +3997,10 @@ terminate.lpad.i811:                              ; preds = %if.then3.i.i.i810
   unreachable
 
 for.inc461:                                       ; preds = %if.then3.i.i.i799, %for.end124, %if.then145
-  %indvars.iv.next983 = add nuw nsw i64 %indvars.iv982, 1
+  %indvars.iv.next981 = add nuw nsw i64 %indvars.iv980, 1
   %226 = load i32, ptr %m_size.i.i, align 4
   %227 = sext i32 %226 to i64
-  %cmp92 = icmp slt i64 %indvars.iv.next983, %227
+  %cmp92 = icmp slt i64 %indvars.iv.next981, %227
   br i1 %cmp92, label %for.body93, label %for.end463, !llvm.loop !47
 
 for.end463:                                       ; preds = %for.inc461, %for.cond88.preheader
@@ -9610,9 +9607,6 @@ declare float @llvm.sqrt.f32(float) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14

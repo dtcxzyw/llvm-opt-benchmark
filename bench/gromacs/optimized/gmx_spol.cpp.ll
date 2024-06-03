@@ -1170,8 +1170,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit194:       ; preds = %464, %467
 
 .lr.ph312:                                        ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit194
   %468 = uitofp nneg i32 %419 to double
-  %smax = call i32 @llvm.smax.i32(i32 %158, i32 0)
-  %469 = add nuw i32 %smax, 1
+  %469 = add i32 %157, 3
   %wide.trip.count371 = zext i32 %469 to i64
   br label %470
 
