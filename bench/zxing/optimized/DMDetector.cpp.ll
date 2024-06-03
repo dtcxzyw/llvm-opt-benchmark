@@ -695,7 +695,7 @@ _ZN5ZXing10DataMatrix16DMRegressionLine7reverseEv.exit.i.i: ; preds = %.lr.ph.i.
   %285 = load double, ptr %189, align 8, !noalias !15
   %286 = fneg double %285
   %287 = load double, ptr %188, align 8, !noalias !15
-  %288 = call noundef double @llvm.fabs.f64(double %286)
+  %288 = call double @llvm.fabs.f64(double %285)
   %289 = call noundef double @llvm.fabs.f64(double %287)
   %290 = fcmp olt double %288, %289
   %.sroa.speculated.i.i.i.i.i = select i1 %290, double %289, double %288
@@ -1022,11 +1022,11 @@ _ZNK5ZXing14RegressionLine6lengthEv.exit.i.i:     ; preds = %488, %481
   %498 = fptosi double %497 to i32
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %496, i32 %498)
   %499 = shl nsw i32 %.sroa.speculated.i.i, 1
-  %500 = call noundef double @llvm.fabs.f64(double %364)
-  %501 = extractelement <2 x double> %363, i64 1
-  %502 = call noundef double @llvm.fabs.f64(double %501)
-  %503 = fcmp olt double %500, %502
-  %.sroa.speculated.i.i.i236.i.i = select i1 %503, double %502, double %500
+  %500 = extractelement <2 x double> %362, i64 0
+  %501 = call double @llvm.fabs.f64(double %500)
+  %502 = call double @llvm.fabs.f64(double %365)
+  %503 = fcmp olt double %501, %502
+  %.sroa.speculated.i.i.i236.i.i = select i1 %503, double %502, double %501
   %504 = insertelement <2 x double> poison, double %.sroa.speculated.i.i.i236.i.i, i64 0
   %505 = shufflevector <2 x double> %504, <2 x double> poison, <2 x i32> zeroinitializer
   %506 = fdiv <2 x double> %363, %505
@@ -2917,284 +2917,285 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIdEEE4stepEd.exit:
   %10 = load <2 x double>, ptr %4, align 8
   store double %1, ptr %4, align 8
   store double %2, ptr %5, align 8
-  %11 = fneg <2 x double> %10
-  %12 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %11)
-  %13 = extractelement <2 x double> %12, i64 0
-  %14 = extractelement <2 x double> %12, i64 1
-  %15 = fcmp ogt double %13, %14
-  %16 = insertelement <2 x i1> poison, i1 %15, i64 0
-  %17 = shufflevector <2 x i1> %16, <2 x i1> poison, <2 x i32> zeroinitializer
-  %18 = insertelement <2 x double> %11, double 0.000000e+00, i64 1
-  %19 = insertelement <2 x double> %11, double 0.000000e+00, i64 0
-  %20 = select <2 x i1> %17, <2 x double> %18, <2 x double> %19
-  %21 = load <2 x double>, ptr %6, align 8
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
-  %26 = insertelement <2 x double> poison, double %1, i64 0
-  %27 = insertelement <2 x double> %26, double %2, i64 1
+  %11 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %10)
+  %12 = extractelement <2 x double> %11, i64 0
+  %13 = extractelement <2 x double> %11, i64 1
+  %14 = fcmp ogt double %12, %13
+  %15 = insertelement <2 x i1> poison, i1 %14, i64 0
+  %16 = shufflevector <2 x i1> %15, <2 x i1> poison, <2 x i32> zeroinitializer
+  %17 = fneg <2 x double> %10
+  %18 = insertelement <2 x double> %17, double 0.000000e+00, i64 1
+  %19 = fneg <2 x double> %10
+  %20 = insertelement <2 x double> %19, double 0.000000e+00, i64 0
+  %21 = select <2 x i1> %16, <2 x double> %18, <2 x double> %20
+  %22 = load <2 x double>, ptr %6, align 8
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %27 = insertelement <2 x double> poison, double %1, i64 0
+  %28 = insertelement <2 x double> %27, double %2, i64 1
   br label %.preheader136
 
-.preheader136:                                    ; preds = %_ZN5ZXing15BitMatrixCursorINS_6PointTIdEEE4stepEd.exit, %138
-  %indvars.iv = phi i32 [ 3, %_ZN5ZXing15BitMatrixCursorINS_6PointTIdEEE4stepEd.exit ], [ %indvars.iv.next, %138 ]
-  %.0161 = phi i32 [ 1, %_ZN5ZXing15BitMatrixCursorINS_6PointTIdEEE4stepEd.exit ], [ %139, %138 ]
+.preheader136:                                    ; preds = %_ZN5ZXing15BitMatrixCursorINS_6PointTIdEEE4stepEd.exit, %139
+  %indvars.iv = phi i32 [ 3, %_ZN5ZXing15BitMatrixCursorINS_6PointTIdEEE4stepEd.exit ], [ %indvars.iv.next, %139 ]
+  %.0161 = phi i32 [ 1, %_ZN5ZXing15BitMatrixCursorINS_6PointTIdEEE4stepEd.exit ], [ %140, %139 ]
   br label %.preheader135
 
-.preheader135:                                    ; preds = %.preheader136, %136
-  %.049160 = phi i32 [ 1, %.preheader136 ], [ %137, %136 ]
-  %28 = uitofp nneg i32 %.049160 to double
-  %29 = insertelement <2 x double> poison, double %28, i64 0
-  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
-  %31 = fmul <2 x double> %30, %27
-  %32 = fadd <2 x double> %31, %21
-  br label %33
+.preheader135:                                    ; preds = %.preheader136, %137
+  %.049160 = phi i32 [ 1, %.preheader136 ], [ %138, %137 ]
+  %29 = uitofp nneg i32 %.049160 to double
+  %30 = insertelement <2 x double> poison, double %29, i64 0
+  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> zeroinitializer
+  %32 = fmul <2 x double> %31, %28
+  %33 = fadd <2 x double> %32, %22
+  br label %34
 
-33:                                               ; preds = %.preheader135, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread
-  %.050159 = phi i32 [ 0, %.preheader135 ], [ %35, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread ]
-  %34 = and i32 %.050159, 1
-  %.not55 = icmp eq i32 %34, 0
-  %35 = add nuw nsw i32 %.050159, 1
-  %36 = lshr exact i32 %35, 1
+34:                                               ; preds = %.preheader135, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread
+  %.050159 = phi i32 [ 0, %.preheader135 ], [ %36, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread ]
+  %35 = and i32 %.050159, 1
+  %.not55 = icmp eq i32 %35, 0
+  %36 = add nuw nsw i32 %.050159, 1
+  %37 = lshr exact i32 %36, 1
   %.neg = lshr exact i32 %.050159, 1
-  %37 = sub nsw i32 0, %.neg
-  %38 = select i1 %.not55, i32 %37, i32 %36
-  %39 = sitofp i32 %38 to double
-  %40 = insertelement <2 x double> poison, double %39, i64 0
-  %41 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> zeroinitializer
-  %42 = fmul <2 x double> %20, %41
-  %43 = fadd <2 x double> %42, %32
-  %44 = fadd <2 x double> %20, %43
-  %45 = extractelement <2 x double> %44, i64 0
-  %46 = fadd <2 x double> %20, %43
-  %47 = extractelement <2 x double> %46, i64 1
-  %48 = fcmp ult double %45, 0.000000e+00
-  br i1 %48, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread, label %49
+  %38 = sub nsw i32 0, %.neg
+  %39 = select i1 %.not55, i32 %38, i32 %37
+  %40 = sitofp i32 %39 to double
+  %41 = insertelement <2 x double> poison, double %40, i64 0
+  %42 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> zeroinitializer
+  %43 = fmul <2 x double> %21, %42
+  %44 = fadd <2 x double> %43, %33
+  %45 = fadd <2 x double> %21, %44
+  %46 = extractelement <2 x double> %45, i64 0
+  %47 = fadd <2 x double> %21, %44
+  %48 = extractelement <2 x double> %47, i64 1
+  %49 = fcmp ult double %46, 0.000000e+00
+  br i1 %49, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread, label %50
 
-49:                                               ; preds = %33
-  %50 = load i32, ptr %22, align 8
-  %51 = sitofp i32 %50 to double
-  %52 = fcmp uge double %45, %51
-  %53 = fcmp ult double %47, 0.000000e+00
-  %or.cond.i.i.i68 = select i1 %52, i1 true, i1 %53
+50:                                               ; preds = %34
+  %51 = load i32, ptr %23, align 8
+  %52 = sitofp i32 %51 to double
+  %53 = fcmp uge double %46, %52
+  %54 = fcmp ult double %48, 0.000000e+00
+  %or.cond.i.i.i68 = select i1 %53, i1 true, i1 %54
   br i1 %or.cond.i.i.i68, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i
 
-_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i: ; preds = %49
-  %54 = load i32, ptr %23, align 4
-  %55 = sitofp i32 %54 to double
-  %56 = fcmp olt double %47, %55
-  br i1 %56, label %57, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread
+_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i: ; preds = %50
+  %55 = load i32, ptr %24, align 4
+  %56 = sitofp i32 %55 to double
+  %57 = fcmp olt double %48, %56
+  br i1 %57, label %58, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread
 
-57:                                               ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i
-  %58 = fptosi double %45 to i32
-  %59 = fptosi double %47 to i32
-  %60 = mul nsw i32 %50, %59
-  %61 = add nsw i32 %60, %58
-  %62 = sext i32 %61 to i64
-  %63 = load ptr, ptr %25, align 8
-  %64 = load ptr, ptr %24, align 8
-  %65 = ptrtoint ptr %63 to i64
+58:                                               ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i
+  %59 = fptosi double %46 to i32
+  %60 = fptosi double %48 to i32
+  %61 = mul nsw i32 %51, %60
+  %62 = add nsw i32 %61, %59
+  %63 = sext i32 %62 to i64
+  %64 = load ptr, ptr %26, align 8
+  %65 = load ptr, ptr %25, align 8
   %66 = ptrtoint ptr %64 to i64
-  %67 = sub i64 %65, %66
-  %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %67, %62
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit, label %68
+  %67 = ptrtoint ptr %65 to i64
+  %68 = sub i64 %66, %67
+  %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %68, %63
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit, label %69
 
-68:                                               ; preds = %57
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %62, i64 noundef %67) #22
-          to label %.noexc.i unwind label %69
+69:                                               ; preds = %58
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %63, i64 noundef %68) #22
+          to label %.noexc.i unwind label %70
 
-.noexc.i:                                         ; preds = %68
+.noexc.i:                                         ; preds = %69
   unreachable
 
-69:                                               ; preds = %68
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  tail call void @__clang_call_terminate(ptr %71) #21
+  %72 = extractvalue { ptr, i32 } %71, 0
+  tail call void @__clang_call_terminate(ptr %72) #21
   unreachable
 
-_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit: ; preds = %57
-  %72 = getelementptr inbounds i8, ptr %64, i64 %62
-  %73 = load i8, ptr %72, align 1
-  %.not133 = icmp eq i8 %73, 0
+_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit: ; preds = %58
+  %73 = getelementptr inbounds i8, ptr %65, i64 %63
+  %74 = load i8, ptr %73, align 1
+  %.not133 = icmp eq i8 %74, 0
   br i1 %.not133, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit
-  %74 = extractelement <2 x double> %43, i64 0
-  %75 = fcmp ult double %74, 0.000000e+00
-  br i1 %75, label %.critedge, label %.lr.ph
+  %75 = extractelement <2 x double> %44, i64 0
+  %76 = fcmp ult double %75, 0.000000e+00
+  br i1 %76, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %76 = sitofp i32 %54 to double
-  %77 = sitofp i32 %50 to double
-  %78 = sitofp i32 %54 to double
-  %79 = ptrtoint ptr %63 to i64
+  %77 = sitofp i32 %55 to double
+  %78 = sitofp i32 %51 to double
+  %79 = sitofp i32 %55 to double
   %80 = ptrtoint ptr %64 to i64
-  %81 = sub i64 %79, %80
-  br label %82
+  %81 = ptrtoint ptr %65 to i64
+  %82 = sub i64 %80, %81
+  br label %83
 
-_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread: ; preds = %33, %49, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit
-  %exitcond.not = icmp eq i32 %35, %indvars.iv
-  br i1 %exitcond.not, label %136, label %33, !llvm.loop !35
+_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread: ; preds = %34, %50, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit
+  %exitcond.not = icmp eq i32 %36, %indvars.iv
+  br i1 %exitcond.not, label %137, label %34, !llvm.loop !35
 
-82:                                               ; preds = %.lr.ph, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread
-  %.051164 = phi i32 [ 0, %.lr.ph ], [ %132, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread ]
-  %83 = phi <2 x double> [ %43, %.lr.ph ], [ %131, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread ]
-  %84 = extractelement <2 x double> %83, i64 0
-  %85 = fcmp olt double %84, %51
-  %86 = extractelement <2 x double> %83, i64 1
-  %87 = fcmp oge double %86, 0.000000e+00
-  %88 = fcmp olt double %86, %76
-  %89 = and i1 %87, %88
-  %or.cond225 = select i1 %85, i1 %89, i1 false
-  br i1 %or.cond225, label %90, label %.critedge
+83:                                               ; preds = %.lr.ph, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread
+  %.051164 = phi i32 [ 0, %.lr.ph ], [ %133, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread ]
+  %84 = phi <2 x double> [ %44, %.lr.ph ], [ %132, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread ]
+  %85 = extractelement <2 x double> %84, i64 0
+  %86 = fcmp olt double %85, %52
+  %87 = extractelement <2 x double> %84, i64 1
+  %88 = fcmp oge double %87, 0.000000e+00
+  %89 = fcmp olt double %87, %77
+  %90 = and i1 %88, %89
+  %or.cond225 = select i1 %86, i1 %90, i1 false
+  br i1 %or.cond225, label %91, label %.critedge
 
-90:                                               ; preds = %82
-  %91 = fcmp olt double %84, %77
-  %92 = fcmp olt double %86, %78
-  %or.cond226 = select i1 %91, i1 %92, i1 false
-  br i1 %or.cond226, label %93, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread
+91:                                               ; preds = %83
+  %92 = fcmp olt double %85, %78
+  %93 = fcmp olt double %87, %79
+  %or.cond226 = select i1 %92, i1 %93, i1 false
+  br i1 %or.cond226, label %94, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread
 
-93:                                               ; preds = %90
-  %94 = fptosi double %84 to i32
-  %95 = fptosi double %86 to i32
-  %96 = mul nsw i32 %50, %95
-  %97 = add nsw i32 %96, %94
-  %98 = sext i32 %97 to i64
-  %.not.i.i.i.i.i.i.i.i72 = icmp ugt i64 %81, %98
-  br i1 %.not.i.i.i.i.i.i.i.i72, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit, label %99
+94:                                               ; preds = %91
+  %95 = fptosi double %85 to i32
+  %96 = fptosi double %87 to i32
+  %97 = mul nsw i32 %51, %96
+  %98 = add nsw i32 %97, %95
+  %99 = sext i32 %98 to i64
+  %.not.i.i.i.i.i.i.i.i72 = icmp ugt i64 %82, %99
+  br i1 %.not.i.i.i.i.i.i.i.i72, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit, label %100
 
-99:                                               ; preds = %93
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %98, i64 noundef %81) #22
-          to label %.noexc.i73 unwind label %100
+100:                                              ; preds = %94
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %99, i64 noundef %82) #22
+          to label %.noexc.i73 unwind label %101
 
-.noexc.i73:                                       ; preds = %99
+.noexc.i73:                                       ; preds = %100
   unreachable
 
-100:                                              ; preds = %99
-  %101 = landingpad { ptr, i32 }
+101:                                              ; preds = %100
+  %102 = landingpad { ptr, i32 }
           catch ptr null
-  %102 = extractvalue { ptr, i32 } %101, 0
-  tail call void @__clang_call_terminate(ptr %102) #21
+  %103 = extractvalue { ptr, i32 } %102, 0
+  tail call void @__clang_call_terminate(ptr %103) #21
   unreachable
 
-_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit: ; preds = %93
-  %103 = getelementptr inbounds i8, ptr %64, i64 %98
-  %104 = load i8, ptr %103, align 1
-  %.not.i = icmp eq i8 %104, 0
-  br i1 %.not.i, label %105, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread
+_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit: ; preds = %94
+  %104 = getelementptr inbounds i8, ptr %65, i64 %99
+  %105 = load i8, ptr %104, align 1
+  %.not.i = icmp eq i8 %105, 0
+  br i1 %.not.i, label %106, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread
 
-105:                                              ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit
-  %106 = tail call <2 x double> @llvm.floor.v2f64(<2 x double> %83)
-  %107 = fadd <2 x double> %106, <double 5.000000e-01, double 5.000000e-01>
-  store <2 x double> %107, ptr %6, align 8
+106:                                              ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit
+  %107 = tail call <2 x double> @llvm.floor.v2f64(<2 x double> %84)
+  %108 = fadd <2 x double> %107, <double 5.000000e-01, double 5.000000e-01>
+  store <2 x double> %108, ptr %6, align 8
   br label %.critedge
 
-_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread: ; preds = %90, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit
-  %108 = fsub <2 x double> %83, %20
-  %109 = fsub <2 x double> %108, %27
-  %110 = extractelement <2 x double> %109, i64 0
-  %111 = fcmp ult double %110, 0.000000e+00
-  br i1 %111, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread, label %112
+_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread: ; preds = %91, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit
+  %109 = fsub <2 x double> %84, %21
+  %110 = fsub <2 x double> %109, %28
+  %111 = extractelement <2 x double> %110, i64 0
+  %112 = fcmp ult double %111, 0.000000e+00
+  br i1 %112, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread, label %113
 
-112:                                              ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread
-  %113 = fcmp olt double %110, %51
-  %114 = extractelement <2 x double> %109, i64 1
-  %115 = fcmp oge double %114, 0.000000e+00
-  %116 = fcmp olt double %114, %55
-  %117 = and i1 %115, %116
-  %or.cond227 = select i1 %113, i1 %117, i1 false
-  br i1 %or.cond227, label %118, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread
+113:                                              ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread
+  %114 = fcmp olt double %111, %52
+  %115 = extractelement <2 x double> %110, i64 1
+  %116 = fcmp oge double %115, 0.000000e+00
+  %117 = fcmp olt double %115, %56
+  %118 = and i1 %116, %117
+  %or.cond227 = select i1 %114, i1 %118, i1 false
+  br i1 %or.cond227, label %119, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread
 
-118:                                              ; preds = %112
-  %119 = fptosi double %110 to i32
-  %120 = fptosi double %114 to i32
-  %121 = mul nsw i32 %50, %120
-  %122 = add nsw i32 %121, %119
-  %123 = sext i32 %122 to i64
-  %.not.i.i.i.i.i.i.i.i87 = icmp ugt i64 %67, %123
-  br i1 %.not.i.i.i.i.i.i.i.i87, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90, label %124
+119:                                              ; preds = %113
+  %120 = fptosi double %111 to i32
+  %121 = fptosi double %115 to i32
+  %122 = mul nsw i32 %51, %121
+  %123 = add nsw i32 %122, %120
+  %124 = sext i32 %123 to i64
+  %.not.i.i.i.i.i.i.i.i87 = icmp ugt i64 %68, %124
+  br i1 %.not.i.i.i.i.i.i.i.i87, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90, label %125
 
-124:                                              ; preds = %118
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %123, i64 noundef %67) #22
-          to label %.noexc.i88 unwind label %125
+125:                                              ; preds = %119
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %124, i64 noundef %68) #22
+          to label %.noexc.i88 unwind label %126
 
-.noexc.i88:                                       ; preds = %124
+.noexc.i88:                                       ; preds = %125
   unreachable
 
-125:                                              ; preds = %124
-  %126 = landingpad { ptr, i32 }
+126:                                              ; preds = %125
+  %127 = landingpad { ptr, i32 }
           catch ptr null
-  %127 = extractvalue { ptr, i32 } %126, 0
-  tail call void @__clang_call_terminate(ptr %127) #21
+  %128 = extractvalue { ptr, i32 } %127, 0
+  tail call void @__clang_call_terminate(ptr %128) #21
   unreachable
 
-_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90: ; preds = %118
-  %128 = getelementptr inbounds i8, ptr %64, i64 %123
-  %129 = load i8, ptr %128, align 1
-  %.not134 = icmp eq i8 %129, 0
-  br i1 %.not134, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread, label %130
+_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90: ; preds = %119
+  %129 = getelementptr inbounds i8, ptr %65, i64 %124
+  %130 = load i8, ptr %129, align 1
+  %.not134 = icmp eq i8 %130, 0
+  br i1 %.not134, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread, label %131
 
-130:                                              ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90
+131:                                              ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90
   br label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread
 
-_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread: ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread, %112, %130, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90
-  %131 = phi <2 x double> [ %109, %130 ], [ %108, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90 ], [ %108, %112 ], [ %108, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread ]
-  %132 = add nuw nsw i32 %.051164, 1
-  %133 = icmp ugt i32 %.051164, 1
-  %134 = extractelement <2 x double> %131, i64 0
-  %135 = fcmp ult double %134, 0.000000e+00
-  %or.cond = or i1 %135, %133
-  br i1 %or.cond, label %.critedge, label %82, !llvm.loop !37
+_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread: ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread, %113, %131, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90
+  %132 = phi <2 x double> [ %110, %131 ], [ %109, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90 ], [ %109, %113 ], [ %109, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7whiteAtES2_.exit.thread ]
+  %133 = add nuw nsw i32 %.051164, 1
+  %134 = icmp ugt i32 %.051164, 1
+  %135 = extractelement <2 x double> %132, i64 0
+  %136 = fcmp ult double %135, 0.000000e+00
+  %or.cond = or i1 %136, %134
+  br i1 %or.cond, label %.critedge, label %83, !llvm.loop !37
 
-136:                                              ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread
-  %137 = add nuw nsw i32 %.049160, 1
-  %exitcond188 = icmp eq i32 %137, 3
-  br i1 %exitcond188, label %138, label %.preheader135, !llvm.loop !39
+137:                                              ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit.thread
+  %138 = add nuw nsw i32 %.049160, 1
+  %exitcond188 = icmp eq i32 %138, 3
+  br i1 %exitcond188, label %139, label %.preheader135, !llvm.loop !39
 
-138:                                              ; preds = %136
-  %139 = add nuw nsw i32 %.0161, 1
+139:                                              ; preds = %137
+  %140 = add nuw nsw i32 %.0161, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 2
-  %exitcond189 = icmp eq i32 %139, 4
+  %exitcond189 = icmp eq i32 %140, 4
   br i1 %exitcond189, label %.critedge, label %.preheader136, !llvm.loop !38
 
-.critedge:                                        ; preds = %138, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread, %82, %.preheader, %105
-  %140 = phi <2 x double> [ %21, %.preheader ], [ %107, %105 ], [ %21, %82 ], [ %21, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread ], [ %21, %138 ]
+.critedge:                                        ; preds = %139, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread, %83, %.preheader, %106
+  %141 = phi <2 x double> [ %22, %.preheader ], [ %108, %106 ], [ %22, %83 ], [ %22, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit90.thread ], [ %22, %139 ]
   %.sroa.02.0.copyload = load double, ptr %3, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.23.0.copyload = load double, ptr %.sroa.23.0..sroa_idx, align 8
-  %141 = fcmp ult double %.sroa.02.0.copyload, 0.000000e+00
-  br i1 %141, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit96, label %142
+  %142 = fcmp ult double %.sroa.02.0.copyload, 0.000000e+00
+  br i1 %142, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit96, label %143
 
-142:                                              ; preds = %.critedge
-  %143 = load i32, ptr %22, align 8
-  %144 = sitofp i32 %143 to double
-  %145 = fcmp uge double %.sroa.02.0.copyload, %144
-  %146 = fcmp ult double %.sroa.23.0.copyload, 0.000000e+00
-  %or.cond.i.i93 = select i1 %145, i1 true, i1 %146
+143:                                              ; preds = %.critedge
+  %144 = load i32, ptr %23, align 8
+  %145 = sitofp i32 %144 to double
+  %146 = fcmp uge double %.sroa.02.0.copyload, %145
+  %147 = fcmp ult double %.sroa.23.0.copyload, 0.000000e+00
+  %or.cond.i.i93 = select i1 %146, i1 true, i1 %147
   br i1 %or.cond.i.i93, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit96, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit94
 
-_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit94: ; preds = %142
-  %147 = load i32, ptr %23, align 4
-  %148 = sitofp i32 %147 to double
-  %149 = fcmp uge double %.sroa.23.0.copyload, %148
-  %150 = extractelement <2 x double> %140, i64 0
-  %151 = fcmp ult double %150, 0.000000e+00
-  %or.cond228 = or i1 %149, %151
-  br i1 %or.cond228, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit96, label %152
+_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit94: ; preds = %143
+  %148 = load i32, ptr %24, align 4
+  %149 = sitofp i32 %148 to double
+  %150 = fcmp uge double %.sroa.23.0.copyload, %149
+  %151 = extractelement <2 x double> %141, i64 0
+  %152 = fcmp ult double %151, 0.000000e+00
+  %or.cond228 = or i1 %150, %152
+  br i1 %or.cond228, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit96, label %153
 
-152:                                              ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit94
-  %153 = fcmp olt double %150, %144
-  %154 = extractelement <2 x double> %140, i64 1
-  %155 = fcmp oge double %154, 0.000000e+00
-  %156 = fcmp olt double %154, %148
-  %157 = and i1 %155, %156
-  %spec.select = select i1 %153, i1 %157, i1 false
+153:                                              ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit94
+  %154 = fcmp olt double %151, %145
+  %155 = extractelement <2 x double> %141, i64 1
+  %156 = fcmp oge double %155, 0.000000e+00
+  %157 = fcmp olt double %155, %149
+  %158 = and i1 %156, %157
+  %spec.select = select i1 %154, i1 %158, i1 false
   br label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit96
 
-_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit96: ; preds = %152, %.critedge, %142, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit94
-  %158 = phi i1 [ false, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit94 ], [ false, %142 ], [ false, %.critedge ], [ %spec.select, %152 ]
-  ret i1 %158
+_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit96: ; preds = %153, %.critedge, %143, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit94
+  %159 = phi i1 [ false, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInES2_.exit94 ], [ false, %143 ], [ false, %.critedge ], [ %spec.select, %153 ]
+  ret i1 %159
 }
 
 ; Function Attrs: mustprogress uwtable

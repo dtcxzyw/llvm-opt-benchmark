@@ -185,8 +185,7 @@ cond.false:                                       ; preds = %"_ZZN4absl15random_
   br i1 %cmp.i48, label %cond.end, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.false
-  %fneg31 = fneg double %call30
-  %6 = tail call double @llvm.fabs.f64(double %fneg31)
+  %6 = tail call double @llvm.fabs.f64(double %call30)
   %mul.i49 = fmul double %6, 5.000000e-01
   %cmp1.i = fcmp ult double %mul.i49, 3.000000e+00
   br i1 %cmp1.i, label %if.else.i, label %if.end11.i

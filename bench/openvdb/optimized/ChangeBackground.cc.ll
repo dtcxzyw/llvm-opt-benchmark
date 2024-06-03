@@ -54246,7 +54246,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit.i.i28: ; preds = %if.else
   %fneg.i.i = fneg float %2
-  %22 = tail call noundef float @llvm.fabs.f32(float %fneg.i.i)
+  %22 = tail call float @llvm.fabs.f32(float %2)
   %23 = tail call noundef float @llvm.fabs.f32(float %1)
   %cmp3.i.i.i29 = fcmp ogt float %22, %23
   %..i.i.i30 = select i1 %cmp3.i.i.i29, float %fneg.i.i, float %1
@@ -54264,7 +54264,7 @@ land.lhs.true.i.i8:                               ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i12, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i23, label %land.rhs.i.i13
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i23: ; preds = %land.lhs.true.i.i8
-  %27 = tail call noundef float @llvm.fabs.f32(float %fneg4.i.i)
+  %27 = tail call float @llvm.fabs.f32(float %19)
   %28 = tail call noundef float @llvm.fabs.f32(float %25)
   %cmp3.i7.i.i24 = fcmp ogt float %27, %28
   %..i8.i.i25 = select i1 %cmp3.i7.i.i24, float %fneg4.i.i, float %25
@@ -54282,7 +54282,7 @@ land.rhs.i.i13:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i17, label %_ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit33, label %if.then8
 
 _ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit33: ; preds = %land.rhs.i.i13
-  %32 = tail call noundef float @llvm.fabs.f32(float %fneg7.i.i)
+  %32 = tail call float @llvm.fabs.f32(float %20)
   %33 = tail call noundef float @llvm.fabs.f32(float %30)
   %cmp3.i16.i.i19 = fcmp ogt float %32, %33
   %..i17.i.i20 = select i1 %cmp3.i16.i.i19, float %fneg7.i.i, float %30
@@ -56480,7 +56480,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit.i.i30: ; preds = %if.else
   %fneg.i.i = fneg float %21
-  %26 = tail call noundef float @llvm.fabs.f32(float %fneg.i.i)
+  %26 = tail call float @llvm.fabs.f32(float %21)
   %27 = tail call noundef float @llvm.fabs.f32(float %24)
   %cmp3.i.i.i31 = fcmp ogt float %26, %27
   %..i.i.i32 = select i1 %cmp3.i.i.i31, float %fneg.i.i, float %24
@@ -56498,7 +56498,7 @@ land.lhs.true.i.i10:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i14, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i25, label %land.rhs.i.i15
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i25: ; preds = %land.lhs.true.i.i10
-  %31 = tail call noundef float @llvm.fabs.f32(float %fneg4.i.i)
+  %31 = tail call float @llvm.fabs.f32(float %22)
   %32 = tail call noundef float @llvm.fabs.f32(float %29)
   %cmp3.i7.i.i26 = fcmp ogt float %31, %32
   %..i8.i.i27 = select i1 %cmp3.i7.i.i26, float %fneg4.i.i, float %29
@@ -56516,7 +56516,7 @@ land.rhs.i.i15:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i19, label %_ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit35, label %if.then8
 
 _ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = %land.rhs.i.i15
-  %36 = tail call noundef float @llvm.fabs.f32(float %fneg7.i.i)
+  %36 = tail call float @llvm.fabs.f32(float %23)
   %37 = tail call noundef float @llvm.fabs.f32(float %34)
   %cmp3.i16.i.i21 = fcmp ogt float %36, %37
   %..i17.i.i22 = select i1 %cmp3.i16.i.i21, float %fneg7.i.i, float %34
@@ -57433,7 +57433,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit.i.i30: ; preds = %if.else
   %fneg.i.i = fneg float %21
-  %26 = tail call noundef float @llvm.fabs.f32(float %fneg.i.i)
+  %26 = tail call float @llvm.fabs.f32(float %21)
   %27 = tail call noundef float @llvm.fabs.f32(float %24)
   %cmp3.i.i.i31 = fcmp ogt float %26, %27
   %..i.i.i32 = select i1 %cmp3.i.i.i31, float %fneg.i.i, float %24
@@ -57451,7 +57451,7 @@ land.lhs.true.i.i10:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i14, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i25, label %land.rhs.i.i15
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i25: ; preds = %land.lhs.true.i.i10
-  %31 = tail call noundef float @llvm.fabs.f32(float %fneg4.i.i)
+  %31 = tail call float @llvm.fabs.f32(float %22)
   %32 = tail call noundef float @llvm.fabs.f32(float %29)
   %cmp3.i7.i.i26 = fcmp ogt float %31, %32
   %..i8.i.i27 = select i1 %cmp3.i7.i.i26, float %fneg4.i.i, float %29
@@ -57469,7 +57469,7 @@ land.rhs.i.i15:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i19, label %_ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit35, label %if.then8
 
 _ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = %land.rhs.i.i15
-  %36 = tail call noundef float @llvm.fabs.f32(float %fneg7.i.i)
+  %36 = tail call float @llvm.fabs.f32(float %23)
   %37 = tail call noundef float @llvm.fabs.f32(float %34)
   %cmp3.i16.i.i21 = fcmp ogt float %36, %37
   %..i17.i.i22 = select i1 %cmp3.i16.i.i21, float %fneg7.i.i, float %34
@@ -58428,7 +58428,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit.i.i41: ; preds = %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IfEELj3EE9ValueIterIS7_SC_KSB_NSC_8ValueOffEEESC_SE_EdeEv.exit18
   %fneg.i.i = fneg float %31
-  %36 = tail call noundef float @llvm.fabs.f32(float %fneg.i.i)
+  %36 = tail call float @llvm.fabs.f32(float %31)
   %37 = tail call noundef float @llvm.fabs.f32(float %34)
   %cmp3.i.i.i42 = fcmp ogt float %36, %37
   %..i.i.i43 = select i1 %cmp3.i.i.i42, float %fneg.i.i, float %34
@@ -58446,7 +58446,7 @@ land.lhs.true.i.i21:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i25, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i36, label %land.rhs.i.i26
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i36: ; preds = %land.lhs.true.i.i21
-  %41 = tail call noundef float @llvm.fabs.f32(float %fneg4.i.i)
+  %41 = tail call float @llvm.fabs.f32(float %32)
   %42 = tail call noundef float @llvm.fabs.f32(float %39)
   %cmp3.i7.i.i37 = fcmp ogt float %41, %42
   %..i8.i.i38 = select i1 %cmp3.i7.i.i37, float %fneg4.i.i, float %39
@@ -58464,7 +58464,7 @@ land.rhs.i.i26:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i30, label %_ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit46, label %if.then8
 
 _ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit46: ; preds = %land.rhs.i.i26
-  %46 = tail call noundef float @llvm.fabs.f32(float %fneg7.i.i)
+  %46 = tail call float @llvm.fabs.f32(float %33)
   %47 = tail call noundef float @llvm.fabs.f32(float %44)
   %cmp3.i16.i.i32 = fcmp ogt float %46, %47
   %..i17.i.i33 = select i1 %cmp3.i16.i.i32, float %fneg7.i.i, float %44
@@ -62993,7 +62993,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i28: ; preds = %if.else
   %fneg.i.i = fneg double %2
-  %22 = tail call noundef double @llvm.fabs.f64(double %fneg.i.i)
+  %22 = tail call double @llvm.fabs.f64(double %2)
   %23 = tail call noundef double @llvm.fabs.f64(double %1)
   %cmp3.i.i.i29 = fcmp ogt double %22, %23
   %..i.i.i30 = select i1 %cmp3.i.i.i29, double %fneg.i.i, double %1
@@ -63011,7 +63011,7 @@ land.lhs.true.i.i8:                               ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i12, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i23, label %land.rhs.i.i13
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i23: ; preds = %land.lhs.true.i.i8
-  %27 = tail call noundef double @llvm.fabs.f64(double %fneg4.i.i)
+  %27 = tail call double @llvm.fabs.f64(double %19)
   %28 = tail call noundef double @llvm.fabs.f64(double %25)
   %cmp3.i7.i.i24 = fcmp ogt double %27, %28
   %..i8.i.i25 = select i1 %cmp3.i7.i.i24, double %fneg4.i.i, double %25
@@ -63029,7 +63029,7 @@ land.rhs.i.i13:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i17, label %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit33, label %if.then6
 
 _ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit33: ; preds = %land.rhs.i.i13
-  %32 = tail call noundef double @llvm.fabs.f64(double %fneg7.i.i)
+  %32 = tail call double @llvm.fabs.f64(double %20)
   %33 = tail call noundef double @llvm.fabs.f64(double %30)
   %cmp3.i16.i.i19 = fcmp ogt double %32, %33
   %..i17.i.i20 = select i1 %cmp3.i16.i.i19, double %fneg7.i.i, double %30
@@ -65233,7 +65233,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i30: ; preds = %if.else
   %fneg.i.i = fneg double %21
-  %26 = tail call noundef double @llvm.fabs.f64(double %fneg.i.i)
+  %26 = tail call double @llvm.fabs.f64(double %21)
   %27 = tail call noundef double @llvm.fabs.f64(double %24)
   %cmp3.i.i.i31 = fcmp ogt double %26, %27
   %..i.i.i32 = select i1 %cmp3.i.i.i31, double %fneg.i.i, double %24
@@ -65251,7 +65251,7 @@ land.lhs.true.i.i10:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i14, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i25, label %land.rhs.i.i15
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i25: ; preds = %land.lhs.true.i.i10
-  %31 = tail call noundef double @llvm.fabs.f64(double %fneg4.i.i)
+  %31 = tail call double @llvm.fabs.f64(double %22)
   %32 = tail call noundef double @llvm.fabs.f64(double %29)
   %cmp3.i7.i.i26 = fcmp ogt double %31, %32
   %..i8.i.i27 = select i1 %cmp3.i7.i.i26, double %fneg4.i.i, double %29
@@ -65269,7 +65269,7 @@ land.rhs.i.i15:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i19, label %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit35, label %if.then6
 
 _ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = %land.rhs.i.i15
-  %36 = tail call noundef double @llvm.fabs.f64(double %fneg7.i.i)
+  %36 = tail call double @llvm.fabs.f64(double %23)
   %37 = tail call noundef double @llvm.fabs.f64(double %34)
   %cmp3.i16.i.i21 = fcmp ogt double %36, %37
   %..i17.i.i22 = select i1 %cmp3.i16.i.i21, double %fneg7.i.i, double %34
@@ -66186,7 +66186,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i30: ; preds = %if.else
   %fneg.i.i = fneg double %21
-  %26 = tail call noundef double @llvm.fabs.f64(double %fneg.i.i)
+  %26 = tail call double @llvm.fabs.f64(double %21)
   %27 = tail call noundef double @llvm.fabs.f64(double %24)
   %cmp3.i.i.i31 = fcmp ogt double %26, %27
   %..i.i.i32 = select i1 %cmp3.i.i.i31, double %fneg.i.i, double %24
@@ -66204,7 +66204,7 @@ land.lhs.true.i.i10:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i14, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i25, label %land.rhs.i.i15
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i25: ; preds = %land.lhs.true.i.i10
-  %31 = tail call noundef double @llvm.fabs.f64(double %fneg4.i.i)
+  %31 = tail call double @llvm.fabs.f64(double %22)
   %32 = tail call noundef double @llvm.fabs.f64(double %29)
   %cmp3.i7.i.i26 = fcmp ogt double %31, %32
   %..i8.i.i27 = select i1 %cmp3.i7.i.i26, double %fneg4.i.i, double %29
@@ -66222,7 +66222,7 @@ land.rhs.i.i15:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i19, label %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit35, label %if.then6
 
 _ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = %land.rhs.i.i15
-  %36 = tail call noundef double @llvm.fabs.f64(double %fneg7.i.i)
+  %36 = tail call double @llvm.fabs.f64(double %23)
   %37 = tail call noundef double @llvm.fabs.f64(double %34)
   %cmp3.i16.i.i21 = fcmp ogt double %36, %37
   %..i17.i.i22 = select i1 %cmp3.i16.i.i21, double %fneg7.i.i, double %34
@@ -67179,7 +67179,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i41: ; preds = %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IdEELj3EE9ValueIterIS7_SC_KSB_NSC_8ValueOffEEESC_SE_EdeEv.exit18
   %fneg.i.i = fneg double %31
-  %36 = tail call noundef double @llvm.fabs.f64(double %fneg.i.i)
+  %36 = tail call double @llvm.fabs.f64(double %31)
   %37 = tail call noundef double @llvm.fabs.f64(double %34)
   %cmp3.i.i.i42 = fcmp ogt double %36, %37
   %..i.i.i43 = select i1 %cmp3.i.i.i42, double %fneg.i.i, double %34
@@ -67197,7 +67197,7 @@ land.lhs.true.i.i21:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i25, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i36, label %land.rhs.i.i26
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i36: ; preds = %land.lhs.true.i.i21
-  %41 = tail call noundef double @llvm.fabs.f64(double %fneg4.i.i)
+  %41 = tail call double @llvm.fabs.f64(double %32)
   %42 = tail call noundef double @llvm.fabs.f64(double %39)
   %cmp3.i7.i.i37 = fcmp ogt double %41, %42
   %..i8.i.i38 = select i1 %cmp3.i7.i.i37, double %fneg4.i.i, double %39
@@ -67215,7 +67215,7 @@ land.rhs.i.i26:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i30, label %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit46, label %if.then6
 
 _ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit46: ; preds = %land.rhs.i.i26
-  %46 = tail call noundef double @llvm.fabs.f64(double %fneg7.i.i)
+  %46 = tail call double @llvm.fabs.f64(double %33)
   %47 = tail call noundef double @llvm.fabs.f64(double %44)
   %cmp3.i16.i.i32 = fcmp ogt double %46, %47
   %..i17.i.i33 = select i1 %cmp3.i16.i.i32, double %fneg7.i.i, double %44
@@ -89249,7 +89249,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit.i.i28: ; preds = %if.else
   %fneg.i.i = fneg float %2
-  %22 = tail call noundef float @llvm.fabs.f32(float %fneg.i.i)
+  %22 = tail call float @llvm.fabs.f32(float %2)
   %23 = tail call noundef float @llvm.fabs.f32(float %1)
   %cmp3.i.i.i29 = fcmp ogt float %22, %23
   %..i.i.i30 = select i1 %cmp3.i.i.i29, float %fneg.i.i, float %1
@@ -89267,7 +89267,7 @@ land.lhs.true.i.i8:                               ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i12, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i23, label %land.rhs.i.i13
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i23: ; preds = %land.lhs.true.i.i8
-  %27 = tail call noundef float @llvm.fabs.f32(float %fneg4.i.i)
+  %27 = tail call float @llvm.fabs.f32(float %19)
   %28 = tail call noundef float @llvm.fabs.f32(float %25)
   %cmp3.i7.i.i24 = fcmp ogt float %27, %28
   %..i8.i.i25 = select i1 %cmp3.i7.i.i24, float %fneg4.i.i, float %25
@@ -89285,7 +89285,7 @@ land.rhs.i.i13:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i17, label %_ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit33, label %if.then8
 
 _ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit33: ; preds = %land.rhs.i.i13
-  %32 = tail call noundef float @llvm.fabs.f32(float %fneg7.i.i)
+  %32 = tail call float @llvm.fabs.f32(float %20)
   %33 = tail call noundef float @llvm.fabs.f32(float %30)
   %cmp3.i16.i.i19 = fcmp ogt float %32, %33
   %..i17.i.i20 = select i1 %cmp3.i16.i.i19, float %fneg7.i.i, float %30
@@ -90197,7 +90197,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit.i.i30: ; preds = %if.else
   %fneg.i.i = fneg float %21
-  %26 = tail call noundef float @llvm.fabs.f32(float %fneg.i.i)
+  %26 = tail call float @llvm.fabs.f32(float %21)
   %27 = tail call noundef float @llvm.fabs.f32(float %24)
   %cmp3.i.i.i31 = fcmp ogt float %26, %27
   %..i.i.i32 = select i1 %cmp3.i.i.i31, float %fneg.i.i, float %24
@@ -90215,7 +90215,7 @@ land.lhs.true.i.i10:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i14, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i25, label %land.rhs.i.i15
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i25: ; preds = %land.lhs.true.i.i10
-  %31 = tail call noundef float @llvm.fabs.f32(float %fneg4.i.i)
+  %31 = tail call float @llvm.fabs.f32(float %22)
   %32 = tail call noundef float @llvm.fabs.f32(float %29)
   %cmp3.i7.i.i26 = fcmp ogt float %31, %32
   %..i8.i.i27 = select i1 %cmp3.i7.i.i26, float %fneg4.i.i, float %29
@@ -90233,7 +90233,7 @@ land.rhs.i.i15:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i19, label %_ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit35, label %if.then8
 
 _ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = %land.rhs.i.i15
-  %36 = tail call noundef float @llvm.fabs.f32(float %fneg7.i.i)
+  %36 = tail call float @llvm.fabs.f32(float %23)
   %37 = tail call noundef float @llvm.fabs.f32(float %34)
   %cmp3.i16.i.i21 = fcmp ogt float %36, %37
   %..i17.i.i22 = select i1 %cmp3.i16.i.i21, float %fneg7.i.i, float %34
@@ -91150,7 +91150,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit.i.i30: ; preds = %if.else
   %fneg.i.i = fneg float %21
-  %26 = tail call noundef float @llvm.fabs.f32(float %fneg.i.i)
+  %26 = tail call float @llvm.fabs.f32(float %21)
   %27 = tail call noundef float @llvm.fabs.f32(float %24)
   %cmp3.i.i.i31 = fcmp ogt float %26, %27
   %..i.i.i32 = select i1 %cmp3.i.i.i31, float %fneg.i.i, float %24
@@ -91168,7 +91168,7 @@ land.lhs.true.i.i10:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i14, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i25, label %land.rhs.i.i15
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i25: ; preds = %land.lhs.true.i.i10
-  %31 = tail call noundef float @llvm.fabs.f32(float %fneg4.i.i)
+  %31 = tail call float @llvm.fabs.f32(float %22)
   %32 = tail call noundef float @llvm.fabs.f32(float %29)
   %cmp3.i7.i.i26 = fcmp ogt float %31, %32
   %..i8.i.i27 = select i1 %cmp3.i7.i.i26, float %fneg4.i.i, float %29
@@ -91186,7 +91186,7 @@ land.rhs.i.i15:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i19, label %_ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit35, label %if.then8
 
 _ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = %land.rhs.i.i15
-  %36 = tail call noundef float @llvm.fabs.f32(float %fneg7.i.i)
+  %36 = tail call float @llvm.fabs.f32(float %23)
   %37 = tail call noundef float @llvm.fabs.f32(float %34)
   %cmp3.i16.i.i21 = fcmp ogt float %36, %37
   %..i17.i.i22 = select i1 %cmp3.i16.i.i21, float %fneg7.i.i, float %34
@@ -92145,7 +92145,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit.i.i41: ; preds = %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IfEELj3EE9ValueIterIS7_SC_KSB_NSC_8ValueOffEEESC_SE_EdeEv.exit18
   %fneg.i.i = fneg float %31
-  %36 = tail call noundef float @llvm.fabs.f32(float %fneg.i.i)
+  %36 = tail call float @llvm.fabs.f32(float %31)
   %37 = tail call noundef float @llvm.fabs.f32(float %34)
   %cmp3.i.i.i42 = fcmp ogt float %36, %37
   %..i.i.i43 = select i1 %cmp3.i.i.i42, float %fneg.i.i, float %34
@@ -92163,7 +92163,7 @@ land.lhs.true.i.i21:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i25, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i36, label %land.rhs.i.i26
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIfEEbRKT_S5_S5_S5_.exit11.i.i36: ; preds = %land.lhs.true.i.i21
-  %41 = tail call noundef float @llvm.fabs.f32(float %fneg4.i.i)
+  %41 = tail call float @llvm.fabs.f32(float %32)
   %42 = tail call noundef float @llvm.fabs.f32(float %39)
   %cmp3.i7.i.i37 = fcmp ogt float %41, %42
   %..i8.i.i38 = select i1 %cmp3.i7.i.i37, float %fneg4.i.i, float %39
@@ -92181,7 +92181,7 @@ land.rhs.i.i26:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i30, label %_ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit46, label %if.then8
 
 _ZN7openvdb5v11_04math13isApproxEqualIfEEbRKNS1_4Vec3IT_EES7_.exit46: ; preds = %land.rhs.i.i26
-  %46 = tail call noundef float @llvm.fabs.f32(float %fneg7.i.i)
+  %46 = tail call float @llvm.fabs.f32(float %33)
   %47 = tail call noundef float @llvm.fabs.f32(float %44)
   %cmp3.i16.i.i32 = fcmp ogt float %46, %47
   %..i17.i.i33 = select i1 %cmp3.i16.i.i32, float %fneg7.i.i, float %44
@@ -92416,7 +92416,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i28: ; preds = %if.else
   %fneg.i.i = fneg double %2
-  %22 = tail call noundef double @llvm.fabs.f64(double %fneg.i.i)
+  %22 = tail call double @llvm.fabs.f64(double %2)
   %23 = tail call noundef double @llvm.fabs.f64(double %1)
   %cmp3.i.i.i29 = fcmp ogt double %22, %23
   %..i.i.i30 = select i1 %cmp3.i.i.i29, double %fneg.i.i, double %1
@@ -92434,7 +92434,7 @@ land.lhs.true.i.i8:                               ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i12, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i23, label %land.rhs.i.i13
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i23: ; preds = %land.lhs.true.i.i8
-  %27 = tail call noundef double @llvm.fabs.f64(double %fneg4.i.i)
+  %27 = tail call double @llvm.fabs.f64(double %19)
   %28 = tail call noundef double @llvm.fabs.f64(double %25)
   %cmp3.i7.i.i24 = fcmp ogt double %27, %28
   %..i8.i.i25 = select i1 %cmp3.i7.i.i24, double %fneg4.i.i, double %25
@@ -92452,7 +92452,7 @@ land.rhs.i.i13:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i17, label %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit33, label %if.then6
 
 _ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit33: ; preds = %land.rhs.i.i13
-  %32 = tail call noundef double @llvm.fabs.f64(double %fneg7.i.i)
+  %32 = tail call double @llvm.fabs.f64(double %20)
   %33 = tail call noundef double @llvm.fabs.f64(double %30)
   %cmp3.i16.i.i19 = fcmp ogt double %32, %33
   %..i17.i.i20 = select i1 %cmp3.i16.i.i19, double %fneg7.i.i, double %30
@@ -93364,7 +93364,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i30: ; preds = %if.else
   %fneg.i.i = fneg double %21
-  %26 = tail call noundef double @llvm.fabs.f64(double %fneg.i.i)
+  %26 = tail call double @llvm.fabs.f64(double %21)
   %27 = tail call noundef double @llvm.fabs.f64(double %24)
   %cmp3.i.i.i31 = fcmp ogt double %26, %27
   %..i.i.i32 = select i1 %cmp3.i.i.i31, double %fneg.i.i, double %24
@@ -93382,7 +93382,7 @@ land.lhs.true.i.i10:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i14, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i25, label %land.rhs.i.i15
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i25: ; preds = %land.lhs.true.i.i10
-  %31 = tail call noundef double @llvm.fabs.f64(double %fneg4.i.i)
+  %31 = tail call double @llvm.fabs.f64(double %22)
   %32 = tail call noundef double @llvm.fabs.f64(double %29)
   %cmp3.i7.i.i26 = fcmp ogt double %31, %32
   %..i8.i.i27 = select i1 %cmp3.i7.i.i26, double %fneg4.i.i, double %29
@@ -93400,7 +93400,7 @@ land.rhs.i.i15:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i19, label %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit35, label %if.then6
 
 _ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = %land.rhs.i.i15
-  %36 = tail call noundef double @llvm.fabs.f64(double %fneg7.i.i)
+  %36 = tail call double @llvm.fabs.f64(double %23)
   %37 = tail call noundef double @llvm.fabs.f64(double %34)
   %cmp3.i16.i.i21 = fcmp ogt double %36, %37
   %..i17.i.i22 = select i1 %cmp3.i16.i.i21, double %fneg7.i.i, double %34
@@ -94317,7 +94317,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i30: ; preds = %if.else
   %fneg.i.i = fneg double %21
-  %26 = tail call noundef double @llvm.fabs.f64(double %fneg.i.i)
+  %26 = tail call double @llvm.fabs.f64(double %21)
   %27 = tail call noundef double @llvm.fabs.f64(double %24)
   %cmp3.i.i.i31 = fcmp ogt double %26, %27
   %..i.i.i32 = select i1 %cmp3.i.i.i31, double %fneg.i.i, double %24
@@ -94335,7 +94335,7 @@ land.lhs.true.i.i10:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i14, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i25, label %land.rhs.i.i15
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i25: ; preds = %land.lhs.true.i.i10
-  %31 = tail call noundef double @llvm.fabs.f64(double %fneg4.i.i)
+  %31 = tail call double @llvm.fabs.f64(double %22)
   %32 = tail call noundef double @llvm.fabs.f64(double %29)
   %cmp3.i7.i.i26 = fcmp ogt double %31, %32
   %..i8.i.i27 = select i1 %cmp3.i7.i.i26, double %fneg4.i.i, double %29
@@ -94353,7 +94353,7 @@ land.rhs.i.i15:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i19, label %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit35, label %if.then6
 
 _ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit35: ; preds = %land.rhs.i.i15
-  %36 = tail call noundef double @llvm.fabs.f64(double %fneg7.i.i)
+  %36 = tail call double @llvm.fabs.f64(double %23)
   %37 = tail call noundef double @llvm.fabs.f64(double %34)
   %cmp3.i16.i.i21 = fcmp ogt double %36, %37
   %..i17.i.i22 = select i1 %cmp3.i16.i.i21, double %fneg7.i.i, double %34
@@ -95310,7 +95310,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i41: ; preds = %_ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IdEELj3EE9ValueIterIS7_SC_KSB_NSC_8ValueOffEEESC_SE_EdeEv.exit18
   %fneg.i.i = fneg double %31
-  %36 = tail call noundef double @llvm.fabs.f64(double %fneg.i.i)
+  %36 = tail call double @llvm.fabs.f64(double %31)
   %37 = tail call noundef double @llvm.fabs.f64(double %34)
   %cmp3.i.i.i42 = fcmp ogt double %36, %37
   %..i.i.i43 = select i1 %cmp3.i.i.i42, double %fneg.i.i, double %34
@@ -95328,7 +95328,7 @@ land.lhs.true.i.i21:                              ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i4.i.i25, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i36, label %land.rhs.i.i26
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i36: ; preds = %land.lhs.true.i.i21
-  %41 = tail call noundef double @llvm.fabs.f64(double %fneg4.i.i)
+  %41 = tail call double @llvm.fabs.f64(double %32)
   %42 = tail call noundef double @llvm.fabs.f64(double %39)
   %cmp3.i7.i.i37 = fcmp ogt double %41, %42
   %..i8.i.i38 = select i1 %cmp3.i7.i.i37, double %fneg4.i.i, double %39
@@ -95346,7 +95346,7 @@ land.rhs.i.i26:                                   ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp.i13.i.i30, label %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit46, label %if.then6
 
 _ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit46: ; preds = %land.rhs.i.i26
-  %46 = tail call noundef double @llvm.fabs.f64(double %fneg7.i.i)
+  %46 = tail call double @llvm.fabs.f64(double %33)
   %47 = tail call noundef double @llvm.fabs.f64(double %44)
   %cmp3.i16.i.i32 = fcmp ogt double %46, %47
   %..i17.i.i33 = select i1 %cmp3.i16.i.i32, double %fneg7.i.i, double %44

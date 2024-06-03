@@ -537,7 +537,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %31 = tail call noundef double @llvm.fabs.f64(double %fneg)
+  %31 = tail call double @llvm.fabs.f64(double %28)
   %cmp4 = fcmp olt double %31, 0x3EB0C6F7A0000000
   br i1 %cmp4, label %if.then5, label %if.end13
 
@@ -1308,7 +1308,7 @@ for.body34:                                       ; preds = %for.body34.preheade
   br i1 %cmp.i111, label %if.else52, label %if.end.i112
 
 if.end.i112:                                      ; preds = %for.body34
-  %97 = call noundef double @llvm.fabs.f64(double %fneg.i)
+  %97 = call double @llvm.fabs.f64(double %94)
   %cmp4.i = fcmp olt double %97, 0x3EB0C6F7A0000000
   br i1 %cmp4.i, label %if.then5.i, label %if.end13.i
 
@@ -3232,7 +3232,7 @@ invoke.cont99:                                    ; preds = %_ZNSt6vectorI10aiVe
   br i1 %cmp.i228, label %for.inc, label %if.end.i229
 
 if.end.i229:                                      ; preds = %invoke.cont99
-  %125 = call noundef double @llvm.fabs.f64(double %fneg.i)
+  %125 = call double @llvm.fabs.f64(double %122)
   %cmp4.i = fcmp olt double %125, 0x3EB0C6F7A0000000
   br i1 %cmp4.i, label %if.then5.i, label %if.end13.i
 

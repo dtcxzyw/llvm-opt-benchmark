@@ -57976,9 +57976,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %for.body.i.i
   br label %return
 
 if.else:                                          ; preds = %if.end17
-  %fneg3.i = fneg float %wo.coerce1
-  %16 = tail call noundef float @llvm.fabs.f32(float %fneg3.i)
-  %div35 = fdiv float %T.0, %16
+  %div35 = fdiv float %T.0, %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ft, i8 0, i64 16, i1 false)
   br label %for.body.i.i26
 
@@ -57991,8 +57989,9 @@ for.body.i.i26:                                   ; preds = %for.body.i.i26, %if
   br i1 %exitcond.not.i.i30, label %_ZN4pbrt15SampledSpectrumC2Ef.exit31, label %for.body.i.i26, !llvm.loop !146
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit31:             ; preds = %for.body.i.i26
-  %17 = fneg <2 x float> %wo.coerce0
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %17, float %fneg, i64 0
+  %fneg3.i = fneg float %wo.coerce1
+  %16 = fneg <2 x float> %wo.coerce0
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %16, float %fneg, i64 0
   %agg.tmp37.sroa.0.0.copyload = load <2 x float>, ptr %ft, align 8
   %agg.tmp37.sroa.2.0.ft.sroa_idx = getelementptr inbounds i8, ptr %ft, i64 8
   %agg.tmp37.sroa.2.0.copyload = load <2 x float>, ptr %agg.tmp37.sroa.2.0.ft.sroa_idx, align 8
