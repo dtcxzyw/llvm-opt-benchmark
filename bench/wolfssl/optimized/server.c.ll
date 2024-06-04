@@ -288,8 +288,7 @@ if.else.i:                                        ; preds = %if.then
 if.end:                                           ; preds = %if.then4.i, %do.body2.i, %do.body.i, %entry
   %tobool1.not = icmp eq i32 %echoData, 0
   %cmp = icmp ne i64 %throughput, 0
-  %cmp4167 = icmp eq i64 %throughput, 0
-  %or.cond52168 = select i1 %tobool1.not, i1 %cmp4167, i1 %cmp
+  %or.cond52168 = xor i1 %tobool1.not, %cmp
   br i1 %or.cond52168, label %while.end94, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end

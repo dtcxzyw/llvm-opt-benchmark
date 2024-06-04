@@ -2065,18 +2065,16 @@ match_last_index.exit:                            ; preds = %16
   %25 = getelementptr inbounds i8, ptr %4, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = zext nneg i32 %.010.i to i64
-  %28 = getelementptr i64, ptr %10, i64 %27
-  %29 = load i64, ptr %28, align 8
-  %30 = getelementptr i8, ptr %4, i64 48
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr i64, ptr %31, i64 %27
-  %33 = load i64, ptr %32, align 8
-  %34 = sub i64 %33, %29
-  %35 = tail call i64 @rb_str_subseq(i64 noundef %26, i64 noundef %29, i64 noundef %34) #27
+  %28 = getelementptr i8, ptr %4, i64 48
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr i64, ptr %29, i64 %27
+  %31 = load i64, ptr %30, align 8
+  %32 = sub i64 %31, %19
+  %33 = tail call i64 @rb_str_subseq(i64 noundef %26, i64 noundef %19, i64 noundef %32) #27
   br label %match_last_index.exit.thread
 
 match_last_index.exit.thread:                     ; preds = %match_check.exit.i, %1, %match_last_index.exit, %24
-  %.0 = phi i64 [ %35, %24 ], [ 4, %match_last_index.exit ], [ 4, %1 ], [ 4, %match_check.exit.i ]
+  %.0 = phi i64 [ %33, %24 ], [ 4, %match_last_index.exit ], [ 4, %1 ], [ 4, %match_check.exit.i ]
   ret i64 %.0
 }
 
@@ -4861,18 +4859,16 @@ match_last_index.exit.i:                          ; preds = %18
   %27 = getelementptr inbounds i8, ptr %6, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = zext nneg i32 %.010.i.i to i64
-  %30 = getelementptr i64, ptr %12, i64 %29
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr i8, ptr %6, i64 48
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr i64, ptr %33, i64 %29
-  %35 = load i64, ptr %34, align 8
-  %36 = sub i64 %35, %31
-  %37 = tail call i64 @rb_str_subseq(i64 noundef %28, i64 noundef %31, i64 noundef %36) #27
+  %30 = getelementptr i8, ptr %6, i64 48
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr i64, ptr %31, i64 %29
+  %33 = load i64, ptr %32, align 8
+  %34 = sub i64 %33, %21
+  %35 = tail call i64 @rb_str_subseq(i64 noundef %28, i64 noundef %21, i64 noundef %34) #27
   br label %rb_reg_match_last.exit
 
 rb_reg_match_last.exit:                           ; preds = %2, %match_check.exit.i.i, %match_last_index.exit.i, %26
-  %.0.i = phi i64 [ %37, %26 ], [ 4, %match_last_index.exit.i ], [ 4, %2 ], [ 4, %match_check.exit.i.i ]
+  %.0.i = phi i64 [ %35, %26 ], [ 4, %match_last_index.exit.i ], [ 4, %2 ], [ 4, %match_check.exit.i.i ]
   ret i64 %.0.i
 }
 

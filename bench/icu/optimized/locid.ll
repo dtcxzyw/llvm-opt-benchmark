@@ -1198,61 +1198,57 @@ if.end55:                                         ; preds = %if.end49
 
 land.rhs.lr.ph:                                   ; preds = %if.end55
   %cmp65 = icmp eq ptr %call59, null
-  br i1 %cmp65, label %land.rhs.us, label %land.rhs.lr.ph.split
+  br i1 %cmp65, label %land.rhs.us, label %land.rhs
 
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %land.rhs.us
-  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %land.rhs.us ], [ 1, %land.rhs.lr.ph ]
-  %call6181.us = phi ptr [ %call61.us, %land.rhs.us ], [ %call6176, %land.rhs.lr.ph ]
-  %arrayidx6080.us = phi ptr [ %arrayidx68.us, %land.rhs.us ], [ %field, %land.rhs.lr.ph ]
-  %idxprom79.us = phi i64 [ %indvars.iv98, %land.rhs.us ], [ 0, %land.rhs.lr.ph ]
-  %add.ptr.us = getelementptr inbounds i8, ptr %call6181.us, i64 1
-  %arrayidx68.us = getelementptr inbounds [5 x ptr], ptr %field, i64 0, i64 %indvars.iv98
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %land.rhs.us ], [ 1, %land.rhs.lr.ph ]
+  %call6180.us = phi ptr [ %call61.us, %land.rhs.us ], [ %call6176, %land.rhs.lr.ph ]
+  %10 = phi ptr [ %add.ptr.us, %land.rhs.us ], [ %9, %land.rhs.lr.ph ]
+  %idxprom79.us = phi i64 [ %indvars.iv88, %land.rhs.us ], [ 0, %land.rhs.lr.ph ]
+  %add.ptr.us = getelementptr inbounds i8, ptr %call6180.us, i64 1
+  %arrayidx68.us = getelementptr inbounds [5 x ptr], ptr %field, i64 0, i64 %indvars.iv88
   store ptr %add.ptr.us, ptr %arrayidx68.us, align 8
-  %10 = load ptr, ptr %arrayidx6080.us, align 8
-  %sub.ptr.lhs.cast.us = ptrtoint ptr %call6181.us to i64
+  %sub.ptr.lhs.cast.us = ptrtoint ptr %call6180.us to i64
   %sub.ptr.rhs.cast.us = ptrtoint ptr %10 to i64
   %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast.us, %sub.ptr.rhs.cast.us
   %conv72.us = trunc i64 %sub.ptr.sub.us to i32
   %arrayidx75.us = getelementptr inbounds [5 x i32], ptr %fieldLen, i64 0, i64 %idxprom79.us
   store i32 %conv72.us, ptr %arrayidx75.us, align 4
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %call61.us = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.us, i32 noundef 95) #23
   %cmp62.us = icmp ne ptr %call61.us, null
-  %cmp64.us = icmp ult i64 %indvars.iv98, 3
+  %cmp64.us = icmp ult i64 %indvars.iv88, 3
   %or.cond2.us = and i1 %cmp64.us, %cmp62.us
   br i1 %or.cond2.us, label %land.rhs.us, label %while.end, !llvm.loop !4
 
-land.rhs.lr.ph.split:                             ; preds = %land.rhs.lr.ph
-  %cmp6686 = icmp ult ptr %call6176, %call59
-  br i1 %cmp6686, label %while.body, label %while.end
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
+  %indvars.iv = phi i64 [ %indvars.iv.next, %while.body ], [ 1, %land.rhs.lr.ph ]
+  %call6180 = phi ptr [ %call61, %while.body ], [ %call6176, %land.rhs.lr.ph ]
+  %11 = phi ptr [ %add.ptr, %while.body ], [ %9, %land.rhs.lr.ph ]
+  %idxprom79 = phi i64 [ %indvars.iv, %while.body ], [ 0, %land.rhs.lr.ph ]
+  %cmp66 = icmp ult ptr %call6180, %call59
+  br i1 %cmp66, label %while.body, label %while.end
 
-while.body:                                       ; preds = %land.rhs.lr.ph.split, %while.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %while.body ], [ 1, %land.rhs.lr.ph.split ]
-  %idxprom7989 = phi i64 [ %indvars.iv, %while.body ], [ 0, %land.rhs.lr.ph.split ]
-  %arrayidx608088 = phi ptr [ %arrayidx68, %while.body ], [ %field, %land.rhs.lr.ph.split ]
-  %call618187 = phi ptr [ %call61, %while.body ], [ %call6176, %land.rhs.lr.ph.split ]
-  %add.ptr = getelementptr inbounds i8, ptr %call618187, i64 1
+while.body:                                       ; preds = %land.rhs
+  %add.ptr = getelementptr inbounds i8, ptr %call6180, i64 1
   %arrayidx68 = getelementptr inbounds [5 x ptr], ptr %field, i64 0, i64 %indvars.iv
   store ptr %add.ptr, ptr %arrayidx68, align 8
-  %11 = load ptr, ptr %arrayidx608088, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %call618187 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %call6180 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %11 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv72 = trunc i64 %sub.ptr.sub to i32
-  %arrayidx75 = getelementptr inbounds [5 x i32], ptr %fieldLen, i64 0, i64 %idxprom7989
+  %arrayidx75 = getelementptr inbounds [5 x i32], ptr %fieldLen, i64 0, i64 %idxprom79
   store i32 %conv72, ptr %arrayidx75, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call61 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 95) #23
   %cmp62 = icmp ne ptr %call61, null
   %cmp64 = icmp ult i64 %indvars.iv, 3
   %or.cond2 = and i1 %cmp64, %cmp62
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp66 = icmp ult ptr %call61, %call59
-  %or.cond103 = and i1 %or.cond2, %cmp66
-  br i1 %or.cond103, label %while.body, label %while.end, !llvm.loop !4
+  br i1 %or.cond2, label %land.rhs, label %while.end, !llvm.loop !4
 
-while.end:                                        ; preds = %while.body, %land.rhs.us, %land.rhs.lr.ph.split, %if.end55
-  %idxprom.lcssa = phi i64 [ 0, %if.end55 ], [ 0, %land.rhs.lr.ph.split ], [ %indvars.iv98, %land.rhs.us ], [ %indvars.iv, %while.body ]
-  %.lcssa75 = phi ptr [ %9, %if.end55 ], [ %9, %land.rhs.lr.ph.split ], [ %add.ptr.us, %land.rhs.us ], [ %add.ptr, %while.body ]
+while.end:                                        ; preds = %land.rhs, %while.body, %land.rhs.us, %if.end55
+  %idxprom.lcssa = phi i64 [ 0, %if.end55 ], [ %indvars.iv88, %land.rhs.us ], [ %indvars.iv, %while.body ], [ %idxprom79, %land.rhs ]
+  %.lcssa75 = phi ptr [ %9, %if.end55 ], [ %add.ptr.us, %land.rhs.us ], [ %add.ptr, %while.body ], [ %11, %land.rhs ]
   %call79 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.lcssa75, i32 noundef 64) #23
   %call83 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.lcssa75, i32 noundef 46) #23
   %cmp84 = icmp ne ptr %call79, null
@@ -1372,14 +1368,14 @@ if.end202:                                        ; preds = %if.end171, %if.then
   %arrayidx204 = getelementptr inbounds [5 x i32], ptr %fieldLen, i64 0, i64 %idxprom203
   %23 = load i32, ptr %arrayidx204, align 4
   %cmp205 = icmp sgt i32 %23, 0
-  %.pre101 = load ptr, ptr %fullName, align 8
+  %.pre91 = load ptr, ptr %fullName, align 8
   br i1 %cmp205, label %if.then206, label %if.end.i
 
 if.then206:                                       ; preds = %if.end202
   %arrayidx208 = getelementptr inbounds [5 x ptr], ptr %field, i64 0, i64 %idxprom203
   %24 = load ptr, ptr %arrayidx208, align 8
   %sub.ptr.lhs.cast210 = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast211 = ptrtoint ptr %.pre101 to i64
+  %sub.ptr.rhs.cast211 = ptrtoint ptr %.pre91 to i64
   %sub.ptr.sub212 = sub i64 %sub.ptr.lhs.cast210, %sub.ptr.rhs.cast211
   %conv213 = trunc i64 %sub.ptr.sub212 to i32
   store i32 %conv213, ptr %variantBegin, align 8
@@ -1387,8 +1383,8 @@ if.then206:                                       ; preds = %if.end202
 
 if.end.i:                                         ; preds = %if.end202, %if.then206
   store i32 0, ptr %err, align 4
-  %call2.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.pre101, i32 noundef 64) #23
-  %call4.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.pre101, i32 noundef 61) #23
+  %call2.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.pre91, i32 noundef 64) #23
+  %call4.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.pre91, i32 noundef 61) #23
   %tobool5.i = icmp ne ptr %call2.i, null
   %cmp.i52 = icmp ult ptr %call2.i, %call4.i
   %or.cond10.i = and i1 %tobool5.i, %cmp.i52
@@ -1396,7 +1392,7 @@ if.end.i:                                         ; preds = %if.end202, %if.then
 
 if.then8.i:                                       ; preds = %if.end.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call2.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre101 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre91 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i53 = trunc i64 %sub.ptr.sub.i to i32
   %add.i = shl i64 %sub.ptr.sub.i, 32
@@ -1426,11 +1422,11 @@ if.then22.i:                                      ; preds = %if.end15.i
   br label %_ZN6icu_756Locale12initBaseNameER10UErrorCode.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  store ptr %.pre101, ptr %baseName, align 8
+  store ptr %.pre91, ptr %baseName, align 8
   br label %_ZN6icu_756Locale12initBaseNameER10UErrorCode.exit
 
 _ZN6icu_756Locale12initBaseNameER10UErrorCode.exit: ; preds = %if.end15.i, %if.then22.i, %if.else.i
-  %27 = phi ptr [ %25, %if.end15.i ], [ %25, %if.then22.i ], [ %.pre101, %if.else.i ]
+  %27 = phi ptr [ %25, %if.end15.i ], [ %25, %if.then22.i ], [ %.pre91, %if.else.i ]
   %.pr = load i32, ptr %err, align 4
   %cmp.i54 = icmp slt i32 %.pr, 1
   br i1 %cmp.i54, label %if.end219, label %do.end239

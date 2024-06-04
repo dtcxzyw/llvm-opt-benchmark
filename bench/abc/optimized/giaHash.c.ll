@@ -3332,30 +3332,29 @@ define i32 @Gia_ManMultiInputPerm(ptr noundef %0, ptr nocapture noundef %1, i32 
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %24, %27
   %29 = getelementptr inbounds i32, ptr %1, i64 %22
-  %30 = getelementptr inbounds i32, ptr %1, i64 %25
-  br i1 %28, label %31, label %34
+  br i1 %28, label %30, label %33
 
-31:                                               ; preds = %20
+30:                                               ; preds = %20
   store i32 %27, ptr %23, align 4
   store i32 %24, ptr %26, align 4
-  %32 = load i32, ptr %29, align 4
-  %33 = load i32, ptr %30, align 4
-  store i32 %33, ptr %29, align 4
-  store i32 %32, ptr %30, align 4
+  %31 = load <2 x i32>, ptr %29, align 4
+  %32 = shufflevector <2 x i32> %31, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x i32> %32, ptr %29, align 4
   br label %62
 
-34:                                               ; preds = %20
+33:                                               ; preds = %20
+  %34 = getelementptr inbounds i32, ptr %1, i64 %25
   %35 = add nsw i32 %24, 1
   store i32 %35, ptr %23, align 4
   %36 = load i32, ptr %29, align 4
-  %37 = load i32, ptr %30, align 4
+  %37 = load i32, ptr %34, align 4
   br i1 %.not106, label %40, label %38
 
-38:                                               ; preds = %34
+38:                                               ; preds = %33
   %39 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %36, i32 noundef %37)
   br label %48
 
-40:                                               ; preds = %34
+40:                                               ; preds = %33
   br i1 %.not107, label %46, label %41
 
 41:                                               ; preds = %40
@@ -3402,8 +3401,8 @@ define i32 @Gia_ManMultiInputPerm(ptr noundef %0, ptr nocapture noundef %1, i32 
   %61 = add nsw i32 %.0, -1
   br label %62
 
-62:                                               ; preds = %31, %._crit_edge123
-  %.1 = phi i32 [ %.0, %31 ], [ %61, %._crit_edge123 ]
+62:                                               ; preds = %30, %._crit_edge123
+  %.1 = phi i32 [ %.0, %30 ], [ %61, %._crit_edge123 ]
   %63 = icmp sgt i32 %.1, 0
   br i1 %63, label %.lr.ph126.preheader, label %._crit_edge127
 

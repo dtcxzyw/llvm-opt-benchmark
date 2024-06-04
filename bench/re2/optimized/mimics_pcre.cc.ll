@@ -1299,11 +1299,11 @@ if.then34:                                        ; preds = %if.end26
   %conv36 = zext i16 %18 to i64
   %call37 = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv36) #18
   store ptr %call37, ptr %child_args, align 8
-  %.pre.pre = load i32, ptr %n, align 8
+  %.pre80.pre = load i32, ptr %n, align 8
   br label %sw.default
 
 sw.default:                                       ; preds = %if.end26, %if.then29, %if.then34, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit
-  %.pre = phi i32 [ 0, %if.end26 ], [ 0, %if.then29 ], [ %.pre.pre, %if.then34 ], [ %11, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit ]
+  %.pre80 = phi i32 [ 0, %if.end26 ], [ 0, %if.then29 ], [ %.pre80.pre, %if.then34 ], [ %11, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit ]
   %nsub_41 = getelementptr inbounds i8, ptr %10, i64 6
   %19 = load i16, ptr %nsub_41, align 2
   %cmp43.not = icmp eq i16 %19, 0
@@ -1315,20 +1315,26 @@ if.then44:                                        ; preds = %sw.default
   %21 = load ptr, ptr %20, align 8
   %retval.0.i = select i1 %cmp.i, ptr %20, ptr %21
   %conv48 = zext i16 %19 to i32
-  %cmp49 = icmp slt i32 %.pre, %conv48
+  %cmp49 = icmp slt i32 %.pre80, %conv48
   br i1 %cmp49, label %if.then50, label %if.end87
 
 if.then50:                                        ; preds = %if.then44
-  %cmp53 = icmp sgt i32 %.pre, 0
+  %cmp53 = icmp sgt i32 %.pre80, 0
   %or.cond = and i1 %cmp53, %use_copy
-  br i1 %or.cond, label %land.lhs.true54, label %if.else77
+  br i1 %or.cond, label %land.lhs.true54, label %if.then50.if.else77_crit_edge
+
+if.then50.if.else77_crit_edge:                    ; preds = %if.then50
+  %idxprom81.phi.trans.insert = sext i32 %.pre80 to i64
+  %arrayidx82.phi.trans.insert = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom81.phi.trans.insert
+  %.pre = load ptr, ptr %arrayidx82.phi.trans.insert, align 8
+  br label %if.else77
 
 land.lhs.true54:                                  ; preds = %if.then50
-  %sub56 = add nsw i32 %.pre, -1
+  %sub56 = add nsw i32 %.pre80, -1
   %idxprom = zext nneg i32 %sub56 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom
   %22 = load ptr, ptr %arrayidx, align 8
-  %idxprom58 = zext nneg i32 %.pre to i64
+  %idxprom58 = zext nneg i32 %.pre80 to i64
   %arrayidx59 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom58
   %23 = load ptr, ptr %arrayidx59, align 8
   %cmp60 = icmp eq ptr %22, %23
@@ -1358,10 +1364,8 @@ if.then61:                                        ; preds = %land.lhs.true54
 for.cond.backedge:                                ; preds = %if.then61, %if.then.i.i.i63, %if.else.i.i.i65, %if.end125
   br label %for.cond, !llvm.loop !15
 
-if.else77:                                        ; preds = %land.lhs.true54, %if.then50
-  %idxprom81 = sext i32 %.pre to i64
-  %arrayidx82 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom81
-  %30 = load ptr, ptr %arrayidx82, align 8
+if.else77:                                        ; preds = %land.lhs.true54, %if.then50.if.else77_crit_edge
+  %30 = phi ptr [ %.pre, %if.then50.if.else77_crit_edge ], [ %23, %land.lhs.true54 ]
   %pre_arg83 = getelementptr inbounds i8, ptr %9, i64 -11
   %31 = load i8, ptr %pre_arg83, align 1
   %frombool.i55 = and i8 %31, 1
@@ -1398,7 +1402,7 @@ if.end87:                                         ; preds = %if.then44, %sw.defa
   %vtable94 = load ptr, ptr %this, align 8
   %vfn95 = getelementptr inbounds i8, ptr %vtable94, i64 24
   %38 = load ptr, ptr %vfn95, align 8
-  %call96 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, i1 noundef zeroext %tobool89, i1 noundef zeroext %tobool91, ptr noundef %37, i32 noundef %.pre)
+  %call96 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, i1 noundef zeroext %tobool89, i1 noundef zeroext %tobool91, ptr noundef %37, i32 noundef %.pre80)
   %39 = load i16, ptr %nsub_41, align 2
   %cmp100 = icmp ugt i16 %39, 1
   br i1 %cmp100, label %if.then101, label %sw.epilog

@@ -9203,11 +9203,11 @@ if.then25:                                        ; preds = %if.end17
   %19 = shl nuw nsw i64 %conv27, 2
   %call28 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #28
   store ptr %call28, ptr %child_args, align 8
-  %.pre.pre = load i32, ptr %n, align 8
+  %.pre79.pre = load i32, ptr %n, align 8
   br label %sw.default
 
 sw.default:                                       ; preds = %if.end17, %if.then20, %if.then25, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit
-  %.pre = phi i32 [ 0, %if.end17 ], [ 0, %if.then20 ], [ %.pre.pre, %if.then25 ], [ %11, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit ]
+  %.pre79 = phi i32 [ 0, %if.end17 ], [ 0, %if.then20 ], [ %.pre79.pre, %if.then25 ], [ %11, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit ]
   %nsub_32 = getelementptr inbounds i8, ptr %10, i64 6
   %20 = load i16, ptr %nsub_32, align 2
   %cmp34.not = icmp eq i16 %20, 0
@@ -9219,20 +9219,26 @@ if.then35:                                        ; preds = %sw.default
   %22 = load ptr, ptr %21, align 8
   %retval.0.i = select i1 %cmp.i, ptr %21, ptr %22
   %conv39 = zext i16 %20 to i32
-  %cmp40 = icmp slt i32 %.pre, %conv39
+  %cmp40 = icmp slt i32 %.pre79, %conv39
   br i1 %cmp40, label %if.then41, label %if.end75
 
 if.then41:                                        ; preds = %if.then35
-  %cmp44 = icmp sgt i32 %.pre, 0
+  %cmp44 = icmp sgt i32 %.pre79, 0
   %or.cond = and i1 %cmp44, %use_copy
-  br i1 %or.cond, label %land.lhs.true45, label %if.else66
+  br i1 %or.cond, label %land.lhs.true45, label %if.then41.if.else66_crit_edge
+
+if.then41.if.else66_crit_edge:                    ; preds = %if.then41
+  %idxprom70.phi.trans.insert = sext i32 %.pre79 to i64
+  %arrayidx71.phi.trans.insert = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom70.phi.trans.insert
+  %.pre = load ptr, ptr %arrayidx71.phi.trans.insert, align 8
+  br label %if.else66
 
 land.lhs.true45:                                  ; preds = %if.then41
-  %sub47 = add nsw i32 %.pre, -1
+  %sub47 = add nsw i32 %.pre79, -1
   %idxprom = zext nneg i32 %sub47 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom
   %23 = load ptr, ptr %arrayidx, align 8
-  %idxprom49 = zext nneg i32 %.pre to i64
+  %idxprom49 = zext nneg i32 %.pre79 to i64
   %arrayidx50 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom49
   %24 = load ptr, ptr %arrayidx50, align 8
   %cmp51 = icmp eq ptr %23, %24
@@ -9260,10 +9266,8 @@ if.then52:                                        ; preds = %land.lhs.true45
 for.cond.backedge:                                ; preds = %if.then52, %if.then.i.i.i62, %if.else.i.i.i64, %if.end105
   br label %for.cond, !llvm.loop !69
 
-if.else66:                                        ; preds = %land.lhs.true45, %if.then41
-  %idxprom70 = sext i32 %.pre to i64
-  %arrayidx71 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom70
-  %31 = load ptr, ptr %arrayidx71, align 8
+if.else66:                                        ; preds = %land.lhs.true45, %if.then41.if.else66_crit_edge
+  %31 = phi ptr [ %.pre, %if.then41.if.else66_crit_edge ], [ %24, %land.lhs.true45 ]
   %pre_arg72 = getelementptr inbounds i8, ptr %9, i64 -16
   %32 = load i32, ptr %pre_arg72, align 8
   store ptr %31, ptr %ref.tmp68, align 8
@@ -9297,7 +9301,7 @@ if.end75:                                         ; preds = %if.then35, %sw.defa
   %vtable80 = load ptr, ptr %this, align 8
   %vfn81 = getelementptr inbounds i8, ptr %vtable80, i64 24
   %39 = load ptr, ptr %vfn81, align 8
-  %call82 = call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, i32 noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %.pre)
+  %call82 = call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, i32 noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %.pre79)
   %40 = load i16, ptr %nsub_32, align 2
   %cmp85 = icmp ugt i16 %40, 1
   br i1 %cmp85, label %if.then86, label %sw.epilog

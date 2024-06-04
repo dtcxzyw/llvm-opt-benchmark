@@ -2095,16 +2095,14 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %re
   br i1 %tobool.not, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i
-  %3 = load ptr, ptr %arrayidx.i, align 8
-  tail call void @record_resolve_undo(ptr noundef nonnull %istate, ptr noundef %3) #28
-  tail call void @remove_name_hash(ptr noundef nonnull %istate, ptr noundef %3) #28
-  tail call void @save_or_free_index_entry(ptr noundef nonnull %istate, ptr noundef %3) #28
-  %4 = load i32, ptr %cache_changed.i, align 4
-  %or.i = or i32 %4, 4
+  tail call void @record_resolve_undo(ptr noundef nonnull %istate, ptr noundef %2) #28
+  tail call void @remove_name_hash(ptr noundef nonnull %istate, ptr noundef %2) #28
+  tail call void @save_or_free_index_entry(ptr noundef nonnull %istate, ptr noundef %2) #28
+  %3 = load i32, ptr %cache_changed.i, align 4
+  %or.i = or i32 %3, 4
   store i32 %or.i, ptr %cache_changed.i, align 4
-  %5 = load i32, ptr %cache_nr, align 4
-  %dec.i = add i32 %5, -1
+  %4 = load i32, ptr %cache_nr, align 4
+  %dec.i = add i32 %4, -1
   store i32 %dec.i, ptr %cache_nr, align 4
   %cmp.not.i = icmp ugt i32 %dec.i, %spec.select
   br i1 %cmp.not.i, label %if.then.i.i, label %remove_index_entry_at.exit
@@ -2112,8 +2110,8 @@ while.body:                                       ; preds = %land.rhs
 if.then.i.i:                                      ; preds = %while.body
   %sub.i = sub i32 %dec.i, %spec.select
   %conv.i = zext i32 %sub.i to i64
-  %6 = load ptr, ptr %istate, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i
+  %5 = load ptr, ptr %istate, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom.i
   %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %mul.i.i.i = shl nuw nsw i64 %conv.i, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr nonnull readonly align 1 %add.ptr6.i, i64 %mul.i.i.i, i1 false)
@@ -2121,8 +2119,8 @@ if.then.i.i:                                      ; preds = %while.body
   br label %remove_index_entry_at.exit
 
 remove_index_entry_at.exit:                       ; preds = %while.body, %if.then.i.i
-  %7 = phi i32 [ %dec.i, %while.body ], [ %.pre, %if.then.i.i ]
-  %cmp4 = icmp ult i32 %spec.select, %7
+  %6 = phi i32 [ %dec.i, %while.body ], [ %.pre, %if.then.i.i ]
+  %cmp4 = icmp ult i32 %spec.select, %6
   br i1 %cmp4, label %land.rhs, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %land.rhs, %remove_index_entry_at.exit, %entry

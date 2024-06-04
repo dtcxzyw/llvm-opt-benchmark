@@ -4462,7 +4462,7 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %28
   %83 = shl i64 %82, %66
   %84 = or i64 %83, %82
   %85 = and i64 %84, %81
-  %86 = or i64 %85, %80
+  %86 = or i64 %80, %85
   store i64 %86, ptr %1, align 8
   %87 = load i32, ptr %23, align 4
   %88 = add nsw i32 %87, 97
@@ -4499,7 +4499,7 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %28
   %114 = shl i64 %113, %108
   %115 = or i64 %114, %113
   %116 = and i64 %115, %112
-  %117 = or i64 %116, %111
+  %117 = or i64 %111, %116
   store i64 %117, ptr %1, align 8
   br label %191
 
@@ -4524,7 +4524,7 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %28
   %133 = and i64 %94, %44
   %134 = shl i64 %133, %121
   %135 = or i64 %134, %133
-  %136 = and i64 %135, %132
+  %136 = and i64 %132, %135
   %137 = xor i64 %132, -1
   %138 = and i64 %94, %40
   %139 = shl i64 %138, %121
@@ -4563,7 +4563,7 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %28
   %166 = shl i64 %165, %148
   %167 = or i64 %166, %165
   %168 = and i64 %167, %164
-  %169 = or i64 %168, %163
+  %169 = or i64 %163, %168
   store i64 %169, ptr %1, align 8
   br label %191
 
@@ -4585,7 +4585,7 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %28
   %182 = and i64 %145, %40
   %183 = shl i64 %182, %148
   %184 = or i64 %183, %182
-  %185 = and i64 %184, %181
+  %185 = and i64 %181, %184
   %186 = xor i64 %181, -1
   %187 = and i64 %181, %44
   %188 = lshr i64 %187, %148
@@ -5159,7 +5159,7 @@ Dau_Dsd6DecomposeTripleVarsInner.exit.thread:     ; preds = %Abc_TtSuppFindFirst
 243:                                              ; preds = %Abc_TtSuppFindFirst.exit94.i
   %244 = getelementptr inbounds i32, ptr %2, i64 %211
   %245 = load i32, ptr %244, align 4
-  %246 = and i64 %207, %236
+  %246 = and i64 %236, %207
   %247 = xor i64 %207, -1
   %248 = and i64 %231, %247
   %249 = or i64 %246, %248

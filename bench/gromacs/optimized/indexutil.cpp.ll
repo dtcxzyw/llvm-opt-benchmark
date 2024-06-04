@@ -3725,13 +3725,19 @@ _Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i: ; preds = %61, %_
   %68 = zext nneg i32 %62 to i64
   br label %69
 
-69:                                               ; preds = %89, %.lr.ph.i11
-  %indvars.iv.i12 = phi i64 [ %68, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %89 ]
-  %.02935.i = phi i32 [ %64, %.lr.ph.i11 ], [ %.2.i, %89 ]
-  %.03034.i = phi i32 [ %65, %.lr.ph.i11 ], [ %.131.i, %89 ]
+69:                                               ; preds = %87, %.lr.ph.i11
+  %indvars.iv.i12 = phi i64 [ %68, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %87 ]
+  %.02935.i = phi i32 [ %64, %.lr.ph.i11 ], [ %.2.i, %87 ]
+  %.03034.i = phi i32 [ %65, %.lr.ph.i11 ], [ %.131.i, %87 ]
   %indvars.iv.next.i13 = add nsw i64 %indvars.iv.i12, -1
   %70 = icmp slt i32 %.03034.i, 0
-  br i1 %70, label %._crit_edge42.i, label %71
+  br i1 %70, label %.._crit_edge42.i_crit_edge, label %71
+
+.._crit_edge42.i_crit_edge:                       ; preds = %69
+  %.phi.trans.insert = sext i32 %.02935.i to i64
+  %.phi.trans.insert30 = getelementptr inbounds i32, ptr %18, i64 %.phi.trans.insert
+  %.pre = load i32, ptr %.phi.trans.insert30, align 4
+  br label %._crit_edge42.i
 
 71:                                               ; preds = %69
   %72 = icmp sgt i32 %.02935.i, -1
@@ -3746,46 +3752,44 @@ _Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i: ; preds = %61, %_
   %78 = getelementptr inbounds i32, ptr %18, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = icmp slt i32 %75, %79
-  br i1 %80, label %._crit_edge42.i, label %85
+  br i1 %80, label %._crit_edge42.i, label %83
 
-._crit_edge42.i:                                  ; preds = %69, %76
-  %81 = add nsw i32 %.02935.i, -1
-  %82 = sext i32 %.02935.i to i64
-  %83 = getelementptr inbounds i32, ptr %18, i64 %82
-  %84 = load i32, ptr %83, align 4
-  br label %89
+._crit_edge42.i:                                  ; preds = %76, %.._crit_edge42.i_crit_edge
+  %81 = phi i32 [ %.pre, %.._crit_edge42.i_crit_edge ], [ %79, %76 ]
+  %82 = add nsw i32 %.02935.i, -1
+  br label %87
 
-85:                                               ; preds = %76
-  %86 = icmp eq i32 %75, %79
-  %87 = sext i1 %86 to i32
-  %spec.select.i = add nsw i32 %.02935.i, %87
+83:                                               ; preds = %76
+  %84 = icmp eq i32 %75, %79
+  %85 = sext i1 %84 to i32
+  %spec.select.i = add nsw i32 %.02935.i, %85
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %85, %71
-  %.1.i14 = phi i32 [ %spec.select.i, %85 ], [ %.02935.i, %71 ]
-  %88 = add nsw i32 %.03034.i, -1
-  br label %89
+.critedge.i:                                      ; preds = %83, %71
+  %.1.i14 = phi i32 [ %spec.select.i, %83 ], [ %.02935.i, %71 ]
+  %86 = add nsw i32 %.03034.i, -1
+  br label %87
 
-89:                                               ; preds = %.critedge.i, %._crit_edge42.i
-  %.sink.i = phi i32 [ %84, %._crit_edge42.i ], [ %75, %.critedge.i ]
-  %.131.i = phi i32 [ %.03034.i, %._crit_edge42.i ], [ %88, %.critedge.i ]
-  %.2.i = phi i32 [ %81, %._crit_edge42.i ], [ %.1.i14, %.critedge.i ]
-  %90 = load ptr, ptr %67, align 8
-  %91 = and i64 %indvars.iv.next.i13, 4294967295
-  %92 = getelementptr inbounds i32, ptr %90, i64 %91
-  store i32 %.sink.i, ptr %92, align 4
-  %93 = trunc nuw i64 %indvars.iv.i12 to i32
-  %94 = icmp sgt i32 %93, 1
-  br i1 %94, label %69, label %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit, !llvm.loop !48
+87:                                               ; preds = %.critedge.i, %._crit_edge42.i
+  %.sink.i = phi i32 [ %81, %._crit_edge42.i ], [ %75, %.critedge.i ]
+  %.131.i = phi i32 [ %.03034.i, %._crit_edge42.i ], [ %86, %.critedge.i ]
+  %.2.i = phi i32 [ %82, %._crit_edge42.i ], [ %.1.i14, %.critedge.i ]
+  %88 = load ptr, ptr %67, align 8
+  %89 = and i64 %indvars.iv.next.i13, 4294967295
+  %90 = getelementptr inbounds i32, ptr %88, i64 %89
+  store i32 %.sink.i, ptr %90, align 4
+  %91 = trunc nuw i64 %indvars.iv.i12 to i32
+  %92 = icmp sgt i32 %91, 1
+  br i1 %92, label %69, label %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit, !llvm.loop !48
 
-_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit: ; preds = %89, %_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i
-  br i1 %19, label %95, label %_Z20gmx_ana_index_deinitP15gmx_ana_index_t.exit
+_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit: ; preds = %87, %_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i
+  br i1 %19, label %93, label %_Z20gmx_ana_index_deinitP15gmx_ana_index_t.exit
 
-95:                                               ; preds = %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit
+93:                                               ; preds = %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.3, i32 noundef 344, ptr noundef %18)
   br label %_Z20gmx_ana_index_deinitP15gmx_ana_index_t.exit
 
-_Z20gmx_ana_index_deinitP15gmx_ana_index_t.exit:  ; preds = %95, %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit, %15
+_Z20gmx_ana_index_deinitP15gmx_ana_index_t.exit:  ; preds = %93, %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit, %15
   ret void
 }
 

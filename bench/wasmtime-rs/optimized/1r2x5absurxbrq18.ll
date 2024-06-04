@@ -8865,17 +8865,16 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %trunc.i = trunc nuw i32 %3 to i1
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = icmp ne i32 %3, 0
-  %9 = icmp eq i32 %3, 0
-  %.sink.i = select i1 %trunc.i, i1 %8, i1 %9
+  %8 = icmp eq i32 %3, 0
+  %.sink.i = xor i1 %8, %trunc.i
   tail call void @llvm.assume(i1 %.sink.i)
-  %10 = load i32, ptr %6, align 4, !alias.scope !2644, !noalias !2647, !noundef !16
-  %11 = load i32, ptr %7, align 4, !alias.scope !2647, !noalias !2644, !noundef !16
-  %12 = icmp eq i32 %10, %11
+  %9 = load i32, ptr %6, align 4, !alias.scope !2644, !noalias !2647, !noundef !16
+  %10 = load i32, ptr %7, align 4, !alias.scope !2647, !noalias !2644, !noundef !16
+  %11 = icmp eq i32 %9, %10
   br label %"_ZN91_$LT$wasmtime_environ..component..translate..adapt..Def$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ecc0adcbe92a6feE.llvm.3269599604001853466.exit"
 
 "_ZN91_$LT$wasmtime_environ..component..translate..adapt..Def$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ecc0adcbe92a6feE.llvm.3269599604001853466.exit": ; preds = %2, %.sink.split.i
-  %.0.shrunk.i = phi i1 [ false, %2 ], [ %12, %.sink.split.i ]
+  %.0.shrunk.i = phi i1 [ false, %2 ], [ %11, %.sink.split.i ]
   ret i1 %.0.shrunk.i
 }
 
@@ -21528,23 +21527,22 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$wasmtime_environ..component..transl
   %3 = load i32, ptr %0, align 4, !range !1563, !noundef !16
   %4 = load i32, ptr %1, align 4, !range !1563, !noundef !16
   %5 = icmp eq i32 %3, %4
-  br i1 %5, label %.sink.split, label %13
+  br i1 %5, label %.sink.split, label %12
 
 .sink.split:                                      ; preds = %2
   %trunc = trunc nuw i32 %3 to i1
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = icmp ne i32 %3, 0
-  %9 = icmp eq i32 %3, 0
-  %.sink = select i1 %trunc, i1 %8, i1 %9
+  %8 = icmp eq i32 %3, 0
+  %.sink = xor i1 %8, %trunc
   tail call void @llvm.assume(i1 %.sink)
-  %10 = load i32, ptr %6, align 4, !noundef !16
-  %11 = load i32, ptr %7, align 4, !noundef !16
-  %12 = icmp eq i32 %10, %11
-  br label %13
+  %9 = load i32, ptr %6, align 4, !noundef !16
+  %10 = load i32, ptr %7, align 4, !noundef !16
+  %11 = icmp eq i32 %9, %10
+  br label %12
 
-13:                                               ; preds = %.sink.split, %2
-  %.0.shrunk = phi i1 [ false, %2 ], [ %12, %.sink.split ]
+12:                                               ; preds = %.sink.split, %2
+  %.0.shrunk = phi i1 [ false, %2 ], [ %11, %.sink.split ]
   ret i1 %.0.shrunk
 }
 

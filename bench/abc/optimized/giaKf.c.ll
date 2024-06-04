@@ -5480,13 +5480,13 @@ select.unfold._crit_edge.split.us.us:             ; preds = %Kf_SetStoreAddOne.e
   %.159.us.us = phi i32 [ %.0.i.us.us, %Kf_SetStoreAddOne.exit.us.us ], [ %.061.us, %.split.us ]
   %.pn96.in = phi i32 [ %48, %Kf_SetStoreAddOne.exit.us.us ], [ %9, %.split.us ]
   %.pn96 = zext nneg i32 %.pn96.in to i64
-  %.04458.us.us = getelementptr inbounds %struct.Kf_Cut_t_, ptr %5, i64 %.pn96
+  %.pre38.i.us.us = getelementptr inbounds %struct.Kf_Cut_t_, ptr %5, i64 %.pn96
   %13 = load i16, ptr %6, align 2
   %14 = zext i16 %13 to i32
   %15 = add nsw i32 %14, -1
   %16 = sext i32 %.159.us.us to i64
   %17 = getelementptr inbounds [32 x ptr], ptr %7, i64 0, i64 %16
-  store ptr %.04458.us.us, ptr %17, align 8
+  store ptr %.pre38.i.us.us, ptr %17, align 8
   %18 = icmp eq i32 %.159.us.us, 0
   br i1 %18, label %Kf_SetStoreAddOne.exit.us.us, label %.preheader.i.us.us
 
@@ -5496,8 +5496,6 @@ select.unfold._crit_edge.split.us.us:             ; preds = %Kf_SetStoreAddOne.e
 
 .lr.ph.i.us.us:                                   ; preds = %.preheader.i.us.us
   %.phi.trans.insert36.i.us.us = zext nneg i32 %.159.us.us to i64
-  %.phi.trans.insert37.i.us.us = getelementptr inbounds [32 x ptr], ptr %7, i64 0, i64 %.phi.trans.insert36.i.us.us
-  %.pre38.i.us.us = load ptr, ptr %.phi.trans.insert37.i.us.us, align 8
   %20 = getelementptr inbounds i8, ptr %.pre38.i.us.us, i64 12
   %21 = getelementptr inbounds i8, ptr %.pre38.i.us.us, i64 28
   %22 = getelementptr inbounds i8, ptr %.pre38.i.us.us, i64 16
@@ -5550,7 +5548,7 @@ Kf_CutCompare.exit.thread.i.us.us:                ; preds = %.lr.ph.split.us.i.u
 
 Kf_SetStoreAddOne.exit.us.us:                     ; preds = %Kf_CutCompare.exit.thread.i.us.us, %.lr.ph.us
   %.0.i.us.us = phi i32 [ %46, %Kf_CutCompare.exit.thread.i.us.us ], [ 1, %.lr.ph.us ]
-  %47 = getelementptr inbounds i8, ptr %.04458.us.us, i64 24
+  %47 = getelementptr inbounds i8, ptr %.pre38.i.us.us, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %select.unfold._crit_edge.split.us.us, label %.lr.ph.us
@@ -5567,13 +5565,13 @@ Kf_SetStoreAddOne.exit.us.us:                     ; preds = %Kf_CutCompare.exit.
   %.159 = phi i32 [ %.0.i, %Kf_SetStoreAddOne.exit ], [ %.061, %.split ]
   %.pn.in = phi i32 [ %88, %Kf_SetStoreAddOne.exit ], [ %51, %.split ]
   %.pn = zext nneg i32 %.pn.in to i64
-  %.04458 = getelementptr inbounds %struct.Kf_Cut_t_, ptr %5, i64 %.pn
+  %.pre38.i = getelementptr inbounds %struct.Kf_Cut_t_, ptr %5, i64 %.pn
   %53 = load i16, ptr %6, align 2
   %54 = zext i16 %53 to i32
   %55 = add nsw i32 %54, -1
   %56 = sext i32 %.159 to i64
   %57 = getelementptr inbounds [32 x ptr], ptr %7, i64 0, i64 %56
-  store ptr %.04458, ptr %57, align 8
+  store ptr %.pre38.i, ptr %57, align 8
   %58 = icmp eq i32 %.159, 0
   br i1 %58, label %Kf_SetStoreAddOne.exit, label %.preheader.i
 
@@ -5583,8 +5581,6 @@ Kf_SetStoreAddOne.exit.us.us:                     ; preds = %Kf_CutCompare.exit.
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %.phi.trans.insert36.i = zext nneg i32 %.159 to i64
-  %.phi.trans.insert37.i = getelementptr inbounds [32 x ptr], ptr %7, i64 0, i64 %.phi.trans.insert36.i
-  %.pre38.i = load ptr, ptr %.phi.trans.insert37.i, align 8
   %60 = getelementptr inbounds i8, ptr %.pre38.i, i64 16
   %61 = getelementptr inbounds i8, ptr %.pre38.i, i64 12
   %62 = getelementptr inbounds i8, ptr %.pre38.i, i64 28
@@ -5637,7 +5633,7 @@ Kf_CutCompare.exit.thread.i:                      ; preds = %Kf_CutCompare.exit.
 
 Kf_SetStoreAddOne.exit:                           ; preds = %.lr.ph, %Kf_CutCompare.exit.thread.i
   %.0.i = phi i32 [ %86, %Kf_CutCompare.exit.thread.i ], [ 1, %.lr.ph ]
-  %87 = getelementptr inbounds i8, ptr %.04458, i64 24
+  %87 = getelementptr inbounds i8, ptr %.pre38.i, i64 24
   %88 = load i32, ptr %87, align 8
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %select.unfold._crit_edge.split, label %.lr.ph

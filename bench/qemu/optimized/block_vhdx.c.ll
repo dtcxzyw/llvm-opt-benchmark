@@ -230,11 +230,10 @@ if.end5.i:                                        ; preds = %if.end.i
 if.then8.i:                                       ; preds = %if.end.i
   %idx.ext.i = zext nneg i32 %crc_offset to i64
   %add.ptr.i = getelementptr i8, ptr %buf, i64 %idx.ext.i
-  %crc_orig.0.copyload.i = load i32, ptr %add.ptr.i, align 1
   store i32 0, ptr %add.ptr.i, align 1
   %conv11.i = trunc i64 %size to i32
   %call12.i = tail call i32 @crc32c(i32 noundef -1, ptr noundef nonnull %buf, i32 noundef %conv11.i) #17
-  store i32 %crc_orig.0.copyload.i, ptr %add.ptr.i, align 1
+  store i32 %crc_orig.0.copyload, ptr %add.ptr.i, align 1
   br label %vhdx_checksum_calc.exit
 
 vhdx_checksum_calc.exit:                          ; preds = %if.end5.i, %if.then8.i
@@ -556,18 +555,18 @@ if.end13.i:                                       ; preds = %if.then11.i, %land.
   %6 = load ptr, ptr %file, align 8
   %call15.i = call i32 @bdrv_pread(ptr noundef %6, i64 noundef 131072, i64 noundef 4096, ptr noundef nonnull %call2.i, i32 noundef 0) #17
   %cmp16.i = icmp slt i32 %call15.i, 0
-  br i1 %cmp16.i, label %fail.i, label %vhdx_checksum_is_valid.exit56.i
+  br i1 %cmp16.i, label %fail.i, label %vhdx_checksum_is_valid.exit55.i
 
-vhdx_checksum_is_valid.exit56.i:                  ; preds = %if.end13.i
+vhdx_checksum_is_valid.exit55.i:                  ; preds = %if.end13.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %call1.i, ptr noundef nonnull align 1 dereferenceable(80) %call2.i, i64 80, i1 false)
   %crc_orig.0.copyload.i50.i = load i32, ptr %add.ptr.i.i, align 1
   store i32 0, ptr %add.ptr.i.i, align 1
-  %call12.i.i53.i = call i32 @crc32c(i32 noundef -1, ptr noundef nonnull %call2.i, i32 noundef 4096) #17
+  %call12.i.i52.i = call i32 @crc32c(i32 noundef -1, ptr noundef nonnull %call2.i, i32 noundef 4096) #17
   store i32 %crc_orig.0.copyload.i50.i, ptr %add.ptr.i.i, align 1
-  %cmp7.i54.i = icmp eq i32 %call12.i.i53.i, %crc_orig.0.copyload.i50.i
-  br i1 %cmp7.i54.i, label %if.then21.i, label %if.end33.i
+  %cmp7.i53.i = icmp eq i32 %call12.i.i52.i, %crc_orig.0.copyload.i50.i
+  br i1 %cmp7.i53.i, label %if.then21.i, label %if.end33.i
 
-if.then21.i:                                      ; preds = %vhdx_checksum_is_valid.exit56.i
+if.then21.i:                                      ; preds = %vhdx_checksum_is_valid.exit55.i
   call void @vhdx_header_le_import(ptr noundef nonnull %call1.i) #17
   %7 = load i32, ptr %call1.i, align 1
   %cmp23.i = icmp eq i32 %7, 1684104552
@@ -579,7 +578,7 @@ land.lhs.true25.i:                                ; preds = %if.then21.i
   %cmp28.i = icmp eq i16 %8, 1
   br i1 %cmp28.i, label %if.else.i, label %if.end33.i
 
-if.end33.i:                                       ; preds = %land.lhs.true25.i, %if.then21.i, %vhdx_checksum_is_valid.exit56.i
+if.end33.i:                                       ; preds = %land.lhs.true25.i, %if.then21.i, %vhdx_checksum_is_valid.exit55.i
   br i1 %h1_valid.0.i, label %if.end70.i, label %fail.i
 
 if.else.i:                                        ; preds = %land.lhs.true25.i
@@ -620,8 +619,8 @@ if.end70.i:                                       ; preds = %if.else59.i, %if.el
   %13 = load ptr, ptr %regions, align 8
   %entries.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %13, ptr %entries.i.i, align 8
-  %cmp.not.i57.i = icmp eq ptr %13, null
-  br i1 %cmp.not.i57.i, label %vhdx_region_register.exit.i, label %if.then.i.i
+  %cmp.not.i56.i = icmp eq ptr %13, null
+  br i1 %cmp.not.i56.i, label %vhdx_region_register.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end70.i
   %le_prev.i.i = getelementptr inbounds i8, ptr %13, i64 24

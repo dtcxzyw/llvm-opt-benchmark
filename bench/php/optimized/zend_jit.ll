@@ -111251,7 +111251,7 @@ define internal fastcc range(i32 0, 2) i32 @is_checked_guard(ptr nocapture nound
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 1022
   %11 = icmp eq i32 %10, 16
-  br i1 %11, label %12, label %174
+  br i1 %11, label %12, label %171
 
 12:                                               ; preds = %4
   %13 = zext i32 %2 to i64
@@ -111259,7 +111259,7 @@ define internal fastcc range(i32 0, 2) i32 @is_checked_guard(ptr nocapture nound
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1024
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %174
+  br i1 %.not, label %17, label %171
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %0, i64 64
@@ -111267,7 +111267,7 @@ define internal fastcc range(i32 0, 2) i32 @is_checked_guard(ptr nocapture nound
   %20 = getelementptr inbounds %struct._zend_ssa_var, ptr %19, i64 %13, i32 2
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %23, label %174
+  br i1 %22, label %23, label %171
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %0, i64 56
@@ -111276,26 +111276,32 @@ define internal fastcc range(i32 0, 2) i32 @is_checked_guard(ptr nocapture nound
   %27 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26, i32 3
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, %2
-  br i1 %29, label %30, label %90
+  br i1 %29, label %30, label %87
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds ptr, ptr %1, i64 %26
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 28
   %34 = load i8, ptr %33, align 4
-  switch i8 %34, label %90 [
+  switch i8 %34, label %87 [
     i8 35, label %35
     i8 34, label %35
     i8 37, label %35
     i8 36, label %35
-    i8 26, label %49
+    i8 26, label %46
   ]
 
 35:                                               ; preds = %30, %30, %30, %30
   %36 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %39, label %44
+  br i1 %38, label %39, label %._crit_edge
+
+._crit_edge:                                      ; preds = %35
+  %.phi.trans.insert = sext i32 %37 to i64
+  %.phi.trans.insert140 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %.phi.trans.insert
+  %.pre = load i32, ptr %.phi.trans.insert140, align 8
+  br label %._crit_edge144
 
 39:                                               ; preds = %35
   %40 = zext nneg i32 %37 to i64
@@ -111303,227 +111309,225 @@ define internal fastcc range(i32 0, 2) i32 @is_checked_guard(ptr nocapture nound
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 64
   %.not131 = icmp eq i32 %43, 0
-  br i1 %.not131, label %44, label %174
+  br i1 %.not131, label %._crit_edge144, label %171
 
-44:                                               ; preds = %39, %35
-  %45 = sext i32 %37 to i64
-  %46 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %45
-  %47 = load i32, ptr %46, align 8
-  %48 = and i32 %47, 48
-  %.not132 = icmp ne i32 %48, 0
-  br label %174
+._crit_edge144:                                   ; preds = %39, %._crit_edge
+  %44 = phi i32 [ %.pre, %._crit_edge ], [ %42, %39 ]
+  %45 = and i32 %44, 48
+  %.not132 = icmp ne i32 %45, 0
+  br label %171
 
-49:                                               ; preds = %30
-  %50 = getelementptr inbounds i8, ptr %32, i64 20
-  %51 = load i32, ptr %50, align 4
-  %.off = add i32 %51, -1
+46:                                               ; preds = %30
+  %47 = getelementptr inbounds i8, ptr %32, i64 20
+  %48 = load i32, ptr %47, align 4
+  %.off = add i32 %48, -1
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %52, label %90
+  br i1 %switch, label %49, label %87
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %32, i64 30
-  %54 = load i8, ptr %53, align 2
-  %55 = and i8 %54, 12
-  %.not125 = icmp eq i8 %55, 0
-  br i1 %.not125, label %65, label %56
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds i8, ptr %32, i64 30
+  %51 = load i8, ptr %50, align 2
+  %52 = and i8 %51, 12
+  %.not125 = icmp eq i8 %52, 0
+  br i1 %.not125, label %62, label %53
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26, i32 1
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp sgt i32 %58, -1
-  br i1 %59, label %60, label %65
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26, i32 1
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp sgt i32 %55, -1
+  br i1 %56, label %57, label %62
 
-60:                                               ; preds = %56
-  %61 = zext nneg i32 %58 to i64
-  %62 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %61
-  %63 = load i32, ptr %62, align 8
-  %64 = and i32 %63, 1024
-  %.not126 = icmp eq i32 %64, 0
-  br i1 %.not126, label %65, label %174
+57:                                               ; preds = %53
+  %58 = zext nneg i32 %55 to i64
+  %59 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %58
+  %60 = load i32, ptr %59, align 8
+  %61 = and i32 %60, 1024
+  %.not126 = icmp eq i32 %61, 0
+  br i1 %.not126, label %62, label %171
 
-65:                                               ; preds = %60, %56, %52
-  %66 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26
-  %67 = load i32, ptr %66, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %68
-  %70 = load i32, ptr %69, align 8
-  %71 = and i32 %70, 48
-  %.not127 = icmp eq i32 %71, 0
-  br i1 %.not127, label %174, label %72
+62:                                               ; preds = %57, %53, %49
+  %63 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26
+  %64 = load i32, ptr %63, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %65
+  %67 = load i32, ptr %66, align 8
+  %68 = and i32 %67, 48
+  %.not127 = icmp eq i32 %68, 0
+  br i1 %.not127, label %171, label %69
 
-72:                                               ; preds = %65
-  %73 = icmp eq i8 %54, 1
-  br i1 %73, label %74, label %82
+69:                                               ; preds = %62
+  %70 = icmp eq i8 %51, 1
+  br i1 %70, label %71, label %79
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %32, i64 12
-  %76 = load i32, ptr %75, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %32, i64 %77
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
-  %80 = load i8, ptr %79, align 8
-  %81 = and i8 %80, -2
-  %switch135 = icmp eq i8 %81, 4
-  br i1 %switch135, label %89, label %174
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds i8, ptr %32, i64 12
+  %73 = load i32, ptr %72, align 4
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i8, ptr %32, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %77 = load i8, ptr %76, align 8
+  %78 = and i8 %77, -2
+  %switch135 = icmp eq i8 %78, 4
+  br i1 %switch135, label %86, label %171
 
-82:                                               ; preds = %72
-  %83 = getelementptr inbounds i8, ptr %66, i64 4
-  %84 = load i32, ptr %83, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %85
-  %87 = load i32, ptr %86, align 8
-  %88 = and i32 %87, 48
-  %.not128 = icmp eq i32 %88, 0
-  br i1 %.not128, label %174, label %89
+79:                                               ; preds = %69
+  %80 = getelementptr inbounds i8, ptr %63, i64 4
+  %81 = load i32, ptr %80, align 4
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %82
+  %84 = load i32, ptr %83, align 8
+  %85 = and i32 %84, 48
+  %.not128 = icmp eq i32 %85, 0
+  br i1 %.not128, label %171, label %86
 
-89:                                               ; preds = %74, %82
-  br label %174
+86:                                               ; preds = %71, %79
+  br label %171
 
-90:                                               ; preds = %49, %30, %23
-  %91 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26, i32 5
-  %92 = load i32, ptr %91, align 4
-  %93 = icmp eq i32 %92, %2
-  br i1 %93, label %94, label %174
+87:                                               ; preds = %46, %30, %23
+  %88 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26, i32 5
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp eq i32 %89, %2
+  br i1 %90, label %91, label %171
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds ptr, ptr %1, i64 %26
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 28
-  %98 = load i8, ptr %97, align 4
-  switch i8 %98, label %174 [
-    i8 1, label %99
-    i8 2, label %99
-    i8 3, label %99
-    i8 35, label %160
-    i8 34, label %160
-    i8 37, label %160
-    i8 36, label %160
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds ptr, ptr %1, i64 %26
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 28
+  %95 = load i8, ptr %94, align 4
+  switch i8 %95, label %171 [
+    i8 1, label %96
+    i8 2, label %96
+    i8 3, label %96
+    i8 35, label %157
+    i8 34, label %157
+    i8 37, label %157
+    i8 36, label %157
   ]
 
-99:                                               ; preds = %94, %94, %94
-  %100 = getelementptr inbounds i8, ptr %96, i64 29
-  %101 = load i8, ptr %100, align 1
-  %102 = and i8 %101, 12
-  %.not115 = icmp eq i8 %102, 0
-  br i1 %.not115, label %112, label %103
+96:                                               ; preds = %91, %91, %91
+  %97 = getelementptr inbounds i8, ptr %93, i64 29
+  %98 = load i8, ptr %97, align 1
+  %99 = and i8 %98, 12
+  %.not115 = icmp eq i8 %99, 0
+  br i1 %.not115, label %109, label %100
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp sgt i32 %105, -1
-  br i1 %106, label %107, label %112
+100:                                              ; preds = %96
+  %101 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp sgt i32 %102, -1
+  br i1 %103, label %104, label %109
 
-107:                                              ; preds = %103
-  %108 = zext nneg i32 %105 to i64
-  %109 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %108
-  %110 = load i32, ptr %109, align 8
-  %111 = and i32 %110, 1024
-  %.not116 = icmp eq i32 %111, 0
-  br i1 %.not116, label %112, label %174
+104:                                              ; preds = %100
+  %105 = zext nneg i32 %102 to i64
+  %106 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %105
+  %107 = load i32, ptr %106, align 8
+  %108 = and i32 %107, 1024
+  %.not116 = icmp eq i32 %108, 0
+  br i1 %.not116, label %109, label %171
 
-112:                                              ; preds = %107, %103, %99
-  %113 = getelementptr inbounds i8, ptr %96, i64 30
-  %114 = load i8, ptr %113, align 2
-  %115 = and i8 %114, 12
-  %.not117 = icmp eq i8 %115, 0
-  br i1 %.not117, label %125, label %116
+109:                                              ; preds = %104, %100, %96
+  %110 = getelementptr inbounds i8, ptr %93, i64 30
+  %111 = load i8, ptr %110, align 2
+  %112 = and i8 %111, 12
+  %.not117 = icmp eq i8 %112, 0
+  br i1 %.not117, label %122, label %113
 
-116:                                              ; preds = %112
-  %117 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26, i32 1
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp sgt i32 %118, -1
-  br i1 %119, label %120, label %125
+113:                                              ; preds = %109
+  %114 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26, i32 1
+  %115 = load i32, ptr %114, align 4
+  %116 = icmp sgt i32 %115, -1
+  br i1 %116, label %117, label %122
 
-120:                                              ; preds = %116
-  %121 = zext nneg i32 %118 to i64
-  %122 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %121
-  %123 = load i32, ptr %122, align 8
-  %124 = and i32 %123, 1024
-  %.not118 = icmp eq i32 %124, 0
-  br i1 %.not118, label %125, label %174
+117:                                              ; preds = %113
+  %118 = zext nneg i32 %115 to i64
+  %119 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %118
+  %120 = load i32, ptr %119, align 8
+  %121 = and i32 %120, 1024
+  %.not118 = icmp eq i32 %121, 0
+  br i1 %.not118, label %122, label %171
 
-125:                                              ; preds = %120, %116, %112
-  %126 = icmp eq i8 %101, 1
-  br i1 %126, label %127, label %135
+122:                                              ; preds = %117, %113, %109
+  %123 = icmp eq i8 %98, 1
+  br i1 %123, label %124, label %132
 
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %96, i64 8
-  %129 = load i32, ptr %128, align 8
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i8, ptr %96, i64 %130
-  %132 = getelementptr inbounds i8, ptr %131, i64 8
-  %133 = load i8, ptr %132, align 8
-  %134 = and i8 %133, -2
-  %switch137 = icmp eq i8 %134, 4
-  br i1 %switch137, label %142, label %174
+124:                                              ; preds = %122
+  %125 = getelementptr inbounds i8, ptr %93, i64 8
+  %126 = load i32, ptr %125, align 8
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i8, ptr %93, i64 %127
+  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = load i8, ptr %129, align 8
+  %131 = and i8 %130, -2
+  %switch137 = icmp eq i8 %131, 4
+  br i1 %switch137, label %139, label %171
 
-135:                                              ; preds = %125
-  %136 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26
-  %137 = load i32, ptr %136, align 4
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %138
-  %140 = load i32, ptr %139, align 8
-  %141 = and i32 %140, 48
-  %.not119 = icmp eq i32 %141, 0
-  br i1 %.not119, label %174, label %142
+132:                                              ; preds = %122
+  %133 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26
+  %134 = load i32, ptr %133, align 4
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %135
+  %137 = load i32, ptr %136, align 8
+  %138 = and i32 %137, 48
+  %.not119 = icmp eq i32 %138, 0
+  br i1 %.not119, label %171, label %139
 
-142:                                              ; preds = %127, %135
-  %143 = icmp eq i8 %114, 1
-  br i1 %143, label %144, label %152
+139:                                              ; preds = %124, %132
+  %140 = icmp eq i8 %111, 1
+  br i1 %140, label %141, label %149
 
-144:                                              ; preds = %142
-  %145 = getelementptr inbounds i8, ptr %96, i64 12
-  %146 = load i32, ptr %145, align 4
-  %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds i8, ptr %96, i64 %147
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
-  %150 = load i8, ptr %149, align 8
-  %151 = and i8 %150, -2
-  %switch139 = icmp eq i8 %151, 4
-  br i1 %switch139, label %159, label %174
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds i8, ptr %93, i64 12
+  %143 = load i32, ptr %142, align 4
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds i8, ptr %93, i64 %144
+  %146 = getelementptr inbounds i8, ptr %145, i64 8
+  %147 = load i8, ptr %146, align 8
+  %148 = and i8 %147, -2
+  %switch139 = icmp eq i8 %148, 4
+  br i1 %switch139, label %156, label %171
 
-152:                                              ; preds = %142
-  %153 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26, i32 1
-  %154 = load i32, ptr %153, align 4
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %155
-  %157 = load i32, ptr %156, align 8
-  %158 = and i32 %157, 48
-  %.not122 = icmp eq i32 %158, 0
-  br i1 %.not122, label %174, label %159
+149:                                              ; preds = %139
+  %150 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26, i32 1
+  %151 = load i32, ptr %150, align 4
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %152
+  %154 = load i32, ptr %153, align 8
+  %155 = and i32 %154, 48
+  %.not122 = icmp eq i32 %155, 0
+  br i1 %.not122, label %171, label %156
 
-159:                                              ; preds = %144, %152
-  br label %174
+156:                                              ; preds = %141, %149
+  br label %171
 
-160:                                              ; preds = %94, %94, %94, %94
-  %161 = getelementptr inbounds i8, ptr %96, i64 29
-  %162 = load i8, ptr %161, align 1
-  %163 = and i8 %162, 12
-  %.not112 = icmp ne i8 %163, 0
-  %.phi.trans.insert = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %164 = icmp sgt i32 %.pre, -1
-  %or.cond = select i1 %.not112, i1 %164, i1 false
-  br i1 %or.cond, label %165, label %._crit_edge
+157:                                              ; preds = %91, %91, %91, %91
+  %158 = getelementptr inbounds i8, ptr %93, i64 29
+  %159 = load i8, ptr %158, align 1
+  %160 = and i8 %159, 12
+  %.not112 = icmp ne i8 %160, 0
+  %.phi.trans.insert142 = getelementptr inbounds %struct._zend_ssa_op, ptr %25, i64 %26
+  %.pre143 = load i32, ptr %.phi.trans.insert142, align 4
+  %161 = icmp sgt i32 %.pre143, -1
+  %or.cond = select i1 %.not112, i1 %161, i1 false
+  br i1 %or.cond, label %162, label %._crit_edge141
 
-165:                                              ; preds = %160
-  %166 = zext nneg i32 %.pre to i64
-  %167 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %166
-  %168 = load i32, ptr %167, align 8
-  %169 = and i32 %168, 1024
-  %.not113 = icmp eq i32 %169, 0
-  br i1 %.not113, label %._crit_edge, label %174
+162:                                              ; preds = %157
+  %163 = zext nneg i32 %.pre143 to i64
+  %164 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %163
+  %165 = load i32, ptr %164, align 8
+  %166 = and i32 %165, 1024
+  %.not113 = icmp eq i32 %166, 0
+  br i1 %.not113, label %._crit_edge141, label %171
 
-._crit_edge:                                      ; preds = %160, %165
-  %170 = sext i32 %.pre to i64
-  %171 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %170
-  %172 = load i32, ptr %171, align 8
-  %173 = and i32 %172, 48
-  %.not114 = icmp ne i32 %173, 0
-  br label %174
+._crit_edge141:                                   ; preds = %157, %162
+  %167 = sext i32 %.pre143 to i64
+  %168 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %6, i64 %167
+  %169 = load i32, ptr %168, align 8
+  %170 = and i32 %169, 48
+  %.not114 = icmp ne i32 %170, 0
+  br label %171
 
-174:                                              ; preds = %144, %127, %74, %4, %12, %90, %17, %94, %._crit_edge, %165, %152, %135, %120, %107, %82, %65, %60, %44, %39, %159, %89
-  %.0.shrunk = phi i1 [ true, %89 ], [ true, %159 ], [ false, %39 ], [ %.not132, %44 ], [ false, %60 ], [ false, %65 ], [ false, %74 ], [ false, %82 ], [ false, %107 ], [ false, %120 ], [ false, %127 ], [ false, %135 ], [ false, %144 ], [ false, %152 ], [ false, %165 ], [ %.not114, %._crit_edge ], [ false, %94 ], [ false, %17 ], [ false, %90 ], [ false, %12 ], [ false, %4 ]
+171:                                              ; preds = %141, %124, %71, %4, %12, %87, %17, %91, %._crit_edge141, %162, %149, %132, %117, %104, %79, %62, %57, %._crit_edge144, %39, %156, %86
+  %.0.shrunk = phi i1 [ true, %86 ], [ true, %156 ], [ false, %39 ], [ %.not132, %._crit_edge144 ], [ false, %57 ], [ false, %62 ], [ false, %71 ], [ false, %79 ], [ false, %104 ], [ false, %117 ], [ false, %124 ], [ false, %132 ], [ false, %141 ], [ false, %149 ], [ false, %162 ], [ %.not114, %._crit_edge141 ], [ false, %91 ], [ false, %17 ], [ false, %87 ], [ false, %12 ], [ false, %4 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

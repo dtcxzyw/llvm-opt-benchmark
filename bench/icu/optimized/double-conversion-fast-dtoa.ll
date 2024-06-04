@@ -686,13 +686,11 @@ if.then17.i55.i.i:                                ; preds = %land.lhs.true12.i51
 
 for.body.preheader.i65.i.i:                       ; preds = %if.then17.i55.i.i
   %idxprom.i21.phi.trans.insert.i66.i.i = zext nneg i32 %48 to i64
-  %arrayidx.i22.phi.trans.insert.i67.i.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i21.phi.trans.insert.i66.i.i
-  %.pre.i68.i.i = load i8, ptr %arrayidx.i22.phi.trans.insert.i67.i.i, align 1
   br label %for.body.i69.i.i
 
 for.body.i69.i.i:                                 ; preds = %if.end24.i72.i.i, %for.body.preheader.i65.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %if.end24.i72.i.i ], [ %idxprom.i21.phi.trans.insert.i66.i.i, %for.body.preheader.i65.i.i ]
-  %52 = phi i8 [ %inc28.i78.i.i, %if.end24.i72.i.i ], [ %.pre.i68.i.i, %for.body.preheader.i65.i.i ]
+  %52 = phi i8 [ %inc28.i78.i.i, %if.end24.i72.i.i ], [ %inc.i59.i.i, %for.body.preheader.i65.i.i ]
   %cmp22.not.i71.i.i = icmp eq i8 %52, 58
   br i1 %cmp22.not.i71.i.i, label %if.end24.i72.i.i, label %for.end.i61.i.i
 

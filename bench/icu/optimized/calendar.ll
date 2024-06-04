@@ -8372,9 +8372,8 @@ sw.bb5:                                           ; preds = %if.then, %if.then
 
 if.then12:                                        ; preds = %sw.bb5
   %cmp = icmp eq i32 %call2, 2
-  %cmp13 = icmp sge i32 %11, %call9
   %cmp14 = icmp slt i32 %11, %call9
-  %cond = select i1 %cmp, i1 %cmp13, i1 %cmp14
+  %cond = xor i1 %cmp, %cmp14
   %conv = zext i1 %cond to i8
   br label %return
 

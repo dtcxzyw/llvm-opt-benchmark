@@ -20480,7 +20480,7 @@ RB_FL_UNSET.exit:                                 ; preds = %225, %220, %.crited
   br label %229
 
 229:                                              ; preds = %249, %RB_FL_UNSET.exit
-  %230 = phi i32 [ %228, %RB_FL_UNSET.exit ], [ %.pre, %249 ]
+  %230 = phi i32 [ %228, %RB_FL_UNSET.exit ], [ %253, %249 ]
   %.084 = phi i32 [ %0, %RB_FL_UNSET.exit ], [ %247, %249 ]
   %231 = sext i32 %.084 to i64
   %232 = getelementptr i32, ptr %29, i64 %231
@@ -20520,9 +20520,6 @@ rb_array_len.exit119:                             ; preds = %239, %242
   %252 = load i32, ptr %251, align 4
   %253 = add i32 %252, 1
   store i32 %253, ptr %251, align 4
-  %.phi.trans.insert = zext nneg i32 %247 to i64
-  %.phi.trans.insert153 = getelementptr i32, ptr %29, i64 %.phi.trans.insert
-  %.pre = load i32, ptr %.phi.trans.insert153, align 4
   br label %229, !llvm.loop !114
 
 .thread123:                                       ; preds = %rb_array_len.exit, %rb_array_len.exit.thread

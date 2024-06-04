@@ -3659,7 +3659,13 @@ for.cond.preheader.i.i:                           ; preds = %for.body.i, %if.the
   %len.i.i = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2048
   %6 = load i32, ptr %len.i.i, align 8
   %cmp82.i.i = icmp sgt i32 %6, 0
-  br i1 %cmp82.i.i, label %for.body.lr.ph.i.i, label %if.then49.i.i
+  br i1 %cmp82.i.i, label %for.body.lr.ph.i.i, label %for.cond.preheader.i.if.then49.i_crit_edge.i
+
+for.cond.preheader.i.if.then49.i_crit_edge.i:     ; preds = %for.cond.preheader.i.i
+  %idxprom52.i.phi.trans.insert.i = sext i32 %6 to i64
+  %arrayidx53.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %key.tr88.i.i, i64 %idxprom52.i.phi.trans.insert.i
+  %.pre.i = load i8, ptr %arrayidx53.i.phi.trans.insert.i, align 1
+  br label %if.then49.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %contents.i.i = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2056
@@ -3683,13 +3689,13 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp6.i.i, label %for.inc.i.i, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %for.body.i.i
-  %len.i.i.le54 = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2048
+  %len.i.i.le55 = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2048
   %contents.i.i.le = getelementptr inbounds i8, ptr %root.tr87.i.i, i64 2056
   %arrayidx4.i.i.le = getelementptr inbounds i8, ptr %key.tr88.i.i, i64 %indvars.iv.i.i
   %10 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %call.i.i = tail call ptr @xmalloc(i64 noundef 2072) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %call.i.i, ptr noundef nonnull align 8 dereferenceable(2048) %root.tr87.i.i, i64 2048, i1 false)
-  %11 = load i32, ptr %len.i.i.le54, align 8
+  %11 = load i32, ptr %len.i.i.le55, align 8
   %12 = xor i32 %10, -1
   %sub13.i.i = add i32 %11, %12
   %len14.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2048
@@ -3713,7 +3719,7 @@ if.end24.i.i:                                     ; preds = %if.then17.i.i, %if.
   %value26.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2064
   store ptr %14, ptr %value26.i.i, align 8
   store ptr null, ptr %value25.i.i, align 8
-  store i32 %10, ptr %len.i.i.le54, align 8
+  store i32 %10, ptr %len.i.i.le55, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %root.tr87.i.i, i8 0, i64 2048, i1 false)
   %15 = load ptr, ptr %contents.i.i.le, align 8
   %arrayidx34.i.i = getelementptr inbounds i8, ptr %15, i64 %indvars.iv.i.i
@@ -3761,10 +3767,10 @@ for.end.i.i:                                      ; preds = %for.inc.i.i
   %tobool48.not.i.i = icmp eq i8 %.pre.i.i, 0
   br i1 %tobool48.not.i.i, label %if.end74.i.i, label %if.then49.i.i
 
-if.then49.i.i:                                    ; preds = %for.end.i.i, %for.cond.preheader.i.i
-  %idxprom52.i.i = sext i32 %6 to i64
-  %arrayidx53.i.i = getelementptr inbounds i8, ptr %key.tr88.i.i, i64 %idxprom52.i.i
-  %19 = load i8, ptr %arrayidx53.i.i, align 1
+if.then49.i.i:                                    ; preds = %for.end.i.i, %for.cond.preheader.i.if.then49.i_crit_edge.i
+  %idxprom52.i.pre-phi.i = phi i64 [ %idxprom52.i.phi.trans.insert.i, %for.cond.preheader.i.if.then49.i_crit_edge.i ], [ %wide.trip.count.i.i, %for.end.i.i ]
+  %19 = phi i8 [ %.pre.i, %for.cond.preheader.i.if.then49.i_crit_edge.i ], [ %.pre.i.i, %for.end.i.i ]
+  %arrayidx53.i.i = getelementptr inbounds i8, ptr %key.tr88.i.i, i64 %idxprom52.i.pre-phi.i
   %idxprom54.i.i = zext i8 %19 to i64
   %arrayidx55.i.i = getelementptr inbounds [256 x ptr], ptr %root.tr87.i.i, i64 0, i64 %idxprom54.i.i
   %20 = load ptr, ptr %arrayidx55.i.i, align 8
@@ -3858,9 +3864,9 @@ land.end.thread.i:                                ; preds = %if.then
   %cmp.i13.i = icmp ne i8 %.fr.i, 47
   %dec.i = sext i1 %cmp.i13.i to i32
   %spec.select.i = add nsw i32 %dec.i, %git_dir_len
-  %.pre.i = sext i32 %spec.select.i to i64
+  %.pre.i8 = sext i32 %spec.select.i to i64
   %conv16.i = ashr exact i64 %sub.i, 32
-  tail call void @strbuf_splice(ptr noundef nonnull %buf, i64 noundef 0, i64 noundef %.pre.i, ptr noundef %common_dir, i64 noundef %conv16.i) #25
+  tail call void @strbuf_splice(ptr noundef nonnull %buf, i64 noundef 0, i64 noundef %.pre.i8, ptr noundef %common_dir, i64 noundef %conv16.i) #25
   br i1 %cmp.i13.i, label %if.then18.i, label %if.end
 
 if.then18.i:                                      ; preds = %land.end.thread.i

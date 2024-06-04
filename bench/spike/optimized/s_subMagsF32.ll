@@ -47,9 +47,8 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %22 = and i64 %0, 2147483648
   %23 = icmp ne i64 %22, 0
   %24 = icmp slt i64 %21, 0
-  %.not76 = icmp eq i64 %22, 0
   %.064 = tail call i64 @llvm.abs.i64(i64 %21, i1 true)
-  %.062 = select i1 %24, i1 %.not76, i1 %23
+  %.062 = xor i1 %23, %24
   %25 = trunc nuw nsw i64 %.064 to i32
   %26 = icmp ult i64 %.064, 65536
   %27 = shl nuw i32 %25, 16

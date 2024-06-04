@@ -4899,7 +4899,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp3, label %if.then5, label %land.lhs.true.ohci_reg_name.exit_crit_edge
 
 land.lhs.true.ohci_reg_name.exit_crit_edge:       ; preds = %land.lhs.true
-  %.pre100 = lshr exact i64 %addr, 2
+  %.pre = lshr exact i64 %addr, 2
   br label %ohci_reg_name.exit
 
 if.then5:                                         ; preds = %land.lhs.true
@@ -5206,10 +5206,10 @@ if.then27.i:                                      ; preds = %if.end24.i
 if.end28.i:                                       ; preds = %if.then27.i, %if.end24.i
   %and29.i = and i32 %conv10, 256
   %tobool30.not.i = icmp eq i32 %and29.i, 0
-  br i1 %tobool30.not.i, label %if.end28.i.if.end32.i_crit_edge, label %if.then31.i
+  br i1 %tobool30.not.i, label %if.end28.if.end32_crit_edge.i, label %if.then31.i
 
-if.end28.i.if.end32.i_crit_edge:                  ; preds = %if.end28.i
-  %.pre = load i32, ptr %ctrl.i, align 8
+if.end28.if.end32_crit_edge.i:                    ; preds = %if.end28.i
+  %.pre.i = load i32, ptr %ctrl.i, align 8
   br label %if.end32.i
 
 if.then31.i:                                      ; preds = %if.end28.i
@@ -5219,8 +5219,8 @@ if.then31.i:                                      ; preds = %if.end28.i
   store i32 %or.i109.i, ptr %ctrl4.i107.i, align 8
   br label %if.end32.i
 
-if.end32.i:                                       ; preds = %if.end28.i.if.end32.i_crit_edge, %if.then31.i
-  %50 = phi i32 [ %.pre, %if.end28.i.if.end32.i_crit_edge ], [ %or.i109.i, %if.then31.i ]
+if.end32.i:                                       ; preds = %if.then31.i, %if.end28.if.end32_crit_edge.i
+  %50 = phi i32 [ %.pre.i, %if.end28.if.end32_crit_edge.i ], [ %or.i109.i, %if.then31.i ]
   %cmp.not.i = icmp eq i32 %13, %50
   br i1 %cmp.not.i, label %sw.epilog, label %if.then34.i
 
@@ -5248,7 +5248,7 @@ if.then.i:                                        ; preds = %if.end
   br label %ohci_reg_name.exit
 
 ohci_reg_name.exit:                               ; preds = %land.lhs.true.ohci_reg_name.exit_crit_edge, %if.then.i
-  %shr17.pre-phi = phi i64 [ %.pre100, %land.lhs.true.ohci_reg_name.exit_crit_edge ], [ %shr.i, %if.then.i ]
+  %shr17.pre-phi = phi i64 [ %.pre, %land.lhs.true.ohci_reg_name.exit_crit_edge ], [ %shr.i, %if.then.i ]
   %retval.0.i = phi ptr [ @.str.133, %land.lhs.true.ohci_reg_name.exit_crit_edge ], [ %54, %if.then.i ]
   %conv16 = trunc i64 %addr to i32
   %conv18 = trunc i64 %shr17.pre-phi to i32

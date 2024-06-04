@@ -6544,16 +6544,14 @@ case_Neq:                                         ; preds = %indirectgoto
   br i1 %cmp.i3682, label %exceptionthread-pre-split.loopexit5511, label %if.end2646
 
 if.end2646:                                       ; preds = %case_Neq
-  %eqRes.sroa.0.0.extract.trunc = trunc i32 %call2642 to i16
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
   store ptr %chunks_.i, ptr %curChunkEnd_.i, align 8
   store i32 0, ptr %curChunkIndex_.i, align 8
   %663 = load i8, ptr %662, align 1
   %cmp2648 = icmp eq i8 %663, 14
-  %664 = and i16 %eqRes.sroa.0.0.extract.trunc, 256
-  %bf.cast.i.i3690 = icmp ne i16 %664, 0
-  %bf.cast.i.i3692.not = icmp eq i16 %664, 0
-  %cond2655 = select i1 %cmp2648, i1 %bf.cast.i.i3690, i1 %bf.cast.i.i3692.not
+  %664 = and i32 %call2642, 256
+  %bf.cast.i.i3692.not = icmp eq i32 %664, 0
+  %cond2655 = xor i1 %cmp2648, %bf.cast.i.i3692.not
   %conv.i3693 = zext i1 %cond2655 to i64
   %or.i.i3694 = or disjoint i64 %conv.i3693, -1407374883553280
   %op12658 = getelementptr inbounds i8, ptr %662, i64 1

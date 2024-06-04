@@ -6889,7 +6889,7 @@ _ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit: ; 
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %retval.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds i8, ptr %retval, i64 4
   %retval.8.retval.8.retval.8.retval.sroa_idx = getelementptr inbounds i8, ptr %retval, i64 8
-  %retval.8.retval.8.retval.8.retval.sroa_idx92 = getelementptr inbounds i8, ptr %retval, i64 8
+  %retval.8.retval.8.retval.8.retval.sroa_idx94 = getelementptr inbounds i8, ptr %retval, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit
@@ -6937,7 +6937,7 @@ if.then8:                                         ; preds = %sw.bb
   %15 = extractvalue { i64, i64 } %call11, 1
   store i64 %14, ptr %retval, align 8
   %ref.tmp9.sroa.2.0.extract.trunc = trunc i64 %15 to i40
-  store i40 %ref.tmp9.sroa.2.0.extract.trunc, ptr %retval.8.retval.8.retval.8.retval.sroa_idx92, align 8
+  store i40 %ref.tmp9.sroa.2.0.extract.trunc, ptr %retval.8.retval.8.retval.8.retval.sroa_idx94, align 8
   br label %sw.epilog
 
 if.end12:                                         ; preds = %sw.bb
@@ -6999,11 +6999,11 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %if
 
 arrayctor.cont:                                   ; preds = %arrayctor.loop
   store ptr %call32, ptr %child_args, align 8
-  %.pre.pre = load i32, ptr %n, align 8
+  %.pre89.pre = load i32, ptr %n, align 8
   br label %sw.default
 
 sw.default:                                       ; preds = %if.end21, %if.then24, %arrayctor.cont, %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit
-  %.pre = phi i32 [ 0, %if.end21 ], [ 0, %if.then24 ], [ %.pre.pre, %arrayctor.cont ], [ %11, %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit ]
+  %.pre89 = phi i32 [ 0, %if.end21 ], [ 0, %if.then24 ], [ %.pre89.pre, %arrayctor.cont ], [ %11, %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit ]
   %nsub_38 = getelementptr inbounds i8, ptr %10, i64 6
   %22 = load i16, ptr %nsub_38, align 2
   %cmp40.not = icmp eq i16 %22, 0
@@ -7015,20 +7015,26 @@ if.then41:                                        ; preds = %sw.default
   %24 = load ptr, ptr %23, align 8
   %retval.0.i = select i1 %cmp.i, ptr %23, ptr %24
   %conv45 = zext i16 %22 to i32
-  %cmp46 = icmp slt i32 %.pre, %conv45
+  %cmp46 = icmp slt i32 %.pre89, %conv45
   br i1 %cmp46, label %if.then47, label %if.end84
 
 if.then47:                                        ; preds = %if.then41
-  %cmp50 = icmp sgt i32 %.pre, 0
+  %cmp50 = icmp sgt i32 %.pre89, 0
   %or.cond = and i1 %cmp50, %use_copy
-  br i1 %or.cond, label %land.lhs.true51, label %if.else74
+  br i1 %or.cond, label %land.lhs.true51, label %if.then47.if.else74_crit_edge
+
+if.then47.if.else74_crit_edge:                    ; preds = %if.then47
+  %idxprom78.phi.trans.insert = sext i32 %.pre89 to i64
+  %arrayidx79.phi.trans.insert = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom78.phi.trans.insert
+  %.pre = load ptr, ptr %arrayidx79.phi.trans.insert, align 8
+  br label %if.else74
 
 land.lhs.true51:                                  ; preds = %if.then47
-  %sub53 = add nsw i32 %.pre, -1
+  %sub53 = add nsw i32 %.pre89, -1
   %idxprom = zext nneg i32 %sub53 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom
   %25 = load ptr, ptr %arrayidx, align 8
-  %idxprom55 = zext nneg i32 %.pre to i64
+  %idxprom55 = zext nneg i32 %.pre89 to i64
   %arrayidx56 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom55
   %26 = load ptr, ptr %arrayidx56, align 8
   %cmp57 = icmp eq ptr %25, %26
@@ -7063,10 +7069,8 @@ if.then58:                                        ; preds = %land.lhs.true51
 for.cond.backedge:                                ; preds = %if.then58, %if.then.i.i.i68, %if.else.i.i.i70, %if.end117
   br label %for.cond, !llvm.loop !36
 
-if.else74:                                        ; preds = %land.lhs.true51, %if.then47
-  %idxprom78 = sext i32 %.pre to i64
-  %arrayidx79 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom78
-  %34 = load ptr, ptr %arrayidx79, align 8
+if.else74:                                        ; preds = %land.lhs.true51, %if.then47.if.else74_crit_edge
+  %34 = phi ptr [ %.pre, %if.then47.if.else74_crit_edge ], [ %26, %land.lhs.true51 ]
   %pre_arg81 = getelementptr inbounds i8, ptr %9, i64 -44
   %35 = load <2 x i64>, ptr %pre_arg81, align 4
   store ptr %34, ptr %ref.tmp76, align 8
@@ -7110,7 +7114,7 @@ if.end84:                                         ; preds = %if.then41, %sw.defa
   %vtable92 = load ptr, ptr %this, align 8
   %vfn93 = getelementptr inbounds i8, ptr %vtable92, i64 24
   %40 = load ptr, ptr %vfn93, align 8
-  %call94 = call { i64, i64 } %40(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, i64 %agg.tmp86.sroa.0.0.copyload, i64 %agg.tmp86.sroa.2.0.copyload, i64 %agg.tmp88.sroa.0.0.copyload, i64 %agg.tmp88.sroa.2.0.copyload, ptr noundef %39, i32 noundef %.pre)
+  %call94 = call { i64, i64 } %40(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, i64 %agg.tmp86.sroa.0.0.copyload, i64 %agg.tmp86.sroa.2.0.copyload, i64 %agg.tmp88.sroa.0.0.copyload, i64 %agg.tmp88.sroa.2.0.copyload, ptr noundef %39, i32 noundef %.pre89)
   %41 = extractvalue { i64, i64 } %call94, 0
   %42 = extractvalue { i64, i64 } %call94, 1
   store i64 %41, ptr %retval, align 8

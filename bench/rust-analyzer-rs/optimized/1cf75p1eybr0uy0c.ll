@@ -5169,17 +5169,16 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h2edfae5d28edc1dfE.
   %trunc.i.i = trunc nuw i32 %32 to i1
   %35 = getelementptr inbounds i8, ptr %0, i64 4
   %36 = getelementptr inbounds i8, ptr %1, i64 4
-  %37 = icmp ne i32 %32, 0
-  %38 = icmp eq i32 %32, 0
-  %.sink.i.i = select i1 %trunc.i.i, i1 %37, i1 %38
+  %37 = icmp eq i32 %32, 0
+  %.sink.i.i = xor i1 %37, %trunc.i.i
   tail call void @llvm.assume(i1 %.sink.i.i)
-  %39 = load i32, ptr %35, align 4, !alias.scope !2083, !noalias !2084, !noundef !4
-  %40 = load i32, ptr %36, align 4, !alias.scope !2084, !noalias !2083, !noundef !4
-  %41 = icmp ne i32 %39, %40
+  %38 = load i32, ptr %35, align 4, !alias.scope !2083, !noalias !2084, !noundef !4
+  %39 = load i32, ptr %36, align 4, !alias.scope !2084, !noalias !2083, !noundef !4
+  %40 = icmp ne i32 %38, %39
   br label %"_ZN66_$LT$hir_def..item_tree..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h274eeb0a18f08e9bE.llvm.12542172245242916373.exit"
 
 "_ZN66_$LT$hir_def..item_tree..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17h274eeb0a18f08e9bE.llvm.12542172245242916373.exit": ; preds = %2, %11, %"_ZN63_$LT$hir_expand..name..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h43a633b5ab09c79dE.llvm.12542172245242916373.exit.i", %19, %25, %31, %.sink.split.i.i
-  %.0.i = phi i1 [ true, %25 ], [ true, %19 ], [ true, %"_ZN63_$LT$hir_expand..name..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h43a633b5ab09c79dE.llvm.12542172245242916373.exit.i" ], [ true, %11 ], [ true, %31 ], [ %41, %.sink.split.i.i ], [ true, %2 ]
+  %.0.i = phi i1 [ true, %25 ], [ true, %19 ], [ true, %"_ZN63_$LT$hir_expand..name..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h43a633b5ab09c79dE.llvm.12542172245242916373.exit.i" ], [ true, %11 ], [ true, %31 ], [ %40, %.sink.split.i.i ], [ true, %2 ]
   ret i1 %.0.i
 }
 
@@ -23977,13 +23976,12 @@ _ZN4core3cmp9PartialEq2ne17h2edfae5d28edc1dfE.llvm.12542172245242916373.exit: ; 
   %trunc.i.i.i = trunc nuw i32 %38 to i1
   %41 = getelementptr inbounds i8, ptr %7, i64 4
   %42 = getelementptr inbounds i8, ptr %8, i64 4
-  %43 = icmp ne i32 %38, 0
-  %44 = icmp eq i32 %38, 0
-  %.sink.i.i.i = select i1 %trunc.i.i.i, i1 %43, i1 %44
+  %43 = icmp eq i32 %38, 0
+  %.sink.i.i.i = xor i1 %43, %trunc.i.i.i
   tail call void @llvm.assume(i1 %.sink.i.i.i)
-  %45 = load i32, ptr %41, align 4, !alias.scope !8881, !noalias !8882, !noundef !4
-  %46 = load i32, ptr %42, align 4, !alias.scope !8882, !noalias !8881, !noundef !4
-  %.not10 = icmp eq i32 %45, %46
+  %44 = load i32, ptr %41, align 4, !alias.scope !8881, !noalias !8882, !noundef !4
+  %45 = load i32, ptr %42, align 4, !alias.scope !8882, !noalias !8881, !noundef !4
+  %.not10 = icmp eq i32 %44, %45
   br i1 %.not10, label %.preheader.split, label %.thread
 }
 
@@ -78305,23 +78303,22 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$hir_def..item_tree..FieldAstId$u20$
   %3 = load i32, ptr %0, align 4, !range !2082, !noundef !4
   %4 = load i32, ptr %1, align 4, !range !2082, !noundef !4
   %5 = icmp eq i32 %3, %4
-  br i1 %5, label %.sink.split, label %13
+  br i1 %5, label %.sink.split, label %12
 
 .sink.split:                                      ; preds = %2
   %trunc = trunc nuw i32 %3 to i1
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = icmp ne i32 %3, 0
-  %9 = icmp eq i32 %3, 0
-  %.sink = select i1 %trunc, i1 %8, i1 %9
+  %8 = icmp eq i32 %3, 0
+  %.sink = xor i1 %8, %trunc
   tail call void @llvm.assume(i1 %.sink)
-  %10 = load i32, ptr %6, align 4, !noundef !4
-  %11 = load i32, ptr %7, align 4, !noundef !4
-  %12 = icmp eq i32 %10, %11
-  br label %13
+  %9 = load i32, ptr %6, align 4, !noundef !4
+  %10 = load i32, ptr %7, align 4, !noundef !4
+  %11 = icmp eq i32 %9, %10
+  br label %12
 
-13:                                               ; preds = %.sink.split, %2
-  %.0.shrunk = phi i1 [ false, %2 ], [ %12, %.sink.split ]
+12:                                               ; preds = %.sink.split, %2
+  %.0.shrunk = phi i1 [ false, %2 ], [ %11, %.sink.split ]
   ret i1 %.0.shrunk
 }
 
@@ -78384,17 +78381,16 @@ define hidden noundef zeroext i1 @"_ZN66_$LT$hir_def..item_tree..Field$u20$as$u2
   %trunc.i = trunc nuw i32 %32 to i1
   %35 = getelementptr inbounds i8, ptr %0, i64 4
   %36 = getelementptr inbounds i8, ptr %1, i64 4
-  %37 = icmp ne i32 %32, 0
-  %38 = icmp eq i32 %32, 0
-  %.sink.i = select i1 %trunc.i, i1 %37, i1 %38
+  %37 = icmp eq i32 %32, 0
+  %.sink.i = xor i1 %37, %trunc.i
   tail call void @llvm.assume(i1 %.sink.i)
-  %39 = load i32, ptr %35, align 4, !alias.scope !22366, !noalias !22369, !noundef !4
-  %40 = load i32, ptr %36, align 4, !alias.scope !22369, !noalias !22366, !noundef !4
-  %41 = icmp eq i32 %39, %40
+  %38 = load i32, ptr %35, align 4, !alias.scope !22366, !noalias !22369, !noundef !4
+  %39 = load i32, ptr %36, align 4, !alias.scope !22369, !noalias !22366, !noundef !4
+  %40 = icmp eq i32 %38, %39
   br label %"_ZN71_$LT$hir_def..item_tree..FieldAstId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4a415e5a25d5fbd5E.llvm.12542172245242916373.exit"
 
 "_ZN71_$LT$hir_def..item_tree..FieldAstId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4a415e5a25d5fbd5E.llvm.12542172245242916373.exit": ; preds = %2, %.sink.split.i, %31, %11, %"_ZN63_$LT$hir_expand..name..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h43a633b5ab09c79dE.llvm.12542172245242916373.exit", %19, %25
-  %.0 = phi i1 [ false, %25 ], [ false, %19 ], [ false, %"_ZN63_$LT$hir_expand..name..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h43a633b5ab09c79dE.llvm.12542172245242916373.exit" ], [ false, %11 ], [ false, %31 ], [ %41, %.sink.split.i ], [ false, %2 ]
+  %.0 = phi i1 [ false, %25 ], [ false, %19 ], [ false, %"_ZN63_$LT$hir_expand..name..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h43a633b5ab09c79dE.llvm.12542172245242916373.exit" ], [ false, %11 ], [ false, %31 ], [ %40, %.sink.split.i ], [ false, %2 ]
   ret i1 %.0
 }
 
