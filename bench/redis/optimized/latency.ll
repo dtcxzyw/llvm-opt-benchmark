@@ -473,8 +473,8 @@ entry:
   %cmp = icmp eq i64 %1, %add
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5352), align 8
   %cmp3 = icmp eq i64 %3, 0
-  %or.cond = select i1 %cmp, i1 %cmp3, i1 false
-  br i1 %or.cond, label %if.then, label %if.end
+  %or.cond67 = select i1 %cmp, i1 %cmp3, i1 false
+  br i1 %or.cond67, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call4 = tail call ptr @sdscat(ptr noundef %call, ptr noundef nonnull @.str.1) #14
@@ -492,7 +492,7 @@ while.cond.outer:                                 ; preds = %if.end99, %if.end
   %advise_slowlog_tuning.0.ph = phi i32 [ %advise_slowlog_tuning.2, %if.end99 ], [ 0, %if.end ]
   %advise_slowlog_inspect.0.ph = phi i32 [ %advise_slowlog_inspect.1, %if.end99 ], [ 0, %if.end ]
   %advise_disk_contention.0.ph = phi i32 [ %advise_disk_contention.2, %if.end99 ], [ 0, %if.end ]
-  %advise_scheduler.0.ph = phi i32 [ %spec.select71, %if.end99 ], [ 0, %if.end ]
+  %advise_scheduler.0.ph = phi i32 [ %spec.select69, %if.end99 ], [ 0, %if.end ]
   %advise_data_writeback.0.ph = phi i32 [ %advise_data_writeback.4, %if.end99 ], [ 0, %if.end ]
   %advise_no_appendfsync.0.ph = phi i32 [ %advise_no_appendfsync.1, %if.end99 ], [ 0, %if.end ]
   %advise_local_disk.0.ph = phi i32 [ %advise_local_disk.4, %if.end99 ], [ 0, %if.end ]
@@ -501,7 +501,7 @@ while.cond.outer:                                 ; preds = %if.end99, %if.end
   %advise_hz.0.ph = phi i32 [ %advise_hz.1, %if.end99 ], [ 0, %if.end ]
   %advise_large_objects.0.ph = phi i32 [ %advise_large_objects.3, %if.end99 ], [ 0, %if.end ]
   %advise_mass_eviction.0.ph = phi i32 [ %advise_mass_eviction.1, %if.end99 ], [ 0, %if.end ]
-  %advise_relax_fsync_policy.0.ph = phi i32 [ %spec.select73, %if.end99 ], [ 0, %if.end ]
+  %advise_relax_fsync_policy.0.ph = phi i32 [ %spec.select71, %if.end99 ], [ 0, %if.end ]
   %advices.0.ph = phi i32 [ %advices.14, %if.end99 ], [ 0, %if.end ]
   %advise_slowlog_enabled.0.ph = phi i32 [ %advise_slowlog_enabled.2, %if.end99 ], [ 0, %if.end ]
   %advise_better_vm.0.ph = phi i32 [ %advise_better_vm.2, %if.end99 ], [ 0, %if.end ]
@@ -603,8 +603,8 @@ if.end57:                                         ; preds = %if.then45, %if.else
   %inc55.sink = phi i32 [ %inc55, %if.else50 ], [ 1, %if.then45 ]
   %advise_slowlog_tuning.1 = phi i32 [ %spec.select, %if.else50 ], [ %advise_slowlog_tuning.0.ph, %if.then45 ]
   %advise_slowlog_enabled.1 = phi i32 [ %advise_slowlog_enabled.0.ph, %if.else50 ], [ 1, %if.then45 ]
-  %spec.select70 = add nsw i32 %advices.2, %inc55.sink
-  %add58 = add nsw i32 %spec.select70, 2
+  %spec.select68 = add nsw i32 %advices.2, %inc55.sink
+  %add58 = add nsw i32 %spec.select68, 2
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end57, %if.end42
@@ -615,15 +615,15 @@ if.end59:                                         ; preds = %if.end57, %if.end42
   %advise_slowlog_enabled.2 = phi i32 [ %advise_slowlog_enabled.0.ph, %if.end42 ], [ %advise_slowlog_enabled.1, %if.end57 ]
   %call60 = tail call i32 @strcasecmp(ptr noundef %call8, ptr noundef nonnull @.str.11) #13
   %tobool61.not = icmp eq i32 %call60, 0
-  %spec.select71 = select i1 %tobool61.not, i32 1, i32 %advise_scheduler.0.ph
+  %spec.select69 = select i1 %tobool61.not, i32 1, i32 %advise_scheduler.0.ph
   %inc63 = zext i1 %tobool61.not to i32
-  %spec.select72 = add nsw i32 %advices.4, %inc63
+  %spec.select70 = add nsw i32 %advices.4, %inc63
   %call65 = tail call i32 @strcasecmp(ptr noundef %call8, ptr noundef nonnull @.str.12) #13
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %if.then67, label %if.end69
 
 if.then67:                                        ; preds = %if.end59
-  %add68 = add nsw i32 %spec.select72, 4
+  %add68 = add nsw i32 %spec.select70, 4
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then67, %if.end59
@@ -631,7 +631,7 @@ if.end69:                                         ; preds = %if.then67, %if.end5
   %advise_data_writeback.1 = phi i32 [ %advise_data_writeback.0.ph, %if.end59 ], [ 1, %if.then67 ]
   %advise_local_disk.1 = phi i32 [ %advise_local_disk.0.ph, %if.end59 ], [ 1, %if.then67 ]
   %advise_ssd.1 = phi i32 [ %advise_ssd.0.ph, %if.end59 ], [ 1, %if.then67 ]
-  %advices.6 = phi i32 [ %spec.select72, %if.end59 ], [ %add68, %if.then67 ]
+  %advices.6 = phi i32 [ %spec.select70, %if.end59 ], [ %add68, %if.then67 ]
   %call70 = tail call i32 @strcasecmp(ptr noundef %call8, ptr noundef nonnull @.str.13) #13
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %if.then72, label %if.end74
@@ -660,9 +660,9 @@ if.end79:                                         ; preds = %if.then77, %if.end7
   %advices.8 = phi i32 [ %advices.7, %if.end74 ], [ %add78, %if.then77 ]
   %call80 = tail call i32 @strcasecmp(ptr noundef %call8, ptr noundef nonnull @.str.15) #13
   %tobool81.not = icmp eq i32 %call80, 0
-  %spec.select73 = select i1 %tobool81.not, i32 1, i32 %advise_relax_fsync_policy.0.ph
+  %spec.select71 = select i1 %tobool81.not, i32 1, i32 %advise_relax_fsync_policy.0.ph
   %inc83 = zext i1 %tobool81.not to i32
-  %spec.select74 = add nsw i32 %advices.8, %inc83
+  %spec.select72 = add nsw i32 %advices.8, %inc83
   %call85 = tail call i32 @strcasecmp(ptr noundef %call8, ptr noundef nonnull @.str.16) #13
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.then89, label %lor.lhs.false
@@ -673,13 +673,13 @@ lor.lhs.false:                                    ; preds = %if.end79
   br i1 %tobool88.not, label %if.then89, label %if.end91
 
 if.then89:                                        ; preds = %lor.lhs.false, %if.end79
-  %add90 = add nsw i32 %spec.select74, 2
+  %add90 = add nsw i32 %spec.select72, 2
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then89, %lor.lhs.false
   %advise_disk_contention.2 = phi i32 [ %advise_disk_contention.1, %lor.lhs.false ], [ 1, %if.then89 ]
   %advise_local_disk.3 = phi i32 [ %advise_local_disk.2, %lor.lhs.false ], [ 1, %if.then89 ]
-  %advices.10 = phi i32 [ %spec.select74, %lor.lhs.false ], [ %add90, %if.then89 ]
+  %advices.10 = phi i32 [ %spec.select72, %lor.lhs.false ], [ %add90, %if.then89 ]
   %call92 = tail call i32 @strcasecmp(ptr noundef %call8, ptr noundef nonnull @.str.18) #13
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %if.then97, label %lor.lhs.false94
@@ -726,8 +726,8 @@ while.end:                                        ; preds = %while.cond
   %inc120.neg = sext i1 %cmp117 to i32
   %cmp122 = icmp eq i32 %eventnum.0.ph, 0
   %cmp125 = icmp eq i32 %advices.0.ph, %inc120.neg
-  %or.cond1 = select i1 %cmp122, i1 %cmp125, i1 false
-  br i1 %or.cond1, label %if.then127, label %if.else129
+  %or.cond = select i1 %cmp122, i1 %cmp125, i1 false
+  br i1 %or.cond, label %if.then127, label %if.else129
 
 if.then127:                                       ; preds = %while.end
   %call128 = tail call ptr @sdscat(ptr noundef %report.0.ph, ptr noundef nonnull @.str.24) #14
@@ -735,8 +735,8 @@ if.then127:                                       ; preds = %while.end
 
 if.else129:                                       ; preds = %while.end
   %cmp130 = icmp ne i32 %eventnum.0.ph, 0
-  %or.cond2 = select i1 %cmp130, i1 %cmp125, i1 false
-  br i1 %or.cond2, label %if.then135, label %if.else137
+  %or.cond1 = select i1 %cmp130, i1 %cmp125, i1 false
+  br i1 %or.cond1, label %if.then135, label %if.else137
 
 if.then135:                                       ; preds = %if.else129
   %call136 = tail call ptr @sdscat(ptr noundef %report.0.ph, ptr noundef nonnull @.str.25) #14
@@ -838,11 +838,11 @@ if.then177:                                       ; preds = %if.end175
 
 if.end179:                                        ; preds = %if.then177, %if.end175
   %report.12 = phi ptr [ %call178, %if.then177 ], [ %report.11, %if.end175 ]
-  %tobool180 = icmp ne i32 %advise_relax_fsync_policy.0.ph, 0
+  %tobool180.not = icmp ne i32 %advise_relax_fsync_policy.0.ph, 0
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3908), align 4
   %cmp182 = icmp eq i32 %15, 1
-  %or.cond3 = select i1 %tobool180, i1 %cmp182, i1 false
-  br i1 %or.cond3, label %if.then184, label %if.end186
+  %or.cond74 = select i1 %tobool180.not, i1 %cmp182, i1 false
+  br i1 %or.cond74, label %if.then184, label %if.end186
 
 if.then184:                                       ; preds = %if.end179
   %call185 = tail call ptr @sdscat(ptr noundef %report.12, ptr noundef nonnull @.str.37) #14
@@ -859,11 +859,11 @@ if.then188:                                       ; preds = %if.end186
 
 if.end190:                                        ; preds = %if.then188, %if.end186
   %report.14 = phi ptr [ %call189, %if.then188 ], [ %report.13, %if.end186 ]
-  %tobool191 = icmp ne i32 %advise_hz.0.ph, 0
+  %tobool191.not = icmp ne i32 %advise_hz.0.ph, 0
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 52), align 4
   %cmp193 = icmp slt i32 %16, 100
-  %or.cond4 = select i1 %tobool191, i1 %cmp193, i1 false
-  br i1 %or.cond4, label %if.then195, label %if.end197
+  %or.cond75 = select i1 %tobool191.not, i1 %cmp193, i1 false
+  br i1 %or.cond75, label %if.then195, label %if.end197
 
 if.then195:                                       ; preds = %if.end190
   %call196 = tail call ptr @sdscat(ptr noundef %report.14, ptr noundef nonnull @.str.39) #14

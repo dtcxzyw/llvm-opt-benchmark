@@ -191,120 +191,118 @@ define i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %6 = and i64 %5, 8589934592
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %59, label %7
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %8 = icmp ne i32 %7, %0
+  %or.cond.not12 = select i1 %.not, i1 true, i1 %8
+  %9 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2192), align 8
+  %.not8 = icmp eq i64 %9, 0
+  %or.cond10 = select i1 %or.cond.not12, i1 true, i1 %.not8
+  br i1 %or.cond10, label %57, label %10
 
-7:                                                ; preds = %3
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %9 = icmp eq i32 %8, %0
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2192), align 8
-  %11 = icmp ne i64 %10, 0
-  %or.cond = select i1 %9, i1 %11, i1 false
-  br i1 %or.cond, label %12, label %59
-
-12:                                               ; preds = %7
+10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %4)
-  %13 = sext i32 %2 to i64
-  %14 = getelementptr inbounds i8, ptr %1, i64 %13
-  %15 = ptrtoint ptr %14 to i64
-  %16 = tail call ptr @memchr(ptr noundef %1, i32 noundef 10, i64 noundef %13) #11
-  %.not43.i = icmp eq ptr %16, null
+  %11 = sext i32 %2 to i64
+  %12 = getelementptr inbounds i8, ptr %1, i64 %11
+  %13 = ptrtoint ptr %12 to i64
+  %14 = tail call ptr @memchr(ptr noundef %1, i32 noundef 10, i64 noundef %11) #11
+  %.not43.i = icmp eq ptr %14, null
   br i1 %.not43.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %12
-  %17 = ptrtoint ptr %1 to i64
-  br label %18
+.lr.ph.i:                                         ; preds = %10
+  %15 = ptrtoint ptr %1 to i64
+  br label %16
 
-18:                                               ; preds = %42, %.lr.ph.i
-  %19 = phi i64 [ %10, %.lr.ph.i ], [ %43, %42 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
-  %20 = phi ptr [ %16, %.lr.ph.i ], [ %44, %42 ]
-  %.03444.i = phi i32 [ 0, %.lr.ph.i ], [ %.135.i, %42 ]
+16:                                               ; preds = %40, %.lr.ph.i
+  %17 = phi i64 [ %9, %.lr.ph.i ], [ %41, %40 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
+  %18 = phi ptr [ %14, %.lr.ph.i ], [ %42, %40 ]
+  %.03444.i = phi i32 [ 0, %.lr.ph.i ], [ %.135.i, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
-  %22 = urem i64 %indvars.iv.next.i, %19
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %._crit_edge55.i
+  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %20 = urem i64 %indvars.iv.next.i, %17
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %22, label %._crit_edge55.i
 
-._crit_edge55.i:                                  ; preds = %18
-  %.pre56.i = ptrtoint ptr %21 to i64
-  %.pre57.i = sub i64 %15, %.pre56.i
-  br label %42
+._crit_edge55.i:                                  ; preds = %16
+  %.pre56.i = ptrtoint ptr %19 to i64
+  %.pre57.i = sub i64 %13, %.pre56.i
+  br label %40
 
-24:                                               ; preds = %18
-  %25 = sext i32 %.03444.i to i64
-  %26 = getelementptr inbounds i8, ptr %1, i64 %25
-  %27 = ptrtoint ptr %21 to i64
-  %28 = add i64 %25, %17
-  %29 = sub i64 %27, %28
-  %30 = tail call i64 @write(i32 noundef %0, ptr noundef %26, i64 noundef %29) #8
-  %31 = trunc i64 %30 to i32
-  %32 = add i32 %.03444.i, %31
-  %33 = sub i64 %15, %27
-  %34 = tail call ptr @memchr(ptr noundef nonnull %21, i32 noundef 10, i64 noundef %33) #11
-  %.not38.i = icmp eq ptr %34, null
-  br i1 %.not38.i, label %._crit_edge.i, label %35
+22:                                               ; preds = %16
+  %23 = sext i32 %.03444.i to i64
+  %24 = getelementptr inbounds i8, ptr %1, i64 %23
+  %25 = ptrtoint ptr %19 to i64
+  %26 = add i64 %23, %15
+  %27 = sub i64 %25, %26
+  %28 = tail call i64 @write(i32 noundef %0, ptr noundef %24, i64 noundef %27) #8
+  %29 = trunc i64 %28 to i32
+  %30 = add i32 %.03444.i, %29
+  %31 = sub i64 %13, %25
+  %32 = tail call ptr @memchr(ptr noundef nonnull %19, i32 noundef 10, i64 noundef %31) #11
+  %.not38.i = icmp eq ptr %32, null
+  br i1 %.not38.i, label %._crit_edge.i, label %33
 
-35:                                               ; preds = %24
-  %36 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.1, i64 noundef 54) #8
-  %37 = call i32 @phpdbg_consume_stdin_line(ptr noundef nonnull %4)
-  %38 = load i8, ptr %4, align 16
-  %39 = icmp eq i8 %38, 113
-  br i1 %39, label %._crit_edge.i, label %40
+33:                                               ; preds = %22
+  %34 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.1, i64 noundef 54) #8
+  %35 = call i32 @phpdbg_consume_stdin_line(ptr noundef nonnull %4)
+  %36 = load i8, ptr %4, align 16
+  %37 = icmp eq i8 %36, 113
+  br i1 %37, label %._crit_edge.i, label %38
 
-40:                                               ; preds = %35
-  %41 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.2, i64 noundef 1) #8
+38:                                               ; preds = %33
+  %39 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.2, i64 noundef 1) #8
   %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2192), align 8
-  br label %42
+  br label %40
 
-42:                                               ; preds = %40, %._crit_edge55.i
-  %.pre-phi58.i = phi i64 [ %.pre57.i, %._crit_edge55.i ], [ %33, %40 ]
-  %43 = phi i64 [ %19, %._crit_edge55.i ], [ %.pre.i, %40 ]
-  %.135.i = phi i32 [ %.03444.i, %._crit_edge55.i ], [ %32, %40 ]
-  %44 = tail call ptr @memchr(ptr noundef nonnull %21, i32 noundef 10, i64 noundef %.pre-phi58.i) #11
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %._crit_edge.i, label %18
+40:                                               ; preds = %38, %._crit_edge55.i
+  %.pre-phi58.i = phi i64 [ %.pre57.i, %._crit_edge55.i ], [ %31, %38 ]
+  %41 = phi i64 [ %17, %._crit_edge55.i ], [ %.pre.i, %38 ]
+  %.135.i = phi i32 [ %.03444.i, %._crit_edge55.i ], [ %30, %38 ]
+  %42 = tail call ptr @memchr(ptr noundef nonnull %19, i32 noundef 10, i64 noundef %.pre-phi58.i) #11
+  %.not.i = icmp eq ptr %42, null
+  br i1 %.not.i, label %._crit_edge.i, label %16
 
-._crit_edge.i:                                    ; preds = %42, %35, %24
-  %.2.ph.i = phi i32 [ %.135.i, %42 ], [ %32, %35 ], [ %32, %24 ]
+._crit_edge.i:                                    ; preds = %40, %33, %22
+  %.2.ph.i = phi i32 [ %.135.i, %40 ], [ %30, %33 ], [ %30, %22 ]
   %.not39.i = icmp eq i32 %.2.ph.i, 0
-  br i1 %.not39.i, label %.critedge.i, label %45
+  br i1 %.not39.i, label %.critedge.i, label %43
 
-45:                                               ; preds = %._crit_edge.i
+43:                                               ; preds = %._crit_edge.i
   %sext.i = shl i64 %indvars.iv.next.i, 32
-  %46 = ashr exact i64 %sext.i, 32
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2192), align 8
-  %48 = urem i64 %46, %47
-  %.not40.i = icmp eq i64 %48, 0
-  br i1 %.not40.i, label %phpdbg_output_pager.exit, label %49
+  %44 = ashr exact i64 %sext.i, 32
+  %45 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2192), align 8
+  %46 = urem i64 %44, %45
+  %.not40.i = icmp eq i64 %46, 0
+  br i1 %.not40.i, label %phpdbg_output_pager.exit, label %47
 
-49:                                               ; preds = %45
-  %50 = sext i32 %.2.ph.i to i64
-  %51 = getelementptr inbounds i8, ptr %1, i64 %50
-  %52 = sub nsw i32 %2, %.2.ph.i
-  %53 = sext i32 %52 to i64
-  %54 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull %51, i64 noundef %53) #8
-  %55 = trunc i64 %54 to i32
-  %56 = add i32 %.2.ph.i, %55
+47:                                               ; preds = %43
+  %48 = sext i32 %.2.ph.i to i64
+  %49 = getelementptr inbounds i8, ptr %1, i64 %48
+  %50 = sub nsw i32 %2, %.2.ph.i
+  %51 = sext i32 %50 to i64
+  %52 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull %49, i64 noundef %51) #8
+  %53 = trunc i64 %52 to i32
+  %54 = add i32 %.2.ph.i, %53
   br label %phpdbg_output_pager.exit
 
-.critedge.i:                                      ; preds = %._crit_edge.i, %12
-  %57 = tail call i64 @write(i32 noundef %0, ptr noundef %1, i64 noundef %13) #8
-  %58 = trunc i64 %57 to i32
+.critedge.i:                                      ; preds = %._crit_edge.i, %10
+  %55 = tail call i64 @write(i32 noundef %0, ptr noundef %1, i64 noundef %11) #8
+  %56 = trunc i64 %55 to i32
   br label %phpdbg_output_pager.exit
 
-phpdbg_output_pager.exit:                         ; preds = %45, %49, %.critedge.i
-  %.3.i = phi i32 [ %56, %49 ], [ %58, %.critedge.i ], [ %.2.ph.i, %45 ]
+phpdbg_output_pager.exit:                         ; preds = %43, %47, %.critedge.i
+  %.3.i = phi i32 [ %54, %47 ], [ %56, %.critedge.i ], [ %.2.ph.i, %43 ]
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %4)
-  br label %63
+  br label %61
 
-59:                                               ; preds = %7, %3
-  %60 = sext i32 %2 to i64
-  %61 = tail call i64 @write(i32 noundef %0, ptr noundef %1, i64 noundef %60) #8
-  %62 = trunc i64 %61 to i32
-  br label %63
+57:                                               ; preds = %3
+  %58 = sext i32 %2 to i64
+  %59 = tail call i64 @write(i32 noundef %0, ptr noundef %1, i64 noundef %58) #8
+  %60 = trunc i64 %59 to i32
+  br label %61
 
-63:                                               ; preds = %59, %phpdbg_output_pager.exit
-  %.0 = phi i32 [ %.3.i, %phpdbg_output_pager.exit ], [ %62, %59 ]
+61:                                               ; preds = %57, %phpdbg_output_pager.exit
+  %.0 = phi i32 [ %.3.i, %phpdbg_output_pager.exit ], [ %60, %57 ]
   ret i32 %.0
 }
 

@@ -4082,10 +4082,10 @@ while.body:                                       ; preds = %while.cond
 if.then3:                                         ; preds = %while.body
   %call4 = tail call ptr @__errno_location() #35
   %2 = load i32, ptr %call4, align 4
-  %cmp5 = icmp eq i32 %2, 11
+  %cmp5.not = icmp eq i32 %2, 11
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp7 = icmp sgt i32 %3, 1
-  %or.cond = select i1 %cmp5, i1 true, i1 %cmp7
+  %or.cond = select i1 %cmp5.not, i1 true, i1 %cmp7
   br i1 %or.cond, label %while.end, label %if.end9
 
 if.end9:                                          ; preds = %if.then3
@@ -4152,8 +4152,8 @@ if.then36:                                        ; preds = %do.end32
   %cmp38 = icmp ne i32 %call13.val11, 5
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp42 = icmp sgt i32 %17, 1
-  %or.cond1 = select i1 %cmp38, i1 true, i1 %cmp42
-  br i1 %or.cond1, label %if.end48, label %if.end45
+  %or.cond10 = select i1 %cmp38, i1 true, i1 %cmp42
+  br i1 %or.cond10, label %if.end48, label %if.end45
 
 if.end45:                                         ; preds = %if.then36
   %18 = load ptr, ptr %call.i, align 8
@@ -6425,8 +6425,8 @@ land.lhs.true:                                    ; preds = %if.then24
   %tobool27.not = icmp eq i32 %and.i, 0
   %13 = load ptr, ptr @myself, align 8
   %cmp29.not = icmp eq ptr %call7.i86, %13
-  %or.cond72 = select i1 %tobool27.not, i1 true, i1 %cmp29.not
-  br i1 %or.cond72, label %if.end66, label %if.then31
+  %or.cond = select i1 %tobool27.not, i1 true, i1 %cmp29.not
+  br i1 %or.cond, label %if.end66, label %if.then31
 
 if.then31:                                        ; preds = %land.lhs.true
   %14 = and i16 %call8, 12
@@ -6485,11 +6485,11 @@ if.end48:                                         ; preds = %clusterNodeAddFailu
 
 if.else:                                          ; preds = %if.then31
   %call49 = call i32 @clusterNodeDelFailureReport(ptr noundef nonnull %call7.i86, ptr noundef nonnull %cond)
-  %tobool50 = icmp eq i32 %call49, 0
+  %tobool50.not = icmp eq i32 %call49, 0
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp53 = icmp sgt i32 %21, 1
-  %or.cond1 = select i1 %tobool50, i1 true, i1 %cmp53
-  br i1 %or.cond1, label %if.end66, label %if.end56
+  %or.cond72 = select i1 %tobool50.not, i1 true, i1 %cmp53
+  br i1 %or.cond72, label %if.end66, label %if.end56
 
 if.end56:                                         ; preds = %if.else
   %22 = load ptr, ptr %human_nodename, align 8
@@ -9101,9 +9101,9 @@ if.then53:                                        ; preds = %if.end38
   %15 = load i8, ptr %mflags, align 1
   %16 = and i8 %15, 4
   %tobool.not = icmp eq i8 %16, 0
-  %tobool64.not364 = icmp eq i16 %call42, 0
-  %or.cond379 = select i1 %tobool.not, i1 true, i1 %tobool64.not364
-  br i1 %or.cond379, label %if.end166, label %while.body.preheader
+  %tobool64.not355 = icmp eq i16 %call42, 0
+  %or.cond370 = select i1 %tobool.not, i1 true, i1 %tobool64.not355
+  br i1 %or.cond370, label %if.end166, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.then53
   %data.i = getelementptr inbounds i8, ptr %0, i64 2256
@@ -9112,11 +9112,11 @@ while.body.preheader:                             ; preds = %if.then53
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end94
-  %dec367.in = phi i16 [ %dec367, %if.end94 ], [ %call42, %while.body.preheader ]
-  %explen.0366 = phi i32 [ %add96, %if.end94 ], [ %add, %while.body.preheader ]
-  %ext.0365 = phi ptr [ %add.ptr.i, %if.end94 ], [ %arrayidx.i, %while.body.preheader ]
-  %dec367 = add i16 %dec367.in, -1
-  %ext.0.val = load i32, ptr %ext.0365, align 8
+  %dec358.in = phi i16 [ %dec358, %if.end94 ], [ %call42, %while.body.preheader ]
+  %explen.0357 = phi i32 [ %add96, %if.end94 ], [ %add, %while.body.preheader ]
+  %ext.0356 = phi ptr [ %add.ptr.i, %if.end94 ], [ %arrayidx.i, %while.body.preheader ]
+  %dec358 = add i16 %dec358.in, -1
+  %ext.0.val = load i32, ptr %ext.0356, align 8
   %call.i = tail call i32 @ntohl(i32 noundef %ext.0.val) #35
   %conv67 = and i32 %call.i, 65535
   %rem = and i32 %call.i, 7
@@ -9134,7 +9134,7 @@ if.end75:                                         ; preds = %do.body71
   br label %return
 
 if.end80:                                         ; preds = %while.body
-  %sub = sub i32 %call, %explen.0366
+  %sub = sub i32 %call, %explen.0357
   %cmp82 = icmp ult i32 %sub, %conv67
   br i1 %cmp82, label %do.body85, label %if.end94
 
@@ -9149,10 +9149,10 @@ if.end89:                                         ; preds = %do.body85
   br label %return
 
 if.end94:                                         ; preds = %if.end80
-  %add96 = add i32 %conv67, %explen.0366
+  %add96 = add i32 %conv67, %explen.0357
   %idx.ext.i = zext i32 %call.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %ext.0365, i64 %idx.ext.i
-  %tobool64.not = icmp eq i16 %dec367, 0
+  %add.ptr.i = getelementptr inbounds i8, ptr %ext.0356, i64 %idx.ext.i
+  %tobool64.not = icmp eq i16 %dec358, 0
   br i1 %tobool64.not, label %if.end166, label %while.body, !llvm.loop !42
 
 if.else:                                          ; preds = %if.end38
@@ -9222,8 +9222,8 @@ land.lhs.true.i:                                  ; preds = %if.end180
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end180
   %sender4.i = getelementptr inbounds i8, ptr %0, i64 40
-  %call.i.i282 = tail call i32 @verifyClusterNodeId(ptr noundef nonnull %sender4.i, i32 noundef 40) #32
-  %cmp.not.i.i = icmp eq i32 %call.i.i282, 0
+  %call.i.i273 = tail call i32 @verifyClusterNodeId(ptr noundef nonnull %sender4.i, i32 noundef 40) #32
+  %cmp.not.i.i = icmp eq i32 %call.i.i273, 0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end233
 
 if.end.i.i:                                       ; preds = %if.else.i
@@ -9335,10 +9335,10 @@ land.lhs.true219:                                 ; preds = %land.lhs.true213
 
 if.then222:                                       ; preds = %land.lhs.true219
   store i64 %call204, ptr %mf_master_offset, align 8
-  %todo_before_sleep.i283 = getelementptr inbounds i8, ptr %37, i64 393352
-  %45 = load i32, ptr %todo_before_sleep.i283, align 8
-  %or.i284 = or i32 %45, 16
-  store i32 %or.i284, ptr %todo_before_sleep.i283, align 8
+  %todo_before_sleep.i274 = getelementptr inbounds i8, ptr %37, i64 393352
+  %45 = load i32, ptr %todo_before_sleep.i274, align 8
+  %or.i275 = or i32 %45, 16
+  store i32 %or.i275, ptr %todo_before_sleep.i274, align 8
   %46 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp226 = icmp sgt i32 %46, 2
   br i1 %cmp226, label %if.end233, label %if.end229
@@ -9348,8 +9348,8 @@ if.end229:                                        ; preds = %if.then222
   br label %if.end233
 
 if.end233:                                        ; preds = %if.end.i.i, %if.else.i, %clusterLookupNode.exit.i, %if.end203, %land.lhs.true206, %land.lhs.true210, %land.lhs.true213, %land.lhs.true219, %if.then222, %if.end229, %if.then183
-  %tobool182.not335 = phi i1 [ false, %if.then183 ], [ false, %if.then222 ], [ false, %if.end229 ], [ false, %land.lhs.true219 ], [ false, %land.lhs.true213 ], [ false, %land.lhs.true210 ], [ false, %land.lhs.true206 ], [ false, %if.end203 ], [ true, %clusterLookupNode.exit.i ], [ true, %if.else.i ], [ true, %if.end.i.i ]
-  %sender.0.i334 = phi ptr [ %sender.0.i, %if.then183 ], [ %sender.0.i, %if.then222 ], [ %sender.0.i, %if.end229 ], [ %sender.0.i, %land.lhs.true219 ], [ %sender.0.i, %land.lhs.true213 ], [ %sender.0.i, %land.lhs.true210 ], [ %sender.0.i, %land.lhs.true206 ], [ %sender.0.i, %if.end203 ], [ null, %clusterLookupNode.exit.i ], [ null, %if.else.i ], [ null, %if.end.i.i ]
+  %tobool182.not326 = phi i1 [ false, %if.then183 ], [ false, %if.then222 ], [ false, %if.end229 ], [ false, %land.lhs.true219 ], [ false, %land.lhs.true213 ], [ false, %land.lhs.true210 ], [ false, %land.lhs.true206 ], [ false, %if.end203 ], [ true, %clusterLookupNode.exit.i ], [ true, %if.else.i ], [ true, %if.end.i.i ]
+  %sender.0.i325 = phi ptr [ %sender.0.i, %if.then183 ], [ %sender.0.i, %if.then222 ], [ %sender.0.i, %if.end229 ], [ %sender.0.i, %land.lhs.true219 ], [ %sender.0.i, %land.lhs.true213 ], [ %sender.0.i, %land.lhs.true210 ], [ %sender.0.i, %land.lhs.true206 ], [ %sender.0.i, %if.end203 ], [ null, %clusterLookupNode.exit.i ], [ null, %if.else.i ], [ null, %if.end.i.i ]
   %senderConfigEpoch.0 = phi i64 [ 0, %if.then183 ], [ %call191, %if.then222 ], [ %call191, %if.end229 ], [ %call191, %land.lhs.true219 ], [ %call191, %land.lhs.true213 ], [ %call191, %land.lhs.true210 ], [ %call191, %land.lhs.true206 ], [ %call191, %if.end203 ], [ 0, %clusterLookupNode.exit.i ], [ 0, %if.else.i ], [ 0, %if.end.i.i ]
   %senderCurrentEpoch.0 = phi i64 [ 0, %if.then183 ], [ %call190, %if.then222 ], [ %call190, %if.end229 ], [ %call190, %land.lhs.true219 ], [ %call190, %land.lhs.true213 ], [ %call190, %land.lhs.true210 ], [ %call190, %land.lhs.true206 ], [ %call190, %if.end203 ], [ 0, %clusterLookupNode.exit.i ], [ 0, %if.else.i ], [ 0, %if.end.i.i ]
   switch i16 %call3, label %if.end305 [
@@ -9367,8 +9367,8 @@ lor.lhs.false245:                                 ; preds = %if.then241
   %cmp248 = icmp eq i8 %48, 0
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5240), align 8
   %cmp251 = icmp eq ptr %49, null
-  %or.cond6 = select i1 %cmp248, i1 %cmp251, i1 false
-  br i1 %or.cond6, label %if.then253, label %if.end305.thread
+  %or.cond = select i1 %cmp248, i1 %cmp251, i1 false
+  br i1 %or.cond, label %if.then253, label %if.end305.thread
 
 land.lhs.true250:                                 ; preds = %if.then241
   %.old = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5240), align 8
@@ -9389,8 +9389,8 @@ land.lhs.true.i.i:                                ; preds = %if.then253
   br i1 %tobool1.not.i.i, label %if.end277, label %connAddrSockName.exit
 
 connAddrSockName.exit:                            ; preds = %land.lhs.true.i.i
-  %call.i.i285 = call i32 %52(ptr noundef nonnull %50, ptr noundef nonnull %ip254, i64 noundef 46, ptr noundef null, i32 noundef 0) #32
-  %cmp256.not = icmp eq i32 %call.i.i285, -1
+  %call.i.i276 = call i32 %52(ptr noundef nonnull %50, ptr noundef nonnull %ip254, i64 noundef 46, ptr noundef null, i32 noundef 0) #32
+  %cmp256.not = icmp eq i32 %call.i.i276, -1
   br i1 %cmp256.not, label %if.end277, label %land.lhs.true258
 
 land.lhs.true258:                                 ; preds = %connAddrSockName.exit
@@ -9412,15 +9412,15 @@ if.end272:                                        ; preds = %if.then264
 
 do.end275:                                        ; preds = %if.then264, %if.end272
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %todo_before_sleep.i286 = getelementptr inbounds i8, ptr %55, i64 393352
-  %56 = load i32, ptr %todo_before_sleep.i286, align 8
-  %or.i287 = or i32 %56, 4
-  store i32 %or.i287, ptr %todo_before_sleep.i286, align 8
+  %todo_before_sleep.i277 = getelementptr inbounds i8, ptr %55, i64 393352
+  %56 = load i32, ptr %todo_before_sleep.i277, align 8
+  %or.i278 = or i32 %56, 4
+  store i32 %or.i278, ptr %todo_before_sleep.i277, align 8
   br label %if.end277
 
 if.end277:                                        ; preds = %if.then253, %land.lhs.true.i.i, %connAddrSockName.exit, %land.lhs.true258, %do.end275, %land.lhs.true250
-  %or.cond8 = select i1 %tobool182.not335, i1 %cmp51, i1 false
-  br i1 %or.cond8, label %if.then283, label %if.end305.thread
+  %or.cond6 = select i1 %tobool182.not326, i1 %cmp51, i1 false
+  br i1 %or.cond6, label %if.then283, label %if.end305.thread
 
 if.then283:                                       ; preds = %if.end277
   %call284 = call ptr @createClusterNode(ptr noundef null, i32 noundef 32)
@@ -9447,10 +9447,10 @@ if.then303:                                       ; preds = %if.then283
   store i32 %conv295, ptr %cport296, align 8
   call void @clusterAddNode(ptr noundef %call284)
   %58 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %todo_before_sleep.i288 = getelementptr inbounds i8, ptr %58, i64 393352
-  %59 = load i32, ptr %todo_before_sleep.i288, align 8
-  %or.i289 = or i32 %59, 4
-  store i32 %or.i289, ptr %todo_before_sleep.i288, align 8
+  %todo_before_sleep.i279 = getelementptr inbounds i8, ptr %58, i64 393352
+  %59 = load i32, ptr %todo_before_sleep.i279, align 8
+  %or.i280 = or i32 %59, 4
+  store i32 %or.i280, ptr %todo_before_sleep.i279, align 8
   call void @clusterProcessGossipSection(ptr noundef %0, ptr noundef nonnull %link)
   br label %if.end305.thread
 
@@ -9490,7 +9490,7 @@ if.then334:                                       ; preds = %do.end332
   br i1 %tobool338.not, label %if.else375, label %if.then339
 
 if.then339:                                       ; preds = %if.then334
-  br i1 %tobool182.not335, label %if.end355, label %do.body342
+  br i1 %tobool182.not326, label %if.end355, label %do.body342
 
 do.body342:                                       ; preds = %if.then339
   %65 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
@@ -9498,23 +9498,23 @@ do.body342:                                       ; preds = %if.then339
   br i1 %cmp343, label %do.end349, label %if.end346
 
 if.end346:                                        ; preds = %do.body342
-  %name347 = getelementptr inbounds i8, ptr %sender.0.i334, i64 8
-  %human_nodename = getelementptr inbounds i8, ptr %sender.0.i334, i64 2320
+  %name347 = getelementptr inbounds i8, ptr %sender.0.i325, i64 8
+  %human_nodename = getelementptr inbounds i8, ptr %sender.0.i325, i64 2320
   %66 = load ptr, ptr %human_nodename, align 8
   call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef nonnull @.str.91, ptr noundef nonnull %name347, ptr noundef %66) #32
   br label %do.end349
 
 do.end349:                                        ; preds = %do.body342, %if.end346
-  %call350 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef %sender.0.i334, ptr noundef nonnull %link, ptr noundef %0)
+  %call350 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef %sender.0.i325, ptr noundef nonnull %link, ptr noundef %0)
   %tobool351.not = icmp eq i32 %call350, 0
   br i1 %tobool351.not, label %if.end353, label %if.then352
 
 if.then352:                                       ; preds = %do.end349
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %todo_before_sleep.i290 = getelementptr inbounds i8, ptr %67, i64 393352
-  %68 = load i32, ptr %todo_before_sleep.i290, align 8
-  %or.i291 = or i32 %68, 6
-  store i32 %or.i291, ptr %todo_before_sleep.i290, align 8
+  %todo_before_sleep.i281 = getelementptr inbounds i8, ptr %67, i64 393352
+  %68 = load i32, ptr %todo_before_sleep.i281, align 8
+  %or.i282 = or i32 %68, 6
+  store i32 %or.i282, ptr %todo_before_sleep.i281, align 8
   br label %if.end353
 
 if.end353:                                        ; preds = %if.then352, %do.end349
@@ -9549,10 +9549,10 @@ if.end413.thread:                                 ; preds = %if.end363, %if.end3
   %or = or i32 %76, %and372
   store i32 %or, ptr %flags374, align 8
   %77 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %todo_before_sleep.i292 = getelementptr inbounds i8, ptr %77, i64 393352
-  %78 = load i32, ptr %todo_before_sleep.i292, align 8
-  %or.i293 = or i32 %78, 4
-  store i32 %or.i293, ptr %todo_before_sleep.i292, align 8
+  %todo_before_sleep.i283 = getelementptr inbounds i8, ptr %77, i64 393352
+  %78 = load i32, ptr %todo_before_sleep.i283, align 8
+  %or.i284 = or i32 %78, 4
+  store i32 %or.i284, ptr %todo_before_sleep.i283, align 8
   br label %if.end436
 
 if.else375:                                       ; preds = %if.then334
@@ -9572,14 +9572,14 @@ if.end389:                                        ; preds = %do.body385
   %sub394 = sub nsw i64 %call4, %80
   %conv395 = trunc i64 %sub394 to i32
   call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef nonnull @.str.93, ptr noundef nonnull %name377, i32 noundef %conv395, i32 noundef %64) #32
-  %.pre372 = load ptr, ptr %node.i, align 8
-  %flags400.phi.trans.insert = getelementptr inbounds i8, ptr %.pre372, i64 88
-  %.pre373 = load i32, ptr %flags400.phi.trans.insert, align 8
+  %.pre363 = load ptr, ptr %node.i, align 8
+  %flags400.phi.trans.insert = getelementptr inbounds i8, ptr %.pre363, i64 88
+  %.pre364 = load i32, ptr %flags400.phi.trans.insert, align 8
   br label %do.end398
 
 do.end398:                                        ; preds = %do.body385, %if.end389
-  %81 = phi i32 [ %64, %do.body385 ], [ %.pre373, %if.end389 ]
-  %82 = phi ptr [ %63, %do.body385 ], [ %.pre372, %if.end389 ]
+  %81 = phi i32 [ %64, %do.body385 ], [ %.pre364, %if.end389 ]
+  %82 = phi ptr [ %63, %do.body385 ], [ %.pre363, %if.end389 ]
   %flags400 = getelementptr inbounds i8, ptr %82, i64 88
   %or401 = or i32 %81, 64
   store i32 %or401, ptr %flags400, align 8
@@ -9597,19 +9597,19 @@ do.end398:                                        ; preds = %do.body385, %if.end
   store i32 0, ptr %cport410, align 8
   call void @freeClusterLink(ptr noundef nonnull %link)
   %87 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %todo_before_sleep.i294 = getelementptr inbounds i8, ptr %87, i64 393352
-  %88 = load i32, ptr %todo_before_sleep.i294, align 8
-  %or.i295 = or i32 %88, 4
-  store i32 %or.i295, ptr %todo_before_sleep.i294, align 8
+  %todo_before_sleep.i285 = getelementptr inbounds i8, ptr %87, i64 393352
+  %88 = load i32, ptr %todo_before_sleep.i285, align 8
+  %or.i286 = or i32 %88, 4
+  store i32 %or.i286, ptr %todo_before_sleep.i285, align 8
   br label %return
 
 if.end413:                                        ; preds = %if.else375, %do.end332
-  br i1 %tobool182.not335, label %if.end436, label %if.then415
+  br i1 %tobool182.not326, label %if.end436, label %if.then415
 
 if.then415:                                       ; preds = %if.end413
   %89 = and i16 %call40, 512
   %and417 = zext nneg i16 %89 to i32
-  %flags418 = getelementptr inbounds i8, ptr %sender.0.i334, i64 88
+  %flags418 = getelementptr inbounds i8, ptr %sender.0.i325, i64 88
   %90 = load i32, ptr %flags418, align 8
   %and419 = and i32 %90, -513
   %or421 = or disjoint i32 %and419, %and417
@@ -9622,23 +9622,23 @@ land.lhs.true428:                                 ; preds = %if.then415
   br i1 %tobool431.not, label %land.lhs.true432, label %if.then465
 
 land.lhs.true432:                                 ; preds = %land.lhs.true428
-  %call433 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef nonnull %sender.0.i334, ptr noundef nonnull %link, ptr noundef %0)
+  %call433 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef nonnull %sender.0.i325, ptr noundef nonnull %link, ptr noundef %0)
   %tobool434.not = icmp eq i32 %call433, 0
   br i1 %tobool434.not, label %if.then465, label %if.then435
 
 if.then435:                                       ; preds = %land.lhs.true432
   %91 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %todo_before_sleep.i296 = getelementptr inbounds i8, ptr %91, i64 393352
-  %92 = load i32, ptr %todo_before_sleep.i296, align 8
-  %or.i297 = or i32 %92, 6
-  store i32 %or.i297, ptr %todo_before_sleep.i296, align 8
+  %todo_before_sleep.i287 = getelementptr inbounds i8, ptr %91, i64 393352
+  %92 = load i32, ptr %todo_before_sleep.i287, align 8
+  %or.i288 = or i32 %92, 6
+  store i32 %or.i288, ptr %todo_before_sleep.i287, align 8
   br label %if.then465
 
 if.end436:                                        ; preds = %if.end413.thread, %if.end413, %if.then415
   %93 = load i32, ptr %inbound, align 8
   %tobool438 = icmp eq i32 %93, 0
-  %or.cond18 = select i1 %tobool438, i1 %cmp47, i1 false
-  br i1 %or.cond18, label %if.then443, label %if.end463
+  %or.cond11 = select i1 %tobool438, i1 %cmp47, i1 false
+  br i1 %or.cond11, label %if.then443, label %if.end463
 
 if.then443:                                       ; preds = %if.end436
   %94 = load ptr, ptr %node.i, align 8
@@ -9658,10 +9658,10 @@ if.then450:                                       ; preds = %if.then443
   %and453 = and i32 %97, -5
   store i32 %and453, ptr %flags447, align 8
   %98 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %todo_before_sleep.i298 = getelementptr inbounds i8, ptr %98, i64 393352
-  %99 = load i32, ptr %todo_before_sleep.i298, align 8
-  %or.i299 = or i32 %99, 6
-  store i32 %or.i299, ptr %todo_before_sleep.i298, align 8
+  %todo_before_sleep.i289 = getelementptr inbounds i8, ptr %98, i64 393352
+  %99 = load i32, ptr %todo_before_sleep.i289, align 8
+  %or.i290 = or i32 %99, 6
+  store i32 %or.i290, ptr %todo_before_sleep.i289, align 8
   br label %if.end463
 
 if.else454:                                       ; preds = %if.then443
@@ -9674,37 +9674,37 @@ if.then459:                                       ; preds = %if.else454
   br label %if.end463
 
 if.end463:                                        ; preds = %if.then450, %if.then459, %if.else454, %if.end436
-  br i1 %tobool182.not335, label %return, label %if.then465
+  br i1 %tobool182.not326, label %return, label %if.then465
 
 if.then465:                                       ; preds = %if.then435, %land.lhs.true432, %land.lhs.true428, %if.end463
   %slaveof466 = getelementptr inbounds i8, ptr %0, i64 2128
-  %bcmp280 = call i32 @bcmp(ptr noundef nonnull dereferenceable(40) %slaveof466, ptr noundef nonnull dereferenceable(40) @.str.94, i64 40)
-  %tobool469.not = icmp eq i32 %bcmp280, 0
+  %bcmp270 = call i32 @bcmp(ptr noundef nonnull dereferenceable(40) %slaveof466, ptr noundef nonnull dereferenceable(40) @.str.94, i64 40)
+  %tobool469.not = icmp eq i32 %bcmp270, 0
   br i1 %tobool469.not, label %if.then470, label %if.else471
 
 if.then470:                                       ; preds = %if.then465
-  call void @clusterSetNodeAsMaster(ptr noundef %sender.0.i334)
+  call void @clusterSetNodeAsMaster(ptr noundef %sender.0.i325)
   br label %if.then502
 
 if.else471:                                       ; preds = %if.then465
   %call474 = call ptr @clusterLookupNode(ptr noundef nonnull %slaveof466, i32 noundef 40)
-  %flags.i300 = getelementptr inbounds i8, ptr %sender.0.i334, i64 88
-  %100 = load i32, ptr %flags.i300, align 8
-  %and.i301 = and i32 %100, 1
-  %tobool476.not = icmp eq i32 %and.i301, 0
+  %flags.i291 = getelementptr inbounds i8, ptr %sender.0.i325, i64 88
+  %100 = load i32, ptr %flags.i291, align 8
+  %and.i292 = and i32 %100, 1
+  %tobool476.not = icmp eq i32 %and.i292, 0
   br i1 %tobool476.not, label %if.end483, label %if.then477
 
 if.then477:                                       ; preds = %if.else471
-  %call478 = call i32 @clusterDelNodeSlots(ptr noundef nonnull %sender.0.i334)
-  %101 = load i32, ptr %flags.i300, align 8
+  %call478 = call i32 @clusterDelNodeSlots(ptr noundef nonnull %sender.0.i325)
+  %101 = load i32, ptr %flags.i291, align 8
   %and480 = and i32 %101, -260
   %or482 = or disjoint i32 %and480, 2
-  store i32 %or482, ptr %flags.i300, align 8
+  store i32 %or482, ptr %flags.i291, align 8
   %102 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %todo_before_sleep.i302 = getelementptr inbounds i8, ptr %102, i64 393352
-  %103 = load i32, ptr %todo_before_sleep.i302, align 8
-  %or.i303 = or i32 %103, 6
-  store i32 %or.i303, ptr %todo_before_sleep.i302, align 8
+  %todo_before_sleep.i293 = getelementptr inbounds i8, ptr %102, i64 393352
+  %103 = load i32, ptr %todo_before_sleep.i293, align 8
+  %or.i294 = or i32 %103, 6
+  store i32 %or.i294, ptr %todo_before_sleep.i293, align 8
   br label %if.end483
 
 if.end483:                                        ; preds = %if.then477, %if.else471
@@ -9712,7 +9712,7 @@ if.end483:                                        ; preds = %if.then477, %if.els
   br i1 %tobool484.not, label %if.then502, label %land.lhs.true485
 
 land.lhs.true485:                                 ; preds = %if.end483
-  %slaveof486 = getelementptr inbounds i8, ptr %sender.0.i334, i64 2184
+  %slaveof486 = getelementptr inbounds i8, ptr %sender.0.i325, i64 2184
   %104 = load ptr, ptr %slaveof486, align 8
   %cmp487.not = icmp eq ptr %104, %call474
   br i1 %cmp487.not, label %if.then502, label %if.then489
@@ -9722,44 +9722,44 @@ if.then489:                                       ; preds = %land.lhs.true485
   br i1 %tobool491.not, label %if.end495, label %if.then492
 
 if.then492:                                       ; preds = %if.then489
-  %call494 = call i32 @clusterNodeRemoveSlave(ptr noundef nonnull %104, ptr noundef nonnull %sender.0.i334)
+  %call494 = call i32 @clusterNodeRemoveSlave(ptr noundef nonnull %104, ptr noundef nonnull %sender.0.i325)
   br label %if.end495
 
 if.end495:                                        ; preds = %if.then492, %if.then489
-  %call496 = call i32 @clusterNodeAddSlave(ptr noundef nonnull %call474, ptr noundef nonnull %sender.0.i334)
+  %call496 = call i32 @clusterNodeAddSlave(ptr noundef nonnull %call474, ptr noundef nonnull %sender.0.i325)
   store ptr %call474, ptr %slaveof486, align 8
   %105 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %todo_before_sleep.i304 = getelementptr inbounds i8, ptr %105, i64 393352
-  %106 = load i32, ptr %todo_before_sleep.i304, align 8
-  %or.i305 = or i32 %106, 4
-  store i32 %or.i305, ptr %todo_before_sleep.i304, align 8
+  %todo_before_sleep.i295 = getelementptr inbounds i8, ptr %105, i64 393352
+  %106 = load i32, ptr %todo_before_sleep.i295, align 8
+  %or.i296 = or i32 %106, 4
+  store i32 %or.i296, ptr %todo_before_sleep.i295, align 8
   br label %if.then502
 
 if.then502:                                       ; preds = %if.end483, %land.lhs.true485, %if.end495, %if.then470
-  %flags.i306 = getelementptr inbounds i8, ptr %sender.0.i334, i64 88
-  %107 = load i32, ptr %flags.i306, align 8
-  %and.i307 = and i32 %107, 1
-  %tobool504.not = icmp eq i32 %and.i307, 0
+  %flags.i297 = getelementptr inbounds i8, ptr %sender.0.i325, i64 88
+  %107 = load i32, ptr %flags.i297, align 8
+  %and.i298 = and i32 %107, 1
+  %tobool504.not = icmp eq i32 %and.i298, 0
   br i1 %tobool504.not, label %cond.end508, label %land.lhs.true520
 
 cond.end508:                                      ; preds = %if.then502
-  %slaveof507 = getelementptr inbounds i8, ptr %sender.0.i334, i64 2184
+  %slaveof507 = getelementptr inbounds i8, ptr %sender.0.i325, i64 2184
   %108 = load ptr, ptr %slaveof507, align 8
   %tobool510.not = icmp eq ptr %108, null
   br i1 %tobool510.not, label %land.lhs.true586, label %land.lhs.true520
 
 land.lhs.true520:                                 ; preds = %if.then502, %cond.end508
-  %cond509343 = phi ptr [ %108, %cond.end508 ], [ %sender.0.i334, %if.then502 ]
-  %slots = getelementptr inbounds i8, ptr %cond509343, i64 104
+  %cond509334 = phi ptr [ %108, %cond.end508 ], [ %sender.0.i325, %if.then502 ]
+  %slots = getelementptr inbounds i8, ptr %cond509334, i64 104
   %myslots = getelementptr inbounds i8, ptr %0, i64 80
-  %bcmp281 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2048) %slots, ptr noundef nonnull dereferenceable(2048) %myslots, i64 2048)
-  %cmp515 = icmp ne i32 %bcmp281, 0
-  %tobool522 = icmp ne i32 %and.i307, 0
-  %or.cond20 = select i1 %tobool522, i1 %cmp515, i1 false
-  br i1 %or.cond20, label %if.then525, label %if.end528
+  %bcmp271 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2048) %slots, ptr noundef nonnull dereferenceable(2048) %myslots, i64 2048)
+  %cmp515 = icmp ne i32 %bcmp271, 0
+  %tobool522 = icmp ne i32 %and.i298, 0
+  %or.cond12 = select i1 %tobool522, i1 %cmp515, i1 false
+  br i1 %or.cond12, label %if.then525, label %if.end528
 
 if.then525:                                       ; preds = %land.lhs.true520
-  call void @clusterUpdateSlotsConfigWith(ptr noundef nonnull %sender.0.i334, i64 noundef %senderConfigEpoch.0, ptr noundef nonnull %myslots)
+  call void @clusterUpdateSlotsConfigWith(ptr noundef nonnull %sender.0.i325, i64 noundef %senderConfigEpoch.0, ptr noundef nonnull %myslots)
   br label %for.cond.preheader
 
 if.end528:                                        ; preds = %land.lhs.true520
@@ -9774,13 +9774,13 @@ for.cond.preheader:                               ; preds = %if.end528, %if.then
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
   %110 = trunc nuw nsw i64 %indvars.iv to i32
-  %div.i357358359 = lshr i64 %indvars.iv, 3
-  %conv.i = and i64 %div.i357358359, 536870911
-  %and.i310 = and i32 %110, 7
-  %arrayidx.i311 = getelementptr inbounds i8, ptr %myslots, i64 %conv.i
-  %111 = load i8, ptr %arrayidx.i311, align 1
+  %div.i348349350 = lshr i64 %indvars.iv, 3
+  %conv.i = and i64 %div.i348349350, 536870911
+  %and.i301 = and i32 %110, 7
+  %arrayidx.i302 = getelementptr inbounds i8, ptr %myslots, i64 %conv.i
+  %111 = load i8, ptr %arrayidx.i302, align 1
   %conv1.i = zext i8 %111 to i32
-  %112 = shl nuw nsw i32 1, %and.i310
+  %112 = shl nuw nsw i32 1, %and.i301
   %113 = and i32 %112, %conv1.i
   %tobool538.not = icmp eq i32 %113, 0
   br i1 %tobool538.not, label %for.inc, label %if.then539
@@ -9788,16 +9788,16 @@ for.body:                                         ; preds = %for.cond.preheader,
 if.then539:                                       ; preds = %for.body
   %arrayidx542 = getelementptr inbounds [16384 x ptr], ptr %slots540, i64 0, i64 %indvars.iv
   %114 = load ptr, ptr %arrayidx542, align 8
-  %cmp543 = icmp eq ptr %114, %sender.0.i334
+  %cmp543 = icmp eq ptr %114, %sender.0.i325
   %cmp549 = icmp eq ptr %114, null
-  %or.cond = or i1 %cmp543, %cmp549
-  br i1 %or.cond, label %for.inc, label %lor.lhs.false551
+  %or.cond272 = or i1 %cmp543, %cmp549
+  br i1 %or.cond272, label %for.inc, label %lor.lhs.false551
 
 lor.lhs.false551:                                 ; preds = %if.then539
-  %arrayidx.i315 = getelementptr inbounds i8, ptr %owner_not_claiming_slot, i64 %conv.i
-  %115 = load i8, ptr %arrayidx.i315, align 1
-  %conv1.i316 = zext i8 %115 to i32
-  %116 = and i32 %112, %conv1.i316
+  %arrayidx.i306 = getelementptr inbounds i8, ptr %owner_not_claiming_slot, i64 %conv.i
+  %115 = load i8, ptr %arrayidx.i306, align 1
+  %conv1.i307 = zext i8 %115 to i32
+  %116 = and i32 %112, %conv1.i307
   %tobool554.not = icmp eq i32 %116, 0
   br i1 %tobool554.not, label %if.end556, label %for.inc
 
@@ -9813,18 +9813,18 @@ do.body564:                                       ; preds = %if.end556
   br i1 %cmp565, label %do.end576, label %if.end568
 
 if.end568:                                        ; preds = %do.body564
-  %name569 = getelementptr inbounds i8, ptr %sender.0.i334, i64 8
+  %name569 = getelementptr inbounds i8, ptr %sender.0.i325, i64 8
   %name574 = getelementptr inbounds i8, ptr %114, i64 8
   call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef nonnull @.str.95, ptr noundef nonnull %name569, ptr noundef nonnull %name574) #32
-  %.pre374 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %slots578.phi.trans.insert = getelementptr inbounds i8, ptr %.pre374, i64 262192
+  %.pre365 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %slots578.phi.trans.insert = getelementptr inbounds i8, ptr %.pre365, i64 262192
   %arrayidx580.phi.trans.insert = getelementptr inbounds [16384 x ptr], ptr %slots578.phi.trans.insert, i64 0, i64 %indvars.iv
-  %.pre375 = load ptr, ptr %arrayidx580.phi.trans.insert, align 8
+  %.pre366 = load ptr, ptr %arrayidx580.phi.trans.insert, align 8
   br label %do.end576
 
 do.end576:                                        ; preds = %do.body564, %if.end568
-  %119 = phi ptr [ %114, %do.body564 ], [ %.pre375, %if.end568 ]
-  %link577 = getelementptr inbounds i8, ptr %sender.0.i334, i64 2344
+  %119 = phi ptr [ %114, %do.body564 ], [ %.pre366, %if.end568 ]
+  %link577 = getelementptr inbounds i8, ptr %sender.0.i325, i64 2344
   %120 = load ptr, ptr %link577, align 8
   call void @clusterSendUpdate(ptr noundef %120, ptr noundef %119)
   br label %land.lhs.true586
@@ -9836,16 +9836,16 @@ for.inc:                                          ; preds = %for.body, %if.end55
 
 land.lhs.true586:                                 ; preds = %for.inc, %cond.end508, %if.end528, %do.end576
   %121 = load ptr, ptr @myself, align 8
-  %flags.i318 = getelementptr inbounds i8, ptr %121, i64 88
-  %122 = load i32, ptr %flags.i318, align 8
-  %and.i319 = and i32 %122, 1
-  %tobool588.not = icmp eq i32 %and.i319, 0
+  %flags.i309 = getelementptr inbounds i8, ptr %121, i64 88
+  %122 = load i32, ptr %flags.i309, align 8
+  %and.i310 = and i32 %122, 1
+  %tobool588.not = icmp eq i32 %and.i310, 0
   br i1 %tobool588.not, label %if.then599, label %land.lhs.true589
 
 land.lhs.true589:                                 ; preds = %land.lhs.true586
-  %123 = load i32, ptr %flags.i306, align 8
-  %and.i321 = and i32 %123, 1
-  %tobool591.not = icmp eq i32 %and.i321, 0
+  %123 = load i32, ptr %flags.i297, align 8
+  %and.i312 = and i32 %123, 1
+  %tobool591.not = icmp eq i32 %and.i312, 0
   br i1 %tobool591.not, label %if.then599, label %land.lhs.true592
 
 land.lhs.true592:                                 ; preds = %land.lhs.true589
@@ -9855,7 +9855,7 @@ land.lhs.true592:                                 ; preds = %land.lhs.true589
   br i1 %cmp594, label %if.then596, label %if.then599
 
 if.then596:                                       ; preds = %land.lhs.true592
-  call void @clusterHandleConfigEpochCollision(ptr noundef nonnull %sender.0.i334)
+  call void @clusterHandleConfigEpochCollision(ptr noundef nonnull %sender.0.i325)
   br label %if.then599
 
 if.then599:                                       ; preds = %land.lhs.true586, %land.lhs.true589, %land.lhs.true592, %if.then596
@@ -9868,7 +9868,7 @@ if.else601:                                       ; preds = %if.end305
   br i1 %cmp603, label %if.then605, label %if.else650
 
 if.then605:                                       ; preds = %if.else601
-  br i1 %tobool182.not335, label %do.body637, label %if.then607
+  br i1 %tobool182.not326, label %do.body637, label %if.then607
 
 if.then607:                                       ; preds = %if.then605
   %data608 = getelementptr inbounds i8, ptr %0, i64 2256
@@ -9890,7 +9890,7 @@ do.body617:                                       ; preds = %land.lhs.true612
 
 if.end621:                                        ; preds = %do.body617
   %sender622 = getelementptr inbounds i8, ptr %0, i64 40
-  %human_nodename624 = getelementptr inbounds i8, ptr %sender.0.i334, i64 2320
+  %human_nodename624 = getelementptr inbounds i8, ptr %sender.0.i325, i64 2320
   %127 = load ptr, ptr %human_nodename624, align 8
   %human_nodename629 = getelementptr inbounds i8, ptr %call610, i64 2320
   %128 = load ptr, ptr %human_nodename629, align 8
@@ -9906,10 +9906,10 @@ do.end630:                                        ; preds = %do.body617, %if.end
   %and634 = or disjoint i32 %or632, 8
   store i32 %and634, ptr %flags613, align 8
   %130 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %todo_before_sleep.i322 = getelementptr inbounds i8, ptr %130, i64 393352
-  %131 = load i32, ptr %todo_before_sleep.i322, align 8
-  %or.i323 = or i32 %131, 6
-  store i32 %or.i323, ptr %todo_before_sleep.i322, align 8
+  %todo_before_sleep.i313 = getelementptr inbounds i8, ptr %130, i64 393352
+  %131 = load i32, ptr %todo_before_sleep.i313, align 8
+  %or.i314 = or i32 %131, 6
+  store i32 %or.i314, ptr %todo_before_sleep.i313, align 8
   br label %return
 
 do.body637:                                       ; preds = %if.then605
@@ -9937,7 +9937,7 @@ if.else650:                                       ; preds = %if.else601
   ]
 
 if.then658:                                       ; preds = %if.else650, %if.else650
-  br i1 %tobool182.not335, label %return, label %if.end661
+  br i1 %tobool182.not326, label %return, label %if.end661
 
 if.end661:                                        ; preds = %if.then658
   br i1 %cmp652, label %land.lhs.true667, label %lor.lhs.false671
@@ -9975,24 +9975,24 @@ if.then679:                                       ; preds = %land.lhs.true675, %
   br label %return
 
 if.then708:                                       ; preds = %if.else650
-  br i1 %tobool182.not335, label %return, label %if.end711
+  br i1 %tobool182.not326, label %return, label %if.end711
 
 if.end711:                                        ; preds = %if.then708
-  tail call void @clusterSendFailoverAuthIfNeeded(ptr noundef %sender.0.i334, ptr noundef %0)
+  tail call void @clusterSendFailoverAuthIfNeeded(ptr noundef %sender.0.i325, ptr noundef %0)
   br label %return
 
 if.then716:                                       ; preds = %if.else650
-  br i1 %tobool182.not335, label %return, label %if.end719
+  br i1 %tobool182.not326, label %return, label %if.end719
 
 if.end719:                                        ; preds = %if.then716
-  %flags.i324 = getelementptr inbounds i8, ptr %sender.0.i334, i64 88
-  %135 = load i32, ptr %flags.i324, align 8
-  %and.i325 = and i32 %135, 1
-  %tobool721.not = icmp eq i32 %and.i325, 0
+  %flags.i315 = getelementptr inbounds i8, ptr %sender.0.i325, i64 88
+  %135 = load i32, ptr %flags.i315, align 8
+  %and.i316 = and i32 %135, 1
+  %tobool721.not = icmp eq i32 %and.i316, 0
   br i1 %tobool721.not, label %return, label %land.lhs.true722
 
 land.lhs.true722:                                 ; preds = %if.end719
-  %numslots = getelementptr inbounds i8, ptr %sender.0.i334, i64 2164
+  %numslots = getelementptr inbounds i8, ptr %sender.0.i325, i64 2164
   %136 = load i32, ptr %numslots, align 4
   %cmp723 = icmp sgt i32 %136, 0
   br i1 %cmp723, label %land.lhs.true725, label %return
@@ -10009,17 +10009,17 @@ if.then728:                                       ; preds = %land.lhs.true725
   %139 = load i32, ptr %failover_auth_count, align 8
   %inc729 = add nsw i32 %139, 1
   store i32 %inc729, ptr %failover_auth_count, align 8
-  %todo_before_sleep.i326 = getelementptr inbounds i8, ptr %137, i64 393352
-  %140 = load i32, ptr %todo_before_sleep.i326, align 8
-  %or.i327 = or i32 %140, 1
-  store i32 %or.i327, ptr %todo_before_sleep.i326, align 8
+  %todo_before_sleep.i317 = getelementptr inbounds i8, ptr %137, i64 393352
+  %140 = load i32, ptr %todo_before_sleep.i317, align 8
+  %or.i318 = or i32 %140, 1
+  store i32 %or.i318, ptr %todo_before_sleep.i317, align 8
   br label %return
 
 if.then735:                                       ; preds = %if.else650
-  br i1 %tobool182.not335, label %return, label %lor.lhs.false737
+  br i1 %tobool182.not326, label %return, label %lor.lhs.false737
 
 lor.lhs.false737:                                 ; preds = %if.then735
-  %slaveof738 = getelementptr inbounds i8, ptr %sender.0.i334, i64 2184
+  %slaveof738 = getelementptr inbounds i8, ptr %sender.0.i325, i64 2184
   %141 = load ptr, ptr %slaveof738, align 8
   %142 = load ptr, ptr @myself, align 8
   %cmp739.not = icmp eq ptr %141, %142
@@ -10032,7 +10032,7 @@ if.end742:                                        ; preds = %lor.lhs.false737
   %mf_end744 = getelementptr inbounds i8, ptr %143, i64 393312
   store i64 %add743, ptr %mf_end744, align 8
   %mf_slave = getelementptr inbounds i8, ptr %143, i64 393320
-  store ptr %sender.0.i334, ptr %mf_slave, align 8
+  store ptr %sender.0.i325, ptr %mf_slave, align 8
   %add745 = add nsw i64 %call4, 10000
   tail call void @pauseActions(i32 noundef 2, i64 noundef %add745, i32 noundef 29) #32
   %144 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
@@ -10040,8 +10040,8 @@ if.end742:                                        ; preds = %lor.lhs.false737
   br i1 %cmp747, label %do.end754, label %if.end750
 
 if.end750:                                        ; preds = %if.end742
-  %name751 = getelementptr inbounds i8, ptr %sender.0.i334, i64 8
-  %human_nodename753 = getelementptr inbounds i8, ptr %sender.0.i334, i64 2320
+  %name751 = getelementptr inbounds i8, ptr %sender.0.i325, i64 8
+  %human_nodename753 = getelementptr inbounds i8, ptr %sender.0.i325, i64 2320
   %145 = load ptr, ptr %human_nodename753, align 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.98, ptr noundef nonnull %name751, ptr noundef %145) #32
   br label %do.end754
@@ -10054,7 +10054,7 @@ if.then759:                                       ; preds = %if.else650
   %data760 = getelementptr inbounds i8, ptr %0, i64 2256
   %146 = load i64, ptr %data760, align 8
   %call762 = tail call i64 @intrev64(i64 noundef %146) #32
-  br i1 %tobool182.not335, label %return, label %if.end765
+  br i1 %tobool182.not326, label %return, label %if.end765
 
 if.end765:                                        ; preds = %if.then759
   %nodename768 = getelementptr inbounds i8, ptr %0, i64 2264
@@ -10082,16 +10082,16 @@ if.then782:                                       ; preds = %if.end778
 if.end783:                                        ; preds = %if.then782, %if.end778
   store i64 %call762, ptr %configEpoch774, align 8
   %149 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %todo_before_sleep.i328 = getelementptr inbounds i8, ptr %149, i64 393352
-  %150 = load i32, ptr %todo_before_sleep.i328, align 8
-  %or.i329 = or i32 %150, 12
-  store i32 %or.i329, ptr %todo_before_sleep.i328, align 8
+  %todo_before_sleep.i319 = getelementptr inbounds i8, ptr %149, i64 393352
+  %150 = load i32, ptr %todo_before_sleep.i319, align 8
+  %or.i320 = or i32 %150, 12
+  store i32 %or.i320, ptr %todo_before_sleep.i319, align 8
   %slots787 = getelementptr inbounds i8, ptr %0, i64 2304
   tail call void @clusterUpdateSlotsConfigWith(ptr noundef nonnull %call770, i64 noundef %call762, ptr noundef nonnull %slots787)
   br label %return
 
 if.then793:                                       ; preds = %if.else650
-  br i1 %tobool182.not335, label %return, label %if.end796
+  br i1 %tobool182.not326, label %return, label %if.end796
 
 if.end796:                                        ; preds = %if.then793
   %data797 = getelementptr inbounds i8, ptr %0, i64 2256
@@ -10102,7 +10102,7 @@ if.end796:                                        ; preds = %if.then793
   %type808 = getelementptr inbounds i8, ptr %0, i64 2268
   %153 = load i8, ptr %type808, align 4
   %bulk_data811 = getelementptr inbounds i8, ptr %0, i64 2269
-  %name813 = getelementptr inbounds i8, ptr %sender.0.i334, i64 8
+  %name813 = getelementptr inbounds i8, ptr %sender.0.i325, i64 8
   tail call void @moduleCallClusterReceivers(ptr noundef nonnull %name813, i64 noundef %151, i8 noundef zeroext %153, ptr noundef nonnull %bulk_data811, i32 noundef %call804) #32
   br label %return
 
@@ -10753,11 +10753,11 @@ if.end60:                                         ; preds = %do.body56
 if.else65:                                        ; preds = %if.else.if.else65_crit_edge, %lor.lhs.false35
   %21 = phi i32 [ %.pre, %if.else.if.else65_crit_edge ], [ %16, %lor.lhs.false35 ]
   %and67 = and i32 %21, 8
-  %tobool68 = icmp ne i32 %and67, 0
+  %tobool68.not = icmp ne i32 %and67, 0
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp71 = icmp sgt i32 %22, 3
-  %or.cond2 = select i1 %tobool68, i1 true, i1 %cmp71
-  br i1 %or.cond2, label %do.end154, label %if.end74
+  %or.cond42 = select i1 %tobool68.not, i1 true, i1 %cmp71
+  br i1 %or.cond42, label %do.end154, label %if.end74
 
 if.end74:                                         ; preds = %if.else65
   %name75 = getelementptr inbounds i8, ptr %node, i64 8
@@ -12767,8 +12767,8 @@ do.end:                                           ; preds = %sw.epilog
   %14 = icmp sgt i32 %.pre6, 2
   %15 = add i32 %reason, -5
   %or.cond = icmp ult i32 %15, -2
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %14
-  br i1 %or.cond1, label %if.end29, label %if.end27
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %14
+  br i1 %or.cond5, label %if.end29, label %if.end27
 
 if.end27:                                         ; preds = %do.end
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
@@ -13852,22 +13852,24 @@ clusterUpdateMyselfHostname.exit:                 ; preds = %entry, %if.end.i
   %nodes = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %nodes, align 8
   %call1 = tail call ptr @dictGetSafeIterator(ptr noundef %5) #32
-  %call2103 = tail call ptr @dictNext(ptr noundef %call1) #32
-  %cmp3.not104 = icmp eq ptr %call2103, null
-  br i1 %cmp3.not104, label %while.end, label %while.body
+  %call2105 = tail call ptr @dictNext(ptr noundef %call1) #32
+  %cmp3.not106 = icmp eq ptr %call2105, null
+  br i1 %cmp3.not106, label %while.end, label %while.body
 
 while.body:                                       ; preds = %clusterUpdateMyselfHostname.exit, %clusterNodeCronHandleReconnect.exit
-  %call2105 = phi ptr [ %call2, %clusterNodeCronHandleReconnect.exit ], [ %call2103, %clusterUpdateMyselfHostname.exit ]
-  %call4 = tail call ptr @dictGetVal(ptr noundef nonnull %call2105) #32
+  %call2107 = phi ptr [ %call2, %clusterNodeCronHandleReconnect.exit ], [ %call2105, %clusterUpdateMyselfHostname.exit ]
+  %call4 = tail call ptr @dictGetVal(ptr noundef nonnull %call2107) #32
   %link.i = getelementptr inbounds i8, ptr %call4, i64 2344
   %6 = load ptr, ptr %link.i, align 8
   %cmp.i.i = icmp eq ptr %6, null
+  br i1 %cmp.i.i, label %freeClusterLinkOnBufferLimitReached.exit.i, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %while.body
   %7 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5296), align 8
   %cmp1.i.i = icmp eq i64 %7, 0
-  %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %or.cond.i.i, label %freeClusterLinkOnBufferLimitReached.exit.i, label %if.end.i.i
+  br i1 %cmp1.i.i, label %freeClusterLinkOnBufferLimitReached.exit.i, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %while.body
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %send_msg_queue_mem.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load i64, ptr %send_msg_queue_mem.i.i, align 8
   %cmp2.i.i = icmp ugt i64 %8, %7
@@ -13898,22 +13900,23 @@ do.end.i.i:                                       ; preds = %if.end6.i.i, %do.bo
   %13 = load i64, ptr %stat_cluster_links_buffer_limit_exceeded.i.i, align 8
   %inc.i.i = add i64 %13, 1
   store i64 %inc.i.i, ptr %stat_cluster_links_buffer_limit_exceeded.i.i, align 8
-  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5296), align 8
   br label %freeClusterLinkOnBufferLimitReached.exit.i
 
-freeClusterLinkOnBufferLimitReached.exit.i:       ; preds = %do.end.i.i, %if.end.i.i, %while.body
-  %14 = phi i64 [ %7, %while.body ], [ %7, %if.end.i.i ], [ %.pre.i, %do.end.i.i ]
+freeClusterLinkOnBufferLimitReached.exit.i:       ; preds = %do.end.i.i, %if.end.i.i, %lor.lhs.false.i.i, %while.body
   %inbound_link.i = getelementptr inbounds i8, ptr %call4, i64 2352
-  %15 = load ptr, ptr %inbound_link.i, align 8
-  %cmp.i2.i = icmp eq ptr %15, null
-  %cmp1.i3.i = icmp eq i64 %14, 0
-  %or.cond.i4.i = select i1 %cmp.i2.i, i1 true, i1 %cmp1.i3.i
-  br i1 %or.cond.i4.i, label %clusterNodeCronFreeLinkOnBufferLimitReached.exit, label %if.end.i5.i
+  %14 = load ptr, ptr %inbound_link.i, align 8
+  %cmp.i2.i = icmp eq ptr %14, null
+  br i1 %cmp.i2.i, label %clusterNodeCronFreeLinkOnBufferLimitReached.exit, label %lor.lhs.false.i3.i
 
-if.end.i5.i:                                      ; preds = %freeClusterLinkOnBufferLimitReached.exit.i
-  %send_msg_queue_mem.i6.i = getelementptr inbounds i8, ptr %15, i64 32
+lor.lhs.false.i3.i:                               ; preds = %freeClusterLinkOnBufferLimitReached.exit.i
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5296), align 8
+  %cmp1.i4.i = icmp eq i64 %15, 0
+  br i1 %cmp1.i4.i, label %clusterNodeCronFreeLinkOnBufferLimitReached.exit, label %if.end.i5.i
+
+if.end.i5.i:                                      ; preds = %lor.lhs.false.i3.i
+  %send_msg_queue_mem.i6.i = getelementptr inbounds i8, ptr %14, i64 32
   %16 = load i64, ptr %send_msg_queue_mem.i6.i, align 8
-  %cmp2.i7.i = icmp ugt i64 %16, %14
+  %cmp2.i7.i = icmp ugt i64 %16, %15
   br i1 %cmp2.i7.i, label %do.body.i8.i, label %clusterNodeCronFreeLinkOnBufferLimitReached.exit
 
 do.body.i8.i:                                     ; preds = %if.end.i5.i
@@ -13922,11 +13925,11 @@ do.body.i8.i:                                     ; preds = %if.end.i5.i
   br i1 %cmp4.i9.i, label %do.end.i18.i, label %if.end6.i10.i
 
 if.end6.i10.i:                                    ; preds = %do.body.i8.i
-  %inbound.i11.i = getelementptr inbounds i8, ptr %15, i64 72
+  %inbound.i11.i = getelementptr inbounds i8, ptr %14, i64 72
   %18 = load i32, ptr %inbound.i11.i, align 8
   %tobool.not.i12.i = icmp eq i32 %18, 0
   %cond.i13.i = select i1 %tobool.not.i12.i, ptr @.str.162, ptr @.str.161
-  %node.i14.i = getelementptr inbounds i8, ptr %15, i64 64
+  %node.i14.i = getelementptr inbounds i8, ptr %14, i64 64
   %19 = load ptr, ptr %node.i14.i, align 8
   %tobool7.not.i15.i = icmp eq ptr %19, null
   %name.i16.i = getelementptr inbounds i8, ptr %19, i64 8
@@ -13935,7 +13938,7 @@ if.end6.i10.i:                                    ; preds = %do.body.i8.i
   br label %do.end.i18.i
 
 do.end.i18.i:                                     ; preds = %if.end6.i10.i, %do.body.i8.i
-  tail call void @freeClusterLink(ptr noundef nonnull %15)
+  tail call void @freeClusterLink(ptr noundef nonnull %14)
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
   %stat_cluster_links_buffer_limit_exceeded.i19.i = getelementptr inbounds i8, ptr %20, i64 393544
   %21 = load i64, ptr %stat_cluster_links_buffer_limit_exceeded.i19.i, align 8
@@ -13943,29 +13946,29 @@ do.end.i18.i:                                     ; preds = %if.end6.i10.i, %do.
   store i64 %inc.i20.i, ptr %stat_cluster_links_buffer_limit_exceeded.i19.i, align 8
   br label %clusterNodeCronFreeLinkOnBufferLimitReached.exit
 
-clusterNodeCronFreeLinkOnBufferLimitReached.exit: ; preds = %freeClusterLinkOnBufferLimitReached.exit.i, %if.end.i5.i, %do.end.i18.i
+clusterNodeCronFreeLinkOnBufferLimitReached.exit: ; preds = %freeClusterLinkOnBufferLimitReached.exit.i, %lor.lhs.false.i3.i, %if.end.i5.i, %do.end.i18.i
   %flags.i = getelementptr inbounds i8, ptr %call4, i64 88
   %22 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %22, 80
-  %tobool.not.i66 = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i66, label %if.end.i67, label %clusterNodeCronHandleReconnect.exit
+  %tobool.not.i67 = icmp eq i32 %and.i, 0
+  br i1 %tobool.not.i67, label %if.end.i68, label %clusterNodeCronHandleReconnect.exit
 
-if.end.i67:                                       ; preds = %clusterNodeCronFreeLinkOnBufferLimitReached.exit
+if.end.i68:                                       ; preds = %clusterNodeCronFreeLinkOnBufferLimitReached.exit
   %and2.i = and i32 %22, 4
   %tobool3.not.i = icmp eq i32 %and2.i, 0
   br i1 %tobool3.not.i, label %if.end5.i, label %if.then4.i
 
-if.then4.i:                                       ; preds = %if.end.i67
+if.then4.i:                                       ; preds = %if.end.i68
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
   %stats_pfail_nodes.i = getelementptr inbounds i8, ptr %23, i64 393536
   %24 = load i64, ptr %stats_pfail_nodes.i, align 8
   %inc.i = add nsw i64 %24, 1
   store i64 %inc.i, ptr %stats_pfail_nodes.i, align 8
-  %.pre.i68 = load i32, ptr %flags.i, align 8
+  %.pre.i = load i32, ptr %flags.i, align 8
   br label %if.end5.i
 
-if.end5.i:                                        ; preds = %if.then4.i, %if.end.i67
-  %25 = phi i32 [ %.pre.i68, %if.then4.i ], [ %22, %if.end.i67 ]
+if.end5.i:                                        ; preds = %if.then4.i, %if.end.i68
+  %25 = phi i32 [ %.pre.i, %if.then4.i ], [ %22, %if.end.i68 ]
   %and7.i = and i32 %25, 32
   %tobool8.not.i = icmp eq i32 %and7.i, 0
   br i1 %tobool8.not.i, label %if.end10.i, label %land.lhs.true.i
@@ -14072,9 +14075,9 @@ while.end:                                        ; preds = %clusterNodeCronHand
   br i1 %tobool8.not, label %for.body, label %if.end35
 
 for.body:                                         ; preds = %while.end, %for.inc
-  %min_pong.0108 = phi i64 [ %min_pong.1, %for.inc ], [ 0, %while.end ]
-  %j.0107 = phi i32 [ %inc27, %for.inc ], [ 0, %while.end ]
-  %min_pong_node.0106 = phi ptr [ %min_pong_node.1, %for.inc ], [ null, %while.end ]
+  %min_pong.0110 = phi i64 [ %min_pong.1, %for.inc ], [ 0, %while.end ]
+  %j.0109 = phi i32 [ %inc27, %for.inc ], [ 0, %while.end ]
+  %min_pong_node.0108 = phi ptr [ %min_pong_node.1, %for.inc ], [ null, %while.end ]
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
   %nodes11 = getelementptr inbounds i8, ptr %39, i64 24
   %40 = load ptr, ptr %nodes11, align 8
@@ -14099,21 +14102,21 @@ if.end17:                                         ; preds = %lor.lhs.false
   br i1 %tobool18.not, label %if.end20, label %for.inc
 
 if.end20:                                         ; preds = %if.end17
-  %cmp21 = icmp eq ptr %min_pong_node.0106, null
+  %cmp21 = icmp eq ptr %min_pong_node.0108, null
   %pong_received25.phi.trans.insert = getelementptr inbounds i8, ptr %call13, i64 2208
   %.pre = load i64, ptr %pong_received25.phi.trans.insert, align 8
   br i1 %cmp21, label %for.inc, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %if.end20
-  %cmp23 = icmp sgt i64 %min_pong.0108, %.pre
-  %spec.select118 = select i1 %cmp23, ptr %call13, ptr %min_pong_node.0106
-  %spec.select119 = tail call i64 @llvm.smin.i64(i64 %min_pong.0108, i64 %.pre)
+  %cmp23 = icmp sgt i64 %min_pong.0110, %.pre
+  %spec.select120 = select i1 %cmp23, ptr %call13, ptr %min_pong_node.0108
+  %spec.select121 = tail call i64 @llvm.smin.i64(i64 %min_pong.0110, i64 %.pre)
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false22, %if.end20, %if.end17, %for.body, %lor.lhs.false
-  %min_pong_node.1 = phi ptr [ %min_pong_node.0106, %for.body ], [ %min_pong_node.0106, %lor.lhs.false ], [ %min_pong_node.0106, %if.end17 ], [ %call13, %if.end20 ], [ %spec.select118, %lor.lhs.false22 ]
-  %min_pong.1 = phi i64 [ %min_pong.0108, %for.body ], [ %min_pong.0108, %lor.lhs.false ], [ %min_pong.0108, %if.end17 ], [ %.pre, %if.end20 ], [ %spec.select119, %lor.lhs.false22 ]
-  %inc27 = add nuw nsw i32 %j.0107, 1
+  %min_pong_node.1 = phi ptr [ %min_pong_node.0108, %for.body ], [ %min_pong_node.0108, %lor.lhs.false ], [ %min_pong_node.0108, %if.end17 ], [ %call13, %if.end20 ], [ %spec.select120, %lor.lhs.false22 ]
+  %min_pong.1 = phi i64 [ %min_pong.0110, %for.body ], [ %min_pong.0110, %lor.lhs.false ], [ %min_pong.0110, %if.end17 ], [ %.pre, %if.end20 ], [ %spec.select121, %lor.lhs.false22 ]
+  %inc27 = add nuw nsw i32 %j.0109, 1
   %exitcond.not = icmp eq i32 %inc27, 5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !61
 
@@ -14234,16 +14237,16 @@ land.lhs.true64:                                  ; preds = %land.lhs.true62
 if.end70:                                         ; preds = %land.lhs.true64, %land.lhs.true62, %clusterCountNonFailingSlaves.exit
   %okslaves.0.lcssa.i95 = phi i32 [ 0, %land.lhs.true62 ], [ %spec.select.i, %clusterCountNonFailingSlaves.exit ], [ 0, %land.lhs.true64 ]
   %orphaned_masters.1 = phi i32 [ %orphaned_masters.0.ph, %land.lhs.true62 ], [ %orphaned_masters.0.ph, %clusterCountNonFailingSlaves.exit ], [ %spec.select, %land.lhs.true64 ]
-  %spec.select62 = tail call i32 @llvm.smax.i32(i32 %okslaves.0.lcssa.i95, i32 %max_slaves.0.ph)
+  %spec.select60 = tail call i32 @llvm.smax.i32(i32 %okslaves.0.lcssa.i95, i32 %max_slaves.0.ph)
   %slaveof = getelementptr inbounds i8, ptr %49, i64 2184
   %61 = load ptr, ptr %slaveof, align 8
   %cmp74 = icmp eq ptr %61, %call43
-  %spec.select65 = select i1 %cmp74, i32 %okslaves.0.lcssa.i95, i32 %this_slaves.0.ph
+  %spec.select66 = select i1 %cmp74, i32 %okslaves.0.lcssa.i95, i32 %this_slaves.0.ph
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end70, %if.end49
-  %this_slaves.1 = phi i32 [ %this_slaves.0.ph, %if.end49 ], [ %spec.select65, %if.end70 ]
-  %max_slaves.2 = phi i32 [ %max_slaves.0.ph, %if.end49 ], [ %spec.select62, %if.end70 ]
+  %this_slaves.1 = phi i32 [ %this_slaves.0.ph, %if.end49 ], [ %spec.select66, %if.end70 ]
+  %max_slaves.2 = phi i32 [ %max_slaves.0.ph, %if.end49 ], [ %spec.select60, %if.end70 ]
   %orphaned_masters.2 = phi i32 [ %orphaned_masters.0.ph, %if.end49 ], [ %orphaned_masters.1, %if.end70 ]
   %ping_sent78 = getelementptr inbounds i8, ptr %call43, i64 2200
   %62 = load i64, ptr %ping_sent78, align 8
@@ -14262,15 +14265,15 @@ land.lhs.true82:                                  ; preds = %if.end77
   %66 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5184), align 8
   %cmp85 = icmp sle i64 %sub84, %66
   %tobool88.not = icmp eq i64 %62, 0
-  %or.cond63 = select i1 %cmp85, i1 true, i1 %tobool88.not
-  br i1 %or.cond63, label %if.end96, label %land.lhs.true89
+  %or.cond61 = select i1 %cmp85, i1 true, i1 %tobool88.not
+  br i1 %or.cond61, label %if.end96, label %land.lhs.true89
 
 land.lhs.true89:                                  ; preds = %land.lhs.true82
   %div = sdiv i64 %66, 2
   %cmp90 = icmp sgt i64 %sub, %div
   %cmp93 = icmp sgt i64 %sub79, %div
-  %or.cond64 = select i1 %cmp90, i1 %cmp93, i1 false
-  br i1 %or.cond64, label %if.then94, label %if.end96
+  %or.cond62 = select i1 %cmp90, i1 %cmp93, i1 false
+  br i1 %or.cond62, label %if.then94, label %if.end96
 
 if.then94:                                        ; preds = %land.lhs.true89
   tail call void @freeClusterLink(ptr noundef nonnull %64)
@@ -14363,11 +14366,11 @@ do.body138:                                       ; preds = %if.then133
 if.end141:                                        ; preds = %do.body138
   %name142 = getelementptr inbounds i8, ptr %call43, i64 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef nonnull @.str.137, ptr noundef nonnull %name142) #32
-  %.pre113 = load i32, ptr %flags45.le.le.le, align 8
+  %.pre115 = load i32, ptr %flags45.le.le.le, align 8
   br label %do.end144
 
 do.end144:                                        ; preds = %do.body138, %if.end141
-  %81 = phi i32 [ %79, %do.body138 ], [ %.pre113, %if.end141 ]
+  %81 = phi i32 [ %79, %do.body138 ], [ %.pre115, %if.end141 ]
   %or = or i32 %81, 4
   store i32 %or, ptr %flags45.le.le.le, align 8
   br label %while.cond38.outer.outer.outer, !llvm.loop !62
@@ -14378,11 +14381,11 @@ while.end148:                                     ; preds = %while.cond38
   %flags149 = getelementptr inbounds i8, ptr %82, i64 88
   %83 = load i32, ptr %flags149, align 8
   %and150 = and i32 %83, 2
-  %tobool151 = icmp ne i32 %and150, 0
+  %tobool151.not = icmp ne i32 %and150, 0
   %84 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %cmp153 = icmp eq ptr %84, null
-  %or.cond = select i1 %tobool151, i1 %cmp153, i1 false
-  br i1 %or.cond, label %land.lhs.true154, label %if.end167
+  %or.cond63 = select i1 %tobool151.not, i1 %cmp153, i1 false
+  br i1 %or.cond63, label %land.lhs.true154, label %if.end167
 
 land.lhs.true154:                                 ; preds = %while.end148
   %slaveof155 = getelementptr inbounds i8, ptr %82, i64 2184
@@ -14515,23 +14518,21 @@ if.then174:                                       ; preds = %clusterHandleManual
   br label %if.end175
 
 if.end175:                                        ; preds = %if.then174, %clusterHandleManualFailover.exit
-  %tobool176 = icmp ne i32 %orphaned_masters.0.ph, 0
-  %cmp178 = icmp sgt i32 %max_slaves.0.ph, 1
-  %or.cond1 = select i1 %tobool176, i1 %cmp178, i1 false
-  br i1 %or.cond1, label %land.lhs.true179, label %if.end185
-
-land.lhs.true179:                                 ; preds = %if.end175
-  %cmp180 = icmp eq i32 %this_slaves.0.ph, %max_slaves.0.ph
+  %tobool176 = icmp eq i32 %orphaned_masters.0.ph, 0
+  %cmp178 = icmp slt i32 %max_slaves.0.ph, 2
+  %or.cond.not101 = select i1 %tobool176, i1 true, i1 %cmp178
+  %cmp180 = icmp ne i32 %this_slaves.0.ph, %max_slaves.0.ph
+  %or.cond64.not100 = select i1 %or.cond.not101, i1 true, i1 %cmp180
   %104 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5220), align 4
-  %tobool182 = icmp ne i32 %104, 0
-  %or.cond2 = select i1 %cmp180, i1 %tobool182, i1 false
-  br i1 %or.cond2, label %if.then183, label %if.end185
+  %tobool182.not = icmp eq i32 %104, 0
+  %or.cond65 = select i1 %or.cond64.not100, i1 true, i1 %tobool182.not
+  br i1 %or.cond65, label %if.end185, label %if.then183
 
-if.then183:                                       ; preds = %land.lhs.true179
+if.then183:                                       ; preds = %if.end175
   tail call void @clusterHandleSlaveMigration(i32 noundef %this_slaves.0.ph)
   br label %if.end185
 
-if.end185:                                        ; preds = %if.end175, %land.lhs.true179, %if.then183, %manualFailoverCheckTimeout.exit
+if.end185:                                        ; preds = %if.end175, %if.then183, %manualFailoverCheckTimeout.exit
   br i1 %tobool186.not, label %lor.lhs.false187, label %if.then189
 
 lor.lhs.false187:                                 ; preds = %if.end185
@@ -17845,8 +17846,8 @@ if.end329:                                        ; preds = %if.end324
   %149 = load ptr, ptr @myself, align 8
   %cmp333 = icmp ne ptr %148, %149
   %cmp336.not = icmp eq ptr %call318, %149
-  %or.cond227 = or i1 %cmp333, %cmp336.not
-  br i1 %or.cond227, label %if.end344, label %if.then338
+  %or.cond = or i1 %cmp333, %cmp336.not
+  br i1 %or.cond, label %if.end344, label %if.then338
 
 if.then338:                                       ; preds = %if.end329
   %call339 = call i32 @countKeysInSlot(i32 noundef %conv.i310) #32
@@ -17909,11 +17910,11 @@ land.lhs.true366:                                 ; preds = %clusterAddSlot.exit
 land.lhs.true369:                                 ; preds = %land.lhs.true366
   %numslots = getelementptr inbounds i8, ptr %.pre480, i64 2164
   %157 = load i32, ptr %numslots, align 4
-  %cmp370 = icmp eq i32 %157, 0
+  %cmp370 = icmp ne i32 %157, 0
   %158 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5220), align 4
-  %tobool373 = icmp ne i32 %158, 0
-  %or.cond = select i1 %cmp370, i1 %tobool373, i1 false
-  br i1 %or.cond, label %do.body, label %if.end379
+  %tobool373.not = icmp eq i32 %158, 0
+  %or.cond226 = select i1 %cmp370, i1 true, i1 %tobool373.not
+  br i1 %or.cond226, label %if.end379, label %do.body
 
 do.body:                                          ; preds = %land.lhs.true369
   %159 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
@@ -17955,8 +17956,8 @@ if.then387:                                       ; preds = %land.lhs.true382
   %cmp389 = icmp ne i32 %call388, 0
   %166 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp393 = icmp sgt i32 %166, 2
-  %or.cond1 = select i1 %cmp389, i1 true, i1 %cmp393
-  br i1 %or.cond1, label %if.end398, label %if.end396
+  %or.cond227 = select i1 %cmp389, i1 true, i1 %cmp393
+  br i1 %or.cond227, label %if.end398, label %if.end396
 
 if.end396:                                        ; preds = %if.then387
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.235, i32 noundef %conv.i310) #32

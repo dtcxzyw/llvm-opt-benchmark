@@ -1121,93 +1121,93 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph.i:                                         ; preds = %354, %433
   %.1242 = phi i64 [ %.2243, %433 ], [ %.0241301, %354 ]
-  %.089.i = phi i32 [ %434, %433 ], [ 0, %354 ]
-  %357 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.089.i, i32 noundef 0) #12
-  %.not79.i = icmp eq i32 %357, 0
-  br i1 %.not79.i, label %358, label %361
+  %.090.i = phi i32 [ %434, %433 ], [ 0, %354 ]
+  %357 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.090.i, i32 noundef 0) #12
+  %.not80.i = icmp eq i32 %357, 0
+  br i1 %.not80.i, label %358, label %361
 
 358:                                              ; preds = %.lr.ph.i
-  %359 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.089.i, i32 noundef 0) #12
+  %359 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.090.i, i32 noundef 0) #12
   %360 = call i32 @atoi(ptr nocapture noundef %359) #15
   br label %361
 
 361:                                              ; preds = %358, %.lr.ph.i
-  %.074.i = phi i32 [ -1, %.lr.ph.i ], [ %360, %358 ]
-  %362 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.089.i, i32 noundef 1) #12
-  %.not80.i = icmp eq i32 %362, 0
-  br i1 %.not80.i, label %363, label %367
+  %.075.i = phi i32 [ -1, %.lr.ph.i ], [ %360, %358 ]
+  %362 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.090.i, i32 noundef 1) #12
+  %.not81.i = icmp eq i32 %362, 0
+  br i1 %.not81.i, label %363, label %367
 
 363:                                              ; preds = %361
-  %364 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.089.i, i32 noundef 1) #12
+  %364 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.090.i, i32 noundef 1) #12
   %365 = load i8, ptr %364, align 1
   %366 = icmp eq i8 %365, 116
   br label %367
 
 367:                                              ; preds = %363, %361
-  %.073.i = phi i1 [ false, %361 ], [ %366, %363 ]
-  %368 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.089.i, i32 noundef 2) #12
-  %.not81.i = icmp eq i32 %368, 0
-  br i1 %.not81.i, label %369, label %371
+  %.074.i = phi i1 [ false, %361 ], [ %366, %363 ]
+  %368 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.090.i, i32 noundef 2) #12
+  %.not82.i = icmp eq i32 %368, 0
+  br i1 %.not82.i, label %369, label %371
 
 369:                                              ; preds = %367
-  %370 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.089.i, i32 noundef 2) #12
+  %370 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.090.i, i32 noundef 2) #12
   br label %371
 
 371:                                              ; preds = %369, %367
-  %372 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.089.i, i32 noundef 3) #12
-  %.not82.i = icmp eq i32 %372, 0
-  br i1 %.not82.i, label %373, label %377
+  %372 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.090.i, i32 noundef 3) #12
+  %.not83.i = icmp eq i32 %372, 0
+  br i1 %.not83.i, label %373, label %377
 
 373:                                              ; preds = %371
-  %374 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.089.i, i32 noundef 3) #12
+  %374 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.090.i, i32 noundef 3) #12
   %375 = call i64 @strtoul(ptr nocapture noundef %374, ptr noundef null, i32 noundef 10) #12
   %376 = trunc i64 %375 to i32
   br label %377
 
 377:                                              ; preds = %373, %371
-  %.072.i = phi i32 [ 0, %371 ], [ %376, %373 ]
-  %378 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.089.i, i32 noundef 4) #12
-  %.not83.i = icmp eq i32 %378, 0
-  br i1 %.not83.i, label %379, label %381
+  %.073.i = phi i32 [ 0, %371 ], [ %376, %373 ]
+  %378 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.090.i, i32 noundef 4) #12
+  %.not84.i = icmp eq i32 %378, 0
+  br i1 %.not84.i, label %379, label %381
 
 379:                                              ; preds = %377
-  %380 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.089.i, i32 noundef 4) #12
+  %380 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.090.i, i32 noundef 4) #12
   br label %381
 
 381:                                              ; preds = %379, %377
-  %.071.i = phi ptr [ null, %377 ], [ %380, %379 ]
-  %382 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.089.i, i32 noundef 5) #12
-  %.not84.i = icmp eq i32 %382, 0
-  br i1 %.not84.i, label %383, label %385
+  %.072.i = phi ptr [ null, %377 ], [ %380, %379 ]
+  %382 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.090.i, i32 noundef 5) #12
+  %.not85.i = icmp eq i32 %382, 0
+  br i1 %.not85.i, label %383, label %385
 
 383:                                              ; preds = %381
-  %384 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.089.i, i32 noundef 5) #12
+  %384 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.090.i, i32 noundef 5) #12
   br label %385
 
 385:                                              ; preds = %383, %381
-  %.070.i = phi ptr [ null, %381 ], [ %384, %383 ]
-  %386 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.089.i, i32 noundef 6) #12
-  %.not85.i = icmp eq i32 %386, 0
-  br i1 %.not85.i, label %387, label %390
+  %.071.i = phi ptr [ null, %381 ], [ %384, %383 ]
+  %386 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.090.i, i32 noundef 6) #12
+  %.not86.i = icmp eq i32 %386, 0
+  br i1 %.not86.i, label %387, label %390
 
 387:                                              ; preds = %385
-  %388 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.089.i, i32 noundef 6) #12
+  %388 = call ptr @PQgetvalue(ptr noundef %349, i32 noundef %.090.i, i32 noundef 6) #12
   %389 = call i32 @atoi(ptr nocapture noundef %388) #15
   br label %390
 
 390:                                              ; preds = %387, %385
-  %.069.i = phi i32 [ 0, %385 ], [ %389, %387 ]
-  %391 = icmp sgt i32 %.074.i, -1
+  %.070.i = phi i32 [ 0, %385 ], [ %389, %387 ]
+  %391 = icmp sgt i32 %.075.i, -1
   br i1 %391, label %392, label %399
 
 392:                                              ; preds = %390
-  %393 = zext nneg i32 %.074.i to i64
+  %393 = zext nneg i32 %.075.i to i64
   %394 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 32), align 8
-  %.not86.i = icmp ugt i64 %394, %393
-  br i1 %.not86.i, label %396, label %395
+  %.not87.i = icmp ugt i64 %394, %393
+  br i1 %.not87.i, label %396, label %395
 
 395:                                              ; preds = %392
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.204, i32 noundef %.074.i) #12
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.204, i32 noundef %.075.i) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
@@ -1221,21 +1221,21 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %400 = call ptr @pg_malloc0(i64 noundef 48) #12
   store ptr %192, ptr %400, align 8
   %401 = getelementptr inbounds i8, ptr %400, i64 8
-  store i32 %.072.i, ptr %401, align 8
+  store i32 %.073.i, ptr %401, align 8
   %402 = getelementptr inbounds i8, ptr %400, i64 12
-  %403 = zext i1 %.073.i to i8
+  %403 = zext i1 %.074.i to i8
   store i8 %403, ptr %402, align 4
-  %404 = call ptr @pstrdup(ptr noundef %.071.i) #12
+  %404 = call ptr @pstrdup(ptr noundef %.072.i) #12
   %405 = getelementptr inbounds i8, ptr %400, i64 16
   store ptr %404, ptr %405, align 8
-  %406 = call ptr @pstrdup(ptr noundef %.070.i) #12
+  %406 = call ptr @pstrdup(ptr noundef %.071.i) #12
   %407 = getelementptr inbounds i8, ptr %400, i64 24
   store ptr %406, ptr %407, align 8
   %408 = getelementptr inbounds i8, ptr %400, i64 32
-  store i32 %.069.i, ptr %408, align 8
+  store i32 %.070.i, ptr %408, align 8
   %409 = getelementptr inbounds i8, ptr %400, i64 36
-  store i32 %.069.i, ptr %409, align 4
-  br i1 %.073.i, label %410, label %429
+  store i32 %.070.i, ptr %409, align 4
+  br i1 %.074.i, label %410, label %429
 
 410:                                              ; preds = %399
   %411 = load i64, ptr getelementptr inbounds (i8, ptr @opts, i64 64), align 8
@@ -1246,10 +1246,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %or.cond.i, label %415, label %429
 
 415:                                              ; preds = %410
-  %416 = sext i32 %.069.i to i64
+  %416 = sext i32 %.070.i to i64
   %417 = icmp slt i64 %413, %416
-  %or.cond88.i = select i1 %414, i1 %417, i1 false
-  br i1 %or.cond88.i, label %418, label %421
+  %or.cond89.i = select i1 %414, i1 %417, i1 false
+  br i1 %or.cond89.i, label %418, label %421
 
 418:                                              ; preds = %415
   %419 = trunc i64 %413 to i32
@@ -1259,7 +1259,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %421
 
 421:                                              ; preds = %418, %415
-  %422 = phi i32 [ %420, %418 ], [ %.069.i, %415 ]
+  %422 = phi i32 [ %420, %418 ], [ %.070.i, %415 ]
   %423 = phi i64 [ %.pre.i, %418 ], [ %411, %415 ]
   %424 = icmp sgt i64 %423, -1
   br i1 %424, label %.sink.split.i, label %429
@@ -1274,7 +1274,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %429
 
 429:                                              ; preds = %.sink.split.i, %421, %410, %399
-  %430 = phi i32 [ %422, %421 ], [ %.069.i, %410 ], [ %.069.i, %399 ], [ %.sink.i, %.sink.split.i ]
+  %430 = phi i32 [ %422, %421 ], [ %.070.i, %410 ], [ %.070.i, %399 ], [ %.sink.i, %.sink.split.i ]
   %431 = sext i32 %430 to i64
   %432 = add i64 %.1242, %431
   call void @simple_ptr_list_append(ptr noundef nonnull %5, ptr noundef nonnull %400) #12
@@ -1282,7 +1282,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 433:                                              ; preds = %429, %396
   %.2243 = phi i64 [ %.1242, %396 ], [ %432, %429 ]
-  %434 = add nuw nsw i32 %.089.i, 1
+  %434 = add nuw nsw i32 %.090.i, 1
   %exitcond.not.i = icmp eq i32 %434, %355
   br i1 %exitcond.not.i, label %compile_relation_list_one_db.exit, label %.lr.ph.i, !llvm.loop !7
 

@@ -345,15 +345,15 @@ define void @_ZThn56_N5osgeo4proj9operation21ConcatenatedOperationD0Ev(ptr nound
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj9operation21ConcatenatedOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 112), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 112), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 152), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 152), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 192), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 192), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 232), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 232), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8
@@ -475,15 +475,15 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj9operation21ConcatenatedOperationC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 112), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 112), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 152), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 152), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 192), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 192), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 232), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 232), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_9operation21ConcatenatedOperation7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_19CoordinateOperationEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.26") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %8 unwind label %9
@@ -2841,15 +2841,15 @@ define linkonce_odr hidden void @_ZN5osgeo4proj9operation21ConcatenatedOperation
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 112), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 112), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 152), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 152), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 192), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 192), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 232), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 232), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 72
   invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_9operation21ConcatenatedOperation7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_19CoordinateOperationEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.26") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN5osgeo4proj9operation21ConcatenatedOperationC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaISA_EE.exit unwind label %9
@@ -2899,7 +2899,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation21ConcatenatedOperationEED2Ev.exit: ; pr
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %11, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation21ConcatenatedOperationELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation21ConcatenatedOperationELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
   %24 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %3, ptr %24, align 8
   store ptr %3, ptr %0, align 8
@@ -19118,15 +19118,15 @@ define linkonce_odr void @_ZN5osgeo4proj9operation21ConcatenatedOperation14nn_ma
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 112), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 112), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 152), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 152), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 192), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 192), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 232), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation21ConcatenatedOperationE, i64 232), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 72
   %9 = getelementptr inbounds i8, ptr %1, i64 72
   %10 = load ptr, ptr %9, align 8
@@ -19178,7 +19178,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation21ConcatenatedOperationEED2Ev.exit: ; pr
   store i32 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %13, i64 12
   store i32 1, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation21ConcatenatedOperationELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj9operation21ConcatenatedOperationELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8
   %26 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %3, ptr %26, align 8
   store ptr %3, ptr %0, align 8

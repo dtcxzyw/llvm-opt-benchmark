@@ -411,7 +411,7 @@ entry:
   %ref.tmp29 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp40 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp51 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV11Environment, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11Environment, i64 16), ptr %this, align 8, !tbaa !12
   %m_time_of_day_speed = getelementptr inbounds i8, ptr %this, i64 12
   store float 0.000000e+00, ptr %m_time_of_day_speed, align 4, !tbaa !14
   %m_time_conversion_skew = getelementptr inbounds i8, ptr %this, i64 24

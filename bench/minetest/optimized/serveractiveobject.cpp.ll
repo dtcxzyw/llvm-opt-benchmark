@@ -295,7 +295,7 @@ define dso_local void @_ZN18ServerActiveObjectC2EP17ServerEnvironmentN3irr4core8
 entry:
   %m_id.i = getelementptr inbounds i8, ptr %this, i64 8
   store i16 0, ptr %m_id.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !9
   %m_known_by_count = getelementptr inbounds i8, ptr %this, i64 10
   store i16 0, ptr %m_known_by_count, align 2, !tbaa !11
   %m_static_exists = getelementptr inbounds i8, ptr %this, i64 12
@@ -897,7 +897,7 @@ invoke.cont19:                                    ; preds = %if.else.i.i, %if.th
   %add.ptr.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i.i
   store ptr %30, ptr %add.ptr.i.i, align 8, !tbaa !9
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %os, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !9
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %os, i64 80
   %31 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !47
   %32 = getelementptr inbounds i8, ptr %os, i64 96
@@ -916,7 +916,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont19
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !9
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %os, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %34 = getelementptr inbounds i8, ptr %os, i64 112
@@ -1178,7 +1178,7 @@ define linkonce_odr dso_local void @_ZN18ServerActiveObjectD2Ev(ptr noundef nonn
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator", align 16
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !9
   %m_messages_out = getelementptr inbounds i8, ptr %this, i64 112
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -1661,7 +1661,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8, !tbaa !38
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !9
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %toolcaps_overridden, align 8, !tbaa !54
   %toolcaps_override = getelementptr inbounds i8, ptr %this, i64 80

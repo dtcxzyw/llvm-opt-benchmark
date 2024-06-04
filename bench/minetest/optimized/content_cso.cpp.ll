@@ -340,12 +340,13 @@ entry:
   %color = alloca %"class.irr::video::SColor", align 4
   %m_to_be_removed.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %m_to_be_removed.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12SmokePuffCSO, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12SmokePuffCSO, i64 16), ptr %this, align 8, !tbaa !15
   %m_age = getelementptr inbounds i8, ptr %this, i64 12
   store float 0.000000e+00, ptr %m_age, align 4, !tbaa !17
   %m_spritenode = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %m_spritenode, align 8, !tbaa !20
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH10infostream()
@@ -712,8 +713,9 @@ declare noundef i32 @_ZN11Environment16getDayNightRatioEv(ptr noundef nonnull al
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZN12SmokePuffCSOD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12SmokePuffCSO, i64 16), ptr %this, align 8, !tbaa !15
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12SmokePuffCSO, i64 16), ptr %this, align 8, !tbaa !15
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH10infostream() #21

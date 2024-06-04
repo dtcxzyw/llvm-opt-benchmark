@@ -474,6 +474,7 @@ for.body.lr.ph:                                   ; preds = %if.end42
   %p.sroa.13.0.position.i.sroa_idx = getelementptr inbounds i8, ptr %t, i64 12
   %18 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @warningstream)
   %umax = call i16 @llvm.umax.i16(i16 %rev.i.i.i, i16 1)
+  %.not = icmp eq ptr @_ZTH13warningstream, null
   br label %for.body
 
 for.body:                                         ; preds = %cleanup97, %for.body.lr.ph
@@ -516,7 +517,7 @@ for.body:                                         ; preds = %cleanup97, %for.bod
   br i1 %cmp59, label %if.end74, label %if.then60
 
 if.then60:                                        ; preds = %for.body
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %22, label %_ZTW13warningstream.exit
+  br i1 %.not, label %_ZTW13warningstream.exit, label %22
 
 22:                                               ; preds = %if.then60
   call void @_ZTH13warningstream()
@@ -701,7 +702,7 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i: ; preds = %land.lhs.tr
   br i1 %cmp27.i.i.i.i.not, label %if.end96, label %if.then82
 
 if.then82:                                        ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i, %land.lhs.true18.i.i.i.i, %lor.lhs.false.i.i.i.i
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %37, label %_ZTW13warningstream.exit175
+  br i1 %.not, label %_ZTW13warningstream.exit175, label %37
 
 37:                                               ; preds = %if.then82
   call void @_ZTH13warningstream()
@@ -894,7 +895,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr dso_local void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !56
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !56
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i, align 8, !tbaa !76
@@ -947,14 +948,14 @@ _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18SerializationError, i64 16), ptr %this, align 8, !tbaa !56
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SerializationError, i64 16), ptr %this, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !56
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !56
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !41
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1444,7 +1445,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18SerializationErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !56
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !56
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !41
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1479,7 +1480,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !56
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !56
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !41
   %1 = getelementptr inbounds i8, ptr %this, i64 24

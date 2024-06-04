@@ -46,10 +46,10 @@ define void @php_syslog_str(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void (i32, ptr, ...) @syslog(i32 noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %12) #6
-  br label %122
+  br label %121
 
-13:                                               ; preds = %.lr.ph, %113
-  %.0145 = phi i64 [ 0, %.lr.ph ], [ %114, %113 ]
+13:                                               ; preds = %.lr.ph, %112
+  %.0145 = phi i64 [ 0, %.lr.ph ], [ %113, %112 ]
   %14 = getelementptr inbounds [1 x i8], ptr %8, i64 0, i64 %.0145
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
@@ -59,8 +59,8 @@ define void @php_syslog_str(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %3, align 8
-  %.not144 = icmp eq ptr %19, null
-  br i1 %.not144, label %25, label %20
+  %.not141 = icmp eq ptr %19, null
+  br i1 %.not141, label %25, label %20
 
 20:                                               ; preds = %18
   %21 = load i64, ptr %9, align 8
@@ -82,192 +82,192 @@ define void @php_syslog_str(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   store i64 %29, ptr %10, align 8
   %30 = getelementptr inbounds i8, ptr %27, i64 %28
   store i8 %15, ptr %30, align 1
-  br label %113
+  br label %112
 
 31:                                               ; preds = %13
-  %32 = icmp slt i8 %15, 0
+  %32 = icmp sgt i8 %15, -1
   %33 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 600), align 8
-  %34 = icmp ne i64 %33, 2
-  %or.cond4 = select i1 %32, i1 %34, i1 false
-  br i1 %or.cond4, label %35, label %48
+  %.not135 = icmp eq i64 %33, 2
+  %or.cond142 = select i1 %32, i1 true, i1 %.not135
+  br i1 %or.cond142, label %47, label %34
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %3, align 8
-  %.not143 = icmp eq ptr %36, null
-  br i1 %.not143, label %42, label %37
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %3, align 8
+  %.not140 = icmp eq ptr %35, null
+  br i1 %.not140, label %41, label %36
 
-37:                                               ; preds = %35
-  %38 = load i64, ptr %9, align 8
-  %39 = load i64, ptr %10, align 8
-  %40 = sub i64 %38, %39
-  %41 = icmp ult i64 %40, 2
-  br i1 %41, label %42, label %43
+36:                                               ; preds = %34
+  %37 = load i64, ptr %9, align 8
+  %38 = load i64, ptr %10, align 8
+  %39 = sub i64 %37, %38
+  %40 = icmp ult i64 %39, 2
+  br i1 %40, label %41, label %42
 
-42:                                               ; preds = %35, %37
+41:                                               ; preds = %34, %36
+  call void @_smart_string_alloc(ptr noundef nonnull %3, i64 noundef 1) #6
+  %.pre = load i64, ptr %10, align 8
+  %.pre147 = load ptr, ptr %3, align 8
+  br label %42
+
+42:                                               ; preds = %41, %36
+  %43 = phi ptr [ %.pre147, %41 ], [ %35, %36 ]
+  %44 = phi i64 [ %.pre, %41 ], [ %38, %36 ]
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %10, align 8
+  %46 = getelementptr inbounds i8, ptr %43, i64 %44
+  store i8 %15, ptr %46, align 1
+  br label %112
+
+47:                                               ; preds = %31
+  %48 = icmp eq i8 %15, 10
+  br i1 %48, label %49, label %53
+
+49:                                               ; preds = %47
+  %50 = load i64, ptr %10, align 8
+  %51 = trunc i64 %50 to i32
+  %52 = load ptr, ptr %3, align 8
+  call void (i32, ptr, ...) @syslog(i32 noundef %0, ptr noundef nonnull @.str.1, i32 noundef %51, ptr noundef %52) #6
+  store i64 0, ptr %10, align 8
+  br label %112
+
+53:                                               ; preds = %47
+  %54 = icmp ult i8 %15, 32
+  %55 = icmp eq i64 %33, 0
+  %or.cond144 = select i1 %54, i1 %55, i1 false
+  %56 = load ptr, ptr %3, align 8
+  %.not139 = icmp eq ptr %56, null
+  br i1 %or.cond144, label %57, label %69
+
+57:                                               ; preds = %53
+  br i1 %.not139, label %63, label %58
+
+58:                                               ; preds = %57
+  %59 = load i64, ptr %9, align 8
+  %60 = load i64, ptr %10, align 8
+  %61 = sub i64 %59, %60
+  %62 = icmp ult i64 %61, 2
+  br i1 %62, label %63, label %64
+
+63:                                               ; preds = %57, %58
   call void @_smart_string_alloc(ptr noundef nonnull %3, i64 noundef 1) #6
   %.pre154 = load i64, ptr %10, align 8
   %.pre155 = load ptr, ptr %3, align 8
-  br label %43
+  br label %64
 
-43:                                               ; preds = %42, %37
-  %44 = phi ptr [ %.pre155, %42 ], [ %36, %37 ]
-  %45 = phi i64 [ %.pre154, %42 ], [ %39, %37 ]
-  %46 = add i64 %45, 1
-  store i64 %46, ptr %10, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 %45
-  store i8 %15, ptr %47, align 1
-  br label %113
+64:                                               ; preds = %63, %58
+  %65 = phi ptr [ %.pre155, %63 ], [ %56, %58 ]
+  %66 = phi i64 [ %.pre154, %63 ], [ %60, %58 ]
+  %67 = add i64 %66, 1
+  store i64 %67, ptr %10, align 8
+  %68 = getelementptr inbounds i8, ptr %65, i64 %66
+  store i8 %15, ptr %68, align 1
+  br label %112
 
-48:                                               ; preds = %31
-  %49 = icmp eq i8 %15, 10
-  br i1 %49, label %50, label %54
+69:                                               ; preds = %53
+  br i1 %.not139, label %75, label %70
 
-50:                                               ; preds = %48
-  %51 = load i64, ptr %10, align 8
-  %52 = trunc i64 %51 to i32
-  %53 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @syslog(i32 noundef %0, ptr noundef nonnull @.str.1, i32 noundef %52, ptr noundef %53) #6
-  store i64 0, ptr %10, align 8
-  br label %113
+70:                                               ; preds = %69
+  %71 = load i64, ptr %9, align 8
+  %72 = load i64, ptr %10, align 8
+  %73 = sub i64 %71, %72
+  %74 = icmp ult i64 %73, 3
+  br i1 %74, label %75, label %76
 
-54:                                               ; preds = %48
-  %55 = icmp ult i8 %15, 32
-  %56 = icmp eq i64 %33, 0
-  %or.cond6 = select i1 %55, i1 %56, i1 false
-  %57 = load ptr, ptr %3, align 8
-  %.not142 = icmp eq ptr %57, null
-  br i1 %or.cond6, label %58, label %70
-
-58:                                               ; preds = %54
-  br i1 %.not142, label %64, label %59
-
-59:                                               ; preds = %58
-  %60 = load i64, ptr %9, align 8
-  %61 = load i64, ptr %10, align 8
-  %62 = sub i64 %60, %61
-  %63 = icmp ult i64 %62, 2
-  br i1 %63, label %64, label %65
-
-64:                                               ; preds = %58, %59
-  call void @_smart_string_alloc(ptr noundef nonnull %3, i64 noundef 1) #6
-  %.pre152 = load i64, ptr %10, align 8
-  %.pre153 = load ptr, ptr %3, align 8
-  br label %65
-
-65:                                               ; preds = %64, %59
-  %66 = phi ptr [ %.pre153, %64 ], [ %57, %59 ]
-  %67 = phi i64 [ %.pre152, %64 ], [ %61, %59 ]
-  %68 = add i64 %67, 1
-  store i64 %68, ptr %10, align 8
-  %69 = getelementptr inbounds i8, ptr %66, i64 %67
-  store i8 %15, ptr %69, align 1
-  br label %113
-
-70:                                               ; preds = %54
-  br i1 %.not142, label %76, label %71
-
-71:                                               ; preds = %70
-  %72 = load i64, ptr %9, align 8
-  %73 = load i64, ptr %10, align 8
-  %74 = sub i64 %72, %73
-  %75 = icmp ult i64 %74, 3
-  br i1 %75, label %76, label %77
-
-76:                                               ; preds = %70, %71
+75:                                               ; preds = %69, %70
   call void @_smart_string_alloc(ptr noundef nonnull %3, i64 noundef 2) #6
-  %.pre = load i64, ptr %10, align 8
-  %.pre147 = load ptr, ptr %3, align 8
-  br label %77
-
-77:                                               ; preds = %76, %71
-  %78 = phi ptr [ %.pre147, %76 ], [ %57, %71 ]
-  %79 = phi i64 [ %.pre, %76 ], [ %73, %71 ]
-  %80 = add i64 %79, 2
-  %81 = getelementptr inbounds i8, ptr %78, i64 %79
-  store i16 30812, ptr %81, align 1
-  store i64 %80, ptr %10, align 8
-  %82 = lshr i32 %16, 4
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds [17 x i8], ptr @php_syslog_str.xdigits, i64 0, i64 %83
-  %85 = load i8, ptr %84, align 1
-  %86 = load ptr, ptr %3, align 8
-  %.not140 = icmp eq ptr %86, null
-  br i1 %.not140, label %91, label %87
-
-87:                                               ; preds = %77
-  %88 = load i64, ptr %9, align 8
-  %89 = sub i64 %88, %80
-  %90 = icmp ult i64 %89, 2
-  br i1 %90, label %91, label %92
-
-91:                                               ; preds = %77, %87
-  call void @_smart_string_alloc(ptr noundef nonnull %3, i64 noundef 1) #6
   %.pre148 = load i64, ptr %10, align 8
   %.pre149 = load ptr, ptr %3, align 8
-  br label %92
+  br label %76
 
-92:                                               ; preds = %91, %87
-  %93 = phi ptr [ %.pre149, %91 ], [ %86, %87 ]
-  %94 = phi i64 [ %.pre148, %91 ], [ %80, %87 ]
-  %95 = add i64 %94, 1
-  store i64 %95, ptr %10, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 %94
-  store i8 %85, ptr %96, align 1
-  %97 = and i32 %16, 15
-  %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds [17 x i8], ptr @php_syslog_str.xdigits, i64 0, i64 %98
-  %100 = load i8, ptr %99, align 1
-  %101 = load ptr, ptr %3, align 8
-  %.not141 = icmp eq ptr %101, null
-  br i1 %.not141, label %107, label %102
+76:                                               ; preds = %75, %70
+  %77 = phi ptr [ %.pre149, %75 ], [ %56, %70 ]
+  %78 = phi i64 [ %.pre148, %75 ], [ %72, %70 ]
+  %79 = add i64 %78, 2
+  %80 = getelementptr inbounds i8, ptr %77, i64 %78
+  store i16 30812, ptr %80, align 1
+  store i64 %79, ptr %10, align 8
+  %81 = lshr i32 %16, 4
+  %82 = zext nneg i32 %81 to i64
+  %83 = getelementptr inbounds [17 x i8], ptr @php_syslog_str.xdigits, i64 0, i64 %82
+  %84 = load i8, ptr %83, align 1
+  %85 = load ptr, ptr %3, align 8
+  %.not137 = icmp eq ptr %85, null
+  br i1 %.not137, label %90, label %86
 
-102:                                              ; preds = %92
-  %103 = load i64, ptr %9, align 8
-  %104 = load i64, ptr %10, align 8
-  %105 = sub i64 %103, %104
-  %106 = icmp ult i64 %105, 2
-  br i1 %106, label %107, label %108
+86:                                               ; preds = %76
+  %87 = load i64, ptr %9, align 8
+  %88 = sub i64 %87, %79
+  %89 = icmp ult i64 %88, 2
+  br i1 %89, label %90, label %91
 
-107:                                              ; preds = %92, %102
+90:                                               ; preds = %76, %86
   call void @_smart_string_alloc(ptr noundef nonnull %3, i64 noundef 1) #6
   %.pre150 = load i64, ptr %10, align 8
   %.pre151 = load ptr, ptr %3, align 8
-  br label %108
+  br label %91
 
-108:                                              ; preds = %107, %102
-  %109 = phi ptr [ %.pre151, %107 ], [ %101, %102 ]
-  %110 = phi i64 [ %.pre150, %107 ], [ %104, %102 ]
-  %111 = add i64 %110, 1
-  store i64 %111, ptr %10, align 8
-  %112 = getelementptr inbounds i8, ptr %109, i64 %110
-  store i8 %100, ptr %112, align 1
-  br label %113
+91:                                               ; preds = %90, %86
+  %92 = phi ptr [ %.pre151, %90 ], [ %85, %86 ]
+  %93 = phi i64 [ %.pre150, %90 ], [ %79, %86 ]
+  %94 = add i64 %93, 1
+  store i64 %94, ptr %10, align 8
+  %95 = getelementptr inbounds i8, ptr %92, i64 %93
+  store i8 %84, ptr %95, align 1
+  %96 = and i32 %16, 15
+  %97 = zext nneg i32 %96 to i64
+  %98 = getelementptr inbounds [17 x i8], ptr @php_syslog_str.xdigits, i64 0, i64 %97
+  %99 = load i8, ptr %98, align 1
+  %100 = load ptr, ptr %3, align 8
+  %.not138 = icmp eq ptr %100, null
+  br i1 %.not138, label %106, label %101
 
-113:                                              ; preds = %26, %50, %108, %65, %43
-  %114 = add nuw i64 %.0145, 1
-  %115 = load i64, ptr %6, align 8
-  %116 = icmp ult i64 %114, %115
-  br i1 %116, label %13, label %._crit_edge.loopexit
+101:                                              ; preds = %91
+  %102 = load i64, ptr %9, align 8
+  %103 = load i64, ptr %10, align 8
+  %104 = sub i64 %102, %103
+  %105 = icmp ult i64 %104, 2
+  br i1 %105, label %106, label %107
 
-._crit_edge.loopexit:                             ; preds = %113
+106:                                              ; preds = %91, %101
+  call void @_smart_string_alloc(ptr noundef nonnull %3, i64 noundef 1) #6
+  %.pre152 = load i64, ptr %10, align 8
+  %.pre153 = load ptr, ptr %3, align 8
+  br label %107
+
+107:                                              ; preds = %106, %101
+  %108 = phi ptr [ %.pre153, %106 ], [ %100, %101 ]
+  %109 = phi i64 [ %.pre152, %106 ], [ %103, %101 ]
+  %110 = add i64 %109, 1
+  store i64 %110, ptr %10, align 8
+  %111 = getelementptr inbounds i8, ptr %108, i64 %109
+  store i8 %99, ptr %111, align 1
+  br label %112
+
+112:                                              ; preds = %26, %49, %107, %64, %42
+  %113 = add nuw i64 %.0145, 1
+  %114 = load i64, ptr %6, align 8
+  %115 = icmp ult i64 %113, %114
+  br i1 %115, label %13, label %._crit_edge.loopexit
+
+._crit_edge.loopexit:                             ; preds = %112
   %.pre158 = load i64, ptr %10, align 8
   %.pre159 = load ptr, ptr %3, align 8
-  %117 = trunc i64 %.pre158 to i32
+  %116 = trunc i64 %.pre158 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %118 = phi ptr [ %.pre159, %._crit_edge.loopexit ], [ null, %.preheader ]
-  %119 = phi i32 [ %117, %._crit_edge.loopexit ], [ 0, %.preheader ]
-  call void (i32, ptr, ...) @syslog(i32 noundef %0, ptr noundef nonnull @.str.1, i32 noundef %119, ptr noundef %118) #6
-  %120 = load ptr, ptr %3, align 8
-  %.not = icmp eq ptr %120, null
-  br i1 %.not, label %122, label %121
+  %117 = phi ptr [ %.pre159, %._crit_edge.loopexit ], [ null, %.preheader ]
+  %118 = phi i32 [ %116, %._crit_edge.loopexit ], [ 0, %.preheader ]
+  call void (i32, ptr, ...) @syslog(i32 noundef %0, ptr noundef nonnull @.str.1, i32 noundef %118, ptr noundef %117) #6
+  %119 = load ptr, ptr %3, align 8
+  %.not = icmp eq ptr %119, null
+  br i1 %.not, label %121, label %120
 
-121:                                              ; preds = %._crit_edge
-  call void @_efree(ptr noundef nonnull %120) #6
-  br label %122
+120:                                              ; preds = %._crit_edge
+  call void @_efree(ptr noundef nonnull %119) #6
+  br label %121
 
-122:                                              ; preds = %._crit_edge, %121, %11
+121:                                              ; preds = %._crit_edge, %120, %11
   ret void
 }
 

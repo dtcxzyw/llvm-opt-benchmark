@@ -1264,7 +1264,8 @@ invoke.cont26:                                    ; preds = %if.end24
   br i1 %brmerge, label %if.end34, label %if.then29
 
 if.then29:                                        ; preds = %invoke.cont26
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %15, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %15
 
 15:                                               ; preds = %if.then29
   tail call void @_ZTH11errorstream()
@@ -2467,7 +2468,8 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i616, %
   br i1 %tobool216.not, label %if.then217, label %if.end227
 
 if.then217:                                       ; preds = %_ZN3irr4core6stringIcED2Ev.exit
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %168, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %168
 
 168:                                              ; preds = %if.then217
   call void @_ZTH11errorstream()
@@ -2670,7 +2672,7 @@ _ZN3irr4core6stringIcED2Ev.exit.1:                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool216.not.1, label %if.then217.1, label %if.end227
 
 if.then217.1:                                     ; preds = %_ZN3irr4core6stringIcED2Ev.exit.1
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %191, label %_ZTW11errorstream.exit.1
+  br i1 %.not, label %_ZTW11errorstream.exit.1, label %191
 
 191:                                              ; preds = %if.then217.1
   call void @_ZTH11errorstream()

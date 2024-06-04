@@ -1609,7 +1609,7 @@ define internal void @zend_fiber_object_destroy(ptr noundef %0) #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 2
-  br i1 %.not, label %6, label %56
+  br i1 %.not, label %6, label %55
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -1623,8 +1623,8 @@ define internal void @zend_fiber_object_destroy(ptr noundef %0) #6 {
   %12 = or i8 %11, 4
   store i8 %12, ptr %10, align 8
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1664), align 8, !noalias !30
-  %.not35 = icmp eq ptr %13, null
-  br i1 %.not35, label %17, label %14
+  %.not34 = icmp eq ptr %13, null
+  br i1 %.not34, label %17, label %14
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8, !noalias !30
@@ -1655,8 +1655,8 @@ define internal void @zend_fiber_object_destroy(ptr noundef %0) #6 {
   call void @zend_fiber_switch_context(ptr noundef nonnull %3)
   %28 = load i8, ptr %24, align 8, !alias.scope !33
   %29 = and i8 %28, 2
-  %.not37 = icmp eq i8 %29, 0
-  br i1 %.not37, label %31, label %30
+  %.not36 = icmp eq i8 %29, 0
+  br i1 %.not36, label %31, label %30
 
 30:                                               ; preds = %17
   store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1664), align 8, !noalias !33
@@ -1668,60 +1668,62 @@ define internal void @zend_fiber_object_destroy(ptr noundef %0) #6 {
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #22
   %32 = load i8, ptr %24, align 8
   %33 = and i8 %32, 1
-  %.not38 = icmp eq i8 %33, 0
-  br i1 %.not38, label %55, label %34
+  %.not37 = icmp eq i8 %33, 0
+  br i1 %.not37, label %54, label %34
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %22, align 8
   store ptr %35, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %36 = icmp eq ptr %7, null
+  %.not38 = icmp eq ptr %7, null
+  br i1 %.not38, label %36, label %48
+
+36:                                               ; preds = %34
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
-  %38 = icmp ne ptr %37, null
-  %or.cond = select i1 %36, i1 %38, i1 false
-  br i1 %or.cond, label %39, label %49
+  %.not39 = icmp eq ptr %37, null
+  br i1 %.not39, label %48, label %38
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %37, i64 24
-  %41 = load ptr, ptr %40, align 8
-  %.not39 = icmp eq ptr %41, null
-  br i1 %.not39, label %49, label %42
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %37, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %.not40 = icmp eq ptr %40, null
+  br i1 %.not40, label %48, label %41
 
-42:                                               ; preds = %39
-  %43 = load i8, ptr %41, align 8
-  %.not40 = icmp eq i8 %43, 1
-  br i1 %.not40, label %49, label %44
+41:                                               ; preds = %38
+  %42 = load i8, ptr %40, align 8
+  %.not41 = icmp eq i8 %42, 1
+  br i1 %.not41, label %48, label %43
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr %37, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 28
-  %47 = load i8, ptr %46, align 4
-  %.not41 = icmp eq i8 %47, -107
-  br i1 %.not41, label %49, label %48
+43:                                               ; preds = %41
+  %44 = load ptr, ptr %37, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 28
+  %46 = load i8, ptr %45, align 4
+  %.not42 = icmp eq i8 %46, -107
+  br i1 %.not42, label %48, label %47
 
-48:                                               ; preds = %44
-  store ptr %45, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
+47:                                               ; preds = %43
+  store ptr %44, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
   store ptr getelementptr inbounds (i8, ptr @executor_globals, i64 888), ptr %37, align 8
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  br label %49
+  br label %48
 
-49:                                               ; preds = %44, %48, %42, %39, %34
-  %50 = phi ptr [ %35, %44 ], [ %.pre, %48 ], [ %35, %42 ], [ %35, %39 ], [ %35, %34 ]
-  call void @zend_exception_set_previous(ptr noundef %50, ptr noundef %7) #22
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
-  %.not42 = icmp eq ptr %51, null
-  br i1 %.not42, label %52, label %56
+48:                                               ; preds = %43, %47, %41, %38, %36, %34
+  %49 = phi ptr [ %35, %43 ], [ %.pre, %47 ], [ %35, %41 ], [ %35, %38 ], [ %35, %36 ], [ %35, %34 ]
+  call void @zend_exception_set_previous(ptr noundef %49, ptr noundef %7) #22
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %.not43 = icmp eq ptr %50, null
+  br i1 %.not43, label %51, label %55
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %54 = call i32 @zend_exception_error(ptr noundef %53, i32 noundef 1) #22
-  br label %56
+51:                                               ; preds = %48
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %53 = call i32 @zend_exception_error(ptr noundef %52, i32 noundef 1) #22
+  br label %55
 
-55:                                               ; preds = %31
+54:                                               ; preds = %31
   call void @zval_ptr_dtor(ptr noundef nonnull %22) #22
   store ptr %7, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  br label %56
+  br label %55
 
-56:                                               ; preds = %49, %52, %1, %55
+55:                                               ; preds = %48, %51, %1, %54
   ret void
 }
 

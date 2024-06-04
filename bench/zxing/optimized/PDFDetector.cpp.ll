@@ -322,7 +322,7 @@ common.resume:                                    ; preds = %18, %_ZN5ZXing9BitM
   store i32 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %13, i64 12
   store i32 1, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @"_ZTVSt19_Sp_counted_deleterIPKN5ZXing9BitMatrixEZNS0_6Pdf4178Detector6DetectERKNS0_12BinaryBitmapEbbE3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt19_Sp_counted_deleterIPKN5ZXing9BitMatrixEZNS0_6Pdf4178Detector6DetectERKNS0_12BinaryBitmapEbbE3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %13, align 8
   %26 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %11, ptr %26, align 8
   store ptr %13, ptr %12, align 8
@@ -428,7 +428,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %_ZNK5ZXing9BitMatri
   store i32 1, ptr %65, align 8, !noalias !10
   %66 = getelementptr inbounds i8, ptr %64, i64 12
   store i32 1, ptr %66, align 4, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ZXing9BitMatrixESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %64, align 8, !noalias !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ZXing9BitMatrixESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %64, align 8, !noalias !10
   %67 = getelementptr inbounds i8, ptr %64, i64 16
   store i64 %52, ptr %67, align 8, !noalias !10
   %68 = getelementptr inbounds i8, ptr %64, i64 24
@@ -818,7 +818,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit50:                   ; preds = %_ZNK5ZXing9BitMatri
   store i32 1, ptr %226, align 8, !noalias !17
   %227 = getelementptr inbounds i8, ptr %225, i64 12
   store i32 1, ptr %227, align 4, !noalias !17
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ZXing9BitMatrixESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %225, align 8, !noalias !17
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ZXing9BitMatrixESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %225, align 8, !noalias !17
   %228 = getelementptr inbounds i8, ptr %225, i64 16
   store i64 %213, ptr %228, align 8, !noalias !17
   %229 = getelementptr inbounds i8, ptr %225, i64 24

@@ -225,7 +225,8 @@ entry:
   %self.i3 = alloca ptr, align 8
   %self.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.i)
-  br i1 icmp ne (ptr @_ZTHN8proxygen12WorkerThread14currentWorker_E, ptr null), label %0, label %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i
+  %.not.i.i.i = icmp eq ptr @_ZTHN8proxygen12WorkerThread14currentWorker_E, null
+  br i1 %.not.i.i.i, label %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN8proxygen12WorkerThread14currentWorker_E()
@@ -250,29 +251,29 @@ _ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.
   %nextRequestId_ = getelementptr inbounds i8, ptr %6, i64 80
   %7 = load i64, ptr %nextRequestId_, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.i3)
-  br i1 icmp ne (ptr @_ZTHN8proxygen12WorkerThread14currentWorker_E, ptr null), label %8, label %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i4
+  br i1 %.not.i.i.i, label %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5, label %8
 
 8:                                                ; preds = %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit
   call void @_ZTHN8proxygen12WorkerThread14currentWorker_E()
-  br label %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i4
+  br label %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5
 
-_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i4: ; preds = %8, %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit
+_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5: ; preds = %8, %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit
   %9 = load ptr, ptr %1, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit7, label %dynamic_cast.notnull.i5
+  br i1 %10, label %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit8, label %dynamic_cast.notnull.i6
 
-dynamic_cast.notnull.i5:                          ; preds = %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i4
+dynamic_cast.notnull.i6:                          ; preds = %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5
   %11 = call ptr @__dynamic_cast(ptr nonnull %9, ptr nonnull @_ZTIN8proxygen12WorkerThreadE, ptr nonnull @_ZTIN8proxygen29RequestWorkerThreadNoExecutorE, i64 0) #19
-  br label %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit7
+  br label %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit8
 
-_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit7: ; preds = %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i4, %dynamic_cast.notnull.i5
-  %12 = phi ptr [ %11, %dynamic_cast.notnull.i5 ], [ null, %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i4 ]
+_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit8: ; preds = %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5, %dynamic_cast.notnull.i6
+  %12 = phi ptr [ %11, %dynamic_cast.notnull.i6 ], [ null, %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5 ]
   %and = and i64 %7, -72057594037927936
   %add = add i64 %7, 1
   %and1 = and i64 %add, 72057594037927935
   %or = or disjoint i64 %and1, %and
   store ptr %12, ptr %self.i3, align 8
-  %call1.i6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen29RequestWorkerThreadNoExecutorEEET_PKciS7_OS5_(ptr noundef nonnull @.str.3, i32 noundef 63, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %self.i3)
+  %call1.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen29RequestWorkerThreadNoExecutorEEET_PKciS7_OS5_(ptr noundef nonnull @.str.3, i32 noundef 63, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %self.i3)
   %13 = load ptr, ptr %self.i3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.i3)
   %nextRequestId_3 = getelementptr inbounds i8, ptr %13, i64 80

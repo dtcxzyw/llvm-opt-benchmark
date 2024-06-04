@@ -3524,108 +3524,108 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr nocapture noundef
   br i1 %cond.fr205, label %.thread216, label %19
 
 19:                                               ; preds = %16, %.thread222
-  %.0192231 = phi i32 [ 0, %.thread222 ], [ 1, %16 ]
-  %.0193230 = phi ptr [ null, %.thread222 ], [ %17, %16 ]
-  %.0194229 = phi i32 [ 0, %.thread222 ], [ 2, %16 ]
-  %.0195228 = phi i32 [ 1, %.thread222 ], [ 9, %16 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0195228, i32 noundef %.0192231, ptr noundef null, i32 noundef %.0194229, ptr noundef %.0193230) #17
-  br label %67
+  %.0191231 = phi i32 [ 0, %.thread222 ], [ 1, %16 ]
+  %.0192230 = phi ptr [ null, %.thread222 ], [ %17, %16 ]
+  %.0193229 = phi i32 [ 0, %.thread222 ], [ 2, %16 ]
+  %.0194228 = phi i32 [ 1, %.thread222 ], [ 9, %16 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0194228, i32 noundef %.0191231, ptr noundef null, i32 noundef %.0193229, ptr noundef %.0192230) #17
+  br label %66
 
 .thread216:                                       ; preds = %16, %.thread232, %10
   %20 = getelementptr inbounds i8, ptr %5, i64 -40
   %21 = load ptr, ptr %20, align 8
-  %.not200 = icmp eq ptr %21, null
-  br i1 %.not200, label %25, label %22
+  %.not199 = icmp eq ptr %21, null
+  br i1 %.not199, label %25, label %22
 
 22:                                               ; preds = %.thread216
   %23 = getelementptr inbounds i8, ptr %5, i64 -16
   %24 = load i32, ptr %23, align 8
-  %.not201 = icmp eq i32 %24, 0
-  br i1 %.not201, label %25, label %28
+  %.not200 = icmp eq i32 %24, 0
+  br i1 %.not200, label %25, label %28
 
 25:                                               ; preds = %22, %.thread216
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
-  br label %67
+  br label %66
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %6, align 8
-  %.not202 = icmp eq ptr %29, null
-  br i1 %.not202, label %30, label %33
+  %.not201 = icmp eq ptr %29, null
+  br i1 %.not201, label %30, label %33
 
 30:                                               ; preds = %28
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.39) #17
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
-  br label %67
+  br label %66
 
 33:                                               ; preds = %28
   %34 = call fastcc i32 @php_sqlite3_bind_params(ptr noundef nonnull %6)
-  %35 = icmp eq i32 %34, -1
+  %35 = icmp ne i32 %34, -1
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %37 = icmp ne ptr %36, null
-  %or.cond = select i1 %35, i1 true, i1 %37
-  br i1 %or.cond, label %38, label %40
+  %.not202 = icmp eq ptr %36, null
+  %or.cond = select i1 %35, i1 %.not202, i1 false
+  br i1 %or.cond, label %39, label %37
 
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %39, align 8
-  br label %67
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %38, align 8
+  br label %66
 
-40:                                               ; preds = %33
-  %41 = load i8, ptr %3, align 1
-  %42 = trunc i8 %41 to i1
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %42, label %45, label %56
+39:                                               ; preds = %33
+  %40 = load i8, ptr %3, align 1
+  %41 = trunc i8 %40 to i1
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %41, label %44, label %55
 
-45:                                               ; preds = %40
-  %46 = call ptr @sqlite3_expanded_sql(ptr noundef %43) #17
-  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #18
-  %48 = and i64 %47, -8
-  %49 = add i64 %48, 32
-  %50 = call noalias ptr @_emalloc(i64 noundef %49) #19
-  store i32 1, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
-  store i32 22, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %50, i64 8
-  store i64 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 16
-  store i64 %47, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr align 1 %46, i64 %47, i1 false)
-  %55 = getelementptr inbounds [1 x i8], ptr %54, i64 0, i64 %47
-  store i8 0, ptr %55, align 1
-  store ptr %50, ptr %1, align 8
-  store i32 262, ptr %44, align 8
-  call void @sqlite3_free(ptr noundef %46) #17
-  br label %67
+44:                                               ; preds = %39
+  %45 = call ptr @sqlite3_expanded_sql(ptr noundef %42) #17
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #18
+  %47 = and i64 %46, -8
+  %48 = add i64 %47, 32
+  %49 = call noalias ptr @_emalloc(i64 noundef %48) #19
+  store i32 1, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  store i32 22, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  store i64 0, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %49, i64 16
+  store i64 %46, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %49, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr align 1 %45, i64 %46, i1 false)
+  %54 = getelementptr inbounds [1 x i8], ptr %53, i64 0, i64 %46
+  store i8 0, ptr %54, align 1
+  store ptr %49, ptr %1, align 8
+  store i32 262, ptr %43, align 8
+  call void @sqlite3_free(ptr noundef %45) #17
+  br label %66
 
-56:                                               ; preds = %40
-  %57 = call ptr @sqlite3_sql(ptr noundef %43) #17
-  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #18
-  %59 = and i64 %58, -8
-  %60 = add i64 %59, 32
-  %61 = call noalias ptr @_emalloc(i64 noundef %60) #19
-  store i32 1, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
-  store i32 22, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
-  store i64 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
-  store i64 %58, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %61, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr align 1 %57, i64 %58, i1 false)
-  %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %58
-  store i8 0, ptr %66, align 1
-  store ptr %61, ptr %1, align 8
-  store i32 262, ptr %44, align 8
-  br label %67
+55:                                               ; preds = %39
+  %56 = call ptr @sqlite3_sql(ptr noundef %42) #17
+  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #18
+  %58 = and i64 %57, -8
+  %59 = add i64 %58, 32
+  %60 = call noalias ptr @_emalloc(i64 noundef %59) #19
+  store i32 1, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  store i32 22, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  store i64 0, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %60, i64 16
+  store i64 %57, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %60, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr align 1 %56, i64 %57, i1 false)
+  %65 = getelementptr inbounds [1 x i8], ptr %64, i64 0, i64 %57
+  store i8 0, ptr %65, align 1
+  store ptr %60, ptr %1, align 8
+  store i32 262, ptr %43, align 8
+  br label %66
 
-67:                                               ; preds = %56, %45, %38, %30, %25, %19
+66:                                               ; preds = %55, %44, %37, %30, %25, %19
   ret void
 }
 
@@ -4313,106 +4313,106 @@ define hidden void @zim_SQLite3Stmt_execute(ptr nocapture noundef readonly %0, p
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #17
-  br label %62
+  br label %61
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 -40
   %11 = load ptr, ptr %10, align 8
-  %.not34 = icmp eq ptr %11, null
-  br i1 %.not34, label %15, label %12
+  %.not33 = icmp eq ptr %11, null
+  br i1 %.not33, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %4, i64 -16
   %14 = load i32, ptr %13, align 8
-  %.not35 = icmp eq i32 %14, 0
-  br i1 %.not35, label %15, label %18
+  %.not34 = icmp eq i32 %14, 0
+  br i1 %.not34, label %15, label %18
 
 15:                                               ; preds = %12, %9
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
-  br label %62
+  br label %61
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %5, align 8
   %20 = tail call i32 @sqlite3_reset(ptr noundef %19) #17
   %21 = tail call fastcc i32 @php_sqlite3_bind_params(ptr noundef nonnull %5)
-  %22 = icmp eq i32 %21, -1
+  %22 = icmp ne i32 %21, -1
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %24 = icmp ne ptr %23, null
-  %or.cond = select i1 %22, i1 true, i1 %24
-  br i1 %or.cond, label %25, label %27
+  %.not35 = icmp eq ptr %23, null
+  %or.cond = select i1 %22, i1 %.not35, i1 false
+  br i1 %or.cond, label %26, label %24
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %26, align 8
-  br label %62
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %25, align 8
+  br label %61
 
-27:                                               ; preds = %18
-  %28 = load ptr, ptr %5, align 8
-  %29 = tail call i32 @sqlite3_step(ptr noundef %28) #17
-  switch i32 %29, label %50 [
-    i32 100, label %30
-    i32 101, label %30
-    i32 1, label %47
+26:                                               ; preds = %18
+  %27 = load ptr, ptr %5, align 8
+  %28 = tail call i32 @sqlite3_step(ptr noundef %27) #17
+  switch i32 %28, label %49 [
+    i32 100, label %29
+    i32 101, label %29
+    i32 1, label %46
   ]
 
-30:                                               ; preds = %27, %27
-  %31 = load ptr, ptr %5, align 8
-  %32 = tail call i32 @sqlite3_reset(ptr noundef %31) #17
-  %33 = load ptr, ptr @php_sqlite3_result_entry, align 8
-  %34 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %33) #17
-  %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 -56
-  %37 = getelementptr inbounds i8, ptr %35, i64 -8
-  store i32 1, ptr %37, align 8
-  %38 = load ptr, ptr %10, align 8
-  store ptr %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 -48
-  store ptr %5, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 -16
-  store ptr null, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 -24
-  store i32 -1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 -40
-  %43 = load ptr, ptr %3, align 8
-  %44 = load i32, ptr %43, align 4
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %43, align 4
-  store ptr %43, ptr %42, align 8
-  %46 = getelementptr inbounds i8, ptr %35, i64 -32
-  store i32 776, ptr %46, align 8
-  br label %62
+29:                                               ; preds = %26, %26
+  %30 = load ptr, ptr %5, align 8
+  %31 = tail call i32 @sqlite3_reset(ptr noundef %30) #17
+  %32 = load ptr, ptr @php_sqlite3_result_entry, align 8
+  %33 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %32) #17
+  %34 = load ptr, ptr %1, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 -56
+  %36 = getelementptr inbounds i8, ptr %34, i64 -8
+  store i32 1, ptr %36, align 8
+  %37 = load ptr, ptr %10, align 8
+  store ptr %37, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %34, i64 -48
+  store ptr %5, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %34, i64 -16
+  store ptr null, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %34, i64 -24
+  store i32 -1, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %34, i64 -40
+  %42 = load ptr, ptr %3, align 8
+  %43 = load i32, ptr %42, align 4
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %42, align 4
+  store ptr %42, ptr %41, align 8
+  %45 = getelementptr inbounds i8, ptr %34, i64 -32
+  store i32 776, ptr %45, align 8
+  br label %61
 
-47:                                               ; preds = %27
-  %48 = load ptr, ptr %5, align 8
-  %49 = tail call i32 @sqlite3_reset(ptr noundef %48) #17
-  br label %50
+46:                                               ; preds = %26
+  %47 = load ptr, ptr %5, align 8
+  %48 = tail call i32 @sqlite3_reset(ptr noundef %47) #17
+  br label %49
 
-50:                                               ; preds = %47, %27
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not36 = icmp eq ptr %51, null
-  br i1 %.not36, label %52, label %60
+49:                                               ; preds = %46, %26
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not36 = icmp eq ptr %50, null
+  br i1 %.not36, label %51, label %59
 
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %10, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = tail call ptr @sqlite3_db_handle(ptr noundef %54) #17
-  %56 = tail call i32 @sqlite3_errcode(ptr noundef %55) #17
-  %57 = load ptr, ptr %5, align 8
-  %58 = tail call ptr @sqlite3_db_handle(ptr noundef %57) #17
-  %59 = tail call ptr @sqlite3_errmsg(ptr noundef %58) #17
-  tail call void (ptr, i32, ptr, ...) @php_sqlite3_error(ptr noundef %53, i32 noundef %56, ptr noundef nonnull @.str.23, ptr noundef %59)
-  br label %60
+51:                                               ; preds = %49
+  %52 = load ptr, ptr %10, align 8
+  %53 = load ptr, ptr %5, align 8
+  %54 = tail call ptr @sqlite3_db_handle(ptr noundef %53) #17
+  %55 = tail call i32 @sqlite3_errcode(ptr noundef %54) #17
+  %56 = load ptr, ptr %5, align 8
+  %57 = tail call ptr @sqlite3_db_handle(ptr noundef %56) #17
+  %58 = tail call ptr @sqlite3_errmsg(ptr noundef %57) #17
+  tail call void (ptr, i32, ptr, ...) @php_sqlite3_error(ptr noundef %52, i32 noundef %55, ptr noundef nonnull @.str.23, ptr noundef %58)
+  br label %59
 
-60:                                               ; preds = %52, %50
+59:                                               ; preds = %51, %49
   tail call void @zval_ptr_dtor(ptr noundef %1) #17
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %61, align 8
-  br label %62
+  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %60, align 8
+  br label %61
 
-62:                                               ; preds = %30, %60, %25, %15, %8
+61:                                               ; preds = %29, %59, %24, %15, %8
   ret void
 }
 

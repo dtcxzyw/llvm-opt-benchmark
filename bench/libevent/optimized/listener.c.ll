@@ -214,18 +214,20 @@ if.then.i:                                        ; preds = %if.end21
 do.body5.i:                                       ; preds = %if.then.i
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call.i = call i32 %14(i32 noundef 0, ptr noundef nonnull %13) #5
-  %.pre.i = load ptr, ptr %lock, align 8
-  %tobool7.i = icmp ne ptr %.pre.i, null
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
-  %tobool8.i = icmp ne ptr %15, null
-  %or.cond.i = select i1 %tobool7.i, i1 %tobool8.i, i1 false
-  br i1 %or.cond.i, label %if.then9.i, label %listener_decref_and_unlock.exit
+  %.pr.i = load ptr, ptr %lock, align 8
+  %tobool7.not.i = icmp eq ptr %.pr.i, null
+  br i1 %tobool7.not.i, label %listener_decref_and_unlock.exit, label %land.lhs.true.i
 
-if.then9.i:                                       ; preds = %do.body5.i
-  call void %15(ptr noundef nonnull %.pre.i, i32 noundef 1) #5
+land.lhs.true.i:                                  ; preds = %do.body5.i
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
+  %tobool8.not.i = icmp eq ptr %15, null
+  br i1 %tobool8.not.i, label %listener_decref_and_unlock.exit, label %if.then9.i
+
+if.then9.i:                                       ; preds = %land.lhs.true.i
+  call void %15(ptr noundef nonnull %.pr.i, i32 noundef 1) #5
   br label %listener_decref_and_unlock.exit
 
-listener_decref_and_unlock.exit:                  ; preds = %if.then.i, %do.body5.i, %if.then9.i
+listener_decref_and_unlock.exit:                  ; preds = %if.then.i, %do.body5.i, %land.lhs.true.i, %if.then9.i
   call void @event_mm_free_(ptr noundef nonnull %p) #5
   br label %if.end79
 
@@ -293,23 +295,25 @@ if.then.i47:                                      ; preds = %if.then65
   call void %26(ptr noundef nonnull %p) #5
   %27 = load ptr, ptr %lock, align 8
   %tobool.not.i50 = icmp eq ptr %27, null
-  br i1 %tobool.not.i50, label %do.end11.i57, label %do.body5.i51
+  br i1 %tobool.not.i50, label %do.end11.i58, label %do.body5.i51
 
 do.body5.i51:                                     ; preds = %if.then.i47
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call.i52 = call i32 %28(i32 noundef 0, ptr noundef nonnull %27) #5
-  %.pre.i53 = load ptr, ptr %lock, align 8
-  %tobool7.i54 = icmp ne ptr %.pre.i53, null
+  %.pr.i53 = load ptr, ptr %lock, align 8
+  %tobool7.not.i54 = icmp eq ptr %.pr.i53, null
+  br i1 %tobool7.not.i54, label %do.end11.i58, label %land.lhs.true.i55
+
+land.lhs.true.i55:                                ; preds = %do.body5.i51
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
-  %tobool8.i55 = icmp ne ptr %29, null
-  %or.cond.i56 = select i1 %tobool7.i54, i1 %tobool8.i55, i1 false
-  br i1 %or.cond.i56, label %if.then9.i58, label %do.end11.i57
+  %tobool8.not.i56 = icmp eq ptr %29, null
+  br i1 %tobool8.not.i56, label %do.end11.i58, label %if.then9.i57
 
-if.then9.i58:                                     ; preds = %do.body5.i51
-  call void %29(ptr noundef nonnull %.pre.i53, i32 noundef 1) #5
-  br label %do.end11.i57
+if.then9.i57:                                     ; preds = %land.lhs.true.i55
+  call void %29(ptr noundef nonnull %.pr.i53, i32 noundef 1) #5
+  br label %do.end11.i58
 
-do.end11.i57:                                     ; preds = %if.then9.i58, %do.body5.i51, %if.then.i47
+do.end11.i58:                                     ; preds = %if.then9.i57, %land.lhs.true.i55, %do.body5.i51, %if.then.i47
   call void @event_mm_free_(ptr noundef nonnull %p) #5
   br label %if.end79
 
@@ -334,7 +338,7 @@ if.then74:                                        ; preds = %if.else
   %call76 = call i32 %33(i32 noundef 0, ptr noundef nonnull %32) #5
   br label %if.end79
 
-if.end79:                                         ; preds = %if.then15.i44, %do.body12.i41, %do.end11.i57, %if.then74, %if.else, %if.then56, %do.body53, %if.then38, %do.body35, %if.then16, %if.then11, %listener_decref_and_unlock.exit
+if.end79:                                         ; preds = %if.then15.i44, %do.body12.i41, %do.end11.i58, %if.then74, %if.else, %if.then56, %do.body53, %if.then38, %do.body35, %if.then16, %if.then11, %listener_decref_and_unlock.exit
   ret void
 }
 
@@ -561,18 +565,20 @@ if.then.i:                                        ; preds = %if.end6
 do.body5.i:                                       ; preds = %if.then.i
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call.i = tail call i32 %8(i32 noundef 0, ptr noundef nonnull %7) #5
-  %.pre.i = load ptr, ptr %lock, align 8
-  %tobool7.i = icmp ne ptr %.pre.i, null
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
-  %tobool8.i = icmp ne ptr %9, null
-  %or.cond.i = select i1 %tobool7.i, i1 %tobool8.i, i1 false
-  br i1 %or.cond.i, label %if.then9.i, label %do.end11.i
+  %.pr.i = load ptr, ptr %lock, align 8
+  %tobool7.not.i = icmp eq ptr %.pr.i, null
+  br i1 %tobool7.not.i, label %do.end11.i, label %land.lhs.true.i
 
-if.then9.i:                                       ; preds = %do.body5.i
-  tail call void %9(ptr noundef nonnull %.pre.i, i32 noundef 1) #5
+land.lhs.true.i:                                  ; preds = %do.body5.i
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
+  %tobool8.not.i = icmp eq ptr %9, null
+  br i1 %tobool8.not.i, label %do.end11.i, label %if.then9.i
+
+if.then9.i:                                       ; preds = %land.lhs.true.i
+  tail call void %9(ptr noundef nonnull %.pr.i, i32 noundef 1) #5
   br label %do.end11.i
 
-do.end11.i:                                       ; preds = %if.then9.i, %do.body5.i, %if.then.i
+do.end11.i:                                       ; preds = %if.then9.i, %land.lhs.true.i, %do.body5.i, %if.then.i
   tail call void @event_mm_free_(ptr noundef nonnull %lev) #5
   br label %listener_decref_and_unlock.exit
 

@@ -2277,7 +2277,7 @@ if.then.i.i33:                                    ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV22MeshUpdateWorkerThread, i64 16), ptr %this, align 8, !tbaa !124
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22MeshUpdateWorkerThread, i64 16), ptr %this, align 8, !tbaa !124
   %m_client = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %client, ptr %m_client, align 8, !tbaa !130
   %m_queue_in = getelementptr inbounds i8, ptr %this, i64 184
@@ -2382,7 +2382,7 @@ if.then.i.i59:                                    ; preds = %lpad11
 ehcleanup14:                                      ; preds = %if.then.i.i59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60, %lpad9
   %.pn29 = phi { ptr, i32 } [ %13, %lpad9 ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60 ], [ %14, %if.then.i.i59 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV12UpdateThread, i64 16), ptr %this, align 8, !tbaa !124
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12UpdateThread, i64 16), ptr %this, align 8, !tbaa !124
   %m_update_sem.i = getelementptr inbounds i8, ptr %this, i64 144
   call void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_update_sem.i) #26
   call void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #26
@@ -2499,7 +2499,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV12UpdateThread, i64 16), ptr %this, align 8, !tbaa !124
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12UpdateThread, i64 16), ptr %this, align 8, !tbaa !124
   %m_update_sem = getelementptr inbounds i8, ptr %this, i64 144
   invoke void @_ZN9SemaphoreC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %m_update_sem, i32 noundef 0)
           to label %invoke.cont3 unwind label %lpad2
@@ -3308,7 +3308,8 @@ lpad91:                                           ; preds = %call1.i.noexc, %_ZN
 if.end:                                           ; preds = %invoke.cont97, %invoke.cont92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193
   %number_of_threads.0 = phi i32 [ %cond34260262, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %div99, %invoke.cont97 ], [ 4, %invoke.cont92 ]
   %cond106 = call i32 @llvm.smax.i32(i32 %number_of_threads.0, i32 1)
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %35, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %35
 
 35:                                               ; preds = %if.end
   call void @_ZTH10infostream()
@@ -3761,7 +3762,8 @@ init.end:                                         ; preds = %_ZNSt7__cxx1112basi
   br i1 %call46, label %if.end, label %if.then
 
 if.then:                                          ; preds = %init.end
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %11, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %11
 
 11:                                               ; preds = %if.then
   call void @_ZTH13warningstream()
@@ -4413,7 +4415,7 @@ cleanup9:                                         ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12UpdateThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV12UpdateThread, i64 16), ptr %this, align 8, !tbaa !124
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12UpdateThread, i64 16), ptr %this, align 8, !tbaa !124
   %m_update_sem = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_update_sem) #26
   tail call void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #26
@@ -4423,7 +4425,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22MeshUpdateWorkerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV12UpdateThread, i64 16), ptr %this, align 8, !tbaa !124
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12UpdateThread, i64 16), ptr %this, align 8, !tbaa !124
   %m_update_sem.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_update_sem.i) #26
   tail call void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #26
@@ -4481,7 +4483,8 @@ catch:                                            ; preds = %lpad
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %catch
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %6, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %6
 
 6:                                                ; preds = %invoke.cont13
   call void @_ZTH11errorstream()

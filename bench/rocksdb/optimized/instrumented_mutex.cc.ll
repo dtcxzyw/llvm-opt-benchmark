@@ -163,7 +163,8 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 define void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %perf_step_timer_db_mutex_lock_nanos = alloca %"class.rocksdb::PerfStepTimer", align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %0, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -194,7 +195,8 @@ _ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.
   %5 = phi ptr [ null, %if.else.i ], [ %3, %land.lhs.true2.i ]
   %stats_code_ = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i32, ptr %stats_code_, align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %7, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %7
 
 7:                                                ; preds = %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit
   tail call void @_ZTHN7rocksdb10perf_levelE()
@@ -378,7 +380,8 @@ declare void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 derefere
 define void @_ZN7rocksdb19InstrumentedCondVar4WaitEv(ptr noundef nonnull align 8 dereferenceable(76) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %perf_step_timer_db_condition_wait_nanos = alloca %"class.rocksdb::PerfStepTimer", align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %0, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -409,7 +412,8 @@ _ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.
   %5 = phi ptr [ null, %if.else.i ], [ %3, %land.lhs.true2.i ]
   %stats_code_ = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load i32, ptr %stats_code_, align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %7, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %7
 
 7:                                                ; preds = %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit
   tail call void @_ZTHN7rocksdb10perf_levelE()
@@ -527,7 +531,8 @@ declare void @_ZN7rocksdb4port7CondVar4WaitEv(ptr noundef nonnull align 8 derefe
 define noundef zeroext i1 @_ZN7rocksdb19InstrumentedCondVar9TimedWaitEm(ptr noundef nonnull align 8 dereferenceable(76) %this, i64 noundef %abs_time_us) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %perf_step_timer_db_condition_wait_nanos = alloca %"class.rocksdb::PerfStepTimer", align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %0, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -558,7 +563,8 @@ _ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.
   %5 = phi ptr [ null, %if.else.i ], [ %3, %land.lhs.true2.i ]
   %stats_code_ = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load i32, ptr %stats_code_, align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %7, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %7
 
 7:                                                ; preds = %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit
   tail call void @_ZTHN7rocksdb10perf_levelE()

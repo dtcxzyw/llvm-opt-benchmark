@@ -29,7 +29,7 @@ $_ZTSN3gmx15IProgramContextE = comdat any
 
 $_ZTIN3gmx15IProgramContextE = comdat any
 
-@_ZN3gmx12_GLOBAL__N_116g_defaultContextE = internal global %"class.gmx::(anonymous namespace)::DefaultProgramContext" { %"class.gmx::IProgramContext" { ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_121DefaultProgramContextE, i64 16) } }, align 8
+@_ZN3gmx12_GLOBAL__N_116g_defaultContextE = internal global %"class.gmx::(anonymous namespace)::DefaultProgramContext" { %"class.gmx::IProgramContext" { ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_121DefaultProgramContextE, i64 16) } }, align 8
 @_ZTVN3gmx12_GLOBAL__N_121DefaultProgramContextE = internal unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTIN3gmx12_GLOBAL__N_121DefaultProgramContextE, ptr @_ZNK3gmx12_GLOBAL__N_121DefaultProgramContext11programNameEv, ptr @_ZNK3gmx12_GLOBAL__N_121DefaultProgramContext11displayNameEv, ptr @_ZNK3gmx12_GLOBAL__N_121DefaultProgramContext14fullBinaryPathB5cxx11Ev, ptr @_ZNK3gmx12_GLOBAL__N_121DefaultProgramContext18installationPrefixEv, ptr @_ZNK3gmx12_GLOBAL__N_121DefaultProgramContext11commandLineEv, ptr @_ZN3gmx12_GLOBAL__N_121DefaultProgramContextD2Ev, ptr @_ZN3gmx12_GLOBAL__N_121DefaultProgramContextD0Ev] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN3gmx12_GLOBAL__N_121DefaultProgramContextE = internal constant [44 x i8] c"N3gmx12_GLOBAL__N_121DefaultProgramContextE\00", align 1

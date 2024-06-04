@@ -1918,38 +1918,39 @@ define internal range(i32 0, 2) i32 @uevent_filter(ptr nocapture noundef readonl
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @version_sysfs_builtin() unnamed_addr #12 section ".init.text" align 16 {
-  br i1 icmp ult (ptr @__start___modver, ptr @__stop___modver), label %.preheader, label %.loopexit
+  %1 = icmp ult ptr @__start___modver, @__stop___modver
+  br i1 %1, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %0, %12
-  %1 = phi ptr [ %13, %12 ], [ @__start___modver, %0 ]
-  %2 = getelementptr inbounds i8, ptr %1, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = tail call fastcc ptr @locate_module_kobject(ptr noundef %3) #22
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %12, label %6
+.preheader:                                       ; preds = %0, %13
+  %2 = phi ptr [ %14, %13 ], [ @__start___modver, %0 ]
+  %3 = getelementptr inbounds i8, ptr %2, i64 56
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call fastcc ptr @locate_module_kobject(ptr noundef %4) #22
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %13, label %7
 
-6:                                                ; preds = %.preheader
-  %7 = tail call i32 @sysfs_create_file_ns(ptr noundef nonnull %4, ptr noundef %1, ptr noundef null) #17
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %10, label %9, !prof !15
+7:                                                ; preds = %.preheader
+  %8 = tail call i32 @sysfs_create_file_ns(ptr noundef nonnull %5, ptr noundef %2, ptr noundef null) #17
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %11, label %10, !prof !15
 
-9:                                                ; preds = %6
+10:                                               ; preds = %7
   tail call void asm sideeffect "398: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 398b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 398) #17, !srcloc !28
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.25, i32 882, i32 2307, i64 12) #17, !srcloc !29
   tail call void asm sideeffect "399: nop\0A\09.pushsection .discard.instr_end\0A\09.long 399b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 399) #17, !srcloc !30
-  br label %10
+  br label %11
 
-10:                                               ; preds = %9, %6
-  %11 = tail call i32 @kobject_uevent(ptr noundef nonnull %4, i32 noundef 0) #17
-  tail call void @kobject_put(ptr noundef nonnull %4) #17
-  br label %12
+11:                                               ; preds = %10, %7
+  %12 = tail call i32 @kobject_uevent(ptr noundef nonnull %5, i32 noundef 0) #17
+  tail call void @kobject_put(ptr noundef nonnull %5) #17
+  br label %13
 
-12:                                               ; preds = %10, %.preheader
-  %13 = getelementptr i8, ptr %1, i64 72
-  %14 = icmp ult ptr %13, @__stop___modver
-  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !31
+13:                                               ; preds = %11, %.preheader
+  %14 = getelementptr i8, ptr %2, i64 72
+  %15 = icmp ult ptr %14, @__stop___modver
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !31
 
-.loopexit:                                        ; preds = %12, %0
+.loopexit:                                        ; preds = %13, %0
   ret void
 }
 
@@ -1957,50 +1958,51 @@ define internal fastcc void @version_sysfs_builtin() unnamed_addr #12 section ".
 define internal fastcc void @param_sysfs_builtin() unnamed_addr #12 section ".init.text" align 16 {
   %1 = alloca [56 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %1) #17
-  br i1 icmp ult (ptr @__start___param, ptr @__stop___param), label %.preheader.preheader, label %.loopexit
+  %2 = icmp ult ptr @__start___param, @__stop___param
+  br i1 %2, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %1, i8 0, i64 56, i1 false), !annotation !8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %21
-  %2 = phi ptr [ %22, %21 ], [ @__start___param, %.preheader.preheader ]
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
-  %4 = load i16, ptr %3, align 8
-  %5 = icmp eq i16 %4, 0
-  br i1 %5, label %21, label %6
+.preheader:                                       ; preds = %.preheader.preheader, %22
+  %3 = phi ptr [ %23, %22 ], [ @__start___param, %.preheader.preheader ]
+  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = load i16, ptr %4, align 8
+  %6 = icmp eq i16 %5, 0
+  br i1 %6, label %22, label %7
 
-6:                                                ; preds = %.preheader
-  %7 = load ptr, ptr %2, align 8
-  %8 = call ptr @strchr(ptr noundef %7, i32 noundef 46) #17
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
+7:                                                ; preds = %.preheader
+  %8 = load ptr, ptr %3, align 8
+  %9 = call ptr @strchr(ptr noundef %8, i32 noundef 46) #17
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
-10:                                               ; preds = %6
+11:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %1, ptr noundef nonnull align 1 dereferenceable(7) @.str.31, i64 7, i1 false) #17
-  br label %19
+  br label %20
 
-11:                                               ; preds = %6
-  %12 = ptrtoint ptr %8 to i64
-  %13 = ptrtoint ptr %7 to i64
-  %14 = sub i64 %12, %13
-  %15 = trunc i64 %14 to i32
-  %16 = add i32 %15, 1
-  %17 = zext i32 %16 to i64
-  %18 = call i64 @strscpy(ptr noundef nonnull %1, ptr noundef %7, i64 noundef %17) #17
-  br label %19
+12:                                               ; preds = %7
+  %13 = ptrtoint ptr %9 to i64
+  %14 = ptrtoint ptr %8 to i64
+  %15 = sub i64 %13, %14
+  %16 = trunc i64 %15 to i32
+  %17 = add i32 %16, 1
+  %18 = zext i32 %17 to i64
+  %19 = call i64 @strscpy(ptr noundef nonnull %1, ptr noundef %8, i64 noundef %18) #17
+  br label %20
 
-19:                                               ; preds = %11, %10
-  %20 = phi i32 [ %16, %11 ], [ 0, %10 ]
-  call fastcc void @kernel_add_sysfs_param(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %20) #22
-  br label %21
+20:                                               ; preds = %12, %11
+  %21 = phi i32 [ %17, %12 ], [ 0, %11 ]
+  call fastcc void @kernel_add_sysfs_param(ptr noundef nonnull %1, ptr noundef %3, i32 noundef %21) #22
+  br label %22
 
-21:                                               ; preds = %19, %.preheader
-  %22 = getelementptr i8, ptr %2, i64 40
-  %23 = icmp ult ptr %22, @__stop___param
-  br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !32
+22:                                               ; preds = %20, %.preheader
+  %23 = getelementptr i8, ptr %3, i64 40
+  %24 = icmp ult ptr %23, @__stop___param
+  br i1 %24, label %.preheader, label %.loopexit, !llvm.loop !32
 
-.loopexit:                                        ; preds = %21, %0
+.loopexit:                                        ; preds = %22, %0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %1) #17
   ret void
 }

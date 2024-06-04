@@ -314,7 +314,7 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store i8 %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 41
   store i8 %7, ptr %18, align 1
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i64 16), ptr %0, align 8
   %19 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
@@ -393,7 +393,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIbEC2EPKcS4_bbPFbRKN
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %5, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options11TypedOptionIbEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options11TypedOptionIbEE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 41
@@ -533,7 +533,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIbED2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(42) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
@@ -874,7 +874,7 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store i32 %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 %3, ptr %17, align 4
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i64 16), ptr %0, align 8
   %18 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
@@ -952,7 +952,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIiEC2EPKcS4_ibPFbRKN
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %5, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options11TypedOptionIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options11TypedOptionIiEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 44
@@ -967,7 +967,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIiED2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
@@ -1141,7 +1141,7 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store float %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 44
   store float %3, ptr %17, align 4
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i64 16), ptr %0, align 8
   %18 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
@@ -1219,7 +1219,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIfEC2EPKcS4_fbPFbRKN
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %5, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options11TypedOptionIfEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options11TypedOptionIfEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   store float %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1234,7 +1234,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIfED2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
@@ -1408,7 +1408,7 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   store ptr %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %3, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i64 16), ptr %0, align 8
   %18 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
@@ -1486,7 +1486,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIPKcEC2ES3_S3_S3_bPF
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %5, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options11TypedOptionIPKcEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options11TypedOptionIPKcEE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1501,7 +1501,7 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIPKcED2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3ozz7options6Parser16UnregisterOptionEPNS0_6OptionE.exit, label %3
@@ -1659,7 +1659,7 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3ozz7options6OptionC2EPKcS3_bPFbRKS1_iE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #8 align 2 {
   %6 = zext i1 %3 to i8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3ozz7options6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = insertelement <2 x ptr> poison, ptr %1, i64 0
   %9 = insertelement <2 x ptr> %8, ptr %2, i64 1

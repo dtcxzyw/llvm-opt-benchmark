@@ -423,7 +423,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN13DrawImageStepC1EhN3irr4core8vector2dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i8 noundef zeroext %texture_index, <2 x float> %_offset.coerce) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV13DrawImageStep, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13DrawImageStep, i64 40), ptr %this, align 8, !tbaa !12
   %texture_index2 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %texture_index, ptr %texture_index2, align 8, !tbaa !14
   %offset = getelementptr inbounds i8, ptr %this, i64 12
@@ -529,7 +529,7 @@ entry:
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8, !noalias !30
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %vbase.offset.i.i.i.i
   store ptr %3, ptr %add.ptr.i.i.i.i, align 8, !tbaa !12, !noalias !30
-  store ptr getelementptr inbounds inrange(-40, 40) (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i, align 8, !tbaa !12, !noalias !30
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i, align 8, !tbaa !12, !noalias !30
   %m_driver.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_driver.i.i.i, i8 0, i64 56, i1 false), !noalias !30
   store ptr %call.i.i, ptr %ref.tmp.i, align 8, !tbaa !33, !alias.scope !30
@@ -996,7 +996,7 @@ _ZN14RenderPipeline7addStepEP10RenderStep.exit.1: ; preds = %_ZNSt6vectorIP10Ren
   store ptr %52, ptr %add.ptr.i.i.i.i155, align 8, !tbaa !12, !noalias !46
   %m_clear.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i152, i64 8
   store i8 1, ptr %m_clear.i.i.i.i, align 8, !tbaa !49, !noalias !46
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV12ScreenTarget, i64 40), ptr %call.i.i152, align 8, !tbaa !12, !noalias !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12ScreenTarget, i64 40), ptr %call.i.i152, align 8, !tbaa !12, !noalias !46
   %size.i.i.i = getelementptr inbounds i8, ptr %call.i.i152, i64 12
   store i32 0, ptr %size.i.i.i, align 4, !tbaa !51, !noalias !46
   %Height.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i152, i64 16
@@ -1498,7 +1498,7 @@ entry:
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8, !noalias !81
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 %vbase.offset.i.i.i
   store ptr %1, ptr %add.ptr.i.i.i, align 8, !tbaa !12, !noalias !81
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV9DrawWield, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !81
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9DrawWield, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !81
   %m_target.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %m_target.i.i, align 8, !tbaa !84, !noalias !81
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !33, !alias.scope !81
@@ -1631,7 +1631,7 @@ entry:
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8, !noalias !86
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 %vbase.offset.i.i.i
   store ptr %3, ptr %add.ptr.i.i.i, align 8, !tbaa !12, !noalias !86
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV13MapPostFxStep, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !86
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MapPostFxStep, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !86
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !33, !alias.scope !86
   %call = invoke noundef ptr @_ZN14RenderPipeline3ownI13MapPostFxStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1749,7 +1749,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24, !noalias !89
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV7DrawHUD, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !89
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7DrawHUD, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !89
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !33, !alias.scope !89
   %call = invoke noundef ptr @_ZN14RenderPipeline3ownI7DrawHUDEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2001,7 +2001,7 @@ entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24, !noalias !95
   %0 = load i8, ptr %args, align 1, !tbaa !35, !noalias !95
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %args1, align 4, !tbaa.struct !19, !noalias !95
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV13DrawImageStep, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !95
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13DrawImageStep, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !95
   %texture_index2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 %0, ptr %texture_index2.i.i, align 8, !tbaa !14, !noalias !95
   %offset.i.i = getelementptr inbounds i8, ptr %call.i, i64 12

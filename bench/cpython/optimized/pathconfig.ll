@@ -186,12 +186,12 @@ if.then61:                                        ; preds = %land.lhs.true59
   br i1 %or.cond, label %land.lhs.true72, label %done
 
 do.body70:                                        ; preds = %land.lhs.true59, %do.body57
-  %.old = load i32, ptr getelementptr inbounds (i8, ptr @_Py_path_config, i64 64), align 8
-  %cmp71.old = icmp sgt i32 %.old, -1
+  %.old1 = load i32, ptr getelementptr inbounds (i8, ptr @_Py_path_config, i64 64), align 8
+  %cmp71.old = icmp sgt i32 %.old1, -1
   br i1 %cmp71.old, label %land.lhs.true72, label %done
 
 land.lhs.true72:                                  ; preds = %if.then61, %do.body70
-  %19 = phi i32 [ %18, %if.then61 ], [ %.old, %do.body70 ]
+  %19 = phi i32 [ %18, %if.then61 ], [ %.old1, %do.body70 ]
   %_is_python_build = getelementptr inbounds i8, ptr %config, i64 440
   %20 = load i32, ptr %_is_python_build, align 8
   %cmp73 = icmp slt i32 %20, 1

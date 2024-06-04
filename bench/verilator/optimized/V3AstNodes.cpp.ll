@@ -84385,13 +84385,13 @@ _ZNK13AstNodeQuadop16getPurityRecurseEv.exit.thread: ; preds = %7, %14, %21, %_Z
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11AstNodeCondC2E6VNTypeP8FileLineP11AstNodeExprS4_S4_(ptr noundef nonnull align 8 dereferenceable(160) %0, i16 %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 %1, ptr noundef %2)
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV12AstNodeTriop, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeTriop, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 152
   store i64 0, ptr %7, align 8
   tail call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %3)
   tail call void @_ZN7AstNode7setOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %4)
   tail call void @_ZN7AstNode7setOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %5)
-  store ptr getelementptr inbounds inrange(-16, 408) (i8, ptr @_ZTV11AstNodeCond, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeCond, i64 16), ptr %0, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %12
 
@@ -85534,7 +85534,7 @@ _ZNK7AstNode8isStringEv.exit21:                   ; preds = %21
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %33
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 152
   store i64 0, ptr %35, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %34, ptr noundef nonnull %1)
@@ -85545,7 +85545,7 @@ _ZNK7AstNode8isStringEv.exit21:                   ; preds = %21
           to label %.noexc23 unwind label %40
 
 .noexc23:                                         ; preds = %.noexc22
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstEqN, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstEqN, i64 16), ptr %34, align 8
   %36 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %34, i8 7)
           to label %.noexc24 unwind label %40
 
@@ -85605,7 +85605,7 @@ _ZNK7AstNode8isDoubleEv.exit32:                   ; preds = %_ZN7AstNode9private
           to label %.noexc34 unwind label %60
 
 .noexc34:                                         ; preds = %53
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 152
   store i64 0, ptr %55, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %54, ptr noundef nonnull %1)
@@ -85616,7 +85616,7 @@ _ZNK7AstNode8isDoubleEv.exit32:                   ; preds = %_ZN7AstNode9private
           to label %.noexc36 unwind label %60
 
 .noexc36:                                         ; preds = %.noexc35
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstEqD, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstEqD, i64 16), ptr %54, align 8
   %56 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %54, i8 7)
           to label %.noexc37 unwind label %60
 
@@ -85641,7 +85641,7 @@ _ZNK7AstNode8isDoubleEv.exit.thread:              ; preds = %3, %46, %_ZN7AstNod
           to label %.noexc39 unwind label %68
 
 .noexc39:                                         ; preds = %_ZNK7AstNode8isDoubleEv.exit.thread
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 152
   store i64 0, ptr %63, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull %1)
@@ -85652,7 +85652,7 @@ _ZNK7AstNode8isDoubleEv.exit.thread:              ; preds = %3, %46, %_ZN7AstNod
           to label %.noexc41 unwind label %68
 
 .noexc41:                                         ; preds = %.noexc40
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV5AstEq, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5AstEq, i64 16), ptr %62, align 8
   %64 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %62, i8 7)
           to label %.noexc42 unwind label %68
 
@@ -85807,7 +85807,7 @@ _ZNK7AstNode8isStringEv.exit21:                   ; preds = %21
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %33
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 152
   store i64 0, ptr %35, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %34, ptr noundef nonnull %1)
@@ -85818,7 +85818,7 @@ _ZNK7AstNode8isStringEv.exit21:                   ; preds = %21
           to label %.noexc23 unwind label %40
 
 .noexc23:                                         ; preds = %.noexc22
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstEqN, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstEqN, i64 16), ptr %34, align 8
   %36 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %34, i8 7)
           to label %.noexc24 unwind label %40
 
@@ -85878,7 +85878,7 @@ _ZNK7AstNode8isDoubleEv.exit32:                   ; preds = %_ZN7AstNode9private
           to label %.noexc34 unwind label %60
 
 .noexc34:                                         ; preds = %53
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 152
   store i64 0, ptr %55, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %54, ptr noundef nonnull %1)
@@ -85889,7 +85889,7 @@ _ZNK7AstNode8isDoubleEv.exit32:                   ; preds = %_ZN7AstNode9private
           to label %.noexc36 unwind label %60
 
 .noexc36:                                         ; preds = %.noexc35
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstEqD, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstEqD, i64 16), ptr %54, align 8
   %56 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %54, i8 7)
           to label %.noexc37 unwind label %60
 
@@ -85914,7 +85914,7 @@ _ZNK7AstNode8isDoubleEv.exit.thread:              ; preds = %3, %46, %_ZN7AstNod
           to label %.noexc39 unwind label %68
 
 .noexc39:                                         ; preds = %_ZNK7AstNode8isDoubleEv.exit.thread
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 152
   store i64 0, ptr %63, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull %1)
@@ -85925,7 +85925,7 @@ _ZNK7AstNode8isDoubleEv.exit.thread:              ; preds = %3, %46, %_ZN7AstNod
           to label %.noexc41 unwind label %68
 
 .noexc41:                                         ; preds = %.noexc40
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstEqWild, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstEqWild, i64 16), ptr %62, align 8
   %64 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %62, i8 7)
           to label %.noexc42 unwind label %68
 
@@ -85965,7 +85965,7 @@ _ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %_ZN6AstEqNC2EP8File
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12AstExecGraphC2EP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 20, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstExecGraph, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstExecGraph, i64 16), ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #35
   invoke void @_ZN7V3GraphC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %5 unwind label %8
@@ -86050,7 +86050,7 @@ _ZN11AstNodeExpr13cloneTreePureEb.exit:           ; preds = %4
           to label %.noexc unwind label %39
 
 .noexc:                                           ; preds = %_ZN11AstNodeExpr13cloneTreePureEb.exit
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 152
   store i64 0, ptr %9, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef %8)
@@ -86061,7 +86061,7 @@ _ZN11AstNodeExpr13cloneTreePureEb.exit:           ; preds = %4
           to label %.noexc13 unwind label %39
 
 .noexc13:                                         ; preds = %.noexc12
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstGte, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstGte, i64 16), ptr %5, align 8
   %10 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %5, i8 7)
           to label %.noexc14 unwind label %39
 
@@ -86089,7 +86089,7 @@ _ZN11AstNodeExpr13cloneTreePureEb.exit16:         ; preds = %_ZN6AstGteC2EP8File
           to label %.noexc18 unwind label %41
 
 .noexc18:                                         ; preds = %_ZN11AstNodeExpr13cloneTreePureEb.exit16
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 152
   store i64 0, ptr %19, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %16, ptr noundef %18)
@@ -86100,7 +86100,7 @@ _ZN11AstNodeExpr13cloneTreePureEb.exit16:         ; preds = %_ZN6AstGteC2EP8File
           to label %.noexc20 unwind label %41
 
 .noexc20:                                         ; preds = %.noexc19
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstLte, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstLte, i64 16), ptr %16, align 8
   %20 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %16, i8 7)
           to label %.noexc21 unwind label %41
 
@@ -86130,7 +86130,7 @@ _ZN6AstLteC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %23, %.noexc21
           to label %.noexc23 unwind label %43
 
 .noexc23:                                         ; preds = %_ZN6AstLteC2EP8FileLineP11AstNodeExprS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %30, i64 152
   store i64 0, ptr %32, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull %5)
@@ -86141,7 +86141,7 @@ _ZN6AstLteC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %23, %.noexc21
           to label %.noexc25 unwind label %43
 
 .noexc25:                                         ; preds = %.noexc24
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstLogAnd, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstLogAnd, i64 16), ptr %30, align 8
   %33 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %30, i8 7)
           to label %.noexc26 unwind label %43
 
@@ -86213,7 +86213,7 @@ define dso_local noundef ptr @_ZN8AstConst17parseParamLiteralEP8FileLineRKNSt7__
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %13
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstConst, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstConst, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 152
   invoke void @_ZN8V3NumberC1ENS_20VerilogStringLiteralEP7AstNodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc23 unwind label %19
@@ -86339,7 +86339,7 @@ declare noundef double @_ZN7VString11parseDoubleERKNSt7__cxx1112basic_stringIcSt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8AstConstC2EP8FileLineNS_10RealDoubleEd(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1, double noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 95, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstConst, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstConst, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 0, ptr %5, align 8
@@ -86404,7 +86404,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8AstConstC2EP8FileLineNS_8Signed32Ei(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 95, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstConst, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstConst, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZN8V3NumberC2EP7AstNodeijb(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %0, i32 noundef 32, i32 noundef %2, i1 noundef zeroext true)
   %5 = getelementptr inbounds i8, ptr %0, i64 189
@@ -86474,7 +86474,7 @@ _ZN7AstNode20dtypeSetLogicUnsizedEii8VSigning.exit: ; preds = %26, %.noexc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8AstConstC2EP8FileLineNS_13StringToParseEPKc(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 95, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstConst, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstConst, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 0, ptr %5, align 8
@@ -86542,7 +86542,7 @@ define dso_local void @_ZN10AstNetlistC2Ev(ptr noundef nonnull align 8 dereferen
 
 7:                                                ; preds = %6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstNetlist, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstNetlist, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 152
   store i8 18, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 153
@@ -86557,7 +86557,7 @@ define dso_local void @_ZN10AstNetlistC2Ev(ptr noundef nonnull align 8 dereferen
           to label %15 unwind label %32
 
 15:                                               ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstTypeTable, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstTypeTable, i64 16), ptr %12, align 8
   %.ptr5.i = getelementptr inbounds i8, ptr %12, i64 152
   %16 = getelementptr inbounds i8, ptr %12, i64 368
   store i32 0, ptr %16, align 8
@@ -89594,12 +89594,12 @@ define dso_local void @_ZNK6AstVar10dpiArgTypeB5cxx11Ebb(ptr dead_on_unwind noal
   br i1 %3, label %9, label %10
 
 9:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV25dpiTypesToStringConverter, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25dpiTypesToStringConverter, i64 16), ptr %5, align 8
   call void @_ZNK25dpiTypesToStringConverter7convertB5cxx11EPK6AstVar(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %1)
   br label %25
 
 10:                                               ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVZNK6AstVar10dpiArgTypeB5cxx11EbbE9converter, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZNK6AstVar10dpiArgTypeB5cxx11EbbE9converter, i64 16), ptr %6, align 8
   call void @_ZNK25dpiTypesToStringConverter7convertB5cxx11EPK6AstVar(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %1)
   br i1 %2, label %11, label %25
 
@@ -89770,7 +89770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.converter.102, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9converter, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9converter, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   invoke void @_ZNK25dpiTypesToStringConverter7convertB5cxx11EPK6AstVar(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %1)
@@ -93340,7 +93340,7 @@ define dso_local noundef nonnull ptr @_ZN8AstScope10createTempERKNSt7__cxx1112ba
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstVarScope, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstVarScope, i64 16), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 160
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 168
@@ -93393,7 +93393,7 @@ define linkonce_odr dso_local void @_ZN8VVarTypeC2ENS_2enE(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6AstVarC2EP8FileLine8VVarTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE14VFlagBitPackedi(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 48, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV6AstVar, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstVar, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %7 = getelementptr inbounds i8, ptr %0, i64 184
@@ -93484,7 +93484,7 @@ define dso_local noundef nonnull ptr @_ZN8AstScope10createTempERKNSt7__cxx1112ba
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstVarScope, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstVarScope, i64 16), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 160
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 168
@@ -93531,7 +93531,7 @@ _ZN11AstVarScopeC2EP8FileLineP8AstScopeP6AstVar.exit: ; preds = %20, %.noexc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6AstVarC2EP8FileLine8VVarTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 48, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV6AstVar, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstVar, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %7 = getelementptr inbounds i8, ptr %0, i64 184
@@ -94288,7 +94288,7 @@ _ZN7AstNode9privateAsI10AstSenItemPS_EEPT_S2_.exit.thread: ; preds = %10, %.preh
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12AstTypeTableC2EP8FileLine(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 43, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstTypeTable, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstTypeTable, i64 16), ptr %0, align 8
   %.ptr5 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   store i32 0, ptr %3, align 8
@@ -94549,7 +94549,7 @@ define dso_local noundef nonnull ptr @_ZN12AstTypeTable22findConstraintRefDTypeE
 .noexc:                                           ; preds = %5
   %7 = getelementptr inbounds i8, ptr %6, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %7, i8 0, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV21AstConstraintRefDType, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21AstConstraintRefDType, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, %6
@@ -94593,7 +94593,7 @@ define dso_local noundef nonnull ptr @_ZN12AstTypeTable19findEmptyQueueDTypeEP8F
 .noexc:                                           ; preds = %5
   %7 = getelementptr inbounds i8, ptr %6, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %7, i8 0, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV18AstEmptyQueueDType, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18AstEmptyQueueDType, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, %6
@@ -94637,7 +94637,7 @@ define dso_local noundef nonnull ptr @_ZN12AstTypeTable15findStreamDTypeEP8FileL
 .noexc:                                           ; preds = %5
   %7 = getelementptr inbounds i8, ptr %6, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %7, i8 0, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV14AstStreamDType, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstStreamDType, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, %6
@@ -94685,7 +94685,7 @@ _ZNK7AstNode15findUInt32DTypeEv.exit:             ; preds = %5
 .noexc:                                           ; preds = %_ZNK7AstNode15findUInt32DTypeEv.exit
   %8 = getelementptr inbounds i8, ptr %6, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %8, i8 0, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV13AstQueueDType, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstQueueDType, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 168
   store ptr %7, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 72
@@ -94731,7 +94731,7 @@ define dso_local noundef nonnull ptr @_ZN12AstTypeTable13findVoidDTypeEP8FileLin
 .noexc:                                           ; preds = %5
   %7 = getelementptr inbounds i8, ptr %6, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %7, i8 0, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV12AstVoidDType, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstVoidDType, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, %6
@@ -94779,7 +94779,7 @@ define dso_local noundef ptr @_ZN12AstTypeTable14findBasicDTypeEP8FileLine14VBas
 .noexc:                                           ; preds = %10
   %12 = getelementptr inbounds i8, ptr %11, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %12, i8 0, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 164
   store i8 0, ptr %13, align 1
   %14 = getelementptr inbounds i8, ptr %11, i64 168
@@ -94863,7 +94863,7 @@ define dso_local noundef ptr @_ZN12AstTypeTable17findLogicBitDTypeEP8FileLine14V
 .noexc:                                           ; preds = %6
   %10 = getelementptr inbounds i8, ptr %9, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %10, i8 0, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 164
   store i8 0, ptr %11, align 1
   %12 = getelementptr inbounds i8, ptr %9, i64 168
@@ -94948,7 +94948,7 @@ define dso_local noundef ptr @_ZN12AstTypeTable17findLogicBitDTypeEP8FileLine14V
   %.sroa.08.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.04.0.copyload to i32
   %10 = getelementptr inbounds i8, ptr %9, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %10, i8 0, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 164
   store i8 0, ptr %11, align 1
   %12 = getelementptr inbounds i8, ptr %9, i64 168
@@ -95196,7 +95196,7 @@ define dso_local void @_ZN12AstConstPoolC2EP8FileLine(ptr noundef nonnull align 
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 11, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstConstPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstConstPool, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 152
   %8 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %8, ptr %7, align 8
@@ -95247,7 +95247,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc16 unwind label %57
 
 .noexc16:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %20, align 8
   %25 = getelementptr inbounds i8, ptr %20, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc17 unwind label %57
@@ -95278,7 +95278,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %36 = load i16, ptr %35, align 1
   %37 = and i16 %36, -1024
   store i16 %37, ptr %35, align 1
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV9AstModule, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstModule, i64 16), ptr %20, align 8
   %38 = getelementptr inbounds i8, ptr %20, i64 257
   store i8 0, ptr %38, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #32
@@ -95312,7 +95312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24: ; 
           to label %.noexc25 unwind label %61
 
 .noexc25:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstScope, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstScope, i64 16), ptr %40, align 8
   %45 = getelementptr inbounds i8, ptr %40, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %46 unwind label %61
@@ -95460,7 +95460,7 @@ _ZN6AstVar6valuepEP7AstNode.exit:                 ; preds = %9, %14
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %_ZN6AstVar6valuepEP7AstNode.exit
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstVarScope, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstVarScope, i64 16), ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 160
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 168
@@ -100616,7 +100616,7 @@ define dso_local void @_ZN12AstInitArray14addIndexValuepEmP11AstNodeExpr(ptr nou
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %11
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstInitItem, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstInitItem, i64 16), ptr %12, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %12, ptr noundef %2)
           to label %_ZN11AstInitItemC2EP8FileLineP11AstNodeExpr.exit unwind label %16
 
@@ -103929,7 +103929,7 @@ define dso_local noundef ptr @_ZN10AstNetlist17dollarUnitPkgAddpEv(ptr noundef n
           to label %.noexc unwind label %39
 
 .noexc:                                           ; preds = %9
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc5 unwind label %39
@@ -103960,7 +103960,7 @@ define dso_local noundef ptr @_ZN10AstNetlist17dollarUnitPkgAddpEv(ptr noundef n
   %21 = load i16, ptr %20, align 1
   %22 = and i16 %21, -1024
   store i16 %22, ptr %20, align 1
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV10AstPackage, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstPackage, i64 16), ptr %6, align 8
   store ptr %6, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %23 = load ptr, ptr %3, align 8
@@ -104095,7 +104095,7 @@ define dso_local void @_ZN10AstNetlist14createTopScopeEP8AstScope(ptr noundef no
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %14
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstTopScope, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstTopScope, i64 16), ptr %15, align 8
   invoke void @_ZN7AstNode7setOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %15, ptr noundef nonnull %1)
           to label %_ZN11AstTopScopeC2EP8FileLineP8AstScope.exit unwind label %25
 
@@ -112656,7 +112656,7 @@ _ZNK10AstAssignW15isTimingControlEv.exit:         ; preds = %1, %7
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %21
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %25, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %25, ptr noundef %17)
           to label %.noexc22 unwind label %49
 
@@ -112692,7 +112692,7 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit.i.i: ; preds = %26, %.noexc23
   br label %_ZN9AstAssignC2EP8FileLineP11AstNodeExprS3_P7AstNode.exit
 
 _ZN9AstAssignC2EP8FileLineP11AstNodeExprS3_P7AstNode.exit: ; preds = %27, %32, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit.i.i
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV9AstAssign, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAssign, i64 16), ptr %25, align 8
   br i1 %11, label %35, label %55
 
 35:                                               ; preds = %_ZN9AstAssignC2EP8FileLineP11AstNodeExprS3_P7AstNode.exit
@@ -112720,7 +112720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc28 unwind label %53
 
 .noexc28:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc29 unwind label %53
@@ -112741,7 +112741,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %46 = getelementptr inbounds i8, ptr %36, i64 184
   %47 = zext i1 %45 to i8
   store i8 %47, ptr %46, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstFork, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstFork, i64 16), ptr %36, align 8
   %48 = getelementptr inbounds i8, ptr %36, i64 185
   store i8 0, ptr %48, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #32
@@ -112781,7 +112781,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc33 unwind label %62
 
 .noexc33:                                         ; preds = %55
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV16AstNodeProcedure, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstNodeProcedure, i64 16), ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 152
   %58 = load i8, ptr %57, align 8
   %59 = and i8 %58, -4
@@ -112790,7 +112790,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %60 unwind label %62
 
 60:                                               ; preds = %.noexc33
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstAlways, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAlways, i64 16), ptr %56, align 8
   %61 = getelementptr inbounds i8, ptr %56, i64 153
   store i8 0, ptr %61, align 1
   call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %56)
@@ -114112,7 +114112,7 @@ _ZNK17AstNodeArrayDType2hiEv.exit15:              ; preds = %_ZNK8AstRange9leftC
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21AstNodeUOrStructDTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -114261,7 +114261,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstEnumItem5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstEnumItem, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstEnumItem, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -114334,7 +114334,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18AstAssocArrayDType5cloneEv(ptr n
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV18AstAssocArrayDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18AstAssocArrayDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
@@ -114562,7 +114562,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstBasicDType5cloneEv(ptr nounde
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstBasicDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 164
   %8 = getelementptr inbounds i8, ptr %0, i64 164
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
@@ -114754,7 +114754,7 @@ define linkonce_odr dso_local noundef ptr @_ZN20AstBracketArrayDType5cloneEv(ptr
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV20AstBracketArrayDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstBracketArrayDType, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -114855,7 +114855,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstCDType5cloneEv(ptr noundef non
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV9AstCDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstCDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -114998,7 +114998,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstClassRefDType5cloneEv(ptr nou
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV16AstClassRefDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstClassRefDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
@@ -115140,7 +115140,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstConstDType5cloneEv(ptr nounde
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV13AstConstDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstConstDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
@@ -115331,7 +115331,7 @@ define linkonce_odr dso_local noundef ptr @_ZN21AstConstraintRefDType5cloneEv(pt
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV21AstConstraintRefDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21AstConstraintRefDType, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -115435,7 +115435,7 @@ define linkonce_odr dso_local noundef ptr @_ZN19AstDefImplicitDType5cloneEv(ptr 
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV19AstDefImplicitDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19AstDefImplicitDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -115608,7 +115608,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstDynArrayDType5cloneEv(ptr nou
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV16AstDynArrayDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstDynArrayDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
@@ -115796,7 +115796,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18AstEmptyQueueDType5cloneEv(ptr n
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV18AstEmptyQueueDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18AstEmptyQueueDType, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -115901,7 +115901,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstEnumDType5cloneEv(ptr noundef
   %6 = getelementptr inbounds i8, ptr %3, i64 152
   %7 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %6, ptr noundef nonnull align 8 dereferenceable(10) %7, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV12AstEnumDType, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstEnumDType, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 168
   %9 = getelementptr inbounds i8, ptr %0, i64 168
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -116193,7 +116193,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstIfaceRefDType5cloneEv(ptr nou
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV16AstIfaceRefDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstIfaceRefDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 162
   %8 = getelementptr inbounds i8, ptr %0, i64 162
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %7, ptr noundef nonnull align 2 dereferenceable(14) %8, i64 14, i1 false)
@@ -116329,7 +116329,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstMemberDType5cloneEv(ptr nound
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV14AstMemberDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstMemberDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -116561,7 +116561,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstParamTypeDType5cloneEv(ptr no
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV17AstParamTypeDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstParamTypeDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 162
   %8 = getelementptr inbounds i8, ptr %0, i64 162
   %9 = load i8, ptr %8, align 2
@@ -116777,7 +116777,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstParseTypeDType5cloneEv(ptr no
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV17AstParseTypeDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstParseTypeDType, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -116855,7 +116855,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstQueueDType5cloneEv(ptr nounde
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV13AstQueueDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstQueueDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
@@ -117043,7 +117043,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstRefDType5cloneEv(ptr noundef 
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV11AstRefDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstRefDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -117546,7 +117546,7 @@ define linkonce_odr dso_local noundef ptr @_ZN19AstSampleQueueDType5cloneEv(ptr 
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV19AstSampleQueueDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19AstSampleQueueDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
@@ -117724,7 +117724,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstStreamDType5cloneEv(ptr nound
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV14AstStreamDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstStreamDType, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -117828,7 +117828,7 @@ define linkonce_odr dso_local noundef ptr @_ZN20AstUnsizedArrayDType5cloneEv(ptr
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV20AstUnsizedArrayDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstUnsizedArrayDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
@@ -117951,7 +117951,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstVoidDType5cloneEv(ptr noundef
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV12AstVoidDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstVoidDType, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -118055,7 +118055,7 @@ define linkonce_odr dso_local noundef ptr @_ZN21AstWildcardArrayDType5cloneEv(pt
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV21AstWildcardArrayDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21AstWildcardArrayDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
@@ -118162,7 +118162,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstPackArrayDType5cloneEv(ptr no
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV17AstPackArrayDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstPackArrayDType, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -118204,7 +118204,7 @@ define linkonce_odr dso_local noundef ptr @_ZN19AstUnpackArrayDType5cloneEv(ptr 
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV19AstUnpackArrayDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19AstUnpackArrayDType, i64 16), ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 176
   %11 = getelementptr inbounds i8, ptr %0, i64 176
   %12 = load i8, ptr %11, align 8
@@ -118259,7 +118259,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstStructDType5cloneEv(ptr nound
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -118269,7 +118269,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstStructDType5cloneEv(ptr nound
   %10 = getelementptr inbounds i8, ptr %2, i64 200
   %11 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV14AstStructDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstStructDType, i64 16), ptr %2, align 8
   ret ptr %2
 
 12:                                               ; preds = %1
@@ -118281,7 +118281,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstStructDType5cloneEv(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14AstStructDTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -118289,7 +118289,7 @@ define linkonce_odr dso_local void @_ZN14AstStructDTypeD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14AstStructDTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -118350,7 +118350,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstUnionDType5cloneEv(ptr nounde
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -118360,7 +118360,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstUnionDType5cloneEv(ptr nounde
   %10 = getelementptr inbounds i8, ptr %2, i64 200
   %11 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV13AstUnionDType, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstUnionDType, i64 16), ptr %2, align 8
   ret ptr %2
 
 12:                                               ; preds = %1
@@ -118372,7 +118372,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstUnionDType5cloneEv(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13AstUnionDTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -118380,7 +118380,7 @@ define linkonce_odr dso_local void @_ZN13AstUnionDTypeD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13AstUnionDTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21AstNodeUOrStructDType, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -118768,7 +118768,7 @@ _ZNK12AstNodeCCall8argTypesB5cxx11Ev.exit:        ; preds = %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12AstNodeCCallD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -118838,7 +118838,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12AstNodeCCall8cleanOutEv(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15AstNodeFTaskRefD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -119231,7 +119231,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19AstNodeSystemUniopD12dou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13AstNodeVarRefD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -119352,7 +119352,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstAddrOfCFunc5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV14AstAddrOfCFunc, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstAddrOfCFunc, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
@@ -119417,7 +119417,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstArg5cloneEv(ptr noundef nonnul
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV6AstArg, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstArg, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -119521,7 +119521,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAttrOf5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstAttrOf, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAttrOf, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -119594,7 +119594,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCExpr5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstCExpr, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCExpr, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i16, ptr %6, align 8
@@ -119691,7 +119691,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstCMethodHard5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV14AstCMethodHard, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstCMethodHard, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -119814,7 +119814,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstCast5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV7AstCast, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstCast, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -119913,7 +119913,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstCastParse5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstCastParse, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstCastParse, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -120005,7 +120005,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstCastSize5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV11AstCastSize, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstCastSize, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -120097,7 +120097,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstCellArrayRef5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstCellArrayRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstCellArrayRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -120189,7 +120189,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstCellRef5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstCellRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstCellRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -120281,7 +120281,7 @@ define linkonce_odr dso_local noundef ptr @_ZN20AstClassOrPackageRef5cloneEv(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV20AstClassOrPackageRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstClassOrPackageRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -120387,7 +120387,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstConsAssoc5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstConsAssoc, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstConsAssoc, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -120520,7 +120520,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstConsDynArray5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstConsDynArray, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstConsDynArray, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -120653,7 +120653,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstConsPackMember5cloneEv(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV17AstConsPackMember, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstConsPackMember, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -120763,7 +120763,7 @@ define linkonce_odr dso_local noundef ptr @_ZN20AstConsPackUOrStruct5cloneEv(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV20AstConsPackUOrStruct, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstConsPackUOrStruct, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -120873,7 +120873,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstConsQueue5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstConsQueue, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstConsQueue, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -121006,7 +121006,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstConsWildcard5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstConsWildcard, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstConsWildcard, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -121139,7 +121139,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstConst5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstConst, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstConst, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6)
@@ -121324,7 +121324,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstConstraintRef5cloneEv(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV16AstConstraintRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstConstraintRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -121427,7 +121427,7 @@ define linkonce_odr dso_local noundef ptr @_ZN22AstCvtDynArrayToPacked5cloneEv(p
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV22AstCvtDynArrayToPacked, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22AstCvtDynArrayToPacked, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -121488,7 +121488,7 @@ define linkonce_odr dso_local noundef ptr @_ZN22AstCvtPackedToDynArray5cloneEv(p
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV22AstCvtPackedToDynArray, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22AstCvtPackedToDynArray, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -121549,7 +121549,7 @@ define linkonce_odr dso_local noundef ptr @_ZN25AstCvtPackedToUnpackArray5cloneE
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV25AstCvtPackedToUnpackArray, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25AstCvtPackedToUnpackArray, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -121610,7 +121610,7 @@ define linkonce_odr dso_local noundef ptr @_ZN25AstCvtUnpackArrayToPacked5cloneE
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV25AstCvtUnpackArrayToPacked, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25AstCvtUnpackArrayToPacked, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -121671,7 +121671,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstDot5cloneEv(ptr noundef nonnul
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV6AstDot, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstDot, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -121745,7 +121745,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstEmptyQueue5cloneEv(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV13AstEmptyQueue, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstEmptyQueue, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -121834,7 +121834,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstEnumItemRef5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV14AstEnumItemRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstEnumItemRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -121922,7 +121922,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstExprStmt5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV11AstExprStmt, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstExprStmt, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -122022,7 +122022,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstFError5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstFError, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstFError, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -122153,7 +122153,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstFOpen5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstFOpen, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstFOpen, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -122280,7 +122280,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstFOpenMcd5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV11AstFOpenMcd, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstFOpenMcd, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -122407,7 +122407,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstFRead5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstFRead, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstFRead, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -122529,7 +122529,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstFRewind5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstFRewind, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstFRewind, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -122656,7 +122656,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstFScanF5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstFScanF, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstFScanF, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -122837,7 +122837,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstFSeek5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstFSeek, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstFSeek, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -122959,7 +122959,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstFTell5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstFTell, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstFTell, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -123086,7 +123086,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstFell5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV7AstFell, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstFell, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -123227,7 +123227,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstGatePin5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstGatePin, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstGatePin, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -123311,7 +123311,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstImplication5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV14AstImplication, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstImplication, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -123430,7 +123430,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstInitArray5cloneEv(ptr noundef
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstInitArray, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstInitArray, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 160
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 168
@@ -123623,7 +123623,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstInside5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstInside, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstInside, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -123707,7 +123707,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstInsideRange5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV14AstInsideRange, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstInsideRange, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -123791,7 +123791,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstLambdaArgRef5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstLambdaArgRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstLambdaArgRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -123917,7 +123917,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstMemberSel5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstMemberSel, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstMemberSel, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -124035,7 +124035,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstNewCopy5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstNewCopy, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstNewCopy, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -124155,7 +124155,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstNewDynamic5cloneEv(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV13AstNewDynamic, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNewDynamic, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -124275,7 +124275,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstParseRef5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV11AstParseRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstParseRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -124412,7 +124412,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstPast5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV7AstPast, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstPast, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -124530,7 +124530,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstPatMember5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstPatMember, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstPatMember, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -124678,7 +124678,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstPattern5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstPattern, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstPattern, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -124798,7 +124798,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstRand5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV7AstRand, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstRand, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i16, ptr %6, align 8
@@ -124976,7 +124976,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstRandRNG5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstRandRNG, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstRandRNG, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -125120,7 +125120,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstRose5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV7AstRose, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstRose, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -125261,7 +125261,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstSFormatF5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV11AstSFormatF, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstSFormatF, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -125439,7 +125439,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstSScanF5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstSScanF, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstSScanF, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -125620,7 +125620,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstSampled5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstSampled, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSampled, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -125735,7 +125735,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstScopeName5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstScopeName, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstScopeName, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i16, ptr %6, align 8
@@ -125849,7 +125849,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstSelLoopVars5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV14AstSelLoopVars, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstSelLoopVars, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -125933,7 +125933,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstSetAssoc5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV11AstSetAssoc, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstSetAssoc, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -126066,7 +126066,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstSetWildcard5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV14AstSetWildcard, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstSetWildcard, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -126199,7 +126199,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstStable5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstStable, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstStable, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -126340,7 +126340,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstStackTraceF5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV14AstStackTraceF, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstStackTraceF, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -126537,7 +126537,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstStructSel5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstStructSel, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstStructSel, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -126704,7 +126704,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstSysIgnore5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstSysIgnore, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstSysIgnore, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -126834,7 +126834,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstSystemF5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstSystemF, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSystemF, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -127031,7 +127031,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstTestPlusArgs5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstTestPlusArgs, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstTestPlusArgs, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -127213,7 +127213,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstThisRef5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstThisRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstThisRef, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -127332,7 +127332,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstTimePrecision5cloneEv(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV16AstTimePrecision, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstTimePrecision, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -127465,7 +127465,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstTimeUnit5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV11AstTimeUnit, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstTimeUnit, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -127602,7 +127602,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstUCFunc5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstUCFunc, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstUCFunc, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -127698,7 +127698,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstUnbounded5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstUnbounded, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstUnbounded, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -127782,7 +127782,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstUnlinkedRef5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV14AstUnlinkedRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstUnlinkedRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -127867,7 +127867,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstValuePlusArgs5cloneEv(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV16AstValuePlusArgs, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstValuePlusArgs, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -128010,7 +128010,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstWith5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV7AstWith, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstWith, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -128084,7 +128084,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstWithParse5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstWithParse, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstWithParse, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -128162,7 +128162,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstBufIf15cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstBufIf1, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstBufIf1, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -128270,7 +128270,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstBufIf19cloneTypeEP11AstNodeExp
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -128281,7 +128281,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstBufIf19cloneTypeEP11AstNodeExp
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstBufIf1, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstBufIf1, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN9AstBufIf1C2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -128346,7 +128346,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstCastDynamic5cloneEv(ptr nound
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV14AstCastDynamic, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstCastDynamic, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -128493,7 +128493,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstCastDynamic9cloneTypeEP11AstN
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -128504,7 +128504,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstCastDynamic9cloneTypeEP11AstN
           to label %8 unwind label %9
 
 8:                                                ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV14AstCastDynamic, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstCastDynamic, i64 16), ptr %4, align 8
   ret ptr %4
 
 9:                                                ; preds = %.noexc4, %.noexc, %3
@@ -128557,7 +128557,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstCompareNN5cloneEv(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV12AstCompareNN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstCompareNN, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 160
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   %10 = load i8, ptr %9, align 8
@@ -128765,7 +128765,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstCompareNN9cloneTypeEP11AstNod
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %10, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -128776,7 +128776,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstCompareNN9cloneTypeEP11AstNod
           to label %.noexc5 unwind label %18
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV12AstCompareNN, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstCompareNN, i64 16), ptr %4, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 160
   store i8 %9, ptr %11, align 8
   %12 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 23)
@@ -128844,7 +128844,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstConcat5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstConcat, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstConcat, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -128986,7 +128986,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstConcat9cloneTypeEP11AstNodeExp
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -128997,7 +128997,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstConcat9cloneTypeEP11AstNodeExp
           to label %.noexc5 unwind label %24
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstConcat, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstConcat, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -129077,7 +129077,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstConcatN5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstConcatN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstConcatN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -129192,7 +129192,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstConcatN9cloneTypeEP11AstNodeE
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -129203,7 +129203,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstConcatN9cloneTypeEP11AstNodeE
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstConcatN, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstConcatN, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 12)
           to label %.noexc6 unwind label %14
 
@@ -129271,7 +129271,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstDiv5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstDiv, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstDiv, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -129413,7 +129413,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstDiv9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -129424,7 +129424,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstDiv9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstDiv, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstDiv, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN6AstDivC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -129489,7 +129489,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstDivD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstDivD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstDivD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -129617,7 +129617,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstDivD9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -129628,7 +129628,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstDivD9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstDivD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstDivD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 9)
           to label %.noexc6 unwind label %14
 
@@ -129696,7 +129696,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstDivS5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstDivS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstDivS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -129838,7 +129838,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstDivS9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -129849,7 +129849,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstDivS9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstDivS, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstDivS, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN7AstDivSC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -129919,7 +129919,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstEqWild5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstEqWild, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstEqWild, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -130065,7 +130065,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstEqWild9cloneTypeEP11AstNodeExp
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -130076,7 +130076,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstEqWild9cloneTypeEP11AstNodeExp
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstEqWild, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstEqWild, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -130139,7 +130139,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstFGetS5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstFGetS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstFGetS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -130295,7 +130295,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstFGetS9cloneTypeEP11AstNodeExpr
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -130306,7 +130306,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstFGetS9cloneTypeEP11AstNodeExpr
           to label %8 unwind label %9
 
 8:                                                ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstFGetS, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstFGetS, i64 16), ptr %4, align 8
   ret ptr %4
 
 9:                                                ; preds = %.noexc4, %.noexc, %3
@@ -130359,7 +130359,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstFUngetC5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstFUngetC, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstFUngetC, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -130511,7 +130511,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstFUngetC9cloneTypeEP11AstNodeE
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -130522,7 +130522,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstFUngetC9cloneTypeEP11AstNodeE
           to label %8 unwind label %9
 
 8:                                                ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstFUngetC, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstFUngetC, i64 16), ptr %4, align 8
   ret ptr %4
 
 9:                                                ; preds = %.noexc4, %.noexc, %3
@@ -130575,7 +130575,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstGetcN5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstGetcN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstGetcN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -130757,7 +130757,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstGetcN9cloneTypeEP11AstNodeExpr
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -130768,7 +130768,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstGetcN9cloneTypeEP11AstNodeExpr
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstGetcN, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstGetcN, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode12findBitDTypeEii8VSigning(ptr noundef nonnull align 8 dereferenceable(152) %4, i32 noundef 8, i32 noundef 8, i8 0)
           to label %.noexc6 unwind label %14
 
@@ -130831,7 +130831,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstGetcRefN5cloneEv(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstGetcRefN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstGetcRefN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -130954,7 +130954,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstGetcRefN9cloneTypeEP11AstNode
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -130965,7 +130965,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstGetcRefN9cloneTypeEP11AstNode
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstGetcRefN, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstGetcRefN, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode12findBitDTypeEii8VSigning(ptr noundef nonnull align 8 dereferenceable(152) %4, i32 noundef 8, i32 noundef 8, i8 0)
           to label %.noexc6 unwind label %14
 
@@ -131035,7 +131035,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstGt5cloneEv(ptr noundef nonnull
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV5AstGt, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5AstGt, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -131181,7 +131181,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstGt9cloneTypeEP11AstNodeExprS1_
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -131192,7 +131192,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstGt9cloneTypeEP11AstNodeExprS1_
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV5AstGt, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5AstGt, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -131255,7 +131255,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGtD5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstGtD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstGtD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -131383,7 +131383,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGtD9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -131394,7 +131394,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGtD9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstGtD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstGtD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -131462,7 +131462,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGtN5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstGtN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstGtN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -131590,7 +131590,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGtN9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -131601,7 +131601,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGtN9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstGtN, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstGtN, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -131669,7 +131669,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGtS5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstGtS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstGtS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -131815,7 +131815,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGtS9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -131826,7 +131826,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGtS9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstGtS, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstGtS, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -131894,7 +131894,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGte5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstGte, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstGte, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -132040,7 +132040,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGte9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -132051,7 +132051,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstGte9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstGte, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstGte, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -132114,7 +132114,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstGteD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstGteD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstGteD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -132242,7 +132242,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstGteD9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -132253,7 +132253,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstGteD9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstGteD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstGteD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -132321,7 +132321,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstGteN5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstGteN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstGteN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -132449,7 +132449,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstGteN9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -132460,7 +132460,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstGteN9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstGteN, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstGteN, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -132528,7 +132528,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstGteS5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstGteS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstGteS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -132674,7 +132674,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstGteS9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -132685,7 +132685,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstGteS9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstGteS, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstGteS, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -132753,7 +132753,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstLogAnd5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstLogAnd, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstLogAnd, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -132931,7 +132931,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstLogAnd9cloneTypeEP11AstNodeExp
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -132942,7 +132942,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstLogAnd9cloneTypeEP11AstNodeExp
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstLogAnd, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstLogAnd, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -133005,7 +133005,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstLogIf5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstLogIf, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstLogIf, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -133183,7 +133183,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstLogIf9cloneTypeEP11AstNodeExpr
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -133194,7 +133194,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstLogIf9cloneTypeEP11AstNodeExpr
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstLogIf, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstLogIf, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -133257,7 +133257,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstLogOr5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstLogOr, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstLogOr, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -133435,7 +133435,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstLogOr9cloneTypeEP11AstNodeExpr
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -133446,7 +133446,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstLogOr9cloneTypeEP11AstNodeExpr
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstLogOr, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstLogOr, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -133509,7 +133509,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstLt5cloneEv(ptr noundef nonnull
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV5AstLt, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5AstLt, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -133655,7 +133655,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstLt9cloneTypeEP11AstNodeExprS1_
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -133666,7 +133666,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstLt9cloneTypeEP11AstNodeExprS1_
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV5AstLt, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5AstLt, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -133729,7 +133729,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLtD5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstLtD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstLtD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -133857,7 +133857,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLtD9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -133868,7 +133868,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLtD9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstLtD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstLtD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -133936,7 +133936,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLtN5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstLtN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstLtN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -134064,7 +134064,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLtN9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -134075,7 +134075,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLtN9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstLtN, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstLtN, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -134143,7 +134143,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLtS5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstLtS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstLtS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -134289,7 +134289,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLtS9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -134300,7 +134300,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLtS9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstLtS, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstLtS, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -134368,7 +134368,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLte5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstLte, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstLte, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -134514,7 +134514,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLte9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -134525,7 +134525,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLte9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstLte, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstLte, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -134588,7 +134588,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstLteD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstLteD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstLteD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -134716,7 +134716,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstLteD9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -134727,7 +134727,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstLteD9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstLteD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstLteD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -134795,7 +134795,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstLteN5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstLteN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstLteN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -134923,7 +134923,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstLteN9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -134934,7 +134934,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstLteN9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstLteN, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstLteN, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -135002,7 +135002,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstLteS5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstLteS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstLteS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -135148,7 +135148,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstLteS9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -135159,7 +135159,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstLteS9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstLteS, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstLteS, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -135227,7 +135227,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstModDiv5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstModDiv, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstModDiv, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -135369,7 +135369,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstModDiv9cloneTypeEP11AstNodeExp
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -135380,7 +135380,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstModDiv9cloneTypeEP11AstNodeExp
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstModDiv, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstModDiv, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN9AstModDivC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -135445,7 +135445,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstModDivS5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstModDivS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstModDivS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -135587,7 +135587,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstModDivS9cloneTypeEP11AstNodeE
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -135598,7 +135598,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstModDivS9cloneTypeEP11AstNodeE
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstModDivS, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstModDivS, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN10AstModDivSC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -135668,7 +135668,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstNeqWild5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstNeqWild, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstNeqWild, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -135814,7 +135814,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstNeqWild9cloneTypeEP11AstNodeE
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -135825,7 +135825,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstNeqWild9cloneTypeEP11AstNodeE
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstNeqWild, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstNeqWild, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -135888,7 +135888,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstPow5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstPow, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstPow, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -136035,7 +136035,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstPow9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -136046,7 +136046,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstPow9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstPow, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstPow, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN6AstPowC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -136111,7 +136111,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstPowD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstPowD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstPowD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -136226,7 +136226,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstPowD9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -136237,7 +136237,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstPowD9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstPowD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstPowD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 9)
           to label %.noexc6 unwind label %14
 
@@ -136305,7 +136305,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstPowSS5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstPowSS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstPowSS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -136452,7 +136452,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstPowSS9cloneTypeEP11AstNodeExpr
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -136463,7 +136463,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstPowSS9cloneTypeEP11AstNodeExpr
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstPowSS, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstPowSS, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN8AstPowSSC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -136533,7 +136533,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstPowSU5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstPowSU, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstPowSU, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -136680,7 +136680,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstPowSU9cloneTypeEP11AstNodeExpr
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -136691,7 +136691,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstPowSU9cloneTypeEP11AstNodeExpr
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstPowSU, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstPowSU, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN8AstPowSUC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -136761,7 +136761,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstPowUS5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstPowUS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstPowUS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -136908,7 +136908,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstPowUS9cloneTypeEP11AstNodeExpr
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -136919,7 +136919,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstPowUS9cloneTypeEP11AstNodeExpr
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstPowUS, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstPowUS, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN8AstPowUSC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -136989,7 +136989,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstReplicate5cloneEv(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV12AstReplicate, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstReplicate, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -137176,7 +137176,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstReplicateN5cloneEv(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV13AstReplicateN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstReplicateN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -137318,7 +137318,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstReplicateN9cloneTypeEP11AstNo
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -137329,7 +137329,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstReplicateN9cloneTypeEP11AstNo
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV13AstReplicateN, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstReplicateN, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 12)
           to label %.noexc6 unwind label %14
 
@@ -137397,7 +137397,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstShiftL5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstShiftL, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstShiftL, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -137567,7 +137567,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstShiftL9cloneTypeEP11AstNodeExp
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -137578,7 +137578,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstShiftL9cloneTypeEP11AstNodeExp
           to label %8 unwind label %9
 
 8:                                                ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstShiftL, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstShiftL, i64 16), ptr %4, align 8
   ret ptr %4
 
 9:                                                ; preds = %.noexc4, %.noexc, %3
@@ -137624,7 +137624,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstShiftLOvr5cloneEv(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV12AstShiftLOvr, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstShiftLOvr, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -137770,7 +137770,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstShiftLOvr9cloneTypeEP11AstNod
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -137781,7 +137781,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstShiftLOvr9cloneTypeEP11AstNod
           to label %8 unwind label %9
 
 8:                                                ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV12AstShiftLOvr, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstShiftLOvr, i64 16), ptr %4, align 8
   ret ptr %4
 
 9:                                                ; preds = %.noexc4, %.noexc, %3
@@ -137827,7 +137827,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstShiftR5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstShiftR, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstShiftR, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -137997,7 +137997,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstShiftR9cloneTypeEP11AstNodeExp
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -138008,7 +138008,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstShiftR9cloneTypeEP11AstNodeExp
           to label %8 unwind label %9
 
 8:                                                ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstShiftR, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstShiftR, i64 16), ptr %4, align 8
   ret ptr %4
 
 9:                                                ; preds = %.noexc4, %.noexc, %3
@@ -138054,7 +138054,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstShiftROvr5cloneEv(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV12AstShiftROvr, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstShiftROvr, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -138200,7 +138200,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstShiftROvr9cloneTypeEP11AstNod
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -138211,7 +138211,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstShiftROvr9cloneTypeEP11AstNod
           to label %8 unwind label %9
 
 8:                                                ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV12AstShiftROvr, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstShiftROvr, i64 16), ptr %4, align 8
   ret ptr %4
 
 9:                                                ; preds = %.noexc4, %.noexc, %3
@@ -138257,7 +138257,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstShiftRS5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstShiftRS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstShiftRS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -138403,7 +138403,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstShiftRS9cloneTypeEP11AstNodeE
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -138414,7 +138414,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstShiftRS9cloneTypeEP11AstNodeE
           to label %8 unwind label %9
 
 8:                                                ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstShiftRS, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstShiftRS, i64 16), ptr %4, align 8
   ret ptr %4
 
 9:                                                ; preds = %.noexc4, %.noexc, %3
@@ -138496,7 +138496,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstShiftRSOvr5cloneEv(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV13AstShiftRSOvr, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstShiftRSOvr, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -138642,7 +138642,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstShiftRSOvr9cloneTypeEP11AstNo
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -138653,7 +138653,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstShiftRSOvr9cloneTypeEP11AstNo
           to label %8 unwind label %9
 
 8:                                                ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV13AstShiftRSOvr, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstShiftRSOvr, i64 16), ptr %4, align 8
   ret ptr %4
 
 9:                                                ; preds = %.noexc4, %.noexc, %3
@@ -138735,7 +138735,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstSub5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstSub, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstSub, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -138881,7 +138881,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstSub9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -138892,7 +138892,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstSub9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstSub, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstSub, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN6AstSubC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -138957,7 +138957,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstSubD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstSubD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstSubD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -139085,7 +139085,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstSubD9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -139096,7 +139096,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstSubD9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstSubD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstSubD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 9)
           to label %.noexc6 unwind label %14
 
@@ -139164,7 +139164,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstURandomRange5cloneEv(ptr noun
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV15AstURandomRange, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstURandomRange, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -139294,7 +139294,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstURandomRange9cloneTypeEP11Ast
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -139305,7 +139305,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstURandomRange9cloneTypeEP11Ast
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV15AstURandomRange, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstURandomRange, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 23)
           to label %.noexc6 unwind label %14
 
@@ -139375,7 +139375,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstEq5cloneEv(ptr noundef nonnull
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV5AstEq, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5AstEq, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -139521,7 +139521,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstEq9cloneTypeEP11AstNodeExprS1_
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -139532,7 +139532,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstEq9cloneTypeEP11AstNodeExprS1_
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV5AstEq, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5AstEq, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -139595,7 +139595,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstEqCase5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstEqCase, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstEqCase, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -139741,7 +139741,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstEqCase9cloneTypeEP11AstNodeExp
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -139752,7 +139752,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstEqCase9cloneTypeEP11AstNodeExp
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstEqCase, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstEqCase, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -139815,7 +139815,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstEqD5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstEqD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstEqD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -139943,7 +139943,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstEqD9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -139954,7 +139954,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstEqD9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstEqD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstEqD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -140022,7 +140022,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstEqN5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstEqN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstEqN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -140150,7 +140150,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstEqN9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -140161,7 +140161,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstEqN9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstEqN, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstEqN, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -140229,7 +140229,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstEqT5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstEqT, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstEqT, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -140357,7 +140357,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstEqT9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -140368,7 +140368,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstEqT9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstEqT, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstEqT, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -140438,7 +140438,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstLogEq5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstLogEq, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstLogEq, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -140616,7 +140616,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstLogEq9cloneTypeEP11AstNodeExpr
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -140627,7 +140627,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstLogEq9cloneTypeEP11AstNodeExpr
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstLogEq, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstLogEq, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -140690,7 +140690,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstNeq5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstNeq, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstNeq, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -140836,7 +140836,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstNeq9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -140847,7 +140847,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstNeq9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstNeq, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstNeq, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -140910,7 +140910,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstNeqCase5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstNeqCase, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstNeqCase, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -141056,7 +141056,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstNeqCase9cloneTypeEP11AstNodeE
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -141067,7 +141067,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstNeqCase9cloneTypeEP11AstNodeE
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstNeqCase, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstNeqCase, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -141130,7 +141130,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNeqD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstNeqD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstNeqD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -141258,7 +141258,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNeqD9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -141269,7 +141269,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNeqD9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstNeqD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstNeqD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -141337,7 +141337,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNeqN5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstNeqN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstNeqN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -141465,7 +141465,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNeqN9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -141476,7 +141476,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNeqN9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstNeqN, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstNeqN, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -141544,7 +141544,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNeqT5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstNeqT, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstNeqT, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -141672,7 +141672,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNeqT9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -141683,7 +141683,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNeqT9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstNeqT, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstNeqT, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 7)
           to label %.noexc6 unwind label %14
 
@@ -141753,7 +141753,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstAdd5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstAdd, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstAdd, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -141899,7 +141899,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstAdd9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -141910,7 +141910,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstAdd9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstAdd, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstAdd, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN6AstAddC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -141975,7 +141975,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstAddD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstAddD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstAddD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -142103,7 +142103,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstAddD9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -142114,7 +142114,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstAddD9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstAddD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstAddD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 9)
           to label %.noexc6 unwind label %14
 
@@ -142182,7 +142182,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstAnd5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstAnd, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstAnd, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -142336,7 +142336,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstAnd9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -142347,7 +142347,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstAnd9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstAnd, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstAnd, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN6AstAndC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -142412,7 +142412,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstMul5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstMul, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstMul, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -142590,7 +142590,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstMul9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -142601,7 +142601,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstMul9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstMul, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstMul, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN6AstMulC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -142666,7 +142666,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstMulD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstMulD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstMulD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -142794,7 +142794,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstMulD9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -142805,7 +142805,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstMulD9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstMulD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstMulD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 9)
           to label %.noexc6 unwind label %14
 
@@ -142873,7 +142873,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstMulS5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstMulS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstMulS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -143056,7 +143056,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstMulS9cloneTypeEP11AstNodeExprS
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -143067,7 +143067,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstMulS9cloneTypeEP11AstNodeExprS
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7AstMulS, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstMulS, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN7AstMulSC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -143137,7 +143137,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstOr5cloneEv(ptr noundef nonnull
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV5AstOr, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5AstOr, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -143291,7 +143291,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstOr9cloneTypeEP11AstNodeExprS1_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -143302,7 +143302,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstOr9cloneTypeEP11AstNodeExprS1_
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV5AstOr, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5AstOr, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -143367,7 +143367,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstXor5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstXor, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstXor, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -143513,7 +143513,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstXor9cloneTypeEP11AstNodeExprS1
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -143524,7 +143524,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstXor9cloneTypeEP11AstNodeExprS1
           to label %.noexc5 unwind label %16
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV6AstXor, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstXor, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN6AstXorC2EP8FileLineP11AstNodeExprS3_.exit, label %8
 
@@ -143589,7 +143589,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstDistChiSquare5cloneEv(ptr nou
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV16AstDistChiSquare, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstDistChiSquare, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -143695,7 +143695,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18AstDistExponential5cloneEv(ptr n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV18AstDistExponential, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18AstDistExponential, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -143801,7 +143801,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstDistPoisson5cloneEv(ptr nound
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV14AstDistPoisson, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstDistPoisson, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -143907,7 +143907,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstDistT5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV8AstDistT, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstDistT, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -144013,7 +144013,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstArraySel5cloneEv(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstArraySel, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstArraySel, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -144169,7 +144169,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstArraySel9cloneTypeEP11AstNode
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -144180,7 +144180,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstArraySel9cloneTypeEP11AstNode
           to label %.noexc5 unwind label %8
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstArraySel, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstArraySel, i64 16), ptr %4, align 8
   invoke void @_ZN11AstArraySel4initEP7AstNode(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef %1)
           to label %_ZN11AstArraySelC2EP8FileLineP11AstNodeExprS3_.exit unwind label %8
 
@@ -144237,7 +144237,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstAssocSel5cloneEv(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstAssocSel, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstAssocSel, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -144393,7 +144393,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstAssocSel9cloneTypeEP11AstNode
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -144404,7 +144404,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstAssocSel9cloneTypeEP11AstNode
           to label %.noexc5 unwind label %8
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstAssocSel, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstAssocSel, i64 16), ptr %4, align 8
   invoke void @_ZN11AstAssocSel4initEP7AstNode(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef %1)
           to label %_ZN11AstAssocSelC2EP8FileLineP11AstNodeExprS3_.exit unwind label %8
 
@@ -144461,7 +144461,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstWildcardSel5cloneEv(ptr nound
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV14AstWildcardSel, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstWildcardSel, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -144617,7 +144617,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstWildcardSel9cloneTypeEP11AstN
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -144628,7 +144628,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstWildcardSel9cloneTypeEP11AstN
           to label %.noexc5 unwind label %8
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV14AstWildcardSel, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstWildcardSel, i64 16), ptr %4, align 8
   invoke void @_ZN14AstWildcardSel4initEP7AstNode(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef %1)
           to label %_ZN14AstWildcardSelC2EP8FileLineP11AstNodeExprS3_.exit unwind label %8
 
@@ -144685,7 +144685,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstWordSel5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstWordSel, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstWordSel, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -144800,7 +144800,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstWordSel9cloneTypeEP11AstNodeE
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -144811,7 +144811,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstWordSel9cloneTypeEP11AstNodeE
           to label %.noexc5 unwind label %14
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstWordSel, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstWordSel, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 23)
           to label %.noexc6 unwind label %14
 
@@ -144881,7 +144881,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstStreamL5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstStreamL, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstStreamL, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -145023,7 +145023,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstStreamL9cloneTypeEP11AstNodeE
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -145034,7 +145034,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstStreamL9cloneTypeEP11AstNodeE
           to label %.noexc5 unwind label %19
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV13AstNodeStream, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeStream, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
@@ -145060,7 +145060,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstStreamL9cloneTypeEP11AstNodeE
   br label %18
 
 18:                                               ; preds = %15, %.noexc6, %.noexc5
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstStreamL, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstStreamL, i64 16), ptr %4, align 8
   ret ptr %4
 
 19:                                               ; preds = %.noexc.i.i, %.noexc4, %.noexc, %3
@@ -145106,7 +145106,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstStreamR5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstStreamR, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstStreamR, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -145265,7 +145265,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstStreamR9cloneTypeEP11AstNodeE
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -145276,7 +145276,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstStreamR9cloneTypeEP11AstNodeE
           to label %.noexc5 unwind label %19
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV13AstNodeStream, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeStream, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
@@ -145302,7 +145302,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstStreamR9cloneTypeEP11AstNodeE
   br label %18
 
 18:                                               ; preds = %15, %.noexc6, %.noexc5
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV10AstStreamR, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstStreamR, i64 16), ptr %4, align 8
   ret ptr %4
 
 19:                                               ; preds = %.noexc.i.i, %.noexc4, %.noexc, %3
@@ -145348,7 +145348,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAtan2D5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstAtan2D, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAtan2D, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -145453,7 +145453,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAtan2D9cloneTypeEP11AstNodeExp
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -145464,7 +145464,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAtan2D9cloneTypeEP11AstNodeExp
           to label %.noexc5 unwind label %15
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV18AstNodeSystemBiopD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18AstNodeSystemBiopD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 9)
           to label %.noexc6 unwind label %15
 
@@ -145482,7 +145482,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAtan2D9cloneTypeEP11AstNodeExp
   br label %14
 
 14:                                               ; preds = %11, %.noexc6
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstAtan2D, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAtan2D, i64 16), ptr %4, align 8
   ret ptr %4
 
 15:                                               ; preds = %.noexc5, %.noexc4, %.noexc, %3
@@ -145511,7 +145511,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstHypotD5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstHypotD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstHypotD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -145616,7 +145616,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstHypotD9cloneTypeEP11AstNodeExp
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   store i64 0, ptr %7, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %1)
@@ -145627,7 +145627,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstHypotD9cloneTypeEP11AstNodeExp
           to label %.noexc5 unwind label %15
 
 .noexc5:                                          ; preds = %.noexc4
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV18AstNodeSystemBiopD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18AstNodeSystemBiopD, i64 16), ptr %4, align 8
   %8 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 9)
           to label %.noexc6 unwind label %15
 
@@ -145645,7 +145645,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstHypotD9cloneTypeEP11AstNodeExp
   br label %14
 
 14:                                               ; preds = %11, %.noexc6
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV9AstHypotD, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstHypotD, i64 16), ptr %4, align 8
   ret ptr %4
 
 15:                                               ; preds = %.noexc5, %.noexc4, %.noexc, %3
@@ -145670,7 +145670,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCCall5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -145680,7 +145680,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCCall5cloneEv(ptr noundef nonn
   %7 = getelementptr inbounds i8, ptr %2, i64 184
   %8 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstCCall, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCCall, i64 16), ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 200
   %10 = getelementptr inbounds i8, ptr %0, i64 200
   %11 = load ptr, ptr %10, align 8
@@ -145794,7 +145794,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN16VSelfPointerTextD2Ev.exit
 
 _ZN16VSelfPointerTextD2Ev.exit:                   ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #32
   ret void
@@ -145876,7 +145876,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN8AstCCallD2Ev.exit
 
 _ZN8AstCCallD2Ev.exit:                            ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -145898,7 +145898,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstCMethodCall5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -145908,7 +145908,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstCMethodCall5cloneEv(ptr nound
   %8 = getelementptr inbounds i8, ptr %2, i64 184
   %9 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV14AstCMethodCall, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstCMethodCall, i64 16), ptr %2, align 8
   ret ptr %2
 
 10:                                               ; preds = %1
@@ -145920,7 +145920,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstCMethodCall5cloneEv(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14AstCMethodCallD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -145928,7 +145928,7 @@ define linkonce_odr dso_local void @_ZN14AstCMethodCallD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14AstCMethodCallD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -145950,7 +145950,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstCNew5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -145960,7 +145960,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstCNew5cloneEv(ptr noundef nonnu
   %8 = getelementptr inbounds i8, ptr %2, i64 184
   %9 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV7AstCNew, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstCNew, i64 16), ptr %2, align 8
   ret ptr %2
 
 10:                                               ; preds = %1
@@ -145972,7 +145972,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstCNew5cloneEv(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7AstCNewD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -145980,7 +145980,7 @@ define linkonce_odr dso_local void @_ZN7AstCNewD2Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7AstCNewD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeCCall, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -146002,7 +146002,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstFuncRef5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -146043,7 +146043,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstFuncRef5cloneEv(ptr noundef n
   %20 = getelementptr inbounds i8, ptr %2, i64 264
   %21 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstFuncRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstFuncRef, i64 16), ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %2, i64 280
   %23 = getelementptr inbounds i8, ptr %0, i64 280
   %24 = load i8, ptr %23, align 8
@@ -146064,7 +146064,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstFuncRef5cloneEv(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10AstFuncRefD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -146076,7 +146076,7 @@ define linkonce_odr dso_local void @_ZN10AstFuncRefD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10AstFuncRefD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -146102,7 +146102,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstMethodCall5cloneEv(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -146143,7 +146143,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstMethodCall5cloneEv(ptr nounde
   %20 = getelementptr inbounds i8, ptr %2, i64 264
   %21 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV13AstMethodCall, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstMethodCall, i64 16), ptr %2, align 8
   ret ptr %2
 
 22:                                               ; preds = %1
@@ -146159,7 +146159,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstMethodCall5cloneEv(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13AstMethodCallD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -146171,7 +146171,7 @@ define linkonce_odr dso_local void @_ZN13AstMethodCallD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13AstMethodCallD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -146197,7 +146197,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstNew5cloneEv(ptr noundef nonnul
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -146238,7 +146238,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstNew5cloneEv(ptr noundef nonnul
   %20 = getelementptr inbounds i8, ptr %2, i64 264
   %21 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV6AstNew, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstNew, i64 16), ptr %2, align 8
   ret ptr %2
 
 22:                                               ; preds = %1
@@ -146259,7 +146259,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6AstNew4sameEPK7AstNode(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6AstNewD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -146271,7 +146271,7 @@ define linkonce_odr dso_local void @_ZN6AstNewD2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6AstNewD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -146328,7 +146328,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstTaskRef5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -146369,7 +146369,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstTaskRef5cloneEv(ptr noundef n
   %20 = getelementptr inbounds i8, ptr %2, i64 264
   %21 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstTaskRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstTaskRef, i64 16), ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %2, i64 280
   %23 = getelementptr inbounds i8, ptr %0, i64 280
   %24 = load i8, ptr %23, align 8
@@ -146390,7 +146390,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstTaskRef5cloneEv(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10AstTaskRefD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -146402,7 +146402,7 @@ define linkonce_odr dso_local void @_ZN10AstTaskRefD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10AstTaskRefD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstNodeFTaskRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -146432,7 +146432,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstSelBit5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstSelBit, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstSelBit, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -146466,7 +146466,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstSelExtract5cloneEv(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV13AstSelExtract, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstSelExtract, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -146500,7 +146500,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstSelMinus5cloneEv(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV11AstSelMinus, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstSelMinus, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -146534,7 +146534,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstSelPlus5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstSelPlus, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSelPlus, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -146568,7 +146568,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstCountBits5cloneEv(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV12AstCountBits, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstCountBits, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -146753,7 +146753,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstTime5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV7AstTime, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstTime, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -146861,7 +146861,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstTimeD5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV8AstTimeD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstTimeD, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -146973,7 +146973,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstPostAdd5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV10AstPostAdd, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstPostAdd, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -147117,7 +147117,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstPostSub5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV10AstPostSub, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstPostSub, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -147261,7 +147261,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstPreAdd5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV9AstPreAdd, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstPreAdd, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -147405,7 +147405,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstPreSub5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV9AstPreSub, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstPreSub, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -147549,7 +147549,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstPutcN5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV8AstPutcN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstPutcN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -147768,7 +147768,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstSel5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV6AstSel, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstSel, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 160
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
@@ -147981,7 +147981,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstSliceSel5cloneEv(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV11AstSliceSel, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstSliceSel, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 160
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, i64 12, i1 false)
@@ -148102,7 +148102,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstSubstrN5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV10AstSubstrN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSubstrN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -148444,7 +148444,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstCond5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 408) (i8, ptr @_ZTV7AstCond, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstCond, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -148477,7 +148477,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstCond9cloneTypeEP11AstNodeExprS
           to label %8 unwind label %9
 
 8:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 408) (i8, ptr @_ZTV7AstCond, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstCond, i64 16), ptr %5, align 8
   ret ptr %5
 
 9:                                                ; preds = %4
@@ -148497,7 +148497,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstCondBound5cloneEv(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 408) (i8, ptr @_ZTV12AstCondBound, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstCondBound, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -148530,7 +148530,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstCondBound9cloneTypeEP11AstNod
           to label %8 unwind label %9
 
 8:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 408) (i8, ptr @_ZTV12AstCondBound, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstCondBound, i64 16), ptr %5, align 8
   ret ptr %5
 
 9:                                                ; preds = %4
@@ -148550,7 +148550,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstDistErlang5cloneEv(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV13AstDistErlang, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstDistErlang, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -148656,7 +148656,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstDistNormal5cloneEv(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV13AstDistNormal, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstDistNormal, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -148762,7 +148762,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstDistUniform5cloneEv(ptr nound
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV14AstDistUniform, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstDistUniform, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -148868,7 +148868,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstAtoN5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV7AstAtoN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstAtoN, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 160
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   %10 = load i32, ptr %9, align 8
@@ -149285,7 +149285,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstBitsToRealD5cloneEv(ptr nound
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV14AstBitsToRealD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstBitsToRealD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -149417,7 +149417,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstCAwait5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstCAwait, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstCAwait, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 160
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   %10 = load ptr, ptr %9, align 8
@@ -149514,7 +149514,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCCast5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstCCast, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCCast, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 160
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   %10 = load i32, ptr %9, align 8
@@ -149655,7 +149655,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCLog25cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstCLog2, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCLog2, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -149814,7 +149814,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstCastWrap5cloneEv(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV11AstCastWrap, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstCastWrap, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -149923,7 +149923,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstCountOnes5cloneEv(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV12AstCountOnes, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstCountOnes, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -150082,7 +150082,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstCvtPackString5cloneEv(ptr nou
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV16AstCvtPackString, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstCvtPackString, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -150191,7 +150191,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstExtend5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstExtend, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstExtend, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -150323,7 +150323,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstExtendS5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV10AstExtendS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstExtendS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -150491,7 +150491,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstFEof5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV7AstFEof, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstFEof, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -150667,7 +150667,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstFGetC5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstFGetC, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstFGetC, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -150843,7 +150843,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstISToRD5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstISToRD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstISToRD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -150980,7 +150980,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstIToRD5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstIToRD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstIToRD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -151112,7 +151112,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstIsUnbounded5cloneEv(ptr nound
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV14AstIsUnbounded, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstIsUnbounded, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -151216,7 +151216,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstIsUnknown5cloneEv(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV12AstIsUnknown, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstIsUnknown, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -151320,7 +151320,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstLenN5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV7AstLenN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstLenN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -151447,7 +151447,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstLogNot5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstLogNot, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstLogNot, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -151610,7 +151610,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNToI5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV7AstNToI, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstNToI, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -151737,7 +151737,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstNegate5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstNegate, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstNegate, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -151900,7 +151900,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstNegateD5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV10AstNegateD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstNegateD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -152050,7 +152050,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstNot5cloneEv(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV6AstNot, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstNot, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -152213,7 +152213,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstNullCheck5cloneEv(ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV12AstNullCheck, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNullCheck, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -152352,7 +152352,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstOneHot5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstOneHot, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstOneHot, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -152511,7 +152511,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstOneHot05cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV10AstOneHot0, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstOneHot0, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -152670,7 +152670,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstRToIRoundS5cloneEv(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV13AstRToIRoundS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstRToIRoundS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -152819,7 +152819,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstRToIS5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstRToIS, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstRToIS, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -152951,7 +152951,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstRealToBits5cloneEv(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV13AstRealToBits, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstRealToBits, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -153083,7 +153083,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstRedAnd5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstRedAnd, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstRedAnd, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -153210,7 +153210,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstRedOr5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstRedOr, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstRedOr, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -153337,7 +153337,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstRedXor5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstRedXor, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstRedXor, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -153504,7 +153504,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstResizeLValue5cloneEv(ptr noun
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV15AstResizeLValue, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstResizeLValue, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -153620,7 +153620,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstSigned5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstSigned, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstSigned, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -153733,7 +153733,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstTimeImport5cloneEv(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV13AstTimeImport, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstTimeImport, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 160
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   %10 = load i8, ptr %9, align 8
@@ -153848,7 +153848,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstToLowerN5cloneEv(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV11AstToLowerN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstToLowerN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -153975,7 +153975,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstToUpperN5cloneEv(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV11AstToUpperN, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstToUpperN, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -154102,7 +154102,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstUnsigned5cloneEv(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV11AstUnsigned, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstUnsigned, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -154215,7 +154215,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstAcosD5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstAcosD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstAcosD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -154329,7 +154329,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAcoshD5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstAcoshD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAcoshD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -154443,7 +154443,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstAsinD5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstAsinD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstAsinD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -154557,7 +154557,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAsinhD5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstAsinhD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAsinhD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -154671,7 +154671,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstAtanD5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstAtanD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstAtanD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -154785,7 +154785,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAtanhD5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstAtanhD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAtanhD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -154899,7 +154899,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCeilD5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstCeilD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCeilD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -155013,7 +155013,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstCosD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV7AstCosD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstCosD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -155127,7 +155127,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCoshD5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstCoshD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCoshD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -155241,7 +155241,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstExpD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV7AstExpD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstExpD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -155355,7 +155355,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstFloorD5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstFloorD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstFloorD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -155469,7 +155469,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstLog10D5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV9AstLog10D, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstLog10D, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -155583,7 +155583,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstLogD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV7AstLogD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstLogD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -155697,7 +155697,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstSinD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV7AstSinD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstSinD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -155811,7 +155811,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstSinhD5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstSinhD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstSinhD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -155925,7 +155925,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstSqrtD5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstSqrtD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstSqrtD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -156039,7 +156039,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstTanD5cloneEv(ptr noundef nonnu
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV7AstTanD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstTanD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -156153,7 +156153,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstTanhD5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 392) (i8, ptr @_ZTV8AstTanhD, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstTanhD, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -156263,7 +156263,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstVarRef5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef nonnull align 8 dereferenceable(25) %6, i64 25, i1 false)
@@ -156295,13 +156295,13 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstVarRef5cloneEv(ptr noundef non
   br label %_ZN9AstVarRefC2ERKS_.exit
 
 _ZN9AstVarRefC2ERKS_.exit:                        ; preds = %1, %16, %19
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstVarRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstVarRef, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9AstVarRefD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -156381,7 +156381,7 @@ _ZN13AstNodeVarRefD2Ev.exit:                      ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9AstVarRefD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -156705,7 +156705,7 @@ define linkonce_odr dso_local void @_ZN10AstVarXRefD2Ev(ptr noundef nonnull alig
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #32
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #32
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i = icmp eq ptr %6, null
@@ -156878,7 +156878,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12AstNodeBlock27isFirstInM
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12AstNodeBlockD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -156914,7 +156914,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12AstNodeFTask27isFirstInM
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12AstNodeFTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -156966,7 +156966,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK11AstNodeFile4sameEPK7AstN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11AstNodeFileD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -156987,7 +156987,7 @@ define linkonce_odr dso_local void @_ZNK11AstNodeFile4nameB5cxx11Ev(ptr dead_on_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13AstNodeModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -157219,7 +157219,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20AstNodeCoverOrAssertD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -157424,7 +157424,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11AstNodeTextD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -157438,7 +157438,7 @@ define linkonce_odr dso_local void @_ZN11AstNodeTextD0Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17AstNodeSimpleTextD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -157456,7 +157456,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstActive5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstActive, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstActive, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -157513,7 +157513,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstBind5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstBind, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstBind, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -157834,7 +157834,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstCLocalScope5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV14AstCLocalScope, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstCLocalScope, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -157864,7 +157864,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstCUse5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstCUse, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstCUse, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -157921,7 +157921,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstCaseItem5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstCaseItem, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstCaseItem, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -157991,7 +157991,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstCell5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstCell, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstCell, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
@@ -158108,7 +158108,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstCellInline5cloneEv(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV13AstCellInline, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstCellInline, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -158191,7 +158191,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstClassExtends5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV15AstClassExtends, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstClassExtends, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i16, ptr %6, align 8
@@ -158272,7 +158272,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstClocking5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstClocking, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstClocking, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -158329,7 +158329,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstClockingItem5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV15AstClockingItem, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstClockingItem, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -158365,7 +158365,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstConstPool5cloneEv(ptr noundef
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstConstPool, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstConstPool, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 152
   %8 = getelementptr inbounds i8, ptr %0, i64 152
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -158602,7 +158602,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstConstraint5cloneEv(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV13AstConstraint, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstConstraint, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -158675,7 +158675,7 @@ define linkonce_odr dso_local noundef ptr @_ZN19AstConstraintBefore5cloneEv(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV19AstConstraintBefore, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19AstConstraintBefore, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -158720,7 +158720,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstDefParam5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstDefParam, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstDefParam, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -158798,7 +158798,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstDistItem5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstDistItem, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstDistItem, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -158848,7 +158848,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstDpiExport5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstDpiExport, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstDpiExport, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -158928,7 +158928,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstElabDisplay5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV14AstElabDisplay, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstElabDisplay, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -159110,7 +159110,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstEmpty5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstEmpty, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstEmpty, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -159145,7 +159145,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstExecGraph5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstExecGraph, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstExecGraph, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
@@ -159200,7 +159200,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstImplicit5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstImplicit, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstImplicit, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -159230,7 +159230,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstInitItem5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstInitItem, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstInitItem, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -159270,7 +159270,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstIntfRef5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstIntfRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstIntfRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -159323,7 +159323,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstMTaskBody5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstMTaskBody, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstMTaskBody, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
@@ -159370,7 +159370,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstModport5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstModport, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstModport, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -159428,7 +159428,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18AstModportFTaskRef5cloneEv(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV18AstModportFTaskRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18AstModportFTaskRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -159484,7 +159484,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstModportVarRef5cloneEv(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV16AstModportVarRef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstModportVarRef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -159540,7 +159540,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstNetlist5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstNetlist, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstNetlist, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
@@ -159622,7 +159622,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstPackageExport5cloneEv(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV16AstPackageExport, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstPackageExport, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -159679,7 +159679,7 @@ define linkonce_odr dso_local noundef ptr @_ZN24AstPackageExportStarStar5cloneEv
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV24AstPackageExportStarStar, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24AstPackageExportStarStar, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -159709,7 +159709,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstPackageImport5cloneEv(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV16AstPackageImport, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstPackageImport, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -159766,7 +159766,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstPin5cloneEv(ptr noundef nonnul
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV6AstPin, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstPin, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i32, ptr %6, align 8
@@ -159838,7 +159838,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstPort5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstPort, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstPort, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i32, ptr %6, align 8
@@ -159895,7 +159895,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstPragma5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstPragma, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -159944,7 +159944,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstPropSpec5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstPropSpec, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstPropSpec, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -159979,7 +159979,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstPull5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstPull, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstPull, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -160026,7 +160026,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstScope5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstScope, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstScope, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -160087,7 +160087,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstSenItem5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstSenItem, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSenItem, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -160131,7 +160131,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstSenTree5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstSenTree, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSenTree, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -160171,7 +160171,7 @@ define linkonce_odr dso_local noundef ptr @_ZN19AstSplitPlaceholder5cloneEv(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV19AstSplitPlaceholder, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19AstSplitPlaceholder, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -160201,7 +160201,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstStrengthSpec5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV15AstStrengthSpec, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstStrengthSpec, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i16, ptr %6, align 8
@@ -160235,7 +160235,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstTopScope5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstTopScope, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstTopScope, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -160271,7 +160271,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstTypeTable5cloneEv(ptr noundef
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstTypeTable, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstTypeTable, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 152
   %7 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %7, i64 208, i1 false)
@@ -160409,7 +160409,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstTypedef5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV10AstTypedef, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstTypedef, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -160525,7 +160525,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstTypedefFwd5cloneEv(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV13AstTypedefFwd, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstTypedefFwd, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -160583,7 +160583,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstUdpTable5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstUdpTable, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstUdpTable, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -160613,7 +160613,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstUdpTableLine5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV15AstUdpTableLine, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstUdpTableLine, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -160666,7 +160666,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstVar5cloneEv(ptr noundef nonnul
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV6AstVar, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstVar, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -160804,7 +160804,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstVarScope5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstVarScope, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstVarScope, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -161007,7 +161007,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstBegin5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -161019,7 +161019,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstBegin5cloneEv(ptr noundef nonn
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
   store i8 %11, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstBegin, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstBegin, i64 16), ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 185
   %13 = getelementptr inbounds i8, ptr %0, i64 185
   %14 = load i8, ptr %13, align 1
@@ -161035,7 +161035,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstBegin5cloneEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstBeginD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -161043,7 +161043,7 @@ define linkonce_odr dso_local void @_ZN8AstBeginD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstBeginD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -161065,7 +161065,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstFork5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -161077,7 +161077,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstFork5cloneEv(ptr noundef nonnu
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
   store i8 %11, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstFork, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstFork, i64 16), ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 185
   %13 = getelementptr inbounds i8, ptr %0, i64 185
   %14 = load i8, ptr %13, align 1
@@ -161093,7 +161093,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstFork5cloneEv(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7AstForkD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -161101,7 +161101,7 @@ define linkonce_odr dso_local void @_ZN7AstForkD2Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7AstForkD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -161131,7 +161131,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstFunc5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -161153,7 +161153,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstFunc5cloneEv(ptr noundef nonnu
   %12 = getelementptr inbounds i8, ptr %2, i64 216
   %13 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV7AstFunc, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstFunc, i64 16), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -161169,7 +161169,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstFunc5cloneEv(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7AstFuncD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -161179,7 +161179,7 @@ define linkonce_odr dso_local void @_ZN7AstFuncD2Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7AstFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -161211,7 +161211,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstFunc9cloneTypeERKNSt7__cxx1112
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc3 unwind label %21
@@ -161244,7 +161244,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstFunc9cloneTypeERKNSt7__cxx1112
   br label %.body
 
 20:                                               ; preds = %.noexc3
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV7AstFunc, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstFunc, i64 16), ptr %3, align 8
   ret ptr %3
 
 21:                                               ; preds = %.noexc, %2
@@ -161264,7 +161264,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLet5cloneEv(ptr noundef nonnul
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -161286,7 +161286,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLet5cloneEv(ptr noundef nonnul
   %12 = getelementptr inbounds i8, ptr %2, i64 216
   %13 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV6AstLet, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstLet, i64 16), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -161302,7 +161302,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6AstLet5cloneEv(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6AstLetD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -161312,7 +161312,7 @@ define linkonce_odr dso_local void @_ZN6AstLetD2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6AstLetD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -161359,7 +161359,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstProperty5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -161381,7 +161381,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstProperty5cloneEv(ptr noundef 
   %12 = getelementptr inbounds i8, ptr %2, i64 216
   %13 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV11AstProperty, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstProperty, i64 16), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -161397,7 +161397,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstProperty5cloneEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11AstPropertyD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -161407,7 +161407,7 @@ define linkonce_odr dso_local void @_ZN11AstPropertyD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11AstPropertyD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -161439,7 +161439,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstProperty9cloneTypeERKNSt7__cx
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc3 unwind label %21
@@ -161472,7 +161472,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstProperty9cloneTypeERKNSt7__cx
   br label %.body
 
 20:                                               ; preds = %.noexc3
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV11AstProperty, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstProperty, i64 16), ptr %3, align 8
   ret ptr %3
 
 21:                                               ; preds = %.noexc, %2
@@ -161492,7 +161492,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstTask5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -161514,7 +161514,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstTask5cloneEv(ptr noundef nonnu
   %12 = getelementptr inbounds i8, ptr %2, i64 216
   %13 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV7AstTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstTask, i64 16), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -161530,7 +161530,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstTask5cloneEv(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7AstTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -161540,7 +161540,7 @@ define linkonce_odr dso_local void @_ZN7AstTaskD2Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7AstTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -161567,7 +161567,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstTask9cloneTypeERKNSt7__cxx1112
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc3 unwind label %21
@@ -161600,7 +161600,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstTask9cloneTypeERKNSt7__cxx1112
   br label %.body
 
 20:                                               ; preds = %.noexc3
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV7AstTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstTask, i64 16), ptr %3, align 8
   ret ptr %3
 
 21:                                               ; preds = %.noexc, %2
@@ -161620,14 +161620,14 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCFile5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %7 unwind label %11
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstCFile, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCFile, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 184
   %9 = getelementptr inbounds i8, ptr %0, i64 184
   %10 = load i8, ptr %9, align 8
@@ -161643,7 +161643,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCFile5cloneEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstCFileD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -161651,7 +161651,7 @@ define linkonce_odr dso_local void @_ZN8AstCFileD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstCFileD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -161673,14 +161673,14 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstVFile5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstVFile, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstVFile, i64 16), ptr %2, align 8
   ret ptr %2
 
 8:                                                ; preds = %1
@@ -161692,7 +161692,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstVFile5cloneEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstVFileD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -161700,7 +161700,7 @@ define linkonce_odr dso_local void @_ZN8AstVFileD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstVFileD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -161722,7 +161722,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstClass5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -161760,7 +161760,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstClass5cloneEv(ptr noundef nonn
   %18 = getelementptr inbounds i8, ptr %2, i64 248
   %19 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV8AstClass, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstClass, i64 16), ptr %2, align 8
   %20 = getelementptr inbounds i8, ptr %2, i64 257
   %21 = getelementptr inbounds i8, ptr %0, i64 257
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %20, ptr noundef nonnull align 1 dereferenceable(15) %21, i64 15, i1 false)
@@ -161779,7 +161779,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstClass5cloneEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstClassD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -161791,7 +161791,7 @@ define linkonce_odr dso_local void @_ZN8AstClassD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstClassD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -161863,7 +161863,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstClassPackage5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -161901,7 +161901,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstClassPackage5cloneEv(ptr noun
   %18 = getelementptr inbounds i8, ptr %2, i64 248
   %19 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV15AstClassPackage, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstClassPackage, i64 16), ptr %2, align 8
   %20 = getelementptr inbounds i8, ptr %2, i64 264
   %21 = getelementptr inbounds i8, ptr %0, i64 264
   %22 = load ptr, ptr %21, align 8
@@ -161921,7 +161921,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstClassPackage5cloneEv(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15AstClassPackageD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -161933,7 +161933,7 @@ define linkonce_odr dso_local void @_ZN15AstClassPackageD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15AstClassPackageD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -162000,7 +162000,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstIface5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -162038,7 +162038,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstIface5cloneEv(ptr noundef nonn
   %18 = getelementptr inbounds i8, ptr %2, i64 248
   %19 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV8AstIface, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstIface, i64 16), ptr %2, align 8
   ret ptr %2
 
 20:                                               ; preds = %1
@@ -162054,7 +162054,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstIface5cloneEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstIfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -162066,7 +162066,7 @@ define linkonce_odr dso_local void @_ZN8AstIfaceD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstIfaceD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -162133,7 +162133,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstModule5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -162171,7 +162171,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstModule5cloneEv(ptr noundef non
   %18 = getelementptr inbounds i8, ptr %2, i64 248
   %19 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV9AstModule, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstModule, i64 16), ptr %2, align 8
   %20 = getelementptr inbounds i8, ptr %2, i64 257
   %21 = getelementptr inbounds i8, ptr %0, i64 257
   %22 = load i8, ptr %21, align 1
@@ -162192,7 +162192,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstModule5cloneEv(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9AstModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -162204,7 +162204,7 @@ define linkonce_odr dso_local void @_ZN9AstModuleD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9AstModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -162277,7 +162277,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstNotFoundModule5cloneEv(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -162315,7 +162315,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstNotFoundModule5cloneEv(ptr no
   %18 = getelementptr inbounds i8, ptr %2, i64 248
   %19 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV17AstNotFoundModule, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstNotFoundModule, i64 16), ptr %2, align 8
   ret ptr %2
 
 20:                                               ; preds = %1
@@ -162331,7 +162331,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstNotFoundModule5cloneEv(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17AstNotFoundModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -162343,7 +162343,7 @@ define linkonce_odr dso_local void @_ZN17AstNotFoundModuleD2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17AstNotFoundModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -162410,7 +162410,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstPackage5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -162448,7 +162448,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstPackage5cloneEv(ptr noundef n
   %18 = getelementptr inbounds i8, ptr %2, i64 248
   %19 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV10AstPackage, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstPackage, i64 16), ptr %2, align 8
   ret ptr %2
 
 20:                                               ; preds = %1
@@ -162464,7 +162464,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstPackage5cloneEv(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10AstPackageD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -162476,7 +162476,7 @@ define linkonce_odr dso_local void @_ZN10AstPackageD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10AstPackageD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -162545,7 +162545,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstPrimitive5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -162583,7 +162583,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstPrimitive5cloneEv(ptr noundef
   %18 = getelementptr inbounds i8, ptr %2, i64 248
   %19 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %18, ptr noundef nonnull align 8 dereferenceable(9) %19, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstPrimitive, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstPrimitive, i64 16), ptr %2, align 8
   ret ptr %2
 
 20:                                               ; preds = %1
@@ -162599,7 +162599,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstPrimitive5cloneEv(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12AstPrimitiveD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -162611,7 +162611,7 @@ define linkonce_odr dso_local void @_ZN12AstPrimitiveD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12AstPrimitiveD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -162682,7 +162682,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAlways5cloneEv(ptr noundef non
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
   store i8 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstAlways, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAlways, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 153
   %9 = getelementptr inbounds i8, ptr %0, i64 153
   %10 = load i8, ptr %9, align 1
@@ -162720,7 +162720,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstAlwaysObserved5cloneEv(ptr no
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
   store i8 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV17AstAlwaysObserved, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstAlwaysObserved, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -162754,7 +162754,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstAlwaysPost5cloneEv(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
   store i8 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV13AstAlwaysPost, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstAlwaysPost, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -162788,7 +162788,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18AstAlwaysPostponed5cloneEv(ptr n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
   store i8 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV18AstAlwaysPostponed, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18AstAlwaysPostponed, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -162822,7 +162822,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstAlwaysReactive5cloneEv(ptr no
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
   store i8 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV17AstAlwaysReactive, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstAlwaysReactive, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -162856,7 +162856,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstFinal5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
   store i8 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstFinal, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstFinal, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -162890,7 +162890,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstInitial5cloneEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
   store i8 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstInitial, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstInitial, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -162924,7 +162924,7 @@ define linkonce_odr dso_local noundef ptr @_ZN19AstInitialAutomatic5cloneEv(ptr 
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
   store i8 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV19AstInitialAutomatic, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19AstInitialAutomatic, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -162958,7 +162958,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstInitialStatic5cloneEv(ptr nou
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
   store i8 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV16AstInitialStatic, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstInitialStatic, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -162988,7 +162988,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstBracketRange5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 312) (i8, ptr @_ZTV15AstBracketRange, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstBracketRange, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -163054,7 +163054,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstRange5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV8AstRange, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstRange, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -163102,7 +163102,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstUnsizedRange5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 312) (i8, ptr @_ZTV15AstUnsizedRange, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstUnsizedRange, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -163186,7 +163186,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstWildcardRange5cloneEv(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 312) (i8, ptr @_ZTV16AstWildcardRange, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstWildcardRange, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -163270,7 +163270,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstAlwaysPublic5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV15AstAlwaysPublic, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstAlwaysPublic, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -163313,7 +163313,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstBreak5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstBreak, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstBreak, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -163384,7 +163384,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstCReset5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstCReset, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstCReset, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -163429,7 +163429,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstCReturn5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstCReturn, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstCReturn, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -163495,7 +163495,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCStmt5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstCStmt, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCStmt, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -163540,7 +163540,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstComment5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV10AstComment, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstComment, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -163611,7 +163611,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstConstraintExpr5cloneEv(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV17AstConstraintExpr, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstConstraintExpr, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i16, ptr %6, align 8
@@ -163660,7 +163660,7 @@ define linkonce_odr dso_local noundef ptr @_ZN19AstConstraintUnique5cloneEv(ptr 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV19AstConstraintUnique, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19AstConstraintUnique, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -163705,7 +163705,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstContinue5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstContinue, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstContinue, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -163917,7 +163917,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstCoverInc5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstCoverInc, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstCoverInc, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
@@ -163981,7 +163981,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstCoverToggle5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV14AstCoverToggle, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstCoverToggle, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -164036,7 +164036,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstDelay5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstDelay, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstDelay, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i16, ptr %6, align 8
@@ -164080,7 +164080,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstDisable5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstDisable, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstDisable, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -164145,7 +164145,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstDisableFork5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV14AstDisableFork, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstDisableFork, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -164175,7 +164175,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstDisplay5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstDisplay, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstDisplay, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -164460,7 +164460,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstDoWhile5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstDoWhile, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstDoWhile, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -164513,7 +164513,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstDumpCtl5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV10AstDumpCtl, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstDumpCtl, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -164620,7 +164620,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstEventControl5cloneEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV15AstEventControl, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstEventControl, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -164696,7 +164696,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstFClose5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstFClose, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstFClose, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -164792,7 +164792,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstFFlush5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstFFlush, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstFFlush, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -164888,7 +164888,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstFinish5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstFinish, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstFinish, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -164958,7 +164958,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstFireEvent5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstFireEvent, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstFireEvent, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -164993,7 +164993,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstJumpBlock5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstJumpBlock, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstJumpBlock, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -165041,7 +165041,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstJumpGo5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstJumpGo, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstJumpGo, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
@@ -165100,7 +165100,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstJumpLabel5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstJumpLabel, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstJumpLabel, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
@@ -165154,7 +165154,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstMonitorOff5cloneEv(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV13AstMonitorOff, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstMonitorOff, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -165268,7 +165268,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstPrintTimeScale5cloneEv(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV17AstPrintTimeScale, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstPrintTimeScale, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -165393,7 +165393,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstRandCase5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstRandCase, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstRandCase, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -165428,7 +165428,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstRelease5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstRelease, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstRelease, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -165458,7 +165458,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstRepeat5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstRepeat, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstRepeat, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -165511,7 +165511,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstReturn5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstReturn, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstReturn, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -165582,7 +165582,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstSFormat5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV10AstSFormat, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSFormat, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -165683,7 +165683,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstStackTraceT5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV14AstStackTraceT, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstStackTraceT, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -165779,7 +165779,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstStmtExpr5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstStmtExpr, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstStmtExpr, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -165809,7 +165809,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstStop5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstStop, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstStop, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -165879,7 +165879,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16AstSysFuncAsTask5cloneEv(ptr nou
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV16AstSysFuncAsTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstSysFuncAsTask, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -165975,7 +165975,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstSystemT5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstSystemT, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSystemT, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -166071,7 +166071,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstTimeFormat5cloneEv(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV13AstTimeFormat, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstTimeFormat, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -166162,7 +166162,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstTraceDecl5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstTraceDecl, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstTraceDecl, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
@@ -166242,7 +166242,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstTraceInc5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstTraceInc, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstTraceInc, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -166310,7 +166310,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstTracePopPrefix5cloneEv(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV17AstTracePopPrefix, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstTracePopPrefix, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -166345,7 +166345,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18AstTracePushPrefix5cloneEv(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV18AstTracePushPrefix, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18AstTracePushPrefix, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -166400,7 +166400,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstUCStmt5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstUCStmt, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstUCStmt, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -166455,7 +166455,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstWait5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstWait, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstWait, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -166498,7 +166498,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstWaitFork5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstWaitFork, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstWaitFork, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -166533,7 +166533,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstWhile5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstWhile, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstWhile, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8
@@ -166590,7 +166590,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAssign5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV9AstAssign, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAssign, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -166634,7 +166634,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAssign9cloneTypeEP11AstNodeExp
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %8
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %10, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %10, ptr noundef %2)
           to label %.noexc5 unwind label %22
 
@@ -166670,7 +166670,7 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit.i.i: ; preds = %13, %.noexc6
   br label %_ZN9AstAssignC2EP8FileLineP11AstNodeExprS3_P7AstNode.exit
 
 _ZN9AstAssignC2EP8FileLineP11AstNodeExprS3_P7AstNode.exit: ; preds = %14, %19, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit.i.i
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV9AstAssign, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAssign, i64 16), ptr %10, align 8
   ret ptr %10
 
 22:                                               ; preds = %13, %.noexc5, %.noexc, %8
@@ -166691,7 +166691,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstAssignAlias5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV14AstAssignAlias, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstAssignAlias, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -166739,7 +166739,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstAssignDly5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV12AstAssignDly, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstAssignDly, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -166824,7 +166824,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstAssignDly9cloneTypeEP11AstNod
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %8
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %10, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %10, ptr noundef %2)
           to label %.noexc5 unwind label %23
 
@@ -166860,7 +166860,7 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit.i.i: ; preds = %13, %.noexc6
   br label %22
 
 22:                                               ; preds = %19, %14, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit.i.i
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV12AstAssignDly, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstAssignDly, i64 16), ptr %10, align 8
   ret ptr %10
 
 23:                                               ; preds = %13, %.noexc5, %.noexc, %8
@@ -166881,7 +166881,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstAssignForce5cloneEv(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV14AstAssignForce, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstAssignForce, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -166914,7 +166914,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstAssignForce9cloneTypeEP11AstN
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %4, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %2)
           to label %.noexc4 unwind label %16
 
@@ -166942,7 +166942,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14AstAssignForce9cloneTypeEP11AstN
   br label %15
 
 15:                                               ; preds = %12, %7, %.noexc5
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV14AstAssignForce, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14AstAssignForce, i64 16), ptr %4, align 8
   ret ptr %4
 
 16:                                               ; preds = %.noexc4, %.noexc, %3
@@ -166963,7 +166963,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstAssignPost5cloneEv(ptr nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV13AstAssignPost, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstAssignPost, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -166996,7 +166996,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstAssignPost9cloneTypeEP11AstNo
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %4, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %2)
           to label %.noexc4 unwind label %16
 
@@ -167024,7 +167024,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13AstAssignPost9cloneTypeEP11AstNo
   br label %15
 
 15:                                               ; preds = %12, %7, %.noexc5
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV13AstAssignPost, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstAssignPost, i64 16), ptr %4, align 8
   ret ptr %4
 
 16:                                               ; preds = %.noexc4, %.noexc, %3
@@ -167045,7 +167045,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstAssignPre5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV12AstAssignPre, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstAssignPre, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -167078,7 +167078,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstAssignPre9cloneTypeEP11AstNod
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %4, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %2)
           to label %.noexc4 unwind label %16
 
@@ -167106,7 +167106,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstAssignPre9cloneTypeEP11AstNod
   br label %15
 
 15:                                               ; preds = %12, %7, %.noexc5
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV12AstAssignPre, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstAssignPre, i64 16), ptr %4, align 8
   ret ptr %4
 
 16:                                               ; preds = %.noexc4, %.noexc, %3
@@ -167127,7 +167127,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstAssignVarScope5cloneEv(ptr no
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV17AstAssignVarScope, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstAssignVarScope, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -167160,7 +167160,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstAssignVarScope9cloneTypeEP11A
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %4, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %2)
           to label %.noexc4 unwind label %23
 
@@ -167188,7 +167188,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17AstAssignVarScope9cloneTypeEP11A
   br label %_ZN13AstNodeAssignC2E6VNTypeP8FileLineP11AstNodeExprS4_P7AstNode.exit.i
 
 _ZN13AstNodeAssignC2E6VNTypeP8FileLineP11AstNodeExprS4_P7AstNode.exit.i: ; preds = %12, %7, %.noexc5
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV17AstAssignVarScope, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstAssignVarScope, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN17AstAssignVarScopeC2EP8FileLineP11AstNodeExprS3_.exit, label %15
 
@@ -167228,7 +167228,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstAssignW5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV10AstAssignW, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstAssignW, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -167272,7 +167272,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstAssignW9cloneTypeEP11AstNodeE
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %8
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeAssign, i64 16), ptr %10, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %10, ptr noundef %2)
           to label %.noexc5 unwind label %23
 
@@ -167308,7 +167308,7 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit.i.i: ; preds = %13, %.noexc6
   br label %22
 
 22:                                               ; preds = %19, %14, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit.i.i
-  store ptr getelementptr inbounds inrange(-16, 320) (i8, ptr @_ZTV10AstAssignW, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstAssignW, i64 16), ptr %10, align 8
   ret ptr %10
 
 23:                                               ; preds = %13, %.noexc5, %.noexc, %8
@@ -167329,7 +167329,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstCase5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstCase, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstCase, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %5, ptr noundef nonnull align 8 dereferenceable(6) %6, i64 6, i1 false)
@@ -167416,7 +167416,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstGenCase5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstGenCase, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstGenCase, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -167446,7 +167446,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAssert5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -167458,7 +167458,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAssert5cloneEv(ptr noundef non
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
   store i8 %11, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstAssert, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAssert, i64 16), ptr %2, align 8
   ret ptr %2
 
 12:                                               ; preds = %1
@@ -167470,7 +167470,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstAssert5cloneEv(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9AstAssertD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -167478,7 +167478,7 @@ define linkonce_odr dso_local void @_ZN9AstAssertD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9AstAssertD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -167500,7 +167500,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18AstAssertIntrinsic5cloneEv(ptr n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -167512,7 +167512,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18AstAssertIntrinsic5cloneEv(ptr n
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
   store i8 %11, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV18AstAssertIntrinsic, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18AstAssertIntrinsic, i64 16), ptr %2, align 8
   ret ptr %2
 
 12:                                               ; preds = %1
@@ -167524,7 +167524,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18AstAssertIntrinsic5cloneEv(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18AstAssertIntrinsicD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -167532,7 +167532,7 @@ define linkonce_odr dso_local void @_ZN18AstAssertIntrinsicD2Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18AstAssertIntrinsicD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -167554,7 +167554,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCover5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -167566,7 +167566,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCover5cloneEv(ptr noundef nonn
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
   store i8 %11, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV8AstCover, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCover, i64 16), ptr %2, align 8
   ret ptr %2
 
 12:                                               ; preds = %1
@@ -167578,7 +167578,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCover5cloneEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstCoverD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -167586,7 +167586,7 @@ define linkonce_odr dso_local void @_ZN8AstCoverD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstCoverD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -167613,7 +167613,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstRestrict5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -167625,7 +167625,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstRestrict5cloneEv(ptr noundef 
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
   store i8 %11, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstRestrict, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstRestrict, i64 16), ptr %2, align 8
   ret ptr %2
 
 12:                                               ; preds = %1
@@ -167637,7 +167637,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstRestrict5cloneEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11AstRestrictD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -167645,7 +167645,7 @@ define linkonce_odr dso_local void @_ZN11AstRestrictD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11AstRestrictD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstNodeCoverOrAssert, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -167667,7 +167667,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstGenFor5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstGenFor, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstGenFor, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -167697,7 +167697,7 @@ define linkonce_odr dso_local noundef ptr @_ZN20AstConstraintForeach5cloneEv(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV20AstConstraintForeach, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20AstConstraintForeach, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -167727,7 +167727,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstForeach5cloneEv(ptr noundef n
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstForeach, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstForeach, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -167761,7 +167761,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstConstraintIf5cloneEv(ptr noun
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i16, ptr %6, align 8
   store i16 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV15AstConstraintIf, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstConstraintIf, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -167795,7 +167795,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstGenIf5cloneEv(ptr noundef nonn
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i16, ptr %6, align 8
   store i16 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstGenIf, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstGenIf, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -167829,7 +167829,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5AstIf5cloneEv(ptr noundef nonnull
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i16, ptr %6, align 8
   store i16 %7, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV5AstIf, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5AstIf, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 154
   %9 = getelementptr inbounds i8, ptr %0, i64 154
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %8, ptr noundef nonnull align 2 dereferenceable(3) %9, i64 3, i1 false)
@@ -167867,7 +167867,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10AstReadMem5cloneEv(ptr noundef n
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 1
   store i8 %8, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV10AstReadMem, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstReadMem, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -167948,7 +167948,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstWriteMem5cloneEv(ptr noundef 
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 1
   store i8 %8, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV11AstWriteMem, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstWriteMem, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -168024,14 +168024,14 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstScCtor5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstScCtor, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstScCtor, i64 16), ptr %2, align 8
   ret ptr %2
 
 8:                                                ; preds = %1
@@ -168043,7 +168043,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstScCtor5cloneEv(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9AstScCtorD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -168051,7 +168051,7 @@ define linkonce_odr dso_local void @_ZN9AstScCtorD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9AstScCtorD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -168083,14 +168083,14 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstScDtor5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstScDtor, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstScDtor, i64 16), ptr %2, align 8
   ret ptr %2
 
 8:                                                ; preds = %1
@@ -168102,7 +168102,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstScDtor5cloneEv(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9AstScDtorD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -168110,7 +168110,7 @@ define linkonce_odr dso_local void @_ZN9AstScDtorD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9AstScDtorD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -168142,14 +168142,14 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstScHdr5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstScHdr, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstScHdr, i64 16), ptr %2, align 8
   ret ptr %2
 
 8:                                                ; preds = %1
@@ -168161,7 +168161,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstScHdr5cloneEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstScHdrD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -168169,7 +168169,7 @@ define linkonce_odr dso_local void @_ZN8AstScHdrD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstScHdrD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -168201,14 +168201,14 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstScImp5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstScImp, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstScImp, i64 16), ptr %2, align 8
   ret ptr %2
 
 8:                                                ; preds = %1
@@ -168220,7 +168220,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstScImp5cloneEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstScImpD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -168228,7 +168228,7 @@ define linkonce_odr dso_local void @_ZN8AstScImpD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstScImpD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -168260,14 +168260,14 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstScImpHdr5cloneEv(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstScImpHdr, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstScImpHdr, i64 16), ptr %2, align 8
   ret ptr %2
 
 8:                                                ; preds = %1
@@ -168279,7 +168279,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11AstScImpHdr5cloneEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11AstScImpHdrD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -168287,7 +168287,7 @@ define linkonce_odr dso_local void @_ZN11AstScImpHdrD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11AstScImpHdrD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -168319,14 +168319,14 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstScInt5cloneEv(ptr noundef nonn
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstScInt, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstScInt, i64 16), ptr %2, align 8
   ret ptr %2
 
 8:                                                ; preds = %1
@@ -168338,7 +168338,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstScInt5cloneEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstScIntD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -168346,7 +168346,7 @@ define linkonce_odr dso_local void @_ZN8AstScIntD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8AstScIntD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -168378,7 +168378,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstText5cloneEv(ptr noundef nonnu
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -168390,7 +168390,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstText5cloneEv(ptr noundef nonnu
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
   store i8 %11, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstText, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstText, i64 16), ptr %2, align 8
   ret ptr %2
 
 12:                                               ; preds = %1
@@ -168402,7 +168402,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstText5cloneEv(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7AstTextD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -168410,7 +168410,7 @@ define linkonce_odr dso_local void @_ZN7AstTextD2Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7AstTextD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -168432,7 +168432,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstTextBlock5cloneEv(ptr noundef
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -168444,7 +168444,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstTextBlock5cloneEv(ptr noundef
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
   store i8 %11, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstTextBlock, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstTextBlock, i64 16), ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 185
   %13 = getelementptr inbounds i8, ptr %0, i64 185
   %14 = load i8, ptr %13, align 1
@@ -168461,7 +168461,7 @@ define linkonce_odr dso_local noundef ptr @_ZN12AstTextBlock5cloneEv(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12AstTextBlockD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   ret void
@@ -168469,7 +168469,7 @@ define linkonce_odr dso_local void @_ZN12AstTextBlockD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12AstTextBlockD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -173338,12 +173338,12 @@ declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7opPowUSERK
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12AstReplicateC2EP8FileLineP11AstNodeExprS3_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 192, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeBiop, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   store i64 0, ptr %5, align 8
   tail call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %2)
   tail call void @_ZN7AstNode7setOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %3)
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV12AstReplicate, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstReplicate, i64 16), ptr %0, align 8
   %.not = icmp eq ptr %2, null
   %.not.i = icmp eq ptr %3, null
   %or.cond = or i1 %.not, %.not.i
@@ -173950,11 +173950,11 @@ declare double @tanh(double noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN10AstVarXRefC2ERKS_(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(296) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstNode, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = getelementptr inbounds i8, ptr %1, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef nonnull align 8 dereferenceable(25) %6, i64 25, i1 false)
@@ -173986,7 +173986,7 @@ define linkonce_odr dso_local void @_ZN10AstVarXRefC2ERKS_(ptr noundef nonnull a
   br label %_ZN13AstNodeVarRefC2ERKS_.exit
 
 _ZN13AstNodeVarRefC2ERKS_.exit:                   ; preds = %2, %16, %19
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV10AstVarXRef, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstVarXRef, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 200
   %22 = getelementptr inbounds i8, ptr %1, i64 200
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
@@ -174051,11 +174051,11 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI11AstNod
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8AstCFuncC2ERKS_(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(328) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstNode, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstCFunc, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCFunc, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = getelementptr inbounds i8, ptr %1, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -174503,7 +174503,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeI13VBasicTypeKeySt4pairIKS0_P1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6AstLetC2EP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 319, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeFTask, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 184
@@ -174533,7 +174533,7 @@ define linkonce_odr dso_local void @_ZN6AstLetC2EP8FileLineRKNSt7__cxx1112basic_
   resume { ptr, i32 } %17
 
 _ZN12AstNodeFTaskC2E6VNTypeP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNode.exit: ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV6AstLet, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstLet, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -174579,11 +174579,11 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12AstCoverDeclC2ERKS_(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(296) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstNode, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstCoverDecl, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstCoverDecl, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = getelementptr inbounds i8, ptr %1, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)

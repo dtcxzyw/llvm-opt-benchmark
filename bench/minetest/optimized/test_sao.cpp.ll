@@ -821,7 +821,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !15
   %m_test_dir = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 32
@@ -1094,7 +1094,7 @@ if.then.i.i202:                                   ; preds = %invoke.cont40
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206: ; preds = %if.then.i.i202, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i203
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mb) #27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14MetricsBackend, i64 16), ptr %mb, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14MetricsBackend, i64 16), ptr %mb, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %emerge) #27
   invoke void @_ZN13EmergeManagerC1EP6ServerP14MetricsBackend(ptr noundef nonnull align 8 dereferenceable(464) %emerge, ptr noundef nonnull %server, ptr noundef nonnull %mb)
           to label %invoke.cont61 unwind label %lpad60
@@ -1258,7 +1258,8 @@ ehcleanup45:                                      ; preds = %ehcleanup42, %lpad3
 
 catch:                                            ; preds = %ehcleanup45
   %54 = call ptr @__cxa_begin_catch(ptr %exn.slot.6) #27
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %55, label %_ZTW9rawstream.exit
+  %.not = icmp eq ptr @_ZTH9rawstream, null
+  br i1 %.not, label %_ZTW9rawstream.exit, label %55
 
 55:                                               ; preds = %catch
   call void @_ZTH9rawstream()
@@ -2134,11 +2135,11 @@ if.then.i.i152:                                   ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %if.then.i.i152, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i153
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #27
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %ref.tmp) #27
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV10MockServer, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MockServer, i64 16), ptr %this, align 8, !tbaa !15
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10MockServer, i64 208), ptr %add.ptr, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MockServer, i64 208), ptr %add.ptr, align 8, !tbaa !15
   %add.ptr56 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV10MockServer, i64 232), ptr %add.ptr56, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MockServer, i64 232), ptr %add.ptr56, align 8, !tbaa !15
   ret void
 
 lpad25:                                           ; preds = %entry
@@ -9221,7 +9222,7 @@ entry:
   %__dnew.i.i14 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
   tail call void @_ZN7UnitSAOC2EP17ServerEnvironmentN3irr4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(850) %this, ptr noundef %env, <2 x float> %pos.coerce0, float %pos.coerce1)
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV12LuaEntitySAO, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12LuaEntitySAO, i64 16), ptr %this, align 8, !tbaa !15
   %m_init_name = getelementptr inbounds i8, ptr %this, i64 856
   %0 = getelementptr inbounds i8, ptr %this, i64 872
   store ptr %0, ptr %m_init_name, align 8, !tbaa !4
@@ -9361,7 +9362,7 @@ define linkonce_odr dso_local void @_ZN7UnitSAOD2Ev(ptr noundef nonnull align 8 
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator.314", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator.314", align 16
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV7UnitSAO, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7UnitSAO, i64 16), ptr %this, align 8, !tbaa !15
   %m_attachment_bone = getelementptr inbounds i8, ptr %this, i64 792
   %0 = load ptr, ptr %m_attachment_bone, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 808
@@ -9508,7 +9509,7 @@ if.end.i.i.i.i24:                                 ; preds = %_ZNSt10_HashtableIN
   br label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEED2Ev.exit
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEED2Ev.exit: ; preds = %if.end.i.i.i.i24, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !15
   %m_messages_out.i = getelementptr inbounds i8, ptr %this, i64 112
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -10838,14 +10839,14 @@ __cxx_global_var_init.1.exit:                     ; preds = %call2.i11.i.noexc19
   store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !4
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !14
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !13
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7TestSAO, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7TestSAO, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.21.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %__cxx_global_var_init.1.exit
   %38 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !11
   %cmp.i.i.i.i.i.i = icmp eq ptr %39, getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32)
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i

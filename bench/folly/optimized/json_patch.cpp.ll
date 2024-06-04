@@ -1229,7 +1229,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN5folly9TypeErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly9TypeErrorE, i64 16), ptr %this, align 8, !tbaa !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly9TypeErrorE, i64 16), ptr %this, align 8, !tbaa !61
   ret void
 }
 
@@ -1932,7 +1932,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %ref.tmp, align 8, !tbaa !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %ref.tmp, align 8, !tbaa !61
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #25
           to label %invoke.cont unwind label %lpad
 
@@ -1951,7 +1951,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %exception, align 8, !tbaa !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %exception, align 8, !tbaa !61
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly17BadExpectedAccessIvEE, ptr nonnull @_ZNSt9exceptionD2Ev) #26
   unreachable
 }
@@ -2608,7 +2608,7 @@ entry:
   %ref.tmp = alloca %"class.folly::OptionalEmptyException", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.15)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %ref.tmp, align 8, !tbaa !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %ref.tmp, align 8, !tbaa !61
   invoke void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #25
           to label %invoke.cont unwind label %lpad
 
@@ -2639,7 +2639,7 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 define linkonce_odr void @_ZN5folly22OptionalEmptyExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %this, align 8, !tbaa !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %this, align 8, !tbaa !61
   ret void
 }
 
@@ -4343,7 +4343,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #22
   %error_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %error_.i, ptr noundef nonnull align 8 dereferenceable(24) %args, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessINS_7dynamic29json_pointer_resolution_errorIS1_EEEE, i64 16), ptr %ref.tmp, align 8, !tbaa !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessINS_7dynamic29json_pointer_resolution_errorIS1_EEEE, i64 16), ptr %ref.tmp, align 8, !tbaa !61
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_7dynamic29json_pointer_resolution_errorIS2_EEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
           to label %invoke.cont unwind label %lpad
 
@@ -4362,7 +4362,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_7dynamic29json_pointer_resolution_errorIS2_EEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %ex) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 32) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessINS_7dynamic29json_pointer_resolution_errorIS1_EEEE, i64 16), ptr %exception, align 8, !tbaa !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessINS_7dynamic29json_pointer_resolution_errorIS1_EEEE, i64 16), ptr %exception, align 8, !tbaa !61
   %error_.i = getelementptr inbounds i8, ptr %exception, i64 8
   %error_2.i = getelementptr inbounds i8, ptr %ex, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %error_.i, ptr noundef nonnull align 8 dereferenceable(24) %error_2.i, i64 24, i1 false), !tbaa.struct !176
@@ -5877,7 +5877,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDp
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8, !tbaa !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8, !tbaa !61
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #25
           to label %invoke.cont unwind label %lpad
 
@@ -5896,7 +5896,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #6 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !61
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !61
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #26
   unreachable
 }

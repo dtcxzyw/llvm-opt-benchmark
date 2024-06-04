@@ -1405,7 +1405,8 @@ entry:
   %ref.tmp11 = alloca %"class.rocksdb::Slice", align 8
   %table_reader = alloca %"class.std::unique_ptr.131", align 8
   %ref.tmp35 = alloca %"class.rocksdb::Status", align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %0, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -1417,7 +1418,8 @@ _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %entry, %0
   %2 = load ptr, ptr %this, align 8
   %clock = getelementptr inbounds i8, ptr %2, i64 528
   %3 = load ptr, ptr %clock, align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %4, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %4
 
 4:                                                ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   tail call void @_ZTHN7rocksdb10perf_levelE()
@@ -3739,7 +3741,8 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr.152", align 8
   %ref.tmp105 = alloca %"class.rocksdb::Status", align 8
   %agg.tmp126 = alloca %"class.std::unique_ptr.152", align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %0, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -3748,7 +3751,8 @@ entry:
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %entry, %0
   %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %new_table_iterator_nanos = getelementptr inbounds i8, ptr %1, i64 496
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %2, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %2
 
 2:                                                ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   tail call void @_ZTHN7rocksdb10perf_levelE()

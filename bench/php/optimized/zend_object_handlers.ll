@@ -817,15 +817,15 @@ define range(i32 -1, 1) i32 @zend_check_property_access(ptr nocapture noundef re
 35:                                               ; preds = %34
   %36 = load ptr, ptr %4, align 8
   %37 = load i8, ptr %36, align 1
-  %.not84 = icmp eq i8 %37, 42
+  %.not85 = icmp eq i8 %37, 42
   %38 = getelementptr inbounds i8, ptr %25, i64 4
   %39 = load i32, ptr %38, align 4
-  br i1 %.not84, label %48, label %40
+  br i1 %.not85, label %48, label %40
 
 40:                                               ; preds = %35
   %41 = and i32 %39, 4
-  %.not85 = icmp eq i32 %41, 0
-  br i1 %.not85, label %61, label %42
+  %.not86 = icmp eq i32 %41, 0
+  br i1 %.not86, label %61, label %42
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds i8, ptr %1, i64 25
@@ -833,8 +833,8 @@ define range(i32 -1, 1) i32 @zend_check_property_access(ptr nocapture noundef re
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 25
   %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %46) #18
-  %.not86 = icmp eq i32 %47, 0
-  br i1 %.not86, label %51, label %61
+  %.not87 = icmp eq i32 %47, 0
+  br i1 %.not87, label %51, label %61
 
 48:                                               ; preds = %35
   %49 = and i32 %39, 2
@@ -849,8 +849,8 @@ define range(i32 -1, 1) i32 @zend_check_property_access(ptr nocapture noundef re
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @zend_get_property_info(ptr noundef %54, ptr noundef nonnull %1, i32 noundef 1)
-  %magicptr87 = ptrtoint ptr %55 to i64
-  switch i64 %magicptr87, label %57 [
+  %magicptr88 = ptrtoint ptr %55 to i64
+  switch i64 %magicptr88, label %57 [
     i64 0, label %56
     i64 -1, label %61
   ]

@@ -33,17 +33,17 @@ target triple = "x86_64-pc-linux-gnu"
 define void @php_default_post_reader() #0 {
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 8), align 8
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str) #3
-  %3 = icmp eq i32 %2, 0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 80), align 8
-  %5 = icmp eq ptr %4, null
-  %or.cond = select i1 %3, i1 %5, i1 false
-  br i1 %or.cond, label %6, label %7
+  %.not = icmp eq i32 %2, 0
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 80), align 8
+  %4 = icmp eq ptr %3, null
+  %or.cond = select i1 %.not, i1 %4, i1 false
+  br i1 %or.cond, label %5, label %6
 
-6:                                                ; preds = %0
+5:                                                ; preds = %0
   tail call void @sapi_read_standard_form_data() #4
-  br label %7
+  br label %6
 
-7:                                                ; preds = %6, %0
+6:                                                ; preds = %5, %0
   ret void
 }
 

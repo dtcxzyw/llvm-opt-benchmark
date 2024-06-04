@@ -1001,7 +1001,7 @@ entry:
   %0 = load ptr, ptr %vtable.i, align 8
   %call.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr)
   tail call void @_ZN6PlayerC2EPKcP15IItemDefManager(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef %name, ptr noundef %call.i)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LocalPlayer, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11LocalPlayer, i64 16), ptr %this, align 8, !tbaa !26
   %hp = getelementptr inbounds i8, ptr %this, i64 432
   %gravity = getelementptr inbounds i8, ptr %this, i64 444
   %camera_impact = getelementptr inbounds i8, ptr %this, i64 488
@@ -1159,7 +1159,7 @@ declare void @_ZN6PlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(432)) u
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11LocalPlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(812) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LocalPlayer, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11LocalPlayer, i64 16), ptr %this, align 8, !tbaa !26
   %m_player_settings = getelementptr inbounds i8, ptr %this, i64 768
   invoke void @_ZN14PlayerSettings26deregisterSettingsCallbackEv(ptr noundef nonnull align 1 dereferenceable(8) %m_player_settings)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1244,7 +1244,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11LocalPlayerD0Ev(ptr noundef nonnull align 8 dereferenceable(812) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LocalPlayer, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11LocalPlayer, i64 16), ptr %this, align 8, !tbaa !26
   %m_player_settings.i = getelementptr inbounds i8, ptr %this, i64 768
   invoke void @_ZN14PlayerSettings26deregisterSettingsCallbackEv(ptr noundef nonnull align 1 dereferenceable(8) %m_player_settings.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -3152,7 +3152,7 @@ invoke.cont459:                                   ; preds = %if.then457
           to label %invoke.cont461 unwind label %lpad442
 
 invoke.cont461:                                   ; preds = %invoke.cont459
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call462, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call462, align 8, !tbaa !26
   %type2.i = getelementptr inbounds i8, ptr %call462, i64 8
   store i8 7, ptr %type2.i, align 8, !tbaa !199
   %vtable466 = load ptr, ptr %call460, align 8, !tbaa !26
@@ -5112,7 +5112,7 @@ invoke.cont586:                                   ; preds = %if.then584
           to label %invoke.cont588 unwind label %lpad544
 
 invoke.cont588:                                   ; preds = %invoke.cont586
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call589, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call589, align 8, !tbaa !26
   %type2.i = getelementptr inbounds i8, ptr %call589, i64 8
   store i8 7, ptr %type2.i, align 8, !tbaa !199
   %vtable593 = load ptr, ptr %call587, align 8, !tbaa !26
@@ -6358,7 +6358,7 @@ if.then244:                                       ; preds = %if.then240
   %61 = load ptr, ptr %m_client, align 8, !tbaa !71
   %call251 = call noundef ptr @_ZN6Client15getEventManagerEv(ptr noundef nonnull align 8 dereferenceable(1746) %61)
   %call252 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call252, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call252, align 8, !tbaa !26
   %type2.i = getelementptr inbounds i8, ptr %call252, i64 8
   store i8 6, ptr %type2.i, align 8, !tbaa !199
   %vtable = load ptr, ptr %call251, align 8, !tbaa !26

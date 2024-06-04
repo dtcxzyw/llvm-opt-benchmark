@@ -340,7 +340,7 @@ define dso_local noundef range(i32 0, 2) i32 @efi_setup_page_tables(i64 noundef 
 
 7:                                                ; preds = %2
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i64 noundef %0) #15
-  br label %64
+  br label %67
 
 9:                                                ; preds = %2
   %10 = tail call i32 @kernel_map_pages_in_pgd(ptr noundef %3, i64 noundef 0, i64 noundef 0, i32 noundef 1, i64 noundef -9223372036854775806) #15
@@ -349,13 +349,13 @@ define dso_local noundef range(i32 0, 2) i32 @efi_setup_page_tables(i64 noundef 
 
 12:                                               ; preds = %9
   %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #15
-  br label %64
+  br label %67
 
 14:                                               ; preds = %9
   %15 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %16 = and i64 %15, 32
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %64
+  br i1 %17, label %18, label %67
 
 18:                                               ; preds = %14
   %19 = tail call ptr @alloc_pages(i32 noundef 3268, i32 noundef 0) #14
@@ -364,7 +364,7 @@ define dso_local noundef range(i32 0, 2) i32 @efi_setup_page_tables(i64 noundef 
 
 21:                                               ; preds = %18
   %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #15
-  br label %64
+  br label %67
 
 23:                                               ; preds = %18
   %24 = getelementptr i8, ptr %19, i64 64
@@ -377,52 +377,55 @@ define dso_local noundef range(i32 0, 2) i32 @efi_setup_page_tables(i64 noundef 
   %30 = load i64, ptr @phys_base, align 8
   %31 = load i64, ptr @page_offset_base, align 8
   %32 = sub i64 -2147483648, %31
-  %33 = select i1 icmp ugt (i64 ptrtoint (ptr @_text to i64), i64 -2147483649), i64 %30, i64 %32
-  %34 = add i64 %33, add (i64 ptrtoint (ptr @_text to i64), i64 2147483648)
-  %35 = and i64 %29, 4294967295
-  %36 = tail call i32 @kernel_unmap_pages_in_pgd(ptr noundef %3, i64 noundef %34, i64 noundef %35) #15
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %40, label %38
+  %33 = icmp ugt i64 ptrtoint (ptr @_text to i64), -2147483649
+  %34 = select i1 %33, i64 %30, i64 %32
+  %35 = add i64 %34, add (i64 ptrtoint (ptr @_text to i64), i64 2147483648)
+  %36 = and i64 %29, 4294967295
+  %37 = tail call i32 @kernel_unmap_pages_in_pgd(ptr noundef %3, i64 noundef %35, i64 noundef %36) #15
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %41, label %39
 
-38:                                               ; preds = %23
-  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #15
-  br label %64
+39:                                               ; preds = %23
+  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #15
+  br label %67
 
-40:                                               ; preds = %23
-  %41 = lshr i64 sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64)), 12
-  %42 = trunc i64 %41 to i32
-  %43 = load i64, ptr @phys_base, align 8
-  %44 = load i64, ptr @page_offset_base, align 8
-  %45 = sub i64 -2147483648, %44
-  %46 = select i1 icmp ugt (i64 ptrtoint (ptr @__start_rodata to i64), i64 -2147483649), i64 %43, i64 %45
-  %47 = add i64 %46, add (i64 ptrtoint (ptr @__start_rodata to i64), i64 2147483648)
-  %48 = lshr i64 %47, 12
-  %49 = tail call i32 @kernel_map_pages_in_pgd(ptr noundef %3, i64 noundef %48, i64 noundef %47, i32 noundef %42, i64 noundef -9223372036854775808) #15
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %53, label %51
+41:                                               ; preds = %23
+  %42 = lshr i64 sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64)), 12
+  %43 = trunc i64 %42 to i32
+  %44 = load i64, ptr @phys_base, align 8
+  %45 = load i64, ptr @page_offset_base, align 8
+  %46 = sub i64 -2147483648, %45
+  %47 = icmp ugt i64 ptrtoint (ptr @__start_rodata to i64), -2147483649
+  %48 = select i1 %47, i64 %44, i64 %46
+  %49 = add i64 %48, add (i64 ptrtoint (ptr @__start_rodata to i64), i64 2147483648)
+  %50 = lshr i64 %49, 12
+  %51 = tail call i32 @kernel_map_pages_in_pgd(ptr noundef %3, i64 noundef %50, i64 noundef %49, i32 noundef %43, i64 noundef -9223372036854775808) #15
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %55, label %53
 
-51:                                               ; preds = %40
-  %52 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #15
-  br label %64
+53:                                               ; preds = %41
+  %54 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #15
+  br label %67
 
-53:                                               ; preds = %40
-  %54 = load i64, ptr @phys_base, align 8
-  %55 = load i64, ptr @page_offset_base, align 8
-  %56 = sub i64 -2147483648, %55
-  %57 = select i1 icmp ugt (i64 ptrtoint (ptr @__efi64_thunk_ret_tramp to i64), i64 -2147483649), i64 %54, i64 %56
-  %58 = add i64 %57, add (i64 ptrtoint (ptr @__efi64_thunk_ret_tramp to i64), i64 2147483648)
-  %59 = lshr i64 %58, 12
-  %60 = tail call i32 @kernel_map_pages_in_pgd(ptr noundef %3, i64 noundef %59, i64 noundef %58, i32 noundef 1, i64 noundef 0) #15
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %64, label %62
+55:                                               ; preds = %41
+  %56 = load i64, ptr @phys_base, align 8
+  %57 = load i64, ptr @page_offset_base, align 8
+  %58 = sub i64 -2147483648, %57
+  %59 = icmp ugt i64 ptrtoint (ptr @__efi64_thunk_ret_tramp to i64), -2147483649
+  %60 = select i1 %59, i64 %56, i64 %58
+  %61 = add i64 %60, add (i64 ptrtoint (ptr @__efi64_thunk_ret_tramp to i64), i64 2147483648)
+  %62 = lshr i64 %61, 12
+  %63 = tail call i32 @kernel_map_pages_in_pgd(ptr noundef %3, i64 noundef %62, i64 noundef %61, i32 noundef 1, i64 noundef 0) #15
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %67, label %65
 
-62:                                               ; preds = %53
-  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6) #15
-  br label %64
+65:                                               ; preds = %55
+  %66 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6) #15
+  br label %67
 
-64:                                               ; preds = %62, %53, %51, %38, %21, %14, %12, %7
-  %65 = phi i32 [ 1, %7 ], [ 1, %12 ], [ 1, %38 ], [ 1, %51 ], [ 1, %62 ], [ 1, %21 ], [ 0, %14 ], [ 0, %53 ]
-  ret i32 %65
+67:                                               ; preds = %65, %55, %53, %39, %21, %14, %12, %7
+  %68 = phi i32 [ 1, %7 ], [ 1, %12 ], [ 1, %39 ], [ 1, %53 ], [ 1, %65 ], [ 1, %21 ], [ 0, %14 ], [ 0, %55 ]
+  ret i32 %68
 }
 
 ; Function Attrs: cold null_pointer_is_valid

@@ -1736,16 +1736,16 @@ define i32 @ompi_coll_tuned_gather_intra_dec_fixed(ptr noundef %0, i32 noundef %
   %11 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %11, align 8
   %12 = getelementptr i8, ptr %7, i64 220
-  %.val42 = load i32, ptr %12, align 4
-  %13 = icmp eq i32 %.val42, %6
+  %.val43 = load i32, ptr %12, align 4
+  %13 = icmp eq i32 %.val43, %6
   %14 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   %or.cond = or i1 %14, %13
-  %.46 = select i1 %or.cond, ptr %5, ptr %2
-  %.47 = select i1 %or.cond, i32 %4, i32 %1
-  %15 = getelementptr i8, ptr %.46, i64 24
-  %.val40 = load i64, ptr %15, align 8
-  %16 = sext i32 %.47 to i64
-  %17 = mul i64 %.val40, %16
+  %.47 = select i1 %or.cond, ptr %5, ptr %2
+  %.48 = select i1 %or.cond, i32 %4, i32 %1
+  %15 = getelementptr i8, ptr %.47, i64 24
+  %.val41 = load i64, ptr %15, align 8
+  %16 = sext i32 %.48 to i64
+  %17 = mul i64 %.val41, %16
   %18 = icmp slt i32 %.val.val, 4
   br i1 %18, label %19, label %29
 
@@ -1788,24 +1788,24 @@ define i32 @ompi_coll_tuned_gather_intra_dec_fixed(ptr noundef %0, i32 noundef %
 
 37:                                               ; preds = %35
   %38 = icmp ult i64 %17, 262144
-  %.36 = select i1 %38, i32 1, i32 3
+  %.37 = select i1 %38, i32 1, i32 3
   br label %44
 
 39:                                               ; preds = %29
   %40 = and i32 %.val.val, 2147483392
-  %or.cond38 = icmp ne i32 %40, 256
+  %or.cond39 = icmp ne i32 %40, 256
   %41 = icmp ult i64 %17, 2048
-  %or.cond39 = select i1 %or.cond38, i1 true, i1 %41
-  br i1 %or.cond39, label %44, label %42
+  %or.cond40 = select i1 %or.cond39, i1 true, i1 %41
+  br i1 %or.cond40, label %44, label %42
 
 42:                                               ; preds = %39
   %43 = icmp ult i64 %17, 8192
-  %.37 = select i1 %43, i32 1, i32 2
+  %.38 = select i1 %43, i32 1, i32 2
   br label %44
 
 44:                                               ; preds = %42, %39, %37, %35, %33, %31, %27, %25, %23, %21, %19
-  %.034 = phi i32 [ 3, %19 ], [ 1, %21 ], [ 2, %23 ], [ 1, %25 ], [ %., %27 ], [ 2, %31 ], [ 1, %33 ], [ 2, %35 ], [ %.36, %37 ], [ 2, %39 ], [ %.37, %42 ]
-  %45 = tail call i32 @ompi_coll_tuned_gather_intra_do_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %8, i32 noundef %.034, i32 noundef 0, i32 noundef 0) #2
+  %.035 = phi i32 [ 3, %19 ], [ 1, %21 ], [ 2, %23 ], [ 1, %25 ], [ %., %27 ], [ 2, %31 ], [ 1, %33 ], [ 2, %35 ], [ %.37, %37 ], [ 2, %39 ], [ %.38, %42 ]
+  %45 = tail call i32 @ompi_coll_tuned_gather_intra_do_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %8, i32 noundef %.035, i32 noundef 0, i32 noundef 0) #2
   ret i32 %45
 }
 

@@ -150,8 +150,8 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 8:                                                ; preds = %2
   %9 = load i32, ptr %4, align 4
-  %.not27 = icmp eq i32 %9, 0
-  br i1 %.not27, label %10, label %57
+  %.not20 = icmp eq i32 %9, 0
+  br i1 %.not20, label %10, label %57
 
 10:                                               ; preds = %8
   %11 = load i8, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 225), align 1
@@ -160,30 +160,30 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 13:                                               ; preds = %10
   %14 = call ptr @getenv(ptr noundef nonnull @.str.37) #12
-  %.not28 = icmp eq ptr %14, null
-  br i1 %.not28, label %38, label %15
+  %.not21 = icmp eq ptr %14, null
+  br i1 %.not21, label %38, label %15
 
 15:                                               ; preds = %13
   %16 = call ptr @getenv(ptr noundef nonnull @.str.38) #12
-  %.not29 = icmp eq ptr %16, null
-  br i1 %.not29, label %38, label %17
+  %.not22 = icmp eq ptr %16, null
+  br i1 %.not22, label %38, label %17
 
 17:                                               ; preds = %15
   %18 = call ptr @getenv(ptr noundef nonnull @.str.39) #12
-  %.not30 = icmp eq ptr %18, null
-  br i1 %.not30, label %38, label %19
+  %.not23 = icmp eq ptr %18, null
+  br i1 %.not23, label %38, label %19
 
 19:                                               ; preds = %17
   %20 = call ptr @getenv(ptr noundef nonnull @.str.40) #12
-  %.not31 = icmp eq ptr %20, null
-  br i1 %.not31, label %38, label %21
+  %.not24 = icmp eq ptr %20, null
+  br i1 %.not24, label %38, label %21
 
 21:                                               ; preds = %19
   %22 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.41, ptr noundef nonnull %14, ptr noundef nonnull %16) #12
   %23 = load ptr, ptr %3, align 8
   %24 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef nonnull @.str.42, ptr noundef %23)
-  %.not32 = icmp eq i32 %24, 0
-  br i1 %.not32, label %36, label %25
+  %.not25 = icmp eq i32 %24, 0
+  br i1 %.not25, label %36, label %25
 
 25:                                               ; preds = %21
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
@@ -221,18 +221,18 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 41:                                               ; preds = %38
   %42 = call ptr @getenv(ptr noundef nonnull @.str.44) #12
-  %.not33 = icmp eq ptr %42, null
-  br i1 %.not33, label %57, label %43
+  %.not26 = icmp eq ptr %42, null
+  br i1 %.not26, label %57, label %43
 
 43:                                               ; preds = %41
   %44 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef nonnull @.str.45, ptr noundef null)
-  %.not34 = icmp eq i32 %44, 0
-  br i1 %.not34, label %55, label %45
+  %.not27 = icmp eq i32 %44, 0
+  br i1 %.not27, label %55, label %45
 
 45:                                               ; preds = %43
   %46 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %46, 64
-  br i1 %or.cond3, label %47, label %54
+  %or.cond31 = icmp ult i32 %46, 64
+  br i1 %or.cond31, label %47, label %54
 
 47:                                               ; preds = %45
   %48 = zext nneg i32 %46 to i64
@@ -258,18 +258,18 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 57:                                               ; preds = %38, %41, %8
   %58 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef null, ptr noundef null)
-  %.not35 = icmp eq i32 %58, 0
-  br i1 %.not35, label %98, label %59
+  %.not28 = icmp eq i32 %58, 0
+  br i1 %.not28, label %98, label %59
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
-  %.not36 = icmp eq ptr %60, null
-  br i1 %.not36, label %87, label %61
+  %.not29 = icmp eq ptr %60, null
+  br i1 %.not29, label %87, label %61
 
 61:                                               ; preds = %59
   %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(10) @.str.19) #13
-  %.not37 = icmp eq i32 %62, 0
-  br i1 %.not37, label %87, label %63
+  %.not30 = icmp eq i32 %62, 0
+  br i1 %.not30, label %87, label %63
 
 63:                                               ; preds = %61
   %64 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.47, i32 noundef 1, ptr noundef nonnull %60) #12
@@ -287,8 +287,8 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
   %74 = fdiv double %73, 1.000000e+06
   %75 = fadd double %74, %70
   %76 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
-  %or.cond5 = icmp ult i32 %76, 64
-  br i1 %or.cond5, label %77, label %85
+  %or.cond32 = icmp ult i32 %76, 64
+  br i1 %or.cond32, label %77, label %85
 
 77:                                               ; preds = %67
   %78 = zext nneg i32 %76 to i64
@@ -310,8 +310,8 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 
 87:                                               ; preds = %61, %59
   %88 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
-  %or.cond7 = icmp ult i32 %88, 64
-  br i1 %or.cond7, label %89, label %97
+  %or.cond33 = icmp ult i32 %88, 64
+  br i1 %or.cond33, label %89, label %97
 
 89:                                               ; preds = %87
   %90 = zext nneg i32 %88 to i64
@@ -414,8 +414,8 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   br label %18
 
 18:                                               ; preds = %16, %13
-  %.037 = phi ptr [ %15, %13 ], [ %17, %16 ]
-  %19 = load ptr, ptr %.037, align 8
+  %.036 = phi ptr [ %15, %13 ], [ %17, %16 ]
+  %19 = load ptr, ptr %.036, align 8
   %.not57 = icmp eq ptr %19, null
   br i1 %.not57, label %.sink.split, label %.preheader
 
@@ -423,8 +423,8 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %63 ], [ 0, %18 ]
   %20 = phi ptr [ %65, %63 ], [ %19, %18 ]
   %21 = load i8, ptr %20, align 1
-  %.not4550 = icmp eq i8 %21, 0
-  br i1 %.not4550, label %.critedge, label %.lr.ph
+  %.not4450 = icmp eq i8 %21, 0
+  br i1 %.not4450, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #14
@@ -433,41 +433,41 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
 
 24:                                               ; preds = %.lr.ph, %30
   %25 = phi i8 [ %21, %.lr.ph ], [ %32, %30 ]
-  %.03851 = phi ptr [ %20, %.lr.ph ], [ %31, %30 ]
+  %.03751 = phi ptr [ %20, %.lr.ph ], [ %31, %30 ]
   %26 = sext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 8192
-  %.not46 = icmp eq i16 %29, 0
-  br i1 %.not46, label %.critedge, label %30
+  %.not45 = icmp eq i16 %29, 0
+  br i1 %.not45, label %.critedge, label %30
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %.03851, i64 1
+  %31 = getelementptr inbounds i8, ptr %.03751, i64 1
   %32 = load i8, ptr %31, align 1
-  %.not45 = icmp eq i8 %32, 0
-  br i1 %.not45, label %.critedge, label %24, !llvm.loop !4
+  %.not44 = icmp eq i8 %32, 0
+  br i1 %.not44, label %.critedge, label %24, !llvm.loop !4
 
 .critedge:                                        ; preds = %24, %30, %.preheader
   %char066 = phi i8 [ 0, %.preheader ], [ 0, %30 ], [ %25, %24 ]
-  %.038.lcssa = phi ptr [ %20, %.preheader ], [ %31, %30 ], [ %.03851, %24 ]
-  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.038.lcssa) #13
+  %.037.lcssa = phi ptr [ %20, %.preheader ], [ %31, %30 ], [ %.03751, %24 ]
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.037.lcssa) #13
   %34 = trunc i64 %33 to i32
   %35 = add i32 %34, -2
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph55, label %.critedge3
+  br i1 %36, label %.lr.ph55, label %.critedge2
 
 .lr.ph55:                                         ; preds = %.critedge
   %37 = tail call ptr @__ctype_b_loc() #14
   %38 = zext nneg i32 %35 to i64
   %39 = load ptr, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %.038.lcssa, i64 %38
+  %40 = getelementptr inbounds i8, ptr %.037.lcssa, i64 %38
   %41 = load i8, ptr %40, align 1
   %42 = sext i8 %41 to i64
   %43 = getelementptr inbounds i16, ptr %39, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 8192
-  %.not4769 = icmp eq i16 %45, 0
-  br i1 %.not4769, label %.critedge3.loopexit, label %.lr.ph71
+  %.not4669 = icmp eq i16 %45, 0
+  br i1 %.not4669, label %.critedge2.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %.lr.ph55, %.lr.ph71
   %46 = phi ptr [ %48, %.lr.ph71 ], [ %40, %.lr.ph55 ]
@@ -475,31 +475,31 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   store i8 0, ptr %46, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv70, 1
   %47 = load ptr, ptr %37, align 8
-  %48 = getelementptr inbounds i8, ptr %.038.lcssa, i64 %indvars.iv.next
+  %48 = getelementptr inbounds i8, ptr %.037.lcssa, i64 %indvars.iv.next
   %49 = load i8, ptr %48, align 1
   %50 = sext i8 %49 to i64
   %51 = getelementptr inbounds i16, ptr %47, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, 8192
-  %.not47 = icmp eq i16 %53, 0
-  br i1 %.not47, label %.critedge3.loopexit, label %.lr.ph71
+  %.not46 = icmp eq i16 %53, 0
+  br i1 %.not46, label %.critedge2.loopexit, label %.lr.ph71
 
-.critedge3.loopexit:                              ; preds = %.lr.ph71, %.lr.ph55
-  %char0.pre = load i8, ptr %.038.lcssa, align 1
-  br label %.critedge3
+.critedge2.loopexit:                              ; preds = %.lr.ph71, %.lr.ph55
+  %char0.pre = load i8, ptr %.037.lcssa, align 1
+  br label %.critedge2
 
-.critedge3:                                       ; preds = %.critedge3.loopexit, %.critedge
-  %char0 = phi i8 [ %char0.pre, %.critedge3.loopexit ], [ %char066, %.critedge ]
+.critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge
+  %char0 = phi i8 [ %char0.pre, %.critedge2.loopexit ], [ %char066, %.critedge ]
   %54 = icmp eq i8 %char0, 0
   br i1 %54, label %63, label %55
 
-55:                                               ; preds = %.critedge3
-  %56 = call ptr @PMIx_Argv_split(ptr noundef nonnull %.038.lcssa, i32 noundef 32) #12
+55:                                               ; preds = %.critedge2
+  %56 = call ptr @PMIx_Argv_split(ptr noundef nonnull %.037.lcssa, i32 noundef 32) #12
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr @environ, align 8
   %59 = call noalias ptr @pmix_path_findv(ptr noundef %57, i32 noundef 1, ptr noundef %58, ptr noundef nonnull %3) #12
-  %.not48 = icmp eq ptr %59, null
-  br i1 %.not48, label %62, label %60
+  %.not47 = icmp eq ptr %59, null
+  br i1 %.not47, label %62, label %60
 
 60:                                               ; preds = %55
   %61 = load ptr, ptr %56, align 8
@@ -511,16 +511,16 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   call void @PMIx_Argv_free(ptr noundef nonnull %56) #12
   br label %63
 
-63:                                               ; preds = %.critedge3, %62
+63:                                               ; preds = %.critedge2, %62
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %64 = getelementptr inbounds ptr, ptr %.037, i64 %indvars.iv.next62
+  %64 = getelementptr inbounds ptr, ptr %.036, i64 %indvars.iv.next62
   %65 = load ptr, ptr %64, align 8
   %.not = icmp eq ptr %65, null
   br i1 %.not, label %.sink.split, label %.preheader, !llvm.loop !6
 
 .sink.split:                                      ; preds = %63, %18, %60
   %.0.ph = phi ptr [ %56, %60 ], [ null, %18 ], [ null, %63 ]
-  call void @PMIx_Argv_free(ptr noundef nonnull %.037) #12
+  call void @PMIx_Argv_free(ptr noundef nonnull %.036) #12
   br label %66
 
 66:                                               ; preds = %.sink.split, %2
@@ -571,11 +571,11 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
   %5 = icmp eq ptr %4, null
   %or.cond = select i1 %3, i1 %5, i1 false
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %6, 64
+  %or.cond24 = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %17
 
 7:                                                ; preds = %2
-  br i1 %or.cond3, label %8, label %.loopexit
+  br i1 %or.cond24, label %8, label %.loopexit
 
 8:                                                ; preds = %7
   %9 = zext nneg i32 %6 to i64
@@ -592,7 +592,7 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
   br label %.loopexit
 
 17:                                               ; preds = %2
-  br i1 %or.cond3, label %18, label %29
+  br i1 %or.cond24, label %18, label %29
 
 18:                                               ; preds = %17
   %19 = zext nneg i32 %6 to i64
@@ -654,15 +654,15 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 280), align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
-  %.not2728 = icmp eq ptr %54, null
-  br i1 %.not2728, label %._crit_edge, label %.lr.ph
+  %.not2226 = icmp eq ptr %54, null
+  br i1 %.not2226, label %._crit_edge, label %.lr.ph
 
 55:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv.next
   %57 = load ptr, ptr %56, align 8
-  %.not27 = icmp eq ptr %57, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  %.not22 = icmp eq ptr %57, null
+  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.preheader, %55
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 1, %.preheader ]
@@ -676,8 +676,8 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %38, %48, %._crit_edge, %46, %32, %29, %7, %8, %13
-  %.021 = phi i32 [ -13, %13 ], [ -13, %8 ], [ -13, %7 ], [ -13, %29 ], [ 0, %32 ], [ 0, %46 ], [ 0, %._crit_edge ], [ 0, %48 ], [ 0, %38 ], [ 0, %.lr.ph ]
-  ret i32 %.021
+  %.016 = phi i32 [ -13, %13 ], [ -13, %8 ], [ -13, %7 ], [ -13, %29 ], [ 0, %32 ], [ 0, %46 ], [ 0, %._crit_edge ], [ 0, %48 ], [ 0, %38 ], [ 0, %.lr.ph ]
+  ret i32 %.016
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3

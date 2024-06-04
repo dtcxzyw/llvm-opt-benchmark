@@ -548,8 +548,8 @@ define void @prte_rml_send_callback(i32 noundef %0, ptr noundef %1, ptr nocaptur
   %31 = fdiv double %30, 1.000000e+06
   %32 = fadd double %31, %27
   %33 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %33, 64
-  br i1 %or.cond3, label %34, label %.sink.split
+  %or.cond29 = icmp ult i32 %33, 64
+  br i1 %or.cond29, label %34, label %.sink.split
 
 34:                                               ; preds = %24
   %35 = zext nneg i32 %33 to i64
@@ -586,8 +586,8 @@ define void @prte_rml_send_callback(i32 noundef %0, ptr noundef %1, ptr nocaptur
   %55 = fdiv double %54, 1.000000e+06
   %56 = fadd double %55, %51
   %57 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
-  %or.cond5 = icmp ult i32 %57, 64
-  br i1 %or.cond5, label %58, label %.sink.split
+  %or.cond30 = icmp ult i32 %57, 64
+  br i1 %or.cond30, label %58, label %.sink.split
 
 58:                                               ; preds = %48
   %59 = zext nneg i32 %57 to i64
@@ -624,8 +624,8 @@ define void @prte_rml_send_callback(i32 noundef %0, ptr noundef %1, ptr nocaptur
   %79 = fdiv double %78, 1.000000e+06
   %80 = fadd double %79, %75
   %81 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
-  %or.cond7 = icmp ult i32 %81, 64
-  br i1 %or.cond7, label %82, label %.sink.split
+  %or.cond31 = icmp ult i32 %81, 64
+  br i1 %or.cond31, label %82, label %.sink.split
 
 82:                                               ; preds = %72
   %83 = zext nneg i32 %81 to i64

@@ -254,14 +254,14 @@ declare void @_ZN12GUIModalMenuC2EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElement
 define dso_local void @_ZN15GUIVolumeChangeC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, ptr noundef %tsrc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 392
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 400
   store ptr null, ptr %DebugName.i, align 8, !tbaa !41
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 408
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !43
   tail call void @_ZN12GUIModalMenuC2EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerb(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT15GUIVolumeChange, i64 8), ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, i1 noundef zeroext true)
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV15GUIVolumeChange, i64 24), ptr %this, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15GUIVolumeChange, i64 384), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15GUIVolumeChange, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15GUIVolumeChange, i64 384), ptr %0, align 8, !tbaa !4
   %m_tsrc = getelementptr inbounds i8, ptr %this, i64 384
   store ptr %tsrc, ptr %m_tsrc, align 8, !tbaa !7
   ret void
@@ -1813,7 +1813,8 @@ if.then60:                                        ; preds = %land.lhs.true56
   br i1 %call61, label %if.end66, label %if.then62
 
 if.then62:                                        ; preds = %if.then60
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %25, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %25
 
 25:                                               ; preds = %if.then62
   tail call void @_ZTH10infostream()

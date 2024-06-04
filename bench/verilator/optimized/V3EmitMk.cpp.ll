@@ -858,7 +858,7 @@ define dso_local void @_ZN8V3EmitMk6emitmkEv() #3 align 2 personality ptr @__gxx
   resume { ptr, i32 } %16
 
 17:                                               ; preds = %0, %14
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV6EmitMk, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6EmitMk, i64 16), ptr %2, align 8
   call void @_ZN6EmitMk13emitClassMakeEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @_ZN6EmitMk15emitOverallMakeEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   ret void
@@ -1115,7 +1115,7 @@ _ZNK9V3Options6prefixB5cxx11Ev.exit:              ; preds = %10
           to label %25 unwind label %37
 
 25:                                               ; preds = %24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV11V3OutMkFile, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3OutMkFile, i64 16), ptr %7, align 8
   invoke void @_ZNK20EmitMkHierVerilation4emitER11V3OutMkFile(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(200) %7)
           to label %26 unwind label %39
 
@@ -1418,7 +1418,7 @@ _ZNK9V3Options6prefixB5cxx11Ev.exit:              ; preds = %71
           to label %86 unwind label %180
 
 86:                                               ; preds = %85
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV11V3OutMkFile, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3OutMkFile, i64 16), ptr %38, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #16
@@ -3315,7 +3315,7 @@ _ZNK9V3Options6prefixB5cxx11Ev.exit:              ; preds = %135
           to label %150 unwind label %177
 
 150:                                              ; preds = %149
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV11V3OutMkFile, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3OutMkFile, i64 16), ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16

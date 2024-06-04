@@ -9019,7 +9019,7 @@ _ZN7jsonnet8internallsERSoNS0_5Token4KindE.exit:  ; preds = %.noexc
 define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_5ErrorEJNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EERPNS0_3ASTEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #25
   %6 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %23
@@ -9043,7 +9043,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_5ErrorE
 14:                                               ; preds = %.noexc
   %15 = getelementptr inbounds i8, ptr %5, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5ErrorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5ErrorE, i64 16), ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr %6, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 48
@@ -9228,7 +9228,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit: ; preds = %_Z
 define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_6ImportEJNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EERPNS0_13LiteralStringEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #25
   %6 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %23
@@ -9252,7 +9252,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_6Import
 14:                                               ; preds = %.noexc
   %15 = getelementptr inbounds i8, ptr %5, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6ImportE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6ImportE, i64 16), ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr %6, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 48
@@ -9281,7 +9281,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_6Import
 define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_9ImportstrEJNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EERPNS0_13LiteralStringEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #25
   %6 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %23
@@ -9305,7 +9305,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_9Import
 14:                                               ; preds = %.noexc
   %15 = getelementptr inbounds i8, ptr %5, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal9ImportstrE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal9ImportstrE, i64 16), ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr %6, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 48
@@ -9334,7 +9334,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_9Import
 define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_9ImportbinEJNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EERPNS0_13LiteralStringEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #25
   %6 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %23
@@ -9358,7 +9358,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_9Import
 14:                                               ; preds = %.noexc
   %15 = getelementptr inbounds i8, ptr %5, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal9ImportbinE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal9ImportbinE, i64 16), ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr %6, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 48
@@ -9387,7 +9387,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_9Import
 define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_5LocalEJNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EERS5_INS3_4BindESaISB_EERPNS0_3ASTEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #25
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %27
@@ -9411,7 +9411,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_5LocalE
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit.i: ; preds = %.noexc
   %15 = getelementptr inbounds i8, ptr %6, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5LocalE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5LocalE, i64 16), ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 128
   invoke void @_ZNSt6vectorIN7jsonnet8internal5Local4BindESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %19 unwind label %17
@@ -10092,7 +10092,7 @@ declare void @abort() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal6AssertC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EEPNS0_3ASTESA_SC_SA_SC_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %7) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %10 = getelementptr inbounds i8, ptr %0, i64 40
@@ -10117,7 +10117,7 @@ common.resume:                                    ; preds = %28, %14
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %8
   %16 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6AssertE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6AssertE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %3, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 136
@@ -10254,7 +10254,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal6AssertD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6AssertE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6AssertE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 176
@@ -10378,7 +10378,7 @@ define linkonce_odr void @_ZN7jsonnet8internal6AssertD0Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -10474,7 +10474,7 @@ define linkonce_odr void @_ZN7jsonnet8internal5ErrorD0Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal11ConditionalC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EEPNS0_3ASTESA_SC_SA_SC_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %7) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %10 = getelementptr inbounds i8, ptr %0, i64 40
@@ -10499,7 +10499,7 @@ common.resume:                                    ; preds = %28, %14
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %8
   %16 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal11ConditionalE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal11ConditionalE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %3, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 136
@@ -10537,7 +10537,7 @@ _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal11ConditionalD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal11ConditionalE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal11ConditionalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 176
@@ -12982,7 +12982,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit36: ; preds = %_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal8FunctionC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EESA_RKS5_INS0_8ArgParamESaISB_EEbSA_PNS0_3ASTE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %7) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %9 = zext i1 %5 to i8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %11 = getelementptr inbounds i8, ptr %0, i64 40
@@ -13007,7 +13007,7 @@ common.resume:                                    ; preds = %53, %15
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %8
   %17 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal8FunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal8FunctionE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 128
   invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %19 unwind label %47
@@ -13106,7 +13106,7 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal8ArgParamEEE8allocateERS3_m.exit.i.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal8FunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal8FunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 192
@@ -14249,7 +14249,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal5Local4BindESaIS3_EED2Ev.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal5LocalD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5LocalE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5LocalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -14284,7 +14284,7 @@ _ZNSt6vectorIN7jsonnet8internal5Local4BindESaIS3_EED2Ev.exit: ; preds = %_ZSt8_D
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal5LocalD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5LocalE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5LocalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -14540,7 +14540,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_5UnaryE
   %6 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #25
   %7 = load i32, ptr %3, align 4
   %8 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %26
@@ -14564,7 +14564,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_5UnaryE
 16:                                               ; preds = %.noexc
   %17 = getelementptr inbounds i8, ptr %6, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5UnaryE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5UnaryE, i64 16), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 128
   store i32 %7, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 136
@@ -19592,7 +19592,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_5ArrayE
 define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_6ParensEJNS0_13LocationRangeERSt6vectorINS0_13FodderElementESaIS6_EERPNS0_3ASTES9_EEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #25
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %26
@@ -19616,7 +19616,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_6Parens
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit.i: ; preds = %.noexc
   %15 = getelementptr inbounds i8, ptr %6, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6ParensE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6ParensE, i64 16), ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 128
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 136
@@ -19754,7 +19754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20: ; 
 define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_14LiteralBooleanEJNS0_13LocationRangeERSt6vectorINS0_13FodderElementESaIS6_EEbEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #25
   %6 = load i8, ptr %3, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %24
@@ -19779,7 +19779,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_14Liter
   %15 = and i8 %6, 1
   %16 = getelementptr inbounds i8, ptr %5, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal14LiteralBooleanE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal14LiteralBooleanE, i64 16), ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 128
   store i8 %15, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 48
@@ -19807,7 +19807,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_14Liter
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_11LiteralNullEJNS0_13LocationRangeERSt6vectorINS0_13FodderElementESaIS6_EEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %20
@@ -19831,7 +19831,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_11Liter
 12:                                               ; preds = %.noexc
   %13 = getelementptr inbounds i8, ptr %4, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal11LiteralNullE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal11LiteralNullE, i64 16), ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %16 = getelementptr inbounds i8, ptr %15, i64 16
@@ -19857,7 +19857,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_11Liter
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_6DollarEJNS0_13LocationRangeERSt6vectorINS0_13FodderElementESaIS6_EEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %20
@@ -19881,7 +19881,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_6Dollar
 12:                                               ; preds = %.noexc
   %13 = getelementptr inbounds i8, ptr %4, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6DollarE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6DollarE, i64 16), ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %16 = getelementptr inbounds i8, ptr %15, i64 16
@@ -19908,7 +19908,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_6Dollar
 define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_3VarEJNS0_13LocationRangeERSt6vectorINS0_13FodderElementESaIS6_EEPKNS0_10IdentifierEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #25
   %6 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %23
@@ -19932,7 +19932,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_3VarEJN
 14:                                               ; preds = %.noexc
   %15 = getelementptr inbounds i8, ptr %5, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3VarE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3VarE, i64 16), ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr %6, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 48
@@ -19960,7 +19960,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_3VarEJN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_4SelfEJNS0_13LocationRangeERSt6vectorINS0_13FodderElementESaIS6_EEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %20
@@ -19984,7 +19984,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_4SelfEJ
 12:                                               ; preds = %.noexc
   %13 = getelementptr inbounds i8, ptr %4, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal4SelfE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal4SelfE, i64 16), ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %16 = getelementptr inbounds i8, ptr %15, i64 16
@@ -20860,7 +20860,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal11ObjectFieldESaIS2_EED2Ev.exit: ; preds =
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal6ObjectC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EERKS5_INS0_11ObjectFieldESaISB_EEbSA_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -20885,7 +20885,7 @@ common.resume:                                    ; preds = %25, %12
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %6
   %14 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6ObjectE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6ObjectE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 128
   invoke void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %16 unwind label %21
@@ -21023,7 +21023,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal11ObjectFieldESaIS2_EED2Ev.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6ObjectE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6ObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 168
@@ -21300,7 +21300,7 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal8ArgParamEEE8allocateERS3_m.exit.i.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal19ObjectComprehensionC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EERKS5_INS0_11ObjectFieldESaISB_EEbRKS5_INS0_17ComprehensionSpecESaISG_EESA_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %9 = getelementptr inbounds i8, ptr %0, i64 40
@@ -21325,7 +21325,7 @@ common.resume:                                    ; preds = %51, %13
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %7
   %15 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal19ObjectComprehensionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal19ObjectComprehensionE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 128
   invoke void @_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %17 unwind label %45
@@ -21423,7 +21423,7 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal17ComprehensionSpecEEE8allocateERS3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal19ObjectComprehensionD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal19ObjectComprehensionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal19ObjectComprehensionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 192
@@ -21825,7 +21825,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal13LiteralStringC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEENS1_9TokenKindERKNSC_IcSD_IcESaIcEEESO_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %9 = getelementptr inbounds i8, ptr %0, i64 40
@@ -21850,7 +21850,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %7
   %15 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal13LiteralStringE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal13LiteralStringE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 128
   %17 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %17, ptr %16, align 8
@@ -21957,7 +21957,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit: ; preds = %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal13LiteralStringD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal13LiteralStringE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal13LiteralStringE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 168
@@ -21986,7 +21986,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit: ; preds = %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal13LiteralStringD0Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal13LiteralStringE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal13LiteralStringE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 168
@@ -22869,7 +22869,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal5ArrayC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EERKS5_INS1_7ElementESaISB_EEbSA_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -22894,7 +22894,7 @@ common.resume:                                    ; preds = %25, %12
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %6
   %14 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5ArrayE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5ArrayE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 128
   invoke void @_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %16 unwind label %21
@@ -23029,7 +23029,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal5Array7ElementESaIS3_EED2Ev.exit: ; preds 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal5ArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5ArrayE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5ArrayE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 168
@@ -23759,7 +23759,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal17ComprehensionSpecESaIS2_EE13_M_deallocat
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal18ArrayComprehensionC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EEPNS0_3ASTESA_bRKS5_INS0_17ComprehensionSpecESaISD_EESA_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %10 = getelementptr inbounds i8, ptr %0, i64 40
@@ -23784,7 +23784,7 @@ common.resume:                                    ; preds = %53, %14
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %8
   %16 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal18ArrayComprehensionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal18ArrayComprehensionE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %3, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 136
@@ -23884,7 +23884,7 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal17ComprehensionSpecEEE8allocateERS3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal18ArrayComprehensionD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal18ArrayComprehensionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal18ArrayComprehensionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 200
@@ -24170,7 +24170,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal5Array7ElementESaIS3_EE13_M_deallocateEPS3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal6ParensD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6ParensE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6ParensE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
@@ -24232,7 +24232,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit: ; preds = %_ZS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal6ParensD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6ParensE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6ParensE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
@@ -24295,7 +24295,7 @@ _ZN7jsonnet8internal6ParensD2Ev.exit:             ; preds = %_ZSt8_DestroyIPN7js
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal13LiteralNumberC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -24320,7 +24320,7 @@ common.resume:                                    ; preds = %18, %10
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %4
   %12 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal13LiteralNumberE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal13LiteralNumberE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 128
   %14 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %15 = tail call double @strtod(ptr nocapture noundef %14, ptr noundef null) #22
@@ -24344,7 +24344,7 @@ declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unname
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal13LiteralNumberD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal13LiteralNumberE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal13LiteralNumberE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   tail call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #22
@@ -24353,7 +24353,7 @@ define linkonce_odr void @_ZN7jsonnet8internal13LiteralNumberD2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal13LiteralNumberD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal13LiteralNumberE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal13LiteralNumberE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   tail call void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #22
@@ -24428,7 +24428,7 @@ define linkonce_odr void @_ZN7jsonnet8internal4SelfD0Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal10SuperIndexC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EESA_PNS0_3ASTESA_PKNS0_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %9 = getelementptr inbounds i8, ptr %0, i64 40
@@ -24453,7 +24453,7 @@ common.resume:                                    ; preds = %26, %13
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %7
   %15 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal10SuperIndexE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal10SuperIndexE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 128
   invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %17 unwind label %22
@@ -24489,7 +24489,7 @@ _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal10SuperIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal10SuperIndexE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal10SuperIndexE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 168
@@ -24702,7 +24702,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_10Apply
   %6 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #25
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %26
@@ -24726,7 +24726,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_10Apply
 16:                                               ; preds = %.noexc
   %17 = getelementptr inbounds i8, ptr %6, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal10ApplyBraceE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal10ApplyBraceE, i64 16), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 128
   store ptr %7, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 136
@@ -24759,7 +24759,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_6Binary
   %9 = load ptr, ptr %3, align 8
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %33
@@ -24783,7 +24783,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_6Binary
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit.i: ; preds = %.noexc
   %19 = getelementptr inbounds i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6BinaryE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6BinaryE, i64 16), ptr %8, align 8
   %20 = getelementptr inbounds i8, ptr %8, i64 128
   store ptr %9, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %8, i64 136
@@ -24825,7 +24825,7 @@ _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal5IndexC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EEPNS0_3ASTESA_bSC_SA_SC_SA_SC_SA_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %11) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %14 = getelementptr inbounds i8, ptr %0, i64 40
@@ -24850,7 +24850,7 @@ common.resume:                                    ; preds = %46, %18
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %12
   %20 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5IndexE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5IndexE, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %3, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 136
@@ -24925,7 +24925,7 @@ _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5IndexE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5IndexE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 248
@@ -25159,7 +25159,7 @@ define linkonce_odr void @_ZN7jsonnet8internal5IndexD0Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal5IndexC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EEPNS0_3ASTESA_SA_PKNS0_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %9 = getelementptr inbounds i8, ptr %0, i64 40
@@ -25184,7 +25184,7 @@ common.resume:                                    ; preds = %30, %13
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %7
   %15 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5IndexE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5IndexE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %3, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 136
@@ -25229,7 +25229,7 @@ _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal5ApplyC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EEPNS0_3ASTESA_RKS5_INS0_8ArgParamESaISD_EEbSA_SA_b(ptr noundef nonnull align 8 dereferenceable(241) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i1 noundef zeroext %9) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %11 = zext i1 %6 to i8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
@@ -25254,7 +25254,7 @@ common.resume:                                    ; preds = %62, %17
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %10
   %19 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5ApplyE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5ApplyE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %3, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 136
@@ -25371,7 +25371,7 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal8ArgParamEEE8allocateERS3_m.exit.i.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal5ApplyD2Ev(ptr noundef nonnull align 8 dereferenceable(241) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal5ApplyE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal5ApplyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 224
@@ -25591,7 +25591,7 @@ define linkonce_odr void @_ZN7jsonnet8internal10ApplyBraceD0Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal7InSuperC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EEPNS0_3ASTESA_SA_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal3ASTE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -25616,7 +25616,7 @@ common.resume:                                    ; preds = %24, %12
 _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE.exit: ; preds = %6
   %14 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal7InSuperE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal7InSuperE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %3, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 136
@@ -25650,7 +25650,7 @@ _ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal7InSuperD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal7InSuperE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal7InSuperE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 168
@@ -25774,7 +25774,7 @@ define linkonce_odr void @_ZN7jsonnet8internal7InSuperD0Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal6BinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6BinaryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6BinaryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
@@ -25836,7 +25836,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit: ; preds = %_ZS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal6BinaryD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7jsonnet8internal6BinaryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal6BinaryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144

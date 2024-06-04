@@ -1168,11 +1168,11 @@ entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4952), align 8
   %len = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
-  %tobool = icmp eq i64 %1, 0
+  %tobool.not = icmp ne i64 %1, 0
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 1512), align 8
-  %tobool1 = icmp ne i32 %2, 0
-  %or.cond = select i1 %tobool, i1 true, i1 %tobool1
-  br i1 %or.cond, label %return, label %if.end3
+  %tobool1.not = icmp eq i32 %2, 0
+  %or.cond = select i1 %tobool.not, i1 %tobool1.not, i1 false
+  br i1 %or.cond, label %if.end3, label %return
 
 if.end3:                                          ; preds = %entry
   call void @listRewind(ptr noundef nonnull %0, ptr noundef nonnull %li) #8
@@ -1466,12 +1466,14 @@ entry:
   %ri = alloca %struct.raxIterator, align 8
   %0 = load ptr, ptr @TrackingTable, align 8
   %cmp = icmp eq ptr %0, null
+  br i1 %cmp, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4944), align 8
   %cmp1 = icmp eq i64 %1, 0
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp1
-  br i1 %or.cond, label %return, label %if.end3
+  br i1 %cmp1, label %return, label %if.end3
 
-if.end3:                                          ; preds = %entry
+if.end3:                                          ; preds = %if.end
   %call = tail call i64 @raxSize(ptr noundef nonnull %0) #8
   %cmp4.not = icmp ugt i64 %call, %1
   br i1 %cmp4.not, label %if.end6, label %if.then5
@@ -1526,7 +1528,7 @@ while.end:                                        ; preds = %while.body, %while.
   store i32 %inc, ptr @trackingLimitUsedSlots.timeout_counter, align 4
   br label %return
 
-return:                                           ; preds = %entry, %while.end, %if.then16, %if.then5
+return:                                           ; preds = %if.end, %entry, %while.end, %if.then16, %if.then5
   ret void
 }
 
@@ -1661,11 +1663,11 @@ entry:
   %ri = alloca %struct.raxIterator, align 8
   %ri2 = alloca %struct.raxIterator, align 8
   %0 = load ptr, ptr @TrackingTable, align 8
-  %cmp = icmp ne ptr %0, null
+  %cmp = icmp eq ptr %0, null
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4936), align 8
-  %tobool = icmp ne i32 %1, 0
-  %or.cond = select i1 %cmp, i1 %tobool, i1 false
-  br i1 %or.cond, label %if.end, label %return
+  %tobool.not = icmp eq i32 %1, 0
+  %or.cond = select i1 %cmp, i1 true, i1 %tobool.not
+  br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr @PrefixTable, align 8

@@ -33481,15 +33481,15 @@ define internal fastcc ptr @zend_fetch_prop_info(ptr nocapture noundef readonly 
   br i1 %.not.i, label %59, label %51
 
 51:                                               ; preds = %43
-  %.not30.i = icmp eq ptr %47, null
-  br i1 %.not30.i, label %56, label %52
+  %.not31.i = icmp eq ptr %47, null
+  br i1 %.not31.i, label %56, label %52
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds i8, ptr %47, i64 28
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 8
-  %.not31.i = icmp eq i32 %55, 0
-  br i1 %.not31.i, label %59, label %56
+  %.not32.i = icmp eq i32 %55, 0
+  br i1 %.not32.i, label %59, label %56
 
 56:                                               ; preds = %52, %51
   %57 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
@@ -33505,8 +33505,8 @@ define internal fastcc ptr @zend_fetch_prop_info(ptr nocapture noundef readonly 
 59:                                               ; preds = %52, %43
   %60 = getelementptr inbounds i8, ptr %.0, i64 120
   %61 = tail call ptr @zend_hash_find(ptr noundef nonnull %60, ptr noundef %45) #19
-  %.not32.i = icmp eq ptr %61, null
-  br i1 %.not32.i, label %.thread, label %62
+  %.not33.i = icmp eq ptr %61, null
+  br i1 %.not33.i, label %.thread, label %62
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %61, align 8, !nonnull !4, !noundef !4
@@ -33516,23 +33516,23 @@ define internal fastcc ptr @zend_fetch_prop_info(ptr nocapture noundef readonly 
   br i1 %66, label %lookup_prop_info.exit.thread30, label %67
 
 67:                                               ; preds = %62
-  %.not34.i = icmp eq ptr %47, null
-  br i1 %.not34.i, label %68, label %.thread
+  %.not35.i = icmp eq ptr %47, null
+  br i1 %.not35.i, label %68, label %.thread
 
 68:                                               ; preds = %67
   %69 = getelementptr inbounds i8, ptr %63, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %70, 1
-  %.not35.i = icmp eq i32 %71, 0
-  br i1 %.not35.i, label %.thread, label %lookup_prop_info.exit.thread30
+  %.not36.i = icmp eq i32 %71, 0
+  br i1 %.not36.i, label %.thread, label %lookup_prop_info.exit.thread30
 
 lookup_prop_info.exit.thread30:                   ; preds = %56, %62, %68
-  %.026.i33 = phi ptr [ %63, %68 ], [ %63, %62 ], [ %58, %56 ]
-  %72 = getelementptr inbounds i8, ptr %.026.i33, i64 4
+  %.027.i33 = phi ptr [ %63, %68 ], [ %63, %62 ], [ %58, %56 ]
+  %72 = getelementptr inbounds i8, ptr %.027.i33, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 16
   %.not24 = icmp eq i32 %74, 0
-  %spec.store.select = select i1 %.not24, ptr %.026.i33, ptr null
+  %spec.store.select = select i1 %.not24, ptr %.027.i33, ptr null
   br label %.thread
 
 .thread:                                          ; preds = %59, %67, %68, %56, %56, %18, %lookup_prop_info.exit.thread30, %26, %4
@@ -33658,15 +33658,15 @@ define internal fastcc ptr @zend_fetch_static_prop_info(ptr noundef %0, ptr noun
   br i1 %.not.i, label %81, label %73
 
 73:                                               ; preds = %65
-  %.not30.i = icmp eq ptr %69, null
-  br i1 %.not30.i, label %78, label %74
+  %.not31.i = icmp eq ptr %69, null
+  br i1 %.not31.i, label %78, label %74
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds i8, ptr %69, i64 28
   %76 = load i32, ptr %75, align 4
   %77 = and i32 %76, 8
-  %.not31.i = icmp eq i32 %77, 0
-  br i1 %.not31.i, label %81, label %78
+  %.not32.i = icmp eq i32 %77, 0
+  br i1 %.not32.i, label %81, label %78
 
 78:                                               ; preds = %74, %73
   %79 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
@@ -33682,8 +33682,8 @@ define internal fastcc ptr @zend_fetch_static_prop_info(ptr noundef %0, ptr noun
 81:                                               ; preds = %74, %65
   %82 = getelementptr inbounds i8, ptr %.028, i64 120
   %83 = tail call ptr @zend_hash_find(ptr noundef nonnull %82, ptr noundef %67) #19
-  %.not32.i = icmp eq ptr %83, null
-  br i1 %.not32.i, label %.thread, label %84
+  %.not33.i = icmp eq ptr %83, null
+  br i1 %.not33.i, label %.thread, label %84
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %83, align 8, !nonnull !4, !noundef !4
@@ -33693,23 +33693,23 @@ define internal fastcc ptr @zend_fetch_static_prop_info(ptr noundef %0, ptr noun
   br i1 %88, label %lookup_prop_info.exit.thread6, label %89
 
 89:                                               ; preds = %84
-  %.not34.i = icmp eq ptr %69, null
-  br i1 %.not34.i, label %90, label %.thread
+  %.not35.i = icmp eq ptr %69, null
+  br i1 %.not35.i, label %90, label %.thread
 
 90:                                               ; preds = %89
   %91 = getelementptr inbounds i8, ptr %85, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = and i32 %92, 1
-  %.not35.i = icmp eq i32 %93, 0
-  br i1 %.not35.i, label %.thread, label %lookup_prop_info.exit.thread6
+  %.not36.i = icmp eq i32 %93, 0
+  br i1 %.not36.i, label %.thread, label %lookup_prop_info.exit.thread6
 
 lookup_prop_info.exit.thread6:                    ; preds = %78, %84, %90
-  %.026.i9 = phi ptr [ %85, %90 ], [ %85, %84 ], [ %80, %78 ]
-  %94 = getelementptr inbounds i8, ptr %.026.i9, i64 4
+  %.027.i9 = phi ptr [ %85, %90 ], [ %85, %84 ], [ %80, %78 ]
+  %94 = getelementptr inbounds i8, ptr %.027.i9, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 16
   %.not37 = icmp eq i32 %96, 0
-  %spec.store.select = select i1 %.not37, ptr null, ptr %.026.i9
+  %spec.store.select = select i1 %.not37, ptr null, ptr %.027.i9
   br label %.thread
 
 .thread:                                          ; preds = %81, %89, %90, %78, %78, %7, %17, %20, %10, %lookup_prop_info.exit.thread6, %48, %3

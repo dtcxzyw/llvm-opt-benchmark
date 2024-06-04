@@ -74,7 +74,8 @@ _ZNSt10unique_ptrI16ALCdevice_structN5sound21SoundManagerSingleton16AlcDeviceDel
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrI16ALCdevice_structN5sound21SoundManagerSingleton16AlcDeviceDeleterEED2Ev.exit
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %4, label %_ZTW11errorstream.exit
+  %.not20 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not20, label %_ZTW11errorstream.exit, label %4
 
 4:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream()
@@ -169,7 +170,8 @@ _ZNSt10unique_ptrI17ALCcontext_structN5sound21SoundManagerSingleton17AlcContextD
   br i1 %cmp.i48.not, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %_ZNSt10unique_ptrI17ALCcontext_structN5sound21SoundManagerSingleton17AlcContextDeleterEED2Ev.exit
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %17, label %_ZTW11errorstream.exit53
+  %.not19 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not19, label %_ZTW11errorstream.exit53, label %17
 
 17:                                               ; preds = %if.then13
   tail call void @_ZTH11errorstream()
@@ -237,7 +239,8 @@ if.end16:                                         ; preds = %_ZNSt10unique_ptrI1
   br i1 %tobool.not, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %if.end16
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %26, label %_ZTW11errorstream.exit66
+  %.not18 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not18, label %_ZTW11errorstream.exit66, label %26
 
 26:                                               ; preds = %if.then20
   tail call void @_ZTH11errorstream()
@@ -308,7 +311,8 @@ if.end23:                                         ; preds = %if.end16
   br i1 %cmp.not, label %if.end31, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %35, label %_ZTW11errorstream.exit79
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit79, label %35
 
 35:                                               ; preds = %if.then25
   tail call void @_ZTH11errorstream()
@@ -381,7 +385,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit190: ; preds = %i
   br label %return.sink.split
 
 if.end31:                                         ; preds = %if.end23
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %45, label %_ZTW10infostream.exit
+  %.not17 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not17, label %_ZTW10infostream.exit, label %45
 
 45:                                               ; preds = %if.end31
   tail call void @_ZTH10infostream()
@@ -540,7 +545,8 @@ declare ptr @alcGetString(ptr noundef, i32 noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN5sound21SoundManagerSingletonD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH10infostream() #12

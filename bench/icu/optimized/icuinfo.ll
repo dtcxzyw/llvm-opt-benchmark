@@ -201,8 +201,8 @@ if.end31.thread:                                  ; preds = %if.then23
   tail call void @udbg_writeIcuInfo(ptr noundef nonnull %call24)
   %call30 = tail call i32 @fclose(ptr noundef nonnull %call24)
   %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 274), align 2
-  %tobool32.not17 = icmp eq i8 %24, 0
-  br i1 %tobool32.not17, label %if.end37, label %if.end34.thread
+  %tobool32.not18 = icmp eq i8 %24, 0
+  br i1 %tobool32.not18, label %if.end37, label %if.end34.thread
 
 if.end34.thread:                                  ; preds = %if.end31.thread, %if.end31
   tail call void @u_cleanup_75()
@@ -215,25 +215,25 @@ if.end34:                                         ; preds = %if.end31
   br i1 %tobool35.not, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %if.end34
-  %.b.i.i9 = load i1, ptr @_ZL10icuInitted, align 1
-  br i1 %.b.i.i9, label %_Z11cmd_versionaR10UErrorCode.exit13, label %if.then.i.i10
+  %.b.i.i10 = load i1, ptr @_ZL10icuInitted, align 1
+  br i1 %.b.i.i10, label %_Z11cmd_versionaR10UErrorCode.exit14, label %if.then.i.i11
 
-if.then.i.i10:                                    ; preds = %if.then36
+if.then.i.i11:                                    ; preds = %if.then36
   tail call void @u_init_75(ptr noundef nonnull @_ZL10initStatus)
   store i1 true, ptr @_ZL10icuInitted, align 1
-  br label %_Z11cmd_versionaR10UErrorCode.exit13
+  br label %_Z11cmd_versionaR10UErrorCode.exit14
 
-_Z11cmd_versionaR10UErrorCode.exit13:             ; preds = %if.then36, %if.then.i.i10
+_Z11cmd_versionaR10UErrorCode.exit14:             ; preds = %if.then36, %if.then.i.i11
   %27 = load ptr, ptr @stdout, align 8
   tail call void @udbg_writeIcuInfo(ptr noundef %27)
   %28 = load i32, ptr @_ZL10initStatus, align 4
-  %call7.i11 = tail call ptr @u_errorName_75(i32 noundef %28)
-  %call8.i12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %call7.i11)
+  %call7.i12 = tail call ptr @u_errorName_75(i32 noundef %28)
+  %call8.i13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %call7.i12)
   %29 = load ptr, ptr @stderr, align 8
   %30 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 22, i64 1, ptr %29) #6
   br label %if.end37
 
-if.end37:                                         ; preds = %if.end31.thread, %if.end34.thread, %_Z11cmd_versionaR10UErrorCode.exit13, %if.end34
+if.end37:                                         ; preds = %if.end31.thread, %if.end34.thread, %_Z11cmd_versionaR10UErrorCode.exit14, %if.end34
   %.b.i = load i1, ptr @_ZL10icuInitted, align 1
   br i1 %.b.i, label %if.then.i, label %return
 

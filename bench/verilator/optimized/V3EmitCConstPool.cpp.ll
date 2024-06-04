@@ -997,7 +997,7 @@ define linkonce_odr dso_local void @_ZN14EmitCConstPoolC2EP12AstConstPool(ptr no
   store i32 0, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV14EmitCConstPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14EmitCConstPool, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5099,12 +5099,12 @@ _ZN9EmitCBase12topClassNameB5cxx11Ev.exit:        ; preds = %12
           to label %52 unwind label %77
 
 52:                                               ; preds = %51
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %50, align 8
   %53 = getelementptr inbounds i8, ptr %50, i64 200
   store i32 0, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %50, i64 204
   store i32 0, ptr %54, align 4
-  %55 = load ptr, ptr getelementptr inbounds inrange(-48, 32) (i8, ptr @_ZTV10V3OutCFile, i64 48), align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 48), align 8
   invoke void %55(ptr noundef nonnull align 8 dereferenceable(208) %50)
           to label %56 unwind label %75
 

@@ -433,7 +433,7 @@ declare void @_ZN5folly8Executor16keepAliveReleaseEv(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly21TimedDrivableExecutorD1Ev(ptr noundef nonnull align 128 dereferenceable(448) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %this, align 128, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %this, align 128, !tbaa !7
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %entry
@@ -461,7 +461,7 @@ _ZN5folly21TimedDrivableExecutorD2Ev.exit:        ; preds = %if.end.i.i.i, %_ZN5
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly21TimedDrivableExecutorD0Ev(ptr noundef nonnull align 128 dereferenceable(448) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %this, align 128, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %this, align 128, !tbaa !7
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %entry
@@ -2592,7 +2592,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !7
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
@@ -2611,7 +2611,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #12 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !7
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #36
   unreachable
 }
@@ -3795,7 +3795,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDp
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8, !tbaa !7
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
@@ -3814,7 +3814,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #12 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !7
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #36
   unreachable
 }
@@ -3919,7 +3919,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly21TimedDrivableExecutorC1Ev(ptr noundef nonnull align 128 dereferenceable(448) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %this, align 128, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %this, align 128, !tbaa !7
   %call.i3 = tail call noalias noundef nonnull align 128 dereferenceable(20608) ptr @_ZnwmSt11align_val_t(i64 noundef 20608, i64 noundef 128) #32
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i3, i64 8
   store ptr %call.i3, ptr %next_.i.i.i.i.i, align 8, !tbaa !46
@@ -5262,7 +5262,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %3, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %3, align 8, !tbaa !7
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %entry
@@ -5294,7 +5294,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %3, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %3, align 8, !tbaa !7
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i, %entry
@@ -6147,7 +6147,7 @@ declare void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !7
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !241
@@ -6301,7 +6301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !7
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa !71
   %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24

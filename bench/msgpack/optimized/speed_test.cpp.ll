@@ -1248,7 +1248,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   %495 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %494, ptr %495, align 8, !tbaa !4
   %496 = getelementptr inbounds i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %496, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %496, align 8, !tbaa !4
   %497 = getelementptr inbounds i8, ptr %12, i64 96
   %498 = load ptr, ptr %497, align 8, !tbaa !38
   %499 = getelementptr inbounds i8, ptr %12, i64 112
@@ -1269,7 +1269,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   br label %508
 
 508:                                              ; preds = %505, %501
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %496, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %496, align 8, !tbaa !4
   %509 = getelementptr inbounds i8, ptr %12, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %509) #23
   %510 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
@@ -1715,7 +1715,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v36unpackERNS_2v113object_handle
 
 14:                                               ; preds = %8
   %15 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %15, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %15, align 8, !tbaa !4
   tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
@@ -1727,7 +1727,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v36unpackERNS_2v113object_handle
 
 19:                                               ; preds = %16
   %20 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %20, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %20, align 8, !tbaa !4
   invoke void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
           to label %21 unwind label %63
 
@@ -2163,7 +2163,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail9parse_impINS1_2
           to label %42 unwind label %44
 
 42:                                               ; preds = %39
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v118insufficient_bytesE, i64 16), ptr %41, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v118insufficient_bytesE, i64 16), ptr %41, align 8, !tbaa !4
   invoke void @__cxa_throw(ptr nonnull %41, ptr nonnull @_ZTIN7msgpack2v118insufficient_bytesE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #24
           to label %43 unwind label %27
 
@@ -2221,7 +2221,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v118insufficient_bytesC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v118insufficient_bytesE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v118insufficient_bytesE, i64 16), ptr %0, align 8, !tbaa !4
   ret void
 }
 
@@ -6011,7 +6011,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 51:                                               ; preds = %46
   %52 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %52, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %52, align 8, !tbaa !4
   tail call void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
@@ -6739,7 +6739,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 52:                                               ; preds = %47
   %53 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %53, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %53, align 8, !tbaa !4
   tail call void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
@@ -6862,7 +6862,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 51:                                               ; preds = %46
   %52 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %52, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %52, align 8, !tbaa !4
   tail call void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
@@ -8070,7 +8070,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v117str_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v117str_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v117str_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
   ret void
 }
 
@@ -8181,7 +8181,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 63:                                               ; preds = %58
   %64 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %64, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %64, align 8, !tbaa !4
   tail call void @__cxa_throw(ptr nonnull %64, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
@@ -8296,14 +8296,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v119array_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v119array_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v119array_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v119depth_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v119depth_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v119depth_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
   ret void
 }
 
@@ -8421,7 +8421,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 63:                                               ; preds = %58
   %64 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %64, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %64, align 8, !tbaa !4
   tail call void @__cxa_throw(ptr nonnull %64, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
@@ -8536,7 +8536,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v117map_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v117map_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v117map_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
   ret void
 }
 
@@ -8550,7 +8550,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v117map_size_overflowD0Ev(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v111parse_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v111parse_errorE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v111parse_errorE, i64 16), ptr %0, align 8, !tbaa !4
   ret void
 }
 
@@ -8564,7 +8564,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v111parse_errorD0Ev(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v117ext_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v117ext_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v117ext_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
   ret void
 }
 
@@ -8578,7 +8578,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v117ext_size_overflowD0Ev(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v117bin_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v117bin_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v117bin_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
   ret void
 }
 
@@ -8943,7 +8943,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v123container_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v123container_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v123container_size_overflowE, i64 16), ptr %0, align 8, !tbaa !4
   ret void
 }
 
@@ -9545,7 +9545,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 
 10:                                               ; preds = %3
   %11 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v110type_errorE, i64 16), ptr %11, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v110type_errorE, i64 16), ptr %11, align 8, !tbaa !4
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTIN7msgpack2v110type_errorE, ptr nonnull @_ZNSt8bad_castD2Ev) #24
   unreachable
 
@@ -9765,7 +9765,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v14type6detail20convert_i
 
 7:                                                ; preds = %3
   %8 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v110type_errorE, i64 16), ptr %8, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v110type_errorE, i64 16), ptr %8, align 8, !tbaa !4
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN7msgpack2v110type_errorE, ptr nonnull @_ZNSt8bad_castD2Ev) #24
   unreachable
 
@@ -9777,13 +9777,13 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v14type6detail20convert_i
 
 13:                                               ; preds = %9
   %14 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v110type_errorE, i64 16), ptr %14, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v110type_errorE, i64 16), ptr %14, align 8, !tbaa !4
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIN7msgpack2v110type_errorE, ptr nonnull @_ZNSt8bad_castD2Ev) #24
   unreachable
 
 15:                                               ; preds = %1
   %16 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v110type_errorE, i64 16), ptr %16, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v110type_errorE, i64 16), ptr %16, align 8, !tbaa !4
   tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN7msgpack2v110type_errorE, ptr nonnull @_ZNSt8bad_castD2Ev) #24
   unreachable
 

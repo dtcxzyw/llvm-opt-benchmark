@@ -199,33 +199,33 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
   %40 = getelementptr inbounds i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %.not6.i17 = icmp eq ptr %42, null
-  br i1 %.not6.i17, label %pmix_obj_run_destructors.exit21, label %.lr.ph.i18
+  %.not6.i18 = icmp eq ptr %42, null
+  br i1 %.not6.i18, label %pmix_obj_run_destructors.exit22, label %.lr.ph.i19
 
-.lr.ph.i18:                                       ; preds = %._crit_edge, %.lr.ph.i18
-  %43 = phi ptr [ %45, %.lr.ph.i18 ], [ %42, %._crit_edge ]
-  %.07.i19 = phi ptr [ %44, %.lr.ph.i18 ], [ %41, %._crit_edge ]
+.lr.ph.i19:                                       ; preds = %._crit_edge, %.lr.ph.i19
+  %43 = phi ptr [ %45, %.lr.ph.i19 ], [ %42, %._crit_edge ]
+  %.07.i20 = phi ptr [ %44, %.lr.ph.i19 ], [ %41, %._crit_edge ]
   tail call void %43(ptr noundef nonnull @pmix_psensor_base) #8
-  %44 = getelementptr inbounds i8, ptr %.07.i19, i64 8
+  %44 = getelementptr inbounds i8, ptr %.07.i20, i64 8
   %45 = load ptr, ptr %44, align 8
-  %.not.i20 = icmp eq ptr %45, null
-  br i1 %.not.i20, label %pmix_obj_run_destructors.exit21, label %.lr.ph.i18, !llvm.loop !6
+  %.not.i21 = icmp eq ptr %45, null
+  br i1 %.not.i21, label %pmix_obj_run_destructors.exit22, label %.lr.ph.i19, !llvm.loop !6
 
-pmix_obj_run_destructors.exit21:                  ; preds = %.lr.ph.i18, %._crit_edge
+pmix_obj_run_destructors.exit22:                  ; preds = %.lr.ph.i19, %._crit_edge
   %46 = load i8, ptr @use_separate_thread, align 1
   %47 = trunc i8 %46 to i1
   %48 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 272), align 8
-  %49 = icmp ne ptr %48, null
-  %or.cond = select i1 %47, i1 %49, i1 false
-  br i1 %or.cond, label %50, label %52
+  %.not14 = icmp ne ptr %48, null
+  %or.cond.not = select i1 %47, i1 %.not14, i1 false
+  br i1 %or.cond.not, label %49, label %51
 
-50:                                               ; preds = %pmix_obj_run_destructors.exit21
-  %51 = tail call i32 @pmix_progress_thread_stop(ptr noundef nonnull @.str.7) #8
-  br label %52
+49:                                               ; preds = %pmix_obj_run_destructors.exit22
+  %50 = tail call i32 @pmix_progress_thread_stop(ptr noundef nonnull @.str.7) #8
+  br label %51
 
-52:                                               ; preds = %50, %pmix_obj_run_destructors.exit21
-  %53 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @pmix_psensor_base_framework, ptr noundef null) #8
-  ret i32 %53
+51:                                               ; preds = %49, %pmix_obj_run_destructors.exit22
+  %52 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @pmix_psensor_base_framework, ptr noundef null) #8
+  ret i32 %52
 }
 
 declare i32 @pmix_mca_base_var_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0

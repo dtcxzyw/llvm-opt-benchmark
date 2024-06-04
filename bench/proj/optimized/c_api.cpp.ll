@@ -2719,7 +2719,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11PJ_OBJ_LISTD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2931,7 +2931,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16Iden
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11PJ_OBJ_LISTD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -9294,7 +9294,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEED2E
           to label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EED2Ev.exit unwind label %159
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EED2Ev.exit: ; preds = %._crit_edge
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %163, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 8
   %165 = load <2 x ptr>, ptr %17, align 16
   store <2 x ptr> %165, ptr %164, align 8
@@ -10072,7 +10072,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedO
           to label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EED2Ev.exit unwind label %.loopexit.split-lp
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EED2Ev.exit: ; preds = %._crit_edge92
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %164, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %164, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 8
   %166 = load <2 x ptr>, ptr %17, align 16
   store <2 x ptr> %166, ptr %165, align 8
@@ -10893,7 +10893,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEED2E
           to label %126 unwind label %121
 
 126:                                              ; preds = %._crit_edge
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %125, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %125, i64 8
   %128 = getelementptr inbounds i8, ptr %3, i64 8
   %129 = load <2 x ptr>, ptr %3, align 16
@@ -18909,7 +18909,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEED2E
           to label %157 unwind label %151
 
 157:                                              ; preds = %._crit_edge
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %156, align 8, !noalias !44
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %156, align 8, !noalias !44
   %158 = getelementptr inbounds i8, ptr %156, i64 8
   %159 = load <2 x ptr>, ptr %11, align 16, !noalias !44
   store <2 x ptr> %159, ptr %158, align 8, !noalias !44
@@ -72514,7 +72514,7 @@ declare void @_ZN5osgeo4proj9operation26CoordinateOperationContext31setAllowBall
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17PJ_OPERATION_LISTC2EP6pj_ctxPK8PJconstsS4_OSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaISF_EE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -72527,7 +72527,7 @@ define hidden void @_ZN17PJ_OPERATION_LISTC2EP6pj_ctxPK8PJconstsS4_OSt6vectorIN7
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV17PJ_OPERATION_LIST, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17PJ_OPERATION_LIST, i64 16), ptr %0, align 8
   %14 = invoke ptr @proj_clone(ptr noundef %1, ptr noundef %2)
           to label %15 unwind label %22
 
@@ -72555,7 +72555,7 @@ define hidden void @_ZN17PJ_OPERATION_LISTC2EP6pj_ctxPK8PJconstsS4_OSt6vectorIN7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17PJ_OPERATION_LISTD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV17PJ_OPERATION_LIST, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17PJ_OPERATION_LIST, i64 16), ptr %0, align 8
   %2 = invoke ptr @proj_context_create()
           to label %3 unwind label %68
 
@@ -72614,7 +72614,7 @@ _ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt8_Des
   br label %_ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit.i, %24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 16
@@ -74507,7 +74507,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedO
   %759 = load ptr, ptr %758, align 16
   store ptr %759, ptr %757, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV17PJ_OPERATION_LIST, i64 16), ptr %752, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17PJ_OPERATION_LIST, i64 16), ptr %752, align 8
   %760 = invoke ptr @proj_clone(ptr noundef %.047, ptr noundef nonnull %1)
           to label %761 unwind label %.body
 

@@ -463,7 +463,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !38
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !38
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !40
@@ -622,7 +622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !38
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !38
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa !36
   %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24

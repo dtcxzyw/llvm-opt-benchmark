@@ -393,7 +393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 define dso_local void @_ZN8MapgenV7C2EP14MapgenV7ParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %params, ptr noundef %emerge) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN11MapgenBasicC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(474) %this, i32 noundef 0, ptr noundef %params, ptr noundef %emerge)
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV8MapgenV7, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8MapgenV7, i64 16), ptr %this, align 8, !tbaa !12
   %float_offset_cache = getelementptr inbounds i8, ptr %this, i64 496
   store ptr null, ptr %float_offset_cache, align 8, !tbaa !14
   %spflags = getelementptr inbounds i8, ptr %params, i64 32
@@ -762,7 +762,7 @@ declare void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN8MapgenV7D2Ev(ptr noundef nonnull align 8 dereferenceable(576) %this) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV8MapgenV7, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8MapgenV7, i64 16), ptr %this, align 8, !tbaa !12
   %noise_terrain_base = getelementptr inbounds i8, ptr %this, i64 504
   %0 = load ptr, ptr %noise_terrain_base, align 8, !tbaa !57
   %isnull = icmp eq ptr %0, null
@@ -945,7 +945,7 @@ invoke.cont54:
   store i16 31007, ptr %mapgen_edge_max.i, align 2, !tbaa !76
   %m_mapgen_edges_calculated.i = getelementptr inbounds i8, ptr %this, i64 52
   store i8 0, ptr %m_mapgen_edges_calculated.i, align 4, !tbaa !77
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MapgenV7Params, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14MapgenV7Params, i64 16), ptr %this, align 8, !tbaa !12
   %mount_zero_level = getelementptr inbounds i8, ptr %this, i64 54
   store <4 x i16> <i16 0, i16 1024, i16 4096, i16 256>, ptr %mount_zero_level, align 2, !tbaa !39
   %float_taper_exp = getelementptr inbounds i8, ptr %this, i64 64

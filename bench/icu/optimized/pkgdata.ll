@@ -843,11 +843,11 @@ if.then32:                                        ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %if.then32, %for.body
-  %indvars.iv242 = phi i64 [ 0, %if.then32 ], [ %indvars.iv.next243, %for.body ]
+  %indvars.iv243 = phi i64 [ 0, %if.then32 ], [ %indvars.iv.next244, %for.body ]
   %34 = load ptr, ptr @stderr, align 8
-  %cmp36 = icmp eq i64 %indvars.iv242, 0
+  %cmp36 = icmp eq i64 %indvars.iv243, 0
   %cond = select i1 %cmp36, ptr @.str.10, ptr @.str.11
-  %arrayidx38 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 %indvars.iv242
+  %arrayidx38 = getelementptr inbounds [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 %indvars.iv243
   %shortName = getelementptr inbounds i8, ptr %arrayidx38, i64 32
   %35 = load i8, ptr %shortName, align 8
   %conv = sext i8 %35 to i32
@@ -855,11 +855,11 @@ for.body:                                         ; preds = %if.then32, %for.bod
   %tobool41.not = icmp eq ptr %36, null
   %.str.12..str.13 = select i1 %tobool41.not, ptr @.str.13, ptr @.str.12
   %spec.select = select i1 %tobool41.not, ptr @.str.11, ptr %36
-  %arrayidx54 = getelementptr inbounds [23 x [320 x i8]], ptr @_ZL12options_help, i64 0, i64 %indvars.iv242
+  %arrayidx54 = getelementptr inbounds [23 x [320 x i8]], ptr @_ZL12options_help, i64 0, i64 %indvars.iv243
   %call56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.9, ptr noundef nonnull %cond, i32 noundef %conv, ptr noundef nonnull %.str.12..str.13, ptr noundef nonnull %spec.select, ptr noundef nonnull %arrayidx54) #21
-  %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
-  %exitcond245.not = icmp eq i64 %indvars.iv.next243, 23
-  br i1 %exitcond245.not, label %for.end, label %for.body, !llvm.loop !7
+  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
+  %exitcond246.not = icmp eq i64 %indvars.iv.next244, 23
+  br i1 %exitcond246.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
   %37 = load ptr, ptr @stderr, align 8
@@ -867,9 +867,9 @@ for.end:                                          ; preds = %for.body
   br label %for.body60
 
 for.body60:                                       ; preds = %for.end, %if.end74
-  %indvars.iv246 = phi i64 [ 0, %for.end ], [ %indvars.iv.next247, %if.end74 ]
+  %indvars.iv247 = phi i64 [ 0, %for.end ], [ %indvars.iv.next248, %if.end74 ]
   %39 = load ptr, ptr @stderr, align 8
-  %arrayidx62 = getelementptr inbounds [4 x %struct.anon], ptr @_ZL5modes, i64 0, i64 %indvars.iv246
+  %arrayidx62 = getelementptr inbounds [4 x %struct.anon], ptr @_ZL5modes, i64 0, i64 %indvars.iv247
   %40 = load ptr, ptr %arrayidx62, align 8
   %call63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.15, ptr noundef %40) #21
   %alt_name = getelementptr inbounds i8, ptr %arrayidx62, i64 8
@@ -891,9 +891,9 @@ if.end74:                                         ; preds = %if.else72, %if.then
   %desc = getelementptr inbounds i8, ptr %arrayidx62, i64 16
   %45 = load ptr, ptr %desc, align 8
   %call77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.18, ptr noundef %45) #21
-  %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
-  %exitcond249.not = icmp eq i64 %indvars.iv.next247, 4
-  br i1 %exitcond249.not, label %return, label %for.body60, !llvm.loop !8
+  %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
+  %exitcond250.not = icmp eq i64 %indvars.iv.next248, 4
+  br i1 %exitcond250.not, label %return, label %for.body60, !llvm.loop !8
 
 if.end81:                                         ; preds = %if.end23
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 88), align 8
@@ -915,36 +915,36 @@ if.then96:                                        ; preds = %if.end81
   %conv97 = sext i8 %50 to i32
   %call98 = tail call i32 @isalpha(i32 noundef %conv97) #22
   %tobool99.not = icmp eq i32 %call98, 0
-  %spec.select47 = select i1 %tobool99.not, i8 95, i8 %50
-  store i8 %spec.select47, ptr %call93, align 1
-  %sp.0199 = getelementptr inbounds i8, ptr %49, i64 1
-  %cp.0200 = getelementptr inbounds i8, ptr %call93, i64 1
-  %51 = load i8, ptr %sp.0199, align 1
-  %tobool106.not201 = icmp eq i8 %51, 0
-  br i1 %tobool106.not201, label %if.end119, label %for.body107
+  %spec.select48 = select i1 %tobool99.not, i8 95, i8 %50
+  store i8 %spec.select48, ptr %call93, align 1
+  %sp.0200 = getelementptr inbounds i8, ptr %49, i64 1
+  %cp.0201 = getelementptr inbounds i8, ptr %call93, i64 1
+  %51 = load i8, ptr %sp.0200, align 1
+  %tobool106.not202 = icmp eq i8 %51, 0
+  br i1 %tobool106.not202, label %if.end119, label %for.body107
 
 for.body107:                                      ; preds = %if.then96, %for.body107
   %52 = phi i8 [ %53, %for.body107 ], [ %51, %if.then96 ]
-  %cp.0203 = phi ptr [ %cp.0, %for.body107 ], [ %cp.0200, %if.then96 ]
-  %sp.0202 = phi ptr [ %sp.0, %for.body107 ], [ %sp.0199, %if.then96 ]
+  %cp.0204 = phi ptr [ %cp.0, %for.body107 ], [ %cp.0201, %if.then96 ]
+  %sp.0203 = phi ptr [ %sp.0, %for.body107 ], [ %sp.0200, %if.then96 ]
   %conv108 = sext i8 %52 to i32
   %call109 = tail call i32 @isalnum(i32 noundef %conv108) #22
   %tobool110.not = icmp eq i32 %call109, 0
-  %spec.select48 = select i1 %tobool110.not, i8 95, i8 %52
-  store i8 %spec.select48, ptr %cp.0203, align 1
-  %sp.0 = getelementptr inbounds i8, ptr %sp.0202, i64 1
-  %cp.0 = getelementptr inbounds i8, ptr %cp.0203, i64 1
+  %spec.select49 = select i1 %tobool110.not, i8 95, i8 %52
+  store i8 %spec.select49, ptr %cp.0204, align 1
+  %sp.0 = getelementptr inbounds i8, ptr %sp.0203, i64 1
+  %cp.0 = getelementptr inbounds i8, ptr %cp.0204, i64 1
   %53 = load i8, ptr %sp.0, align 1
   %tobool106.not = icmp eq i8 %53, 0
   br i1 %tobool106.not, label %if.end119, label %for.body107, !llvm.loop !9
 
 if.end119:                                        ; preds = %for.body107, %if.then96, %if.end81
-  %cp.1 = phi ptr [ %call93, %if.end81 ], [ %cp.0200, %if.then96 ], [ %cp.0, %for.body107 ]
+  %cp.1 = phi ptr [ %call93, %if.end81 ], [ %cp.0201, %if.then96 ], [ %cp.0, %for.body107 ]
   store i8 0, ptr %cp.1, align 1
   %54 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 674), align 2
   %tobool120.not = icmp eq i8 %54, 0
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 648), align 8
-  %spec.select170 = select i1 %tobool120.not, ptr %49, ptr %55
+  %spec.select171 = select i1 %tobool120.not, ptr %49, ptr %55
   %56 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 794), align 2
   %tobool131.not = icmp eq i8 %56, 0
   br i1 %tobool131.not, label %if.end136, label %if.then132
@@ -959,24 +959,24 @@ if.end136:                                        ; preds = %if.end119, %if.then
   %60 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 74), align 2
   %tobool137.not = icmp eq i8 %60, 0
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 48), align 16
-  %spec.select171 = select i1 %tobool137.not, ptr null, ptr %61
-  %spec.select171.fr = freeze ptr %spec.select171
+  %spec.select172 = select i1 %tobool137.not, ptr null, ptr %61
+  %spec.select172.fr = freeze ptr %spec.select172
   %62 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 274), align 2
   %tobool142.not = icmp eq i8 %62, 0
   %63 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 314), align 2
   %tobool145.not = icmp eq i8 %63, 0
   %64 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 288), align 16
-  %spec.select172 = select i1 %tobool145.not, ptr null, ptr %64
-  %o.sroa.64.0 = select i1 %tobool142.not, ptr %spec.select172, ptr @.str.20
+  %spec.select173 = select i1 %tobool145.not, ptr null, ptr %64
+  %o.sroa.64.0 = select i1 %tobool142.not, ptr %spec.select173, ptr @.str.20
   %65 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 354), align 2
   %tobool150.not = icmp eq i8 %65, 0
   %66 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 328), align 8
-  %spec.select173 = select i1 %tobool150.not, ptr @.str.21, ptr %66
+  %spec.select174 = select i1 %tobool150.not, ptr @.str.21, ptr %66
   %67 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 394), align 2
   %68 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 434), align 2
   %tobool155.not = icmp eq i8 %68, 0
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 408), align 8
-  %o.sroa.36101.0 = select i1 %tobool155.not, ptr %spec.select173, ptr %69
+  %o.sroa.36102.0 = select i1 %tobool155.not, ptr %spec.select174, ptr %69
   %70 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 474), align 2
   %tobool161.not = icmp eq i8 %70, 0
   %71 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 448), align 16
@@ -1002,8 +1002,8 @@ if.then182:                                       ; preds = %if.end136
 
 if.end184:                                        ; preds = %if.then182, %if.end136
   store ptr null, ptr %tail, align 8
-  %cmp186204 = icmp sgt i32 %call, 1
-  br i1 %cmp186204, label %for.body187.preheader, label %for.end195.thread
+  %cmp186205 = icmp sgt i32 %call, 1
+  br i1 %cmp186205, label %for.body187.preheader, label %for.end195.thread
 
 for.end195.thread:                                ; preds = %if.end184
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tail.i)
@@ -1017,11 +1017,11 @@ for.body187.preheader:                            ; preds = %if.end184
 
 for.body187:                                      ; preds = %for.body187.preheader, %for.body187
   %indvars.iv = phi i64 [ 1, %for.body187.preheader ], [ %indvars.iv.next, %for.body187 ]
-  %o.sroa.0.0205 = phi ptr [ null, %for.body187.preheader ], [ %call191, %for.body187 ]
+  %o.sroa.0.0206 = phi ptr [ null, %for.body187.preheader ], [ %call191, %for.body187 ]
   %arrayidx189 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %80 = load ptr, ptr %arrayidx189, align 8
   %call190 = call ptr @uprv_strdup_75(ptr noundef %80)
-  %call191 = call ptr @pkg_appendToList(ptr noundef %o.sroa.0.0205, ptr noundef nonnull %tail, ptr noundef %call190)
+  %call191 = call ptr @pkg_appendToList(ptr noundef %o.sroa.0.0206, ptr noundef nonnull %tail, ptr noundef %call190)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end195, label %for.body187, !llvm.loop !10
@@ -1033,27 +1033,27 @@ for.end195:                                       ; preds = %for.body187
   store ptr null, ptr %tail.i, align 8
   store ptr null, ptr %tail2.i, align 8
   %tobool.not86.i = icmp eq ptr %call191, null
-  br i1 %tobool.not86.i, label %if.end201, label %for.body.i49.preheader
+  br i1 %tobool.not86.i, label %if.end201, label %for.body.i50.preheader
 
-for.body.i49.preheader:                           ; preds = %for.end195
+for.body.i50.preheader:                           ; preds = %for.end195
   %tobool1.not.i = icmp eq i8 %59, 0
   %invariant.gep = getelementptr i8, ptr %o.sroa.43.0, i64 -1
-  br label %for.body.i49
+  br label %for.body.i50
 
-for.body.i49:                                     ; preds = %for.body.i49.preheader, %while.end119.i
-  %o.sroa.12.0 = phi ptr [ %o.sroa.12.4, %while.end119.i ], [ null, %for.body.i49.preheader ]
-  %o.sroa.8.0 = phi ptr [ %o.sroa.8.4, %while.end119.i ], [ null, %for.body.i49.preheader ]
-  %l.088.i = phi ptr [ %l.0.i, %while.end119.i ], [ %call191, %for.body.i49.preheader ]
-  %ln.087.i = phi i32 [ %ln.1.lcssa.i, %while.end119.i ], [ 0, %for.body.i49.preheader ]
-  br i1 %tobool1.not.i, label %if.end.i, label %if.then.i50
+for.body.i50:                                     ; preds = %for.body.i50.preheader, %while.end119.i
+  %o.sroa.12.0 = phi ptr [ %o.sroa.12.4, %while.end119.i ], [ null, %for.body.i50.preheader ]
+  %o.sroa.8.0 = phi ptr [ %o.sroa.8.4, %while.end119.i ], [ null, %for.body.i50.preheader ]
+  %l.088.i = phi ptr [ %l.0.i, %while.end119.i ], [ %call191, %for.body.i50.preheader ]
+  %ln.087.i = phi i32 [ %ln.1.lcssa.i, %while.end119.i ], [ 0, %for.body.i50.preheader ]
+  br i1 %tobool1.not.i, label %if.end.i, label %if.then.i51
 
-if.then.i50:                                      ; preds = %for.body.i49
+if.then.i51:                                      ; preds = %for.body.i50
   %81 = load ptr, ptr @stdout, align 8
   %82 = load ptr, ptr %l.088.i, align 8
-  %call.i51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.149, ptr noundef %82)
+  %call.i52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.149, ptr noundef %82)
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i50, %for.body.i49
+if.end.i:                                         ; preds = %if.then.i51, %for.body.i50
   %83 = load ptr, ptr %l.088.i, align 8
   %call3.i = call ptr @T_FileStream_open(ptr noundef %83, ptr noundef nonnull @.str.104)
   %tobool4.not.i = icmp eq ptr %call3.i, null
@@ -1071,9 +1071,9 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %inc.i = add nsw i32 %ln.184.i, 1
   %call11.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line.i) #22
   %cmp12.i = icmp ugt i64 %call11.i, 16300
-  br i1 %cmp12.i, label %if.then13.i54, label %while.cond18.i
+  br i1 %cmp12.i, label %if.then13.i55, label %while.cond18.i
 
-if.then13.i54:                                    ; preds = %while.body.i
+if.then13.i55:                                    ; preds = %while.body.i
   %84 = load ptr, ptr @stderr, align 8
   %85 = load ptr, ptr %l.088.i, align 8
   %call15.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str.151, ptr noundef %85, i32 noundef %inc.i, i32 noundef 16300) #21
@@ -1248,8 +1248,8 @@ while.end119.i:                                   ; preds = %while.cond.backedge
   call void @T_FileStream_close(ptr noundef nonnull %call3.i)
   %next.i = getelementptr inbounds i8, ptr %l.088.i, i64 8
   %l.0.i = load ptr, ptr %next.i, align 8
-  %tobool.not.i52 = icmp eq ptr %l.0.i, null
-  br i1 %tobool.not.i52, label %if.end201, label %for.body.i49, !llvm.loop !16
+  %tobool.not.i53 = icmp eq ptr %l.0.i, null
+  br i1 %tobool.not.i53, label %if.end201, label %for.body.i50, !llvm.loop !16
 
 if.then198:                                       ; preds = %if.end.i
   %101 = load ptr, ptr @stderr, align 8
@@ -1264,8 +1264,8 @@ if.then198:                                       ; preds = %if.end.i
   br label %return
 
 if.end201:                                        ; preds = %while.end119.i, %for.end195.thread, %for.end195
-  %tobool.not86.i261 = phi i1 [ true, %for.end195 ], [ true, %for.end195.thread ], [ %tobool.not86.i, %while.end119.i ]
-  %o.sroa.0.0.lcssa254 = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %call191, %while.end119.i ]
+  %tobool.not86.i262 = phi i1 [ true, %for.end195 ], [ true, %for.end195.thread ], [ %tobool.not86.i, %while.end119.i ]
+  %o.sroa.0.0.lcssa255 = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %call191, %while.end119.i ]
   %o.sroa.12.5.ph = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %o.sroa.12.4, %while.end119.i ]
   %o.sroa.8.5.ph = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %o.sroa.8.4, %while.end119.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tail.i)
@@ -1294,7 +1294,7 @@ if.end201:                                        ; preds = %while.end119.i, %fo
   br i1 %cmp.not32.i.i, label %if.else19.i.i, label %for.cond.preheader.i.i.preheader
 
 for.cond.preheader.i.i.preheader:                 ; preds = %if.end201
-  %cmp22.i.i = icmp eq ptr %spec.select171.fr, null
+  %cmp22.i.i = icmp eq ptr %spec.select172.fr, null
   %tobool.not.i.i = icmp eq i8 %59, 0
   br i1 %cmp22.i.i, label %for.body.i.i.us, label %for.cond.preheader.i.i
 
@@ -1364,14 +1364,14 @@ if.end21.i.i:                                     ; preds = %if.then6.i.i
 
 if.then25.i.i:                                    ; preds = %if.end21.i.i
   %115 = load ptr, ptr @stdout, align 8
-  %call27.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.81, ptr noundef nonnull %spec.select171.fr)
+  %call27.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.81, ptr noundef nonnull %spec.select172.fr)
   %.pre54.i.i = load ptr, ptr @_ZL12pkgDataFlags, align 8
   br label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.then25.i.i, %if.end21.i.i
   %116 = phi ptr [ %.pre54.i.i, %if.then25.i.i ], [ %106, %if.end21.i.i ]
   store i32 0, ptr %status.i.i, align 4
-  %call30.i.i = call i32 @parseFlagsFile(ptr noundef nonnull %spec.select171.fr, ptr noundef %116, i32 noundef %currentBufferSize.033.i.i, ptr noundef nonnull @_ZL10FLAG_NAMES, i32 noundef 17, ptr noundef nonnull %status.i.i)
+  %call30.i.i = call i32 @parseFlagsFile(ptr noundef nonnull %spec.select172.fr, ptr noundef %116, i32 noundef %currentBufferSize.033.i.i, ptr noundef nonnull @_ZL10FLAG_NAMES, i32 noundef 17, ptr noundef nonnull %status.i.i)
   %117 = load i32, ptr %status.i.i, align 4
   %cmp31.i.i = icmp eq i32 %117, 15
   br i1 %cmp31.i.i, label %for.body36.preheader.i.i, label %if.else49.i.i
@@ -1408,7 +1408,7 @@ if.else49.i.i:                                    ; preds = %if.end28.i.i
 if.then52.i.i:                                    ; preds = %if.else49.i.i
   %122 = load ptr, ptr @stderr, align 8
   %call54.i.i = call ptr @u_errorName_75(i32 noundef %117)
-  %call55.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.82, ptr noundef nonnull %spec.select171.fr, ptr noundef %call54.i.i) #21
+  %call55.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.82, ptr noundef nonnull %spec.select172.fr, ptr noundef %call54.i.i) #21
   br label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
 
 if.end57.i.i:                                     ; preds = %for.inc46.i.i, %if.else49.i.i
@@ -1446,29 +1446,29 @@ do.cond.i.i:                                      ; preds = %for.end73.i.i, %if.
 
 _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %do.cond.i.i, %if.then6.i.i.us, %if.then52.i.i, %if.else19.i.i, %for.body13.lr.ph.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i.i)
-  %cmp.i57 = icmp eq i8 %104, 102
-  br i1 %cmp.i57, label %if.then.i73, label %if.else.i58
+  %cmp.i58 = icmp eq i8 %104, 102
+  br i1 %cmp.i58, label %if.then.i74, label %if.else.i59
 
-if.then.i73:                                      ; preds = %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
+if.then.i74:                                      ; preds = %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
   %cmp2.not.i = icmp eq ptr %o.sroa.68.0, null
-  br i1 %cmp2.not.i, label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, label %if.end.i75
+  br i1 %cmp2.not.i, label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, label %if.end.i76
 
-if.end.i75:                                       ; preds = %if.then.i73
+if.end.i76:                                       ; preds = %if.then.i74
   %call5.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %targetDir.i, ptr noundef nonnull dereferenceable(1) %o.sroa.68.0) #18
   %strlen121.i = call i64 @strlen(ptr nonnull dereferenceable(1) %targetDir.i)
   %endptr122.i = getelementptr inbounds i8, ptr %targetDir.i, i64 %strlen121.i
   store i16 47, ptr %endptr122.i, align 1
   %call12.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %targetDir.i, ptr noundef nonnull dereferenceable(1) %49) #18
-  %tobool.not.i77 = icmp eq i8 %59, 0
-  br i1 %tobool.not.i77, label %if.end16.i, label %if.then13.i78
+  %tobool.not.i78 = icmp eq i8 %59, 0
+  br i1 %tobool.not.i78, label %if.end16.i, label %if.then13.i79
 
-if.then13.i78:                                    ; preds = %if.end.i75
+if.then13.i79:                                    ; preds = %if.end.i76
   %132 = load ptr, ptr @stdout, align 8
-  %call15.i79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.56, ptr noundef nonnull %targetDir.i)
+  %call15.i80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.56, ptr noundef nonnull %targetDir.i)
   br label %if.end16.i
 
-if.end16.i:                                       ; preds = %if.then13.i78, %if.end.i75
-  %133 = load ptr, ptr %o.sroa.0.0.lcssa254, align 8
+if.end16.i:                                       ; preds = %if.then13.i79, %if.end.i76
+  %133 = load ptr, ptr %o.sroa.0.0.lcssa255, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %cmd.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i123.i)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %buffer.i.i)
@@ -1568,12 +1568,12 @@ _ZL19pkg_installFileModePKcS0_S0_.exit.i:         ; preds = %if.else34.i.i, %for
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %buffer.i.i)
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
-if.else.i58:                                      ; preds = %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
-  %call22.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %targetDir.i, ptr noundef nonnull dereferenceable(1) %spec.select173) #18
-  %strlen.i59 = call i64 @strlen(ptr nonnull dereferenceable(1) %targetDir.i)
-  %endptr.i60 = getelementptr inbounds i8, ptr %targetDir.i, i64 %strlen.i59
-  store i16 47, ptr %endptr.i60, align 1
-  %call27.i61 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %tmpDir.i, ptr noundef nonnull dereferenceable(1) %o.sroa.36101.0) #18
+if.else.i59:                                      ; preds = %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
+  %call22.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %targetDir.i, ptr noundef nonnull dereferenceable(1) %spec.select174) #18
+  %strlen.i60 = call i64 @strlen(ptr nonnull dereferenceable(1) %targetDir.i)
+  %endptr.i61 = getelementptr inbounds i8, ptr %targetDir.i, i64 %strlen.i60
+  store i16 47, ptr %endptr.i61, align 1
+  %call27.i62 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %tmpDir.i, ptr noundef nonnull dereferenceable(1) %o.sroa.36102.0) #18
   %strlen117.i = call i64 @strlen(ptr nonnull dereferenceable(1) %tmpDir.i)
   %endptr118.i = getelementptr inbounds i8, ptr %tmpDir.i, i64 %strlen117.i
   store i16 47, ptr %endptr118.i, align 1
@@ -1583,21 +1583,21 @@ if.else.i58:                                      ; preds = %_ZL22initializePkgD
   %endptr120.i = getelementptr inbounds i8, ptr %datFileName.i, i64 %strlen119.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr120.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.57, i64 5, i1 false)
   %call40.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %datFileNamePath.i, ptr noundef nonnull dereferenceable(1) %datFileName.i) #18
-  %tobool42.not.i62 = icmp eq i8 %59, 0
-  br i1 %tobool42.not.i62, label %if.end46.i, label %if.then43.i
+  %tobool42.not.i63 = icmp eq i8 %59, 0
+  br i1 %tobool42.not.i63, label %if.end46.i, label %if.then43.i
 
-if.then43.i:                                      ; preds = %if.else.i58
+if.then43.i:                                      ; preds = %if.else.i59
   %143 = load ptr, ptr @stdout, align 8
   %call45.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.58, ptr noundef nonnull %datFileNamePath.i)
   br label %if.end46.i
 
-if.end46.i:                                       ; preds = %if.then43.i, %if.else.i58
-  %144 = load ptr, ptr %o.sroa.0.0.lcssa254, align 8
+if.end46.i:                                       ; preds = %if.then43.i, %if.else.i59
+  %144 = load ptr, ptr %o.sroa.0.0.lcssa255, align 8
   %call51.i = call i32 @writePackageDatFile(ptr noundef nonnull %datFileNamePath.i, ptr noundef %o.sroa.64.0, ptr noundef %o.sroa.43.0, ptr noundef %144, ptr noundef null, i8 noundef signext 108)
   %cmp52.not.i = icmp eq i32 %call51.i, 0
-  br i1 %cmp52.not.i, label %if.end55.i, label %if.then53.i63
+  br i1 %cmp52.not.i, label %if.end55.i, label %if.then53.i64
 
-if.then53.i63:                                    ; preds = %if.end46.i
+if.then53.i64:                                    ; preds = %if.end46.i
   %145 = load ptr, ptr @stderr, align 8
   %146 = call i64 @fwrite(ptr nonnull @.str.59, i64 32, i64 1, ptr %145) #21
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
@@ -1631,8 +1631,8 @@ if.then79.i:                                      ; preds = %if.then75.i
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.end83.i:                                       ; preds = %if.then75.i, %if.then71.i
-  %call86.i71 = call i32 @rename(ptr noundef nonnull %datFileNamePath.i, ptr noundef nonnull %targetFileNamePath.i) #18
-  br i1 %tobool42.not.i62, label %if.end92.i, label %if.then89.i
+  %call86.i72 = call i32 @rename(ptr noundef nonnull %datFileNamePath.i, ptr noundef nonnull %targetFileNamePath.i) #18
+  br i1 %tobool42.not.i63, label %if.end92.i, label %if.then89.i
 
 if.then89.i:                                      ; preds = %if.end83.i
   %149 = load ptr, ptr @stdout, align 8
@@ -1640,7 +1640,7 @@ if.then89.i:                                      ; preds = %if.end83.i
   br label %if.end92.i
 
 if.end92.i:                                       ; preds = %if.then89.i, %if.end83.i
-  %cmp93.not.i = icmp eq i32 %call86.i71, 0
+  %cmp93.not.i = icmp eq i32 %call86.i72, 0
   br i1 %cmp93.not.i, label %if.end99.i, label %if.then94.i
 
 if.then94.i:                                      ; preds = %if.end92.i
@@ -1650,9 +1650,9 @@ if.then94.i:                                      ; preds = %if.end92.i
 
 if.end99.i:                                       ; preds = %if.end92.i, %if.then60.i
   %cmp101.not.i = icmp eq ptr %o.sroa.68.0, null
-  br i1 %cmp101.not.i, label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, label %if.then102.i72
+  br i1 %cmp101.not.i, label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, label %if.then102.i73
 
-if.then102.i72:                                   ; preds = %if.end99.i
+if.then102.i73:                                   ; preds = %if.end99.i
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %cmd.i133.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i134.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %cmd.i133.i, i8 0, i64 512, i1 false)
@@ -1660,7 +1660,7 @@ if.then102.i72:                                   ; preds = %if.end99.i
   %tobool.not.i136.i = icmp eq i8 %call.i135.i, 0
   br i1 %tobool.not.i136.i, label %if.then.i147.i, label %if.end5.i137.i
 
-if.then.i147.i:                                   ; preds = %if.then102.i72
+if.then.i147.i:                                   ; preds = %if.then102.i73
   store i32 0, ptr %status.i134.i, align 4
   call void @uprv_mkdir(ptr noundef nonnull %o.sroa.68.0, ptr noundef nonnull %status.i134.i)
   %151 = load i32, ptr %status.i134.i, align 4
@@ -1672,7 +1672,7 @@ if.then3.i149.i:                                  ; preds = %if.then.i147.i
   %call4.i150.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.103, ptr noundef nonnull %o.sroa.68.0) #21
   br label %_ZL21pkg_installCommonModePKcS0_.exit.i
 
-if.end5.i137.i:                                   ; preds = %if.then.i147.i, %if.then102.i72
+if.end5.i137.i:                                   ; preds = %if.then.i147.i, %if.then102.i73
   %153 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   %arrayidx.i138.i = getelementptr inbounds i8, ptr %153, i64 128
   %154 = load ptr, ptr %arrayidx.i138.i, align 8
@@ -1705,25 +1705,25 @@ if.else107.i:                                     ; preds = %if.end55.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %gencFilePath.i, i8 0, i64 512, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %version_major.i, i8 0, i64 10, i1 false)
   %cmp108.not.not.i = icmp ne ptr %cond86, null
-  br i1 %cmp108.not.not.i, label %for.body.i68, label %if.else125.i
+  br i1 %cmp108.not.not.i, label %for.body.i69, label %if.else125.i
 
-for.body.i68:                                     ; preds = %if.else107.i, %if.end119.i
-  %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i70, %if.end119.i ], [ 0, %if.else107.i ]
-  %arrayidx113.i = getelementptr inbounds i8, ptr %cond86, i64 %indvars.iv.i69
+for.body.i69:                                     ; preds = %if.else107.i, %if.end119.i
+  %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %if.end119.i ], [ 0, %if.else107.i ]
+  %arrayidx113.i = getelementptr inbounds i8, ptr %cond86, i64 %indvars.iv.i70
   %158 = load i8, ptr %arrayidx113.i, align 1
   %cmp115.i = icmp eq i8 %158, 46
-  %arrayidx118.i = getelementptr inbounds [10 x i8], ptr %version_major.i, i64 0, i64 %indvars.iv.i69
+  %arrayidx118.i = getelementptr inbounds [10 x i8], ptr %version_major.i, i64 0, i64 %indvars.iv.i70
   br i1 %cmp115.i, label %if.then116.i, label %if.end119.i
 
-if.then116.i:                                     ; preds = %for.body.i68
+if.then116.i:                                     ; preds = %for.body.i69
   store i8 0, ptr %arrayidx118.i, align 1
   br label %if.end134.i
 
-if.end119.i:                                      ; preds = %for.body.i68
+if.end119.i:                                      ; preds = %for.body.i69
   store i8 %158, ptr %arrayidx118.i, align 1
-  %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i70, 10
-  br i1 %exitcond.not.i, label %if.end134.i, label %for.body.i68, !llvm.loop !22
+  %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i71, 10
+  br i1 %exitcond.not.i, label %if.end134.i, label %for.body.i69, !llvm.loop !22
 
 if.else125.i:                                     ; preds = %if.else107.i
   %159 = and i8 %104, -9
@@ -1753,7 +1753,7 @@ if.end134.i:                                      ; preds = %if.end119.i, %if.th
   %169 = load i8, ptr %arrayidx144.i, align 1
   %cmp146.i = icmp eq i8 %166, %169
   %cmp151.i = icmp eq ptr %162, null
-  %cond.i65 = select i1 %cmp151.i, ptr @.str.11, ptr %162
+  %cond.i66 = select i1 %cmp151.i, ptr @.str.11, ptr %162
   %char0.i.i = load i8, ptr %167, align 1
   %cmp.i.i = icmp eq i8 %char0.i.i, 0
   %cond.i.i = select i1 %cmp.i.i, ptr @.str.11, ptr @.str.21
@@ -1762,8 +1762,8 @@ if.end134.i:                                      ; preds = %if.end119.i, %if.th
   %cond4.i.i = select i1 %cmp3.i.i, ptr @.str.21, ptr @.str.11
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %163, i64 32
   %171 = load ptr, ptr %arrayidx5.i.i, align 8
-  %call6.i152.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL12libFileNames, i64 noundef 256, ptr noundef nonnull @.str.64, ptr noundef %171, ptr noundef %spec.select170) #18
-  br i1 %tobool42.not.i62, label %if.end.i.i, label %if.then.i155.i
+  %call6.i152.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL12libFileNames, i64 noundef 256, ptr noundef nonnull @.str.64, ptr noundef %171, ptr noundef %spec.select171) #18
+  br i1 %tobool42.not.i63, label %if.end.i.i, label %if.then.i155.i
 
 if.then.i155.i:                                   ; preds = %if.end134.i
   %172 = load ptr, ptr @stdout, align 8
@@ -1793,7 +1793,7 @@ if.then27.i.i:                                    ; preds = %if.end.i.i
   br label %if.end59.i.i
 
 cond.end50.i.i:                                   ; preds = %if.else.i158.i
-  %call22.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 768), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %174, ptr noundef nonnull %cond.i.i, ptr noundef nonnull %cond.i65) #18
+  %call22.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 768), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %174, ptr noundef nonnull %cond.i.i, ptr noundef nonnull %cond.i66) #18
   %179 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   %arrayidx36.i.i = getelementptr inbounds i8, ptr %179, i64 8
   %180 = load ptr, ptr %arrayidx36.i.i, align 8
@@ -1804,7 +1804,7 @@ cond.end50.i.i:                                   ; preds = %if.else.i158.i
   br label %cond.end56.i.i
 
 cond.true53.i.i:                                  ; preds = %if.else.i158.i
-  %call2228.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 768), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef nonnull %cond.i65, ptr noundef nonnull %cond.i.i, ptr noundef %174) #18
+  %call2228.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 768), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef nonnull %cond.i66, ptr noundef nonnull %cond.i.i, ptr noundef %174) #18
   %183 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   %arrayidx41.i.i = getelementptr inbounds i8, ptr %183, i64 8
   %184 = load ptr, ptr %arrayidx41.i.i, align 8
@@ -1815,13 +1815,13 @@ cond.true53.i.i:                                  ; preds = %if.else.i158.i
   br label %cond.end56.i.i
 
 cond.end56.i.i:                                   ; preds = %cond.true53.i.i, %cond.end50.i.i
-  %cond5132.i.i = phi ptr [ %cond.i65, %cond.true53.i.i ], [ %182, %cond.end50.i.i ]
-  %cond57.i.i = phi ptr [ %186, %cond.true53.i.i ], [ %cond.i65, %cond.end50.i.i ]
+  %cond5132.i.i = phi ptr [ %cond.i66, %cond.true53.i.i ], [ %182, %cond.end50.i.i ]
+  %cond57.i.i = phi ptr [ %186, %cond.true53.i.i ], [ %cond.i66, %cond.end50.i.i ]
   %call58.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 512), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %cond5132.i.i, ptr noundef nonnull %cond.i.i, ptr noundef %cond57.i.i) #18
   br label %if.end59.i.i
 
 if.end59.i.i:                                     ; preds = %cond.end56.i.i, %if.then27.i.i
-  br i1 %tobool42.not.i62, label %if.end64.i.i, label %if.then62.i.i
+  br i1 %tobool42.not.i63, label %if.end64.i.i, label %if.then62.i.i
 
 if.then62.i.i:                                    ; preds = %if.end59.i.i
   %187 = load ptr, ptr @stdout, align 8
@@ -1838,7 +1838,7 @@ if.then67.i.i:                                    ; preds = %if.end64.i.i
   %189 = load ptr, ptr %arrayidx68.i.i, align 8
   %call69.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 512), i64 noundef 256, ptr noundef nonnull @.str.116, ptr noundef nonnull @_ZL12libFileNames, ptr noundef %189) #18
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 256), align 16
-  br i1 %tobool42.not.i62, label %land.lhs.true.i, label %if.then72.i.i
+  br i1 %tobool42.not.i63, label %land.lhs.true.i, label %if.then72.i.i
 
 if.then72.i.i:                                    ; preds = %if.then67.i.i
   %190 = load ptr, ptr @stdout, align 8
@@ -1847,8 +1847,8 @@ if.then72.i.i:                                    ; preds = %if.then67.i.i
 
 _ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.i: ; preds = %if.end64.i.i
   %cmp159.i = icmp eq i8 %67, 0
-  %or.cond174 = select i1 %cmp108.not.not.i, i1 %cmp159.i, i1 false
-  br i1 %or.cond174, label %if.then163.i, label %if.end228.i
+  %or.cond175 = select i1 %cmp108.not.not.i, i1 %cmp159.i, i1 false
+  br i1 %or.cond175, label %if.then163.i, label %if.end228.i
 
 land.lhs.true.i:                                  ; preds = %if.then72.i.i, %if.then67.i.i
   %cmp159.i.old = icmp eq i8 %67, 0
@@ -1866,7 +1866,7 @@ if.then170.i:                                     ; preds = %if.then163.i
   br i1 %tobool174.not.i, label %if.else200.i, label %land.lhs.true175.i
 
 land.lhs.true175.i:                               ; preds = %if.then170.i
-  %call177.i = call signext i8 @isFileModTimeLater(ptr noundef nonnull %checkLibFile.i, ptr noundef %spec.select171.fr, i8 noundef signext 0)
+  %call177.i = call signext i8 @isFileModTimeLater(ptr noundef nonnull %checkLibFile.i, ptr noundef %spec.select172.fr, i8 noundef signext 0)
   %tobool178.not.i = icmp eq i8 %call177.i, 0
   br i1 %tobool178.not.i, label %if.else200.i, label %if.then179.i
 
@@ -1875,7 +1875,7 @@ if.then179.i:                                     ; preds = %land.lhs.true175.i
   br i1 %cmp181.not.i, label %if.else192.i, label %if.then182.i
 
 if.then182.i:                                     ; preds = %if.then179.i
-  br i1 %tobool42.not.i62, label %if.end188.i, label %if.then185.i
+  br i1 %tobool42.not.i63, label %if.end188.i, label %if.then185.i
 
 if.then185.i:                                     ; preds = %if.then182.i
   %191 = load ptr, ptr @stdout, align 8
@@ -1887,7 +1887,7 @@ if.end188.i:                                      ; preds = %if.then185.i, %if.t
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.else192.i:                                     ; preds = %if.then179.i
-  br i1 %tobool42.not.i62, label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, label %if.then195.i
+  br i1 %tobool42.not.i63, label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, label %if.then195.i
 
 if.then195.i:                                     ; preds = %if.else192.i
   %call197.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, ptr noundef nonnull %checkLibFile.i)
@@ -1895,13 +1895,13 @@ if.then195.i:                                     ; preds = %if.else192.i
 
 if.else200.i:                                     ; preds = %land.lhs.true175.i, %if.then170.i
   %cmp205.not.i = icmp eq ptr %o.sroa.68.0, null
-  %or.cond175 = select i1 %tobool42.not.i62, i1 true, i1 %cmp205.not.i
-  br i1 %or.cond175, label %if.end228.i, label %if.end228.i.sink.split
+  %or.cond176 = select i1 %tobool42.not.i63, i1 true, i1 %cmp205.not.i
+  br i1 %or.cond176, label %if.end228.i, label %if.end228.i.sink.split
 
 if.else212.i:                                     ; preds = %if.then163.i
   %cmp217.not.i = icmp eq ptr %o.sroa.68.0, null
-  %or.cond176 = select i1 %tobool42.not.i62, i1 true, i1 %cmp217.not.i
-  br i1 %or.cond176, label %if.end228.i, label %if.end228.i.sink.split
+  %or.cond177 = select i1 %tobool42.not.i63, i1 true, i1 %cmp217.not.i
+  br i1 %or.cond177, label %if.end228.i, label %if.end228.i.sink.split
 
 if.end228.i.sink.split:                           ; preds = %if.else212.i, %if.else200.i
   %.str.68.sink = phi ptr [ @.str.67, %if.else200.i ], [ @.str.68, %if.else212.i ]
@@ -1920,7 +1920,7 @@ land.lhs.true230.i:                               ; preds = %if.end228.i
   br i1 %cmp234.not.i, label %if.else282.i, label %if.then235.i
 
 if.then235.i:                                     ; preds = %land.lhs.true230.i
-  br i1 %tobool42.not.i62, label %land.lhs.true244.i, label %if.then239.i
+  br i1 %tobool42.not.i63, label %land.lhs.true244.i, label %if.then239.i
 
 if.then239.i:                                     ; preds = %if.then235.i
   %196 = load ptr, ptr @stdout, align 8
@@ -1933,13 +1933,13 @@ land.lhs.true244.i:                               ; preds = %if.then239.i, %if.t
   br i1 %cmp246.i, label %land.lhs.true247.i, label %if.else279.i
 
 land.lhs.true247.i:                               ; preds = %land.lhs.true244.i
-  %add.ptr.i66 = getelementptr inbounds i8, ptr %194, i64 3
-  %call248.i = call signext i8 @checkAssemblyHeaderName(ptr noundef nonnull %add.ptr.i66)
+  %add.ptr.i67 = getelementptr inbounds i8, ptr %194, i64 3
+  %call248.i = call signext i8 @checkAssemblyHeaderName(ptr noundef nonnull %add.ptr.i67)
   %tobool249.not.i = icmp eq i8 %call248.i, 0
   br i1 %tobool249.not.i, label %if.else279.i, label %if.then250.i
 
 if.then250.i:                                     ; preds = %land.lhs.true247.i
-  call void @writeAssemblyCode(ptr noundef nonnull %datFileNamePath.i, ptr noundef %o.sroa.36101.0, ptr noundef %o.sroa.27.0, ptr noundef null, ptr noundef nonnull %gencFilePath.i, i64 noundef 512)
+  call void @writeAssemblyCode(ptr noundef nonnull %datFileNamePath.i, ptr noundef %o.sroa.36102.0, ptr noundef %o.sroa.27.0, ptr noundef null, ptr noundef nonnull %gencFilePath.i, i64 noundef 512)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %tempObjectFile.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %tempObjectFile.i.i, i8 0, i64 512, i1 false)
   %call.i159.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %tempObjectFile.i.i, ptr noundef nonnull dereferenceable(1) %gencFilePath.i) #18
@@ -2044,7 +2044,7 @@ if.then263.i:                                     ; preds = %if.else260.i
   br i1 %cmp265.not.i, label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, label %if.then266.i
 
 if.then266.i:                                     ; preds = %if.then263.i
-  br i1 %tobool42.not.i62, label %if.end272.i, label %if.then269.i
+  br i1 %tobool42.not.i63, label %if.end272.i, label %if.then269.i
 
 if.then269.i:                                     ; preds = %if.then266.i
   %213 = load ptr, ptr @stdout, align 8
@@ -2061,7 +2061,7 @@ if.else279.i:                                     ; preds = %land.lhs.true247.i,
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.else282.i:                                     ; preds = %if.end228.i, %land.lhs.true230.i
-  br i1 %tobool42.not.i62, label %if.end288.i, label %if.then285.i
+  br i1 %tobool42.not.i63, label %if.end288.i, label %if.then285.i
 
 if.then285.i:                                     ; preds = %if.else282.i
   %215 = load ptr, ptr @stdout, align 8
@@ -2124,8 +2124,8 @@ for.body.i191.i:                                  ; preds = %for.cond.preheader.
   br i1 %cmp17.i.i, label %if.then18.i.i, label %if.else19.i192.i
 
 if.then18.i.i:                                    ; preds = %for.body.i191.i
-  %220 = load ptr, ptr %o.sroa.0.0.lcssa254, align 8
-  call void @createCommonDataFile(ptr noundef %o.sroa.36101.0, ptr noundef nonnull %49, ptr noundef %o.sroa.27.0, ptr noundef null, ptr noundef %o.sroa.43.0, ptr noundef %o.sroa.64.0, ptr noundef %220, i32 noundef 0, i8 noundef signext 1, i8 noundef signext %59, ptr noundef nonnull %gencmnFile.i.i)
+  %220 = load ptr, ptr %o.sroa.0.0.lcssa255, align 8
+  call void @createCommonDataFile(ptr noundef %o.sroa.36102.0, ptr noundef nonnull %49, ptr noundef %o.sroa.27.0, ptr noundef null, ptr noundef %o.sroa.43.0, ptr noundef %o.sroa.64.0, ptr noundef %220, i32 noundef 0, i8 noundef signext 1, i8 noundef signext %59, ptr noundef nonnull %gencmnFile.i.i)
   store i8 0, ptr %call9.i.i, align 1
   br label %if.end99.i.i
 
@@ -2187,7 +2187,7 @@ if.end70.i.i:                                     ; preds = %for.end.i197.i, %fo
   br i1 %or.cond54.i.i, label %for.body26.i.i, label %for.end78.i.i, !llvm.loop !24
 
 for.end78.i.i:                                    ; preds = %if.end70.i.i
-  br i1 %tobool42.not.i62, label %if.end83.i.i, label %if.then80.i.i
+  br i1 %tobool42.not.i63, label %if.end83.i.i, label %if.then80.i.i
 
 if.then80.i.i:                                    ; preds = %for.end78.i.i
   %call82.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.125, ptr noundef nonnull %gencmnFile.i.i)
@@ -2198,10 +2198,10 @@ if.end83.i.i:                                     ; preds = %if.then80.i.i, %for
   %226 = phi i8 [ %.pre, %if.then80.i.i ], [ %225, %for.end78.i.i ]
   %227 = load i8, ptr %dataName.i.i, align 16
   %cmp87.not.i.i = icmp eq i8 %227, 0
-  %spec.select177 = select i1 %cmp87.not.i.i, ptr %49, ptr %dataName.i.i
+  %spec.select178 = select i1 %cmp87.not.i.i, ptr %49, ptr %dataName.i.i
   %cmp92.not.i.i = icmp eq i8 %226, 0
   %cond97.i.i = select i1 %cmp92.not.i.i, ptr null, ptr %newName.i.i
-  call void @writeCCode(ptr noundef %221, ptr noundef %o.sroa.36101.0, ptr noundef null, ptr noundef nonnull %spec.select177, ptr noundef %cond97.i.i, ptr noundef nonnull %gencmnFile.i.i, i64 noundef 512)
+  call void @writeCCode(ptr noundef %221, ptr noundef %o.sroa.36102.0, ptr noundef null, ptr noundef nonnull %spec.select178, ptr noundef %cond97.i.i, ptr noundef nonnull %gencmnFile.i.i, i64 noundef 512)
   br label %if.end99.i.i
 
 if.end99.i.i:                                     ; preds = %if.end83.i.i, %if.then18.i.i
@@ -2335,7 +2335,7 @@ _ZL22pkg_createOptMatchArchPc.exit.i:             ; preds = %if.then10.i231.i, %
 
 243:                                              ; preds = %_ZL22pkg_createOptMatchArchPc.exit.i, %_ZL22pkg_createOptMatchArchPc.exit.thread.i
   %244 = phi ptr [ null, %_ZL22pkg_createOptMatchArchPc.exit.thread.i ], [ %spec.select.i, %_ZL22pkg_createOptMatchArchPc.exit.i ]
-  call void @writeObjectCode(ptr noundef nonnull %datFileNamePath.i, ptr noundef %o.sroa.36101.0, ptr noundef %o.sroa.27.0, ptr noundef %244, ptr noundef null, ptr noundef nonnull %gencFilePath.i, i64 noundef 512, i8 noundef signext 1)
+  call void @writeObjectCode(ptr noundef nonnull %datFileNamePath.i, ptr noundef %o.sroa.36102.0, ptr noundef %o.sroa.27.0, ptr noundef %244, ptr noundef null, ptr noundef nonnull %gencFilePath.i, i64 noundef 512, i8 noundef signext 1)
   %call.i235.i = call signext i8 @T_FileStream_file_exists(ptr noundef nonnull %optMatchArch.i)
   %tobool.not.i236.i = icmp eq i8 %call.i235.i, 0
   br i1 %tobool.not.i236.i, label %_ZL23pkg_destroyOptMatchArchPc.exit.i, label %land.lhs.true.i.i
@@ -2368,7 +2368,7 @@ if.end317.i:                                      ; preds = %if.end312.i
   br i1 %cmp66.i.i, label %if.end342.i, label %if.then320.i
 
 if.then320.i:                                     ; preds = %if.end317.i, %if.else260.i
-  br i1 %tobool42.not.i62, label %if.end325.i, label %if.then323.i
+  br i1 %tobool42.not.i63, label %if.end325.i, label %if.then323.i
 
 if.then323.i:                                     ; preds = %if.then320.i
   %248 = load ptr, ptr @stdout, align 8
@@ -2482,7 +2482,7 @@ if.end342.i:                                      ; preds = %if.then334.i, %if.e
   br i1 %cmp344.not.i, label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, label %if.then345.i
 
 if.then345.i:                                     ; preds = %if.end342.i
-  br i1 %tobool42.not.i62, label %if.end351.i, label %if.then348.i
+  br i1 %tobool42.not.i63, label %if.end351.i, label %if.then348.i
 
 if.then348.i:                                     ; preds = %if.then345.i
   %270 = load ptr, ptr @stdout, align 8
@@ -2499,8 +2499,8 @@ if.then356.i:                                     ; preds = %if.end351.i
   %272 = call i64 @fwrite(ptr nonnull @.str.79, i64 35, i64 1, ptr %271) #21
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
-_ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %if.then.i73, %_ZL19pkg_installFileModePKcS0_S0_.exit.i, %if.then53.i63, %if.then79.i, %if.then94.i, %if.end99.i, %_ZL21pkg_installCommonModePKcS0_.exit.i, %if.end188.i, %if.else192.i, %if.then195.i, %if.then258.i, %if.then263.i, %if.end272.i, %if.else279.i, %if.then314.i, %if.then330.i, %if.then338.i, %if.end342.i, %if.end351.i, %if.then356.i
-  %retval.0.i64 = phi i32 [ %call51.i, %if.then53.i63 ], [ %call77.i, %if.then79.i ], [ %call86.i71, %if.then94.i ], [ %result.5.i, %if.then314.i ], [ %call354.i, %if.then356.i ], [ 1, %if.then330.i ], [ 1, %if.then338.i ], [ %retval.0.i178.i, %if.then258.i ], [ -1, %if.else279.i ], [ %retval.0.i129.i, %_ZL19pkg_installFileModePKcS0_S0_.exit.i ], [ 0, %if.then.i73 ], [ %retval.0.i146.i, %_ZL21pkg_installCommonModePKcS0_.exit.i ], [ 0, %if.end99.i ], [ %call191.i, %if.end188.i ], [ 0, %if.then195.i ], [ 0, %if.else192.i ], [ %call275.i, %if.end272.i ], [ 0, %if.then263.i ], [ 0, %if.end351.i ], [ 0, %if.end342.i ]
+_ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %if.then.i74, %_ZL19pkg_installFileModePKcS0_S0_.exit.i, %if.then53.i64, %if.then79.i, %if.then94.i, %if.end99.i, %_ZL21pkg_installCommonModePKcS0_.exit.i, %if.end188.i, %if.else192.i, %if.then195.i, %if.then258.i, %if.then263.i, %if.end272.i, %if.else279.i, %if.then314.i, %if.then330.i, %if.then338.i, %if.end342.i, %if.end351.i, %if.then356.i
+  %retval.0.i65 = phi i32 [ %call51.i, %if.then53.i64 ], [ %call77.i, %if.then79.i ], [ %call86.i72, %if.then94.i ], [ %result.5.i, %if.then314.i ], [ %call354.i, %if.then356.i ], [ 1, %if.then330.i ], [ 1, %if.then338.i ], [ %retval.0.i178.i, %if.then258.i ], [ -1, %if.else279.i ], [ %retval.0.i129.i, %_ZL19pkg_installFileModePKcS0_S0_.exit.i ], [ 0, %if.then.i74 ], [ %retval.0.i146.i, %_ZL21pkg_installCommonModePKcS0_.exit.i ], [ 0, %if.end99.i ], [ %call191.i, %if.end188.i ], [ 0, %if.then195.i ], [ 0, %if.else192.i ], [ %call275.i, %if.end272.i ], [ 0, %if.then263.i ], [ 0, %if.end351.i ], [ 0, %if.end342.i ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %targetDir.i)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %tmpDir.i)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %datFileName.i)
@@ -2516,22 +2516,22 @@ _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %if.then.i73, %_ZL19
 
 for.body207:                                      ; preds = %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, %for.inc215
   %274 = phi ptr [ %276, %for.inc215 ], [ %273, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit ]
-  %indvars.iv238 = phi i64 [ %indvars.iv.next239, %for.inc215 ], [ 0, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit ]
-  %arrayidx209 = getelementptr inbounds ptr, ptr %274, i64 %indvars.iv238
+  %indvars.iv239 = phi i64 [ %indvars.iv.next240, %for.inc215 ], [ 0, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit ]
+  %arrayidx209 = getelementptr inbounds ptr, ptr %274, i64 %indvars.iv239
   %275 = load ptr, ptr %arrayidx209, align 8
   %cmp210.not = icmp eq ptr %275, null
   br i1 %cmp210.not, label %for.inc215, label %if.then211
 
 if.then211:                                       ; preds = %for.body207
   call void @uprv_free_75(ptr noundef nonnull %275)
-  %.pre250 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %.pre251 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   br label %for.inc215
 
 for.inc215:                                       ; preds = %for.body207, %if.then211
-  %276 = phi ptr [ %274, %for.body207 ], [ %.pre250, %if.then211 ]
-  %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %exitcond241.not = icmp eq i64 %indvars.iv.next239, 17
-  br i1 %exitcond241.not, label %for.end217, label %for.body207, !llvm.loop !26
+  %276 = phi ptr [ %274, %for.body207 ], [ %.pre251, %if.then211 ]
+  %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
+  %exitcond242.not = icmp eq i64 %indvars.iv.next240, 17
+  br i1 %exitcond242.not, label %for.end217, label %for.body207, !llvm.loop !26
 
 for.end217:                                       ; preds = %for.inc215
   call void @uprv_free_75(ptr noundef %276)
@@ -2546,10 +2546,10 @@ if.then221:                                       ; preds = %if.end218
   br label %if.end223
 
 if.end223:                                        ; preds = %if.then221, %if.end218
-  br i1 %tobool.not86.i261, label %if.end228, label %if.then226
+  br i1 %tobool.not86.i262, label %if.end228, label %if.then226
 
 if.then226:                                       ; preds = %if.end223
-  call void @pkg_deleteList(ptr noundef nonnull %o.sroa.0.0.lcssa254)
+  call void @pkg_deleteList(ptr noundef nonnull %o.sroa.0.0.lcssa255)
   br label %if.end228
 
 if.end228:                                        ; preds = %if.then226, %if.end223
@@ -2569,7 +2569,7 @@ if.then234:                                       ; preds = %if.end232
   br label %return
 
 return:                                           ; preds = %if.end74, %if.end232, %if.then234, %if.then198, %if.then25, %if.then20, %if.then14, %if.then3
-  %retval.0 = phi i32 [ 2, %if.then198 ], [ 1, %if.then3 ], [ 1, %if.then25 ], [ 1, %if.then20 ], [ 1, %if.then14 ], [ %retval.0.i64, %if.then234 ], [ %retval.0.i64, %if.end232 ], [ 1, %if.end74 ]
+  %retval.0 = phi i32 [ 2, %if.then198 ], [ 1, %if.then3 ], [ 1, %if.then25 ], [ 1, %if.then20 ], [ 1, %if.then14 ], [ %retval.0.i65, %if.then234 ], [ %retval.0.i65, %if.end232 ], [ 1, %if.end74 ]
   ret i32 %retval.0
 }
 

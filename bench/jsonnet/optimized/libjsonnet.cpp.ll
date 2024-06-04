@@ -3013,7 +3013,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 50:                                               ; preds = %48
   %51 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %5, ptr %51, align 8
-  store ptr getelementptr inbounds inrange(-16, 312) (i8, ptr @_ZTVN12_GLOBAL__N_115ReEscapeStringsE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115ReEscapeStringsE, i64 16), ptr %13, align 8
   invoke void @_ZN7jsonnet8internal12CompilerPass4exprERPNS0_3ASTE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %60 unwind label %58
 

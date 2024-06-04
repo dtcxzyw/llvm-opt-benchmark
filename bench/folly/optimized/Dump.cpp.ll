@@ -2563,7 +2563,7 @@ declare void @_ZN5folly9TypeErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traits
 define linkonce_odr void @_ZN5folly9TypeErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly9TypeErrorE, i64 16), ptr %this, align 8, !tbaa !121
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly9TypeErrorE, i64 16), ptr %this, align 8, !tbaa !121
   ret void
 }
 

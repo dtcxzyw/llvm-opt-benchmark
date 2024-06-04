@@ -624,7 +624,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @_ZN6MapgenC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %mapgenid, ptr nocapture noundef readonly %params, ptr noundef %emerge) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont13:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6Mapgen, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6Mapgen, i64 16), ptr %this, align 8, !tbaa !15
   %seed = getelementptr inbounds i8, ptr %this, i64 8
   %water_level = getelementptr inbounds i8, ptr %this, i64 12
   %mapgen_limit = getelementptr inbounds i8, ptr %this, i64 16
@@ -703,7 +703,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6MapgenD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6Mapgen, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6Mapgen, i64 16), ptr %this, align 8, !tbaa !15
   %m_emerge = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_emerge, align 8, !tbaa !61
   %isnull = icmp eq ptr %0, null
@@ -1068,7 +1068,7 @@ sw.bb9:                                           ; preds = %entry
   store i16 31007, ptr %mapgen_edge_max.i.i, align 2, !tbaa !75
   %m_mapgen_edges_calculated.i.i = getelementptr inbounds i8, ptr %call10, i64 52
   store i8 0, ptr %m_mapgen_edges_calculated.i.i, align 4, !tbaa !76
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22MapgenSinglenodeParams, i64 16), ptr %call10, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22MapgenSinglenodeParams, i64 16), ptr %call10, align 8, !tbaa !15
   br label %return
 
 sw.bb11:                                          ; preds = %entry
@@ -4971,7 +4971,7 @@ invoke.cont8:
   store ptr %emerge, ptr %m_emerge.i, align 8, !tbaa !61
   %8 = load ptr, ptr %emerge, align 8, !tbaa !62
   store ptr %8, ptr %ndef.i, align 8, !tbaa !63
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV11MapgenBasic, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MapgenBasic, i64 16), ptr %this, align 8, !tbaa !15
   %node_min = getelementptr inbounds i8, ptr %this, i64 216
   %np_cave1 = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %node_min, i8 0, i64 24, i1 false)
@@ -5410,7 +5410,8 @@ if.end:                                           ; preds = %if.then, %_ZNSt7__c
   br i1 %cmp105, label %if.then106, label %if.end111
 
 if.then106:                                       ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %64, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %64
 
 64:                                               ; preds = %if.then106
   call void @_ZTH11errorstream()
@@ -5487,7 +5488,8 @@ if.end111:                                        ; preds = %call1.i.noexc, %inv
   br i1 %cmp114, label %if.then115, label %if.end120
 
 if.then115:                                       ; preds = %if.end111
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %74, label %_ZTW11errorstream.exit290
+  %.not16 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not16, label %_ZTW11errorstream.exit290, label %74
 
 74:                                               ; preds = %if.then115
   call void @_ZTH11errorstream()
@@ -5564,7 +5566,8 @@ if.end120:                                        ; preds = %call1.i.noexc351, %
   br i1 %cmp123, label %if.then124, label %if.end129
 
 if.then124:                                       ; preds = %if.end120
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %84, label %_ZTW13warningstream.exit
+  %.not17 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not17, label %_ZTW13warningstream.exit, label %84
 
 84:                                               ; preds = %if.then124
   call void @_ZTH13warningstream()
@@ -5659,7 +5662,7 @@ declare noundef zeroext i16 @_ZNK14NodeDefManager5getIdERKNSt7__cxx1112basic_str
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(474) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV11MapgenBasic, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MapgenBasic, i64 16), ptr %this, align 8, !tbaa !15
   %heightmap = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %heightmap, align 8, !tbaa !132
   %isnull = icmp eq ptr %0, null
@@ -5680,7 +5683,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11MapgenBasicD0Ev(ptr noundef nonnull align 8 dereferenceable(474) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV11MapgenBasic, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11MapgenBasic, i64 16), ptr %this, align 8, !tbaa !15
   %heightmap.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %heightmap.i, align 8, !tbaa !132
   %isnull.i = icmp eq ptr %0, null
@@ -7778,7 +7781,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12MapgenParamsD0Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12MapgenParams, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12MapgenParams, i64 16), ptr %this, align 8, !tbaa !15
   %bparams.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %bparams.i, align 8, !tbaa !73
   %isnull.i = icmp eq ptr %0, null
@@ -8098,7 +8101,7 @@ delete.end:                                       ; preds = %delete.notnull, %_Z
           to label %if.then97 unwind label %lpad28
 
 if.then97:                                        ; preds = %delete.end
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV19BiomeParamsOriginal, i64 16), ptr %call.i238, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19BiomeParamsOriginal, i64 16), ptr %call.i238, align 8, !tbaa !15
   %np_heat.i.i = getelementptr inbounds i8, ptr %call.i238, i64 12
   %Z.i.i.i.i = getelementptr inbounds i8, ptr %call.i238, i64 28
   %seed.i.i.i = getelementptr inbounds i8, ptr %call.i238, i64 32
@@ -8148,7 +8151,7 @@ if.then97:                                        ; preds = %delete.end
   store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %persist.i47.i.i, align 4, !tbaa !206
   store i32 1, ptr %flags.i49.i.i, align 4, !tbaa !211
   store ptr %call.i238, ptr %bparams, align 8, !tbaa !73
-  %33 = load ptr, ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV19BiomeParamsOriginal, i64 16), align 8
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTV19BiomeParamsOriginal, i64 16), align 8
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(12) %call.i238, ptr noundef nonnull %settings)
           to label %if.end106 unwind label %lpad28
 
@@ -8933,7 +8936,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12MapgenParamsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12MapgenParams, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12MapgenParams, i64 16), ptr %this, align 8, !tbaa !15
   %bparams = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %bparams, align 8, !tbaa !73
   %isnull = icmp eq ptr %0, null
@@ -8953,7 +8956,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22MapgenSinglenodeParamsD0Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12MapgenParams, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12MapgenParams, i64 16), ptr %this, align 8, !tbaa !15
   %bparams.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %bparams.i, align 8, !tbaa !73
   %isnull.i = icmp eq ptr %0, null
@@ -9204,7 +9207,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr dso_local void @_ZN13PrngExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i, align 8, !tbaa !4
@@ -9257,14 +9260,14 @@ _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13PrngException, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13PrngException, i64 16), ptr %this, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -9294,7 +9297,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13PrngExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -9329,7 +9332,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24

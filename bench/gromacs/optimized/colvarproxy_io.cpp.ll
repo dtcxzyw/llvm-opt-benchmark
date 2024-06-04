@@ -1640,7 +1640,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSoSt4lessIS5_ESaI
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14colvarproxy_ioC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTV14colvarproxy_io, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14colvarproxy_io, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1849,7 +1849,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14colvarproxy_ioD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTV14colvarproxy_io, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14colvarproxy_io, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

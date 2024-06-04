@@ -535,93 +535,95 @@ define range(i32 -1, 1) i32 @jobacct_gather_init() local_unnamed_addr #0 {
 
 4:                                                ; preds = %0
   %5 = load i32, ptr @plugin_inited, align 4
-  %.not16 = icmp eq i32 %5, 0
-  br i1 %.not16, label %6, label %35
+  %.not15 = icmp eq i32 %5, 0
+  br i1 %.not15, label %6, label %34
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr @slurmdbd_conf, align 8
-  %8 = icmp eq ptr %7, null
+  %.not16 = icmp eq ptr %7, null
+  br i1 %.not16, label %8, label %10
+
+8:                                                ; preds = %6
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 456), align 8
-  %10 = icmp ne ptr %9, null
-  %or.cond = select i1 %8, i1 %10, i1 false
-  br i1 %or.cond, label %12, label %11
+  %.not17 = icmp eq ptr %9, null
+  br i1 %.not17, label %10, label %11
 
-11:                                               ; preds = %6
+10:                                               ; preds = %8, %6
   store i32 1, ptr @plugin_inited, align 4
-  br label %35
+  br label %34
 
-12:                                               ; preds = %6
-  %13 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef nonnull %9, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 24) #10
-  store ptr %13, ptr @g_context, align 8
-  %.not17 = icmp eq ptr %13, null
-  br i1 %.not17, label %14, label %17
+11:                                               ; preds = %8
+  %12 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef nonnull %9, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 24) #10
+  store ptr %12, ptr @g_context, align 8
+  %.not18 = icmp eq ptr %12, null
+  br i1 %.not18, label %13, label %16
 
-14:                                               ; preds = %12
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 456), align 8
-  %16 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %15) #10
+13:                                               ; preds = %11
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 456), align 8
+  %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %14) #10
   store i32 0, ptr @plugin_inited, align 4
-  br label %35
+  br label %34
 
-17:                                               ; preds = %12
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_run_mutex) #10
-  %.not18 = icmp eq i32 %18, 0
-  br i1 %.not18, label %21, label %19
+16:                                               ; preds = %11
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_run_mutex) #10
+  %.not19 = icmp eq i32 %17, 0
+  br i1 %.not19, label %20, label %18
 
-19:                                               ; preds = %17
-  %20 = tail call ptr @__errno_location() #11
-  store i32 %18, ptr %20, align 4
+18:                                               ; preds = %16
+  %19 = tail call ptr @__errno_location() #11
+  store i32 %17, ptr %19, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 547, ptr noundef nonnull @__func__.jobacct_gather_init) #12
   unreachable
 
-21:                                               ; preds = %17
+20:                                               ; preds = %16
   store i32 2, ptr @plugin_inited, align 4
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_run_mutex) #10
-  %.not19 = icmp eq i32 %22, 0
-  br i1 %.not19, label %25, label %23
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_run_mutex) #10
+  %.not20 = icmp eq i32 %21, 0
+  br i1 %.not20, label %24, label %22
 
-23:                                               ; preds = %21
-  %24 = tail call ptr @__errno_location() #11
-  store i32 %22, ptr %24, align 4
+22:                                               ; preds = %20
+  %23 = tail call ptr @__errno_location() #11
+  store i32 %21, ptr %23, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 549, ptr noundef nonnull @__func__.jobacct_gather_init) #12
   unreachable
 
-25:                                               ; preds = %21
-  %26 = tail call zeroext i1 @running_in_slurmctld() #10
-  br i1 %26, label %27, label %35
+24:                                               ; preds = %20
+  %25 = tail call zeroext i1 @running_in_slurmctld() #10
+  br i1 %25, label %26, label %34
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 912), align 8
-  %29 = tail call i32 @xstrcasecmp(ptr noundef %28, ptr noundef nonnull @.str.5) #10
-  %.not20 = icmp eq i32 %29, 0
-  br i1 %.not20, label %30, label %32
+26:                                               ; preds = %24
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 912), align 8
+  %28 = tail call i32 @xstrcasecmp(ptr noundef %27, ptr noundef nonnull @.str.5) #10
+  %.not21 = icmp eq i32 %28, 0
+  br i1 %.not21, label %29, label %31
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 456), align 8
-  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.6, ptr noundef %31) #10
-  br label %32
+29:                                               ; preds = %26
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 456), align 8
+  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.6, ptr noundef %30) #10
+  br label %31
 
-32:                                               ; preds = %30, %27
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
-  %.not21 = icmp eq ptr %33, null
-  br i1 %.not21, label %34, label %35
+31:                                               ; preds = %29, %26
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
+  %.not22 = icmp eq ptr %32, null
+  br i1 %.not22, label %33, label %34
 
-34:                                               ; preds = %32
+33:                                               ; preds = %31
   tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.7) #10
-  br label %35
+  br label %34
 
-35:                                               ; preds = %11, %14, %4, %25, %34, %32
-  %.0 = phi i32 [ 0, %4 ], [ 0, %32 ], [ 0, %34 ], [ 0, %25 ], [ -1, %14 ], [ 0, %11 ]
-  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
-  %.not22 = icmp eq i32 %36, 0
-  br i1 %.not22, label %39, label %37
+34:                                               ; preds = %10, %13, %4, %24, %33, %31
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %31 ], [ 0, %33 ], [ 0, %24 ], [ -1, %13 ]
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
+  %.not23 = icmp eq i32 %35, 0
+  br i1 %.not23, label %38, label %36
 
-37:                                               ; preds = %35
-  %38 = tail call ptr @__errno_location() #11
-  store i32 %36, ptr %38, align 4
+36:                                               ; preds = %34
+  %37 = tail call ptr @__errno_location() #11
+  store i32 %35, ptr %37, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 564, ptr noundef nonnull @__func__.jobacct_gather_init) #12
   unreachable
 
-39:                                               ; preds = %35
+38:                                               ; preds = %34
   ret i32 %.0
 }
 

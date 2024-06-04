@@ -425,29 +425,29 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %9 = sext i32 %0 to i64
   %10 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 24) #23
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.sink.split.i, label %.preheader189.i
+  br i1 %11, label %.sink.split.i, label %.preheader191.i
 
-.preheader189.i:                                  ; preds = %8
+.preheader191.i:                                  ; preds = %8
   %12 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull @l_opts) #22
-  %.not346.i = icmp eq i32 %12, -1
-  br i1 %.not346.i, label %._crit_edge.i, label %.preheader.lr.ph.i
+  %.not348.i = icmp eq i32 %12, -1
+  br i1 %.not348.i, label %._crit_edge.i, label %.preheader.lr.ph.i
 
-.preheader.lr.ph.i:                               ; preds = %.preheader189.i
+.preheader.lr.ph.i:                               ; preds = %.preheader191.i
   %13 = icmp sgt i32 %0, 0
   %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.loopexit183.i, %.preheader.lr.ph.i
-  %14 = phi i32 [ %12, %.preheader.lr.ph.i ], [ %316, %.loopexit183.i ]
-  %.0110348.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.2.i, %.loopexit183.i ]
-  %.0117347.i = phi ptr [ null, %.preheader.lr.ph.i ], [ %.2119.i, %.loopexit183.i ]
-  %15 = getelementptr inbounds i8, ptr %.0117347.i, i64 16
+.preheader.i:                                     ; preds = %.loopexit185.i, %.preheader.lr.ph.i
+  %14 = phi i32 [ %12, %.preheader.lr.ph.i ], [ %316, %.loopexit185.i ]
+  %.0112350.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.2.i, %.loopexit185.i ]
+  %.0119349.i = phi ptr [ null, %.preheader.lr.ph.i ], [ %.2121.i, %.loopexit185.i ]
+  %15 = getelementptr inbounds i8, ptr %.0119349.i, i64 16
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %275, %.preheader.i
-  %.0111.i = phi i32 [ %14, %.preheader.i ], [ %.1112.i, %275 ]
-  %.1.i = phi i32 [ %.0110348.i, %.preheader.i ], [ 0, %275 ]
-  %sext.i = shl i32 %.0111.i, 24
+  %.0113.i = phi i32 [ %14, %.preheader.i ], [ %.1114.i, %275 ]
+  %.1.i = phi i32 [ %.0112350.i, %.preheader.i ], [ 0, %275 ]
+  %sext.i = shl i32 %.0113.i, 24
   %16 = ashr exact i32 %sext.i, 24
   switch i32 %16, label %314 [
     i32 82, label %17
@@ -502,66 +502,66 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 17:                                               ; preds = %.loopexit.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 44), align 4
   store i32 1, ptr @region_output, align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 18:                                               ; preds = %.loopexit.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 24), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 19:                                               ; preds = %.loopexit.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 32), align 4
   %20 = load ptr, ptr @H5_optarg, align 8
-  %.not169.i = icmp eq ptr %20, null
-  br i1 %.not169.i, label %.loopexit183.i, label %21
+  %.not171.i = icmp eq ptr %20, null
+  br i1 %.not171.i, label %.loopexit185.i, label %21
 
 21:                                               ; preds = %19
   %22 = tail call i32 @atoi(ptr nocapture noundef nonnull %20) #24
   tail call void @h5trav_set_verbose(i32 noundef %22) #22
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 23:                                               ; preds = %.loopexit.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 28), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 24:                                               ; preds = %.loopexit.i
   store i32 0, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 36), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 25:                                               ; preds = %.loopexit.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 26:                                               ; preds = %.loopexit.i
   store i32 0, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 8), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 12), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 27:                                               ; preds = %.loopexit.i
   %28 = load ptr, ptr @H5_optarg, align 8
-  %.not168.i = icmp eq ptr %28, null
-  br i1 %.not168.i, label %33, label %29
+  %.not170.i = icmp eq ptr %28, null
+  br i1 %.not170.i, label %33, label %29
 
 29:                                               ; preds = %27
   %30 = tail call i32 @atoi(ptr nocapture noundef nonnull %28) #24
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %.loopexit183.i
+  br i1 %31, label %32, label %.loopexit185.i
 
 32:                                               ; preds = %29
   store i32 0, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 56), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 33:                                               ; preds = %27
   store i32 0, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 8), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 12), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 34:                                               ; preds = %.loopexit.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 4), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 35:                                               ; preds = %.loopexit.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 16), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 36:                                               ; preds = %.loopexit.i
   %37 = tail call ptr @h5tools_getprogname() #22
@@ -575,158 +575,158 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %41 = icmp slt i32 %40, 1
   %..i = select i1 %41, i32 65535, i32 %40
   store i32 %..i, ptr @h5tools_nCols, align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 42:                                               ; preds = %.loopexit.i
   store i32 0, ptr @dump_opts, align 4
-  br i1 %13, label %.lr.ph345.i, label %.loopexit183.i
+  br i1 %13, label %.lr.ph347.i, label %.loopexit185.i
 
-43:                                               ; preds = %.lr.ph345.i
-  %indvars.iv.next528.i = add nuw nsw i64 %indvars.iv527.i, 1
-  %exitcond531.not.i = icmp eq i64 %indvars.iv.next528.i, %wide.trip.count.i
-  br i1 %exitcond531.not.i, label %.loopexit183.i, label %.lr.ph345.i
+43:                                               ; preds = %.lr.ph347.i
+  %indvars.iv.next530.i = add nuw nsw i64 %indvars.iv529.i, 1
+  %exitcond533.not.i = icmp eq i64 %indvars.iv.next530.i, %wide.trip.count.i
+  br i1 %exitcond533.not.i, label %.loopexit185.i, label %.lr.ph347.i
 
-.lr.ph345.i:                                      ; preds = %42, %43
-  %indvars.iv527.i = phi i64 [ %indvars.iv.next528.i, %43 ], [ 0, %42 ]
-  %44 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv527.i
+.lr.ph347.i:                                      ; preds = %42, %43
+  %indvars.iv529.i = phi i64 [ %indvars.iv.next530.i, %43 ], [ 0, %42 ]
+  %44 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv529.i
   %45 = load ptr, ptr %44, align 8
-  %.not166.i = icmp eq ptr %45, null
-  br i1 %.not166.i, label %46, label %43
+  %.not168.i = icmp eq ptr %45, null
+  br i1 %.not168.i, label %46, label %43
 
-46:                                               ; preds = %.lr.ph345.i
+46:                                               ; preds = %.lr.ph347.i
   store ptr @handle_paths, ptr %44, align 8
   %47 = load ptr, ptr @H5_optarg, align 8
   %48 = tail call noalias ptr @strdup(ptr noundef %47) #22
   %49 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %48, ptr %49, align 8
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 50:                                               ; preds = %.loopexit.i
   store i32 0, ptr @dump_opts, align 4
-  br i1 %13, label %.lr.ph343.i, label %.loopexit183.i
+  br i1 %13, label %.lr.ph345.i, label %.loopexit185.i
 
-51:                                               ; preds = %.lr.ph343.i
-  %indvars.iv.next523.i = add nuw nsw i64 %indvars.iv522.i, 1
-  %exitcond526.not.i = icmp eq i64 %indvars.iv.next523.i, %wide.trip.count.i
-  br i1 %exitcond526.not.i, label %.loopexit183.i, label %.lr.ph343.i
+51:                                               ; preds = %.lr.ph345.i
+  %indvars.iv.next525.i = add nuw nsw i64 %indvars.iv524.i, 1
+  %exitcond528.not.i = icmp eq i64 %indvars.iv.next525.i, %wide.trip.count.i
+  br i1 %exitcond528.not.i, label %.loopexit185.i, label %.lr.ph345.i
 
-.lr.ph343.i:                                      ; preds = %50, %51
-  %indvars.iv522.i = phi i64 [ %indvars.iv.next523.i, %51 ], [ 0, %50 ]
-  %52 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv522.i
+.lr.ph345.i:                                      ; preds = %50, %51
+  %indvars.iv524.i = phi i64 [ %indvars.iv.next525.i, %51 ], [ 0, %50 ]
+  %52 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv524.i
   %53 = load ptr, ptr %52, align 8
-  %.not165.i = icmp eq ptr %53, null
-  br i1 %.not165.i, label %54, label %51
+  %.not167.i = icmp eq ptr %53, null
+  br i1 %.not167.i, label %54, label %51
 
-54:                                               ; preds = %.lr.ph343.i
+54:                                               ; preds = %.lr.ph345.i
   store ptr @handle_attributes, ptr %52, align 8
   %55 = load ptr, ptr @H5_optarg, align 8
   %56 = tail call noalias ptr @strdup(ptr noundef %55) #22
   %57 = getelementptr inbounds i8, ptr %52, i64 8
   store ptr %56, ptr %57, align 8
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 58:                                               ; preds = %.loopexit.i
   store i32 0, ptr @dump_opts, align 4
-  br i1 %13, label %.lr.ph341.i, label %.loopexit183.i
+  br i1 %13, label %.lr.ph343.i, label %.loopexit185.i
 
-59:                                               ; preds = %.lr.ph341.i
-  %indvars.iv.next518.i = add nuw nsw i64 %indvars.iv517.i, 1
-  %exitcond521.not.i = icmp eq i64 %indvars.iv.next518.i, %wide.trip.count.i
-  br i1 %exitcond521.not.i, label %.loopexit183.i, label %.lr.ph341.i
+59:                                               ; preds = %.lr.ph343.i
+  %indvars.iv.next520.i = add nuw nsw i64 %indvars.iv519.i, 1
+  %exitcond523.not.i = icmp eq i64 %indvars.iv.next520.i, %wide.trip.count.i
+  br i1 %exitcond523.not.i, label %.loopexit185.i, label %.lr.ph343.i
 
-.lr.ph341.i:                                      ; preds = %58, %59
-  %indvars.iv517.i = phi i64 [ %indvars.iv.next518.i, %59 ], [ 0, %58 ]
-  %60 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv517.i
+.lr.ph343.i:                                      ; preds = %58, %59
+  %indvars.iv519.i = phi i64 [ %indvars.iv.next520.i, %59 ], [ 0, %58 ]
+  %60 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv519.i
   %61 = load ptr, ptr %60, align 8
-  %.not163.i = icmp eq ptr %61, null
-  br i1 %.not163.i, label %62, label %59
+  %.not165.i = icmp eq ptr %61, null
+  br i1 %.not165.i, label %62, label %59
 
-62:                                               ; preds = %.lr.ph341.i
+62:                                               ; preds = %.lr.ph343.i
   store ptr @handle_datasets, ptr %60, align 8
   %63 = load ptr, ptr @H5_optarg, align 8
   %64 = tail call noalias ptr @strdup(ptr noundef %63) #22
   %65 = getelementptr inbounds i8, ptr %60, i64 8
   store ptr %64, ptr %65, align 8
   %66 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 48), align 4
-  %.not164.i = icmp eq i32 %66, 0
-  br i1 %.not164.i, label %67, label %.loopexit183.i
+  %.not166.i = icmp eq i32 %66, 0
+  br i1 %.not166.i, label %67, label %.loopexit185.i
 
 67:                                               ; preds = %62
   %68 = tail call ptr @parse_subset_params(ptr noundef %64) #22
   %69 = getelementptr inbounds i8, ptr %60, i64 16
   store ptr %68, ptr %69, align 8
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 70:                                               ; preds = %.loopexit.i
   store i32 0, ptr @vfd_info_g, align 8
   %71 = load ptr, ptr @H5_optarg, align 8
   store ptr %71, ptr getelementptr inbounds (i8, ptr @vfd_info_g, i64 16), align 8
   store i1 true, ptr @use_custom_vfd_g, align 1
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 72:                                               ; preds = %.loopexit.i
   store i32 0, ptr @dump_opts, align 4
-  br i1 %13, label %.lr.ph339.i, label %.loopexit183.i
+  br i1 %13, label %.lr.ph341.i, label %.loopexit185.i
 
-73:                                               ; preds = %.lr.ph339.i
-  %indvars.iv.next513.i = add nuw nsw i64 %indvars.iv512.i, 1
-  %exitcond516.not.i = icmp eq i64 %indvars.iv.next513.i, %wide.trip.count.i
-  br i1 %exitcond516.not.i, label %.loopexit183.i, label %.lr.ph339.i
+73:                                               ; preds = %.lr.ph341.i
+  %indvars.iv.next515.i = add nuw nsw i64 %indvars.iv514.i, 1
+  %exitcond518.not.i = icmp eq i64 %indvars.iv.next515.i, %wide.trip.count.i
+  br i1 %exitcond518.not.i, label %.loopexit185.i, label %.lr.ph341.i
 
-.lr.ph339.i:                                      ; preds = %72, %73
-  %indvars.iv512.i = phi i64 [ %indvars.iv.next513.i, %73 ], [ 0, %72 ]
-  %74 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv512.i
+.lr.ph341.i:                                      ; preds = %72, %73
+  %indvars.iv514.i = phi i64 [ %indvars.iv.next515.i, %73 ], [ 0, %72 ]
+  %74 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv514.i
   %75 = load ptr, ptr %74, align 8
-  %.not162.i = icmp eq ptr %75, null
-  br i1 %.not162.i, label %76, label %73
+  %.not164.i = icmp eq ptr %75, null
+  br i1 %.not164.i, label %76, label %73
 
-76:                                               ; preds = %.lr.ph339.i
+76:                                               ; preds = %.lr.ph341.i
   store ptr @handle_groups, ptr %74, align 8
   %77 = load ptr, ptr @H5_optarg, align 8
   %78 = tail call noalias ptr @strdup(ptr noundef %77) #22
   %79 = getelementptr inbounds i8, ptr %74, i64 8
   store ptr %78, ptr %79, align 8
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 80:                                               ; preds = %.loopexit.i
   store i32 0, ptr @dump_opts, align 4
-  br i1 %13, label %.lr.ph337.i, label %.loopexit183.i
+  br i1 %13, label %.lr.ph339.i, label %.loopexit185.i
 
-81:                                               ; preds = %.lr.ph337.i
-  %indvars.iv.next508.i = add nuw nsw i64 %indvars.iv507.i, 1
-  %exitcond511.not.i = icmp eq i64 %indvars.iv.next508.i, %wide.trip.count.i
-  br i1 %exitcond511.not.i, label %.loopexit183.i, label %.lr.ph337.i
+81:                                               ; preds = %.lr.ph339.i
+  %indvars.iv.next510.i = add nuw nsw i64 %indvars.iv509.i, 1
+  %exitcond513.not.i = icmp eq i64 %indvars.iv.next510.i, %wide.trip.count.i
+  br i1 %exitcond513.not.i, label %.loopexit185.i, label %.lr.ph339.i
 
-.lr.ph337.i:                                      ; preds = %80, %81
-  %indvars.iv507.i = phi i64 [ %indvars.iv.next508.i, %81 ], [ 0, %80 ]
-  %82 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv507.i
+.lr.ph339.i:                                      ; preds = %80, %81
+  %indvars.iv509.i = phi i64 [ %indvars.iv.next510.i, %81 ], [ 0, %80 ]
+  %82 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv509.i
   %83 = load ptr, ptr %82, align 8
-  %.not161.i = icmp eq ptr %83, null
-  br i1 %.not161.i, label %84, label %81
+  %.not163.i = icmp eq ptr %83, null
+  br i1 %.not163.i, label %84, label %81
 
-84:                                               ; preds = %.lr.ph337.i
+84:                                               ; preds = %.lr.ph339.i
   store ptr @handle_links, ptr %82, align 8
   %85 = load ptr, ptr @H5_optarg, align 8
   %86 = tail call noalias ptr @strdup(ptr noundef %85) #22
   %87 = getelementptr inbounds i8, ptr %82, i64 8
   store ptr %86, ptr %87, align 8
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 88:                                               ; preds = %.loopexit.i
   store i32 0, ptr @dump_opts, align 4
-  br i1 %13, label %.lr.ph.i, label %.loopexit183.i
+  br i1 %13, label %.lr.ph.i, label %.loopexit185.i
 
 89:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit183.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.loopexit185.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %88, %89
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %89 ], [ 0, %88 ]
   %90 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv.i
   %91 = load ptr, ptr %90, align 8
-  %.not160.i = icmp eq ptr %91, null
-  br i1 %.not160.i, label %92, label %89
+  %.not162.i = icmp eq ptr %91, null
+  br i1 %.not162.i, label %92, label %89
 
 92:                                               ; preds = %.lr.ph.i
   store ptr @handle_datatypes, ptr %90, align 8
@@ -734,13 +734,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %94 = tail call noalias ptr @strdup(ptr noundef %93) #22
   %95 = getelementptr inbounds i8, ptr %90, i64 8
   store ptr %94, ptr %95, align 8
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 96:                                               ; preds = %.loopexit.i
   %97 = load ptr, ptr @H5_optarg, align 8
   %98 = tail call i32 @h5tools_set_output_file(ptr noundef %97, i32 noundef 0) #22
   %99 = icmp slt i32 %98, 0
-  br i1 %99, label %100, label %.loopexit183.i
+  br i1 %99, label %100, label %.loopexit185.i
 
 100:                                              ; preds = %96
   %101 = tail call ptr @h5tools_getprogname() #22
@@ -749,8 +749,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 102:                                              ; preds = %.loopexit.i
   %103 = load i32, ptr @bin_output, align 4
-  %.not159.i = icmp eq i32 %103, 0
-  br i1 %.not159.i, label %110, label %104
+  %.not161.i = icmp eq i32 %103, 0
+  br i1 %.not161.i, label %110, label %104
 
 104:                                              ; preds = %102
   %105 = load ptr, ptr @H5_optarg, align 8
@@ -775,9 +775,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %116 = load ptr, ptr @H5_optarg, align 8
   %117 = tail call i32 @h5tools_set_attr_output_file(ptr noundef %116, i32 noundef 0) #22
   %118 = icmp slt i32 %117, 0
-  br i1 %118, label %119, label %._crit_edge532.i
+  br i1 %118, label %119, label %._crit_edge534.i
 
-._crit_edge532.i:                                 ; preds = %115
+._crit_edge534.i:                                 ; preds = %115
   %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 8), align 4
   br label %121
 
@@ -786,13 +786,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call fastcc void @usage(ptr noundef %120)
   br label %342
 
-121:                                              ; preds = %._crit_edge532.i, %110
-  %122 = phi i32 [ %.pre.i, %._crit_edge532.i ], [ %113, %110 ]
+121:                                              ; preds = %._crit_edge534.i, %110
+  %122 = phi i32 [ %.pre.i, %._crit_edge534.i ], [ %113, %110 ]
   %123 = icmp ne i32 %122, 0
   %124 = load i32, ptr @dump_opts, align 4
   %125 = icmp ne i32 %124, 0
-  %or.cond3.i = select i1 %123, i1 true, i1 %125
-  br i1 %or.cond3.i, label %126, label %132
+  %or.cond4.i = select i1 %123, i1 true, i1 %125
+  br i1 %or.cond4.i, label %126, label %132
 
 126:                                              ; preds = %121
   %127 = load ptr, ptr @H5_optarg, align 8
@@ -809,12 +809,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 20), align 4
   %133 = load ptr, ptr @H5_optarg, align 8
   store ptr %133, ptr @outfname_g, align 8
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 134:                                              ; preds = %.loopexit.i
   %135 = load ptr, ptr @H5_optarg, align 8
-  %.not157.i = icmp eq ptr %135, null
-  br i1 %.not157.i, label %141, label %136
+  %.not159.i = icmp eq ptr %135, null
+  br i1 %.not159.i, label %141, label %136
 
 136:                                              ; preds = %134
   %137 = tail call fastcc i32 @set_binary_form(ptr noundef nonnull %135)
@@ -830,13 +830,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 141:                                              ; preds = %136, %134
   store i32 1, ptr @bin_output, align 4
   %142 = load ptr, ptr @outfname_g, align 8
-  %.not158.i = icmp eq ptr %142, null
-  br i1 %.not158.i, label %.loopexit183.i, label %143
+  %.not160.i = icmp eq ptr %142, null
+  br i1 %.not160.i, label %.loopexit185.i, label %143
 
 143:                                              ; preds = %141
   %144 = tail call i32 @h5tools_set_data_output_file(ptr noundef nonnull %142, i32 noundef 1) #22
   %145 = icmp slt i32 %144, 0
-  br i1 %145, label %146, label %.loopexit183.i
+  br i1 %145, label %146, label %.loopexit185.i
 
 146:                                              ; preds = %143
   %147 = tail call ptr @h5tools_getprogname() #22
@@ -857,7 +857,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 set_sort_by.exit.thread.i:                        ; preds = %152, %148
   %.0.i.ph.i = phi i32 [ 0, %148 ], [ 1, %152 ]
   store i32 %.0.i.ph.i, ptr @sort_by, align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 155:                                              ; preds = %152
   store i32 -1, ptr @sort_by, align 4
@@ -877,9 +877,9 @@ set_sort_by.exit.thread.i:                        ; preds = %152, %148
   br i1 %163, label %set_sort_order.exit.thread.i, label %164
 
 set_sort_order.exit.thread.i:                     ; preds = %161, %157
-  %.0.i172.ph.i = phi i32 [ 0, %157 ], [ 1, %161 ]
-  store i32 %.0.i172.ph.i, ptr @sort_order, align 4
-  br label %.loopexit183.i
+  %.0.i174.ph.i = phi i32 [ 0, %157 ], [ 1, %161 ]
+  store i32 %.0.i174.ph.i, ptr @sort_order, align 4
+  br label %.loopexit185.i
 
 164:                                              ; preds = %161
   store i32 -1, ptr @sort_order, align 4
@@ -888,11 +888,11 @@ set_sort_order.exit.thread.i:                     ; preds = %161, %157
   br label %342
 
 166:                                              ; preds = %.loopexit.i
-  %.not155.i = icmp eq i32 %.1.i, 0
-  br i1 %.not155.i, label %167, label %168
+  %.not157.i = icmp eq i32 %.1.i, 0
+  br i1 %.not157.i, label %167, label %168
 
 167:                                              ; preds = %166
-  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.35, i32 noundef %.0111.i) #22
+  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.35, i32 noundef %.0113.i) #22
   br label %342
 
 168:                                              ; preds = %166
@@ -1064,18 +1064,18 @@ set_sort_order.exit.thread.i:                     ; preds = %161, %157
 
 parse_mask_list.exit.i:                           ; preds = %._crit_edge.i.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 52), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 240:                                              ; preds = %.loopexit.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 60), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 241:                                              ; preds = %.loopexit.i
   %242 = load ptr, ptr @H5_optarg, align 8
   %243 = tail call i32 @atoi(ptr nocapture noundef %242) #24
   store i32 %243, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 64), align 4
   %244 = icmp slt i32 %243, 0
-  br i1 %244, label %245, label %.loopexit183.i
+  br i1 %244, label %245, label %.loopexit185.i
 
 245:                                              ; preds = %241
   %246 = tail call ptr @h5tools_getprogname() #22
@@ -1088,7 +1088,7 @@ parse_mask_list.exit.i:                           ; preds = %._crit_edge.i.i
   store ptr null, ptr @h5tools_dump_header_format, align 8
   store ptr @xml_function_table, ptr @dump_function_table, align 8
   store i32 0, ptr @h5tools_nCols, align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 248:                                              ; preds = %.loopexit.i
   store i1 true, ptr @doxml_g, align 1
@@ -1097,19 +1097,19 @@ parse_mask_list.exit.i:                           ; preds = %._crit_edge.i.i
   store ptr null, ptr @h5tools_dump_header_format, align 8
   store ptr @xml_function_table, ptr @dump_function_table, align 8
   store i32 0, ptr @h5tools_nCols, align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 249:                                              ; preds = %.loopexit.i
   %250 = load ptr, ptr @H5_optarg, align 8
   store ptr %250, ptr @xml_dtd_uri_g, align 8
   store i32 0, ptr @h5tools_nCols, align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 251:                                              ; preds = %.loopexit.i
   %252 = load ptr, ptr @H5_optarg, align 8
   store ptr %252, ptr @fp_format, align 8
   store i32 0, ptr @h5tools_nCols, align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 253:                                              ; preds = %.loopexit.i
   %.b.i = load i1, ptr @useschema_g, align 1
@@ -1125,8 +1125,8 @@ sub_0.i:                                          ; preds = %253
   %257 = load i8, ptr %256, align 1
   %258 = zext i8 %257 to i32
   %259 = add nsw i32 %258, -58
-  %.not349.i = icmp eq i32 %259, 0
-  br i1 %.not349.i, label %sub_1.i, label %.tail.i
+  %.not351.i = icmp eq i32 %259, 0
+  br i1 %.not351.i, label %sub_1.i, label %.tail.i
 
 sub_1.i:                                          ; preds = %sub_0.i
   %260 = getelementptr inbounds i8, ptr %256, i64 1
@@ -1140,20 +1140,20 @@ sub_1.i:                                          ; preds = %sub_0.i
   %.str.14..i = select i1 %264, ptr @.str.14, ptr %256
   store ptr %.str.14..i, ptr @xmlnsprefix, align 8
   store i32 0, ptr @h5tools_nCols, align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 265:                                              ; preds = %.loopexit.i, %.loopexit.i, %.loopexit.i, %.loopexit.i
-  %.not145.i = icmp eq i32 %.1.i, 0
-  br i1 %.not145.i, label %266, label %267
+  %.not147.i = icmp eq i32 %.1.i, 0
+  br i1 %.not147.i, label %266, label %267
 
 266:                                              ; preds = %265
-  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.35, i32 noundef %.0111.i) #22
+  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.35, i32 noundef %.0113.i) #22
   br label %342
 
 267:                                              ; preds = %265
   %268 = load ptr, ptr %15, align 8
-  %.not146.i = icmp eq ptr %268, null
-  br i1 %.not146.i, label %269, label %271
+  %.not148.i = icmp eq ptr %268, null
+  br i1 %.not148.i, label %269, label %271
 
 269:                                              ; preds = %267
   %270 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #23
@@ -1168,9 +1168,9 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %275
 
 275:                                              ; preds = %287, %271
-  %.1112.i = phi i32 [ %.0111.i, %271 ], [ %289, %287 ]
-  %sext147.i = shl i32 %.1112.i, 24
-  %276 = ashr exact i32 %sext147.i, 24
+  %.1114.i = phi i32 [ %.0113.i, %271 ], [ %289, %287 ]
+  %sext149.i = shl i32 %.1114.i, 24
+  %276 = ashr exact i32 %sext149.i, 24
   %277 = add nsw i32 %276, -83
   %278 = tail call i32 @llvm.fshl.i32(i32 %277, i32 %277, i32 29)
   switch i32 %278, label %.loopexit.i [
@@ -1182,56 +1182,56 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 279:                                              ; preds = %275
   %280 = load ptr, ptr %.0.i, align 8
-  %.not151.i = icmp eq ptr %280, null
-  br i1 %.not151.i, label %287, label %.sink.split689.i
+  %.not153.i = icmp eq ptr %280, null
+  br i1 %.not153.i, label %287, label %.sink.split691.i
 
 281:                                              ; preds = %275
   %282 = load ptr, ptr %274, align 8
-  %.not150.i = icmp eq ptr %282, null
-  br i1 %.not150.i, label %287, label %.sink.split689.i
+  %.not152.i = icmp eq ptr %282, null
+  br i1 %.not152.i, label %287, label %.sink.split691.i
 
 283:                                              ; preds = %275
   %284 = load ptr, ptr %273, align 8
-  %.not149.i = icmp eq ptr %284, null
-  br i1 %.not149.i, label %287, label %.sink.split689.i
+  %.not151.i = icmp eq ptr %284, null
+  br i1 %.not151.i, label %287, label %.sink.split691.i
 
 285:                                              ; preds = %275
   %286 = load ptr, ptr %272, align 8
-  %.not148.i = icmp eq ptr %286, null
-  br i1 %.not148.i, label %287, label %.sink.split689.i
+  %.not150.i = icmp eq ptr %286, null
+  br i1 %.not150.i, label %287, label %.sink.split691.i
 
-.sink.split689.i:                                 ; preds = %285, %283, %281, %279
-  %.sink691.i = phi ptr [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ]
-  %.sink690.i = phi ptr [ %.0.i, %279 ], [ %274, %281 ], [ %273, %283 ], [ %272, %285 ]
-  tail call void @free(ptr noundef nonnull %.sink691.i) #22
-  store ptr null, ptr %.sink690.i, align 8
+.sink.split691.i:                                 ; preds = %285, %283, %281, %279
+  %.sink693.i = phi ptr [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ]
+  %.sink692.i = phi ptr [ %.0.i, %279 ], [ %274, %281 ], [ %273, %283 ], [ %272, %285 ]
+  tail call void @free(ptr noundef nonnull %.sink693.i) #22
+  store ptr null, ptr %.sink692.i, align 8
   br label %287
 
-287:                                              ; preds = %.sink.split689.i, %285, %283, %281, %279
-  %.0.sink.i = phi ptr [ %.0.i, %279 ], [ %274, %281 ], [ %273, %283 ], [ %272, %285 ], [ %.sink690.i, %.sink.split689.i ]
+287:                                              ; preds = %.sink.split691.i, %285, %283, %281, %279
+  %.0.sink.i = phi ptr [ %.0.i, %279 ], [ %274, %281 ], [ %273, %283 ], [ %272, %285 ], [ %.sink692.i, %.sink.split691.i ]
   %288 = load ptr, ptr @H5_optarg, align 8
   tail call void @parse_hsize_list(ptr noundef %288, ptr noundef nonnull %.0.sink.i) #22
   %289 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull @l_opts) #22
-  %.not152.i = icmp eq i32 %289, -1
-  br i1 %.not152.i, label %.thread.i, label %275
+  %.not154.i = icmp eq i32 %289, -1
+  br i1 %.not154.i, label %.thread.i, label %275
 
 290:                                              ; preds = %.loopexit.i
   %291 = load ptr, ptr @H5_optarg, align 8
-  %.not144.i = icmp eq ptr %291, null
-  br i1 %.not144.i, label %294, label %292
+  %.not146.i = icmp eq ptr %291, null
+  br i1 %.not146.i, label %294, label %292
 
 292:                                              ; preds = %290
   %293 = tail call i32 @atoi(ptr nocapture noundef nonnull %291) #24
   store i32 %293, ptr @enable_error_stack, align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 294:                                              ; preds = %290
   store i32 1, ptr @enable_error_stack, align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 295:                                              ; preds = %.loopexit.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 48), align 4
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 296:                                              ; preds = %.loopexit.i
   %297 = tail call ptr @h5tools_getprogname() #22
@@ -1253,19 +1253,19 @@ sub_1.i:                                          ; preds = %sub_0.i
   %302 = tail call i32 @atoi(ptr nocapture noundef %301) #24
   store i32 %302, ptr getelementptr inbounds (i8, ptr @vol_info_g, i64 16), align 8
   store i1 true, ptr @use_custom_vol_g, align 1
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 303:                                              ; preds = %.loopexit.i
   store i32 0, ptr @vol_info_g, align 8
   %304 = load ptr, ptr @H5_optarg, align 8
   store ptr %304, ptr getelementptr inbounds (i8, ptr @vol_info_g, i64 16), align 8
   store i1 true, ptr @use_custom_vol_g, align 1
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 305:                                              ; preds = %.loopexit.i
   %306 = load ptr, ptr @H5_optarg, align 8
   store ptr %306, ptr getelementptr inbounds (i8, ptr @vol_info_g, i64 8), align 8
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 307:                                              ; preds = %.loopexit.i
   store i32 1, ptr @vfd_info_g, align 8
@@ -1273,54 +1273,54 @@ sub_1.i:                                          ; preds = %sub_0.i
   %309 = tail call i32 @atoi(ptr nocapture noundef %308) #24
   store i32 %309, ptr getelementptr inbounds (i8, ptr @vfd_info_g, i64 16), align 8
   store i1 true, ptr @use_custom_vfd_g, align 1
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 310:                                              ; preds = %.loopexit.i
   store i32 0, ptr @vfd_info_g, align 8
   %311 = load ptr, ptr @H5_optarg, align 8
   store ptr %311, ptr getelementptr inbounds (i8, ptr @vfd_info_g, i64 16), align 8
   store i1 true, ptr @use_custom_vfd_g, align 1
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 312:                                              ; preds = %.loopexit.i
   %313 = load ptr, ptr @H5_optarg, align 8
   store ptr %313, ptr getelementptr inbounds (i8, ptr @vfd_info_g, i64 8), align 8
-  br label %.loopexit183.i
+  br label %.loopexit185.i
 
 314:                                              ; preds = %.loopexit.i
   %315 = tail call ptr @h5tools_getprogname() #22
   tail call fastcc void @usage(ptr noundef %315)
   br label %342
 
-.loopexit183.i:                                   ; preds = %89, %81, %73, %59, %51, %43, %312, %310, %307, %305, %303, %300, %295, %294, %292, %.tail.i, %251, %249, %248, %247, %241, %240, %parse_mask_list.exit.i, %set_sort_order.exit.thread.i, %set_sort_by.exit.thread.i, %143, %141, %132, %96, %92, %88, %84, %80, %76, %72, %70, %67, %62, %58, %54, %50, %46, %42, %38, %35, %34, %33, %32, %29, %26, %25, %24, %23, %21, %19, %18, %17
-  %.2119.i = phi ptr [ %.0117347.i, %312 ], [ %.0117347.i, %310 ], [ %.0117347.i, %307 ], [ %.0117347.i, %305 ], [ %.0117347.i, %303 ], [ %.0117347.i, %300 ], [ %.0117347.i, %295 ], [ %.0117347.i, %292 ], [ %.0117347.i, %294 ], [ %.0117347.i, %.tail.i ], [ %.0117347.i, %251 ], [ %.0117347.i, %249 ], [ %.0117347.i, %248 ], [ %.0117347.i, %247 ], [ %.0117347.i, %241 ], [ %.0117347.i, %240 ], [ %.0117347.i, %parse_mask_list.exit.i ], [ %.0117347.i, %141 ], [ %.0117347.i, %132 ], [ %.0117347.i, %96 ], [ %.0117347.i, %70 ], [ %.0117347.i, %38 ], [ %.0117347.i, %35 ], [ %.0117347.i, %34 ], [ %.0117347.i, %32 ], [ %.0117347.i, %29 ], [ %.0117347.i, %33 ], [ %.0117347.i, %26 ], [ %.0117347.i, %25 ], [ %.0117347.i, %24 ], [ %.0117347.i, %23 ], [ %.0117347.i, %21 ], [ %.0117347.i, %19 ], [ %.0117347.i, %18 ], [ %.0117347.i, %17 ], [ %.0117347.i, %46 ], [ %.0117347.i, %54 ], [ %60, %67 ], [ %60, %62 ], [ %.0117347.i, %76 ], [ %.0117347.i, %84 ], [ %.0117347.i, %92 ], [ %.0117347.i, %143 ], [ %.0117347.i, %set_sort_by.exit.thread.i ], [ %.0117347.i, %set_sort_order.exit.thread.i ], [ %.0117347.i, %42 ], [ %.0117347.i, %50 ], [ %.0117347.i, %58 ], [ %.0117347.i, %72 ], [ %.0117347.i, %80 ], [ %.0117347.i, %88 ], [ %.0117347.i, %43 ], [ %.0117347.i, %51 ], [ %.0117347.i, %59 ], [ %.0117347.i, %73 ], [ %.0117347.i, %81 ], [ %.0117347.i, %89 ]
+.loopexit185.i:                                   ; preds = %89, %81, %73, %59, %51, %43, %312, %310, %307, %305, %303, %300, %295, %294, %292, %.tail.i, %251, %249, %248, %247, %241, %240, %parse_mask_list.exit.i, %set_sort_order.exit.thread.i, %set_sort_by.exit.thread.i, %143, %141, %132, %96, %92, %88, %84, %80, %76, %72, %70, %67, %62, %58, %54, %50, %46, %42, %38, %35, %34, %33, %32, %29, %26, %25, %24, %23, %21, %19, %18, %17
+  %.2121.i = phi ptr [ %.0119349.i, %312 ], [ %.0119349.i, %310 ], [ %.0119349.i, %307 ], [ %.0119349.i, %305 ], [ %.0119349.i, %303 ], [ %.0119349.i, %300 ], [ %.0119349.i, %295 ], [ %.0119349.i, %292 ], [ %.0119349.i, %294 ], [ %.0119349.i, %.tail.i ], [ %.0119349.i, %251 ], [ %.0119349.i, %249 ], [ %.0119349.i, %248 ], [ %.0119349.i, %247 ], [ %.0119349.i, %241 ], [ %.0119349.i, %240 ], [ %.0119349.i, %parse_mask_list.exit.i ], [ %.0119349.i, %141 ], [ %.0119349.i, %132 ], [ %.0119349.i, %96 ], [ %.0119349.i, %70 ], [ %.0119349.i, %38 ], [ %.0119349.i, %35 ], [ %.0119349.i, %34 ], [ %.0119349.i, %32 ], [ %.0119349.i, %29 ], [ %.0119349.i, %33 ], [ %.0119349.i, %26 ], [ %.0119349.i, %25 ], [ %.0119349.i, %24 ], [ %.0119349.i, %23 ], [ %.0119349.i, %21 ], [ %.0119349.i, %19 ], [ %.0119349.i, %18 ], [ %.0119349.i, %17 ], [ %.0119349.i, %46 ], [ %.0119349.i, %54 ], [ %60, %67 ], [ %60, %62 ], [ %.0119349.i, %76 ], [ %.0119349.i, %84 ], [ %.0119349.i, %92 ], [ %.0119349.i, %143 ], [ %.0119349.i, %set_sort_by.exit.thread.i ], [ %.0119349.i, %set_sort_order.exit.thread.i ], [ %.0119349.i, %42 ], [ %.0119349.i, %50 ], [ %.0119349.i, %58 ], [ %.0119349.i, %72 ], [ %.0119349.i, %80 ], [ %.0119349.i, %88 ], [ %.0119349.i, %43 ], [ %.0119349.i, %51 ], [ %.0119349.i, %59 ], [ %.0119349.i, %73 ], [ %.0119349.i, %81 ], [ %.0119349.i, %89 ]
   %.2.i = phi i32 [ %.1.i, %312 ], [ %.1.i, %310 ], [ %.1.i, %307 ], [ %.1.i, %305 ], [ %.1.i, %303 ], [ %.1.i, %300 ], [ %.1.i, %295 ], [ %.1.i, %292 ], [ %.1.i, %294 ], [ %.1.i, %.tail.i ], [ %.1.i, %251 ], [ %.1.i, %249 ], [ %.1.i, %248 ], [ %.1.i, %247 ], [ %.1.i, %241 ], [ %.1.i, %240 ], [ 1, %parse_mask_list.exit.i ], [ %.1.i, %141 ], [ 0, %132 ], [ %.1.i, %96 ], [ %.1.i, %70 ], [ 0, %38 ], [ %.1.i, %35 ], [ 0, %34 ], [ %.1.i, %32 ], [ %.1.i, %29 ], [ 0, %33 ], [ 0, %26 ], [ %.1.i, %25 ], [ %.1.i, %24 ], [ %.1.i, %23 ], [ 0, %21 ], [ 0, %19 ], [ 0, %18 ], [ %.1.i, %17 ], [ 0, %46 ], [ 0, %54 ], [ 1, %67 ], [ 1, %62 ], [ 0, %76 ], [ 0, %84 ], [ 0, %92 ], [ 0, %143 ], [ %.1.i, %set_sort_by.exit.thread.i ], [ %.1.i, %set_sort_order.exit.thread.i ], [ 0, %42 ], [ 0, %50 ], [ 1, %58 ], [ 0, %72 ], [ 0, %80 ], [ 0, %88 ], [ 0, %43 ], [ 0, %51 ], [ 1, %59 ], [ 0, %73 ], [ 0, %81 ], [ 0, %89 ]
   %316 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull @l_opts) #22
   %.not.i = icmp eq i32 %316, -1
   br i1 %.not.i, label %._crit_edge.i, label %.preheader.i
 
-._crit_edge.i:                                    ; preds = %.loopexit183.i, %.preheader189.i
+._crit_edge.i:                                    ; preds = %.loopexit185.i, %.preheader191.i
   %317 = load i32, ptr @vfd_info_g, align 8
   %318 = icmp eq i32 %317, 0
   %319 = load ptr, ptr getelementptr inbounds (i8, ptr @vfd_info_g, i64 16), align 8
   %320 = icmp ne ptr %319, null
-  %or.cond5.i = select i1 %318, i1 %320, i1 false
-  br i1 %or.cond5.i, label %321, label %.thread.i
+  %or.cond7.i = select i1 %318, i1 %320, i1 false
+  br i1 %or.cond7.i, label %321, label %.thread.i
 
 321:                                              ; preds = %._crit_edge.i
   %322 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %319, ptr noundef nonnull dereferenceable(6) @.str.39) #24
-  %.not141.i = icmp eq i32 %322, 0
-  br i1 %.not141.i, label %323, label %.thread.i
+  %.not143.i = icmp eq i32 %322, 0
+  br i1 %.not143.i, label %323, label %.thread.i
 
 323:                                              ; preds = %321
   %324 = load ptr, ptr getelementptr inbounds (i8, ptr @vfd_info_g, i64 8), align 8
-  %.not142.i = icmp eq ptr %324, null
-  br i1 %.not142.i, label %337, label %325
+  %.not144.i = icmp eq ptr %324, null
+  br i1 %.not144.i, label %337, label %325
 
 325:                                              ; preds = %323
   %326 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %324, ptr noundef nonnull dereferenceable(15) @.str.40) #24
-  %.not143.i = icmp eq i32 %326, 0
-  br i1 %.not143.i, label %327, label %328
+  %.not145.i = icmp eq i32 %326, 0
+  br i1 %.not145.i, label %327, label %328
 
 327:                                              ; preds = %325
   store i1 true, ptr @get_onion_revision_count, align 1
@@ -1354,8 +1354,8 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 .thread.i:                                        ; preds = %287, %338, %321, %._crit_edge.i
   %339 = load i32, ptr @H5_optind, align 4
-  %.not154.i = icmp slt i32 %339, %0
-  br i1 %.not154.i, label %parse_command_line.exit, label %340
+  %.not156.i = icmp slt i32 %339, %0
+  br i1 %.not156.i, label %parse_command_line.exit, label %340
 
 340:                                              ; preds = %.thread.i
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.10) #22
@@ -1369,13 +1369,13 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 .sink.split.i:                                    ; preds = %342, %299, %298, %296, %36, %8, %6
   %.sink.i = phi i32 [ 0, %36 ], [ 0, %296 ], [ 1, %298 ], [ 1, %299 ], [ 1, %8 ], [ 1, %6 ], [ 1, %342 ]
-  %.0109.ph.i = phi ptr [ null, %36 ], [ null, %296 ], [ %10, %298 ], [ %10, %299 ], [ null, %8 ], [ null, %6 ], [ null, %342 ]
+  %.0111.ph.i = phi ptr [ null, %36 ], [ null, %296 ], [ %10, %298 ], [ %10, %299 ], [ null, %8 ], [ null, %6 ], [ null, %342 ]
   tail call void @h5tools_setstatus(i32 noundef %.sink.i) #22
   br label %parse_command_line.exit
 
 parse_command_line.exit:                          ; preds = %.thread.i, %.sink.split.i
-  %.0109.i = phi ptr [ %10, %.thread.i ], [ %.0109.ph.i, %.sink.split.i ]
-  %343 = icmp eq ptr %.0109.i, null
+  %.0111.i = phi ptr [ %10, %.thread.i ], [ %.0111.ph.i, %.sink.split.i ]
+  %343 = icmp eq ptr %.0111.i, null
   br i1 %343, label %.thread208, label %344
 
 344:                                              ; preds = %parse_command_line.exit
@@ -1911,7 +1911,7 @@ init_prefix.exit:                                 ; preds = %413, %415
 
 .lr.ph390:                                        ; preds = %.preheader, %569
   %indvars.iv = phi i64 [ %indvars.iv.next, %569 ], [ 0, %.preheader ]
-  %562 = getelementptr inbounds %struct.handler_t, ptr %.0109.i, i64 %indvars.iv
+  %562 = getelementptr inbounds %struct.handler_t, ptr %.0111.i, i64 %indvars.iv
   %563 = load ptr, ptr %562, align 8
   %.not165 = icmp eq ptr %563, null
   br i1 %.not165, label %569, label %564
@@ -2042,7 +2042,7 @@ init_prefix.exit:                                 ; preds = %413, %415
   br i1 %610, label %387, label %._crit_edge394
 
 ._crit_edge394:                                   ; preds = %608, %382
-  call fastcc void @free_handler(ptr noundef nonnull %.0109.i, i32 noundef %0)
+  call fastcc void @free_handler(ptr noundef nonnull %.0111.i, i32 noundef %0)
   %611 = call i32 @h5tools_getstatus() #22
   call void @h5tools_close() #22
   call void @exit(i32 noundef %611) #26
@@ -2113,7 +2113,7 @@ init_prefix.exit:                                 ; preds = %413, %415
   br i1 %343, label %629, label %628
 
 628:                                              ; preds = %627
-  call fastcc void @free_handler(ptr noundef nonnull %.0109.i, i32 noundef %0)
+  call fastcc void @free_handler(ptr noundef nonnull %.0111.i, i32 noundef %0)
   br label %629
 
 629:                                              ; preds = %628, %627

@@ -211,7 +211,7 @@ common.resume:                                    ; preds = %_ZNSt6vectorIP8AstC
   br label %common.resume
 
 18:                                               ; preds = %1, %15
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV13BranchVisitor, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BranchVisitor, i64 16), ptr %3, align 8
   call void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)

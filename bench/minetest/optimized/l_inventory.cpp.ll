@@ -3597,7 +3597,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8, !tbaa !70
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !12
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %toolcaps_overridden, align 8, !tbaa !52
   %toolcaps_override = getelementptr inbounds i8, ptr %this, i64 80

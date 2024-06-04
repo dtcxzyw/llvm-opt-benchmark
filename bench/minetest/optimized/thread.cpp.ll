@@ -76,7 +76,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN6ThreadC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6Thread, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6Thread, i64 16), ptr %this, align 8, !tbaa !4
   %m_name = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_name, align 8, !tbaa !7
@@ -129,7 +129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6Thread, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6Thread, i64 16), ptr %this, align 8, !tbaa !4
   %m_running = getelementptr inbounds i8, ptr %this, i64 50
   %0 = load atomic i8, ptr %m_running seq_cst, align 2
   %1 = and i8 %0, 1
@@ -306,7 +306,7 @@ invoke.cont4:                                     ; preds = %if.end
           to label %call.i.noexc unwind label %lpad6
 
 call.i.noexc:                                     ; preds = %invoke.cont4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP6ThreadES4_EEEEEE, i64 16), ptr %call.i28, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP6ThreadES4_EEEEEE, i64 16), ptr %call.i28, align 8, !tbaa !4
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i28, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8, !tbaa !31
   %2 = getelementptr inbounds i8, ptr %call.i28, i64 16

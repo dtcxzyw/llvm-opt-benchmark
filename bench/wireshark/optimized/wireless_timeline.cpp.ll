@@ -359,135 +359,137 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 65536
-  %8 = icmp ne i32 %7, 0
+  %.not39 = icmp eq i32 %7, 0
+  br i1 %.not39, label %8, label %85
+
+8:                                                ; preds = %2
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 376), align 8
-  %10 = icmp eq ptr %9, null
-  %or.cond.not = select i1 %8, i1 true, i1 %10
-  br i1 %or.cond.not, label %86, label %11
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %85, label %10
 
-11:                                               ; preds = %2
-  %12 = load i32, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 888
-  %14 = load ptr, ptr %13, align 8
-  %15 = zext i32 %12 to i64
-  %16 = inttoptr i64 %15 to ptr
-  %17 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef %16)
-  %18 = getelementptr inbounds i8, ptr %0, i64 840
-  %19 = load i64, ptr %18, align 8
-  %20 = uitofp i64 %19 to double
-  %21 = getelementptr inbounds i8, ptr %0, i64 848
-  %22 = load i64, ptr %21, align 8
-  %23 = uitofp i64 %22 to double
-  %24 = fmul double %23, 9.000000e-01
-  %25 = tail call double @llvm.fmuladd.f64(double %20, double 1.000000e-01, double %24)
-  %26 = fptoui double %25 to i32
-  %27 = sub i64 %22, %19
-  %28 = lshr i64 %27, 1
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %86, label %29
+10:                                               ; preds = %8
+  %11 = load i32, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 888
+  %13 = load ptr, ptr %12, align 8
+  %14 = zext i32 %11 to i64
+  %15 = inttoptr i64 %14 to ptr
+  %16 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef %15)
+  %17 = getelementptr inbounds i8, ptr %0, i64 840
+  %18 = load i64, ptr %17, align 8
+  %19 = uitofp i64 %18 to double
+  %20 = getelementptr inbounds i8, ptr %0, i64 848
+  %21 = load i64, ptr %20, align 8
+  %22 = uitofp i64 %21 to double
+  %23 = fmul double %22, 9.000000e-01
+  %24 = tail call double @llvm.fmuladd.f64(double %19, double 1.000000e-01, double %23)
+  %25 = fptoui double %24 to i32
+  %26 = sub i64 %21, %18
+  %27 = lshr i64 %26, 1
+  %.not38 = icmp eq ptr %16, null
+  br i1 %.not38, label %85, label %28
 
-29:                                               ; preds = %11
-  %30 = fmul double %23, 1.000000e-01
-  %31 = tail call double @llvm.fmuladd.f64(double %20, double 9.000000e-01, double %30)
-  %32 = fptoui double %31 to i32
-  %33 = getelementptr inbounds i8, ptr %17, i64 16
-  %34 = load i64, ptr %33, align 8
-  %35 = zext i32 %32 to i64
-  %36 = icmp ult i64 %34, %35
-  br i1 %36, label %37, label %50
+28:                                               ; preds = %10
+  %29 = fmul double %22, 1.000000e-01
+  %30 = tail call double @llvm.fmuladd.f64(double %19, double 9.000000e-01, double %29)
+  %31 = fptoui double %30 to i32
+  %32 = getelementptr inbounds i8, ptr %16, i64 16
+  %33 = load i64, ptr %32, align 8
+  %34 = zext i32 %31 to i64
+  %35 = icmp ult i64 %33, %34
+  br i1 %35, label %36, label %49
 
-37:                                               ; preds = %29
-  %38 = sub nsw i64 %35, %34
-  %39 = icmp ult i64 %38, %28
-  br i1 %39, label %40, label %43
+36:                                               ; preds = %28
+  %37 = sub nsw i64 %34, %33
+  %38 = icmp ult i64 %37, %27
+  br i1 %38, label %39, label %42
 
-40:                                               ; preds = %37
-  %41 = sub i64 %19, %38
-  store i64 %41, ptr %18, align 8
-  %42 = sub i64 %22, %38
+39:                                               ; preds = %36
+  %40 = sub i64 %18, %37
+  store i64 %40, ptr %17, align 8
+  %41 = sub i64 %21, %37
   br label %.sink.split
 
-43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %17, i64 24
-  %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, %34
-  %47 = lshr i64 %46, 1
-  %48 = sub nsw i64 %47, %28
-  store i64 %48, ptr %18, align 8
-  %49 = add nuw i64 %47, %28
+42:                                               ; preds = %36
+  %43 = getelementptr inbounds i8, ptr %16, i64 24
+  %44 = load i64, ptr %43, align 8
+  %45 = add i64 %44, %33
+  %46 = lshr i64 %45, 1
+  %47 = sub nsw i64 %46, %27
+  store i64 %47, ptr %17, align 8
+  %48 = add nuw i64 %46, %27
   br label %.sink.split
 
-50:                                               ; preds = %29
-  %51 = getelementptr inbounds i8, ptr %17, i64 24
-  %52 = load i64, ptr %51, align 8
-  %53 = zext i32 %26 to i64
-  %54 = icmp ugt i64 %52, %53
-  br i1 %54, label %55, label %66
+49:                                               ; preds = %28
+  %50 = getelementptr inbounds i8, ptr %16, i64 24
+  %51 = load i64, ptr %50, align 8
+  %52 = zext i32 %25 to i64
+  %53 = icmp ugt i64 %51, %52
+  br i1 %53, label %54, label %65
 
-55:                                               ; preds = %50
-  %56 = sub i64 %52, %53
-  %57 = icmp ult i64 %56, %28
-  br i1 %57, label %58, label %61
+54:                                               ; preds = %49
+  %55 = sub i64 %51, %52
+  %56 = icmp ult i64 %55, %27
+  br i1 %56, label %57, label %60
 
-58:                                               ; preds = %55
-  %59 = add i64 %56, %19
-  store i64 %59, ptr %18, align 8
-  %60 = add i64 %56, %22
+57:                                               ; preds = %54
+  %58 = add i64 %55, %18
+  store i64 %58, ptr %17, align 8
+  %59 = add i64 %55, %21
   br label %.sink.split
 
-61:                                               ; preds = %55
-  %62 = add i64 %52, %34
-  %63 = lshr i64 %62, 1
-  %64 = sub nsw i64 %63, %28
-  store i64 %64, ptr %18, align 8
-  %65 = add nuw i64 %63, %28
+60:                                               ; preds = %54
+  %61 = add i64 %51, %33
+  %62 = lshr i64 %61, 1
+  %63 = sub nsw i64 %62, %27
+  store i64 %63, ptr %17, align 8
+  %64 = add nuw i64 %62, %27
   br label %.sink.split
 
-.sink.split:                                      ; preds = %43, %40, %58, %61
-  %.sink = phi i64 [ %65, %61 ], [ %60, %58 ], [ %42, %40 ], [ %49, %43 ]
-  %.ph41 = phi i64 [ %64, %61 ], [ %59, %58 ], [ %41, %40 ], [ %48, %43 ]
-  store i64 %.sink, ptr %21, align 8
-  br label %66
+.sink.split:                                      ; preds = %42, %39, %57, %60
+  %.sink = phi i64 [ %64, %60 ], [ %59, %57 ], [ %41, %39 ], [ %48, %42 ]
+  %.ph41 = phi i64 [ %63, %60 ], [ %58, %57 ], [ %40, %39 ], [ %47, %42 ]
+  store i64 %.sink, ptr %20, align 8
+  br label %65
 
-66:                                               ; preds = %.sink.split, %50
-  %67 = phi i64 [ %22, %50 ], [ %.sink, %.sink.split ]
-  %68 = phi i64 [ %19, %50 ], [ %.ph41, %.sink.split ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 864
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
-  %72 = load i64, ptr %71, align 8
-  %73 = icmp slt i64 %68, %72
-  br i1 %73, label %74, label %._crit_edge.i
+65:                                               ; preds = %.sink.split, %49
+  %66 = phi i64 [ %21, %49 ], [ %.sink, %.sink.split ]
+  %67 = phi i64 [ %18, %49 ], [ %.ph41, %.sink.split ]
+  %68 = getelementptr inbounds i8, ptr %0, i64 864
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %71 = load i64, ptr %70, align 8
+  %72 = icmp slt i64 %67, %71
+  br i1 %72, label %73, label %._crit_edge.i
 
-74:                                               ; preds = %66
-  %75 = sub i64 %72, %68
-  store i64 %72, ptr %18, align 8
-  %76 = add i64 %67, %75
-  store i64 %76, ptr %21, align 8
+73:                                               ; preds = %65
+  %74 = sub i64 %71, %67
+  store i64 %71, ptr %17, align 8
+  %75 = add i64 %66, %74
+  store i64 %75, ptr %20, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %66, %74
-  %77 = phi i64 [ %72, %74 ], [ %68, %66 ]
-  %78 = phi i64 [ %76, %74 ], [ %67, %66 ]
-  %79 = getelementptr inbounds i8, ptr %0, i64 872
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 24
-  %82 = load i64, ptr %81, align 8
-  %83 = icmp ugt i64 %78, %82
-  br i1 %83, label %84, label %_ZN16WirelessTimeline8clip_tsfEv.exit
+._crit_edge.i:                                    ; preds = %65, %73
+  %76 = phi i64 [ %71, %73 ], [ %67, %65 ]
+  %77 = phi i64 [ %75, %73 ], [ %66, %65 ]
+  %78 = getelementptr inbounds i8, ptr %0, i64 872
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %81 = load i64, ptr %80, align 8
+  %82 = icmp ugt i64 %77, %81
+  br i1 %82, label %83, label %_ZN16WirelessTimeline8clip_tsfEv.exit
 
-84:                                               ; preds = %._crit_edge.i
-  %.neg.i = sub i64 %77, %78
-  %85 = add i64 %.neg.i, %82
-  store i64 %85, ptr %18, align 8
-  store i64 %82, ptr %21, align 8
+83:                                               ; preds = %._crit_edge.i
+  %.neg.i = sub i64 %76, %77
+  %84 = add i64 %.neg.i, %81
+  store i64 %84, ptr %17, align 8
+  store i64 %81, ptr %20, align 8
   br label %_ZN16WirelessTimeline8clip_tsfEv.exit
 
-_ZN16WirelessTimeline8clip_tsfEv.exit:            ; preds = %._crit_edge.i, %84
+_ZN16WirelessTimeline8clip_tsfEv.exit:            ; preds = %._crit_edge.i, %83
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  br label %86
+  br label %85
 
-86:                                               ; preds = %11, %_ZN16WirelessTimeline8clip_tsfEv.exit, %2
+85:                                               ; preds = %10, %_ZN16WirelessTimeline8clip_tsfEv.exit, %2, %8
   ret void
 }
 

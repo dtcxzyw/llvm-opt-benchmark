@@ -3321,9 +3321,9 @@ define void @_ZN14colvarbias_albC1EPKc(ptr noundef nonnull align 8 dereferenceab
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  store ptr getelementptr inbounds inrange(-32, 264) (i8, ptr @_ZTV14colvarbias_alb, i64 32), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV14colvarbias_alb, i64 368), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV14colvarbias_alb, i64 488), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14colvarbias_alb, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14colvarbias_alb, i64 368), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14colvarbias_alb, i64 488), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 312
   %8 = getelementptr inbounds i8, ptr %0, i64 392
   %9 = getelementptr inbounds i8, ptr %0, i64 536

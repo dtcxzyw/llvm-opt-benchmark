@@ -58,8 +58,8 @@ define range(i32 -12, 1) i32 @pmix_util_getid(i32 noundef %0, ptr nocapture noun
 
 16:                                               ; preds = %13
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
-  %or.cond3 = icmp ult i32 %17, 64
-  br i1 %or.cond3, label %18, label %32
+  %or.cond5 = icmp ult i32 %17, 64
+  br i1 %or.cond5, label %18, label %32
 
 18:                                               ; preds = %16
   %19 = zext nneg i32 %17 to i64

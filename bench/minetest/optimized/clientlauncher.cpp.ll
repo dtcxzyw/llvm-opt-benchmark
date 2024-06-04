@@ -637,7 +637,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15MainMenuManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15MainMenuManager, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15MainMenuManager, i64 16), ptr %this, align 8, !tbaa !12
   %m_stack = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_stack, align 8, !tbaa !14
   %cmp.not9.i.i = icmp eq ptr %0, %m_stack
@@ -1002,7 +1002,8 @@ _ZN15RenderingEngine16get_video_driverEv.exit:    ; preds = %land.lhs.true.i
   br i1 %tobool.not, label %if.then15, label %invoke.cont23
 
 if.then15:                                        ; preds = %_ZN15RenderingEngine16get_video_driverEv.exit
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %25, label %_ZTW11errorstream.exit370
+  %.not76 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not76, label %_ZTW11errorstream.exit370, label %25
 
 25:                                               ; preds = %if.then15
   call void @_ZTH11errorstream()
@@ -1070,7 +1071,7 @@ invoke.cont23:                                    ; preds = %_ZN15RenderingEngin
   %call20 = call noundef zeroext i1 @_ZN15RenderingEngine19setupTopLevelWindowEv(ptr noundef nonnull align 8 dereferenceable(24) %34)
   %call21 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call21, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV16MainGameCallback, i64 16), ptr %call21, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16MainGameCallback, i64 16), ptr %call21, align 8, !tbaa !12
   %disconnect_requested.i = getelementptr inbounds i8, ptr %call21, i64 8
   %show_open_url_dialog.i = getelementptr inbounds i8, ptr %call21, i64 16
   %35 = getelementptr inbounds i8, ptr %call21, i64 32
@@ -1240,6 +1241,7 @@ while.cond.preheader:                             ; preds = %_ZN6Clouds9setHeigh
   %74 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @errorstream)
   %arrayidx.i.i.i410 = getelementptr inbounds i8, ptr %ref.tmp81, i64 24
   %arrayidx.i.i.i700 = getelementptr inbounds i8, ptr %ref.tmp176, i64 28
+  %.not = icmp eq ptr @_ZTH11errorstream, null
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit772, %while.cond.preheader
@@ -2352,7 +2354,7 @@ catch241:                                         ; preds = %catch.dispatch
           to label %invoke.cont246 unwind label %lpad245
 
 invoke.cont246:                                   ; preds = %catch241
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %220, label %_ZTW11errorstream.exit726
+  br i1 %.not, label %_ZTW11errorstream.exit726, label %220
 
 220:                                              ; preds = %invoke.cont246
   call void @_ZTH11errorstream()
@@ -2419,7 +2421,7 @@ catch223:                                         ; preds = %catch.fallthrough
           to label %invoke.cont230 unwind label %lpad229
 
 invoke.cont230:                                   ; preds = %catch223
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %230, label %_ZTW11errorstream.exit738
+  br i1 %.not, label %_ZTW11errorstream.exit738, label %230
 
 230:                                              ; preds = %invoke.cont230
   call void @_ZTH11errorstream()
@@ -2478,7 +2480,7 @@ if.then.i.i746:                                   ; preds = %invoke.cont210
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit750: ; preds = %if.then.i.i746, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i747
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp206) #28
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %236, label %_ZTW11errorstream.exit751
+  br i1 %.not, label %_ZTW11errorstream.exit751, label %236
 
 236:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit750
   call void @_ZTH11errorstream()
@@ -3409,7 +3411,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #30
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %0, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15MyEventReceiver, i64 16), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15MyEventReceiver, i64 16), ptr %call, align 8, !tbaa !12
   %joystick.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %joystick.i, align 8, !tbaa !148
   %keyIsDown.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -3419,7 +3421,7 @@ entry:
   store ptr %1, ptr %1, align 8, !tbaa !14
   %_M_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8, !tbaa !156
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7KeyList, i64 16), ptr %keyIsDown.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7KeyList, i64 16), ptr %keyIsDown.i, align 8, !tbaa !12
   %keyWasDown.i = getelementptr inbounds i8, ptr %call, i64 56
   %2 = getelementptr inbounds i8, ptr %call, i64 64
   %_M_prev.i.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %call, i64 72
@@ -3427,7 +3429,7 @@ entry:
   store ptr %2, ptr %2, align 8, !tbaa !14
   %_M_size.i.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %call, i64 80
   store i64 0, ptr %_M_size.i.i.i.i.i.i3.i, align 8, !tbaa !156
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7KeyList, i64 16), ptr %keyWasDown.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7KeyList, i64 16), ptr %keyWasDown.i, align 8, !tbaa !12
   %keyWasPressed.i = getelementptr inbounds i8, ptr %call, i64 88
   %3 = getelementptr inbounds i8, ptr %call, i64 96
   %_M_prev.i.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %call, i64 104
@@ -3435,7 +3437,7 @@ entry:
   store ptr %3, ptr %3, align 8, !tbaa !14
   %_M_size.i.i.i.i.i.i5.i = getelementptr inbounds i8, ptr %call, i64 112
   store i64 0, ptr %_M_size.i.i.i.i.i.i5.i, align 8, !tbaa !156
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7KeyList, i64 16), ptr %keyWasPressed.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7KeyList, i64 16), ptr %keyWasPressed.i, align 8, !tbaa !12
   %keyWasReleased.i = getelementptr inbounds i8, ptr %call, i64 120
   %4 = getelementptr inbounds i8, ptr %call, i64 128
   %_M_prev.i.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %call, i64 136
@@ -3443,7 +3445,7 @@ entry:
   store ptr %4, ptr %4, align 8, !tbaa !14
   %_M_size.i.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %call, i64 144
   store i64 0, ptr %_M_size.i.i.i.i.i.i7.i, align 8, !tbaa !156
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7KeyList, i64 16), ptr %keyWasReleased.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7KeyList, i64 16), ptr %keyWasReleased.i, align 8, !tbaa !12
   %keysListenedFor.i = getelementptr inbounds i8, ptr %call, i64 152
   %5 = getelementptr inbounds i8, ptr %call, i64 160
   %_M_prev.i.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %call, i64 168
@@ -3451,7 +3453,7 @@ entry:
   store ptr %5, ptr %5, align 8, !tbaa !14
   %_M_size.i.i.i.i.i.i9.i = getelementptr inbounds i8, ptr %call, i64 176
   store i64 0, ptr %_M_size.i.i.i.i.i.i9.i, align 8, !tbaa !156
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7KeyList, i64 16), ptr %keysListenedFor.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7KeyList, i64 16), ptr %keysListenedFor.i, align 8, !tbaa !12
   %receiver = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call, ptr %receiver, align 8, !tbaa !25
   %call2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
@@ -3517,7 +3519,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV18RandomInputHandler, i64 16), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18RandomInputHandler, i64 16), ptr %call, align 8, !tbaa !12
   %keydown.i = getelementptr inbounds i8, ptr %call, i64 3584
   %1 = getelementptr inbounds i8, ptr %call, i64 3592
   %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 3600
@@ -3525,7 +3527,7 @@ invoke.cont:                                      ; preds = %if.then
   store ptr %1, ptr %1, align 8, !tbaa !14
   %_M_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 3608
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8, !tbaa !156
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7KeyList, i64 16), ptr %keydown.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7KeyList, i64 16), ptr %keydown.i, align 8, !tbaa !12
   %mousepos.i = getelementptr inbounds i8, ptr %call, i64 3616
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mousepos.i, i8 0, i64 16, i1 false)
   br label %if.end
@@ -3544,7 +3546,7 @@ if.else:                                          ; preds = %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %if.else
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV16RealInputHandler, i64 16), ptr %call2, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16RealInputHandler, i64 16), ptr %call2, align 8, !tbaa !12
   %m_receiver.i = getelementptr inbounds i8, ptr %call2, i64 3584
   store ptr %3, ptr %m_receiver.i, align 8, !tbaa !157
   %m_mousepos.i = getelementptr inbounds i8, ptr %call2, i64 3592
@@ -3643,7 +3645,8 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   br i1 %call19, label %if.then20, label %if.else37
 
 if.then20:                                        ; preds = %invoke.cont18
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %14, label %_ZTW10infostream.exit
+  %.not22 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not22, label %_ZTW10infostream.exit, label %14
 
 14:                                               ; preds = %if.then20
   call void @_ZTH10infostream()
@@ -3923,7 +3926,8 @@ for.inc:                                          ; preds = %if.else.i, %_ZNSt16
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !191
 
 if.else37:                                        ; preds = %invoke.cont18
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %55, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %55
 
 55:                                               ; preds = %if.else37
   call void @_ZTH11errorstream()
@@ -5171,7 +5175,8 @@ if.then.i.i564:                                   ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit568: ; preds = %if.then.i.i564, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i565
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp53) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp51) #28
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %63, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %63
 
 63:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit568
   call void @_ZTH11errorstream()
@@ -6334,7 +6339,8 @@ if.then208:                                       ; preds = %land.lhs.true205
           to label %invoke.cont210 unwind label %lpad198
 
 invoke.cont210:                                   ; preds = %if.then208
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %229, label %_ZTW11errorstream.exit829
+  %.not91 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not91, label %_ZTW11errorstream.exit829, label %229
 
 229:                                              ; preds = %invoke.cont210
   call void @_ZTH11errorstream()
@@ -6564,7 +6570,8 @@ ehcleanup262:                                     ; preds = %if.then.i.i912, %_Z
 
 if.end265:                                        ; preds = %if.end243
   %world_spec266 = getelementptr inbounds i8, ptr %start_data, i64 432
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %258, label %_ZTW10infostream.exit
+  %.not92 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not92, label %_ZTW10infostream.exit, label %258
 
 258:                                              ; preds = %if.end265
   call void @_ZTH10infostream()
@@ -6704,7 +6711,8 @@ if.then287:                                       ; preds = %if.then284
           to label %invoke.cont289 unwind label %lpad267
 
 invoke.cont289:                                   ; preds = %if.then287
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %274, label %_ZTW11errorstream.exit963
+  %.not95 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not95, label %_ZTW11errorstream.exit963, label %274
 
 274:                                              ; preds = %invoke.cont289
   call void @_ZTH11errorstream()
@@ -6774,7 +6782,8 @@ if.then.i.i982:                                   ; preds = %invoke.cont304
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit987: ; preds = %if.then.i.i982, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i984
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp300) #28
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %285, label %_ZTW11errorstream.exit988
+  %.not93 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not93, label %_ZTW11errorstream.exit988, label %285
 
 285:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit987
   call void @_ZTH11errorstream()
@@ -6842,7 +6851,8 @@ if.then.i.i998:                                   ; preds = %invoke.cont326
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1003: ; preds = %if.then.i.i998, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1000
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp322) #28
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %295, label %_ZTW11errorstream.exit1004
+  %.not94 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not94, label %_ZTW11errorstream.exit1004, label %295
 
 295:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1003
   call void @_ZTH11errorstream()
@@ -7404,7 +7414,8 @@ _ZN15RenderingEngine16get_video_driverEv.exit:    ; preds = %land.lhs.true.i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %3, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %3
 
 3:                                                ; preds = %_ZN15RenderingEngine16get_video_driverEv.exit
   tail call void @_ZTH10infostream()
@@ -7518,7 +7529,7 @@ if.end:                                           ; preds = %while.body
   br i1 %call.i51, label %land.rhs, label %while.end, !llvm.loop !235
 
 while.end:                                        ; preds = %if.end, %while.body, %land.rhs, %_ZN11StreamProxylsEPFRSoS0_E.exit
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %27, label %_ZTW10infostream.exit58
+  br i1 %.not, label %_ZTW10infostream.exit58, label %27
 
 27:                                               ; preds = %while.end
   call void @_ZTH10infostream()
@@ -9010,7 +9021,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16MainGameCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV16MainGameCallback, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16MainGameCallback, i64 16), ptr %this, align 8, !tbaa !12
   %show_open_url_dialog = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %show_open_url_dialog, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 32
@@ -9035,7 +9046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16MainGameCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV16MainGameCallback, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16MainGameCallback, i64 16), ptr %this, align 8, !tbaa !12
   %show_open_url_dialog.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %show_open_url_dialog.i, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 32
@@ -9517,7 +9528,7 @@ cleanup:                                          ; preds = %lor.rhs.i, %while.b
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12InputHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(3584) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !12
   %joystick = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN18JoystickControllerC1Ev(ptr noundef nonnull align 8 dereferenceable(488) %joystick)
   %keycache = getelementptr inbounds i8, ptr %this, i64 496
@@ -9718,7 +9729,7 @@ _ZN14JoystickLayoutD2Ev.exit:                     ; preds = %if.then.i.i.i14.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12InputHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(3584) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !12
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN8KeyPressD2Ev.exit.i, %entry
@@ -10701,7 +10712,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %call2.i10.i.noexc19
   store i8 0, ptr %arrayidx.i.i.i201.i, align 1, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i197.i) #28
   %36 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15MainMenuManager, i64 16), ptr @g_menumgr, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15MainMenuManager, i64 16), ptr @g_menumgr, align 8, !tbaa !12
   store ptr getelementptr inbounds (i8, ptr @g_menumgr, i64 8), ptr getelementptr inbounds (i8, ptr @g_menumgr, i64 16), align 8, !tbaa !155
   store ptr getelementptr inbounds (i8, ptr @g_menumgr, i64 8), ptr getelementptr inbounds (i8, ptr @g_menumgr, i64 8), align 8, !tbaa !14
   store i64 0, ptr getelementptr inbounds (i8, ptr @g_menumgr, i64 24), align 8, !tbaa !156

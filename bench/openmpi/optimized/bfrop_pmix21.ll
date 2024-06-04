@@ -2846,8 +2846,8 @@ define internal i32 @pmix21_bfrop_unpack_modex(ptr noundef %0, ptr noundef %1, p
 
 21:                                               ; preds = %.lr.ph
   %22 = load i64, ptr %19, align 8
-  %.not32 = icmp eq i64 %22, 0
-  br i1 %.not32, label %28, label %23
+  %.not31 = icmp eq i64 %22, 0
+  br i1 %.not31, label %28, label %23
 
 23:                                               ; preds = %21
   %24 = call noalias ptr @malloc(i64 noundef %22) #13
@@ -2856,8 +2856,8 @@ define internal i32 @pmix21_bfrop_unpack_modex(ptr noundef %0, ptr noundef %1, p
   %26 = trunc i64 %22 to i32
   store i32 %26, ptr %6, align 4
   %27 = call i32 @pmix_bfrops_base_unpack_byte(ptr noundef %0, ptr noundef %1, ptr noundef %24, ptr noundef nonnull %6, i16 noundef zeroext 12) #14
-  %.not33 = icmp eq i32 %27, 0
-  br i1 %.not33, label %28, label %._crit_edge
+  %.not32 = icmp eq i32 %27, 0
+  br i1 %.not32, label %28, label %._crit_edge
 
 28:                                               ; preds = %21, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3060,8 +3060,8 @@ define internal i32 @pmix21_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %18, 64
-  br i1 %or.cond3, label %19, label %26
+  %or.cond35 = icmp ult i32 %18, 64
+  br i1 %or.cond35, label %19, label %26
 
 19:                                               ; preds = %.lr.ph
   %20 = zext nneg i32 %18 to i64
@@ -3085,8 +3085,8 @@ define internal i32 @pmix21_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, p
 
 29:                                               ; preds = %26
   %30 = load i64, ptr %27, align 8
-  %.not36 = icmp eq i64 %30, 0
-  br i1 %.not36, label %37, label %31
+  %.not33 = icmp eq i64 %30, 0
+  br i1 %.not33, label %37, label %31
 
 31:                                               ; preds = %29
   %32 = mul i64 %30, 552
@@ -3096,8 +3096,8 @@ define internal i32 @pmix21_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, p
   %35 = trunc i64 %30 to i32
   store i32 %35, ptr %6, align 4
   %36 = call i32 @pmix_bfrops_base_unpack_value(ptr noundef %0, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %6, i16 noundef zeroext 24) #14
-  %.not37 = icmp eq i32 %36, 0
-  br i1 %.not37, label %37, label %._crit_edge
+  %.not34 = icmp eq i32 %36, 0
+  br i1 %.not34, label %37, label %._crit_edge
 
 37:                                               ; preds = %29, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

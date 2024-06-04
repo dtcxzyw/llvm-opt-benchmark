@@ -753,7 +753,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %1, label %_ZN9grpc_core8Activity7currentEv.exit.i
+  %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i, label %1
 
 1:                                                ; preds = %entry
   tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E(), !noalias !29
@@ -871,7 +872,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont13.i
   br i1 %cmp.i.i.i.i.i, label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %22, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i
+  br i1 %.not.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i, label %22
 
 22:                                               ; preds = %if.end.i.i.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -1089,7 +1090,8 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %2, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i
+  %.not.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i, label %2
 
 2:                                                ; preds = %if.end.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -3794,7 +3796,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp6.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp14.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp21.i)
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %1, label %_ZN9grpc_core8Activity7currentEv.exit.i
+  %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i, label %1
 
 1:                                                ; preds = %entry
   tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E(), !noalias !91
@@ -3826,7 +3829,7 @@ invoke.cont4.i:                                   ; preds = %_ZN9grpc_core8Activ
   br i1 %tobool.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont4.i
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %11, label %invoke.cont7.i
+  br i1 %.not.i.i.i, label %invoke.cont7.i, label %11
 
 11:                                               ; preds = %if.then.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -3887,7 +3890,7 @@ ehcleanup.i:                                      ; preds = %lpad19.i, %lpad16.i
   br label %ehcleanup32.i
 
 if.else.i:                                        ; preds = %invoke.cont4.i
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %21, label %invoke.cont22.i
+  br i1 %.not.i.i.i, label %invoke.cont22.i, label %21
 
 21:                                               ; preds = %if.else.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -4940,8 +4943,9 @@ entry:
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !118
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !118
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !118
+  %.not.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
   %3 = inttoptr i64 %2 to ptr
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %4, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i, label %4
 
 4:                                                ; preds = %entry
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -5094,8 +5098,9 @@ entry:
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !139
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !139
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !139
+  %.not.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
   %3 = inttoptr i64 %2 to ptr
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %4, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i, label %4
 
 4:                                                ; preds = %entry
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -5275,8 +5280,9 @@ entry:
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !160
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !160
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !160
+  %.not.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
   %3 = inttoptr i64 %2 to ptr
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %4, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i, label %4
 
 4:                                                ; preds = %entry
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -5429,8 +5435,9 @@ entry:
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !181
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !181
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !181
+  %.not.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
   %3 = inttoptr i64 %2 to ptr
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %4, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i, label %4
 
 4:                                                ; preds = %entry
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -5573,8 +5580,9 @@ entry:
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !202
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !202
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i.i), !noalias !202
+  %.not.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
   %3 = inttoptr i64 %2 to ptr
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %4, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i, label %4
 
 4:                                                ; preds = %entry
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()

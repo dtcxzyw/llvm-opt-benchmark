@@ -6818,10 +6818,10 @@ for.end:                                          ; preds = %for.cond, %if.end19
   %flags = getelementptr inbounds i8, ptr %u.0, i64 8
   %31 = load i32, ptr %flags, align 8
   %and = and i32 %31, 2
-  %tobool42 = icmp eq i32 %and, 0
+  %tobool42.not = icmp eq i32 %and, 0
   %32 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp45 = icmp sgt i32 %32, 2
-  %or.cond = select i1 %tobool42, i1 true, i1 %cmp45
+  %or.cond = select i1 %tobool42.not, i1 true, i1 %cmp45
   br i1 %or.cond, label %if.end51, label %if.end48
 
 if.end48:                                         ; preds = %for.end

@@ -380,7 +380,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6opencc6ConfigC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN6opencc6ConfigE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc6ConfigE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %3, i8 0, i64 88, i1 false)
@@ -408,7 +408,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6opencc6ConfigD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN6opencc6ConfigE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc6ConfigE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1320,7 +1320,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   br i1 %.not.i.i.i.i62, label %_ZNSt10shared_ptrIN6opencc4DictEEC2ERKS2_.exit.thread.i, label %246
 
 _ZNSt10shared_ptrIN6opencc4DictEEC2ERKS2_.exit.thread.i: ; preds = %239
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc20MaxMatchSegmentationE, i64 16), ptr %238, align 8, !noalias !22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc20MaxMatchSegmentationE, i64 16), ptr %238, align 8, !noalias !22
   %244 = getelementptr inbounds i8, ptr %238, i64 8
   store ptr %240, ptr %244, align 8, !noalias !22
   %245 = getelementptr inbounds i8, ptr %238, i64 16
@@ -1339,7 +1339,7 @@ _ZNSt10shared_ptrIN6opencc4DictEEC2ERKS2_.exit.thread.i: ; preds = %239
   %251 = load i32, ptr %247, align 4, !noalias !22
   %252 = add nsw i32 %251, 1
   store i32 %252, ptr %247, align 4, !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc20MaxMatchSegmentationE, i64 16), ptr %238, align 8, !noalias !22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc20MaxMatchSegmentationE, i64 16), ptr %238, align 8, !noalias !22
   store ptr %240, ptr %249, align 8, !noalias !22
   store ptr %243, ptr %250, align 8, !noalias !22
   %253 = getelementptr inbounds i8, ptr %243, i64 8
@@ -1349,7 +1349,7 @@ _ZNSt10shared_ptrIN6opencc4DictEEC2ERKS2_.exit.i: ; preds = %246
   %254 = atomicrmw volatile add ptr %247, i32 1 acq_rel, align 4, !noalias !22
   %.pr.pre.i = load ptr, ptr %241, align 8, !noalias !22
   %.pre.i = load ptr, ptr %13, align 8, !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc20MaxMatchSegmentationE, i64 16), ptr %238, align 8, !noalias !22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc20MaxMatchSegmentationE, i64 16), ptr %238, align 8, !noalias !22
   store ptr %.pre.i, ptr %249, align 8, !noalias !22
   store ptr %.pr.pre.i, ptr %250, align 8, !noalias !22
   %.not.i.i.i.i21.i = icmp eq ptr %.pr.pre.i, null
@@ -1409,7 +1409,7 @@ _ZN6opencc20MaxMatchSegmentationC2ESt10shared_ptrINS_4DictEE.exit.i: ; preds = %
   store i32 1, ptr %278, align 8, !noalias !22
   %279 = getelementptr inbounds i8, ptr %263, i64 12
   store i32 1, ptr %279, align 4, !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6opencc20MaxMatchSegmentationELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %263, align 8, !noalias !22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6opencc20MaxMatchSegmentationELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %263, align 8, !noalias !22
   %280 = getelementptr inbounds i8, ptr %263, i64 16
   store ptr %238, ptr %280, align 8, !noalias !22
   store ptr %238, ptr %26, align 8, !alias.scope !22
@@ -1866,7 +1866,7 @@ _ZNSt10shared_ptrIN6opencc10ConversionEEC2IS1_vEEPT_.exit.i.i: ; preds = %_ZN6op
   store i32 1, ptr %461, align 8
   %462 = getelementptr inbounds i8, ptr %450, i64 12
   store i32 1, ptr %462, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6opencc10ConversionELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %450, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6opencc10ConversionELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %450, align 8
   %463 = getelementptr inbounds i8, ptr %450, i64 16
   store ptr %430, ptr %463, align 8
   store ptr %450, ptr %417, align 8, !noalias !25
@@ -2272,7 +2272,7 @@ _ZNSt10shared_ptrIN6opencc15ConversionChainEEC2IS1_vEEPT_.exit.i: ; preds = %620
   store i32 1, ptr %633, align 8
   %634 = getelementptr inbounds i8, ptr %622, i64 12
   store i32 1, ptr %634, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6opencc15ConversionChainELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %622, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6opencc15ConversionChainELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %622, align 8
   %635 = getelementptr inbounds i8, ptr %622, i64 16
   store ptr %594, ptr %635, align 8
   store ptr %622, ptr %621, align 8
@@ -2935,14 +2935,14 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN6opencc13InvalidFormatC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN6opencc9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %5
 
 _ZN6opencc9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc13InvalidFormatE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc13InvalidFormatE, i64 16), ptr %0, align 8
   ret void
 
 5:                                                ; preds = %2
@@ -2954,7 +2954,7 @@ _ZN6opencc9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6opencc13InvalidFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   ret void
@@ -3620,14 +3620,14 @@ common.resume:                                    ; preds = %8, %5
   br label %common.resume
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN6opencc9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %8
 
 _ZN6opencc9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc12FileNotFoundE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc12FileNotFoundE, i64 16), ptr %0, align 8
   ret void
 
 8:                                                ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
@@ -3638,7 +3638,7 @@ _ZN6opencc9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6opencc12FileNotFoundD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   ret void
@@ -3651,7 +3651,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6opencc12FileNotFoundD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
@@ -3669,7 +3669,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6opencc9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   ret void
@@ -3677,7 +3677,7 @@ define linkonce_odr void @_ZN6opencc9ExceptionD2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6opencc9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
@@ -3719,7 +3719,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6opencc13InvalidFormatD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
@@ -4110,7 +4110,7 @@ _ZNSt10shared_ptrIN6opencc9DictGroupEED2Ev.exit:  ; preds = %112
   store i32 1, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %113, i64 12
   store i32 1, ptr %128, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6opencc9DictGroupELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %113, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6opencc9DictGroupELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %113, align 8
   %129 = getelementptr inbounds i8, ptr %113, i64 16
   store ptr %110, ptr %129, align 8
   store ptr %110, ptr %0, align 8
@@ -10838,7 +10838,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6opencc9ConverterELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6opencc9ConverterELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %7, align 8
   store ptr %3, ptr %0, align 8

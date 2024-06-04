@@ -357,7 +357,7 @@ invoke.cont3:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16OffsetCameraStepC1Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, float noundef %eye_offset) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV16OffsetCameraStep, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16OffsetCameraStep, i64 40), ptr %this, align 8, !tbaa !12
   %base_transform = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
@@ -507,7 +507,7 @@ define dso_local void @_ZN16OffsetCameraStepC1Eb(ptr nocapture noundef nonnull w
 invoke.cont2:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV16OffsetCameraStep, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16OffsetCameraStep, i64 40), ptr %this, align 8, !tbaa !12
   %base_transform = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)

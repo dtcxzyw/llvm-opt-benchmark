@@ -320,7 +320,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6duckdb15TableDataWriterC2ERNS_17TableCatalogEntryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(248) %table_p) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6duckdb15TableDataWriterE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb15TableDataWriterE, i64 16), ptr %this, align 8, !tbaa !10
   %table = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %table_p, ptr %table, align 8, !tbaa !15
   %row_group_pointers = getelementptr inbounds i8, ptr %this, i64 16
@@ -446,7 +446,7 @@ entry:
   store ptr %table, ptr %table.i, align 8, !tbaa !15
   %row_group_pointers.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %row_group_pointers.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6duckdb25SingleFileTableDataWriterE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb25SingleFileTableDataWriterE, i64 16), ptr %this, align 8, !tbaa !10
   %checkpoint_manager2 = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %checkpoint_manager, ptr %checkpoint_manager2, align 8, !tbaa !15
   %table_data_writer3 = getelementptr inbounds i8, ptr %this, i64 48
@@ -469,7 +469,7 @@ _ZNSt10unique_ptrIN6duckdb24SingleFileRowGroupWriterESt14default_deleteIS1_EED2E
   store ptr %0, ptr %table2.i.i.i, align 8, !tbaa !15, !noalias !32
   %partial_block_manager3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %partial_block_manager, ptr %partial_block_manager3.i.i.i, align 8, !tbaa !15, !noalias !32
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb24SingleFileRowGroupWriterE, i64 16), ptr %call.i, align 8, !tbaa !10, !noalias !32
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24SingleFileRowGroupWriterE, i64 16), ptr %call.i, align 8, !tbaa !10, !noalias !32
   %table_data_writer2.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %2, ptr %table_data_writer2.i.i, align 8, !tbaa !15, !noalias !32
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !35
@@ -497,7 +497,7 @@ entry:
   %4 = load ptr, ptr %table_data_writer, align 8, !tbaa !31
   %serialize_enum_as_string.i.i = getelementptr inbounds i8, ptr %stats_serializer, i64 8
   %serialize_default_values.i.i = getelementptr inbounds i8, ptr %stats_serializer, i64 9
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %stats_serializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %stats_serializer, align 8, !tbaa !10
   %debug_stack.i = getelementptr inbounds i8, ptr %stats_serializer, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %debug_stack.i, i8 0, i64 24, i1 false)
   %stream2.i = getelementptr inbounds i8, ptr %stats_serializer, i64 40
@@ -595,7 +595,7 @@ for.body:                                         ; preds = %_ZN6duckdb16BinaryS
   %spec.select = call i64 @llvm.umax.i64(i64 %add, i64 %total_rows.0145)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %row_group_serializer) #23
   %18 = load ptr, ptr %table_data_writer, align 8, !tbaa !31
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %row_group_serializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %row_group_serializer, align 8, !tbaa !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %debug_stack.i63, i8 0, i64 24, i1 false)
   store ptr %18, ptr %stream2.i64, align 8, !tbaa !15
   store i8 0, ptr %serialize_default_values.i.i62, align 1, !tbaa !37
@@ -612,7 +612,7 @@ invoke.cont19:                                    ; preds = %invoke.cont18
           to label %invoke.cont20 unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %invoke.cont19
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %row_group_serializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %row_group_serializer, align 8, !tbaa !10
   %19 = load ptr, ptr %debug_stack.i63, align 8, !tbaa !51
   %20 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !53
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN6duckdb16BinarySerializer10DebugStateEEEvT_S6_(ptr noundef %19, ptr noundef %20)
@@ -871,7 +871,7 @@ if.then.i.i.i122:                                 ; preds = %invoke.cont.i
 
 _ZNSt6vectorIN6duckdb16IndexStorageInfoESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i122, %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %index_storage_infos) #23
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %stats_serializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %stats_serializer, align 8, !tbaa !10
   %56 = load ptr, ptr %debug_stack.i, align 8, !tbaa !51
   %_M_finish.i.i124 = getelementptr inbounds i8, ptr %stats_serializer, i64 24
   %57 = load ptr, ptr %_M_finish.i.i124, align 8, !tbaa !53
@@ -948,7 +948,7 @@ declare void @_ZN6duckdb8RowGroup9SerializeERNS_15RowGroupPointerERNS_10Serializ
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb16BinarySerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %this, align 8, !tbaa !10
   %debug_stack = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %debug_stack, align 8, !tbaa !51
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -1127,12 +1127,12 @@ entry:
   %columns2 = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %stats_deserializer) #23
   %1 = load ptr, ptr %this, align 8, !tbaa !79
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6duckdb12DeserializerE, i64 16), ptr %stats_deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12DeserializerE, i64 16), ptr %stats_deserializer, align 8, !tbaa !10
   %deserialize_enum_from_string.i.i = getelementptr inbounds i8, ptr %stats_deserializer, i64 8
   store i8 0, ptr %deserialize_enum_from_string.i.i, align 8, !tbaa !80
   %data.i.i = getelementptr inbounds i8, ptr %stats_deserializer, i64 16
   call void @_ZN6duckdb19DeserializationDataC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %data.i.i)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6duckdb18BinaryDeserializerE, i64 16), ptr %stats_deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb18BinaryDeserializerE, i64 16), ptr %stats_deserializer, align 8, !tbaa !10
   %stream2.i = getelementptr inbounds i8, ptr %stats_deserializer, i64 416
   store ptr %1, ptr %stream2.i, align 8, !tbaa !15
   %nesting_level.i = getelementptr inbounds i8, ptr %stats_deserializer, i64 424
@@ -1195,7 +1195,7 @@ invoke.cont21:                                    ; preds = %invoke.cont17
   store i64 %10, ptr %block_pointer, align 8, !tbaa !42
   %ref.tmp.sroa.5.0.block_pointer.sroa_idx = getelementptr inbounds i8, ptr %call22, i64 88
   store i32 %9, ptr %ref.tmp.sroa.5.0.block_pointer.sroa_idx, align 8, !tbaa !130
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6duckdb12DeserializerE, i64 16), ptr %stats_deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12DeserializerE, i64 16), ptr %stats_deserializer, align 8, !tbaa !10
   call void @_ZN6duckdb19DeserializationDataD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %data.i.i) #23
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %stats_deserializer) #23
   ret void
@@ -1212,7 +1212,7 @@ lpad16:                                           ; preds = %invoke.cont17, %inv
 
 ehcleanup:                                        ; preds = %lpad16, %lpad
   %.pn = phi { ptr, i32 } [ %12, %lpad16 ], [ %11, %lpad ]
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6duckdb12DeserializerE, i64 16), ptr %stats_deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12DeserializerE, i64 16), ptr %stats_deserializer, align 8, !tbaa !10
   call void @_ZN6duckdb19DeserializationDataD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %data.i.i) #23
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %stats_deserializer) #23
   resume { ptr, i32 } %.pn
@@ -1299,7 +1299,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb12DeserializerD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6duckdb12DeserializerE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12DeserializerE, i64 16), ptr %this, align 8, !tbaa !10
   %data = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6duckdb19DeserializationDataD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %data) #23
   ret void
@@ -1308,7 +1308,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb26WriteOverflowStringsToDiskC2ERNS_12BlockManagerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb26WriteOverflowStringsToDiskE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb26WriteOverflowStringsToDiskE, i64 16), ptr %this, align 8, !tbaa !10
   %block_manager2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %block_manager, ptr %block_manager2, align 8, !tbaa !15
   %handle = getelementptr inbounds i8, ptr %this, i64 16
@@ -1325,7 +1325,7 @@ declare void @_ZN6duckdb12BufferHandleC1Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb26WriteOverflowStringsToDiskD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb26WriteOverflowStringsToDiskE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb26WriteOverflowStringsToDiskE, i64 16), ptr %this, align 8, !tbaa !10
   %handle = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle) #23
   ret void
@@ -2151,7 +2151,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %if.
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !10
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !66
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -2452,7 +2452,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb15TableDataWriterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6duckdb15TableDataWriterE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb15TableDataWriterE, i64 16), ptr %this, align 8, !tbaa !10
   %row_group_pointers = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %row_group_pointers, align 8, !tbaa !41
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2506,7 +2506,7 @@ _ZNSt6vectorIN6duckdb15RowGroupPointerESaIS1_EED2Ev.exit: ; preds = %if.then.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb25SingleFileTableDataWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6duckdb15TableDataWriterE, i64 16), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb15TableDataWriterE, i64 16), ptr %this, align 8, !tbaa !10
   %row_group_pointers.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %row_group_pointers.i, align 8, !tbaa !41
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24

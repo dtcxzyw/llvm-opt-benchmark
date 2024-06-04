@@ -1185,24 +1185,24 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %127
 
 123:                                              ; preds = %90, %85, %80, %70
-  %.024.ph.i = phi ptr [ @.str.421, %90 ], [ @.str.420, %85 ], [ @.str.419, %80 ], [ @.str.418, %70 ]
+  %.025.ph.i = phi ptr [ @.str.421, %90 ], [ @.str.420, %85 ], [ @.str.419, %80 ], [ @.str.418, %70 ]
   store i32 0, ptr getelementptr inbounds (i8, ptr @usm_p, i64 80), align 8
   %124 = load ptr, ptr %74, align 8
   %125 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 40), align 8
-  %126 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %124, ptr noundef %125, ptr noundef nonnull @ei_snmp_verify_authentication_error, ptr noundef nonnull @.str.412, ptr noundef nonnull %.024.ph.i) #11
+  %126 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %124, ptr noundef %125, ptr noundef nonnull @ei_snmp_verify_authentication_error, ptr noundef nonnull @.str.412, ptr noundef nonnull %.025.ph.i) #11
   br label %dissect_snmp_SNMPv3Message.exit
 
 127:                                              ; preds = %122, %._crit_edge.i.i
-  %.023.i = phi ptr [ %117, %122 ], [ null, %._crit_edge.i.i ]
-  %.022.i = phi i64 [ %102, %122 ], [ 0, %._crit_edge.i.i ]
+  %.024.i = phi ptr [ %117, %122 ], [ null, %._crit_edge.i.i ]
+  %.023.i = phi i64 [ %102, %122 ], [ 0, %._crit_edge.i.i ]
   %.046.i.i = phi i1 [ %.not58.i.i, %122 ], [ false, %._crit_edge.i.i ]
   %128 = zext i1 %.046.i.i to i32
   store i32 %128, ptr getelementptr inbounds (i8, ptr @usm_p, i64 80), align 8
   %129 = load i32, ptr @hf_snmp_msgAuthentication, align 4
   %130 = zext i1 %.046.i.i to i64
   %131 = call ptr @proto_tree_add_boolean(ptr noundef %73, i32 noundef %129, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %130) #11
-  %.not.i20.i = icmp eq ptr %131, null
-  br i1 %.not.i20.i, label %proto_item_set_generated.exit.i, label %132
+  %.not.i21.i = icmp eq ptr %131, null
+  br i1 %.not.i21.i, label %proto_item_set_generated.exit.i, label %132
 
 132:                                              ; preds = %127
   %133 = getelementptr inbounds i8, ptr %131, i64 32
@@ -1219,14 +1219,14 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 proto_item_set_generated.exit.i:                  ; preds = %135, %132, %127
   %139 = load i32, ptr getelementptr inbounds (i8, ptr @usm_p, i64 80), align 8
-  %.not19.i = icmp eq i32 %139, 0
-  br i1 %.not19.i, label %140, label %145
+  %.not20.i = icmp eq i32 %139, 0
+  br i1 %.not20.i, label %140, label %145
 
 140:                                              ; preds = %proto_item_set_generated.exit.i
   %141 = load ptr, ptr %74, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 408
   %143 = load ptr, ptr %142, align 8
-  %144 = call ptr @bytes_to_str_punct_maxlen(ptr noundef %143, ptr noundef %.023.i, i64 noundef %.022.i, i8 noundef signext 32, i64 noundef 24) #11
+  %144 = call ptr @bytes_to_str_punct_maxlen(ptr noundef %143, ptr noundef %.024.i, i64 noundef %.023.i, i8 noundef signext 32, i64 noundef 24) #11
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %131, ptr noundef nonnull @.str.413, ptr noundef %144) #11
   br label %145
 
@@ -4866,8 +4866,8 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 zeroext %0, ptr noundef %1, 
   %or.cond = select i1 %16, i1 %18, i1 false
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 72), align 8
   %20 = icmp ne ptr %19, null
-  %or.cond3 = select i1 %or.cond, i1 %20, i1 false
-  br i1 %or.cond3, label %21, label %90
+  %or.cond4 = select i1 %or.cond, i1 %20, i1 false
+  br i1 %or.cond4, label %21, label %90
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds i8, ptr %19, i64 56
@@ -4888,8 +4888,8 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 zeroext %0, ptr noundef %1, 
   %33 = getelementptr inbounds i8, ptr %3, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr %31(ptr noundef nonnull @usm_p, ptr noundef %32, ptr noundef %34, ptr noundef nonnull %12) #11
-  %.not31 = icmp eq ptr %35, null
-  br i1 %.not31, label %36, label %44
+  %.not32 = icmp eq ptr %35, null
+  br i1 %.not32, label %36, label %44
 
 36:                                               ; preds = %24
   %37 = load ptr, ptr %33, align 8

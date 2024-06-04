@@ -102,7 +102,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef %assertion, ptr noundef %file, i32 noundef %line, ptr noundef %function) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN19TerminalChatConsole20stopAndWaitforThreadEv(ptr noundef nonnull align 8 dereferenceable(844) @g_term_console)
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %0, label %_ZTW11errorstream.exit
+  %.not.i = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not.i, label %_ZTW11errorstream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH11errorstream()
@@ -205,30 +206,30 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.e
   br label %_ZN11StreamProxylsEPFRSoS0_E.exit
 
 _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZTW11errorstream.exit, %_ZN9LogStreamlsEPFRSoS0_E.exit, %_ZN11StreamProxylsIRA11_KcEERS_OT_.exit, %_ZN11StreamProxylsINSt6thread2idEEERS_OT_.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %10, label %_ZTW11errorstream.exit19
+  br i1 %.not.i, label %_ZTW11errorstream.exit20, label %10
 
 10:                                               ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit
   tail call void @_ZTH11errorstream()
-  br label %_ZTW11errorstream.exit19
+  br label %_ZTW11errorstream.exit20
 
-_ZTW11errorstream.exit19:                         ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit, %10
+_ZTW11errorstream.exit20:                         ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit, %10
   %11 = load ptr, ptr %1, align 8, !tbaa !4
-  %vtable.i20 = load ptr, ptr %11, align 8, !tbaa !18
-  %12 = load ptr, ptr %vtable.i20, align 8
-  %call.i21 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %cond-lvalue.v.i22 = select i1 %call.i21, i64 976, i64 984
-  %cond-lvalue.i23 = getelementptr inbounds i8, ptr %1, i64 %cond-lvalue.v.i22
-  %13 = load ptr, ptr %cond-lvalue.i23, align 8, !tbaa !20
-  %tobool.not.i.i24 = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i24, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %if.then.i.i25
+  %vtable.i21 = load ptr, ptr %11, align 8, !tbaa !18
+  %12 = load ptr, ptr %vtable.i21, align 8
+  %call.i22 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %cond-lvalue.v.i23 = select i1 %call.i22, i64 976, i64 984
+  %cond-lvalue.i24 = getelementptr inbounds i8, ptr %1, i64 %cond-lvalue.v.i23
+  %13 = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
+  %tobool.not.i.i25 = icmp eq ptr %13, null
+  br i1 %tobool.not.i.i25, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %if.then.i.i26
 
-if.then.i.i25:                                    ; preds = %_ZTW11errorstream.exit19
-  %tobool.not.i.i.i26 = icmp eq ptr %file, null
-  br i1 %tobool.not.i.i.i26, label %if.then.i.i.i28, label %if.else.i.i.i
+if.then.i.i26:                                    ; preds = %_ZTW11errorstream.exit20
+  %tobool.not.i.i.i27 = icmp eq ptr %file, null
+  br i1 %tobool.not.i.i.i27, label %if.then.i.i.i29, label %if.else.i.i.i
 
-if.then.i.i.i28:                                  ; preds = %if.then.i.i25
-  %vtable.i.i.i29 = load ptr, ptr %13, align 8, !tbaa !18
-  %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %vtable.i.i.i29, i64 -24
+if.then.i.i.i29:                                  ; preds = %if.then.i.i26
+  %vtable.i.i.i30 = load ptr, ptr %13, align 8, !tbaa !18
+  %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %vtable.i.i.i30, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %13, i64 %vbase.offset.i.i.i
   %_M_streambuf_state.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 32
@@ -237,32 +238,32 @@ if.then.i.i.i28:                                  ; preds = %if.then.i.i25
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i.i, i32 noundef %or.i.i.i.i.i)
   br label %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit
 
-if.else.i.i.i:                                    ; preds = %if.then.i.i25
+if.else.i.i.i:                                    ; preds = %if.then.i.i26
   %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %file) #20
-  %call1.i.i.i27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %file, i64 noundef %call.i.i.i.i)
+  %call1.i.i.i28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %file, i64 noundef %call.i.i.i.i)
   br label %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit
 
-_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit:     ; preds = %if.then.i.i.i28, %if.else.i.i.i
-  %.pr92 = load ptr, ptr %cond-lvalue.i23, align 8, !tbaa !20
-  %tobool.not.i30 = icmp eq ptr %.pr92, null
-  br i1 %tobool.not.i30, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit34
+_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit:     ; preds = %if.then.i.i.i29, %if.else.i.i.i
+  %.pr92 = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
+  %tobool.not.i31 = icmp eq ptr %.pr92, null
+  br i1 %tobool.not.i31, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit35
 
-_ZN11StreamProxylsIRA2_KcEERS_OT_.exit34:         ; preds = %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit
-  %call1.i.i33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr92, ptr noundef nonnull @.str.1, i64 noundef 1)
-  %.pr94 = load ptr, ptr %cond-lvalue.i23, align 8, !tbaa !20
-  %tobool.not.i35 = icmp eq ptr %.pr94, null
-  br i1 %tobool.not.i35, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %_ZN11StreamProxylsIRjEERS_OT_.exit
+_ZN11StreamProxylsIRA2_KcEERS_OT_.exit35:         ; preds = %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit
+  %call1.i.i34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr92, ptr noundef nonnull @.str.1, i64 noundef 1)
+  %.pr94 = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
+  %tobool.not.i36 = icmp eq ptr %.pr94, null
+  br i1 %tobool.not.i36, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %_ZN11StreamProxylsIRjEERS_OT_.exit
 
-_ZN11StreamProxylsIRjEERS_OT_.exit:               ; preds = %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit34
+_ZN11StreamProxylsIRjEERS_OT_.exit:               ; preds = %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit35
   %conv.i.i = zext i32 %line to i64
-  %call.i.i37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr94, i64 noundef %conv.i.i)
-  %.pr97.pr = load ptr, ptr %cond-lvalue.i23, align 8, !tbaa !20
-  %tobool.not.i38 = icmp eq ptr %.pr97.pr, null
-  br i1 %tobool.not.i38, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %_ZN11StreamProxylsIRA3_KcEERS_OT_.exit
+  %call.i.i38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr94, i64 noundef %conv.i.i)
+  %.pr97.pr = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
+  %tobool.not.i39 = icmp eq ptr %.pr97.pr, null
+  br i1 %tobool.not.i39, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %_ZN11StreamProxylsIRA3_KcEERS_OT_.exit
 
 _ZN11StreamProxylsIRA3_KcEERS_OT_.exit:           ; preds = %_ZN11StreamProxylsIRjEERS_OT_.exit
   %call1.i.i42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr97.pr, ptr noundef nonnull @.str.2, i64 noundef 2)
-  %.pr99 = load ptr, ptr %cond-lvalue.i23, align 8, !tbaa !20
+  %.pr99 = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
   %tobool.not.i43 = icmp eq ptr %.pr99, null
   br i1 %tobool.not.i43, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %if.then.i44
 
@@ -287,13 +288,13 @@ if.else.i.i46:                                    ; preds = %if.then.i44
   br label %_ZN11StreamProxylsIRPKcEERS_OT_.exit
 
 _ZN11StreamProxylsIRPKcEERS_OT_.exit:             ; preds = %if.then.i.i49, %if.else.i.i46
-  %.pr102.pr.pr = load ptr, ptr %cond-lvalue.i23, align 8, !tbaa !20
+  %.pr102.pr.pr = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
   %tobool.not.i55 = icmp eq ptr %.pr102.pr.pr, null
   br i1 %tobool.not.i55, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %_ZN11StreamProxylsIRA25_KcEERS_OT_.exit
 
 _ZN11StreamProxylsIRA25_KcEERS_OT_.exit:          ; preds = %_ZN11StreamProxylsIRPKcEERS_OT_.exit
   %call1.i.i58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr102.pr.pr, ptr noundef nonnull @.str.3, i64 noundef 24)
-  %.pr104 = load ptr, ptr %cond-lvalue.i23, align 8, !tbaa !20
+  %.pr104 = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
   %tobool.not.i59 = icmp eq ptr %.pr104, null
   br i1 %tobool.not.i59, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %if.then.i60
 
@@ -318,13 +319,13 @@ if.else.i.i62:                                    ; preds = %if.then.i60
   br label %_ZN11StreamProxylsIRPKcEERS_OT_.exit72
 
 _ZN11StreamProxylsIRPKcEERS_OT_.exit72:           ; preds = %if.then.i.i65, %if.else.i.i62
-  %.pr107.pr.pr = load ptr, ptr %cond-lvalue.i23, align 8, !tbaa !20
+  %.pr107.pr.pr = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
   %tobool.not.i73 = icmp eq ptr %.pr107.pr.pr, null
   br i1 %tobool.not.i73, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %_ZN11StreamProxylsIRA10_KcEERS_OT_.exit
 
 _ZN11StreamProxylsIRA10_KcEERS_OT_.exit:          ; preds = %_ZN11StreamProxylsIRPKcEERS_OT_.exit72
   %call1.i.i76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr107.pr.pr, ptr noundef nonnull @.str.4, i64 noundef 9)
-  %.pr109 = load ptr, ptr %cond-lvalue.i23, align 8, !tbaa !20
+  %.pr109 = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
   %tobool.not.i19 = icmp eq ptr %.pr109, null
   br i1 %tobool.not.i19, label %_ZN11StreamProxylsEPFRSoS0_E.exit22, label %if.then.i20
 
@@ -367,7 +368,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit42: ; preds = %if
   %call.i.i36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %call1.i35)
   br label %_ZN11StreamProxylsEPFRSoS0_E.exit22
 
-_ZN11StreamProxylsEPFRSoS0_E.exit22:              ; preds = %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit34, %_ZN11StreamProxylsIRjEERS_OT_.exit, %_ZTW11errorstream.exit19, %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit, %_ZN11StreamProxylsIRPKcEERS_OT_.exit, %_ZN11StreamProxylsIRA3_KcEERS_OT_.exit, %_ZN11StreamProxylsIRA25_KcEERS_OT_.exit, %_ZN11StreamProxylsIRPKcEERS_OT_.exit72, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit42, %_ZN11StreamProxylsIRA10_KcEERS_OT_.exit
+_ZN11StreamProxylsEPFRSoS0_E.exit22:              ; preds = %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit35, %_ZN11StreamProxylsIRjEERS_OT_.exit, %_ZTW11errorstream.exit20, %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit, %_ZN11StreamProxylsIRPKcEERS_OT_.exit, %_ZN11StreamProxylsIRA3_KcEERS_OT_.exit, %_ZN11StreamProxylsIRA25_KcEERS_OT_.exit, %_ZN11StreamProxylsIRPKcEERS_OT_.exit72, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit42, %_ZN11StreamProxylsIRA10_KcEERS_OT_.exit
   tail call void @abort() #21
   unreachable
 }
@@ -390,7 +391,8 @@ declare void @abort() local_unnamed_addr #6
 define dso_local void @_Z14fatal_error_fnPKcS0_jS0_(ptr noundef %msg, ptr noundef %file, i32 noundef %line, ptr noundef %function) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN19TerminalChatConsole20stopAndWaitforThreadEv(ptr noundef nonnull align 8 dereferenceable(844) @g_term_console)
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %0, label %_ZTW11errorstream.exit
+  %.not.i = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not.i, label %_ZTW11errorstream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH11errorstream()
@@ -416,48 +418,48 @@ _ZN9LogStreamlsEPFRSoS0_E.exit:                   ; preds = %_ZTW11errorstream.e
 
 _ZN11StreamProxylsIRA11_KcEERS_OT_.exit:          ; preds = %_ZN9LogStreamlsEPFRSoS0_E.exit
   %call1.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr, ptr noundef nonnull @.str, i64 noundef 10)
-  %.pr75 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !20
-  %tobool.not.i = icmp eq ptr %.pr75, null
+  %.pr76 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !20
+  %tobool.not.i = icmp eq ptr %.pr76, null
   br i1 %tobool.not.i, label %_ZN11StreamProxylsEPFRSoS0_E.exit, label %if.then.i12
 
 if.then.i12:                                      ; preds = %_ZN11StreamProxylsIRA11_KcEERS_OT_.exit
-  %vtable.i.i = load ptr, ptr %.pr75, align 8, !tbaa !18
+  %vtable.i.i = load ptr, ptr %.pr76, align 8, !tbaa !18
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.pr75, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %.pr76, i64 %vbase.offset.i.i
   %_M_flags.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
   %5 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !21
   %and.i.i.i.i = and i32 %5, -75
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 8
   store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !21
-  %call.i1082 = tail call i64 @pthread_self() #18
-  %cmp.i.i.i = icmp eq i64 %call.i1082, 0
+  %call.i1083 = tail call i64 @pthread_self() #18
+  %cmp.i.i.i = icmp eq i64 %call.i1083, 0
   br i1 %cmp.i.i.i, label %if.then.i.i14, label %if.else.i.i
 
 if.then.i.i14:                                    ; preds = %if.then.i12
-  %call1.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr75, ptr noundef nonnull @.str.10, i64 noundef 36)
+  %call1.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr76, ptr noundef nonnull @.str.10, i64 noundef 36)
   br label %_ZN11StreamProxylsINSt6thread2idEEERS_OT_.exit
 
 if.else.i.i:                                      ; preds = %if.then.i12
-  %call.i.i.i13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr75, i64 noundef %call.i1082)
+  %call.i.i.i13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr76, i64 noundef %call.i1083)
   br label %_ZN11StreamProxylsINSt6thread2idEEERS_OT_.exit
 
 _ZN11StreamProxylsINSt6thread2idEEERS_OT_.exit:   ; preds = %if.then.i.i14, %if.else.i.i
-  %.pr84.pr = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !20
-  %tobool.not.i16 = icmp eq ptr %.pr84.pr, null
+  %.pr85.pr = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !20
+  %tobool.not.i16 = icmp eq ptr %.pr85.pr, null
   br i1 %tobool.not.i16, label %_ZN11StreamProxylsEPFRSoS0_E.exit, label %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit
 
 _ZN11StreamProxylsIRA2_KcEERS_OT_.exit:           ; preds = %_ZN11StreamProxylsINSt6thread2idEEERS_OT_.exit
-  %call1.i.i19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr84.pr, ptr noundef nonnull @.str.1, i64 noundef 1)
-  %.pr86 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !20
-  %tobool.not.i15 = icmp eq ptr %.pr86, null
+  %call1.i.i19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr85.pr, ptr noundef nonnull @.str.1, i64 noundef 1)
+  %.pr87 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !20
+  %tobool.not.i15 = icmp eq ptr %.pr87, null
   br i1 %tobool.not.i15, label %_ZN11StreamProxylsEPFRSoS0_E.exit, label %if.then.i16
 
 if.then.i16:                                      ; preds = %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit
-  %vtable.i = load ptr, ptr %.pr86, align 8, !tbaa !18
+  %vtable.i = load ptr, ptr %.pr87, align 8, !tbaa !18
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %.pr86, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %.pr87, i64 %vbase.offset.i
   %_M_ctype.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 240
   %6 = load ptr, ptr %_M_ctype.i.i, align 8, !tbaa !23
   %tobool.not.i.i.i = icmp eq ptr %6, null
@@ -488,35 +490,35 @@ if.end.i.i.i:                                     ; preds = %_ZSt13__check_facet
 
 _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.end.i.i.i, %if.then.i4.i.i
   %retval.0.i.i.i = phi i8 [ %8, %if.then.i4.i.i ], [ %call.i.i.i, %if.end.i.i.i ]
-  %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %.pr86, i8 noundef signext %retval.0.i.i.i)
+  %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %.pr87, i8 noundef signext %retval.0.i.i.i)
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %call1.i)
   br label %_ZN11StreamProxylsEPFRSoS0_E.exit
 
 _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZTW11errorstream.exit, %_ZN9LogStreamlsEPFRSoS0_E.exit, %_ZN11StreamProxylsIRA11_KcEERS_OT_.exit, %_ZN11StreamProxylsINSt6thread2idEEERS_OT_.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %10, label %_ZTW11errorstream.exit20
+  br i1 %.not.i, label %_ZTW11errorstream.exit21, label %10
 
 10:                                               ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit
   tail call void @_ZTH11errorstream()
-  br label %_ZTW11errorstream.exit20
+  br label %_ZTW11errorstream.exit21
 
-_ZTW11errorstream.exit20:                         ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit, %10
+_ZTW11errorstream.exit21:                         ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit, %10
   %11 = load ptr, ptr %1, align 8, !tbaa !4
-  %vtable.i21 = load ptr, ptr %11, align 8, !tbaa !18
-  %12 = load ptr, ptr %vtable.i21, align 8
-  %call.i22 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %cond-lvalue.v.i23 = select i1 %call.i22, i64 976, i64 984
-  %cond-lvalue.i24 = getelementptr inbounds i8, ptr %1, i64 %cond-lvalue.v.i23
-  %13 = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
-  %tobool.not.i.i25 = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i25, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %if.then.i.i26
+  %vtable.i23 = load ptr, ptr %11, align 8, !tbaa !18
+  %12 = load ptr, ptr %vtable.i23, align 8
+  %call.i24 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %cond-lvalue.v.i25 = select i1 %call.i24, i64 976, i64 984
+  %cond-lvalue.i26 = getelementptr inbounds i8, ptr %1, i64 %cond-lvalue.v.i25
+  %13 = load ptr, ptr %cond-lvalue.i26, align 8, !tbaa !20
+  %tobool.not.i.i27 = icmp eq ptr %13, null
+  br i1 %tobool.not.i.i27, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %if.then.i.i28
 
-if.then.i.i26:                                    ; preds = %_ZTW11errorstream.exit20
-  %tobool.not.i.i.i28 = icmp eq ptr %file, null
-  br i1 %tobool.not.i.i.i28, label %if.then.i.i.i30, label %if.else.i.i.i
+if.then.i.i28:                                    ; preds = %_ZTW11errorstream.exit21
+  %tobool.not.i.i.i29 = icmp eq ptr %file, null
+  br i1 %tobool.not.i.i.i29, label %if.then.i.i.i31, label %if.else.i.i.i
 
-if.then.i.i.i30:                                  ; preds = %if.then.i.i26
-  %vtable.i.i.i31 = load ptr, ptr %13, align 8, !tbaa !18
-  %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %vtable.i.i.i31, i64 -24
+if.then.i.i.i31:                                  ; preds = %if.then.i.i28
+  %vtable.i.i.i32 = load ptr, ptr %13, align 8, !tbaa !18
+  %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %vtable.i.i.i32, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %13, i64 %vbase.offset.i.i.i
   %_M_streambuf_state.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 32
@@ -525,96 +527,96 @@ if.then.i.i.i30:                                  ; preds = %if.then.i.i26
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i.i, i32 noundef %or.i.i.i.i.i)
   br label %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit
 
-if.else.i.i.i:                                    ; preds = %if.then.i.i26
+if.else.i.i.i:                                    ; preds = %if.then.i.i28
   %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %file) #20
-  %call1.i.i.i29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %file, i64 noundef %call.i.i.i.i)
+  %call1.i.i.i30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %file, i64 noundef %call.i.i.i.i)
   br label %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit
 
-_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit:     ; preds = %if.then.i.i.i30, %if.else.i.i.i
-  %.pr89 = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
-  %tobool.not.i32 = icmp eq ptr %.pr89, null
-  br i1 %tobool.not.i32, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit36
+_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit:     ; preds = %if.then.i.i.i31, %if.else.i.i.i
+  %.pr90 = load ptr, ptr %cond-lvalue.i26, align 8, !tbaa !20
+  %tobool.not.i33 = icmp eq ptr %.pr90, null
+  br i1 %tobool.not.i33, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit37
 
-_ZN11StreamProxylsIRA2_KcEERS_OT_.exit36:         ; preds = %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit
-  %call1.i.i35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr89, ptr noundef nonnull @.str.1, i64 noundef 1)
-  %.pr91 = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
-  %tobool.not.i37 = icmp eq ptr %.pr91, null
-  br i1 %tobool.not.i37, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %_ZN11StreamProxylsIRjEERS_OT_.exit
+_ZN11StreamProxylsIRA2_KcEERS_OT_.exit37:         ; preds = %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit
+  %call1.i.i36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr90, ptr noundef nonnull @.str.1, i64 noundef 1)
+  %.pr92 = load ptr, ptr %cond-lvalue.i26, align 8, !tbaa !20
+  %tobool.not.i38 = icmp eq ptr %.pr92, null
+  br i1 %tobool.not.i38, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %_ZN11StreamProxylsIRjEERS_OT_.exit
 
-_ZN11StreamProxylsIRjEERS_OT_.exit:               ; preds = %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit36
+_ZN11StreamProxylsIRjEERS_OT_.exit:               ; preds = %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit37
   %conv.i.i = zext i32 %line to i64
-  %call.i.i39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr91, i64 noundef %conv.i.i)
-  %.pr94.pr = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
-  %tobool.not.i40 = icmp eq ptr %.pr94.pr, null
-  br i1 %tobool.not.i40, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %_ZN11StreamProxylsIRA3_KcEERS_OT_.exit
+  %call.i.i40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr92, i64 noundef %conv.i.i)
+  %.pr95.pr = load ptr, ptr %cond-lvalue.i26, align 8, !tbaa !20
+  %tobool.not.i41 = icmp eq ptr %.pr95.pr, null
+  br i1 %tobool.not.i41, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %_ZN11StreamProxylsIRA3_KcEERS_OT_.exit
 
 _ZN11StreamProxylsIRA3_KcEERS_OT_.exit:           ; preds = %_ZN11StreamProxylsIRjEERS_OT_.exit
-  %call1.i.i43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr94.pr, ptr noundef nonnull @.str.2, i64 noundef 2)
-  %.pr96 = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
-  %tobool.not.i44 = icmp eq ptr %.pr96, null
-  br i1 %tobool.not.i44, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %if.then.i45
+  %call1.i.i44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr95.pr, ptr noundef nonnull @.str.2, i64 noundef 2)
+  %.pr97 = load ptr, ptr %cond-lvalue.i26, align 8, !tbaa !20
+  %tobool.not.i45 = icmp eq ptr %.pr97, null
+  br i1 %tobool.not.i45, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %if.then.i46
 
-if.then.i45:                                      ; preds = %_ZN11StreamProxylsIRA3_KcEERS_OT_.exit
-  %tobool.not.i.i46 = icmp eq ptr %function, null
-  br i1 %tobool.not.i.i46, label %if.then.i.i50, label %if.else.i.i47
+if.then.i46:                                      ; preds = %_ZN11StreamProxylsIRA3_KcEERS_OT_.exit
+  %tobool.not.i.i47 = icmp eq ptr %function, null
+  br i1 %tobool.not.i.i47, label %if.then.i.i51, label %if.else.i.i48
 
-if.then.i.i50:                                    ; preds = %if.then.i45
-  %vtable.i.i51 = load ptr, ptr %.pr96, align 8, !tbaa !18
-  %vbase.offset.ptr.i.i52 = getelementptr i8, ptr %vtable.i.i51, i64 -24
-  %vbase.offset.i.i53 = load i64, ptr %vbase.offset.ptr.i.i52, align 8
-  %add.ptr.i.i54 = getelementptr inbounds i8, ptr %.pr96, i64 %vbase.offset.i.i53
-  %_M_streambuf_state.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i54, i64 32
+if.then.i.i51:                                    ; preds = %if.then.i46
+  %vtable.i.i52 = load ptr, ptr %.pr97, align 8, !tbaa !18
+  %vbase.offset.ptr.i.i53 = getelementptr i8, ptr %vtable.i.i52, i64 -24
+  %vbase.offset.i.i54 = load i64, ptr %vbase.offset.ptr.i.i53, align 8
+  %add.ptr.i.i55 = getelementptr inbounds i8, ptr %.pr97, i64 %vbase.offset.i.i54
+  %_M_streambuf_state.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i55, i64 32
   %15 = load i32, ptr %_M_streambuf_state.i.i.i.i, align 8, !tbaa !34
-  %or.i.i.i.i55 = or i32 %15, 1
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i54, i32 noundef %or.i.i.i.i55)
+  %or.i.i.i.i56 = or i32 %15, 1
+  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i55, i32 noundef %or.i.i.i.i56)
   br label %_ZN11StreamProxylsIRPKcEERS_OT_.exit
 
-if.else.i.i47:                                    ; preds = %if.then.i45
-  %call.i.i.i48 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %function) #20
-  %call1.i.i49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr96, ptr noundef nonnull %function, i64 noundef %call.i.i.i48)
+if.else.i.i48:                                    ; preds = %if.then.i46
+  %call.i.i.i49 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %function) #20
+  %call1.i.i50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr97, ptr noundef nonnull %function, i64 noundef %call.i.i.i49)
   br label %_ZN11StreamProxylsIRPKcEERS_OT_.exit
 
-_ZN11StreamProxylsIRPKcEERS_OT_.exit:             ; preds = %if.then.i.i50, %if.else.i.i47
-  %.pr99.pr.pr = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
-  %tobool.not.i56 = icmp eq ptr %.pr99.pr.pr, null
-  br i1 %tobool.not.i56, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %_ZN11StreamProxylsIRA27_KcEERS_OT_.exit
+_ZN11StreamProxylsIRPKcEERS_OT_.exit:             ; preds = %if.then.i.i51, %if.else.i.i48
+  %.pr100.pr.pr = load ptr, ptr %cond-lvalue.i26, align 8, !tbaa !20
+  %tobool.not.i57 = icmp eq ptr %.pr100.pr.pr, null
+  br i1 %tobool.not.i57, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %_ZN11StreamProxylsIRA27_KcEERS_OT_.exit
 
 _ZN11StreamProxylsIRA27_KcEERS_OT_.exit:          ; preds = %_ZN11StreamProxylsIRPKcEERS_OT_.exit
-  %call1.i.i59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr99.pr.pr, ptr noundef nonnull @.str.5, i64 noundef 26)
-  %.pr101 = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
-  %tobool.not.i60 = icmp eq ptr %.pr101, null
-  br i1 %tobool.not.i60, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %if.then.i61
+  %call1.i.i60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr100.pr.pr, ptr noundef nonnull @.str.5, i64 noundef 26)
+  %.pr102 = load ptr, ptr %cond-lvalue.i26, align 8, !tbaa !20
+  %tobool.not.i61 = icmp eq ptr %.pr102, null
+  br i1 %tobool.not.i61, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %if.then.i62
 
-if.then.i61:                                      ; preds = %_ZN11StreamProxylsIRA27_KcEERS_OT_.exit
-  %tobool.not.i.i62 = icmp eq ptr %msg, null
-  br i1 %tobool.not.i.i62, label %if.then.i.i66, label %if.else.i.i63
+if.then.i62:                                      ; preds = %_ZN11StreamProxylsIRA27_KcEERS_OT_.exit
+  %tobool.not.i.i63 = icmp eq ptr %msg, null
+  br i1 %tobool.not.i.i63, label %if.then.i.i67, label %if.else.i.i64
 
-if.then.i.i66:                                    ; preds = %if.then.i61
-  %vtable.i.i67 = load ptr, ptr %.pr101, align 8, !tbaa !18
-  %vbase.offset.ptr.i.i68 = getelementptr i8, ptr %vtable.i.i67, i64 -24
-  %vbase.offset.i.i69 = load i64, ptr %vbase.offset.ptr.i.i68, align 8
-  %add.ptr.i.i70 = getelementptr inbounds i8, ptr %.pr101, i64 %vbase.offset.i.i69
-  %_M_streambuf_state.i.i.i.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i70, i64 32
-  %16 = load i32, ptr %_M_streambuf_state.i.i.i.i71, align 8, !tbaa !34
-  %or.i.i.i.i72 = or i32 %16, 1
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i70, i32 noundef %or.i.i.i.i72)
-  br label %_ZN11StreamProxylsIRPKcEERS_OT_.exit73
+if.then.i.i67:                                    ; preds = %if.then.i62
+  %vtable.i.i68 = load ptr, ptr %.pr102, align 8, !tbaa !18
+  %vbase.offset.ptr.i.i69 = getelementptr i8, ptr %vtable.i.i68, i64 -24
+  %vbase.offset.i.i70 = load i64, ptr %vbase.offset.ptr.i.i69, align 8
+  %add.ptr.i.i71 = getelementptr inbounds i8, ptr %.pr102, i64 %vbase.offset.i.i70
+  %_M_streambuf_state.i.i.i.i72 = getelementptr inbounds i8, ptr %add.ptr.i.i71, i64 32
+  %16 = load i32, ptr %_M_streambuf_state.i.i.i.i72, align 8, !tbaa !34
+  %or.i.i.i.i73 = or i32 %16, 1
+  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i71, i32 noundef %or.i.i.i.i73)
+  br label %_ZN11StreamProxylsIRPKcEERS_OT_.exit74
 
-if.else.i.i63:                                    ; preds = %if.then.i61
-  %call.i.i.i64 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #20
-  %call1.i.i65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr101, ptr noundef nonnull %msg, i64 noundef %call.i.i.i64)
-  br label %_ZN11StreamProxylsIRPKcEERS_OT_.exit73
+if.else.i.i64:                                    ; preds = %if.then.i62
+  %call.i.i.i65 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #20
+  %call1.i.i66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr102, ptr noundef nonnull %msg, i64 noundef %call.i.i.i65)
+  br label %_ZN11StreamProxylsIRPKcEERS_OT_.exit74
 
-_ZN11StreamProxylsIRPKcEERS_OT_.exit73:           ; preds = %if.then.i.i66, %if.else.i.i63
-  %.pr104.pr.pr = load ptr, ptr %cond-lvalue.i24, align 8, !tbaa !20
-  %tobool.not.i18 = icmp eq ptr %.pr104.pr.pr, null
+_ZN11StreamProxylsIRPKcEERS_OT_.exit74:           ; preds = %if.then.i.i67, %if.else.i.i64
+  %.pr105.pr.pr = load ptr, ptr %cond-lvalue.i26, align 8, !tbaa !20
+  %tobool.not.i18 = icmp eq ptr %.pr105.pr.pr, null
   br i1 %tobool.not.i18, label %_ZN11StreamProxylsEPFRSoS0_E.exit21, label %if.then.i19
 
-if.then.i19:                                      ; preds = %_ZN11StreamProxylsIRPKcEERS_OT_.exit73
-  %vtable.i22 = load ptr, ptr %.pr104.pr.pr, align 8, !tbaa !18
+if.then.i19:                                      ; preds = %_ZN11StreamProxylsIRPKcEERS_OT_.exit74
+  %vtable.i22 = load ptr, ptr %.pr105.pr.pr, align 8, !tbaa !18
   %vbase.offset.ptr.i23 = getelementptr i8, ptr %vtable.i22, i64 -24
   %vbase.offset.i24 = load i64, ptr %vbase.offset.ptr.i23, align 8
-  %add.ptr.i25 = getelementptr inbounds i8, ptr %.pr104.pr.pr, i64 %vbase.offset.i24
+  %add.ptr.i25 = getelementptr inbounds i8, ptr %.pr105.pr.pr, i64 %vbase.offset.i24
   %_M_ctype.i.i26 = getelementptr inbounds i8, ptr %add.ptr.i25, i64 240
   %17 = load ptr, ptr %_M_ctype.i.i26, align 8, !tbaa !23
   %tobool.not.i.i.i27 = icmp eq ptr %17, null
@@ -645,11 +647,11 @@ if.end.i.i.i36:                                   ; preds = %_ZSt13__check_facet
 
 _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit41: ; preds = %if.end.i.i.i36, %if.then.i4.i.i31
   %retval.0.i.i.i33 = phi i8 [ %19, %if.then.i4.i.i31 ], [ %call.i.i.i39, %if.end.i.i.i36 ]
-  %call1.i34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %.pr104.pr.pr, i8 noundef signext %retval.0.i.i.i33)
+  %call1.i34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %.pr105.pr.pr, i8 noundef signext %retval.0.i.i.i33)
   %call.i.i35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %call1.i34)
   br label %_ZN11StreamProxylsEPFRSoS0_E.exit21
 
-_ZN11StreamProxylsEPFRSoS0_E.exit21:              ; preds = %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit36, %_ZN11StreamProxylsIRjEERS_OT_.exit, %_ZTW11errorstream.exit20, %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit, %_ZN11StreamProxylsIRPKcEERS_OT_.exit, %_ZN11StreamProxylsIRA3_KcEERS_OT_.exit, %_ZN11StreamProxylsIRA27_KcEERS_OT_.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit41, %_ZN11StreamProxylsIRPKcEERS_OT_.exit73
+_ZN11StreamProxylsEPFRSoS0_E.exit21:              ; preds = %_ZN11StreamProxylsIRA2_KcEERS_OT_.exit37, %_ZN11StreamProxylsIRjEERS_OT_.exit, %_ZTW11errorstream.exit21, %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit, %_ZN11StreamProxylsIRPKcEERS_OT_.exit, %_ZN11StreamProxylsIRA3_KcEERS_OT_.exit, %_ZN11StreamProxylsIRA27_KcEERS_OT_.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit41, %_ZN11StreamProxylsIRPKcEERS_OT_.exit74
   tail call void @abort() #21
   unreachable
 }

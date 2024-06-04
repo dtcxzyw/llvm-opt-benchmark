@@ -65,7 +65,7 @@ define void @php_statpage() local_unnamed_addr #0 {
   store i64 %22, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 512), align 8
   br label %23
 
-23:                                               ; preds = %7, %18, %0
+23:                                               ; preds = %0, %7, %18
   ret void
 }
 

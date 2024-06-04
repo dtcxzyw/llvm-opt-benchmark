@@ -6479,7 +6479,7 @@ lpad.i3538:                                       ; preds = %call.i3537.noexc
   br label %ehcleanup1500
 
 invoke.cont1290:                                  ; preds = %call.i3537.noexc
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN6duckdb13LogicalWindowE, i64 16), ptr %call.i35373540, align 8, !tbaa !74, !noalias !235
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb13LogicalWindowE, i64 16), ptr %call.i35373540, align 8, !tbaa !74, !noalias !235
   %window_index2.i.i = getelementptr inbounds i8, ptr %call.i35373540, i64 104
   store i64 %call1288, ptr %window_index2.i.i, align 8, !tbaa !238, !noalias !235
   store ptr %call.i35373540, ptr %window, align 8, !tbaa !3, !alias.scope !235
@@ -10359,7 +10359,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN6duckdb15LogicalDelimGetE, i64 16), ptr %call, align 8, !tbaa !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb15LogicalDelimGetE, i64 16), ptr %call, align 8, !tbaa !74
   %table_index2.i = getelementptr inbounds i8, ptr %call, i64 104
   store i64 %0, ptr %table_index2.i, align 8, !tbaa !382
   %chunk_types.i = getelementptr inbounds i8, ptr %call, i64 112
@@ -11025,7 +11025,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 16), ptr %agg.tmp, align 8, !tbaa !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 16), ptr %agg.tmp, align 8, !tbaa !74
   %state_size.i = getelementptr inbounds i8, ptr %agg.tmp, i64 176
   %state_size2.i = getelementptr inbounds i8, ptr %__args, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i, i64 105, i1 false)
@@ -12583,7 +12583,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !74
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !40
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -12766,7 +12766,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %if.
 define void @_ZN6duckdb24HasCorrelatedExpressionsC2ERKNS_6vectorINS_20CorrelatedColumnInfoELb1EEEbm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %correlated, i1 noundef zeroext %lateral, i64 noundef %lateral_depth) unnamed_addr #9 align 2 {
 entry:
   %frombool = zext i1 %lateral to i8
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN6duckdb24HasCorrelatedExpressionsE, i64 16), ptr %this, align 8, !tbaa !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24HasCorrelatedExpressionsE, i64 16), ptr %this, align 8, !tbaa !74
   %has_correlated_expressions = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %has_correlated_expressions, align 8, !tbaa !64
   %lateral2 = getelementptr inbounds i8, ptr %this, i64 9
@@ -13027,7 +13027,7 @@ return:                                           ; preds = %for.cond, %if.then2
 define void @_ZN6duckdb28RewriteCorrelatedExpressionsC2ENS_13ColumnBindingERSt13unordered_mapIS1_mNS_25ColumnBindingHashFunctionENS_21ColumnBindingEqualityESaISt4pairIKS1_mEEEmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this, i64 %base_binding.coerce0, i64 %base_binding.coerce1, ptr noundef nonnull align 8 dereferenceable(56) %correlated_map, i64 noundef %lateral_depth, i1 noundef zeroext %recursive_rewrite) unnamed_addr #9 align 2 {
 entry:
   %frombool = zext i1 %recursive_rewrite to i8
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN6duckdb28RewriteCorrelatedExpressionsE, i64 16), ptr %this, align 8, !tbaa !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb28RewriteCorrelatedExpressionsE, i64 16), ptr %this, align 8, !tbaa !74
   %base_binding2 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %base_binding.coerce0, ptr %base_binding2, align 8, !tbaa !33
   %base_binding.sroa.2.0.base_binding2.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
@@ -14175,7 +14175,7 @@ unreachable:                                      ; preds = %invoke.cont4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6duckdb22RewriteCountAggregatesC2ERSt13unordered_mapINS_13ColumnBindingEmNS_25ColumnBindingHashFunctionENS_21ColumnBindingEqualityESaISt4pairIKS2_mEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(56) %replacement_map) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN6duckdb22RewriteCountAggregatesE, i64 16), ptr %this, align 8, !tbaa !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22RewriteCountAggregatesE, i64 16), ptr %this, align 8, !tbaa !74
   %replacement_map2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %replacement_map, ptr %replacement_map2, align 8, !tbaa !3
   ret void
@@ -17579,7 +17579,7 @@ declare void @_ZN6duckdb24BoundAggregateExpressionC1ENS_17AggregateFunctionENS_6
 define linkonce_odr void @_ZN6duckdb18BaseScalarFunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(170) %this, ptr noundef nonnull align 8 dereferenceable(170) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6duckdb8FunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb14SimpleFunctionE, i64 16), ptr %this, align 8, !tbaa !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14SimpleFunctionE, i64 16), ptr %this, align 8, !tbaa !74
   %arguments.i = getelementptr inbounds i8, ptr %this, i64 72
   %arguments2.i = getelementptr inbounds i8, ptr %0, i64 72
   invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %arguments.i, ptr noundef nonnull align 8 dereferenceable(24) %arguments2.i)
@@ -17628,7 +17628,7 @@ ehcleanup9.i:                                     ; preds = %ehcleanup.i, %lpad.
   br label %common.resume
 
 _ZN6duckdb14SimpleFunctionC2ERKS0_.exit:          ; preds = %invoke.cont5.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb18BaseScalarFunctionE, i64 16), ptr %this, align 8, !tbaa !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb18BaseScalarFunctionE, i64 16), ptr %this, align 8, !tbaa !74
   %return_type = getelementptr inbounds i8, ptr %this, i64 144
   %return_type2 = getelementptr inbounds i8, ptr %0, i64 144
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %return_type, ptr noundef nonnull align 8 dereferenceable(24) %return_type2)
@@ -17666,7 +17666,7 @@ define linkonce_odr void @_ZN6duckdb8FunctionC2ERKS0_(ptr noundef nonnull align 
 entry:
   %__dnew.i.i6 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN6duckdb8FunctionE, i64 16), ptr %this, align 8, !tbaa !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb8FunctionE, i64 16), ptr %this, align 8, !tbaa !74
   %name = getelementptr inbounds i8, ptr %this, i64 8
   %name2 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = getelementptr inbounds i8, ptr %this, i64 24

@@ -1433,7 +1433,7 @@ define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferh(ptr nocaptur
 entry:
   %m_clear.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_clear.i, align 8, !tbaa !76
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
   %buffer = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %_buffer, ptr %buffer, align 8, !tbaa !78
   %texture_map = getelementptr inbounds i8, ptr %this, i64 24
@@ -1535,7 +1535,7 @@ define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferRKSt6vectorIhS
 entry:
   %m_clear.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_clear.i, align 8, !tbaa !76
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
   %buffer = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %_buffer, ptr %buffer, align 8, !tbaa !78
   %texture_map = getelementptr inbounds i8, ptr %this, i64 24
@@ -1673,7 +1673,7 @@ define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferRKSt6vectorIhS
 entry:
   %m_clear.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_clear.i, align 8, !tbaa !76
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
   %buffer = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %_buffer, ptr %buffer, align 8, !tbaa !78
   %texture_map = getelementptr inbounds i8, ptr %this, i64 24
@@ -1782,7 +1782,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN19TextureBufferOutputD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
   %render_target.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %render_target.i, align 8, !tbaa !89
   %tobool.not.i = icmp eq ptr %0, null
@@ -1829,7 +1829,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %3, align 8, !tbaa !12
   %render_target.i.i = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %render_target.i.i, align 8, !tbaa !89
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -1872,7 +1872,7 @@ _ZN19TextureBufferOutputD1Ev.exit:                ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN19TextureBufferOutputD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
   %render_target.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %render_target.i.i, align 8, !tbaa !89
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -1920,7 +1920,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %3, align 8, !tbaa !12
   %render_target.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %render_target.i.i.i, align 8, !tbaa !89
   %tobool.not.i.i.i = icmp eq ptr %4, null
@@ -2447,7 +2447,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN19SetRenderTargetStepC1EP10RenderStepP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %_step, ptr noundef %_target) unnamed_addr #16 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV19SetRenderTargetStep, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19SetRenderTargetStep, i64 40), ptr %this, align 8, !tbaa !12
   %step = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %_step, ptr %step, align 8, !tbaa !96
   %target = getelementptr inbounds i8, ptr %this, i64 16
@@ -2510,7 +2510,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16SwapTexturesStepC1EP13TextureBufferhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) %this, ptr noundef %_buffer, i8 noundef zeroext %_texture_a, i8 noundef zeroext %_texture_b) unnamed_addr #16 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV16SwapTexturesStep, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16SwapTexturesStep, i64 40), ptr %this, align 8, !tbaa !12
   %buffer = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %_buffer, ptr %buffer, align 8, !tbaa !101
   %texture_a = getelementptr inbounds i8, ptr %this, i64 16
@@ -2797,7 +2797,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14RenderPipelineD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV14RenderPipeline, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14RenderPipeline, i64 40), ptr %this, align 8, !tbaa !12
   %m_objects.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_objects.i, align 8, !tbaa !116
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -2854,7 +2854,7 @@ _ZN14RenderPipelineD2Ev.exit:                     ; preds = %if.then.i.i.i5.i, %
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14RenderPipelineD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV14RenderPipeline, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14RenderPipeline, i64 40), ptr %this, align 8, !tbaa !12
   %m_objects.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_objects.i.i, align 8, !tbaa !116
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 40

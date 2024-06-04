@@ -1655,12 +1655,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %lor.lhs.false2, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %sub.i70 = add i64 %new_size, -1
-  %cmp.not.i73 = icmp ule i64 %sub.i70, %..i
-  %reass.sub129 = sub i64 %..i, %new_size
-  %add.i75 = add i64 %reass.sub129, 1
-  %cmp7.i76 = icmp uge i64 %add.i75, %new_addr
-  %2 = and i1 %cmp.not.i73, %cmp7.i76
+  %sub.i71 = add i64 %new_size, -1
+  %cmp.not.i74 = icmp ule i64 %sub.i71, %..i
+  %reass.sub130 = sub i64 %..i, %new_size
+  %add.i76 = add i64 %reass.sub130, 1
+  %cmp7.i77 = icmp uge i64 %add.i76, %new_addr
+  %2 = and i1 %cmp.not.i74, %cmp7.i77
   br i1 %2, label %lor.lhs.false2, label %if.then
 
 lor.lhs.false2:                                   ; preds = %land.lhs.true, %lor.lhs.false
@@ -1669,12 +1669,12 @@ lor.lhs.false2:                                   ; preds = %land.lhs.true, %lor
   br i1 %cmp, label %land.lhs.true4, label %if.end
 
 land.lhs.true4:                                   ; preds = %lor.lhs.false2
-  %sub.i77 = add i64 %new_size, -1
-  %cmp.not.i80 = icmp ule i64 %sub.i77, %..i
-  %reass.sub130 = sub i64 %..i, %new_size
-  %add.i82 = add i64 %reass.sub130, 1
-  %cmp7.i83 = icmp uge i64 %add.i82, %old_addr
-  %3 = and i1 %cmp.not.i80, %cmp7.i83
+  %sub.i78 = add i64 %new_size, -1
+  %cmp.not.i81 = icmp ule i64 %sub.i78, %..i
+  %reass.sub131 = sub i64 %..i, %new_size
+  %add.i83 = add i64 %reass.sub131, 1
+  %cmp7.i84 = icmp uge i64 %add.i83, %old_addr
+  %3 = and i1 %cmp.not.i81, %cmp7.i84
   br i1 %3, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true4, %land.lhs.true, %entry
@@ -1699,11 +1699,11 @@ mmap_lock.exit:                                   ; preds = %if.end, %if.then.i
 
 if.then9:                                         ; preds = %mmap_lock.exit
   %6 = load i64, ptr @guest_base, align 8
-  %add.i84 = add i64 %6, %old_addr
-  %7 = inttoptr i64 %add.i84 to ptr
+  %add.i85 = add i64 %6, %old_addr
+  %7 = inttoptr i64 %add.i85 to ptr
   %conv = trunc i64 %flags to i32
-  %add.i85 = add i64 %6, %new_addr
-  %8 = inttoptr i64 %add.i85 to ptr
+  %add.i86 = add i64 %6, %new_addr
+  %8 = inttoptr i64 %add.i86 to ptr
   %call12 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %7, i64 noundef %old_size, i64 noundef %new_size, i32 noundef %conv, ptr noundef %8) #13
   %9 = load i64, ptr @reserved_va, align 8
   %tobool13 = icmp ne i64 %9, 0
@@ -1725,12 +1725,12 @@ if.then22:                                        ; preds = %if.else
 
 if.else28:                                        ; preds = %if.then22
   %10 = load i64, ptr @guest_base, align 8
-  %add.i86 = add i64 %10, %old_addr
-  %11 = inttoptr i64 %add.i86 to ptr
+  %add.i87 = add i64 %10, %old_addr
+  %11 = inttoptr i64 %add.i87 to ptr
   %12 = trunc i64 %flags to i32
   %conv30 = or disjoint i32 %12, 2
-  %add.i87 = add i64 %10, %call23
-  %13 = inttoptr i64 %add.i87 to ptr
+  %add.i88 = add i64 %10, %call23
+  %13 = inttoptr i64 %add.i88 to ptr
   %call32 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %11, i64 noundef %old_size, i64 noundef %new_size, i32 noundef %conv30, ptr noundef %13) #13
   %14 = load i64, ptr @reserved_va, align 8
   %tobool33.not = icmp eq i64 %14, 0
@@ -1744,21 +1744,21 @@ if.else38:                                        ; preds = %if.else
   %15 = load i64, ptr @reserved_va, align 8
   %tobool39.not = icmp ne i64 %15, 0
   %cmp41 = icmp ult i64 %old_size, %new_size
-  %or.cond68 = and i1 %cmp41, %tobool39.not
-  br i1 %or.cond68, label %if.then43, label %if.then52
+  %or.cond69 = and i1 %cmp41, %tobool39.not
+  br i1 %or.cond69, label %if.then43, label %if.then52
 
 if.then43:                                        ; preds = %if.else38
   %add = add i64 %old_size, %old_addr
   %add44 = add i64 %new_size, %old_addr
-  %cmp45126 = icmp ult i64 %add, %add44
-  br i1 %cmp45126, label %for.body, label %if.then52
+  %cmp45127 = icmp ult i64 %add, %add44
+  br i1 %cmp45127, label %for.body, label %if.then52
 
 for.body:                                         ; preds = %if.then43, %for.body
-  %page_flags.0128 = phi i32 [ %or48, %for.body ], [ 0, %if.then43 ]
-  %addr.0127 = phi i64 [ %inc, %for.body ], [ %add, %if.then43 ]
-  %call47 = tail call i32 @page_get_flags(i64 noundef %addr.0127) #13
-  %or48 = or i32 %call47, %page_flags.0128
-  %inc = add i64 %addr.0127, 1
+  %page_flags.0129 = phi i32 [ %or48, %for.body ], [ 0, %if.then43 ]
+  %addr.0128 = phi i64 [ %inc, %for.body ], [ %add, %if.then43 ]
+  %call47 = tail call i32 @page_get_flags(i64 noundef %addr.0128) #13
+  %or48 = or i32 %call47, %page_flags.0129
+  %inc = add i64 %addr.0128, 1
   %exitcond.not = icmp eq i64 %inc, %add44
   br i1 %exitcond.not, label %if.end49, label %for.body, !llvm.loop !18
 
@@ -1768,8 +1768,8 @@ if.end49:                                         ; preds = %for.body
 
 if.then52:                                        ; preds = %if.then43, %if.else38, %if.end49
   %17 = load i64, ptr @guest_base, align 8
-  %add.i88 = add i64 %17, %old_addr
-  %18 = inttoptr i64 %add.i88 to ptr
+  %add.i89 = add i64 %17, %old_addr
+  %18 = inttoptr i64 %add.i89 to ptr
   %conv54 = trunc i64 %flags to i32
   %call55 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %18, i64 noundef %old_size, i64 noundef %new_size, i32 noundef %conv54) #13
   %cmp56.not = icmp eq ptr %call55, inttoptr (i64 -1 to ptr)
@@ -1781,8 +1781,8 @@ if.then58:                                        ; preds = %if.then52
   %sub = sub i64 %19, %20
   %21 = load i64, ptr @reserved_va, align 8
   %tobool59.not = icmp ne i64 %21, 0
-  %cmp60.not66 = icmp ult i64 %21, %sub
-  %cmp60.not = select i1 %tobool59.not, i1 %cmp60.not66, i1 false
+  %cmp60.not67 = icmp ult i64 %21, %sub
+  %cmp60.not = select i1 %tobool59.not, i1 %cmp60.not67, i1 false
   br i1 %cmp60.not, label %if.else63, label %if.end64
 
 if.else63:                                        ; preds = %if.then58
@@ -1790,26 +1790,26 @@ if.else63:                                        ; preds = %if.then58
   unreachable
 
 if.end64:                                         ; preds = %if.then58
-  %sub.i89 = add i64 %new_size, -1
-  %tobool.not.i90 = icmp eq i64 %21, 0
-  %..i91 = select i1 %tobool.not.i90, i64 -1, i64 %21
-  %cmp.not.i92 = icmp ule i64 %sub.i89, %..i91
-  %reass.sub131 = sub i64 %..i91, %new_size
-  %add.i94 = add i64 %reass.sub131, 1
-  %cmp7.i95 = icmp uge i64 %add.i94, %sub
-  %22 = select i1 %cmp.not.i92, i1 %cmp7.i95, i1 false
+  %sub.i90 = add i64 %new_size, -1
+  %tobool.not.i91 = icmp eq i64 %21, 0
+  %..i92 = select i1 %tobool.not.i91, i64 -1, i64 %21
+  %cmp.not.i93 = icmp ule i64 %sub.i90, %..i92
+  %reass.sub132 = sub i64 %..i92, %new_size
+  %add.i95 = add i64 %reass.sub132, 1
+  %cmp7.i96 = icmp uge i64 %add.i95, %sub
+  %22 = select i1 %cmp.not.i93, i1 %cmp7.i96, i1 false
   br i1 %22, label %if.else73, label %if.then68
 
 if.then68:                                        ; preds = %if.end64
-  %add.i96 = add i64 %20, %old_addr
-  %23 = inttoptr i64 %add.i96 to ptr
+  %add.i97 = add i64 %20, %old_addr
+  %23 = inttoptr i64 %add.i97 to ptr
   %call71 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %23, i64 noundef %new_size, i64 noundef %old_size, i32 noundef %conv54) #13
   br label %if.end120.sink.split
 
 if.else73:                                        ; preds = %if.end64
   %cmp76 = icmp ugt i64 %old_size, %new_size
-  %or.cond69 = and i1 %cmp76, %tobool59.not
-  br i1 %or.cond69, label %if.then78, label %if.else93
+  %or.cond70 = and i1 %cmp76, %tobool59.not
+  br i1 %or.cond70, label %if.then78, label %if.else93
 
 if.then78:                                        ; preds = %if.else73
   %add79 = add i64 %old_size, %old_addr
@@ -1823,14 +1823,14 @@ if.end89:                                         ; preds = %if.else28, %if.then
   br i1 %cmp90, label %if.end120, label %if.else93
 
 if.else93:                                        ; preds = %if.else73, %if.then78, %if.then17, %if.end89
-  %host_addr.0125 = phi ptr [ %host_addr.0, %if.end89 ], [ %call55, %if.else73 ], [ %call55, %if.then78 ], [ %call12, %if.then17 ]
-  %24 = ptrtoint ptr %host_addr.0125 to i64
+  %host_addr.0126 = phi ptr [ %host_addr.0, %if.end89 ], [ %call55, %if.else73 ], [ %call55, %if.then78 ], [ %call12, %if.then17 ]
+  %24 = ptrtoint ptr %host_addr.0126 to i64
   %25 = load i64, ptr @guest_base, align 8
   %sub94 = sub i64 %24, %25
   %26 = load i64, ptr @reserved_va, align 8
   %tobool95.not = icmp ne i64 %26, 0
-  %cmp100.not67 = icmp ult i64 %26, %sub94
-  %cmp100.not = select i1 %tobool95.not, i1 %cmp100.not67, i1 false
+  %cmp100.not68 = icmp ult i64 %26, %sub94
+  %cmp100.not = select i1 %tobool95.not, i1 %cmp100.not68, i1 false
   br i1 %cmp100.not, label %if.else103, label %if.end104
 
 if.else103:                                       ; preds = %if.else93
@@ -1842,75 +1842,75 @@ if.end104:                                        ; preds = %if.else93
   %add110 = add i64 %old_size, %old_addr
   %sub111 = add i64 %add110, -1
   tail call void @page_set_flags(i64 noundef %old_addr, i64 noundef %sub111, i32 noundef 0) #13
-  %call.i97 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %old_addr, i64 noundef %sub111) #13
-  %tobool.not10.i = icmp eq ptr %call.i97, null
+  %call.i98 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %old_addr, i64 noundef %sub111) #13
+  %tobool.not10.i = icmp eq ptr %call.i98, null
   br i1 %tobool.not10.i, label %shm_region_rm_complete.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end104, %for.inc.i
-  %i.011.i = phi ptr [ %call1.i, %for.inc.i ], [ %call.i97, %if.end104 ]
+  %i.011.i = phi ptr [ %call1.i, %for.inc.i ], [ %call.i98, %if.end104 ]
   %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %old_addr, i64 noundef %sub111) #13
   %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
   %27 = load i64, ptr %start2.i, align 8
-  %cmp.not.i98 = icmp ult i64 %27, %old_addr
-  br i1 %cmp.not.i98, label %for.inc.i, label %land.lhs.true.i
+  %cmp.not.i99 = icmp ult i64 %27, %old_addr
+  br i1 %cmp.not.i99, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %last3.i = getelementptr inbounds i8, ptr %i.011.i, i64 32
   %28 = load i64, ptr %last3.i, align 8
   %cmp4.not.i = icmp ugt i64 %28, %sub111
-  br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i99
+  br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i100
 
-if.then.i99:                                      ; preds = %land.lhs.true.i
+if.then.i100:                                     ; preds = %land.lhs.true.i
   tail call void @interval_tree_remove(ptr noundef nonnull %i.011.i, ptr noundef nonnull @shm_regions) #13
   tail call void @g_free(ptr noundef nonnull %i.011.i) #13
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then.i99, %land.lhs.true.i, %for.body.i
-  %tobool.not.i100 = icmp eq ptr %call1.i, null
-  br i1 %tobool.not.i100, label %shm_region_rm_complete.exit, label %for.body.i, !llvm.loop !13
+for.inc.i:                                        ; preds = %if.then.i100, %land.lhs.true.i, %for.body.i
+  %tobool.not.i101 = icmp eq ptr %call1.i, null
+  br i1 %tobool.not.i101, label %shm_region_rm_complete.exit, label %for.body.i, !llvm.loop !13
 
 shm_region_rm_complete.exit:                      ; preds = %for.inc.i, %if.end104
   %add114 = add i64 %new_size, -1
   %sub115 = add i64 %add114, %sub94
   %or117 = or i32 %call109, 72
   tail call void @page_set_flags(i64 noundef %sub94, i64 noundef %sub115, i32 noundef %or117) #13
-  %call.i101 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %sub94, i64 noundef %sub115) #13
-  %tobool.not10.i102 = icmp eq ptr %call.i101, null
-  br i1 %tobool.not10.i102, label %if.end120, label %for.body.i103
+  %call.i102 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %sub94, i64 noundef %sub115) #13
+  %tobool.not10.i103 = icmp eq ptr %call.i102, null
+  br i1 %tobool.not10.i103, label %if.end120, label %for.body.i104
 
-for.body.i103:                                    ; preds = %shm_region_rm_complete.exit, %for.inc.i112
-  %i.011.i104 = phi ptr [ %call1.i105, %for.inc.i112 ], [ %call.i101, %shm_region_rm_complete.exit ]
-  %call1.i105 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i104, i64 noundef %sub94, i64 noundef %sub115) #13
-  %start2.i106 = getelementptr inbounds i8, ptr %i.011.i104, i64 24
-  %29 = load i64, ptr %start2.i106, align 8
-  %cmp.not.i107 = icmp ult i64 %29, %sub94
-  br i1 %cmp.not.i107, label %for.inc.i112, label %land.lhs.true.i108
+for.body.i104:                                    ; preds = %shm_region_rm_complete.exit, %for.inc.i113
+  %i.011.i105 = phi ptr [ %call1.i106, %for.inc.i113 ], [ %call.i102, %shm_region_rm_complete.exit ]
+  %call1.i106 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i105, i64 noundef %sub94, i64 noundef %sub115) #13
+  %start2.i107 = getelementptr inbounds i8, ptr %i.011.i105, i64 24
+  %29 = load i64, ptr %start2.i107, align 8
+  %cmp.not.i108 = icmp ult i64 %29, %sub94
+  br i1 %cmp.not.i108, label %for.inc.i113, label %land.lhs.true.i109
 
-land.lhs.true.i108:                               ; preds = %for.body.i103
-  %last3.i109 = getelementptr inbounds i8, ptr %i.011.i104, i64 32
-  %30 = load i64, ptr %last3.i109, align 8
-  %cmp4.not.i110 = icmp ugt i64 %30, %sub115
-  br i1 %cmp4.not.i110, label %for.inc.i112, label %if.then.i111
+land.lhs.true.i109:                               ; preds = %for.body.i104
+  %last3.i110 = getelementptr inbounds i8, ptr %i.011.i105, i64 32
+  %30 = load i64, ptr %last3.i110, align 8
+  %cmp4.not.i111 = icmp ugt i64 %30, %sub115
+  br i1 %cmp4.not.i111, label %for.inc.i113, label %if.then.i112
 
-if.then.i111:                                     ; preds = %land.lhs.true.i108
-  tail call void @interval_tree_remove(ptr noundef nonnull %i.011.i104, ptr noundef nonnull @shm_regions) #13
-  tail call void @g_free(ptr noundef nonnull %i.011.i104) #13
-  br label %for.inc.i112
+if.then.i112:                                     ; preds = %land.lhs.true.i109
+  tail call void @interval_tree_remove(ptr noundef nonnull %i.011.i105, ptr noundef nonnull @shm_regions) #13
+  tail call void @g_free(ptr noundef nonnull %i.011.i105) #13
+  br label %for.inc.i113
 
-for.inc.i112:                                     ; preds = %if.then.i111, %land.lhs.true.i108, %for.body.i103
-  %tobool.not.i113 = icmp eq ptr %call1.i105, null
-  br i1 %tobool.not.i113, label %if.end120, label %for.body.i103, !llvm.loop !13
+for.inc.i113:                                     ; preds = %if.then.i112, %land.lhs.true.i109, %for.body.i104
+  %tobool.not.i114 = icmp eq ptr %call1.i106, null
+  br i1 %tobool.not.i114, label %if.end120, label %for.body.i104, !llvm.loop !13
 
 if.end120.sink.split:                             ; preds = %if.end49, %if.then22, %if.then68
   %call86 = tail call ptr @__errno_location() #15
   store i32 12, ptr %call86, align 4
   br label %if.end120
 
-if.end120:                                        ; preds = %for.inc.i112, %if.end120.sink.split, %if.then52, %shm_region_rm_complete.exit, %if.end89
-  %new_addr.addr.0 = phi i64 [ -1, %if.end89 ], [ %sub94, %shm_region_rm_complete.exit ], [ -1, %if.then52 ], [ -1, %if.end120.sink.split ], [ %sub94, %for.inc.i112 ]
+if.end120:                                        ; preds = %for.inc.i113, %if.end120.sink.split, %if.then52, %shm_region_rm_complete.exit, %if.end89
+  %new_addr.addr.0 = phi i64 [ -1, %if.end89 ], [ %sub94, %shm_region_rm_complete.exit ], [ -1, %if.then52 ], [ -1, %if.end120.sink.split ], [ %sub94, %for.inc.i113 ]
   %31 = load i32, ptr %4, align 4
-  %cmp.i115 = icmp sgt i32 %31, 0
-  br i1 %cmp.i115, label %if.end.i, label %if.else.i
+  %cmp.i116 = icmp sgt i32 %31, 0
+  br i1 %cmp.i116, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end120
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #14
@@ -1923,7 +1923,7 @@ if.end.i:                                         ; preds = %if.end120
   br i1 %cmp1.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i116 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i117 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.end.i, %if.then

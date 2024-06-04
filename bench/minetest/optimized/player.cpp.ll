@@ -357,7 +357,7 @@ entry:
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp31 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp43 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV6Player, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6Player, i64 16), ptr %this, align 8, !tbaa !12
   %eye_offset_first = getelementptr inbounds i8, ptr %this, i64 8
   %inventory = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %eye_offset_first, i8 0, i64 36, i1 false)
@@ -721,7 +721,7 @@ declare void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33))
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6PlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV6Player, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6Player, i64 16), ptr %this, align 8, !tbaa !12
   invoke void @_ZN6Player8clearHudEv(ptr noundef nonnull align 8 dereferenceable(432) %this)
           to label %invoke.cont unwind label %terminate.lpad
 

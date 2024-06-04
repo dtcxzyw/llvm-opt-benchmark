@@ -382,7 +382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 define dso_local void @_ZN10MapgenFlatC2EP16MapgenFlatParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(504) %this, ptr noundef %params, ptr noundef %emerge) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN11MapgenBasicC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(474) %this, i32 noundef 4, ptr noundef %params, ptr noundef %emerge)
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV10MapgenFlat, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MapgenFlat, i64 16), ptr %this, align 8, !tbaa !12
   %spflags = getelementptr inbounds i8, ptr %params, i64 32
   %0 = load i32, ptr %spflags, align 8, !tbaa !14
   %spflags2 = getelementptr inbounds i8, ptr %this, i64 268
@@ -525,7 +525,7 @@ declare void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10MapgenFlatD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %this) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV10MapgenFlat, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MapgenFlat, i64 16), ptr %this, align 8, !tbaa !12
   %noise_filler_depth = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %noise_filler_depth, align 8, !tbaa !55
   %isnull = icmp eq ptr %0, null
@@ -565,7 +565,7 @@ declare void @_ZN5NoiseD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unn
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10MapgenFlatD0Ev(ptr noundef nonnull align 8 dereferenceable(504) %this) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV10MapgenFlat, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MapgenFlat, i64 16), ptr %this, align 8, !tbaa !12
   %noise_filler_depth.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %noise_filler_depth.i, align 8, !tbaa !55
   %isnull.i = icmp eq ptr %0, null
@@ -625,7 +625,7 @@ invoke.cont22:
   store i16 31007, ptr %mapgen_edge_max.i, align 2, !tbaa !66
   %m_mapgen_edges_calculated.i = getelementptr inbounds i8, ptr %this, i64 52
   store i8 0, ptr %m_mapgen_edges_calculated.i, align 4, !tbaa !67
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV16MapgenFlatParams, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16MapgenFlatParams, i64 16), ptr %this, align 8, !tbaa !12
   %ground_level = getelementptr inbounds i8, ptr %this, i64 54
   store i16 8, ptr %ground_level, align 2, !tbaa !37
   %lake_threshold = getelementptr inbounds i8, ptr %this, i64 56

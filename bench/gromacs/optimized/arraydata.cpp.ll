@@ -129,7 +129,7 @@ define noundef zeroext i1 @_ZN3gmx25AbstractAnalysisArrayData22requestStorageInt
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx25AbstractAnalysisArrayDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25AbstractAnalysisArrayDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -182,7 +182,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx25AbstractAnalysisArrayDataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25AbstractAnalysisArrayDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

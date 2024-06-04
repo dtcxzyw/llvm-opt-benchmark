@@ -350,7 +350,8 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %2, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %2
 
 2:                                                ; preds = %if.then
   call void @_ZTH11errorstream()
@@ -436,7 +437,8 @@ invoke.cont10:                                    ; preds = %if.end
   br i1 %call11, label %cleanup, label %if.then12
 
 if.then12:                                        ; preds = %invoke.cont10
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %14, label %_ZTW11errorstream.exit26
+  %.not4 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not4, label %_ZTW11errorstream.exit26, label %14
 
 14:                                               ; preds = %if.then12
   call void @_ZTH11errorstream()
@@ -547,7 +549,8 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %1, label %_ZTW10infostream.exit
+  %.not8 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not8, label %_ZTW10infostream.exit, label %1
 
 1:                                                ; preds = %if.then
   tail call void @_ZTH10infostream()
@@ -645,7 +648,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br i1 %call4, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %13, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %13
 
 13:                                               ; preds = %if.then5
   call void @_ZTH11errorstream()
@@ -716,7 +720,8 @@ if.end9:                                          ; preds = %_ZNSt7__cxx1112basi
   br i1 %call16, label %return, label %if.then17
 
 if.then17:                                        ; preds = %if.end9
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %31, label %_ZTW11errorstream.exit44
+  %.not7 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not7, label %_ZTW11errorstream.exit44, label %31
 
 31:                                               ; preds = %if.then17
   call void @_ZTH11errorstream()
@@ -859,7 +864,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br i1 %cmp, label %if.then10, label %if.end27
 
 if.then10:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %6, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %6
 
 6:                                                ; preds = %if.then10
   call void @_ZTH11errorstream()

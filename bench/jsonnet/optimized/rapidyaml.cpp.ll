@@ -49832,7 +49832,7 @@ _ZN2c43yml6detail13_SubstrWriter6appendEc.exit193: ; preds = %_ZN2c43yml6detail1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2c420MemoryResourceLinearD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2c46detail26_MemoryResourceSingleChunkE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2c46detail26_MemoryResourceSingleChunkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -49869,7 +49869,7 @@ _ZN2c46detail26_MemoryResourceSingleChunkD2Ev.exit: ; preds = %1, %4, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2c420MemoryResourceLinearD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2c46detail26_MemoryResourceSingleChunkE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2c46detail26_MemoryResourceSingleChunkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -51113,7 +51113,7 @@ _ZN2c43yml4Tree11alloc_arenaEm.exit:              ; preds = %25, %32
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2c46detail26_MemoryResourceSingleChunkD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2c46detail26_MemoryResourceSingleChunkE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2c46detail26_MemoryResourceSingleChunkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -51150,7 +51150,7 @@ _ZN2c46detail21DerivedMemoryResource13do_deallocateEPvmm.exit: ; preds = %8, %4,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2c46detail26_MemoryResourceSingleChunkD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2c46detail26_MemoryResourceSingleChunkE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2c46detail26_MemoryResourceSingleChunkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null

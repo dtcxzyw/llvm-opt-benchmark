@@ -389,7 +389,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 define dso_local void @_ZN13MapgenValleysC2EP19MapgenValleysParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef %params, ptr noundef %emerge) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN11MapgenBasicC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(474) %this, i32 noundef 1, ptr noundef %params, ptr noundef %emerge)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13MapgenValleys, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MapgenValleys, i64 16), ptr %this, align 8, !tbaa !12
   %biomegen = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %biomegen, align 8, !tbaa !14
   %vtable = load ptr, ptr %0, align 8, !tbaa !12
@@ -672,7 +672,7 @@ declare void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13MapgenValleysD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %this) unnamed_addr #10 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13MapgenValleys, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MapgenValleys, i64 16), ptr %this, align 8, !tbaa !12
   %noise_filler_depth = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %noise_filler_depth, align 8, !tbaa !61
   %isnull = icmp eq ptr %0, null
@@ -790,7 +790,7 @@ invoke.cont42:
   store i16 31007, ptr %mapgen_edge_max.i, align 2, !tbaa !78
   %m_mapgen_edges_calculated.i = getelementptr inbounds i8, ptr %this, i64 52
   store i8 0, ptr %m_mapgen_edges_calculated.i, align 4, !tbaa !79
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV19MapgenValleysParams, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19MapgenValleysParams, i64 16), ptr %this, align 8, !tbaa !12
   %altitude_chill = getelementptr inbounds i8, ptr %this, i64 54
   store i16 90, ptr %altitude_chill, align 2, !tbaa !40
   %river_depth = getelementptr inbounds i8, ptr %this, i64 56

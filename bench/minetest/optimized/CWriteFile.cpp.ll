@@ -150,8 +150,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !20
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !23
-  store ptr getelementptr inbounds inrange(-24, 56) (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %0, align 8, !tbaa !3
   %Filename = getelementptr inbounds i8, ptr %this, i64 8
   %1 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %1, ptr %Filename, align 8, !tbaa !6
@@ -250,9 +250,9 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io10CWriteFileD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 56) (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i, align 8, !tbaa !3
   %File.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %File.i, align 8, !tbaa !18
   %tobool.not.i = icmp eq ptr %0, null
@@ -291,9 +291,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 56) (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i.i, align 8, !tbaa !3
   %File.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %File.i.i, align 8, !tbaa !18
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -328,9 +328,9 @@ _ZN3irr2io10CWriteFileD1Ev.exit:                  ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io10CWriteFileD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 56) (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i.i, align 8, !tbaa !3
   %File.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %File.i.i, align 8, !tbaa !18
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -373,9 +373,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 56) (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %File.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %File.i.i.i, align 8, !tbaa !18
   %tobool.not.i.i.i = icmp eq ptr %4, null

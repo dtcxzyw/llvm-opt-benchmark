@@ -2882,8 +2882,8 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %2 = load i32, ptr @_ZL14g_config_index, align 4
-  %call.i2 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %2)
-  %custom_extension_fail_add = getelementptr inbounds i8, ptr %call.i2, i64 905
+  %call.i3 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %2)
+  %custom_extension_fail_add = getelementptr inbounds i8, ptr %call.i3, i64 905
   %3 = load i8, ptr %custom_extension_fail_add, align 1
   %tobool5 = trunc i8 %3 to i1
   br i1 %tobool5, label %return, label %if.end7
@@ -2905,8 +2905,8 @@ entry:
   %cmp1 = icmp ne ptr %add_arg, inttoptr (i64 1234 to ptr)
   %or.cond = or i1 %cmp, %cmp1
   %cmp3 = icmp ne ptr %out, @_ZL24kCustomExtensionContents
-  %or.cond1 = or i1 %cmp3, %or.cond
-  br i1 %or.cond1, label %if.then, label %if.end
+  %or.cond2 = or i1 %cmp3, %or.cond
+  br i1 %or.cond2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @abort() #27

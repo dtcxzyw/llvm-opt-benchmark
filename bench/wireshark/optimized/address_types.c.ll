@@ -1113,140 +1113,131 @@ define ptr @address_with_resolution_to_str(ptr noundef %0, ptr noundef %1) local
   br i1 %or.cond, label %18, label %address_type_get_length.exit.i
 
 18:                                               ; preds = %14
-  %19 = and i32 %3, -2
-  %switch = icmp eq i32 %19, 2
-  br i1 %switch, label %24, label %20
+  %.off = add i32 %3, -2
+  %switch = icmp ult i32 %.off, 3
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %.not = icmp eq i32 %19, 0
+  %or.cond22 = select i1 %switch, i1 %.not, i1 false
+  br i1 %or.cond22, label %address_type_get_length.exit.i, label %39
 
-20:                                               ; preds = %18
-  %21 = icmp ne i32 %3, 4
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
-  %23 = icmp ne i32 %22, 0
-  %or.cond3 = select i1 %21, i1 true, i1 %23
-  br i1 %or.cond3, label %44, label %address_type_get_length.exit.i
+address_type_get_length.exit.i:                   ; preds = %10, %14, %18
+  %20 = getelementptr inbounds i8, ptr %6, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 %21(ptr noundef nonnull %1) #16
+  %.fr.i = freeze i32 %22
+  %23 = icmp slt i32 %.fr.i, 1
+  %spec.select = select i1 %23, i32 256, i32 %.fr.i
+  %24 = zext nneg i32 %spec.select to i64
+  %25 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %24) #16
+  %.not.i = icmp eq ptr %25, null
+  br i1 %.not.i, label %address_to_str.exit, label %26
 
-24:                                               ; preds = %18
-  %.old = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
-  %.old2.not = icmp eq i32 %.old, 0
-  br i1 %.old2.not, label %address_type_get_length.exit.i, label %44
+26:                                               ; preds = %address_type_get_length.exit.i
+  %27 = load i32, ptr %1, align 8
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr [45 x ptr], ptr @type_list, i64 0, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %36, label %32
 
-address_type_get_length.exit.i:                   ; preds = %10, %24, %14, %20
-  %25 = getelementptr inbounds i8, ptr %6, i64 32
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef nonnull %1) #16
-  %.fr.i = freeze i32 %27
-  %28 = icmp slt i32 %.fr.i, 1
-  %spec.select = select i1 %28, i32 256, i32 %.fr.i
-  %29 = zext nneg i32 %spec.select to i64
-  %30 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %29) #16
-  %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %address_to_str.exit, label %31
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds i8, ptr %30, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %37
 
-31:                                               ; preds = %address_type_get_length.exit.i
-  %32 = load i32, ptr %1, align 8
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr [45 x ptr], ptr @type_list, i64 0, i64 %33
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %41, label %37
-
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %35, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %42
-
-41:                                               ; preds = %37, %31
-  store i8 0, ptr %30, align 1
+36:                                               ; preds = %32, %26
+  store i8 0, ptr %25, align 1
   br label %address_to_str.exit
 
-42:                                               ; preds = %37
-  %43 = tail call i32 %39(ptr noundef nonnull %1, ptr noundef nonnull %30, i32 noundef %spec.select) #16
+37:                                               ; preds = %32
+  %38 = tail call i32 %34(ptr noundef nonnull %1, ptr noundef nonnull %25, i32 noundef %spec.select) #16
   br label %address_to_str.exit
 
-44:                                               ; preds = %24, %20
-  %45 = getelementptr inbounds i8, ptr %6, i64 72
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 %46() #16
-  %48 = getelementptr inbounds i8, ptr %6, i64 32
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 %49(ptr noundef nonnull %1) #16
-  %51 = add i32 %47, 4
-  %52 = add i32 %51, %50
-  %53 = sext i32 %52 to i64
-  %54 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %53) #16
-  %55 = icmp ne ptr %54, null
-  %56 = icmp ne i32 %52, 0
-  %or.cond.i = and i1 %55, %56
-  br i1 %or.cond.i, label %57, label %address_to_str.exit
+39:                                               ; preds = %18
+  %40 = getelementptr inbounds i8, ptr %6, i64 72
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call i32 %41() #16
+  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call i32 %44(ptr noundef nonnull %1) #16
+  %46 = add i32 %42, 4
+  %47 = add i32 %46, %45
+  %48 = sext i32 %47 to i64
+  %49 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %48) #16
+  %50 = icmp ne ptr %49, null
+  %51 = icmp ne i32 %47, 0
+  %or.cond.i = and i1 %50, %51
+  br i1 %or.cond.i, label %52, label %address_to_str.exit
 
-57:                                               ; preds = %44
-  %58 = load i32, ptr %1, align 8
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr [45 x ptr], ptr @type_list, i64 0, i64 %59
+52:                                               ; preds = %39
+  %53 = load i32, ptr %1, align 8
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr [45 x ptr], ptr @type_list, i64 0, i64 %54
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %59
+
+58:                                               ; preds = %52
+  store i8 0, ptr %49, align 1
+  br label %address_to_str.exit
+
+59:                                               ; preds = %52
+  %60 = getelementptr inbounds i8, ptr %56, i64 64
   %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %64
-
-63:                                               ; preds = %57
-  store i8 0, ptr %54, align 1
-  br label %address_to_str.exit
-
-64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %61, i64 64
+  %62 = tail call ptr %61(ptr noundef nonnull %1) #16
+  %63 = tail call i64 @g_strlcpy(ptr noundef nonnull %49, ptr noundef %62, i64 noundef %48) #16
+  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #15
+  %65 = getelementptr inbounds i8, ptr %56, i64 32
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call ptr %66(ptr noundef nonnull %1) #16
-  %68 = tail call i64 @g_strlcpy(ptr noundef nonnull %54, ptr noundef %67, i64 noundef %53) #16
-  %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #15
-  %70 = getelementptr inbounds i8, ptr %61, i64 32
-  %71 = load ptr, ptr %70, align 8
-  %72 = tail call i32 %71(ptr noundef nonnull %1) #16
-  %73 = add i32 %72, -1
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %address_to_str.exit, label %75
+  %67 = tail call i32 %66(ptr noundef nonnull %1) #16
+  %68 = add i32 %67, -1
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %address_to_str.exit, label %70
 
-75:                                               ; preds = %64
-  %76 = icmp eq i64 %69, 0
-  br i1 %76, label %77, label %83
+70:                                               ; preds = %59
+  %71 = icmp eq i64 %64, 0
+  br i1 %71, label %72, label %78
 
-77:                                               ; preds = %75
-  %78 = icmp sgt i32 %72, %52
-  br i1 %78, label %address_to_str.exit, label %79
+72:                                               ; preds = %70
+  %73 = icmp sgt i32 %67, %47
+  br i1 %73, label %address_to_str.exit, label %74
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %61, i64 24
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 %81(ptr noundef nonnull %1, ptr noundef nonnull %54, i32 noundef %52) #16
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds i8, ptr %56, i64 24
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call i32 %76(ptr noundef nonnull %1, ptr noundef nonnull %49, i32 noundef %47) #16
   br label %address_to_str.exit
 
-83:                                               ; preds = %75
-  %84 = trunc i64 %69 to i32
-  %85 = add i32 %84, 4
-  %86 = add i32 %85, %73
-  %87 = icmp sgt i32 %86, %52
-  br i1 %87, label %address_to_str.exit, label %88
+78:                                               ; preds = %70
+  %79 = trunc i64 %64 to i32
+  %80 = add i32 %79, 4
+  %81 = add i32 %80, %68
+  %82 = icmp sgt i32 %81, %47
+  br i1 %82, label %address_to_str.exit, label %83
 
-88:                                               ; preds = %83
-  %89 = getelementptr i8, ptr %54, i64 %69
-  store i8 32, ptr %89, align 1
-  %90 = add i64 %69, 2
-  %91 = getelementptr i8, ptr %89, i64 1
-  store i8 40, ptr %91, align 1
-  %92 = getelementptr inbounds i8, ptr %61, i64 24
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr i8, ptr %54, i64 %90
-  %95 = trunc i64 %90 to i32
-  %96 = sub i32 %52, %95
-  %97 = tail call i32 %93(ptr noundef nonnull %1, ptr noundef %94, i32 noundef %96) #16
-  %98 = add i32 %97, -1
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr i8, ptr %94, i64 %99
-  store i8 41, ptr %100, align 1
-  %101 = getelementptr i8, ptr %100, i64 1
-  store i8 0, ptr %101, align 1
+83:                                               ; preds = %78
+  %84 = getelementptr i8, ptr %49, i64 %64
+  store i8 32, ptr %84, align 1
+  %85 = add i64 %64, 2
+  %86 = getelementptr i8, ptr %84, i64 1
+  store i8 40, ptr %86, align 1
+  %87 = getelementptr inbounds i8, ptr %56, i64 24
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr i8, ptr %49, i64 %85
+  %90 = trunc i64 %85 to i32
+  %91 = sub i32 %47, %90
+  %92 = tail call i32 %88(ptr noundef nonnull %1, ptr noundef %89, i32 noundef %91) #16
+  %93 = add i32 %92, -1
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr i8, ptr %89, i64 %94
+  store i8 41, ptr %95, align 1
+  %96 = getelementptr i8, ptr %95, i64 1
+  store i8 0, ptr %96, align 1
   br label %address_to_str.exit
 
-address_to_str.exit:                              ; preds = %88, %83, %79, %77, %64, %63, %44, %42, %41, %address_type_get_length.exit.i, %8
-  %.0 = phi ptr [ %9, %8 ], [ null, %address_type_get_length.exit.i ], [ %30, %41 ], [ %30, %42 ], [ %54, %44 ], [ %54, %63 ], [ %54, %64 ], [ %54, %77 ], [ %54, %79 ], [ %54, %83 ], [ %54, %88 ]
+address_to_str.exit:                              ; preds = %83, %78, %74, %72, %59, %58, %39, %37, %36, %address_type_get_length.exit.i, %8
+  %.0 = phi ptr [ %9, %8 ], [ null, %address_type_get_length.exit.i ], [ %25, %36 ], [ %25, %37 ], [ %49, %39 ], [ %49, %58 ], [ %49, %59 ], [ %49, %72 ], [ %49, %74 ], [ %49, %78 ], [ %49, %83 ]
   ret ptr %.0
 }
 

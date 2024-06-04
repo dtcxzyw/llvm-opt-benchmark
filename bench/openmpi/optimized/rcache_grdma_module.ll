@@ -716,85 +716,85 @@ define internal i32 @mca_rcache_grdma_find(ptr nocapture noundef %0, ptr noundef
   %26 = tail call i32 @mca_rcache_base_vma_find(ptr noundef %24, ptr noundef %10, i64 noundef %25, ptr noundef %3) #7
   %27 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %69, label %28
+  br i1 %.not, label %68, label %28
 
 28:                                               ; preds = %4
   %29 = load i32, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 348), align 4
-  %.not27 = icmp eq i32 %29, 0
-  br i1 %.not27, label %30, label %44
+  %.not26 = icmp eq i32 %29, 0
+  br i1 %.not26, label %30, label %44
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %27, i64 92
   %32 = load volatile i32, ptr %31, align 4
   %33 = and i32 %32, 2
-  %.not28 = icmp eq i32 %33, 0
-  br i1 %.not28, label %34, label %.thread
+  %.not27 = icmp eq i32 %33, 0
+  br i1 %.not27, label %34, label %.thread
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %27, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %10
-  br i1 %37, label %38, label %69
+  br i1 %37, label %38, label %68
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %27, i64 72
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %15
-  br i1 %41, label %.thread, label %69
+  br i1 %41, label %.thread, label %68
 
 .thread:                                          ; preds = %38, %30
   %42 = getelementptr inbounds i8, ptr %27, i64 88
   %43 = load volatile i32, ptr %42, align 8
-  br label %62
+  br label %61
 
 44:                                               ; preds = %28
   %45 = getelementptr inbounds i8, ptr %27, i64 88
   %46 = load volatile i32, ptr %45, align 8
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %62
+  %.not30 = icmp eq i32 %46, 0
+  br i1 %.not30, label %47, label %61
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %16, align 16
-  %50 = getelementptr inbounds i8, ptr %27, i64 16
-  %51 = load volatile ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %27, i64 24
-  %53 = load volatile ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
-  store volatile ptr %51, ptr %54, align 8
-  %55 = load volatile ptr, ptr %52, align 8
-  %56 = load volatile ptr, ptr %50, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
-  store volatile ptr %55, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %49, i64 104
-  %59 = load volatile i64, ptr %58, align 8
-  %60 = add i64 %59, -1
-  store volatile i64 %60, ptr %58, align 8
-  %61 = load volatile ptr, ptr %52, align 8
-  br label %62
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %16, align 16
+  %49 = getelementptr inbounds i8, ptr %27, i64 16
+  %50 = load volatile ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %27, i64 24
+  %52 = load volatile ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  store volatile ptr %50, ptr %53, align 8
+  %54 = load volatile ptr, ptr %51, align 8
+  %55 = load volatile ptr, ptr %49, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  store volatile ptr %54, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %48, i64 104
+  %58 = load volatile i64, ptr %57, align 8
+  %59 = add i64 %58, -1
+  store volatile i64 %59, ptr %57, align 8
+  %60 = load volatile ptr, ptr %51, align 8
+  br label %61
 
-62:                                               ; preds = %.thread, %48, %44
-  %63 = getelementptr inbounds i8, ptr %0, i64 540
-  %64 = load i32, ptr %63, align 4
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %63, align 4
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 88
-  %68 = atomicrmw volatile add ptr %67, i32 1 monotonic, align 4
-  br label %73
+61:                                               ; preds = %.thread, %47, %44
+  %62 = getelementptr inbounds i8, ptr %0, i64 540
+  %63 = load i32, ptr %62, align 4
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %62, align 4
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 88
+  %67 = atomicrmw volatile add ptr %66, i32 1 monotonic, align 4
+  br label %72
 
-69:                                               ; preds = %38, %34, %4
-  %70 = getelementptr inbounds i8, ptr %0, i64 544
-  %71 = load i32, ptr %70, align 16
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %70, align 16
-  br label %73
+68:                                               ; preds = %38, %34, %4
+  %69 = getelementptr inbounds i8, ptr %0, i64 544
+  %70 = load i32, ptr %69, align 16
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %69, align 16
+  br label %72
 
-73:                                               ; preds = %69, %62
-  %74 = load ptr, ptr %16, align 16
-  %75 = getelementptr inbounds i8, ptr %74, i64 192
-  %76 = load ptr, ptr %75, align 16
-  %77 = getelementptr inbounds i8, ptr %76, i64 1416
-  %78 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %77) #7
+72:                                               ; preds = %68, %61
+  %73 = load ptr, ptr %16, align 16
+  %74 = getelementptr inbounds i8, ptr %73, i64 192
+  %75 = load ptr, ptr %74, align 16
+  %76 = getelementptr inbounds i8, ptr %75, i64 1416
+  %77 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %76) #7
   ret i32 %26
 }
 

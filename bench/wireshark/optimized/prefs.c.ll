@@ -9914,17 +9914,17 @@ init_prefs.exit:                                  ; preds = %1, %5
   store ptr %7, ptr %0, align 8
   %11 = tail call ptr @__errno_location() #28
   %12 = load i32, ptr %11, align 4
-  br label %54
+  br label %52
 
 .thread:                                          ; preds = %init_prefs.exit
   %13 = load ptr, ptr @stdout, align 8
-  br label %43
+  br label %41
 
 14:                                               ; preds = %6
   tail call void @g_free(ptr noundef %7) #24
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 448), align 8
-  %.not25 = icmp eq i32 %15, 0
-  br i1 %.not25, label %22, label %16
+  %.not24 = icmp eq i32 %15, 0
+  br i1 %.not24, label %22, label %16
 
 16:                                               ; preds = %14
   store ptr null, ptr %4, align 8
@@ -9943,68 +9943,68 @@ init_prefs.exit:                                  ; preds = %1, %5
 22:                                               ; preds = %16, %19, %14
   %23 = load ptr, ptr @prefs_modules, align 8
   %24 = call ptr @wmem_tree_lookup_string(ptr noundef %23, ptr noundef nonnull @.str.84, i32 noundef 1) #24
-  %25 = icmp eq ptr %24, null
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
-  %27 = icmp ne i32 %26, 0
-  %or.cond = select i1 %25, i1 true, i1 %27
-  br i1 %or.cond, label %43, label %28
+  %.not25 = icmp ne ptr %24, null
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
+  %.not26 = icmp eq i32 %25, 0
+  %or.cond = select i1 %.not25, i1 %.not26, i1 false
+  br i1 %or.cond, label %26, label %41
 
-28:                                               ; preds = %22
-  %29 = call ptr @get_persconffile_path(ptr noundef nonnull @.str.85, i1 noundef zeroext true) #24
-  %30 = call noalias ptr @fopen(ptr noundef %29, ptr noundef nonnull @.str.81)
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %38
+26:                                               ; preds = %22
+  %27 = call ptr @get_persconffile_path(ptr noundef nonnull @.str.85, i1 noundef zeroext true) #24
+  %28 = call noalias ptr @fopen(ptr noundef %27, ptr noundef nonnull @.str.81)
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %36
 
-32:                                               ; preds = %28
-  %33 = tail call ptr @__errno_location() #28
-  %34 = load i32, ptr %33, align 4
-  %.not26 = icmp eq i32 %34, 21
-  br i1 %.not26, label %37, label %35
+30:                                               ; preds = %26
+  %31 = tail call ptr @__errno_location() #28
+  %32 = load i32, ptr %31, align 4
+  %.not27 = icmp eq i32 %32, 21
+  br i1 %.not27, label %35, label %33
 
-35:                                               ; preds = %32
-  %36 = call ptr @g_strerror(i32 noundef %34) #28
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 7146, ptr noundef nonnull @__func__.write_prefs, ptr noundef nonnull @.str.86, ptr noundef %29, ptr noundef %36) #24
-  br label %37
+33:                                               ; preds = %30
+  %34 = call ptr @g_strerror(i32 noundef %32) #28
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 7146, ptr noundef nonnull @__func__.write_prefs, ptr noundef nonnull @.str.86, ptr noundef %27, ptr noundef %34) #24
+  br label %35
 
-37:                                               ; preds = %35, %32
-  call void @g_free(ptr noundef %29) #24
-  br label %43
+35:                                               ; preds = %33, %30
+  call void @g_free(ptr noundef %27) #24
+  br label %41
 
-38:                                               ; preds = %28
-  call void @g_free(ptr noundef %29) #24
-  %39 = call i64 @fwrite(ptr nonnull @.str.87, i64 270, i64 1, ptr nonnull %30)
-  store ptr %30, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 0, ptr %40, align 8
-  %41 = call i32 @write_module_prefs(ptr noundef nonnull %24, ptr noundef nonnull %3)
-  %42 = call i32 @fclose(ptr noundef nonnull %30)
-  br label %43
+36:                                               ; preds = %26
+  call void @g_free(ptr noundef %27) #24
+  %37 = call i64 @fwrite(ptr nonnull @.str.87, i64 270, i64 1, ptr nonnull %28)
+  store ptr %28, ptr %3, align 8
+  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 0, ptr %38, align 8
+  %39 = call i32 @write_module_prefs(ptr noundef nonnull %24, ptr noundef nonnull %3)
+  %40 = call i32 @fclose(ptr noundef nonnull %28)
+  br label %41
 
-43:                                               ; preds = %.thread, %22, %38, %37
-  %.01928 = phi ptr [ %13, %.thread ], [ %8, %22 ], [ %8, %38 ], [ %8, %37 ]
-  %44 = call i64 @fwrite(ptr nonnull @.str.88, i64 263, i64 1, ptr %.01928)
-  store ptr %.01928, ptr %3, align 8
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 1, ptr %45, align 8
-  %46 = load ptr, ptr @gui_module, align 8
-  %47 = call i32 @write_module_prefs(ptr noundef %46, ptr noundef nonnull %3)
-  store i32 0, ptr %45, align 8
-  %48 = load ptr, ptr @prefs_top_level_modules, align 8
+41:                                               ; preds = %.thread, %22, %36, %35
+  %.01829 = phi ptr [ %13, %.thread ], [ %8, %22 ], [ %8, %36 ], [ %8, %35 ]
+  %42 = call i64 @fwrite(ptr nonnull @.str.88, i64 263, i64 1, ptr %.01829)
+  store ptr %.01829, ptr %3, align 8
+  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 1, ptr %43, align 8
+  %44 = load ptr, ptr @gui_module, align 8
+  %45 = call i32 @write_module_prefs(ptr noundef %44, ptr noundef nonnull %3)
+  store i32 0, ptr %43, align 8
+  %46 = load ptr, ptr @prefs_top_level_modules, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr @write_module_prefs, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %3, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 20
-  store i32 1, ptr %51, align 4
-  %52 = call zeroext i1 @wmem_tree_foreach(ptr noundef %48, ptr noundef nonnull @call_foreach_cb, ptr noundef nonnull %2) #24
+  %47 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %3, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 0, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %2, i64 20
+  store i32 1, ptr %49, align 4
+  %50 = call zeroext i1 @wmem_tree_foreach(ptr noundef %46, ptr noundef nonnull @call_foreach_cb, ptr noundef nonnull %2) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %53 = call i32 @fclose(ptr noundef %.01928)
-  br label %54
+  %51 = call i32 @fclose(ptr noundef %.01829)
+  br label %52
 
-54:                                               ; preds = %43, %10
-  %.0 = phi i32 [ %12, %10 ], [ 0, %43 ]
+52:                                               ; preds = %41, %10
+  %.0 = phi i32 [ %12, %10 ], [ 0, %41 ]
   ret i32 %.0
 }
 

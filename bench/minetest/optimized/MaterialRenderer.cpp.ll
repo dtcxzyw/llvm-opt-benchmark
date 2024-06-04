@@ -103,7 +103,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 16), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 16), ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %vtt, align 8
   store ptr %5, ptr %this, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %vtt, i64 24
@@ -112,7 +112,7 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %7, ptr %add.ptr, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %4, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -237,9 +237,9 @@ entry:
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !24
   %1 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 144) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 304), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 304), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %1, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -301,7 +301,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 16), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 16), ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %vtt, align 8
   store ptr %5, ptr %this, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %vtt, i64 24
@@ -310,7 +310,7 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %7, ptr %add.ptr, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %4, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -367,9 +367,9 @@ entry:
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !24
   %1 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 144) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 304), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 304), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %1, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
@@ -431,7 +431,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !3
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %add.ptr3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 184), ptr %add.ptr3, align 8, !tbaa !3
   %CallBack = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %CallBack, align 8, !tbaa !19
   %tobool.not = icmp eq ptr %3, null

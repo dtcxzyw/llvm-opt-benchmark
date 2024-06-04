@@ -1120,7 +1120,7 @@ define void @_ZN3gmx11QMMMOptions14initMdpOptionsEPNS_29IOptionsContainerWithSec
   %11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN3gmxL20c_qmmmCP2KModuleNameB5cxx11E) #23
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13OptionSectionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13OptionSectionE, i64 16), ptr %4, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %13 = load ptr, ptr %1, align 8, !noalias !7
   %14 = getelementptr inbounds i8, ptr %13, i64 32
@@ -1128,7 +1128,7 @@ define void @_ZN3gmx11QMMMOptions14initMdpOptionsEPNS_29IOptionsContainerWithSec
   %16 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %17 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %16, ptr %17, align 8, !alias.scope !7
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx19OptionSectionHandleE, i64 16), ptr %3, align 8, !alias.scope !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19OptionSectionHandleE, i64 16), ptr %3, align 8, !alias.scope !7
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #23
   %20 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1139,7 +1139,7 @@ define void @_ZN3gmx11QMMMOptions14initMdpOptionsEPNS_29IOptionsContainerWithSec
   store ptr %19, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %5, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 504
   %25 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %24, ptr %25, align 8
@@ -1157,7 +1157,7 @@ define void @_ZN3gmx11QMMMOptions14initMdpOptionsEPNS_29IOptionsContainerWithSec
   store ptr %29, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %33, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx12StringOptionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12StringOptionE, i64 16), ptr %6, align 8
   %34 = getelementptr inbounds i8, ptr %6, i64 88
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %6, i64 96
@@ -1184,7 +1184,7 @@ define void @_ZN3gmx11QMMMOptions14initMdpOptionsEPNS_29IOptionsContainerWithSec
   store ptr %45, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %49, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx10EnumOptionINS_12QMMMQMMethodEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx10EnumOptionINS_12QMMMQMMethodEEE, i64 16), ptr %7, align 8
   %50 = getelementptr inbounds i8, ptr %7, i64 88
   %51 = getelementptr inbounds i8, ptr %7, i64 96
   store ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, ptr %50, align 8
@@ -1209,7 +1209,7 @@ define void @_ZN3gmx11QMMMOptions14initMdpOptionsEPNS_29IOptionsContainerWithSec
   store ptr %60, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %64, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx12StringOptionE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12StringOptionE, i64 16), ptr %8, align 8
   %65 = getelementptr inbounds i8, ptr %8, i64 88
   store ptr null, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %8, i64 96
@@ -1236,7 +1236,7 @@ define void @_ZN3gmx11QMMMOptions14initMdpOptionsEPNS_29IOptionsContainerWithSec
   store ptr %76, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %80, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %9, align 8
   %81 = getelementptr inbounds i8, ptr %0, i64 608
   %82 = getelementptr inbounds i8, ptr %9, i64 64
   store ptr %81, ptr %82, align 8
@@ -1257,7 +1257,7 @@ define void @_ZN3gmx11QMMMOptions14initMdpOptionsEPNS_29IOptionsContainerWithSec
   store ptr %89, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %93, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %10, align 8
   %94 = getelementptr inbounds i8, ptr %0, i64 612
   %95 = getelementptr inbounds i8, ptr %10, i64 64
   store ptr %94, ptr %95, align 8
@@ -1458,7 +1458,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %.noexc.i unwind label %65
 
 .noexc.i:                                         ; preds = %46
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %47, align 8, !noalias !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %47, align 8, !noalias !13
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load i8, ptr %40, align 8, !noalias !13
   %50 = and i8 %49, 1
@@ -7165,7 +7165,7 @@ _ZNKSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   %26 = zext i1 %25 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %27 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !17
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %27, align 8, !noalias !17
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %27, align 8, !noalias !17
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   store i8 %26, ptr %28, align 8, !noalias !17
   store ptr %27, ptr %0, align 8, !alias.scope !17
@@ -7193,7 +7193,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIbE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIbEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %3, align 8, !noalias !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %3, align 8, !noalias !20
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr %2, align 8, !noalias !20
   %6 = and i8 %5, 1
@@ -7580,7 +7580,7 @@ _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEclES
           to label %27 unwind label %29
 
 27:                                               ; preds = %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEclES7_.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %26, align 8, !noalias !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %26, align 8, !noalias !26
   %28 = getelementptr inbounds i8, ptr %26, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %4) #23, !noalias !26
   store ptr %26, ptr %0, align 8, !alias.scope !26
@@ -7596,7 +7596,7 @@ _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEclES
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   ret void
@@ -7604,7 +7604,7 @@ define linkonce_odr void @_ZN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11cha
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
@@ -7620,7 +7620,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx3An
 define linkonce_odr void @_ZNK3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.29") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26, !noalias !29
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %4, align 8, !noalias !29
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %4, align 8, !noalias !29
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNSt10unique_ptrIN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14default_deleteIS9_EED2Ev.exit unwind label %6, !noalias !29
@@ -7968,7 +7968,7 @@ _ZSt10__invoke_rIN3gmx3AnyERZNS0_32KeyValueTreeTransformRuleBuilder7ToValueINSt7
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %23), !noalias !47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %27 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !51
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %27, align 8, !noalias !51
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %27, align 8, !noalias !51
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   store i32 %26, ptr %28, align 8, !noalias !51
   store ptr %27, ptr %0, align 8, !alias.scope !51
@@ -8020,7 +8020,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIiE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIiEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !52
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %3, align 8, !noalias !52
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %3, align 8, !noalias !52
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %2, align 8, !noalias !52
   store i32 %5, ptr %4, align 8, !noalias !52
@@ -8181,7 +8181,7 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_128addQMMMMdpOutputValueComment
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %11
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %12, align 8, !noalias !58
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %12, align 8, !noalias !58
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZN3gmx19KeyValueTreeBuilder11createValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_17KeyValueTreeValueERKT_.exit.i unwind label %14, !noalias !58
@@ -8293,7 +8293,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %11
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %12, align 8, !noalias !64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %12, align 8, !noalias !64
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZN3gmx19KeyValueTreeBuilder11createValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_17KeyValueTreeValueERKT_.exit.i unwind label %14, !noalias !64
@@ -8389,7 +8389,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %11
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %12, align 8, !noalias !70
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %12, align 8, !noalias !70
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %1, align 4, !noalias !70
   store i32 %14, ptr %13, align 8, !noalias !70
@@ -9322,7 +9322,7 @@ declare noundef ptr @_ZN3gmx8internal23createEnumOptionStorageERKNS_14AbstractOp
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx8internal14EnumIndexStoreINS_12QMMMQMMethodEEC2EPS2_PSt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_12QMMMQMMethodEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_12QMMMQMMethodEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -9472,7 +9472,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit20:         ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx8internal14EnumIndexStoreINS_12QMMMQMMethodEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_12QMMMQMMethodEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_12QMMMQMMethodEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -9488,7 +9488,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx8internal14EnumIndexStoreINS_12QMMMQMMethodEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_12QMMMQMMethodEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_12QMMMQMMethodEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -10032,8 +10032,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %14, %_ZNSt6vectorIl
           to label %33 unwind label %38
 
 33:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
   %34 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions19setQMMMGroupIndicesERKNS_19IndexGroupsAndNamesE, ptr %34, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
@@ -10365,7 +10365,7 @@ define linkonce_odr void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionIn
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -10413,7 +10413,7 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   store ptr null, ptr %22, align 8
   store <2 x ptr> %23, ptr %20, align 8
   store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -10421,7 +10421,7 @@ declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -11790,8 +11790,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %163 unwind label %170
 
 163:                                              ; preds = %161
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %14, align 8
   %164 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions24processExternalInputFileEv, ptr %164, align 8
   %.sroa.2410.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
@@ -11944,8 +11944,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %201 unwind label %208
 
 201:                                              ; preds = %199
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %20, align 8
   %202 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions24processExternalInputFileEv, ptr %202, align 8
   %.sroa.2406.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 16
@@ -12098,8 +12098,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %239 unwind label %246
 
 239:                                              ; preds = %237
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %26, align 8
   %240 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions24processExternalInputFileEv, ptr %240, align 8
   %.sroa.2402.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 16
@@ -12252,8 +12252,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %277 unwind label %284
 
 277:                                              ; preds = %275
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %278 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions24processExternalInputFileEv, ptr %278, align 8
   %.sroa.2398.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 16
@@ -12365,8 +12365,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit259: ;
           to label %304 unwind label %313
 
 304:                                              ; preds = %302
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %36, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %39, align 8
   %305 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions24processExternalInputFileEv, ptr %305, align 8
   %.sroa.2394.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 16
@@ -12525,8 +12525,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %344 unwind label %351
 
 344:                                              ; preds = %342
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %42, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %45, align 8
   %345 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions24processExternalInputFileEv, ptr %345, align 8
   %.sroa.2390.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 16
@@ -12638,8 +12638,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit292: ;
           to label %371 unwind label %380
 
 371:                                              ; preds = %369
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %49, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %52, align 8
   %372 = getelementptr inbounds i8, ptr %52, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions24processExternalInputFileEv, ptr %372, align 8
   %.sroa.2386.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 16
@@ -12798,8 +12798,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %411 unwind label %418
 
 411:                                              ; preds = %409
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %55, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %58, align 8
   %412 = getelementptr inbounds i8, ptr %58, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions24processExternalInputFileEv, ptr %412, align 8
   %.sroa.2382.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 16
@@ -12911,8 +12911,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit325: ;
           to label %438 unwind label %447
 
 438:                                              ; preds = %436
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %62, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %65, align 8
   %439 = getelementptr inbounds i8, ptr %65, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions24processExternalInputFileEv, ptr %439, align 8
   %.sroa.2378.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 16
@@ -13071,8 +13071,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %478 unwind label %485
 
 478:                                              ; preds = %476
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %68, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %68, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %71, align 8
   %479 = getelementptr inbounds i8, ptr %71, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions24processExternalInputFileEv, ptr %479, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 16
@@ -14080,8 +14080,8 @@ define void @_ZN3gmx11QMMMOptions22setQMExternalInputFileERKNS_15QMInputFileName
           to label %37 unwind label %48
 
 37:                                               ; preds = %35
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions22setQMExternalInputFileERKNS_15QMInputFileNameE, ptr %38, align 8
   %.sroa.251.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
@@ -14189,8 +14189,8 @@ define void @_ZN3gmx11QMMMOptions22setQMExternalInputFileERKNS_15QMInputFileName
           to label %67 unwind label %76
 
 67:                                               ; preds = %65
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %15, align 8
   %68 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions22setQMExternalInputFileERKNS_15QMInputFileNameE, ptr %68, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
@@ -14399,8 +14399,8 @@ define void @_ZN3gmx11QMMMOptions18processCoordinatesERKNS_29CoordinatesAndBoxPr
           to label %79 unwind label %92
 
 79:                                               ; preds = %77
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8
   %80 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions18processCoordinatesERKNS_29CoordinatesAndBoxPreprocessedE, ptr %80, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
@@ -15666,7 +15666,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 .noexc:                                           ; preds = %124
   %126 = getelementptr inbounds i8, ptr %0, i64 656
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %125, align 8, !noalias !137
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %125, align 8, !noalias !137
   %127 = getelementptr inbounds i8, ptr %125, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(32) %126)
           to label %_ZN3gmx19KeyValueTreeBuilder11createValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_17KeyValueTreeValueERKT_.exit.i unwind label %128, !noalias !137
@@ -15737,7 +15737,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 .noexc82:                                         ; preds = %148
   %150 = getelementptr inbounds i8, ptr %0, i64 688
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %149, align 8, !noalias !143
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %149, align 8, !noalias !143
   %151 = getelementptr inbounds i8, ptr %149, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef nonnull align 8 dereferenceable(32) %150)
           to label %_ZN3gmx19KeyValueTreeBuilder11createValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_17KeyValueTreeValueERKT_.exit.i76 unwind label %152, !noalias !143
@@ -15823,7 +15823,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %180 = load float, ptr %179, align 4
   %181 = fpext float %180 to double
   %182 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !146
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %182, align 8, !noalias !146
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %182, align 8, !noalias !146
   %183 = getelementptr inbounds i8, ptr %182, i64 8
   store double %181, ptr %183, align 8, !noalias !146
   %184 = ptrtoint ptr %182 to i64
@@ -15918,7 +15918,7 @@ _ZN3gmx17KeyValueTreeValueD2Ev.exit6.i.loopexit.split-lp: ; preds = %196
   br label %_ZN3gmx17KeyValueTreeValueD2Ev.exit6.i
 
 _ZN3gmx17KeyValueTreeValueD2Ev.exit6.i:           ; preds = %_ZN3gmx17KeyValueTreeValueD2Ev.exit6.i.loopexit.split-lp, %_ZN3gmx17KeyValueTreeValueD2Ev.exit6.i.loopexit
-  %213 = phi ptr [ getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), %_ZN3gmx17KeyValueTreeValueD2Ev.exit6.i.loopexit ], [ %.pre, %_ZN3gmx17KeyValueTreeValueD2Ev.exit6.i.loopexit.split-lp ]
+  %213 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), %_ZN3gmx17KeyValueTreeValueD2Ev.exit6.i.loopexit ], [ %.pre, %_ZN3gmx17KeyValueTreeValueD2Ev.exit6.i.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZN3gmx17KeyValueTreeValueD2Ev.exit6.i.loopexit ], [ %lpad.loopexit.split-lp, %_ZN3gmx17KeyValueTreeValueD2Ev.exit6.i.loopexit.split-lp ]
   %214 = getelementptr inbounds i8, ptr %213, i64 8
   %215 = load ptr, ptr %214, align 8
@@ -16071,7 +16071,7 @@ common.resume:                                    ; preds = %_ZNKSt14default_del
   br label %common.resume
 
 _ZN3gmx19KeyValueTreeBuilder11createValueINS_17KeyValueTreeArrayEEENS_17KeyValueTreeValueEv.exit: ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %5, align 8, !noalias !163
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %5, align 8, !noalias !163
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !noalias !160
   %9 = ptrtoint ptr %5 to i64
@@ -16146,7 +16146,7 @@ _ZNKSt14default_deleteIN3gmx3Any8IContentEEclEPS2_.exit.i.i.i4: ; preds = %33
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx31KeyValueTreeUniformArrayBuilderIlE8addValueERKl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !166
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %3, align 8, !noalias !166
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %3, align 8, !noalias !166
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %1, align 8, !noalias !166
   store i64 %5, ptr %4, align 8, !noalias !166
@@ -16267,7 +16267,7 @@ common.resume:                                    ; preds = %_ZNKSt14default_del
   br label %common.resume
 
 _ZN3gmx19KeyValueTreeBuilder11createValueINS_17KeyValueTreeArrayEEENS_17KeyValueTreeValueEv.exit: ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %5, align 8, !noalias !179
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %5, align 8, !noalias !179
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !noalias !176
   %9 = ptrtoint ptr %5 to i64
@@ -16342,7 +16342,7 @@ _ZNKSt14default_deleteIN3gmx3Any8IContentEEclEPS2_.exit.i.i.i4: ; preds = %33
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx31KeyValueTreeUniformArrayBuilderIdE8addValueERKd(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !182
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %3, align 8, !noalias !182
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %3, align 8, !noalias !182
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load double, ptr %1, align 8, !noalias !182
   store double %5, ptr %4, align 8, !noalias !182
@@ -16488,7 +16488,7 @@ _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destro
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINS_17KeyValueTreeArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16534,7 +16534,7 @@ _ZN3gmx17KeyValueTreeArrayD2Ev.exit:              ; preds = %_ZSt8_DestroyIPN3gm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINS_17KeyValueTreeArrayEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16588,7 +16588,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx3An
 define linkonce_odr void @_ZNK3gmx3Any7ContentINS_17KeyValueTreeArrayEE5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.29") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26, !noalias !193
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %4, align 8, !noalias !193
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %4, align 8, !noalias !193
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIN3gmx3Any7ContentINS0_17KeyValueTreeArrayEEESt14default_deleteIS4_EED2Ev.exit unwind label %6, !noalias !193
@@ -16797,7 +16797,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIlE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIlEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !200
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %3, align 8, !noalias !200
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %3, align 8, !noalias !200
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %2, align 8, !noalias !200
   store i64 %5, ptr %4, align 8, !noalias !200
@@ -16826,7 +16826,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIdE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIdEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !203
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %3, align 8, !noalias !203
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %3, align 8, !noalias !203
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load double, ptr %2, align 8, !noalias !203
   store double %5, ptr %4, align 8, !noalias !203
@@ -16995,8 +16995,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %99 unwind label %.thread773
 
 99:                                               ; preds = %98
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
   %100 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions29readInternalParametersFromKvtERKNS_18KeyValueTreeObjectE, ptr %100, align 8
   %.sroa.2767.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
@@ -17344,8 +17344,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %223 unwind label %.thread780
 
 223:                                              ; preds = %222
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %15, align 8
   %224 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions29readInternalParametersFromKvtERKNS_18KeyValueTreeObjectE, ptr %224, align 8
   %.sroa.2763.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
@@ -17724,8 +17724,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %352 unwind label %.thread787
 
 352:                                              ; preds = %351
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %353 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions29readInternalParametersFromKvtERKNS_18KeyValueTreeObjectE, ptr %353, align 8
   %.sroa.2759.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 16
@@ -18085,8 +18085,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %482 unwind label %.thread794
 
 482:                                              ; preds = %481
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
   %483 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions29readInternalParametersFromKvtERKNS_18KeyValueTreeObjectE, ptr %483, align 8
   %.sroa.2737.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 16
@@ -18461,8 +18461,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %600 unwind label %.thread801
 
 600:                                              ; preds = %599
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %36, align 8
   %601 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions29readInternalParametersFromKvtERKNS_18KeyValueTreeObjectE, ptr %601, align 8
   %.sroa.2733.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 16
@@ -18892,8 +18892,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %751 unwind label %.thread808
 
 751:                                              ; preds = %750
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %43, align 8
   %752 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions29readInternalParametersFromKvtERKNS_18KeyValueTreeObjectE, ptr %752, align 8
   %.sroa.2729.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 16
@@ -19143,8 +19143,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %829 unwind label %.thread815
 
 829:                                              ; preds = %828
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %48, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %50, align 8
   %830 = getelementptr inbounds i8, ptr %50, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions29readInternalParametersFromKvtERKNS_18KeyValueTreeObjectE, ptr %830, align 8
   %.sroa.2725.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 16
@@ -19410,8 +19410,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %912 unwind label %.thread822
 
 912:                                              ; preds = %911
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %55, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %57, align 8
   %913 = getelementptr inbounds i8, ptr %57, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions29readInternalParametersFromKvtERKNS_18KeyValueTreeObjectE, ptr %913, align 8
   %.sroa.2721.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 16
@@ -19769,8 +19769,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %1029 unwind label %.thread829
 
 1029:                                             ; preds = %1028
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %63, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %63, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %65, align 8
   %1030 = getelementptr inbounds i8, ptr %65, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx11QMMMOptions29readInternalParametersFromKvtERKNS_18KeyValueTreeObjectE, ptr %1030, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 16

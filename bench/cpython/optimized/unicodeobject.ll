@@ -48475,18 +48475,20 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end.i:                                         ; preds = %if.then.i, %if.end.i.i, %if.then1.i.i
   store ptr null, ptr %0, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i7.i = icmp eq ptr %3, %interp
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3648), align 8
-  %cmp2.i = icmp ne ptr %4, null
-  %or.cond.i = select i1 %cmp.i7.i, i1 %cmp2.i, i1 false
-  br i1 %or.cond.i, label %if.then3.i, label %return
+  %cmp.i7.not.i = icmp eq ptr %3, %interp
+  br i1 %cmp.i7.not.i, label %land.lhs.true.i, label %return
 
-if.then3.i:                                       ; preds = %if.end.i
+land.lhs.true.i:                                  ; preds = %if.end.i
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3648), align 8
+  %cmp2.not.i = icmp eq ptr %4, null
+  br i1 %cmp2.not.i, label %return, label %if.then3.i
+
+if.then3.i:                                       ; preds = %land.lhs.true.i
   tail call void @_Py_hashtable_destroy(ptr noundef nonnull %4) #33
   store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3648), align 8
   br label %return
 
-return:                                           ; preds = %if.then3.i, %if.end.i, %entry
+return:                                           ; preds = %if.then3.i, %land.lhs.true.i, %if.end.i, %entry
   ret void
 }
 

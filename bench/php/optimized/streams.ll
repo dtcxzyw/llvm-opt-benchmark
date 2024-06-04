@@ -4576,12 +4576,12 @@ define ptr @_php_stream_opendir(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %32, label %6
+  br i1 %.not, label %31, label %6
 
 6:                                                ; preds = %3
   %7 = load i8, ptr %0, align 1
   %.not30 = icmp eq i8 %7, 0
-  br i1 %.not30, label %32, label %8
+  br i1 %.not30, label %31, label %8
 
 8:                                                ; preds = %6
   store ptr %0, ptr %5, align 8
@@ -4601,16 +4601,18 @@ define ptr @_php_stream_opendir(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %16 = and i32 %1, -9
   %17 = call ptr %13(ptr noundef nonnull %9, ptr noundef %15, ptr noundef nonnull @.str.19, i32 noundef %16, ptr noundef null, ptr noundef %2) #27
   %.not33 = icmp eq ptr %17, null
-  br i1 %.not33, label %.critedge, label %.critedge.thread
+  br i1 %.not33, label %.critedge, label %.thread
 
-.critedge.thread:                                 ; preds = %14
+.thread:                                          ; preds = %14
   %18 = getelementptr inbounds i8, ptr %17, i64 64
   store ptr %9, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 116
   %20 = load i32, ptr %19, align 4
   %21 = or i32 %20, 66
   store i32 %21, ptr %19, align 4
-  br label %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  store ptr %9, ptr %4, align 8
+  br label %27
 
 22:                                               ; preds = %10
   %23 = and i32 %1, -9
@@ -4626,26 +4628,28 @@ define ptr @_php_stream_opendir(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   call fastcc void @php_stream_display_wrapper_errors(ptr noundef %9, ptr noundef nonnull %0, ptr noundef nonnull @.str.21)
   br label %26
 
-26:                                               ; preds = %.critedge.thread, %25, %.critedge
-  %.038 = phi ptr [ %17, %.critedge.thread ], [ null, %25 ], [ null, %.critedge ]
+26:                                               ; preds = %25, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %9, ptr %4, align 8
-  %27 = icmp ne ptr %9, null
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
-  %29 = icmp ne ptr %28, null
-  %or.cond.i = select i1 %27, i1 %29, i1 false
-  br i1 %or.cond.i, label %30, label %php_stream_tidy_wrapper_error_log.exit
+  br i1 %.not31, label %php_stream_tidy_wrapper_error_log.exit, label %27
 
-30:                                               ; preds = %26
-  %31 = call i32 @zend_hash_str_del(ptr noundef nonnull %28, ptr noundef nonnull %4, i64 noundef 8) #27
+27:                                               ; preds = %.thread, %26
+  %.03840 = phi ptr [ %17, %.thread ], [ null, %26 ]
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
+  %.not1.i = icmp eq ptr %28, null
+  br i1 %.not1.i, label %php_stream_tidy_wrapper_error_log.exit, label %29
+
+29:                                               ; preds = %27
+  %30 = call i32 @zend_hash_str_del(ptr noundef nonnull %28, ptr noundef nonnull %4, i64 noundef 8) #27
   br label %php_stream_tidy_wrapper_error_log.exit
 
-php_stream_tidy_wrapper_error_log.exit:           ; preds = %26, %30
+php_stream_tidy_wrapper_error_log.exit:           ; preds = %26, %27, %29
+  %.03841 = phi ptr [ null, %26 ], [ %.03840, %27 ], [ %.03840, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %32
+  br label %31
 
-32:                                               ; preds = %3, %6, %php_stream_tidy_wrapper_error_log.exit
-  %.024 = phi ptr [ %.038, %php_stream_tidy_wrapper_error_log.exit ], [ null, %6 ], [ null, %3 ]
+31:                                               ; preds = %3, %6, %php_stream_tidy_wrapper_error_log.exit
+  %.024 = phi ptr [ %.03841, %php_stream_tidy_wrapper_error_log.exit ], [ null, %6 ], [ null, %3 ]
   ret ptr %.024
 }
 
@@ -4811,7 +4815,7 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
 
 19:                                               ; preds = %17, %16
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.22) #27
-  br label %184
+  br label %183
 
 20:                                               ; preds = %17
   %21 = and i32 %2, 1
@@ -4843,7 +4847,7 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
   %.0143 = select i1 %.not167, ptr %0, ptr %31
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not168 = icmp eq ptr %34, null
-  br i1 %.not168, label %35, label %184
+  br i1 %.not168, label %35, label %183
 
 35:                                               ; preds = %30, %20
   %.1150 = phi i32 [ %.0149, %30 ], [ %2, %20 ]
@@ -4868,14 +4872,14 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
 42:                                               ; preds = %39, %38
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.23) #27
   %.not172 = icmp eq ptr %.1, null
-  br i1 %.not172, label %184, label %43
+  br i1 %.not172, label %183, label %43
 
 43:                                               ; preds = %42
   %44 = getelementptr inbounds i8, ptr %.1, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 64
   %.not173 = icmp eq i32 %46, 0
-  br i1 %.not173, label %47, label %184
+  br i1 %.not173, label %47, label %183
 
 47:                                               ; preds = %43
   %48 = load i32, ptr %.1, align 4
@@ -4884,11 +4888,11 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
   %50 = add i32 %48, -1
   store i32 %50, ptr %.1, align 4
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %184
+  br i1 %51, label %52, label %183
 
 52:                                               ; preds = %47
   call void @_efree(ptr noundef nonnull %.1) #27
-  br label %184
+  br label %183
 
 53:                                               ; preds = %35
   br i1 %.not174, label %153, label %.thread
@@ -4897,9 +4901,9 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
   %54 = load ptr, ptr %36, align 8
   %55 = load ptr, ptr %54, align 8
   %.not175 = icmp eq ptr %55, null
-  br i1 %.not175, label %.thread204, label %57
+  br i1 %.not175, label %.thread206, label %57
 
-.thread204:                                       ; preds = %.thread
+.thread206:                                       ; preds = %.thread
   %56 = and i32 %.1150, -9
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef nonnull %36, i32 noundef %56, ptr noundef nonnull @.str.24)
   br label %153
@@ -4953,24 +4957,24 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not181, label %80, label %79
 
 79:                                               ; preds = %76
-  br i1 %.not183, label %.thread216, label %.thread218
+  br i1 %.not183, label %.thread220, label %.thread222
 
-.thread218:                                       ; preds = %79
+.thread222:                                       ; preds = %79
   call void @free(ptr noundef nonnull %78) #27
   br label %81
 
-.thread216:                                       ; preds = %79
+.thread220:                                       ; preds = %79
   call void @_efree(ptr noundef nonnull %78) #27
   br label %83
 
 80:                                               ; preds = %76
   br i1 %.not183, label %83, label %81
 
-81:                                               ; preds = %.thread218, %80
+81:                                               ; preds = %.thread222, %80
   %82 = call noalias ptr @__zend_strdup(ptr noundef nonnull %.1144) #27
   br label %85
 
-83:                                               ; preds = %.thread216, %80
+83:                                               ; preds = %.thread220, %80
   %84 = call noalias ptr @_estrdup(ptr noundef nonnull %.1144) #27
   br label %85
 
@@ -4979,7 +4983,7 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
   store ptr %86, ptr %77, align 8
   %87 = and i32 %.1150, 16
   %.not184 = icmp eq i32 %87, 0
-  br i1 %.not184, label %.thread220, label %88
+  br i1 %.not184, label %.thread224, label %88
 
 88:                                               ; preds = %85
   %89 = lshr i32 %.1150, 5
@@ -4992,14 +4996,14 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
 
 91:                                               ; preds = %88
   %.not191 = icmp eq ptr %.2, null
-  br i1 %.not191, label %184, label %92
+  br i1 %.not191, label %183, label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds i8, ptr %.2, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, 64
   %.not192 = icmp eq i32 %95, 0
-  br i1 %.not192, label %96, label %184
+  br i1 %.not192, label %96, label %183
 
 96:                                               ; preds = %92
   %97 = load i32, ptr %.2, align 4
@@ -5008,11 +5012,11 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
   %99 = add i32 %97, -1
   store i32 %99, ptr %.2, align 4
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %184
+  br i1 %100, label %101, label %183
 
 101:                                              ; preds = %96
   call void @_efree(ptr noundef nonnull %.2) #27
-  br label %184
+  br label %183
 
 102:                                              ; preds = %88
   %103 = load ptr, ptr %8, align 8
@@ -5023,24 +5027,24 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not186, label %107, label %106
 
 106:                                              ; preds = %102
-  br i1 %.not188, label %.thread225, label %.thread227
+  br i1 %.not188, label %.thread231, label %.thread233
 
-.thread227:                                       ; preds = %106
+.thread233:                                       ; preds = %106
   call void @free(ptr noundef nonnull %105) #27
   br label %108
 
-.thread225:                                       ; preds = %106
+.thread231:                                       ; preds = %106
   call void @_efree(ptr noundef nonnull %105) #27
   br label %110
 
 107:                                              ; preds = %102
   br i1 %.not188, label %110, label %108
 
-108:                                              ; preds = %.thread227, %107
+108:                                              ; preds = %.thread233, %107
   %109 = call noalias ptr @__zend_strdup(ptr noundef nonnull %.1144) #27
   br label %112
 
-110:                                              ; preds = %.thread225, %107
+110:                                              ; preds = %.thread231, %107
   %111 = call noalias ptr @_estrdup(ptr noundef nonnull %.1144) #27
   br label %112
 
@@ -5074,7 +5078,7 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
 
 126:                                              ; preds = %116, %125, %120, %112
   %127 = load ptr, ptr %8, align 8
-  br label %184
+  br label %183
 
 128:                                              ; preds = %88
   %129 = call i32 @_php_stream_free(ptr noundef nonnull %60, i32 noundef 3)
@@ -5089,45 +5093,46 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
   call void @_efree(ptr noundef %132) #27
   br label %153
 
-.thread220:                                       ; preds = %85
+.thread224:                                       ; preds = %85
   %134 = load ptr, ptr %60, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 40
   %136 = load ptr, ptr %135, align 8
   %.not195 = icmp eq ptr %136, null
-  br i1 %.not195, label %168, label %137
+  br i1 %.not195, label %.thread247, label %137
 
-137:                                              ; preds = %.thread220
+137:                                              ; preds = %.thread224
   %138 = getelementptr inbounds i8, ptr %60, i64 116
   %139 = load i32, ptr %138, align 4
   %140 = and i32 %139, 1
   %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %168
+  br i1 %141, label %142, label %.thread247
 
 142:                                              ; preds = %137
   %143 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 97) #28
   %.not196 = icmp eq ptr %143, null
-  br i1 %.not196, label %168, label %144
+  br i1 %.not196, label %.thread247, label %144
 
 144:                                              ; preds = %142
   %145 = getelementptr inbounds i8, ptr %60, i64 152
   %146 = load i64, ptr %145, align 8
   %147 = icmp eq i64 %146, 0
-  br i1 %147, label %148, label %168
+  br i1 %147, label %148, label %.thread247
 
 148:                                              ; preds = %144
   store i64 0, ptr %9, align 8
   %149 = call i32 %136(ptr noundef nonnull %60, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %9) #27
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %151, label %168
+  br i1 %150, label %151, label %.thread247
 
 151:                                              ; preds = %148
   %152 = load i64, ptr %9, align 8
   store i64 %152, ptr %145, align 8
-  br label %168
+  br label %.thread247
 
-153:                                              ; preds = %131, %128, %.thread204, %57, %67, %53
-  %.3224.ph = phi ptr [ %.1, %53 ], [ %.1, %67 ], [ %.1, %57 ], [ %.1, %.thread204 ], [ %.2, %128 ], [ %.2, %131 ]
-  %.2151.ph = phi i32 [ %.1150, %53 ], [ %.1150, %67 ], [ %.1150, %57 ], [ %.1150, %.thread204 ], [ %.1150, %128 ], [ %59, %131 ]
+153:                                              ; preds = %131, %128, %.thread206, %57, %67, %53
+  %.3230.ph = phi ptr [ %.1, %53 ], [ %.1, %67 ], [ %.1, %57 ], [ %.1, %.thread206 ], [ %.2, %128 ], [ %.2, %131 ]
+  %.not174205217229.ph = phi i1 [ true, %53 ], [ false, %67 ], [ false, %57 ], [ false, %.thread206 ], [ false, %128 ], [ false, %131 ]
+  %.2151.ph = phi i32 [ %.1150, %53 ], [ %.1150, %67 ], [ %.1150, %57 ], [ %.1150, %.thread206 ], [ %.1150, %128 ], [ %59, %131 ]
   %.old = and i32 %.2151.ph, 8
   %.not197.old = icmp eq i32 %.old, 0
   br i1 %.not197.old, label %168, label %154
@@ -5163,50 +5168,60 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
 
 167:                                              ; preds = %161, %166, %157
   store ptr null, ptr %3, align 8
-  br label %168
-
-168:                                              ; preds = %.thread220, %137, %142, %144, %151, %148, %154, %155, %167, %153
-  %.3148236 = phi ptr [ %60, %.thread220 ], [ %60, %137 ], [ %60, %142 ], [ %60, %144 ], [ %60, %151 ], [ %60, %148 ], [ null, %154 ], [ null, %155 ], [ null, %167 ], [ null, %153 ]
-  %.3224233 = phi ptr [ %.2, %.thread220 ], [ %.2, %137 ], [ %.2, %142 ], [ %.2, %144 ], [ %.2, %151 ], [ %.2, %148 ], [ %.3224.ph, %154 ], [ %.3224.ph, %155 ], [ %.3224.ph, %167 ], [ %.3224.ph, %153 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %36, ptr %6, align 8
-  %169 = icmp ne ptr %36, null
-  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
-  %171 = icmp ne ptr %170, null
-  %or.cond.i = select i1 %169, i1 %171, i1 false
-  br i1 %or.cond.i, label %172, label %php_stream_tidy_wrapper_error_log.exit
+  br i1 %.not174205217229.ph, label %php_stream_tidy_wrapper_error_log.exit, label %169
 
-172:                                              ; preds = %168
-  %173 = call i32 @zend_hash_str_del(ptr noundef nonnull %170, ptr noundef nonnull %6, i64 noundef 8) #27
+.thread247:                                       ; preds = %.thread224, %137, %142, %144, %151, %148
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  store ptr %36, ptr %6, align 8
+  br label %169
+
+168:                                              ; preds = %154, %155, %153
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  store ptr %36, ptr %6, align 8
+  br i1 %.not174205217229.ph, label %php_stream_tidy_wrapper_error_log.exit, label %169
+
+169:                                              ; preds = %167, %.thread247, %168
+  %.3230240253 = phi ptr [ %.2, %.thread247 ], [ %.3230.ph, %168 ], [ %.3230.ph, %167 ]
+  %.3148245251 = phi ptr [ %60, %.thread247 ], [ null, %168 ], [ null, %167 ]
+  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 80), align 8
+  %.not1.i = icmp eq ptr %170, null
+  br i1 %.not1.i, label %php_stream_tidy_wrapper_error_log.exit, label %171
+
+171:                                              ; preds = %169
+  %172 = call i32 @zend_hash_str_del(ptr noundef nonnull %170, ptr noundef nonnull %6, i64 noundef 8) #27
   br label %php_stream_tidy_wrapper_error_log.exit
 
-php_stream_tidy_wrapper_error_log.exit:           ; preds = %168, %172
+php_stream_tidy_wrapper_error_log.exit:           ; preds = %167, %168, %169, %171
+  %.3230240254 = phi ptr [ %.3230.ph, %168 ], [ %.3230240253, %169 ], [ %.3230240253, %171 ], [ %.3230.ph, %167 ]
+  %.3148245252 = phi ptr [ null, %168 ], [ %.3148245251, %169 ], [ %.3148245251, %171 ], [ null, %167 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.not200 = icmp eq ptr %.3224233, null
-  br i1 %.not200, label %184, label %174
+  %.not200 = icmp eq ptr %.3230240254, null
+  br i1 %.not200, label %183, label %173
 
-174:                                              ; preds = %php_stream_tidy_wrapper_error_log.exit
-  %175 = getelementptr inbounds i8, ptr %.3224233, i64 4
-  %176 = load i32, ptr %175, align 4
-  %177 = and i32 %176, 64
-  %.not201 = icmp eq i32 %177, 0
-  br i1 %.not201, label %178, label %184
+173:                                              ; preds = %php_stream_tidy_wrapper_error_log.exit
+  %174 = getelementptr inbounds i8, ptr %.3230240254, i64 4
+  %175 = load i32, ptr %174, align 4
+  %176 = and i32 %175, 64
+  %.not201 = icmp eq i32 %176, 0
+  br i1 %.not201, label %177, label %183
 
-178:                                              ; preds = %174
-  %179 = load i32, ptr %.3224233, align 4
-  %180 = icmp ne i32 %179, 0
-  call void @llvm.assume(i1 %180)
-  %181 = add i32 %179, -1
-  store i32 %181, ptr %.3224233, align 4
-  %182 = icmp eq i32 %181, 0
-  br i1 %182, label %183, label %184
+177:                                              ; preds = %173
+  %178 = load i32, ptr %.3230240254, align 4
+  %179 = icmp ne i32 %178, 0
+  call void @llvm.assume(i1 %179)
+  %180 = add i32 %178, -1
+  store i32 %180, ptr %.3230240254, align 4
+  %181 = icmp eq i32 %180, 0
+  br i1 %181, label %182, label %183
 
-183:                                              ; preds = %178
-  call void @_efree(ptr noundef nonnull %.3224233) #27
-  br label %184
+182:                                              ; preds = %177
+  call void @_efree(ptr noundef nonnull %.3230240254) #27
+  br label %183
 
-184:                                              ; preds = %php_stream_tidy_wrapper_error_log.exit, %178, %183, %174, %91, %96, %101, %92, %42, %47, %52, %43, %30, %126, %19
-  %.0 = phi ptr [ %127, %126 ], [ null, %19 ], [ null, %30 ], [ null, %43 ], [ null, %52 ], [ null, %47 ], [ null, %42 ], [ %60, %92 ], [ %60, %101 ], [ %60, %96 ], [ %60, %91 ], [ %.3148236, %174 ], [ %.3148236, %183 ], [ %.3148236, %178 ], [ %.3148236, %php_stream_tidy_wrapper_error_log.exit ]
+183:                                              ; preds = %php_stream_tidy_wrapper_error_log.exit, %177, %182, %173, %91, %96, %101, %92, %42, %47, %52, %43, %30, %126, %19
+  %.0 = phi ptr [ %127, %126 ], [ null, %19 ], [ null, %30 ], [ null, %43 ], [ null, %52 ], [ null, %47 ], [ null, %42 ], [ %60, %92 ], [ %60, %101 ], [ %60, %96 ], [ %60, %91 ], [ %.3148245252, %173 ], [ %.3148245252, %182 ], [ %.3148245252, %177 ], [ %.3148245252, %php_stream_tidy_wrapper_error_log.exit ]
   ret ptr %.0
 }
 

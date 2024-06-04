@@ -379,7 +379,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__blkdev_issue_zero_pages(p
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %61
+  br i1 %9, label %10, label %89
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 16
@@ -389,70 +389,111 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__blkdev_issue_zero_pages(p
   %15 = getelementptr inbounds i8, ptr %14, i64 48
   %16 = load i8, ptr %15, align 8, !range !5, !noundef !6
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %18, label %61
+  br i1 %17, label %18, label %89
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds i8, ptr %12, i64 352
   %20 = load volatile i64, ptr %19, align 8
   %21 = and i64 %20, 2
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %61
+  br i1 %22, label %23, label %89
 
 23:                                               ; preds = %18
   %24 = icmp eq i64 %2, 0
   br i1 %24, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %23, %57
-  %25 = phi i64 [ %53, %57 ], [ %1, %23 ]
-  %26 = phi i64 [ %52, %57 ], [ %2, %23 ]
-  %27 = phi ptr [ %32, %57 ], [ %6, %23 ]
-  %28 = add i64 %26, 7
-  %29 = lshr i64 %28, 3
-  %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 256)
-  %31 = trunc nuw nsw i64 %30 to i32
-  %32 = tail call ptr @blk_next_bio(ptr noundef %27, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef %3) #6
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
-  store i64 %25, ptr %33, align 8
-  br label %34
+.preheader:                                       ; preds = %23
+  %25 = icmp ugt i64 ptrtoint (ptr @empty_zero_page to i64), sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
+  br i1 %25, label %.split.us.us, label %.split
 
-34:                                               ; preds = %34, %.preheader
-  %35 = phi i64 [ %26, %.preheader ], [ %52, %34 ]
-  %36 = phi i64 [ %25, %.preheader ], [ %53, %34 ]
-  %37 = shl i64 %35, 9
-  %38 = tail call i64 @llvm.umin.i64(i64 %37, i64 4096)
-  %39 = trunc nuw nsw i64 %38 to i32
-  %40 = load i64, ptr @vmemmap_base, align 8
-  %41 = inttoptr i64 %40 to ptr
-  %42 = load i64, ptr @phys_base, align 8
-  %43 = load i64, ptr @page_offset_base, align 8
-  %44 = sub i64 -2147483648, %43
-  %45 = select i1 icmp ugt (i64 ptrtoint (ptr @empty_zero_page to i64), i64 sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)), i64 %42, i64 %44
-  %46 = add i64 %45, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
-  %47 = lshr i64 %46, 12
-  %48 = getelementptr %struct.page, ptr %41, i64 %47
-  %49 = tail call i32 @bio_add_page(ptr noundef %32, ptr noundef %48, i32 noundef %39, i32 noundef 0) #6
-  %50 = ashr i32 %49, 9
-  %51 = sext i32 %50 to i64
-  %52 = sub i64 %35, %51
-  %53 = add i64 %36, %51
-  %54 = icmp uge i32 %49, %39
-  %55 = icmp ne i64 %52, 0
-  %56 = and i1 %54, %55
-  br i1 %56, label %34, label %57, !llvm.loop !18
+.split.us.us:                                     ; preds = %.preheader, %.split5.us.us
+  %26 = phi i64 [ %51, %.split5.us.us ], [ %1, %.preheader ]
+  %27 = phi i64 [ %50, %.split5.us.us ], [ %2, %.preheader ]
+  %28 = phi ptr [ %33, %.split5.us.us ], [ %6, %.preheader ]
+  %29 = add i64 %27, 7
+  %30 = lshr i64 %29, 3
+  %31 = tail call i64 @llvm.umin.i64(i64 %30, i64 256)
+  %32 = trunc nuw nsw i64 %31 to i32
+  %33 = tail call ptr @blk_next_bio(ptr noundef %28, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef %3) #6
+  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  store i64 %26, ptr %34, align 8
+  br label %35
 
-57:                                               ; preds = %34
-  %58 = tail call i32 @__SCT__cond_resched() #6
-  %59 = icmp eq i64 %52, 0
-  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !19
+35:                                               ; preds = %35, %.split.us.us
+  %36 = phi i64 [ %27, %.split.us.us ], [ %50, %35 ]
+  %37 = phi i64 [ %26, %.split.us.us ], [ %51, %35 ]
+  %38 = shl i64 %36, 9
+  %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4096)
+  %40 = trunc nuw nsw i64 %39 to i32
+  %41 = load i64, ptr @vmemmap_base, align 8
+  %42 = inttoptr i64 %41 to ptr
+  %43 = load i64, ptr @phys_base, align 8
+  %44 = add i64 %43, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
+  %45 = lshr i64 %44, 12
+  %46 = getelementptr %struct.page, ptr %42, i64 %45
+  %47 = tail call i32 @bio_add_page(ptr noundef %33, ptr noundef %46, i32 noundef %40, i32 noundef 0) #6
+  %48 = ashr i32 %47, 9
+  %49 = sext i32 %48 to i64
+  %50 = sub i64 %36, %49
+  %51 = add i64 %37, %49
+  %52 = icmp uge i32 %47, %40
+  %53 = icmp ne i64 %50, 0
+  %54 = and i1 %52, %53
+  br i1 %54, label %35, label %.split5.us.us, !llvm.loop !18
 
-.loopexit:                                        ; preds = %57, %23
-  %60 = phi ptr [ %6, %23 ], [ %32, %57 ]
-  store ptr %60, ptr %4, align 8
-  br label %61
+.split5.us.us:                                    ; preds = %35
+  %55 = tail call i32 @__SCT__cond_resched() #6
+  %56 = icmp eq i64 %50, 0
+  br i1 %56, label %.loopexit, label %.split.us.us, !llvm.loop !19
 
-61:                                               ; preds = %.loopexit, %18, %10, %5
-  %62 = phi i32 [ 0, %.loopexit ], [ -1, %18 ], [ -1, %10 ], [ -1, %5 ]
-  ret i32 %62
+.split:                                           ; preds = %.preheader, %.split5
+  %57 = phi i64 [ %82, %.split5 ], [ %1, %.preheader ]
+  %58 = phi i64 [ %81, %.split5 ], [ %2, %.preheader ]
+  %59 = phi ptr [ %64, %.split5 ], [ %6, %.preheader ]
+  %60 = add i64 %58, 7
+  %61 = lshr i64 %60, 3
+  %62 = tail call i64 @llvm.umin.i64(i64 %61, i64 256)
+  %63 = trunc nuw nsw i64 %62 to i32
+  %64 = tail call ptr @blk_next_bio(ptr noundef %59, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef %3) #6
+  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  store i64 %57, ptr %65, align 8
+  br label %66
+
+66:                                               ; preds = %66, %.split
+  %67 = phi i64 [ %58, %.split ], [ %81, %66 ]
+  %68 = phi i64 [ %57, %.split ], [ %82, %66 ]
+  %69 = shl i64 %67, 9
+  %70 = tail call i64 @llvm.umin.i64(i64 %69, i64 4096)
+  %71 = trunc nuw nsw i64 %70 to i32
+  %72 = load i64, ptr @vmemmap_base, align 8
+  %73 = inttoptr i64 %72 to ptr
+  %74 = load i64, ptr @page_offset_base, align 8
+  %75 = sub i64 add (i64 sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648), i64 -2147483648), %74
+  %76 = lshr i64 %75, 12
+  %77 = getelementptr %struct.page, ptr %73, i64 %76
+  %78 = tail call i32 @bio_add_page(ptr noundef %64, ptr noundef %77, i32 noundef %71, i32 noundef 0) #6
+  %79 = ashr i32 %78, 9
+  %80 = sext i32 %79 to i64
+  %81 = sub i64 %67, %80
+  %82 = add i64 %68, %80
+  %83 = icmp uge i32 %78, %71
+  %84 = icmp ne i64 %81, 0
+  %85 = and i1 %83, %84
+  br i1 %85, label %66, label %.split5, !llvm.loop !18
+
+.split5:                                          ; preds = %66
+  %86 = tail call i32 @__SCT__cond_resched() #6
+  %87 = icmp eq i64 %81, 0
+  br i1 %87, label %.loopexit, label %.split, !llvm.loop !19
+
+.loopexit:                                        ; preds = %.split5, %.split5.us.us, %23
+  %88 = phi ptr [ %6, %23 ], [ %33, %.split5.us.us ], [ %64, %.split5 ]
+  store ptr %88, ptr %4, align 8
+  br label %89
+
+89:                                               ; preds = %.loopexit, %18, %10, %5
+  %90 = phi i32 [ 0, %.loopexit ], [ -1, %18 ], [ -1, %10 ], [ -1, %5 ]
+  ret i32 %90
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

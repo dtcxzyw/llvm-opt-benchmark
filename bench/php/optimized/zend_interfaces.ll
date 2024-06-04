@@ -690,59 +690,59 @@ define range(i32 -1, 1) i32 @zend_user_serialize(ptr nocapture noundef readonly 
   %9 = call ptr @zend_call_method(ptr noundef %6, ptr noundef %8, ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef 9, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef null)
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load i8, ptr %10, align 8
-  %12 = icmp eq i8 %11, 0
+  %12 = icmp ne i8 %11, 0
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %14 = icmp ne ptr %13, null
-  %or.cond = select i1 %12, i1 true, i1 %14
-  br i1 %or.cond, label %27, label %15
+  %.not = icmp eq ptr %13, null
+  %or.cond = select i1 %12, i1 %.not, i1 false
+  br i1 %or.cond, label %14, label %26
 
-15:                                               ; preds = %4
-  switch i8 %11, label %26 [
-    i8 1, label %16
-    i8 6, label %17
+14:                                               ; preds = %4
+  switch i8 %11, label %25 [
+    i8 1, label %15
+    i8 6, label %16
   ]
 
-16:                                               ; preds = %15
+15:                                               ; preds = %14
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #9
-  br label %36
+  br label %34
 
-17:                                               ; preds = %15
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
-  %21 = load i64, ptr %20, align 8
-  %22 = call noalias ptr @_estrndup(ptr noundef nonnull %19, i64 noundef %21) #9
-  store ptr %22, ptr %1, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
-  %25 = load i64, ptr %24, align 8
-  store i64 %25, ptr %2, align 8
-  br label %26
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = load i64, ptr %19, align 8
+  %21 = call noalias ptr @_estrndup(ptr noundef nonnull %18, i64 noundef %20) #9
+  store ptr %21, ptr %1, align 8
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = load i64, ptr %23, align 8
+  store i64 %24, ptr %2, align 8
+  br label %25
 
-26:                                               ; preds = %15, %17
-  %.0 = phi i32 [ 0, %17 ], [ -1, %15 ]
+25:                                               ; preds = %14, %16
+  %.0 = phi i32 [ 0, %16 ], [ -1, %14 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #9
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  br label %27
+  br label %26
 
-27:                                               ; preds = %4, %26
-  %28 = phi ptr [ %.pre, %26 ], [ %13, %4 ]
-  %.1 = phi i32 [ %.0, %26 ], [ -1, %4 ]
-  %29 = icmp ne i32 %.1, -1
-  %30 = icmp ne ptr %28, null
-  %or.cond3 = select i1 %29, i1 true, i1 %30
-  br i1 %or.cond3, label %36, label %31
+26:                                               ; preds = %4, %25
+  %27 = phi ptr [ %.pre, %25 ], [ %13, %4 ]
+  %.1 = phi i32 [ %.0, %25 ], [ -1, %4 ]
+  %28 = icmp eq i32 %.1, -1
+  %.not18 = icmp eq ptr %27, null
+  %or.cond19 = select i1 %28, i1 %.not18, i1 false
+  br i1 %or.cond19, label %29, label %34
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %8, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
-  %35 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %34) #9
-  br label %36
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %33 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %32) #9
+  br label %34
 
-36:                                               ; preds = %27, %31, %16
-  %.019 = phi i32 [ -1, %16 ], [ -1, %31 ], [ %.1, %27 ]
-  ret i32 %.019
+34:                                               ; preds = %26, %29, %15
+  %.016 = phi i32 [ -1, %15 ], [ -1, %29 ], [ %.1, %26 ]
+  ret i32 %.016
 }
 
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #1

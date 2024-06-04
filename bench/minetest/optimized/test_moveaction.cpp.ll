@@ -953,7 +953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !15
   %m_test_dir = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 32
@@ -1257,7 +1257,7 @@ if.then.i.i222:                                   ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226: ; preds = %if.then.i.i222, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i223
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %builtin) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mb) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14MetricsBackend, i64 16), ptr %mb, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14MetricsBackend, i64 16), ptr %mb, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 952, ptr nonnull %server_env) #26
   store i64 0, ptr %agg.tmp, align 8, !tbaa !17
   invoke void @_ZN17ServerEnvironmentC1ESt10unique_ptrI9ServerMapSt14default_deleteIS1_EEP6ServerP14MetricsBackend(ptr noundef nonnull align 8 dereferenceable(952) %server_env, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %server, ptr noundef nonnull %mb)
@@ -1403,7 +1403,8 @@ ehcleanup29:                                      ; preds = %if.then.i.i252, %_Z
 
 catch:                                            ; preds = %ehcleanup29
   %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #26
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %59, label %_ZTW9rawstream.exit
+  %.not = icmp eq ptr @_ZTH9rawstream, null
+  br i1 %.not, label %_ZTW9rawstream.exit, label %59
 
 59:                                               ; preds = %catch
   call void @_ZTH9rawstream()
@@ -1473,7 +1474,7 @@ _ZNSt10unique_ptrI9ServerMapSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt
           to label %invoke.cont50 unwind label %lpad48
 
 invoke.cont50:                                    ; preds = %_ZNSt10unique_ptrI9ServerMapSt14default_deleteIS0_EED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %obj, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22MockServerActiveObject, i64 16), ptr %obj, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp52) #26
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp52, i64 16
   %67 = getelementptr inbounds i8, ptr %ref.tmp52, i64 8
@@ -1854,7 +1855,7 @@ terminate.lpad.i342:                              ; preds = %if.then.i340
 
 _ZNSt14_Function_baseD2Ev.exit343:                ; preds = %if.then.i340, %invoke.cont138
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp133) #26
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %obj, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %obj, align 8, !tbaa !15
   %m_messages_out.i = getelementptr inbounds i8, ptr %obj, i64 112
   %_M_start.i.i = getelementptr inbounds i8, ptr %obj, i64 128
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %obj, i64 144
@@ -2541,11 +2542,11 @@ if.then.i.i152:                                   ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %if.then.i.i152, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i153
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #26
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTV10MockServer, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MockServer, i64 16), ptr %this, align 8, !tbaa !15
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10MockServer, i64 208), ptr %add.ptr, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MockServer, i64 208), ptr %add.ptr, align 8, !tbaa !15
   %add.ptr56 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV10MockServer, i64 232), ptr %add.ptr56, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10MockServer, i64 232), ptr %add.ptr56, align 8, !tbaa !15
   ret void
 
 lpad25:                                           ; preds = %entry
@@ -2788,7 +2789,7 @@ define linkonce_odr dso_local void @_ZN18ServerActiveObjectD2Ev(ptr noundef nonn
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator.269", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator.269", align 16
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !15
   %m_messages_out = getelementptr inbounds i8, ptr %this, i64 112
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -2907,7 +2908,7 @@ entry:
   %ref.tmp82 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %inv) #26
   call void @_ZN22ServerInventoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inv)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %p1.i = getelementptr inbounds i8, ptr %inv, i64 72
   %vtable.i = load ptr, ptr %gamedef, align 8, !tbaa !15
   %0 = load ptr, ptr %vtable.i, align 8
@@ -2946,7 +2947,7 @@ common.resume:                                    ; preds = %ehcleanup96, %ehcle
 
 ehcleanup.i:                                      ; preds = %lpad5.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad5.i ], [ %2, %lpad.i ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i) #26
   br label %common.resume
@@ -3379,10 +3380,10 @@ cleanup.action93:                                 ; preds = %ehcleanup89, %_ZNKS
   br label %ehcleanup96
 
 if.end95:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p2.i) #26
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p1.i) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i243 = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i243) #26
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %inv) #26
@@ -3676,7 +3677,7 @@ delete.notnull:                                   ; preds = %invoke.cont7
   %add.ptr.i.i = getelementptr inbounds i8, ptr %str, i64 %vbase.offset.i.i
   store ptr %11, ptr %add.ptr.i.i, align 8, !tbaa !15
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %str, i64 16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !15
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %str, i64 88
   %12 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %13 = getelementptr inbounds i8, ptr %str, i64 104
@@ -3695,7 +3696,7 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull
   br label %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !15
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #26
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
@@ -3931,12 +3932,12 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20MockInventoryManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %this, align 8, !tbaa !15
   %p2 = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p2) #26
   %p1 = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p1) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %this, align 8, !tbaa !15
   %m_detached_inventories.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i) #26
   ret void
@@ -3965,7 +3966,7 @@ entry:
   %ref.tmp114 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %inv) #26
   call void @_ZN22ServerInventoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inv)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %p1.i = getelementptr inbounds i8, ptr %inv, i64 72
   %vtable.i = load ptr, ptr %gamedef, align 8, !tbaa !15
   %0 = load ptr, ptr %vtable.i, align 8
@@ -4004,7 +4005,7 @@ common.resume:                                    ; preds = %ehcleanup128, %ehcl
 
 ehcleanup.i:                                      ; preds = %lpad5.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad5.i ], [ %2, %lpad.i ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i) #26
   br label %common.resume
@@ -4530,10 +4531,10 @@ cleanup.action125:                                ; preds = %ehcleanup121, %_ZNK
   br label %ehcleanup128
 
 if.end127:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p2.i) #26
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p1.i) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i252 = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i252) #26
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %inv) #26
@@ -4577,7 +4578,7 @@ entry:
   %ref.tmp137 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %inv) #26
   call void @_ZN22ServerInventoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inv)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %p1.i = getelementptr inbounds i8, ptr %inv, i64 72
   %vtable.i = load ptr, ptr %gamedef, align 8, !tbaa !15
   %0 = load ptr, ptr %vtable.i, align 8
@@ -4616,7 +4617,7 @@ common.resume:                                    ; preds = %ehcleanup152, %ehcl
 
 ehcleanup.i:                                      ; preds = %lpad5.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad5.i ], [ %2, %lpad.i ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i) #26
   br label %common.resume
@@ -5305,10 +5306,10 @@ cleanup.action148:                                ; preds = %ehcleanup144, %_ZNK
   br label %ehcleanup152
 
 if.end150:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit363
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p2.i) #26
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p1.i) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i380 = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i380) #26
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %inv) #26
@@ -5341,7 +5342,7 @@ entry:
   %ref.tmp77 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %inv) #26
   call void @_ZN22ServerInventoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inv)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %p1.i = getelementptr inbounds i8, ptr %inv, i64 72
   %vtable.i = load ptr, ptr %gamedef, align 8, !tbaa !15
   %0 = load ptr, ptr %vtable.i, align 8
@@ -5380,7 +5381,7 @@ common.resume:                                    ; preds = %ehcleanup91, %ehcle
 
 ehcleanup.i:                                      ; preds = %lpad5.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad5.i ], [ %2, %lpad.i ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i) #26
   br label %common.resume
@@ -5790,10 +5791,10 @@ cleanup.action88:                                 ; preds = %ehcleanup84, %_ZNKS
   br label %ehcleanup91
 
 if.end90:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p2.i) #26
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p1.i) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i230 = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i230) #26
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %inv) #26
@@ -5827,7 +5828,7 @@ entry:
   %ref.tmp82 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %inv) #26
   call void @_ZN22ServerInventoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inv)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %p1.i = getelementptr inbounds i8, ptr %inv, i64 72
   %vtable.i = load ptr, ptr %gamedef, align 8, !tbaa !15
   %0 = load ptr, ptr %vtable.i, align 8
@@ -5866,7 +5867,7 @@ common.resume:                                    ; preds = %ehcleanup96, %ehcle
 
 ehcleanup.i:                                      ; preds = %lpad5.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad5.i ], [ %2, %lpad.i ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i) #26
   br label %common.resume
@@ -6299,10 +6300,10 @@ cleanup.action93:                                 ; preds = %ehcleanup89, %_ZNKS
   br label %ehcleanup96
 
 if.end95:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p2.i) #26
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p1.i) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i243 = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i243) #26
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %inv) #26
@@ -6338,7 +6339,7 @@ entry:
   %ref.tmp90 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %inv) #26
   call void @_ZN22ServerInventoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inv)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %p1.i = getelementptr inbounds i8, ptr %inv, i64 72
   %vtable.i = load ptr, ptr %gamedef, align 8, !tbaa !15
   %0 = load ptr, ptr %vtable.i, align 8
@@ -6377,7 +6378,7 @@ common.resume:                                    ; preds = %ehcleanup104, %ehcl
 
 ehcleanup.i:                                      ; preds = %lpad5.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad5.i ], [ %2, %lpad.i ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i) #26
   br label %common.resume
@@ -6878,10 +6879,10 @@ cleanup.action101:                                ; preds = %ehcleanup97, %_ZNKS
   br label %ehcleanup104
 
 if.end103:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p2.i) #26
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p1.i) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i267 = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i267) #26
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %inv) #26
@@ -6917,7 +6918,7 @@ entry:
   %ref.tmp90 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %inv) #26
   call void @_ZN22ServerInventoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inv)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %p1.i = getelementptr inbounds i8, ptr %inv, i64 72
   %vtable.i = load ptr, ptr %gamedef, align 8, !tbaa !15
   %0 = load ptr, ptr %vtable.i, align 8
@@ -6956,7 +6957,7 @@ common.resume:                                    ; preds = %ehcleanup104, %ehcl
 
 ehcleanup.i:                                      ; preds = %lpad5.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad5.i ], [ %2, %lpad.i ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i) #26
   br label %common.resume
@@ -7457,10 +7458,10 @@ cleanup.action101:                                ; preds = %ehcleanup97, %_ZNKS
   br label %ehcleanup104
 
 if.end103:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p2.i) #26
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p1.i) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i267 = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i267) #26
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %inv) #26
@@ -7496,7 +7497,7 @@ entry:
   %ref.tmp90 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %inv) #26
   call void @_ZN22ServerInventoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inv)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %p1.i = getelementptr inbounds i8, ptr %inv, i64 72
   %vtable.i = load ptr, ptr %gamedef, align 8, !tbaa !15
   %0 = load ptr, ptr %vtable.i, align 8
@@ -7535,7 +7536,7 @@ common.resume:                                    ; preds = %ehcleanup104, %ehcl
 
 ehcleanup.i:                                      ; preds = %lpad5.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad5.i ], [ %2, %lpad.i ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i) #26
   br label %common.resume
@@ -8036,10 +8037,10 @@ cleanup.action101:                                ; preds = %ehcleanup97, %_ZNKS
   br label %ehcleanup104
 
 if.end103:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p2.i) #26
   call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p1.i) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %inv, align 8, !tbaa !15
   %m_detached_inventories.i.i267 = getelementptr inbounds i8, ptr %inv, i64 16
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i267) #26
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %inv) #26
@@ -8072,7 +8073,7 @@ entry:
           to label %.noexc.i unwind label %lpad.i, !noalias !113
 
 .noexc.i:                                         ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %call.i, align 8, !tbaa !15, !noalias !113
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %call.i, align 8, !tbaa !15, !noalias !113
   %p1.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %vtable.i.i = load ptr, ptr %spec.select.i, align 8, !tbaa !15, !noalias !113
   %1 = load ptr, ptr %vtable.i.i, align 8, !noalias !113
@@ -8107,7 +8108,7 @@ lpad5.i.i:                                        ; preds = %invoke.cont6.i.i, %
 
 ehcleanup.i.i:                                    ; preds = %lpad5.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %4, %lpad5.i.i ], [ %3, %lpad.i.i ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %call.i, align 8, !tbaa !15, !noalias !113
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %call.i, align 8, !tbaa !15, !noalias !113
   %m_detached_inventories.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i.i) #26, !noalias !113
   br label %lpad.body.i
@@ -8409,7 +8410,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %0, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %0
 
 0:                                                ; preds = %if.else
   tail call void @_ZTH11errorstream()
@@ -8517,7 +8519,7 @@ entry:
           to label %.noexc.i unwind label %lpad.i, !noalias !127
 
 .noexc.i:                                         ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %call.i, align 8, !tbaa !15, !noalias !127
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %call.i, align 8, !tbaa !15, !noalias !127
   %p1.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %vtable.i.i = load ptr, ptr %spec.select.i, align 8, !tbaa !15, !noalias !127
   %1 = load ptr, ptr %vtable.i.i, align 8, !noalias !127
@@ -8552,7 +8554,7 @@ lpad5.i.i:                                        ; preds = %invoke.cont6.i.i, %
 
 ehcleanup.i.i:                                    ; preds = %lpad5.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %4, %lpad5.i.i ], [ %3, %lpad.i.i ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %call.i, align 8, !tbaa !15, !noalias !127
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %call.i, align 8, !tbaa !15, !noalias !127
   %m_detached_inventories.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i.i) #26, !noalias !127
   br label %lpad.body.i
@@ -10972,7 +10974,7 @@ define linkonce_odr dso_local void @_ZN22MockServerActiveObjectD0Ev(ptr noundef 
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator.269", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator.269", align 16
-  store ptr getelementptr inbounds inrange(-16, 416) (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18ServerActiveObject, i64 16), ptr %this, align 8, !tbaa !15
   %m_messages_out.i = getelementptr inbounds i8, ptr %this, i64 112
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -11912,12 +11914,12 @@ declare void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33))
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20MockInventoryManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MockInventoryManager, i64 16), ptr %this, align 8, !tbaa !15
   %p2.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p2.i) #26
   %p1.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %p1.i) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %this, align 8, !tbaa !15
   %m_detached_inventories.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i.i) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
@@ -12082,7 +12084,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8, !tbaa !58
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !15
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %toolcaps_overridden, align 8, !tbaa !312
   %toolcaps_override = getelementptr inbounds i8, ptr %this, i64 80
@@ -14339,14 +14341,14 @@ __cxx_global_var_init.1.exit:                     ; preds = %call2.i10.i.noexc19
   store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !4
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !14
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !13
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV14TestMoveAction, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14TestMoveAction, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.14.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %__cxx_global_var_init.1.exit
   %37 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !11
   %cmp.i.i.i.i.i.i = icmp eq ptr %38, getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32)
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i

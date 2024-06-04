@@ -267,7 +267,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
   %m_test_dir = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !7
   %1 = getelementptr inbounds i8, ptr %this, i64 32
@@ -14155,7 +14155,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8, !tbaa !272
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !4
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %toolcaps_overridden, align 8, !tbaa !273
   %toolcaps_override = getelementptr inbounds i8, ptr %this, i64 80
@@ -15650,7 +15650,7 @@ entry:
   store ptr %m_stringvars.i, ptr %__alloc_node_gen.i.i.i, align 8, !tbaa !14
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSL_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %m_stringvars.i, ptr noundef nonnull align 8 dereferenceable(56) %m_stringvars4.i, ptr noundef nonnull align 8 dereferenceable(8) %__alloc_node_gen.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i) #21
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !4
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   %toolcaps_overridden2 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i8, ptr %toolcaps_overridden2, align 8, !tbaa !273, !range !311, !noundef !312
@@ -17391,14 +17391,14 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !19
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !59
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9TestCraft, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9TestCraft, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !7
   %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32)
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i

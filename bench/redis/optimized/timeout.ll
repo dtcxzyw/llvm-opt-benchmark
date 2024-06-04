@@ -75,8 +75,8 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
 land.lhs.true4:                                   ; preds = %land.lhs.true2
   %2 = load i64, ptr %flags, align 8
   %3 = and i64 %2, 262160
-  %or.cond9 = icmp eq i64 %3, 0
-  br i1 %or.cond9, label %land.lhs.true12, label %if.else
+  %or.cond = icmp eq i64 %3, 0
+  br i1 %or.cond, label %land.lhs.true12, label %if.else
 
 land.lhs.true12:                                  ; preds = %land.lhs.true4
   %lastinteraction = getelementptr inbounds i8, ptr %c, i64 240
@@ -104,11 +104,11 @@ if.else:                                          ; preds = %land.lhs.true12, %l
   %flags17 = getelementptr inbounds i8, ptr %c, i64 8
   %7 = load i64, ptr %flags17, align 8
   %and18 = and i64 %7, 16
-  %tobool19 = icmp ne i64 %and18, 0
+  %tobool19.not = icmp eq i64 %and18, 0
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
-  %tobool21 = icmp ne i32 %8, 0
-  %or.cond = select i1 %tobool19, i1 %tobool21, i1 false
-  br i1 %or.cond, label %if.then22, label %return
+  %tobool21.not = icmp eq i32 %8, 0
+  %or.cond9 = select i1 %tobool19.not, i1 true, i1 %tobool21.not
+  br i1 %or.cond9, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.else
   %call23 = tail call i32 @clusterRedirectBlockedClientIfNeeded(ptr noundef nonnull %c) #3

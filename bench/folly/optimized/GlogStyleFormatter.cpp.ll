@@ -2276,7 +2276,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %this, align 8, !tbaa !120
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %this, align 8, !tbaa !120
   ret void
 
 lpad:                                             ; preds = %entry
@@ -2312,7 +2312,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN5folly12BadFormatArgC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %this, align 8, !tbaa !120
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %this, align 8, !tbaa !120
   ret void
 }
 
@@ -2961,7 +2961,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8, !tbaa !120
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8, !tbaa !120
   ret void
 }
 
@@ -2974,7 +2974,7 @@ entry:
   %ref.tmp = alloca %"class.folly::BadFormatArg", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #21
   call void @_ZNSt16invalid_argumentC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %ref.tmp, align 8, !tbaa !120
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %ref.tmp, align 8, !tbaa !120
   invoke void @_ZN5folly15throw_exceptionINS_12BadFormatArgEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #24
           to label %invoke.cont unwind label %lpad
 
@@ -4563,7 +4563,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %this, align 8, !tbaa !120
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %this, align 8, !tbaa !120
   ret void
 
 lpad:                                             ; preds = %_ZN5folly12BadFormatArg3strIJPKcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIS3_EEDpRKT_.exit
@@ -5512,7 +5512,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %this, align 8, !tbaa !120
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12BadFormatArgE, i64 16), ptr %this, align 8, !tbaa !120
   ret void
 
 lpad:                                             ; preds = %entry

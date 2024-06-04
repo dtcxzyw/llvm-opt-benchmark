@@ -1311,7 +1311,7 @@ define hidden void @_ZNK8rawspeed10DngOpcodes12applyOpCodesERKNS_8RawImageE(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11constructorINS0_20FixBadPixelsConstantEEESt10unique_ptrINS0_9DngOpcodeESt14default_deleteIS4_EERKNS_8RawImageERNS_10ByteStreamERNS_12iRectangle2DE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27, !noalias !136
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes20FixBadPixelsConstantE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !136
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes20FixBadPixelsConstantE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !136
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !6, !noalias !136
   %8 = zext i32 %7 to i64
@@ -1355,7 +1355,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11constructorINS0_20Fix
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !136
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !136
   tail call void @_ZdlPv(ptr noundef nonnull %5) #30, !noalias !136
   resume { ptr, i32 } %33
 
@@ -1395,7 +1395,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11constructorINS0_10Tri
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes10TrimBoundsE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !149
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes10TrimBoundsE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !149
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %3, align 4, !tbaa !152, !noalias !149
   %11 = load i32, ptr %9, align 4, !tbaa !152, !noalias !149
@@ -1465,7 +1465,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11constructorINS0_17Off
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes17OffsetPerRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !162
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes17OffsetPerRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !162
   %9 = getelementptr inbounds i8, ptr %5, i64 96
   %10 = getelementptr inbounds i8, ptr %5, i64 40
   %11 = load float, ptr %10, align 8, !tbaa !165, !noalias !162
@@ -1489,7 +1489,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11constructorINS0_17Off
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes17OffsetPerRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !182
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes17OffsetPerRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !182
   %9 = getelementptr inbounds i8, ptr %5, i64 96
   %10 = getelementptr inbounds i8, ptr %5, i64 40
   %11 = load float, ptr %10, align 8, !tbaa !185, !noalias !182
@@ -1513,7 +1513,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11constructorINS0_16Sca
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes16ScalePerRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !189
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes16ScalePerRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !189
   %9 = getelementptr inbounds i8, ptr %5, i64 96
   %10 = getelementptr inbounds i8, ptr %5, i64 40
   %11 = load float, ptr %10, align 8, !tbaa !165, !noalias !189
@@ -1537,7 +1537,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11constructorINS0_16Sca
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes16ScalePerRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !194
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes16ScalePerRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %5, align 8, !tbaa !129, !noalias !194
   %9 = getelementptr inbounds i8, ptr %5, i64 96
   %10 = getelementptr inbounds i8, ptr %5, i64 40
   %11 = load float, ptr %10, align 8, !tbaa !185, !noalias !194
@@ -1820,7 +1820,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListD2Ev(
   br label %6
 
 6:                                                ; preds = %5, %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   ret void
 }
 
@@ -1878,7 +1878,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11PixelOpcodeD0Ev(ptr n
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes12LookupOpcodeD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !214
   %4 = icmp eq ptr %3, null
@@ -1917,7 +1917,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes12LookupOpcode5applyERK
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !214
   %4 = icmp eq ptr %3, null
@@ -1934,7 +1934,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapD0Ev(ptr nound
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes12LookupOpcodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !214
   %4 = icmp eq ptr %3, null
@@ -1945,13 +1945,13 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes12LookupOpcodeD2Ev(ptr 
   br label %6
 
 6:                                                ; preds = %5, %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13PolynomialMapD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !214
   %4 = icmp eq ptr %3, null
@@ -1968,7 +1968,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13PolynomialMapD0Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9DngOpcodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   ret void
 }
 
@@ -2016,7 +2016,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed11IOExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #11 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #33
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed11IOExceptionE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed11IOExceptionE, i64 16), ptr %0, align 8, !tbaa !129
   ret void
 }
 
@@ -2027,7 +2027,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: cold mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !129
   invoke void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 65536, ptr noundef nonnull @.str.17, ptr noundef %1)
           to label %_ZN8rawspeed17RawspeedException3logEPKc.exit unwind label %3
 
@@ -2550,7 +2550,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed19RawDecoderExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #11 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #33
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed19RawDecoderExceptionE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed19RawDecoderExceptionE, i64 16), ptr %0, align 8, !tbaa !129
   ret void
 }
 
@@ -2564,7 +2564,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.rawspeed::iRectangle2D", align 8
   %6 = alloca %"class.rawspeed::DngOpcodes::DummyROIOpcode", align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes16FixBadPixelsListE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes16FixBadPixelsListE, i64 16), ptr %0, align 8, !tbaa !129
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = load ptr, ptr %1, align 8, !tbaa !23
@@ -2929,7 +2929,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
           to label %206 unwind label %302
 
 206:                                              ; preds = %204
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes14DummyROIOpcodeE, i64 16), ptr %6, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes14DummyROIOpcodeE, i64 16), ptr %6, align 8, !tbaa !129
   %207 = load i32, ptr %94, align 8, !tbaa !155
   %208 = load i32, ptr %95, align 4, !tbaa !155
   %209 = load i32, ptr %96, align 8, !tbaa !155
@@ -3140,7 +3140,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
   br label %319
 
 319:                                              ; preds = %318, %314
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   resume { ptr, i32 } %315
 }
 
@@ -3149,7 +3149,7 @@ declare i64 @_ZNK8rawspeed12RawImageData15getUncroppedDimEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9ROIOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9ROIOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3341,14 +3341,14 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
 
 119:                                              ; preds = %105, %103, %101, %99, %97
   %120 = phi { ptr, i32 } [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   resume { ptr, i32 } %120
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = invoke noalias noundef nonnull dereferenceable(131072) ptr @_Znwm(i64 noundef 131072) #27
@@ -3356,7 +3356,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
 
 7:                                                ; preds = %252, %248, %9
   %8 = phi { ptr, i32 } [ %10, %9 ], [ %249, %248 ], [ %249, %252 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   resume { ptr, i32 } %8
 
 9:                                                ; preds = %4
@@ -3372,7 +3372,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(131072) %6, i8 0, i64 131072, i1 false)
   store ptr %12, ptr %14, align 8, !tbaa !238
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes8TableMapE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes8TableMapE, i64 16), ptr %0, align 8, !tbaa !129
   %15 = getelementptr inbounds i8, ptr %2, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !6
   %17 = zext i32 %16 to i64
@@ -3728,7 +3728,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
 
 248:                                              ; preds = %199, %181
   %249 = phi { ptr, i32 } [ %182, %181 ], [ %200, %199 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   %250 = load ptr, ptr %5, align 8, !tbaa !214
   %251 = icmp eq ptr %250, null
   br i1 %251, label %7, label %252
@@ -3741,7 +3741,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes11PixelOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes11PixelOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !6
   %7 = zext i32 %6 to i64
@@ -3884,7 +3884,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8R
 
 94:                                               ; preds = %91, %51
   %95 = phi { ptr, i32 } [ %52, %51 ], [ %92, %91 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   resume { ptr, i32 } %95
 }
 
@@ -3895,7 +3895,7 @@ declare i16 @llvm.bswap.i16(i16) #9
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13PolynomialMapC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.138", align 8
   tail call void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = invoke noalias noundef nonnull dereferenceable(131072) ptr @_Znwm(i64 noundef 131072) #27
@@ -3903,7 +3903,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13PolynomialMapC2ERKNS_
 
 8:                                                ; preds = %157, %154, %10
   %9 = phi { ptr, i32 } [ %11, %10 ], [ %56, %154 ], [ %56, %157 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %4
@@ -3919,7 +3919,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13PolynomialMapC2ERKNS_
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(131072) %7, i8 0, i64 131072, i1 false)
   store ptr %13, ptr %15, align 8, !tbaa !238
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes13PolynomialMapE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes13PolynomialMapE, i64 16), ptr %0, align 8, !tbaa !129
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds i8, ptr %2, i64 16
@@ -4134,7 +4134,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13PolynomialMapC2ERKNS_
 
 154:                                              ; preds = %153, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   %155 = load ptr, ptr %6, align 8, !tbaa !214
   %156 = icmp eq ptr %155, null
   br i1 %156, label %8, label %157
@@ -4374,7 +4374,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectYEEC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DEf(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, float noundef %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %0, align 8, !tbaa !129
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store float %4, ptr %6, align 8, !tbaa !165
   %7 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4512,13 +4512,13 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   br label %85
 
 85:                                               ; preds = %84, %81
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   resume { ptr, i32 } %77
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes17OffsetPerRowOrColINS0_17DeltaRowOrColBase7SelectYEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %0, align 8, !tbaa !129
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !275
   %4 = icmp eq ptr %3, null
@@ -5988,7 +5988,7 @@ declare float @llvm.fabs.f32(float) #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectXEEC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DEf(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, float noundef %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %0, align 8, !tbaa !129
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store float %4, ptr %6, align 8, !tbaa !185
   %7 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6126,13 +6126,13 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   br label %85
 
 85:                                               ; preds = %84, %81
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   resume { ptr, i32 } %77
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes17OffsetPerRowOrColINS0_17DeltaRowOrColBase7SelectXEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %0, align 8, !tbaa !129
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !275
   %4 = icmp eq ptr %3, null
@@ -7597,7 +7597,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectYEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %0, align 8, !tbaa !129
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !275
   %4 = icmp eq ptr %3, null
@@ -7618,13 +7618,13 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   br label %11
 
 11:                                               ; preds = %10, %6
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16ScalePerRowOrColINS0_17DeltaRowOrColBase7SelectYEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectYEEE, i64 16), ptr %0, align 8, !tbaa !129
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !275
   %4 = icmp eq ptr %3, null
@@ -8750,7 +8750,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectXEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %0, align 8, !tbaa !129
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !275
   %4 = icmp eq ptr %3, null
@@ -8771,13 +8771,13 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17D
   br label %11
 
 11:                                               ; preds = %10, %6
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !129
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16ScalePerRowOrColINS0_17DeltaRowOrColBase7SelectXEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %0, align 8, !tbaa !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10DngOpcodes13DeltaRowOrColINS0_17DeltaRowOrColBase7SelectXEEE, i64 16), ptr %0, align 8, !tbaa !129
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !275
   %4 = icmp eq ptr %3, null

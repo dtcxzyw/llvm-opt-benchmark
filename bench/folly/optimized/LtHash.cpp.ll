@@ -68,7 +68,7 @@ _ZN5folly14aligned_mallocEmm.exit:                ; preds = %entry
 
 if.then:                                          ; preds = %_ZN5folly14aligned_mallocEmm.exit, %_ZN5folly14aligned_mallocEmm.exit.thread
   %exception = call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !13
   call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #14
   unreachable
 
@@ -135,7 +135,7 @@ _ZN5folly14aligned_mallocEmm.exit.i:              ; preds = %entry
 
 if.then.i:                                        ; preds = %_ZN5folly14aligned_mallocEmm.exit.i, %_ZN5folly14aligned_mallocEmm.exit.thread.i
   %exception.i = call ptr @__cxa_allocate_exception(i64 8) #12, !noalias !15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i, align 8, !tbaa !13, !noalias !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i, align 8, !tbaa !13, !noalias !15
   call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #14, !noalias !15
   unreachable
 

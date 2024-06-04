@@ -319,14 +319,14 @@ define dso_local void @_ZN14GUIOpenURLMenuC1EPN3irr3gui15IGUIEnvironmentEPNS1_11
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 424
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 432
   store ptr null, ptr %DebugName.i, align 8, !tbaa !46
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 440
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !48
   tail call void @_ZN12GUIModalMenuC2EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerb(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT14GUIOpenURLMenu, i64 8), ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, i1 noundef zeroext true)
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV14GUIOpenURLMenu, i64 24), ptr %this, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIOpenURLMenu, i64 384), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIOpenURLMenu, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIOpenURLMenu, i64 384), ptr %0, align 8, !tbaa !4
   %m_tsrc = getelementptr inbounds i8, ptr %this, i64 384
   store ptr %tsrc, ptr %m_tsrc, align 8, !tbaa !7
   %url2 = getelementptr inbounds i8, ptr %this, i64 392
@@ -2417,7 +2417,8 @@ if.then23:                                        ; preds = %land.lhs.true21
   br i1 %call24, label %if.end29thread-pre-split, label %if.then25
 
 if.then25:                                        ; preds = %if.then23
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %8, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %8
 
 8:                                                ; preds = %if.then25
   tail call void @_ZTH10infostream()
@@ -3647,9 +3648,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14GUIOpenURLMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV14GUIOpenURLMenu, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIOpenURLMenu, i64 24), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 424
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIOpenURLMenu, i64 384), ptr %add.ptr.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIOpenURLMenu, i64 384), ptr %add.ptr.i, align 8, !tbaa !4
   %url.i = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load ptr, ptr %url.i, align 8, !tbaa !42
   %1 = getelementptr inbounds i8, ptr %this, i64 408
@@ -3675,9 +3676,9 @@ _ZN14GUIOpenURLMenuD2Ev.exit:                     ; preds = %if.then.i.i.i, %_ZN
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14GUIOpenURLMenuD0Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV14GUIOpenURLMenu, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIOpenURLMenu, i64 24), ptr %this, align 8, !tbaa !4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 424
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIOpenURLMenu, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIOpenURLMenu, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !4
   %url.i.i = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load ptr, ptr %url.i.i, align 8, !tbaa !42
   %1 = getelementptr inbounds i8, ptr %this, i64 408
@@ -3730,9 +3731,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV14GUIOpenURLMenu, i64 24), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIOpenURLMenu, i64 24), ptr %3, align 8, !tbaa !4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 424
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIOpenURLMenu, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIOpenURLMenu, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !4
   %url.i.i = getelementptr inbounds i8, ptr %3, i64 392
   %4 = load ptr, ptr %url.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds i8, ptr %3, i64 408
@@ -3762,9 +3763,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV14GUIOpenURLMenu, i64 24), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIOpenURLMenu, i64 24), ptr %3, align 8, !tbaa !4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 424
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIOpenURLMenu, i64 384), ptr %add.ptr.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIOpenURLMenu, i64 384), ptr %add.ptr.i.i.i, align 8, !tbaa !4
   %url.i.i.i = getelementptr inbounds i8, ptr %3, i64 392
   %4 = load ptr, ptr %url.i.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds i8, ptr %3, i64 408

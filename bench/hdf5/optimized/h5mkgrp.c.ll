@@ -502,8 +502,8 @@ define internal fastcc void @leave(i32 noundef %0) unnamed_addr #0 {
 
 4:                                                ; preds = %3, %1
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @params_g, i64 16), align 8
-  %.not7 = icmp eq i64 %5, 0
-  br i1 %.not7, label %13, label %.lr.ph.preheader
+  %.not8 = icmp eq i64 %5, 0
+  br i1 %.not8, label %13, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @params_g, i64 24), align 8
@@ -511,11 +511,11 @@ define internal fastcc void @leave(i32 noundef %0) unnamed_addr #0 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %.08
+  %.09 = phi i64 [ %10, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %8 = getelementptr inbounds ptr, ptr %6, i64 %.09
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #12
-  %10 = add nuw i64 %.08, 1
+  %10 = add nuw i64 %.09, 1
   %11 = icmp ult i64 %10, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 

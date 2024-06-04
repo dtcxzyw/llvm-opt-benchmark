@@ -569,7 +569,8 @@ if.then:                                          ; preds = %land.lhs.true2
   br i1 %deprecated, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %4, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %4
 
 4:                                                ; preds = %if.then6
   tail call void @_ZTH13warningstream()
@@ -592,7 +593,7 @@ if.then.i.i:                                      ; preds = %_ZTW13warningstream
   br label %_ZN9LogStreamlsIRA60_KcEER11StreamProxyOT_.exit
 
 _ZN9LogStreamlsIRA60_KcEER11StreamProxyOT_.exit:  ; preds = %if.then.i.i, %_ZTW13warningstream.exit
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %_ZTW13warningstream.exit23, label %_ZTW13warningstream.exit29.critedge
+  br i1 %.not, label %_ZTW13warningstream.exit29.critedge, label %_ZTW13warningstream.exit23
 
 _ZTW13warningstream.exit23:                       ; preds = %_ZN9LogStreamlsIRA60_KcEER11StreamProxyOT_.exit
   tail call void @_ZTH13warningstream()
@@ -1345,7 +1346,7 @@ _ZN14SimpleMetadata9setStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14SimpleMetadataD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV14SimpleMetadata, i64 80), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14SimpleMetadata, i64 80), ptr %this, align 8, !tbaa !15
   %m_stringvars.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8, !tbaa !23
@@ -1418,7 +1419,7 @@ _ZN14SimpleMetadataD2Ev.exit:                     ; preds = %if.end.i.i.i.i.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14SimpleMetadataD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV14SimpleMetadata, i64 80), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14SimpleMetadata, i64 80), ptr %this, align 8, !tbaa !15
   %m_stringvars.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8, !tbaa !23

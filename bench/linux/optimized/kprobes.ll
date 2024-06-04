@@ -4005,39 +4005,40 @@ define internal fastcc noundef range(i32 -19, 1) i32 @disarm_kprobe(ptr noundef 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc i32 @populate_kprobe_blacklist() unnamed_addr #11 section ".init.text" align 16 {
-  br i1 icmp ult (ptr @__start_kprobe_blacklist, ptr @__stop_kprobe_blacklist), label %.preheader, label %.loopexit4
+  %1 = icmp ult ptr @__start_kprobe_blacklist, @__stop_kprobe_blacklist
+  br i1 %1, label %.preheader, label %.loopexit4
 
-1:                                                ; preds = %.preheader
-  %2 = getelementptr i8, ptr %4, i64 8
-  %3 = icmp ult ptr %2, @__stop_kprobe_blacklist
-  br i1 %3, label %.preheader, label %.loopexit4, !llvm.loop !96
+2:                                                ; preds = %.preheader
+  %3 = getelementptr i8, ptr %5, i64 8
+  %4 = icmp ult ptr %3, @__stop_kprobe_blacklist
+  br i1 %4, label %.preheader, label %.loopexit4, !llvm.loop !96
 
-.preheader:                                       ; preds = %0, %1
-  %4 = phi ptr [ %2, %1 ], [ @__start_kprobe_blacklist, %0 ]
-  %5 = load i64, ptr %4, align 8
-  %6 = tail call i32 @kprobe_add_ksym_blacklist(i64 noundef %5)
-  %7 = icmp ne i32 %6, -22
-  %8 = icmp slt i32 %6, 0
-  %9 = and i1 %7, %8
-  br i1 %9, label %.loopexit, label %1
+.preheader:                                       ; preds = %0, %2
+  %5 = phi ptr [ %3, %2 ], [ @__start_kprobe_blacklist, %0 ]
+  %6 = load i64, ptr %5, align 8
+  %7 = tail call i32 @kprobe_add_ksym_blacklist(i64 noundef %6)
+  %8 = icmp ne i32 %7, -22
+  %9 = icmp slt i32 %7, 0
+  %10 = and i1 %8, %9
+  br i1 %10, label %.loopexit, label %2
 
-.loopexit4:                                       ; preds = %1, %0
-  %10 = tail call i32 @kprobe_add_area_blacklist(i64 noundef ptrtoint (ptr @__kprobes_text_start to i64), i64 noundef ptrtoint (ptr @__kprobes_text_end to i64)), !range !97
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %.loopexit
+.loopexit4:                                       ; preds = %2, %0
+  %11 = tail call i32 @kprobe_add_area_blacklist(i64 noundef ptrtoint (ptr @__kprobes_text_start to i64), i64 noundef ptrtoint (ptr @__kprobes_text_end to i64)), !range !97
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %.loopexit
 
-12:                                               ; preds = %.loopexit4
-  %13 = tail call i32 @kprobe_add_area_blacklist(i64 noundef ptrtoint (ptr @__noinstr_text_start to i64), i64 noundef ptrtoint (ptr @__noinstr_text_end to i64)), !range !97
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %.loopexit
+13:                                               ; preds = %.loopexit4
+  %14 = tail call i32 @kprobe_add_area_blacklist(i64 noundef ptrtoint (ptr @__noinstr_text_start to i64), i64 noundef ptrtoint (ptr @__noinstr_text_end to i64)), !range !97
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %.loopexit
 
-15:                                               ; preds = %12
-  %16 = tail call i32 @arch_populate_kprobe_blacklist() #26
+16:                                               ; preds = %13
+  %17 = tail call i32 @arch_populate_kprobe_blacklist() #26
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %15, %12, %.loopexit4
-  %17 = phi i32 [ %10, %.loopexit4 ], [ %16, %15 ], [ %13, %12 ], [ %6, %.preheader ]
-  ret i32 %17
+.loopexit:                                        ; preds = %.preheader, %16, %13, %.loopexit4
+  %18 = phi i32 [ %11, %.loopexit4 ], [ %17, %16 ], [ %14, %13 ], [ %7, %.preheader ]
+  ret i32 %18
 }
 
 ; Function Attrs: null_pointer_is_valid

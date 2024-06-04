@@ -6666,7 +6666,7 @@ _ZN4node12_GLOBAL__N_16Parser10MaybePauseEv.exit: ; preds = %_ZN4node12_GLOBAL__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i32 0, 25) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_6on_urlES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
+define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_6on_urlES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
 entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80
@@ -6747,7 +6747,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i32 0, 25) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_9on_statusES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
+define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_9on_statusES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
 entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80
@@ -6828,7 +6828,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i32 0, 25) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_15on_header_fieldES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
+define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FiPKcmEXadL_ZNS1_15on_header_fieldES4_mEEE3RawEP18llhttp__internal_sS4_m(ptr noundef %p, ptr noundef %args, i64 noundef %args1) #3 align 2 {
 entry:
   %0 = ptrtoint ptr %p to i64
   %sub.i.i = add i64 %0, -80
@@ -7590,7 +7590,7 @@ if.end:                                           ; preds = %if.end.i4, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i32 -1, 22) i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FivEXadL_ZNS1_19on_message_completeEvEEE3RawEP18llhttp__internal_s(ptr noundef %p) #3 align 2 {
+define internal noundef i32 @_ZN4node12_GLOBAL__N_16Parser5ProxyIMS1_FivEXadL_ZNS1_19on_message_completeEvEEE3RawEP18llhttp__internal_s(ptr noundef %p) #3 align 2 {
 entry:
   %scope.i = alloca %"class.v8::HandleScope", align 8
   %callback_scope.i = alloca %"class.node::InternalCallbackScope", align 8

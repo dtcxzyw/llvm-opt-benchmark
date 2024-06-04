@@ -4186,73 +4186,73 @@ define range(i32 0, 2) i32 @get_host_ipaddr(ptr noundef %0, ptr noundef %1) loca
   %6 = alloca %struct._async_hostent, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.get_host_ipaddr6.tv, i64 16, i1 false)
   %7 = tail call zeroext i1 @ws_inet_pton4(ptr noundef %0, ptr noundef %1) #20
-  br i1 %7, label %41, label %8
+  br i1 %7, label %39, label %8
 
 8:                                                ; preds = %2
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
-  %10 = icmp ne i32 %9, 0
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
-  %12 = icmp ne i32 %11, 0
-  %or.cond = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond, label %13, label %41
+  %.not = icmp eq i32 %9, 0
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
+  %.not22 = icmp eq i32 %10, 0
+  %or.cond = select i1 %.not, i1 true, i1 %.not22
+  br i1 %or.cond, label %39, label %11
 
-13:                                               ; preds = %8
+11:                                               ; preds = %8
   %.b = load i1, ptr @async_dns_initialized, align 4
-  %14 = load i32, ptr @name_resolve_concurrency, align 4
-  %15 = icmp ne i32 %14, 0
-  %or.cond3.not = select i1 %.b, i1 %15, i1 false
-  br i1 %or.cond3.not, label %.preheader.preheader, label %41
+  %12 = load i32, ptr @name_resolve_concurrency, align 4
+  %13 = icmp ne i32 %12, 0
+  %or.cond.not = select i1 %.b, i1 %13, i1 false
+  br i1 %or.cond.not, label %.preheader.preheader, label %39
 
-.preheader.preheader:                             ; preds = %13
+.preheader.preheader:                             ; preds = %11
   store i32 4, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %1, ptr %17, align 8
-  %18 = load ptr, ptr @ghbn_chan, align 8
-  call void @ares_gethostbyname(ptr noundef %18, ptr noundef %0, i32 noundef 2, ptr noundef nonnull @c_ares_ghi_cb, ptr noundef nonnull %6) #20
+  %14 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %1, ptr %15, align 8
+  %16 = load ptr, ptr @ghbn_chan, align 8
+  call void @ares_gethostbyname(ptr noundef %16, ptr noundef %0, i32 noundef 2, ptr noundef nonnull @c_ares_ghi_cb, ptr noundef nonnull %6) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false)
-  %19 = load ptr, ptr @ghbn_chan, align 8
-  %20 = call i32 @ares_fds(ptr noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %22, label %36
+  %17 = load ptr, ptr @ghbn_chan, align 8
+  %18 = call i32 @ares_fds(ptr noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %20, label %34
 
-22:                                               ; preds = %.preheader.preheader
-  %23 = load ptr, ptr @ghbn_chan, align 8
-  %24 = call ptr @ares_timeout(ptr noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %3) #20
-  %25 = call i32 @select(i32 noundef %20, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null, ptr noundef %24) #20
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %27, label %34
+20:                                               ; preds = %.preheader.preheader
+  %21 = load ptr, ptr @ghbn_chan, align 8
+  %22 = call ptr @ares_timeout(ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull %3) #20
+  %23 = call i32 @select(i32 noundef %18, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null, ptr noundef %22) #20
+  %24 = icmp eq i32 %23, -1
+  br i1 %24, label %25, label %32
 
-27:                                               ; preds = %22
-  %28 = tail call ptr @__errno_location() #21
-  %29 = load i32, ptr %28, align 4
-  %.not = icmp eq i32 %29, 4
-  br i1 %.not, label %41, label %30
+25:                                               ; preds = %20
+  %26 = tail call ptr @__errno_location() #21
+  %27 = load i32, ptr %26, align 4
+  %.not24 = icmp eq i32 %27, 4
+  br i1 %.not24, label %39, label %28
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = call ptr @g_strerror(i32 noundef %29) #21
-  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.47, ptr noundef %32) #22
-  br label %41
+28:                                               ; preds = %25
+  %29 = load ptr, ptr @stderr, align 8
+  %30 = call ptr @g_strerror(i32 noundef %27) #21
+  %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.47, ptr noundef %30) #22
+  br label %39
 
-34:                                               ; preds = %22
+32:                                               ; preds = %20
+  %33 = load ptr, ptr @ghbn_chan, align 8
+  call void @ares_process(ptr noundef %33, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
+  br label %34
+
+34:                                               ; preds = %32, %.preheader.preheader
   %35 = load ptr, ptr @ghbn_chan, align 8
-  call void @ares_process(ptr noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
-  br label %36
+  call void @ares_cancel(ptr noundef %35) #20
+  %36 = load i32, ptr %6, align 8
+  %37 = load i32, ptr %14, align 4
+  %38 = icmp eq i32 %36, %37
+  %. = zext i1 %38 to i32
+  br label %39
 
-36:                                               ; preds = %34, %.preheader.preheader
-  %37 = load ptr, ptr @ghbn_chan, align 8
-  call void @ares_cancel(ptr noundef %37) #20
-  %38 = load i32, ptr %6, align 8
-  %39 = load i32, ptr %16, align 4
-  %40 = icmp eq i32 %38, %39
-  %. = zext i1 %40 to i32
-  br label %41
-
-41:                                               ; preds = %2, %36, %27, %30, %13, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %30 ], [ 0, %27 ], [ %., %36 ], [ 1, %2 ]
+39:                                               ; preds = %2, %34, %25, %28, %11, %8
+  %.0 = phi i32 [ 0, %8 ], [ 0, %11 ], [ 0, %28 ], [ 0, %25 ], [ %., %34 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -4303,73 +4303,73 @@ define range(i32 0, 2) i32 @get_host_ipaddr6(ptr noundef %0, ptr noundef %1) loc
   %6 = alloca %struct._async_hostent, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.get_host_ipaddr6.tv, i64 16, i1 false)
   %7 = tail call zeroext i1 @ws_inet_pton6(ptr noundef %0, ptr noundef %1) #20
-  br i1 %7, label %41, label %8
+  br i1 %7, label %39, label %8
 
 8:                                                ; preds = %2
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
-  %10 = icmp ne i32 %9, 0
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
-  %12 = icmp ne i32 %11, 0
-  %or.cond = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond, label %13, label %41
+  %.not22 = icmp eq i32 %9, 0
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
+  %.not23 = icmp eq i32 %10, 0
+  %or.cond = select i1 %.not22, i1 true, i1 %.not23
+  br i1 %or.cond, label %39, label %11
 
-13:                                               ; preds = %8
+11:                                               ; preds = %8
   %.b = load i1, ptr @async_dns_initialized, align 4
-  %14 = load i32, ptr @name_resolve_concurrency, align 4
-  %15 = icmp ne i32 %14, 0
-  %or.cond3.not = select i1 %.b, i1 %15, i1 false
-  br i1 %or.cond3.not, label %.preheader.preheader, label %41
+  %12 = load i32, ptr @name_resolve_concurrency, align 4
+  %13 = icmp ne i32 %12, 0
+  %or.cond.not = select i1 %.b, i1 %13, i1 false
+  br i1 %or.cond.not, label %.preheader.preheader, label %39
 
-.preheader.preheader:                             ; preds = %13
+.preheader.preheader:                             ; preds = %11
   store i32 16, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %1, ptr %17, align 8
-  %18 = load ptr, ptr @ghbn_chan, align 8
-  call void @ares_gethostbyname(ptr noundef %18, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @c_ares_ghi_cb, ptr noundef nonnull %6) #20
+  %14 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %1, ptr %15, align 8
+  %16 = load ptr, ptr @ghbn_chan, align 8
+  call void @ares_gethostbyname(ptr noundef %16, ptr noundef %0, i32 noundef 10, ptr noundef nonnull @c_ares_ghi_cb, ptr noundef nonnull %6) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false)
-  %19 = load ptr, ptr @ghbn_chan, align 8
-  %20 = call i32 @ares_fds(ptr noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %22, label %36
+  %17 = load ptr, ptr @ghbn_chan, align 8
+  %18 = call i32 @ares_fds(ptr noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %20, label %34
 
-22:                                               ; preds = %.preheader.preheader
-  %23 = load ptr, ptr @ghbn_chan, align 8
-  %24 = call ptr @ares_timeout(ptr noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %3) #20
-  %25 = call i32 @select(i32 noundef %20, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null, ptr noundef %24) #20
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %27, label %34
+20:                                               ; preds = %.preheader.preheader
+  %21 = load ptr, ptr @ghbn_chan, align 8
+  %22 = call ptr @ares_timeout(ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull %3) #20
+  %23 = call i32 @select(i32 noundef %18, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null, ptr noundef %22) #20
+  %24 = icmp eq i32 %23, -1
+  br i1 %24, label %25, label %32
 
-27:                                               ; preds = %22
-  %28 = tail call ptr @__errno_location() #21
-  %29 = load i32, ptr %28, align 4
-  %.not25 = icmp eq i32 %29, 4
-  br i1 %.not25, label %41, label %30
+25:                                               ; preds = %20
+  %26 = tail call ptr @__errno_location() #21
+  %27 = load i32, ptr %26, align 4
+  %.not25 = icmp eq i32 %27, 4
+  br i1 %.not25, label %39, label %28
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = call ptr @g_strerror(i32 noundef %29) #21
-  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.47, ptr noundef %32) #22
-  br label %41
+28:                                               ; preds = %25
+  %29 = load ptr, ptr @stderr, align 8
+  %30 = call ptr @g_strerror(i32 noundef %27) #21
+  %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.47, ptr noundef %30) #22
+  br label %39
 
-34:                                               ; preds = %22
+32:                                               ; preds = %20
+  %33 = load ptr, ptr @ghbn_chan, align 8
+  call void @ares_process(ptr noundef %33, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
+  br label %34
+
+34:                                               ; preds = %32, %.preheader.preheader
   %35 = load ptr, ptr @ghbn_chan, align 8
-  call void @ares_process(ptr noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
-  br label %36
+  call void @ares_cancel(ptr noundef %35) #20
+  %36 = load i32, ptr %6, align 8
+  %37 = load i32, ptr %14, align 4
+  %38 = icmp eq i32 %36, %37
+  %. = zext i1 %38 to i32
+  br label %39
 
-36:                                               ; preds = %34, %.preheader.preheader
-  %37 = load ptr, ptr @ghbn_chan, align 8
-  call void @ares_cancel(ptr noundef %37) #20
-  %38 = load i32, ptr %6, align 8
-  %39 = load i32, ptr %16, align 4
-  %40 = icmp eq i32 %38, %39
-  %. = zext i1 %40 to i32
-  br label %41
-
-41:                                               ; preds = %36, %27, %30, %13, %8, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %8 ], [ 0, %13 ], [ 0, %30 ], [ 0, %27 ], [ %., %36 ]
+39:                                               ; preds = %34, %25, %28, %11, %8, %2
+  %.0 = phi i32 [ 1, %2 ], [ 0, %8 ], [ 0, %11 ], [ 0, %28 ], [ 0, %25 ], [ %., %34 ]
   ret i32 %.0
 }
 

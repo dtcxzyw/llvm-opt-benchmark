@@ -1268,7 +1268,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsINSt7__cxx1112ba
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %8, align 8, !noalias !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %8, align 8, !noalias !25
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN3gmx3Any6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES0_RKT_.exit.i unwind label %10, !noalias !25
@@ -1367,7 +1367,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsIbE11deserialize
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !28
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %7, align 8, !noalias !28
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %7, align 8, !noalias !28
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr %3, align 1, !noalias !28
   %10 = and i8 %9, 1
@@ -1447,7 +1447,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsIcE11deserialize
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !31
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIcEE, i64 16), ptr %7, align 8, !noalias !31
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIcEE, i64 16), ptr %7, align 8, !noalias !31
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr %3, align 1, !noalias !31
   store i8 %9, ptr %8, align 8, !noalias !31
@@ -1526,7 +1526,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsIhE11deserialize
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !34
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIhEE, i64 16), ptr %7, align 8, !noalias !34
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIhEE, i64 16), ptr %7, align 8, !noalias !34
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr %3, align 1, !noalias !34
   store i8 %9, ptr %8, align 8, !noalias !34
@@ -1605,7 +1605,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsIiE11deserialize
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !37
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %7, align 8, !noalias !37
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %7, align 8, !noalias !37
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %3, align 4, !noalias !37
   store i32 %9, ptr %8, align 8, !noalias !37
@@ -1684,7 +1684,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsIlE11deserialize
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %7, align 8, !noalias !40
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %7, align 8, !noalias !40
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i64, ptr %3, align 8, !noalias !40
   store i64 %9, ptr %8, align 8, !noalias !40
@@ -1763,7 +1763,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsIfE11deserialize
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !43
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIfEE, i64 16), ptr %7, align 8, !noalias !43
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIfEE, i64 16), ptr %7, align 8, !noalias !43
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load float, ptr %3, align 4, !noalias !43
   store float %9, ptr %8, align 8, !noalias !43
@@ -1842,7 +1842,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsIdE11deserialize
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !46
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %7, align 8, !noalias !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %7, align 8, !noalias !46
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load double, ptr %3, align 8, !noalias !46
   store double %9, ptr %8, align 8, !noalias !46
@@ -1973,7 +1973,7 @@ define linkonce_odr ptr @_ZN3gmx24KeyValueTreeValueBuilder12createObjectEv(ptr n
           to label %9 unwind label %41
 
 9:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %8, align 8, !noalias !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %8, align 8, !noalias !49
   %10 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 0, ptr %10, align 8, !noalias !49
   %11 = getelementptr inbounds i8, ptr %8, i64 24
@@ -2258,7 +2258,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINS_18KeyValueTreeObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -2288,7 +2288,7 @@ _ZN3gmx18KeyValueTreeObjectD2Ev.exit:             ; preds = %_ZNSt6vectorIN3gmx2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINS_18KeyValueTreeObjectEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -2326,7 +2326,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx3An
 define linkonce_odr void @_ZNK3gmx3Any7ContentINS_18KeyValueTreeObjectEE5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22, !noalias !60
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %4, align 8, !noalias !60
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %4, align 8, !noalias !60
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZN3gmx18KeyValueTreeObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZNSt10unique_ptrIN3gmx3Any7ContentINS0_18KeyValueTreeObjectEEESt14default_deleteIS4_EED2Ev.exit unwind label %6, !noalias !60
@@ -3538,7 +3538,7 @@ define linkonce_odr ptr @_ZN3gmx24KeyValueTreeValueBuilder11createArrayEv(ptr no
           to label %4 unwind label %24
 
 4:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %3, align 8, !noalias !94
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %3, align 8, !noalias !94
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %0, align 8
@@ -3638,7 +3638,7 @@ _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destro
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINS_17KeyValueTreeArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3684,7 +3684,7 @@ _ZN3gmx17KeyValueTreeArrayD2Ev.exit:              ; preds = %_ZSt8_DestroyIPN3gm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINS_17KeyValueTreeArrayEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3738,7 +3738,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx3An
 define linkonce_odr void @_ZNK3gmx3Any7ContentINS_17KeyValueTreeArrayEE5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !98
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %4, align 8, !noalias !98
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_17KeyValueTreeArrayEEE, i64 16), ptr %4, align 8, !noalias !98
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZNSt10unique_ptrIN3gmx3Any7ContentINS0_17KeyValueTreeArrayEEESt14default_deleteIS4_EED2Ev.exit unwind label %6, !noalias !98
@@ -3884,7 +3884,7 @@ _ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EED2Ev.exit: ; preds = %44, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   ret void
@@ -3892,7 +3892,7 @@ define linkonce_odr void @_ZN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11cha
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
@@ -3908,7 +3908,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx3An
 define linkonce_odr void @_ZNK3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !105
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %4, align 8, !noalias !105
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %4, align 8, !noalias !105
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNSt10unique_ptrIN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14default_deleteIS9_EED2Ev.exit unwind label %6, !noalias !105
@@ -3945,7 +3945,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIbE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIbEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !108
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %3, align 8, !noalias !108
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %3, align 8, !noalias !108
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr %2, align 8, !noalias !108
   %6 = and i8 %5, 1
@@ -3975,7 +3975,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIcE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIcEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !111
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIcEE, i64 16), ptr %3, align 8, !noalias !111
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIcEE, i64 16), ptr %3, align 8, !noalias !111
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr %2, align 8, !noalias !111
   store i8 %5, ptr %4, align 8, !noalias !111
@@ -4004,7 +4004,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIhE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIhEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !114
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIhEE, i64 16), ptr %3, align 8, !noalias !114
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIhEE, i64 16), ptr %3, align 8, !noalias !114
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr %2, align 8, !noalias !114
   store i8 %5, ptr %4, align 8, !noalias !114
@@ -4033,7 +4033,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIiE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIiEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !117
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %3, align 8, !noalias !117
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %3, align 8, !noalias !117
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %2, align 8, !noalias !117
   store i32 %5, ptr %4, align 8, !noalias !117
@@ -4062,7 +4062,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIlE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIlEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !120
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %3, align 8, !noalias !120
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %3, align 8, !noalias !120
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %2, align 8, !noalias !120
   store i64 %5, ptr %4, align 8, !noalias !120
@@ -4091,7 +4091,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIfE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIfEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !123
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIfEE, i64 16), ptr %3, align 8, !noalias !123
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIfEE, i64 16), ptr %3, align 8, !noalias !123
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load float, ptr %2, align 8, !noalias !123
   store float %5, ptr %4, align 8, !noalias !123
@@ -4120,7 +4120,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIdE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIdEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !126
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %3, align 8, !noalias !126
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %3, align 8, !noalias !126
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load double, ptr %2, align 8, !noalias !126
   store double %5, ptr %4, align 8, !noalias !126

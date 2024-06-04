@@ -501,14 +501,14 @@ declare void @_ZN12GUIModalMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(
 define dso_local void @_ZN17GUIPasswordChangeC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerP6ClientP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, ptr noundef %client, ptr noundef %tsrc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 496
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !12
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 504
   store ptr null, ptr %DebugName.i, align 8, !tbaa !48
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 512
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !50
   tail call void @_ZN12GUIModalMenuC2EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerb(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT17GUIPasswordChange, i64 8), ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, i1 noundef zeroext true)
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV17GUIPasswordChange, i64 24), ptr %this, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17GUIPasswordChange, i64 384), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIPasswordChange, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIPasswordChange, i64 384), ptr %0, align 8, !tbaa !12
   %m_client = getelementptr inbounds i8, ptr %this, i64 384
   store ptr %client, ptr %m_client, align 8, !tbaa !14
   %m_oldpass = getelementptr inbounds i8, ptr %this, i64 392
@@ -2434,7 +2434,8 @@ if.then25:                                        ; preds = %land.lhs.true23
   br i1 %call26, label %if.end31thread-pre-split, label %if.then27
 
 if.then27:                                        ; preds = %if.then25
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %8, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %8
 
 8:                                                ; preds = %if.then27
   tail call void @_ZTH10infostream()
@@ -3736,9 +3737,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17GUIPasswordChangeD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV17GUIPasswordChange, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIPasswordChange, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 496
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17GUIPasswordChange, i64 384), ptr %add.ptr.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIPasswordChange, i64 384), ptr %add.ptr.i, align 8, !tbaa !12
   %m_newpass_confirm.i = getelementptr inbounds i8, ptr %this, i64 456
   %0 = load ptr, ptr %m_newpass_confirm.i, align 8, !tbaa !62
   %1 = getelementptr inbounds i8, ptr %this, i64 472
@@ -3800,9 +3801,9 @@ _ZN17GUIPasswordChangeD2Ev.exit:                  ; preds = %if.then.i.i10.i, %_
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17GUIPasswordChangeD0Ev(ptr noundef nonnull align 8 dereferenceable(496) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV17GUIPasswordChange, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIPasswordChange, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 496
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17GUIPasswordChange, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIPasswordChange, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !12
   %m_newpass_confirm.i.i = getelementptr inbounds i8, ptr %this, i64 456
   %0 = load ptr, ptr %m_newpass_confirm.i.i, align 8, !tbaa !62
   %1 = getelementptr inbounds i8, ptr %this, i64 472
@@ -3880,9 +3881,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV17GUIPasswordChange, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIPasswordChange, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 496
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17GUIPasswordChange, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIPasswordChange, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !12
   %m_newpass_confirm.i.i = getelementptr inbounds i8, ptr %3, i64 456
   %4 = load ptr, ptr %m_newpass_confirm.i.i, align 8, !tbaa !62
   %5 = getelementptr inbounds i8, ptr %3, i64 472
@@ -3948,9 +3949,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV17GUIPasswordChange, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIPasswordChange, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 496
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17GUIPasswordChange, i64 384), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIPasswordChange, i64 384), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %m_newpass_confirm.i.i.i = getelementptr inbounds i8, ptr %3, i64 456
   %4 = load ptr, ptr %m_newpass_confirm.i.i.i, align 8, !tbaa !62
   %5 = getelementptr inbounds i8, ptr %3, i64 472

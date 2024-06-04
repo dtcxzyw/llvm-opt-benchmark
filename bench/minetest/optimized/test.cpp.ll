@@ -630,7 +630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11TestGameDefC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV12DummyGameDef, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12DummyGameDef, i64 16), ptr %this, align 8, !tbaa !15
   %m_itemdef.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef ptr @_Z20createItemDefManagerv()
   store ptr %call.i, ptr %m_itemdef.i, align 8, !tbaa !17
@@ -645,9 +645,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %call4.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %0, i8 0, i64 144, i1 false)
   %1 = getelementptr inbounds i8, ptr %call4.i, i64 8
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTV14Database_Dummy, i64 16), ptr %call4.i, align 8, !tbaa !15
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14Database_Dummy, i64 200), ptr %1, align 8, !tbaa !15
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV14Database_Dummy, i64 264), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14Database_Dummy, i64 16), ptr %call4.i, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14Database_Dummy, i64 200), ptr %1, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14Database_Dummy, i64 264), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %call4.i, i64 32
   %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call4.i, i64 48
   store ptr %2, ptr %_M_left.i.i.i.i.i.i.i, align 8, !tbaa !22
@@ -670,7 +670,7 @@ entry:
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds i8, ptr %call4.i, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %0, ptr %m_mod_storage_database.i, align 8, !tbaa !34
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV11TestGameDef, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11TestGameDef, i64 16), ptr %this, align 8, !tbaa !15
   %m_modchannel_mgr = getelementptr inbounds i8, ptr %this, i64 40
   %call = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
           to label %invoke.cont unwind label %lpad
@@ -1787,7 +1787,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DummyGameDefD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV12DummyGameDef, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12DummyGameDef, i64 16), ptr %this, align 8, !tbaa !15
   %m_mod_storage_database = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_mod_storage_database, align 8, !tbaa !34
   %isnull = icmp eq ptr %0, null
@@ -2467,7 +2467,8 @@ invoke.cont15:                                    ; preds = %invoke.cont10, %_ZN
 invoke.cont17:                                    ; preds = %invoke.cont15
   %cmp = icmp eq i32 %num_modules_failed.0.lcssa, 0
   %.str.40..str.41 = select i1 %cmp, ptr @.str.40, ptr @.str.41
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %14, label %_ZTW9rawstream.exit
+  %.not = icmp eq ptr @_ZTH9rawstream, null
+  br i1 %.not, label %_ZTW9rawstream.exit, label %14
 
 14:                                               ; preds = %invoke.cont17
   call void @_ZTH9rawstream()
@@ -2932,7 +2933,8 @@ define dso_local noundef zeroext i1 @_ZN8TestBase10testModuleEP8IGameDef(ptr nou
 entry:
   %ts.i35 = alloca %struct.timespec, align 8
   %ts.i = alloca %struct.timespec, align 8
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %0, label %_ZTW9rawstream.exit
+  %.not = icmp eq ptr @_ZTH9rawstream, null
+  br i1 %.not, label %_ZTW9rawstream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH9rawstream()
@@ -3049,7 +3051,7 @@ _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZSt4endlIcSt11char
   %reass.mul = mul i64 %reass.add, 1000
   %add.i40 = sub nsw i64 %div.i39, %div.i
   %sub = add i64 %add.i40, %reass.mul
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %17, label %_ZTW9rawstream.exit41
+  br i1 %.not, label %_ZTW9rawstream.exit41, label %17
 
 17:                                               ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit
   call void @_ZTH9rawstream()
@@ -3234,7 +3236,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11TestGameDefD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV11TestGameDef, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11TestGameDef, i64 16), ptr %this, align 8, !tbaa !15
   %m_modchannel_mgr = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_modchannel_mgr, align 8, !tbaa !38
   %cmp.not.i = icmp eq ptr %0, null
@@ -3257,7 +3259,7 @@ _ZNKSt14default_deleteI13ModChannelMgrEclEPS0_.exit.i: ; preds = %if.end.i.i.i.i
 
 _ZNSt10unique_ptrI13ModChannelMgrSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteI13ModChannelMgrEclEPS0_.exit.i, %entry
   store ptr null, ptr %m_modchannel_mgr, align 8, !tbaa !38
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV12DummyGameDef, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12DummyGameDef, i64 16), ptr %this, align 8, !tbaa !15
   %m_mod_storage_database.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %m_mod_storage_database.i, align 8, !tbaa !34
   %isnull.i = icmp eq ptr %2, null
@@ -3360,7 +3362,8 @@ call6.i.noexc:                                    ; preds = %for.body.i
   br i1 %cmp.i18.i, label %if.end, label %for.cond.i
 
 if.then:                                          ; preds = %for.cond.i, %_ZN11TestManager14getTestModulesEv.exit.i
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %7, label %_ZTW11errorstream.exit
+  %.not9 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not9, label %_ZTW11errorstream.exit, label %7
 
 7:                                                ; preds = %if.then
   call void @_ZTH11errorstream()
@@ -3492,7 +3495,8 @@ invoke.cont15:                                    ; preds = %invoke.cont9
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   %.str.40..str.41 = select i1 %call13, ptr @.str.40, ptr @.str.41
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %22, label %_ZTW9rawstream.exit
+  %.not = icmp eq ptr @_ZTH9rawstream, null
+  br i1 %.not, label %_ZTW9rawstream.exit, label %22
 
 22:                                               ; preds = %invoke.cont17
   call void @_ZTH9rawstream()
@@ -4920,7 +4924,8 @@ if.end.i:                                         ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end.i
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %4, label %_ZTW9rawstream.exit
+  %.not = icmp eq ptr @_ZTH9rawstream, null
+  br i1 %.not, label %_ZTW9rawstream.exit, label %4
 
 4:                                                ; preds = %invoke.cont
   call void @_ZTH9rawstream()
@@ -4958,7 +4963,8 @@ lpad:                                             ; preds = %if.then.i.i, %_ZTW9
 
 catch18:                                          ; preds = %lpad
   %13 = call ptr @__cxa_begin_catch(ptr %10) #24
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %14, label %_ZTW9rawstream.exit64
+  %.not9 = icmp eq ptr @_ZTH9rawstream, null
+  br i1 %.not9, label %_ZTW9rawstream.exit64, label %14
 
 14:                                               ; preds = %catch18
   call void @_ZTH9rawstream()
@@ -4991,7 +4997,7 @@ if.then.i69:                                      ; preds = %invoke.cont24
           to label %invoke.cont26 unwind label %lpad21
 
 invoke.cont26:                                    ; preds = %if.then.i69, %invoke.cont24, %invoke.cont22
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %19, label %_ZTW9rawstream.exit73
+  br i1 %.not9, label %_ZTW9rawstream.exit73, label %19
 
 19:                                               ; preds = %invoke.cont26
   call void @_ZTH9rawstream()
@@ -5039,7 +5045,7 @@ if.then.i87:                                      ; preds = %invoke.cont34
           to label %invoke.cont36 unwind label %lpad21
 
 invoke.cont36:                                    ; preds = %if.then.i87, %invoke.cont34, %invoke.cont32
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %25, label %_ZTW9rawstream.exit92
+  br i1 %.not9, label %_ZTW9rawstream.exit92, label %25
 
 25:                                               ; preds = %invoke.cont36
   call void @_ZTH9rawstream()
@@ -5073,7 +5079,8 @@ try.cont:                                         ; preds = %try.cont.sink.split
   %reass.mul = mul i64 %reass.add, 1000
   %add.i98 = sub nsw i64 %div.i97, %div.i
   %sub = add i64 %add.i98, %reass.mul
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %30, label %_ZTW9rawstream.exit99
+  %.not10 = icmp eq ptr @_ZTH9rawstream, null
+  br i1 %.not10, label %_ZTW9rawstream.exit99, label %30
 
 30:                                               ; preds = %try.cont
   call void @_ZTH9rawstream()
@@ -5183,7 +5190,8 @@ catch.fallthrough:                                ; preds = %lpad
 
 catch:                                            ; preds = %catch.fallthrough
   %41 = call ptr @__cxa_begin_catch(ptr %10) #24
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %42, label %_ZTW9rawstream.exit123
+  %.not8 = icmp eq ptr @_ZTH9rawstream, null
+  br i1 %.not8, label %_ZTW9rawstream.exit123, label %42
 
 42:                                               ; preds = %catch
   call void @_ZTH9rawstream()
@@ -5215,7 +5223,7 @@ if.then.i125:                                     ; preds = %invoke.cont10
 
 invoke.cont12:                                    ; preds = %if.then.i125, %invoke.cont10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #24
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %46, label %_ZTW9rawstream.exit130
+  br i1 %.not8, label %_ZTW9rawstream.exit130, label %46
 
 46:                                               ; preds = %invoke.cont12
   call void @_ZTH9rawstream()

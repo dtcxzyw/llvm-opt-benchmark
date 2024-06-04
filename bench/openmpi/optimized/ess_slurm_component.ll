@@ -28,24 +28,24 @@ define range(i32 -1, 1) i32 @prte_mca_ess_slurm_component_query(ptr nocapture no
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
   %4 = and i8 %3, 2
   %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %10, label %5
+  br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str) #3
-  %7 = icmp ne ptr %6, null
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 520), align 8
-  %9 = icmp ne ptr %8, null
-  %or.cond = select i1 %7, i1 %9, i1 false
-  br i1 %or.cond, label %11, label %10
+  %.not4 = icmp eq ptr %6, null
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 520), align 8
+  %.not5 = icmp eq ptr %7, null
+  %or.cond = select i1 %.not4, i1 true, i1 %.not5
+  br i1 %or.cond, label %8, label %9
 
-10:                                               ; preds = %5, %2
-  br label %11
+8:                                                ; preds = %5, %2
+  br label %9
 
-11:                                               ; preds = %5, %10
-  %storemerge5 = phi i32 [ -1, %10 ], [ 50, %5 ]
-  %storemerge = phi ptr [ null, %10 ], [ @prte_ess_slurm_module, %5 ]
-  %.0 = phi i32 [ -1, %10 ], [ 0, %5 ]
-  store i32 %storemerge5, ptr %1, align 4
+9:                                                ; preds = %5, %8
+  %storemerge6 = phi i32 [ -1, %8 ], [ 50, %5 ]
+  %storemerge = phi ptr [ null, %8 ], [ @prte_ess_slurm_module, %5 ]
+  %.0 = phi i32 [ -1, %8 ], [ 0, %5 ]
+  store i32 %storemerge6, ptr %1, align 4
   store ptr %storemerge, ptr %0, align 8
   ret i32 %.0
 }

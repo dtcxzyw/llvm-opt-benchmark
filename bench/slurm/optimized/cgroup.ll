@@ -147,7 +147,7 @@ define range(i32 -1, 1) i32 @cgroup_conf_init() #0 {
 
 8:                                                ; preds = %0
   %.b7 = load i1, ptr @cg_conf_inited, align 1
-  br i1 %.b7, label %127, label %9
+  br i1 %.b7, label %126, label %9
 
 9:                                                ; preds = %8
   tail call void @slurm_xfree(ptr noundef nonnull @slurm_cgroup_conf) #12
@@ -244,8 +244,8 @@ define range(i32 -1, 1) i32 @cgroup_conf_init() #0 {
 
 44:                                               ; preds = %42, %32
   %45 = call i32 @s_p_get_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.54, ptr noundef %28) #12
-  %.not22.i = icmp eq i32 %45, 0
-  br i1 %.not22.i, label %47, label %46
+  %.not21.i = icmp eq i32 %45, 0
+  br i1 %.not21.i, label %47, label %46
 
 46:                                               ; preds = %44
   call void @slurm_xfree(ptr noundef nonnull %3) #12
@@ -262,184 +262,184 @@ define range(i32 -1, 1) i32 @cgroup_conf_init() #0 {
   %54 = call i32 @s_p_get_float(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), ptr noundef nonnull @.str.30, ptr noundef %28) #12
   %55 = call i32 @s_p_get_uint64(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), ptr noundef nonnull @.str.26, ptr noundef %28) #12
   %56 = call i32 @s_p_get_uint64(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), ptr noundef nonnull @.str.32, ptr noundef %28) #12
-  %57 = icmp ne i32 %56, 0
-  %58 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
-  %59 = icmp ugt i64 %58, 100
-  %or.cond.i = select i1 %57, i1 %59, i1 false
-  br i1 %or.cond.i, label %60, label %62
+  %.not22.i = icmp ne i32 %56, 0
+  %57 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
+  %58 = icmp ugt i64 %57, 100
+  %or.cond.i = select i1 %.not22.i, i1 %58, i1 false
+  br i1 %or.cond.i, label %59, label %61
 
-60:                                               ; preds = %47
-  %61 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.64) #12
+59:                                               ; preds = %47
+  %60 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.64) #12
   store i64 100, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
-  br label %62
+  br label %61
 
-62:                                               ; preds = %60, %47
-  %63 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), ptr noundef nonnull @.str.31, ptr noundef %28) #12
-  %64 = call i32 @s_p_get_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.57, ptr noundef %28) #12
-  %.not23.i = icmp eq i32 %64, 0
-  br i1 %.not23.i, label %66, label %65
+61:                                               ; preds = %59, %47
+  %62 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), ptr noundef nonnull @.str.31, ptr noundef %28) #12
+  %63 = call i32 @s_p_get_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.57, ptr noundef %28) #12
+  %.not23.i = icmp eq i32 %63, 0
+  br i1 %.not23.i, label %65, label %64
 
-65:                                               ; preds = %62
+64:                                               ; preds = %61
   call void @slurm_xfree(ptr noundef nonnull %3) #12
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.65) #12
-  br label %66
+  br label %65
 
-66:                                               ; preds = %65, %62
-  %67 = call i32 @s_p_get_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef %28) #12
-  %.not24.i = icmp eq i32 %67, 0
-  br i1 %.not24.i, label %70, label %68
+65:                                               ; preds = %64, %61
+  %66 = call i32 @s_p_get_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef %28) #12
+  %.not24.i = icmp eq i32 %66, 0
+  br i1 %.not24.i, label %69, label %67
 
-68:                                               ; preds = %66
+67:                                               ; preds = %65
   call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72)) #12
-  %69 = load ptr, ptr %3, align 8
-  store ptr %69, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72), align 8
+  %68 = load ptr, ptr %3, align 8
+  store ptr %68, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72), align 8
   store ptr null, ptr %3, align 8
-  br label %70
+  br label %69
 
-70:                                               ; preds = %68, %66
-  %71 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), ptr noundef nonnull @.str.35, ptr noundef %28) #12
-  %.not25.i = icmp eq i32 %71, 0
-  br i1 %.not25.i, label %73, label %72
+69:                                               ; preds = %67, %65
+  %70 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), ptr noundef nonnull @.str.35, ptr noundef %28) #12
+  %.not25.i = icmp eq i32 %70, 0
+  br i1 %.not25.i, label %72, label %71
 
-72:                                               ; preds = %70
+71:                                               ; preds = %69
   store i8 1, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), align 1
-  br label %73
+  br label %72
 
-73:                                               ; preds = %72, %70
-  %74 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), align 8
-  %75 = trunc i8 %74 to i1
-  br i1 %75, label %79, label %76
+72:                                               ; preds = %71, %69
+  %73 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), align 8
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %78, label %75
 
-76:                                               ; preds = %73
-  %77 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), ptr noundef nonnull @.str.36, ptr noundef %28) #12
-  %.not26.i = icmp eq i32 %77, 0
-  br i1 %.not26.i, label %78, label %79
+75:                                               ; preds = %72
+  %76 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), ptr noundef nonnull @.str.36, ptr noundef %28) #12
+  %.not26.i = icmp eq i32 %76, 0
+  br i1 %.not26.i, label %77, label %78
 
-78:                                               ; preds = %76
+77:                                               ; preds = %75
   store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), align 1
-  br label %79
+  br label %78
 
-79:                                               ; preds = %78, %76, %73
-  %80 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 82), ptr noundef nonnull @.str.37, ptr noundef %28) #12
-  %81 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 83), ptr noundef nonnull @.str.58, ptr noundef %28) #12
+78:                                               ; preds = %77, %75, %72
+  %79 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 82), ptr noundef nonnull @.str.37, ptr noundef %28) #12
+  %80 = call i32 @s_p_get_boolean(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 83), ptr noundef nonnull @.str.58, ptr noundef %28) #12
   call void @s_p_hashtbl_destroy(ptr noundef %28) #12
   br label %_read_slurm_cgroup_conf.exit
 
-_read_slurm_cgroup_conf.exit:                     ; preds = %22, %79
+_read_slurm_cgroup_conf.exit:                     ; preds = %22, %78
   call void @slurm_xfree(ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 1232, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  %82 = call zeroext i1 @running_in_slurmd() #12
-  br i1 %82, label %83, label %126
+  %81 = call zeroext i1 @running_in_slurmd() #12
+  br i1 %81, label %82, label %125
 
-83:                                               ; preds = %_read_slurm_cgroup_conf.exit
-  %84 = call ptr @init_buf(i32 noundef 0) #12
-  store ptr %84, ptr @cg_conf_buf, align 8
+82:                                               ; preds = %_read_slurm_cgroup_conf.exit
+  %83 = call ptr @init_buf(i32 noundef 0) #12
+  store ptr %83, ptr @cg_conf_buf, align 8
   %.b.i = load i1, ptr @cg_conf_exist, align 1
-  br i1 %.b.i, label %_pack_cgroup_conf.exit, label %85
+  br i1 %.b.i, label %_pack_cgroup_conf.exit, label %84
 
-85:                                               ; preds = %83
-  call void @packbool(i1 noundef zeroext true, ptr noundef %84) #12
-  %86 = load ptr, ptr @slurm_cgroup_conf, align 8
-  %.not.i9 = icmp eq ptr %86, null
-  br i1 %.not.i9, label %91, label %87
+84:                                               ; preds = %82
+  call void @packbool(i1 noundef zeroext true, ptr noundef %83) #12
+  %85 = load ptr, ptr @slurm_cgroup_conf, align 8
+  %.not.i9 = icmp eq ptr %85, null
+  br i1 %.not.i9, label %90, label %86
 
-87:                                               ; preds = %85
-  %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #15
-  %89 = trunc i64 %88 to i32
-  %90 = add i32 %89, 1
-  br label %91
+86:                                               ; preds = %84
+  %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #15
+  %88 = trunc i64 %87 to i32
+  %89 = add i32 %88, 1
+  br label %90
 
-91:                                               ; preds = %87, %85
-  %.022.i = phi i32 [ %90, %87 ], [ 0, %85 ]
-  call void @packmem(ptr noundef %86, i32 noundef %.022.i, ptr noundef %84) #12
-  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 8), align 8
-  %.not26.i10 = icmp eq ptr %92, null
-  br i1 %.not26.i10, label %97, label %93
+90:                                               ; preds = %86, %84
+  %.022.i = phi i32 [ %89, %86 ], [ 0, %84 ]
+  call void @packmem(ptr noundef %85, i32 noundef %.022.i, ptr noundef %83) #12
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 8), align 8
+  %.not26.i10 = icmp eq ptr %91, null
+  br i1 %.not26.i10, label %96, label %92
 
-93:                                               ; preds = %91
-  %94 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #15
-  %95 = trunc i64 %94 to i32
-  %96 = add i32 %95, 1
-  br label %97
+92:                                               ; preds = %90
+  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #15
+  %94 = trunc i64 %93 to i32
+  %95 = add i32 %94, 1
+  br label %96
 
-97:                                               ; preds = %93, %91
-  %.021.i = phi i32 [ %96, %93 ], [ 0, %91 ]
-  call void @packmem(ptr noundef %92, i32 noundef %.021.i, ptr noundef %84) #12
-  %98 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 16), align 8
-  %99 = trunc i8 %98 to i1
-  call void @packbool(i1 noundef zeroext %99, ptr noundef %84) #12
-  %100 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 17), align 1
-  %101 = trunc i8 %100 to i1
-  call void @packbool(i1 noundef zeroext %101, ptr noundef %84) #12
-  %102 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 20), align 4
-  call void @packfloat(float noundef %102, ptr noundef %84) #12
-  %103 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 24), align 8
-  call void @packfloat(float noundef %103, ptr noundef %84) #12
-  %104 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), align 8
-  call void @pack64(i64 noundef %104, ptr noundef %84) #12
-  %105 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), align 8
-  %106 = trunc i8 %105 to i1
-  call void @packbool(i1 noundef zeroext %106, ptr noundef %84) #12
-  %107 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 44), align 4
-  call void @packfloat(float noundef %107, ptr noundef %84) #12
-  %108 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), align 8
-  call void @packfloat(float noundef %108, ptr noundef %84) #12
-  %109 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
-  call void @pack64(i64 noundef %109, ptr noundef %84) #12
-  %110 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), align 8
-  %111 = trunc i8 %110 to i1
-  call void @packbool(i1 noundef zeroext %111, ptr noundef %84) #12
-  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72), align 8
-  %.not27.i = icmp eq ptr %112, null
-  br i1 %.not27.i, label %117, label %113
+96:                                               ; preds = %92, %90
+  %.021.i = phi i32 [ %95, %92 ], [ 0, %90 ]
+  call void @packmem(ptr noundef %91, i32 noundef %.021.i, ptr noundef %83) #12
+  %97 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 16), align 8
+  %98 = trunc i8 %97 to i1
+  call void @packbool(i1 noundef zeroext %98, ptr noundef %83) #12
+  %99 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 17), align 1
+  %100 = trunc i8 %99 to i1
+  call void @packbool(i1 noundef zeroext %100, ptr noundef %83) #12
+  %101 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 20), align 4
+  call void @packfloat(float noundef %101, ptr noundef %83) #12
+  %102 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 24), align 8
+  call void @packfloat(float noundef %102, ptr noundef %83) #12
+  %103 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), align 8
+  call void @pack64(i64 noundef %103, ptr noundef %83) #12
+  %104 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), align 8
+  %105 = trunc i8 %104 to i1
+  call void @packbool(i1 noundef zeroext %105, ptr noundef %83) #12
+  %106 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 44), align 4
+  call void @packfloat(float noundef %106, ptr noundef %83) #12
+  %107 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), align 8
+  call void @packfloat(float noundef %107, ptr noundef %83) #12
+  %108 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
+  call void @pack64(i64 noundef %108, ptr noundef %83) #12
+  %109 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), align 8
+  %110 = trunc i8 %109 to i1
+  call void @packbool(i1 noundef zeroext %110, ptr noundef %83) #12
+  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72), align 8
+  %.not27.i = icmp eq ptr %111, null
+  br i1 %.not27.i, label %116, label %112
 
-113:                                              ; preds = %97
-  %114 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %112) #15
-  %115 = trunc i64 %114 to i32
-  %116 = add i32 %115, 1
-  br label %117
+112:                                              ; preds = %96
+  %113 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #15
+  %114 = trunc i64 %113 to i32
+  %115 = add i32 %114, 1
+  br label %116
 
-117:                                              ; preds = %113, %97
-  %.0.i = phi i32 [ %116, %113 ], [ 0, %97 ]
-  call void @packmem(ptr noundef %112, i32 noundef %.0.i, ptr noundef %84) #12
-  %118 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), align 8
-  %119 = trunc i8 %118 to i1
-  call void @packbool(i1 noundef zeroext %119, ptr noundef %84) #12
-  %120 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), align 1
-  %121 = trunc i8 %120 to i1
-  call void @packbool(i1 noundef zeroext %121, ptr noundef %84) #12
-  %122 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 82), align 2
-  %123 = trunc i8 %122 to i1
-  call void @packbool(i1 noundef zeroext %123, ptr noundef %84) #12
-  %124 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 83), align 1
-  %125 = trunc i8 %124 to i1
+116:                                              ; preds = %112, %96
+  %.0.i = phi i32 [ %115, %112 ], [ 0, %96 ]
+  call void @packmem(ptr noundef %111, i32 noundef %.0.i, ptr noundef %83) #12
+  %117 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), align 8
+  %118 = trunc i8 %117 to i1
+  call void @packbool(i1 noundef zeroext %118, ptr noundef %83) #12
+  %119 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), align 1
+  %120 = trunc i8 %119 to i1
+  call void @packbool(i1 noundef zeroext %120, ptr noundef %83) #12
+  %121 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 82), align 2
+  %122 = trunc i8 %121 to i1
+  call void @packbool(i1 noundef zeroext %122, ptr noundef %83) #12
+  %123 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 83), align 1
+  %124 = trunc i8 %123 to i1
   br label %_pack_cgroup_conf.exit
 
-_pack_cgroup_conf.exit:                           ; preds = %83, %117
-  %.sink.i = phi i1 [ %125, %117 ], [ false, %83 ]
-  call void @packbool(i1 noundef zeroext %.sink.i, ptr noundef %84) #12
+_pack_cgroup_conf.exit:                           ; preds = %82, %116
+  %.sink.i = phi i1 [ %124, %116 ], [ false, %82 ]
+  call void @packbool(i1 noundef zeroext %.sink.i, ptr noundef %83) #12
+  br label %125
+
+125:                                              ; preds = %_pack_cgroup_conf.exit, %_read_slurm_cgroup_conf.exit
+  store i1 true, ptr @cg_conf_inited, align 1
   br label %126
 
-126:                                              ; preds = %_pack_cgroup_conf.exit, %_read_slurm_cgroup_conf.exit
-  store i1 true, ptr @cg_conf_inited, align 1
-  br label %127
+126:                                              ; preds = %8, %125
+  %.0 = phi i32 [ 0, %125 ], [ -1, %8 ]
+  %127 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cg_conf_lock) #12
+  %.not8 = icmp eq i32 %127, 0
+  br i1 %.not8, label %130, label %128
 
-127:                                              ; preds = %8, %126
-  %.0 = phi i32 [ 0, %126 ], [ -1, %8 ]
-  %128 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cg_conf_lock) #12
-  %.not8 = icmp eq i32 %128, 0
-  br i1 %.not8, label %131, label %129
-
-129:                                              ; preds = %127
-  %130 = tail call ptr @__errno_location() #13
-  store i32 %128, ptr %130, align 4
+128:                                              ; preds = %126
+  %129 = tail call ptr @__errno_location() #13
+  store i32 %127, ptr %129, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 502, ptr noundef nonnull @__func__.cgroup_conf_init) #14
   unreachable
 
-131:                                              ; preds = %127
+130:                                              ; preds = %126
   ret i32 %.0
 }
 

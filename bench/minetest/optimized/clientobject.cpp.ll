@@ -133,7 +133,7 @@ define dso_local void @_ZN18ClientActiveObjectC2EtP6ClientP17ClientEnvironment(p
 entry:
   %m_id.i = getelementptr inbounds i8, ptr %this, i64 8
   store i16 %id, ptr %m_id.i, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV18ClientActiveObject, i64 16), ptr %this, align 8, !tbaa !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18ClientActiveObject, i64 16), ptr %this, align 8, !tbaa !9
   %m_client = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %client, ptr %m_client, align 8, !tbaa !11
   %m_env = getelementptr inbounds i8, ptr %this, i64 24
@@ -144,7 +144,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN18ClientActiveObjectD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV18ClientActiveObject, i64 16), ptr %this, align 8, !tbaa !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18ClientActiveObject, i64 16), ptr %this, align 8, !tbaa !9
   ret void
 }
 
@@ -228,7 +228,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.then, !llvm.loop !27
 
 if.then:                                          ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %9, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %9
 
 9:                                                ; preds = %if.then
   tail call void @_ZTH13warningstream()

@@ -33,7 +33,7 @@ define void @_ZN20NbnxnPairlistGpuWork17ISuperClusterDataC2Ev(ptr noundef nonnul
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #9
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %5, align 8
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #10
   unreachable
 
@@ -56,7 +56,7 @@ _ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPoli
 
 12:                                               ; preds = %.noexc
   %13 = tail call ptr @__cxa_allocate_exception(i64 8) #9
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %13, align 8
   invoke void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #10
           to label %.noexc7 unwind label %36
 
@@ -82,7 +82,7 @@ _ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPoli
 
 21:                                               ; preds = %.noexc9
   %22 = tail call ptr @__cxa_allocate_exception(i64 8) #9
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %22, align 8
   invoke void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #10
           to label %.noexc10 unwind label %38
 
@@ -108,7 +108,7 @@ _ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPoli
 
 30:                                               ; preds = %.noexc13
   %31 = tail call ptr @__cxa_allocate_exception(i64 8) #9
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %31, align 8
   invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #10
           to label %.noexc14 unwind label %40
 
@@ -241,7 +241,7 @@ define void @_ZN20NbnxnPairlistGpuWorkC2Ev(ptr noundef nonnull align 8 dereferen
 
 8:                                                ; preds = %.noexc
   %9 = tail call ptr @__cxa_allocate_exception(i64 8) #9
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %9, align 8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #10
           to label %.noexc4 unwind label %19
 
@@ -334,7 +334,7 @@ _ZNSt12_Vector_baseI9nbnxn_sciN3gmx9AllocatorIS0_NS1_20HostAllocationPolicyEEEE1
 
 15:                                               ; preds = %12
   %16 = tail call ptr @__cxa_allocate_exception(i64 8) #9
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8
   invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #10
           to label %.noexc3 unwind label %22
 

@@ -42,8 +42,8 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %3, %1
-  %.not134 = icmp eq ptr %0, null
-  br i1 %.not134, label %.thread166, label %6
+  %.not105 = icmp eq ptr %0, null
+  br i1 %.not105, label %154, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -62,8 +62,8 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   %19 = fadd double %8, %16
   %20 = select i1 %or.cond, double %19, double -1.000000e+00
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  %.not135 = icmp eq ptr %21, null
-  br i1 %.not135, label %24, label %22
+  %.not106 = icmp eq ptr %21, null
+  br i1 %.not106, label %24, label %22
 
 22:                                               ; preds = %6
   %23 = tail call i32 (ptr, ...) %21(ptr noundef nonnull @.str.2) #2
@@ -76,12 +76,12 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  %.not140 = icmp eq ptr %28, null
-  br i1 %.not140, label %52, label %29
+  %.not111 = icmp eq ptr %28, null
+  br i1 %.not111, label %52, label %29
 
 29:                                               ; preds = %27
   %30 = tail call i32 (ptr, ...) %28(ptr noundef nonnull @.str.3) #2
-  br label %52
+  br label %thread-pre-split
 
 31:                                               ; preds = %24
   %32 = fcmp oeq double %25, -1.000000e+00
@@ -89,12 +89,12 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  %.not139 = icmp eq ptr %34, null
-  br i1 %.not139, label %52, label %35
+  %.not110 = icmp eq ptr %34, null
+  br i1 %.not110, label %52, label %35
 
 35:                                               ; preds = %33
   %36 = tail call i32 (ptr, ...) %34(ptr noundef nonnull @.str.4) #2
-  br label %52
+  br label %thread-pre-split
 
 37:                                               ; preds = %31
   %38 = fcmp oeq double %25, -2.000000e+00
@@ -102,243 +102,274 @@ define void @amd_l_info(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  %.not138 = icmp eq ptr %40, null
-  br i1 %.not138, label %52, label %41
+  %.not109 = icmp eq ptr %40, null
+  br i1 %.not109, label %52, label %41
 
 41:                                               ; preds = %39
   %42 = tail call i32 (ptr, ...) %40(ptr noundef nonnull @.str.5) #2
-  br label %52
+  br label %thread-pre-split
 
 43:                                               ; preds = %37
   %44 = fcmp oeq double %25, 1.000000e+00
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  %.not137 = icmp eq ptr %45, null
+  %.not108 = icmp eq ptr %45, null
   br i1 %44, label %46, label %49
 
 46:                                               ; preds = %43
-  br i1 %.not137, label %52, label %47
+  br i1 %.not108, label %52, label %47
 
 47:                                               ; preds = %46
   %48 = tail call i32 (ptr, ...) %45(ptr noundef nonnull @.str.6) #2
-  br label %52
+  br label %thread-pre-split
 
 49:                                               ; preds = %43
-  br i1 %.not137, label %52, label %50
+  br i1 %.not108, label %52, label %50
 
 50:                                               ; preds = %49
   %51 = tail call i32 (ptr, ...) %45(ptr noundef nonnull @.str.7) #2
+  br label %thread-pre-split
+
+thread-pre-split:                                 ; preds = %29, %41, %50, %47, %35
+  %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141.pre143.pr = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
   br label %52
 
-52:                                               ; preds = %35, %33, %47, %46, %50, %49, %39, %41, %27, %29
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  %54 = icmp ne ptr %53, null
-  %or.cond9 = select i1 %17, i1 %54, i1 false
-  br i1 %or.cond9, label %55, label %57
+52:                                               ; preds = %thread-pre-split, %33, %46, %49, %39, %27
+  %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141.pre143 = phi ptr [ %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141.pre143.pr, %thread-pre-split ], [ null, %33 ], [ null, %46 ], [ null, %49 ], [ null, %39 ], [ null, %27 ]
+  br i1 %17, label %53, label %56
 
-55:                                               ; preds = %52
-  %56 = tail call i32 (ptr, ...) %53(ptr noundef nonnull @.str.8, double noundef %8) #2
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %57
+53:                                               ; preds = %52
+  %.not112 = icmp eq ptr %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141.pre143, null
+  br i1 %.not112, label %.thread148, label %54
 
-57:                                               ; preds = %55, %52
-  %58 = phi ptr [ %.pre, %55 ], [ %53, %52 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
-  %60 = load double, ptr %59, align 8
-  %61 = fcmp oge double %60, 0.000000e+00
-  %62 = icmp ne ptr %58, null
-  %or.cond11 = select i1 %61, i1 %62, i1 false
-  br i1 %or.cond11, label %63, label %65
+54:                                               ; preds = %53
+  %55 = tail call i32 (ptr, ...) %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141.pre143(ptr noundef nonnull @.str.8, double noundef %8) #2
+  %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141.pre = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  br label %56
 
-63:                                               ; preds = %57
-  %64 = tail call i32 (ptr, ...) %58(ptr noundef nonnull @.str.9, double noundef %60) #2
-  %.pre142 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %65
+56:                                               ; preds = %54, %52
+  %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141 = phi ptr [ %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141.pre, %54 ], [ %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141.pre143, %52 ]
+  %57 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = load double, ptr %57, align 8
+  %59 = fcmp ult double %58, 0.000000e+00
+  br i1 %59, label %.thread148, label %60
 
-65:                                               ; preds = %63, %57
-  %66 = phi ptr [ %.pre142, %63 ], [ %58, %57 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 24
-  %68 = load double, ptr %67, align 8
-  %69 = fcmp oge double %68, 0.000000e+00
-  %70 = icmp ne ptr %66, null
-  %or.cond13 = select i1 %69, i1 %70, i1 false
-  br i1 %or.cond13, label %71, label %73
+60:                                               ; preds = %56
+  %.not113 = icmp eq ptr %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141, null
+  br i1 %.not113, label %.thread148, label %61
 
-71:                                               ; preds = %65
-  %72 = tail call i32 (ptr, ...) %66(ptr noundef nonnull @.str.10, double noundef %68) #2
-  %.pre143 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %73
+61:                                               ; preds = %60
+  %62 = tail call i32 (ptr, ...) %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141(ptr noundef nonnull @.str.9, double noundef %58) #2
+  %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  br label %.thread148
 
-73:                                               ; preds = %71, %65
-  %74 = phi ptr [ %.pre143, %71 ], [ %66, %65 ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 32
-  %76 = load double, ptr %75, align 8
-  %77 = fcmp oge double %76, 0.000000e+00
-  %78 = icmp ne ptr %74, null
-  %or.cond15 = select i1 %77, i1 %78, i1 false
-  br i1 %or.cond15, label %79, label %81
+.thread148:                                       ; preds = %53, %60, %61, %56
+  %.pr.pre129.pre131.pre133.pre135.pre137.pre139 = phi ptr [ null, %60 ], [ %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre, %61 ], [ %.pr.pre129.pre131.pre133.pre135.pre137.pre139.pre141, %56 ], [ null, %53 ]
+  %63 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = load double, ptr %63, align 8
+  %65 = fcmp ult double %64, 0.000000e+00
+  br i1 %65, label %69, label %66
 
-79:                                               ; preds = %73
-  %80 = tail call i32 (ptr, ...) %74(ptr noundef nonnull @.str.11, double noundef %76) #2
-  %.pre144 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %81
+66:                                               ; preds = %.thread148
+  %.not114 = icmp eq ptr %.pr.pre129.pre131.pre133.pre135.pre137.pre139, null
+  br i1 %.not114, label %.thread154, label %67
 
-81:                                               ; preds = %79, %73
-  %82 = phi ptr [ %.pre144, %79 ], [ %74, %73 ]
-  %83 = getelementptr inbounds i8, ptr %0, i64 40
+67:                                               ; preds = %66
+  %68 = tail call i32 (ptr, ...) %.pr.pre129.pre131.pre133.pre135.pre137.pre139(ptr noundef nonnull @.str.10, double noundef %64) #2
+  %.pr.pre129.pre131.pre133.pre135.pre137.pre = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  br label %69
+
+69:                                               ; preds = %67, %.thread148
+  %.pr.pre129.pre131.pre133.pre135.pre137 = phi ptr [ %.pr.pre129.pre131.pre133.pre135.pre137.pre, %67 ], [ %.pr.pre129.pre131.pre133.pre135.pre137.pre139, %.thread148 ]
+  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = load double, ptr %70, align 8
+  %72 = fcmp ult double %71, 0.000000e+00
+  br i1 %72, label %.thread154, label %73
+
+73:                                               ; preds = %69
+  %.not115 = icmp eq ptr %.pr.pre129.pre131.pre133.pre135.pre137, null
+  br i1 %.not115, label %.thread154, label %74
+
+74:                                               ; preds = %73
+  %75 = tail call i32 (ptr, ...) %.pr.pre129.pre131.pre133.pre135.pre137(ptr noundef nonnull @.str.11, double noundef %71) #2
+  %.pr.pre129.pre131.pre133.pre135.pre = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  br label %.thread154
+
+.thread154:                                       ; preds = %66, %73, %74, %69
+  %.pr.pre129.pre131.pre133.pre135 = phi ptr [ null, %73 ], [ %.pr.pre129.pre131.pre133.pre135.pre, %74 ], [ %.pr.pre129.pre131.pre133.pre135.pre137, %69 ], [ null, %66 ]
+  %76 = getelementptr inbounds i8, ptr %0, i64 40
+  %77 = load double, ptr %76, align 8
+  %78 = fcmp ult double %77, 0.000000e+00
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %.thread154
+  %.not116 = icmp eq ptr %.pr.pre129.pre131.pre133.pre135, null
+  br i1 %.not116, label %.thread160, label %80
+
+80:                                               ; preds = %79
+  %81 = tail call i32 (ptr, ...) %.pr.pre129.pre131.pre133.pre135(ptr noundef nonnull @.str.12, double noundef %77) #2
+  %.pr.pre129.pre131.pre133.pre = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  br label %82
+
+82:                                               ; preds = %80, %.thread154
+  %.pr.pre129.pre131.pre133 = phi ptr [ %.pr.pre129.pre131.pre133.pre, %80 ], [ %.pr.pre129.pre131.pre133.pre135, %.thread154 ]
+  %83 = getelementptr inbounds i8, ptr %0, i64 48
   %84 = load double, ptr %83, align 8
-  %85 = fcmp oge double %84, 0.000000e+00
-  %86 = icmp ne ptr %82, null
-  %or.cond17 = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond17, label %87, label %89
+  %85 = fcmp ult double %84, 0.000000e+00
+  br i1 %85, label %.thread160, label %86
 
-87:                                               ; preds = %81
-  %88 = tail call i32 (ptr, ...) %82(ptr noundef nonnull @.str.12, double noundef %84) #2
-  %.pre145 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %89
+86:                                               ; preds = %82
+  %.not117 = icmp eq ptr %.pr.pre129.pre131.pre133, null
+  br i1 %.not117, label %.thread160, label %87
 
-89:                                               ; preds = %87, %81
-  %90 = phi ptr [ %.pre145, %87 ], [ %82, %81 ]
-  %91 = getelementptr inbounds i8, ptr %0, i64 48
-  %92 = load double, ptr %91, align 8
-  %93 = fcmp oge double %92, 0.000000e+00
-  %94 = icmp ne ptr %90, null
-  %or.cond19 = select i1 %93, i1 %94, i1 false
-  br i1 %or.cond19, label %95, label %97
+87:                                               ; preds = %86
+  %88 = tail call i32 (ptr, ...) %.pr.pre129.pre131.pre133(ptr noundef nonnull @.str.13, double noundef %84) #2
+  %.pr.pre129.pre131.pre = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  br label %.thread160
 
-95:                                               ; preds = %89
-  %96 = tail call i32 (ptr, ...) %90(ptr noundef nonnull @.str.13, double noundef %92) #2
-  %.pre146 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %97
+.thread160:                                       ; preds = %79, %86, %87, %82
+  %.pr.pre129.pre131 = phi ptr [ null, %86 ], [ %.pr.pre129.pre131.pre, %87 ], [ %.pr.pre129.pre131.pre133, %82 ], [ null, %79 ]
+  %89 = getelementptr inbounds i8, ptr %0, i64 56
+  %90 = load double, ptr %89, align 8
+  %91 = fcmp ult double %90, 0.000000e+00
+  br i1 %91, label %95, label %92
 
-97:                                               ; preds = %95, %89
-  %98 = phi ptr [ %.pre146, %95 ], [ %90, %89 ]
-  %99 = getelementptr inbounds i8, ptr %0, i64 56
-  %100 = load double, ptr %99, align 8
-  %101 = fcmp oge double %100, 0.000000e+00
-  %102 = icmp ne ptr %98, null
-  %or.cond21 = select i1 %101, i1 %102, i1 false
-  br i1 %or.cond21, label %103, label %105
+92:                                               ; preds = %.thread160
+  %.not118 = icmp eq ptr %.pr.pre129.pre131, null
+  br i1 %.not118, label %.thread, label %93
 
-103:                                              ; preds = %97
-  %104 = tail call i32 (ptr, ...) %98(ptr noundef nonnull @.str.14, double noundef %100) #2
-  %.pre147 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %105
+93:                                               ; preds = %92
+  %94 = tail call i32 (ptr, ...) %.pr.pre129.pre131(ptr noundef nonnull @.str.14, double noundef %90) #2
+  %.pr.pre129.pre = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  br label %95
 
-105:                                              ; preds = %103, %97
-  %106 = phi ptr [ %.pre147, %103 ], [ %98, %97 ]
-  %107 = getelementptr inbounds i8, ptr %0, i64 64
-  %108 = load double, ptr %107, align 8
-  %109 = fcmp oge double %108, 0.000000e+00
-  %110 = icmp ne ptr %106, null
-  %or.cond23 = select i1 %109, i1 %110, i1 false
-  br i1 %or.cond23, label %111, label %113
+95:                                               ; preds = %93, %.thread160
+  %.pr.pre129 = phi ptr [ %.pr.pre129.pre, %93 ], [ %.pr.pre129.pre131, %.thread160 ]
+  %96 = getelementptr inbounds i8, ptr %0, i64 64
+  %97 = load double, ptr %96, align 8
+  %98 = fcmp ult double %97, 0.000000e+00
+  br i1 %98, label %102, label %99
 
-111:                                              ; preds = %105
-  %112 = tail call i32 (ptr, ...) %106(ptr noundef nonnull @.str.15, double noundef %108) #2
-  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %113
+99:                                               ; preds = %95
+  %.not119 = icmp eq ptr %.pr.pre129, null
+  br i1 %.not119, label %.thread, label %100
 
-113:                                              ; preds = %111, %105
-  %114 = phi ptr [ %.pr, %111 ], [ %106, %105 ]
-  %.not141 = icmp eq ptr %114, null
-  br i1 %.not141, label %.thread166, label %115
+100:                                              ; preds = %99
+  %101 = tail call i32 (ptr, ...) %.pr.pre129(ptr noundef nonnull @.str.15, double noundef %97) #2
+  %.pr.pre = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  br label %102
 
-115:                                              ; preds = %113
-  %116 = tail call i32 (ptr, ...) %114(ptr noundef nonnull @.str.16) #2
-  %.pre148 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  %117 = icmp ne ptr %.pre148, null
-  %or.cond25 = select i1 %18, i1 %117, i1 false
-  br i1 %or.cond25, label %118, label %120
+102:                                              ; preds = %100, %95
+  %.pr = phi ptr [ %.pr.pre, %100 ], [ %.pr.pre129, %95 ]
+  %.not120 = icmp eq ptr %.pr, null
+  br i1 %.not120, label %.thread, label %103
 
-118:                                              ; preds = %115
-  %119 = tail call i32 (ptr, ...) %.pre148(ptr noundef nonnull @.str.17, double noundef %16) #2
-  %.pre149 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %120
+103:                                              ; preds = %102
+  %104 = tail call i32 (ptr, ...) %.pr(ptr noundef nonnull @.str.16) #2
+  br label %.thread
 
-120:                                              ; preds = %118, %115
-  %121 = phi ptr [ %.pre149, %118 ], [ %.pre148, %115 ]
-  %122 = fcmp oge double %20, 0.000000e+00
-  %123 = icmp ne ptr %121, null
-  %or.cond27 = select i1 %122, i1 %123, i1 false
-  br i1 %or.cond27, label %124, label %126
+.thread:                                          ; preds = %92, %99, %103, %102
+  br i1 %18, label %105, label %109
 
-124:                                              ; preds = %120
-  %125 = tail call i32 (ptr, ...) %121(ptr noundef nonnull @.str.18, double noundef %20) #2
-  %.pre150 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %126
+105:                                              ; preds = %.thread
+  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  %.not121 = icmp eq ptr %106, null
+  br i1 %.not121, label %109, label %107
 
-126:                                              ; preds = %124, %120
-  %127 = phi ptr [ %.pre150, %124 ], [ %121, %120 ]
-  %128 = fcmp oge double %10, 0.000000e+00
-  %129 = icmp ne ptr %127, null
-  %or.cond29 = select i1 %128, i1 %129, i1 false
-  br i1 %or.cond29, label %130, label %132
+107:                                              ; preds = %105
+  %108 = tail call i32 (ptr, ...) %106(ptr noundef nonnull @.str.17, double noundef %16) #2
+  br label %109
 
-130:                                              ; preds = %126
-  %131 = tail call i32 (ptr, ...) %127(ptr noundef nonnull @.str.19, double noundef %10) #2
-  %.pre151 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %132
+109:                                              ; preds = %105, %107, %.thread
+  %110 = fcmp ult double %20, 0.000000e+00
+  br i1 %110, label %115, label %111
 
-132:                                              ; preds = %130, %126
-  %133 = phi ptr [ %.pre151, %130 ], [ %127, %126 ]
-  %134 = fcmp oge double %12, 0.000000e+00
-  %135 = icmp ne ptr %133, null
-  %or.cond31 = select i1 %134, i1 %135, i1 false
-  br i1 %or.cond31, label %136, label %138
+111:                                              ; preds = %109
+  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  %.not122 = icmp eq ptr %112, null
+  br i1 %.not122, label %115, label %113
 
-136:                                              ; preds = %132
-  %137 = tail call i32 (ptr, ...) %133(ptr noundef nonnull @.str.20, double noundef %12) #2
-  %.pre152 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %138
+113:                                              ; preds = %111
+  %114 = tail call i32 (ptr, ...) %112(ptr noundef nonnull @.str.18, double noundef %20) #2
+  br label %115
 
-138:                                              ; preds = %136, %132
-  %139 = phi ptr [ %.pre152, %136 ], [ %133, %132 ]
-  %140 = fcmp oge double %14, 0.000000e+00
-  %141 = icmp ne ptr %139, null
-  %or.cond33 = select i1 %140, i1 %141, i1 false
-  br i1 %or.cond33, label %142, label %144
+115:                                              ; preds = %111, %113, %109
+  %116 = fcmp oge double %10, 0.000000e+00
+  br i1 %116, label %117, label %121
 
-142:                                              ; preds = %138
-  %143 = tail call i32 (ptr, ...) %139(ptr noundef nonnull @.str.21, double noundef %14) #2
-  %.pre153 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %144
+117:                                              ; preds = %115
+  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  %.not123 = icmp eq ptr %118, null
+  br i1 %.not123, label %121, label %119
 
-144:                                              ; preds = %142, %138
-  %145 = phi ptr [ %.pre153, %142 ], [ %139, %138 ]
-  %146 = getelementptr inbounds i8, ptr %0, i64 104
-  %147 = load double, ptr %146, align 8
-  %148 = fcmp oge double %147, 0.000000e+00
-  %149 = icmp ne ptr %145, null
-  %or.cond35 = select i1 %148, i1 %149, i1 false
-  br i1 %or.cond35, label %150, label %152
+119:                                              ; preds = %117
+  %120 = tail call i32 (ptr, ...) %118(ptr noundef nonnull @.str.19, double noundef %10) #2
+  br label %121
 
-150:                                              ; preds = %144
-  %151 = tail call i32 (ptr, ...) %145(ptr noundef nonnull @.str.22, double noundef %147) #2
-  %.pre154 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
-  br label %152
+121:                                              ; preds = %117, %119, %115
+  %122 = fcmp oge double %12, 0.000000e+00
+  br i1 %122, label %123, label %127
 
-152:                                              ; preds = %150, %144
-  %153 = phi ptr [ %.pre154, %150 ], [ %145, %144 ]
-  %or.cond3 = and i1 %17, %128
-  %or.cond5 = and i1 %or.cond3, %134
-  %or.cond7 = and i1 %or.cond5, %140
-  %154 = icmp ne ptr %153, null
-  %or.cond37 = select i1 %or.cond7, i1 %154, i1 false
-  br i1 %or.cond37, label %155, label %.thread166
+123:                                              ; preds = %121
+  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  %.not124 = icmp eq ptr %124, null
+  br i1 %.not124, label %127, label %125
 
-155:                                              ; preds = %152
-  %156 = fadd double %8, %10
-  %157 = tail call double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %156)
-  %158 = tail call double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %10)
-  %159 = fmul double %12, 8.000000e+00
-  %160 = tail call double @llvm.fmuladd.f64(double %10, double 9.000000e+00, double %159)
-  %161 = tail call double @llvm.fmuladd.f64(double %14, double 2.000000e+00, double %10)
-  %162 = fmul double %14, 8.000000e+00
-  %163 = tail call double @llvm.fmuladd.f64(double %10, double 9.000000e+00, double %162)
-  %164 = tail call i32 (ptr, ...) %153(ptr noundef nonnull @.str.23, double noundef %157, double noundef %158, double noundef %160, double noundef %161, double noundef %163) #2
-  br label %.thread166
+125:                                              ; preds = %123
+  %126 = tail call i32 (ptr, ...) %124(ptr noundef nonnull @.str.20, double noundef %12) #2
+  br label %127
 
-.thread166:                                       ; preds = %113, %155, %5, %152
+127:                                              ; preds = %123, %125, %121
+  %128 = fcmp oge double %14, 0.000000e+00
+  br i1 %128, label %129, label %133
+
+129:                                              ; preds = %127
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  %.not125 = icmp eq ptr %130, null
+  br i1 %.not125, label %133, label %131
+
+131:                                              ; preds = %129
+  %132 = tail call i32 (ptr, ...) %130(ptr noundef nonnull @.str.21, double noundef %14) #2
+  br label %133
+
+133:                                              ; preds = %129, %131, %127
+  %134 = getelementptr inbounds i8, ptr %0, i64 104
+  %135 = load double, ptr %134, align 8
+  %136 = fcmp ult double %135, 0.000000e+00
+  br i1 %136, label %141, label %137
+
+137:                                              ; preds = %133
+  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  %.not126 = icmp eq ptr %138, null
+  br i1 %.not126, label %141, label %139
+
+139:                                              ; preds = %137
+  %140 = tail call i32 (ptr, ...) %138(ptr noundef nonnull @.str.22, double noundef %135) #2
+  br label %141
+
+141:                                              ; preds = %137, %139, %133
+  %or.cond3 = and i1 %17, %116
+  %or.cond5 = and i1 %or.cond3, %122
+  %or.cond7 = and i1 %or.cond5, %128
+  br i1 %or.cond7, label %142, label %154
+
+142:                                              ; preds = %141
+  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @SuiteSparse_config, i64 24), align 8
+  %.not127 = icmp eq ptr %143, null
+  br i1 %.not127, label %154, label %144
+
+144:                                              ; preds = %142
+  %145 = fadd double %8, %10
+  %146 = tail call double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %145)
+  %147 = tail call double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %10)
+  %148 = fmul double %12, 8.000000e+00
+  %149 = tail call double @llvm.fmuladd.f64(double %10, double 9.000000e+00, double %148)
+  %150 = tail call double @llvm.fmuladd.f64(double %14, double 2.000000e+00, double %10)
+  %151 = fmul double %14, 8.000000e+00
+  %152 = tail call double @llvm.fmuladd.f64(double %10, double 9.000000e+00, double %151)
+  %153 = tail call i32 (ptr, ...) %143(ptr noundef nonnull @.str.23, double noundef %146, double noundef %147, double noundef %149, double noundef %150, double noundef %152) #2
+  br label %154
+
+154:                                              ; preds = %142, %144, %5, %141
   ret void
 }
 

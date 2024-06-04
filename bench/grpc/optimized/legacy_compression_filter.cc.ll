@@ -1948,7 +1948,8 @@ if.then.i.i82:                                    ; preds = %_ZN9grpc_core12Aren
   br i1 %cmp.i.i.i.i, label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i82
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %52, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i, label %52
 
 52:                                               ; preds = %if.end.i.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -2054,7 +2055,8 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %2, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i
+  %.not.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i, label %2
 
 2:                                                ; preds = %if.end.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -2490,7 +2492,8 @@ if.then.i.i82:                                    ; preds = %_ZN9grpc_core12Aren
   br i1 %cmp.i.i.i.i, label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i82
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %54, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i, label %54
 
 54:                                               ; preds = %if.end.i.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -3667,7 +3670,8 @@ if.then.i.i3:                                     ; preds = %_ZNSt8functionIFN9g
   br i1 %cmp.i.i.i.i, label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i3
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %13, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i, label %13
 
 13:                                               ; preds = %if.end.i.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -5479,7 +5483,8 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_
   br i1 %cmp.i.i6.i.i.i, label %invoke.cont12.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit.i.i.i.i
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %21, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i, label %21
 
 21:                                               ; preds = %if.end.i.i.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -5778,7 +5783,8 @@ entry:
 
 if.else.i:                                        ; preds = %entry
   %waiter_.i = getelementptr inbounds i8, ptr %0, i64 18
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %2, label %if.end
+  %.not.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i.i, label %if.end, label %2
 
 2:                                                ; preds = %if.else.i
   tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E(), !noalias !109
@@ -5789,9 +5795,9 @@ _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterE
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !109
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !noalias !109
-  br label %if.then.i46.thread
+  br label %if.then.i47.thread
 
-lpad:                                             ; preds = %_ZN9grpc_core19IntraActivityWaiter7pendingEv.exit.i21, %21, %if.end
+lpad:                                             ; preds = %_ZN9grpc_core19IntraActivityWaiter7pendingEv.exit.i22, %21, %if.end
   %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %p) #24
@@ -5839,75 +5845,76 @@ if.then.i9:                                       ; preds = %if.else6.i
   %has_value_.i17 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i8, ptr %has_value_.i17, align 8, !noalias !117
   %tobool.i18 = trunc i8 %20 to i1
-  br i1 %tobool.i18, label %if.then.i46, label %if.else.i19
+  br i1 %tobool.i18, label %if.then.i47, label %if.else.i19
 
 if.else.i19:                                      ; preds = %if.then.i9
   %waiter_.i20 = getelementptr inbounds i8, ptr %19, i64 18
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %21, label %_ZN9grpc_core19IntraActivityWaiter7pendingEv.exit.i21
+  %.not.i.i.i.i21 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i.i21, label %_ZN9grpc_core19IntraActivityWaiter7pendingEv.exit.i22, label %21
 
 21:                                               ; preds = %if.else.i19
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-          to label %_ZN9grpc_core19IntraActivityWaiter7pendingEv.exit.i21 unwind label %lpad
+          to label %_ZN9grpc_core19IntraActivityWaiter7pendingEv.exit.i22 unwind label %lpad
 
-_ZN9grpc_core19IntraActivityWaiter7pendingEv.exit.i21: ; preds = %21, %if.else.i19
+_ZN9grpc_core19IntraActivityWaiter7pendingEv.exit.i22: ; preds = %21, %if.else.i19
   %22 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %23 = load ptr, ptr %22, align 8, !noalias !117
-  %vtable.i.i22 = load ptr, ptr %23, align 8, !noalias !117
-  %vfn.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i22, i64 32
-  %24 = load ptr, ptr %vfn.i.i23, align 8, !noalias !117
-  %call2.i.i2428 = invoke noundef zeroext i16 %24(ptr noundef nonnull align 8 dereferenceable(8) %23)
-          to label %if.then.i42 unwind label %lpad
+  %vtable.i.i23 = load ptr, ptr %23, align 8, !noalias !117
+  %vfn.i.i24 = getelementptr inbounds i8, ptr %vtable.i.i23, i64 32
+  %24 = load ptr, ptr %vfn.i.i24, align 8, !noalias !117
+  %call2.i.i2529 = invoke noundef zeroext i16 %24(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %if.then.i43 unwind label %lpad
 
-if.then.i42:                                      ; preds = %_ZN9grpc_core19IntraActivityWaiter7pendingEv.exit.i21
+if.then.i43:                                      ; preds = %_ZN9grpc_core19IntraActivityWaiter7pendingEv.exit.i22
   %25 = load i16, ptr %waiter_.i20, align 2, !noalias !117
-  %or1.i.i25 = or i16 %25, %call2.i.i2428
-  store i16 %or1.i.i25, ptr %waiter_.i20, align 2, !noalias !117
-  br label %if.then.i46.thread
+  %or1.i.i26 = or i16 %25, %call2.i.i2529
+  store i16 %or1.i.i26, ptr %waiter_.i20, align 2, !noalias !117
+  br label %if.then.i47.thread
 
 cleanup15:                                        ; preds = %if.else6.i
   store i8 0, ptr %agg.result, align 8
-  br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit53
+  br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit54
 
-if.then.i46.thread:                               ; preds = %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit, %if.then.i42
-  %.sink68 = phi i8 [ %3, %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit ], [ %15, %if.then.i42 ]
-  %.sink = phi i64 [ %4, %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit ], [ %17, %if.then.i42 ]
+if.then.i47.thread:                               ; preds = %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit, %if.then.i43
+  %.sink69 = phi i8 [ %3, %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit ], [ %15, %if.then.i43 ]
+  %.sink = phi i64 [ %4, %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit ], [ %17, %if.then.i43 ]
   store i8 1, ptr %agg.result, align 8
   %26 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i8 %.sink68, ptr %26, align 8
+  store i8 %.sink69, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %.sink, ptr %27, align 8
-  %add.ptr.i.i.i.i.i.i.i4764 = getelementptr inbounds i8, ptr %p, i64 16
-  br label %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i51
+  %add.ptr.i.i.i.i.i.i.i4865 = getelementptr inbounds i8, ptr %p, i64 16
+  br label %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i52
 
-if.then.i46:                                      ; preds = %if.then.i9
+if.then.i47:                                      ; preds = %if.then.i9
   store i8 1, ptr %agg.result, align 8, !alias.scope !117
   %28 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %29 = load i8, ptr %19, align 1, !noalias !117
   store i8 %29, ptr %28, align 8, !alias.scope !117
   %30 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %add.ptr.i.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %19, i64 8
-  %31 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i27, align 8, !noalias !117
+  %add.ptr.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %19, i64 8
+  %31 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i28, align 8, !noalias !117
   store i64 %31, ptr %30, align 8, !alias.scope !117
-  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i27, align 8, !noalias !117
-  %add.ptr.i.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %p, i64 16
-  %cmp.not.i.i.i48 = icmp eq i64 %17, 0
-  br i1 %cmp.not.i.i.i48, label %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i51, label %if.then.i.i.i49
+  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i28, align 8, !noalias !117
+  %add.ptr.i.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %p, i64 16
+  %cmp.not.i.i.i49 = icmp eq i64 %17, 0
+  br i1 %cmp.not.i.i.i49, label %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i52, label %if.then.i.i.i50
 
-if.then.i.i.i49:                                  ; preds = %if.then.i46
-  %tobool.i.i.i.i50 = trunc i8 %15 to i1
-  br i1 %tobool.i.i.i.i50, label %delete.notnull.i.i.i.i52, label %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i51
+if.then.i.i.i50:                                  ; preds = %if.then.i47
+  %tobool.i.i.i.i51 = trunc i8 %15 to i1
+  br i1 %tobool.i.i.i.i51, label %delete.notnull.i.i.i.i53, label %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i52
 
-delete.notnull.i.i.i.i52:                         ; preds = %if.then.i.i.i49
+delete.notnull.i.i.i.i53:                         ; preds = %if.then.i.i.i50
   call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(568) %18) #24
   call void @_ZdlPv(ptr noundef nonnull %18) #27
-  br label %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i51
+  br label %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i52
 
-_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i51: ; preds = %if.then.i46.thread, %delete.notnull.i.i.i.i52, %if.then.i.i.i49, %if.then.i46
-  %add.ptr.i.i.i.i.i.i.i4766 = phi ptr [ %add.ptr.i.i.i.i.i.i.i4764, %if.then.i46.thread ], [ %add.ptr.i.i.i.i.i.i.i47, %delete.notnull.i.i.i.i52 ], [ %add.ptr.i.i.i.i.i.i.i47, %if.then.i.i.i49 ], [ %add.ptr.i.i.i.i.i.i.i47, %if.then.i46 ]
-  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i4766, align 8
-  br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit53
+_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i52: ; preds = %if.then.i47.thread, %delete.notnull.i.i.i.i53, %if.then.i.i.i50, %if.then.i47
+  %add.ptr.i.i.i.i.i.i.i4867 = phi ptr [ %add.ptr.i.i.i.i.i.i.i4865, %if.then.i47.thread ], [ %add.ptr.i.i.i.i.i.i.i48, %delete.notnull.i.i.i.i53 ], [ %add.ptr.i.i.i.i.i.i.i48, %if.then.i.i.i50 ], [ %add.ptr.i.i.i.i.i.i.i48, %if.then.i47 ]
+  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i4867, align 8
+  br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit54
 
-_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit53: ; preds = %cleanup15, %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i51
+_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit54: ; preds = %cleanup15, %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i52
   ret void
 }
 
@@ -6066,7 +6073,8 @@ _ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
   br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %12, label %invoke.cont4.i.i.i
+  %.not.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i.i.i, label %invoke.cont4.i.i.i, label %12
 
 12:                                               ; preds = %if.then.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -6177,7 +6185,8 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_
   br i1 %cmp.i.i9.i.i.i, label %invoke.cont23.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit.i.i.i.i
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %29, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i, label %29
 
 29:                                               ; preds = %if.end.i.i.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
@@ -6551,7 +6560,8 @@ entry:
   br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %6, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i
+  %.not.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %.not.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i, label %6
 
 6:                                                ; preds = %if.then.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()

@@ -952,7 +952,7 @@ define dso_local void @_ZN7V3Sched11breakCyclesEP10AstNetlistRKNS_12LogicByScope
           to label %43 unwind label %65, !noalias !5
 
 43:                                               ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7V3Sched12_GLOBAL__N_15GraphE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7V3Sched12_GLOBAL__N_15GraphE, i64 16), ptr %42, align 8
   store ptr %42, ptr %39, align 8, !alias.scope !5
   invoke void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
           to label %_ZN12VNUser1InUseC2Ev.exit.i unwind label %67
@@ -1053,7 +1053,7 @@ _ZNK9AstActive8hasComboEv.exit.i:                 ; preds = %50
           to label %76 unwind label %162
 
 76:                                               ; preds = %75
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexE, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexE, i64 16), ptr %74, align 8
   %77 = getelementptr inbounds i8, ptr %74, i64 80
   store ptr %.054.i, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %74, i64 88
@@ -2999,7 +2999,7 @@ _ZN12VNUser1InUseD2Ev.exit.i:                     ; preds = %._crit_edge155.i
           to label %.noexc79.i unwind label %704
 
 .noexc79.i:                                       ; preds = %671
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %670, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %670, align 8
   %674 = getelementptr inbounds i8, ptr %670, i64 152
   %675 = getelementptr inbounds i8, ptr %670, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %674, i8 0, i64 25, i1 false)
@@ -3048,7 +3048,7 @@ _ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i:    ; preds = %685, %682, %.noexc7
   br label %695
 
 695:                                              ; preds = %692, %687, %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstVarRef, i64 16), ptr %670, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstVarRef, i64 16), ptr %670, align 8
   %696 = getelementptr inbounds i8, ptr %670, i64 160
   store ptr %669, ptr %696, align 8
   %697 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #24
@@ -3059,7 +3059,7 @@ _ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i:    ; preds = %685, %682, %.noexc7
           to label %.noexc81.i unwind label %706
 
 .noexc81.i:                                       ; preds = %698
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstSenItem, i64 16), ptr %697, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSenItem, i64 16), ptr %697, align 8
   %699 = getelementptr inbounds i8, ptr %697, i64 152
   store i8 7, ptr %699, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %697, ptr noundef nonnull %670)
@@ -3111,7 +3111,7 @@ _ZN7AstNode7addNextI10AstSenItemS1_EEPT_S3_PT0_.exit.i: ; preds = %_ZN10AstSenIt
           to label %.noexc85.i unwind label %718
 
 .noexc85.i:                                       ; preds = %709
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10AstSenTree, i64 16), ptr %708, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSenTree, i64 16), ptr %708, align 8
   %710 = getelementptr inbounds i8, ptr %708, i64 152
   store i8 0, ptr %710, align 8
   %.not.i.i.i84.i = icmp eq ptr %.042.lcssa.i, null
@@ -3969,7 +3969,7 @@ define internal noundef nonnull ptr @_ZNK7V3Sched12_GLOBAL__N_123SchedAcyclicLog
           to label %6 unwind label %8
 
 6:                                                ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 80
   store <2 x ptr> %5, ptr %7, align 8
   ret ptr %3
@@ -3983,7 +3983,7 @@ define internal noundef nonnull ptr @_ZNK7V3Sched12_GLOBAL__N_123SchedAcyclicLog
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4272,7 +4272,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK13V3GraphVertex5cloneEP7V3Graph(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13V3GraphVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4388,7 +4388,7 @@ define internal fastcc void @"_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_G
           to label %18 unwind label %22
 
 18:                                               ; preds = %15
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexE, i64 16), ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 80
   store ptr %8, ptr %19, align 8
   %20 = ptrtoint ptr %17 to i64
@@ -4454,7 +4454,7 @@ _ZNK7AstNode5widthEv.exit.i:                      ; preds = %28, %"_ZZN7V3Sched1
   %.val16.i = load ptr, ptr %46, align 8
   %50 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
   %.val.i20.i = load ptr, ptr %.val16.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr noundef %.val.i20.i, ptr noundef %49, ptr noundef %25, i32 noundef %33, i1 noundef zeroext true)
@@ -4510,7 +4510,7 @@ _ZNK7AstNode5widthEv.exit.i:                      ; preds = %28, %"_ZZN7V3Sched1
   %.val17.i = load ptr, ptr %73, align 8
   %77 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
   %.val.i25.i = load ptr, ptr %.val17.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %77, ptr noundef %.val.i25.i, ptr noundef %25, ptr noundef %76, i32 noundef %33, i1 noundef zeroext true)
@@ -4703,7 +4703,7 @@ define internal noundef nonnull ptr @_ZNK7V3Sched12_GLOBAL__N_121SchedAcyclicVar
           to label %5 unwind label %7
 
 5:                                                ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexE, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 80
   store ptr %.val, ptr %6, align 8
   ret ptr %3
@@ -4717,7 +4717,7 @@ define internal noundef nonnull ptr @_ZNK7V3Sched12_GLOBAL__N_121SchedAcyclicVar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #12 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4947,7 +4947,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK12AstNodeDType5widthEv(ptr nounde
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   tail call void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5)
@@ -6717,7 +6717,7 @@ define linkonce_odr dso_local void @_ZN7V3Stats7addStatERKNSt7__cxx1112basic_str
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc9 unwind label %23
@@ -12500,7 +12500,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode5backpEv(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN9AstActiveC2EP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP10AstSenTree(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstActive, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstActive, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %6 = getelementptr inbounds i8, ptr %0, i64 184

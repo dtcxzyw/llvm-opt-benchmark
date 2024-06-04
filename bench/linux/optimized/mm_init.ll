@@ -2368,57 +2368,56 @@ define internal fastcc void @mem_init_print_info() unnamed_addr #0 section ".ini
 
 .thread:                                          ; preds = %16, %.preheader, %22, %0, %3
   %26 = phi i64 [ 0, %3 ], [ 0, %0 ], [ %14, %22 ], [ %14, %.preheader ], [ %14, %16 ]
-  %27 = or i1 icmp ugt (ptr @__init_begin, ptr @_sinittext), icmp uge (ptr @_sinittext, ptr @__init_end)
-  %28 = or i1 %27, icmp ule (i64 sub (i64 ptrtoint (ptr @__init_end to i64), i64 ptrtoint (ptr @__init_begin to i64)), i64 sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64)))
-  br i1 %28, label %30, label %29
-
-29:                                               ; preds = %.thread
-  br label %30
-
-30:                                               ; preds = %29, %.thread
-  %31 = phi i1 [ icmp ult (i64 sub (i64 ptrtoint (ptr @__init_end to i64), i64 ptrtoint (ptr @__init_begin to i64)), i64 sub (i64 ptrtoint (ptr @_edata to i64), i64 ptrtoint (ptr @_sdata to i64))), %.thread ], [ icmp ult (i64 sub (i64 sub (i64 ptrtoint (ptr @__init_end to i64), i64 ptrtoint (ptr @__init_begin to i64)), i64 sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64))), i64 sub (i64 ptrtoint (ptr @_edata to i64), i64 ptrtoint (ptr @_sdata to i64))), %29 ]
-  %32 = phi i64 [ sub (i64 ptrtoint (ptr @__init_end to i64), i64 ptrtoint (ptr @__init_begin to i64)), %.thread ], [ sub (i64 sub (i64 ptrtoint (ptr @__init_end to i64), i64 ptrtoint (ptr @__init_begin to i64)), i64 sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64))), %29 ]
-  %33 = or i1 icmp ugt (ptr @_stext, ptr @_sinittext), icmp uge (ptr @_sinittext, ptr @_etext)
-  %34 = or i1 %33, icmp ule (i64 sub (i64 ptrtoint (ptr @_etext to i64), i64 ptrtoint (ptr @_stext to i64)), i64 sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64)))
-  br i1 %34, label %36, label %35
-
-35:                                               ; preds = %30
-  br label %36
-
-36:                                               ; preds = %35, %30
-  %37 = phi i1 [ icmp ugt (i64 sub (i64 ptrtoint (ptr @_etext to i64), i64 ptrtoint (ptr @_stext to i64)), i64 sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))), %30 ], [ icmp ugt (i64 sub (i64 sub (i64 ptrtoint (ptr @_etext to i64), i64 ptrtoint (ptr @_stext to i64)), i64 sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64))), i64 sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))), %35 ]
-  %38 = phi i64 [ sub (i64 ptrtoint (ptr @_etext to i64), i64 ptrtoint (ptr @_stext to i64)), %30 ], [ sub (i64 sub (i64 ptrtoint (ptr @_etext to i64), i64 ptrtoint (ptr @_stext to i64)), i64 sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64))), %35 ]
-  %39 = or i1 icmp ugt (ptr @_sdata, ptr @__init_begin), icmp uge (ptr @__init_begin, ptr @_edata)
-  %40 = xor i1 %31, true
-  %41 = or i1 %39, %40
-  %42 = sub i64 sub (i64 ptrtoint (ptr @_edata to i64), i64 ptrtoint (ptr @_sdata to i64)), %32
-  %43 = select i1 %41, i64 sub (i64 ptrtoint (ptr @_edata to i64), i64 ptrtoint (ptr @_sdata to i64)), i64 %42
-  %44 = or i1 icmp ugt (ptr @_stext, ptr @__start_rodata), icmp uge (ptr @__start_rodata, ptr @_etext)
-  %45 = sub i64 %38, sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))
-  %46 = select i1 %37, i64 %45, i64 %38
-  %47 = select i1 %44, i64 %38, i64 %46
-  %48 = or i1 icmp ugt (ptr @_sdata, ptr @__start_rodata), icmp uge (ptr @__start_rodata, ptr @_edata)
-  %49 = icmp ule i64 %43, sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))
-  %50 = or i1 %48, %49
-  %51 = sub i64 %43, sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))
-  %52 = select i1 %50, i64 %43, i64 %51
-  %53 = load volatile i64, ptr @vm_zone_stat, align 16
-  %54 = tail call i64 @llvm.smax.i64(i64 %53, i64 0)
-  %55 = shl i64 %54, 2
-  %56 = shl i64 %26, 2
-  %57 = lshr i64 %47, 10
-  %58 = lshr i64 %52, 10
-  %59 = lshr i64 sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64)), 10
-  %60 = add i64 %32, sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64))
-  %61 = lshr i64 %60, 10
-  %62 = lshr i64 sub (i64 ptrtoint (ptr @__bss_stop to i64), i64 ptrtoint (ptr @__bss_start to i64)), 10
-  %63 = load volatile i64, ptr @_totalram_pages, align 8
-  %64 = load i64, ptr @totalcma_pages, align 8
-  %65 = add i64 %63, %64
-  %66 = sub i64 %26, %65
-  %67 = shl i64 %66, 2
-  %68 = shl i64 %64, 2
-  %69 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.47, i64 noundef %55, i64 noundef %56, i64 noundef %57, i64 noundef %58, i64 noundef %59, i64 noundef %61, i64 noundef %62, i64 noundef %67, i64 noundef %68) #21
+  %27 = icmp ugt ptr @__init_begin, @_sinittext
+  %28 = icmp uge ptr @_sinittext, @__init_end
+  %29 = or i1 %27, %28
+  %30 = icmp ule i64 sub (i64 ptrtoint (ptr @__init_end to i64), i64 ptrtoint (ptr @__init_begin to i64)), sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64))
+  %31 = or i1 %30, %29
+  %spec.select = select i1 %31, i64 sub (i64 ptrtoint (ptr @__init_end to i64), i64 ptrtoint (ptr @__init_begin to i64)), i64 sub (i64 sub (i64 ptrtoint (ptr @__init_end to i64), i64 ptrtoint (ptr @__init_begin to i64)), i64 sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64)))
+  %32 = icmp ugt ptr @_stext, @_sinittext
+  %33 = icmp uge ptr @_sinittext, @_etext
+  %34 = or i1 %32, %33
+  %35 = icmp ule i64 sub (i64 ptrtoint (ptr @_etext to i64), i64 ptrtoint (ptr @_stext to i64)), sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64))
+  %36 = or i1 %35, %34
+  %37 = select i1 %36, i64 sub (i64 ptrtoint (ptr @_etext to i64), i64 ptrtoint (ptr @_stext to i64)), i64 sub (i64 sub (i64 ptrtoint (ptr @_etext to i64), i64 ptrtoint (ptr @_stext to i64)), i64 sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64)))
+  %38 = icmp ugt i64 %37, sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))
+  %39 = icmp uge i64 %spec.select, sub (i64 ptrtoint (ptr @_edata to i64), i64 ptrtoint (ptr @_sdata to i64))
+  %40 = icmp ugt ptr @_sdata, @__init_begin
+  %41 = icmp uge ptr @__init_begin, @_edata
+  %42 = or i1 %40, %41
+  %43 = or i1 %42, %39
+  %44 = sub i64 sub (i64 ptrtoint (ptr @_edata to i64), i64 ptrtoint (ptr @_sdata to i64)), %spec.select
+  %45 = select i1 %43, i64 sub (i64 ptrtoint (ptr @_edata to i64), i64 ptrtoint (ptr @_sdata to i64)), i64 %44
+  %46 = icmp ugt ptr @_stext, @__start_rodata
+  %47 = icmp uge ptr @__start_rodata, @_etext
+  %48 = or i1 %46, %47
+  %49 = sub i64 %37, sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))
+  %50 = select i1 %38, i64 %49, i64 %37
+  %51 = select i1 %48, i64 %37, i64 %50
+  %52 = icmp ugt ptr @_sdata, @__start_rodata
+  %53 = icmp uge ptr @__start_rodata, @_edata
+  %54 = or i1 %52, %53
+  %55 = icmp ule i64 %45, sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))
+  %56 = or i1 %54, %55
+  %57 = sub i64 %45, sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64))
+  %58 = select i1 %56, i64 %45, i64 %57
+  %59 = load volatile i64, ptr @vm_zone_stat, align 16
+  %60 = tail call i64 @llvm.smax.i64(i64 %59, i64 0)
+  %61 = shl i64 %60, 2
+  %62 = shl i64 %26, 2
+  %63 = lshr i64 %51, 10
+  %64 = lshr i64 %58, 10
+  %65 = lshr i64 sub (i64 ptrtoint (ptr @__end_rodata to i64), i64 ptrtoint (ptr @__start_rodata to i64)), 10
+  %66 = add i64 %spec.select, sub (i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_sinittext to i64))
+  %67 = lshr i64 %66, 10
+  %68 = lshr i64 sub (i64 ptrtoint (ptr @__bss_stop to i64), i64 ptrtoint (ptr @__bss_start to i64)), 10
+  %69 = load volatile i64, ptr @_totalram_pages, align 8
+  %70 = load i64, ptr @totalcma_pages, align 8
+  %71 = add i64 %69, %70
+  %72 = sub i64 %26, %71
+  %73 = shl i64 %72, 2
+  %74 = shl i64 %70, 2
+  %75 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.47, i64 noundef %61, i64 noundef %62, i64 noundef %63, i64 noundef %64, i64 noundef %65, i64 noundef %67, i64 noundef %68, i64 noundef %73, i64 noundef %74) #21
   ret void
 }
 

@@ -1271,11 +1271,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i64, ptr %switch.gep, align 8
   %arrayidx = getelementptr inbounds [9 x i32], ptr getelementptr inbounds (i8, ptr @server, i64 4880), i64 0, i64 %switch.load
   %2 = load i32, ptr %arrayidx, align 4
-  %tobool = icmp ne i32 %2, 0
+  %tobool.not = icmp eq i32 %2, 0
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4896), align 8
-  %tobool1 = icmp ne i32 %3, 0
-  %or.cond = select i1 %tobool, i1 true, i1 %tobool1
-  br i1 %or.cond, label %if.end3, label %return
+  %tobool1.not = icmp eq i32 %3, 0
+  %or.cond = select i1 %tobool.not, i1 %tobool1.not, i1 false
+  br i1 %or.cond, label %return, label %if.end3
 
 if.end3:                                          ; preds = %switch.lookup
   %tobool4.not = icmp eq i32 %deleted, 0
@@ -1313,7 +1313,7 @@ if.then17:                                        ; preds = %if.end14
   %call23 = call ptr @listAddNodeTail(ptr noundef %7, ptr noundef nonnull %call20) #6
   br label %return
 
-return:                                           ; preds = %switch.hole_check, %entry, %if.end14, %if.else, %if.then5, %switch.lookup, %if.then17
+return:                                           ; preds = %switch.hole_check, %entry, %switch.lookup, %if.end14, %if.else, %if.then5, %if.then17
   ret void
 }
 

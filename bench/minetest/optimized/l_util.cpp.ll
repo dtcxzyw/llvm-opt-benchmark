@@ -723,7 +723,8 @@ invoke.cont21:                                    ; preds = %if.end
   br i1 %cmp23, label %if.then24, label %cleanup
 
 if.then24:                                        ; preds = %invoke.cont21
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %26, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %26
 
 26:                                               ; preds = %if.then24
   call void @_ZTH13warningstream()
@@ -1067,7 +1068,8 @@ invoke.cont20:                                    ; preds = %invoke.cont14
   br i1 %call21, label %cleanup.cont.critedge, label %if.then22
 
 if.then22:                                        ; preds = %invoke.cont20
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %9, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %9
 
 9:                                                ; preds = %if.then22
   call void @_ZTH11errorstream()
@@ -1162,7 +1164,7 @@ invoke.cont27:                                    ; preds = %call1.i.noexc, %inv
   br i1 %cmp30, label %if.then31, label %if.else
 
 if.then31:                                        ; preds = %invoke.cont27
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %20, label %_ZTW11errorstream.exit133
+  br i1 %.not, label %_ZTW11errorstream.exit133, label %20
 
 20:                                               ; preds = %if.then31
   call void @_ZTH11errorstream()
@@ -1251,7 +1253,8 @@ call1.i.noexc371:                                 ; preds = %_ZNKSt9basic_iosIcS
           to label %invoke.cont39 unwind label %lpad32
 
 invoke.cont39:                                    ; preds = %call1.i.noexc371, %invoke.cont37, %invoke.cont35, %invoke.cont33, %call.i.noexc140
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %28, label %_ZTW13warningstream.exit
+  %.not19 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not19, label %_ZTW13warningstream.exit, label %28
 
 28:                                               ; preds = %invoke.cont39
   call void @_ZTH13warningstream()
@@ -1386,7 +1389,7 @@ lpad32:                                           ; preds = %if.end57, %call1.i.
   br label %ehcleanup61
 
 if.else:                                          ; preds = %invoke.cont27
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %45, label %_ZTW11errorstream.exit196
+  br i1 %.not, label %_ZTW11errorstream.exit196, label %45
 
 45:                                               ; preds = %if.else
   call void @_ZTH11errorstream()
@@ -1516,7 +1519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243: ; preds = %if
   %add.ptr.i.i246 = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset.i.i245
   store ptr %60, ptr %add.ptr.i.i246, align 8, !tbaa !26
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %stream, i64 16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %stream, i64 88
   %61 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %62 = getelementptr inbounds i8, ptr %stream, i64 104
@@ -1535,7 +1538,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %stream, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #26
   %64 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
@@ -1579,7 +1582,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %if
   %add.ptr.i.i255 = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset.i.i254
   store ptr %70, ptr %add.ptr.i.i255, align 8, !tbaa !26
   %_M_stringbuf.i.i256 = getelementptr inbounds i8, ptr %stream, i64 16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i256, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i256, align 8, !tbaa !26
   %_M_string.i.i.i257 = getelementptr inbounds i8, ptr %stream, i64 88
   %71 = load ptr, ptr %_M_string.i.i.i257, align 8, !tbaa !11
   %72 = getelementptr inbounds i8, ptr %stream, i64 104
@@ -1598,7 +1601,7 @@ if.then.i.i.i.i.i259:                             ; preds = %_ZNSt7__cxx1112basi
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %if.then.i.i.i.i.i259, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i265
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i256, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i256, align 8, !tbaa !26
   %_M_buf_locale.i.i.i.i260 = getelementptr inbounds i8, ptr %stream, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i260) #26
   %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
@@ -1620,7 +1623,8 @@ invoke.cont73:                                    ; preds = %cleanup.cont
   br i1 %call74, label %cleanup92, label %if.then75
 
 if.then75:                                        ; preds = %invoke.cont73
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %77, label %_ZTW11errorstream.exit269
+  %.not20 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not20, label %_ZTW11errorstream.exit269, label %77
 
 77:                                               ; preds = %if.then75
   call void @_ZTH11errorstream()
@@ -1701,7 +1705,7 @@ call1.i.noexc449:                                 ; preds = %_ZNKSt9basic_iosIcS
           to label %invoke.cont80 unwind label %lpad72
 
 invoke.cont80:                                    ; preds = %call1.i.noexc449, %invoke.cont78, %invoke.cont76, %call.i.noexc276
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %86, label %_ZTW11errorstream.exit292
+  br i1 %.not20, label %_ZTW11errorstream.exit292, label %86
 
 86:                                               ; preds = %invoke.cont80
   call void @_ZTH11errorstream()
@@ -3231,7 +3235,8 @@ invoke.cont24:                                    ; preds = %if.end
   br i1 %call25, label %if.end34, label %if.then26
 
 if.then26:                                        ; preds = %invoke.cont24
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %41, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %41
 
 41:                                               ; preds = %if.then26
   call void @_ZTH13warningstream()
@@ -4665,7 +4670,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %add.ptr.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i.i
   store ptr %16, ptr %add.ptr.i.i, align 8, !tbaa !26
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %os, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %os, i64 80
   %17 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %18 = getelementptr inbounds i8, ptr %os, i64 96
@@ -4684,7 +4689,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %os, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #26
   %20 = getelementptr inbounds i8, ptr %os, i64 112
@@ -5350,7 +5355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %if.
   %add.ptr.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i.i
   store ptr %28, ptr %add.ptr.i.i, align 8, !tbaa !26
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %os, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %os, i64 80
   %29 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %30 = getelementptr inbounds i8, ptr %os, i64 96
@@ -5369,7 +5374,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %os, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #26
   %32 = getelementptr inbounds i8, ptr %os, i64 112
@@ -5383,7 +5388,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %add.ptr.i.i59 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i58
   store ptr %34, ptr %add.ptr.i.i59, align 8, !tbaa !26
   %_M_stringbuf.i.i60 = getelementptr inbounds i8, ptr %is, i64 16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i60, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i60, align 8, !tbaa !26
   %_M_string.i.i.i61 = getelementptr inbounds i8, ptr %is, i64 88
   %35 = load ptr, ptr %_M_string.i.i.i61, align 8, !tbaa !11
   %36 = getelementptr inbounds i8, ptr %is, i64 104
@@ -5402,7 +5407,7 @@ if.then.i.i.i.i.i63:                              ; preds = %_ZNSt7__cxx1119basi
   br label %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i65
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i60, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i60, align 8, !tbaa !26
   %_M_buf_locale.i.i.i.i64 = getelementptr inbounds i8, ptr %is, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i64) #26
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
@@ -5872,7 +5877,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr dso_local void @_ZN8LuaErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
   %m_s.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i.i, align 8, !tbaa !4
@@ -5925,14 +5930,14 @@ _ZN8ModErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8LuaError, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8LuaError, i64 16), ptr %this, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -9355,7 +9360,7 @@ declare void @_Z12compressZstdPKhmRSoi(ptr noundef, i64 noundef, ptr noundef non
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8LuaErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -9390,7 +9395,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24

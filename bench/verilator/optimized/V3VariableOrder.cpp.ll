@@ -3260,7 +3260,7 @@ _ZSt4findISt19_Bit_const_iteratorbET_S1_S1_RKT0_.exit: ; preds = %106
           to label %124 unwind label %.loopexit87
 
 124:                                              ; preds = %122
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV12VarTspSorter, i64 16), ptr %123, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12VarTspSorter, i64 16), ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %123, i64 8
   store ptr %108, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %123, i64 16
@@ -7615,7 +7615,7 @@ define internal fastcc void @"_ZZN7AstNode11foreachImplI12AstExecGraphZN15V3Vari
 _ZNK13V3GraphVertex2asIK9ExecMTaskEEPKT_v.exit.i: ; preds = %20, %13
   %24 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV19GatherMTaskAffinity, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19GatherMTaskAffinity, i64 16), ptr %3, align 8
   call void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
   store ptr %24, ptr %10, align 8
   %25 = getelementptr inbounds i8, ptr %.sroa.0.02.i, i64 88

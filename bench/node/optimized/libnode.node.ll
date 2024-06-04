@@ -2093,25 +2093,25 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %nr.09 = phi i32 [ 1, %entry ], [ %add, %for.inc ]
-  switch i32 %nr.09, label %if.end [
+  %nr.010 = phi i32 [ 1, %entry ], [ %add, %for.inc ]
+  switch i32 %nr.010, label %if.end [
     i32 19, label %for.inc
     i32 9, label %for.inc
   ]
 
 if.end:                                           ; preds = %for.body
-  %cmp3 = icmp ne i32 %nr.09, 13
-  %cmp4 = icmp ne i32 %nr.09, 25
+  %cmp3 = icmp ne i32 %nr.010, 13
+  %cmp4 = icmp ne i32 %nr.010, 25
   %.not = and i1 %cmp3, %cmp4
   %cond = select i1 %.not, ptr null, ptr inttoptr (i64 1 to ptr)
   store ptr %cond, ptr %act, align 8
-  switch i32 %nr.09, label %do.body [
+  switch i32 %nr.010, label %do.body [
     i32 25, label %do.body21
     i32 13, label %do.body21
   ]
 
 do.body:                                          ; preds = %if.end
-  %call = call i32 @sigaction(i32 noundef %nr.09, ptr noundef null, ptr noundef nonnull %old) #23
+  %call = call i32 @sigaction(i32 noundef %nr.010, ptr noundef null, ptr noundef nonnull %old) #23
   %cmp8.not = icmp eq i32 %call, 0
   br i1 %cmp8.not, label %do.end14, label %do.body12
 
@@ -2126,11 +2126,11 @@ do.end14:                                         ; preds = %do.body
   %tobool = icmp ne i32 %and, 0
   %2 = load ptr, ptr %old, align 8
   %cmp17 = icmp ne ptr %2, inttoptr (i64 1 to ptr)
-  %or.cond1 = select i1 %tobool, i1 true, i1 %cmp17
-  br i1 %or.cond1, label %for.inc, label %do.body21
+  %or.cond2 = select i1 %tobool, i1 true, i1 %cmp17
+  br i1 %or.cond2, label %for.inc, label %do.body21
 
 do.body21:                                        ; preds = %if.end, %if.end, %do.end14
-  %call22 = call i32 @sigaction(i32 noundef %nr.09, ptr noundef nonnull %act, ptr noundef null) #23
+  %call22 = call i32 @sigaction(i32 noundef %nr.010, ptr noundef nonnull %act, ptr noundef null) #23
   %cmp23.not = icmp eq i32 %call22, 0
   br i1 %cmp23.not, label %for.inc, label %do.body28
 
@@ -2140,7 +2140,7 @@ do.body28:                                        ; preds = %do.body21
   unreachable
 
 for.inc:                                          ; preds = %for.body, %for.body, %do.body21, %do.end14
-  %add = add nuw nsw i32 %nr.09, 1
+  %add = add nuw nsw i32 %nr.010, 1
   %exitcond.not = icmp eq i32 %add, 32
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 

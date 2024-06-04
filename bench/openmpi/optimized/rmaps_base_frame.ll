@@ -372,12 +372,12 @@ switch.lookup:                                    ; preds = %26
   br label %32
 
 32:                                               ; preds = %switch.lookup, %26
-  %.sink75 = phi i16 [ 9, %26 ], [ %switch.load, %switch.lookup ]
-  %33 = or disjoint i16 %29, %.sink75
+  %.sink70 = phi i16 [ 9, %26 ], [ %switch.load, %switch.lookup ]
+  %33 = or disjoint i16 %29, %.sink70
   store i16 %33, ptr %27, align 8
   %34 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %34, 64
-  br i1 %or.cond3, label %35, label %130
+  %or.cond56 = icmp ult i32 %34, 64
+  br i1 %or.cond56, label %35, label %130
 
 35:                                               ; preds = %32
   %36 = zext nneg i32 %34 to i64
@@ -406,11 +406,11 @@ switch.lookup:                                    ; preds = %26
   %52 = trunc i8 %51 to i1
   %53 = getelementptr inbounds i8, ptr %1, i64 4
   %54 = load i32, ptr %53, align 4
-  %or.cond65 = icmp ult i32 %54, 64
+  %or.cond57 = icmp ult i32 %54, 64
   br i1 %52, label %55, label %69
 
 55:                                               ; preds = %49
-  br i1 %or.cond65, label %56, label %63
+  br i1 %or.cond57, label %56, label %63
 
 56:                                               ; preds = %55
   %57 = zext nneg i32 %54 to i64
@@ -418,16 +418,16 @@ switch.lookup:                                    ; preds = %26
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds i8, ptr %1, i64 8
   %61 = load i32, ptr %60, align 8
-  %.not64 = icmp slt i32 %59, %61
-  br i1 %.not64, label %63, label %62
+  %.not55 = icmp slt i32 %59, %61
+  br i1 %.not55, label %63, label %62
 
 62:                                               ; preds = %56
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %54, ptr noundef nonnull @.str.6) #14
-  %.pre74 = load ptr, ptr %21, align 8
+  %.pre69 = load ptr, ptr %21, align 8
   br label %63
 
 63:                                               ; preds = %62, %56, %55
-  %64 = phi ptr [ %.pre74, %62 ], [ %22, %56 ], [ %22, %55 ]
+  %64 = phi ptr [ %.pre69, %62 ], [ %22, %56 ], [ %22, %55 ]
   %65 = getelementptr inbounds i8, ptr %64, i64 136
   %66 = load i16, ptr %65, align 8
   %67 = and i16 %66, -256
@@ -436,7 +436,7 @@ switch.lookup:                                    ; preds = %26
   br label %130
 
 69:                                               ; preds = %49
-  br i1 %or.cond65, label %70, label %77
+  br i1 %or.cond57, label %70, label %77
 
 70:                                               ; preds = %69
   %71 = zext nneg i32 %54 to i64
@@ -444,8 +444,8 @@ switch.lookup:                                    ; preds = %26
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds i8, ptr %1, i64 8
   %75 = load i32, ptr %74, align 8
-  %.not63 = icmp slt i32 %73, %75
-  br i1 %.not63, label %77, label %76
+  %.not54 = icmp slt i32 %73, %75
+  br i1 %.not54, label %77, label %76
 
 76:                                               ; preds = %70
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %54, ptr noundef nonnull @.str.7) #14
@@ -469,13 +469,13 @@ switch.lookup:                                    ; preds = %26
 
 hwloc_get_obj_by_type.exit:                       ; preds = %83
   %86 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %84, i32 noundef %85, i32 noundef 0) #18
-  %.not61 = icmp eq ptr %86, null
-  br i1 %.not61, label %hwloc_get_obj_by_type.exit.thread, label %87
+  %.not52 = icmp eq ptr %86, null
+  br i1 %.not52, label %hwloc_get_obj_by_type.exit.thread, label %87
 
 87:                                               ; preds = %hwloc_get_obj_by_type.exit
   %88 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
-  %or.cond5 = icmp ult i32 %88, 64
-  br i1 %or.cond5, label %89, label %95
+  %or.cond59 = icmp ult i32 %88, 64
+  br i1 %or.cond59, label %89, label %95
 
 89:                                               ; preds = %87
   %90 = zext nneg i32 %88 to i64
@@ -499,18 +499,18 @@ hwloc_get_obj_by_type.exit:                       ; preds = %83
 
 hwloc_get_obj_by_type.exit.thread:                ; preds = %83, %hwloc_get_obj_by_type.exit
   %101 = tail call i32 @hwloc_get_type_depth(ptr noundef %84, i32 noundef 13) #14
-  %switch.i67 = icmp ugt i32 %101, -3
-  br i1 %switch.i67, label %hwloc_get_obj_by_type.exit69.thread, label %hwloc_get_obj_by_type.exit69
+  %switch.i62 = icmp ugt i32 %101, -3
+  br i1 %switch.i62, label %hwloc_get_obj_by_type.exit64.thread, label %hwloc_get_obj_by_type.exit64
 
-hwloc_get_obj_by_type.exit69:                     ; preds = %hwloc_get_obj_by_type.exit.thread
+hwloc_get_obj_by_type.exit64:                     ; preds = %hwloc_get_obj_by_type.exit.thread
   %102 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %84, i32 noundef %101, i32 noundef 0) #18
-  %.not62 = icmp eq ptr %102, null
-  br i1 %.not62, label %hwloc_get_obj_by_type.exit69.thread, label %103
+  %.not53 = icmp eq ptr %102, null
+  br i1 %.not53, label %hwloc_get_obj_by_type.exit64.thread, label %103
 
-103:                                              ; preds = %hwloc_get_obj_by_type.exit69
+103:                                              ; preds = %hwloc_get_obj_by_type.exit64
   %104 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
-  %or.cond7 = icmp ult i32 %104, 64
-  br i1 %or.cond7, label %105, label %111
+  %or.cond60 = icmp ult i32 %104, 64
+  br i1 %or.cond60, label %105, label %111
 
 105:                                              ; preds = %103
   %106 = zext nneg i32 %104 to i64
@@ -532,12 +532,12 @@ hwloc_get_obj_by_type.exit69:                     ; preds = %hwloc_get_obj_by_ty
   store i16 %116, ptr %113, align 8
   br label %130
 
-hwloc_get_obj_by_type.exit69.thread:              ; preds = %hwloc_get_obj_by_type.exit.thread, %hwloc_get_obj_by_type.exit69
+hwloc_get_obj_by_type.exit64.thread:              ; preds = %hwloc_get_obj_by_type.exit.thread, %hwloc_get_obj_by_type.exit64
   %117 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
-  %or.cond9 = icmp ult i32 %117, 64
-  br i1 %or.cond9, label %118, label %124
+  %or.cond61 = icmp ult i32 %117, 64
+  br i1 %or.cond61, label %118, label %124
 
-118:                                              ; preds = %hwloc_get_obj_by_type.exit69.thread
+118:                                              ; preds = %hwloc_get_obj_by_type.exit64.thread
   %119 = zext nneg i32 %117 to i64
   %120 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %119, i32 2
   %121 = load i32, ptr %120, align 4
@@ -548,7 +548,7 @@ hwloc_get_obj_by_type.exit69.thread:              ; preds = %hwloc_get_obj_by_ty
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %117, ptr noundef nonnull @.str.10) #14
   br label %124
 
-124:                                              ; preds = %123, %118, %hwloc_get_obj_by_type.exit69.thread
+124:                                              ; preds = %123, %118, %hwloc_get_obj_by_type.exit64.thread
   %125 = load ptr, ptr %21, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 136
   %127 = load i16, ptr %126, align 8
@@ -665,8 +665,8 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   br label %273
 
 62:                                               ; preds = %22
-  %or.cond3 = icmp ult i32 %26, 64
-  br i1 %or.cond3, label %63, label %73
+  %or.cond138 = icmp ult i32 %26, 64
+  br i1 %or.cond138, label %63, label %73
 
 63:                                               ; preds = %62
   %64 = zext nneg i32 %26 to i64
@@ -702,7 +702,7 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   br label %80
 
 80:                                               ; preds = %76, %78
-  %.0115 = phi i32 [ -43, %78 ], [ %77, %76 ]
+  %.0109 = phi i32 [ -43, %78 ], [ %77, %76 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %19) #14
   br label %286
 
@@ -743,8 +743,8 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   %94 = load ptr, ptr %19, align 8
   store ptr %94, ptr %3, align 8
   %95 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %94, i32 noundef 61) #18
-  %.not133 = icmp eq ptr %95, null
-  br i1 %.not133, label %101, label %96
+  %.not127 = icmp eq ptr %95, null
+  br i1 %.not127, label %101, label %96
 
 96:                                               ; preds = %93
   store i8 0, ptr %95, align 1
@@ -764,8 +764,8 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
 
 103:                                              ; preds = %101, %96
   %104 = phi ptr [ %.pre, %96 ], [ %102, %101 ]
-  %.0117 = phi ptr [ %99, %96 ], [ null, %101 ]
-  %.0116 = phi ptr [ %100, %96 ], [ null, %101 ]
+  %.0111 = phi ptr [ %99, %96 ], [ null, %101 ]
+  %.0110 = phi ptr [ %100, %96 ], [ null, %101 ]
   %105 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %104, ptr noundef nonnull @.str.21)
   br i1 %105, label %106, label %110
 
@@ -881,8 +881,8 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   %175 = icmp eq ptr %0, null
   %176 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 296), align 8
   %177 = icmp eq ptr %176, null
-  %or.cond9 = select i1 %175, i1 %177, i1 false
-  br i1 %or.cond9, label %182, label %178
+  %or.cond140 = select i1 %175, i1 %177, i1 false
+  br i1 %or.cond140, label %182, label %178
 
 178:                                              ; preds = %174
   br i1 %175, label %.critedge, label %179
@@ -897,11 +897,11 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   call void @PMIx_Argv_free(ptr noundef nonnull %19) #14
   %184 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %184) #14
-  %.not141 = icmp eq ptr %.0116, null
-  br i1 %.not141, label %286, label %185
+  %.not135 = icmp eq ptr %.0110, null
+  br i1 %.not135, label %286, label %185
 
 185:                                              ; preds = %182
-  call void @free(ptr noundef nonnull %.0116) #14
+  call void @free(ptr noundef nonnull %.0110) #14
   br label %286
 
 186:                                              ; preds = %179
@@ -918,11 +918,11 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   call void @PMIx_Argv_free(ptr noundef nonnull %19) #14
   %193 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %193) #14
-  %.not140 = icmp eq ptr %.0116, null
-  br i1 %.not140, label %286, label %194
+  %.not134 = icmp eq ptr %.0110, null
+  br i1 %.not134, label %286, label %194
 
 194:                                              ; preds = %191
-  call void @free(ptr noundef nonnull %.0116) #14
+  call void @free(ptr noundef nonnull %.0110) #14
   br label %286
 
 195:                                              ; preds = %188
@@ -973,15 +973,15 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   call void @PMIx_Argv_free(ptr noundef nonnull %19) #14
   %220 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %220) #14
-  %.not138 = icmp eq ptr %.0116, null
-  br i1 %.not138, label %286, label %221
+  %.not132 = icmp eq ptr %.0110, null
+  br i1 %.not132, label %286, label %221
 
 221:                                              ; preds = %217
-  call void @free(ptr noundef nonnull %.0116) #14
+  call void @free(ptr noundef nonnull %.0110) #14
   br label %286
 
 222:                                              ; preds = %215
-  %223 = icmp eq ptr %.0116, null
+  %223 = icmp eq ptr %.0110, null
   br i1 %223, label %224, label %228
 
 224:                                              ; preds = %222
@@ -993,38 +993,38 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   br label %286
 
 228:                                              ; preds = %222
-  %229 = call ptr @strtok(ptr noundef nonnull %.0116, ptr noundef nonnull @.str.35) #14
-  %.not135146 = icmp eq ptr %229, null
-  br i1 %.not135146, label %._crit_edge150, label %.lr.ph149
+  %229 = call ptr @strtok(ptr noundef nonnull %.0110, ptr noundef nonnull @.str.35) #14
+  %.not129143 = icmp eq ptr %229, null
+  br i1 %.not129143, label %._crit_edge147, label %.lr.ph146
 
-.lr.ph149:                                        ; preds = %228, %._crit_edge
-  %.0147 = phi ptr [ %249, %._crit_edge ], [ %229, %228 ]
-  %230 = call ptr @PMIx_Argv_split(ptr noundef nonnull %.0147, i32 noundef 45) #14
+.lr.ph146:                                        ; preds = %228, %._crit_edge
+  %.0144 = phi ptr [ %249, %._crit_edge ], [ %229, %228 ]
+  %230 = call ptr @PMIx_Argv_split(ptr noundef nonnull %.0144, i32 noundef 45) #14
   %231 = call i32 @PMIx_Argv_count(ptr noundef %230) #14
   %232 = icmp sgt i32 %231, 2
   br i1 %232, label %233, label %237
 
-233:                                              ; preds = %.lr.ph149
+233:                                              ; preds = %.lr.ph146
   %234 = load ptr, ptr %19, align 8
   %235 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.36, i32 noundef 1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.37, ptr noundef %234) #14
   call void @PMIx_Argv_free(ptr noundef nonnull %19) #14
   call void @PMIx_Argv_free(ptr noundef %230) #14
   %236 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %236) #14
-  call void @free(ptr noundef %.0116) #14
+  call void @free(ptr noundef %.0110) #14
   br label %237
 
-237:                                              ; preds = %233, %.lr.ph149
+237:                                              ; preds = %233, %.lr.ph146
   %238 = load ptr, ptr %230, align 8
-  %.not136144 = icmp eq ptr %238, null
-  br i1 %.not136144, label %._crit_edge, label %.lr.ph
+  %.not130141 = icmp eq ptr %238, null
+  br i1 %.not130141, label %._crit_edge, label %.lr.ph
 
 239:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %240 = getelementptr inbounds ptr, ptr %230, i64 %indvars.iv.next
   %241 = load ptr, ptr %240, align 8
-  %.not136 = icmp eq ptr %241, null
-  br i1 %.not136, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  %.not130 = icmp eq ptr %241, null
+  br i1 %.not130, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %237, %239
   %indvars.iv = phi i64 [ %indvars.iv.next, %239 ], [ 0, %237 ]
@@ -1032,27 +1032,27 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   %243 = call i64 @strtol(ptr noundef nonnull %242, ptr noundef nonnull %5, i32 noundef 10) #14
   %244 = load ptr, ptr %5, align 8
   %245 = load i8, ptr %244, align 1
-  %.not137 = icmp eq i8 %245, 0
-  br i1 %.not137, label %239, label %246
+  %.not131 = icmp eq i8 %245, 0
+  br i1 %.not131, label %239, label %246
 
 246:                                              ; preds = %.lr.ph
-  %247 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.36, i32 noundef 1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.37, ptr noundef nonnull %.0116) #14
+  %247 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.36, i32 noundef 1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.37, ptr noundef nonnull %.0110) #14
   call void @PMIx_Argv_free(ptr noundef nonnull %19) #14
   call void @PMIx_Argv_free(ptr noundef nonnull %230) #14
   %248 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %248) #14
-  call void @free(ptr noundef %.0116) #14
+  call void @free(ptr noundef %.0110) #14
   br label %286
 
 ._crit_edge:                                      ; preds = %239, %237
   call void @PMIx_Argv_free(ptr noundef nonnull %230) #14
   %249 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.35) #14
-  %.not135 = icmp eq ptr %249, null
-  br i1 %.not135, label %._crit_edge150, label %.lr.ph149, !llvm.loop !9
+  %.not129 = icmp eq ptr %249, null
+  br i1 %.not129, label %._crit_edge147, label %.lr.ph146, !llvm.loop !9
 
-._crit_edge150:                                   ; preds = %._crit_edge, %228
+._crit_edge147:                                   ; preds = %._crit_edge, %228
   %250 = getelementptr inbounds i8, ptr %0, i64 784
-  %251 = call i32 @prte_set_attribute(ptr noundef nonnull %250, i16 noundef zeroext 237, i1 noundef zeroext false, ptr noundef %.0117, i16 noundef zeroext 3) #14
+  %251 = call i32 @prte_set_attribute(ptr noundef nonnull %250, i16 noundef zeroext 237, i1 noundef zeroext false, ptr noundef %.0111, i16 noundef zeroext 3) #14
   %252 = load i16, ptr %4, align 2
   %253 = and i16 %252, -16640
   %254 = or disjoint i16 %253, 16395
@@ -1077,23 +1077,23 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   call void @PMIx_Argv_free(ptr noundef nonnull %19) #14
   %265 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %265) #14
-  %.not134 = icmp eq ptr %.0116, null
-  br i1 %.not134, label %286, label %266
+  %.not128 = icmp eq ptr %.0110, null
+  br i1 %.not128, label %286, label %266
 
 266:                                              ; preds = %262
-  call void @free(ptr noundef nonnull %.0116) #14
+  call void @free(ptr noundef nonnull %.0110) #14
   br label %286
 
-267:                                              ; preds = %113, %134, %132, %146, %160, %.critedge, %._crit_edge150, %258, %208, %209, %167, %153, %139, %120, %106
-  %268 = phi i16 [ %116, %113 ], [ %135, %134 ], [ %133, %132 ], [ %149, %146 ], [ %163, %160 ], [ %199, %.critedge ], [ %254, %._crit_edge150 ], [ %261, %258 ], [ %206, %208 ], [ %206, %209 ], [ %170, %167 ], [ %156, %153 ], [ %142, %139 ], [ %123, %120 ], [ %109, %106 ]
+267:                                              ; preds = %113, %134, %132, %146, %160, %.critedge, %._crit_edge147, %258, %208, %209, %167, %153, %139, %120, %106
+  %268 = phi i16 [ %116, %113 ], [ %135, %134 ], [ %133, %132 ], [ %149, %146 ], [ %163, %160 ], [ %199, %.critedge ], [ %254, %._crit_edge147 ], [ %261, %258 ], [ %206, %208 ], [ %206, %209 ], [ %170, %167 ], [ %156, %153 ], [ %142, %139 ], [ %123, %120 ], [ %109, %106 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %19) #14
   %269 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %269) #14
-  %.not142 = icmp eq ptr %.0116, null
-  br i1 %.not142, label %271, label %270
+  %.not136 = icmp eq ptr %.0110, null
+  br i1 %.not136, label %271, label %270
 
 270:                                              ; preds = %267
-  call void @free(ptr noundef nonnull %.0116) #14
+  call void @free(ptr noundef nonnull %.0110) #14
   br label %271
 
 271:                                              ; preds = %270, %267
@@ -1128,8 +1128,8 @@ define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr nound
   br label %286
 
 286:                                              ; preds = %275, %283, %262, %266, %217, %221, %191, %194, %182, %185, %16, %281, %246, %224, %91, %80, %44
-  %.0118 = phi i32 [ -43, %44 ], [ -5, %281 ], [ %.0115, %80 ], [ %.1, %91 ], [ -43, %224 ], [ -43, %246 ], [ 0, %16 ], [ -5, %185 ], [ -5, %182 ], [ -5, %194 ], [ -5, %191 ], [ -43, %221 ], [ -43, %217 ], [ -43, %266 ], [ -43, %262 ], [ 0, %283 ], [ 0, %275 ]
-  ret i32 %.0118
+  %.0112 = phi i32 [ -43, %44 ], [ -5, %281 ], [ %.0109, %80 ], [ %.1, %91 ], [ -43, %224 ], [ -43, %246 ], [ 0, %16 ], [ -5, %185 ], [ -5, %182 ], [ -5, %194 ], [ -5, %191 ], [ -43, %221 ], [ -43, %217 ], [ -43, %266 ], [ -43, %262 ], [ 0, %283 ], [ 0, %275 ]
+  ret i32 %.0112
 }
 
 declare ptr @prte_util_print_name_args(ptr noundef) local_unnamed_addr #1
@@ -1183,8 +1183,8 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
 18:                                               ; preds = %16
   %19 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %0, i32 noundef 58) #14
   %20 = load ptr, ptr %19, align 8
-  %.not115 = icmp eq ptr %20, null
-  br i1 %.not115, label %._crit_edge, label %.lr.ph
+  %.not114 = icmp eq ptr %20, null
+  br i1 %.not114, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %21 = icmp eq ptr %1, null
@@ -1194,12 +1194,12 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
 23:                                               ; preds = %.lr.ph, %145
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %145 ]
   %24 = phi ptr [ %20, %.lr.ph ], [ %147, %145 ]
-  %.0122 = phi i1 [ false, %.lr.ph ], [ %.1, %145 ]
-  %.085121 = phi i1 [ false, %.lr.ph ], [ %.186, %145 ]
-  %.087120 = phi i1 [ false, %.lr.ph ], [ %.188, %145 ]
-  %.089119 = phi i1 [ false, %.lr.ph ], [ %.190, %145 ]
-  %.091118 = phi i1 [ false, %.lr.ph ], [ %.192, %145 ]
-  %.093117 = phi i1 [ false, %.lr.ph ], [ %.194, %145 ]
+  %.0121 = phi i1 [ false, %.lr.ph ], [ %.1, %145 ]
+  %.084120 = phi i1 [ false, %.lr.ph ], [ %.185, %145 ]
+  %.086119 = phi i1 [ false, %.lr.ph ], [ %.187, %145 ]
+  %.088118 = phi i1 [ false, %.lr.ph ], [ %.189, %145 ]
+  %.090117 = phi i1 [ false, %.lr.ph ], [ %.191, %145 ]
+  %.092116 = phi i1 [ false, %.lr.ph ], [ %.193, %145 ]
   %25 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
   %26 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %24, ptr noundef nonnull @.str.42)
   br i1 %26, label %27, label %30
@@ -1216,7 +1216,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %30
-  br i1 %.0122, label %34, label %36
+  br i1 %.0121, label %34, label %36
 
 34:                                               ; preds = %33
   %35 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.54, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56) #14
@@ -1236,7 +1236,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %40
-  br i1 %.085121, label %44, label %46
+  br i1 %.084120, label %44, label %46
 
 44:                                               ; preds = %43
   %45 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.54, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56) #14
@@ -1299,8 +1299,8 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   store i16 %75, ptr %5, align 2
   %76 = load ptr, ptr %4, align 8
   %77 = load i8, ptr %76, align 1
-  %.not102 = icmp eq i8 %77, 0
-  br i1 %.not102, label %81, label %78
+  %.not101 = icmp eq i8 %77, 0
+  br i1 %.not101, label %81, label %78
 
 78:                                               ; preds = %72
   %79 = load ptr, ptr %25, align 8
@@ -1317,7 +1317,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %84, label %85, label %92
 
 85:                                               ; preds = %83
-  br i1 %.091118, label %86, label %88
+  br i1 %.090117, label %86, label %88
 
 86:                                               ; preds = %85
   %87 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.54, i32 noundef 1, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #14
@@ -1341,7 +1341,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %94, label %95, label %102
 
 95:                                               ; preds = %92
-  br i1 %.093117, label %96, label %98
+  br i1 %.092116, label %96, label %98
 
 96:                                               ; preds = %95
   %97 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.54, i32 noundef 1, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #14
@@ -1365,7 +1365,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %104, label %105, label %112
 
 105:                                              ; preds = %102
-  br i1 %.087120, label %106, label %108
+  br i1 %.086119, label %106, label %108
 
 106:                                              ; preds = %105
   %107 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.54, i32 noundef 1, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69) #14
@@ -1389,7 +1389,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %114, label %115, label %129
 
 115:                                              ; preds = %112
-  br i1 %.089119, label %116, label %118
+  br i1 %.088118, label %116, label %118
 
 116:                                              ; preds = %115
   %117 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.54, i32 noundef 1, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69) #14
@@ -1457,12 +1457,12 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br label %148
 
 145:                                              ; preds = %123, %122, %127, %126, %109, %110, %99, %100, %89, %90, %27, %46, %62, %142, %140, %81, %52, %36
-  %.194 = phi i1 [ %.093117, %27 ], [ %.093117, %36 ], [ %.093117, %46 ], [ %.093117, %52 ], [ %.093117, %62 ], [ %.093117, %81 ], [ %.093117, %140 ], [ %.093117, %142 ], [ true, %90 ], [ true, %89 ], [ false, %100 ], [ false, %99 ], [ %.093117, %110 ], [ %.093117, %109 ], [ %.093117, %126 ], [ %.093117, %127 ], [ %.093117, %122 ], [ %.093117, %123 ]
-  %.192 = phi i1 [ %.091118, %27 ], [ %.091118, %36 ], [ %.091118, %46 ], [ %.091118, %52 ], [ %.091118, %62 ], [ %.091118, %81 ], [ %.091118, %140 ], [ %.091118, %142 ], [ false, %90 ], [ false, %89 ], [ true, %100 ], [ true, %99 ], [ %.091118, %110 ], [ %.091118, %109 ], [ %.091118, %126 ], [ %.091118, %127 ], [ %.091118, %122 ], [ %.091118, %123 ]
-  %.190 = phi i1 [ %.089119, %27 ], [ %.089119, %36 ], [ %.089119, %46 ], [ %.089119, %52 ], [ %.089119, %62 ], [ %.089119, %81 ], [ %.089119, %140 ], [ %.089119, %142 ], [ %.089119, %90 ], [ %.089119, %89 ], [ %.089119, %100 ], [ %.089119, %99 ], [ true, %110 ], [ true, %109 ], [ false, %126 ], [ false, %127 ], [ false, %122 ], [ false, %123 ]
-  %.188 = phi i1 [ %.087120, %27 ], [ %.087120, %36 ], [ %.087120, %46 ], [ %.087120, %52 ], [ %.087120, %62 ], [ %.087120, %81 ], [ %.087120, %140 ], [ %.087120, %142 ], [ %.087120, %90 ], [ %.087120, %89 ], [ %.087120, %100 ], [ %.087120, %99 ], [ false, %110 ], [ false, %109 ], [ true, %126 ], [ true, %127 ], [ true, %122 ], [ true, %123 ]
-  %.186 = phi i1 [ %.085121, %27 ], [ true, %36 ], [ false, %46 ], [ %.085121, %52 ], [ %.085121, %62 ], [ %.085121, %81 ], [ %.085121, %140 ], [ %.085121, %142 ], [ %.085121, %90 ], [ %.085121, %89 ], [ %.085121, %100 ], [ %.085121, %99 ], [ %.085121, %110 ], [ %.085121, %109 ], [ %.085121, %126 ], [ %.085121, %127 ], [ %.085121, %122 ], [ %.085121, %123 ]
-  %.1 = phi i1 [ %.0122, %27 ], [ false, %36 ], [ true, %46 ], [ %.0122, %52 ], [ %.0122, %62 ], [ %.0122, %81 ], [ %.0122, %140 ], [ %.0122, %142 ], [ %.0122, %90 ], [ %.0122, %89 ], [ %.0122, %100 ], [ %.0122, %99 ], [ %.0122, %110 ], [ %.0122, %109 ], [ %.0122, %126 ], [ %.0122, %127 ], [ %.0122, %122 ], [ %.0122, %123 ]
+  %.193 = phi i1 [ %.092116, %27 ], [ %.092116, %36 ], [ %.092116, %46 ], [ %.092116, %52 ], [ %.092116, %62 ], [ %.092116, %81 ], [ %.092116, %140 ], [ %.092116, %142 ], [ true, %90 ], [ true, %89 ], [ false, %100 ], [ false, %99 ], [ %.092116, %110 ], [ %.092116, %109 ], [ %.092116, %126 ], [ %.092116, %127 ], [ %.092116, %122 ], [ %.092116, %123 ]
+  %.191 = phi i1 [ %.090117, %27 ], [ %.090117, %36 ], [ %.090117, %46 ], [ %.090117, %52 ], [ %.090117, %62 ], [ %.090117, %81 ], [ %.090117, %140 ], [ %.090117, %142 ], [ false, %90 ], [ false, %89 ], [ true, %100 ], [ true, %99 ], [ %.090117, %110 ], [ %.090117, %109 ], [ %.090117, %126 ], [ %.090117, %127 ], [ %.090117, %122 ], [ %.090117, %123 ]
+  %.189 = phi i1 [ %.088118, %27 ], [ %.088118, %36 ], [ %.088118, %46 ], [ %.088118, %52 ], [ %.088118, %62 ], [ %.088118, %81 ], [ %.088118, %140 ], [ %.088118, %142 ], [ %.088118, %90 ], [ %.088118, %89 ], [ %.088118, %100 ], [ %.088118, %99 ], [ true, %110 ], [ true, %109 ], [ false, %126 ], [ false, %127 ], [ false, %122 ], [ false, %123 ]
+  %.187 = phi i1 [ %.086119, %27 ], [ %.086119, %36 ], [ %.086119, %46 ], [ %.086119, %52 ], [ %.086119, %62 ], [ %.086119, %81 ], [ %.086119, %140 ], [ %.086119, %142 ], [ %.086119, %90 ], [ %.086119, %89 ], [ %.086119, %100 ], [ %.086119, %99 ], [ false, %110 ], [ false, %109 ], [ true, %126 ], [ true, %127 ], [ true, %122 ], [ true, %123 ]
+  %.185 = phi i1 [ %.084120, %27 ], [ true, %36 ], [ false, %46 ], [ %.084120, %52 ], [ %.084120, %62 ], [ %.084120, %81 ], [ %.084120, %140 ], [ %.084120, %142 ], [ %.084120, %90 ], [ %.084120, %89 ], [ %.084120, %100 ], [ %.084120, %99 ], [ %.084120, %110 ], [ %.084120, %109 ], [ %.084120, %126 ], [ %.084120, %127 ], [ %.084120, %122 ], [ %.084120, %123 ]
+  %.1 = phi i1 [ %.0121, %27 ], [ false, %36 ], [ true, %46 ], [ %.0121, %52 ], [ %.0121, %62 ], [ %.0121, %81 ], [ %.0121, %140 ], [ %.0121, %142 ], [ %.0121, %90 ], [ %.0121, %89 ], [ %.0121, %100 ], [ %.0121, %99 ], [ %.0121, %110 ], [ %.0121, %109 ], [ %.0121, %126 ], [ %.0121, %127 ], [ %.0121, %122 ], [ %.0121, %123 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %146 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.next
   %147 = load ptr, ptr %146, align 8
@@ -1474,8 +1474,8 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br label %148
 
 148:                                              ; preds = %16, %._crit_edge, %144, %137, %116, %106, %96, %86, %78, %70, %59, %44, %34
-  %.096 = phi i32 [ -43, %34 ], [ -43, %44 ], [ -43, %59 ], [ -43, %70 ], [ -43, %78 ], [ -43, %86 ], [ -43, %96 ], [ -43, %106 ], [ -43, %116 ], [ -43, %137 ], [ -5, %144 ], [ 0, %._crit_edge ], [ 0, %16 ]
-  ret i32 %.096
+  %.095 = phi i32 [ -43, %34 ], [ -43, %44 ], [ -43, %59 ], [ -43, %70 ], [ -43, %78 ], [ -43, %86 ], [ -43, %96 ], [ -43, %106 ], [ -43, %116 ], [ -43, %137 ], [ -5, %144 ], [ 0, %._crit_edge ], [ 0, %16 ]
+  ret i32 %.095
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

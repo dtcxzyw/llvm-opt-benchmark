@@ -171,7 +171,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
   %m_test_dir = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !7
   %1 = getelementptr inbounds i8, ptr %this, i64 32
@@ -522,7 +522,8 @@ cleanup.action70:                                 ; preds = %ehcleanup66, %_ZNKS
   br label %ehcleanup137
 
 if.end72:                                         ; preds = %invoke.cont49
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %18, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %18
 
 18:                                               ; preds = %if.end72
   call void @_ZTH10infostream()
@@ -641,7 +642,7 @@ lpad73:                                           ; preds = %call1.i.noexc, %_ZN
 for.body:                                         ; preds = %invoke.cont76, %invoke.cont131
   %it.sroa.0.0379 = phi ptr [ %it.sroa.0.0, %invoke.cont131 ], [ %it.sroa.0.0377, %invoke.cont76 ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0379, i64 16
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %31, label %_ZTW10infostream.exit278
+  br i1 %.not, label %_ZTW10infostream.exit278, label %31
 
 31:                                               ; preds = %for.body
   call void @_ZTH10infostream()
@@ -661,7 +662,7 @@ invoke.cont87:                                    ; preds = %_ZTW10infostream.ex
           to label %invoke.cont89 unwind label %lpad86.loopexit
 
 invoke.cont89:                                    ; preds = %invoke.cont87
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %34, label %_ZTW10infostream.exit284
+  br i1 %.not, label %_ZTW10infostream.exit284, label %34
 
 34:                                               ; preds = %invoke.cont89
   call void @_ZTH10infostream()
@@ -1575,7 +1576,7 @@ entry:
   %agg.tmp137 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp138 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %v) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16VoxelManipulator, i64 16), ptr %v, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16VoxelManipulator, i64 16), ptr %v, align 8, !tbaa !4
   %m_area.i = getelementptr inbounds i8, ptr %v, i64 8
   store i16 1, ptr %m_area.i, align 8, !tbaa !27
   %Y.i.i.i = getelementptr inbounds i8, ptr %v, i64 10
@@ -1586,7 +1587,8 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %MaxEdge.i.i, i8 0, i64 12, i1 false)
   %m_data.i = getelementptr inbounds i8, ptr %v, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_data.i, i8 0, i64 16, i1 false)
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH10infostream()
@@ -1607,7 +1609,7 @@ invoke.cont:                                      ; preds = %_ZTW10infostream.ex
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %4, label %_ZTW10infostream.exit173
+  br i1 %.not, label %_ZTW10infostream.exit173, label %4
 
 4:                                                ; preds = %invoke.cont2
   call void @_ZTH10infostream()
@@ -1747,7 +1749,7 @@ invoke.cont11:                                    ; preds = %invoke.cont5
   %30 = and i8 %29, -3
   store i8 %30, ptr %arrayidx6.i.i, align 1, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i.i) #22
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %31, label %_ZTW10infostream.exit180
+  br i1 %.not, label %_ZTW10infostream.exit180, label %31
 
 31:                                               ; preds = %invoke.cont11
   call void @_ZTH10infostream()
@@ -1860,7 +1862,7 @@ cleanup.action:                                   ; preds = %ehcleanup31, %_ZNKS
   br label %ehcleanup154
 
 if.end:                                           ; preds = %invoke.cont19
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %49, label %_ZTW10infostream.exit190
+  br i1 %.not, label %_ZTW10infostream.exit190, label %49
 
 49:                                               ; preds = %if.end
   call void @_ZTH10infostream()
@@ -1968,7 +1970,7 @@ cleanup.action61:                                 ; preds = %ehcleanup57, %_ZNKS
   br label %ehcleanup154
 
 if.end63:                                         ; preds = %catch
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %64, label %_ZTW10infostream.exit204
+  br i1 %.not, label %_ZTW10infostream.exit204, label %64
 
 64:                                               ; preds = %if.end63
   call void @_ZTH10infostream()
@@ -1988,7 +1990,7 @@ invoke.cont65:                                    ; preds = %_ZTW10infostream.ex
           to label %invoke.cont67 unwind label %lpad
 
 invoke.cont67:                                    ; preds = %invoke.cont65
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %67, label %_ZTW10infostream.exit211
+  br i1 %.not, label %_ZTW10infostream.exit211, label %67
 
 67:                                               ; preds = %invoke.cont67
   call void @_ZTH10infostream()
@@ -2020,7 +2022,7 @@ invoke.cont78:                                    ; preds = %if.then.i213, %invo
           to label %invoke.cont82 unwind label %lpad81
 
 invoke.cont82:                                    ; preds = %invoke.cont78
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %69, label %_ZTW10infostream.exit223
+  br i1 %.not, label %_ZTW10infostream.exit223, label %69
 
 69:                                               ; preds = %invoke.cont82
   call void @_ZTH10infostream()
@@ -2586,7 +2588,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 define linkonce_odr dso_local void @_ZN24InvalidPositionExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i, align 8, !tbaa !63
@@ -2639,14 +2641,14 @@ _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV24InvalidPositionException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV24InvalidPositionException, i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !7
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2672,7 +2674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24InvalidPositionExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !7
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2707,7 +2709,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !7
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -3325,14 +3327,14 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !63
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !59
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20TestVoxelManipulator, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20TestVoxelManipulator, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !7
   %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32)
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i

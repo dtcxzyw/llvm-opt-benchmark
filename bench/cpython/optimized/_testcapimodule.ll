@@ -4337,16 +4337,16 @@ if.end16:                                         ; preds = %if.end12
   call void @PyThread_release_lock(ptr noundef %13) #15
   call void @PyEval_RestoreThread(ptr noundef %call17) #15
   %14 = load i32, ptr @_Py_NoneStruct, align 8
-  %add.i.i7 = add i32 %14, 1
-  %cmp.i.i8 = icmp eq i32 %add.i.i7, 0
-  br i1 %cmp.i.i8, label %do.body, label %if.end.i.i9
+  %add.i.i8 = add i32 %14, 1
+  %cmp.i.i9 = icmp eq i32 %add.i.i8, 0
+  br i1 %cmp.i.i9, label %do.body, label %if.end.i.i10
 
-if.end.i.i9:                                      ; preds = %if.end16
-  store i32 %add.i.i7, ptr @_Py_NoneStruct, align 8
+if.end.i.i10:                                     ; preds = %if.end16
+  store i32 %add.i.i8, ptr @_Py_NoneStruct, align 8
   br label %do.body
 
-do.body:                                          ; preds = %if.end.i.i9, %if.end16, %if.then5, %if.then11
-  %res.0 = phi ptr [ null, %if.then11 ], [ null, %if.then5 ], [ @_Py_NoneStruct, %if.end16 ], [ @_Py_NoneStruct, %if.end.i.i9 ]
+do.body:                                          ; preds = %if.end.i.i10, %if.end16, %if.then5, %if.then11
+  %res.0 = phi ptr [ null, %if.then11 ], [ null, %if.then5 ], [ @_Py_NoneStruct, %if.end16 ], [ @_Py_NoneStruct, %if.end.i.i10 ]
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @test_c_thread, i64 16), align 8
   %cmp20.not = icmp eq ptr %15, null
   br i1 %cmp20.not, label %do.end, label %if.then21

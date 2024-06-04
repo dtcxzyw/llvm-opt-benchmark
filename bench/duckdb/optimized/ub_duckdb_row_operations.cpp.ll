@@ -1428,7 +1428,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc:                  ; preds = %if.then.i.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !92, !noalias !123
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i.i1132, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !94, !noalias !123
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i1132, align 8, !tbaa !95, !noalias !123
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i1132, align 8, !tbaa !95, !noalias !123
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i.i1132, i64 16
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !128, !noalias !123
   %call.i15.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znam(i64 noundef 256) #23
@@ -8403,7 +8403,7 @@ declare void @_ZN6duckdb23NotImplementedExceptionC1ERKNSt7__cxx1112basic_stringI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !95
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !95
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !39
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -22382,7 +22382,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc:                  ; preds = %if.then.i.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !92, !noalias !400
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i.i191, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !94, !noalias !400
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i191, align 8, !tbaa !95, !noalias !400
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i191, align 8, !tbaa !95, !noalias !400
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i.i191, i64 16
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !405, !noalias !400
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %22, 63
@@ -23081,7 +23081,7 @@ if.then.i.i:                                      ; preds = %for.body16
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !92, !noalias !419
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !94, !noalias !419
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i, align 8, !tbaa !95, !noalias !419
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i, align 8, !tbaa !95, !noalias !419
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i.i, i64 16
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !405, !noalias !419
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %12, 63
@@ -23217,7 +23217,7 @@ call5.i.i.i17.i.i.i.i.i.noexc:                    ; preds = %for.cond.cleanup31
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !92, !noalias !429
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i200, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !94, !noalias !429
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i200, align 8, !tbaa !95, !noalias !429
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i200, align 8, !tbaa !95, !noalias !429
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i200, i64 16
   invoke void @_ZN6duckdb13SelectionDataC1Em(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i.i.i.i.i.i.i, i64 noundef 2048)
           to label %_ZSt11make_sharedIN6duckdb13SelectionDataEJRmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !429
@@ -23385,7 +23385,7 @@ if.then.i.i169:                                   ; preds = %if.else.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i203, align 8, !tbaa !92, !noalias !433
   %_M_weak_count.i.i.i.i.i.i.i.i204 = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i.i202, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i204, align 4, !tbaa !94, !noalias !433
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i202, align 8, !tbaa !95, !noalias !433
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i.i202, align 8, !tbaa !95, !noalias !433
   %_M_impl.i.i.i.i.i.i.i.i205 = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i.i202, i64 16
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i205, align 8, !tbaa !405, !noalias !433
   %add.i.i.i.i.i.i.i.i.i.i.i206 = add i64 %49, 63
@@ -23819,7 +23819,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !92, !noalias !447
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !94, !noalias !447
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !95, !noalias !447
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !95, !noalias !447
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i, i64 16
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !405, !noalias !447
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63

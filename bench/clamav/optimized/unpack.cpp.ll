@@ -797,7 +797,7 @@ _ZN12SubAllocator12AllocContextEv.exit:           ; preds = %60
 
 70:                                               ; preds = %_ZN12SubAllocator12AllocContextEv.exit
   %71 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %71, align 8
   tail call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -866,7 +866,7 @@ _ZN12SubAllocator10AllocUnitsEi.exit:             ; preds = %90, %98
 
 107:                                              ; preds = %_ZN12SubAllocator10AllocUnitsEi.exit
   %108 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %108, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %108, align 8
   tail call void @__cxa_throw(ptr nonnull %108, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -14539,7 +14539,7 @@ _ZN16FragmentedWindow5ResetEv.exit.preheader:     ; preds = %7
 
 ._crit_edge:                                      ; preds = %9, %13
   %16 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8
   tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -14560,7 +14560,7 @@ _ZN16FragmentedWindow5ResetEv.exit._crit_edge:    ; preds = %_ZN16FragmentedWind
 
 23:                                               ; preds = %_ZN16FragmentedWindow5ResetEv.exit._crit_edge
   %24 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %24, align 8
   tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -14986,7 +14986,7 @@ define void @_ZN6Unpack4InitEmb(ptr nocapture noundef nonnull align 8 dereferenc
 
 19:                                               ; preds = %.thread
   %20 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %20, align 8
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -15009,7 +15009,7 @@ define void @_ZN6Unpack4InitEmb(ptr nocapture noundef nonnull align 8 dereferenc
 
 29:                                               ; preds = %.thread34
   %30 = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %30, align 8
   tail call void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 

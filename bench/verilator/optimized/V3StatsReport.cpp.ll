@@ -351,7 +351,7 @@ define dso_local void @_ZN7V3Stats7addStatERK11V3Statistic(ptr noundef nonnull a
   br i1 %.not.i.i, label %17, label %4
 
 4:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -625,7 +625,7 @@ define linkonce_odr dso_local void @_ZN7V3Stats11addStatPerfERKNSt7__cxx1112basi
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc8 unwind label %33
@@ -658,7 +658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not.i.i.i, label %30, label %21
 
 21:                                               ; preds = %15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc11 unwind label %35
@@ -1930,7 +1930,7 @@ _ZNKSt6vectorI11V3StatisticSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %3
 _ZNSt12_Vector_baseI11V3StatisticSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI11V3StatisticSaIS0_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorI11V3StatisticSaIS0_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %class.V3Statistic, ptr %23, i64 %19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26)
@@ -2100,7 +2100,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPK11V3Statisti
 .lr.ph:                                           ; preds = %3, %12
   %.019 = phi ptr [ %16, %12 ], [ %2, %3 ]
   %.01218 = phi ptr [ %15, %12 ], [ %0, %3 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %.019, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %.019, align 8
   %4 = getelementptr inbounds i8, ptr %.019, i64 8
   %5 = getelementptr inbounds i8, ptr %.01218, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)

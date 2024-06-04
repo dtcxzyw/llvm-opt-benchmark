@@ -283,7 +283,8 @@ entry:
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %0, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %0
 
 0:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream()
@@ -384,7 +385,8 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.cond
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %2, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %2
 
 2:                                                ; preds = %if.then
   call void @_ZTH13verbosestream()
@@ -524,7 +526,8 @@ for.end:                                          ; preds = %invoke.cont22
   br i1 %cmp.i68.not.not.le, label %if.then35, label %cleanup49
 
 if.then35:                                        ; preds = %for.end
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %18, label %_ZTW11errorstream.exit
+  %.not5 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not5, label %_ZTW11errorstream.exit, label %18
 
 18:                                               ; preds = %if.then35
   call void @_ZTH11errorstream()
@@ -669,7 +672,8 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %2, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %2
 
 2:                                                ; preds = %if.then
   call void @_ZTH11errorstream()

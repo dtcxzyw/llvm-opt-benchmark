@@ -1795,7 +1795,7 @@ declare void @_ZN10VIdProtect14protectWordsIfERKNSt7__cxx1112basic_stringIcSt11c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 %1, ptr noundef %2) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstNode, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
@@ -6705,7 +6705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %30 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
   %31 = add i64 %30, 1
   store i64 %31, ptr @_ZN7AstNode12s_editCntGblE, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %15, align 8
   %32 = getelementptr inbounds i8, ptr %15, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc25 unwind label %76
@@ -6766,7 +6766,7 @@ _ZN7AstNode7addNextEPS_.exit.i.i.i.i.i:           ; preds = %.preheader.i.i.i.i.
   %55 = getelementptr inbounds i8, ptr %15, i64 184
   %56 = zext i1 %54 to i8
   store i8 %56, ptr %55, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstBegin, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstBegin, i64 16), ptr %15, align 8
   %57 = getelementptr inbounds i8, ptr %15, i64 185
   %58 = load i8, ptr %57, align 1
   %59 = and i8 %58, -8
@@ -16694,7 +16694,7 @@ define internal void @_GLOBAL__sub_I_V3Ast.cpp() #21 section ".text.startup" per
   store i32 1, ptr %3, align 8, !noalias !133
   %4 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !133
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !133
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !133
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA1_KcEEvPT_DpOT0_(ptr noundef nonnull %5, ptr noundef nonnull align 1 dereferenceable(1) @.str.553)
           to label %__cxx_global_var_init.552.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !133
@@ -16719,7 +16719,7 @@ __cxx_global_var_init.552.exit:                   ; preds = %0
   store i32 1, ptr %9, align 8, !noalias !137
   %10 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 1, ptr %10, align 4, !noalias !137
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !137
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !137
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   invoke void @_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA5_KcEEvPT_DpOT0_(ptr noundef nonnull %11, ptr noundef nonnull align 1 dereferenceable(5) @.str.555)
           to label %__cxx_global_var_init.554.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i1, !noalias !137

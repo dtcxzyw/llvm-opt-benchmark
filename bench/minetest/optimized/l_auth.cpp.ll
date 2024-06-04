@@ -289,7 +289,7 @@ entry:
 
 dynamic_cast.notnull:                             ; preds = %entry
   %vtable = load ptr, ptr %call, align 8, !tbaa !12
-  %1 = icmp eq ptr %vtable, getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV17ServerEnvironment, i64 16)
+  %1 = icmp eq ptr %vtable, getelementptr inbounds (i8, ptr @_ZTV17ServerEnvironment, i64 16)
   br i1 %1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %dynamic_cast.notnull, %entry
@@ -382,7 +382,7 @@ entry:
 
 dynamic_cast.notnull.i:                           ; preds = %entry
   %vtable.i = load ptr, ptr %call.i, align 8, !tbaa !12
-  %1 = icmp eq ptr %vtable.i, getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV17ServerEnvironment, i64 16)
+  %1 = icmp eq ptr %vtable.i, getelementptr inbounds (i8, ptr @_ZTV17ServerEnvironment, i64 16)
   br i1 %1, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread
 
 _ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread: ; preds = %dynamic_cast.notnull.i, %entry
@@ -723,7 +723,7 @@ entry:
 
 dynamic_cast.notnull.i:                           ; preds = %entry
   %vtable.i = load ptr, ptr %call.i, align 8, !tbaa !12
-  %1 = icmp eq ptr %vtable.i, getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV17ServerEnvironment, i64 16)
+  %1 = icmp eq ptr %vtable.i, getelementptr inbounds (i8, ptr @_ZTV17ServerEnvironment, i64 16)
   br i1 %1, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread
 
 _ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread: ; preds = %dynamic_cast.notnull.i, %entry
@@ -1087,7 +1087,7 @@ entry:
 
 dynamic_cast.notnull.i:                           ; preds = %entry
   %vtable.i = load ptr, ptr %call.i, align 8, !tbaa !12
-  %1 = icmp eq ptr %vtable.i, getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV17ServerEnvironment, i64 16)
+  %1 = icmp eq ptr %vtable.i, getelementptr inbounds (i8, ptr @_ZTV17ServerEnvironment, i64 16)
   br i1 %1, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread
 
 _ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread: ; preds = %dynamic_cast.notnull.i, %entry
@@ -1332,7 +1332,7 @@ entry:
 
 dynamic_cast.notnull.i:                           ; preds = %entry
   %vtable.i = load ptr, ptr %call.i, align 8, !tbaa !12
-  %1 = icmp eq ptr %vtable.i, getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV17ServerEnvironment, i64 16)
+  %1 = icmp eq ptr %vtable.i, getelementptr inbounds (i8, ptr @_ZTV17ServerEnvironment, i64 16)
   br i1 %1, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread
 
 _ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread: ; preds = %dynamic_cast.notnull.i, %entry
@@ -1461,7 +1461,7 @@ entry:
 
 dynamic_cast.notnull.i:                           ; preds = %entry
   %vtable.i = load ptr, ptr %call.i, align 8, !tbaa !12
-  %1 = icmp eq ptr %vtable.i, getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV17ServerEnvironment, i64 16)
+  %1 = icmp eq ptr %vtable.i, getelementptr inbounds (i8, ptr @_ZTV17ServerEnvironment, i64 16)
   br i1 %1, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread
 
 _ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread: ; preds = %dynamic_cast.notnull.i, %entry
@@ -1654,7 +1654,7 @@ entry:
 
 dynamic_cast.notnull.i:                           ; preds = %entry
   %vtable.i = load ptr, ptr %call.i, align 8, !tbaa !12
-  %1 = icmp eq ptr %vtable.i, getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV17ServerEnvironment, i64 16)
+  %1 = icmp eq ptr %vtable.i, getelementptr inbounds (i8, ptr @_ZTV17ServerEnvironment, i64 16)
   br i1 %1, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit, label %_ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread
 
 _ZN10ModApiAuth9getAuthDbEP9lua_State.exit.thread: ; preds = %dynamic_cast.notnull.i, %entry

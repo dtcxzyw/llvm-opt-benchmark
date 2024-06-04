@@ -551,18 +551,18 @@ define dso_local void @evsig_free_globals_() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @evsig_base_lock, align 8
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %evsig_free_globals_locks.exit, label %do.body.i
+  br i1 %cmp.not.i, label %evsig_free_globals_locks.exit, label %land.lhs.true.i
 
-do.body.i:                                        ; preds = %entry
+land.lhs.true.i:                                  ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %do.end.i, label %if.then2.i
 
-if.then2.i:                                       ; preds = %do.body.i
+if.then2.i:                                       ; preds = %land.lhs.true.i
   tail call void %1(ptr noundef nonnull %0, i32 noundef 0) #7
   br label %do.end.i
 
-do.end.i:                                         ; preds = %if.then2.i, %do.body.i
+do.end.i:                                         ; preds = %if.then2.i, %land.lhs.true.i
   store ptr null, ptr @evsig_base_lock, align 8
   br label %evsig_free_globals_locks.exit
 

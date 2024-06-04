@@ -102,7 +102,7 @@ if.then.i.i9:                                     ; preds = %_ZNSt10unique_ptrIN
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb25NoOperatorCachingVerifierE, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb25NoOperatorCachingVerifierE, i64 16), ptr %this, align 8, !tbaa !15
   ret void
 
 lpad3:                                            ; preds = %entry

@@ -5462,8 +5462,8 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   %.pr88 = phi ptr [ %.pr.pre, %if.end37 ], [ %call28, %land.lhs.true ]
   %err42 = getelementptr inbounds i8, ptr %.pr88, i64 272
   %19 = load i32, ptr %err42, align 8
-  %tobool43 = icmp eq i32 %19, 0
-  br i1 %tobool43, label %if.else59, label %if.then56
+  %tobool55.not = icmp eq i32 %19, 0
+  br i1 %tobool55.not, label %if.else59, label %if.then56
 
 if.then56:                                        ; preds = %if.else
   %errstr = getelementptr inbounds i8, ptr %.pr88, i64 280
@@ -5562,8 +5562,8 @@ if.else100:                                       ; preds = %land.lhs.true87, %i
   %.pr8191 = phi ptr [ %.pr81.pre, %if.end96 ], [ %call83, %land.lhs.true87 ]
   %err102 = getelementptr inbounds i8, ptr %.pr8191, i64 272
   %38 = load i32, ptr %err102, align 8
-  %tobool103 = icmp eq i32 %38, 0
-  br i1 %tobool103, label %if.else119, label %if.then115
+  %tobool114.not = icmp eq i32 %38, 0
+  br i1 %tobool114.not, label %if.else119, label %if.then115
 
 if.then115:                                       ; preds = %if.else100
   %errstr117 = getelementptr inbounds i8, ptr %.pr8191, i64 280
@@ -7903,12 +7903,12 @@ if.end11:                                         ; preds = %if.else, %if.end
 
 if.else14:                                        ; preds = %if.end11
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5452), align 4
-  %tobool15 = icmp ne i32 %11, 0
+  %tobool15.not = icmp eq i32 %11, 0
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 316), align 4
-  %tobool16 = icmp ne i32 %12, 0
-  %or.cond = select i1 %tobool15, i1 %tobool16, i1 false
+  %tobool16.not = icmp eq i32 %12, 0
+  %or.cond = select i1 %tobool15.not, i1 true, i1 %tobool16.not
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 312), align 8
-  %spec.select = select i1 %or.cond, i32 %12, i32 %13
+  %spec.select = select i1 %or.cond, i32 %13, i32 %12
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else14, %if.end11
@@ -12539,11 +12539,11 @@ if.then27:                                        ; preds = %if.then16, %if.end2
   %25 = load ptr, ptr %arrayidx29, align 8
   %integer30 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load i64, ptr %integer30, align 8
-  %cmp31 = icmp eq i64 %23, %26
+  %cmp31.not = icmp eq i64 %23, %26
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp33 = icmp sgt i32 %27, 2
-  %or.cond1 = select i1 %cmp31, i1 true, i1 %cmp33
-  br i1 %or.cond1, label %if.end42, label %if.end35
+  %or.cond22 = select i1 %cmp31.not, i1 true, i1 %cmp33
+  br i1 %or.cond22, label %if.end42, label %if.end35
 
 if.end35:                                         ; preds = %if.then27
   %name = getelementptr inbounds i8, ptr %privdata, i64 8

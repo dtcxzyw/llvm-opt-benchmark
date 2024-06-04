@@ -12,42 +12,42 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @is_valid_hostid() local_unnamed_addr #0 {
   %1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @hostid) #6
   %.not = icmp eq i64 %1, 36
-  br i1 %.not, label %.preheader, label %16
+  br i1 %.not, label %.preheader, label %12
 
 .preheader:                                       ; preds = %0, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %0 ]
-  %.01423 = phi i32 [ %spec.select, %.preheader ], [ 0, %0 ]
+  %.0616 = phi i32 [ %spec.select, %.preheader ], [ 0, %0 ]
   %2 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 %indvars.iv
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 45
   %5 = zext i1 %4 to i32
-  %spec.select = add nuw nsw i32 %.01423, %5
+  %spec.select = add nuw nsw i32 %.0616, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
   br i1 %exitcond.not, label %6, label %.preheader
 
 6:                                                ; preds = %.preheader
-  %.not16 = icmp eq i32 %spec.select, 4
-  br i1 %.not16, label %7, label %16
+  %.not8 = icmp eq i32 %spec.select, 4
+  br i1 %.not8, label %7, label %12
 
 7:                                                ; preds = %6
   %8 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 8), align 8
-  %9 = icmp eq i8 %8, 45
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 13), align 1
-  %11 = icmp eq i8 %10, 45
-  %or.cond.not22 = select i1 %9, i1 %11, i1 false
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 18), align 2
-  %13 = icmp eq i8 %12, 45
-  %or.cond5.not19 = select i1 %or.cond.not22, i1 %13, i1 false
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 23), align 1
-  %15 = icmp eq i8 %14, 45
-  %or.cond8.not = select i1 %or.cond5.not19, i1 %15, i1 false
-  %. = zext i1 %or.cond8.not to i32
-  br label %16
+  %.not9 = icmp eq i8 %8, 45
+  %9 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 13), align 1
+  %.not10 = icmp eq i8 %9, 45
+  %or.cond = select i1 %.not9, i1 %.not10, i1 false
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 18), align 2
+  %.not11 = icmp eq i8 %10, 45
+  %or.cond13 = select i1 %or.cond, i1 %.not11, i1 false
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 23), align 1
+  %.not12 = icmp eq i8 %11, 45
+  %or.cond14 = select i1 %or.cond13, i1 %.not12, i1 false
+  %spec.select15 = zext i1 %or.cond14 to i32
+  br label %12
 
-16:                                               ; preds = %7, %6, %0
-  %.015 = phi i32 [ 0, %0 ], [ 0, %6 ], [ %., %7 ]
-  ret i32 %.015
+12:                                               ; preds = %7, %6, %0
+  %.07 = phi i32 [ 0, %0 ], [ 0, %6 ], [ %spec.select15, %7 ]
+  ret i32 %.07
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -57,7 +57,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 define noalias ptr @get_hostid(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @hostid, ptr noundef nonnull dereferenceable(5) @.str, i64 5)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %21, label %2
+  br i1 %.not, label %17, label %2
 
 2:                                                ; preds = %1
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @hostid) #6
@@ -66,45 +66,45 @@ define noalias ptr @get_hostid(ptr nocapture noundef readnone %0) local_unnamed_
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %2 ]
-  %.01423.i = phi i32 [ %spec.select.i, %.preheader.i ], [ 0, %2 ]
+  %.0616.i = phi i32 [ %spec.select.i, %.preheader.i ], [ 0, %2 ]
   %4 = getelementptr inbounds [37 x i8], ptr @hostid, i64 0, i64 %indvars.iv.i
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 45
   %7 = zext i1 %6 to i32
-  %spec.select.i = add nuw nsw i32 %.01423.i, %7
+  %spec.select.i = add nuw nsw i32 %.0616.i, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 36
   br i1 %exitcond.not.i, label %8, label %.preheader.i
 
 8:                                                ; preds = %.preheader.i
-  %.not16.i = icmp eq i32 %spec.select.i, 4
-  br i1 %.not16.i, label %is_valid_hostid.exit, label %is_valid_hostid.exit.thread
+  %.not8.i = icmp eq i32 %spec.select.i, 4
+  br i1 %.not8.i, label %is_valid_hostid.exit, label %is_valid_hostid.exit.thread
 
 is_valid_hostid.exit:                             ; preds = %8
   %9 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 8), align 8
-  %10 = icmp ne i8 %9, 45
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 13), align 1
-  %12 = icmp ne i8 %11, 45
-  %or.cond.not22.i.not9 = select i1 %10, i1 true, i1 %12
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 18), align 2
-  %14 = icmp ne i8 %13, 45
-  %or.cond5.not19.i.not6 = select i1 %or.cond.not22.i.not9, i1 true, i1 %14
-  %15 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 23), align 1
-  %16 = icmp ne i8 %15, 45
-  %or.cond8.not.i.not = select i1 %or.cond5.not19.i.not6, i1 true, i1 %16
-  br i1 %or.cond8.not.i.not, label %is_valid_hostid.exit.thread, label %18
+  %.not9.i = icmp ne i8 %9, 45
+  %10 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 13), align 1
+  %.not10.i = icmp ne i8 %10, 45
+  %or.cond.i.not5 = select i1 %.not9.i, i1 true, i1 %.not10.i
+  %11 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 18), align 2
+  %.not11.i = icmp ne i8 %11, 45
+  %or.cond13.i.not4 = select i1 %or.cond.i.not5, i1 true, i1 %.not11.i
+  %12 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 23), align 1
+  %.not12.i = icmp ne i8 %12, 45
+  %or.cond14.i.not = select i1 %or.cond13.i.not4, i1 true, i1 %.not12.i
+  br i1 %or.cond14.i.not, label %is_valid_hostid.exit.thread, label %14
 
 is_valid_hostid.exit.thread:                      ; preds = %8, %2, %is_valid_hostid.exit
-  %17 = tail call noalias dereferenceable_or_null(37) ptr @strdup(ptr noundef nonnull @.str.1) #7
-  br label %21
+  %13 = tail call noalias dereferenceable_or_null(37) ptr @strdup(ptr noundef nonnull @.str.1) #7
+  br label %17
 
-18:                                               ; preds = %is_valid_hostid.exit
-  %19 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @hostid) #7
-  %20 = tail call noalias ptr @strdup(ptr noundef nonnull @hostid) #7
-  br label %21
+14:                                               ; preds = %is_valid_hostid.exit
+  %15 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @hostid) #7
+  %16 = tail call noalias ptr @strdup(ptr noundef nonnull @hostid) #7
+  br label %17
 
-21:                                               ; preds = %1, %18, %is_valid_hostid.exit.thread
-  %.0 = phi ptr [ %20, %18 ], [ %17, %is_valid_hostid.exit.thread ], [ null, %1 ]
+17:                                               ; preds = %1, %14, %is_valid_hostid.exit.thread
+  %.0 = phi ptr [ %16, %14 ], [ %13, %is_valid_hostid.exit.thread ], [ null, %1 ]
   ret ptr %.0
 }
 

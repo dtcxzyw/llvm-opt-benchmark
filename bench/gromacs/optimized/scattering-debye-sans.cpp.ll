@@ -44,7 +44,7 @@ $_ZTVN3gmx22ComputeDebyeScatteringE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx9SansDebyeD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx9SansDebyeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx9SansDebyeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -71,7 +71,7 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EED2Ev.exit:     ; preds = %_ZNSt6vectorIdSaIdE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx9SansDebyeD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx9SansDebyeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx9SansDebyeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -118,7 +118,7 @@ define void @_ZN3gmx9SansDebyeC2ESt6vectorINS_7IsotopeESaIS2_EE(ptr noundef nonn
   %4 = alloca %"class.std::vector.0", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(145) %5, i8 0, i64 145, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx9SansDebyeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx9SansDebyeE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   %7 = load ptr, ptr %1, align 8
   store ptr %7, ptr %6, align 8
@@ -430,7 +430,7 @@ _ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EED2Ev.exit: ; preds = %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx22ComputeDebyeScatteringD2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx22ComputeDebyeScatteringE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22ComputeDebyeScatteringE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 136

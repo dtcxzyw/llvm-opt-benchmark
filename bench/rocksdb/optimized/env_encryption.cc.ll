@@ -619,7 +619,8 @@ lpad:                                             ; preds = %cond.true.i, %6
   br label %ehcleanup25
 
 if.end:                                           ; preds = %invoke.cont
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %4, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %4
 
 4:                                                ; preds = %if.end
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -628,7 +629,8 @@ if.end:                                           ; preds = %invoke.cont
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %if.end, %4
   %5 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %decrypt_data_nanos = getelementptr inbounds i8, ptr %5, i64 792
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %6, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %6
 
 6:                                                ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -970,7 +972,8 @@ if.end:                                           ; preds = %invoke.cont
   %add5 = add i64 %5, %add
   %offset_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %add5, ptr %offset_, align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %6, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %6
 
 6:                                                ; preds = %if.end
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -979,7 +982,8 @@ if.end:                                           ; preds = %invoke.cont
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %if.end, %6
   %7 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %decrypt_data_nanos = getelementptr inbounds i8, ptr %7, i64 792
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %8, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %8
 
 8:                                                ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -1170,7 +1174,8 @@ lpad:                                             ; preds = %cond.true.i, %7
   br label %ehcleanup18
 
 if.end:                                           ; preds = %invoke.cont
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %5, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %5
 
 5:                                                ; preds = %if.end
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -1179,7 +1184,8 @@ if.end:                                           ; preds = %invoke.cont
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %if.end, %5
   %6 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %decrypt_data_nanos = getelementptr inbounds i8, ptr %6, i64 792
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %7, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %7
 
 7:                                                ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -1470,7 +1476,8 @@ if.then:                                          ; preds = %entry
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8
   store i32 0, ptr %sev_.i.i.i, align 2
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %10, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %10
 
 10:                                               ; preds = %if.then
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -1479,7 +1486,8 @@ if.then:                                          ; preds = %entry
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %if.then, %10
   %11 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %encrypt_data_nanos = getelementptr inbounds i8, ptr %11, i64 784
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %12, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %12
 
 12:                                               ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -1723,7 +1731,8 @@ if.then:                                          ; preds = %entry
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8
   store i32 0, ptr %sev_.i.i.i, align 2
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %9, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %9
 
 9:                                                ; preds = %if.then
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -1732,7 +1741,8 @@ if.then:                                          ; preds = %entry
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %if.then, %9
   %10 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %encrypt_data_nanos = getelementptr inbounds i8, ptr %10, i64 784
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %11, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %11
 
 11:                                               ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -2180,7 +2190,8 @@ if.then:                                          ; preds = %entry
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i, align 8
   store i32 0, ptr %sev_.i.i.i, align 2
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %9, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %9
 
 9:                                                ; preds = %if.then
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -2189,7 +2200,8 @@ if.then:                                          ; preds = %entry
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %if.then, %9
   %10 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %encrypt_data_nanos = getelementptr inbounds i8, ptr %10, i64 784
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %11, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %11
 
 11:                                               ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -2409,7 +2421,8 @@ lpad:                                             ; preds = %cond.true.i, %7
   br label %ehcleanup18
 
 if.end:                                           ; preds = %invoke.cont
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %5, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %5
 
 5:                                                ; preds = %if.end
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -2418,7 +2431,8 @@ if.end:                                           ; preds = %invoke.cont
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %if.end, %5
   %6 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %decrypt_data_nanos = getelementptr inbounds i8, ptr %6, i64 792
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %7, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %7
 
 7:                                                ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -5740,7 +5754,8 @@ for.end:                                          ; preds = %for.body, %if.end
   %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %7, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %7
 
 7:                                                ; preds = %for.end
   call void @_ZTHN7rocksdb12perf_contextE()
@@ -5749,7 +5764,8 @@ for.end:                                          ; preds = %for.body, %if.end
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %for.end, %7
   %8 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %encrypt_data_nanos = getelementptr inbounds i8, ptr %8, i64 784
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %9, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %9
 
 9:                                                ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -6245,7 +6261,8 @@ ehcleanup:                                        ; preds = %lpad12, %lpad
 
 if.end17:                                         ; preds = %if.end
   call void @_ZN7rocksdb15CTRCipherStreamC2ERKSt10shared_ptrINS_11BlockCipherEEPKcm(ptr noundef nonnull align 8 dereferenceable(64) %cipherStream, ptr noundef nonnull align 8 dereferenceable(16) %cipher_, ptr noundef nonnull %add.ptr.i, i64 noundef %result.0.copyload.i.i)
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %6, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %6
 
 6:                                                ; preds = %if.end17
   call void @_ZTHN7rocksdb12perf_contextE()
@@ -6254,7 +6271,8 @@ if.end17:                                         ; preds = %if.end
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %if.end17, %6
   %7 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %decrypt_data_nanos = getelementptr inbounds i8, ptr %7, i64 792
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %8, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %8
 
 8:                                                ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()

@@ -237,9 +237,9 @@ declare noundef i32 @_ZN6colvar3cvc9set_paramERKNSt7__cxx1112basic_stringIcSt11c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar17orientation_angleD2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -279,9 +279,9 @@ _ZN6colvar11orientationD2Ev.exit:                 ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar17orientation_angleD0Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -676,8 +676,8 @@ declare noundef ptr @_ZN6colvar3cvc14get_param_gradERKNSt7__cxx1112basic_stringI
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar17orientation_angleD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -718,8 +718,8 @@ _ZN6colvar17orientation_angleD2Ev.exit:           ; preds = %_ZNSt6vectorIN12col
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar17orientation_angleD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -777,9 +777,9 @@ declare noundef i32 @_ZThn320_N6colvar3cvc17init_dependenciesEv(ptr noundef) unn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar16orientation_projD2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -819,9 +819,9 @@ _ZN6colvar11orientationD2Ev.exit:                 ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar16orientation_projD0Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -1172,8 +1172,8 @@ define void @_ZNK6colvar16orientation_proj11dist2_rgradERK11colvarvalueS3_(ptr d
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar16orientation_projD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -1214,8 +1214,8 @@ _ZN6colvar16orientation_projD2Ev.exit:            ; preds = %_ZNSt6vectorIN12col
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar16orientation_projD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -1256,9 +1256,9 @@ _ZN6colvar16orientation_projD0Ev.exit:            ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar4tiltD2Ev(ptr noundef nonnull align 8 dereferenceable(2360) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -1298,9 +1298,9 @@ _ZN6colvar11orientationD2Ev.exit:                 ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar4tiltD0Ev(ptr noundef nonnull align 8 dereferenceable(2360) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -1933,8 +1933,8 @@ define void @_ZNK6colvar4tilt11dist2_rgradERK11colvarvalueS3_(ptr dead_on_unwind
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar4tiltD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -1975,8 +1975,8 @@ _ZN6colvar4tiltD2Ev.exit:                         ; preds = %_ZNSt6vectorIN12col
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar4tiltD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -2017,9 +2017,9 @@ _ZN6colvar4tiltD0Ev.exit:                         ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar10spin_angleD2Ev(ptr noundef nonnull align 8 dereferenceable(2360) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -2059,9 +2059,9 @@ _ZN6colvar11orientationD2Ev.exit:                 ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar10spin_angleD0Ev(ptr noundef nonnull align 8 dereferenceable(2360) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -2780,8 +2780,8 @@ define void @_ZNK6colvar10spin_angle4wrapER11colvarvalue(ptr nocapture noundef n
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar10spin_angleD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -2822,8 +2822,8 @@ _ZN6colvar10spin_angleD2Ev.exit:                  ; preds = %_ZNSt6vectorIN12col
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar10spin_angleD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -2864,9 +2864,9 @@ _ZN6colvar10spin_angleD0Ev.exit:                  ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar9euler_phiD2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -2906,9 +2906,9 @@ _ZN6colvar11orientationD2Ev.exit:                 ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar9euler_phiD0Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -3411,8 +3411,8 @@ define void @_ZNK6colvar9euler_phi4wrapER11colvarvalue(ptr nocapture noundef non
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar9euler_phiD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -3453,8 +3453,8 @@ _ZN6colvar9euler_phiD2Ev.exit:                    ; preds = %_ZNSt6vectorIN12col
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar9euler_phiD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -3495,9 +3495,9 @@ _ZN6colvar9euler_phiD0Ev.exit:                    ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar9euler_psiD2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -3537,9 +3537,9 @@ _ZN6colvar11orientationD2Ev.exit:                 ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar9euler_psiD0Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -4041,8 +4041,8 @@ define void @_ZNK6colvar9euler_psi4wrapER11colvarvalue(ptr nocapture noundef non
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar9euler_psiD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -4083,8 +4083,8 @@ _ZN6colvar9euler_psiD2Ev.exit:                    ; preds = %_ZNSt6vectorIN12col
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar9euler_psiD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -4125,9 +4125,9 @@ _ZN6colvar9euler_psiD0Ev.exit:                    ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar11euler_thetaD2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -4167,9 +4167,9 @@ _ZN6colvar11orientationD2Ev.exit:                 ; preds = %_ZNSt6vectorIN12col
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar11euler_thetaD0Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -4568,8 +4568,8 @@ define void @_ZNK6colvar11euler_theta11dist2_rgradERK11colvarvalueS3_(ptr dead_o
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar11euler_thetaD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -4610,8 +4610,8 @@ _ZN6colvar11euler_thetaD2Ev.exit:                 ; preds = %_ZNSt6vectorIN12col
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar11euler_thetaD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -5752,9 +5752,9 @@ define void @_ZN6colvar11orientationC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   %4 = alloca %"class.std::allocator.28", align 1
   %5 = alloca i32, align 4
   tail call void @_ZN6colvar3cvcC2Ev(ptr noundef nonnull align 8 dereferenceable(1648) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1656
   %8 = getelementptr inbounds i8, ptr %0, i64 1680
   %9 = getelementptr inbounds i8, ptr %0, i64 1704
@@ -6016,9 +6016,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar11orientationD2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -6203,9 +6203,9 @@ define void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereference
   %3 = alloca %"class.std::allocator.28", align 1
   %4 = alloca i32, align 4
   tail call void @_ZN6colvar3cvcC2Ev(ptr noundef nonnull align 8 dereferenceable(1648) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 1656
   %7 = getelementptr inbounds i8, ptr %0, i64 1680
   %8 = getelementptr inbounds i8, ptr %0, i64 1704
@@ -9674,9 +9674,9 @@ define void @_ZN6colvar17orientation_angleC2ERKNSt7__cxx1112basic_stringIcSt11ch
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar17orientation_angleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17orientation_angleE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar17orientation_angleE, i64 248), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17orientation_angleE, i64 248), ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc unwind label %15
@@ -9760,9 +9760,9 @@ define void @_ZN6colvar16orientation_projC2ERKNSt7__cxx1112basic_stringIcSt11cha
   %4 = alloca %"class.std::allocator.28", align 1
   %5 = alloca i32, align 4
   tail call void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar16orientation_projE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar16orientation_projE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar16orientation_projE, i64 248), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar16orientation_projE, i64 248), ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc unwind label %18
@@ -9843,9 +9843,9 @@ define void @_ZN6colvar4tiltC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %4 = alloca %"class.std::allocator.28", align 1
   %5 = alloca i32, align 4
   tail call void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar4tiltE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar4tiltE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar4tiltE, i64 248), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar4tiltE, i64 248), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 2336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
@@ -9933,9 +9933,9 @@ define void @_ZN6colvar10spin_angleC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar10spin_angleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar10spin_angleE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar10spin_angleE, i64 248), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar10spin_angleE, i64 248), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 2336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
@@ -10016,9 +10016,9 @@ define void @_ZN6colvar10spin_angleC2Ev(ptr noundef nonnull align 8 dereferencea
   %3 = alloca %"class.std::allocator.28", align 1
   %4 = alloca i32, align 4
   tail call void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar10spin_angleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar10spin_angleE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar10spin_angleE, i64 248), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar10spin_angleE, i64 248), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 2336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
@@ -10096,9 +10096,9 @@ define void @_ZN6colvar9euler_phiC2ERKNSt7__cxx1112basic_stringIcSt11char_traits
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar9euler_phiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar9euler_phiE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar9euler_phiE, i64 248), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar9euler_phiE, i64 248), ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc unwind label %15
@@ -10170,9 +10170,9 @@ define void @_ZN6colvar9euler_phiC2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar9euler_phiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar9euler_phiE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar9euler_phiE, i64 248), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar9euler_phiE, i64 248), ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   %5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc unwind label %13
@@ -10240,9 +10240,9 @@ define void @_ZN6colvar9euler_psiC2ERKNSt7__cxx1112basic_stringIcSt11char_traits
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar9euler_psiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar9euler_psiE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar9euler_psiE, i64 248), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar9euler_psiE, i64 248), ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc unwind label %15
@@ -10314,9 +10314,9 @@ define void @_ZN6colvar9euler_psiC2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar9euler_psiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar9euler_psiE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar9euler_psiE, i64 248), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar9euler_psiE, i64 248), ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   %5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc unwind label %13
@@ -10384,9 +10384,9 @@ define void @_ZN6colvar11euler_thetaC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11euler_thetaE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11euler_thetaE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11euler_thetaE, i64 248), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11euler_thetaE, i64 248), ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc unwind label %15
@@ -10458,9 +10458,9 @@ define void @_ZN6colvar11euler_thetaC2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar11orientationC2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11euler_thetaE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11euler_thetaE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11euler_thetaE, i64 248), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11euler_thetaE, i64 248), ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   %5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc unwind label %13

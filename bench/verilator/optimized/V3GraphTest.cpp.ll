@@ -347,46 +347,46 @@ define dso_local void @_ZN7V3Graph8selfTestEv() #3 align 2 personality ptr @__gx
 20:                                               ; preds = %0, %17
   %21 = getelementptr inbounds i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   call void @_ZN7V3GraphC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17V3GraphTestStrong, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestStrong, i64 16), ptr %2, align 8
   invoke void @_ZN17V3GraphTestStrong7runTestEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZN11V3GraphTest3runEv.exit unwind label %29
 
 _ZN11V3GraphTest3runEv.exit:                      ; preds = %20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %2, align 8
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #16
   %23 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZN7V3GraphC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV15V3GraphTestAcyc, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15V3GraphTestAcyc, i64 16), ptr %3, align 8
   invoke void @_ZN15V3GraphTestAcyc7runTestEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN11V3GraphTest3runEv.exit3 unwind label %31
 
 _ZN11V3GraphTest3runEv.exit3:                     ; preds = %_ZN11V3GraphTest3runEv.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %3, align 8
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #16
   %25 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %4, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 8
   call void @_ZN7V3GraphC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV15V3GraphTestVars, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15V3GraphTestVars, i64 16), ptr %4, align 8
   invoke void @_ZN15V3GraphTestVars7runTestEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN11V3GraphTest3runEv.exit4 unwind label %33
 
 _ZN11V3GraphTest3runEv.exit4:                     ; preds = %_ZN11V3GraphTest3runEv.exit3
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %4, align 8
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #16
   %27 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %5, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 8
   call void @_ZN7V3GraphC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17V3GraphTestImport, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestImport, i64 16), ptr %5, align 8
   invoke void @_ZN11V3GraphTest8dumpSelfEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc unwind label %35
 
@@ -407,35 +407,35 @@ _ZN11V3GraphTest3runEv.exit4:                     ; preds = %_ZN11V3GraphTest3ru
           to label %_ZN11V3GraphTest3runEv.exit5 unwind label %35
 
 _ZN11V3GraphTest3runEv.exit5:                     ; preds = %.noexc8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %5, align 8
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #16
   ret void
 
 29:                                               ; preds = %20
   %30 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %2, align 8
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #16
   br label %37
 
 31:                                               ; preds = %_ZN11V3GraphTest3runEv.exit
   %32 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %3, align 8
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #16
   br label %37
 
 33:                                               ; preds = %_ZN11V3GraphTest3runEv.exit3
   %34 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %4, align 8
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #16
   br label %37
 
 35:                                               ; preds = %.noexc8, %.noexc7, %.noexc6, %.noexc, %_ZN11V3GraphTest3runEv.exit4
   %36 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %5, align 8
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #16
   br label %37
 
@@ -597,7 +597,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17V3GraphTestStrongD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   ret void
@@ -605,7 +605,7 @@ define linkonce_odr dso_local void @_ZN17V3GraphTestStrongD2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15V3GraphTestAcycD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   ret void
@@ -613,7 +613,7 @@ define linkonce_odr dso_local void @_ZN15V3GraphTestAcycD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15V3GraphTestVarsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   ret void
@@ -621,7 +621,7 @@ define linkonce_odr dso_local void @_ZN15V3GraphTestVarsD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17V3GraphTestImportD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   ret void
@@ -796,7 +796,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc90 unwind label %111
 
 .noexc90:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %24 unwind label %22
@@ -804,11 +804,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 22:                                               ; preds = %.noexc90
   %23 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %17, align 8
   br label %.body91
 
 24:                                               ; preds = %.noexc90
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %17, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
   %25 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -835,7 +835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit97: ; 
           to label %.noexc98 unwind label %115
 
 .noexc98:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit97
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %25, align 8
   %29 = getelementptr inbounds i8, ptr %25, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %32 unwind label %30
@@ -843,11 +843,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit97: ; 
 30:                                               ; preds = %.noexc98
   %31 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %25, align 8
   br label %.body99
 
 32:                                               ; preds = %.noexc98
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %25, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
   %33 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -874,7 +874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit106: ;
           to label %.noexc107 unwind label %119
 
 .noexc107:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit106
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %33, align 8
   %37 = getelementptr inbounds i8, ptr %33, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %40 unwind label %38
@@ -882,11 +882,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit106: ;
 38:                                               ; preds = %.noexc107
   %39 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %33, align 8
   br label %.body108
 
 40:                                               ; preds = %.noexc107
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %33, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
   %41 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -913,7 +913,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit115: ;
           to label %.noexc116 unwind label %123
 
 .noexc116:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit115
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %41, align 8
   %45 = getelementptr inbounds i8, ptr %41, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %48 unwind label %46
@@ -921,11 +921,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit115: ;
 46:                                               ; preds = %.noexc116
   %47 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %41, align 8
   br label %.body117
 
 48:                                               ; preds = %.noexc116
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %41, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
   %49 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -952,7 +952,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit124: ;
           to label %.noexc125 unwind label %127
 
 .noexc125:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit124
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %49, align 8
   %53 = getelementptr inbounds i8, ptr %49, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %56 unwind label %54
@@ -960,11 +960,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit124: ;
 54:                                               ; preds = %.noexc125
   %55 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %49, align 8
   br label %.body126
 
 56:                                               ; preds = %.noexc125
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %49, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
   %57 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -991,7 +991,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit133: ;
           to label %.noexc134 unwind label %131
 
 .noexc134:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit133
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %57, align 8
   %61 = getelementptr inbounds i8, ptr %57, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %64 unwind label %62
@@ -999,11 +999,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit133: ;
 62:                                               ; preds = %.noexc134
   %63 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %57, align 8
   br label %.body135
 
 64:                                               ; preds = %.noexc134
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %57, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #16
   %65 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -1030,7 +1030,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit142: ;
           to label %.noexc143 unwind label %135
 
 .noexc143:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit142
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %65, align 8
   %69 = getelementptr inbounds i8, ptr %65, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %72 unwind label %70
@@ -1038,15 +1038,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit142: ;
 70:                                               ; preds = %.noexc143
   %71 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %65, align 8
   br label %.body144
 
 72:                                               ; preds = %.noexc143
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %65, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #16
   %73 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %73, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %25, i32 noundef 2, i1 noundef zeroext true)
@@ -1054,7 +1054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit142: ;
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit: ; preds = %72
   %75 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %75, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %75, ptr noundef nonnull %16, ptr noundef nonnull %25, ptr noundef nonnull %33, i32 noundef 2, i1 noundef zeroext true)
@@ -1062,7 +1062,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit: ; preds = %72
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit149: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit
   %77 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %77, ptr noundef nonnull %16, ptr noundef nonnull %33, ptr noundef nonnull %41, i32 noundef 2, i1 noundef zeroext true)
@@ -1070,7 +1070,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit149: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit151: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit149
   %79 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %79, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %79, ptr noundef nonnull %16, ptr noundef nonnull %33, ptr noundef nonnull %49, i32 noundef 2, i1 noundef zeroext true)
@@ -1078,7 +1078,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit151: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit153: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit151
   %81 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %81, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull %16, ptr noundef nonnull %33, ptr noundef nonnull %57, i32 noundef 2, i1 noundef zeroext true)
@@ -1086,7 +1086,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit153: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit155: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit153
   %83 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %83, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull %16, ptr noundef nonnull %41, ptr noundef nonnull %25, i32 noundef 2, i1 noundef zeroext true)
@@ -1094,7 +1094,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit155: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit157: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit155
   %85 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %85, ptr noundef nonnull %16, ptr noundef nonnull %57, ptr noundef nonnull %49, i32 noundef 2, i1 noundef zeroext true)
@@ -1102,7 +1102,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit157: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit159: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit157
   %87 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %87, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %87, ptr noundef nonnull %16, ptr noundef nonnull %49, ptr noundef nonnull %57, i32 noundef 2, i1 noundef zeroext true)
@@ -1110,7 +1110,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit159: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit161: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit159
   %89 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %89, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull %16, ptr noundef nonnull %41, ptr noundef nonnull %65, i32 noundef 2, i1 noundef zeroext true)
@@ -1118,7 +1118,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit161: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit163: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit161
   %91 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %91, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull %16, ptr noundef nonnull %49, ptr noundef nonnull %65, i32 noundef 2, i1 noundef zeroext true)
@@ -1126,7 +1126,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit163: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit165: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit163
   %93 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %93, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %93, ptr noundef nonnull %16, ptr noundef nonnull %57, ptr noundef nonnull %65, i32 noundef 2, i1 noundef zeroext true)
@@ -1436,7 +1436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17V3GraphTestStrongD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
@@ -1449,7 +1449,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11V3GraphTestD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   ret void
@@ -1475,7 +1475,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   tail call void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5)
@@ -1700,16 +1700,16 @@ define linkonce_odr dso_local noundef ptr @_ZNK13V3GraphVertex5cloneEP7V3Graph(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20V3GraphTestVarVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20V3GraphTestVarVertexD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
@@ -1950,16 +1950,16 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17V3GraphTestVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17V3GraphTestVertexD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
@@ -2010,7 +2010,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK13V3GraphVertex23isInstanc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13V3GraphVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -2139,7 +2139,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc61 unwind label %81
 
 .noexc61:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %15, align 8
   %19 = getelementptr inbounds i8, ptr %15, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %22 unwind label %20
@@ -2147,11 +2147,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 20:                                               ; preds = %.noexc61
   %21 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %15, align 8
   br label %.body62
 
 22:                                               ; preds = %.noexc61
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %15, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
   %23 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2178,7 +2178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68: ; 
           to label %.noexc69 unwind label %85
 
 .noexc69:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %23, align 8
   %27 = getelementptr inbounds i8, ptr %23, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %30 unwind label %28
@@ -2186,11 +2186,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68: ; 
 28:                                               ; preds = %.noexc69
   %29 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %23, align 8
   br label %.body70
 
 30:                                               ; preds = %.noexc69
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %23, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
   %31 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2217,7 +2217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit77: ; 
           to label %.noexc78 unwind label %89
 
 .noexc78:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit77
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %31, align 8
   %35 = getelementptr inbounds i8, ptr %31, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %38 unwind label %36
@@ -2225,11 +2225,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit77: ; 
 36:                                               ; preds = %.noexc78
   %37 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %31, align 8
   br label %.body79
 
 38:                                               ; preds = %.noexc78
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %31, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
   %39 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2256,7 +2256,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86: ; 
           to label %.noexc87 unwind label %93
 
 .noexc87:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %39, align 8
   %43 = getelementptr inbounds i8, ptr %39, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %46 unwind label %44
@@ -2264,11 +2264,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86: ; 
 44:                                               ; preds = %.noexc87
   %45 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %39, align 8
   br label %.body88
 
 46:                                               ; preds = %.noexc87
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %39, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
   %47 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2295,7 +2295,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95: ; 
           to label %.noexc96 unwind label %97
 
 .noexc96:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %47, align 8
   %51 = getelementptr inbounds i8, ptr %47, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %54 unwind label %52
@@ -2303,11 +2303,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95: ; 
 52:                                               ; preds = %.noexc96
   %53 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %47, align 8
   br label %.body97
 
 54:                                               ; preds = %.noexc96
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %47, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
   %55 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2334,7 +2334,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit104: ;
           to label %.noexc105 unwind label %101
 
 .noexc105:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit104
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %55, align 8
   %59 = getelementptr inbounds i8, ptr %55, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %62 unwind label %60
@@ -2342,15 +2342,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit104: ;
 60:                                               ; preds = %.noexc105
   %61 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %55, align 8
   br label %.body106
 
 62:                                               ; preds = %.noexc105
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %55, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #16
   %63 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %63, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %23, i32 noundef 2, i1 noundef zeroext true)
@@ -2358,7 +2358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit104: ;
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit: ; preds = %62
   %65 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %65, ptr noundef nonnull %14, ptr noundef nonnull %23, ptr noundef nonnull %31, i32 noundef 2, i1 noundef zeroext true)
@@ -2366,7 +2366,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit: ; preds = %62
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit111: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit
   %67 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %67, ptr noundef nonnull %14, ptr noundef nonnull %31, ptr noundef nonnull %39, i32 noundef 2, i1 noundef zeroext true)
@@ -2374,7 +2374,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit111: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit113: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit111
   %69 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %69, ptr noundef nonnull %14, ptr noundef nonnull %31, ptr noundef nonnull %47, i32 noundef 2, i1 noundef zeroext true)
@@ -2382,7 +2382,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit113: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit115: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit113
   %71 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull %14, ptr noundef nonnull %31, ptr noundef nonnull %55, i32 noundef 2, i1 noundef zeroext true)
@@ -2390,7 +2390,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit115: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit117: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit115
   %73 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %73, ptr noundef nonnull %14, ptr noundef nonnull %39, ptr noundef nonnull %23, i32 noundef 2, i1 noundef zeroext true)
@@ -2398,7 +2398,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit117: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit119: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit117
   %75 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %75, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %75, ptr noundef nonnull %14, ptr noundef nonnull %47, ptr noundef nonnull %23, i32 noundef 2, i1 noundef zeroext true)
@@ -2406,7 +2406,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit119: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit121: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit119
   %77 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %77, ptr noundef nonnull %14, ptr noundef nonnull %55, ptr noundef nonnull %23, i32 noundef 2, i1 noundef zeroext true)
@@ -2623,7 +2623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15V3GraphTestAcycD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
@@ -2703,7 +2703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc204 unwind label %266
 
 .noexc204:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %45, align 8
   %49 = getelementptr inbounds i8, ptr %45, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %52 unwind label %50
@@ -2711,11 +2711,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 50:                                               ; preds = %.noexc204
   %51 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %45, align 8
   br label %.body205
 
 52:                                               ; preds = %.noexc204
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %45, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
   %53 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2742,7 +2742,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211: ;
           to label %.noexc212 unwind label %270
 
 .noexc212:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %53, align 8
   %57 = getelementptr inbounds i8, ptr %53, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %60 unwind label %58
@@ -2750,11 +2750,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211: ;
 58:                                               ; preds = %.noexc212
   %59 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %53, align 8
   br label %.body213
 
 60:                                               ; preds = %.noexc212
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %53, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
   %61 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2781,7 +2781,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit220: ;
           to label %.noexc221 unwind label %274
 
 .noexc221:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit220
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %61, align 8
   %65 = getelementptr inbounds i8, ptr %61, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %68 unwind label %66
@@ -2789,11 +2789,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit220: ;
 66:                                               ; preds = %.noexc221
   %67 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %61, align 8
   br label %.body222
 
 68:                                               ; preds = %.noexc221
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %61, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
   %69 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2820,7 +2820,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit229: ;
           to label %.noexc230 unwind label %278
 
 .noexc230:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit229
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %69, align 8
   %73 = getelementptr inbounds i8, ptr %69, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %76 unwind label %74
@@ -2828,11 +2828,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit229: ;
 74:                                               ; preds = %.noexc230
   %75 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %69, align 8
   br label %.body231
 
 76:                                               ; preds = %.noexc230
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %69, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
   %77 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2859,7 +2859,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit238: ;
           to label %.noexc239 unwind label %282
 
 .noexc239:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit238
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %77, align 8
   %81 = getelementptr inbounds i8, ptr %77, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %84 unwind label %82
@@ -2867,11 +2867,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit238: ;
 82:                                               ; preds = %.noexc239
   %83 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %77, align 8
   br label %.body240
 
 84:                                               ; preds = %.noexc239
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %77, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
   %85 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2898,7 +2898,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit247: ;
           to label %.noexc248 unwind label %286
 
 .noexc248:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit247
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %85, align 8
   %89 = getelementptr inbounds i8, ptr %85, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %92 unwind label %90
@@ -2906,11 +2906,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit247: ;
 90:                                               ; preds = %.noexc248
   %91 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %85, align 8
   br label %.body249
 
 92:                                               ; preds = %.noexc248
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %85, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %85, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #16
   %93 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2937,7 +2937,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit256: ;
           to label %.noexc257 unwind label %290
 
 .noexc257:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit256
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %93, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %93, align 8
   %97 = getelementptr inbounds i8, ptr %93, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %100 unwind label %98
@@ -2945,11 +2945,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit256: ;
 98:                                               ; preds = %.noexc257
   %99 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %93, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %93, align 8
   br label %.body258
 
 100:                                              ; preds = %.noexc257
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %93, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %93, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #16
   %101 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -2976,7 +2976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit265: ;
           to label %.noexc266 unwind label %294
 
 .noexc266:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit265
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %101, align 8
   %105 = getelementptr inbounds i8, ptr %101, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %108 unwind label %106
@@ -2984,11 +2984,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit265: ;
 106:                                              ; preds = %.noexc266
   %107 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %101, align 8
   br label %.body267
 
 108:                                              ; preds = %.noexc266
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %101, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #16
   %109 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -3015,7 +3015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit274: ;
           to label %.noexc275 unwind label %298
 
 .noexc275:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit274
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %109, align 8
   %113 = getelementptr inbounds i8, ptr %109, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %116 unwind label %114
@@ -3023,11 +3023,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit274: ;
 114:                                              ; preds = %.noexc275
   %115 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %109, align 8
   br label %.body276
 
 116:                                              ; preds = %.noexc275
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %109, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #16
   %117 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -3054,7 +3054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit283: ;
           to label %.noexc284 unwind label %302
 
 .noexc284:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit283
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %117, align 8
   %121 = getelementptr inbounds i8, ptr %117, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %124 unwind label %122
@@ -3062,11 +3062,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit283: ;
 122:                                              ; preds = %.noexc284
   %123 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %117, align 8
   br label %.body285
 
 124:                                              ; preds = %.noexc284
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %117, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #16
   %125 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -3093,7 +3093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit292: ;
           to label %.noexc293 unwind label %306
 
 .noexc293:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit292
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %125, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %125, align 8
   %129 = getelementptr inbounds i8, ptr %125, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %132 unwind label %130
@@ -3101,11 +3101,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit292: ;
 130:                                              ; preds = %.noexc293
   %131 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %125, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %125, align 8
   br label %.body294
 
 132:                                              ; preds = %.noexc293
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %125, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %125, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #16
   %133 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -3132,7 +3132,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit301: ;
           to label %.noexc302 unwind label %310
 
 .noexc302:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit301
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %133, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %133, align 8
   %137 = getelementptr inbounds i8, ptr %133, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %140 unwind label %138
@@ -3140,11 +3140,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit301: ;
 138:                                              ; preds = %.noexc302
   %139 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %133, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %133, align 8
   br label %.body303
 
 140:                                              ; preds = %.noexc302
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %133, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20V3GraphTestVarVertex, i64 16), ptr %133, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #16
   %141 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19
@@ -3171,7 +3171,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit310: ;
           to label %.noexc311 unwind label %314
 
 .noexc311:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit310
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %141, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %141, align 8
   %145 = getelementptr inbounds i8, ptr %141, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %146
@@ -3179,14 +3179,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit310: ;
 146:                                              ; preds = %.noexc311
   %147 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %141, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %141, align 8
   br label %.body312
 
 _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc311
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #16
   %148 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %148, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %148, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %149, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %148, ptr noundef nonnull %44, ptr noundef nonnull %141, ptr noundef nonnull %45, i32 noundef 2, i1 noundef zeroext false)
@@ -3194,7 +3194,7 @@ _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit: ; preds = %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %150 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %150, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %151, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %150, ptr noundef nonnull %44, ptr noundef nonnull %141, ptr noundef nonnull %109, i32 noundef 2, i1 noundef zeroext false)
@@ -3225,7 +3225,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit321: ;
           to label %.noexc322 unwind label %322
 
 .noexc322:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit321
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %152, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %152, align 8
   %156 = getelementptr inbounds i8, ptr %152, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit325 unwind label %157
@@ -3233,14 +3233,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit321: ;
 157:                                              ; preds = %.noexc322
   %158 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %152, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %152, align 8
   br label %.body323
 
 _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit325: ; preds = %.noexc322
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #16
   %159 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %159, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %159, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %160, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %159, ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull %152, i32 noundef 2, i1 noundef zeroext false)
@@ -3271,7 +3271,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit332: ;
           to label %.noexc333 unwind label %328
 
 .noexc333:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit332
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %161, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %161, align 8
   %165 = getelementptr inbounds i8, ptr %161, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef nonnull align 8 dereferenceable(32) %30)
           to label %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit336 unwind label %166
@@ -3279,14 +3279,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit332: ;
 166:                                              ; preds = %.noexc333
   %167 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %161, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %161, align 8
   br label %.body334
 
 _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit336: ; preds = %.noexc333
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #16
   %168 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %168, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %168, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %169, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %168, ptr noundef nonnull %44, ptr noundef nonnull %161, ptr noundef nonnull %69, i32 noundef 2, i1 noundef zeroext false)
@@ -3294,7 +3294,7 @@ _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit338: ; preds = %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit336
   %170 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %170, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %170, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %171, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %170, ptr noundef nonnull %44, ptr noundef nonnull %161, ptr noundef nonnull %61, i32 noundef 2, i1 noundef zeroext false)
@@ -3302,7 +3302,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit338: ; preds = %_ZN17V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit340: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit338
   %172 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %172, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %172, align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %173, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %172, ptr noundef nonnull %44, ptr noundef nonnull %117, ptr noundef nonnull %161, i32 noundef 2, i1 noundef zeroext true)
@@ -3310,7 +3310,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit340: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit342: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit340
   %174 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %174, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %174, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %175, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %174, ptr noundef nonnull %44, ptr noundef nonnull %152, ptr noundef nonnull %161, i32 noundef 2, i1 noundef zeroext false)
@@ -3341,7 +3341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit349: ;
           to label %.noexc350 unwind label %340
 
 .noexc350:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit349
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %176, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %176, align 8
   %180 = getelementptr inbounds i8, ptr %176, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %180, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit353 unwind label %181
@@ -3349,14 +3349,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit349: ;
 181:                                              ; preds = %.noexc350
   %182 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %176, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %176, align 8
   br label %.body351
 
 _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit353: ; preds = %.noexc350
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #16
   %183 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %183, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %183, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %184, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %183, ptr noundef nonnull %44, ptr noundef nonnull %176, ptr noundef nonnull %93, i32 noundef 2, i1 noundef zeroext false)
@@ -3364,7 +3364,7 @@ _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit355: ; preds = %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit353
   %185 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %185, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %185, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %186, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %185, ptr noundef nonnull %44, ptr noundef nonnull %176, ptr noundef nonnull %85, i32 noundef 2, i1 noundef zeroext false)
@@ -3372,7 +3372,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit355: ; preds = %_ZN17V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit357: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit355
   %187 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %187, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %187, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %188, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %187, ptr noundef nonnull %44, ptr noundef nonnull %125, ptr noundef nonnull %176, i32 noundef 2, i1 noundef zeroext true)
@@ -3380,7 +3380,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit357: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit359: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit357
   %189 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %189, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %189, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %190, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %189, ptr noundef nonnull %44, ptr noundef nonnull %152, ptr noundef nonnull %176, i32 noundef 2, i1 noundef zeroext false)
@@ -3411,7 +3411,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit366: ;
           to label %.noexc367 unwind label %352
 
 .noexc367:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit366
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %191, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %191, align 8
   %195 = getelementptr inbounds i8, ptr %191, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %195, ptr noundef nonnull align 8 dereferenceable(32) %34)
           to label %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit370 unwind label %196
@@ -3419,14 +3419,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit366: ;
 196:                                              ; preds = %.noexc367
   %197 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %191, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %191, align 8
   br label %.body368
 
 _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit370: ; preds = %.noexc367
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #16
   %198 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %198, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %198, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %199, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %198, ptr noundef nonnull %44, ptr noundef nonnull %69, ptr noundef nonnull %191, i32 noundef 2, i1 noundef zeroext false)
@@ -3434,7 +3434,7 @@ _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit372: ; preds = %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit370
   %200 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %200, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %200, align 8
   %201 = getelementptr inbounds i8, ptr %200, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %201, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %200, ptr noundef nonnull %44, ptr noundef nonnull %191, ptr noundef nonnull %61, i32 noundef 2, i1 noundef zeroext false)
@@ -3442,7 +3442,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit372: ; preds = %_ZN17V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit374: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit372
   %202 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %202, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %202, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %203, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %202, ptr noundef nonnull %44, ptr noundef nonnull %191, ptr noundef nonnull %125, i32 noundef 2, i1 noundef zeroext false)
@@ -3450,7 +3450,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit374: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit376: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit374
   %204 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %204, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %204, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %205, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %204, ptr noundef nonnull %44, ptr noundef nonnull %191, ptr noundef nonnull %133, i32 noundef 2, i1 noundef zeroext false)
@@ -3458,7 +3458,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit376: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit378: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit376
   %206 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %206, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %206, align 8
   %207 = getelementptr inbounds i8, ptr %206, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %207, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %206, ptr noundef nonnull %44, ptr noundef nonnull %152, ptr noundef nonnull %191, i32 noundef 2, i1 noundef zeroext false)
@@ -3489,7 +3489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit385: ;
           to label %.noexc386 unwind label %366
 
 .noexc386:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit385
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %208, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %208, align 8
   %212 = getelementptr inbounds i8, ptr %208, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %212, ptr noundef nonnull align 8 dereferenceable(32) %36)
           to label %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit389 unwind label %213
@@ -3497,14 +3497,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit385: ;
 213:                                              ; preds = %.noexc386
   %214 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %208, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %208, align 8
   br label %.body387
 
 _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit389: ; preds = %.noexc386
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #16
   %215 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %215, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %215, align 8
   %216 = getelementptr inbounds i8, ptr %215, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %216, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %215, ptr noundef nonnull %44, ptr noundef nonnull %93, ptr noundef nonnull %208, i32 noundef 2, i1 noundef zeroext false)
@@ -3512,7 +3512,7 @@ _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit391: ; preds = %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit389
   %217 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %217, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %217, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %218, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %217, ptr noundef nonnull %44, ptr noundef nonnull %208, ptr noundef nonnull %85, i32 noundef 2, i1 noundef zeroext false)
@@ -3520,7 +3520,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit391: ; preds = %_ZN17V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit393: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit391
   %219 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %219, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %219, align 8
   %220 = getelementptr inbounds i8, ptr %219, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %220, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %219, ptr noundef nonnull %44, ptr noundef nonnull %208, ptr noundef nonnull %117, i32 noundef 2, i1 noundef zeroext false)
@@ -3528,7 +3528,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit393: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit395: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit393
   %221 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %221, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %221, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %222, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %221, ptr noundef nonnull %44, ptr noundef nonnull %152, ptr noundef nonnull %208, i32 noundef 2, i1 noundef zeroext false)
@@ -3559,7 +3559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit402: ;
           to label %.noexc403 unwind label %378
 
 .noexc403:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit402
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %223, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %223, align 8
   %227 = getelementptr inbounds i8, ptr %223, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %227, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit406 unwind label %228
@@ -3567,14 +3567,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit402: ;
 228:                                              ; preds = %.noexc403
   %229 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %223, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %223, align 8
   br label %.body404
 
 _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit406: ; preds = %.noexc403
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #16
   %230 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %230, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %230, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %231, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %230, ptr noundef nonnull %44, ptr noundef nonnull %223, ptr noundef nonnull %53, i32 noundef 3, i1 noundef zeroext false)
@@ -3582,7 +3582,7 @@ _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit408: ; preds = %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit406
   %232 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %232, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %232, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %233, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %232, ptr noundef nonnull %44, ptr noundef nonnull %61, ptr noundef nonnull %223, i32 noundef 3, i1 noundef zeroext false)
@@ -3590,7 +3590,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit408: ; preds = %_ZN17V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit410: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit408
   %234 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %234, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %234, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %235, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %234, ptr noundef nonnull %44, ptr noundef nonnull %152, ptr noundef nonnull %223, i32 noundef 2, i1 noundef zeroext false)
@@ -3621,7 +3621,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit417: ;
           to label %.noexc418 unwind label %388
 
 .noexc418:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit417
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %236, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %236, align 8
   %240 = getelementptr inbounds i8, ptr %236, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %240, ptr noundef nonnull align 8 dereferenceable(32) %40)
           to label %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit421 unwind label %241
@@ -3629,14 +3629,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit417: ;
 241:                                              ; preds = %.noexc418
   %242 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %236, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %236, align 8
   br label %.body419
 
 _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit421: ; preds = %.noexc418
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #16
   %243 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %243, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %243, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %244, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %243, ptr noundef nonnull %44, ptr noundef nonnull %236, ptr noundef nonnull %77, i32 noundef 3, i1 noundef zeroext false)
@@ -3644,7 +3644,7 @@ _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit423: ; preds = %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit421
   %245 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %245, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %245, align 8
   %246 = getelementptr inbounds i8, ptr %245, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %246, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %245, ptr noundef nonnull %44, ptr noundef nonnull %85, ptr noundef nonnull %236, i32 noundef 3, i1 noundef zeroext false)
@@ -3652,7 +3652,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit423: ; preds = %_ZN17V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit425: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit423
   %247 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %247, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %247, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %248, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %247, ptr noundef nonnull %44, ptr noundef nonnull %152, ptr noundef nonnull %236, i32 noundef 2, i1 noundef zeroext false)
@@ -3683,7 +3683,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit432: ;
           to label %.noexc433 unwind label %398
 
 .noexc433:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit432
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %249, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17V3GraphTestVertex, i64 16), ptr %249, align 8
   %253 = getelementptr inbounds i8, ptr %249, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull align 8 dereferenceable(32) %42)
           to label %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit436 unwind label %254
@@ -3691,14 +3691,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit432: ;
 254:                                              ; preds = %.noexc433
   %255 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %249, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %249, align 8
   br label %.body434
 
 _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit436: ; preds = %.noexc433
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #16
   %256 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %256, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %256, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %257, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %256, ptr noundef nonnull %44, ptr noundef nonnull %249, ptr noundef nonnull %101, i32 noundef 1, i1 noundef zeroext true)
@@ -3706,7 +3706,7 @@ _ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit438: ; preds = %_ZN17V3GraphTestVertexC2EP7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit436
   %258 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %258, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %258, align 8
   %259 = getelementptr inbounds i8, ptr %258, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %259, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %258, ptr noundef nonnull %44, ptr noundef nonnull %53, ptr noundef nonnull %249, i32 noundef 1, i1 noundef zeroext false)
@@ -3714,7 +3714,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit438: ; preds = %_ZN17V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit440: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit438
   %260 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %260, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %260, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %261, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %260, ptr noundef nonnull %44, ptr noundef nonnull %77, ptr noundef nonnull %249, i32 noundef 1, i1 noundef zeroext false)
@@ -3722,7 +3722,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit440: ; preds = %_ZN11V3Gra
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit442: ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit440
   %262 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %262, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %262, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %263, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %262, ptr noundef nonnull %44, ptr noundef nonnull %109, ptr noundef nonnull %249, i32 noundef 1, i1 noundef zeroext false)
@@ -4350,7 +4350,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15V3GraphTestVarsD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
@@ -4408,7 +4408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17V3GraphTestImportD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21

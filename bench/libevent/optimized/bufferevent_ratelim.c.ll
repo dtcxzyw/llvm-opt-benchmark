@@ -489,18 +489,20 @@ for.body.i:                                       ; preds = %if.then54, %for.inc
   %bev.012.i = phi ptr [ %bev.0.i, %for.inc.i ], [ %bev.010.i, %if.then54 ]
   %lock.i = getelementptr inbounds i8, ptr %bev.012.i, i64 448
   %23 = load ptr, ptr %lock.i, align 8
-  %tobool.i.i = icmp ne ptr %23, null
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %tobool1.i.i = icmp ne ptr %24, null
-  %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool1.i.i, i1 false
-  br i1 %or.cond.i.i, label %EVLOCK_TRY_LOCK_.exit.i, label %if.then.i
+  %tobool.not.i.i = icmp eq ptr %23, null
+  br i1 %tobool.not.i.i, label %if.then.i, label %land.lhs.true.i.i
 
-EVLOCK_TRY_LOCK_.exit.i:                          ; preds = %for.body.i
+land.lhs.true.i.i:                                ; preds = %for.body.i
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %tobool1.not.i.i = icmp eq ptr %24, null
+  br i1 %tobool1.not.i.i, label %if.then.i, label %EVLOCK_TRY_LOCK_.exit.i
+
+EVLOCK_TRY_LOCK_.exit.i:                          ; preds = %land.lhs.true.i.i
   %call.i.i = tail call i32 %24(i32 noundef 16, ptr noundef nonnull %23) #9
   %tobool2.not.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.not.i, label %if.then.i, label %for.inc.i
 
-if.then.i:                                        ; preds = %EVLOCK_TRY_LOCK_.exit.i, %for.body.i
+if.then.i:                                        ; preds = %EVLOCK_TRY_LOCK_.exit.i, %land.lhs.true.i.i, %for.body.i
   tail call void @bufferevent_suspend_read_(ptr noundef nonnull %bev.012.i, i16 noundef zeroext 4) #9
   %25 = load ptr, ptr %lock.i, align 8
   %tobool6.not.i = icmp eq ptr %25, null
@@ -585,36 +587,38 @@ while.body.i:                                     ; preds = %do.end.i, %while.bo
 
 bev_group_random_element_.exit:                   ; preds = %while.body.i, %do.end.i
   %retval.0.i = phi ptr [ %bev.05.i, %do.end.i ], [ %bev.0.i, %while.body.i ]
-  %cmp.not34 = icmp eq ptr %retval.0.i, null
-  br i1 %cmp.not34, label %for.cond10.preheader, label %for.body
+  %cmp.not35 = icmp eq ptr %retval.0.i, null
+  br i1 %cmp.not35, label %for.cond10.preheader, label %for.body
 
 for.cond10.preheader:                             ; preds = %for.inc, %entry, %bev_group_random_element_.exit
-  %retval.0.i45 = phi ptr [ null, %bev_group_random_element_.exit ], [ null, %entry ], [ %retval.0.i, %for.inc ]
+  %retval.0.i46 = phi ptr [ null, %bev_group_random_element_.exit ], [ null, %entry ], [ %retval.0.i, %for.inc ]
   %again.0.lcssa = phi i8 [ 0, %bev_group_random_element_.exit ], [ 0, %entry ], [ %again.1, %for.inc ]
-  %bev.137 = load ptr, ptr %g, align 8
-  %tobool1138 = icmp ne ptr %bev.137, null
-  %cmp1239 = icmp ne ptr %bev.137, %retval.0.i45
-  %2 = and i1 %tobool1138, %cmp1239
+  %bev.138 = load ptr, ptr %g, align 8
+  %tobool1139 = icmp ne ptr %bev.138, null
+  %cmp1240 = icmp ne ptr %bev.138, %retval.0.i46
+  %2 = and i1 %tobool1139, %cmp1240
   br i1 %2, label %for.body13, label %do.end34
 
 for.body:                                         ; preds = %bev_group_random_element_.exit, %for.inc
-  %again.036 = phi i8 [ %again.1, %for.inc ], [ 0, %bev_group_random_element_.exit ]
-  %bev.035 = phi ptr [ %8, %for.inc ], [ %retval.0.i, %bev_group_random_element_.exit ]
-  %lock = getelementptr inbounds i8, ptr %bev.035, i64 448
+  %again.037 = phi i8 [ %again.1, %for.inc ], [ 0, %bev_group_random_element_.exit ]
+  %bev.036 = phi ptr [ %8, %for.inc ], [ %retval.0.i, %bev_group_random_element_.exit ]
+  %lock = getelementptr inbounds i8, ptr %bev.036, i64 448
   %3 = load ptr, ptr %lock, align 8
-  %tobool.i = icmp ne ptr %3, null
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %tobool1.i = icmp ne ptr %4, null
-  %or.cond.i = select i1 %tobool.i, i1 %tobool1.i, i1 false
-  br i1 %or.cond.i, label %EVLOCK_TRY_LOCK_.exit, label %if.then
+  %tobool.not.i18 = icmp eq ptr %3, null
+  br i1 %tobool.not.i18, label %if.then, label %land.lhs.true.i
 
-EVLOCK_TRY_LOCK_.exit:                            ; preds = %for.body
+land.lhs.true.i:                                  ; preds = %for.body
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %tobool1.not.i = icmp eq ptr %4, null
+  br i1 %tobool1.not.i, label %if.then, label %EVLOCK_TRY_LOCK_.exit
+
+EVLOCK_TRY_LOCK_.exit:                            ; preds = %land.lhs.true.i
   %call.i19 = tail call i32 %4(i32 noundef 16, ptr noundef nonnull %3) #9
   %tobool2.not.i20.not = icmp eq i32 %call.i19, 0
   br i1 %tobool2.not.i20.not, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %for.body, %EVLOCK_TRY_LOCK_.exit
-  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %bev.035, i16 noundef zeroext 4) #9
+if.then:                                          ; preds = %for.body, %land.lhs.true.i, %EVLOCK_TRY_LOCK_.exit
+  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %bev.036, i16 noundef zeroext 4) #9
   %5 = load ptr, ptr %lock, align 8
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %for.inc, label %if.then6
@@ -625,31 +629,33 @@ if.then6:                                         ; preds = %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %EVLOCK_TRY_LOCK_.exit, %if.then, %if.then6
-  %again.1 = phi i8 [ %again.036, %if.then6 ], [ %again.036, %if.then ], [ 1, %EVLOCK_TRY_LOCK_.exit ]
-  %rate_limiting = getelementptr inbounds i8, ptr %bev.035, i64 472
+  %again.1 = phi i8 [ %again.037, %if.then6 ], [ %again.037, %if.then ], [ 1, %EVLOCK_TRY_LOCK_.exit ]
+  %rate_limiting = getelementptr inbounds i8, ptr %bev.036, i64 472
   %7 = load ptr, ptr %rate_limiting, align 8
   %8 = load ptr, ptr %7, align 8
   %cmp.not = icmp eq ptr %8, null
   br i1 %cmp.not, label %for.cond10.preheader, label %for.body, !llvm.loop !8
 
 for.body13:                                       ; preds = %for.cond10.preheader, %for.inc29
-  %bev.141 = phi ptr [ %bev.1, %for.inc29 ], [ %bev.137, %for.cond10.preheader ]
-  %again.240 = phi i8 [ %again.3, %for.inc29 ], [ %again.0.lcssa, %for.cond10.preheader ]
-  %lock14 = getelementptr inbounds i8, ptr %bev.141, i64 448
+  %bev.142 = phi ptr [ %bev.1, %for.inc29 ], [ %bev.138, %for.cond10.preheader ]
+  %again.241 = phi i8 [ %again.3, %for.inc29 ], [ %again.0.lcssa, %for.cond10.preheader ]
+  %lock14 = getelementptr inbounds i8, ptr %bev.142, i64 448
   %9 = load ptr, ptr %lock14, align 8
-  %tobool.i21 = icmp ne ptr %9, null
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %tobool1.i22 = icmp ne ptr %10, null
-  %or.cond.i23 = select i1 %tobool.i21, i1 %tobool1.i22, i1 false
-  br i1 %or.cond.i23, label %EVLOCK_TRY_LOCK_.exit29, label %if.then17
+  %tobool.not.i22 = icmp eq ptr %9, null
+  br i1 %tobool.not.i22, label %if.then17, label %land.lhs.true.i23
 
-EVLOCK_TRY_LOCK_.exit29:                          ; preds = %for.body13
+land.lhs.true.i23:                                ; preds = %for.body13
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %tobool1.not.i24 = icmp eq ptr %10, null
+  br i1 %tobool1.not.i24, label %if.then17, label %EVLOCK_TRY_LOCK_.exit30
+
+EVLOCK_TRY_LOCK_.exit30:                          ; preds = %land.lhs.true.i23
   %call.i26 = tail call i32 %10(i32 noundef 16, ptr noundef nonnull %9) #9
   %tobool2.not.i27.not = icmp eq i32 %call.i26, 0
   br i1 %tobool2.not.i27.not, label %if.then17, label %for.inc29
 
-if.then17:                                        ; preds = %for.body13, %EVLOCK_TRY_LOCK_.exit29
-  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %bev.141, i16 noundef zeroext 4) #9
+if.then17:                                        ; preds = %for.body13, %land.lhs.true.i23, %EVLOCK_TRY_LOCK_.exit30
+  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %bev.142, i16 noundef zeroext 4) #9
   %11 = load ptr, ptr %lock14, align 8
   %tobool21.not = icmp eq ptr %11, null
   br i1 %tobool21.not, label %for.inc29, label %if.then22
@@ -659,13 +665,13 @@ if.then22:                                        ; preds = %if.then17
   %call24 = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #9
   br label %for.inc29
 
-for.inc29:                                        ; preds = %EVLOCK_TRY_LOCK_.exit29, %if.then17, %if.then22
-  %again.3 = phi i8 [ %again.240, %if.then22 ], [ %again.240, %if.then17 ], [ 1, %EVLOCK_TRY_LOCK_.exit29 ]
-  %rate_limiting30 = getelementptr inbounds i8, ptr %bev.141, i64 472
+for.inc29:                                        ; preds = %EVLOCK_TRY_LOCK_.exit30, %if.then17, %if.then22
+  %again.3 = phi i8 [ %again.241, %if.then22 ], [ %again.241, %if.then17 ], [ 1, %EVLOCK_TRY_LOCK_.exit30 ]
+  %rate_limiting30 = getelementptr inbounds i8, ptr %bev.142, i64 472
   %13 = load ptr, ptr %rate_limiting30, align 8
   %bev.1 = load ptr, ptr %13, align 8
   %tobool11 = icmp ne ptr %bev.1, null
-  %cmp12 = icmp ne ptr %bev.1, %retval.0.i45
+  %cmp12 = icmp ne ptr %bev.1, %retval.0.i46
   %14 = and i1 %tobool11, %cmp12
   br i1 %14, label %for.body13, label %do.end34, !llvm.loop !9
 
@@ -796,18 +802,20 @@ for.body.i:                                       ; preds = %if.then54, %for.inc
   %bev.012.i = phi ptr [ %bev.0.i, %for.inc.i ], [ %bev.010.i, %if.then54 ]
   %lock.i = getelementptr inbounds i8, ptr %bev.012.i, i64 448
   %23 = load ptr, ptr %lock.i, align 8
-  %tobool.i.i = icmp ne ptr %23, null
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %tobool1.i.i = icmp ne ptr %24, null
-  %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool1.i.i, i1 false
-  br i1 %or.cond.i.i, label %EVLOCK_TRY_LOCK_.exit.i, label %if.then.i
+  %tobool.not.i.i = icmp eq ptr %23, null
+  br i1 %tobool.not.i.i, label %if.then.i, label %land.lhs.true.i.i
 
-EVLOCK_TRY_LOCK_.exit.i:                          ; preds = %for.body.i
+land.lhs.true.i.i:                                ; preds = %for.body.i
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %tobool1.not.i.i = icmp eq ptr %24, null
+  br i1 %tobool1.not.i.i, label %if.then.i, label %EVLOCK_TRY_LOCK_.exit.i
+
+EVLOCK_TRY_LOCK_.exit.i:                          ; preds = %land.lhs.true.i.i
   %call.i.i = tail call i32 %24(i32 noundef 16, ptr noundef nonnull %23) #9
   %tobool2.not.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.not.i, label %if.then.i, label %for.inc.i
 
-if.then.i:                                        ; preds = %EVLOCK_TRY_LOCK_.exit.i, %for.body.i
+if.then.i:                                        ; preds = %EVLOCK_TRY_LOCK_.exit.i, %land.lhs.true.i.i, %for.body.i
   tail call void @bufferevent_suspend_write_(ptr noundef nonnull %bev.012.i, i16 noundef zeroext 4) #9
   %25 = load ptr, ptr %lock.i, align 8
   %tobool6.not.i = icmp eq ptr %25, null
@@ -888,36 +896,38 @@ while.body.i:                                     ; preds = %do.end.i, %while.bo
 
 bev_group_random_element_.exit:                   ; preds = %while.body.i, %do.end.i
   %retval.0.i = phi ptr [ %bev.05.i, %do.end.i ], [ %bev.0.i, %while.body.i ]
-  %cmp.not34 = icmp eq ptr %retval.0.i, null
-  br i1 %cmp.not34, label %for.cond10.preheader, label %for.body
+  %cmp.not35 = icmp eq ptr %retval.0.i, null
+  br i1 %cmp.not35, label %for.cond10.preheader, label %for.body
 
 for.cond10.preheader:                             ; preds = %for.inc, %entry, %bev_group_random_element_.exit
-  %retval.0.i45 = phi ptr [ null, %bev_group_random_element_.exit ], [ null, %entry ], [ %retval.0.i, %for.inc ]
+  %retval.0.i46 = phi ptr [ null, %bev_group_random_element_.exit ], [ null, %entry ], [ %retval.0.i, %for.inc ]
   %again.0.lcssa = phi i8 [ 0, %bev_group_random_element_.exit ], [ 0, %entry ], [ %again.1, %for.inc ]
-  %bev.137 = load ptr, ptr %g, align 8
-  %tobool1138 = icmp ne ptr %bev.137, null
-  %cmp1239 = icmp ne ptr %bev.137, %retval.0.i45
-  %2 = and i1 %tobool1138, %cmp1239
+  %bev.138 = load ptr, ptr %g, align 8
+  %tobool1139 = icmp ne ptr %bev.138, null
+  %cmp1240 = icmp ne ptr %bev.138, %retval.0.i46
+  %2 = and i1 %tobool1139, %cmp1240
   br i1 %2, label %for.body13, label %do.end34
 
 for.body:                                         ; preds = %bev_group_random_element_.exit, %for.inc
-  %again.036 = phi i8 [ %again.1, %for.inc ], [ 0, %bev_group_random_element_.exit ]
-  %bev.035 = phi ptr [ %8, %for.inc ], [ %retval.0.i, %bev_group_random_element_.exit ]
-  %lock = getelementptr inbounds i8, ptr %bev.035, i64 448
+  %again.037 = phi i8 [ %again.1, %for.inc ], [ 0, %bev_group_random_element_.exit ]
+  %bev.036 = phi ptr [ %8, %for.inc ], [ %retval.0.i, %bev_group_random_element_.exit ]
+  %lock = getelementptr inbounds i8, ptr %bev.036, i64 448
   %3 = load ptr, ptr %lock, align 8
-  %tobool.i = icmp ne ptr %3, null
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %tobool1.i = icmp ne ptr %4, null
-  %or.cond.i = select i1 %tobool.i, i1 %tobool1.i, i1 false
-  br i1 %or.cond.i, label %EVLOCK_TRY_LOCK_.exit, label %if.then
+  %tobool.not.i18 = icmp eq ptr %3, null
+  br i1 %tobool.not.i18, label %if.then, label %land.lhs.true.i
 
-EVLOCK_TRY_LOCK_.exit:                            ; preds = %for.body
+land.lhs.true.i:                                  ; preds = %for.body
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %tobool1.not.i = icmp eq ptr %4, null
+  br i1 %tobool1.not.i, label %if.then, label %EVLOCK_TRY_LOCK_.exit
+
+EVLOCK_TRY_LOCK_.exit:                            ; preds = %land.lhs.true.i
   %call.i19 = tail call i32 %4(i32 noundef 16, ptr noundef nonnull %3) #9
   %tobool2.not.i20.not = icmp eq i32 %call.i19, 0
   br i1 %tobool2.not.i20.not, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %for.body, %EVLOCK_TRY_LOCK_.exit
-  tail call void @bufferevent_unsuspend_write_(ptr noundef nonnull %bev.035, i16 noundef zeroext 4) #9
+if.then:                                          ; preds = %for.body, %land.lhs.true.i, %EVLOCK_TRY_LOCK_.exit
+  tail call void @bufferevent_unsuspend_write_(ptr noundef nonnull %bev.036, i16 noundef zeroext 4) #9
   %5 = load ptr, ptr %lock, align 8
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %for.inc, label %if.then6
@@ -928,31 +938,33 @@ if.then6:                                         ; preds = %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %EVLOCK_TRY_LOCK_.exit, %if.then, %if.then6
-  %again.1 = phi i8 [ %again.036, %if.then6 ], [ %again.036, %if.then ], [ 1, %EVLOCK_TRY_LOCK_.exit ]
-  %rate_limiting = getelementptr inbounds i8, ptr %bev.035, i64 472
+  %again.1 = phi i8 [ %again.037, %if.then6 ], [ %again.037, %if.then ], [ 1, %EVLOCK_TRY_LOCK_.exit ]
+  %rate_limiting = getelementptr inbounds i8, ptr %bev.036, i64 472
   %7 = load ptr, ptr %rate_limiting, align 8
   %8 = load ptr, ptr %7, align 8
   %cmp.not = icmp eq ptr %8, null
   br i1 %cmp.not, label %for.cond10.preheader, label %for.body, !llvm.loop !11
 
 for.body13:                                       ; preds = %for.cond10.preheader, %for.inc29
-  %bev.141 = phi ptr [ %bev.1, %for.inc29 ], [ %bev.137, %for.cond10.preheader ]
-  %again.240 = phi i8 [ %again.3, %for.inc29 ], [ %again.0.lcssa, %for.cond10.preheader ]
-  %lock14 = getelementptr inbounds i8, ptr %bev.141, i64 448
+  %bev.142 = phi ptr [ %bev.1, %for.inc29 ], [ %bev.138, %for.cond10.preheader ]
+  %again.241 = phi i8 [ %again.3, %for.inc29 ], [ %again.0.lcssa, %for.cond10.preheader ]
+  %lock14 = getelementptr inbounds i8, ptr %bev.142, i64 448
   %9 = load ptr, ptr %lock14, align 8
-  %tobool.i21 = icmp ne ptr %9, null
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %tobool1.i22 = icmp ne ptr %10, null
-  %or.cond.i23 = select i1 %tobool.i21, i1 %tobool1.i22, i1 false
-  br i1 %or.cond.i23, label %EVLOCK_TRY_LOCK_.exit29, label %if.then17
+  %tobool.not.i22 = icmp eq ptr %9, null
+  br i1 %tobool.not.i22, label %if.then17, label %land.lhs.true.i23
 
-EVLOCK_TRY_LOCK_.exit29:                          ; preds = %for.body13
+land.lhs.true.i23:                                ; preds = %for.body13
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %tobool1.not.i24 = icmp eq ptr %10, null
+  br i1 %tobool1.not.i24, label %if.then17, label %EVLOCK_TRY_LOCK_.exit30
+
+EVLOCK_TRY_LOCK_.exit30:                          ; preds = %land.lhs.true.i23
   %call.i26 = tail call i32 %10(i32 noundef 16, ptr noundef nonnull %9) #9
   %tobool2.not.i27.not = icmp eq i32 %call.i26, 0
   br i1 %tobool2.not.i27.not, label %if.then17, label %for.inc29
 
-if.then17:                                        ; preds = %for.body13, %EVLOCK_TRY_LOCK_.exit29
-  tail call void @bufferevent_unsuspend_write_(ptr noundef nonnull %bev.141, i16 noundef zeroext 4) #9
+if.then17:                                        ; preds = %for.body13, %land.lhs.true.i23, %EVLOCK_TRY_LOCK_.exit30
+  tail call void @bufferevent_unsuspend_write_(ptr noundef nonnull %bev.142, i16 noundef zeroext 4) #9
   %11 = load ptr, ptr %lock14, align 8
   %tobool21.not = icmp eq ptr %11, null
   br i1 %tobool21.not, label %for.inc29, label %if.then22
@@ -962,13 +974,13 @@ if.then22:                                        ; preds = %if.then17
   %call24 = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %11) #9
   br label %for.inc29
 
-for.inc29:                                        ; preds = %EVLOCK_TRY_LOCK_.exit29, %if.then17, %if.then22
-  %again.3 = phi i8 [ %again.240, %if.then22 ], [ %again.240, %if.then17 ], [ 1, %EVLOCK_TRY_LOCK_.exit29 ]
-  %rate_limiting30 = getelementptr inbounds i8, ptr %bev.141, i64 472
+for.inc29:                                        ; preds = %EVLOCK_TRY_LOCK_.exit30, %if.then17, %if.then22
+  %again.3 = phi i8 [ %again.241, %if.then22 ], [ %again.241, %if.then17 ], [ 1, %EVLOCK_TRY_LOCK_.exit30 ]
+  %rate_limiting30 = getelementptr inbounds i8, ptr %bev.142, i64 472
   %13 = load ptr, ptr %rate_limiting30, align 8
   %bev.1 = load ptr, ptr %13, align 8
   %tobool11 = icmp ne ptr %bev.1, null
-  %cmp12 = icmp ne ptr %bev.1, %retval.0.i45
+  %cmp12 = icmp ne ptr %bev.1, %retval.0.i46
   %14 = and i1 %tobool11, %cmp12
   br i1 %14, label %for.body13, label %do.end34, !llvm.loop !12
 
@@ -1673,18 +1685,20 @@ do.end3:                                          ; preds = %entry, %if.then
 do.body13:                                        ; preds = %do.end3
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %call10 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %2) #9
-  %.pre = load ptr, ptr %lock, align 8
-  %tobool15 = icmp ne ptr %.pre, null
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
-  %tobool16 = icmp ne ptr %4, null
-  %or.cond = select i1 %tobool15, i1 %tobool16, i1 false
-  br i1 %or.cond, label %if.then17, label %do.end19
+  %.pr = load ptr, ptr %lock, align 8
+  %tobool15.not = icmp eq ptr %.pr, null
+  br i1 %tobool15.not, label %do.end19, label %land.lhs.true
 
-if.then17:                                        ; preds = %do.body13
-  tail call void %4(ptr noundef nonnull %.pre, i32 noundef 1) #9
+land.lhs.true:                                    ; preds = %do.body13
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
+  %tobool16.not = icmp eq ptr %4, null
+  br i1 %tobool16.not, label %do.end19, label %if.then17
+
+if.then17:                                        ; preds = %land.lhs.true
+  tail call void %4(ptr noundef nonnull %.pr, i32 noundef 1) #9
   br label %do.end19
 
-do.end19:                                         ; preds = %do.end3, %do.body13, %if.then17
+do.end19:                                         ; preds = %do.end3, %do.body13, %land.lhs.true, %if.then17
   tail call void @event_mm_free_(ptr noundef nonnull %g) #9
   ret void
 }
@@ -2624,18 +2638,20 @@ for.body.i:                                       ; preds = %if.then5, %for.inc.
   %bev.012.i = phi ptr [ %bev.0.i, %for.inc.i ], [ %bev.010.i, %if.then5 ]
   %lock.i = getelementptr inbounds i8, ptr %bev.012.i, i64 448
   %3 = load ptr, ptr %lock.i, align 8
-  %tobool.i.i = icmp ne ptr %3, null
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %tobool1.i.i = icmp ne ptr %4, null
-  %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool1.i.i, i1 false
-  br i1 %or.cond.i.i, label %EVLOCK_TRY_LOCK_.exit.i, label %if.then.i
+  %tobool.not.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i, label %if.then.i, label %land.lhs.true.i.i
 
-EVLOCK_TRY_LOCK_.exit.i:                          ; preds = %for.body.i
+land.lhs.true.i.i:                                ; preds = %for.body.i
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %tobool1.not.i.i = icmp eq ptr %4, null
+  br i1 %tobool1.not.i.i, label %if.then.i, label %EVLOCK_TRY_LOCK_.exit.i
+
+EVLOCK_TRY_LOCK_.exit.i:                          ; preds = %land.lhs.true.i.i
   %call.i.i = tail call i32 %4(i32 noundef 16, ptr noundef nonnull %3) #9
   %tobool2.not.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.not.i, label %if.then.i, label %for.inc.i
 
-if.then.i:                                        ; preds = %EVLOCK_TRY_LOCK_.exit.i, %for.body.i
+if.then.i:                                        ; preds = %EVLOCK_TRY_LOCK_.exit.i, %land.lhs.true.i.i, %for.body.i
   tail call void @bufferevent_suspend_read_(ptr noundef nonnull %bev.012.i, i16 noundef zeroext 4) #9
   %5 = load ptr, ptr %lock.i, align 8
   %tobool6.not.i = icmp eq ptr %5, null
@@ -2714,18 +2730,20 @@ for.body.i:                                       ; preds = %if.then5, %for.inc.
   %bev.012.i = phi ptr [ %bev.0.i, %for.inc.i ], [ %bev.010.i, %if.then5 ]
   %lock.i = getelementptr inbounds i8, ptr %bev.012.i, i64 448
   %3 = load ptr, ptr %lock.i, align 8
-  %tobool.i.i = icmp ne ptr %3, null
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %tobool1.i.i = icmp ne ptr %4, null
-  %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool1.i.i, i1 false
-  br i1 %or.cond.i.i, label %EVLOCK_TRY_LOCK_.exit.i, label %if.then.i
+  %tobool.not.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i, label %if.then.i, label %land.lhs.true.i.i
 
-EVLOCK_TRY_LOCK_.exit.i:                          ; preds = %for.body.i
+land.lhs.true.i.i:                                ; preds = %for.body.i
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %tobool1.not.i.i = icmp eq ptr %4, null
+  br i1 %tobool1.not.i.i, label %if.then.i, label %EVLOCK_TRY_LOCK_.exit.i
+
+EVLOCK_TRY_LOCK_.exit.i:                          ; preds = %land.lhs.true.i.i
   %call.i.i = tail call i32 %4(i32 noundef 16, ptr noundef nonnull %3) #9
   %tobool2.not.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.not.i, label %if.then.i, label %for.inc.i
 
-if.then.i:                                        ; preds = %EVLOCK_TRY_LOCK_.exit.i, %for.body.i
+if.then.i:                                        ; preds = %EVLOCK_TRY_LOCK_.exit.i, %land.lhs.true.i.i, %for.body.i
   tail call void @bufferevent_suspend_write_(ptr noundef nonnull %bev.012.i, i16 noundef zeroext 4) #9
   %5 = load ptr, ptr %lock.i, align 8
   %tobool6.not.i = icmp eq ptr %5, null

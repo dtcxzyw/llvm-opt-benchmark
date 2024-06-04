@@ -1011,48 +1011,49 @@ declare dso_local ptr @parse_args(ptr noundef, ptr noundef, ptr noundef, i32 nou
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @do_early_param(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #5 section ".init.text" align 16 {
-  br i1 icmp ult (ptr @__setup_start, ptr @__setup_end), label %.preheader, label %.loopexit
+  %5 = icmp ult ptr @__setup_start, @__setup_end
+  br i1 %5, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %4, %26
-  %5 = phi ptr [ %27, %26 ], [ @__setup_start, %4 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %12, label %9
+.preheader:                                       ; preds = %4, %27
+  %6 = phi ptr [ %28, %27 ], [ @__setup_start, %4 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %13, label %10
 
-9:                                                ; preds = %.preheader
-  %10 = load ptr, ptr %5, align 8
-  %11 = tail call zeroext i1 @parameq(ptr noundef %0, ptr noundef %10) #25
-  br i1 %11, label %19, label %12
+10:                                               ; preds = %.preheader
+  %11 = load ptr, ptr %6, align 8
+  %12 = tail call zeroext i1 @parameq(ptr noundef %0, ptr noundef %11) #25
+  br i1 %12, label %20, label %13
 
-12:                                               ; preds = %9, %.preheader
-  %13 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str.33) #25
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %26
+13:                                               ; preds = %10, %.preheader
+  %14 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str.33) #25
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %27
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %5, align 8
-  %17 = tail call i32 @strcmp(ptr noundef %16, ptr noundef nonnull dereferenceable(9) @.str.34) #25
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %26
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %6, align 8
+  %18 = tail call i32 @strcmp(ptr noundef %17, ptr noundef nonnull dereferenceable(9) @.str.34) #25
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %27
 
-19:                                               ; preds = %15, %9
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %1) #25
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %26, label %24
+20:                                               ; preds = %16, %10
+  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 %22(ptr noundef %1) #25
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %27, label %25
 
-24:                                               ; preds = %19
-  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef %0) #27
-  br label %26
+25:                                               ; preds = %20
+  %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef %0) #27
+  br label %27
 
-26:                                               ; preds = %24, %19, %15, %12
-  %27 = getelementptr i8, ptr %5, i64 24
-  %28 = icmp ult ptr %27, @__setup_end
-  br i1 %28, label %.preheader, label %.loopexit, !llvm.loop !20
+27:                                               ; preds = %25, %20, %16, %13
+  %28 = getelementptr i8, ptr %6, i64 24
+  %29 = icmp ult ptr %28, @__setup_end
+  br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %26, %4
+.loopexit:                                        ; preds = %27, %4
   ret i32 0
 }
 
@@ -2757,19 +2758,20 @@ define internal fastcc void @do_pre_smp_initcalls() unnamed_addr #5 section ".in
   br label %21
 
 21:                                               ; preds = %18, %14, %1, %0
-  br i1 icmp ult (ptr @__initcall_start, ptr @__initcall0_start), label %.preheader, label %.loopexit
+  %22 = icmp ult ptr @__initcall_start, @__initcall0_start
+  br i1 %22, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %21, %.preheader
-  %22 = phi ptr [ %29, %.preheader ], [ @__initcall_start, %21 ]
-  %23 = ptrtoint ptr %22 to i64
-  %24 = load i32, ptr %22, align 4
-  %25 = sext i32 %24 to i64
-  %26 = add i64 %25, %23
-  %27 = inttoptr i64 %26 to ptr
-  %28 = tail call i32 @do_one_initcall(ptr noundef %27)
-  %29 = getelementptr i8, ptr %22, i64 4
-  %30 = icmp ult ptr %29, @__initcall0_start
-  br i1 %30, label %.preheader, label %.loopexit, !llvm.loop !86
+  %23 = phi ptr [ %30, %.preheader ], [ @__initcall_start, %21 ]
+  %24 = ptrtoint ptr %23 to i64
+  %25 = load i32, ptr %23, align 4
+  %26 = sext i32 %25 to i64
+  %27 = add i64 %26, %24
+  %28 = inttoptr i64 %27 to ptr
+  %29 = tail call i32 @do_one_initcall(ptr noundef %28)
+  %30 = getelementptr i8, ptr %23, i64 4
+  %31 = icmp ult ptr %30, @__initcall0_start
+  br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !86
 
 .loopexit:                                        ; preds = %.preheader, %21
   ret void

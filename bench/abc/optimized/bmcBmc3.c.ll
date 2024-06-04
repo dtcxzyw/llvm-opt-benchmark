@@ -1163,14 +1163,14 @@ define void @Saig_ManBmcTerSimTestPo(ptr nocapture noundef readonly %0) local_un
 
 4:                                                ; preds = %1
   %5 = getelementptr i8, ptr %2, i64 4
-  %.val1415.i.i = load i32, ptr %5, align 4
-  %6 = icmp sgt i32 %.val1415.i.i, 0
+  %.val1516.i.i = load i32, ptr %5, align 4
+  %6 = icmp sgt i32 %.val1516.i.i, 0
   %7 = getelementptr i8, ptr %2, i64 8
   %.val.i.i = load ptr, ptr %7, align 8
   br i1 %6, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %4
-  %8 = zext nneg i32 %.val1415.i.i to i64
+  %8 = zext nneg i32 %.val1516.i.i to i64
   br label %9
 
 9:                                                ; preds = %13, %.lr.ph.i.i
@@ -3258,8 +3258,8 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %136
 
 140:                                              ; preds = %Vec_VecFree.exit
   %141 = getelementptr i8, ptr %138, i64 4
-  %.val1415.i.i = load i32, ptr %141, align 4
-  %142 = icmp sgt i32 %.val1415.i.i, 0
+  %.val1516.i.i = load i32, ptr %141, align 4
+  %142 = icmp sgt i32 %.val1516.i.i, 0
   br i1 %142, label %.lr.ph.i.i105, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i105:                                    ; preds = %140
@@ -3267,7 +3267,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %136
   br label %144
 
 144:                                              ; preds = %148, %.lr.ph.i.i105
-  %.val1418.i.i = phi i32 [ %.val1415.i.i, %.lr.ph.i.i105 ], [ %.val14.i.i, %148 ]
+  %.val1519.i.i = phi i32 [ %.val1516.i.i, %.lr.ph.i.i105 ], [ %.val15.i.i, %148 ]
   %indvars.iv.i.i106 = phi i64 [ 0, %.lr.ph.i.i105 ], [ %indvars.iv.next.i.i107, %148 ]
   %.val.i.i = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %indvars.iv.i.i106
@@ -3277,13 +3277,13 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %136
 
 147:                                              ; preds = %144
   tail call void @free(ptr noundef %146) #23
-  %.val14.pre.i.i = load i32, ptr %141, align 4
+  %.val15.pre.i.i = load i32, ptr %141, align 4
   br label %148
 
 148:                                              ; preds = %147, %144
-  %.val14.i.i = phi i32 [ %.val1418.i.i, %144 ], [ %.val14.pre.i.i, %147 ]
+  %.val15.i.i = phi i32 [ %.val1519.i.i, %144 ], [ %.val15.pre.i.i, %147 ]
   %indvars.iv.next.i.i107 = add nuw nsw i64 %indvars.iv.i.i106, 1
-  %149 = sext i32 %.val14.i.i to i64
+  %149 = sext i32 %.val15.i.i to i64
   %150 = icmp slt i64 %indvars.iv.next.i.i107, %149
   br i1 %150, label %144, label %Vec_PtrFreeData.exit.i, !llvm.loop !13
 

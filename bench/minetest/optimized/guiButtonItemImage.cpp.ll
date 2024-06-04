@@ -536,7 +536,7 @@ entry:
   %agg.tmp = alloca %"class.irr::core::rect", align 8
   %ref.tmp = alloca %"class.irr::core::rect", align 4
   %0 = getelementptr inbounds i8, ptr %this, i64 7472
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !12
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 7480
   store ptr null, ptr %DebugName.i, align 8, !tbaa !46
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 7488
@@ -545,8 +545,8 @@ entry:
   %rectangle.sroa.4.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %rectangle.coerce1, ptr %rectangle.sroa.4.0.agg.tmp.sroa_idx, align 8, !tbaa.struct !50
   tail call void @_ZN9GUIButtonC2EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEP20ISimpleTextureSourceb(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT18GUIButtonItemImage, i64 8), ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull byval(%"class.irr::core::rect") align 8 %agg.tmp, ptr noundef %tsrc, i1 noundef zeroext %noclip)
-  store ptr getelementptr inbounds inrange(-24, 544) (i8, ptr @_ZTV18GUIButtonItemImage, i64 24), ptr %this, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV18GUIButtonItemImage, i64 592), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18GUIButtonItemImage, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18GUIButtonItemImage, i64 592), ptr %0, align 8, !tbaa !12
   %call = invoke noalias noundef nonnull dereferenceable(416) ptr @_Znwm(i64 noundef 416) #19
           to label %invoke.cont9 unwind label %lpad2
 

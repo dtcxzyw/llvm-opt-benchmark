@@ -2365,8 +2365,8 @@ declare ptr @Abc_FrameReadLibGen(...) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define void @Nf_StoDelete(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 60
-  %.val15.i = load i32, ptr %2, align 4
-  %3 = icmp sgt i32 %.val15.i, 0
+  %.val16.i = load i32, ptr %2, align 4
+  %3 = icmp sgt i32 %.val16.i, 0
   br i1 %3, label %.lr.ph.i, label %Vec_PtrFreeData.exit
 
 .lr.ph.i:                                         ; preds = %1
@@ -2374,10 +2374,10 @@ define void @Nf_StoDelete(ptr nocapture noundef %0) local_unnamed_addr #1 {
   br label %5
 
 5:                                                ; preds = %9, %.lr.ph.i
-  %.val18.i = phi i32 [ %.val15.i, %.lr.ph.i ], [ %.val.i, %9 ]
+  %.val19.i = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i, %9 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
-  %.val14.i = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %.val14.i, i64 %indvars.iv.i
+  %.val15.i = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds ptr, ptr %.val15.i, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %switch.i = icmp ult ptr %7, inttoptr (i64 3 to ptr)
   br i1 %switch.i, label %9, label %8
@@ -2388,7 +2388,7 @@ define void @Nf_StoDelete(ptr nocapture noundef %0) local_unnamed_addr #1 {
   br label %9
 
 9:                                                ; preds = %8, %5
-  %.val.i = phi i32 [ %.val18.i, %5 ], [ %.val.pre.i, %8 ]
+  %.val.i = phi i32 [ %.val19.i, %5 ], [ %.val.pre.i, %8 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = sext i32 %.val.i to i64
   %11 = icmp slt i64 %indvars.iv.next.i, %10

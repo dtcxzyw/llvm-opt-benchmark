@@ -87,8 +87,8 @@ define internal noundef i32 @create_cred(ptr nocapture readnone %0, ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
-  %or.cond = icmp ult i32 %7, 64
-  br i1 %or.cond, label %8, label %14
+  %or.cond31 = icmp ult i32 %7, 64
+  br i1 %or.cond31, label %8, label %14
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %7 to i64
@@ -104,12 +104,12 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, 
 14:                                               ; preds = %13, %8, %6
   %15 = icmp ne ptr %1, null
   %16 = icmp ne i64 %2, 0
-  %or.cond3 = and i1 %15, %16
-  br i1 %or.cond3, label %.preheader, label %.loopexit
+  %or.cond = and i1 %15, %16
+  br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %14, %33
-  %.02637 = phi i64 [ %34, %33 ], [ 0, %14 ]
-  %17 = getelementptr inbounds %struct.pmix_info, ptr %1, i64 %.02637
+  %.02436 = phi i64 [ %34, %33 ], [ 0, %14 ]
+  %17 = getelementptr inbounds %struct.pmix_info, ptr %1, i64 %.02436
   %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(15) @.str.4, i64 noundef 511) #4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %33
@@ -119,19 +119,19 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, 
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @PMIx_Argv_split(ptr noundef %22, i32 noundef 44) #3
   %24 = load ptr, ptr %23, align 8
-  %.not32.not33 = icmp eq ptr %24, null
-  br i1 %.not32.not33, label %.critedge, label %.lr.ph
+  %.not30.not32 = icmp eq ptr %24, null
+  br i1 %.not30.not32, label %.critedge, label %.lr.ph
 
 25:                                               ; preds = %.lr.ph
-  %26 = add i64 %.02534, 1
+  %26 = add i64 %.02333, 1
   %27 = getelementptr inbounds ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %.not32.not = icmp eq ptr %28, null
-  br i1 %.not32.not, label %.critedge, label %.lr.ph, !llvm.loop !4
+  %.not30.not = icmp eq ptr %28, null
+  br i1 %.not30.not, label %.critedge, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %20, %25
   %29 = phi ptr [ %28, %25 ], [ %24, %20 ]
-  %.02534 = phi i64 [ %26, %25 ], [ 0, %20 ]
+  %.02333 = phi i64 [ %26, %25 ], [ 0, %20 ]
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(5) @.str) #4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %25
@@ -145,7 +145,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, 
   br label %41
 
 33:                                               ; preds = %32, %.preheader
-  %34 = add nuw i64 %.02637, 1
+  %34 = add nuw i64 %.02436, 1
   %exitcond.not = icmp eq i64 %34, %2
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
@@ -166,8 +166,8 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, 
   br label %41
 
 41:                                               ; preds = %.loopexit, %38, %35, %.critedge
-  %.024 = phi i32 [ -47, %.critedge ], [ -32, %35 ], [ 0, %38 ], [ 0, %.loopexit ]
-  ret i32 %.024
+  %.022 = phi i32 [ -47, %.critedge ], [ -32, %35 ], [ 0, %38 ], [ 0, %.loopexit ]
+  ret i32 %.022
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

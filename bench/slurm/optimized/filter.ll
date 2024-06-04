@@ -10,22 +10,28 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @filter_job_list(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 80), align 8
-  %3 = icmp ne ptr %2, null
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 88), align 8
-  %5 = icmp ne ptr %4, null
-  %or.cond = select i1 %3, i1 true, i1 %5
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 96), align 8
-  %7 = icmp ne ptr %6, null
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %7
-  %8 = icmp ne ptr %0, null
-  %or.cond5 = and i1 %8, %or.cond3
-  br i1 %or.cond5, label %9, label %11
+  %.not = icmp eq ptr %2, null
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 88), align 8
+  %.not3 = icmp eq ptr %3, null
+  %or.cond4 = select i1 %.not, i1 %.not3, i1 false
+  br i1 %or.cond4, label %4, label %8
 
-9:                                                ; preds = %1
+4:                                                ; preds = %1
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 96), align 8
+  %6 = icmp ne ptr %5, null
+  %7 = icmp ne ptr %0, null
+  %or.cond = and i1 %7, %6
+  br i1 %or.cond, label %9, label %11
+
+8:                                                ; preds = %1
+  %.old1.not = icmp eq ptr %0, null
+  br i1 %.old1.not, label %11, label %9
+
+9:                                                ; preds = %4, %8
   %10 = tail call i32 @list_delete_all(ptr noundef nonnull %0, ptr noundef nonnull @_filter_job, ptr noundef null) #3
   br label %11
 
-11:                                               ; preds = %1, %9
+11:                                               ; preds = %4, %8, %9
   ret void
 }
 

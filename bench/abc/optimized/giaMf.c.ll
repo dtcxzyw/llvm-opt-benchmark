@@ -13225,8 +13225,8 @@ Vec_MemFree.exit:                                 ; preds = %._crit_edge.i, %53
 
 54:                                               ; preds = %Vec_MemFree.exit, %Vec_MemHashFree.exit
   %55 = getelementptr i8, ptr %0, i64 36
-  %.val1415.i = load i32, ptr %55, align 4
-  %56 = icmp sgt i32 %.val1415.i, 0
+  %.val1516.i = load i32, ptr %55, align 4
+  %56 = icmp sgt i32 %.val1516.i, 0
   br i1 %56, label %.lr.ph.i34, label %Vec_PtrFreeData.exit
 
 .lr.ph.i34:                                       ; preds = %54
@@ -13234,7 +13234,7 @@ Vec_MemFree.exit:                                 ; preds = %._crit_edge.i, %53
   br label %58
 
 58:                                               ; preds = %62, %.lr.ph.i34
-  %.val1418.i = phi i32 [ %.val1415.i, %.lr.ph.i34 ], [ %.val14.i, %62 ]
+  %.val1519.i = phi i32 [ %.val1516.i, %.lr.ph.i34 ], [ %.val15.i, %62 ]
   %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.i34 ], [ %indvars.iv.next.i36, %62 ]
   %.val.i = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv.i35
@@ -13244,13 +13244,13 @@ Vec_MemFree.exit:                                 ; preds = %._crit_edge.i, %53
 
 61:                                               ; preds = %58
   tail call void @free(ptr noundef %60) #27
-  %.val14.pre.i = load i32, ptr %55, align 4
+  %.val15.pre.i = load i32, ptr %55, align 4
   br label %62
 
 62:                                               ; preds = %61, %58
-  %.val14.i = phi i32 [ %.val1418.i, %58 ], [ %.val14.pre.i, %61 ]
+  %.val15.i = phi i32 [ %.val1519.i, %58 ], [ %.val15.pre.i, %61 ]
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
-  %63 = sext i32 %.val14.i to i64
+  %63 = sext i32 %.val15.i to i64
   %64 = icmp slt i64 %indvars.iv.next.i36, %63
   br i1 %64, label %58, label %Vec_PtrFreeData.exit, !llvm.loop !118
 

@@ -645,7 +645,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN12EmergeParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH10infostream() #31
@@ -1763,7 +1764,8 @@ for.body188.lr.ph:                                ; preds = %if.end143
   br label %for.body188
 
 for.cond.cleanup187:                              ; preds = %invoke.cont198, %if.end143
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %112, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %112
 
 112:                                              ; preds = %for.cond.cleanup187
   call void @_ZTH10infostream()
@@ -2941,6 +2943,7 @@ for.body.lr.ph:                                   ; preds = %_ZN12BiomeManager14
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @infostream)
   %mgtype = getelementptr inbounds i8, ptr %params, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %.not = icmp eq ptr @_ZTH10infostream, null
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZNSt6vectorIP6MapgenSaIS1_EE9push_backEOS1_.exit, %_ZN12BiomeManager14createBiomeGenE12BiomeGenTypeP11BiomeParamsN3irr4core8vector3dIsEE.exit
@@ -3001,7 +3004,7 @@ call13.i.noexc:                                   ; preds = %call11.i.noexc
 invoke.cont:                                      ; preds = %call13.i.noexc
   %biomegen16.i = getelementptr inbounds i8, ptr %call7, i64 32
   store ptr %call15.i30, ptr %biomegen16.i, align 8, !tbaa !39
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %20, label %_ZTW10infostream.exit
+  br i1 %.not, label %_ZTW10infostream.exit, label %20
 
 20:                                               ; preds = %invoke.cont
   tail call void @_ZTH10infostream()
@@ -4081,7 +4084,8 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %3, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %3
 
 3:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream()
@@ -4398,7 +4402,7 @@ if.then.i.i29:                                    ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12EmergeThread, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12EmergeThread, i64 16), ptr %this, align 8, !tbaa !26
   %enable_mapgen_debug_info = getelementptr inbounds i8, ptr %this, i64 144
   store i8 0, ptr %enable_mapgen_debug_info, align 8, !tbaa !205
   %id = getelementptr inbounds i8, ptr %this, i64 148
@@ -5226,7 +5230,8 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   br i1 %tobool.not, label %if.then, label %invoke.cont43
 
 if.then:                                          ; preds = %invoke.cont11
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %8, label %_ZTW11errorstream.exit
+  %.not11 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not11, label %_ZTW11errorstream.exit, label %8
 
 8:                                                ; preds = %if.then
   call void @_ZTH11errorstream()
@@ -5386,14 +5391,14 @@ invoke.cont43:                                    ; preds = %invoke.cont11
   br i1 %cmp.i, label %if.then.i159, label %invoke.cont43.invoke.cont44_crit_edge
 
 invoke.cont43.invoke.cont44_crit_edge:            ; preds = %invoke.cont43
-  %.pre14 = extractelement <2 x i16> %29, i64 1
-  %.pre15 = extractelement <2 x i16> %29, i64 0
+  %.pre15 = extractelement <2 x i16> %29, i64 1
+  %.pre16 = extractelement <2 x i16> %29, i64 0
   br label %invoke.cont44
 
 if.then.i159:                                     ; preds = %invoke.cont43
   %m_ignore_map_edit_events_area = getelementptr inbounds i8, ptr %34, i64 1232
-  %reass.sub12 = sub i16 %mul10.i128, %mul10.i
-  %add13.i.i.i = add i16 %reass.sub12, 16
+  %reass.sub13 = sub i16 %mul10.i128, %mul10.i
+  %add13.i.i.i = add i16 %reass.sub13, 16
   %retval.sroa.3.0.insert.ext.i12.i.i = zext i16 %add13.i.i.i to i48
   %retval.sroa.3.0.insert.shift.i13.i.i = shl nuw i48 %retval.sroa.3.0.insert.ext.i12.i.i, 32
   %38 = extractelement <2 x i16> %29, i64 1
@@ -5403,8 +5408,8 @@ if.then.i159:                                     ; preds = %invoke.cont43
   %retval.sroa.2.0.insert.shift.i15.i.i = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i14.i.i, 16
   %retval.sroa.2.0.insert.insert.i16.i.i = or disjoint i48 %retval.sroa.3.0.insert.shift.i13.i.i, %retval.sroa.2.0.insert.shift.i15.i.i
   %39 = extractelement <2 x i16> %29, i64 0
-  %reass.sub13 = sub i16 %mul.i124, %39
-  %add.i.i.i = add i16 %reass.sub13, 16
+  %reass.sub14 = sub i16 %mul.i124, %39
+  %add.i.i.i = add i16 %reass.sub14, 16
   %retval.sroa.0.0.insert.ext.i17.i.i = zext i16 %add.i.i.i to i48
   %retval.sroa.0.0.insert.insert.i18.i.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i16.i.i, %retval.sroa.0.0.insert.ext.i17.i.i
   store <2 x i16> %29, ptr %m_ignore_map_edit_events_area, align 2, !tbaa !104
@@ -5421,8 +5426,8 @@ if.then.i159:                                     ; preds = %invoke.cont43
   br label %invoke.cont44
 
 invoke.cont44:                                    ; preds = %invoke.cont43.invoke.cont44_crit_edge, %if.then.i159
-  %.pre-phi16 = phi i16 [ %.pre15, %invoke.cont43.invoke.cont44_crit_edge ], [ %39, %if.then.i159 ]
-  %.pre-phi = phi i16 [ %.pre14, %invoke.cont43.invoke.cont44_crit_edge ], [ %38, %if.then.i159 ]
+  %.pre-phi17 = phi i16 [ %.pre16, %invoke.cont43.invoke.cont44_crit_edge ], [ %39, %if.then.i159 ]
+  %.pre-phi = phi i16 [ %.pre15, %invoke.cont43.invoke.cont44_crit_edge ], [ %38, %if.then.i159 ]
   %40 = phi ptr [ %34, %invoke.cont43.invoke.cont44_crit_edge ], [ %.pre, %if.then.i159 ]
   %ign.sroa.0.0 = phi ptr [ null, %invoke.cont43.invoke.cont44_crit_edge ], [ %m_ignore_map_edit_events_area, %if.then.i159 ]
   %m_script.i = getelementptr inbounds i8, ptr %40, i64 144
@@ -5432,7 +5437,7 @@ invoke.cont44:                                    ; preds = %invoke.cont43.invok
   %minp.sroa.7.0.insert.shift = shl nuw i48 %minp.sroa.7.0.insert.ext, 32
   %minp.sroa.6.0.insert.ext = zext i16 %.pre-phi to i48
   %minp.sroa.6.0.insert.shift = shl nuw nsw i48 %minp.sroa.6.0.insert.ext, 16
-  %minp.sroa.0.0.insert.ext = zext i16 %.pre-phi16 to i48
+  %minp.sroa.0.0.insert.ext = zext i16 %.pre-phi17 to i48
   %minp.sroa.6.0.insert.insert = or disjoint i48 %minp.sroa.6.0.insert.shift, %minp.sroa.0.0.insert.ext
   %minp.sroa.0.0.insert.insert = or disjoint i48 %minp.sroa.6.0.insert.insert, %minp.sroa.7.0.insert.shift
   %maxp.sroa.7.0.insert.ext = zext i16 %add13.i to i48
@@ -5476,7 +5481,8 @@ try.cont:                                         ; preds = %invoke.cont55, %inv
   br i1 %tobool61.not, label %if.end76, label %if.then62
 
 if.then62:                                        ; preds = %try.cont
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %51, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %51
 
 51:                                               ; preds = %if.then62
   call void @_ZTH10infostream()
@@ -6286,7 +6292,8 @@ catch.dispatch:                                   ; preds = %lpad32, %ehcleanup2
 catch:                                            ; preds = %catch.dispatch
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn118, 0
   %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #31
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %46, label %_ZTW11errorstream.exit
+  %.not21 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not21, label %_ZTW11errorstream.exit, label %46
 
 46:                                               ; preds = %catch
   call void @_ZTH11errorstream()
@@ -6437,7 +6444,8 @@ catch.dispatch77:                                 ; preds = %lpad75, %lpad66
 catch80:                                          ; preds = %catch.dispatch77
   %exn.slot.7 = extractvalue { ptr, i32 } %.pn123, 0
   %68 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #31
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %69, label %_ZTW11errorstream.exit212
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit212, label %69
 
 69:                                               ; preds = %catch80
   call void @_ZTH11errorstream()
@@ -6778,6 +6786,7 @@ while.body.lr.ph:                                 ; preds = %if.end
   %modified_blocks.i = getelementptr inbounds i8, ptr %event, i64 16
   %_M_node5.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %bmdata, i64 152
   %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bmdata, i64 120
+  %.not = icmp eq ptr @_ZTH10infostream, null
   br label %while.body
 
 while.body:                                       ; preds = %_ZN15BlockEmergeDataD2Ev.exit, %while.body.lr.ph
@@ -6856,7 +6865,7 @@ if.end29:                                         ; preds = %if.end25
   br i1 %tobool34.not, label %if.end47, label %if.then35
 
 if.then35:                                        ; preds = %if.end29
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %35, label %_ZTW10infostream.exit
+  br i1 %.not, label %_ZTW10infostream.exit, label %35
 
 35:                                               ; preds = %if.then35
   call void @_ZTH10infostream()
@@ -8157,7 +8166,8 @@ catch293:                                         ; preds = %ehcleanup287
           to label %invoke.cont297 unwind label %lpad296
 
 invoke.cont297:                                   ; preds = %catch293
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %184, label %_ZTW11errorstream.exit
+  %.not36 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not36, label %_ZTW11errorstream.exit, label %184
 
 184:                                              ; preds = %invoke.cont297
   call void @_ZTH11errorstream()
@@ -8553,7 +8563,7 @@ _ZN11StreamProxylsIRA34_KcEERS_OT_.exit:          ; preds = %if.then.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12EmergeThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12EmergeThread, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12EmergeThread, i64 16), ptr %this, align 8, !tbaa !26
   %m_block_queue = getelementptr inbounds i8, ptr %this, i64 296
   %0 = load ptr, ptr %m_block_queue, align 8, !tbaa !220
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -8609,7 +8619,7 @@ _ZNSt10unique_ptrI15EmergeScriptingSt14default_deleteIS0_EED2Ev.exit: ; preds = 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12EmergeThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12EmergeThread, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12EmergeThread, i64 16), ptr %this, align 8, !tbaa !26
   %m_block_queue.i = getelementptr inbounds i8, ptr %this, i64 296
   %0 = load ptr, ptr %m_block_queue.i, align 8, !tbaa !220
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

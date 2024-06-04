@@ -2510,17 +2510,19 @@ do.end32:                                         ; preds = %if.then27, %do.body
 
 do.body35:                                        ; preds = %do.end32
   %18 = load ptr, ptr %lock, align 8
-  %tobool37 = icmp ne ptr %18, null
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
-  %tobool38 = icmp ne ptr %19, null
-  %or.cond = select i1 %tobool37, i1 %tobool38, i1 false
-  br i1 %or.cond, label %if.then39, label %if.end42
+  %tobool37.not = icmp eq ptr %18, null
+  br i1 %tobool37.not, label %if.end42, label %land.lhs.true
 
-if.then39:                                        ; preds = %do.body35
+land.lhs.true:                                    ; preds = %do.body35
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
+  %tobool38.not = icmp eq ptr %19, null
+  br i1 %tobool38.not, label %if.end42, label %if.then39
+
+if.then39:                                        ; preds = %land.lhs.true
   call void %19(ptr noundef nonnull %18, i32 noundef 1) #7
   br label %if.end42
 
-if.end42:                                         ; preds = %if.then39, %do.body35, %do.end32
+if.end42:                                         ; preds = %if.then39, %land.lhs.true, %do.body35, %do.end32
   %20 = load ptr, ptr %be_ops.i, align 8
   %mem_offset = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i64, ptr %mem_offset, align 8

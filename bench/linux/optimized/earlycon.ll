@@ -56,55 +56,59 @@ define dso_local i32 @setup_earlycon(ptr noundef %0) local_unnamed_addr #0 secti
   tail call void @console_list_unlock() #6
   br i1 %8, label %.preheader3, label %.loopexit4
 
-.preheader3:                                      ; preds = %6, %.loopexit2
-  %9 = phi i1 [ false, %.loopexit2 ], [ true, %6 ]
-  br i1 icmp ult (ptr @__earlycon_table, ptr @__earlycon_table_end), label %.preheader, label %.loopexit2
+.preheader3:                                      ; preds = %6
+  %9 = icmp ult ptr @__earlycon_table, @__earlycon_table_end
+  br label %10
 
-10:                                               ; preds = %.preheader, %18, %22
-  %11 = getelementptr i8, ptr %13, i64 152
-  %12 = icmp ult ptr %11, @__earlycon_table_end
-  br i1 %12, label %.preheader, label %.loopexit2, !llvm.loop !5
+10:                                               ; preds = %.preheader3, %.loopexit2
+  %11 = phi i1 [ false, %.loopexit2 ], [ true, %.preheader3 ]
+  br i1 %9, label %.preheader, label %.loopexit2
 
-.preheader:                                       ; preds = %.preheader3, %10
-  %13 = phi ptr [ %11, %10 ], [ @__earlycon_table, %.preheader3 ]
-  %14 = tail call i64 @strlen(ptr noundef %13) #6
-  %15 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %13, i64 noundef %14) #6
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %10
+12:                                               ; preds = %.preheader, %20, %24
+  %13 = getelementptr i8, ptr %15, i64 152
+  %14 = icmp ult ptr %13, @__earlycon_table_end
+  br i1 %14, label %.preheader, label %.loopexit2, !llvm.loop !5
 
-17:                                               ; preds = %.preheader
-  br i1 %9, label %18, label %22
+.preheader:                                       ; preds = %10, %12
+  %15 = phi ptr [ %13, %12 ], [ @__earlycon_table, %10 ]
+  %16 = tail call i64 @strlen(ptr noundef %15) #6
+  %17 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %15, i64 noundef %16) #6
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %12
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %13, i64 16
-  %20 = load i8, ptr %19, align 8
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %22, label %10
+19:                                               ; preds = %.preheader
+  br i1 %11, label %20, label %24
 
-22:                                               ; preds = %18, %17
-  %23 = getelementptr i8, ptr %0, i64 %14
-  %24 = load i8, ptr %23, align 1
-  switch i8 %24, label %10 [
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds i8, ptr %15, i64 16
+  %22 = load i8, ptr %21, align 8
+  %23 = icmp eq i8 %22, 0
+  br i1 %23, label %24, label %12
+
+24:                                               ; preds = %20, %19
+  %25 = getelementptr i8, ptr %0, i64 %16
+  %26 = load i8, ptr %25, align 1
+  switch i8 %26, label %12 [
     i8 0, label %.loopexit
-    i8 44, label %25
+    i8 44, label %27
   ]
 
-25:                                               ; preds = %22
-  %26 = getelementptr i8, ptr %0, i64 %14
-  %27 = getelementptr i8, ptr %26, i64 1
+27:                                               ; preds = %24
+  %28 = getelementptr i8, ptr %0, i64 %16
+  %29 = getelementptr i8, ptr %28, i64 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %25
-  %28 = phi ptr [ %27, %25 ], [ null, %22 ]
-  %29 = tail call fastcc i32 @register_earlycon(ptr noundef %28, ptr noundef %13) #7, !range !8
+.loopexit:                                        ; preds = %24, %27
+  %30 = phi ptr [ %29, %27 ], [ null, %24 ]
+  %31 = tail call fastcc i32 @register_earlycon(ptr noundef %30, ptr noundef %15) #7, !range !8
   br label %.loopexit4
 
-.loopexit2:                                       ; preds = %10, %.preheader3
-  br i1 %9, label %.preheader3, label %.loopexit4
+.loopexit2:                                       ; preds = %12, %10
+  br i1 %11, label %10, label %.loopexit4
 
 .loopexit4:                                       ; preds = %.loopexit2, %.loopexit, %6, %3, %1
-  %30 = phi i32 [ -22, %3 ], [ -22, %1 ], [ -114, %6 ], [ %29, %.loopexit ], [ -2, %.loopexit2 ]
-  ret i32 %30
+  %32 = phi i32 [ -22, %3 ], [ -22, %1 ], [ -114, %6 ], [ %31, %.loopexit ], [ -2, %.loopexit2 ]
+  ret i32 %32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

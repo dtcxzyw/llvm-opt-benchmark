@@ -349,7 +349,7 @@ define dso_local void @_ZN15RollbackManagerC2ERKNSt7__cxx1112basic_stringIcSt11c
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV15RollbackManager, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15RollbackManager, i64 16), ptr %this, align 8, !tbaa !4
   %gamedef = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %gamedef_, ptr %gamedef, align 8, !tbaa !7
   %current_actor = getelementptr inbounds i8, ptr %this, i64 16
@@ -381,7 +381,8 @@ entry:
   %knownActors = getelementptr inbounds i8, ptr %this, i64 216
   %knownNodes = getelementptr inbounds i8, ptr %this, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %knownActors, i8 0, i64 48, i1 false)
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %2, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %2
 
 2:                                                ; preds = %entry
   tail call void @_ZTH13verbosestream()
@@ -763,7 +764,8 @@ entry:
   %ref.tmp358 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp359 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp360 = alloca %"class.std::allocator", align 1
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %0, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH13verbosestream()
@@ -1926,7 +1928,7 @@ cleanup.action282:                                ; preds = %ehcleanup276.thread
   br label %ehcleanup383
 
 if.end284:                                        ; preds = %if.end255
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %149, label %_ZTW13verbosestream.exit541
+  br i1 %.not, label %_ZTW13verbosestream.exit541, label %149
 
 149:                                              ; preds = %if.end284
   tail call void @_ZTH13verbosestream()
@@ -2539,7 +2541,7 @@ _ZNSt7__cxx1110_List_baseI14RollbackActionSaIS1_EE8_M_clearEv.exit: ; preds = %w
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN15RollbackManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV15RollbackManager, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15RollbackManager, i64 16), ptr %this, align 8, !tbaa !4
   invoke void @_ZN15RollbackManager5flushEv(ptr noundef nonnull align 8 dereferenceable(264) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2554,7 +2556,8 @@ invoke.cont2:                                     ; preds = %invoke.cont
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont2
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %1, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %1
 
 1:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream() #28
@@ -2685,7 +2688,8 @@ invoke.cont15:                                    ; preds = %if.end
   br i1 %cmp17.not, label %if.end33, label %if.then18
 
 if.then18:                                        ; preds = %invoke.cont15
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %14, label %_ZTW11errorstream.exit205
+  %.not41 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not41, label %_ZTW11errorstream.exit205, label %14
 
 14:                                               ; preds = %if.then18
   tail call void @_ZTH11errorstream() #28
@@ -2816,7 +2820,8 @@ invoke.cont34:                                    ; preds = %if.end33
   br i1 %cmp36.not, label %if.end52, label %if.then37
 
 if.then37:                                        ; preds = %invoke.cont34
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %27, label %_ZTW11errorstream.exit249
+  %.not42 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not42, label %_ZTW11errorstream.exit249, label %27
 
 27:                                               ; preds = %if.then37
   tail call void @_ZTH11errorstream() #28
@@ -2947,7 +2952,8 @@ invoke.cont53:                                    ; preds = %if.end52
   br i1 %cmp55.not, label %if.end71, label %if.then56
 
 if.then56:                                        ; preds = %invoke.cont53
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %40, label %_ZTW11errorstream.exit294
+  %.not43 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not43, label %_ZTW11errorstream.exit294, label %40
 
 40:                                               ; preds = %if.then56
   tail call void @_ZTH11errorstream() #28
@@ -3078,7 +3084,8 @@ invoke.cont72:                                    ; preds = %if.end71
   br i1 %cmp74.not, label %if.end90, label %if.then75
 
 if.then75:                                        ; preds = %invoke.cont72
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %53, label %_ZTW11errorstream.exit338
+  %.not44 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not44, label %_ZTW11errorstream.exit338, label %53
 
 53:                                               ; preds = %if.then75
   tail call void @_ZTH11errorstream() #28
@@ -3209,7 +3216,8 @@ invoke.cont91:                                    ; preds = %if.end90
   br i1 %cmp93.not, label %if.end109, label %if.then94
 
 if.then94:                                        ; preds = %invoke.cont91
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %66, label %_ZTW11errorstream.exit382
+  %.not45 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not45, label %_ZTW11errorstream.exit382, label %66
 
 66:                                               ; preds = %if.then94
   tail call void @_ZTH11errorstream() #28
@@ -3340,7 +3348,8 @@ invoke.cont110:                                   ; preds = %if.end109
   br i1 %cmp112.not, label %if.end128, label %if.then113
 
 if.then113:                                       ; preds = %invoke.cont110
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %79, label %_ZTW11errorstream.exit426
+  %.not46 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not46, label %_ZTW11errorstream.exit426, label %79
 
 79:                                               ; preds = %if.then113
   tail call void @_ZTH11errorstream() #28
@@ -3471,7 +3480,8 @@ invoke.cont129:                                   ; preds = %if.end128
   br i1 %cmp131.not, label %if.end147, label %if.then132
 
 if.then132:                                       ; preds = %invoke.cont129
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %92, label %_ZTW11errorstream.exit471
+  %.not47 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not47, label %_ZTW11errorstream.exit471, label %92
 
 92:                                               ; preds = %if.then132
   tail call void @_ZTH11errorstream() #28
@@ -3602,7 +3612,8 @@ invoke.cont148:                                   ; preds = %if.end147
   br i1 %cmp150.not, label %if.end166, label %if.then151
 
 if.then151:                                       ; preds = %invoke.cont148
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %105, label %_ZTW11errorstream.exit516
+  %.not48 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not48, label %_ZTW11errorstream.exit516, label %105
 
 105:                                              ; preds = %if.then151
   tail call void @_ZTH11errorstream() #28
@@ -3733,7 +3744,8 @@ invoke.cont168:                                   ; preds = %if.end166
   br i1 %cmp170.not, label %if.end186, label %if.then171
 
 if.then171:                                       ; preds = %invoke.cont168
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %118, label %_ZTW11errorstream.exit561
+  %.not49 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not49, label %_ZTW11errorstream.exit561, label %118
 
 118:                                              ; preds = %if.then171
   tail call void @_ZTH11errorstream() #28
@@ -4889,7 +4901,7 @@ invoke.cont4:                                     ; preds = %if.end.i.i.i.i, %if
 define linkonce_odr dso_local void @_ZN20FileNotGoodExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i, align 8, !tbaa !25
@@ -4942,14 +4954,14 @@ _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV20FileNotGoodException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20FileNotGoodException, i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !44
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -5571,7 +5583,8 @@ cleanup.action:                                   ; preds = %ehcleanup11.thread4
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %14, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %14
 
 14:                                               ; preds = %if.end
   tail call void @_ZTH13verbosestream()
@@ -15330,7 +15343,7 @@ _ZN15RollbackManager15getActionsSinceElRKNSt7__cxx1112basic_stringIcSt11char_tra
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20FileNotGoodExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !44
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -15365,7 +15378,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !44
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -15422,7 +15435,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8, !tbaa !206
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !4
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %toolcaps_overridden, align 8, !tbaa !177
   %toolcaps_override = getelementptr inbounds i8, ptr %this, i64 80
@@ -19537,7 +19550,7 @@ entry:
   store ptr %m_stringvars.i, ptr %__alloc_node_gen.i.i.i, align 8, !tbaa !79
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSL_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %m_stringvars.i, ptr noundef nonnull align 8 dereferenceable(56) %m_stringvars4.i, ptr noundef nonnull align 8 dereferenceable(8) %__alloc_node_gen.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i) #28
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !4
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   %toolcaps_overridden2 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i8, ptr %toolcaps_overridden2, align 8, !tbaa !177, !range !174, !noundef !175

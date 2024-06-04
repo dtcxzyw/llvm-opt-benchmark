@@ -321,7 +321,7 @@ $_ZTIN3gmx8internal14EnumIndexStoreIN5Nbnxm17BenchMarkCombRuleEEE = comdat any
 define dso_local void @_ZN3gmx22NonbondedBenchmarkInfo6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_118NonbondedBenchmarkESt14default_deleteIS2_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118NonbondedBenchmarkE, i64 16), ptr %1, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118NonbondedBenchmarkE, i64 16), ptr %1, align 8, !noalias !5
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %2, align 8, !noalias !5
   %3 = getelementptr inbounds i8, ptr %1, i64 16
@@ -366,7 +366,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmarkD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118NonbondedBenchmarkE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118NonbondedBenchmarkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   tail call void @_ZN3gmx25ICommandLineOptionsModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
@@ -375,7 +375,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmarkD2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmarkD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118NonbondedBenchmarkE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118NonbondedBenchmarkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   tail call void @_ZN3gmx25ICommandLineOptionsModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
@@ -427,7 +427,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %29 = getelementptr inbounds i8, ptr %5, i64 24
   %30 = getelementptr inbounds i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %30, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   %32 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %31, ptr %32, align 8
@@ -448,7 +448,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %41 = getelementptr inbounds i8, ptr %6, i64 24
   %42 = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %6, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 20
   %44 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr %43, ptr %44, align 8
@@ -469,7 +469,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %53 = getelementptr inbounds i8, ptr %7, i64 24
   %54 = getelementptr inbounds i8, ptr %7, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx10EnumOptionIN5Nbnxm16BenchMarkKernelsEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx10EnumOptionIN5Nbnxm16BenchMarkKernelsEEE, i64 16), ptr %7, align 8
   %55 = getelementptr inbounds i8, ptr %7, i64 88
   %56 = getelementptr inbounds i8, ptr %7, i64 96
   %57 = getelementptr inbounds i8, ptr %0, i64 24
@@ -494,7 +494,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %67 = getelementptr inbounds i8, ptr %8, i64 24
   %68 = getelementptr inbounds i8, ptr %8, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %68, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx10EnumOptionIN5Nbnxm16BenchMarkCoulombEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx10EnumOptionIN5Nbnxm16BenchMarkCoulombEEE, i64 16), ptr %8, align 8
   %69 = getelementptr inbounds i8, ptr %8, i64 88
   %70 = getelementptr inbounds i8, ptr %8, i64 96
   %71 = getelementptr inbounds i8, ptr %0, i64 48
@@ -519,7 +519,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %81 = getelementptr inbounds i8, ptr %9, i64 24
   %82 = getelementptr inbounds i8, ptr %9, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %82, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %9, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 52
   %84 = getelementptr inbounds i8, ptr %9, i64 64
   store ptr %83, ptr %84, align 8
@@ -540,7 +540,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %93 = getelementptr inbounds i8, ptr %10, i64 24
   %94 = getelementptr inbounds i8, ptr %10, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx10EnumOptionIN5Nbnxm17BenchMarkCombRuleEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx10EnumOptionIN5Nbnxm17BenchMarkCombRuleEEE, i64 16), ptr %10, align 8
   %95 = getelementptr inbounds i8, ptr %10, i64 88
   %96 = getelementptr inbounds i8, ptr %10, i64 96
   %97 = getelementptr inbounds i8, ptr %0, i64 28
@@ -565,7 +565,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %107 = getelementptr inbounds i8, ptr %11, i64 24
   %108 = getelementptr inbounds i8, ptr %11, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %108, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %11, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 32
   %110 = getelementptr inbounds i8, ptr %11, i64 64
   store ptr %109, ptr %110, align 8
@@ -586,7 +586,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %119 = getelementptr inbounds i8, ptr %12, i64 24
   %120 = getelementptr inbounds i8, ptr %12, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %120, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %12, align 8
   %121 = getelementptr inbounds i8, ptr %0, i64 44
   %122 = getelementptr inbounds i8, ptr %12, i64 64
   store ptr %121, ptr %122, align 8
@@ -607,7 +607,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %131 = getelementptr inbounds i8, ptr %13, i64 24
   %132 = getelementptr inbounds i8, ptr %13, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %132, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %13, align 8
   %133 = getelementptr inbounds i8, ptr %0, i64 53
   %134 = getelementptr inbounds i8, ptr %13, i64 64
   store ptr %133, ptr %134, align 8
@@ -628,7 +628,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %143 = getelementptr inbounds i8, ptr %14, i64 24
   %144 = getelementptr inbounds i8, ptr %14, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %144, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %14, align 8
   %145 = getelementptr inbounds i8, ptr %14, i64 88
   store i8 0, ptr %145, align 8
   %146 = getelementptr inbounds i8, ptr %0, i64 36
@@ -651,7 +651,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %156 = getelementptr inbounds i8, ptr %15, i64 24
   %157 = getelementptr inbounds i8, ptr %15, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %157, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %15, align 8
   %158 = getelementptr inbounds i8, ptr %0, i64 60
   %159 = getelementptr inbounds i8, ptr %15, i64 64
   store ptr %158, ptr %159, align 8
@@ -672,7 +672,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %168 = getelementptr inbounds i8, ptr %16, i64 24
   %169 = getelementptr inbounds i8, ptr %16, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %169, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %16, align 8
   %170 = getelementptr inbounds i8, ptr %0, i64 64
   %171 = getelementptr inbounds i8, ptr %16, i64 64
   store ptr %170, ptr %171, align 8
@@ -693,7 +693,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %180 = getelementptr inbounds i8, ptr %17, i64 24
   %181 = getelementptr inbounds i8, ptr %17, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %181, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %17, align 8
   %182 = getelementptr inbounds i8, ptr %0, i64 68
   %183 = getelementptr inbounds i8, ptr %17, i64 64
   store ptr %182, ptr %183, align 8
@@ -714,7 +714,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %192 = getelementptr inbounds i8, ptr %18, i64 24
   %193 = getelementptr inbounds i8, ptr %18, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %193, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %18, align 8
   %194 = getelementptr inbounds i8, ptr %0, i64 69
   %195 = getelementptr inbounds i8, ptr %18, i64 64
   store ptr %194, ptr %195, align 8
@@ -735,7 +735,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %204 = getelementptr inbounds i8, ptr %19, i64 24
   %205 = getelementptr inbounds i8, ptr %19, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %205, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx14FileNameOptionE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx14FileNameOptionE, i64 16), ptr %19, align 8
   %206 = getelementptr inbounds i8, ptr %19, i64 88
   %207 = getelementptr inbounds i8, ptr %19, i64 92
   store i32 -1, ptr %207, align 4
@@ -992,7 +992,7 @@ declare noundef ptr @_ZN3gmx8internal23createEnumOptionStorageERKNS_14AbstractOp
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkKernelsEEC2EPS3_PSt6vectorIS3_SaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkKernelsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkKernelsEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1142,7 +1142,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit20:         ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkKernelsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkKernelsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkKernelsEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1158,7 +1158,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkKernelsEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkKernelsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkKernelsEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -1607,7 +1607,7 @@ _ZNKSt14default_deleteIN3gmx17IOptionValueStoreIiEEEclEPS2_.exit.i7: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkCoulombEEC2EPS3_PSt6vectorIS3_SaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkCoulombEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkCoulombEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1757,7 +1757,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit20:         ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkCoulombEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkCoulombEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkCoulombEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1773,7 +1773,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkCoulombEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkCoulombEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm16BenchMarkCoulombEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -2222,7 +2222,7 @@ _ZNKSt14default_deleteIN3gmx17IOptionValueStoreIiEEEclEPS2_.exit.i7: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreIN5Nbnxm17BenchMarkCombRuleEEC2EPS3_PSt6vectorIS3_SaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm17BenchMarkCombRuleEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm17BenchMarkCombRuleEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2372,7 +2372,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit20:         ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreIN5Nbnxm17BenchMarkCombRuleEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm17BenchMarkCombRuleEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm17BenchMarkCombRuleEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2388,7 +2388,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreIN5Nbnxm17BenchMarkCombRuleEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm17BenchMarkCombRuleEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreIN5Nbnxm17BenchMarkCombRuleEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

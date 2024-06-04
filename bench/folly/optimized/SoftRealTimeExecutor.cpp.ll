@@ -45,7 +45,7 @@ _ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit: ; preds = %en
   %or.i.i.i = zext i1 %not.call.i to i64
   %1 = ptrtoint ptr %this to i64
   %spec.select.i = or disjoint i64 %or.i.i.i, %1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 16), ptr %call.i34, align 8, !tbaa !7, !noalias !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 16), ptr %call.i34, align 8, !tbaa !7, !noalias !13
   %keepAliveCount_.i.i = getelementptr inbounds i8, ptr %call.i34, i64 8
   store i64 1, ptr %keepAliveCount_.i.i, align 8, !tbaa !16, !noalias !13
   %deadline_.i.i = getelementptr inbounds i8, ptr %call.i34, i64 16
@@ -93,7 +93,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 16), ptr %this, align 8, !tbaa !7
   %executor_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %executor_, align 8, !tbaa !28
   %and.i.i.i = and i64 %0, -4
@@ -125,7 +125,7 @@ _ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit: ; preds = %if
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 16), ptr %this, align 8, !tbaa !7
   %executor_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %executor_.i, align 8, !tbaa !28
   %and.i.i.i.i = and i64 %0, -4
@@ -304,7 +304,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #11
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !7
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
           to label %invoke.cont unwind label %lpad
 
@@ -323,7 +323,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #8 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !7
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #15
   unreachable
 }

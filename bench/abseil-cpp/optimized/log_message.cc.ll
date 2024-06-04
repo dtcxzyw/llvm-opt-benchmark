@@ -1858,14 +1858,16 @@ eh.resume:                                        ; preds = %ehcleanup16, %lpad
 define dso_local void @_ZN4absl12log_internal10LogMessage21FailWithoutStackTraceEv() local_unnamed_addr #11 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl12log_internal24SetSuppressSigabortTraceEb(i1 noundef zeroext true)
-  br i1 icmp ne (ptr @__gcov_dump, ptr null), label %if.then, label %if.else
+  %.not = icmp eq ptr @__gcov_dump, null
+  br i1 %.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @__gcov_dump()
   br label %if.end2
 
 if.else:                                          ; preds = %entry
-  br i1 icmp ne (ptr @__gcov_flush, ptr null), label %if.then1, label %if.end2
+  %.not1 = icmp eq ptr @__gcov_flush, null
+  br i1 %.not1, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %if.else
   tail call void @__gcov_flush()

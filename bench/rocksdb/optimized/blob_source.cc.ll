@@ -703,7 +703,8 @@ _ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit: ; preds = %if.then, 
   store ptr %call, ptr %handle_.i.i.i, align 8
   %value_4.i = getelementptr inbounds i8, ptr %cached_blob, i64 16
   store ptr %call.i.i, ptr %value_4.i, align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %7, label %_ZTWN7rocksdb10perf_levelE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb10perf_levelE.exit, label %7
 
 7:                                                ; preds = %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit
   tail call void @_ZTHN7rocksdb10perf_levelE()
@@ -716,7 +717,8 @@ _ZTWN7rocksdb10perf_levelE.exit:                  ; preds = %_ZN7rocksdb16CacheH
   br i1 %cmp4, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %_ZTWN7rocksdb10perf_levelE.exit
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %10, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i14 = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i14, label %_ZTWN7rocksdb12perf_contextE.exit, label %10
 
 10:                                               ; preds = %if.then5
   tail call void @_ZTHN7rocksdb12perf_contextE()
@@ -734,7 +736,7 @@ if.end:                                           ; preds = %_ZTWN7rocksdb12perf
   %statistics_ = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load ptr, ptr %statistics_, align 8
   %tobool.not.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit21, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit
+  br i1 %tobool.not.i, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit22, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit
 
 _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit: ; preds = %if.end
   %vtable.i = load ptr, ptr %13, align 8
@@ -742,20 +744,20 @@ _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit: ; preds = %if.end
   %14 = load ptr, ptr %vfn.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(33) %13, i32 noundef 183, i64 noundef 1)
   %.pr = load ptr, ptr %statistics_, align 8
-  %tobool.not.i16 = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i16, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit21, label %if.then.i17
+  %tobool.not.i17 = icmp eq ptr %.pr, null
+  br i1 %tobool.not.i17, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit22, label %if.then.i18
 
-if.then.i17:                                      ; preds = %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit
+if.then.i18:                                      ; preds = %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit
   %15 = load ptr, ptr %value_4.i, align 8
   %size_.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load i64, ptr %size_.i.i, align 8
-  %vtable.i18 = load ptr, ptr %.pr, align 8
-  %vfn.i19 = getelementptr inbounds i8, ptr %vtable.i18, i64 176
-  %17 = load ptr, ptr %vfn.i19, align 8
+  %vtable.i19 = load ptr, ptr %.pr, align 8
+  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 176
+  %17 = load ptr, ptr %vfn.i20, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(33) %.pr, i32 noundef 186, i64 noundef %16)
-  br label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit21
+  br label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit22
 
-_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit21: ; preds = %if.end, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit, %if.then.i17
+_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit22: ; preds = %if.end, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit, %if.then.i18
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !9
@@ -764,27 +766,27 @@ _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit21: ; preds = %if.end, %_ZN7rock
 if.end9:                                          ; preds = %entry
   %statistics_10 = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %statistics_10, align 8
-  %tobool.not.i22 = icmp eq ptr %18, null
-  br i1 %tobool.not.i22, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit27, label %if.then.i23
+  %tobool.not.i23 = icmp eq ptr %18, null
+  br i1 %tobool.not.i23, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit28, label %if.then.i24
 
-if.then.i23:                                      ; preds = %if.end9
-  %vtable.i24 = load ptr, ptr %18, align 8
-  %vfn.i25 = getelementptr inbounds i8, ptr %vtable.i24, i64 176
-  %19 = load ptr, ptr %vfn.i25, align 8
+if.then.i24:                                      ; preds = %if.end9
+  %vtable.i25 = load ptr, ptr %18, align 8
+  %vfn.i26 = getelementptr inbounds i8, ptr %vtable.i25, i64 176
+  %19 = load ptr, ptr %vfn.i26, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(33) %18, i32 noundef 182, i64 noundef 1)
-  br label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit27
+  br label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit28
 
-_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit27: ; preds = %if.end9, %if.then.i23
+_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit28: ; preds = %if.end9, %if.then.i24
   store ptr @.str, ptr %ref.tmp11, align 8
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 23, ptr %size_.i, align 8
   store ptr @.str.3, ptr %ref.tmp12, align 8
-  %size_.i28 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
-  store i64 0, ptr %size_.i28, align 8
+  %size_.i29 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
+  store i64 0, ptr %size_.i29, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12, i8 noundef zeroext 0)
   br label %return
 
-return:                                           ; preds = %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit27, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit21
+return:                                           ; preds = %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit28, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit22
   ret void
 }
 

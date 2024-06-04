@@ -234,8 +234,8 @@ define void @Abc_SclLoad(ptr noundef %0, ptr nocapture noundef %1) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Abc_SclLibFree(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 52
-  %.val109 = load i32, ptr %2, align 4
-  %3 = icmp sgt i32 %.val109, 0
+  %.val108 = load i32, ptr %2, align 4
+  %3 = icmp sgt i32 %.val108, 0
   br i1 %3, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
@@ -309,18 +309,18 @@ Vec_PtrErase.exit:                                ; preds = %.critedge, %25
   store i32 0, ptr %2, align 4
   store i32 0, ptr %22, align 8
   %26 = getelementptr i8, ptr %0, i64 68
-  %.val60111 = load i32, ptr %26, align 4
-  %27 = icmp sgt i32 %.val60111, 0
-  br i1 %27, label %.lr.ph113, label %.critedge2
+  %.val60110 = load i32, ptr %26, align 4
+  %27 = icmp sgt i32 %.val60110, 0
+  br i1 %27, label %.lr.ph112, label %.critedge2
 
-.lr.ph113:                                        ; preds = %Vec_PtrErase.exit
+.lr.ph112:                                        ; preds = %Vec_PtrErase.exit
   %28 = getelementptr i8, ptr %0, i64 72
   br label %29
 
-29:                                               ; preds = %.lr.ph113, %Abc_SclWireLoadSelFree.exit
-  %indvars.iv121 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next122, %Abc_SclWireLoadSelFree.exit ]
+29:                                               ; preds = %.lr.ph112, %Abc_SclWireLoadSelFree.exit
+  %indvars.iv120 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next121, %Abc_SclWireLoadSelFree.exit ]
   %.val64 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %.val64, i64 %indvars.iv121
+  %30 = getelementptr inbounds ptr, ptr %.val64, i64 %indvars.iv120
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = getelementptr inbounds i8, ptr %31, i64 16
@@ -354,8 +354,8 @@ Vec_FltErase.exit10.i:                            ; preds = %40, %Vec_FltErase.e
   store i32 0, ptr %37, align 8
   %42 = getelementptr inbounds i8, ptr %31, i64 40
   %43 = getelementptr i8, ptr %31, i64 44
-  %.val15.i.i = load i32, ptr %43, align 4
-  %44 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %43, align 4
+  %44 = icmp sgt i32 %.val16.i.i, 0
   br i1 %44, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %Vec_FltErase.exit10.i
@@ -363,10 +363,10 @@ Vec_FltErase.exit10.i:                            ; preds = %40, %Vec_FltErase.e
   br label %46
 
 46:                                               ; preds = %50, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %50 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %50 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %50 ]
-  %.val14.i.i = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %48 = load ptr, ptr %47, align 8
   %switch.i.i = icmp ult ptr %48, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %50, label %49
@@ -377,7 +377,7 @@ Vec_FltErase.exit10.i:                            ; preds = %40, %Vec_FltErase.e
   br label %50
 
 50:                                               ; preds = %49, %46
-  %.val.i.i = phi i32 [ %.val18.i.i, %46 ], [ %.val.pre.i.i, %49 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %46 ], [ %.val.pre.i.i, %49 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %51 = sext i32 %.val.i.i to i64
   %52 = icmp slt i64 %indvars.iv.next.i.i, %51
@@ -407,10 +407,10 @@ Vec_PtrErase.exit.i:                              ; preds = %55, %Vec_PtrFreeDat
 
 Abc_SclWireLoadSelFree.exit:                      ; preds = %Vec_PtrErase.exit.i, %57
   tail call void @free(ptr noundef nonnull %31) #10
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %.val60 = load i32, ptr %26, align 4
   %58 = sext i32 %.val60 to i64
-  %59 = icmp slt i64 %indvars.iv.next122, %58
+  %59 = icmp slt i64 %indvars.iv.next121, %58
   br i1 %59, label %29, label %.critedge2, !llvm.loop !7
 
 .critedge2:                                       ; preds = %Abc_SclWireLoadSelFree.exit, %Vec_PtrErase.exit
@@ -429,23 +429,23 @@ Vec_PtrErase.exit72:                              ; preds = %.critedge2, %63
   store i32 0, ptr %26, align 4
   store i32 0, ptr %60, align 8
   %64 = getelementptr i8, ptr %0, i64 84
-  %.val61114 = load i32, ptr %64, align 4
-  %65 = icmp sgt i32 %.val61114, 0
-  br i1 %65, label %.lr.ph116, label %.critedge4
+  %.val61113 = load i32, ptr %64, align 4
+  %65 = icmp sgt i32 %.val61113, 0
+  br i1 %65, label %.lr.ph115, label %.critedge4
 
-.lr.ph116:                                        ; preds = %Vec_PtrErase.exit72
+.lr.ph115:                                        ; preds = %Vec_PtrErase.exit72
   %66 = getelementptr i8, ptr %0, i64 88
   br label %67
 
-67:                                               ; preds = %.lr.ph116, %Abc_SclTableTemplFree.exit
-  %indvars.iv124 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next125, %Abc_SclTableTemplFree.exit ]
+67:                                               ; preds = %.lr.ph115, %Abc_SclTableTemplFree.exit
+  %indvars.iv123 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next124, %Abc_SclTableTemplFree.exit ]
   %.val65 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds ptr, ptr %.val65, i64 %indvars.iv124
+  %68 = getelementptr inbounds ptr, ptr %.val65, i64 %indvars.iv123
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = getelementptr i8, ptr %69, i64 12
-  %.val15.i.i73 = load i32, ptr %71, align 4
-  %72 = icmp sgt i32 %.val15.i.i73, 0
+  %.val16.i.i73 = load i32, ptr %71, align 4
+  %72 = icmp sgt i32 %.val16.i.i73, 0
   br i1 %72, label %.lr.ph.i.i78, label %Vec_PtrFreeData.exit.i74
 
 .lr.ph.i.i78:                                     ; preds = %67
@@ -453,10 +453,10 @@ Vec_PtrErase.exit72:                              ; preds = %.critedge2, %63
   br label %74
 
 74:                                               ; preds = %78, %.lr.ph.i.i78
-  %.val18.i.i79 = phi i32 [ %.val15.i.i73, %.lr.ph.i.i78 ], [ %.val.i.i84, %78 ]
+  %.val19.i.i79 = phi i32 [ %.val16.i.i73, %.lr.ph.i.i78 ], [ %.val.i.i84, %78 ]
   %indvars.iv.i.i80 = phi i64 [ 0, %.lr.ph.i.i78 ], [ %indvars.iv.next.i.i85, %78 ]
-  %.val14.i.i81 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds ptr, ptr %.val14.i.i81, i64 %indvars.iv.i.i80
+  %.val15.i.i81 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds ptr, ptr %.val15.i.i81, i64 %indvars.iv.i.i80
   %76 = load ptr, ptr %75, align 8
   %switch.i.i82 = icmp ult ptr %76, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i82, label %78, label %77
@@ -467,7 +467,7 @@ Vec_PtrErase.exit72:                              ; preds = %.critedge2, %63
   br label %78
 
 78:                                               ; preds = %77, %74
-  %.val.i.i84 = phi i32 [ %.val18.i.i79, %74 ], [ %.val.pre.i.i83, %77 ]
+  %.val.i.i84 = phi i32 [ %.val19.i.i79, %74 ], [ %.val.pre.i.i83, %77 ]
   %indvars.iv.next.i.i85 = add nuw nsw i64 %indvars.iv.i.i80, 1
   %79 = sext i32 %.val.i.i84 to i64
   %80 = icmp slt i64 %indvars.iv.next.i.i85, %79
@@ -552,10 +552,10 @@ Vec_VecErase.exit.i:                              ; preds = %100, %.critedge.i.i
 
 Abc_SclTableTemplFree.exit:                       ; preds = %Vec_VecErase.exit.i, %102
   tail call void @free(ptr noundef nonnull %69) #10
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %.val61 = load i32, ptr %64, align 4
   %103 = sext i32 %.val61 to i64
-  %104 = icmp slt i64 %indvars.iv.next125, %103
+  %104 = icmp slt i64 %indvars.iv.next124, %103
   br i1 %104, label %67, label %.critedge4, !llvm.loop !9
 
 .critedge4:                                       ; preds = %Abc_SclTableTemplFree.exit, %Vec_PtrErase.exit72
@@ -574,18 +574,18 @@ Vec_PtrErase.exit87:                              ; preds = %.critedge4, %108
   store i32 0, ptr %64, align 4
   store i32 0, ptr %105, align 8
   %109 = getelementptr i8, ptr %0, i64 100
-  %.val62117 = load i32, ptr %109, align 4
-  %110 = icmp sgt i32 %.val62117, 0
-  br i1 %110, label %.lr.ph119, label %.critedge6
+  %.val62116 = load i32, ptr %109, align 4
+  %110 = icmp sgt i32 %.val62116, 0
+  br i1 %110, label %.lr.ph118, label %.critedge6
 
-.lr.ph119:                                        ; preds = %Vec_PtrErase.exit87
+.lr.ph118:                                        ; preds = %Vec_PtrErase.exit87
   %111 = getelementptr i8, ptr %0, i64 104
   br label %112
 
-112:                                              ; preds = %.lr.ph119, %Abc_SclCellFree.exit
-  %indvars.iv127 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next128, %Abc_SclCellFree.exit ]
+112:                                              ; preds = %.lr.ph118, %Abc_SclCellFree.exit
+  %indvars.iv126 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next127, %Abc_SclCellFree.exit ]
   %.val66 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds ptr, ptr %.val66, i64 %indvars.iv127
+  %113 = getelementptr inbounds ptr, ptr %.val66, i64 %indvars.iv126
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr i8, ptr %114, i64 52
   %.val15.i = load i32, ptr %115, align 4
@@ -611,9 +611,9 @@ Vec_PtrErase.exit87:                              ; preds = %.critedge4, %108
   br label %124
 
 124:                                              ; preds = %Abc_SclTimingsFree.exit.i.i, %.lr.ph.i.i92
-  %indvars.iv.i.i93 = phi i64 [ 0, %.lr.ph.i.i92 ], [ %indvars.iv.next.i.i96, %Abc_SclTimingsFree.exit.i.i ]
-  %.val18.i.i94 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds ptr, ptr %.val18.i.i94, i64 %indvars.iv.i.i93
+  %indvars.iv.i.i93 = phi i64 [ 0, %.lr.ph.i.i92 ], [ %indvars.iv.next.i.i95, %Abc_SclTimingsFree.exit.i.i ]
+  %.val18.i.i = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds ptr, ptr %.val18.i.i, i64 %indvars.iv.i.i93
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr i8, ptr %126, i64 12
   %.val15.i.i.i = load i32, ptr %127, align 4
@@ -680,8 +680,8 @@ Vec_PtrErase.exit.i.i.i:                          ; preds = %148, %.critedge.i.i
   store i32 0, ptr %127, align 4
   store i32 0, ptr %145, align 8
   %149 = load ptr, ptr %126, align 8
-  %.not.i.i.i95 = icmp eq ptr %149, null
-  br i1 %.not.i.i.i95, label %Abc_SclTimingsFree.exit.i.i, label %150
+  %.not.i.i.i94 = icmp eq ptr %149, null
+  br i1 %.not.i.i.i94, label %Abc_SclTimingsFree.exit.i.i, label %150
 
 150:                                              ; preds = %Vec_PtrErase.exit.i.i.i
   tail call void @free(ptr noundef nonnull %149) #10
@@ -689,10 +689,10 @@ Vec_PtrErase.exit.i.i.i:                          ; preds = %148, %.critedge.i.i
 
 Abc_SclTimingsFree.exit.i.i:                      ; preds = %150, %Vec_PtrErase.exit.i.i.i
   tail call void @free(ptr noundef nonnull %126) #10
-  %indvars.iv.next.i.i96 = add nuw nsw i64 %indvars.iv.i.i93, 1
-  %.val.i.i97 = load i32, ptr %121, align 4
-  %151 = sext i32 %.val.i.i97 to i64
-  %152 = icmp slt i64 %indvars.iv.next.i.i96, %151
+  %indvars.iv.next.i.i95 = add nuw nsw i64 %indvars.iv.i.i93, 1
+  %.val.i.i96 = load i32, ptr %121, align 4
+  %151 = sext i32 %.val.i.i96 to i64
+  %152 = icmp slt i64 %indvars.iv.next.i.i95, %151
   br i1 %152, label %124, label %.critedge.i.i90, !llvm.loop !11
 
 .critedge.i.i90:                                  ; preds = %Abc_SclTimingsFree.exit.i.i, %118
@@ -777,39 +777,39 @@ Vec_PtrErase.exit.i88:                            ; preds = %173, %.critedge.i
 
 Abc_SclCellFree.exit:                             ; preds = %Vec_PtrErase.exit.i88, %175
   tail call void @free(ptr noundef nonnull %114) #10
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %.val62 = load i32, ptr %109, align 4
   %176 = sext i32 %.val62 to i64
-  %177 = icmp slt i64 %indvars.iv.next128, %176
+  %177 = icmp slt i64 %indvars.iv.next127, %176
   br i1 %177, label %112, label %.critedge6, !llvm.loop !13
 
 .critedge6:                                       ; preds = %Abc_SclCellFree.exit, %Vec_PtrErase.exit87
   %178 = getelementptr inbounds i8, ptr %0, i64 96
   %179 = getelementptr inbounds i8, ptr %0, i64 104
   %180 = load ptr, ptr %179, align 8
-  %.not.i98 = icmp eq ptr %180, null
-  br i1 %.not.i98, label %Vec_PtrErase.exit99, label %181
+  %.not.i97 = icmp eq ptr %180, null
+  br i1 %.not.i97, label %Vec_PtrErase.exit98, label %181
 
 181:                                              ; preds = %.critedge6
   tail call void @free(ptr noundef nonnull %180) #10
   store ptr null, ptr %179, align 8
-  br label %Vec_PtrErase.exit99
+  br label %Vec_PtrErase.exit98
 
-Vec_PtrErase.exit99:                              ; preds = %.critedge6, %181
+Vec_PtrErase.exit98:                              ; preds = %.critedge6, %181
   store i32 0, ptr %109, align 4
   store i32 0, ptr %178, align 8
   %182 = getelementptr inbounds i8, ptr %0, i64 112
   %183 = getelementptr inbounds i8, ptr %0, i64 120
   %184 = load ptr, ptr %183, align 8
-  %.not.i100 = icmp eq ptr %184, null
-  br i1 %.not.i100, label %Vec_PtrErase.exit101, label %185
+  %.not.i99 = icmp eq ptr %184, null
+  br i1 %.not.i99, label %Vec_PtrErase.exit100, label %185
 
-185:                                              ; preds = %Vec_PtrErase.exit99
+185:                                              ; preds = %Vec_PtrErase.exit98
   tail call void @free(ptr noundef nonnull %184) #10
   store ptr null, ptr %183, align 8
-  br label %Vec_PtrErase.exit101
+  br label %Vec_PtrErase.exit100
 
-Vec_PtrErase.exit101:                             ; preds = %Vec_PtrErase.exit99, %185
+Vec_PtrErase.exit100:                             ; preds = %Vec_PtrErase.exit98, %185
   %186 = getelementptr inbounds i8, ptr %0, i64 116
   store i32 0, ptr %186, align 4
   store i32 0, ptr %182, align 8
@@ -817,12 +817,12 @@ Vec_PtrErase.exit101:                             ; preds = %Vec_PtrErase.exit99
   %.not = icmp eq ptr %187, null
   br i1 %.not, label %189, label %188
 
-188:                                              ; preds = %Vec_PtrErase.exit101
+188:                                              ; preds = %Vec_PtrErase.exit100
   tail call void @free(ptr noundef nonnull %187) #10
   store ptr null, ptr %0, align 8
   br label %189
 
-189:                                              ; preds = %Vec_PtrErase.exit101, %188
+189:                                              ; preds = %Vec_PtrErase.exit100, %188
   %190 = getelementptr inbounds i8, ptr %0, i64 8
   %191 = load ptr, ptr %190, align 8
   %.not56 = icmp eq ptr %191, null
@@ -4091,8 +4091,8 @@ Vec_PtrErase.exit.i.i:                            ; preds = %7, %3
   store i32 0, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %.val, i64 48
   %10 = getelementptr i8, ptr %.val, i64 52
-  %.val15.i.i.i = load i32, ptr %10, align 4
-  %11 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %10, align 4
+  %11 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %11, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %Vec_PtrErase.exit.i.i
@@ -4100,10 +4100,10 @@ Vec_PtrErase.exit.i.i:                            ; preds = %7, %3
   br label %13
 
 13:                                               ; preds = %17, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %17 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %17 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %17 ]
-  %.val14.i.i.i = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %15 = load ptr, ptr %14, align 8
   %switch.i.i.i = icmp ult ptr %15, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %17, label %16
@@ -4114,7 +4114,7 @@ Vec_PtrErase.exit.i.i:                            ; preds = %7, %3
   br label %17
 
 17:                                               ; preds = %16, %13
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %13 ], [ %.val.pre.i.i.i, %16 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %13 ], [ %.val.pre.i.i.i, %16 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %18 = sext i32 %.val.i.i.i to i64
   %19 = icmp slt i64 %indvars.iv.next.i.i.i, %18

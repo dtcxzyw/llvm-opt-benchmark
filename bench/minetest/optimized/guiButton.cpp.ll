@@ -1147,7 +1147,7 @@ entry:
   %ref.tmp41 = alloca %"class.irr::core::rect", align 4
   %rectangle.sroa.0.sroa.3.0.extract.shift = lshr i64 %rectangle.coerce0, 32
   %0 = getelementptr inbounds i8, ptr %this, i64 7456
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 7464
   store ptr null, ptr %DebugName.i, align 8, !tbaa !82
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 7472
@@ -1158,8 +1158,8 @@ entry:
   store i64 %rectangle.coerce1, ptr %agg.tmp.sroa.2.0.agg.tmp71.sroa_idx, align 8
   call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT9GUIButton, i64 16), i32 noundef 0, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp71)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp71)
-  store ptr getelementptr inbounds inrange(-24, 544) (i8, ptr @_ZTV9GUIButton, i64 24), ptr %this, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV9GUIButton, i64 592), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9GUIButton, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9GUIButton, i64 592), ptr %0, align 8, !tbaa !4
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %this, i64 308
   store i32 -1, ptr %arrayctor.cur.ptr, align 4, !tbaa !7
   %Loop.i = getelementptr inbounds i8, ptr %this, i64 316
@@ -6965,7 +6965,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !4
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -9499,7 +9499,8 @@ if.then33:                                        ; preds = %entry
   br label %if.end63
 
 if.else52:                                        ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %13, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %13
 
 13:                                               ; preds = %if.else52
   call void @_ZTH13warningstream()
@@ -9708,7 +9709,8 @@ if.then6:                                         ; preds = %entry
   br label %if.end21
 
 if.else13:                                        ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %6, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %6
 
 6:                                                ; preds = %if.else13
   call void @_ZTH13warningstream()

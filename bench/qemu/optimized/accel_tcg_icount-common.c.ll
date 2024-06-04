@@ -941,8 +941,8 @@ if.end.i:                                         ; preds = %if.then.i
   %sub.i.i.i = sub i64 %10, %13
   store i64 %13, ptr %icount_budget.i.i.i, align 16
   %14 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
-  %add.i.i8 = add i64 %sub.i.i.i, %14
-  store atomic i64 %add.i.i8, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  %add.i.i7 = add i64 %sub.i.i.i, %14
+  store atomic i64 %add.i.i7, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
   br label %icount_get_raw_locked.exit
 
 icount_get_raw_locked.exit:                       ; preds = %cond.true, %land.lhs.true.i, %if.end.i
@@ -954,43 +954,43 @@ cond.true5:                                       ; preds = %qemu_spin_lock.exit
   %call6 = tail call i64 @cpu_get_clock_locked() #8
   %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %17 = load ptr, ptr %16, align 8
-  %tobool.not.i9 = icmp eq ptr %17, null
-  br i1 %tobool.not.i9, label %icount_get_raw_locked.exit24, label %land.lhs.true.i10
+  %tobool.not.i8 = icmp eq ptr %17, null
+  br i1 %tobool.not.i8, label %icount_get_raw_locked.exit23, label %land.lhs.true.i9
 
-land.lhs.true.i10:                                ; preds = %cond.true5
-  %running.i11 = getelementptr inbounds i8, ptr %17, i64 188
-  %18 = load i8, ptr %running.i11, align 4
-  %tobool1.i12 = trunc i8 %18 to i1
-  br i1 %tobool1.i12, label %if.then.i13, label %icount_get_raw_locked.exit24
+land.lhs.true.i9:                                 ; preds = %cond.true5
+  %running.i10 = getelementptr inbounds i8, ptr %17, i64 188
+  %18 = load i8, ptr %running.i10, align 4
+  %tobool1.i11 = trunc i8 %18 to i1
+  br i1 %tobool1.i11, label %if.then.i12, label %icount_get_raw_locked.exit23
 
-if.then.i13:                                      ; preds = %land.lhs.true.i10
-  %can_do_io.i14 = getelementptr inbounds i8, ptr %17, i64 10164
-  %19 = load i8, ptr %can_do_io.i14, align 4
-  %tobool2.i15 = trunc i8 %19 to i1
-  br i1 %tobool2.i15, label %if.end.i17, label %if.then3.i16
+if.then.i12:                                      ; preds = %land.lhs.true.i9
+  %can_do_io.i13 = getelementptr inbounds i8, ptr %17, i64 10164
+  %19 = load i8, ptr %can_do_io.i13, align 4
+  %tobool2.i14 = trunc i8 %19 to i1
+  br i1 %tobool2.i14, label %if.end.i16, label %if.then3.i15
 
-if.then3.i16:                                     ; preds = %if.then.i13
+if.then3.i15:                                     ; preds = %if.then.i12
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
   tail call void @exit(i32 noundef 1) #9
   unreachable
 
-if.end.i17:                                       ; preds = %if.then.i13
-  %icount_budget.i.i.i18 = getelementptr inbounds i8, ptr %17, i64 224
-  %20 = load i64, ptr %icount_budget.i.i.i18, align 16
-  %icount_decr.i.i.i19 = getelementptr inbounds i8, ptr %17, i64 10160
-  %21 = load i16, ptr %icount_decr.i.i.i19, align 16
-  %conv.i.i.i20 = zext i16 %21 to i64
-  %icount_extra.i.i.i21 = getelementptr inbounds i8, ptr %17, i64 232
-  %22 = load i64, ptr %icount_extra.i.i.i21, align 8
-  %23 = add i64 %22, %conv.i.i.i20
-  %sub.i.i.i22 = sub i64 %20, %23
-  store i64 %23, ptr %icount_budget.i.i.i18, align 16
+if.end.i16:                                       ; preds = %if.then.i12
+  %icount_budget.i.i.i17 = getelementptr inbounds i8, ptr %17, i64 224
+  %20 = load i64, ptr %icount_budget.i.i.i17, align 16
+  %icount_decr.i.i.i18 = getelementptr inbounds i8, ptr %17, i64 10160
+  %21 = load i16, ptr %icount_decr.i.i.i18, align 16
+  %conv.i.i.i19 = zext i16 %21 to i64
+  %icount_extra.i.i.i20 = getelementptr inbounds i8, ptr %17, i64 232
+  %22 = load i64, ptr %icount_extra.i.i.i20, align 8
+  %23 = add i64 %22, %conv.i.i.i19
+  %sub.i.i.i21 = sub i64 %20, %23
+  store i64 %23, ptr %icount_budget.i.i.i17, align 16
   %24 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
-  %add.i.i23 = add i64 %sub.i.i.i22, %24
-  store atomic i64 %add.i.i23, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
-  br label %icount_get_raw_locked.exit24
+  %add.i.i22 = add i64 %sub.i.i.i21, %24
+  store atomic i64 %add.i.i22, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
+  br label %icount_get_raw_locked.exit23
 
-icount_get_raw_locked.exit24:                     ; preds = %cond.true5, %land.lhs.true.i10, %if.end.i17
+icount_get_raw_locked.exit23:                     ; preds = %cond.true5, %land.lhs.true.i9, %if.end.i16
   %25 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
   %call8 = tail call i64 @replay_save_clock(i32 noundef 1, i64 noundef %call6, i64 noundef %25) #8
   br label %cond.end11
@@ -1000,9 +1000,9 @@ cond.false9:                                      ; preds = %qemu_spin_lock.exit
   %.pre = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   br label %cond.end11
 
-cond.end11:                                       ; preds = %icount_get_raw_locked.exit24, %cond.false9, %icount_get_raw_locked.exit
-  %.pre-phi = phi ptr [ %16, %icount_get_raw_locked.exit24 ], [ %.pre, %cond.false9 ], [ %6, %icount_get_raw_locked.exit ]
-  %cond12 = phi i64 [ %call8, %icount_get_raw_locked.exit24 ], [ %call10, %cond.false9 ], [ %call3, %icount_get_raw_locked.exit ]
+cond.end11:                                       ; preds = %icount_get_raw_locked.exit23, %cond.false9, %icount_get_raw_locked.exit
+  %.pre-phi = phi ptr [ %16, %icount_get_raw_locked.exit23 ], [ %.pre, %cond.false9 ], [ %6, %icount_get_raw_locked.exit ]
+  %cond12 = phi i64 [ %call8, %icount_get_raw_locked.exit23 ], [ %call10, %cond.false9 ], [ %call3, %icount_get_raw_locked.exit ]
   %26 = load ptr, ptr %.pre-phi, align 8
   %tobool.not.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i, label %icount_get_locked.exit, label %land.lhs.true.i.i
@@ -1071,8 +1071,8 @@ land.lhs.true28:                                  ; preds = %if.end25
   %mul30 = shl i64 %sub, 1
   %cmp31 = icmp sgt i64 %sub29, %mul30
   %cmp35 = icmp slt i16 %36, 10
-  %or.cond1 = and i1 %cmp35, %cmp31
-  br i1 %or.cond1, label %if.end49.sink.split, label %if.end49
+  %or.cond28 = and i1 %cmp35, %cmp31
+  br i1 %or.cond28, label %if.end49.sink.split, label %if.end49
 
 if.end49.sink.split:                              ; preds = %land.lhs.true28, %land.lhs.true
   %.sink = phi i16 [ -1, %land.lhs.true ], [ 1, %land.lhs.true28 ]
@@ -1091,8 +1091,8 @@ if.end49:                                         ; preds = %if.end49.sink.split
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   fence release
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
-  %add.i.i25 = add i32 %39, 1
-  store atomic i32 %add.i.i25, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
+  %add.i.i24 = add i32 %39, 1
+  store atomic i32 %add.i.i24, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
   br label %return
 

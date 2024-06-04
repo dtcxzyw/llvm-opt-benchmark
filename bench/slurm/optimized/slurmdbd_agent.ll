@@ -1395,8 +1395,8 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 699, ptr noundef nonnull @__func__._agent) #15
   unreachable
 
-.backedge.sink.split:                             ; preds = %188, %376
-  %.str.27.sink = phi ptr [ @.str.33, %376 ], [ @.str.27, %188 ]
+.backedge.sink.split:                             ; preds = %188, %375
+  %.str.27.sink = phi ptr [ @.str.33, %375 ], [ @.str.27, %188 ]
   %192 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #13
   call void @slurm_diff_tv_str(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 20, ptr noundef nonnull %.str.27.sink, i64 noundef 0, ptr noundef nonnull %15) #13
   br label %.backedge
@@ -1441,7 +1441,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
 212:                                              ; preds = %198
   %213 = load ptr, ptr %11, align 8
   %.not117 = icmp eq ptr %213, null
-  br i1 %.not117, label %291, label %214
+  br i1 %.not117, label %290, label %214
 
 214:                                              ; preds = %212
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
@@ -1459,11 +1459,11 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
 218:                                              ; preds = %214
   %219 = call i32 @slurm_unpack16(ptr noundef nonnull %4, ptr noundef nonnull %216) #13
   %.not.i = icmp eq i32 %219, 0
-  br i1 %.not.i, label %220, label %290
+  br i1 %.not.i, label %220, label %289
 
 220:                                              ; preds = %218
   %221 = load i16, ptr %4, align 2
-  switch i16 %221, label %286 [
+  switch i16 %221, label %285 [
     i16 1475, label %222
     i16 1433, label %245
   ]
@@ -1473,17 +1473,17 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   %224 = getelementptr inbounds i8, ptr %223, i64 160
   %225 = load i16, ptr %224, align 8
   %226 = call i32 @slurmdbd_unpack_list_msg(ptr noundef nonnull %6, i16 noundef zeroext %225, i32 noundef 1475, ptr noundef nonnull %216) #13
-  %.not18.i = icmp eq i32 %226, 0
-  br i1 %.not18.i, label %229, label %227
+  %.not17.i = icmp eq i32 %226, 0
+  br i1 %.not17.i, label %229, label %227
 
 227:                                              ; preds = %222
   %228 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.35) #13
-  br label %290
+  br label %289
 
 229:                                              ; preds = %222
   %230 = call i32 @pthread_mutex_lock(ptr noundef nonnull @agent_lock) #13
-  %.not19.i = icmp eq i32 %230, 0
-  br i1 %.not19.i, label %233, label %231
+  %.not18.i = icmp eq i32 %230, 0
+  br i1 %.not18.i, label %233, label %231
 
 231:                                              ; preds = %229
   %232 = tail call ptr @__errno_location() #14
@@ -1493,8 +1493,8 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
 
 233:                                              ; preds = %229
   %234 = load ptr, ptr @agent_list, align 8
-  %.not20.i = icmp eq ptr %234, null
-  br i1 %.not20.i, label %239, label %235
+  %.not19.i = icmp eq ptr %234, null
+  br i1 %.not19.i, label %239, label %235
 
 235:                                              ; preds = %233
   %236 = load ptr, ptr %6, align 8
@@ -1504,8 +1504,8 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
 
 239:                                              ; preds = %235, %233
   %240 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @agent_lock) #13
-  %.not21.i = icmp eq i32 %240, 0
-  br i1 %.not21.i, label %243, label %241
+  %.not20.i = icmp eq i32 %240, 0
+  br i1 %.not20.i, label %243, label %241
 
 241:                                              ; preds = %239
   %242 = tail call ptr @__errno_location() #14
@@ -1516,7 +1516,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
 243:                                              ; preds = %239
   %244 = load ptr, ptr %6, align 8
   call void @slurm_slurmdbd_free_list_msg(ptr noundef %244) #13
-  br label %290
+  br label %289
 
 245:                                              ; preds = %220
   %246 = load ptr, ptr @slurmdbd_conn, align 8
@@ -1524,378 +1524,378 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   %248 = load i16, ptr %247, align 8
   %249 = call i32 @slurm_persist_unpack_rc_msg(ptr noundef nonnull %5, ptr noundef nonnull %216, i16 noundef zeroext %248) #13
   %250 = icmp eq i32 %249, 0
-  br i1 %250, label %251, label %284
+  br i1 %250, label %251, label %283
 
 251:                                              ; preds = %245
   %252 = load ptr, ptr %5, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 12
   %254 = load i32, ptr %253, align 4
   store i32 %254, ptr %7, align 4
-  %.not17.i = icmp eq i32 %254, 0
-  br i1 %.not17.i, label %282, label %255
+  %.not15.i = icmp eq i32 %254, 0
+  br i1 %.not15.i, label %281, label %255
 
 255:                                              ; preds = %251
   %256 = getelementptr inbounds i8, ptr %252, i64 16
   %257 = load i16, ptr %256, align 8
-  %258 = icmp eq i16 %257, 1434
+  %258 = icmp ne i16 %257, 1434
   %259 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
-  %260 = icmp ne i16 %259, 0
-  %or.cond.i = select i1 %258, i1 %260, i1 false
-  br i1 %or.cond.i, label %261, label %269
+  %.not16.i = icmp eq i16 %259, 0
+  %or.cond.i = select i1 %258, i1 true, i1 %.not16.i
+  br i1 %or.cond.i, label %268, label %260
 
-261:                                              ; preds = %255
-  %262 = call ptr @slurmdbd_msg_type_2_str(i32 noundef 1434, i32 noundef 1) #13
-  %263 = load ptr, ptr %5, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 16
-  %265 = load i16, ptr %264, align 8
-  %266 = zext i16 %265 to i32
-  %267 = load ptr, ptr %263, align 8
-  %268 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.36, i32 noundef %254, ptr noundef %262, i32 noundef %266, ptr noundef %267) #13
+260:                                              ; preds = %255
+  %261 = call ptr @slurmdbd_msg_type_2_str(i32 noundef 1434, i32 noundef 1) #13
+  %262 = load ptr, ptr %5, align 8
+  %263 = getelementptr inbounds i8, ptr %262, i64 16
+  %264 = load i16, ptr %263, align 8
+  %265 = zext i16 %264 to i32
+  %266 = load ptr, ptr %262, align 8
+  %267 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.36, i32 noundef %254, ptr noundef %261, i32 noundef %265, ptr noundef %266) #13
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.37) #15
   unreachable
 
-269:                                              ; preds = %255
-  %270 = call i32 @slurm_get_log_level() #13
-  %271 = icmp sgt i32 %270, 4
-  %.pre22.i = load ptr, ptr %5, align 8
-  br i1 %271, label %272, label %282
+268:                                              ; preds = %255
+  %269 = call i32 @slurm_get_log_level() #13
+  %270 = icmp sgt i32 %269, 4
+  %.pre21.i = load ptr, ptr %5, align 8
+  br i1 %270, label %271, label %281
 
-272:                                              ; preds = %269
-  %273 = getelementptr inbounds i8, ptr %.pre22.i, i64 16
-  %274 = load i16, ptr %273, align 8
-  %275 = zext i16 %274 to i32
-  %276 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %275, i32 noundef 1) #13
-  %277 = load ptr, ptr %5, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 16
-  %279 = load i16, ptr %278, align 8
-  %280 = zext i16 %279 to i32
-  %281 = load ptr, ptr %277, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_mult_rc_ret, i32 noundef %254, ptr noundef %276, i32 noundef %280, ptr noundef %281) #13
+271:                                              ; preds = %268
+  %272 = getelementptr inbounds i8, ptr %.pre21.i, i64 16
+  %273 = load i16, ptr %272, align 8
+  %274 = zext i16 %273 to i32
+  %275 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %274, i32 noundef 1) #13
+  %276 = load ptr, ptr %5, align 8
+  %277 = getelementptr inbounds i8, ptr %276, i64 16
+  %278 = load i16, ptr %277, align 8
+  %279 = zext i16 %278 to i32
+  %280 = load ptr, ptr %276, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_mult_rc_ret, i32 noundef %254, ptr noundef %275, i32 noundef %279, ptr noundef %280) #13
   %.pre.i = load ptr, ptr %5, align 8
-  br label %282
+  br label %281
 
-282:                                              ; preds = %272, %269, %251
-  %283 = phi ptr [ %.pre.i, %272 ], [ %.pre22.i, %269 ], [ %252, %251 ]
-  call void @slurm_persist_free_rc_msg(ptr noundef %283) #13
-  br label %290
+281:                                              ; preds = %271, %268, %251
+  %282 = phi ptr [ %.pre.i, %271 ], [ %.pre21.i, %268 ], [ %252, %251 ]
+  call void @slurm_persist_free_rc_msg(ptr noundef %282) #13
+  br label %289
 
-284:                                              ; preds = %245
-  %285 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.35) #13
-  br label %290
+283:                                              ; preds = %245
+  %284 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.35) #13
+  br label %289
 
-286:                                              ; preds = %220
-  %287 = zext i16 %221 to i32
-  %288 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %287, i32 noundef 1) #13
-  %289 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.39, ptr noundef %288) #13
-  br label %290
+285:                                              ; preds = %220
+  %286 = zext i16 %221 to i32
+  %287 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %286, i32 noundef 1) #13
+  %288 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.39, ptr noundef %287) #13
+  br label %289
 
-290:                                              ; preds = %286, %284, %282, %243, %227, %218
+289:                                              ; preds = %285, %283, %281, %243, %227, %218
   call void @slurm_free_buf(ptr noundef nonnull %216) #13
   %.0.pre.i = load i32, ptr %7, align 4
   br label %_handle_mult_rc_ret.exit
 
-_handle_mult_rc_ret.exit:                         ; preds = %214, %290
-  %.0.i = phi i32 [ -1, %214 ], [ %.0.pre.i, %290 ]
+_handle_mult_rc_ret.exit:                         ; preds = %214, %289
+  %.0.i = phi i32 [ -1, %214 ], [ %.0.pre.i, %289 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %_get_return_code.exit.thread
 
-291:                                              ; preds = %212
-  %292 = load ptr, ptr @slurmdbd_conn, align 8
-  %293 = call ptr @slurm_persist_recv_msg(ptr noundef %292) #13
-  %294 = icmp eq ptr %293, null
-  br i1 %294, label %_get_return_code.exit.thread, label %_get_return_code.exit
+290:                                              ; preds = %212
+  %291 = load ptr, ptr @slurmdbd_conn, align 8
+  %292 = call ptr @slurm_persist_recv_msg(ptr noundef %291) #13
+  %293 = icmp eq ptr %292, null
+  br i1 %293, label %_get_return_code.exit.thread, label %_get_return_code.exit
 
-_get_return_code.exit:                            ; preds = %291
-  %295 = call fastcc i32 @_unpack_return_code(ptr noundef nonnull %293)
-  call void @slurm_free_buf(ptr noundef nonnull %293) #13
-  %296 = icmp eq i32 %295, 11
-  br i1 %296, label %297, label %_get_return_code.exit.thread
+_get_return_code.exit:                            ; preds = %290
+  %294 = call fastcc i32 @_unpack_return_code(ptr noundef nonnull %292)
+  call void @slurm_free_buf(ptr noundef nonnull %292) #13
+  %295 = icmp eq i32 %294, 11
+  br i1 %295, label %296, label %_get_return_code.exit.thread
 
-297:                                              ; preds = %_get_return_code.exit
-  %298 = load ptr, ptr @slurmdbd_conn, align 8
-  %299 = getelementptr inbounds i8, ptr %298, i64 96
-  %300 = load ptr, ptr %299, align 8
-  %301 = load i64, ptr %300, align 8
-  %.not118 = icmp eq i64 %301, 0
-  br i1 %.not118, label %306, label %302
+296:                                              ; preds = %_get_return_code.exit
+  %297 = load ptr, ptr @slurmdbd_conn, align 8
+  %298 = getelementptr inbounds i8, ptr %297, i64 96
+  %299 = load ptr, ptr %298, align 8
+  %300 = load i64, ptr %299, align 8
+  %.not118 = icmp eq i64 %300, 0
+  br i1 %.not118, label %305, label %301
 
-302:                                              ; preds = %297
-  %303 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @slurmdbd_lock) #13
-  %.not119 = icmp eq i32 %303, 0
-  br i1 %.not119, label %.loopexit.sink.split, label %304
+301:                                              ; preds = %296
+  %302 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @slurmdbd_lock) #13
+  %.not119 = icmp eq i32 %302, 0
+  br i1 %.not119, label %.loopexit.sink.split, label %303
 
-304:                                              ; preds = %302
-  %305 = tail call ptr @__errno_location() #14
-  store i32 %303, ptr %305, align 4
+303:                                              ; preds = %301
+  %304 = tail call ptr @__errno_location() #14
+  store i32 %302, ptr %304, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 722, ptr noundef nonnull @__func__._agent) #15
   unreachable
 
-306:                                              ; preds = %297
-  %307 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.31, i32 noundef 11) #13
+305:                                              ; preds = %296
+  %306 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.31, i32 noundef 11) #13
   br label %_get_return_code.exit.thread
 
-_get_return_code.exit.thread:                     ; preds = %291, %210, %_get_return_code.exit, %306, %_handle_mult_rc_ret.exit
-  %.0 = phi i32 [ %200, %210 ], [ %.0.i, %_handle_mult_rc_ret.exit ], [ 11, %306 ], [ %295, %_get_return_code.exit ], [ -1, %291 ]
-  %308 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @slurmdbd_lock) #13
-  %.not121 = icmp eq i32 %308, 0
-  br i1 %.not121, label %311, label %309
+_get_return_code.exit.thread:                     ; preds = %290, %210, %_get_return_code.exit, %305, %_handle_mult_rc_ret.exit
+  %.0 = phi i32 [ %200, %210 ], [ %.0.i, %_handle_mult_rc_ret.exit ], [ 11, %305 ], [ %294, %_get_return_code.exit ], [ -1, %290 ]
+  %307 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @slurmdbd_lock) #13
+  %.not121 = icmp eq i32 %307, 0
+  br i1 %.not121, label %310, label %308
 
-309:                                              ; preds = %_get_return_code.exit.thread
-  %310 = tail call ptr @__errno_location() #14
-  store i32 %308, ptr %310, align 4
+308:                                              ; preds = %_get_return_code.exit.thread
+  %309 = tail call ptr @__errno_location() #14
+  store i32 %307, ptr %309, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 730, ptr noundef nonnull @__func__._agent) #15
   unreachable
 
-311:                                              ; preds = %_get_return_code.exit.thread
-  %312 = call i32 @pthread_mutex_lock(ptr noundef nonnull @assoc_cache_mutex) #13
-  %.not122 = icmp eq i32 %312, 0
-  br i1 %.not122, label %315, label %313
+310:                                              ; preds = %_get_return_code.exit.thread
+  %311 = call i32 @pthread_mutex_lock(ptr noundef nonnull @assoc_cache_mutex) #13
+  %.not122 = icmp eq i32 %311, 0
+  br i1 %.not122, label %314, label %312
 
-313:                                              ; preds = %311
-  %314 = tail call ptr @__errno_location() #14
-  store i32 %312, ptr %314, align 4
+312:                                              ; preds = %310
+  %313 = tail call ptr @__errno_location() #14
+  store i32 %311, ptr %313, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 731, ptr noundef nonnull @__func__._agent) #15
   unreachable
 
-315:                                              ; preds = %311
-  %316 = load ptr, ptr @slurmdbd_conn, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 60
-  %318 = load i32, ptr %317, align 4
-  %319 = icmp sgt i32 %318, -1
-  %320 = load i16, ptr @running_cache, align 2
-  %321 = icmp ne i16 %320, 0
-  %or.cond7 = select i1 %319, i1 %321, i1 false
-  br i1 %or.cond7, label %322, label %327
+314:                                              ; preds = %310
+  %315 = load ptr, ptr @slurmdbd_conn, align 8
+  %316 = getelementptr inbounds i8, ptr %315, i64 60
+  %317 = load i32, ptr %316, align 4
+  %318 = icmp sgt i32 %317, -1
+  %319 = load i16, ptr @running_cache, align 2
+  %320 = icmp ne i16 %319, 0
+  %or.cond7 = select i1 %318, i1 %320, i1 false
+  br i1 %or.cond7, label %321, label %326
 
-322:                                              ; preds = %315
-  %323 = call i32 @pthread_cond_signal(ptr noundef nonnull @assoc_cache_cond) #13
-  %.not123 = icmp eq i32 %323, 0
-  br i1 %.not123, label %327, label %324
+321:                                              ; preds = %314
+  %322 = call i32 @pthread_cond_signal(ptr noundef nonnull @assoc_cache_cond) #13
+  %.not123 = icmp eq i32 %322, 0
+  br i1 %.not123, label %326, label %323
 
-324:                                              ; preds = %322
-  %325 = tail call ptr @__errno_location() #14
-  store i32 %323, ptr %325, align 4
-  %326 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 734, ptr noundef nonnull @__func__._agent) #13
-  br label %327
+323:                                              ; preds = %321
+  %324 = tail call ptr @__errno_location() #14
+  store i32 %322, ptr %324, align 4
+  %325 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 734, ptr noundef nonnull @__func__._agent) #13
+  br label %326
 
-327:                                              ; preds = %315, %322, %324
-  %328 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @assoc_cache_mutex) #13
-  %.not124 = icmp eq i32 %328, 0
-  br i1 %.not124, label %331, label %329
+326:                                              ; preds = %314, %321, %323
+  %327 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @assoc_cache_mutex) #13
+  %.not124 = icmp eq i32 %327, 0
+  br i1 %.not124, label %330, label %328
 
-329:                                              ; preds = %327
-  %330 = tail call ptr @__errno_location() #14
-  store i32 %328, ptr %330, align 4
+328:                                              ; preds = %326
+  %329 = tail call ptr @__errno_location() #14
+  store i32 %327, ptr %329, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 735, ptr noundef nonnull @__func__._agent) #15
   unreachable
 
-331:                                              ; preds = %327
-  %332 = call i32 @pthread_mutex_lock(ptr noundef nonnull @agent_lock) #13
-  %.not125 = icmp eq i32 %332, 0
-  br i1 %.not125, label %335, label %333
+330:                                              ; preds = %326
+  %331 = call i32 @pthread_mutex_lock(ptr noundef nonnull @agent_lock) #13
+  %.not125 = icmp eq i32 %331, 0
+  br i1 %.not125, label %334, label %332
 
-333:                                              ; preds = %331
-  %334 = tail call ptr @__errno_location() #14
-  store i32 %332, ptr %334, align 4
+332:                                              ; preds = %330
+  %333 = tail call ptr @__errno_location() #14
+  store i32 %331, ptr %333, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 737, ptr noundef nonnull @__func__._agent) #15
   unreachable
 
-335:                                              ; preds = %331
-  %336 = load ptr, ptr @agent_list, align 8
-  %337 = icmp ne ptr %336, null
-  %338 = icmp eq i32 %.0, 0
-  %or.cond9 = select i1 %337, i1 %338, i1 false
-  %339 = load ptr, ptr %11, align 8
-  %.not129 = icmp eq ptr %339, null
-  br i1 %or.cond9, label %340, label %347
+334:                                              ; preds = %330
+  %335 = load ptr, ptr @agent_list, align 8
+  %336 = icmp ne ptr %335, null
+  %337 = icmp eq i32 %.0, 0
+  %or.cond9 = select i1 %336, i1 %337, i1 false
+  %338 = load ptr, ptr %11, align 8
+  %.not129 = icmp eq ptr %338, null
+  br i1 %or.cond9, label %339, label %346
 
-340:                                              ; preds = %335
-  br i1 %.not129, label %343, label %341
+339:                                              ; preds = %334
+  br i1 %.not129, label %342, label %340
+
+340:                                              ; preds = %339
+  %.not130 = icmp eq ptr %338, %335
+  br i1 %.not130, label %.thread155, label %341
 
 341:                                              ; preds = %340
-  %.not130 = icmp eq ptr %339, %336
-  br i1 %.not130, label %.thread155, label %342
-
-342:                                              ; preds = %341
-  call void @slurm_list_destroy(ptr noundef nonnull %339) #13
+  call void @slurm_list_destroy(ptr noundef nonnull %338) #13
   br label %.thread155
 
-.thread155:                                       ; preds = %341, %342
+.thread155:                                       ; preds = %340, %341
   store ptr null, ptr %11, align 8
+  br label %344
+
+342:                                              ; preds = %339
+  %343 = call ptr @slurm_list_dequeue(ptr noundef nonnull %335) #13
+  %.not131 = icmp eq ptr %343, null
+  br i1 %.not131, label %345, label %344
+
+344:                                              ; preds = %.thread155, %342
+  %.1158 = phi ptr [ %.069, %.thread155 ], [ %343, %342 ]
+  call void @slurm_free_buf(ptr noundef nonnull %.1158) #13
   br label %345
 
-343:                                              ; preds = %340
-  %344 = call ptr @slurm_list_dequeue(ptr noundef nonnull %336) #13
-  %.not131 = icmp eq ptr %344, null
-  br i1 %.not131, label %346, label %345
-
-345:                                              ; preds = %.thread155, %343
-  %.1158 = phi ptr [ %.069, %.thread155 ], [ %344, %343 ]
-  call void @slurm_free_buf(ptr noundef nonnull %.1158) #13
-  br label %346
-
-346:                                              ; preds = %345, %343
+345:                                              ; preds = %344, %342
   store i64 0, ptr @_agent.fail_time, align 8
-  br label %376
+  br label %375
 
-347:                                              ; preds = %335
-  br i1 %.not129, label %351, label %348
+346:                                              ; preds = %334
+  br i1 %.not129, label %350, label %347
+
+347:                                              ; preds = %346
+  %.not127 = icmp eq ptr %338, %335
+  br i1 %.not127, label %349, label %348
 
 348:                                              ; preds = %347
-  %.not127 = icmp eq ptr %339, %336
-  br i1 %.not127, label %350, label %349
+  call void @slurm_list_destroy(ptr noundef nonnull %338) #13
+  br label %349
 
-349:                                              ; preds = %348
-  call void @slurm_list_destroy(ptr noundef nonnull %339) #13
-  br label %350
-
-350:                                              ; preds = %349, %348
+349:                                              ; preds = %348, %347
   store ptr null, ptr %11, align 8
   call void @slurm_free_buf(ptr noundef nonnull %.069) #13
-  br label %351
+  br label %350
 
-351:                                              ; preds = %350, %347
-  %352 = call i64 @time(ptr noundef null) #13
-  store i64 %352, ptr @_agent.fail_time, align 8
-  %353 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %354 = and i64 %353, 2251799813685248
-  %.not128 = icmp eq i64 %354, 0
-  br i1 %.not128, label %376, label %355
+350:                                              ; preds = %349, %346
+  %351 = call i64 @time(ptr noundef null) #13
+  store i64 %351, ptr @_agent.fail_time, align 8
+  %352 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %353 = and i64 %352, 2251799813685248
+  %.not128 = icmp eq i64 %353, 0
+  br i1 %.not128, label %375, label %354
 
-355:                                              ; preds = %351
-  %356 = call i32 @slurm_get_log_level() #13
-  %357 = icmp sgt i32 %356, 2
-  br i1 %357, label %358, label %359
+354:                                              ; preds = %350
+  %355 = call i32 @slurm_get_log_level() #13
+  %356 = icmp sgt i32 %355, 2
+  br i1 %356, label %357, label %358
 
-358:                                              ; preds = %355
+357:                                              ; preds = %354
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.32, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._agent, i32 noundef %.0) #13
-  br label %359
+  br label %358
 
-359:                                              ; preds = %358, %355
+358:                                              ; preds = %357, %354
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %360 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2048, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 574, ptr noundef nonnull @__func__._print_agent_list_msg_types) #13
-  store ptr %360, ptr %2, align 8
+  %359 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2048, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 574, ptr noundef nonnull @__func__._print_agent_list_msg_types) #13
+  store ptr %359, ptr %2, align 8
   store i32 10, ptr %3, align 4
-  %361 = load ptr, ptr @agent_list, align 8
-  %362 = call i32 @slurm_list_for_each_max(ptr noundef %361, ptr noundef nonnull %3, ptr noundef nonnull @_print_agent_list_msg_type, ptr noundef %360, i32 noundef 1, i32 noundef 1) #13
-  %363 = icmp slt i32 %362, 0
-  br i1 %363, label %364, label %366
+  %360 = load ptr, ptr @agent_list, align 8
+  %361 = call i32 @slurm_list_for_each_max(ptr noundef %360, ptr noundef nonnull %3, ptr noundef nonnull @_print_agent_list_msg_type, ptr noundef %359, i32 noundef 1, i32 noundef 1) #13
+  %362 = icmp slt i32 %361, 0
+  br i1 %362, label %363, label %365
 
-364:                                              ; preds = %359
-  %365 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.44) #13
+363:                                              ; preds = %358
+  %364 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.44) #13
   br label %_print_agent_list_msg_types.exit
 
-366:                                              ; preds = %359
-  %367 = load i32, ptr %3, align 4
-  %.not.i148 = icmp eq i32 %367, 0
-  br i1 %.not.i148, label %369, label %368
+365:                                              ; preds = %358
+  %366 = load i32, ptr %3, align 4
+  %.not.i148 = icmp eq i32 %366, 0
+  br i1 %.not.i148, label %368, label %367
 
-368:                                              ; preds = %366
+367:                                              ; preds = %365
   call void @slurm_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.45) #13
-  br label %369
+  br label %368
 
-369:                                              ; preds = %368, %366
-  %370 = call i32 @slurm_get_log_level() #13
-  %371 = icmp sgt i32 %370, 2
-  br i1 %371, label %372, label %_print_agent_list_msg_types.exit
+368:                                              ; preds = %367, %365
+  %369 = call i32 @slurm_get_log_level() #13
+  %370 = icmp sgt i32 %369, 2
+  br i1 %370, label %371, label %_print_agent_list_msg_types.exit
 
-372:                                              ; preds = %369
-  %373 = load i32, ptr %3, align 4
-  %374 = add nsw i32 %373, %362
-  %375 = load ptr, ptr %2, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.46, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._print_agent_list_msg_types, i32 noundef %374, ptr noundef %375) #13
+371:                                              ; preds = %368
+  %372 = load i32, ptr %3, align 4
+  %373 = add nsw i32 %372, %361
+  %374 = load ptr, ptr %2, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.46, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._print_agent_list_msg_types, i32 noundef %373, ptr noundef %374) #13
   br label %_print_agent_list_msg_types.exit
 
-_print_agent_list_msg_types.exit:                 ; preds = %364, %369, %372
+_print_agent_list_msg_types.exit:                 ; preds = %363, %368, %371
   call void @slurm_xfree(ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %376
+  br label %375
 
-376:                                              ; preds = %346, %_print_agent_list_msg_types.exit, %351
-  %377 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @agent_lock) #13
-  %.not132 = icmp eq i32 %377, 0
-  br i1 %.not132, label %.backedge.sink.split, label %378
+375:                                              ; preds = %345, %_print_agent_list_msg_types.exit, %350
+  %376 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @agent_lock) #13
+  %.not132 = icmp eq i32 %376, 0
+  br i1 %.not132, label %.backedge.sink.split, label %377
 
-378:                                              ; preds = %376
-  %379 = tail call ptr @__errno_location() #14
-  store i32 %377, ptr %379, align 4
+377:                                              ; preds = %375
+  %378 = tail call ptr @__errno_location() #14
+  store i32 %376, ptr %378, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 770, ptr noundef nonnull @__func__._agent) #15
   unreachable
 
-.loopexit.sink.split:                             ; preds = %302, %206
-  %.str.28.sink = phi ptr [ @.str.28, %206 ], [ @.str.30, %302 ]
-  %380 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #13
+.loopexit.sink.split:                             ; preds = %301, %206
+  %.str.28.sink = phi ptr [ @.str.28, %206 ], [ @.str.30, %301 ]
+  %379 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #13
   call void @slurm_diff_tv_str(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 20, ptr noundef nonnull %.str.28.sink, i64 noundef 0, ptr noundef nonnull %15) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %41
-  %381 = call i32 @pthread_mutex_lock(ptr noundef nonnull @agent_lock) #13
-  %.not134 = icmp eq i32 %381, 0
-  br i1 %.not134, label %384, label %382
+  %380 = call i32 @pthread_mutex_lock(ptr noundef nonnull @agent_lock) #13
+  %.not134 = icmp eq i32 %380, 0
+  br i1 %.not134, label %383, label %381
 
-382:                                              ; preds = %.loopexit
-  %383 = tail call ptr @__errno_location() #14
-  store i32 %381, ptr %383, align 4
+381:                                              ; preds = %.loopexit
+  %382 = tail call ptr @__errno_location() #14
+  store i32 %380, ptr %382, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 774, ptr noundef nonnull @__func__._agent) #15
   unreachable
 
-384:                                              ; preds = %.loopexit
+383:                                              ; preds = %.loopexit
   call fastcc void @_save_dbd_state()
-  %385 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %386 = and i64 %385, 4503599627370496
-  %.not135 = icmp eq i64 %386, 0
-  br i1 %.not135, label %393, label %387
+  %384 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %385 = and i64 %384, 4503599627370496
+  %.not135 = icmp eq i64 %385, 0
+  br i1 %.not135, label %392, label %386
 
-387:                                              ; preds = %384
-  %388 = call i32 @slurm_get_log_level() #13
-  %389 = icmp sgt i32 %388, 3
-  br i1 %389, label %390, label %393
+386:                                              ; preds = %383
+  %387 = call i32 @slurm_get_log_level() #13
+  %388 = icmp sgt i32 %387, 3
+  br i1 %388, label %389, label %392
 
-390:                                              ; preds = %387
-  %391 = load ptr, ptr @agent_list, align 8
-  %392 = call i32 @slurm_list_count(ptr noundef %391) #13
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.34, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._agent, i32 noundef %392) #13
-  br label %393
+389:                                              ; preds = %386
+  %390 = load ptr, ptr @agent_list, align 8
+  %391 = call i32 @slurm_list_count(ptr noundef %390) #13
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.34, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._agent, i32 noundef %391) #13
+  br label %392
 
-393:                                              ; preds = %390, %387, %384
-  %394 = load ptr, ptr @agent_list, align 8
-  %.not136 = icmp eq ptr %394, null
-  br i1 %.not136, label %396, label %395
+392:                                              ; preds = %389, %386, %383
+  %393 = load ptr, ptr @agent_list, align 8
+  %.not136 = icmp eq ptr %393, null
+  br i1 %.not136, label %395, label %394
 
-395:                                              ; preds = %393
-  call void @slurm_list_destroy(ptr noundef nonnull %394) #13
-  br label %396
+394:                                              ; preds = %392
+  call void @slurm_list_destroy(ptr noundef nonnull %393) #13
+  br label %395
 
-396:                                              ; preds = %395, %393
+395:                                              ; preds = %394, %392
   store ptr null, ptr @agent_list, align 8
   store i1 false, ptr @agent_running, align 1
-  %397 = call i32 @pthread_cond_signal(ptr noundef nonnull @shutdown_cond) #13
-  %.not137 = icmp eq i32 %397, 0
-  br i1 %.not137, label %401, label %398
+  %396 = call i32 @pthread_cond_signal(ptr noundef nonnull @shutdown_cond) #13
+  %.not137 = icmp eq i32 %396, 0
+  br i1 %.not137, label %400, label %397
 
-398:                                              ; preds = %396
-  %399 = tail call ptr @__errno_location() #14
-  store i32 %397, ptr %399, align 4
-  %400 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 782, ptr noundef nonnull @__func__._agent) #13
-  br label %401
+397:                                              ; preds = %395
+  %398 = tail call ptr @__errno_location() #14
+  store i32 %396, ptr %398, align 4
+  %399 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 782, ptr noundef nonnull @__func__._agent) #13
+  br label %400
 
-401:                                              ; preds = %398, %396
-  %402 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @agent_lock) #13
-  %.not138 = icmp eq i32 %402, 0
-  br i1 %.not138, label %405, label %403
+400:                                              ; preds = %397, %395
+  %401 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @agent_lock) #13
+  %.not138 = icmp eq i32 %401, 0
+  br i1 %.not138, label %404, label %402
 
-403:                                              ; preds = %401
-  %404 = tail call ptr @__errno_location() #14
-  store i32 %402, ptr %404, align 4
+402:                                              ; preds = %400
+  %403 = tail call ptr @__errno_location() #14
+  store i32 %401, ptr %403, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 783, ptr noundef nonnull @__func__._agent) #15
   unreachable
 
-405:                                              ; preds = %401
+404:                                              ; preds = %400
   ret ptr null
 }
 
@@ -2232,12 +2232,12 @@ define internal fastcc i32 @_unpack_return_code(ptr noundef %0) unnamed_addr #0 
 
 7:                                                ; preds = %1
   %8 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.35) #13
-  br label %76
+  br label %75
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %2, i64 16
   %11 = load i16, ptr %10, align 8
-  switch i16 %11, label %73 [
+  switch i16 %11, label %72 [
     i16 1426, label %12
     i16 1433, label %30
   ]
@@ -2249,8 +2249,8 @@ define internal fastcc i32 @_unpack_return_code(ptr noundef %0) unnamed_addr #0 
   %16 = load i32, ptr %15, align 8
   %17 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %18 = and i64 %17, 67108864
-  %.not37 = icmp eq i64 %18, 0
-  br i1 %.not37, label %27, label %19
+  %.not36 = icmp eq i64 %18, 0
+  br i1 %.not36, label %27, label %19
 
 19:                                               ; preds = %12
   %20 = call i32 @slurm_get_log_level() #13
@@ -2267,12 +2267,12 @@ define internal fastcc i32 @_unpack_return_code(ptr noundef %0) unnamed_addr #0 
 
 27:                                               ; preds = %12, %19, %22
   call void @slurm_slurmdbd_free_id_rc_msg(ptr noundef nonnull %14) #13
-  %.not38 = icmp eq i32 %16, 0
-  br i1 %.not38, label %76, label %28
+  %.not37 = icmp eq i32 %16, 0
+  br i1 %.not37, label %75, label %28
 
 28:                                               ; preds = %27
   %29 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.42, i32 noundef %16) #13
-  br label %76
+  br label %75
 
 30:                                               ; preds = %9
   %31 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2281,8 +2281,8 @@ define internal fastcc i32 @_unpack_return_code(ptr noundef %0) unnamed_addr #0 
   %34 = load i32, ptr %33, align 4
   %35 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %36 = and i64 %35, 67108864
-  %.not35 = icmp eq i64 %36, 0
-  br i1 %.not35, label %49, label %37
+  %.not33 = icmp eq i64 %36, 0
+  br i1 %.not33, label %49, label %37
 
 37:                                               ; preds = %30
   %38 = call i32 @slurm_get_log_level() #13
@@ -2302,54 +2302,54 @@ define internal fastcc i32 @_unpack_return_code(ptr noundef %0) unnamed_addr #0 
   br label %49
 
 49:                                               ; preds = %30, %37, %40
-  %.not36 = icmp eq i32 %34, 0
-  br i1 %.not36, label %72, label %50
+  %.not34 = icmp eq i32 %34, 0
+  br i1 %.not34, label %71, label %50
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds i8, ptr %32, i64 16
   %52 = load i16, ptr %51, align 8
-  %53 = icmp eq i16 %52, 1434
+  %53 = icmp ne i16 %52, 1434
   %54 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
-  %55 = icmp ne i16 %54, 0
-  %or.cond = select i1 %53, i1 %55, i1 false
-  br i1 %or.cond, label %56, label %62
+  %.not35 = icmp eq i16 %54, 0
+  %or.cond = select i1 %53, i1 true, i1 %.not35
+  br i1 %or.cond, label %61, label %55
 
-56:                                               ; preds = %50
-  %57 = call ptr @slurmdbd_msg_type_2_str(i32 noundef 1434, i32 noundef 1) #13
-  %58 = load i16, ptr %51, align 8
-  %59 = zext i16 %58 to i32
-  %60 = load ptr, ptr %32, align 8
-  %61 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.36, i32 noundef %34, ptr noundef %57, i32 noundef %59, ptr noundef %60) #13
+55:                                               ; preds = %50
+  %56 = call ptr @slurmdbd_msg_type_2_str(i32 noundef 1434, i32 noundef 1) #13
+  %57 = load i16, ptr %51, align 8
+  %58 = zext i16 %57 to i32
+  %59 = load ptr, ptr %32, align 8
+  %60 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.36, i32 noundef %34, ptr noundef %56, i32 noundef %58, ptr noundef %59) #13
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.37) #15
   unreachable
 
-62:                                               ; preds = %50
-  %63 = call i32 @slurm_get_log_level() #13
-  %64 = icmp sgt i32 %63, 4
-  br i1 %64, label %65, label %72
+61:                                               ; preds = %50
+  %62 = call i32 @slurm_get_log_level() #13
+  %63 = icmp sgt i32 %62, 4
+  br i1 %63, label %64, label %71
 
-65:                                               ; preds = %62
-  %66 = load i16, ptr %51, align 8
-  %67 = zext i16 %66 to i32
-  %68 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %67, i32 noundef 1) #13
-  %69 = load i16, ptr %51, align 8
-  %70 = zext i16 %69 to i32
-  %71 = load ptr, ptr %32, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._unpack_return_code, i32 noundef %34, ptr noundef %68, i32 noundef %70, ptr noundef %71) #13
-  br label %72
+64:                                               ; preds = %61
+  %65 = load i16, ptr %51, align 8
+  %66 = zext i16 %65 to i32
+  %67 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %66, i32 noundef 1) #13
+  %68 = load i16, ptr %51, align 8
+  %69 = zext i16 %68 to i32
+  %70 = load ptr, ptr %32, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._unpack_return_code, i32 noundef %34, ptr noundef %67, i32 noundef %69, ptr noundef %70) #13
+  br label %71
 
-72:                                               ; preds = %65, %62, %49
+71:                                               ; preds = %64, %61, %49
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %32) #13
-  br label %76
+  br label %75
 
-73:                                               ; preds = %9
-  %74 = call ptr @slurmdbd_msg_type_2_str(i32 noundef 65535, i32 noundef 1) #13
-  %75 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.39, ptr noundef %74) #13
-  br label %76
+72:                                               ; preds = %9
+  %73 = call ptr @slurmdbd_msg_type_2_str(i32 noundef 65535, i32 noundef 1) #13
+  %74 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.39, ptr noundef %73) #13
+  br label %75
 
-76:                                               ; preds = %72, %73, %28, %27, %7
-  %.029 = phi i32 [ %6, %7 ], [ 0, %73 ], [ %34, %72 ], [ %16, %28 ], [ 0, %27 ]
-  ret i32 %.029
+75:                                               ; preds = %71, %72, %28, %27, %7
+  %.027 = phi i32 [ %6, %7 ], [ 0, %72 ], [ %34, %71 ], [ %16, %28 ], [ 0, %27 ]
+  ret i32 %.027
 }
 
 declare i32 @slurm_unpack_slurmdbd_msg(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1

@@ -6441,8 +6441,8 @@ rb_ec_vm_ptr.exit:                                ; preds = %5, %10
   %20 = icmp ne i32 %19, 1
   %brmerge = select i1 %20, i1 true, i1 %15
   %21 = and i32 %4, 2
-  %.not31 = icmp eq i32 %21, 0
-  %or.cond = or i1 %.not31, %brmerge
+  %.not32 = icmp eq i32 %21, 0
+  %or.cond = or i1 %.not32, %brmerge
   br i1 %or.cond, label %24, label %22
 
 22:                                               ; preds = %16
@@ -6454,12 +6454,12 @@ rb_ec_vm_ptr.exit:                                ; preds = %5, %10
   br label %24
 
 24:                                               ; preds = %16, %rb_ec_vm_ptr.exit, %.fold.split, %22
-  %.028 = phi ptr [ %3, %22 ], [ %3, %16 ], [ %.val, %rb_ec_vm_ptr.exit ], [ %3, %.fold.split ]
+  %.029 = phi ptr [ %3, %22 ], [ %3, %16 ], [ %.val, %rb_ec_vm_ptr.exit ], [ %3, %.fold.split ]
   %.0 = phi ptr [ %2, %22 ], [ %2, %16 ], [ @ubf_select, %rb_ec_vm_ptr.exit ], [ null, %.fold.split ]
   %25 = and i32 %4, 1
-  %26 = call fastcc i32 @blocking_region_begin(ptr noundef %.val, ptr noundef nonnull %6, ptr noundef %.0, ptr noundef %.028, i32 noundef %25)
-  %.not32 = icmp eq i32 %26, 0
-  br i1 %.not32, label %30, label %27
+  %26 = call fastcc i32 @blocking_region_begin(ptr noundef %.val, ptr noundef nonnull %6, ptr noundef %.0, ptr noundef %.029, i32 noundef %25)
+  %.not33 = icmp eq i32 %26, 0
+  br i1 %.not33, label %30, label %27
 
 27:                                               ; preds = %24
   %28 = call ptr %0(ptr noundef %1) #19
@@ -6468,8 +6468,8 @@ rb_ec_vm_ptr.exit:                                ; preds = %5, %10
   br label %30
 
 30:                                               ; preds = %24, %27
-  %.029 = phi ptr [ %28, %27 ], [ null, %24 ]
-  %.027 = phi i32 [ %29, %27 ], [ 0, %24 ]
+  %.030 = phi ptr [ %28, %27 ], [ null, %24 ]
+  %.028 = phi i32 [ %29, %27 ], [ 0, %24 ]
   br i1 %15, label %33, label %31
 
 31:                                               ; preds = %30
@@ -6503,8 +6503,8 @@ rb_ec_vm_ptr.exit:                                ; preds = %5, %10
 
 rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %43, %40
   %.0.i.i.i = phi i64 [ %42, %40 ], [ %45, %43 ]
-  %.not.i35 = icmp eq i64 %.0.i.i.i, 0
-  br i1 %.not.i35, label %46, label %51
+  %.not.i36 = icmp eq i64 %.0.i.i.i, 0
+  br i1 %.not.i36, label %46, label %51
 
 46:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
   %47 = getelementptr i8, ptr %8, i64 32
@@ -6530,8 +6530,8 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %43, %40
   br label %vm_check_ints_blocking.exit
 
 vm_check_ints_blocking.exit:                      ; preds = %57, %46, %33
-  call void @rb_errno_set(i32 noundef %.027) #19
-  ret ptr %.029
+  call void @rb_errno_set(i32 noundef %.028) #19
+  ret ptr %.030
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -6,7 +6,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN5folly23DeadlockDetectorFactory8instanceEv() local_unnamed_addr #0 align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZN5folly38get_deadlock_detector_factory_instanceEv, ptr null), label %if.then, label %return
+  %.not = icmp eq ptr @_ZN5folly38get_deadlock_detector_factory_instanceEv, null
+  br i1 %.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call noundef ptr @_ZN5folly38get_deadlock_detector_factory_instanceEv()

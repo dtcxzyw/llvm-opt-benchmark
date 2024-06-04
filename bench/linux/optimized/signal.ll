@@ -180,19 +180,19 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
 90:                                               ; preds = %85, %81
   %91 = load i32, ptr @show_unhandled_signals, align 4
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %109, label %93
+  br i1 %92, label %108, label %93
 
 93:                                               ; preds = %90
   %94 = call i32 @__printk_ratelimit(ptr noundef nonnull @__func__.get_sigframe) #11
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %109, label %96
+  br i1 %95, label %108, label %96
 
 96:                                               ; preds = %93
   %97 = getelementptr inbounds i8, ptr %15, i64 1800
   %98 = getelementptr inbounds i8, ptr %15, i64 1320
   %99 = load i32, ptr %98, align 8
   %100 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %97, i32 noundef %99) #12
-  br label %109
+  br label %108
 
 101:                                              ; preds = %85, %69
   %102 = load i64, ptr %6, align 8
@@ -200,17 +200,15 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
   %104 = load i64, ptr %5, align 8
   %105 = trunc i64 %104 to i32
   %106 = call zeroext i1 @copy_fpstate_to_sigframe(ptr noundef %73, ptr noundef %103, i32 noundef %105) #11
-  br i1 %106, label %107, label %109
+  %107 = inttoptr i64 %79 to ptr
+  %spec.select = select i1 %106, ptr %107, ptr inttoptr (i64 -1 to ptr)
+  br label %108
 
-107:                                              ; preds = %101
-  %108 = inttoptr i64 %79 to ptr
-  br label %109
-
-109:                                              ; preds = %107, %101, %96, %93, %90
-  %110 = phi ptr [ %108, %107 ], [ inttoptr (i64 -1 to ptr), %96 ], [ inttoptr (i64 -1 to ptr), %93 ], [ inttoptr (i64 -1 to ptr), %90 ], [ inttoptr (i64 -1 to ptr), %101 ]
+108:                                              ; preds = %101, %96, %93, %90
+  %109 = phi ptr [ inttoptr (i64 -1 to ptr), %96 ], [ inttoptr (i64 -1 to ptr), %93 ], [ inttoptr (i64 -1 to ptr), %90 ], [ %spec.select, %101 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  ret ptr %110
+  ret ptr %109
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -99,13 +99,13 @@ define internal range(i32 -47, 1) i32 @spawn_job(ptr noundef %0, i64 noundef %1,
 
 21:                                               ; preds = %19
   %22 = call i32 @sigaddset(ptr noundef nonnull %7, i32 noundef 17) #16
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %59
+  %.not17 = icmp eq i32 %22, 0
+  br i1 %.not17, label %23, label %59
 
 23:                                               ; preds = %21
   %24 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %7, ptr noundef null) #16
-  %.not19 = icmp eq i32 %24, 0
-  br i1 %.not19, label %25, label %59
+  %.not18 = icmp eq i32 %24, 0
+  br i1 %.not18, label %25, label %59
 
 25:                                               ; preds = %23
   %26 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
@@ -560,14 +560,14 @@ define internal i32 @sigproc(i32 noundef %0, i32 noundef %1) #0 {
   %4 = sub nsw i32 0, %3
   %spec.select = select i1 %.not, i32 %0, i32 %4
   %5 = tail call i32 @kill(i32 noundef %spec.select, i32 noundef %1) #16
-  %.not18 = icmp eq i32 %5, 0
-  br i1 %.not18, label %19, label %6
+  %.not15 = icmp eq i32 %5, 0
+  br i1 %.not15, label %19, label %6
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__errno_location() #18
   %8 = load i32, ptr %7, align 4
-  %.not19 = icmp eq i32 %8, 3
-  br i1 %.not19, label %19, label %9
+  %.not16 = icmp eq i32 %8, 3
+  br i1 %.not16, label %19, label %9
 
 9:                                                ; preds = %6
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pfexec_base_framework, i64 76), align 4
@@ -590,8 +590,8 @@ define internal i32 @sigproc(i32 noundef %0, i32 noundef %1) #0 {
 
 19:                                               ; preds = %6, %2
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pfexec_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %20, 64
-  br i1 %or.cond3, label %21, label %28
+  %or.cond17 = icmp ult i32 %20, 64
+  br i1 %or.cond17, label %21, label %28
 
 21:                                               ; preds = %19
   %22 = zext nneg i32 %20 to i64
@@ -606,8 +606,8 @@ define internal i32 @sigproc(i32 noundef %0, i32 noundef %1) #0 {
   br label %28
 
 28:                                               ; preds = %9, %11, %16, %19, %21, %26
-  %.014 = phi i32 [ 0, %26 ], [ 0, %21 ], [ 0, %19 ], [ %.pre, %16 ], [ %8, %11 ], [ %8, %9 ]
-  ret i32 %.014
+  %.011 = phi i32 [ 0, %26 ], [ 0, %21 ], [ 0, %19 ], [ %.pre, %16 ], [ %8, %11 ], [ %8, %9 ]
+  ret i32 %.011
 }
 
 declare i32 @pmix_event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #1

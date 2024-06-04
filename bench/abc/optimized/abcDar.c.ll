@@ -9075,8 +9075,8 @@ Abc_Clock.exit132:                                ; preds = %155, %158
 
 176:                                              ; preds = %173
   %177 = getelementptr i8, ptr %175, i64 4
-  %.val15.i.i = load i32, ptr %177, align 4
-  %178 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %177, align 4
+  %178 = icmp sgt i32 %.val16.i.i, 0
   br i1 %178, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %176
@@ -9084,10 +9084,10 @@ Abc_Clock.exit132:                                ; preds = %155, %158
   br label %180
 
 180:                                              ; preds = %184, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %184 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %184 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %184 ]
-  %.val14.i.i = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %182 = load ptr, ptr %181, align 8
   %switch.i.i = icmp ult ptr %182, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %184, label %183
@@ -9098,7 +9098,7 @@ Abc_Clock.exit132:                                ; preds = %155, %158
   br label %184
 
 184:                                              ; preds = %183, %180
-  %.val.i.i = phi i32 [ %.val18.i.i, %180 ], [ %.val.pre.i.i, %183 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %180 ], [ %.val.pre.i.i, %183 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %185 = sext i32 %.val.i.i to i64
   %186 = icmp slt i64 %indvars.iv.next.i.i, %185
@@ -10307,8 +10307,8 @@ Abc_Clock.exit48:                                 ; preds = %47, %50
 
 69:                                               ; preds = %64
   %70 = getelementptr i8, ptr %68, i64 4
-  %.val15.i.i = load i32, ptr %70, align 4
-  %71 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %70, align 4
+  %71 = icmp sgt i32 %.val16.i.i, 0
   br i1 %71, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %69
@@ -10316,10 +10316,10 @@ Abc_Clock.exit48:                                 ; preds = %47, %50
   br label %73
 
 73:                                               ; preds = %77, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %77 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %77 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %77 ]
-  %.val14.i.i = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %75 = load ptr, ptr %74, align 8
   %switch.i.i = icmp ult ptr %75, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %77, label %76
@@ -10330,7 +10330,7 @@ Abc_Clock.exit48:                                 ; preds = %47, %50
   br label %77
 
 77:                                               ; preds = %76, %73
-  %.val.i.i = phi i32 [ %.val18.i.i, %73 ], [ %.val.pre.i.i, %76 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %73 ], [ %.val.pre.i.i, %76 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %78 = sext i32 %.val.i.i to i64
   %79 = icmp slt i64 %indvars.iv.next.i.i, %78
@@ -11167,8 +11167,8 @@ define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim3(ptr noundef %0, ptr noundef %1) l
 
 33:                                               ; preds = %30
   %34 = getelementptr i8, ptr %32, i64 4
-  %.val15.i.i = load i32, ptr %34, align 4
-  %35 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %34, align 4
+  %35 = icmp sgt i32 %.val16.i.i, 0
   br i1 %35, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %33
@@ -11176,10 +11176,10 @@ define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim3(ptr noundef %0, ptr noundef %1) l
   br label %37
 
 37:                                               ; preds = %41, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %41 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %41 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %41 ]
-  %.val14.i.i = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %39 = load ptr, ptr %38, align 8
   %switch.i.i = icmp ult ptr %39, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %41, label %40
@@ -11190,7 +11190,7 @@ define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim3(ptr noundef %0, ptr noundef %1) l
   br label %41
 
 41:                                               ; preds = %40, %37
-  %.val.i.i = phi i32 [ %.val18.i.i, %37 ], [ %.val.pre.i.i, %40 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %37 ], [ %.val.pre.i.i, %40 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %42 = sext i32 %.val.i.i to i64
   %43 = icmp slt i64 %indvars.iv.next.i.i, %42

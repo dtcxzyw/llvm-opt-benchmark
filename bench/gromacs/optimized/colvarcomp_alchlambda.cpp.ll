@@ -357,9 +357,9 @@ define void @_ZN6colvar11alch_lambdaC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   %4 = alloca %"class.std::allocator.28", align 1
   %5 = alloca i32, align 4
   tail call void @_ZN6colvar3cvcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar11alch_lambdaE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11alch_lambdaE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11alch_lambdaE, i64 248), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11alch_lambdaE, i64 248), ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc unwind label %25
@@ -574,9 +574,9 @@ define void @_ZN6colvar12alch_FlambdaC2ERKNSt7__cxx1112basic_stringIcSt11char_tr
   %4 = alloca %"class.std::allocator.28", align 1
   %5 = alloca i32, align 4
   tail call void @_ZN6colvar3cvcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar12alch_FlambdaE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alch_FlambdaE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar12alch_FlambdaE, i64 248), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alch_FlambdaE, i64 248), ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc unwind label %18

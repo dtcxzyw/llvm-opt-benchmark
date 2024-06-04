@@ -35177,7 +35177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20221:
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i20211) #17
   %4860 = getelementptr inbounds i8, ptr %ext_ss, i64 128
   call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %4860) #17
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVSt9basic_iosIcSt11char_traitsIcEE, i64 16), ptr %4860, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9basic_iosIcSt11char_traitsIcEE, i64 16), ptr %4860, align 8, !tbaa !26
   %_M_tie.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 344
   store ptr null, ptr %_M_tie.i.i, align 8, !tbaa !754
   %_M_fill.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 352
@@ -35220,9 +35220,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20221:
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 %vbase.offset.i.i
   store ptr %4867, ptr %add.ptr.i.i, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), ptr %ext_ss, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 104), ptr %4860, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), ptr %4863, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), ptr %ext_ss, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 104), ptr %4860, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), ptr %4863, align 8, !tbaa !26
   %_M_stringbuf.i = getelementptr inbounds i8, ptr %ext_ss, i64 24
   call void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEC2ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(104) %_M_stringbuf.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6764, i32 noundef 24)
   %vtable.i = load ptr, ptr %ext_ss, align 8, !tbaa !26
@@ -35302,7 +35302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20235: ; preds = %
   store ptr %4876, ptr %add.ptr.i.i20238, align 8, !tbaa !26
   %4877 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %4877, ptr %4863, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i, align 8, !tbaa !26
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 96
   %4878 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !13
   %4879 = getelementptr inbounds i8, ptr %ext_ss, i64 112
@@ -35321,7 +35321,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i, align 8, !tbaa !26
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ext_ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #17
   store ptr %4861, ptr %ext_ss, align 8, !tbaa !26

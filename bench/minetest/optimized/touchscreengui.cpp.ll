@@ -991,7 +991,8 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %1, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %1
 
 1:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream()
@@ -1256,7 +1257,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IP11button_infoEET_.exit: 
   store i32 1, ptr %_M_use_count.i.i.i167, align 8, !tbaa !74
   %_M_weak_count.i.i.i168 = getelementptr inbounds i8, ptr %call.i166, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i168, align 4, !tbaa !76
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIP11button_infoLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i166, align 8, !tbaa !37
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIP11button_infoLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i166, align 8, !tbaa !37
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i166, i64 16
   store ptr %call95, ptr %_M_ptr.i.i, align 8, !tbaa !107
   store ptr %call.i166, ptr %_M_refcount.i.i, align 8, !tbaa !72
@@ -1596,7 +1597,8 @@ lpad53:                                           ; preds = %_ZNSt7__cxx1112basi
 
 catch:                                            ; preds = %lpad53
   %30 = call ptr @__cxa_begin_catch(ptr %27) #30
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %31, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %31
 
 31:                                               ; preds = %catch
   call void @_ZTH13warningstream()
@@ -3349,7 +3351,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IP11button_infoEET_.exit: 
   store i32 1, ptr %_M_use_count.i.i.i, align 8, !tbaa !74
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4, !tbaa !76
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIP11button_infoLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8, !tbaa !37
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIP11button_infoLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8, !tbaa !37
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call2, ptr %_M_ptr.i.i, align 8, !tbaa !107
   store ptr %call.i, ptr %_M_refcount.i.i, align 8, !tbaa !72
@@ -7369,7 +7371,8 @@ _ZN14TouchScreenGUI19applyJoystickStatusEv.exit:  ; preds = %if.end.i, %if.then1
   br label %if.end33
 
 if.else27:                                        ; preds = %if.else12
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %21, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %21
 
 21:                                               ; preds = %if.else27
   tail call void @_ZTH10infostream()
@@ -7517,7 +7520,8 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %2, label %_ZTW10infostream.exit
+  %.not23 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not23, label %_ZTW10infostream.exit, label %2
 
 2:                                                ; preds = %if.then3
   tail call void @_ZTH10infostream()
@@ -8097,7 +8101,8 @@ _ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairI
   br label %cleanup.cont287
 
 if.then107:                                       ; preds = %if.end7
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %101, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %101
 
 101:                                              ; preds = %if.then107
   tail call void @_ZTH13verbosestream()

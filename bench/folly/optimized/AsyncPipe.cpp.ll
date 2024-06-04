@@ -533,7 +533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont96:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %aex92, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %aex92, align 8, !tbaa !36
   %type_.i = getelementptr inbounds i8, ptr %aex92, i64 16
   store i32 10, ptr %type_.i, align 8, !tbaa !49
   %errno_.i = getelementptr inbounds i8, ptr %aex92, i64 20
@@ -680,7 +680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i216: ; preds =
 
 invoke.cont137:                                   ; preds = %if.then.i.i.i222, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i225
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i212) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %ex132, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %ex132, align 8, !tbaa !36
   store i32 10, ptr %type_.i223, align 8, !tbaa !49
   store i32 %56, ptr %errno_.i224, align 4, !tbaa !55
   %62 = load ptr, ptr %ref.tmp133, align 8, !tbaa !43
@@ -965,11 +965,11 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly15AsyncPipeWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 16), ptr %this, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 16), ptr %this, align 8, !tbaa !36
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 80), ptr %add.ptr, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 80), ptr %add.ptr, align 8, !tbaa !36
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 176), ptr %add.ptr2, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 176), ptr %add.ptr2, align 8, !tbaa !36
   invoke void @_ZN5folly15AsyncPipeWriter8closeNowEv(ptr noundef nonnull align 8 dereferenceable(272) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1303,11 +1303,11 @@ entry:
 define void @_ZN5folly15AsyncPipeReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.i.i = alloca %"struct.folly::NetworkSocket", align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 16), ptr %this, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 16), ptr %this, align 8, !tbaa !36
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 72), ptr %add.ptr, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 72), ptr %add.ptr, align 8, !tbaa !36
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 136), ptr %add.ptr2, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 136), ptr %add.ptr2, align 8, !tbaa !36
   invoke void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(176) %this)
           to label %.noexc unwind label %terminate.lpad
 
@@ -1720,7 +1720,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %this, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %this, align 8, !tbaa !36
   %type_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %type, ptr %type_, align 8, !tbaa !49
   %errno_ = getelementptr inbounds i8, ptr %this, i64 20
@@ -1972,7 +1972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont5:                                     ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %ex, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %ex, align 8, !tbaa !36
   %type_.i = getelementptr inbounds i8, ptr %ex, i64 16
   store i32 1, ptr %type_.i, align 8, !tbaa !49
   %errno_.i = getelementptr inbounds i8, ptr %ex, i64 20
@@ -2415,7 +2415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont129:                                   ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %ref.tmp122, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %ref.tmp122, align 8, !tbaa !36
   %type_.i = getelementptr inbounds i8, ptr %ref.tmp122, i64 16
   store i32 8, ptr %type_.i, align 8, !tbaa !49
   %errno_.i = getelementptr inbounds i8, ptr %ref.tmp122, i64 20
@@ -2852,7 +2852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont27:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %ref.tmp21, align 8, !tbaa !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %ref.tmp21, align 8, !tbaa !36
   %type_.i = getelementptr inbounds i8, ptr %ref.tmp21, i64 16
   store i32 1, ptr %type_.i, align 8, !tbaa !49
   %errno_.i = getelementptr inbounds i8, ptr %ref.tmp21, i64 20

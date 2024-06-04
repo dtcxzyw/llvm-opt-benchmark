@@ -152,18 +152,18 @@ define dso_local void @transfer_all_new_dbs(ptr nocapture noundef readonly %0, p
   br i1 %32, label %.lr.ph.i.us, label %transfer_single_new_db.exit.us
 
 .lr.ph.i.us:                                      ; preds = %27
-  %wide.trip.count23.i.us = zext nneg i32 %26 to i64
+  %wide.trip.count24.i.us = zext nneg i32 %26 to i64
   br label %.lr.ph.split.us.i.us
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %.lr.ph.split.us.i.us
-  %indvars.iv20.i.us = phi i64 [ %indvars.iv.next21.i.us, %.lr.ph.split.us.i.us ], [ 0, %.lr.ph.i.us ]
-  %33 = getelementptr %struct.FileNameMap, ptr %25, i64 %indvars.iv20.i.us
+  %indvars.iv21.i.us = phi i64 [ %indvars.iv.next22.i.us, %.lr.ph.split.us.i.us ], [ 0, %.lr.ph.i.us ]
+  %33 = getelementptr %struct.FileNameMap, ptr %25, i64 %indvars.iv21.i.us
   call fastcc void @transfer_relfile(ptr noundef readonly %33, ptr noundef nonnull @.str.4, i1 noundef zeroext %or.cond.i.us)
   call fastcc void @transfer_relfile(ptr noundef readonly %33, ptr noundef nonnull @.str.5, i1 noundef zeroext %or.cond.i.us)
   call fastcc void @transfer_relfile(ptr noundef readonly %33, ptr noundef nonnull @.str.6, i1 noundef zeroext %or.cond.i.us)
-  %indvars.iv.next21.i.us = add nuw nsw i64 %indvars.iv20.i.us, 1
-  %exitcond24.not.i.us = icmp eq i64 %indvars.iv.next21.i.us, %wide.trip.count23.i.us
-  br i1 %exitcond24.not.i.us, label %transfer_single_new_db.exit.us, label %.lr.ph.split.us.i.us, !llvm.loop !9
+  %indvars.iv.next22.i.us = add nuw nsw i64 %indvars.iv21.i.us, 1
+  %exitcond25.not.i.us = icmp eq i64 %indvars.iv.next22.i.us, %wide.trip.count24.i.us
+  br i1 %exitcond25.not.i.us, label %transfer_single_new_db.exit.us, label %.lr.ph.split.us.i.us, !llvm.loop !9
 
 transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.us, %27, %23
   call void @pg_free(ptr noundef %25) #6
@@ -237,7 +237,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
   br i1 %70, label %.lr.ph.i, label %transfer_single_new_db.exit
 
 .lr.ph.i:                                         ; preds = %65
-  %wide.trip.count23.i = zext nneg i32 %64 to i64
+  %wide.trip.count24.i = zext nneg i32 %64 to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %76
@@ -256,7 +256,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
 
 76:                                               ; preds = %75, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count23.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count24.i
   br i1 %exitcond.not.i, label %transfer_single_new_db.exit, label %.lr.ph.split.i, !llvm.loop !9
 
 transfer_single_new_db.exit:                      ; preds = %76, %65, %61

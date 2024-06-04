@@ -237,15 +237,15 @@ define internal i32 @detect_proxy(ptr noundef %0) #0 {
 
 14:                                               ; preds = %13
   %15 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str) #7
-  %.not10 = icmp eq ptr %15, null
+  %.not9 = icmp eq ptr %15, null
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_schizo_slurm_component, i64 224), align 8
-  %spec.select = select i1 %.not10, i32 0, i32 %16
+  %spec.select = select i1 %.not9, i32 0, i32 %16
   br label %26
 
 17:                                               ; preds = %13
   %18 = tail call ptr @getenv(ptr noundef nonnull @.str.26) #8
-  %.not9 = icmp eq ptr %18, null
-  br i1 %.not9, label %22, label %19
+  %.not8 = icmp eq ptr %18, null
+  br i1 %.not8, label %22, label %19
 
 19:                                               ; preds = %17
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(6) @.str) #7
@@ -257,11 +257,11 @@ define internal i32 @detect_proxy(ptr noundef %0) #0 {
   %23 = load ptr, ptr @prte_tool_basename, align 8
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(5) @.str.27) #7
   %25 = icmp eq i32 %24, 0
-  %.11 = select i1 %25, i32 100, i32 0
+  %.10 = select i1 %25, i32 100, i32 0
   br label %26
 
 26:                                               ; preds = %14, %22, %19
-  %.0 = phi i32 [ %., %19 ], [ %.11, %22 ], [ %spec.select, %14 ]
+  %.0 = phi i32 [ %., %19 ], [ %.10, %22 ], [ %spec.select, %14 ]
   ret i32 %.0
 }
 

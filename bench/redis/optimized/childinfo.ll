@@ -36,11 +36,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4268), align 4
-  %cmp.i = icmp ne i32 %0, -1
+  %cmp.not.i = icmp eq i32 %0, -1
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4272), align 8
-  %cmp1.i = icmp ne i32 %1, -1
-  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp1.i
-  br i1 %or.cond.i, label %if.then.i, label %if.end
+  %cmp1.not.i = icmp eq i32 %1, -1
+  %or.cond.i = select i1 %cmp.not.i, i1 %cmp1.not.i, i1 false
+  br i1 %or.cond.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %call.i = tail call i32 @close(i32 noundef %0) #7
@@ -64,11 +64,11 @@ declare i32 @anetPipe(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr 
 define dso_local void @closeChildInfoPipe() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4268), align 4
-  %cmp = icmp ne i32 %0, -1
+  %cmp.not = icmp eq i32 %0, -1
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4272), align 8
-  %cmp1 = icmp ne i32 %1, -1
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp1
-  br i1 %or.cond, label %if.then, label %if.end
+  %cmp1.not = icmp eq i32 %1, -1
+  %or.cond = select i1 %cmp.not, i1 %cmp1.not, i1 false
+  br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 @close(i32 noundef %0) #7

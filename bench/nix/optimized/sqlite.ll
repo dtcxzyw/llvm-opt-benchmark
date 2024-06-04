@@ -2655,84 +2655,87 @@ define void @_ZN3nix10SQLiteStmt6createEP7sqlite3RKNSt7__cxx1112basic_stringIcSt
   %5 = alloca %"class.std::allocator.4", align 1
   %6 = load atomic i8, ptr @_ZN3nix14_isInterruptedE seq_cst, align 1
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %18, label %8
+  br i1 %7, label %20, label %8
 
 8:                                                ; preds = %3
-  br i1 icmp ne (ptr @_ZTHN3nix14interruptCheckE, ptr null), label %9, label %_ZTWN3nix14interruptCheckE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN3nix14interruptCheckE, null
+  br i1 %.not.i.i, label %_ZTWN3nix14interruptCheckE.exit.i, label %_ZTWN3nix14interruptCheckE.exit.thread.i
 
-9:                                                ; preds = %8
+_ZTWN3nix14interruptCheckE.exit.i:                ; preds = %8
+  %9 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN3nix14interruptCheckE)
+  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %.not.i.i.not.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.not.i, label %_ZN3nix14checkInterruptEv.exit, label %_ZNKSt8functionIFbvEEclEv.exit.i
+
+_ZTWN3nix14interruptCheckE.exit.thread.i:         ; preds = %8
   tail call void @_ZTHN3nix14interruptCheckE()
-  br label %_ZTWN3nix14interruptCheckE.exit.i
+  %12 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN3nix14interruptCheckE)
+  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %.not.i.i4.not.i = icmp eq ptr %14, null
+  br i1 %.not.i.i4.not.i, label %_ZN3nix14checkInterruptEv.exit, label %_ZTWN3nix14interruptCheckE.exit2.i
 
-_ZTWN3nix14interruptCheckE.exit.i:                ; preds = %9, %8
-  %10 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN3nix14interruptCheckE)
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %.not.i.i.not.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.not.i, label %_ZN3nix14checkInterruptEv.exit, label %13
-
-13:                                               ; preds = %_ZTWN3nix14interruptCheckE.exit.i
-  br i1 icmp ne (ptr @_ZTHN3nix14interruptCheckE, ptr null), label %_ZTWN3nix14interruptCheckE.exit1.i, label %_ZNKSt8functionIFbvEEclEv.exit.i
-
-_ZTWN3nix14interruptCheckE.exit1.i:               ; preds = %13
+_ZTWN3nix14interruptCheckE.exit2.i:               ; preds = %_ZTWN3nix14interruptCheckE.exit.thread.i
   tail call void @_ZTHN3nix14interruptCheckE()
-  %.pr.i = load ptr, ptr %11, align 8
-  %.not.i.i2.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i2.i, label %14, label %_ZNKSt8functionIFbvEEclEv.exit.i
+  %.pr.i = load ptr, ptr %13, align 8
+  %.not.i.i3.i = icmp eq ptr %.pr.i, null
+  br i1 %.not.i.i3.i, label %15, label %_ZNKSt8functionIFbvEEclEv.exit.i
 
-14:                                               ; preds = %_ZTWN3nix14interruptCheckE.exit1.i
+15:                                               ; preds = %_ZTWN3nix14interruptCheckE.exit2.i
   tail call void @_ZSt25__throw_bad_function_callv() #24
   unreachable
 
-_ZNKSt8functionIFbvEEclEv.exit.i:                 ; preds = %_ZTWN3nix14interruptCheckE.exit1.i, %13
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %10)
-  br i1 %17, label %18, label %_ZN3nix14checkInterruptEv.exit
+_ZNKSt8functionIFbvEEclEv.exit.i:                 ; preds = %_ZTWN3nix14interruptCheckE.exit2.i, %_ZTWN3nix14interruptCheckE.exit.i
+  %16 = phi ptr [ %12, %_ZTWN3nix14interruptCheckE.exit2.i ], [ %9, %_ZTWN3nix14interruptCheckE.exit.i ]
+  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  br i1 %19, label %20, label %_ZN3nix14checkInterruptEv.exit
 
-18:                                               ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i, %3
+20:                                               ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i, %3
   tail call void @_ZN3nix12_interruptedEv()
   br label %_ZN3nix14checkInterruptEv.exit
 
-_ZN3nix14checkInterruptEv.exit:                   ; preds = %_ZTWN3nix14interruptCheckE.exit.i, %_ZNKSt8functionIFbvEEclEv.exit.i, %18
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = tail call i32 @sqlite3_prepare_v2(ptr noundef %1, ptr noundef %19, i32 noundef -1, ptr noundef nonnull %20, ptr noundef null)
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %30, label %22
+_ZN3nix14checkInterruptEv.exit:                   ; preds = %_ZTWN3nix14interruptCheckE.exit.i, %_ZTWN3nix14interruptCheckE.exit.thread.i, %_ZNKSt8functionIFbvEEclEv.exit.i, %20
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = tail call i32 @sqlite3_prepare_v2(ptr noundef %1, ptr noundef %21, i32 noundef -1, ptr noundef nonnull %22, ptr noundef null)
+  %.not = icmp eq i32 %23, 0
+  br i1 %.not, label %32, label %24
 
-22:                                               ; preds = %_ZN3nix14checkInterruptEv.exit
+24:                                               ; preds = %_ZN3nix14checkInterruptEv.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %23 unwind label %25
+          to label %25 unwind label %27
 
-23:                                               ; preds = %22
+25:                                               ; preds = %24
   invoke void @_ZN3nix11SQLiteError6throw_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP7sqlite3RKS7_DpRKT_(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2) #24
-          to label %24 unwind label %27
+          to label %26 unwind label %29
 
-24:                                               ; preds = %23
+26:                                               ; preds = %25
   unreachable
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  br label %29
-
-27:                                               ; preds = %23
+27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  br label %29
+  br label %31
 
-29:                                               ; preds = %27, %25
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
+29:                                               ; preds = %25
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  br label %31
+
+31:                                               ; preds = %29, %27
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   resume { ptr, i32 } %.pn
 
-30:                                               ; preds = %_ZN3nix14checkInterruptEv.exit
+32:                                               ; preds = %_ZN3nix14checkInterruptEv.exit
   store ptr %1, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %2)
   ret void
 }
 
@@ -3659,53 +3662,56 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 50:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %10, %2
   %51 = load atomic i8, ptr @_ZN3nix14_isInterruptedE seq_cst, align 1
   %52 = trunc i8 %51 to i1
-  br i1 %52, label %63, label %53
+  br i1 %52, label %65, label %53
 
 53:                                               ; preds = %50
-  br i1 icmp ne (ptr @_ZTHN3nix14interruptCheckE, ptr null), label %54, label %_ZTWN3nix14interruptCheckE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN3nix14interruptCheckE, null
+  br i1 %.not.i.i, label %_ZTWN3nix14interruptCheckE.exit.i, label %_ZTWN3nix14interruptCheckE.exit.thread.i
 
-54:                                               ; preds = %53
+_ZTWN3nix14interruptCheckE.exit.i:                ; preds = %53
+  %54 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN3nix14interruptCheckE)
+  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %56 = load ptr, ptr %55, align 8
+  %.not.i.i.not.i = icmp eq ptr %56, null
+  br i1 %.not.i.i.not.i, label %_ZN3nix14checkInterruptEv.exit, label %_ZNKSt8functionIFbvEEclEv.exit.i
+
+_ZTWN3nix14interruptCheckE.exit.thread.i:         ; preds = %53
   call void @_ZTHN3nix14interruptCheckE()
-  br label %_ZTWN3nix14interruptCheckE.exit.i
+  %57 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN3nix14interruptCheckE)
+  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %.not.i.i4.not.i = icmp eq ptr %59, null
+  br i1 %.not.i.i4.not.i, label %_ZN3nix14checkInterruptEv.exit, label %_ZTWN3nix14interruptCheckE.exit2.i
 
-_ZTWN3nix14interruptCheckE.exit.i:                ; preds = %54, %53
-  %55 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN3nix14interruptCheckE)
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %.not.i.i.not.i = icmp eq ptr %57, null
-  br i1 %.not.i.i.not.i, label %_ZN3nix14checkInterruptEv.exit, label %58
-
-58:                                               ; preds = %_ZTWN3nix14interruptCheckE.exit.i
-  br i1 icmp ne (ptr @_ZTHN3nix14interruptCheckE, ptr null), label %_ZTWN3nix14interruptCheckE.exit1.i, label %_ZNKSt8functionIFbvEEclEv.exit.i
-
-_ZTWN3nix14interruptCheckE.exit1.i:               ; preds = %58
+_ZTWN3nix14interruptCheckE.exit2.i:               ; preds = %_ZTWN3nix14interruptCheckE.exit.thread.i
   call void @_ZTHN3nix14interruptCheckE()
-  %.pr.i = load ptr, ptr %56, align 8
-  %.not.i.i2.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i2.i, label %59, label %_ZNKSt8functionIFbvEEclEv.exit.i
+  %.pr.i = load ptr, ptr %58, align 8
+  %.not.i.i3.i = icmp eq ptr %.pr.i, null
+  br i1 %.not.i.i3.i, label %60, label %_ZNKSt8functionIFbvEEclEv.exit.i
 
-59:                                               ; preds = %_ZTWN3nix14interruptCheckE.exit1.i
+60:                                               ; preds = %_ZTWN3nix14interruptCheckE.exit2.i
   call void @_ZSt25__throw_bad_function_callv() #24
   unreachable
 
-_ZNKSt8functionIFbvEEclEv.exit.i:                 ; preds = %_ZTWN3nix14interruptCheckE.exit1.i, %58
-  %60 = getelementptr inbounds i8, ptr %55, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %55)
-  br i1 %62, label %63, label %_ZN3nix14checkInterruptEv.exit
+_ZNKSt8functionIFbvEEclEv.exit.i:                 ; preds = %_ZTWN3nix14interruptCheckE.exit2.i, %_ZTWN3nix14interruptCheckE.exit.i
+  %61 = phi ptr [ %57, %_ZTWN3nix14interruptCheckE.exit2.i ], [ %54, %_ZTWN3nix14interruptCheckE.exit.i ]
+  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %64 = call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
+  br i1 %64, label %65, label %_ZN3nix14checkInterruptEv.exit
 
-63:                                               ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i, %50
+65:                                               ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i, %50
   call void @_ZN3nix12_interruptedEv()
   br label %_ZN3nix14checkInterruptEv.exit
 
-_ZN3nix14checkInterruptEv.exit:                   ; preds = %_ZTWN3nix14interruptCheckE.exit.i, %_ZNKSt8functionIFbvEEclEv.exit.i, %63
+_ZN3nix14checkInterruptEv.exit:                   ; preds = %_ZTWN3nix14interruptCheckE.exit.i, %_ZTWN3nix14interruptCheckE.exit.thread.i, %_ZNKSt8functionIFbvEEclEv.exit.i, %65
   store i64 0, ptr %6, align 8
-  %64 = call i64 @random() #22
-  %65 = srem i64 %64, 100
-  %66 = mul nsw i64 %65, 1000000
-  %67 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %66, ptr %67, align 8
-  %68 = call i32 @nanosleep(ptr noundef nonnull %6, ptr noundef null)
+  %66 = call i64 @random() #22
+  %67 = srem i64 %66, 100
+  %68 = mul nsw i64 %67, 1000000
+  %69 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %68, ptr %69, align 8
+  %70 = call i32 @nanosleep(ptr noundef nonnull %6, ptr noundef null)
   ret void
 }
 

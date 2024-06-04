@@ -1293,7 +1293,7 @@ entry:
   %m_charSet = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %m_charSet, align 4
   %cmp = icmp eq i32 %0, 4
-  %._ZZNK4YAML6Stream13StreamInUtf32EvE7indexes = select i1 %cmp, ptr getelementptr inbounds (i8, ptr @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes, i64 16), ptr @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes
+  %cond-lvalue = select i1 %cmp, ptr getelementptr inbounds (i8, ptr @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes, i64 16), ptr @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes
   %m_nPrefetchedUsed.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i64, ptr %m_nPrefetchedUsed.i, align 8
   %m_nPrefetchedAvailable.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -1493,7 +1493,7 @@ for.body:                                         ; preds = %_ZNK4YAML6Stream11G
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNK4YAML6Stream11GetNextByteEv.exit85 ]
   %ch.086 = phi i64 [ %or, %for.body ], [ 0, %_ZNK4YAML6Stream11GetNextByteEv.exit85 ]
   %shl = shl i64 %ch.086, 8
-  %arrayidx10 = getelementptr inbounds i32, ptr %._ZZNK4YAML6Stream13StreamInUtf32EvE7indexes, i64 %indvars.iv
+  %arrayidx10 = getelementptr inbounds i32, ptr %cond-lvalue, i64 %indvars.iv
   %31 = load i32, ptr %arrayidx10, align 4
   %idxprom11 = sext i32 %31 to i64
   %arrayidx12 = getelementptr inbounds [4 x i8], ptr %bytes, i64 0, i64 %idxprom11

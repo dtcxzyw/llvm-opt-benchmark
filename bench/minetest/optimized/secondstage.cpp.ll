@@ -593,7 +593,7 @@ for.body:                                         ; preds = %entry, %for.body
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN18PostProcessingStepC1EjRKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %_shader_id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV18PostProcessingStep, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18PostProcessingStep, i64 40), ptr %this, align 8, !tbaa !12
   %shader_id = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %_shader_id, ptr %shader_id, align 8, !tbaa !14
   %texture_map = getelementptr inbounds i8, ptr %this, i64 16
@@ -812,7 +812,7 @@ if.end:                                           ; preds = %if.then, %entry
   %material7 = getelementptr inbounds i8, ptr %this, i64 56
   %MaterialType = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %6, ptr %MaterialType, align 8, !tbaa !60
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %ref.tmp, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %ref.tmp, align 8, !tbaa !12
   %name.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %7 = load ptr, ptr %name.i, align 8, !tbaa !4
   %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -886,7 +886,7 @@ for.body:                                         ; preds = %for.body, %for.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ShaderInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %this, align 8, !tbaa !12
   %name = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -990,7 +990,7 @@ entry:
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8, !noalias !64
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %vbase.offset.i.i.i.i
   store ptr %2, ptr %add.ptr.i.i.i.i, align 8, !tbaa !12, !noalias !64
-  store ptr getelementptr inbounds inrange(-40, 40) (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i, align 8, !tbaa !12, !noalias !64
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i, align 8, !tbaa !12, !noalias !64
   %m_driver.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_driver.i.i.i, i8 0, i64 56, i1 false), !noalias !64
   store ptr %call.i.i, ptr %ref.tmp.i, align 8, !tbaa !33, !alias.scope !64
@@ -4747,7 +4747,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18PostProcessingStepD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV18PostProcessingStep, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18PostProcessingStep, i64 40), ptr %this, align 8, !tbaa !12
   %TextureMatrix.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %TextureMatrix.i.i.i, align 8, !tbaa !41
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -4804,7 +4804,7 @@ _ZN18PostProcessingStepD2Ev.exit:                 ; preds = %if.then.i.i.i.i, %_
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18PostProcessingStepD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV18PostProcessingStep, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18PostProcessingStep, i64 40), ptr %this, align 8, !tbaa !12
   %TextureMatrix.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %TextureMatrix.i.i.i.i, align 8, !tbaa !41
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -4900,7 +4900,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ShaderInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %this, align 8, !tbaa !12
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name.i, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 24

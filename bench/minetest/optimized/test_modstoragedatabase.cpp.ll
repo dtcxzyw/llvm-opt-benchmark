@@ -194,7 +194,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
   %m_test_dir = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !7
   %1 = getelementptr inbounds i8, ptr %this, i64 32
@@ -237,7 +237,8 @@ init.check:                                       ; preds = %entry
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %1, label %_ZTW9rawstream.exit
+  %.not = icmp eq ptr @_ZTH9rawstream, null
+  br i1 %.not, label %_ZTW9rawstream.exit, label %1
 
 1:                                                ; preds = %init.end
   tail call void @_ZTH9rawstream()
@@ -305,9 +306,9 @@ _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZSt4endlIcSt11char
   %10 = getelementptr inbounds i8, ptr %call3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %10, i8 0, i64 144, i1 false)
   %11 = getelementptr inbounds i8, ptr %call3, i64 8
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTV14Database_Dummy, i64 16), ptr %call3, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14Database_Dummy, i64 200), ptr %11, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV14Database_Dummy, i64 264), ptr %10, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14Database_Dummy, i64 16), ptr %call3, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14Database_Dummy, i64 200), ptr %11, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14Database_Dummy, i64 264), ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds i8, ptr %call3, i64 32
   %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 48
   store ptr %12, ptr %_M_left.i.i.i.i.i.i, align 8, !tbaa !38
@@ -330,7 +331,7 @@ _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZSt4endlIcSt11char
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
   %call4 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113FixedProviderE, i64 16), ptr %call4, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_113FixedProviderE, i64 16), ptr %call4, align 8, !tbaa !4
   %m_db.i = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %10, ptr %m_db.i, align 8, !tbaa !50
   %mod_storage_provider = getelementptr inbounds i8, ptr %this, i64 48
@@ -352,7 +353,7 @@ delete.notnull7:                                  ; preds = %_ZN11StreamProxylsE
   br label %delete.end10
 
 delete.end10:                                     ; preds = %delete.notnull7, %_ZN11StreamProxylsEPFRSoS0_E.exit
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %17, label %_ZTW9rawstream.exit119
+  br i1 %.not, label %_ZTW9rawstream.exit119, label %17
 
 17:                                               ; preds = %delete.end10
   tail call void @_ZTH9rawstream()
@@ -422,7 +423,7 @@ _ZN11StreamProxylsEPFRSoS0_E.exit131:             ; preds = %_ZSt4endlIcSt11char
 
 invoke.cont15:                                    ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit131
   %call16 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113FixedProviderE, i64 16), ptr %call16, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_113FixedProviderE, i64 16), ptr %call16, align 8, !tbaa !4
   %m_db.i132 = getelementptr inbounds i8, ptr %call16, i64 8
   store ptr %call13, ptr %m_db.i132, align 8, !tbaa !50
   store ptr %call16, ptr %mod_storage_provider, align 8, !tbaa !53
@@ -610,7 +611,7 @@ if.then.i.i145:                                   ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %if.then.i.i145, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i146
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp31) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #6
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %53, label %_ZTW9rawstream.exit150
+  br i1 %.not, label %_ZTW9rawstream.exit150, label %53
 
 53:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149
   call void @_ZTH9rawstream()
@@ -674,7 +675,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit340: ; preds = %i
 
 _ZN11StreamProxylsEPFRSoS0_E.exit163:             ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit340, %_ZN9LogStreamlsIRA38_KcEER11StreamProxyOT_.exit159, %_ZTW9rawstream.exit150
   %call41 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113FilesProviderE, i64 16), ptr %call41, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_113FilesProviderE, i64 16), ptr %call41, align 8, !tbaa !4
   %m_dir.i = getelementptr inbounds i8, ptr %call41, i64 8
   %61 = getelementptr inbounds i8, ptr %call41, i64 24
   store ptr %61, ptr %m_dir.i, align 8, !tbaa !59
@@ -735,7 +736,7 @@ delete.notnull48:                                 ; preds = %invoke.cont43
   br label %delete.end51
 
 delete.end51:                                     ; preds = %delete.notnull48, %invoke.cont43
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %71, label %_ZTW9rawstream.exit175
+  br i1 %.not, label %_ZTW9rawstream.exit175, label %71
 
 71:                                               ; preds = %delete.end51
   call void @_ZTH9rawstream()
@@ -805,7 +806,7 @@ _ZN11StreamProxylsEPFRSoS0_E.exit187:             ; preds = %_ZSt4endlIcSt11char
 invoke.cont56:                                    ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit187
   %add.ptr59 = getelementptr inbounds i8, ptr %call54, i64 120
   %call62 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113FixedProviderE, i64 16), ptr %call62, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_113FixedProviderE, i64 16), ptr %call62, align 8, !tbaa !4
   %m_db.i188 = getelementptr inbounds i8, ptr %call62, i64 8
   store ptr %add.ptr59, ptr %m_db.i188, align 8, !tbaa !50
   store ptr %call62, ptr %mod_storage_provider, align 8, !tbaa !53
@@ -988,7 +989,7 @@ if.then.i.i241:                                   ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit245: ; preds = %if.then.i.i241, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i242
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp79) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp78) #6
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %106, label %_ZTW9rawstream.exit246
+  br i1 %.not, label %_ZTW9rawstream.exit246, label %106
 
 106:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit245
   call void @_ZTH9rawstream()
@@ -1052,7 +1053,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit380: ; preds = %i
 
 _ZN11StreamProxylsEPFRSoS0_E.exit259:             ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit380, %_ZN9LogStreamlsIRA40_KcEER11StreamProxyOT_.exit255, %_ZTW9rawstream.exit246
   %call91 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115SQLite3ProviderE, i64 16), ptr %call91, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115SQLite3ProviderE, i64 16), ptr %call91, align 8, !tbaa !4
   %m_dir.i261 = getelementptr inbounds i8, ptr %call91, i64 8
   %114 = getelementptr inbounds i8, ptr %call91, i64 24
   store ptr %114, ptr %m_dir.i261, align 8, !tbaa !59
@@ -6787,7 +6788,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_113FilesProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113FilesProviderE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_113FilesProviderE, i64 16), ptr %this, align 8, !tbaa !4
   %m_db = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_db, align 8, !tbaa !64
   %tobool.not = icmp eq ptr %0, null
@@ -6844,7 +6845,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_113FilesProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113FilesProviderE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_113FilesProviderE, i64 16), ptr %this, align 8, !tbaa !4
   %m_db.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_db.i, align 8, !tbaa !64
   %tobool.not.i = icmp eq ptr %0, null
@@ -6947,7 +6948,7 @@ lpad:                                             ; preds = %delete.end
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115SQLite3ProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115SQLite3ProviderE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115SQLite3ProviderE, i64 16), ptr %this, align 8, !tbaa !4
   %m_db = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_db, align 8, !tbaa !72
   %tobool.not = icmp eq ptr %0, null
@@ -7004,7 +7005,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115SQLite3ProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115SQLite3ProviderE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115SQLite3ProviderE, i64 16), ptr %this, align 8, !tbaa !4
   %m_db.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_db.i, align 8, !tbaa !72
   %tobool.not.i = icmp eq ptr %0, null
@@ -7920,14 +7921,14 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !59
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !37
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22TestModStorageDatabase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22TestModStorageDatabase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !7
   %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32)
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i

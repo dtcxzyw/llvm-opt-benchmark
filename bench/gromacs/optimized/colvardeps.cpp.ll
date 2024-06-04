@@ -92,7 +92,7 @@ define linkonce_odr void @_ZN10colvardeps23do_feature_side_effectsEi(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10colvardepsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV10colvardeps, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10colvardeps, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -110,7 +110,7 @@ define void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV10colvardeps, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10colvardeps, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8

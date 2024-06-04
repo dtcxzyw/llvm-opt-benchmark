@@ -649,7 +649,7 @@ entry:
   %frombool1 = zext i1 %drawBack to i8
   %frombool2 = zext i1 %moveOverSelect to i8
   %0 = getelementptr inbounds i8, ptr %this, i64 440
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 448
   store ptr null, ptr %DebugName.i, align 8, !tbaa !76
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 456
@@ -660,8 +660,8 @@ entry:
   store i64 %rectangle.coerce1, ptr %agg.tmp.sroa.2.0.agg.tmp31.sroa_idx, align 8
   call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui11CGUIListBoxE, i64 16), i32 noundef 10, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp31)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp31)
-  store ptr getelementptr inbounds inrange(-24, 504) (i8, ptr @_ZTVN3irr3gui11CGUIListBoxE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui11CGUIListBoxE, i64 552), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui11CGUIListBoxE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui11CGUIListBoxE, i64 552), ptr %0, align 8, !tbaa !3
   %Items = getelementptr inbounds i8, ptr %this, i64 312
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Items, i8 0, i64 24, i1 false)
@@ -6301,7 +6301,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !3
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
   %1 = getelementptr inbounds i8, ptr %vtt, i64 8

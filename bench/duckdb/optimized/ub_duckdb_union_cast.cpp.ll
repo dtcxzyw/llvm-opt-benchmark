@@ -1799,7 +1799,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !70
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !70
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !22
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -2060,7 +2060,7 @@ ehcleanup:                                        ; preds = %_ZNKSt14default_del
   br label %ehcleanup17
 
 _ZNSt6vectorIN6duckdb13BoundCastInfoESaIS1_EED2Ev.exit: ; preds = %call.i.noexc
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb19StructBoundCastDataE, i64 16), ptr %call.i30, align 8, !tbaa !70, !noalias !86
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb19StructBoundCastDataE, i64 16), ptr %call.i30, align 8, !tbaa !70, !noalias !86
   %child_cast_info.i.i = getelementptr inbounds i8, ptr %call.i30, i64 8
   store ptr %1, ptr %child_cast_info.i.i, align 8, !tbaa !82, !noalias !86
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i30, i64 16
@@ -2426,7 +2426,7 @@ declare void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 derefer
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb19StructBoundCastDataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb19StructBoundCastDataE, i64 16), ptr %this, align 8, !tbaa !70
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb19StructBoundCastDataE, i64 16), ptr %this, align 8, !tbaa !70
   %target = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %target) #16
   %child_cast_info = getelementptr inbounds i8, ptr %this, i64 8
@@ -2477,7 +2477,7 @@ _ZNSt6vectorIN6duckdb13BoundCastInfoESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb19StructBoundCastDataD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb19StructBoundCastDataE, i64 16), ptr %this, align 8, !tbaa !70
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb19StructBoundCastDataE, i64 16), ptr %this, align 8, !tbaa !70
   %target.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %target.i) #16
   %child_cast_info.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2722,7 +2722,7 @@ ehcleanup:                                        ; preds = %_ZNKSt14default_del
   br label %ehcleanup17
 
 _ZNSt6vectorIN6duckdb13BoundCastInfoESaIS1_EED2Ev.exit: ; preds = %call.i.noexc
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb19StructBoundCastDataE, i64 16), ptr %call.i23, align 8, !tbaa !70, !noalias !102
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb19StructBoundCastDataE, i64 16), ptr %call.i23, align 8, !tbaa !70, !noalias !102
   %child_cast_info.i.i = getelementptr inbounds i8, ptr %call.i23, i64 8
   store ptr %3, ptr %child_cast_info.i.i, align 8, !tbaa !82, !noalias !102
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i23, i64 16

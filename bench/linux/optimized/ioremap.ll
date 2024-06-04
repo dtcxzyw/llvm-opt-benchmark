@@ -494,31 +494,32 @@ define dso_local void @early_ioremap_init() local_unnamed_addr #6 section ".init
   %3 = load i64, ptr @phys_base, align 8
   %4 = load i64, ptr @page_offset_base, align 8
   %5 = sub i64 -2147483648, %4
-  %6 = select i1 icmp ugt (i64 ptrtoint (ptr @bm_pte to i64), i64 sub (i64 ptrtoint (ptr @bm_pte to i64), i64 -2147483648)), i64 %3, i64 %5
-  %7 = add i64 %6, sub (i64 ptrtoint (ptr @bm_pte to i64), i64 -2147483648)
-  %8 = or i64 %7, 103
+  %6 = icmp ugt i64 ptrtoint (ptr @bm_pte to i64), sub (i64 ptrtoint (ptr @bm_pte to i64), i64 -2147483648)
+  %7 = select i1 %6, i64 %3, i64 %5
+  %8 = add i64 %7, sub (i64 ptrtoint (ptr @bm_pte to i64), i64 -2147483648)
+  %9 = or i64 %8, 103
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  store i64 %8, ptr %1, align 8
+  store i64 %9, ptr %1, align 8
   %.0..0..0..0. = load volatile i64, ptr %1, align 8
   store volatile i64 %.0..0..0..0., ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  %9 = tail call fastcc ptr @early_ioremap_pmd(i64 noundef -12587008) #14
-  %10 = icmp eq ptr %2, %9
-  br i1 %10, label %18, label %11
+  %10 = tail call fastcc ptr @early_ioremap_pmd(i64 noundef -12587008) #14
+  %11 = icmp eq ptr %2, %10
+  br i1 %11, label %19, label %12
 
-11:                                               ; preds = %0
+12:                                               ; preds = %0
   tail call void asm sideeffect "542: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 542b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 542) #12, !srcloc !23
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 902, i32 2305, i64 12) #12, !srcloc !24
   tail call void asm sideeffect "543: nop\0A\09.pushsection .discard.instr_end\0A\09.long 543b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 543) #12, !srcloc !25
-  %12 = tail call fastcc ptr @early_ioremap_pmd(i64 noundef -12587008) #14
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %12) #13
-  %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i64 noundef -14680064) #13
-  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i64 noundef -12587008) #13
-  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef 1024) #13
-  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef 1535) #13
-  br label %18
+  %13 = tail call fastcc ptr @early_ioremap_pmd(i64 noundef -12587008) #14
+  %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %13) #13
+  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i64 noundef -14680064) #13
+  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i64 noundef -12587008) #13
+  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef 1024) #13
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef 1535) #13
+  br label %19
 
-18:                                               ; preds = %11, %0
+19:                                               ; preds = %12, %0
   ret void
 }
 

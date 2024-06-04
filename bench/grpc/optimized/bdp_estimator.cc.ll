@@ -319,7 +319,8 @@ lpad90:                                           ; preds = %invoke.cont87
 if.end97:                                         ; preds = %if.then78, %invoke.cont93, %if.end73
   store i32 0, ptr %ping_state_, align 4
   store i64 0, ptr %this, align 8
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %44, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %44
 
 44:                                               ; preds = %if.end97
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()

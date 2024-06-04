@@ -566,8 +566,8 @@ if.else172:                                       ; preds = %while.body
   %or.cond1 = icmp ult i32 %call32, 8
   %22 = add i32 %call32, -9
   %or.cond2 = icmp ult i32 %22, 13
-  %or.cond44 = or i1 %or.cond1, %or.cond2
-  br i1 %or.cond44, label %if.end185, label %if.then184
+  %or.cond43 = or i1 %or.cond1, %or.cond2
+  br i1 %or.cond43, label %if.end185, label %if.then184
 
 if.then184:                                       ; preds = %if.else172
   call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.50, i32 noundef %call32)
@@ -595,8 +595,8 @@ if.end202:                                        ; preds = %if.end185
 if.end208:                                        ; preds = %if.end202
   %cmp209.not = icmp ne i64 %expiretime.0, -1
   %cmp212 = icmp slt i64 %expiretime.0, %call
-  %or.cond45 = select i1 %cmp209.not, i1 %cmp212, i1 false
-  br i1 %or.cond45, label %if.end216.thread, label %if.end216
+  %or.cond44 = select i1 %cmp209.not, i1 %cmp212, i1 false
+  br i1 %or.cond44, label %if.end216.thread, label %if.end216
 
 if.end216.thread:                                 ; preds = %if.end208
   %25 = load i64, ptr getelementptr inbounds (i8, ptr @rdbstate, i64 40), align 8
@@ -621,11 +621,11 @@ if.end221:                                        ; preds = %if.then219, %if.end
   br label %while.body.backedge
 
 while.end:                                        ; preds = %while.body
-  %cmp222 = icmp sgt i32 %call25, 4
+  %cmp222 = icmp slt i32 %call25, 5
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4164), align 4
-  %tobool225 = icmp ne i32 %27, 0
-  %or.cond3 = select i1 %cmp222, i1 %tobool225, i1 false
-  br i1 %or.cond3, label %if.then226, label %if.end242
+  %tobool225.not = icmp eq i32 %27, 0
+  %or.cond45 = select i1 %cmp222, i1 true, i1 %tobool225.not
+  br i1 %or.cond45, label %if.end242, label %if.then226
 
 if.then226:                                       ; preds = %while.end
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 40), align 8

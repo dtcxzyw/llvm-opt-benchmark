@@ -1587,7 +1587,7 @@ _ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JMN3nix10ThreadPoolEFvbEPS5_
 ; Function Attrs: uwtable
 define void @_ZN3nix10ThreadPool6doWorkEb(ptr noundef nonnull align 8 dereferenceable(232) %0, i1 noundef zeroext %1) #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
-  %.sroa.0.i.i.i29 = alloca { i64, i64 }, align 8
+  %.sroa.0.i.i.i30 = alloca { i64, i64 }, align 8
   %4 = alloca %"class.std::function", align 8
   %5 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
@@ -1648,8 +1648,8 @@ define void @_ZN3nix10ThreadPool6doWorkEb(ptr noundef nonnull align 8 dereferenc
   call void @__clang_call_terminate(ptr %34) #31
   unreachable
 
-common.resume:                                    ; preds = %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45, %27, %30
-  %common.resume.op = phi { ptr, i32 } [ %28, %30 ], [ %28, %27 ], [ %.pn24, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45 ], [ %.pn24, %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i ]
+common.resume:                                    ; preds = %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46, %27, %30
+  %common.resume.op = phi { ptr, i32 } [ %28, %30 ], [ %28, %27 ], [ %.pn24, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46 ], [ %.pn24, %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3nix17ReceiveInterruptsC2Ev.exit:              ; preds = %20, %22
@@ -1657,7 +1657,8 @@ _ZN3nix17ReceiveInterruptsC2Ev.exit:              ; preds = %20, %22
   br i1 %1, label %51, label %35
 
 35:                                               ; preds = %_ZN3nix17ReceiveInterruptsC2Ev.exit
-  br i1 icmp ne (ptr @_ZTHN3nix14interruptCheckE, ptr null), label %36, label %_ZTWN3nix14interruptCheckE.exit
+  %.not.i = icmp eq ptr @_ZTHN3nix14interruptCheckE, null
+  br i1 %.not.i, label %_ZTWN3nix14interruptCheckE.exit, label %36
 
 36:                                               ; preds = %35
   call void @_ZTHN3nix14interruptCheckE()
@@ -1728,7 +1729,7 @@ _ZTWN3nix14interruptCheckE.exit:                  ; preds = %35, %36
 
 63:                                               ; preds = %61
   invoke void @_ZSt20__throw_system_errori(i32 noundef %62) #29
-          to label %.noexc unwind label %.loopexit.split-lp61
+          to label %.noexc unwind label %.loopexit.split-lp62
 
 .noexc:                                           ; preds = %63
   unreachable
@@ -1747,14 +1748,14 @@ _ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.e
   %69 = add i64 %68, -1
   store i64 %69, ptr %67, align 8
   %70 = load ptr, ptr %9, align 8
-  %.not57 = icmp eq ptr %70, null
-  br i1 %.not57, label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.exit.preheader, label %71
+  %.not58 = icmp eq ptr %70, null
+  br i1 %.not58, label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.exit.preheader, label %71
 
 71:                                               ; preds = %65
   %72 = getelementptr inbounds i8, ptr %66, i64 128
   %73 = load ptr, ptr %72, align 8
-  %.not58 = icmp eq ptr %73, null
-  br i1 %.not58, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
+  %.not59 = icmp eq ptr %73, null
+  br i1 %.not59, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
 
 _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -1777,17 +1778,17 @@ _ZNSt15__exception_ptr13exception_ptraSERKS0_.exit: ; preds = %_ZNSt15__exceptio
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %56) #27
   br label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.exit.preheader
 
-.loopexit60:                                      ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit40
-  %lpad.loopexit62 = landingpad { ptr, i32 }
+.loopexit61:                                      ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit41
+  %lpad.loopexit63 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit37
+  br label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit38
 
-.loopexit.split-lp61:                             ; preds = %63
-  %lpad.loopexit.split-lp63 = landingpad { ptr, i32 }
+.loopexit.split-lp62:                             ; preds = %63
+  %lpad.loopexit.split-lp64 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit37
+  br label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit38
 
-.loopexit59:                                      ; preds = %111
+.loopexit60:                                      ; preds = %111
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %169
@@ -1813,8 +1814,8 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %71
   %79 = extractvalue { ptr, i32 } %78, 0
   %80 = extractvalue { ptr, i32 } %78, 1
   %81 = load ptr, ptr %12, align 8
-  %.not.i27 = icmp eq ptr %81, null
-  br i1 %.not.i27, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %82
+  %.not.i28 = icmp eq ptr %81, null
+  br i1 %.not.i28, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %82
 
 82:                                               ; preds = %77
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #27
@@ -1828,9 +1829,9 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %77, %82
 
 86:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
   %87 = icmp eq ptr %85, null
-  br i1 %87, label %.thread54, label %88
+  br i1 %87, label %.thread55, label %88
 
-.invoke:                                          ; preds = %88, %90, %.thread54, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
+.invoke:                                          ; preds = %88, %90, %.thread55, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
   invoke void @__cxa_end_catch()
           to label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.exit.preheader unwind label %.loopexit.split-lp
 
@@ -1842,13 +1843,13 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %77, %82
 90:                                               ; preds = %88
   %91 = call ptr @__dynamic_cast(ptr nonnull %85, ptr nonnull @_ZTISt9exception, ptr nonnull @_ZTIN3nix18ThreadPoolShutDownE, i64 0) #27
   %.not21 = icmp eq ptr %91, null
-  br i1 %.not21, label %.thread54, label %.invoke
+  br i1 %.not21, label %.thread55, label %.invoke
 
-.thread54:                                        ; preds = %86, %90
+.thread55:                                        ; preds = %86, %90
   invoke void @_ZN3nix15ignoreExceptionENS_9VerbosityE(i32 noundef 0)
           to label %.invoke unwind label %92
 
-92:                                               ; preds = %.thread54
+92:                                               ; preds = %.thread55
   %93 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -1887,7 +1888,7 @@ _ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.e
 
 111:                                              ; preds = %106, %103
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef nonnull align 8 dereferenceable(9) %53)
-          to label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.exit unwind label %.loopexit59
+          to label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.exit unwind label %.loopexit60
 
 112:                                              ; preds = %96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -1905,19 +1906,19 @@ _ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4Lock4waitERSt18condition_variable.e
   br label %_ZNSt8functionIFvvEEC2EOS1_.exit.i
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.i:               ; preds = %117, %112
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i29)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i30)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i29, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i29)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i30, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i30)
   %118 = load ptr, ptr %59, align 8
   store ptr %118, ptr %58, align 8
   store ptr %116, ptr %59, align 8
   %119 = load ptr, ptr %60, align 8
   store ptr %119, ptr %57, align 8
   store ptr %114, ptr %60, align 8
-  %.not.i.i.i30 = icmp eq ptr %118, null
-  br i1 %.not.i.i.i30, label %_ZNSt8functionIFvvEEaSEOS1_.exit, label %120
+  %.not.i.i.i31 = icmp eq ptr %118, null
+  br i1 %.not.i.i.i31, label %_ZNSt8functionIFvvEEaSEOS1_.exit, label %120
 
 120:                                              ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i
   %121 = invoke noundef zeroext i1 %118(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
@@ -1942,11 +1943,11 @@ _ZNSt8functionIFvvEEaSEOS1_.exit:                 ; preds = %._ZNSt8functionIFvv
   %128 = getelementptr inbounds i8, ptr %125, i64 72
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 -32
-  %.not.i.i31 = icmp eq ptr %127, %130
+  %.not.i.i32 = icmp eq ptr %127, %130
   %131 = getelementptr inbounds i8, ptr %127, i64 16
   %132 = load ptr, ptr %131, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %132, null
-  br i1 %.not.i.i31, label %141, label %133
+  br i1 %.not.i.i32, label %141, label %133
 
 133:                                              ; preds = %_ZNSt8functionIFvvEEaSEOS1_.exit
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt8functionIFvvEEEE7destroyIS2_EEvRS3_PT_.exit.i.i, label %134
@@ -2017,8 +2018,8 @@ _ZNSt5queueISt8functionIFvvEESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %_ZNSt1
 
 160:                                              ; preds = %.loopexit
   %161 = load ptr, ptr %53, align 8
-  %.not.i.i.i32 = icmp eq ptr %161, null
-  br i1 %.not.i.i.i32, label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit, label %162
+  %.not.i.i.i33 = icmp eq ptr %161, null
+  br i1 %.not.i.i.i33, label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit, label %162
 
 162:                                              ; preds = %160
   %163 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %161) #27
@@ -2030,14 +2031,14 @@ _ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit: ; preds = %.loopexit
 
 164:                                              ; preds = %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit
   %165 = load ptr, ptr %59, align 8
-  %.not.i.i33 = icmp eq ptr %165, null
-  br i1 %.not.i.i33, label %166, label %167
+  %.not.i.i34 = icmp eq ptr %165, null
+  br i1 %.not.i.i34, label %166, label %167
 
 166:                                              ; preds = %164
   invoke void @_ZSt25__throw_bad_function_callv() #29
-          to label %.noexc34 unwind label %176
+          to label %.noexc35 unwind label %176
 
-.noexc34:                                         ; preds = %166
+.noexc35:                                         ; preds = %166
   unreachable
 
 167:                                              ; preds = %164
@@ -2045,21 +2046,21 @@ _ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit: ; preds = %.loopexit
   invoke void %168(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZNKSt8functionIFvvEEclEv.exit unwind label %176
 
-169:                                              ; preds = %.loopexit59, %.loopexit.split-lp, %92
-  %.pn = phi { ptr, i32 } [ %93, %92 ], [ %lpad.loopexit, %.loopexit59 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+169:                                              ; preds = %.loopexit60, %.loopexit.split-lp, %92
+  %.pn = phi { ptr, i32 } [ %93, %92 ], [ %lpad.loopexit, %.loopexit60 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %170 = load i8, ptr %54, align 8
   %171 = trunc i8 %170 to i1
-  br i1 %171, label %172, label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit37
+  br i1 %171, label %172, label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit38
 
 172:                                              ; preds = %169
   %173 = load ptr, ptr %53, align 8
-  %.not.i.i.i36 = icmp eq ptr %173, null
-  br i1 %.not.i.i.i36, label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit37, label %174
+  %.not.i.i.i37 = icmp eq ptr %173, null
+  br i1 %.not.i.i.i37, label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit38, label %174
 
 174:                                              ; preds = %172
   %175 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %173) #27
   store i8 0, ptr %54, align 8
-  br label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit37
+  br label %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit38
 
 176:                                              ; preds = %167, %166
   %177 = landingpad { ptr, i32 }
@@ -2073,33 +2074,33 @@ _ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit: ; preds = %.loopexit
   %181 = load ptr, ptr %9, align 8
   store ptr %181, ptr %3, align 8
   store ptr %180, ptr %9, align 8
-  %.not.i.i38 = icmp eq ptr %181, null
-  br i1 %.not.i.i38, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
+  %.not.i.i39 = icmp eq ptr %181, null
+  br i1 %.not.i.i39, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
 
 _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread: ; preds = %176
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit40
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit41
 
 _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit: ; preds = %176
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
   %.pr = load ptr, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.not.i39 = icmp eq ptr %.pr, null
-  br i1 %.not.i39, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit40, label %182
+  %.not.i40 = icmp eq ptr %.pr, null
+  br i1 %.not.i40, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit41, label %182
 
 182:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #27
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit40
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit41
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit40: ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit, %182
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit41: ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit, %182
   invoke void @__cxa_end_catch()
-          to label %_ZNKSt8functionIFvvEEclEv.exit unwind label %.loopexit60
+          to label %_ZNKSt8functionIFvvEEclEv.exit unwind label %.loopexit61
 
-_ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %167, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit40, %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit
-  %.114 = phi i1 [ %.013, %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit ], [ true, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit40 ], [ true, %167 ]
+_ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %167, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit41, %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit
+  %.114 = phi i1 [ %.013, %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit ], [ true, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit41 ], [ true, %167 ]
   %183 = load ptr, ptr %59, align 8
-  %.not.i.i41 = icmp eq ptr %183, null
-  br i1 %.not.i.i41, label %_ZNSt8functionIFvvEED2Ev.exit, label %184
+  %.not.i.i42 = icmp eq ptr %183, null
+  br i1 %.not.i.i42, label %_ZNSt8functionIFvvEED2Ev.exit, label %184
 
 184:                                              ; preds = %_ZNKSt8functionIFvvEEclEv.exit
   %185 = invoke noundef zeroext i1 %183(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
@@ -2115,15 +2116,15 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %167, %_ZNSt15__exce
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNKSt8functionIFvvEEclEv.exit, %184
   br i1 %cond, label %61, label %201, !llvm.loop !21
 
-_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit37: ; preds = %.loopexit60, %.loopexit.split-lp61, %174, %172, %169
-  %.pn24 = phi { ptr, i32 } [ %.pn, %169 ], [ %.pn, %172 ], [ %.pn, %174 ], [ %lpad.loopexit62, %.loopexit60 ], [ %lpad.loopexit.split-lp63, %.loopexit.split-lp61 ]
+_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit38: ; preds = %.loopexit61, %.loopexit.split-lp62, %174, %172, %169
+  %.pn24 = phi { ptr, i32 } [ %.pn, %169 ], [ %.pn, %172 ], [ %.pn, %174 ], [ %lpad.loopexit63, %.loopexit61 ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp62 ]
   %189 = load ptr, ptr %59, align 8
-  %.not.i.i42 = icmp eq ptr %189, null
-  br i1 %.not.i.i42, label %_ZNSt8functionIFvvEED2Ev.exit43, label %190
+  %.not.i.i43 = icmp eq ptr %189, null
+  br i1 %.not.i.i43, label %_ZNSt8functionIFvvEED2Ev.exit44, label %190
 
-190:                                              ; preds = %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit37
+190:                                              ; preds = %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit38
   %191 = invoke noundef zeroext i1 %189(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit43 unwind label %192
+          to label %_ZNSt8functionIFvvEED2Ev.exit44 unwind label %192
 
 192:                                              ; preds = %190
   %193 = landingpad { ptr, i32 }
@@ -2132,21 +2133,21 @@ _ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit37: ; preds = %.loopex
   call void @__clang_call_terminate(ptr %194) #31
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit43:                  ; preds = %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit37, %190
+_ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %_ZN3nix4SyncINS_10ThreadPool5StateESt5mutexE4LockD2Ev.exit38, %190
   %195 = load ptr, ptr %9, align 8
-  %.not.i44 = icmp eq ptr %195, null
-  br i1 %.not.i44, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45, label %196
+  %.not.i45 = icmp eq ptr %195, null
+  br i1 %.not.i45, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46, label %196
 
-196:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit43
+196:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit44
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #27
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45: ; preds = %_ZNSt8functionIFvvEED2Ev.exit43, %196
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46: ; preds = %_ZNSt8functionIFvvEED2Ev.exit44, %196
   %197 = load ptr, ptr %15, align 8
-  %.not.i.i46 = icmp eq ptr %197, null
-  br i1 %.not.i.i46, label %common.resume, label %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i
+  %.not.i.i47 = icmp eq ptr %197, null
+  br i1 %.not.i.i47, label %common.resume, label %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45
+_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8
@@ -2155,26 +2156,26 @@ _ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i: ; preds = %_Z
 
 201:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %202 = load ptr, ptr %9, align 8
-  %.not.i47 = icmp eq ptr %202, null
-  br i1 %.not.i47, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit48, label %203
+  %.not.i48 = icmp eq ptr %202, null
+  br i1 %.not.i48, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit49, label %203
 
 203:                                              ; preds = %201
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #27
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit48
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit49
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit48: ; preds = %201, %203
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit49: ; preds = %201, %203
   %204 = load ptr, ptr %15, align 8
-  %.not.i.i49 = icmp eq ptr %204, null
-  br i1 %.not.i.i49, label %_ZN3nix17ReceiveInterruptsD2Ev.exit51, label %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i50
+  %.not.i.i50 = icmp eq ptr %204, null
+  br i1 %.not.i.i50, label %_ZN3nix17ReceiveInterruptsD2Ev.exit52, label %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i51
 
-_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i50: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit48
+_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i51: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit49
   %205 = load ptr, ptr %204, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 8
   %207 = load ptr, ptr %206, align 8
   call void %207(ptr noundef nonnull align 8 dereferenceable(8) %204) #27
-  br label %_ZN3nix17ReceiveInterruptsD2Ev.exit51
+  br label %_ZN3nix17ReceiveInterruptsD2Ev.exit52
 
-_ZN3nix17ReceiveInterruptsD2Ev.exit51:            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit48, %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i50
+_ZN3nix17ReceiveInterruptsD2Ev.exit52:            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit49, %_ZNKSt14default_deleteIN3nix17InterruptCallbackEEclEPS1_.exit.i.i51
   ret void
 
 208:                                              ; preds = %92

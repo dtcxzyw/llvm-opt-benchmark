@@ -204,7 +204,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13sentencepiece10normalizer10NormalizerC2ERKNS_14NormalizerSpecERKNS_11TrainerSpecE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN13sentencepiece10normalizer10NormalizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10normalizer10NormalizerE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -322,7 +322,7 @@ _ZN13sentencepiece10normalizer10Normalizer25DecodePrecompiledCharsMapESt17basic_
 
 31:                                               ; preds = %27
   %32 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20, !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %32, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %32, align 8, !noalias !7
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false), !noalias !7
   %34 = getelementptr inbounds i8, ptr %0, i64 8
@@ -370,7 +370,7 @@ declare void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13sentencepiece10normalizer10NormalizerC2ERKNS_14NormalizerSpecE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN13sentencepiece10normalizer10NormalizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10normalizer10NormalizerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -421,7 +421,7 @@ _ZNSt10unique_ptrIN5Darts15DoubleArrayImplIvvivEESt14default_deleteIS2_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13sentencepiece10normalizer10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN13sentencepiece10normalizer10NormalizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10normalizer10NormalizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2115,7 +2115,7 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit:     ; preds = %_ZNSt6vectorIPKcSaI
           to label %43 unwind label %.loopexit.split-lp
 
 43:                                               ; preds = %._crit_edge
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %42, align 8, !noalias !31
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %42, align 8, !noalias !31
   %44 = getelementptr inbounds i8, ptr %42, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !noalias !31
   %45 = load ptr, ptr %0, align 8
@@ -2537,7 +2537,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Darts15DoubleArrayImplIvvivED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -2556,7 +2556,7 @@ _ZN5Darts15DoubleArrayImplIvvivE5clearEv.exit:    ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Darts15DoubleArrayImplIvvivED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -2967,7 +2967,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolIhE10resize_bufEm(ptr nounde
   %15 = extractvalue { ptr, i32 } %10, 0
   %16 = tail call ptr @__cxa_begin_catch(ptr %15) #19
   %17 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr @.str.20, ptr %18, align 8
   invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -3097,7 +3097,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolINS0_22DoubleArrayBuilderUni
   %16 = extractvalue { ptr, i32 } %11, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #19
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr @.str.20, ptr %19, align 8
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -3937,7 +3937,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolIjE10resize_bufEm(ptr nounde
   %16 = extractvalue { ptr, i32 } %11, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #19
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr @.str.20, ptr %19, align 8
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -4032,7 +4032,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolINS0_8DawgUnitEE10resize_buf
   %16 = extractvalue { ptr, i32 } %11, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #19
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr @.str.20, ptr %19, align 8
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -4127,7 +4127,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolINS0_8DawgNodeEE10resize_buf
   %16 = extractvalue { ptr, i32 } %11, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #19
   %18 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr @.str.20, ptr %19, align 8
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -4310,7 +4310,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder6insertEPKcmi(ptr nounde
 
 6:                                                ; preds = %4
   %7 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str.22, ptr %8, align 8
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -4326,7 +4326,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder6insertEPKcmi(ptr nounde
 
 12:                                               ; preds = %9
   %13 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.23, ptr %14, align 8
   tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -4351,7 +4351,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder6insertEPKcmi(ptr nounde
 
 25:                                               ; preds = %20
   %26 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr @.str.24, ptr %27, align 8
   tail call void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -4367,7 +4367,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder6insertEPKcmi(ptr nounde
 
 34:                                               ; preds = %28
   %35 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr @.str.25, ptr %36, align 8
   tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -4881,7 +4881,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder5flushEj(ptr noundef non
   %78 = extractvalue { ptr, i32 } %73, 0
   %79 = call ptr @__cxa_begin_catch(ptr %78) #19
   %80 = call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 8
   store ptr @.str.20, ptr %81, align 8
   invoke void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -4988,7 +4988,7 @@ _ZN5Darts7Details9BitVector6appendEv.exit.i:      ; preds = %_ZN5Darts7Details8A
   %115 = extractvalue { ptr, i32 } %110, 0
   %116 = call ptr @__cxa_begin_catch(ptr %115) #19
   %117 = call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %117, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 8
   store ptr @.str.20, ptr %118, align 8
   invoke void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -5083,7 +5083,7 @@ _ZN5Darts7Details8AutoPoolINS0_8DawgUnitEE6appendEv.exit.i: ; preds = %125, %.lo
   %149 = extractvalue { ptr, i32 } %144, 0
   %150 = call ptr @__cxa_begin_catch(ptr %149) #19
   %151 = call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %151, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %151, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 8
   store ptr @.str.20, ptr %152, align 8
   invoke void @__cxa_throw(ptr nonnull %151, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -5252,7 +5252,7 @@ _ZNK5Darts7Details8DawgNode4unitEv.exit:          ; preds = %174, %176
   %228 = extractvalue { ptr, i32 } %223, 0
   %229 = call ptr @__cxa_begin_catch(ptr %228) #19
   %230 = call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %230, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %230, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 8
   store ptr @.str.20, ptr %231, align 8
   invoke void @__cxa_throw(ptr nonnull %230, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -5792,7 +5792,7 @@ define linkonce_odr void @_ZN5Darts7Details9BitVector5buildEv(ptr noundef nonnul
   %18 = extractvalue { ptr, i32 } %13, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #19
   %20 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr @.str.26, ptr %21, align 8
   invoke void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -5952,7 +5952,7 @@ define linkonce_odr void @_ZN5Darts7Details18DoubleArrayBuilder15build_from_dawg
 
 70:                                               ; preds = %68
   %71 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   store ptr @.str.27, ptr %72, align 8
   tail call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -6491,7 +6491,7 @@ _ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit: ; preds = %79,
 
 94:                                               ; preds = %_ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit
   %95 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %95, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 8
   store ptr @.str.27, ptr %96, align 8
   tail call void @__cxa_throw(ptr nonnull %95, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -6856,7 +6856,7 @@ _ZNK5Darts7Details6KeysetIiE4keysEmm.exit.thread63: ; preds = %14
 
 31:                                               ; preds = %_ZNK5Darts7Details6KeysetIiE4keysEmm.exit
   %32 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr @.str.28, ptr %33, align 8
   tail call void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -6883,7 +6883,7 @@ _ZNK5Darts7Details6KeysetIiE6valuesEm.exit:       ; preds = %35, %38
 
 41:                                               ; preds = %_ZNK5Darts7Details6KeysetIiE6valuesEm.exit
   %42 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   store ptr @.str.29, ptr %43, align 8
   tail call void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -6957,7 +6957,7 @@ _ZN5Darts7Details8AutoPoolIhE6appendERKh.exit:    ; preds = %61, %64
 
 76:                                               ; preds = %74
   %77 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 8
   store ptr @.str.30, ptr %78, align 8
   tail call void @__cxa_throw(ptr nonnull %77, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22
@@ -7112,7 +7112,7 @@ _ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit: ; preds = %136
 
 151:                                              ; preds = %_ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit
   %152 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %152, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %152, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 8
   store ptr @.str.27, ptr %153, align 8
   tail call void @__cxa_throw(ptr nonnull %152, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #22

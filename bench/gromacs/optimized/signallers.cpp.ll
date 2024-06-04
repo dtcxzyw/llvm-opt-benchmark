@@ -1722,7 +1722,7 @@ define void @_ZThn16_N3gmx15EnergySignaller23registerLoggingCallbackEv(ptr dead_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx23NeighborSearchSignallerC2ESt6vectorISt8functionIFvldEESaIS4_EElld(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, double noundef %4) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx23NeighborSearchSignallerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx23NeighborSearchSignallerE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %1, align 8
   store ptr %7, ptr %6, align 8
@@ -1750,8 +1750,8 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx17LastStepSignallerC2ESt6vectorISt8functionIFvldEESaIS4_EEllPNS_11StopHandlerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #6 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx17LastStepSignallerE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx17LastStepSignallerE, i64 72), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17LastStepSignallerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17LastStepSignallerE, i64 72), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %7, align 8
@@ -1831,8 +1831,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx17LastS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx16LoggingSignallerC2ESt6vectorISt8functionIFvldEESaIS4_EEllNS_16StartingBehaviorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #6 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx16LoggingSignallerE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx16LoggingSignallerE, i64 72), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16LoggingSignallerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16LoggingSignallerE, i64 72), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %7, align 8
@@ -1895,8 +1895,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx16Loggi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx19TrajectorySignallerC2ESt6vectorISt8functionIFvldEESaIS4_EES6_iiiiiiiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) unnamed_addr #6 align 2 {
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx19TrajectorySignallerE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx19TrajectorySignallerE, i64 72), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19TrajectorySignallerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19TrajectorySignallerE, i64 72), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %3, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1984,9 +1984,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx19Traje
 define void @_ZN3gmx15EnergySignallerC2ESt6vectorISt8functionIFvldEESaIS4_EES6_S6_iiiNS_25EnergySignallerVirialModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #6 align 2 {
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 80), ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 120), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 80), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15EnergySignallerE, i64 120), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %1, align 8
   store ptr %12, ptr %11, align 8

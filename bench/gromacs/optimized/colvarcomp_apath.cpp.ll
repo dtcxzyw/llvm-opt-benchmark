@@ -4991,9 +4991,9 @@ define void @_ZN6colvar6aspathC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %20 = alloca %"class.std::__cxx11::basic_string", align 8
   %21 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar18CartesianBasedPathC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1744) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar6aspathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6aspathE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6aspathE, i64 264), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6aspathE, i64 264), ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 1744
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 472
@@ -8269,9 +8269,9 @@ _ZN16ArithmeticPathCV18ArithmeticPathBaseIdED2Ev.exit: ; preds = %_ZNSt6vectorId
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar6aspathD2Ev(ptr noundef nonnull align 8 dereferenceable(1752) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar6aspathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6aspathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6aspathE, i64 264), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6aspathE, i64 264), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1744
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -10329,9 +10329,9 @@ define void @_ZN6colvar6azpathC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %20 = alloca %"class.std::__cxx11::basic_string", align 8
   %21 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar18CartesianBasedPathC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1744) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar6azpathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6azpathE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6azpathE, i64 264), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6azpathE, i64 264), ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 1744
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 472
@@ -10795,9 +10795,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit70:                  ; preds = %169, %167, %146, %.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar6azpathD2Ev(ptr noundef nonnull align 8 dereferenceable(1752) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar6azpathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6azpathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6azpathE, i64 264), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6azpathE, i64 264), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1744
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -11186,9 +11186,9 @@ define void @_ZN6colvar8aspathCVC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %36 = alloca %"class.std::__cxx11::basic_string", align 8
   %37 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar11CVBasedPathC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1712) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar8aspathCVE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8aspathCVE, i64 16), ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar8aspathCVE, i64 264), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8aspathCVE, i64 264), ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 1712
   store ptr null, ptr %39, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
@@ -12055,9 +12055,9 @@ declare void @_ZN6colvar11CVBasedPathD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar8aspathCVD2Ev(ptr noundef nonnull align 8 dereferenceable(1720) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar8aspathCVE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8aspathCVE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar8aspathCVE, i64 264), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8aspathCVE, i64 264), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1712
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -15440,9 +15440,9 @@ define void @_ZN6colvar8azpathCVC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %36 = alloca %"class.std::__cxx11::basic_string", align 8
   %37 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar11CVBasedPathC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1712) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar8azpathCVE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8azpathCVE, i64 16), ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar8azpathCVE, i64 264), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8azpathCVE, i64 264), ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 1712
   store ptr null, ptr %39, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
@@ -18537,9 +18537,9 @@ _ZN11colvarvalueD2Ev.exit258:                     ; preds = %_ZNSt6vectorIdSaIdE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar8azpathCVD2Ev(ptr noundef nonnull align 8 dereferenceable(1720) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar8azpathCVE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8azpathCVE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar8azpathCVE, i64 264), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8azpathCVE, i64 264), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1712
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null

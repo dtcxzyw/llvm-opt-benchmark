@@ -191,7 +191,7 @@ $_ZTIN3gmx28InteractiveMolecularDynamicsE = comdat any
 define void @_ZN3gmx40createInteractiveMolecularDynamicsModuleEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN3gmx28InteractiveMolecularDynamicsESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21, !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx28InteractiveMolecularDynamicsE, i64 16), ptr %1, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx28InteractiveMolecularDynamicsE, i64 16), ptr %1, align 8, !noalias !5
   store ptr %1, ptr %0, align 8
   ret void
 }

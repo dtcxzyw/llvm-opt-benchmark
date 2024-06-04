@@ -221,158 +221,159 @@ define dso_local void @unwind_init() local_unnamed_addr #6 section ".init.text" 
   %1 = lshr exact i64 sub (i64 ptrtoint (ptr @__stop_orc_unwind_ip to i64), i64 ptrtoint (ptr @__start_orc_unwind_ip to i64)), 2
   %2 = urem i64 sub (i64 ptrtoint (ptr @__stop_orc_unwind to i64), i64 ptrtoint (ptr @__start_orc_unwind to i64)), 6
   %3 = icmp eq i64 %2, 0
-  %4 = and i1 %3, icmp ne (i64 sub (i64 ptrtoint (ptr @__stop_orc_unwind_ip to i64), i64 ptrtoint (ptr @__start_orc_unwind_ip to i64)), i64 0)
-  %5 = udiv i64 sub (i64 ptrtoint (ptr @__stop_orc_unwind to i64), i64 ptrtoint (ptr @__start_orc_unwind to i64)), 6
-  %6 = icmp eq i64 %1, %5
-  %7 = select i1 %4, i1 %6, i1 false
-  br i1 %7, label %12, label %8
+  %4 = icmp ne i64 sub (i64 ptrtoint (ptr @__stop_orc_unwind_ip to i64), i64 ptrtoint (ptr @__start_orc_unwind_ip to i64)), 0
+  %5 = and i1 %4, %3
+  %6 = udiv i64 sub (i64 ptrtoint (ptr @__stop_orc_unwind to i64), i64 ptrtoint (ptr @__start_orc_unwind to i64)), 6
+  %7 = icmp eq i64 %1, %6
+  %8 = select i1 %5, i1 %7, i1 false
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %0
-  %9 = load i1, ptr @unwind_init.__already_done, align 1
-  br i1 %9, label %100, label %10, !prof !10
+9:                                                ; preds = %0
+  %10 = load i1, ptr @unwind_init.__already_done, align 1
+  br i1 %10, label %101, label %11, !prof !10
 
-10:                                               ; preds = %8
+11:                                               ; preds = %9
   store i1 true, ptr @unwind_init.__already_done, align 1
-  %11 = tail call i32 (ptr, ...) @_printk_deferred(ptr noundef nonnull @.str.1) #16
-  br label %100
+  %12 = tail call i32 (ptr, ...) @_printk_deferred(ptr noundef nonnull @.str.1) #16
+  br label %101
 
-12:                                               ; preds = %0
-  %13 = lshr exact i64 sub (i64 ptrtoint (ptr @orc_lookup_end to i64), i64 ptrtoint (ptr @orc_lookup to i64)), 2
-  %14 = trunc i64 %13 to i32
-  store i32 %14, ptr @lookup_num_blocks, align 4
-  %15 = add i32 %14, -1
-  %16 = icmp eq i32 %15, 0
+13:                                               ; preds = %0
+  %14 = lshr exact i64 sub (i64 ptrtoint (ptr @orc_lookup_end to i64), i64 ptrtoint (ptr @orc_lookup to i64)), 2
+  %15 = trunc i64 %14 to i32
+  store i32 %15, ptr @lookup_num_blocks, align 4
+  %16 = add i32 %15, -1
+  %17 = icmp eq i32 %16, 0
   %.pre = and i64 sub (i64 ptrtoint (ptr @__stop_orc_unwind_ip to i64), i64 ptrtoint (ptr @__start_orc_unwind_ip to i64)), 17179869180
-  %17 = icmp eq i64 %.pre, 0
-  br i1 %16, label %.loopexit11, label %18
+  %18 = icmp eq i64 %.pre, 0
+  br i1 %17, label %.loopexit11, label %19
 
-18:                                               ; preds = %12
-  %19 = and i64 %1, 4294967295
-  %20 = getelementptr i32, ptr getelementptr (i8, ptr @__start_orc_unwind_ip, i64 -4), i64 %19
-  %21 = icmp ult ptr %20, @__start_orc_unwind_ip
-  br i1 %17, label %.thread.split, label %.split
+19:                                               ; preds = %13
+  %20 = and i64 %1, 4294967295
+  %21 = getelementptr i32, ptr getelementptr (i8, ptr @__start_orc_unwind_ip, i64 -4), i64 %20
+  %22 = icmp ult ptr %21, @__start_orc_unwind_ip
+  br i1 %18, label %.thread.split, label %.split
 
-.split:                                           ; preds = %18, %55
-  %22 = phi i32 [ %60, %55 ], [ 0, %18 ]
-  %23 = shl i32 %22, 8
-  %24 = sext i32 %23 to i64
-  %25 = add i64 %24, ptrtoint (ptr @_stext to i64)
-  br i1 %21, label %.loopexit10, label %.preheader9
+.split:                                           ; preds = %19, %56
+  %23 = phi i32 [ %61, %56 ], [ 0, %19 ]
+  %24 = shl i32 %23, 8
+  %25 = sext i32 %24 to i64
+  %26 = add i64 %25, ptrtoint (ptr @_stext to i64)
+  br i1 %22, label %.loopexit10, label %.preheader9
 
 .preheader9:                                      ; preds = %.split, %.preheader9
-  %26 = phi ptr [ %44, %.preheader9 ], [ @__start_orc_unwind_ip, %.split ]
-  %27 = phi ptr [ %43, %.preheader9 ], [ %20, %.split ]
-  %28 = phi ptr [ %42, %.preheader9 ], [ @__start_orc_unwind_ip, %.split ]
-  %29 = ptrtoint ptr %27 to i64
+  %27 = phi ptr [ %45, %.preheader9 ], [ @__start_orc_unwind_ip, %.split ]
+  %28 = phi ptr [ %44, %.preheader9 ], [ %21, %.split ]
+  %29 = phi ptr [ %43, %.preheader9 ], [ @__start_orc_unwind_ip, %.split ]
   %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = ashr exact i64 %31, 2
-  %33 = sdiv i64 %32, 2
-  %34 = getelementptr i32, ptr %28, i64 %33
-  %35 = ptrtoint ptr %34 to i64
-  %36 = load i32, ptr %34, align 4
-  %37 = sext i32 %36 to i64
-  %38 = add i64 %35, %37
-  %39 = icmp ugt i64 %38, %25
-  %40 = getelementptr i8, ptr %34, i64 4
-  %41 = getelementptr i8, ptr %34, i64 -4
-  %42 = select i1 %39, ptr %28, ptr %40
-  %43 = select i1 %39, ptr %41, ptr %27
-  %44 = select i1 %39, ptr %26, ptr %34
-  %45 = icmp ugt ptr %42, %43
-  br i1 %45, label %.loopexit10, label %.preheader9, !llvm.loop !11
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = ashr exact i64 %32, 2
+  %34 = sdiv i64 %33, 2
+  %35 = getelementptr i32, ptr %29, i64 %34
+  %36 = ptrtoint ptr %35 to i64
+  %37 = load i32, ptr %35, align 4
+  %38 = sext i32 %37 to i64
+  %39 = add i64 %36, %38
+  %40 = icmp ugt i64 %39, %26
+  %41 = getelementptr i8, ptr %35, i64 4
+  %42 = getelementptr i8, ptr %35, i64 -4
+  %43 = select i1 %40, ptr %29, ptr %41
+  %44 = select i1 %40, ptr %42, ptr %28
+  %45 = select i1 %40, ptr %27, ptr %35
+  %46 = icmp ugt ptr %43, %44
+  br i1 %46, label %.loopexit10, label %.preheader9, !llvm.loop !11
 
 .loopexit10:                                      ; preds = %.preheader9, %.split
-  %46 = phi ptr [ @__start_orc_unwind_ip, %.split ], [ %44, %.preheader9 ]
-  %47 = ptrtoint ptr %46 to i64
-  %48 = sub i64 %47, ptrtoint (ptr @__start_orc_unwind_ip to i64)
-  %49 = ashr exact i64 %48, 2
-  %50 = getelementptr %struct.orc_entry, ptr @__start_orc_unwind, i64 %49
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread.split, label %55
+  %47 = phi ptr [ @__start_orc_unwind_ip, %.split ], [ %45, %.preheader9 ]
+  %48 = ptrtoint ptr %47 to i64
+  %49 = sub i64 %48, ptrtoint (ptr @__start_orc_unwind_ip to i64)
+  %50 = ashr exact i64 %49, 2
+  %51 = getelementptr %struct.orc_entry, ptr @__start_orc_unwind, i64 %50
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.thread.split, label %56
 
-.thread.split:                                    ; preds = %.loopexit10, %18
-  %52 = load i1, ptr @unwind_init.__already_done.2, align 1
-  br i1 %52, label %100, label %53, !prof !10
+.thread.split:                                    ; preds = %.loopexit10, %19
+  %53 = load i1, ptr @unwind_init.__already_done.2, align 1
+  br i1 %53, label %101, label %54, !prof !10
 
-53:                                               ; preds = %.thread.split
+54:                                               ; preds = %.thread.split
   store i1 true, ptr @unwind_init.__already_done.2, align 1
-  %54 = tail call i32 (ptr, ...) @_printk_deferred(ptr noundef nonnull @.str.3) #16
-  br label %100
+  %55 = tail call i32 (ptr, ...) @_printk_deferred(ptr noundef nonnull @.str.3) #16
+  br label %101
 
-55:                                               ; preds = %.loopexit10
-  %.idx = mul i64 %49, 6
-  %56 = sdiv exact i64 %.idx, 6
-  %57 = trunc i64 %56 to i32
-  %58 = sext i32 %22 to i64
-  %59 = getelementptr [0 x i32], ptr @orc_lookup, i64 0, i64 %58
-  store i32 %57, ptr %59, align 4
-  %60 = add nuw i32 %22, 1
-  %61 = icmp eq i32 %60, %15
-  br i1 %61, label %.loopexit11.thread, label %.split, !llvm.loop !14
+56:                                               ; preds = %.loopexit10
+  %.idx = mul i64 %50, 6
+  %57 = sdiv exact i64 %.idx, 6
+  %58 = trunc i64 %57 to i32
+  %59 = sext i32 %23 to i64
+  %60 = getelementptr [0 x i32], ptr @orc_lookup, i64 0, i64 %59
+  store i32 %58, ptr %60, align 4
+  %61 = add nuw i32 %23, 1
+  %62 = icmp eq i32 %61, %16
+  br i1 %62, label %.loopexit11.thread, label %.split, !llvm.loop !14
 
-.loopexit11:                                      ; preds = %12
-  br i1 %17, label %.thread7, label %.loopexit11.thread
+.loopexit11:                                      ; preds = %13
+  br i1 %18, label %.thread7, label %.loopexit11.thread
 
-.loopexit11.thread:                               ; preds = %55, %.loopexit11
-  %62 = and i64 %1, 4294967295
-  %63 = getelementptr i32, ptr @__start_orc_unwind_ip, i64 %62
-  %64 = getelementptr i8, ptr %63, i64 -4
-  %65 = icmp ult ptr %64, @__start_orc_unwind_ip
-  br i1 %65, label %.loopexit, label %.preheader
+.loopexit11.thread:                               ; preds = %56, %.loopexit11
+  %63 = and i64 %1, 4294967295
+  %64 = getelementptr i32, ptr @__start_orc_unwind_ip, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 -4
+  %66 = icmp ult ptr %65, @__start_orc_unwind_ip
+  br i1 %66, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit11.thread, %.preheader
-  %66 = phi ptr [ %84, %.preheader ], [ @__start_orc_unwind_ip, %.loopexit11.thread ]
-  %67 = phi ptr [ %83, %.preheader ], [ %64, %.loopexit11.thread ]
-  %68 = phi ptr [ %82, %.preheader ], [ @__start_orc_unwind_ip, %.loopexit11.thread ]
-  %69 = ptrtoint ptr %67 to i64
+  %67 = phi ptr [ %85, %.preheader ], [ @__start_orc_unwind_ip, %.loopexit11.thread ]
+  %68 = phi ptr [ %84, %.preheader ], [ %65, %.loopexit11.thread ]
+  %69 = phi ptr [ %83, %.preheader ], [ @__start_orc_unwind_ip, %.loopexit11.thread ]
   %70 = ptrtoint ptr %68 to i64
-  %71 = sub i64 %69, %70
-  %72 = ashr exact i64 %71, 2
-  %73 = sdiv i64 %72, 2
-  %74 = getelementptr i32, ptr %68, i64 %73
-  %75 = ptrtoint ptr %74 to i64
-  %76 = load i32, ptr %74, align 4
-  %77 = sext i32 %76 to i64
-  %78 = add i64 %75, %77
-  %79 = icmp ugt i64 %78, ptrtoint (ptr @_etext to i64)
-  %80 = getelementptr i8, ptr %74, i64 4
-  %81 = getelementptr i8, ptr %74, i64 -4
-  %82 = select i1 %79, ptr %68, ptr %80
-  %83 = select i1 %79, ptr %81, ptr %67
-  %84 = select i1 %79, ptr %66, ptr %74
-  %85 = icmp ugt ptr %82, %83
-  br i1 %85, label %.loopexit, label %.preheader, !llvm.loop !11
+  %71 = ptrtoint ptr %69 to i64
+  %72 = sub i64 %70, %71
+  %73 = ashr exact i64 %72, 2
+  %74 = sdiv i64 %73, 2
+  %75 = getelementptr i32, ptr %69, i64 %74
+  %76 = ptrtoint ptr %75 to i64
+  %77 = load i32, ptr %75, align 4
+  %78 = sext i32 %77 to i64
+  %79 = add i64 %76, %78
+  %80 = icmp ugt i64 %79, ptrtoint (ptr @_etext to i64)
+  %81 = getelementptr i8, ptr %75, i64 4
+  %82 = getelementptr i8, ptr %75, i64 -4
+  %83 = select i1 %80, ptr %69, ptr %81
+  %84 = select i1 %80, ptr %82, ptr %68
+  %85 = select i1 %80, ptr %67, ptr %75
+  %86 = icmp ugt ptr %83, %84
+  br i1 %86, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit11.thread
-  %86 = phi ptr [ @__start_orc_unwind_ip, %.loopexit11.thread ], [ %84, %.preheader ]
-  %87 = ptrtoint ptr %86 to i64
-  %88 = sub i64 %87, ptrtoint (ptr @__start_orc_unwind_ip to i64)
-  %89 = ashr exact i64 %88, 2
-  %90 = getelementptr %struct.orc_entry, ptr @__start_orc_unwind, i64 %89
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread7, label %95
+  %87 = phi ptr [ @__start_orc_unwind_ip, %.loopexit11.thread ], [ %85, %.preheader ]
+  %88 = ptrtoint ptr %87 to i64
+  %89 = sub i64 %88, ptrtoint (ptr @__start_orc_unwind_ip to i64)
+  %90 = ashr exact i64 %89, 2
+  %91 = getelementptr %struct.orc_entry, ptr @__start_orc_unwind, i64 %90
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %.thread7, label %96
 
 .thread7:                                         ; preds = %.loopexit11, %.loopexit
-  %92 = load i1, ptr @unwind_init.__already_done.4, align 1
-  br i1 %92, label %100, label %93, !prof !10
+  %93 = load i1, ptr @unwind_init.__already_done.4, align 1
+  br i1 %93, label %101, label %94, !prof !10
 
-93:                                               ; preds = %.thread7
+94:                                               ; preds = %.thread7
   store i1 true, ptr @unwind_init.__already_done.4, align 1
-  %94 = tail call i32 (ptr, ...) @_printk_deferred(ptr noundef nonnull @.str.3) #16
-  br label %100
+  %95 = tail call i32 (ptr, ...) @_printk_deferred(ptr noundef nonnull @.str.3) #16
+  br label %101
 
-95:                                               ; preds = %.loopexit
-  %.idx8 = mul i64 %89, 6
-  %96 = sdiv exact i64 %.idx8, 6
-  %97 = trunc i64 %96 to i32
-  %98 = zext i32 %15 to i64
-  %99 = getelementptr [0 x i32], ptr @orc_lookup, i64 0, i64 %98
-  store i32 %97, ptr %99, align 4
+96:                                               ; preds = %.loopexit
+  %.idx8 = mul i64 %90, 6
+  %97 = sdiv exact i64 %.idx8, 6
+  %98 = trunc i64 %97 to i32
+  %99 = zext i32 %16 to i64
+  %100 = getelementptr [0 x i32], ptr @orc_lookup, i64 0, i64 %99
+  store i32 %98, ptr %100, align 4
   store i1 true, ptr @orc_init, align 1
-  br label %100
+  br label %101
 
-100:                                              ; preds = %95, %93, %.thread7, %53, %.thread.split, %10, %8
+101:                                              ; preds = %96, %94, %.thread7, %54, %.thread.split, %11, %9
   ret void
 }
 

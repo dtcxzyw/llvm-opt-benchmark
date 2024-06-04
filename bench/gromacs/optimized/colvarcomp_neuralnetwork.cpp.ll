@@ -878,9 +878,9 @@ define void @_ZN6colvar13neuralNetworkC2ERKNSt7__cxx1112basic_stringIcSt11char_t
   %93 = alloca %"class.std::__cxx11::basic_string", align 8
   %94 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar17linearCombinationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1673) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar13neuralNetworkE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar13neuralNetworkE, i64 16), ptr %0, align 8
   %95 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar13neuralNetworkE, i64 248), ptr %95, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar13neuralNetworkE, i64 248), ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %0, i64 1680
   store ptr null, ptr %96, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
@@ -5243,9 +5243,9 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35: ; preds = %_ZNSt6vectorId
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar13neuralNetworkD2Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar13neuralNetworkE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar13neuralNetworkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar13neuralNetworkE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar13neuralNetworkE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1680
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null

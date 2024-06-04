@@ -12952,128 +12952,145 @@ define noundef ptr @zend_register_internal_interface(ptr nocapture noundef reado
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @zend_register_class_alias_ex(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = alloca %struct._zval_struct, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 984), align 8
-  %7 = icmp ne ptr %6, null
-  %or.cond = select i1 %3, i1 %7, i1 false
-  br i1 %or.cond, label %8, label %12
+  br i1 %3, label %6, label %.thread
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 140
+6:                                                ; preds = %4
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 984), align 8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %12, label %8
+
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds i8, ptr %7, i64 140
   %10 = load i8, ptr %9, align 4
   %11 = icmp ne i8 %10, 2
   br label %12
 
-12:                                               ; preds = %8, %4
-  %.0123.shrunk = phi i1 [ %3, %4 ], [ %11, %8 ]
+12:                                               ; preds = %8, %6
+  %.0122.shrunk = phi i1 [ true, %6 ], [ %11, %8 ]
   %13 = load i8, ptr %0, align 1
   %14 = icmp eq i8 %13, 92
-  br i1 %14, label %15, label %32
+  br i1 %14, label %18, label %39
 
-15:                                               ; preds = %12
-  %16 = add i64 %1, -1
-  %17 = add i64 %1, 31
-  %18 = and i64 %17, -8
-  br i1 %.0123.shrunk, label %19, label %21
+.thread:                                          ; preds = %4
+  %15 = load i8, ptr %0, align 1
+  %16 = icmp eq i8 %15, 92
+  br i1 %16, label %.thread131, label %.thread133
 
-19:                                               ; preds = %15
-  %20 = tail call noalias ptr @__zend_malloc(i64 noundef %18) #36
-  br label %23
+.thread131:                                       ; preds = %.thread
+  %17 = add i64 %1, -1
+  br label %24
 
-21:                                               ; preds = %15
-  %22 = tail call noalias ptr @_emalloc(i64 noundef %18) #36
-  br label %23
+18:                                               ; preds = %12
+  %19 = add i64 %1, -1
+  br i1 %.0122.shrunk, label %20, label %24
 
-23:                                               ; preds = %21, %19
-  %24 = phi i32 [ 150, %19 ], [ 22, %21 ]
-  %25 = phi ptr [ %20, %19 ], [ %22, %21 ]
-  store i32 1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
-  store i32 %24, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
-  store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 16
-  store i64 %16, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 24
-  %30 = getelementptr inbounds i8, ptr %0, i64 1
-  %31 = tail call ptr @zend_str_tolower_copy(ptr noundef nonnull %29, ptr noundef nonnull %30, i64 noundef %16) #33
+20:                                               ; preds = %18
+  %21 = add i64 %1, 31
+  %22 = and i64 %21, -8
+  %23 = tail call noalias ptr @__zend_malloc(i64 noundef %22) #36
+  br label %29
+
+24:                                               ; preds = %18, %.thread131
+  %25 = phi i64 [ %17, %.thread131 ], [ %19, %18 ]
+  %26 = add i64 %1, 31
+  %27 = and i64 %26, -8
+  %28 = tail call noalias ptr @_emalloc(i64 noundef %27) #36
+  br label %29
+
+29:                                               ; preds = %24, %20
+  %30 = phi i64 [ %19, %20 ], [ %25, %24 ]
+  %31 = phi i32 [ 150, %20 ], [ 22, %24 ]
+  %32 = phi ptr [ %23, %20 ], [ %28, %24 ]
+  store i32 1, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  store i32 %31, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  store i64 0, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %32, i64 16
+  store i64 %30, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %32, i64 24
+  %37 = getelementptr inbounds i8, ptr %0, i64 1
+  %38 = tail call ptr @zend_str_tolower_copy(ptr noundef nonnull %36, ptr noundef nonnull %37, i64 noundef %30) #33
+  br label %55
+
+39:                                               ; preds = %12
+  br i1 %.0122.shrunk, label %40, label %.thread133
+
+40:                                               ; preds = %39
+  %41 = and i64 %1, -8
+  %42 = add i64 %41, 32
+  %43 = tail call noalias ptr @__zend_malloc(i64 noundef %42) #36
   br label %47
 
-32:                                               ; preds = %12
-  %33 = and i64 %1, -8
-  %34 = add i64 %33, 32
-  br i1 %.0123.shrunk, label %35, label %37
-
-35:                                               ; preds = %32
-  %36 = tail call noalias ptr @__zend_malloc(i64 noundef %34) #36
-  br label %39
-
-37:                                               ; preds = %32
-  %38 = tail call noalias ptr @_emalloc(i64 noundef %34) #36
-  br label %39
-
-39:                                               ; preds = %37, %35
-  %40 = phi i32 [ 150, %35 ], [ 22, %37 ]
-  %41 = phi ptr [ %36, %35 ], [ %38, %37 ]
-  store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
-  store i32 %40, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
-  store i64 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 16
-  store i64 %1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 24
-  %46 = tail call ptr @zend_str_tolower_copy(ptr noundef nonnull %45, ptr noundef nonnull %0, i64 noundef %1) #33
+.thread133:                                       ; preds = %39, %.thread
+  %44 = and i64 %1, -8
+  %45 = add i64 %44, 32
+  %46 = tail call noalias ptr @_emalloc(i64 noundef %45) #36
   br label %47
 
-47:                                               ; preds = %39, %23
-  %.0122 = phi ptr [ %25, %23 ], [ %41, %39 ]
-  tail call void @zend_assert_valid_class_name(ptr noundef nonnull %.0122) #33
-  %48 = load ptr, ptr @zend_new_interned_string, align 8
-  %49 = tail call ptr %48(ptr noundef nonnull %.0122) #33
+47:                                               ; preds = %.thread133, %40
+  %48 = phi i32 [ 150, %40 ], [ 22, %.thread133 ]
+  %49 = phi ptr [ %43, %40 ], [ %46, %.thread133 ]
+  store i32 1, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  store i32 %48, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  store i64 0, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %49, i64 16
+  store i64 %1, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %49, i64 24
+  %54 = tail call ptr @zend_str_tolower_copy(ptr noundef nonnull %53, ptr noundef nonnull %0, i64 noundef %1) #33
+  br label %55
+
+55:                                               ; preds = %47, %29
+  %.0121 = phi ptr [ %32, %29 ], [ %49, %47 ]
+  tail call void @zend_assert_valid_class_name(ptr noundef nonnull %.0121) #33
+  %56 = load ptr, ptr @zend_new_interned_string, align 8
+  %57 = tail call ptr %56(ptr noundef nonnull %.0121) #33
   store ptr %2, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 14, ptr %50, align 8
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
-  %52 = call ptr @zend_hash_add(ptr noundef %51, ptr noundef %49, ptr noundef nonnull %5) #33
-  %53 = getelementptr inbounds i8, ptr %49, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = and i32 %54, 64
-  %.not = icmp eq i32 %55, 0
-  br i1 %.not, label %56, label %62
+  %58 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 14, ptr %58, align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  %60 = call ptr @zend_hash_add(ptr noundef %59, ptr noundef %57, ptr noundef nonnull %5) #33
+  %61 = getelementptr inbounds i8, ptr %57, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = and i32 %62, 64
+  %.not126 = icmp eq i32 %63, 0
+  br i1 %.not126, label %64, label %70
 
-56:                                               ; preds = %47
-  %57 = load i32, ptr %49, align 4
-  %58 = icmp ne i32 %57, 0
-  call void @llvm.assume(i1 %58)
-  %59 = add i32 %57, -1
-  store i32 %59, ptr %49, align 4
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %62
+64:                                               ; preds = %55
+  %65 = load i32, ptr %57, align 4
+  %66 = icmp ne i32 %65, 0
+  call void @llvm.assume(i1 %66)
+  %67 = add i32 %65, -1
+  store i32 %67, ptr %57, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %70
 
-61:                                               ; preds = %56
-  call void @_efree(ptr noundef nonnull %49) #33
-  br label %62
+69:                                               ; preds = %64
+  call void @_efree(ptr noundef nonnull %57) #33
+  br label %70
 
-62:                                               ; preds = %56, %61, %47
-  %.not127 = icmp eq ptr %52, null
-  br i1 %.not127, label %zend_observer_class_linked_notify.exit, label %63
+70:                                               ; preds = %64, %69, %55
+  %.not127 = icmp eq ptr %60, null
+  br i1 %.not127, label %zend_observer_class_linked_notify.exit, label %71
 
-63:                                               ; preds = %62
-  %64 = load i8, ptr %2, align 8
-  %65 = icmp eq i8 %64, 2
-  br i1 %65, label %66, label %zend_observer_class_linked_notify.exit
+71:                                               ; preds = %70
+  %72 = load i8, ptr %2, align 8
+  %73 = icmp eq i8 %72, 2
+  br i1 %73, label %74, label %zend_observer_class_linked_notify.exit
 
-66:                                               ; preds = %63
-  %67 = load i8, ptr @zend_observer_class_linked_observed, align 1
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %zend_observer_class_linked_notify.exit
+74:                                               ; preds = %71
+  %75 = load i8, ptr @zend_observer_class_linked_observed, align 1
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %zend_observer_class_linked_notify.exit
 
-69:                                               ; preds = %66
-  call void @_zend_observer_class_linked_notify(ptr noundef nonnull %2, ptr noundef nonnull %49) #33
+77:                                               ; preds = %74
+  call void @_zend_observer_class_linked_notify(ptr noundef nonnull %2, ptr noundef nonnull %57) #33
   br label %zend_observer_class_linked_notify.exit
 
-zend_observer_class_linked_notify.exit:           ; preds = %69, %66, %62, %63
-  %.0 = phi i32 [ 0, %63 ], [ -1, %62 ], [ 0, %66 ], [ 0, %69 ]
+zend_observer_class_linked_notify.exit:           ; preds = %77, %74, %70, %71
+  %.0 = phi i32 [ 0, %71 ], [ -1, %70 ], [ 0, %74 ], [ 0, %77 ]
   ret i32 %.0
 }
 

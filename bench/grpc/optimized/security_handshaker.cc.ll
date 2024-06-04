@@ -106,6 +106,8 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 
 $_ZNSt22_Optional_payload_baseIN9grpc_core8channelz10SocketNode8Security3TlsEE14_M_move_assignEOS5_ = comdat any
 
+$_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv = comdat any
+
 $_ZTSN9grpc_core10HandshakerE = comdat any
 
 $_ZTSN9grpc_core10RefCountedINS_10HandshakerENS_19PolymorphicRefCountENS_11UnrefDeleteEEE = comdat any
@@ -4025,8 +4027,8 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
   resume { ptr, i32 } %6
 }
 
-; Function Attrs: uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker15CheckPeerLockedEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress uwtable
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker15CheckPeerLockedEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %peer = alloca %struct.tsi_peer, align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -4155,60 +4157,12 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool14.not, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %lor.lhs.false, %if.end
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %18, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i.i
-
-18:                                               ; preds = %if.then15
-  call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i.i: ; preds = %18, %if.then15
-  %19 = call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
-  %uses_until_refresh.i.i.i = getelementptr inbounds i8, ptr %19, i64 2
-  %20 = load i16, ptr %uses_until_refresh.i.i.i, align 2
-  %cmp.i.i.i4 = icmp eq i16 %20, 0
-  br i1 %cmp.i.i.i4, label %if.then.i.i.i5, label %if.end.i.i.i
-
-if.then.i.i.i5:                                   ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i.i
-  %call.i.i.i.i = call i32 @gpr_cpu_current_cpu()
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %21, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i.i
-
-21:                                               ; preds = %if.then.i.i.i5
-  call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i.i: ; preds = %21, %if.then.i.i.i5
-  %ref.tmp.sroa.0.0.insert.insert.i.i.i = or i32 %call.i.i.i.i, -65536
-  store i32 %ref.tmp.sroa.0.0.insert.insert.i.i.i, ptr %19, align 2
-  br label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i.i
-  %22 = phi i16 [ -1, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i.i ], [ %20, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i.i ]
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i.i: ; preds = %if.end.i.i.i
-  call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  %23 = load i16, ptr %uses_until_refresh.i.i.i, align 2
-  %dec.i.i.i = add i16 %23, -1
-  store i16 %dec.i.i.i, ptr %uses_until_refresh.i.i.i, align 2
-  call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZN9grpc_core20GlobalStatsCollector35IncrementInsecureConnectionsCreatedEv.exit
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i: ; preds = %if.end.i.i.i
-  %dec.c.i.i.i = add i16 %22, -1
-  store i16 %dec.c.i.i.i, ptr %uses_until_refresh.i.i.i, align 2
-  br label %_ZN9grpc_core20GlobalStatsCollector35IncrementInsecureConnectionsCreatedEv.exit
-
-_ZN9grpc_core20GlobalStatsCollector35IncrementInsecureConnectionsCreatedEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i.i
-  %24 = load i16, ptr %19, align 2
-  %conv4.i.i.i = zext i16 %24 to i64
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
-  %rem.i.i = urem i64 %conv4.i.i.i, %25
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
-  %insecure_connections_created.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %26, i64 %rem.i.i, i32 5
-  %27 = atomicrmw add ptr %insecure_connections_created.i, i64 1 monotonic, align 8
+  %call.i = call noundef nonnull align 8 dereferenceable(2344) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
+  %insecure_connections_created.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %18 = atomicrmw add ptr %insecure_connections_created.i, i64 1 monotonic, align 8
   br label %if.end17
 
-if.end17:                                         ; preds = %_ZN9grpc_core20GlobalStatsCollector35IncrementInsecureConnectionsCreatedEv.exit, %lor.lhs.false
+if.end17:                                         ; preds = %if.then15, %lor.lhs.false
   store i64 0, ptr %agg.result, align 8, !alias.scope !56
   br label %return
 
@@ -4835,9 +4789,70 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit45:
 declare noundef i32 @_Z34tsi_handshaker_result_extract_peerPK21tsi_handshaker_resultP8tsi_peer(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 declare noundef ptr @_Z28tsi_security_level_to_string18tsi_security_level(i32 noundef) local_unnamed_addr #0
+
+; Function Attrs: uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(2344) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #16 comdat align 2 {
+entry:
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, null
+  br i1 %.not.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
+
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i: ; preds = %entry
+  %0 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
+  %uses_until_refresh.i = getelementptr inbounds i8, ptr %0, i64 2
+  %1 = load i16, ptr %uses_until_refresh.i, align 2
+  %cmp.i = icmp eq i16 %1, 0
+  br i1 %cmp.i, label %if.end.thread26.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i
+
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i: ; preds = %entry
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  %2 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
+  %uses_until_refresh7.i = getelementptr inbounds i8, ptr %2, i64 2
+  %3 = load i16, ptr %uses_until_refresh7.i, align 2
+  %cmp8.i = icmp eq i16 %3, 0
+  br i1 %cmp8.i, label %if.end.i, label %if.end.thread.i
+
+if.end.thread26.i:                                ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i
+  %call.i.i = tail call i32 @gpr_cpu_current_cpu()
+  %ref.tmp.sroa.0.0.insert.insert29.i = or i32 %call.i.i, -65536
+  store i32 %ref.tmp.sroa.0.0.insert.insert29.i, ptr %0, align 2
+  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i
+
+if.end.i:                                         ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
+  %call.i12.i = tail call i32 @gpr_cpu_current_cpu()
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  %ref.tmp.sroa.0.0.insert.insert.i = or i32 %call.i12.i, -65536
+  store i32 %ref.tmp.sroa.0.0.insert.insert.i, ptr %2, align 2
+  br label %if.end.thread.i
+
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i: ; preds = %if.end.thread26.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i
+  %4 = phi i16 [ -1, %if.end.thread26.i ], [ %1, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i ]
+  %dec22.i = add i16 %4, -1
+  store i16 %dec22.i, ptr %uses_until_refresh.i, align 2
+  br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
+
+if.end.thread.i:                                  ; preds = %if.end.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  %5 = load i16, ptr %uses_until_refresh7.i, align 2
+  %dec.i = add i16 %5, -1
+  store i16 %dec.i, ptr %uses_until_refresh7.i, align 2
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
+
+_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i, %if.end.thread.i
+  %6 = phi ptr [ %0, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i ], [ %2, %if.end.thread.i ]
+  %data_ = getelementptr inbounds i8, ptr %this, i64 16
+  %7 = load i16, ptr %6, align 2
+  %conv4.i = zext i16 %7 to i64
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 8
+  %8 = load i64, ptr %shards_, align 8
+  %rem = urem i64 %conv4.i, %8
+  %9 = load ptr, ptr %data_, align 8
+  %arrayidx.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %9, i64 %rem
+  ret ptr %arrayidx.i
+}
 
 declare i32 @gpr_cpu_current_cpu() local_unnamed_addr #0
 
@@ -4955,8 +4970,8 @@ attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

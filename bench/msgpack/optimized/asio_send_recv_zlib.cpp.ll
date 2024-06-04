@@ -3720,7 +3720,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v28unpackerC2EPFbNS_2v14type11ob
 
 19:                                               ; preds = %14
   %20 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %20, align 8
   invoke void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
           to label %.noexc unwind label %35
 
@@ -3735,7 +3735,7 @@ _ZN7msgpack2v14zonenwEm.exit:                     ; preds = %14
 
 22:                                               ; preds = %_ZN7msgpack2v14zonenwEm.exit
   %23 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %23, align 8
   invoke void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
           to label %.noexc10 unwind label %37
 
@@ -4442,7 +4442,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK5boost6system6detail21system_erro
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost6system12system_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4470,7 +4470,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost6system12system_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -5306,7 +5306,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio6detail9schedulerC2ERNS0_17exe
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost4asio6detail9schedulerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio6detail9schedulerE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = icmp eq i32 %2, 1
   %16 = and i32 %2, -65535
@@ -5409,7 +5409,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio6detail9schedulerC2ERNS0_17exe
           to label %.noexc20 unwind label %77
 
 .noexc20:                                         ; preds = %59
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio6detail12posix_thread4funcINS1_9scheduler15thread_functionEEE, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio6detail12posix_thread4funcINS1_9scheduler15thread_functionEEE, i64 16), ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   store ptr %0, ptr %62, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -5560,7 +5560,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio6detail14do_throw_errorERKNS_6
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %.sroa.0.0.copyload, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
@@ -5586,7 +5586,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio6detail14do_throw_errorERKNS_6
 11:                                               ; preds = %2
   %12 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %4, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = icmp eq ptr %13, %7
   br i1 %14, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -5632,10 +5632,10 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_6system12system_errorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -5656,9 +5656,9 @@ define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_6system12system_err
   %12 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   store i32 -1, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 104), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 104), ptr %10, align 8
   ret void
 }
 
@@ -5667,7 +5667,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_6system12system_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -5696,7 +5696,7 @@ define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_6system12system_err
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
   %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 56
@@ -5727,11 +5727,11 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK5boost10wrapexceptINS_6system12system_errorEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(108) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #35
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -5748,7 +5748,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK5boost10wrapexceptINS_6system12sy
 
 _ZN5boost6system12system_errorC2ERKS1_.exit.i:    ; preds = %1
   %11 = getelementptr inbounds i8, ptr %2, i64 72
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 80
   %13 = getelementptr inbounds i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
@@ -5773,9 +5773,9 @@ _ZN5boost6system12system_errorC2ERKS1_.exit.i:    ; preds = %1
   %22 = getelementptr inbounds i8, ptr %2, i64 88
   %23 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef nonnull align 8 dereferenceable(20) %23, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 104), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 104), ptr %11, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 72
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %11, ptr noundef nonnull %24)
           to label %_ZN5boost10wrapexceptINS_6system12system_errorEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_6system12system_errorEE7deleterD2Ev.exit7
@@ -5822,7 +5822,7 @@ define linkonce_odr dso_local void @_ZNK5boost10wrapexceptINS_6system12system_er
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_6system12system_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -5851,7 +5851,7 @@ define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_6system12system_err
 
 _ZN5boost9exceptionD2Ev.exit.i:                   ; preds = %10, %.noexc.i.i.i, %1
   %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 56
@@ -5881,7 +5881,7 @@ _ZN5boost10wrapexceptINS_6system12system_errorEED2Ev.exit: ; preds = %_ZNKSt7__c
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn8_N5boost10wrapexceptINS_6system12system_errorEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -5909,7 +5909,7 @@ define linkonce_odr dso_local void @_ZThn8_N5boost10wrapexceptINS_6system12syste
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit.i:                   ; preds = %10, %.noexc.i.i.i, %1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 48
@@ -5938,7 +5938,7 @@ _ZN5boost10wrapexceptINS_6system12system_errorEED2Ev.exit: ; preds = %_ZNKSt7__c
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn8_N5boost10wrapexceptINS_6system12system_errorEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -5966,7 +5966,7 @@ define linkonce_odr dso_local void @_ZThn8_N5boost10wrapexceptINS_6system12syste
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit.i.i:                 ; preds = %10, %.noexc.i.i.i.i, %1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 48
@@ -5996,7 +5996,7 @@ _ZN5boost10wrapexceptINS_6system12system_errorEED0Ev.exit: ; preds = %_ZNKSt7__c
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn72_N5boost10wrapexceptINS_6system12system_errorEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -6025,7 +6025,7 @@ define linkonce_odr dso_local void @_ZThn72_N5boost10wrapexceptINS_6system12syst
 
 _ZN5boost9exceptionD2Ev.exit.i:                   ; preds = %9, %.noexc.i.i.i, %1
   %13 = getelementptr inbounds i8, ptr %0, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 -32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 -16
@@ -6053,7 +6053,7 @@ _ZN5boost10wrapexceptINS_6system12system_errorEED2Ev.exit: ; preds = %_ZNKSt7__c
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn72_N5boost10wrapexceptINS_6system12system_errorEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -6082,7 +6082,7 @@ define linkonce_odr dso_local void @_ZThn72_N5boost10wrapexceptINS_6system12syst
 
 _ZN5boost9exceptionD2Ev.exit.i.i:                 ; preds = %9, %.noexc.i.i.i.i, %1
   %13 = getelementptr inbounds i8, ptr %0, i64 -64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 -32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 -16
@@ -6216,11 +6216,11 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_6system12system_errorEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(108) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -6237,7 +6237,7 @@ define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_6system12system_err
 
 _ZN5boost6system12system_errorC2ERKS1_.exit:      ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   %13 = getelementptr inbounds i8, ptr %1, i64 80
   %14 = load ptr, ptr %13, align 8
@@ -6256,9 +6256,9 @@ _ZN5boost6system12system_errorC2ERKS1_.exit:      ; preds = %2
   %20 = getelementptr inbounds i8, ptr %0, i64 88
   %21 = getelementptr inbounds i8, ptr %1, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull align 8 dereferenceable(20) %21, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 104), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_6system12system_errorEEE, i64 104), ptr %11, align 8
   ret void
 
 22:                                               ; preds = %15
@@ -6450,7 +6450,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio6detail16service_registry14do_
 
 10:                                               ; preds = %3
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.40)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio21invalid_service_ownerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio21invalid_service_ownerE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio21invalid_service_ownerEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
           to label %11 unwind label %12
 
@@ -6536,7 +6536,7 @@ _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %37
           to label %44 unwind label %46
 
 44:                                               ; preds = %.split.us
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio22service_already_existsE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio22service_already_existsE, i64 16), ptr %5, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio22service_already_existsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
           to label %45 unwind label %48
 
@@ -6628,7 +6628,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio22service_already_existsD2Ev(p
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio21invalid_service_ownerEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #30
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6636,16 +6636,16 @@ define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio21invalid_serv
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 -1, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 104), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 104), ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio21invalid_service_ownerEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -6681,13 +6681,13 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK5boost10wrapexceptINS_4asio21invalid_service_ownerEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio21invalid_service_ownerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio21invalid_service_ownerE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 32
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -6713,9 +6713,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK5boost10wrapexceptINS_4asio21inva
   %15 = getelementptr inbounds i8, ptr %2, i64 40
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 104), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 104), ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %5, ptr noundef nonnull %17)
           to label %_ZN5boost10wrapexceptINS_4asio21invalid_service_ownerEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_4asio21invalid_service_ownerEE7deleterD2Ev.exit7
@@ -6757,7 +6757,7 @@ define linkonce_odr dso_local void @_ZNK5boost10wrapexceptINS_4asio21invalid_ser
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio21invalid_service_ownerEED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -6794,7 +6794,7 @@ _ZN5boost10wrapexceptINS_4asio21invalid_service_ownerEED2Ev.exit: ; preds = %1, 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn8_N5boost10wrapexceptINS_4asio21invalid_service_ownerEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -6829,7 +6829,7 @@ _ZN5boost10wrapexceptINS_4asio21invalid_service_ownerEED2Ev.exit: ; preds = %1, 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn8_N5boost10wrapexceptINS_4asio21invalid_service_ownerEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -6868,7 +6868,7 @@ declare noundef ptr @_ZNKSt11logic_error4whatEv(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn24_N5boost10wrapexceptINS_4asio21invalid_service_ownerEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -6903,7 +6903,7 @@ _ZN5boost10wrapexceptINS_4asio21invalid_service_ownerEED2Ev.exit: ; preds = %1, 
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn24_N5boost10wrapexceptINS_4asio21invalid_service_ownerEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -6953,13 +6953,13 @@ declare void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio21invalid_service_ownerEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio21invalid_service_ownerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio21invalid_service_ownerE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -6978,9 +6978,9 @@ define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio21invalid_serv
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 104), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio21invalid_service_ownerEEE, i64 104), ptr %5, align 8
   ret void
 
 16:                                               ; preds = %9
@@ -6997,7 +6997,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio22service_already_existsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #30
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -7005,16 +7005,16 @@ define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio22service_alre
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 -1, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 104), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 104), ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio22service_already_existsEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -7050,13 +7050,13 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK5boost10wrapexceptINS_4asio22service_already_existsEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #35
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio22service_already_existsE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio22service_already_existsE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 32
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -7082,9 +7082,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK5boost10wrapexceptINS_4asio22serv
   %15 = getelementptr inbounds i8, ptr %2, i64 40
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 104), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 104), ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %5, ptr noundef nonnull %17)
           to label %_ZN5boost10wrapexceptINS_4asio22service_already_existsEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_4asio22service_already_existsEE7deleterD2Ev.exit7
@@ -7126,7 +7126,7 @@ define linkonce_odr dso_local void @_ZNK5boost10wrapexceptINS_4asio22service_alr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio22service_already_existsEED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -7163,7 +7163,7 @@ _ZN5boost10wrapexceptINS_4asio22service_already_existsEED2Ev.exit: ; preds = %1,
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn8_N5boost10wrapexceptINS_4asio22service_already_existsEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -7198,7 +7198,7 @@ _ZN5boost10wrapexceptINS_4asio22service_already_existsEED2Ev.exit: ; preds = %1,
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn8_N5boost10wrapexceptINS_4asio22service_already_existsEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -7234,7 +7234,7 @@ _ZN5boost10wrapexceptINS_4asio22service_already_existsEED0Ev.exit: ; preds = %1,
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn24_N5boost10wrapexceptINS_4asio22service_already_existsEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -7269,7 +7269,7 @@ _ZN5boost10wrapexceptINS_4asio22service_already_existsEED2Ev.exit: ; preds = %1,
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn24_N5boost10wrapexceptINS_4asio22service_already_existsEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -7313,13 +7313,13 @@ define linkonce_odr dso_local void @_ZN5boost4asio22service_already_existsD0Ev(p
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio22service_already_existsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio22service_already_existsE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio22service_already_existsE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -7338,9 +7338,9 @@ define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio22service_alre
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 104), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio22service_already_existsEEE, i64 104), ptr %5, align 8
   ret void
 
 16:                                               ; preds = %9
@@ -7406,7 +7406,7 @@ _ZN5boost4asio6detail15op_queue_access7destroyINS1_19scheduler_operationEEEvPT_.
 define linkonce_odr dso_local void @_ZN5boost4asio6detail9schedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::system::error_code", align 8
   %3 = alloca %struct.epoll_event, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost4asio6detail9schedulerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio6detail9schedulerE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -9257,7 +9257,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v26parserINS0_8unpackerENS0_19zo
 
 13:                                               ; preds = %3
   %14 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %14, align 8
   invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
           to label %31 unwind label %15
 
@@ -10202,7 +10202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 405:                                              ; preds = %.noexc26
   %406 = call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %406, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %406, align 8
   invoke void @__cxa_throw(ptr nonnull %406, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
           to label %.noexc27 unwind label %.loopexit.split-lp
 
@@ -13196,7 +13196,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5boost4asio9execution6detai
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base12execute_voidERKS3_ONS0_6detail17executor_functionE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::asio::execution::bad_executor", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %3, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %3) #32
           to label %4 unwind label %5
 
@@ -13213,7 +13213,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base21blocking_execute_voidERKS3_NS0_6detail22executor_function_viewE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13236,9 +13236,9 @@ define linkonce_odr dso_local void @_ZN5boost15throw_exceptionINS_4asio9executio
   %6 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 -1, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 104), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 104), ptr %4, align 8
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, ptr nonnull @_ZN5boost10wrapexceptINS_4asio9execution12bad_executorEED2Ev) #32
   unreachable
 }
@@ -13264,7 +13264,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK5boost4asio9execution12bad_execut
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio9execution12bad_executorEED2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -13300,11 +13300,11 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK5boost10wrapexceptINS_4asio9execution12bad_executorEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #35
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -13330,9 +13330,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK5boost10wrapexceptINS_4asio9execu
   %14 = getelementptr inbounds i8, ptr %2, i64 32
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 104), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 104), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %4, ptr noundef nonnull %16)
           to label %_ZN5boost10wrapexceptINS_4asio9execution12bad_executorEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_4asio9execution12bad_executorEE7deleterD2Ev.exit7
@@ -13374,7 +13374,7 @@ define linkonce_odr dso_local void @_ZNK5boost10wrapexceptINS_4asio9execution12b
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio9execution12bad_executorEED0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -13411,7 +13411,7 @@ _ZN5boost10wrapexceptINS_4asio9execution12bad_executorEED2Ev.exit: ; preds = %1,
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn8_N5boost10wrapexceptINS_4asio9execution12bad_executorEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -13446,7 +13446,7 @@ _ZN5boost10wrapexceptINS_4asio9execution12bad_executorEED2Ev.exit: ; preds = %1,
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn8_N5boost10wrapexceptINS_4asio9execution12bad_executorEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -13482,7 +13482,7 @@ _ZN5boost10wrapexceptINS_4asio9execution12bad_executorEED0Ev.exit: ; preds = %1,
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn16_N5boost10wrapexceptINS_4asio9execution12bad_executorEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -13517,7 +13517,7 @@ _ZN5boost10wrapexceptINS_4asio9execution12bad_executorEED2Ev.exit: ; preds = %1,
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn16_N5boost10wrapexceptINS_4asio9execution12bad_executorEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -13557,11 +13557,11 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio9execution12bad_executorEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -13580,9 +13580,9 @@ define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio9execution12ba
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(20) %14, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 64), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 104), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 64), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost10wrapexceptINS_4asio9execution12bad_executorEEE, i64 104), ptr %4, align 8
   ret void
 
 15:                                               ; preds = %8
@@ -13596,7 +13596,7 @@ define linkonce_odr dso_local void @_ZN5boost10wrapexceptINS_4asio9execution12ba
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base8query_fnIvNS1_12context_as_tIRNS0_17execution_contextEEEEEvPvPKvSB_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13614,7 +13614,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base10require_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvS9_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13632,7 +13632,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base9prefer_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvS9_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13650,7 +13650,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base8query_fnIvNS2_8blocking7never_tILi0EEEEEvPvPKvSA_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13668,7 +13668,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base10require_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSC_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13686,7 +13686,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base9prefer_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSC_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13704,7 +13704,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base8query_fnIvNS1_11prefer_onlyINS2_8blocking10possibly_tILi0EEEEEEEvPvPKvSC_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13722,7 +13722,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base10require_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSG_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13740,7 +13740,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base9prefer_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSG_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13758,7 +13758,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base8query_fnIvNS1_11prefer_onlyINS2_16outstanding_work9tracked_tILi0EEEEEEEvPvPKvSC_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13776,7 +13776,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base10require_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSK_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13794,7 +13794,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base9prefer_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSK_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13812,7 +13812,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base8query_fnIvNS1_11prefer_onlyINS2_16outstanding_work11untracked_tILi0EEEEEEEvPvPKvSC_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13830,7 +13830,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base10require_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSN_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13848,7 +13848,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base9prefer_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSN_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13866,7 +13866,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base8query_fnIvNS1_11prefer_onlyINS2_12relationship6fork_tILi0EEEEEEEvPvPKvSC_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13884,7 +13884,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base10require_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSR_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13902,7 +13902,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base9prefer_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSR_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13920,7 +13920,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base8query_fnIvNS1_11prefer_onlyINS2_12relationship14continuation_tILi0EEEEEEEvPvPKvSC_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13938,7 +13938,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base10require_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSU_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -13956,7 +13956,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executo
 define linkonce_odr dso_local void @_ZN5boost4asio9execution6detail17any_executor_base9prefer_fnINS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS2_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS2_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEEvSU_EET_PKvSY_(ptr dead_on_unwind noalias writable sret(%"class.boost::asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio9execution12bad_executorE, i64 16), ptr %4, align 8
   invoke void @_ZN5boost15throw_exceptionINS_4asio9execution12bad_executorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
           to label %5 unwind label %6
 
@@ -15456,13 +15456,13 @@ _ZN7msgpack2v17zbuffer6expandEv.exit:             ; preds = %10
 
 27:                                               ; preds = %10
   %28 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %28, align 8
   tail call void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
 29:                                               ; preds = %6
   %30 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %30, align 8
   tail call void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 }
@@ -15662,7 +15662,7 @@ _ZN7msgpack2v16packerINS0_7zbufferEE4packIdEERS3_RKT_.exit: ; preds = %28, %36, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v123container_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v123container_size_overflowE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v123container_size_overflowE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -15742,7 +15742,7 @@ _ZN7msgpack2v17zbuffer6expandEv.exit.thread:      ; preds = %14
 
 _ZN7msgpack2v17zbuffer6expandEv.exit:             ; preds = %14
   %30 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %30, align 8
   tail call void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
@@ -15753,7 +15753,7 @@ _ZN7msgpack2v17zbuffer6expandEv.exit:             ; preds = %14
 
 33:                                               ; preds = %31
   %34 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %34, align 8
   tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
@@ -16163,7 +16163,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio6detail14do_throw_errorERKNS_6
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.55)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
@@ -16189,7 +16189,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio6detail14do_throw_errorERKNS_6
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8
   %12 = load ptr, ptr %5, align 8
   %13 = icmp eq ptr %12, %6
   br i1 %13, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -16262,7 +16262,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5boost4asio6detail16service_regist
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost4asio6detail30execution_context_service_baseINS1_23reactive_socket_serviceINS0_2ip3tcpEEEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio6detail30execution_context_service_baseINS1_23reactive_socket_serviceINS0_2ip3tcpEEEEE, i64 16), ptr %3, align 8
   %7 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr @_ZTIN5boost4asio6detail14typeid_wrapperINS1_13epoll_reactorEEE, ptr %2, align 8
@@ -16289,7 +16289,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5boost4asio6detail16service_regist
           to label %18 unwind label %19
 
 18:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost4asio6detail23reactive_socket_serviceINS0_2ip3tcpEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio6detail23reactive_socket_serviceINS0_2ip3tcpEEE, i64 16), ptr %3, align 8
   ret ptr %3
 
 19:                                               ; preds = %.noexc, %1
@@ -16531,7 +16531,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio6detail13epoll_reactorC2ERNS0_
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost4asio6detail13epoll_reactorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio6detail13epoll_reactorE, i64 16), ptr %0, align 8
   %12 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr @_ZTIN5boost4asio6detail14typeid_wrapperINS1_9schedulerEEE, ptr %7, align 8
@@ -16923,7 +16923,7 @@ _ZN5boost4asio6detail26eventfd_select_interrupter17close_descriptorsEv.exit: ; p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost4asio6detail13epoll_reactorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost4asio6detail13epoll_reactorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio6detail13epoll_reactorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, -1
@@ -18137,13 +18137,13 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit: ; preds = %10
 
 _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %15, %18
   %19 = phi ptr [ null, %15 ], [ %.pre, %18 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio19multiple_exceptionsE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio19multiple_exceptionsE, i64 16), ptr %6, align 8
   %20 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %19, ptr %20, align 8
   store ptr null, ptr %7, align 8
   %21 = call ptr @__cxa_allocate_exception(i64 noundef 16) #30, !noalias !128
   %22 = call ptr @__cxa_init_primary_exception(ptr noundef %21, ptr noundef nonnull @_ZTIN5boost4asio19multiple_exceptionsE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN5boost4asio19multiple_exceptionsEEEvPv) #30, !noalias !128
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio19multiple_exceptionsE, i64 16), ptr %21, align 8, !noalias !128
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio19multiple_exceptionsE, i64 16), ptr %21, align 8, !noalias !128
   %23 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %19, ptr %23, align 8, !noalias !128
   %.not.i.i.i = icmp eq ptr %19, null
@@ -18180,7 +18180,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit3: ; preds = %_ZSt18make_except
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit5
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit5:  ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit3.thread, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit3, %27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio19multiple_exceptionsE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio19multiple_exceptionsE, i64 16), ptr %6, align 8
   br i1 %.not.i.i.i, label %_ZN5boost4asio19multiple_exceptionsD2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit5
@@ -18206,7 +18206,7 @@ declare void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost4asio19multiple_exceptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio19multiple_exceptionsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio19multiple_exceptionsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -18237,7 +18237,7 @@ declare void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost4asio19multiple_exceptionsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4asio19multiple_exceptionsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio19multiple_exceptionsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -22052,7 +22052,7 @@ thread-pre-split:                                 ; preds = %8, %13
 
 38:                                               ; preds = %34
   %39 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %39, align 8
   tail call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
@@ -22090,7 +22090,7 @@ thread-pre-split:                                 ; preds = %8, %13
 
 54:                                               ; preds = %._crit_edge
   %55 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %55, align 8
   tail call void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
@@ -22133,7 +22133,7 @@ thread-pre-split:                                 ; preds = %8, %13
 
 83:                                               ; preds = %73
   %84 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %84, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %84, align 8
   invoke void @__cxa_throw(ptr nonnull %84, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
           to label %.noexc unwind label %91
 
@@ -22434,7 +22434,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7msgpack2v28unpacker12release_zone
 
 5:                                                ; preds = %3
   %6 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %6, align 8
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
@@ -22446,7 +22446,7 @@ _ZN7msgpack2v14zonenwEm.exit:                     ; preds = %3
 
 8:                                                ; preds = %_ZN7msgpack2v14zonenwEm.exit
   %9 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %9, align 8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
           to label %.noexc unwind label %19
 
@@ -25939,7 +25939,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 44:                                               ; preds = %._crit_edge.i.i
   %45 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8
   tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
@@ -26540,7 +26540,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 45:                                               ; preds = %._crit_edge.i.i
   %46 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %46, align 8
   tail call void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
@@ -26664,7 +26664,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 44:                                               ; preds = %._crit_edge.i.i
   %45 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8
   tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
@@ -27618,7 +27618,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack4pushERS3_22msgpack_c
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v117str_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v117str_size_overflowE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v117str_size_overflowE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -27736,7 +27736,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 58:                                               ; preds = %._crit_edge.i.i
   %59 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %59, align 8
   tail call void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
@@ -27851,7 +27851,7 @@ _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE9push_backERKS3_.exit: ; preds = %78, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v119array_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v119array_size_overflowE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v119array_size_overflowE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -27864,7 +27864,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v119array_size_overflowD2Ev(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v119depth_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v119depth_size_overflowE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v119depth_size_overflowE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -27989,7 +27989,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 58:                                               ; preds = %._crit_edge.i.i
   %59 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %59, align 8
   tail call void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
@@ -28104,7 +28104,7 @@ _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE9push_backEOS3_.exit: ; preds = %78, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v117map_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v117map_size_overflowE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v117map_size_overflowE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -28124,7 +28124,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v117map_size_overflowD0Ev(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v111parse_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v111parse_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v111parse_errorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -28144,7 +28144,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v111parse_errorD0Ev(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v117ext_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v117ext_size_overflowE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v117ext_size_overflowE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -28164,7 +28164,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v117ext_size_overflowD0Ev(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7msgpack2v117bin_size_overflowC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v117bin_size_overflowE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v117bin_size_overflowE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -28216,7 +28216,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v28unpacker10flush
 
 25:                                               ; preds = %15
   %26 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %26, align 8
   invoke void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
           to label %.noexc unwind label %33
 
@@ -28679,7 +28679,7 @@ _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit34: ; 
 
 153:                                              ; preds = %6
   %154 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7msgpack2v110type_errorE, i64 16), ptr %154, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msgpack2v110type_errorE, i64 16), ptr %154, align 8
   tail call void @__cxa_throw(ptr nonnull %154, ptr nonnull @_ZTIN7msgpack2v110type_errorE, ptr nonnull @_ZN7msgpack2v110type_errorD2Ev) #32
   unreachable
 
@@ -29800,13 +29800,13 @@ define linkonce_odr dso_local noundef ptr @_ZN5boost4asio6detail16service_regist
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost4asio6detail30execution_context_service_baseINS1_16resolver_serviceINS0_2ip3tcpEEEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio6detail30execution_context_service_baseINS1_16resolver_serviceINS0_2ip3tcpEEEEE, i64 16), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 40
   invoke void @_ZN5boost4asio6detail21resolver_service_baseC2ERNS0_17execution_contextE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost4asio6detail16resolver_serviceINS0_2ip3tcpEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost4asio6detail16resolver_serviceINS0_2ip3tcpEEE, i64 16), ptr %2, align 8
   ret ptr %2
 
 8:                                                ; preds = %1
@@ -30393,7 +30393,7 @@ _ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EEC2IvN5boost4asio6detail10sock
   store i32 1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %16, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPvN5boost4asio6detail10socket_ops12noop_deleterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPvN5boost4asio6detail10socket_ops12noop_deleterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %17, align 8
   store ptr %1, ptr %0, align 8
@@ -31796,7 +31796,7 @@ define linkonce_odr dso_local void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_po
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIN5boost4asio2ip20basic_resolver_entryINS3_3tcpEEESaIS6_EELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIN5boost4asio2ip20basic_resolver_entryINS3_3tcpEEESaIS6_EELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %7, align 8
   store ptr %3, ptr %0, align 8

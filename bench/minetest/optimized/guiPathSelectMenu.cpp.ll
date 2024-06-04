@@ -542,14 +542,14 @@ define dso_local void @_ZN17GUIFileSelectMenuC1EPN3irr3gui15IGUIEnvironmentEPNS1
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 480
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !12
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 488
   store ptr null, ptr %DebugName.i, align 8, !tbaa !49
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 496
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !51
   tail call void @_ZN12GUIModalMenuC2EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerb(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT17GUIFileSelectMenu, i64 8), ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, i1 noundef zeroext true)
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV17GUIFileSelectMenu, i64 24), ptr %this, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17GUIFileSelectMenu, i64 384), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIFileSelectMenu, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIFileSelectMenu, i64 384), ptr %0, align 8, !tbaa !12
   %m_title = getelementptr inbounds i8, ptr %this, i64 384
   %1 = load ptr, ptr %title, align 8, !tbaa !4
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %title, i64 8
@@ -701,9 +701,9 @@ declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17GUIFileSelectMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(473) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV17GUIFileSelectMenu, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIFileSelectMenu, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 480
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17GUIFileSelectMenu, i64 384), ptr %add.ptr.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIFileSelectMenu, i64 384), ptr %add.ptr.i, align 8, !tbaa !12
   %call.i = tail call ptr @setlocale(i32 noundef 1, ptr noundef nonnull @.str.14) #21
   %m_formname.i = getelementptr inbounds i8, ptr %this, i64 440
   %0 = load ptr, ptr %m_formname.i, align 8, !tbaa !4
@@ -752,9 +752,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV17GUIFileSelectMenu, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIFileSelectMenu, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 480
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17GUIFileSelectMenu, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIFileSelectMenu, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !12
   %call.i.i = tail call ptr @setlocale(i32 noundef 1, ptr noundef nonnull @.str.14) #21
   %m_formname.i.i = getelementptr inbounds i8, ptr %3, i64 440
   %4 = load ptr, ptr %m_formname.i.i, align 8, !tbaa !4
@@ -799,9 +799,9 @@ _ZN17GUIFileSelectMenuD1Ev.exit:                  ; preds = %if.then.i.i4.i.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17GUIFileSelectMenuD0Ev(ptr noundef nonnull align 8 dereferenceable(473) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV17GUIFileSelectMenu, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIFileSelectMenu, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 480
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17GUIFileSelectMenu, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIFileSelectMenu, i64 384), ptr %add.ptr.i.i, align 8, !tbaa !12
   %call.i.i = tail call ptr @setlocale(i32 noundef 1, ptr noundef nonnull @.str.14) #21
   %m_formname.i.i = getelementptr inbounds i8, ptr %this, i64 440
   %0 = load ptr, ptr %m_formname.i.i, align 8, !tbaa !4
@@ -854,9 +854,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTV17GUIFileSelectMenu, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIFileSelectMenu, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 480
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17GUIFileSelectMenu, i64 384), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17GUIFileSelectMenu, i64 384), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %call.i.i.i = tail call ptr @setlocale(i32 noundef 1, ptr noundef nonnull @.str.14) #21
   %m_formname.i.i.i = getelementptr inbounds i8, ptr %3, i64 440
   %4 = load ptr, ptr %m_formname.i.i.i, align 8, !tbaa !4

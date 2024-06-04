@@ -3119,7 +3119,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %1, label %_ZN9grpc_core7ExecCtx3GetEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core7ExecCtx3GetEv.exit, label %1
 
 1:                                                ; preds = %if.then2
   tail call void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E()

@@ -77,7 +77,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly18AsyncSignalHandlerC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %eventBase) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly18AsyncSignalHandlerE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18AsyncSignalHandlerE, i64 16), ptr %this, align 8, !tbaa !7
   %eventBase_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %eventBase, ptr %eventBase_, align 8, !tbaa !10
   %0 = getelementptr inbounds i8, ptr %this, i64 24
@@ -109,7 +109,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly18AsyncSignalHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly18AsyncSignalHandlerE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18AsyncSignalHandlerE, i64 16), ptr %this, align 8, !tbaa !7
   %signalEvents_ = getelementptr inbounds i8, ptr %this, i64 16
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !25

@@ -865,21 +865,21 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
 
 91:                                               ; preds = %23, %91
   %92 = phi ptr [ @.str.168, %23 ], [ %96, %91 ]
-  %.097114116 = phi ptr [ @ts_precision_values, %23 ], [ %93, %91 ]
-  %93 = getelementptr i8, ptr %.097114116, i64 16
+  %.098115117 = phi ptr [ @ts_precision_values, %23 ], [ %93, %91 ]
+  %93 = getelementptr i8, ptr %.098115117, i64 16
   %94 = call i64 @fwrite(ptr nonnull @.str.69, i64 2, i64 1, ptr %16)
   %fputs = call i32 @fputs(ptr nonnull %92, ptr %16)
-  %95 = getelementptr i8, ptr %.097114116, i64 40
+  %95 = getelementptr i8, ptr %.098115117, i64 40
   %96 = load ptr, ptr %95, align 8
-  %.not112 = icmp eq ptr %96, null
-  br i1 %.not112, label %97, label %91, !llvm.loop !8
+  %.not113 = icmp eq ptr %96, null
+  br i1 %.not113, label %97, label %91, !llvm.loop !8
 
 97:                                               ; preds = %91
   %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.70, i32 noundef 9) #13
   %99 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
   %100 = call ptr @try_val_to_str(i32 noundef %99, ptr noundef nonnull @ts_precision_values) #13
-  %.not105 = icmp eq ptr %100, null
-  br i1 %.not105, label %103, label %101
+  %.not106 = icmp eq ptr %100, null
+  br i1 %.not106, label %103, label %101
 
 101:                                              ; preds = %97
   %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, ptr noundef nonnull %100) #13
@@ -932,8 +932,8 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   %133 = call i64 @fwrite(ptr nonnull @.str.96, i64 46, i64 1, ptr %16)
   %134 = call i64 @fwrite(ptr nonnull @.str.97, i64 18, i64 1, ptr %16)
   %135 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 136), align 8
-  %.not107 = icmp eq i32 %135, 0
-  br i1 %.not107, label %138, label %136
+  %.not108 = icmp eq i32 %135, 0
+  br i1 %.not108, label %138, label %136
 
 136:                                              ; preds = %109
   %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.98, i32 noundef %135) #13
@@ -943,8 +943,8 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   %139 = call i64 @fwrite(ptr nonnull @.str.99, i64 33, i64 1, ptr %16)
   %140 = call i64 @fwrite(ptr nonnull @.str.97, i64 18, i64 1, ptr %16)
   %141 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 140), align 4
-  %.not108 = icmp eq i32 %141, 0
-  br i1 %.not108, label %144, label %142
+  %.not109 = icmp eq i32 %141, 0
+  br i1 %.not109, label %144, label %142
 
 142:                                              ; preds = %138
   %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.100, i32 noundef %141) #13
@@ -952,8 +952,8 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
 
 144:                                              ; preds = %142, %138
   %145 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
-  %.not109 = icmp eq ptr %145, null
-  br i1 %.not109, label %151, label %146
+  %.not110 = icmp eq ptr %145, null
+  br i1 %.not110, label %151, label %146
 
 146:                                              ; preds = %144
   %147 = call i64 @fwrite(ptr nonnull @.str.101, i64 38, i64 1, ptr %16)
@@ -964,8 +964,8 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
 
 151:                                              ; preds = %146, %144
   %152 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
-  %.not110 = icmp eq ptr %152, null
-  br i1 %.not110, label %158, label %153
+  %.not111 = icmp eq ptr %152, null
+  br i1 %.not111, label %158, label %153
 
 153:                                              ; preds = %151
   %154 = call i64 @fwrite(ptr nonnull @.str.103, i64 37, i64 1, ptr %16)
@@ -1037,8 +1037,8 @@ window_splitter_recent_write_all.exit:            ; preds = %.lr.ph.i, %158, %16
   %195 = select i1 %194, ptr @.str.133, ptr @.str.134
   %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.120, ptr noundef nonnull %195) #13
   %197 = call ptr @get_last_open_dir() #13
-  %.not111 = icmp eq ptr %197, null
-  br i1 %.not111, label %202, label %198
+  %.not112 = icmp eq ptr %197, null
+  br i1 %.not112, label %202, label %198
 
 198:                                              ; preds = %window_splitter_recent_write_all.exit
   %199 = call i64 @fwrite(ptr nonnull @.str.121, i64 52, i64 1, ptr %16)

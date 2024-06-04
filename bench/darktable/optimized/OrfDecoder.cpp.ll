@@ -2407,7 +2407,7 @@ define hidden void @_ZN8rawspeed10OrfDecoder22decodeMetaDataInternalEPKNS_14Came
           to label %98 unwind label %135
 
 98:                                               ; preds = %95
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed11TiffRootIFDE, i64 16), ptr %6, align 8, !tbaa !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed11TiffRootIFDE, i64 16), ptr %6, align 8, !tbaa !49
   %99 = getelementptr inbounds i8, ptr %6, i64 104
   store ptr %97, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %6, i64 112
@@ -2717,7 +2717,7 @@ define hidden void @_ZN8rawspeed10OrfDecoder22decodeMetaDataInternalEPKNS_14Came
   br label %284
 
 284:                                              ; preds = %267, %159, %154, %152, %139, %98
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %6, align 8, !tbaa !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %6, align 8, !tbaa !49
   %285 = getelementptr inbounds i8, ptr %6, i64 56
   %286 = load ptr, ptr %101, align 8, !tbaa !162
   invoke void @_ZNSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %285, ptr noundef %286)
@@ -2813,7 +2813,7 @@ declare noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed7TiffIFDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %0, align 8, !tbaa !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %0, align 8, !tbaa !49
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !162
@@ -2891,14 +2891,14 @@ define linkonce_odr hidden void @_ZN8rawspeed11NORangesSetINS_6BufferEED2Ev(ptr 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed19AbstractTiffDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8rawspeed19AbstractTiffDecoderE, i64 16), ptr %0, align 8, !tbaa !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed19AbstractTiffDecoderE, i64 16), ptr %0, align 8, !tbaa !49
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %35, label %5
 
 5:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %3, align 8, !tbaa !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %3, align 8, !tbaa !49
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   %7 = getelementptr inbounds i8, ptr %3, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !162
@@ -2958,7 +2958,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19AbstractTiffDecoderD2Ev(ptr nound
 
 35:                                               ; preds = %34, %1
   store ptr null, ptr %2, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8rawspeed10RawDecoderE, i64 16), ptr %0, align 8, !tbaa !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10RawDecoderE, i64 16), ptr %0, align 8, !tbaa !49
   %36 = getelementptr inbounds i8, ptr %0, i64 48
   %37 = getelementptr inbounds i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !162
@@ -3196,7 +3196,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed11IOExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #25
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed11IOExceptionE, i64 16), ptr %0, align 8, !tbaa !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed11IOExceptionE, i64 16), ptr %0, align 8, !tbaa !49
   ret void
 }
 
@@ -3207,7 +3207,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: cold mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !49
   invoke void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 65536, ptr noundef nonnull @.str.17, ptr noundef %1)
           to label %_ZN8rawspeed17RawspeedException3logEPKc.exit unwind label %3
 
@@ -3382,7 +3382,7 @@ declare noundef zeroext i1 @_ZN8rawspeed10RawDecoder20checkCameraSupportedEPKNS_
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed19RawDecoderExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #25
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed19RawDecoderExceptionE, i64 16), ptr %0, align 8, !tbaa !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed19RawDecoderExceptionE, i64 16), ptr %0, align 8, !tbaa !49
   ret void
 }
 

@@ -79,8 +79,8 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @asm_instr_by_name(ptr noundef %9) #4
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %13
+  %.not37 = icmp eq ptr %10, null
+  br i1 %.not37, label %11, label %13
 
 11:                                               ; preds = %7
   %12 = load i64, ptr %2, align 8
@@ -92,8 +92,8 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %10, i64 80
   %17 = load i32, ptr %16, align 8
-  %.not36 = icmp eq ptr %15, null
-  br i1 %.not36, label %21, label %18
+  %.not38 = icmp eq ptr %15, null
+  br i1 %.not38, label %21, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %15, i64 -8
@@ -102,8 +102,8 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
 
 21:                                               ; preds = %13, %18
   %.0 = phi i32 [ %20, %18 ], [ 0, %13 ]
-  %.not37 = icmp eq i32 %17, %.0
-  br i1 %.not37, label %.preheader, label %24
+  %.not39 = icmp eq i32 %17, %.0
+  br i1 %.not39, label %.preheader, label %24
 
 .preheader:                                       ; preds = %21
   %22 = getelementptr inbounds i8, ptr %10, i64 8
@@ -120,8 +120,8 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
 
 29:                                               ; preds = %.preheader, %30
   %indvars.iv = phi i64 [ %23, %.preheader ], [ %31, %30 ]
-  %.not38 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not38, label %36, label %30
+  %.not40 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not40, label %36, label %30
 
 30:                                               ; preds = %29
   %31 = add nsw i64 %indvars.iv, -1
@@ -151,8 +151,8 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
   br i1 %exitcond.not.i, label %sema_add_clobbers.exit, label %38, !llvm.loop !9
 
 sema_add_clobbers.exit:                           ; preds = %30, %38, %24, %11, %5
-  %.031 = phi i1 [ false, %5 ], [ false, %24 ], [ false, %11 ], [ true, %38 ], [ false, %30 ]
-  ret i1 %.031
+  %.030 = phi i1 [ false, %5 ], [ false, %24 ], [ false, %11 ], [ true, %38 ], [ false, %30 ]
+  ret i1 %.030
 }
 
 declare void @sema_error_at(i64, ptr noundef, ...) local_unnamed_addr #1

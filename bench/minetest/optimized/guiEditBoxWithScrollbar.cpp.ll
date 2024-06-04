@@ -901,7 +901,7 @@ entry:
   %agg.tmp9.i = alloca %"class.irr::core::rect", align 8
   %agg.tmp41 = alloca %"class.irr::core::rect", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 512
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 520
   store ptr null, ptr %DebugName.i, align 8, !tbaa !93
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 528
@@ -951,8 +951,8 @@ entry:
   %m_vscrollbar.i = getelementptr inbounds i8, ptr %this, i64 488
   store ptr null, ptr %m_vscrollbar.i, align 8, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp41)
-  store ptr getelementptr inbounds inrange(-24, 568) (i8, ptr @_ZTV23GUIEditBoxWithScrollBar, i64 24), ptr %this, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV23GUIEditBoxWithScrollBar, i64 616), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23GUIEditBoxWithScrollBar, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23GUIEditBoxWithScrollBar, i64 616), ptr %0, align 8, !tbaa !4
   %m_background = getelementptr inbounds i8, ptr %this, i64 496
   store i8 1, ptr %m_background, align 8, !tbaa !60
   %m_bg_color_used = getelementptr inbounds i8, ptr %this, i64 497
@@ -6220,7 +6220,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !4
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %vtt, i64 8

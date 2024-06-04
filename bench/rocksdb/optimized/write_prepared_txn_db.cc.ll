@@ -6043,7 +6043,8 @@ if.then8:                                         ; preds = %if.then4
 if.end:                                           ; preds = %if.then4, %if.then8
   %storemerge = phi i64 [ %.sroa.speculated, %if.then8 ], [ %6, %if.then4 ]
   store i64 %storemerge, ptr %max_evicted_seq, align 8
-  br i1 icmp ne (ptr @rocksdb_write_prepared_TEST_ShouldClearCommitCache, ptr null), label %land.lhs.true, label %if.end15
+  %.not = icmp eq ptr @rocksdb_write_prepared_TEST_ShouldClearCommitCache, null
+  br i1 %.not, label %if.end15, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %call13 = tail call zeroext i1 @rocksdb_write_prepared_TEST_ShouldClearCommitCache()

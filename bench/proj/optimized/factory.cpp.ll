@@ -4477,7 +4477,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN5osgeo4proj2i
 5:                                                ; preds = %3
   store i8 1, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 8), i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 48), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 48), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 96), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 112), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 64), align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 72), align 8
@@ -4503,7 +4503,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj2io17SQLiteHandleCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_2io12SQLiteHandleEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -5276,7 +5276,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
   %15 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr null, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 288
   %18 = getelementptr inbounds i8, ptr %0, i64 320
   store i64 0, ptr %18, align 8
@@ -5300,7 +5300,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
   %27 = getelementptr inbounds i8, ptr %0, i64 376
   store i64 10, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 400
   %30 = getelementptr inbounds i8, ptr %0, i64 432
   store i64 0, ptr %30, align 8
@@ -5324,7 +5324,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
   %39 = getelementptr inbounds i8, ptr %0, i64 488
   store i64 10, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 496
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 512
   %42 = getelementptr inbounds i8, ptr %0, i64 544
   store i64 0, ptr %42, align 8
@@ -5348,7 +5348,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
   %51 = getelementptr inbounds i8, ptr %0, i64 600
   store i64 10, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 608
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 624
   %54 = getelementptr inbounds i8, ptr %0, i64 656
   store i64 0, ptr %54, align 8
@@ -5372,7 +5372,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
   %63 = getelementptr inbounds i8, ptr %0, i64 712
   store i64 10, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 720
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 736
   %66 = getelementptr inbounds i8, ptr %0, i64 768
   store i64 0, ptr %66, align 8
@@ -5396,7 +5396,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
   %75 = getelementptr inbounds i8, ptr %0, i64 824
   store i64 10, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 832
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %0, i64 848
   %78 = getelementptr inbounds i8, ptr %0, i64 880
   store i64 0, ptr %78, align 8
@@ -5420,7 +5420,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
   %87 = getelementptr inbounds i8, ptr %0, i64 936
   store i64 10, ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %0, i64 944
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %88, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %0, i64 960
   %90 = getelementptr inbounds i8, ptr %0, i64 992
   store i64 0, ptr %90, align 8
@@ -5444,7 +5444,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
   %99 = getelementptr inbounds i8, ptr %0, i64 1048
   store i64 10, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 1056
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %100, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %0, i64 1072
   %102 = getelementptr inbounds i8, ptr %0, i64 1104
   store i64 0, ptr %102, align 8
@@ -5468,7 +5468,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
   %111 = getelementptr inbounds i8, ptr %0, i64 1160
   store i64 10, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %0, i64 1168
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_9operation19CoordinateOperationEEEESaISH_EENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SJ_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SP_EEEEE, i64 16), ptr %112, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_9operation19CoordinateOperationEEEESaISH_EENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SJ_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SP_EEEEE, i64 16), ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %0, i64 1184
   %114 = getelementptr inbounds i8, ptr %0, i64 1216
   store i64 0, ptr %114, align 8
@@ -5492,7 +5492,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
   %123 = getelementptr inbounds i8, ptr %0, i64 1272
   store i64 10, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %0, i64 1280
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_2io15DatabaseContext7Private13GridInfoCacheENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %124, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_2io15DatabaseContext7Private13GridInfoCacheENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %0, i64 1296
   %126 = getelementptr inbounds i8, ptr %0, i64 1328
   store i64 0, ptr %126, align 8
@@ -5525,7 +5525,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
   %140 = getelementptr inbounds i8, ptr %0, i64 1432
   store i64 0, ptr %140, align 8
   %141 = getelementptr inbounds i8, ptr %0, i64 1440
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_4listIS8_SaIS8_EEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SB_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SH_EEEEE, i64 16), ptr %141, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_4listIS8_SaIS8_EEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SB_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SH_EEEEE, i64 16), ptr %141, align 8
   %142 = getelementptr inbounds i8, ptr %0, i64 1456
   %143 = getelementptr inbounds i8, ptr %0, i64 1488
   store i64 0, ptr %143, align 8
@@ -5555,7 +5555,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7PrivateC2Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_2io15DatabaseContext7Private13GridInfoCacheENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_2io15DatabaseContext7Private13GridInfoCacheENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_2io15DatabaseContext7Private13GridInfoCacheENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i = icmp eq ptr %3, %2
@@ -5614,7 +5614,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_Li
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_9operation19CoordinateOperationEEEESaISH_EENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SJ_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SP_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_9operation19CoordinateOperationEEEESaISH_EENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SJ_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SP_EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_9operation19CoordinateOperationEEEESaISH_EENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SJ_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SP_EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i = icmp eq ptr %3, %2
@@ -5667,7 +5667,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_Li
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_4util10BaseObjectEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5759,7 +5759,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5
   %18 = getelementptr inbounds i8, ptr %0, i64 1280
   tail call void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_2io15DatabaseContext7Private13GridInfoCacheENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %18) #28
   %19 = getelementptr inbounds i8, ptr %0, i64 1168
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_9operation19CoordinateOperationEEEESaISH_EENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SJ_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SP_EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_9operation19CoordinateOperationEEEESaISH_EENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SJ_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SP_EEEEE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 1240
   %21 = load ptr, ptr %20, align 8
   %.not8.i.i.i.i = icmp eq ptr %21, %20
@@ -5808,7 +5808,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_9operation19CoordinateOperationEEEESaISH_EENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SJ_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SP_EEEED2Ev.exit: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_St6vectorIN7dropbox6oxygen2nnISt10shared_ptrINSA_9operation19CoordinateOperationEEEESaISL_EEEEEESaISQ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSS_18_Mod_range_hashingENSS_20_Default_ranged_hashENSS_20_Prime_rehash_policyENSS_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, %36
   %37 = getelementptr inbounds i8, ptr %0, i64 1056
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 1128
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_4util10BaseObjectEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %38) #28
   %39 = getelementptr inbounds i8, ptr %0, i64 1072
@@ -5844,7 +5844,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED2Ev.exit: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_St10shared_ptrINSA_4util10BaseObjectEEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, %51
   %52 = getelementptr inbounds i8, ptr %0, i64 944
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 1016
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_4util10BaseObjectEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %53) #28
   %54 = getelementptr inbounds i8, ptr %0, i64 960
@@ -5880,7 +5880,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED2Ev.exit12: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_St10shared_ptrINSA_4util10BaseObjectEEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i11, %66
   %67 = getelementptr inbounds i8, ptr %0, i64 832
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 904
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_4util10BaseObjectEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %68) #28
   %69 = getelementptr inbounds i8, ptr %0, i64 848
@@ -5916,7 +5916,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED2Ev.exit18: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_St10shared_ptrINSA_4util10BaseObjectEEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i17, %81
   %82 = getelementptr inbounds i8, ptr %0, i64 720
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 792
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_4util10BaseObjectEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %83) #28
   %84 = getelementptr inbounds i8, ptr %0, i64 736
@@ -5952,7 +5952,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED2Ev.exit24: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_St10shared_ptrINSA_4util10BaseObjectEEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i23, %96
   %97 = getelementptr inbounds i8, ptr %0, i64 608
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %97, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %97, align 8
   %98 = getelementptr inbounds i8, ptr %0, i64 680
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_4util10BaseObjectEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %98) #28
   %99 = getelementptr inbounds i8, ptr %0, i64 624
@@ -5988,7 +5988,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED2Ev.exit30: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_St10shared_ptrINSA_4util10BaseObjectEEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i29, %111
   %112 = getelementptr inbounds i8, ptr %0, i64 496
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %112, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_4util10BaseObjectEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %113) #28
   %114 = getelementptr inbounds i8, ptr %0, i64 512
@@ -6024,7 +6024,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED2Ev.exit36: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_St10shared_ptrINSA_4util10BaseObjectEEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i35, %126
   %127 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %127, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %0, i64 456
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_4util10BaseObjectEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %128) #28
   %129 = getelementptr inbounds i8, ptr %0, i64 400
@@ -6060,7 +6060,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED2Ev.exit42: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairIS5_St10shared_ptrINSA_4util10BaseObjectEEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i41, %141
   %142 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %142, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %142, align 8
   %143 = getelementptr inbounds i8, ptr %0, i64 344
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_4util10BaseObjectEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %143) #28
   %144 = getelementptr inbounds i8, ptr %0, i64 288
@@ -6554,7 +6554,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io12SQLiteHandleELN9__gnu_cxx12_Lock_policyE2EE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_4listIS8_SaIS8_EEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SB_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SH_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_4listIS8_SaIS8_EEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SB_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SH_EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_4listIS8_SaIS8_EEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SB_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SH_EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i = icmp eq ptr %3, %2
@@ -7477,7 +7477,7 @@ define hidden void @_ZN5osgeo4proj2io15DatabaseContext7Private4openERKNSt7__cxx1
 35:                                               ; preds = %33
   store i8 1, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 8), i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 48), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 48), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 96), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 112), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 64), align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 72), align 8
@@ -14452,7 +14452,7 @@ _ZNSt7__cxx114listIN5osgeo4proj2io9SQLValuesESaIS4_EED2Ev.exit: ; preds = %_ZNSt
   store i32 1, ptr %224, align 8, !noalias !64
   %225 = getelementptr inbounds i8, ptr %222, i64 12
   store i32 1, ptr %225, align 4, !noalias !64
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %222, align 8, !noalias !64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %222, align 8, !noalias !64
   %226 = getelementptr inbounds i8, ptr %222, i64 16
   invoke void @_ZN5osgeo4proj6common13UnitOfMeasureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS2_4TypeESA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %226, ptr noundef nonnull align 8 dereferenceable(32) %181, double noundef %.1, i32 noundef %.0, ptr noundef nonnull align 8 dereferenceable(32) %223, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %228 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj6common13UnitOfMeasureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !64
@@ -36879,7 +36879,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %4
   store i32 1, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %17, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %2, ptr %18, align 8
   store ptr %2, ptr %0, align 8
@@ -127359,7 +127359,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20P
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj2io16FactoryExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj4util9ExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16FactoryExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io16FactoryExceptionE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -127368,7 +127368,7 @@ declare hidden void @_ZN5osgeo4proj4util9ExceptionC2EPKc(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj2io16FactoryExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj4util9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16FactoryExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io16FactoryExceptionE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -127393,7 +127393,7 @@ define void @_ZN5osgeo4proj2io16FactoryExceptionD0Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj2io16FactoryExceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj4util9ExceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io16FactoryExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io16FactoryExceptionE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -127402,7 +127402,7 @@ declare void @_ZN5osgeo4proj4util9ExceptionC2ERKS2_(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj2io28NoSuchAuthorityCodeExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj4util9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io28NoSuchAuthorityCodeExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io28NoSuchAuthorityCodeExceptionE, i64 16), ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !603)
   %5 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #32
           to label %.noexc unwind label %13
@@ -127450,7 +127450,7 @@ define void @_ZN5osgeo4proj2io28NoSuchAuthorityCodeExceptionC2ERKNSt7__cxx1112ba
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj2io28NoSuchAuthorityCodeExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io28NoSuchAuthorityCodeExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io28NoSuchAuthorityCodeExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -127479,7 +127479,7 @@ define void @_ZN5osgeo4proj2io28NoSuchAuthorityCodeExceptionD0Ev(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj2io28NoSuchAuthorityCodeExceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5osgeo4proj4util9ExceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj2io28NoSuchAuthorityCodeExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io28NoSuchAuthorityCodeExceptionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !606)
@@ -127557,7 +127557,7 @@ define hidden void @_Z21pj_clear_sqlite_cachev() local_unnamed_addr #5 personali
 5:                                                ; preds = %3
   store i8 1, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 8), i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 48), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 48), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 96), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 112), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 64), align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 72), align 8
@@ -127625,7 +127625,7 @@ declare void @sqlite3_result_int(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_2io12SQLiteHandleEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -127665,7 +127665,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_Li
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_2io12SQLiteHandleEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -127811,7 +127811,7 @@ define internal void @"_ZZN5osgeo4proj2io17SQLiteHandleCache9getHandleERKNSt7__c
 5:                                                ; preds = %3
   store i8 1, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 8), i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 48), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_2io12SQLiteHandleEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 48), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 96), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 112), ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 64), align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN5osgeo4proj2io17SQLiteHandleCache3getEvE18gSQLiteHandleCache, i64 72), align 8
@@ -127891,7 +127891,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_s
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_9operation19CoordinateOperationEEEESaISH_EENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SJ_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SP_EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_9operation19CoordinateOperationEEEESaISH_EENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SJ_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SP_EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_9operation19CoordinateOperationEEEESaISH_EENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SJ_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SP_EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i.i = icmp eq ptr %3, %2
@@ -128052,7 +128052,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordina
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_4util10BaseObjectEENS1_8NullLockESt13unordered_mapIS8_St14_List_iteratorINS1_12KeyValuePairIS8_SC_EEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SI_EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1110_List_baseIN5osgeo4proj5lru1112KeyValuePairINS_12basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS2_4util10BaseObjectEEEESaISE_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -130556,7 +130556,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEED2Ev.exit: ; preds = %24
   store i32 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %26, i64 12
   store i32 1, ptr %38, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2io16AuthorityFactoryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2io16AuthorityFactoryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26, align 8
   %39 = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %6, ptr %39, align 8
   store ptr %6, ptr %0, align 8
@@ -130681,7 +130681,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEED2Ev.exit: ; preds = %20
   store i32 1, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %22, i64 12
   store i32 1, ptr %34, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2io16AuthorityFactoryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2io16AuthorityFactoryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22, align 8
   %35 = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %4, ptr %35, align 8
   store ptr %4, ptr %0, align 8
@@ -131427,7 +131427,7 @@ define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_polic
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2io12SQLiteHandleELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2io12SQLiteHandleELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %7, align 8
   store ptr %3, ptr %0, align 8

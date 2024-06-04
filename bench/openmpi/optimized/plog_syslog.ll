@@ -245,11 +245,11 @@ thread-pre-split:                                 ; preds = %18, %13, %6
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %29, %27
-  %.not29 = icmp eq i64 %5, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not28 = icmp eq i64 %5, 0
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32, %48
-  %.028 = phi i64 [ %51, %48 ], [ 0, %32 ]
+  %.027 = phi i64 [ %51, %48 ], [ 0, %32 ]
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 120
   %35 = load ptr, ptr %34, align 8
@@ -257,7 +257,7 @@ thread-pre-split:                                 ; preds = %18, %13, %6
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 48
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.pmix_info, ptr %4, i64 %.028
+  %40 = getelementptr inbounds %struct.pmix_info, ptr %4, i64 %.027
   %41 = call i32 %39(ptr noundef nonnull %10, ptr noundef nonnull @.str.14, ptr noundef %40, i16 noundef zeroext 24) #6
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %42, label %.sink.split
@@ -276,7 +276,7 @@ thread-pre-split:                                 ; preds = %18, %13, %6
   call void @free(ptr noundef %49) #6
   %50 = load ptr, ptr %11, align 8
   store ptr %50, ptr %9, align 8
-  %51 = add nuw i64 %.028, 1
+  %51 = add nuw i64 %.027, 1
   %exitcond.not = icmp eq i64 %51, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -300,14 +300,14 @@ sev2str.exit:                                     ; preds = %._crit_edge, %switc
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %sev2str.exit
-  %.022.ph = phi i32 [ 0, %sev2str.exit ], [ %41, %.lr.ph ]
+  %.021.ph = phi i32 [ 0, %sev2str.exit ], [ %41, %.lr.ph ]
   %.sink = load ptr, ptr %9, align 8
   call void @free(ptr noundef %.sink) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.sink.split, %29
-  %.022 = phi i32 [ -32, %29 ], [ %.022.ph, %.sink.split ], [ -32, %42 ]
-  ret i32 %.022
+  %.021 = phi i32 [ -32, %29 ], [ %.021.ph, %.sink.split ], [ -32, %42 ]
+  ret i32 %.021
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

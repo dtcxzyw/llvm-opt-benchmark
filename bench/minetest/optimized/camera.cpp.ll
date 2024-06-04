@@ -1423,7 +1423,7 @@ if.then93:                                        ; preds = %lor.rhs, %lor.lhs.f
   %11 = load ptr, ptr %m_client94, align 8, !tbaa !13
   %call95 = tail call noundef ptr @_ZN6Client15getEventManagerEv(ptr noundef nonnull align 8 dereferenceable(1746) %11)
   %call96 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call96, align 8, !tbaa !68
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call96, align 8, !tbaa !68
   %type2.i = getelementptr inbounds i8, ptr %call96, i64 8
   store i8 0, ptr %type2.i, align 8, !tbaa !131
   %vtable = load ptr, ptr %call95, align 8, !tbaa !68
@@ -1469,7 +1469,7 @@ if.then119:                                       ; preds = %if.then116
   %15 = load ptr, ptr %m_client120, align 8, !tbaa !13
   %call121 = tail call noundef ptr @_ZN6Client15getEventManagerEv(ptr noundef nonnull align 8 dereferenceable(1746) %15)
   %call122 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call122, align 8, !tbaa !68
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call122, align 8, !tbaa !68
   %type2.i164 = getelementptr inbounds i8, ptr %call122, i64 8
   store i8 1, ptr %type2.i164, align 8, !tbaa !131
   %vtable125 = load ptr, ptr %call121, align 8, !tbaa !68
@@ -1483,7 +1483,7 @@ if.then130:                                       ; preds = %if.then116
   %17 = load ptr, ptr %m_client131, align 8, !tbaa !13
   %call132 = tail call noundef ptr @_ZN6Client15getEventManagerEv(ptr noundef nonnull align 8 dereferenceable(1746) %17)
   %call133 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call133, align 8, !tbaa !68
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call133, align 8, !tbaa !68
   %type2.i165 = getelementptr inbounds i8, ptr %call133, i64 8
   store i8 2, ptr %type2.i165, align 8, !tbaa !131
   %vtable136 = load ptr, ptr %call132, align 8, !tbaa !68
@@ -4618,7 +4618,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8, !tbaa !313
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !68
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !68
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %toolcaps_overridden, align 8, !tbaa !266
   %toolcaps_override = getelementptr inbounds i8, ptr %this, i64 80

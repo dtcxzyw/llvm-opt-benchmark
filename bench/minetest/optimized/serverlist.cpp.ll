@@ -1946,7 +1946,8 @@ ehcleanup434:                                     ; preds = %lpad429, %lpad427
   br label %ehcleanup536
 
 if.then439:                                       ; preds = %invoke.cont410, %invoke.cont386
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %158, label %_ZTW12actionstream.exit
+  %.not = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not, label %_ZTW12actionstream.exit, label %158
 
 158:                                              ; preds = %if.then439
   call void @_ZTH12actionstream()
@@ -2114,7 +2115,8 @@ ehcleanup461:                                     ; preds = %if.then.i.i975, %_Z
   br label %ehcleanup536
 
 if.else464:                                       ; preds = %invoke.cont430, %if.else, %if.end
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %178, label %_ZTW10infostream.exit
+  %.not65 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not65, label %_ZTW10infostream.exit, label %178
 
 178:                                              ; preds = %if.else464
   call void @_ZTH10infostream()

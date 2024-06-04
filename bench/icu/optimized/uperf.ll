@@ -166,8 +166,8 @@ if.end6:                                          ; preds = %if.then3, %if.end
   %or.cond = select i1 %cmp8, i1 true, i1 %tobool
   %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 74), align 2
   %tobool10 = icmp ne i8 %4, 0
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %tobool10
-  br i1 %or.cond1, label %if.then11, label %if.end12
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %tobool10
+  br i1 %or.cond3, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end6
   store i32 1, ptr %status, align 4

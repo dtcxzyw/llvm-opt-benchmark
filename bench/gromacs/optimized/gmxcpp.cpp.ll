@@ -329,7 +329,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
   store i32 1, ptr %84, align 8, !noalias !5
   %85 = getelementptr inbounds i8, ptr %83, i64 12
   store i32 1, ptr %85, align 4, !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorI8t_defineSaIS1_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %83, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorI8t_defineSaIS1_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %83, align 8, !noalias !5
   %86 = getelementptr inbounds i8, ptr %83, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false), !noalias !5
   store ptr %86, ptr %31, align 8
@@ -529,7 +529,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i1
   store i32 1, ptr %176, align 8, !noalias !8
   %177 = getelementptr inbounds i8, ptr %175, i64 12
   store i32 1, ptr %177, align 4, !noalias !8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorINSt10filesystem7__cxx114pathESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %175, align 8, !noalias !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorINSt10filesystem7__cxx114pathESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %175, align 8, !noalias !8
   %178 = getelementptr inbounds i8, ptr %175, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, i8 0, i64 24, i1 false), !noalias !8
   %179 = getelementptr inbounds i8, ptr %31, i64 16

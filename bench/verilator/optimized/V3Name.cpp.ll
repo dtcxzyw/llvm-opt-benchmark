@@ -976,7 +976,7 @@ define dso_local void @_ZN6V3Name7nameAllEP10AstNetlist(ptr noundef %0) #3 align
   br label %common.resume
 
 20:                                               ; preds = %1, %17
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV11NameVisitor, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11NameVisitor, i64 16), ptr %3, align 8
   call void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
   %21 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)

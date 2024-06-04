@@ -384,7 +384,7 @@ define noundef range(i32 0, 3) i32 @_ZN3gmx21CommandLineHelpModule3runEiPPc(ptr 
   %32 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_117CommandsHelpTopicE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_117CommandsHelpTopicE, i64 16), ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %34, ptr %35, align 8
   %36 = ptrtoint ptr %32 to i64
@@ -435,7 +435,7 @@ _ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit: ; preds =
   store ptr @.str.18, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %23, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %52, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx12StringOptionE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12StringOptionE, i64 16), ptr %23, align 8
   %53 = getelementptr inbounds i8, ptr %23, i64 88
   %54 = getelementptr inbounds i8, ptr %23, i64 96
   %55 = getelementptr inbounds i8, ptr %23, i64 100
@@ -471,7 +471,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_12StringOptionEEEPNT_8InfoTypeERKS3_.exi
   br i1 %65, label %255, label %69
 
 69:                                               ; preds = %64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_140ModificationCheckingFileOutputRedirectorE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_140ModificationCheckingFileOutputRedirectorE, i64 16), ptr %25, align 8
   %70 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %68, ptr %70, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
@@ -495,7 +495,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_12StringOptionEEEPNT_8InfoTypeERKS3_.exi
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_126HelpExportReStructuredTextE, i64 16), ptr %74, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_126HelpExportReStructuredTextE, i64 16), ptr %74, align 8, !noalias !5
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   store ptr %25, ptr %75, align 8, !noalias !5
   %76 = getelementptr inbounds i8, ptr %74, i64 16
@@ -714,7 +714,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %84, %81
           to label %.noexc29 unwind label %250
 
 .noexc29:                                         ; preds = %132
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_120HelpExportCompletionE, i64 16), ptr %133, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_120HelpExportCompletionE, i64 16), ptr %133, align 8, !noalias !5
   %134 = getelementptr inbounds i8, ptr %133, i64 8
   %135 = getelementptr inbounds i8, ptr %66, i64 88
   invoke void @_ZN3gmx21ShellCompletionWriterC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ShellCompletionFormatE(ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull align 8 dereferenceable(32) %135, i32 noundef 0)
@@ -741,8 +741,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %84, %81
           to label %143 unwind label %.thread21.i, !noalias !5
 
 143:                                              ; preds = %142
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %15, align 8, !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %17, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %15, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %17, align 8, !noalias !5
   %144 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx25CommandLineHelpModuleImpl14createExporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_21IFileOutputRedirectorE, ptr %144, align 8, !noalias !5
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 16
@@ -1372,7 +1372,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25CommandLineHelpModuleImplC2ERKNS_15IProgramContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS9_St10unique_ptrINS_18ICommandLineModuleESt14default_deleteISE_EESt4lessIS9_ESaISt4pairISA_SH_EEERKSt6vectorISD_INS_26CommandLineModuleGroupDataESF_ISR_EESaIST_EE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx26AbstractCompositeHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_113RootHelpTopicE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_113RootHelpTopicE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1428,7 +1428,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_113RootHelpTopicD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_113RootHelpTopicE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_113RootHelpTopicE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1470,7 +1470,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_113RootHelpTopicD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_113RootHelpTopicE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_113RootHelpTopicE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2106,7 +2106,7 @@ declare void @_ZN3gmx26AbstractCompositeHelpTopicD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx21CommandLineHelpModuleC2ERKNS_15IProgramContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS9_St10unique_ptrINS_18ICommandLineModuleESt14default_deleteISE_EESt4lessIS9_ESaISt4pairISA_SH_EEERKSt6vectorISD_INS_26CommandLineModuleGroupDataESF_ISR_EESaIST_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx21CommandLineHelpModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx21CommandLineHelpModuleE, i64 16), ptr %0, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   invoke void @_ZN3gmx25CommandLineHelpModuleImplC1ERKNS_15IProgramContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS9_St10unique_ptrINS_18ICommandLineModuleESt14default_deleteISE_EESt4lessIS9_ESaISt4pairISA_SH_EEERKSt6vectorISD_INS_26CommandLineModuleGroupDataESF_ISR_EESaIST_EE(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %7 unwind label %9
@@ -2128,7 +2128,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx21CommandLineHelpModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx21CommandLineHelpModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx21CommandLineHelpModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2137,7 +2137,7 @@ define void @_ZN3gmx21CommandLineHelpModuleD2Ev(ptr nocapture noundef nonnull al
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_113RootHelpTopicE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_113RootHelpTopicE, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 64
@@ -2182,7 +2182,7 @@ define void @_ZNK3gmx21CommandLineHelpModule21createModuleHelpTopicERKNS_18IComm
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_115ModuleHelpTopicE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_115ModuleHelpTopicE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2798,8 +2798,8 @@ define internal void @_ZNK3gmx12_GLOBAL__N_117CommandsHelpTopic9writeHelpERKNS_1
           to label %18 unwind label %.thread78
 
 18:                                               ; preds = %17
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZNK3gmx12_GLOBAL__N_117CommandsHelpTopic9writeHelpERKNS_17HelpWriterContextE, ptr %19, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
@@ -3097,7 +3097,7 @@ define linkonce_odr void @_ZN3gmxlsINS_19NotImplementedErrorENS_22ExceptionInfoL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -3145,7 +3145,7 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   store ptr null, ptr %22, align 8
   store <2 x ptr> %23, ptr %20, align 8
   store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -3202,7 +3202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx19NotImplementedErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -3401,7 +3401,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_140ModificationCheckingFileOutputRedir
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #21
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_136ModificationCheckingFileOutputStreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_136ModificationCheckingFileOutputStreamE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc unwind label %33
@@ -3420,7 +3420,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_140ModificationCheckingFileOutputRedir
 
 11:                                               ; preds = %.noexc
   %12 = getelementptr inbounds i8, ptr %4, i64 48
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx18StringOutputStreamE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18StringOutputStreamE, i64 16), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
   %14 = getelementptr inbounds i8, ptr %4, i64 88
@@ -3468,7 +3468,7 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2INS0_12_GLOBAL__N_136ModificationCh
   store i32 1, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %16, i64 12
   store i32 1, ptr %31, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx12_GLOBAL__N_136ModificationCheckingFileOutputStreamELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx12_GLOBAL__N_136ModificationCheckingFileOutputStreamELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16, align 8
   %32 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %4, ptr %32, align 8
   store ptr %16, ptr %15, align 8
@@ -3487,9 +3487,9 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2INS0_12_GLOBAL__N_136ModificationCh
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_136ModificationCheckingFileOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_136ModificationCheckingFileOutputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_136ModificationCheckingFileOutputStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx18StringOutputStreamE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18StringOutputStreamE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3510,9 +3510,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_136ModificationCheckingFileOutputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_136ModificationCheckingFileOutputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_136ModificationCheckingFileOutputStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx18StringOutputStreamE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18StringOutputStreamE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3980,7 +3980,7 @@ _ZNKSt14default_deleteIN3gmx10TextWriterEEclEPS1_.exit: ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_126HelpExportReStructuredTextD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_126HelpExportReStructuredTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_126HelpExportReStructuredTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -4012,7 +4012,7 @@ _ZNSt10unique_ptrIN3gmx10TextWriterESt14default_deleteIS1_EED2Ev.exit3: ; preds 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_126HelpExportReStructuredTextD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_126HelpExportReStructuredTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_126HelpExportReStructuredTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -5971,7 +5971,7 @@ declare void @_ZN3gmx21ShellCompletionWriterC1ERKNSt7__cxx1112basic_stringIcSt11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_120HelpExportCompletionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_120HelpExportCompletionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_120HelpExportCompletionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6007,7 +6007,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_120HelpExportCompletionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_120HelpExportCompletionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_120HelpExportCompletionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

@@ -395,9 +395,9 @@ _ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_3gui10SGUITTFaceEESt10_Sele
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene5SMeshD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 88) (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 136), ptr %add.ptr.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 136), ptr %add.ptr.i, align 8, !tbaa !12
   %MeshBuffers.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !14
@@ -1629,8 +1629,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !129
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 296
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !18
-  store ptr getelementptr inbounds inrange(-24, 208) (i8, ptr @_ZTVN3irr3gui10CGUITTFontE, i64 24), ptr %this, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui10CGUITTFontE, i64 256), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10CGUITTFontE, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10CGUITTFontE, i64 256), ptr %0, align 8, !tbaa !12
   %use_monochrome = getelementptr inbounds i8, ptr %this, i64 8
   store <4 x i8> <i8 0, i8 1, i8 1, i8 1>, ptr %use_monochrome, align 8, !tbaa !126
   %batch_load_size = getelementptr inbounds i8, ptr %this, i64 16
@@ -2484,8 +2484,8 @@ if.then80:                                        ; preds = %_ZNKSt4lessIN3irr4c
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !129
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call81, i64 48
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !18
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 24), ptr %call81, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 64), ptr %105, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 24), ptr %call81, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 64), ptr %105, align 8, !tbaa !12
   %face.i = getelementptr inbounds i8, ptr %call81, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %face.i, i8 0, i64 24, i1 false)
   store ptr %call81, ptr %face, align 8, !tbaa !17
@@ -8223,8 +8223,8 @@ entry:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !129
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 328
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !18
-  store ptr getelementptr inbounds inrange(-24, 264) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %call, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %0, align 8, !tbaa !12
   %ChangedID_Vertex.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %ChangedID_Vertex.i, align 8, !tbaa !300
   %ChangedID_Index.i = getelementptr inbounds i8, ptr %call, i64 12
@@ -10194,9 +10194,9 @@ for.body:                                         ; preds = %entry, %for.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene5SMeshD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 88) (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 136), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 136), ptr %add.ptr.i.i, align 8, !tbaa !12
   %MeshBuffers.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !14
@@ -10341,9 +10341,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 88) (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 136), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 136), ptr %add.ptr.i.i, align 8, !tbaa !12
   %MeshBuffers.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !14
@@ -10413,9 +10413,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 88) (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 136), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 136), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %MeshBuffers.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !14
@@ -10849,9 +10849,9 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui10SGUITTFaceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 64), ptr %add.ptr.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 64), ptr %add.ptr.i, align 8, !tbaa !12
   %face.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %face.i, align 8, !tbaa !156
   %call.i = invoke i32 @FT_Done_Face(ptr noundef %0)
@@ -10881,9 +10881,9 @@ _ZN3irr3gui10SGUITTFaceD2Ev.exit:                 ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui10SGUITTFaceD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %face.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %face.i.i, align 8, !tbaa !156
   %call.i.i = invoke i32 @FT_Done_Face(ptr noundef %0)
@@ -10918,9 +10918,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %face.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %face.i.i, align 8, !tbaa !156
   %call.i.i = invoke i32 @FT_Done_Face(ptr noundef %4)
@@ -10954,9 +10954,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %face.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %face.i.i.i, align 8, !tbaa !156
   %call.i.i.i = invoke i32 @FT_Done_Face(ptr noundef %4)
@@ -13791,9 +13791,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 264) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i, align 8, !tbaa !12
   %Indices.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %Indices.i, align 8, !tbaa !419
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -13860,9 +13860,9 @@ _ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED2Ev.exit: ; preds = %delete.not
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED0Ev(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 264) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !12
   %Indices.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %Indices.i.i, align 8, !tbaa !419
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -13934,9 +13934,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 264) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 312
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !12
   %Indices.i.i = getelementptr inbounds i8, ptr %3, i64 248
   %4 = load ptr, ptr %Indices.i.i, align 8, !tbaa !419
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -14007,9 +14007,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 264) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 312
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %Indices.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
   %4 = load ptr, ptr %Indices.i.i.i, align 8, !tbaa !419
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -14374,8 +14374,8 @@ entry:
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3irr4core6stringIcEEPNS0_3gui10SGUITTFaceESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev, ptr nonnull @_ZN3irr3gui10CGUITTFont7c_facesE, ptr nonnull @__dso_handle) #29
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 72), align 8, !tbaa !129
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 80), align 8, !tbaa !18
-  store ptr getelementptr inbounds inrange(-24, 88) (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 24), ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 136), ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 64), align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 24), ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene5SMeshE, i64 136), ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 64), align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 8), i8 0, i64 24, i1 false)
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 32), align 8, !tbaa !338
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 40), align 8, !tbaa !298

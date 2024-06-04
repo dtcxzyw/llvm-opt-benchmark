@@ -79,8 +79,8 @@ if.end:                                           ; preds = %entry
   %tobool = icmp ne i8 %2, 0
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 74), align 2
   %tobool6 = icmp ne i8 %3, 0
-  %or.cond1 = select i1 %tobool, i1 true, i1 %tobool6
-  br i1 %or.cond1, label %if.then7, label %if.end12
+  %or.cond3 = select i1 %tobool, i1 true, i1 %tobool6
+  br i1 %or.cond3, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %if.end.thread, %if.end
   %4 = load ptr, ptr @stderr, align 8
@@ -306,35 +306,35 @@ if.else21:                                        ; preds = %if.else
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 88), align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %stringValue.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %stringValue.i, ptr noundef nonnull align 1 dereferenceable(5) @__const.createData.stringValue, i64 5, i1 false)
-  %call.i10 = call ptr @udata_create(ptr noundef %37, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @dataInfo, ptr noundef nonnull @.str.8, ptr noundef nonnull %errorCode) #9
+  %call.i12 = call ptr @udata_create(ptr noundef %37, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @dataInfo, ptr noundef nonnull @.str.8, ptr noundef nonnull %errorCode) #9
   %38 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp sgt i32 %38, 0
-  br i1 %cmp.i, label %if.then.i12, label %if.end.i11
+  br i1 %cmp.i, label %if.then.i14, label %if.end.i13
 
-if.then.i12:                                      ; preds = %if.else21
+if.then.i14:                                      ; preds = %if.else21
   %39 = load ptr, ptr @stderr, align 8
   %call1.i = call ptr @u_errorName_75(i32 noundef %38) #9
-  %call2.i13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.9, ptr noundef %call1.i) #10
+  %call2.i15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.9, ptr noundef %call1.i) #10
   %40 = load i32, ptr %errorCode, align 4
   call void @exit(i32 noundef %40) #12
   unreachable
 
-if.end.i11:                                       ; preds = %if.else21
-  call void @udata_write16(ptr noundef %call.i10, i16 noundef zeroext 2000) #9
-  call void @udata_writeString(ptr noundef %call.i10, ptr noundef nonnull %stringValue.i, i32 noundef 5) #9
-  %call3.i = call i32 @udata_finish(ptr noundef %call.i10, ptr noundef nonnull %errorCode) #9
+if.end.i13:                                       ; preds = %if.else21
+  call void @udata_write16(ptr noundef %call.i12, i16 noundef zeroext 2000) #9
+  call void @udata_writeString(ptr noundef %call.i12, ptr noundef nonnull %stringValue.i, i32 noundef 5) #9
+  %call3.i = call i32 @udata_finish(ptr noundef %call.i12, ptr noundef nonnull %errorCode) #9
   %41 = load i32, ptr %errorCode, align 4
   %cmp4.i = icmp sgt i32 %41, 0
   br i1 %cmp4.i, label %if.then6.i, label %if.end8.i
 
-if.then6.i:                                       ; preds = %if.end.i11
+if.then6.i:                                       ; preds = %if.end.i13
   %42 = load ptr, ptr @stderr, align 8
   %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.10, i32 noundef %41) #10
   %43 = load i32, ptr %errorCode, align 4
   call void @exit(i32 noundef %43) #12
   unreachable
 
-if.end8.i:                                        ; preds = %if.end.i11
+if.end8.i:                                        ; preds = %if.end.i13
   %cmp10.not.i = icmp eq i32 %call3.i, 7
   br i1 %cmp10.not.i, label %createData.exit, label %if.then12.i
 

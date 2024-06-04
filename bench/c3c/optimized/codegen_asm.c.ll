@@ -40,240 +40,238 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
-  %5 = add i32 %4, -31
-  %or.cond = icmp ult i32 %5, 2
-  br i1 %or.cond, label %6, label %33
+  switch i32 %4, label %93 [
+    i32 32, label %5
+    i32 31, label %5
+    i32 3, label %32
+  ]
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
-  %8 = load i32, ptr %7, align 8
+5:                                                ; preds = %1, %1
+  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = load i32, ptr %6, align 8
   tail call void @scratch_buffer_clear() #3
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
-  %10 = load ptr, ptr %9, align 8
-  %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %14, label %11
+  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %9 = load ptr, ptr %8, align 8
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %13, label %10
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %10, i64 -8
-  %13 = load i32, ptr %12, align 4
-  br label %14
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i8, ptr %9, i64 -8
+  %12 = load i32, ptr %11, align 4
+  br label %13
 
-14:                                               ; preds = %11, %6
-  %.024.i = phi i32 [ %13, %11 ], [ 0, %6 ]
-  %.not2935.i = icmp eq i32 %8, 0
+13:                                               ; preds = %10, %5
+  %.024.i = phi i32 [ %12, %10 ], [ 0, %5 ]
+  %.not2935.i = icmp eq i32 %7, 0
   br i1 %.not2935.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph38.i
 
-.lr.ph38.i:                                       ; preds = %14, %._crit_edge.i
-  %.02636.i = phi i32 [ %19, %._crit_edge.i ], [ %8, %14 ]
-  %15 = load ptr, ptr @ast_arena, align 8
-  %16 = zext i32 %.02636.i to i64
-  %17 = getelementptr inbounds %struct.Ast_, ptr %15, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
-  %21 = load ptr, ptr %20, align 8
-  tail call void @scratch_buffer_append(ptr noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %17, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %.not30.i = icmp eq ptr %23, null
-  br i1 %.not30.i, label %.thread.i, label %24
+.lr.ph38.i:                                       ; preds = %13, %._crit_edge.i
+  %.02636.i = phi i32 [ %18, %._crit_edge.i ], [ %7, %13 ]
+  %14 = load ptr, ptr @ast_arena, align 8
+  %15 = zext i32 %.02636.i to i64
+  %16 = getelementptr inbounds %struct.Ast_, ptr %14, i64 %15
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = load ptr, ptr %19, align 8
+  tail call void @scratch_buffer_append(ptr noundef %20) #3
+  %21 = getelementptr inbounds i8, ptr %16, i64 32
+  %22 = load ptr, ptr %21, align 8
+  %.not30.i = icmp eq ptr %22, null
+  br i1 %.not30.i, label %.thread.i, label %23
 
 .thread.i:                                        ; preds = %.lr.ph38.i
   tail call void @scratch_buffer_append_char(i8 noundef signext 32) #3
   br label %._crit_edge.i
 
-24:                                               ; preds = %.lr.ph38.i
-  %25 = getelementptr inbounds i8, ptr %23, i64 -8
-  %26 = load i32, ptr %25, align 4
+23:                                               ; preds = %.lr.ph38.i
+  %24 = getelementptr inbounds i8, ptr %22, i64 -8
+  %25 = load i32, ptr %24, align 4
   tail call void @scratch_buffer_append_char(i8 noundef signext 32) #3
-  %.not3133.i = icmp eq i32 %26, 0
+  %.not3133.i = icmp eq i32 %25, 0
   br i1 %.not3133.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %24
-  %27 = zext i32 %26 to i64
+.lr.ph.preheader.i:                               ; preds = %23
+  %26 = zext i32 %25 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %29, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %27, %.lr.ph.preheader.i ], [ %30, %29 ]
-  %.not32.i = icmp eq i64 %indvars.iv.i, %27
-  br i1 %.not32.i, label %29, label %28
+.lr.ph.i:                                         ; preds = %28, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ %26, %.lr.ph.preheader.i ], [ %29, %28 ]
+  %.not32.i = icmp eq i64 %indvars.iv.i, %26
+  br i1 %.not32.i, label %28, label %27
 
-28:                                               ; preds = %.lr.ph.i
+27:                                               ; preds = %.lr.ph.i
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.3) #3
-  br label %29
+  br label %28
 
-29:                                               ; preds = %28, %.lr.ph.i
-  %30 = add nsw i64 %indvars.iv.i, -1
-  %31 = getelementptr inbounds ptr, ptr %23, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  tail call fastcc void @codegen_create_x86att_arg(i32 noundef %.024.i, ptr noundef %32)
-  %.not31.wide.i = icmp eq i64 %30, 0
+28:                                               ; preds = %27, %.lr.ph.i
+  %29 = add nsw i64 %indvars.iv.i, -1
+  %30 = getelementptr inbounds ptr, ptr %22, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  tail call fastcc void @codegen_create_x86att_arg(i32 noundef %.024.i, ptr noundef %31)
+  %.not31.wide.i = icmp eq i64 %29, 0
   br i1 %.not31.wide.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %29, %24, %.thread.i
+._crit_edge.i:                                    ; preds = %28, %23, %.thread.i
   tail call void @scratch_buffer_append_char(i8 noundef signext 10) #3
-  %.not29.i = icmp eq i32 %19, 0
+  %.not29.i = icmp eq i32 %18, 0
   br i1 %.not29.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph38.i, !llvm.loop !9
 
-33:                                               ; preds = %1
-  %34 = icmp eq i32 %4, 3
-  br i1 %34, label %35, label %96
-
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %3, i64 40
-  %37 = load i32, ptr %36, align 8
+32:                                               ; preds = %1
+  %33 = getelementptr inbounds i8, ptr %3, i64 40
+  %34 = load i32, ptr %33, align 8
   tail call void @scratch_buffer_clear() #3
-  %38 = getelementptr inbounds i8, ptr %3, i64 48
-  %39 = load ptr, ptr %38, align 8
-  %.not.i6 = icmp eq ptr %39, null
-  br i1 %.not.i6, label %43, label %40
+  %35 = getelementptr inbounds i8, ptr %3, i64 48
+  %36 = load ptr, ptr %35, align 8
+  %.not.i5 = icmp eq ptr %36, null
+  br i1 %.not.i5, label %40, label %37
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %39, i64 -8
-  %42 = load i32, ptr %41, align 4
-  br label %43
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %36, i64 -8
+  %39 = load i32, ptr %38, align 4
+  br label %40
 
-43:                                               ; preds = %40, %35
-  %.023.i = phi i32 [ %42, %40 ], [ 0, %35 ]
-  %.not2832.i = icmp eq i32 %37, 0
+40:                                               ; preds = %37, %32
+  %.023.i = phi i32 [ %39, %37 ], [ 0, %32 ]
+  %.not2832.i = icmp eq i32 %34, 0
   br i1 %.not2832.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph35.i
 
-.lr.ph35.i:                                       ; preds = %43, %._crit_edge.i12
-  %.02533.i = phi i32 [ %48, %._crit_edge.i12 ], [ %37, %43 ]
-  %44 = load ptr, ptr @ast_arena, align 8
-  %45 = zext i32 %.02533.i to i64
-  %46 = getelementptr inbounds %struct.Ast_, ptr %44, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
-  %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %46, i64 16
-  %50 = load ptr, ptr %49, align 8
-  tail call void @scratch_buffer_append(ptr noundef %50) #3
-  %51 = getelementptr inbounds i8, ptr %46, i64 32
-  %52 = load ptr, ptr %51, align 8
-  %.not29.i7 = icmp eq ptr %52, null
-  br i1 %.not29.i7, label %.thread.i13, label %53
+.lr.ph35.i:                                       ; preds = %40, %._crit_edge.i11
+  %.02533.i = phi i32 [ %45, %._crit_edge.i11 ], [ %34, %40 ]
+  %41 = load ptr, ptr @ast_arena, align 8
+  %42 = zext i32 %.02533.i to i64
+  %43 = getelementptr inbounds %struct.Ast_, ptr %41, i64 %42
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = load i32, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %43, i64 16
+  %47 = load ptr, ptr %46, align 8
+  tail call void @scratch_buffer_append(ptr noundef %47) #3
+  %48 = getelementptr inbounds i8, ptr %43, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %.not29.i6 = icmp eq ptr %49, null
+  br i1 %.not29.i6, label %.thread.i12, label %50
 
-.thread.i13:                                      ; preds = %.lr.ph35.i
+.thread.i12:                                      ; preds = %.lr.ph35.i
   tail call void @scratch_buffer_append_char(i8 noundef signext 32) #3
-  br label %._crit_edge.i12
+  br label %._crit_edge.i11
 
-53:                                               ; preds = %.lr.ph35.i
-  %54 = getelementptr inbounds i8, ptr %52, i64 -8
-  %55 = load i32, ptr %54, align 4
+50:                                               ; preds = %.lr.ph35.i
+  %51 = getelementptr inbounds i8, ptr %49, i64 -8
+  %52 = load i32, ptr %51, align 4
   tail call void @scratch_buffer_append_char(i8 noundef signext 32) #3
-  %.not37.i = icmp eq i32 %55, 0
-  br i1 %.not37.i, label %._crit_edge.i12, label %.lr.ph.preheader.i8
+  %.not37.i = icmp eq i32 %52, 0
+  br i1 %.not37.i, label %._crit_edge.i11, label %.lr.ph.preheader.i7
 
-.lr.ph.preheader.i8:                              ; preds = %53
-  %wide.trip.count.i = zext i32 %55 to i64
-  br label %.lr.ph.i9
+.lr.ph.preheader.i7:                              ; preds = %50
+  %wide.trip.count.i = zext i32 %52 to i64
+  br label %.lr.ph.i8
 
-.lr.ph.i9:                                        ; preds = %codegen_create_aarch64_arg.exit.i, %.lr.ph.preheader.i8
-  %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.preheader.i8 ], [ %indvars.iv.next.i, %codegen_create_aarch64_arg.exit.i ]
-  %.not30.i11 = icmp eq i64 %indvars.iv.i10, 0
-  br i1 %.not30.i11, label %57, label %56
+.lr.ph.i8:                                        ; preds = %codegen_create_aarch64_arg.exit.i, %.lr.ph.preheader.i7
+  %indvars.iv.i9 = phi i64 [ 0, %.lr.ph.preheader.i7 ], [ %indvars.iv.next.i, %codegen_create_aarch64_arg.exit.i ]
+  %.not30.i10 = icmp eq i64 %indvars.iv.i9, 0
+  br i1 %.not30.i10, label %54, label %53
 
-56:                                               ; preds = %.lr.ph.i9
+53:                                               ; preds = %.lr.ph.i8
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.3) #3
-  br label %57
+  br label %54
 
-57:                                               ; preds = %56, %.lr.ph.i9
-  %58 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv.i10
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
-  %61 = load i64, ptr %60, align 8
-  %62 = trunc i64 %61 to i8
-  switch i8 %62, label %95 [
-    i8 6, label %63
-    i8 0, label %66
-    i8 5, label %71
-    i8 4, label %77
-    i8 2, label %77
-    i8 1, label %93
-    i8 3, label %94
+54:                                               ; preds = %53, %.lr.ph.i8
+  %55 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv.i9
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %58 = load i64, ptr %57, align 8
+  %59 = trunc i64 %58 to i8
+  switch i8 %59, label %92 [
+    i8 6, label %60
+    i8 0, label %63
+    i8 5, label %68
+    i8 4, label %74
+    i8 2, label %74
+    i8 1, label %90
+    i8 3, label %91
   ]
 
-63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %59, i64 32
-  %65 = load i64, ptr %64, align 8
-  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %65) #3
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds i8, ptr %56, i64 32
+  %62 = load i64, ptr %61, align 8
+  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %62) #3
   br label %codegen_create_aarch64_arg.exit.i
 
-66:                                               ; preds = %57
-  %67 = getelementptr inbounds i8, ptr %59, i64 32
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 1
-  tail call void @scratch_buffer_append(ptr noundef nonnull %70) #3
+63:                                               ; preds = %54
+  %64 = getelementptr inbounds i8, ptr %56, i64 32
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 1
+  tail call void @scratch_buffer_append(ptr noundef nonnull %67) #3
   br label %codegen_create_aarch64_arg.exit.i
 
-71:                                               ; preds = %57
+68:                                               ; preds = %54
   tail call void @scratch_buffer_append_char(i8 noundef signext 36) #3
-  %72 = load i64, ptr %60, align 8
-  %73 = trunc i64 %72 to i32
-  %74 = lshr i32 %73, 16
-  %75 = add i32 %74, %.023.i
-  %76 = zext i32 %75 to i64
-  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %76) #3
+  %69 = load i64, ptr %57, align 8
+  %70 = trunc i64 %69 to i32
+  %71 = lshr i32 %70, 16
+  %72 = add i32 %71, %.023.i
+  %73 = zext i32 %72 to i64
+  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %73) #3
   br label %codegen_create_aarch64_arg.exit.i
 
-77:                                               ; preds = %57, %57
+74:                                               ; preds = %54, %54
   tail call void @scratch_buffer_append_char(i8 noundef signext 36) #3
-  %78 = getelementptr inbounds i8, ptr %59, i64 40
-  %79 = load i8, ptr %78, align 8
-  %80 = and i8 %79, 4
-  %.not.i.i = icmp eq i8 %80, 0
-  br i1 %.not.i.i, label %89, label %81
+  %75 = getelementptr inbounds i8, ptr %56, i64 40
+  %76 = load i8, ptr %75, align 8
+  %77 = and i8 %76, 4
+  %.not.i.i = icmp eq i8 %77, 0
+  br i1 %.not.i.i, label %86, label %78
 
-81:                                               ; preds = %77
-  %82 = trunc i8 %79 to i1
-  br i1 %82, label %89, label %83
+78:                                               ; preds = %74
+  %79 = trunc i8 %76 to i1
+  br i1 %79, label %86, label %80
 
-83:                                               ; preds = %81
-  %84 = load i64, ptr %60, align 8
-  %85 = trunc i64 %84 to i32
-  %86 = lshr i32 %85, 16
-  %87 = add i32 %86, %.023.i
-  %88 = zext i32 %87 to i64
-  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %88) #3
+80:                                               ; preds = %78
+  %81 = load i64, ptr %57, align 8
+  %82 = trunc i64 %81 to i32
+  %83 = lshr i32 %82, 16
+  %84 = add i32 %83, %.023.i
+  %85 = zext i32 %84 to i64
+  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %85) #3
   br label %codegen_create_aarch64_arg.exit.i
 
-89:                                               ; preds = %81, %77
-  %90 = load i64, ptr %60, align 8
-  %91 = lshr i64 %90, 16
-  %92 = and i64 %91, 65535
-  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %92) #3
+86:                                               ; preds = %78, %74
+  %87 = load i64, ptr %57, align 8
+  %88 = lshr i64 %87, 16
+  %89 = and i64 %88, 65535
+  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %89) #3
   br label %codegen_create_aarch64_arg.exit.i
 
-93:                                               ; preds = %57
+90:                                               ; preds = %54
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.codegen_create_aarch64_arg, ptr noundef nonnull @.str.2, i32 noundef 108) #4
   unreachable
 
-94:                                               ; preds = %57
+91:                                               ; preds = %54
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.codegen_create_aarch64_arg, ptr noundef nonnull @.str.2, i32 noundef 110) #4
   unreachable
 
-95:                                               ; preds = %57
+92:                                               ; preds = %54
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.codegen_create_aarch64_arg, ptr noundef nonnull @.str.2, i32 noundef 112) #4
   unreachable
 
-codegen_create_aarch64_arg.exit.i:                ; preds = %89, %83, %71, %66, %63
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i10, 1
+codegen_create_aarch64_arg.exit.i:                ; preds = %86, %80, %68, %63, %60
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i12, label %.lr.ph.i9, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i11, label %.lr.ph.i8, !llvm.loop !10
 
-._crit_edge.i12:                                  ; preds = %codegen_create_aarch64_arg.exit.i, %53, %.thread.i13
+._crit_edge.i11:                                  ; preds = %codegen_create_aarch64_arg.exit.i, %50, %.thread.i12
   tail call void @scratch_buffer_append_char(i8 noundef signext 10) #3
-  %.not28.i = icmp eq i32 %48, 0
+  %.not28.i = icmp eq i32 %45, 0
   br i1 %.not28.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph35.i, !llvm.loop !11
 
-96:                                               ; preds = %33
+93:                                               ; preds = %1
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.codegen_create_asm, ptr noundef nonnull @.str.2, i32 noundef 177) #4
   unreachable
 
-codegen_create_x86_att_asm.exit:                  ; preds = %._crit_edge.i12, %._crit_edge.i, %43, %14
-  %97 = tail call ptr @scratch_buffer_to_string() #3
-  ret ptr %97
+codegen_create_x86_att_asm.exit:                  ; preds = %._crit_edge.i11, %._crit_edge.i, %40, %13
+  %94 = tail call ptr @scratch_buffer_to_string() #3
+  ret ptr %94
 }
 
 declare void @scratch_buffer_clear() local_unnamed_addr #1

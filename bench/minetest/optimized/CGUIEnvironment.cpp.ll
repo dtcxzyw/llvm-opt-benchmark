@@ -300,7 +300,7 @@ cond.end:                                         ; preds = %cond.true, %entry
   %ref.tmp3.sroa.0.0 = phi i32 [ %6, %cond.true ], [ 0, %entry ]
   %ref.tmp3.sroa.5.0 = phi i32 [ %7, %cond.true ], [ 0, %entry ]
   %8 = getelementptr inbounds i8, ptr %vtt, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %4, align 8, !tbaa !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %4, align 8, !tbaa !11
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %4, align 8, !tbaa !11
   %10 = getelementptr inbounds i8, ptr %vtt, i64 32
@@ -688,8 +688,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !88
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 536
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !78
-  store ptr getelementptr inbounds inrange(-24, 328) (i8, ptr @_ZTCN3irr3gui15CGUIEnvironmentE0_NS0_15IGUIEnvironmentE, i64 24), ptr %this, align 8, !tbaa !11
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr3gui15CGUIEnvironmentE0_NS0_15IGUIEnvironmentE, i64 376), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr3gui15CGUIEnvironmentE0_NS0_15IGUIEnvironmentE, i64 24), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr3gui15CGUIEnvironmentE0_NS0_15IGUIEnvironmentE, i64 376), ptr %0, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %tobool.not = icmp eq ptr %driver, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -779,9 +779,9 @@ cond.end:                                         ; preds = %cond.true, %entry
   %Type.i = getelementptr inbounds i8, ptr %this, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %AlignLeft.i, i8 0, i64 24, i1 false)
   store i32 24, ptr %Type.i, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-24, 344) (i8, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 24), ptr %this, align 8, !tbaa !11
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 704), ptr %0, align 8, !tbaa !11
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 392), ptr %1, align 8, !tbaa !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 24), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 704), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui15CGUIEnvironmentE, i64 392), ptr %1, align 8, !tbaa !11
   %Fonts = getelementptr inbounds i8, ptr %this, i64 344
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Fonts, i8 0, i64 24, i1 false)

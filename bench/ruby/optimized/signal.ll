@@ -2123,8 +2123,8 @@ ruby_signal.exit.thread:                          ; preds = %17
   br label %51
 
 32:                                               ; preds = %27
-  %.not14 = icmp eq ptr %.010.i, null
-  br i1 %.not14, label %51, label %33
+  %.not15 = icmp eq ptr %.010.i, null
+  br i1 %.not15, label %51, label %33
 
 33:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4)
@@ -2133,18 +2133,18 @@ ruby_signal.exit.thread:                          ; preds = %17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %34 = getelementptr inbounds i8, ptr %4, i64 8
   %35 = call i32 @sigemptyset(ptr noundef nonnull %34) #16
-  %switch.i15 = icmp ult ptr %.010.i, inttoptr (i64 2 to ptr)
-  %spec.select.i16 = select i1 %switch.i15, i32 0, i32 4
+  %switch.i16 = icmp ult ptr %.010.i, inttoptr (i64 2 to ptr)
+  %spec.select.i17 = select i1 %switch.i16, i32 0, i32 4
   store ptr %.010.i, ptr %4, align 8
   %36 = getelementptr inbounds i8, ptr %4, i64 136
-  store i32 %spec.select.i16, ptr %36, align 8
+  store i32 %spec.select.i17, ptr %36, align 8
   switch i32 %0, label %39 [
     i32 11, label %37
     i32 7, label %37
   ]
 
 37:                                               ; preds = %33, %33
-  %38 = or disjoint i32 %spec.select.i16, 134217728
+  %38 = or disjoint i32 %spec.select.i17, 134217728
   store i32 %38, ptr %36, align 8
   br label %39
 
@@ -2163,26 +2163,26 @@ ruby_signal.exit.thread:                          ; preds = %17
   store volatile i64 0, ptr %45, align 8
   %46 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #16, !srcloc !16
   store volatile i64 %46, ptr %7, align 8
-  %.0..0..0..0..0..0..i17 = load volatile i64, ptr %7, align 8
+  %.0..0..0..0..0..0..i18 = load volatile i64, ptr %7, align 8
   %47 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
   %48 = icmp slt i32 %47, 0
-  br i1 %48, label %ruby_signal.exit20, label %49
+  br i1 %48, label %ruby_signal.exit21, label %49
 
 49:                                               ; preds = %39
-  %.010.i18 = load ptr, ptr %5, align 8
-  %50 = icmp ne ptr %.010.i18, inttoptr (i64 -1 to ptr)
+  %.010.i19 = load ptr, ptr %5, align 8
+  %50 = icmp ne ptr %.010.i19, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %50)
-  br label %ruby_signal.exit20
+  br label %ruby_signal.exit21
 
-ruby_signal.exit20:                               ; preds = %39, %49
+ruby_signal.exit21:                               ; preds = %39, %49
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %51
 
-51:                                               ; preds = %ruby_signal.exit.thread, %29, %ruby_signal.exit20, %32
-  %.0 = phi i32 [ 0, %32 ], [ 0, %ruby_signal.exit20 ], [ 0, %29 ], [ -1, %ruby_signal.exit.thread ]
+51:                                               ; preds = %ruby_signal.exit.thread, %29, %ruby_signal.exit21, %32
+  %.0 = phi i32 [ 0, %32 ], [ 0, %ruby_signal.exit21 ], [ 0, %29 ], [ -1, %ruby_signal.exit.thread ]
   ret i32 %.0
 }
 

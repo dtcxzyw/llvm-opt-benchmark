@@ -134,30 +134,30 @@ _ZN19EAThreadDynamicDataD2Ev.exit:                ; preds = %if.then, %if.then.i
   br label %if.end4
 
 if.else:                                          ; preds = %entry
-  br i1 %cmp.not.i, label %_ZN19EAThreadDynamicDataD2Ev.exit12, label %if.then.i8
+  br i1 %cmp.not.i, label %_ZN19EAThreadDynamicDataD2Ev.exit13, label %if.then.i9
 
-if.then.i8:                                       ; preds = %if.else
-  %call.i9 = tail call i32 @pthread_detach(i64 noundef %0) #23
-  br label %_ZN19EAThreadDynamicDataD2Ev.exit12
+if.then.i9:                                       ; preds = %if.else
+  %call.i10 = tail call i32 @pthread_detach(i64 noundef %0) #23
+  br label %_ZN19EAThreadDynamicDataD2Ev.exit13
 
-_ZN19EAThreadDynamicDataD2Ev.exit12:              ; preds = %if.else, %if.then.i8
-  %mStartedSemaphore.i10 = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 192
+_ZN19EAThreadDynamicDataD2Ev.exit13:              ; preds = %if.else, %if.then.i9
+  %mStartedSemaphore.i11 = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pEAThreadDynamicData, i8 0, i64 20, i1 false)
-  tail call void @_ZN2EA6Thread9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mStartedSemaphore.i10) #23
-  %mRunMutex.i11 = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 144
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i11) #23
+  tail call void @_ZN2EA6Thread9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mStartedSemaphore.i11) #23
+  %mRunMutex.i12 = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 144
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i12) #23
   %2 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %delete.notnull, label %if.then2
 
-if.then2:                                         ; preds = %_ZN19EAThreadDynamicDataD2Ev.exit12
+if.then2:                                         ; preds = %_ZN19EAThreadDynamicDataD2Ev.exit13
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %pEAThreadDynamicData, i64 noundef 0)
   br label %if.end4
 
-delete.notnull:                                   ; preds = %_ZN19EAThreadDynamicDataD2Ev.exit12
+delete.notnull:                                   ; preds = %_ZN19EAThreadDynamicDataD2Ev.exit13
   tail call void @_ZdaPv(ptr noundef nonnull %pEAThreadDynamicData) #25
   br label %if.end4
 

@@ -1007,7 +1007,8 @@ lpad:                                             ; preds = %_ZN10LogMessageC2EP
   br label %common.resume
 
 if.end5:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTHN3re25hooks7contextE, ptr null), label %3, label %_ZTWN3re25hooks7contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN3re25hooks7contextE, null
+  br i1 %.not.i, label %_ZTWN3re25hooks7contextE.exit, label %3
 
 3:                                                ; preds = %if.end5
   tail call void @_ZTHN3re25hooks7contextE()

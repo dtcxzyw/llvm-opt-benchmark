@@ -225,9 +225,9 @@ define void @_ZN3gmx24DensityFittingModuleInfo6createEv(ptr dead_on_unwind noali
   %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #19, !noalias !5
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(744) %3, i8 0, i64 728, i1 false), !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_114DensityFittingE, i64 16), ptr %2, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_114DensityFittingE, i64 16), ptr %2, align 8, !noalias !5
   %4 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx28DensityFittingOutputProviderE, i64 16), ptr %4, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx28DensityFittingOutputProviderE, i64 16), ptr %4, align 8, !noalias !5
   invoke void @_ZN3gmx21DensityFittingOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(656) %3)
           to label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_114DensityFittingESt14default_deleteIS2_EED2Ev.exit unwind label %5, !noalias !5
 
@@ -279,7 +279,7 @@ define linkonce_odr void @_ZN3gmx21DensityFittingOptionsC2Ev(ptr noundef nonnull
   %15 = alloca %"class.std::allocator", align 1
   %16 = alloca %"class.std::allocator", align 1
   %17 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx21DensityFittingOptionsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx21DensityFittingOptionsE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #21
   %19 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %18)
@@ -1222,8 +1222,8 @@ _ZN3gmx12_GLOBAL__N_138DensityFittingSimulationParameterSetup28readReferenceDens
           to label %71 unwind label %.thread5.i
 
 71:                                               ; preds = %70
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %17, align 8
   %72 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx12_GLOBAL__N_138DensityFittingSimulationParameterSetup25normalizeReferenceDensityEv, ptr %72, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 16
@@ -1298,8 +1298,8 @@ _ZN3gmx12_GLOBAL__N_138DensityFittingSimulationParameterSetup25normalizeReferenc
           to label %91 unwind label %.thread5.i13, !noalias !14
 
 91:                                               ; preds = %90
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %12, align 8, !noalias !14
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %14, align 8, !noalias !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %12, align 8, !noalias !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %14, align 8, !noalias !14
   %92 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr @__PRETTY_FUNCTION__._ZNK3gmx12_GLOBAL__N_138DensityFittingSimulationParameterSetup16referenceDensityEv, ptr %92, align 8, !noalias !14
   %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds i8, ptr %14, i64 16
@@ -1369,8 +1369,8 @@ _ZNK3gmx12_GLOBAL__N_138DensityFittingSimulationParameterSetup16referenceDensity
           to label %107 unwind label %.thread5.i20
 
 107:                                              ; preds = %106
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %11, align 8
   %108 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr @__PRETTY_FUNCTION__._ZNK3gmx12_GLOBAL__N_138DensityFittingSimulationParameterSetup30transformationToDensityLatticeEv, ptr %108, align 8
   %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %11, i64 16
@@ -1434,8 +1434,8 @@ _ZNK3gmx12_GLOBAL__N_138DensityFittingSimulationParameterSetup30transformationTo
           to label %120 unwind label %.thread5.i28
 
 120:                                              ; preds = %119
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
   %121 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @__PRETTY_FUNCTION__._ZNK3gmx12_GLOBAL__N_138DensityFittingSimulationParameterSetup12localAtomSetEv, ptr %121, align 8
   %.sroa.2.0..sroa_idx.i29 = getelementptr inbounds i8, ptr %8, i64 16
@@ -1499,8 +1499,8 @@ _ZNK3gmx12_GLOBAL__N_138DensityFittingSimulationParameterSetup12localAtomSetEv.e
           to label %133 unwind label %.thread5.i36
 
 133:                                              ; preds = %132
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx12_GLOBAL__N_138DensityFittingSimulationParameterSetup29periodicBoundaryConditionTypeEv, ptr %134, align 8
   %.sroa.2.0..sroa_idx.i37 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2819,7 +2819,7 @@ define linkonce_odr void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocatio
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -2867,7 +2867,7 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   store ptr null, ptr %22, align 8
   store <2 x ptr> %23, ptr %20, align 8
   store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -2924,7 +2924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

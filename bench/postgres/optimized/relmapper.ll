@@ -1179,11 +1179,11 @@ define dso_local void @AtPrepare_RelationMap() local_unnamed_addr #1 {
   %or.cond = select i1 %2, i1 true, i1 %4
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @pending_shared_updates, i64 4), align 4
   %6 = icmp ne i32 %5, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %6
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %6
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @pending_local_updates, i64 4), align 4
   %8 = icmp ne i32 %7, 0
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %8
-  br i1 %or.cond5, label %9, label %13
+  %or.cond8 = select i1 %or.cond5, i1 true, i1 %8
+  br i1 %or.cond8, label %9, label %13
 
 9:                                                ; preds = %0
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -1292,11 +1292,11 @@ define dso_local void @RestoreRelationMap(ptr nocapture noundef readonly %0) loc
   %or.cond = select i1 %3, i1 true, i1 %5
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @pending_shared_updates, i64 4), align 4
   %7 = icmp ne i32 %6, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %7
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %7
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @pending_local_updates, i64 4), align 4
   %9 = icmp ne i32 %8, 0
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %9
-  br i1 %or.cond5, label %10, label %13
+  %or.cond8 = select i1 %or.cond5, i1 true, i1 %9
+  br i1 %or.cond8, label %10, label %13
 
 10:                                               ; preds = %1
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12

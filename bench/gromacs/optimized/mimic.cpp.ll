@@ -2015,7 +2015,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
 
 1024:                                             ; preds = %1020
   %1025 = call ptr @__cxa_allocate_exception(i64 8) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %1025, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %1025, align 8
   invoke void @__cxa_throw(ptr nonnull %1025, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
           to label %.noexc183 unwind label %.loopexit.split-lp.loopexit.split-lp
 

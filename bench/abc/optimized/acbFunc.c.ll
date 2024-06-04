@@ -14372,14 +14372,14 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 
 271:                                              ; preds = %Vec_StrPush.exit
   %272 = getelementptr i8, ptr %20, i64 4
-  %.val1415.i.i = load i32, ptr %272, align 4
-  %273 = icmp sgt i32 %.val1415.i.i, 0
+  %.val1516.i.i = load i32, ptr %272, align 4
+  %273 = icmp sgt i32 %.val1516.i.i, 0
   %274 = getelementptr i8, ptr %20, i64 8
   %.val.i.i = load ptr, ptr %274, align 8
   br i1 %273, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %271
-  %275 = zext nneg i32 %.val1415.i.i to i64
+  %275 = zext nneg i32 %.val1516.i.i to i64
   br label %276
 
 276:                                              ; preds = %280, %.lr.ph.i.i
@@ -15205,14 +15205,14 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 
 130:                                              ; preds = %Vec_StrPush.exit
   %131 = getelementptr i8, ptr %10, i64 4
-  %.val1415.i.i = load i32, ptr %131, align 4
-  %132 = icmp sgt i32 %.val1415.i.i, 0
+  %.val1516.i.i = load i32, ptr %131, align 4
+  %132 = icmp sgt i32 %.val1516.i.i, 0
   %133 = getelementptr i8, ptr %10, i64 8
   %.val.i.i = load ptr, ptr %133, align 8
   br i1 %132, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %130
-  %134 = zext nneg i32 %.val1415.i.i to i64
+  %134 = zext nneg i32 %.val1516.i.i to i64
   br label %135
 
 135:                                              ; preds = %139, %.lr.ph.i.i
@@ -17702,13 +17702,13 @@ Vec_StrFreeP.exit:                                ; preds = %450, %.thread.i238
   br label %Vec_StrFreeP.exit243
 
 Vec_StrFreeP.exit243:                             ; preds = %.thread.i242, %Vec_StrFreeP.exit
-  %.val1415.i.i = load i32, ptr %111, align 4
-  %461 = icmp sgt i32 %.val1415.i.i, 0
+  %.val1516.i.i = load i32, ptr %111, align 4
+  %461 = icmp sgt i32 %.val1516.i.i, 0
   %.pre = load ptr, ptr %117, align 8
   br i1 %461, label %.lr.ph.i.i245.preheader, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i245.preheader:                          ; preds = %Vec_StrFreeP.exit243
-  %462 = zext nneg i32 %.val1415.i.i to i64
+  %462 = zext nneg i32 %.val1516.i.i to i64
   br label %.lr.ph.i.i245
 
 .lr.ph.i.i245:                                    ; preds = %.lr.ph.i.i245.preheader, %466
@@ -17808,8 +17808,8 @@ Vec_IntFreeP.exit257:                             ; preds = %Vec_IntFree.exit252
 
 482:                                              ; preds = %Vec_IntFreeP.exit257
   %483 = getelementptr i8, ptr %.1149, i64 4
-  %.val1415.i.i258 = load i32, ptr %483, align 4
-  %484 = icmp sgt i32 %.val1415.i.i258, 0
+  %.val1516.i.i258 = load i32, ptr %483, align 4
+  %484 = icmp sgt i32 %.val1516.i.i258, 0
   br i1 %484, label %.lr.ph.i.i262, label %Vec_PtrFreeData.exit.i259
 
 .lr.ph.i.i262:                                    ; preds = %482
@@ -17817,7 +17817,7 @@ Vec_IntFreeP.exit257:                             ; preds = %Vec_IntFree.exit252
   br label %486
 
 486:                                              ; preds = %490, %.lr.ph.i.i262
-  %.val1418.i.i263 = phi i32 [ %.val1415.i.i258, %.lr.ph.i.i262 ], [ %.val14.i.i268, %490 ]
+  %.val1519.i.i263 = phi i32 [ %.val1516.i.i258, %.lr.ph.i.i262 ], [ %.val15.i.i268, %490 ]
   %indvars.iv.i.i264 = phi i64 [ 0, %.lr.ph.i.i262 ], [ %indvars.iv.next.i.i269, %490 ]
   %.val.i.i265 = load ptr, ptr %485, align 8
   %487 = getelementptr inbounds ptr, ptr %.val.i.i265, i64 %indvars.iv.i.i264
@@ -17827,13 +17827,13 @@ Vec_IntFreeP.exit257:                             ; preds = %Vec_IntFree.exit252
 
 489:                                              ; preds = %486
   call void @free(ptr noundef %488) #31
-  %.val14.pre.i.i267 = load i32, ptr %483, align 4
+  %.val15.pre.i.i267 = load i32, ptr %483, align 4
   br label %490
 
 490:                                              ; preds = %489, %486
-  %.val14.i.i268 = phi i32 [ %.val1418.i.i263, %486 ], [ %.val14.pre.i.i267, %489 ]
+  %.val15.i.i268 = phi i32 [ %.val1519.i.i263, %486 ], [ %.val15.pre.i.i267, %489 ]
   %indvars.iv.next.i.i269 = add nuw nsw i64 %indvars.iv.i.i264, 1
-  %491 = sext i32 %.val14.i.i268 to i64
+  %491 = sext i32 %.val15.i.i268 to i64
   %492 = icmp slt i64 %indvars.iv.next.i.i269, %491
   br i1 %492, label %486, label %Vec_PtrFreeData.exit.i259, !llvm.loop !157
 

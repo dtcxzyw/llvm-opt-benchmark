@@ -918,10 +918,10 @@ setOne.exit149.i:                                 ; preds = %400
   unreachable
 
 init.exit:                                        ; preds = %432
-  %.b415 = load i1, ptr @opts.8, align 8
+  %.b416 = load i1, ptr @opts.8, align 8
   %441 = load ptr, ptr @opts.11, align 8
-  %.str.2..str.1 = select i1 %.b415, ptr @.str.1, ptr @.str.2
-  %undirfn.dirfn = select i1 %.b415, ptr @dirfn, ptr @undirfn
+  %.str.2..str.1 = select i1 %.b416, ptr @.str.1, ptr @.str.2
+  %undirfn.dirfn = select i1 %.b416, ptr @dirfn, ptr @undirfn
   %442 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %433, ptr noundef nonnull %.str.2..str.1, ptr noundef %441) #9
   switch i32 %.0.i, label %513 [
     i32 1, label %443
@@ -946,8 +946,8 @@ init.exit:                                        ; preds = %432
 443:                                              ; preds = %init.exit
   %444 = load i32, ptr @opts.0, align 8
   %445 = load i32, ptr @opts.1, align 8
-  %.b413 = load i1, ptr @opts.7, align 8
-  %446 = zext i1 %.b413 to i32
+  %.b414 = load i1, ptr @opts.7, align 8
+  %446 = zext i1 %.b414 to i32
   %.b = load i1, ptr @opts.6, align 8
   %447 = zext i1 %.b to i32
   tail call void @makeSquareGrid(i32 noundef %444, i32 noundef %445, i32 noundef %446, i32 noundef %447, ptr noundef nonnull %undirfn.dirfn) #9
@@ -1047,20 +1047,20 @@ init.exit:                                        ; preds = %432
   %490 = load i32, ptr @opts.0, align 8
   %491 = tail call ptr @makeTreeGen(i32 noundef %490) #9
   %492 = load i32, ptr @opts.2, align 8
-  %.not31159 = icmp slt i32 %492, 1
-  br i1 %.not31159, label %._crit_edge, label %.lr.ph
+  %.not32160 = icmp slt i32 %492, 1
+  br i1 %.not32160, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %489, %closeOpen.exit
-  %.029160 = phi i32 [ %500, %closeOpen.exit ], [ 1, %489 ]
+  %.030161 = phi i32 [ %500, %closeOpen.exit ], [ 1, %489 ]
   tail call void @makeRandomTree(ptr noundef %491, ptr noundef nonnull %undirfn.dirfn) #9
   %493 = load i32, ptr @opts.2, align 8
-  %.not32 = icmp eq i32 %.029160, %493
-  br i1 %.not32, label %closeOpen.exit, label %494
+  %.not33 = icmp eq i32 %.030161, %493
+  br i1 %.not33, label %closeOpen.exit, label %494
 
 494:                                              ; preds = %.lr.ph
-  %.b414 = load i1, ptr @opts.8, align 8
+  %.b415 = load i1, ptr @opts.8, align 8
   %495 = load ptr, ptr @opts.9, align 8
-  br i1 %.b414, label %496, label %498
+  br i1 %.b415, label %496, label %498
 
 496:                                              ; preds = %494
   %497 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 12, i64 1, ptr %495)
@@ -1071,10 +1071,10 @@ init.exit:                                        ; preds = %432
   br label %closeOpen.exit
 
 closeOpen.exit:                                   ; preds = %498, %496, %.lr.ph
-  %500 = add nuw nsw i32 %.029160, 1
+  %500 = add nuw nsw i32 %.030161, 1
   %501 = load i32, ptr @opts.2, align 8
-  %.not31.not = icmp slt i32 %.029160, %501
-  br i1 %.not31.not, label %.lr.ph, label %._crit_edge
+  %.not32.not = icmp slt i32 %.030161, %501
+  br i1 %.not32.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %closeOpen.exit, %489
   tail call void @freeTreeGen(ptr noundef %491) #9

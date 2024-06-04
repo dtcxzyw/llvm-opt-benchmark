@@ -460,7 +460,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16SetColorMaskStepC1Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %_color_mask) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV16SetColorMaskStep, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16SetColorMaskStep, i64 40), ptr %this, align 8, !tbaa !12
   %color_mask = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %_color_mask, ptr %color_mask, align 8, !tbaa !14
   ret void
@@ -549,7 +549,7 @@ define dso_local void @_ZN22ClearDepthBufferTargetC1EP12RenderTarget(ptr nocaptu
 entry:
   %m_clear.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_clear.i, align 8, !tbaa !41
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV22ClearDepthBufferTarget, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ClearDepthBufferTarget, i64 40), ptr %this, align 8, !tbaa !12
   %target = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %_target, ptr %target, align 8, !tbaa !43
   ret void
@@ -612,7 +612,7 @@ entry:
   %frombool = zext i1 %_enable to i8
   %m_clear.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_clear.i, align 8, !tbaa !41
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV31ConfigureOverrideMaterialTarget, i64 40), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV31ConfigureOverrideMaterialTarget, i64 40), ptr %this, align 8, !tbaa !12
   %upstream = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %_upstream, ptr %upstream, align 8, !tbaa !45
   %enable = getelementptr inbounds i8, ptr %this, i64 24
@@ -689,7 +689,7 @@ _ZNSt10unique_ptrI10RenderStepSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNK
   store ptr %3, ptr %add.ptr.i.i.i.i, align 8, !tbaa !12, !noalias !51
   %m_clear.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 1, ptr %m_clear.i.i.i.i, align 8, !tbaa !41, !noalias !51
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV12ScreenTarget, i64 40), ptr %call.i.i, align 8, !tbaa !12, !noalias !51
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12ScreenTarget, i64 40), ptr %call.i.i, align 8, !tbaa !12, !noalias !51
   %size.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %size.i.i.i, align 4, !tbaa !54, !noalias !51
   %Height.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
@@ -739,7 +739,7 @@ _ZN14RenderPipeline11createOwnedI12ScreenTargetJEEEPT_DpOT0_.exit: ; preds = %_Z
   %call.i.i40 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !57
   %m_clear.i.i.i.i41 = getelementptr inbounds i8, ptr %call.i.i40, i64 8
   store i8 1, ptr %m_clear.i.i.i.i41, align 8, !tbaa !41, !noalias !57
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV22ClearDepthBufferTarget, i64 40), ptr %call.i.i40, align 8, !tbaa !12, !noalias !57
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ClearDepthBufferTarget, i64 40), ptr %call.i.i40, align 8, !tbaa !12, !noalias !57
   %target.i.i.i = getelementptr inbounds i8, ptr %call.i.i40, i64 16
   store ptr %call.i, ptr %target.i.i.i, align 8, !tbaa !43, !noalias !57
   store ptr %call.i.i40, ptr %ref.tmp.i39, align 8, !tbaa !50, !alias.scope !57
@@ -783,7 +783,7 @@ _ZN14RenderPipeline11createOwnedI22ClearDepthBufferTargetJRP12ScreenTargetEEEPT_
   %call.i.i52 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !60
   %m_clear.i.i.i.i53 = getelementptr inbounds i8, ptr %call.i.i52, i64 8
   store i8 1, ptr %m_clear.i.i.i.i53, align 8, !tbaa !41, !noalias !60
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV31ConfigureOverrideMaterialTarget, i64 40), ptr %call.i.i52, align 8, !tbaa !12, !noalias !60
+  store ptr getelementptr inbounds (i8, ptr @_ZTV31ConfigureOverrideMaterialTarget, i64 40), ptr %call.i.i52, align 8, !tbaa !12, !noalias !60
   %upstream.i.i.i = getelementptr inbounds i8, ptr %call.i.i52, i64 16
   store ptr %call.i42, ptr %upstream.i.i.i, align 8, !tbaa !45, !noalias !60
   %enable.i.i.i = getelementptr inbounds i8, ptr %call.i.i52, i64 24
@@ -1337,7 +1337,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !94
   %0 = load i32, ptr %args, align 4, !tbaa !64, !noalias !94
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV16SetColorMaskStep, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !94
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16SetColorMaskStep, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !94
   %color_mask.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %0, ptr %color_mask.i.i, align 8, !tbaa !14, !noalias !94
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !50, !alias.scope !94
@@ -1458,7 +1458,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !97
   %0 = load i32, ptr %args, align 4, !tbaa !70, !noalias !97
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV16SetColorMaskStep, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !97
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16SetColorMaskStep, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !97
   %color_mask.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %0, ptr %color_mask.i.i, align 8, !tbaa !14, !noalias !97
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !50, !alias.scope !97
@@ -1716,7 +1716,7 @@ entry:
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8, !noalias !103
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 %vbase.offset.i.i.i
   store ptr %1, ptr %add.ptr.i.i.i, align 8, !tbaa !12, !noalias !103
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV9DrawWield, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !103
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9DrawWield, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !103
   %m_target.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %m_target.i.i, align 8, !tbaa !106, !noalias !103
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !50, !alias.scope !103
@@ -1849,7 +1849,7 @@ entry:
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8, !noalias !108
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 %vbase.offset.i.i.i
   store ptr %3, ptr %add.ptr.i.i.i, align 8, !tbaa !12, !noalias !108
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV13MapPostFxStep, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !108
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MapPostFxStep, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !108
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !50, !alias.scope !108
   %call = invoke noundef ptr @_ZN14RenderPipeline3ownI13MapPostFxStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1967,7 +1967,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23, !noalias !111
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV7DrawHUD, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !111
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7DrawHUD, i64 40), ptr %call.i, align 8, !tbaa !12, !noalias !111
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !50, !alias.scope !111
   %call = invoke noundef ptr @_ZN14RenderPipeline3ownI7DrawHUDEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad

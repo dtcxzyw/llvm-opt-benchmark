@@ -2746,57 +2746,57 @@ define dso_local ptr @llvm_get_ref(ptr noundef %0, ptr noundef %1) local_unnamed
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %73, %2
-  %.tr62 = phi ptr [ %1, %2 ], [ %75, %73 ]
-  %4 = getelementptr inbounds i8, ptr %.tr62, i64 32
+tailrecurse:                                      ; preds = %69, %2
+  %.tr59 = phi ptr [ %1, %2 ], [ %71, %69 ]
+  %4 = getelementptr inbounds i8, ptr %.tr59, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %tailrecurse
   %7 = tail call ptr @LLVMIsAGlobalValue(ptr noundef nonnull %5) #10
-  %.not51 = icmp eq ptr %7, null
-  br i1 %.not51, label %common.ret169, label %8
+  %.not44 = icmp eq ptr %7, null
+  br i1 %.not44, label %common.ret166, label %8
 
 8:                                                ; preds = %6
   %9 = tail call ptr @LLVMGetGlobalParent(ptr noundef nonnull %5) #10
   %10 = load ptr, ptr %3, align 8
   %11 = icmp eq ptr %9, %10
-  br i1 %11, label %common.ret169, label %12
+  br i1 %11, label %common.ret166, label %12
 
 12:                                               ; preds = %8, %tailrecurse
-  %13 = getelementptr inbounds i8, ptr %.tr62, i64 24
+  %13 = getelementptr inbounds i8, ptr %.tr59, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = trunc i64 %14 to i32
   %16 = and i32 %15, 127
-  switch i32 %16, label %88 [
+  switch i32 %16, label %84 [
     i32 13, label %17
     i32 16, label %17
     i32 26, label %18
-    i32 17, label %41
-    i32 9, label %73
-    i32 15, label %76
-    i32 0, label %87
-    i32 1, label %87
-    i32 2, label %87
-    i32 4, label %87
-    i32 10, label %87
-    i32 11, label %87
-    i32 12, label %87
-    i32 14, label %87
-    i32 19, label %87
-    i32 20, label %87
-    i32 21, label %87
-    i32 23, label %87
-    i32 24, label %87
-    i32 25, label %87
-    i32 8, label %87
-    i32 3, label %87
-    i32 5, label %87
-    i32 6, label %87
-    i32 7, label %87
-    i32 18, label %87
-    i32 22, label %87
+    i32 17, label %39
+    i32 9, label %69
+    i32 15, label %72
+    i32 0, label %83
+    i32 1, label %83
+    i32 2, label %83
+    i32 4, label %83
+    i32 10, label %83
+    i32 11, label %83
+    i32 12, label %83
+    i32 14, label %83
+    i32 19, label %83
+    i32 20, label %83
+    i32 21, label %83
+    i32 23, label %83
+    i32 24, label %83
+    i32 25, label %83
+    i32 8, label %83
+    i32 3, label %83
+    i32 5, label %83
+    i32 6, label %83
+    i32 7, label %83
+    i32 18, label %83
+    i32 22, label %83
   ]
 
 17:                                               ; preds = %12, %12
@@ -2804,132 +2804,132 @@ tailrecurse:                                      ; preds = %73, %2
   unreachable
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %.tr62, i64 32
-  %20 = getelementptr inbounds i8, ptr %.tr62, i64 80
+  %19 = getelementptr inbounds i8, ptr %.tr59, i64 32
+  %20 = getelementptr inbounds i8, ptr %.tr59, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 255
   %23 = icmp eq i32 %22, 8
   br i1 %23, label %24, label %28
 
-common.ret169:                                    ; preds = %70, %72, %46, %39, %79, %76, %6, %8, %24
-  %common.ret169.op = phi ptr [ %27, %24 ], [ %48, %46 ], [ %40, %39 ], [ %57, %72 ], [ %57, %70 ], [ %.pre, %79 ], [ %78, %76 ], [ %5, %6 ], [ %5, %8 ]
-  ret ptr %common.ret169.op
+common.ret166:                                    ; preds = %66, %68, %44, %37, %75, %72, %6, %8, %24
+  %common.ret166.op = phi ptr [ %27, %24 ], [ %46, %44 ], [ %38, %37 ], [ %55, %68 ], [ %55, %66 ], [ %.pre, %75 ], [ %74, %72 ], [ %5, %6 ], [ %5, %8 ]
+  ret ptr %common.ret166.op
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %.tr62, i64 88
+  %25 = getelementptr inbounds i8, ptr %.tr59, i64 88
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @llvm_get_ref(ptr noundef %0, ptr noundef %26)
   store ptr %27, ptr %19, align 8
-  br label %common.ret169
+  br label %common.ret166
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %.tr62, i64 24
-  tail call void @llvm_add_global_decl(ptr noundef %0, ptr noundef nonnull %.tr62)
+  %29 = getelementptr inbounds i8, ptr %.tr59, i64 24
+  tail call void @llvm_add_global_decl(ptr noundef %0, ptr noundef nonnull %.tr59)
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 268435456
-  %32 = icmp eq i64 %31, 0
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
-  %34 = icmp ne i32 %33, 15
-  %or.cond.not61 = select i1 %32, i1 true, i1 %34
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 384), align 8
-  %36 = icmp ne ptr %35, null
-  %or.cond3 = select i1 %or.cond.not61, i1 true, i1 %36
-  br i1 %or.cond3, label %39, label %37
+  %.not51 = icmp ne i64 %31, 0
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
+  %33 = icmp eq i32 %32, 15
+  %or.cond = select i1 %.not51, i1 %33, i1 false
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 384), align 8
+  %.not52 = icmp eq ptr %34, null
+  %or.cond54 = select i1 %or.cond, i1 %.not52, i1 false
+  br i1 %or.cond54, label %35, label %37
 
-37:                                               ; preds = %28
+35:                                               ; preds = %28
+  %36 = load ptr, ptr %19, align 8
+  tail call void @LLVMSetDLLStorageClass(ptr noundef %36, i32 noundef 2) #10
+  br label %37
+
+37:                                               ; preds = %35, %28
   %38 = load ptr, ptr %19, align 8
-  tail call void @LLVMSetDLLStorageClass(ptr noundef %38, i32 noundef 2) #10
-  br label %39
+  br label %common.ret166
 
-39:                                               ; preds = %37, %28
-  %40 = load ptr, ptr %19, align 8
-  br label %common.ret169
+39:                                               ; preds = %12
+  %40 = getelementptr inbounds i8, ptr %.tr59, i64 32
+  %41 = getelementptr inbounds i8, ptr %.tr59, i64 120
+  %42 = load i16, ptr %41, align 8
+  %43 = and i16 %42, 1024
+  %.not46 = icmp eq i16 %43, 0
+  br i1 %.not46, label %47, label %44
 
-41:                                               ; preds = %12
-  %42 = getelementptr inbounds i8, ptr %.tr62, i64 32
-  %43 = getelementptr inbounds i8, ptr %.tr62, i64 120
-  %44 = load i16, ptr %43, align 8
-  %45 = and i16 %44, 1024
-  %.not53 = icmp eq i16 %45, 0
-  br i1 %.not53, label %49, label %46
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %.tr59, align 8
+  %46 = tail call ptr @llvm_get_selector(ptr noundef %0, ptr noundef %45)
+  store ptr %46, ptr %40, align 8
+  br label %common.ret166
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %.tr62, align 8
-  %48 = tail call ptr @llvm_get_selector(ptr noundef %0, ptr noundef %47)
-  store ptr %48, ptr %42, align 8
-  br label %common.ret169
-
-49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %.tr62, i64 24
-  %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds i8, ptr %.tr62, i64 8
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds i8, ptr %.tr59, i64 24
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr inbounds i8, ptr %.tr59, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %.tr59, i64 72
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.tr62, i64 72
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %55) #10
-  %57 = tail call ptr @LLVMAddFunction(ptr noundef %51, ptr noundef %53, ptr noundef %56) #10
-  store ptr %57, ptr %42, align 8
-  tail call void @llvm_append_function_attributes(ptr noundef %0, ptr noundef nonnull %.tr62)
-  %58 = load i64, ptr %50, align 8
-  %59 = and i64 %58, 268435456
-  %60 = icmp eq i64 %59, 0
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
-  %62 = icmp ne i32 %61, 15
-  %or.cond5.not56 = select i1 %60, i1 true, i1 %62
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 384), align 8
-  %64 = icmp ne ptr %63, null
-  %or.cond7 = select i1 %or.cond5.not56, i1 true, i1 %64
-  br i1 %or.cond7, label %70, label %65
+  %54 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %53) #10
+  %55 = tail call ptr @LLVMAddFunction(ptr noundef %49, ptr noundef %51, ptr noundef %54) #10
+  store ptr %55, ptr %40, align 8
+  tail call void @llvm_append_function_attributes(ptr noundef %0, ptr noundef nonnull %.tr59)
+  %56 = load i64, ptr %48, align 8
+  %57 = and i64 %56, 268435456
+  %.not47 = icmp ne i64 %57, 0
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
+  %59 = icmp eq i32 %58, 15
+  %or.cond56 = select i1 %.not47, i1 %59, i1 false
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 384), align 8
+  %.not48 = icmp eq ptr %60, null
+  %or.cond57 = select i1 %or.cond56, i1 %.not48, i1 false
+  br i1 %or.cond57, label %61, label %66
 
-65:                                               ; preds = %49
-  %66 = load ptr, ptr %.tr62, align 8
-  %67 = load ptr, ptr @kw_main, align 8
-  %.not57 = icmp eq ptr %66, %67
-  %68 = load ptr, ptr @kw_mainstub, align 8
-  %.not58 = icmp eq ptr %66, %68
-  %or.cond = select i1 %.not57, i1 true, i1 %.not58
-  br i1 %or.cond, label %70, label %69
+61:                                               ; preds = %47
+  %62 = load ptr, ptr %.tr59, align 8
+  %63 = load ptr, ptr @kw_main, align 8
+  %.not49 = icmp eq ptr %62, %63
+  %64 = load ptr, ptr @kw_mainstub, align 8
+  %.not50 = icmp eq ptr %62, %64
+  %or.cond58 = select i1 %.not49, i1 true, i1 %.not50
+  br i1 %or.cond58, label %66, label %65
 
-69:                                               ; preds = %65
-  tail call void @LLVMSetDLLStorageClass(ptr noundef %57, i32 noundef 2) #10
-  br label %70
+65:                                               ; preds = %61
+  tail call void @LLVMSetDLLStorageClass(ptr noundef %55, i32 noundef 2) #10
+  br label %66
 
-70:                                               ; preds = %69, %65, %49
-  %71 = tail call zeroext i1 @decl_is_local(ptr noundef nonnull %.tr62) #10
-  br i1 %71, label %72, label %common.ret169
+66:                                               ; preds = %65, %61, %47
+  %67 = tail call zeroext i1 @decl_is_local(ptr noundef nonnull %.tr59) #10
+  br i1 %67, label %68, label %common.ret166
 
-72:                                               ; preds = %70
-  tail call void @LLVMSetLinkage(ptr noundef %57, i32 noundef 8) #10
-  tail call void @LLVMSetVisibility(ptr noundef %57, i32 noundef 0) #10
-  br label %common.ret169
+68:                                               ; preds = %66
+  tail call void @LLVMSetLinkage(ptr noundef %55, i32 noundef 8) #10
+  tail call void @LLVMSetVisibility(ptr noundef %55, i32 noundef 0) #10
+  br label %common.ret166
 
-73:                                               ; preds = %12
-  %74 = getelementptr inbounds i8, ptr %.tr62, i64 88
-  %75 = load ptr, ptr %74, align 8
+69:                                               ; preds = %12
+  %70 = getelementptr inbounds i8, ptr %.tr59, i64 88
+  %71 = load ptr, ptr %70, align 8
   br label %tailrecurse
 
-76:                                               ; preds = %12
-  %77 = getelementptr inbounds i8, ptr %.tr62, i64 32
-  %78 = load ptr, ptr %77, align 8
-  %.not52 = icmp eq ptr %78, null
-  br i1 %.not52, label %79, label %common.ret169
+72:                                               ; preds = %12
+  %73 = getelementptr inbounds i8, ptr %.tr59, i64 32
+  %74 = load ptr, ptr %73, align 8
+  %.not45 = icmp eq ptr %74, null
+  br i1 %.not45, label %75, label %common.ret166
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %.tr62, i64 92
-  %81 = load i32, ptr %80, align 4
-  %82 = load ptr, ptr @decl_arena, align 8
-  %83 = zext i32 %81 to i64
-  %84 = getelementptr inbounds %struct.Decl_, ptr %82, i64 %83, i32 10
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call ptr @llvm_get_typeid(ptr noundef %0, ptr noundef %85) #10
-  %.pre = load ptr, ptr %77, align 8
-  br label %common.ret169
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds i8, ptr %.tr59, i64 92
+  %77 = load i32, ptr %76, align 4
+  %78 = load ptr, ptr @decl_arena, align 8
+  %79 = zext i32 %77 to i64
+  %80 = getelementptr inbounds %struct.Decl_, ptr %78, i64 %79, i32 10
+  %81 = load ptr, ptr %80, align 8
+  %82 = tail call ptr @llvm_get_typeid(ptr noundef %0, ptr noundef %81) #10
+  %.pre = load ptr, ptr %73, align 8
+  br label %common.ret166
 
-87:                                               ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
+83:                                               ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.llvm_get_ref, ptr noundef nonnull @.str.10, i32 noundef 1195) #12
   unreachable
 
-88:                                               ; preds = %12
+84:                                               ; preds = %12
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.llvm_get_ref, ptr noundef nonnull @.str.10, i32 noundef 1197) #12
   unreachable
 }

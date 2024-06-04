@@ -12,19 +12,30 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN7rocksdb15DumpMallocStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %stats) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %mstat = alloca %"struct.rocksdb::MallocStatus", align 8
-  %brmerge.i = or i1 icmp eq (ptr @mallocx, ptr null), icmp eq (ptr @rallocx, ptr null)
-  %brmerge3.i = or i1 %brmerge.i, icmp eq (ptr @xallocx, ptr null)
-  %brmerge5.i = or i1 %brmerge3.i, icmp eq (ptr @sallocx, ptr null)
-  %brmerge7.i = or i1 %brmerge5.i, icmp eq (ptr @dallocx, ptr null)
-  %brmerge9.i = or i1 %brmerge7.i, icmp eq (ptr @sdallocx, ptr null)
-  %brmerge11.i = or i1 %brmerge9.i, icmp eq (ptr @nallocx, ptr null)
-  %brmerge13.i = or i1 %brmerge11.i, icmp eq (ptr @mallctl, ptr null)
-  %brmerge15.i = or i1 %brmerge13.i, icmp eq (ptr @mallctlnametomib, ptr null)
-  %brmerge17.i = or i1 %brmerge15.i, icmp eq (ptr @mallctlbymib, ptr null)
-  %spec.select.i = select i1 icmp ne (ptr @malloc_stats_print, ptr null), i1 icmp ne (ptr @malloc_usable_size, ptr null), i1 false
-  %not.brmerge17.i = xor i1 %brmerge17.i, true
-  %spec.select18.i = and i1 %spec.select.i, %not.brmerge17.i
-  br i1 %spec.select18.i, label %if.end, label %return
+  %0 = icmp ne ptr @mallocx, null
+  %1 = icmp ne ptr @rallocx, null
+  %or.cond.i = and i1 %0, %1
+  %2 = icmp ne ptr @xallocx, null
+  %or.cond1.i = and i1 %2, %or.cond.i
+  %3 = icmp ne ptr @sallocx, null
+  %or.cond2.i = and i1 %3, %or.cond1.i
+  %4 = icmp ne ptr @dallocx, null
+  %or.cond3.i = and i1 %4, %or.cond2.i
+  %5 = icmp ne ptr @sdallocx, null
+  %or.cond4.i = and i1 %5, %or.cond3.i
+  %6 = icmp ne ptr @nallocx, null
+  %or.cond5.i = and i1 %6, %or.cond4.i
+  %7 = icmp ne ptr @mallctl, null
+  %or.cond6.i = and i1 %7, %or.cond5.i
+  %8 = icmp ne ptr @mallctlnametomib, null
+  %or.cond7.i = and i1 %8, %or.cond6.i
+  %9 = icmp ne ptr @mallctlbymib, null
+  %or.cond8.i = and i1 %9, %or.cond7.i
+  %10 = icmp ne ptr @malloc_stats_print, null
+  %or.cond9.i = and i1 %10, %or.cond8.i
+  %11 = icmp ne ptr @malloc_usable_size, null
+  %spec.select.i = and i1 %11, %or.cond9.i
+  br i1 %spec.select.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call1 = tail call noalias noundef nonnull dereferenceable(1000001) ptr @_Znam(i64 noundef 1000001) #11
@@ -44,10 +55,10 @@ return:                                           ; preds = %entry, %_ZNSt10uniq
   ret void
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit3: ; preds = %if.end
-  %0 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPv(ptr noundef nonnull %call1) #13
-  resume { ptr, i32 } %0
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

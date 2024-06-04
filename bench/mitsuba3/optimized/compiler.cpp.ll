@@ -54,7 +54,7 @@ $_ZTIN6asmjit9_abi_1_1019GlobalConstPoolPassE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1012BaseCompilerC2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN6asmjit9_abi_1_1011BaseBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(410) %0) #15
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN6asmjit9_abi_1_1012BaseCompilerE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_1012BaseCompilerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 416
   store ptr null, ptr %2, align 8, !tbaa !6
   %3 = getelementptr inbounds i8, ptr %0, i64 424
@@ -73,7 +73,7 @@ declare void @_ZN6asmjit9_abi_1_1011BaseBuilderC2Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1012BaseCompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN6asmjit9_abi_1_1012BaseCompilerE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_1012BaseCompilerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 424
   tail call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1) #15
   tail call void @_ZN6asmjit9_abi_1_1011BaseBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(410) %0) #15
@@ -1795,7 +1795,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler8onAttachEPNS0_1
 
 35:                                               ; preds = %32
   tail call void @_ZN6asmjit9_abi_1_104PassC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull @.str.1) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6asmjit9_abi_1_1019GlobalConstPoolPassE, i64 16), ptr %33, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_1019GlobalConstPoolPassE, i64 16), ptr %33, align 8, !tbaa !3
   br label %36
 
 36:                                               ; preds = %35, %32
@@ -1841,7 +1841,7 @@ declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder8onDetachEPNS0_10CodeHolde
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_108FuncPassC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN6asmjit9_abi_1_104PassC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #15
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6asmjit9_abi_1_108FuncPassE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_108FuncPassE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 

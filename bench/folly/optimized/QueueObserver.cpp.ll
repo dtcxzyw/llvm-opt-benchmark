@@ -114,7 +114,7 @@ define linkonce_odr void @_ZN5folly22ThreadIdWorkerProviderD2Ev(ptr noundef nonn
 entry:
   %state.i.i = alloca i32, align 4
   %state.i = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %this, align 8, !tbaa !7
   %threadsExitMutex_ = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i) #18
   %0 = load atomic i32, ptr %threadsExitMutex_ monotonic, align 8
@@ -193,7 +193,7 @@ define linkonce_odr void @_ZN5folly22ThreadIdWorkerProviderD0Ev(ptr noundef nonn
 entry:
   %state.i.i.i = alloca i32, align 4
   %state.i.i = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %this, align 8, !tbaa !7
   %threadsExitMutex_.i = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #18
   %0 = load atomic i32, ptr %threadsExitMutex_.i monotonic, align 8
@@ -320,7 +320,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHo
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit: ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC2EPKS3_.exit
   %4 = load ptr, ptr %ref.tmp, align 8, !tbaa !27, !noalias !34
   %5 = load i32, ptr %token_.i, align 8, !tbaa.struct !37, !noalias !34
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_115WorkerKeepAliveE, i64 16), ptr %call.i29, align 8, !tbaa !7, !noalias !34
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115WorkerKeepAliveE, i64 16), ptr %call.i29, align 8, !tbaa !7, !noalias !34
   %threadsExitLock_.i.i = getelementptr inbounds i8, ptr %call.i29, i64 8
   store ptr %4, ptr %threadsExitLock_.i.i, align 8, !tbaa !27, !noalias !34
   %token_.i.i.i = getelementptr inbounds i8, ptr %call.i29, i64 16
@@ -519,7 +519,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115WorkerKeepAliveD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_115WorkerKeepAliveE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115WorkerKeepAliveE, i64 16), ptr %this, align 8, !tbaa !7
   %threadsExitLock_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %threadsExitLock_, align 8, !tbaa !27
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -548,7 +548,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115WorkerKeepAliveD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_115WorkerKeepAliveE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115WorkerKeepAliveE, i64 16), ptr %this, align 8, !tbaa !7
   %threadsExitLock_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %threadsExitLock_.i, align 8, !tbaa !27
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2107,7 +2107,8 @@ declare void @llvm.trap() #15
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly20QueueObserverFactory4makeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_14WorkerProviderE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.30") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %context, i64 noundef %numPriorities, ptr noundef %workerProvider) local_unnamed_addr #1 align 2 {
 entry:
-  %_ZN5folly27make_queue_observer_factoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_14WorkerProviderE._ZN12_GLOBAL__N_136make_queue_observer_factory_fallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPN5folly14WorkerProviderE = select i1 icmp ne (ptr @_ZN5folly27make_queue_observer_factoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_14WorkerProviderE, ptr null), ptr @_ZN5folly27make_queue_observer_factoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_14WorkerProviderE, ptr @_ZN12_GLOBAL__N_136make_queue_observer_factory_fallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPN5folly14WorkerProviderE
+  %.not = icmp eq ptr @_ZN5folly27make_queue_observer_factoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_14WorkerProviderE, null
+  %_ZN5folly27make_queue_observer_factoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_14WorkerProviderE._ZN12_GLOBAL__N_136make_queue_observer_factory_fallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPN5folly14WorkerProviderE = select i1 %.not, ptr @_ZN12_GLOBAL__N_136make_queue_observer_factory_fallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPN5folly14WorkerProviderE, ptr @_ZN5folly27make_queue_observer_factoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_14WorkerProviderE
   tail call void %_ZN5folly27make_queue_observer_factoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_14WorkerProviderE._ZN12_GLOBAL__N_136make_queue_observer_factory_fallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPN5folly14WorkerProviderE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.30") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %context, i64 noundef %numPriorities, ptr noundef %workerProvider), !callees !89
   ret void
 }

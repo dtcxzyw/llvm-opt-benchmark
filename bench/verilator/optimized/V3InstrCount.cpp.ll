@@ -249,7 +249,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local noundef i32 @_ZN12V3InstrCount5countEP7AstNodebPSo(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.InstrCountVisitor, align 8
   %5 = alloca %class.InstrCountDumpVisitor, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV17InstrCountVisitor, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17InstrCountVisitor, i64 16), ptr %4, align 8
   tail call void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser2InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser2InUse10s_userBusyE)
   %6 = zext i1 %1 to i8
   %7 = getelementptr inbounds i8, ptr %4, i64 12
@@ -296,7 +296,7 @@ _ZN17InstrCountVisitorC2EP7AstNodebPSo.exit.thread: ; preds = %14
   br i1 %.not11, label %_ZN21InstrCountDumpVisitorC2EP7AstNodePSo.exit, label %24
 
 21:                                               ; preds = %_ZN17InstrCountVisitorC2EP7AstNodebPSo.exit
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV21InstrCountDumpVisitor, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21InstrCountDumpVisitor, i64 16), ptr %5, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %2, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 16
@@ -304,7 +304,7 @@ _ZN17InstrCountVisitorC2EP7AstNodebPSo.exit.thread: ; preds = %14
   br label %_ZN21InstrCountDumpVisitorC2EP7AstNodePSo.exit
 
 24:                                               ; preds = %_ZN17InstrCountVisitorC2EP7AstNodebPSo.exit.thread
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV21InstrCountDumpVisitor, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21InstrCountDumpVisitor, i64 16), ptr %5, align 8
   %25 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %2, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 16

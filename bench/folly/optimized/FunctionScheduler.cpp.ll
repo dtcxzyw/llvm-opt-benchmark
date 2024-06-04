@@ -908,7 +908,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !69
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !69
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #32
           to label %invoke.cont unwind label %lpad
 
@@ -927,7 +927,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #15 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !69
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !69
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #31
   unreachable
 }
@@ -7500,7 +7500,7 @@ invoke.cont133:                                   ; preds = %for.cond.cleanup
 
 call.i.noexc:                                     ; preds = %invoke.cont133
   %28 = ptrtoint ptr %this to i64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly17FunctionScheduler5startEvE3$_0EEEEEE", i64 16), ptr %call.i192, align 8, !tbaa !69
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly17FunctionScheduler5startEvE3$_0EEEEEE", i64 16), ptr %call.i192, align 8, !tbaa !69
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i192, i64 8
   store i64 %28, ptr %_M_func.i.i, align 8, !tbaa !43
   store ptr %call.i192, ptr %agg.tmp.i, align 8, !tbaa !43
@@ -9927,7 +9927,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDp
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8, !tbaa !69
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8, !tbaa !69
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #32
           to label %invoke.cont unwind label %lpad
 
@@ -9946,7 +9946,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #15 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !69
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !69
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #31
   unreachable
 }

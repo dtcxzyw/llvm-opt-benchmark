@@ -1969,8 +1969,8 @@ define void @_ZN6colvarC2Ev(ptr noundef nonnull align 8 dereferenceable(4624) %0
           to label %3 unwind label %86
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV6colvar, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6colvar, i64 136), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6colvar, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6colvar, i64 136), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 440
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   %5 = getelementptr inbounds i8, ptr %0, i64 472
@@ -27835,9 +27835,9 @@ define void @_ZN6colvarD2Ev(ptr noundef nonnull align 8 dereferenceable(4624) %0
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV6colvar, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6colvar, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6colvar, i64 136), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6colvar, i64 136), ptr %5, align 8
   invoke void @_ZN10colvardeps19remove_all_childrenEv(ptr noundef nonnull align 8 dereferenceable(120) %5)
           to label %6 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

@@ -341,7 +341,7 @@ if.then24:                                        ; preds = %if.end21
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %call, i8 0, i64 64, i1 false)
   %18 = getelementptr inbounds i8, ptr %call, i64 40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %18, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %18, align 8, !tbaa !3
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 56
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !75
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3irr5scene10CMeshCacheE, i64 8), align 8
@@ -351,8 +351,8 @@ if.then24:                                        ; preds = %if.end21
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call, i64 %vbase.offset.i.i
   store ptr %20, ptr %add.ptr.i.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 120) (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %18, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %18, align 8, !tbaa !3
   %Meshes.i = getelementptr inbounds i8, ptr %call, i64 8
   %is_sorted.i.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Meshes.i, i8 0, i64 24, i1 false)
@@ -629,10 +629,10 @@ _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !89
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 592
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !75
-  store ptr getelementptr inbounds inrange(-24, 304) (i8, ptr @_ZTCN3irr5scene13CSceneManagerE0_NS0_13ISceneManagerE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene13CSceneManagerE0_NS0_13ISceneManagerE, i64 24), ptr %this, align 8, !tbaa !3
   %1 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene13CSceneManagerE8_NS0_10ISceneNodeE, i64 24), ptr %1, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene13CSceneManagerE8_NS0_10ISceneNodeE, i64 336), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene13CSceneManagerE8_NS0_10ISceneNodeE, i64 24), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene13CSceneManagerE8_NS0_10ISceneNodeE, i64 336), ptr %0, align 8, !tbaa !3
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8, !tbaa !6
   %AbsoluteTransformation.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -676,9 +676,9 @@ _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   call void @_ZNK3irr5scene10ISceneNode25getRelativeTransformationEv(ptr dead_on_unwind nonnull writable sret(%"class.irr::core::CMatrix4") align 4 %ref.tmp6.i, ptr noundef nonnull align 8 dereferenceable(222) %1) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %AbsoluteTransformation.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp6.i, i64 64, i1 false), !tbaa.struct !90
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp6.i) #22
-  store ptr getelementptr inbounds inrange(-24, 336) (i8, ptr @_ZTVN3irr5scene13CSceneManagerE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene13CSceneManagerE, i64 696), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTVN3irr5scene13CSceneManagerE, i64 384), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene13CSceneManagerE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene13CSceneManagerE, i64 696), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene13CSceneManagerE, i64 384), ptr %1, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 232
   store ptr %driver, ptr %Driver, align 8, !tbaa !40
   %CursorControl = getelementptr inbounds i8, ptr %this, i64 240
@@ -764,7 +764,7 @@ if.then20:                                        ; preds = %if.end17
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %call, i8 0, i64 64, i1 false)
   %5 = getelementptr inbounds i8, ptr %call, i64 40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %5, align 8, !tbaa !3
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 56
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !75
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3irr5scene10CMeshCacheE, i64 8), align 8
@@ -774,8 +774,8 @@ if.then20:                                        ; preds = %if.end17
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call, i64 %vbase.offset.i.i
   store ptr %7, ptr %add.ptr.i.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 120) (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene10CMeshCacheE, i64 168), ptr %5, align 8, !tbaa !3
   %Meshes.i = getelementptr inbounds i8, ptr %call, i64 8
   %is_sorted.i.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Meshes.i, i8 0, i64 24, i1 false)

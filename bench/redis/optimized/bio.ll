@@ -176,11 +176,11 @@ cond.end:                                         ; preds = %entry
   %call5 = call i32 @sigemptyset(ptr noundef nonnull %sigset) #8
   %call6 = call i32 @sigaddset(ptr noundef nonnull %sigset, i32 noundef 14) #8
   %call7 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %sigset, ptr noundef null) #8
-  %tobool8 = icmp eq i32 %call7, 0
+  %tobool8.not = icmp eq i32 %call7, 0
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp9 = icmp sgt i32 %3, 3
-  %or.cond1 = select i1 %tobool8, i1 true, i1 %cmp9
-  br i1 %or.cond1, label %if.end14, label %if.end
+  %or.cond33 = select i1 %tobool8.not, i1 true, i1 %cmp9
+  br i1 %or.cond33, label %if.end14, label %if.end
 
 if.end:                                           ; preds = %cond.end
   %call12 = tail call ptr @__errno_location() #9
@@ -234,22 +234,22 @@ land.lhs.true:                                    ; preds = %if.then28
 land.lhs.true33:                                  ; preds = %land.lhs.true
   %call34 = tail call ptr @__errno_location() #9
   %11 = load i32, ptr %call34, align 4
-  %cmp35.not = icmp eq i32 %11, 9
-  br i1 %cmp35.not, label %if.end50, label %land.lhs.true37
+  switch i32 %11, label %do.body42 [
+    i32 9, label %if.end50
+    i32 22, label %if.end50
+  ]
 
-land.lhs.true37:                                  ; preds = %land.lhs.true33
-  %cmp39 = icmp eq i32 %11, 22
+do.body42:                                        ; preds = %land.lhs.true33
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp43 = icmp sgt i32 %12, 3
-  %or.cond2 = select i1 %cmp39, i1 true, i1 %cmp43
-  br i1 %or.cond2, label %if.end50, label %if.end46
+  br i1 %cmp43, label %if.end50, label %if.end46
 
-if.end46:                                         ; preds = %land.lhs.true37
+if.end46:                                         ; preds = %do.body42
   %call48 = call ptr @strerror(i32 noundef %11) #8
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.4, ptr noundef %call48) #8
   br label %if.end50
 
-if.end50:                                         ; preds = %if.end46, %land.lhs.true37, %land.lhs.true33, %land.lhs.true, %if.then28
+if.end50:                                         ; preds = %land.lhs.true33, %land.lhs.true33, %if.end46, %do.body42, %land.lhs.true, %if.then28
   %bf.load51 = load i8, ptr %need_fsync, align 8
   %13 = and i8 %bf.load51, 2
   %tobool54.not = icmp eq i8 %13, 0
@@ -262,8 +262,8 @@ if.then55:                                        ; preds = %if.end50
   %cmp58 = icmp ne i32 %call57, -1
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp62 = icmp sgt i32 %15, 2
-  %or.cond3 = select i1 %cmp58, i1 true, i1 %cmp62
-  br i1 %or.cond3, label %if.end70, label %if.end65
+  %or.cond34 = select i1 %cmp58, i1 true, i1 %cmp62
+  br i1 %or.cond34, label %if.end70, label %if.end65
 
 if.end65:                                         ; preds = %if.then55
   %call66 = tail call ptr @__errno_location() #9
@@ -309,8 +309,8 @@ do.body91:                                        ; preds = %land.lhs.true82
   %cmp95 = icmp ne i32 %20, 0
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp99 = icmp sgt i32 %22, 3
-  %or.cond4 = select i1 %cmp95, i1 true, i1 %cmp99
-  br i1 %or.cond4, label %if.end110, label %if.end102
+  %or.cond = select i1 %cmp95, i1 true, i1 %cmp99
+  br i1 %or.cond, label %if.end110, label %if.end102
 
 if.end102:                                        ; preds = %do.body91
   %call104 = call ptr @strerror(i32 noundef %21) #8
@@ -337,8 +337,8 @@ if.then117:                                       ; preds = %if.end110
   %cmp120 = icmp ne i32 %call119, -1
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp124 = icmp sgt i32 %26, 2
-  %or.cond5 = select i1 %cmp120, i1 true, i1 %cmp124
-  br i1 %or.cond5, label %if.end132, label %if.end127
+  %or.cond35 = select i1 %cmp120, i1 true, i1 %cmp124
+  br i1 %or.cond35, label %if.end132, label %if.end127
 
 if.end127:                                        ; preds = %if.then117
   %call128 = tail call ptr @__errno_location() #9

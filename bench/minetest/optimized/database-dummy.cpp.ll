@@ -1930,11 +1930,11 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14Database_DummyD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTV14Database_Dummy, i64 16), ptr %this, align 8, !tbaa !71
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14Database_Dummy, i64 16), ptr %this, align 8, !tbaa !71
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14Database_Dummy, i64 200), ptr %add.ptr, align 8, !tbaa !71
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14Database_Dummy, i64 200), ptr %add.ptr, align 8, !tbaa !71
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV14Database_Dummy, i64 264), ptr %add.ptr2, align 8, !tbaa !71
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14Database_Dummy, i64 264), ptr %add.ptr2, align 8, !tbaa !71
   %m_mod_storage_database = getelementptr inbounds i8, ptr %this, i64 120
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !73

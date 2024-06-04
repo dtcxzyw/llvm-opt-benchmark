@@ -392,7 +392,7 @@ define hidden { ptr, i64 } @"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, ptr } @_ZN12grep_printer17hyperlink_aliases4iter17h25a94ade52d58110E() unnamed_addr #6 {
-  ret { ptr, ptr } { ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, ptr getelementptr inbounds ({ { ptr, i64 }, { ptr, i64 } }, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 10) }
+  ret { ptr, ptr } { ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, ptr getelementptr inbounds (i8, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 320) }
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read)

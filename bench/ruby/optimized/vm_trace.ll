@@ -501,7 +501,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %19
   %.04.us.us = phi ptr [ %.0.us.us, %19 ], [ %.01, %.lr.ph.split.us ]
-  %.0183.us.us = phi i32 [ %.1.us.us, %19 ], [ 0, %.lr.ph.split.us ]
+  %.0193.us.us = phi i32 [ %.1.us.us, %19 ], [ 0, %.lr.ph.split.us ]
   %12 = getelementptr inbounds i8, ptr %.04.us.us, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %0
@@ -512,12 +512,12 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
   %16 = load i32, ptr %.04.us.us, align 8
   %17 = or i32 %16, 2
   store i32 %17, ptr %.04.us.us, align 8
-  %18 = add i32 %.0183.us.us, 1
+  %18 = add i32 %.0193.us.us, 1
   store i8 1, ptr %11, align 8
   br label %19
 
 19:                                               ; preds = %15, %.lr.ph.split.us.split.us
-  %.1.us.us = phi i32 [ %18, %15 ], [ %.0183.us.us, %.lr.ph.split.us.split.us ]
+  %.1.us.us = phi i32 [ %18, %15 ], [ %.0193.us.us, %.lr.ph.split.us.split.us ]
   %20 = getelementptr inbounds i8, ptr %.04.us.us, i64 24
   %.0.us.us = load ptr, ptr %20, align 8
   %.not.us.us = icmp eq ptr %.0.us.us, null
@@ -528,7 +528,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
 
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %28
   %.04.us.us23 = phi ptr [ %.0.us.us27, %28 ], [ %.01, %.lr.ph.split.us.split ]
-  %.0183.us.us24 = phi i32 [ %.1.us.us26, %28 ], [ 0, %.lr.ph.split.us.split ]
+  %.0193.us.us24 = phi i32 [ %.1.us.us26, %28 ], [ 0, %.lr.ph.split.us.split ]
   %21 = getelementptr inbounds i8, ptr %.04.us.us23, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, %2
@@ -538,12 +538,12 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
   %25 = load i32, ptr %.04.us.us23, align 8
   %26 = or i32 %25, 2
   store i32 %26, ptr %.04.us.us23, align 8
-  %27 = add i32 %.0183.us.us24, 1
+  %27 = add i32 %.0193.us.us24, 1
   store i8 1, ptr %11, align 8
   br label %28
 
 28:                                               ; preds = %24, %.lr.ph.split.us.split.split.us
-  %.1.us.us26 = phi i32 [ %27, %24 ], [ %.0183.us.us24, %.lr.ph.split.us.split.split.us ]
+  %.1.us.us26 = phi i32 [ %27, %24 ], [ %.0193.us.us24, %.lr.ph.split.us.split.split.us ]
   %29 = getelementptr inbounds i8, ptr %.04.us.us23, i64 24
   %.0.us.us27 = load ptr, ptr %29, align 8
   %.not.us.us28 = icmp eq ptr %.0.us.us27, null
@@ -551,7 +551,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %41
   %.04.us = phi ptr [ %.0.us, %41 ], [ %.01, %.lr.ph.split.us.split ]
-  %.0183.us = phi i32 [ %.1.us, %41 ], [ 0, %.lr.ph.split.us.split ]
+  %.0193.us = phi i32 [ %.1.us, %41 ], [ 0, %.lr.ph.split.us.split ]
   %30 = getelementptr inbounds i8, ptr %.04.us, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %0
@@ -567,12 +567,12 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
   %38 = load i32, ptr %.04.us, align 8
   %39 = or i32 %38, 2
   store i32 %39, ptr %.04.us, align 8
-  %40 = add i32 %.0183.us, 1
+  %40 = add i32 %.0193.us, 1
   store i8 1, ptr %11, align 8
   br label %41
 
 41:                                               ; preds = %37, %33, %.lr.ph.split.us.split.split
-  %.1.us = phi i32 [ %40, %37 ], [ %.0183.us, %33 ], [ %.0183.us, %.lr.ph.split.us.split.split ]
+  %.1.us = phi i32 [ %40, %37 ], [ %.0193.us, %33 ], [ %.0193.us, %.lr.ph.split.us.split.split ]
   %42 = getelementptr inbounds i8, ptr %.04.us, i64 24
   %.0.us = load ptr, ptr %42, align 8
   %.not.us = icmp eq ptr %.0.us, null
@@ -586,7 +586,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %50
   %.04.us5.us = phi ptr [ %.0.us9.us, %50 ], [ %.01, %.lr.ph.split.split.us ]
-  %.0183.us6.us = phi i32 [ %.1.us8.us, %50 ], [ 0, %.lr.ph.split.split.us ]
+  %.0193.us6.us = phi i32 [ %.1.us8.us, %50 ], [ 0, %.lr.ph.split.split.us ]
   %43 = getelementptr inbounds i8, ptr %.04.us5.us, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %1
@@ -596,12 +596,12 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
   %47 = load i32, ptr %.04.us5.us, align 8
   %48 = or i32 %47, 2
   store i32 %48, ptr %.04.us5.us, align 8
-  %49 = add i32 %.0183.us6.us, 1
+  %49 = add i32 %.0193.us6.us, 1
   store i8 1, ptr %11, align 8
   br label %50
 
 50:                                               ; preds = %46, %.lr.ph.split.split.us.split.us
-  %.1.us8.us = phi i32 [ %49, %46 ], [ %.0183.us6.us, %.lr.ph.split.split.us.split.us ]
+  %.1.us8.us = phi i32 [ %49, %46 ], [ %.0193.us6.us, %.lr.ph.split.split.us.split.us ]
   %51 = getelementptr inbounds i8, ptr %.04.us5.us, i64 24
   %.0.us9.us = load ptr, ptr %51, align 8
   %.not.us10.us = icmp eq ptr %.0.us9.us, null
@@ -609,7 +609,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %63
   %.04.us5 = phi ptr [ %.0.us9, %63 ], [ %.01, %.lr.ph.split.split.us ]
-  %.0183.us6 = phi i32 [ %.1.us8, %63 ], [ 0, %.lr.ph.split.split.us ]
+  %.0193.us6 = phi i32 [ %.1.us8, %63 ], [ 0, %.lr.ph.split.split.us ]
   %52 = getelementptr inbounds i8, ptr %.04.us5, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %1
@@ -625,12 +625,12 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
   %60 = load i32, ptr %.04.us5, align 8
   %61 = or i32 %60, 2
   store i32 %61, ptr %.04.us5, align 8
-  %62 = add i32 %.0183.us6, 1
+  %62 = add i32 %.0193.us6, 1
   store i8 1, ptr %11, align 8
   br label %63
 
 63:                                               ; preds = %59, %55, %.lr.ph.split.split.us.split
-  %.1.us8 = phi i32 [ %62, %59 ], [ %.0183.us6, %55 ], [ %.0183.us6, %.lr.ph.split.split.us.split ]
+  %.1.us8 = phi i32 [ %62, %59 ], [ %.0193.us6, %55 ], [ %.0193.us6, %.lr.ph.split.split.us.split ]
   %64 = getelementptr inbounds i8, ptr %.04.us5, i64 24
   %.0.us9 = load ptr, ptr %64, align 8
   %.not.us10 = icmp eq ptr %.0.us9, null
@@ -641,7 +641,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %76
   %.04.us13 = phi ptr [ %.0.us17, %76 ], [ %.01, %.lr.ph.split.split ]
-  %.0183.us14 = phi i32 [ %.1.us16, %76 ], [ 0, %.lr.ph.split.split ]
+  %.0193.us14 = phi i32 [ %.1.us16, %76 ], [ 0, %.lr.ph.split.split ]
   %65 = getelementptr inbounds i8, ptr %.04.us13, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, %1
@@ -657,12 +657,12 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
   %73 = load i32, ptr %.04.us13, align 8
   %74 = or i32 %73, 2
   store i32 %74, ptr %.04.us13, align 8
-  %75 = add i32 %.0183.us14, 1
+  %75 = add i32 %.0193.us14, 1
   store i8 1, ptr %11, align 8
   br label %76
 
 76:                                               ; preds = %72, %68, %.lr.ph.split.split.split.us
-  %.1.us16 = phi i32 [ %75, %72 ], [ %.0183.us14, %68 ], [ %.0183.us14, %.lr.ph.split.split.split.us ]
+  %.1.us16 = phi i32 [ %75, %72 ], [ %.0193.us14, %68 ], [ %.0193.us14, %.lr.ph.split.split.split.us ]
   %77 = getelementptr inbounds i8, ptr %.04.us13, i64 24
   %.0.us17 = load ptr, ptr %77, align 8
   %.not.us18 = icmp eq ptr %.0.us17, null
@@ -670,7 +670,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %93
   %.04 = phi ptr [ %.0, %93 ], [ %.01, %.lr.ph.split.split ]
-  %.0183 = phi i32 [ %.1, %93 ], [ 0, %.lr.ph.split.split ]
+  %.0193 = phi i32 [ %.1, %93 ], [ 0, %.lr.ph.split.split ]
   %78 = getelementptr inbounds i8, ptr %.04, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, %1
@@ -692,19 +692,19 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
   %90 = load i32, ptr %.04, align 8
   %91 = or i32 %90, 2
   store i32 %91, ptr %.04, align 8
-  %92 = add i32 %.0183, 1
+  %92 = add i32 %.0193, 1
   store i8 1, ptr %11, align 8
   br label %93
 
 93:                                               ; preds = %81, %89, %85, %.lr.ph.split.split.split
-  %.1 = phi i32 [ %92, %89 ], [ %.0183, %85 ], [ %.0183, %81 ], [ %.0183, %.lr.ph.split.split.split ]
+  %.1 = phi i32 [ %92, %89 ], [ %.0193, %85 ], [ %.0193, %81 ], [ %.0193, %.lr.ph.split.split.split ]
   %94 = getelementptr inbounds i8, ptr %.04, i64 24
   %.0 = load ptr, ptr %94, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %93, %76, %63, %50, %41, %28, %19, %rb_ec_ractor_hooks.exit
-  %.018.lcssa = phi i32 [ 0, %rb_ec_ractor_hooks.exit ], [ %.1.us.us, %19 ], [ %.1.us.us26, %28 ], [ %.1.us, %41 ], [ %.1.us8.us, %50 ], [ %.1.us8, %63 ], [ %.1.us16, %76 ], [ %.1, %93 ]
+  %.019.lcssa = phi i32 [ 0, %rb_ec_ractor_hooks.exit ], [ %.1.us.us, %19 ], [ %.1.us.us26, %28 ], [ %.1.us, %41 ], [ %.1.us8.us, %50 ], [ %.1.us8, %63 ], [ %.1.us16, %76 ], [ %.1, %93 ]
   %95 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   %96 = load i8, ptr %95, align 8
   %97 = trunc i8 %96 to i1
@@ -752,8 +752,8 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
 118:                                              ; preds = %112, %109
   %.1.i.i = phi ptr [ %.019.i.i, %109 ], [ %117, %112 ]
   %119 = load ptr, ptr %.1.i.i, align 8
-  %.not.i.i20 = icmp eq ptr %119, null
-  br i1 %.not.i.i20, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  %.not.i.i21 = icmp eq ptr %119, null
+  br i1 %.not.i.i21, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %118
   %.pr.i = load i32, ptr %103, align 8
@@ -782,7 +782,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %3, %4
   br label %clean_hooks_check.exit
 
 clean_hooks_check.exit:                           ; preds = %._crit_edge, %98, %126, %.thread.i, %128
-  ret i32 %.018.lcssa
+  ret i32 %.019.lcssa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

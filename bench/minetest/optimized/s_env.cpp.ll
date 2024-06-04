@@ -958,7 +958,8 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
 
 invoke.cont23:                                    ; preds = %invoke.cont15
   store i32 %call.i441, ptr %m_original_top.i, align 8, !tbaa !28
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %2, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %2
 
 2:                                                ; preds = %invoke.cont23
   tail call void @_ZTH13verbosestream()
@@ -2803,7 +2804,7 @@ invoke.cont283:                                   ; preds = %invoke.cont281
   store i64 0, ptr %_M_string_length.i.i.i.i.i652, align 8, !tbaa !14
   store i8 0, ptr %178, align 1, !tbaa !13
   %run_at_every_load.i.i = getelementptr inbounds i8, ptr %call284, i64 88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6LuaLBM, i64 16), ptr %call284, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6LuaLBM, i64 16), ptr %call284, align 8, !tbaa !15
   %m_id.i = getelementptr inbounds i8, ptr %call284, i64 92
   store i32 %conv222, ptr %m_id.i, align 4, !tbaa !86
   store i8 %frombool.i, ptr %run_at_every_load.i.i, align 8, !tbaa !94
@@ -2962,7 +2963,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr dso_local void @_ZN8LuaErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
   %m_s.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i.i, align 8, !tbaa !4
@@ -3015,14 +3016,14 @@ _ZN8ModErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8LuaError, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8LuaError, i64 16), ptr %this, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -3071,7 +3072,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6LuaABMC2EP9lua_StateiRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_fjbss(ptr noundef nonnull align 8 dereferenceable(78) %this, ptr noundef %L, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(24) %trigger_contents, ptr noundef nonnull align 8 dereferenceable(24) %required_neighbors, float noundef %trigger_interval, i32 noundef %trigger_chance, i1 noundef zeroext %simple_catch_up, i16 noundef signext %min_y, i16 noundef signext %max_y) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV6LuaABM, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6LuaABM, i64 16), ptr %this, align 8, !tbaa !15
   %m_id = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %m_id, align 8, !tbaa !96
   %m_trigger_contents = getelementptr inbounds i8, ptr %this, i64 16
@@ -4478,7 +4479,7 @@ declare i64 @pthread_self() local_unnamed_addr #14
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8LuaErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -4513,7 +4514,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !15
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -4668,7 +4669,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23LoadingBlockModifierDefD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23LoadingBlockModifierDef, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23LoadingBlockModifierDef, i64 16), ptr %this, align 8, !tbaa !15
   %name = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %name, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 72
@@ -4707,7 +4708,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23LoadingBlockModifierDefD0Ev(ptr noundef nonnull align 8 dereferenceable(89) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23LoadingBlockModifierDef, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23LoadingBlockModifierDef, i64 16), ptr %this, align 8, !tbaa !15
   %name.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %name.i, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 72

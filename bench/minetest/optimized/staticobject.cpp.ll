@@ -462,7 +462,8 @@ if.end39:                                         ; preds = %_ZNSt3mapIt12Static
   br i1 %cmp.i93.not, label %for.cond.cleanup24, label %for.body25, !llvm.loop !34
 
 if.then45:                                        ; preds = %for.cond.cleanup24
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %12, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %12
 
 12:                                               ; preds = %if.then45
   call void @_ZTH11errorstream()
@@ -862,7 +863,8 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %1, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %1
 
 1:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream()
@@ -955,7 +957,8 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %1, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %1
 
 1:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream()

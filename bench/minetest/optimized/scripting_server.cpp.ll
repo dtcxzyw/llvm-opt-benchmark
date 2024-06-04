@@ -841,7 +841,8 @@ lpad70:                                           ; preds = %if.end, %call1.i.no
   br label %ehcleanup97
 
 if.else:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %82, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %82
 
 82:                                               ; preds = %if.else
   call void @_ZTH13warningstream()
@@ -978,7 +979,8 @@ invoke.cont90:                                    ; preds = %invoke.cont89
           to label %invoke.cont91 unwind label %lpad81
 
 invoke.cont91:                                    ; preds = %invoke.cont90
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %91, label %_ZTW10infostream.exit
+  %.not6 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not6, label %_ZTW10infostream.exit, label %91
 
 91:                                               ; preds = %invoke.cont91
   call void @_ZTH10infostream()
@@ -1366,15 +1368,15 @@ invoke.cont9:
   %5 = getelementptr inbounds i8, ptr %this, i64 96
   %6 = getelementptr inbounds i8, ptr %this, i64 104
   %7 = getelementptr inbounds i8, ptr %this, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %this, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %0, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %1, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %2, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %3, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %4, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %5, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %6, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %7, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %1, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %4, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %5, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %6, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %7, align 8, !tbaa !12
   %asyncEngine = getelementptr inbounds i8, ptr %this, i64 120
   invoke void @_ZN11AsyncEngineC2EP6Server(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine, ptr noundef %server)
           to label %invoke.cont24 unwind label %lpad23
@@ -1541,7 +1543,8 @@ lpad68:                                           ; preds = %if.end, %call1.i.no
   br label %ehcleanup95
 
 if.else:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %26, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %26
 
 26:                                               ; preds = %if.else
   call void @_ZTH13warningstream()
@@ -1678,7 +1681,8 @@ invoke.cont88:                                    ; preds = %invoke.cont87
           to label %invoke.cont89 unwind label %lpad79
 
 invoke.cont89:                                    ; preds = %invoke.cont88
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %35, label %_ZTW10infostream.exit
+  %.not6 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not6, label %_ZTW10infostream.exit, label %35
 
 35:                                               ; preds = %invoke.cont89
   call void @_ZTH10infostream()
@@ -2192,7 +2196,8 @@ declare void @lua_pushnil(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: uwtable
 define dso_local void @_ZN15ServerScripting9initAsyncEv(ptr noundef nonnull align 8 dereferenceable(528) %this) local_unnamed_addr #5 align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH10infostream()
@@ -2471,9 +2476,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15ScriptApiEntityD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ScriptApiEntity, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ScriptApiEntity, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ScriptApiEntity, i64 64), ptr %add.ptr.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ScriptApiEntity, i64 64), ptr %add.ptr.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8, !tbaa !85
@@ -2529,9 +2534,9 @@ _ZN15ScriptApiEntityD2Ev.exit:                    ; preds = %if.end.i.i.i.i.i, %
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15ScriptApiEntityD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ScriptApiEntity, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ScriptApiEntity, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8, !tbaa !85
@@ -2592,9 +2597,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ScriptApiEntity, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ScriptApiEntity, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8, !tbaa !85
@@ -2654,9 +2659,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ScriptApiEntity, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ScriptApiEntity, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3049,27 +3054,27 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15ServerScriptingD1Ev(ptr noundef nonnull align 8 dereferenceable(528) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 528
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i, align 8, !tbaa !12
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i, align 8, !tbaa !12
   %add.ptr4.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i, align 8, !tbaa !12
   %add.ptr5.i = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i, align 8, !tbaa !12
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i, align 8, !tbaa !12
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i, align 8, !tbaa !12
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i, align 8, !tbaa !12
   %add.ptr9.i = getelementptr inbounds i8, ptr %this, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i, align 8, !tbaa !12
   %asyncEngine.i = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3125,27 +3130,27 @@ _ZN15ServerScriptingD2Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i,
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15ServerScriptingD0Ev(ptr noundef nonnull align 8 dereferenceable(528) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 528
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
   %asyncEngine.i.i = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3203,26 +3208,26 @@ _ZN15ServerScriptingD1Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn8_N15ServerScriptingD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 520
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %this, align 8, !tbaa !12
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
   %asyncEngine.i.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %this, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3279,26 +3284,26 @@ _ZN15ServerScriptingD1Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn8_N15ServerScriptingD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 520
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %this, align 8, !tbaa !12
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
   %asyncEngine.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %this, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3356,26 +3361,26 @@ _ZN15ServerScriptingD0Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn72_N15ServerScriptingD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 456
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %this, align 8, !tbaa !12
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
   %asyncEngine.i.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i = getelementptr inbounds i8, ptr %this, i64 -56
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -40
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3432,26 +3437,26 @@ _ZN15ServerScriptingD1Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn72_N15ServerScriptingD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 456
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %this, align 8, !tbaa !12
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
   %asyncEngine.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -56
   %_M_before_begin.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -40
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3509,26 +3514,26 @@ _ZN15ServerScriptingD0Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn80_N15ServerScriptingD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 448
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %this, align 8, !tbaa !12
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
   %asyncEngine.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i = getelementptr inbounds i8, ptr %this, i64 -64
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3585,26 +3590,26 @@ _ZN15ServerScriptingD1Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn80_N15ServerScriptingD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %this, align 8, !tbaa !12
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
   %asyncEngine.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -64
   %_M_before_begin.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -48
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3662,26 +3667,26 @@ _ZN15ServerScriptingD0Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn88_N15ServerScriptingD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 440
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %this, align 8, !tbaa !12
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
   %asyncEngine.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i = getelementptr inbounds i8, ptr %this, i64 -72
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -56
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3738,26 +3743,26 @@ _ZN15ServerScriptingD1Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn88_N15ServerScriptingD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 440
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %this, align 8, !tbaa !12
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
   %asyncEngine.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -72
   %_M_before_begin.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -56
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3815,26 +3820,26 @@ _ZN15ServerScriptingD0Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn96_N15ServerScriptingD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 432
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %this, align 8, !tbaa !12
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
   %asyncEngine.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i = getelementptr inbounds i8, ptr %this, i64 -80
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -64
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3891,26 +3896,26 @@ _ZN15ServerScriptingD1Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn96_N15ServerScriptingD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 432
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %this, align 8, !tbaa !12
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
   %asyncEngine.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -80
   %_M_before_begin.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -64
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -3968,26 +3973,26 @@ _ZN15ServerScriptingD0Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn104_N15ServerScriptingD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 424
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %this, align 8, !tbaa !12
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
   %asyncEngine.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i = getelementptr inbounds i8, ptr %this, i64 -88
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -72
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -4044,26 +4049,26 @@ _ZN15ServerScriptingD1Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn104_N15ServerScriptingD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %this, i64 -96
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %this, align 8, !tbaa !12
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
   %asyncEngine.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -88
   %_M_before_begin.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -72
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -4121,26 +4126,26 @@ _ZN15ServerScriptingD0Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn112_N15ServerScriptingD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -112
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 416
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 -104
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %this, align 8, !tbaa !12
   %asyncEngine.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i = getelementptr inbounds i8, ptr %this, i64 -96
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -80
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -4197,26 +4202,26 @@ _ZN15ServerScriptingD1Ev.exit:                    ; preds = %if.end.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZThn112_N15ServerScriptingD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -112
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %0, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %this, i64 -104
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %this, i64 -40
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %this, align 8, !tbaa !12
   %asyncEngine.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -96
   %_M_before_begin.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -80
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -4277,27 +4282,27 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 528
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i, align 8, !tbaa !12
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i, align 8, !tbaa !12
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i, align 8, !tbaa !12
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i, align 8, !tbaa !12
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i, align 8, !tbaa !12
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %3, i64 96
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i, align 8, !tbaa !12
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i, align 8, !tbaa !12
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %3, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i, align 8, !tbaa !12
   %asyncEngine.i.i = getelementptr inbounds i8, ptr %3, i64 120
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !85
@@ -4357,27 +4362,27 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 528
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 344), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 64), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 104), ptr %add.ptr4.i.i.i, align 8, !tbaa !12
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 144), ptr %add.ptr5.i.i.i, align 8, !tbaa !12
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 184), ptr %add.ptr6.i.i.i, align 8, !tbaa !12
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %3, i64 96
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 224), ptr %add.ptr7.i.i.i, align 8, !tbaa !12
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 264), ptr %add.ptr8.i.i.i, align 8, !tbaa !12
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ServerScripting, i64 304), ptr %add.ptr9.i.i.i, align 8, !tbaa !12
   %asyncEngine.i.i.i = getelementptr inbounds i8, ptr %3, i64 120
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %asyncEngine.i.i.i) #23
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 24), ptr %add.ptr3.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTC15ServerScripting8_15ScriptApiEntity, i64 64), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %deprecation_warned_init_properties.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %_M_before_begin.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i.i, align 8, !tbaa !85

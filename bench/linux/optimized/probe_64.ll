@@ -9,32 +9,33 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @x86_64_probe_apic() local_unnamed_addr #0 section ".init.text" align 16 {
   tail call void @enable_IR_x2apic() #3
-  br i1 icmp ult (ptr @__apicdrivers, ptr @__apicdrivers_end), label %.preheader, label %.loopexit
+  %1 = icmp ult ptr @__apicdrivers, @__apicdrivers_end
+  br i1 %1, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %0, %11
-  %1 = phi ptr [ %12, %11 ], [ @__apicdrivers, %0 ]
-  %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 136
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+.preheader:                                       ; preds = %0, %12
+  %2 = phi ptr [ %13, %12 ], [ @__apicdrivers, %0 ]
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 136
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %.preheader
-  %7 = tail call i32 %4() #3
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %11, label %9
+7:                                                ; preds = %.preheader
+  %8 = tail call i32 %5() #3
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %12, label %10
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr %1, align 8
-  tail call void @apic_install_driver(ptr noundef %10) #4
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %2, align 8
+  tail call void @apic_install_driver(ptr noundef %11) #4
   br label %.loopexit
 
-11:                                               ; preds = %6, %.preheader
-  %12 = getelementptr i8, ptr %1, i64 8
-  %13 = icmp ult ptr %12, @__apicdrivers_end
-  br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !5
+12:                                               ; preds = %7, %.preheader
+  %13 = getelementptr i8, ptr %2, i64 8
+  %14 = icmp ult ptr %13, @__apicdrivers_end
+  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !5
 
-.loopexit:                                        ; preds = %11, %9, %0
+.loopexit:                                        ; preds = %12, %10, %0
   ret void
 }
 
@@ -46,30 +47,31 @@ declare dso_local void @apic_install_driver(ptr noundef) local_unnamed_addr #2 s
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i32 0, 2) i32 @default_acpi_madt_oem_check(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 section ".init.text" align 16 {
-  br i1 icmp ult (ptr @__apicdrivers, ptr @__apicdrivers_end), label %.preheader, label %.loopexit
+  %3 = icmp ult ptr @__apicdrivers, @__apicdrivers_end
+  br i1 %3, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %2, %11
-  %3 = phi ptr [ %12, %11 ], [ @__apicdrivers, %2 ]
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 144
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #3
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %11, label %9
+.preheader:                                       ; preds = %2, %12
+  %4 = phi ptr [ %13, %12 ], [ @__apicdrivers, %2 ]
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 144
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i32 %7(ptr noundef %0, ptr noundef %1) #3
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %12, label %10
 
-9:                                                ; preds = %.preheader
-  %10 = load ptr, ptr %3, align 8
-  tail call void @apic_install_driver(ptr noundef %10) #4
+10:                                               ; preds = %.preheader
+  %11 = load ptr, ptr %4, align 8
+  tail call void @apic_install_driver(ptr noundef %11) #4
   br label %.loopexit
 
-11:                                               ; preds = %.preheader
-  %12 = getelementptr i8, ptr %3, i64 8
-  %13 = icmp ult ptr %12, @__apicdrivers_end
-  br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !8
+12:                                               ; preds = %.preheader
+  %13 = getelementptr i8, ptr %4, i64 8
+  %14 = icmp ult ptr %13, @__apicdrivers_end
+  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %11, %9, %2
-  %14 = phi i32 [ 1, %9 ], [ 0, %2 ], [ 0, %11 ]
-  ret i32 %14
+.loopexit:                                        ; preds = %12, %10, %2
+  %15 = phi i32 [ 1, %10 ], [ 0, %2 ], [ 0, %12 ]
+  ret i32 %15
 }
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

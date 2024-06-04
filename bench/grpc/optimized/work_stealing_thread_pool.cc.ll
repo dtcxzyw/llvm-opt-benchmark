@@ -1491,7 +1491,8 @@ entry:
   %ref.tmp3 = alloca %"class.grpc_core::Thread", align 8
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp9 = alloca %"class.grpc_core::Thread::Options", align 8
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %0, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -2273,6 +2274,7 @@ entry:
 if.end.lr.ph:                                     ; preds = %entry
   %lifeguard_should_shut_down_ = getelementptr inbounds i8, ptr %this, i64 344
   %backoff_ = getelementptr inbounds i8, ptr %this, i64 8
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
   br label %if.end
 
@@ -2292,7 +2294,7 @@ if.then4:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %6 = load ptr, ptr %lifeguard_should_shut_down_, align 8
   %call11 = tail call i64 @_ZN9grpc_core7BackOff15NextAttemptTimeEv(ptr noundef nonnull align 8 dereferenceable(336) %backoff_)
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %7, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %7
 
 7:                                                ; preds = %if.else
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -2603,7 +2605,8 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit2.i:     ; preds = %lpad.i
   resume { ptr, i32 } %15
 
 if.end15:                                         ; preds = %_ZN17grpc_event_engine12experimental15BusyThreadCount5countEv.exit
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %18, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %18
 
 18:                                               ; preds = %if.end15
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -3094,6 +3097,7 @@ if.end10:                                         ; preds = %if.end
 
 while.body.lr.ph:                                 ; preds = %if.end10
   %backoff_ = getelementptr inbounds i8, ptr %this, i64 24
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
   br label %while.body
 
@@ -3124,7 +3128,7 @@ if.end31:                                         ; preds = %if.end24
 if.end36:                                         ; preds = %if.end31
   %work_signal_.i = getelementptr inbounds i8, ptr %.pre61.pre, i64 248
   %call41 = tail call i64 @_ZN9grpc_core7BackOff15NextAttemptTimeEv(ptr noundef nonnull align 8 dereferenceable(336) %backoff_)
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %19, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %19
 
 19:                                               ; preds = %if.end36
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()

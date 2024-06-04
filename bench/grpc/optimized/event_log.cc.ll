@@ -24,6 +24,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 $__clang_call_terminate = comdat any
 
+$_ZN9grpc_core6PerCpuINS_8EventLog8FragmentEE8this_cpuEv = comdat any
+
 $_ZSt9__find_ifIPKSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops16_Iter_equals_valIS4_EEET_SA_SA_T0_St26random_access_iterator_tag = comdat any
 
 $_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES5_lET_SA_SA_SA_T1_SB_T0_SB_ = comdat any
@@ -456,91 +458,40 @@ _ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EED2Ev.exit: ; preds = %ehcleanup,
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: uwtable
-define void @_ZN9grpc_core8EventLog14AppendInternalESt17basic_string_viewIcSt11char_traitsIcEEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 %event.coerce0, ptr %event.coerce1, i64 noundef %delta) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress uwtable
+define void @_ZN9grpc_core8EventLog14AppendInternalESt17basic_string_viewIcSt11char_traitsIcEEl(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %event.coerce0, ptr %event.coerce1, i64 noundef %delta) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %0, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-
-0:                                                ; preds = %entry
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i: ; preds = %0, %entry
-  %1 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
-  %uses_until_refresh.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %2 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %cmp.i.i = icmp eq i16 %2, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %call.i.i.i = tail call i32 @gpr_cpu_current_cpu()
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %3, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
-
-3:                                                ; preds = %if.then.i.i
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i: ; preds = %3, %if.then.i.i
-  %ref.tmp.sroa.0.0.insert.insert.i.i = or i32 %call.i.i.i, -65536
-  store i32 %ref.tmp.sroa.0.0.insert.insert.i.i, ptr %1, align 2
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %4 = phi i16 [ -1, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i ], [ %2, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i ]
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i: ; preds = %if.end.i.i
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  %5 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %dec.i.i = add i16 %5, -1
-  store i16 %dec.i.i, ptr %uses_until_refresh.i.i, align 2
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZN9grpc_core6PerCpuINS_8EventLog8FragmentEE8this_cpuEv.exit
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i: ; preds = %if.end.i.i
-  %dec.c.i.i = add i16 %4, -1
-  store i16 %dec.c.i.i, ptr %uses_until_refresh.i.i, align 2
-  br label %_ZN9grpc_core6PerCpuINS_8EventLog8FragmentEE8this_cpuEv.exit
-
-_ZN9grpc_core6PerCpuINS_8EventLog8FragmentEE8this_cpuEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i16, ptr %1, align 2
-  %conv4.i.i = zext i16 %6 to i64
-  %shards_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load i64, ptr %shards_.i, align 8
-  %rem.i = urem i64 %conv4.i.i, %7
-  %8 = load ptr, ptr %data_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.grpc_core::EventLog::Fragment", ptr %8, i64 %rem.i
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i)
+  %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN9grpc_core6PerCpuINS_8EventLog8FragmentEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %call)
   %call2 = invoke noundef double @_Z21gpr_get_cycle_counterv()
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN9grpc_core6PerCpuINS_8EventLog8FragmentEE8this_cpuEv.exit
-  %entries = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
-  %10 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %10
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i2
+invoke.cont:                                      ; preds = %entry
+  %entries = getelementptr inbounds i8, ptr %call, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  %0 = load ptr, ptr %_M_finish.i.i, align 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %0, %1
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
-if.then.i.i2:                                     ; preds = %invoke.cont
-  store double %call2, ptr %9, align 8
-  %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+if.then.i.i:                                      ; preds = %invoke.cont
+  store double %call2, ptr %0, align 8
+  %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %event.coerce0, ptr %ref.tmp.sroa.3.0..sroa_idx, align 8
-  %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %event.coerce1, ptr %ref.tmp.sroa.4.0..sroa_idx, align 8
-  %ref.tmp.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  %ref.tmp.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %delta, ptr %ref.tmp.sroa.5.0..sroa_idx, align 8
-  %11 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 32
+  %2 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont5
 
 if.else.i.i:                                      ; preds = %invoke.cont
-  %12 = load ptr, ptr %entries, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %12 to i64
+  %3 = load ptr, ptr %entries, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775776
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -557,18 +508,18 @@ _ZNKSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i:
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %13 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 288230376151711743)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 288230376151711743, i64 %13
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 288230376151711743)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 288230376151711743, i64 %4
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core8EventLog5EntryESaIS2_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 5
-  %call5.i.i.i.i.i.i3 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #22
+  %call5.i.i.i.i.i.i2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #22
           to label %_ZNSt12_Vector_baseIN9grpc_core8EventLog5EntryESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %lpad
 
 _ZNSt12_Vector_baseIN9grpc_core8EventLog5EntryESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i3, %cond.true.i.i.i.i ]
+  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i2, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::EventLog::Entry", ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store double %call2, ptr %add.ptr.i.i.i, align 8
   %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
@@ -577,26 +528,26 @@ _ZNSt12_Vector_baseIN9grpc_core8EventLog5EntryESaIS2_EE11_M_allocateEm.exit.i.i.
   store ptr %event.coerce1, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx, align 8
   %ref.tmp.sroa.5.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 24
   store i64 %delta, ptr %ref.tmp.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 8
-  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %12, %9
+  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN9grpc_core8EventLog5EntryESaIS2_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core8EventLog5EntryESaIS2_EE11_M_allocateEm.exit.i.i.i ]
-  %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %12, %_ZNSt12_Vector_baseIN9grpc_core8EventLog5EntryESaIS2_EE11_M_allocateEm.exit.i.i.i ]
+  %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %3, %_ZNSt12_Vector_baseIN9grpc_core8EventLog5EntryESaIS2_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !12
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %9
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core8EventLog5EntryESaIS2_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core8EventLog5EntryESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 32
-  %tobool.not.i.i.i.i = icmp eq ptr %12, null
+  %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #19
   br label %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
@@ -606,35 +557,96 @@ _ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont5
 
-invoke.cont5:                                     ; preds = %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i2
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i)
+invoke.cont5:                                     ; preds = %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont5
-  %14 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #21
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #21
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %invoke.cont5
   ret void
 
-lpad:                                             ; preds = %cond.true.i.i.i.i, %if.then.i.i.i.i, %_ZN9grpc_core6PerCpuINS_8EventLog8FragmentEE8this_cpuEv.exit
-  %16 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %cond.true.i.i.i.i, %if.then.i.i.i.i, %entry
+  %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i)
-          to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit5 unwind label %terminate.lpad.i4
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %call)
+          to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit4 unwind label %terminate.lpad.i3
 
-terminate.lpad.i4:                                ; preds = %lpad
-  %17 = landingpad { ptr, i32 }
+terminate.lpad.i3:                                ; preds = %lpad
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #21
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #21
   unreachable
 
-_ZN4absl12lts_202308029MutexLockD2Ev.exit5:       ; preds = %lpad
-  resume { ptr, i32 } %16
+_ZN4absl12lts_202308029MutexLockD2Ev.exit4:       ; preds = %lpad
+  resume { ptr, i32 } %7
+}
+
+; Function Attrs: uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN9grpc_core6PerCpuINS_8EventLog8FragmentEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #5 comdat align 2 {
+entry:
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, null
+  br i1 %.not.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
+
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i: ; preds = %entry
+  %0 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
+  %uses_until_refresh.i = getelementptr inbounds i8, ptr %0, i64 2
+  %1 = load i16, ptr %uses_until_refresh.i, align 2
+  %cmp.i = icmp eq i16 %1, 0
+  br i1 %cmp.i, label %if.end.thread26.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i
+
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i: ; preds = %entry
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  %2 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
+  %uses_until_refresh7.i = getelementptr inbounds i8, ptr %2, i64 2
+  %3 = load i16, ptr %uses_until_refresh7.i, align 2
+  %cmp8.i = icmp eq i16 %3, 0
+  br i1 %cmp8.i, label %if.end.i, label %if.end.thread.i
+
+if.end.thread26.i:                                ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i
+  %call.i.i = tail call i32 @gpr_cpu_current_cpu()
+  %ref.tmp.sroa.0.0.insert.insert29.i = or i32 %call.i.i, -65536
+  store i32 %ref.tmp.sroa.0.0.insert.insert29.i, ptr %0, align 2
+  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i
+
+if.end.i:                                         ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
+  %call.i12.i = tail call i32 @gpr_cpu_current_cpu()
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  %ref.tmp.sroa.0.0.insert.insert.i = or i32 %call.i12.i, -65536
+  store i32 %ref.tmp.sroa.0.0.insert.insert.i, ptr %2, align 2
+  br label %if.end.thread.i
+
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i: ; preds = %if.end.thread26.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i
+  %4 = phi i16 [ -1, %if.end.thread26.i ], [ %1, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i ]
+  %dec22.i = add i16 %4, -1
+  store i16 %dec22.i, ptr %uses_until_refresh.i, align 2
+  br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
+
+if.end.thread.i:                                  ; preds = %if.end.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  %5 = load i16, ptr %uses_until_refresh7.i, align 2
+  %dec.i = add i16 %5, -1
+  store i16 %dec.i, ptr %uses_until_refresh7.i, align 2
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
+
+_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i, %if.end.thread.i
+  %6 = phi ptr [ %0, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i ], [ %2, %if.end.thread.i ]
+  %data_ = getelementptr inbounds i8, ptr %this, i64 16
+  %7 = load i16, ptr %6, align 2
+  %conv4.i = zext i16 %7 to i64
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 8
+  %8 = load i64, ptr %shards_, align 8
+  %rem = urem i64 %conv4.i, %8
+  %9 = load ptr, ptr %data_, align 8
+  %arrayidx.i = getelementptr inbounds %"struct.grpc_core::EventLog::Fragment", ptr %9, i64 %rem
+  ret ptr %arrayidx.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -549,7 +549,7 @@ define linkonce_odr dso_local void @_ZN8EmitCPch7emitPchEv(ptr noundef nonnull a
           to label %38 unwind label %58
 
 38:                                               ; preds = %37
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %3, align 8
   %39 = getelementptr inbounds i8, ptr %3, i64 200
   store i32 0, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %3, i64 204
@@ -792,7 +792,7 @@ _ZN14V3OutFormatter4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
           to label %_ZN10V3OutCFile12putsEndGuardEv.exit unwind label %63
 
 _ZN10V3OutCFile12putsEndGuardEv.exit:             ; preds = %_ZN14V3OutFormatter4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit86, %85
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %3, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %3)
           to label %_ZN10V3OutCFileD2Ev.exit unwind label %86
 
@@ -1017,7 +1017,7 @@ _ZN10VIdProtect7protectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10V3OutCFileD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %2 unwind label %3
 

@@ -137,7 +137,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream12AppendStringEPKcPNSt7__cxx1112
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf8internal38InitImplicitWeakMessageDefaultInstanceEv() #4 {
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN6google8protobuf8internal38implicit_weak_message_default_instanceE, i64 8), align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr @_ZN6google8protobuf8internal38implicit_weak_message_default_instanceE, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr @_ZN6google8protobuf8internal38implicit_weak_message_default_instanceE, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN6google8protobuf8internal38implicit_weak_message_default_instanceE, i64 16)) #13
   ret void
 }
@@ -181,7 +181,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagRFvvEEEEvDpOT_.exit: ; pred
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   ret void
@@ -189,7 +189,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal19ImplicitWeakMessageD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #15
@@ -237,7 +237,7 @@ define linkonce_odr noundef ptr @_ZNK6google8protobuf8internal19ImplicitWeakMess
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   ret ptr %2
@@ -279,7 +279,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   %.sink17 = phi ptr [ null, %4 ], [ %1, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
   %20 = getelementptr inbounds i8, ptr %.sink19, i64 8
   store ptr %.sink17, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %.sink19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %.sink19, align 8
   %21 = getelementptr inbounds i8, ptr %.sink19, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #13
   ret ptr %.sink19

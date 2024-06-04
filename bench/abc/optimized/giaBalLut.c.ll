@@ -202,8 +202,8 @@ define void @Bal_ManFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %3, i64 4
-  %.val15.i.i = load i32, ptr %6, align 4
-  %7 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %6, align 4
+  %7 = icmp sgt i32 %.val16.i.i, 0
   br i1 %7, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %5
@@ -211,10 +211,10 @@ define void @Bal_ManFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %13, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %13 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %13 ]
-  %.val14.i.i = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8
   %switch.i.i = icmp ult ptr %11, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %13, label %12
@@ -225,7 +225,7 @@ define void @Bal_ManFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %12, %9
-  %.val.i.i = phi i32 [ %.val18.i.i, %9 ], [ %.val.pre.i.i, %12 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %9 ], [ %.val.pre.i.i, %12 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %14 = sext i32 %.val.i.i to i64
   %15 = icmp slt i64 %indvars.iv.next.i.i, %14

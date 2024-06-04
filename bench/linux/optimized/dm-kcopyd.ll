@@ -83,7 +83,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dm_kcopyd_init() local_unnamed_a
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str, i32 noundef 3240, i32 noundef 8, i32 noundef 0, ptr noundef null) #9
   store ptr %1, ptr @_job_cache, align 8
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %13, label %3
+  br i1 %2, label %14, label %3
 
 3:                                                ; preds = %0
   store ptr @zero_page_list, ptr @zero_page_list, align 8
@@ -92,16 +92,17 @@ define dso_local noundef range(i32 -12, 1) i32 @dm_kcopyd_init() local_unnamed_a
   %6 = load i64, ptr @phys_base, align 8
   %7 = load i64, ptr @page_offset_base, align 8
   %8 = sub i64 -2147483648, %7
-  %9 = select i1 icmp ugt (i64 ptrtoint (ptr @empty_zero_page to i64), i64 sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)), i64 %6, i64 %8
-  %10 = add i64 %9, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
-  %11 = lshr i64 %10, 12
-  %12 = getelementptr %struct.page, ptr %5, i64 %11
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @zero_page_list, i64 8), align 8
-  br label %13
+  %9 = icmp ugt i64 ptrtoint (ptr @empty_zero_page to i64), sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
+  %10 = select i1 %9, i64 %6, i64 %8
+  %11 = add i64 %10, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
+  %12 = lshr i64 %11, 12
+  %13 = getelementptr %struct.page, ptr %5, i64 %12
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @zero_page_list, i64 8), align 8
+  br label %14
 
-13:                                               ; preds = %3, %0
-  %14 = phi i32 [ 0, %3 ], [ -12, %0 ]
-  ret i32 %14
+14:                                               ; preds = %3, %0
+  %15 = phi i32 [ 0, %3 ], [ -12, %0 ]
+  ret i32 %15
 }
 
 ; Function Attrs: null_pointer_is_valid

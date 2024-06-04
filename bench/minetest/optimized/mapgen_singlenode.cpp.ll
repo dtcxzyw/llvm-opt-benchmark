@@ -382,7 +382,7 @@ entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN6MapgenC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef 6, ptr noundef %params, ptr noundef %emerge)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV16MapgenSinglenode, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16MapgenSinglenode, i64 16), ptr %this, align 8, !tbaa !12
   %ndef = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %ndef, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #13

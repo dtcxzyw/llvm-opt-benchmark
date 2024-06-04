@@ -998,7 +998,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK10AstNetlist8modulespEv(ptr nound
 define linkonce_odr dso_local void @_ZN11CUseVisitorC2EP13AstNodeModule(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN12VNUser1InUseC2Ev.exit:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV11CUseVisitor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11CUseVisitor, i64 16), ptr %0, align 8
   tail call void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
@@ -1038,7 +1038,7 @@ _ZN14VNVisitorConst12iterateConstEP7AstNode.exit: ; preds = %_ZN12VNUser1InUseC2
           to label %.noexc unwind label %39
 
 .noexc:                                           ; preds = %15
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstCUse, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstCUse, i64 16), ptr %14, align 8
   %19 = getelementptr inbounds i8, ptr %14, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %20 unwind label %39

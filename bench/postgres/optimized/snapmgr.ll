@@ -599,8 +599,8 @@ define dso_local void @InvalidateCatalogSnapshotConditionally() local_unnamed_ad
   %or.cond = select i1 %2, i1 %4, i1 false
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @RegisteredSnapshots, i64 16), align 8
   %6 = icmp ne ptr %5, null
-  %or.cond3 = select i1 %or.cond, i1 %6, i1 false
-  br i1 %or.cond3, label %7, label %InvalidateCatalogSnapshot.exit
+  %or.cond4 = select i1 %or.cond, i1 %6, i1 false
+  br i1 %or.cond4, label %7, label %InvalidateCatalogSnapshot.exit
 
 7:                                                ; preds = %0
   %8 = load ptr, ptr %5, align 8

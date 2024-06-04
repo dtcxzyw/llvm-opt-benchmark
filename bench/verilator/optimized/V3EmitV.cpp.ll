@@ -1352,7 +1352,7 @@ define dso_local void @_ZN7V3EmitV14verilogForTreeEPK7AstNodeRSo(ptr noundef %0,
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   store i8 0, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, i8 0, i64 11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 3752) (i8, ptr @_ZTV18EmitVStreamVisitor, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18EmitVStreamVisitor, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %1, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
@@ -1446,7 +1446,7 @@ _ZN7AstNode11privateCastI8AstVFileP11AstNodeFileEEPT_PS_.exit: ; preds = %52, %_
 36:                                               ; preds = %34
   store i32 0, ptr %23, align 8
   store i32 0, ptr %24, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutVFile, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutVFile, i64 16), ptr %2, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   invoke void @_ZN14V3OutFormatter5putnsEPK7AstNodePKc(ptr noundef nonnull align 8 dereferenceable(164) %2, ptr noundef null, ptr noundef nonnull @.str.3)
           to label %37 unwind label %47
@@ -1457,7 +1457,7 @@ _ZN7AstNode11privateCastI8AstVFileP11AstNodeFileEEPT_PS_.exit: ; preds = %52, %_
   store i8 0, ptr %28, align 2
   store ptr null, ptr %29, align 8
   store i8 0, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 3752) (i8, ptr @_ZTV16EmitVFileVisitor, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16EmitVFileVisitor, i64 16), ptr %4, align 8
   store ptr %2, ptr %25, align 8
   store i8 1, ptr %26, align 8
   %39 = load ptr, ptr %38, align 8
@@ -1467,7 +1467,7 @@ _ZN7AstNode11privateCastI8AstVFileP11AstNodeFileEEPT_PS_.exit: ; preds = %52, %_
           to label %_ZN16EmitVFileVisitorC2EP7AstNodeP10V3OutVFilebb.exit unwind label %47
 
 _ZN16EmitVFileVisitorC2EP7AstNodeP10V3OutVFilebb.exit: ; preds = %37
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %2, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
           to label %_ZN10V3OutVFileD2Ev.exit unwind label %42
 
@@ -1728,7 +1728,7 @@ define linkonce_odr dso_local void @_ZN16EmitVFileVisitorD2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10V3OutVFileD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %_ZN10V3OutCFileD2Ev.exit unwind label %2
 
@@ -1823,7 +1823,7 @@ define dso_local void @_ZN7V3EmitV10debugEmitVERKNSt7__cxx1112basic_stringIcSt11
   store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 204
   store i32 0, ptr %21, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutVFile, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutVFile, i64 16), ptr %3, align 8
   %22 = load ptr, ptr @v3Global, align 8
   %23 = getelementptr inbounds i8, ptr %4, i64 8
   %24 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1835,7 +1835,7 @@ define dso_local void @_ZN7V3EmitV10debugEmitVERKNSt7__cxx1112basic_stringIcSt11
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %4, i64 32
   store i8 0, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 3752) (i8, ptr @_ZTV16EmitVFileVisitor, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16EmitVFileVisitor, i64 16), ptr %4, align 8
   store ptr %3, ptr %23, align 8
   store i8 1, ptr %24, align 8
   %29 = load ptr, ptr %22, align 8
@@ -1845,7 +1845,7 @@ define dso_local void @_ZN7V3EmitV10debugEmitVERKNSt7__cxx1112basic_stringIcSt11
           to label %_ZN16EmitVFileVisitorC2EP7AstNodeP10V3OutVFilebb.exit unwind label %35
 
 _ZN16EmitVFileVisitorC2EP7AstNodeP10V3OutVFilebb.exit: ; preds = %19
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %3, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %3)
           to label %_ZN10V3OutVFileD2Ev.exit unwind label %32
 
@@ -17877,7 +17877,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI12AstTex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10V3OutVFileD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %_ZN10V3OutVFileD2Ev.exit unwind label %2
 

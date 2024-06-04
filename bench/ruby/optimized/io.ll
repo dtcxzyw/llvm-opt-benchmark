@@ -4977,7 +4977,7 @@ switch.lookup:
 define dso_local range(i32 0, 2) i32 @rb_io_extract_encoding_option(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = icmp eq i64 %0, 4
-  br i1 %6, label %.thread100, label %7
+  br i1 %6, label %.thread101, label %7
 
 7:                                                ; preds = %4
   %8 = load i64, ptr @sym_encoding, align 8
@@ -4997,7 +4997,7 @@ define dso_local range(i32 0, 2) i32 @rb_io_extract_encoding_option(i64 noundef 
 
 15:                                               ; preds = %7, %.thread
   %16 = phi i1 [ true, %.thread ], [ false, %7 ]
-  %.14574 = phi i64 [ 36, %.thread ], [ %11, %7 ]
+  %.14575 = phi i64 [ 36, %.thread ], [ %11, %7 ]
   %17 = icmp eq i64 %9, 4
   br i1 %17, label %30, label %18
 
@@ -5027,15 +5027,15 @@ define dso_local range(i32 0, 2) i32 @rb_io_extract_encoding_option(i64 noundef 
   br i1 %16, label %33, label %31
 
 31:                                               ; preds = %30, %28
-  %32 = tail call ptr @rb_to_encoding(i64 noundef %.14574) #24
+  %32 = tail call ptr @rb_to_encoding(i64 noundef %.14575) #24
   br label %33
 
 33:                                               ; preds = %28, %31, %30
-  %.not55 = phi i1 [ false, %30 ], [ true, %31 ], [ false, %28 ]
+  %.not56 = phi i1 [ false, %30 ], [ true, %31 ], [ false, %28 ]
   %.048 = phi ptr [ null, %30 ], [ %32, %31 ], [ null, %28 ]
   switch i64 %13, label %34 [
-    i64 36, label %.thread94
-    i64 4, label %.thread94.thread
+    i64 36, label %.thread95
+    i64 4, label %.thread95.thread
   ]
 
 34:                                               ; preds = %33
@@ -5054,25 +5054,25 @@ define dso_local range(i32 0, 2) i32 @rb_io_extract_encoding_option(i64 noundef 
   %42 = getelementptr i8, ptr %38, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 0
-  br i1 %44, label %.thread94.thread, label %45
+  br i1 %44, label %.thread95.thread, label %45
 
 45:                                               ; preds = %41, %37
   %46 = call ptr @rb_to_encoding(i64 noundef %13) #24
-  br label %.thread94.thread
+  br label %.thread95.thread
 
 47:                                               ; preds = %34
   %48 = tail call ptr @rb_to_encoding(i64 noundef %13) #24
-  br label %.thread94.thread
+  br label %.thread95.thread
 
-.thread94.thread:                                 ; preds = %33, %45, %47, %41
+.thread95.thread:                                 ; preds = %33, %45, %47, %41
   %.046 = phi ptr [ %48, %47 ], [ %46, %45 ], [ inttoptr (i64 4 to ptr), %41 ], [ inttoptr (i64 4 to ptr), %33 ]
   %49 = icmp eq ptr %.048, %.046
-  %spec.store.select = select i1 %49, ptr inttoptr (i64 4 to ptr), ptr %.046
+  %spec.select55 = select i1 %49, ptr inttoptr (i64 4 to ptr), ptr %.046
   br label %73
 
 50:                                               ; preds = %.thread
   %51 = icmp eq i64 %9, 4
-  br i1 %51, label %.thread100, label %52
+  br i1 %51, label %.thread101, label %52
 
 52:                                               ; preds = %50
   %53 = tail call i64 @rb_check_string_type(i64 noundef %9) #24
@@ -5085,21 +5085,21 @@ define dso_local range(i32 0, 2) i32 @rb_io_extract_encoding_option(i64 noundef 
   %57 = load i64, ptr %5, align 8
   %58 = call ptr @rb_enc_get(i64 noundef %57) #24
   call fastcc void @parse_mode_enc(ptr noundef %56, ptr noundef %58, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  br label %.thread100
+  br label %.thread101
 
 59:                                               ; preds = %52
   %60 = tail call ptr @rb_to_encoding(i64 noundef %9) #24
-  %.not24.i = icmp ne ptr %60, null
-  br i1 %.not24.i, label %63, label %61
+  %.not25.i = icmp ne ptr %60, null
+  br i1 %.not25.i, label %63, label %61
 
 61:                                               ; preds = %59
   %62 = tail call ptr @rb_default_external_encoding() #24
   br label %63
 
 63:                                               ; preds = %61, %59
-  %.018.i = phi ptr [ %62, %61 ], [ %60, %59 ]
+  %.019.i = phi ptr [ %62, %61 ], [ %60, %59 ]
   %64 = tail call nonnull ptr @rb_ascii8bit_encoding() #24
-  %65 = icmp eq ptr %.018.i, %64
+  %65 = icmp eq ptr %.019.i, %64
   br i1 %65, label %68, label %66
 
 66:                                               ; preds = %63
@@ -5107,50 +5107,50 @@ define dso_local range(i32 0, 2) i32 @rb_io_extract_encoding_option(i64 noundef 
   br label %68
 
 68:                                               ; preds = %66, %63
-  %.019.i = phi ptr [ %67, %66 ], [ null, %63 ]
-  %magicptr.i = ptrtoint ptr %.019.i to i64
+  %.020.i = phi ptr [ %67, %66 ], [ null, %63 ]
+  %magicptr.i = ptrtoint ptr %.020.i to i64
   switch i64 %magicptr.i, label %69 [
     i64 4, label %71
     i64 0, label %71
   ]
 
 69:                                               ; preds = %68
-  %70 = icmp eq ptr %.019.i, %.018.i
+  %70 = icmp eq ptr %.020.i, %.019.i
   br i1 %70, label %71, label %rb_io_ext_int_to_encs.exit
 
 71:                                               ; preds = %69, %68, %68
-  %.not25.i = icmp eq ptr %.019.i, %.018.i
-  %or.cond26.i = select i1 %.not24.i, i1 true, i1 %.not25.i
-  %72 = select i1 %or.cond26.i, ptr %.018.i, ptr null
+  %.not26.i = icmp eq ptr %.020.i, %.019.i
+  %or.cond27.i = select i1 %.not25.i, i1 true, i1 %.not26.i
+  %72 = select i1 %or.cond27.i, ptr %.019.i, ptr null
   br label %rb_io_ext_int_to_encs.exit
 
 rb_io_ext_int_to_encs.exit:                       ; preds = %69, %71
-  %storemerge22.i = phi ptr [ %72, %71 ], [ %.019.i, %69 ]
-  %storemerge.i = phi ptr [ null, %71 ], [ %.018.i, %69 ]
-  store ptr %storemerge22.i, ptr %1, align 8
+  %storemerge23.i = phi ptr [ %72, %71 ], [ %.020.i, %69 ]
+  %storemerge.i = phi ptr [ null, %71 ], [ %.019.i, %69 ]
+  store ptr %storemerge23.i, ptr %1, align 8
   store ptr %storemerge.i, ptr %2, align 8
-  br label %.thread100
+  br label %.thread101
 
-.thread94:                                        ; preds = %33
-  br i1 %.not55, label %73, label %.thread100
+.thread95:                                        ; preds = %33
+  br i1 %.not56, label %73, label %.thread101
 
-73:                                               ; preds = %.thread94.thread, %.thread94
-  %.14799106 = phi ptr [ null, %.thread94 ], [ %spec.store.select, %.thread94.thread ]
-  %.not24.i58.not = icmp ne ptr %.048, null
-  br i1 %.not24.i58.not, label %75, label %.thread108
+73:                                               ; preds = %.thread95.thread, %.thread95
+  %.147100107 = phi ptr [ null, %.thread95 ], [ %spec.select55, %.thread95.thread ]
+  %.not25.i59.not = icmp ne ptr %.048, null
+  br i1 %.not25.i59.not, label %75, label %.thread109
 
-.thread108:                                       ; preds = %73
+.thread109:                                       ; preds = %73
   %74 = call ptr @rb_default_external_encoding() #24
   br label %75
 
-75:                                               ; preds = %.thread108, %73
-  %.018.i59 = phi ptr [ %74, %.thread108 ], [ %.048, %73 ]
+75:                                               ; preds = %.thread109, %73
+  %.019.i60 = phi ptr [ %74, %.thread109 ], [ %.048, %73 ]
   %76 = call nonnull ptr @rb_ascii8bit_encoding() #24
-  %77 = icmp eq ptr %.018.i59, %76
+  %77 = icmp eq ptr %.019.i60, %76
   br i1 %77, label %82, label %78
 
 78:                                               ; preds = %75
-  %79 = icmp eq ptr %.14799106, null
+  %79 = icmp eq ptr %.147100107, null
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %78
@@ -5158,32 +5158,32 @@ rb_io_ext_int_to_encs.exit:                       ; preds = %69, %71
   br label %82
 
 82:                                               ; preds = %80, %78, %75
-  %.019.i60 = phi ptr [ %81, %80 ], [ %.14799106, %78 ], [ null, %75 ]
-  %magicptr.i61 = ptrtoint ptr %.019.i60 to i64
-  switch i64 %magicptr.i61, label %83 [
+  %.020.i61 = phi ptr [ %81, %80 ], [ %.147100107, %78 ], [ null, %75 ]
+  %magicptr.i62 = ptrtoint ptr %.020.i61 to i64
+  switch i64 %magicptr.i62, label %83 [
     i64 4, label %85
     i64 0, label %85
   ]
 
 83:                                               ; preds = %82
-  %84 = icmp eq ptr %.019.i60, %.018.i59
-  br i1 %84, label %85, label %rb_io_ext_int_to_encs.exit66
+  %84 = icmp eq ptr %.020.i61, %.019.i60
+  br i1 %84, label %85, label %rb_io_ext_int_to_encs.exit67
 
 85:                                               ; preds = %83, %82, %82
-  %.not25.i62 = icmp eq ptr %.019.i60, %.018.i59
-  %or.cond26.i63 = select i1 %.not24.i58.not, i1 true, i1 %.not25.i62
-  %86 = select i1 %or.cond26.i63, ptr %.018.i59, ptr null
-  br label %rb_io_ext_int_to_encs.exit66
+  %.not26.i63 = icmp eq ptr %.020.i61, %.019.i60
+  %or.cond27.i64 = select i1 %.not25.i59.not, i1 true, i1 %.not26.i63
+  %86 = select i1 %or.cond27.i64, ptr %.019.i60, ptr null
+  br label %rb_io_ext_int_to_encs.exit67
 
-rb_io_ext_int_to_encs.exit66:                     ; preds = %83, %85
-  %storemerge22.i64 = phi ptr [ %86, %85 ], [ %.019.i60, %83 ]
-  %storemerge.i65 = phi ptr [ null, %85 ], [ %.018.i59, %83 ]
-  store ptr %storemerge22.i64, ptr %1, align 8
-  store ptr %storemerge.i65, ptr %2, align 8
-  br label %.thread100
+rb_io_ext_int_to_encs.exit67:                     ; preds = %83, %85
+  %storemerge23.i65 = phi ptr [ %86, %85 ], [ %.020.i61, %83 ]
+  %storemerge.i66 = phi ptr [ null, %85 ], [ %.019.i60, %83 ]
+  store ptr %storemerge23.i65, ptr %1, align 8
+  store ptr %storemerge.i66, ptr %2, align 8
+  br label %.thread101
 
-.thread100:                                       ; preds = %50, %4, %.thread94, %rb_io_ext_int_to_encs.exit66, %55, %rb_io_ext_int_to_encs.exit
-  %.049 = phi i32 [ 1, %rb_io_ext_int_to_encs.exit66 ], [ 1, %rb_io_ext_int_to_encs.exit ], [ 1, %55 ], [ 0, %.thread94 ], [ 0, %4 ], [ 0, %50 ]
+.thread101:                                       ; preds = %50, %4, %.thread95, %rb_io_ext_int_to_encs.exit67, %55, %rb_io_ext_int_to_encs.exit
+  %.049 = phi i32 [ 1, %rb_io_ext_int_to_encs.exit67 ], [ 1, %rb_io_ext_int_to_encs.exit ], [ 1, %55 ], [ 0, %.thread95 ], [ 0, %4 ], [ 0, %50 ]
   ret i32 %.049
 }
 
@@ -5352,17 +5352,17 @@ ruby_nonempty_memcpy.exit:                        ; preds = %35
 
 64:                                               ; preds = %59, %51, %62, %58, %47
   %.048 = phi ptr [ null, %58 ], [ %63, %62 ], [ null, %47 ], [ inttoptr (i64 4 to ptr), %51 ], [ inttoptr (i64 4 to ptr), %59 ]
-  %.not24.i = icmp ne ptr %.049, null
-  br i1 %.not24.i, label %67, label %65
+  %.not25.i = icmp ne ptr %.049, null
+  br i1 %.not25.i, label %67, label %65
 
 65:                                               ; preds = %64
   %66 = call ptr @rb_default_external_encoding() #24
   br label %67
 
 67:                                               ; preds = %65, %64
-  %.018.i = phi ptr [ %66, %65 ], [ %.049, %64 ]
+  %.019.i = phi ptr [ %66, %65 ], [ %.049, %64 ]
   %68 = call nonnull ptr @rb_ascii8bit_encoding() #24
-  %69 = icmp eq ptr %.018.i, %68
+  %69 = icmp eq ptr %.019.i, %68
   br i1 %69, label %74, label %70
 
 70:                                               ; preds = %67
@@ -5374,8 +5374,8 @@ ruby_nonempty_memcpy.exit:                        ; preds = %35
   br label %74
 
 74:                                               ; preds = %72, %70, %67
-  %.019.i = phi ptr [ %73, %72 ], [ %.048, %70 ], [ null, %67 ]
-  %magicptr.i = ptrtoint ptr %.019.i to i64
+  %.020.i = phi ptr [ %73, %72 ], [ %.048, %70 ], [ null, %67 ]
+  %magicptr.i = ptrtoint ptr %.020.i to i64
   switch i64 %magicptr.i, label %75 [
     i64 4, label %78
     i64 0, label %78
@@ -5384,20 +5384,20 @@ ruby_nonempty_memcpy.exit:                        ; preds = %35
 75:                                               ; preds = %74
   %76 = and i32 %.050, 1048576
   %.not.i68 = icmp eq i32 %76, 0
-  %77 = icmp eq ptr %.019.i, %.018.i
+  %77 = icmp eq ptr %.020.i, %.019.i
   %or.cond.i = select i1 %.not.i68, i1 %77, i1 false
   br i1 %or.cond.i, label %78, label %rb_io_ext_int_to_encs.exit
 
 78:                                               ; preds = %75, %74, %74
-  %.not25.i = icmp eq ptr %.019.i, %.018.i
-  %or.cond26.i = select i1 %.not24.i, i1 true, i1 %.not25.i
-  %79 = select i1 %or.cond26.i, ptr %.018.i, ptr null
+  %.not26.i = icmp eq ptr %.020.i, %.019.i
+  %or.cond27.i = select i1 %.not25.i, i1 true, i1 %.not26.i
+  %79 = select i1 %or.cond27.i, ptr %.019.i, ptr null
   br label %rb_io_ext_int_to_encs.exit
 
 rb_io_ext_int_to_encs.exit:                       ; preds = %75, %78
-  %storemerge22.i = phi ptr [ %79, %78 ], [ %.019.i, %75 ]
-  %storemerge.i = phi ptr [ null, %78 ], [ %.018.i, %75 ]
-  store ptr %storemerge22.i, ptr %2, align 8
+  %storemerge23.i = phi ptr [ %79, %78 ], [ %.020.i, %75 ]
+  %storemerge.i = phi ptr [ null, %78 ], [ %.019.i, %75 ]
+  store ptr %storemerge23.i, ptr %2, align 8
   store ptr %storemerge.i, ptr %3, align 8
   ret void
 }
@@ -5423,26 +5423,26 @@ define dso_local void @rb_io_extract_modeenc(ptr nocapture noundef %0, ptr nound
   br label %18
 
 18:                                               ; preds = %16, %6
-  %.019.i = phi ptr [ %17, %16 ], [ null, %6 ]
-  %magicptr.i = ptrtoint ptr %.019.i to i64
+  %.020.i = phi ptr [ %17, %16 ], [ null, %6 ]
+  %magicptr.i = ptrtoint ptr %.020.i to i64
   switch i64 %magicptr.i, label %19 [
     i64 4, label %21
     i64 0, label %21
   ]
 
 19:                                               ; preds = %18
-  %20 = icmp eq ptr %.019.i, %13
+  %20 = icmp eq ptr %.020.i, %13
   br i1 %20, label %21, label %rb_io_ext_int_to_encs.exit
 
 21:                                               ; preds = %19, %18, %18
-  %.not25.i = icmp eq ptr %.019.i, %13
-  %22 = select i1 %.not25.i, ptr %13, ptr null
+  %.not26.i = icmp eq ptr %.020.i, %13
+  %22 = select i1 %.not26.i, ptr %13, ptr null
   br label %rb_io_ext_int_to_encs.exit
 
 rb_io_ext_int_to_encs.exit:                       ; preds = %19, %21
-  %storemerge22.i = phi ptr [ %22, %21 ], [ %.019.i, %19 ]
+  %storemerge23.i = phi ptr [ %22, %21 ], [ %.020.i, %19 ]
   %storemerge.i = phi ptr [ null, %21 ], [ %13, %19 ]
-  store ptr %storemerge22.i, ptr %9, align 8
+  store ptr %storemerge23.i, ptr %9, align 8
   store ptr %storemerge.i, ptr %10, align 8
   %23 = icmp eq i64 %2, 4
   br label %24
@@ -5546,9 +5546,9 @@ switch.lookup:                                    ; preds = %28
 
 71:                                               ; preds = %.thread, %69
   %72 = phi i32 [ %49, %69 ], [ %68, %.thread ]
-  %.018.i = phi ptr [ %70, %69 ], [ %67, %.thread ]
+  %.019.i = phi ptr [ %70, %69 ], [ %67, %.thread ]
   %73 = call nonnull ptr @rb_ascii8bit_encoding() #24
-  %74 = icmp eq ptr %.018.i, %73
+  %74 = icmp eq ptr %.019.i, %73
   br i1 %74, label %77, label %75
 
 75:                                               ; preds = %71
@@ -5556,8 +5556,8 @@ switch.lookup:                                    ; preds = %28
   br label %77
 
 77:                                               ; preds = %75, %71
-  %.019.i71 = phi ptr [ %76, %75 ], [ null, %71 ]
-  %magicptr.i72 = ptrtoint ptr %.019.i71 to i64
+  %.020.i71 = phi ptr [ %76, %75 ], [ null, %71 ]
+  %magicptr.i72 = ptrtoint ptr %.020.i71 to i64
   switch i64 %magicptr.i72, label %78 [
     i64 4, label %81
     i64 0, label %81
@@ -5566,20 +5566,20 @@ switch.lookup:                                    ; preds = %28
 78:                                               ; preds = %77
   %79 = and i32 %72, 1048576
   %.not.i76 = icmp eq i32 %79, 0
-  %80 = icmp eq ptr %.019.i71, %.018.i
+  %80 = icmp eq ptr %.020.i71, %.019.i
   %or.cond.i = select i1 %.not.i76, i1 %80, i1 false
   br i1 %or.cond.i, label %81, label %rb_io_ext_int_to_encs.exit77
 
 81:                                               ; preds = %78, %77, %77
-  %.not25.i73 = icmp eq ptr %.019.i71, %.018.i
-  %or.cond26.i = select i1 %.not57, i1 true, i1 %.not25.i73
-  %82 = select i1 %or.cond26.i, ptr %.018.i, ptr null
+  %.not26.i73 = icmp eq ptr %.020.i71, %.019.i
+  %or.cond27.i = select i1 %.not57, i1 true, i1 %.not26.i73
+  %82 = select i1 %or.cond27.i, ptr %.019.i, ptr null
   br label %rb_io_ext_int_to_encs.exit77
 
 rb_io_ext_int_to_encs.exit77:                     ; preds = %78, %81
-  %storemerge22.i74 = phi ptr [ %82, %81 ], [ %.019.i71, %78 ]
-  %storemerge.i75 = phi ptr [ null, %81 ], [ %.018.i, %78 ]
-  store ptr %storemerge22.i74, ptr %9, align 8
+  %storemerge23.i74 = phi ptr [ %82, %81 ], [ %.020.i71, %78 ]
+  %storemerge.i75 = phi ptr [ null, %81 ], [ %.019.i, %78 ]
+  store ptr %storemerge23.i74, ptr %9, align 8
   store ptr %storemerge.i75, ptr %10, align 8
   br label %83
 
@@ -5616,8 +5616,8 @@ rb_io_ext_int_to_encs.exit77:                     ; preds = %78, %81
   br label %99
 
 99:                                               ; preds = %97, %92
-  %.019.i80 = phi ptr [ %98, %97 ], [ null, %92 ]
-  %magicptr.i81 = ptrtoint ptr %.019.i80 to i64
+  %.020.i80 = phi ptr [ %98, %97 ], [ null, %92 ]
+  %magicptr.i81 = ptrtoint ptr %.020.i80 to i64
   switch i64 %magicptr.i81, label %100 [
     i64 4, label %103
     i64 0, label %103
@@ -5626,7 +5626,7 @@ rb_io_ext_int_to_encs.exit77:                     ; preds = %78, %81
 100:                                              ; preds = %99
   %101 = and i32 %94, 1048576
   %.not.i86 = icmp eq i32 %101, 0
-  %102 = icmp eq ptr %.019.i80, %93
+  %102 = icmp eq ptr %.020.i80, %93
   %or.cond.i87 = select i1 %.not.i86, i1 %102, i1 false
   br i1 %or.cond.i87, label %103, label %rb_io_ext_int_to_encs.exit88
 
@@ -5634,9 +5634,9 @@ rb_io_ext_int_to_encs.exit77:                     ; preds = %78, %81
   br label %rb_io_ext_int_to_encs.exit88
 
 rb_io_ext_int_to_encs.exit88:                     ; preds = %100, %103
-  %storemerge22.i84 = phi ptr [ %93, %103 ], [ %.019.i80, %100 ]
+  %storemerge23.i84 = phi ptr [ %93, %103 ], [ %.020.i80, %100 ]
   %storemerge.i85 = phi ptr [ null, %103 ], [ %93, %100 ]
-  store ptr %storemerge22.i84, ptr %9, align 8
+  store ptr %storemerge23.i84, ptr %9, align 8
   store ptr %storemerge.i85, ptr %10, align 8
   br label %185
 
@@ -5732,8 +5732,8 @@ rb_num2int_inline.exit91:                         ; preds = %122, %124
   br label %153
 
 153:                                              ; preds = %151, %146
-  %.019.i101 = phi ptr [ %152, %151 ], [ null, %146 ]
-  %magicptr.i102 = ptrtoint ptr %.019.i101 to i64
+  %.020.i101 = phi ptr [ %152, %151 ], [ null, %146 ]
+  %magicptr.i102 = ptrtoint ptr %.020.i101 to i64
   switch i64 %magicptr.i102, label %154 [
     i64 4, label %157
     i64 0, label %157
@@ -5742,7 +5742,7 @@ rb_num2int_inline.exit91:                         ; preds = %122, %124
 154:                                              ; preds = %153
   %155 = and i32 %148, 1048576
   %.not.i107 = icmp eq i32 %155, 0
-  %156 = icmp eq ptr %.019.i101, %147
+  %156 = icmp eq ptr %.020.i101, %147
   %or.cond.i108 = select i1 %.not.i107, i1 %156, i1 false
   br i1 %or.cond.i108, label %157, label %rb_io_ext_int_to_encs.exit109
 
@@ -5750,9 +5750,9 @@ rb_num2int_inline.exit91:                         ; preds = %122, %124
   br label %rb_io_ext_int_to_encs.exit109
 
 rb_io_ext_int_to_encs.exit109:                    ; preds = %154, %157
-  %storemerge22.i105 = phi ptr [ %147, %157 ], [ %.019.i101, %154 ]
+  %storemerge23.i105 = phi ptr [ %147, %157 ], [ %.020.i101, %154 ]
   %storemerge.i106 = phi ptr [ null, %157 ], [ %147, %154 ]
-  store ptr %storemerge22.i105, ptr %9, align 8
+  store ptr %storemerge23.i105, ptr %9, align 8
   store ptr %storemerge.i106, ptr %10, align 8
   br label %158
 
@@ -5817,7 +5817,7 @@ thread-pre-split:                                 ; preds = %183, %._crit_edge
 
 185:                                              ; preds = %thread-pre-split, %rb_io_ext_int_to_encs.exit88
   %186 = phi ptr [ %.pre, %thread-pre-split ], [ %storemerge.i85, %rb_io_ext_int_to_encs.exit88 ]
-  %187 = phi ptr [ %.pr113, %thread-pre-split ], [ %storemerge22.i84, %rb_io_ext_int_to_encs.exit88 ]
+  %187 = phi ptr [ %.pr113, %thread-pre-split ], [ %storemerge23.i84, %rb_io_ext_int_to_encs.exit88 ]
   %.050 = phi i32 [ %.050.ph, %thread-pre-split ], [ %89, %rb_io_ext_int_to_encs.exit88 ]
   %.2 = phi i32 [ %.2.ph, %thread-pre-split ], [ %.0, %rb_io_ext_int_to_encs.exit88 ]
   %188 = load i32, ptr %8, align 4
@@ -6100,9 +6100,9 @@ define internal fastcc noundef i64 @rb_file_open_internal(i64 noundef returned %
 
 19:                                               ; preds = %.thread, %16
   %20 = phi ptr [ %17, %16 ], [ %15, %.thread ]
-  %.018.i = phi ptr [ %18, %16 ], [ %14, %.thread ]
+  %.019.i = phi ptr [ %18, %16 ], [ %14, %.thread ]
   %21 = tail call nonnull ptr @rb_ascii8bit_encoding() #24
-  %22 = icmp eq ptr %.018.i, %21
+  %22 = icmp eq ptr %.019.i, %21
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %19
@@ -6110,8 +6110,8 @@ define internal fastcc noundef i64 @rb_file_open_internal(i64 noundef returned %
   br label %25
 
 25:                                               ; preds = %23, %19
-  %.019.i = phi ptr [ %24, %23 ], [ null, %19 ]
-  %magicptr.i = ptrtoint ptr %.019.i to i64
+  %.020.i = phi ptr [ %24, %23 ], [ null, %19 ]
+  %magicptr.i = ptrtoint ptr %.020.i to i64
   switch i64 %magicptr.i, label %26 [
     i64 4, label %29
     i64 0, label %29
@@ -6120,20 +6120,20 @@ define internal fastcc noundef i64 @rb_file_open_internal(i64 noundef returned %
 26:                                               ; preds = %25
   %27 = and i32 %6, 1048576
   %.not.i = icmp eq i32 %27, 0
-  %28 = icmp eq ptr %.019.i, %.018.i
+  %28 = icmp eq ptr %.020.i, %.019.i
   %or.cond.i = select i1 %.not.i, i1 %28, i1 false
   br i1 %or.cond.i, label %29, label %rb_io_ext_int_to_encs.exit
 
 29:                                               ; preds = %26, %25, %25
-  %.not25.i = icmp eq ptr %.019.i, %.018.i
-  %or.cond26.i = select i1 %.not6, i1 true, i1 %.not25.i
-  %30 = select i1 %or.cond26.i, ptr %.018.i, ptr null
+  %.not26.i = icmp eq ptr %.020.i, %.019.i
+  %or.cond27.i = select i1 %.not6, i1 true, i1 %.not26.i
+  %30 = select i1 %or.cond27.i, ptr %.019.i, ptr null
   br label %rb_io_ext_int_to_encs.exit
 
 rb_io_ext_int_to_encs.exit:                       ; preds = %26, %29
-  %storemerge22.i = phi ptr [ %30, %29 ], [ %.019.i, %26 ]
-  %storemerge.i = phi ptr [ null, %29 ], [ %.018.i, %26 ]
-  store ptr %storemerge22.i, ptr %5, align 8
+  %storemerge23.i = phi ptr [ %30, %29 ], [ %.020.i, %26 ]
+  %storemerge.i = phi ptr [ null, %29 ], [ %.019.i, %26 ]
+  store ptr %storemerge23.i, ptr %5, align 8
   store ptr %storemerge.i, ptr %20, align 8
   br label %31
 
@@ -7998,9 +7998,9 @@ define internal fastcc i64 @prep_io(i32 noundef %0, i32 noundef %1, i64 noundef 
 
 16:                                               ; preds = %.thread, %13
   %17 = phi ptr [ %14, %13 ], [ %12, %.thread ]
-  %.018.i = phi ptr [ %15, %13 ], [ %11, %.thread ]
+  %.019.i = phi ptr [ %15, %13 ], [ %11, %.thread ]
   %18 = tail call nonnull ptr @rb_ascii8bit_encoding() #24
-  %19 = icmp eq ptr %.018.i, %18
+  %19 = icmp eq ptr %.019.i, %18
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %16
@@ -8008,8 +8008,8 @@ define internal fastcc i64 @prep_io(i32 noundef %0, i32 noundef %1, i64 noundef 
   br label %22
 
 22:                                               ; preds = %20, %16
-  %.019.i = phi ptr [ %21, %20 ], [ null, %16 ]
-  %magicptr.i = ptrtoint ptr %.019.i to i64
+  %.020.i = phi ptr [ %21, %20 ], [ null, %16 ]
+  %magicptr.i = ptrtoint ptr %.020.i to i64
   switch i64 %magicptr.i, label %23 [
     i64 4, label %26
     i64 0, label %26
@@ -8018,20 +8018,20 @@ define internal fastcc i64 @prep_io(i32 noundef %0, i32 noundef %1, i64 noundef 
 23:                                               ; preds = %22
   %24 = and i32 %1, 1048576
   %.not.i = icmp eq i32 %24, 0
-  %25 = icmp eq ptr %.019.i, %.018.i
+  %25 = icmp eq ptr %.020.i, %.019.i
   %or.cond.i = select i1 %.not.i, i1 %25, i1 false
   br i1 %or.cond.i, label %26, label %rb_io_ext_int_to_encs.exit
 
 26:                                               ; preds = %23, %22, %22
-  %.not25.i = icmp eq ptr %.019.i, %.018.i
-  %or.cond26.i = select i1 %.not15, i1 true, i1 %.not25.i
-  %27 = select i1 %or.cond26.i, ptr %.018.i, ptr null
+  %.not26.i = icmp eq ptr %.020.i, %.019.i
+  %or.cond27.i = select i1 %.not15, i1 true, i1 %.not26.i
+  %27 = select i1 %or.cond27.i, ptr %.019.i, ptr null
   br label %rb_io_ext_int_to_encs.exit
 
 rb_io_ext_int_to_encs.exit:                       ; preds = %23, %26
-  %storemerge22.i = phi ptr [ %27, %26 ], [ %.019.i, %23 ]
-  %storemerge.i = phi ptr [ null, %26 ], [ %.018.i, %23 ]
-  store ptr %storemerge22.i, ptr %5, align 8
+  %storemerge23.i = phi ptr [ %27, %26 ], [ %.020.i, %23 ]
+  %storemerge.i = phi ptr [ null, %26 ], [ %.019.i, %23 ]
+  store ptr %storemerge23.i, ptr %5, align 8
   store ptr %storemerge.i, ptr %17, align 8
   %28 = lshr i32 %1, 4
   %29 = and i32 %28, 256
@@ -25452,8 +25452,8 @@ define internal fastcc noundef i64 @rb_file_open_generic(i64 noundef returned %0
   br label %14
 
 14:                                               ; preds = %12, %8
-  %.019.i = phi ptr [ %13, %12 ], [ null, %8 ]
-  %magicptr.i = ptrtoint ptr %.019.i to i64
+  %.020.i = phi ptr [ %13, %12 ], [ null, %8 ]
+  %magicptr.i = ptrtoint ptr %.020.i to i64
   switch i64 %magicptr.i, label %15 [
     i64 4, label %18
     i64 0, label %18
@@ -25462,19 +25462,19 @@ define internal fastcc noundef i64 @rb_file_open_generic(i64 noundef returned %0
 15:                                               ; preds = %14
   %16 = and i32 %3, 1048576
   %.not.i = icmp eq i32 %16, 0
-  %17 = icmp eq ptr %.019.i, %9
+  %17 = icmp eq ptr %.020.i, %9
   %or.cond.i = select i1 %.not.i, i1 %17, i1 false
   br i1 %or.cond.i, label %18, label %rb_io_ext_int_to_encs.exit
 
 18:                                               ; preds = %15, %14, %14
-  %.not25.i = icmp eq ptr %.019.i, %9
-  %19 = select i1 %.not25.i, ptr %9, ptr null
+  %.not26.i = icmp eq ptr %.020.i, %9
+  %19 = select i1 %.not26.i, ptr %9, ptr null
   br label %rb_io_ext_int_to_encs.exit
 
 rb_io_ext_int_to_encs.exit:                       ; preds = %15, %18
-  %storemerge22.i = phi ptr [ %19, %18 ], [ %.019.i, %15 ]
+  %storemerge23.i = phi ptr [ %19, %18 ], [ %.020.i, %15 ]
   %storemerge.i = phi ptr [ null, %18 ], [ %9, %15 ]
-  store ptr %storemerge22.i, ptr %7, align 8
+  store ptr %storemerge23.i, ptr %7, align 8
   store ptr %storemerge.i, ptr %.0.sroa.gep24, align 8
   store i32 0, ptr %.0.sroa.gep18, align 8
   %20 = getelementptr inbounds i8, ptr %7, i64 24
@@ -25494,7 +25494,7 @@ thread-pre-split:                                 ; preds = %6
 23:                                               ; preds = %thread-pre-split, %rb_io_ext_int_to_encs.exit
   %24 = phi ptr [ %.pre33, %thread-pre-split ], [ %storemerge.i, %rb_io_ext_int_to_encs.exit ]
   %.not1926.i = phi i1 [ %22, %thread-pre-split ], [ true, %rb_io_ext_int_to_encs.exit ]
-  %25 = phi ptr [ %.pr, %thread-pre-split ], [ %storemerge22.i, %rb_io_ext_int_to_encs.exit ]
+  %25 = phi ptr [ %.pr, %thread-pre-split ], [ %storemerge23.i, %rb_io_ext_int_to_encs.exit ]
   %.0 = phi ptr [ %4, %thread-pre-split ], [ %7, %rb_io_ext_int_to_encs.exit ]
   %26 = icmp eq ptr %24, null
   %27 = and i32 %3, 4
@@ -26073,26 +26073,26 @@ find_encoding.exit29:                             ; preds = %34, %36
   br label %54
 
 54:                                               ; preds = %52, %48
-  %.019.i = phi ptr [ %53, %52 ], [ null, %48 ]
-  %magicptr.i = ptrtoint ptr %.019.i to i64
+  %.020.i = phi ptr [ %53, %52 ], [ null, %48 ]
+  %magicptr.i = ptrtoint ptr %.020.i to i64
   switch i64 %magicptr.i, label %55 [
     i64 4, label %57
     i64 0, label %57
   ]
 
 55:                                               ; preds = %54
-  %56 = icmp eq ptr %.019.i, %49
+  %56 = icmp eq ptr %.020.i, %49
   br i1 %56, label %57, label %rb_io_ext_int_to_encs.exit
 
 57:                                               ; preds = %55, %54, %54
-  %.not25.i = icmp eq ptr %.019.i, %49
-  %58 = select i1 %.not25.i, ptr %49, ptr null
+  %.not26.i = icmp eq ptr %.020.i, %49
+  %58 = select i1 %.not26.i, ptr %49, ptr null
   br label %rb_io_ext_int_to_encs.exit
 
 rb_io_ext_int_to_encs.exit:                       ; preds = %55, %57
-  %storemerge22.i = phi ptr [ %58, %57 ], [ %.019.i, %55 ]
+  %storemerge23.i = phi ptr [ %58, %57 ], [ %.020.i, %55 ]
   %storemerge.i = phi ptr [ null, %57 ], [ %49, %55 ]
-  store ptr %storemerge22.i, ptr %5, align 8
+  store ptr %storemerge23.i, ptr %5, align 8
   store ptr %storemerge.i, ptr %6, align 8
   store i64 4, ptr %7, align 8
   br label %thread-pre-split
@@ -26146,9 +26146,9 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %62, %rb_enc_asciico
   br label %find_encoding.exit36.thread
 
 find_encoding.exit36.thread:                      ; preds = %rb_enc_asciicompat.exit.thread, %74
-  %.018.i = phi ptr [ %75, %74 ], [ %73, %rb_enc_asciicompat.exit.thread ]
+  %.019.i = phi ptr [ %75, %74 ], [ %73, %rb_enc_asciicompat.exit.thread ]
   %76 = tail call nonnull ptr @rb_ascii8bit_encoding() #24
-  %77 = icmp eq ptr %.018.i, %76
+  %77 = icmp eq ptr %.019.i, %76
   br i1 %77, label %80, label %78
 
 78:                                               ; preds = %find_encoding.exit36.thread
@@ -26156,34 +26156,34 @@ find_encoding.exit36.thread:                      ; preds = %rb_enc_asciicompat.
   br label %80
 
 80:                                               ; preds = %78, %find_encoding.exit36.thread
-  %.019.i37 = phi ptr [ %79, %78 ], [ null, %find_encoding.exit36.thread ]
-  %magicptr.i38 = ptrtoint ptr %.019.i37 to i64
+  %.020.i37 = phi ptr [ %79, %78 ], [ null, %find_encoding.exit36.thread ]
+  %magicptr.i38 = ptrtoint ptr %.020.i37 to i64
   switch i64 %magicptr.i38, label %81 [
     i64 4, label %83
     i64 0, label %83
   ]
 
 81:                                               ; preds = %80
-  %82 = icmp eq ptr %.019.i37, %.018.i
+  %82 = icmp eq ptr %.020.i37, %.019.i
   br i1 %82, label %83, label %rb_io_ext_int_to_encs.exit42
 
 83:                                               ; preds = %81, %80, %80
-  %.not25.i39 = icmp eq ptr %.019.i37, %.018.i
-  %or.cond26.i = select i1 %.not.i35, i1 true, i1 %.not25.i39
-  %84 = select i1 %or.cond26.i, ptr %.018.i, ptr null
+  %.not26.i39 = icmp eq ptr %.020.i37, %.019.i
+  %or.cond27.i = select i1 %.not.i35, i1 true, i1 %.not26.i39
+  %84 = select i1 %or.cond27.i, ptr %.019.i, ptr null
   br label %rb_io_ext_int_to_encs.exit42
 
 rb_io_ext_int_to_encs.exit42:                     ; preds = %81, %83
-  %storemerge22.i40 = phi ptr [ %84, %83 ], [ %.019.i37, %81 ]
-  %storemerge.i41 = phi ptr [ null, %83 ], [ %.018.i, %81 ]
-  store ptr %storemerge22.i40, ptr %5, align 8
+  %storemerge23.i40 = phi ptr [ %84, %83 ], [ %.020.i37, %81 ]
+  %storemerge.i41 = phi ptr [ null, %83 ], [ %.019.i, %81 ]
+  store ptr %storemerge23.i40, ptr %5, align 8
   store ptr %storemerge.i41, ptr %6, align 8
   store i64 4, ptr %7, align 8
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %RSTRING_PTR.exit34, %44, %rb_io_ext_int_to_encs.exit, %rb_io_ext_int_to_encs.exit42
   %85 = phi ptr [ %storemerge.i, %rb_io_ext_int_to_encs.exit ], [ %storemerge.i41, %rb_io_ext_int_to_encs.exit42 ], [ %.pre53, %44 ], [ %.pre.pre, %RSTRING_PTR.exit34 ]
-  %86 = phi ptr [ %storemerge22.i, %rb_io_ext_int_to_encs.exit ], [ %storemerge22.i40, %rb_io_ext_int_to_encs.exit42 ], [ %.pr50, %44 ], [ %.pr.pre, %RSTRING_PTR.exit34 ]
+  %86 = phi ptr [ %storemerge23.i, %rb_io_ext_int_to_encs.exit ], [ %storemerge23.i40, %rb_io_ext_int_to_encs.exit42 ], [ %.pr50, %44 ], [ %.pr.pre, %RSTRING_PTR.exit34 ]
   %.0 = phi i32 [ %9, %rb_io_ext_int_to_encs.exit ], [ %9, %rb_io_ext_int_to_encs.exit42 ], [ %45, %44 ], [ %72, %RSTRING_PTR.exit34 ]
   %87 = getelementptr inbounds i8, ptr %0, i64 96
   %88 = getelementptr inbounds i8, ptr %0, i64 20

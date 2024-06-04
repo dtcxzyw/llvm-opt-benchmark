@@ -51,7 +51,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13ObjDefManagerC2EP8IGameDef10ObjDefType(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %gamedef, i32 noundef %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13ObjDefManager, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13ObjDefManager, i64 16), ptr %this, align 8, !tbaa !4
   %m_objects = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_objects, i8 0, i64 24, i1 false)
   %m_objtype = getelementptr inbounds i8, ptr %this, i64 40
@@ -92,7 +92,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13ObjDefManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13ObjDefManager, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13ObjDefManager, i64 16), ptr %this, align 8, !tbaa !4
   %m_objects = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !18
@@ -145,7 +145,7 @@ for.inc:                                          ; preds = %delete.notnull, %fo
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13ObjDefManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13ObjDefManager, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13ObjDefManager, i64 16), ptr %this, align 8, !tbaa !4
   %m_objects.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !18
@@ -572,7 +572,8 @@ _ZNSt6vectorIP6ObjDefSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal
   br label %_ZNSt6vectorIP6ObjDefSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP6ObjDefSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ObjDefSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %7, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %7
 
 7:                                                ; preds = %_ZNSt6vectorIP6ObjDefSaIS1_EE9push_backERKS1_.exit
   tail call void @_ZTH10infostream()

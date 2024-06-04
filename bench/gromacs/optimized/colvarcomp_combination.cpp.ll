@@ -1019,9 +1019,9 @@ define void @_ZN6colvar17linearCombinationC2ERKNSt7__cxx1112basic_stringIcSt11ch
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN6colvar3cvcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 248), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 248), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6colvar14global_cvc_mapB5cxx11E, i64 24), align 8
@@ -2337,9 +2337,9 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar17linearCombinationD2Ev(ptr noundef nonnull align 8 dereferenceable(1673) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 248), ptr %2, align 8
   invoke void @_ZN10colvardeps19remove_all_childrenEv(ptr noundef nonnull align 8 dereferenceable(120) %2)
           to label %3 unwind label %25
 
@@ -3038,9 +3038,9 @@ define void @_ZN6colvar12customColvarC2ERKNSt7__cxx1112basic_stringIcSt11char_tr
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar17linearCombinationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1673) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar12customColvarE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12customColvarE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar12customColvarE, i64 248), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12customColvarE, i64 248), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 1673
   store i8 0, ptr %13, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
@@ -3297,9 +3297,9 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar12customColvarD2Ev(ptr noundef nonnull align 8 dereferenceable(1674) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 248), ptr %2, align 8
   invoke void @_ZN10colvardeps19remove_all_childrenEv(ptr noundef nonnull align 8 dereferenceable(120) %2)
           to label %3 unwind label %25
 

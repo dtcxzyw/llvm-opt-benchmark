@@ -1002,7 +1002,7 @@ entry:
   %agg.tmp5 = alloca %"class.irr::core::rect", align 8
   %frombool = zext i1 %horizontal to i8
   %0 = getelementptr inbounds i8, ptr %this, i64 392
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 400
   store ptr null, ptr %DebugName.i, align 8, !tbaa !68
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 408
@@ -1011,8 +1011,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %rectangle, i64 16, i1 false)
   call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr3gui13CGUIScrollBarE, i64 16), i32 noundef 14, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp5)
-  store ptr getelementptr inbounds inrange(-24, 368) (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 416), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 416), ptr %0, align 8, !tbaa !3
   %UpButton = getelementptr inbounds i8, ptr %this, i64 312
   %Horizontal = getelementptr inbounds i8, ptr %this, i64 345
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %UpButton, i8 0, i64 33, i1 false)
@@ -1194,9 +1194,9 @@ if.end16:                                         ; preds = %delete.notnull.i21,
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui13CGUIScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(388) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 368) (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 392
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 416), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 416), ptr %add.ptr.i, align 8, !tbaa !3
   %UpButton.i = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %UpButton.i, align 8, !tbaa !51
   %tobool.not.i = icmp eq ptr %0, null
@@ -1258,9 +1258,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 368) (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 392
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 416), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 416), ptr %add.ptr.i.i, align 8, !tbaa !3
   %UpButton.i.i = getelementptr inbounds i8, ptr %3, i64 312
   %4 = load ptr, ptr %UpButton.i.i, align 8, !tbaa !51
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -1318,9 +1318,9 @@ _ZN3irr3gui13CGUIScrollBarD1Ev.exit:              ; preds = %delete.notnull.i21.
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui13CGUIScrollBarD0Ev(ptr noundef nonnull align 8 dereferenceable(388) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 368) (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 392
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 416), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 416), ptr %add.ptr.i.i, align 8, !tbaa !3
   %UpButton.i.i = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %UpButton.i.i, align 8, !tbaa !51
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -1386,9 +1386,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 368) (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 392
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 416), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 416), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %UpButton.i.i.i = getelementptr inbounds i8, ptr %3, i64 312
   %4 = load ptr, ptr %UpButton.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.i = icmp eq ptr %4, null
@@ -3676,7 +3676,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !3
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
   %1 = getelementptr inbounds i8, ptr %vtt, i64 8

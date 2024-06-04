@@ -831,7 +831,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN5osgeo4proj4util8optionalINS1_6common9DataEpoc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj9operation26CoordinateOperationContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -859,7 +859,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %2 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #28, !noalias !4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %2, i8 0, i64 128, i1 false), !noalias !4
@@ -880,7 +880,7 @@ _ZN5osgeo4proj8internal11make_uniqueINS0_9operation26CoordinateOperationContext7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationContextC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -1367,7 +1367,7 @@ define void @_ZN5osgeo4proj9operation26CoordinateOperationContext24setSourceCoor
   store i32 1, ptr %4, align 8, !noalias !15
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !15
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj4util8optionalINS1_6common9DataEpochEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj4util8optionalINS1_6common9DataEpochEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !15
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i8, ptr %1, align 8, !noalias !15
   %8 = and i8 %7, 1
@@ -1561,7 +1561,7 @@ define void @_ZN5osgeo4proj9operation26CoordinateOperationContext24setTargetCoor
   store i32 1, ptr %4, align 8, !noalias !18
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj4util8optionalINS1_6common9DataEpochEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj4util8optionalINS1_6common9DataEpochEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !18
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i8, ptr %1, align 8, !noalias !18
   %8 = and i8 %7, 1
@@ -1672,7 +1672,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operatio
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation26CoordinateOperationContext6createERKSt10shared_ptrINS0_2io16AuthorityFactoryEERKS3_INS0_8metadata6ExtentEEd(ptr dead_on_unwind noalias nocapture writable sret(%"class.dropbox::oxygen::nn") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, double noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !21
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %5, align 8, !noalias !21
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %5, align 8, !noalias !21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %6 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #28
           to label %.noexc.i unwind label %9, !noalias !21
@@ -1945,7 +1945,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5osgeo4proj9operation26CoordinateOperationContext5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %3, align 8, !noalias !28
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %3, align 8, !noalias !28
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
@@ -1982,7 +1982,7 @@ _ZNSt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationContextESt14default
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5osgeo4proj9operation26CoordinateOperationFactoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationFactoryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationFactoryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2006,7 +2006,7 @@ define void @_ZN5osgeo4proj9operation26CoordinateOperationFactoryD0Ev(ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationFactoryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationFactoryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
@@ -18569,9 +18569,9 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs11GeodeticCRSENS4_3C
   store i32 1, ptr %49, align 8, !noalias !74
   %50 = getelementptr inbounds i8, ptr %48, i64 12
   store i32 1, ptr %50, align 4, !noalias !74
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation32MyPROJStringExportableGeodToGeodESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !noalias !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation32MyPROJStringExportableGeodToGeodESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !noalias !74
   %51 = getelementptr inbounds i8, ptr %48, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation32MyPROJStringExportableGeodToGeodE, i64 16), ptr %51, align 8, !noalias !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation32MyPROJStringExportableGeodToGeodE, i64 16), ptr %51, align 8, !noalias !74
   %52 = getelementptr inbounds i8, ptr %48, i64 24
   %53 = load ptr, ptr %7, align 8, !noalias !74
   store ptr %53, ptr %52, align 8, !noalias !74
@@ -71255,9 +71255,9 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS4_
   store i32 1, ptr %5582, align 8, !noalias !206
   %5583 = getelementptr inbounds i8, ptr %5581, i64 12
   store i32 1, ptr %5583, align 4, !noalias !206
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation35MyPROJStringExportableHorizVerticalESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5581, align 8, !noalias !206
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation35MyPROJStringExportableHorizVerticalESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5581, align 8, !noalias !206
   %5584 = getelementptr inbounds i8, ptr %5581, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation35MyPROJStringExportableHorizVerticalE, i64 16), ptr %5584, align 8, !noalias !206
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation35MyPROJStringExportableHorizVerticalE, i64 16), ptr %5584, align 8, !noalias !206
   %5585 = getelementptr inbounds i8, ptr %5581, i64 24
   %5586 = load ptr, ptr %.sroa.01709.02019, align 8, !noalias !206
   store ptr %5586, ptr %5585, align 8, !noalias !206
@@ -79802,9 +79802,9 @@ _ZN5osgeo4proj4util8optionalINS0_6common9DataEpochEEC2Ev.exit845: ; preds = %_ZN
   store i32 1, ptr %2858, align 8, !noalias !238
   %2859 = getelementptr inbounds i8, ptr %2857, i64 12
   store i32 1, ptr %2859, align 4, !noalias !238
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation39MyPROJStringExportableHorizNullVerticalESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2857, align 8, !noalias !238
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation39MyPROJStringExportableHorizNullVerticalESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2857, align 8, !noalias !238
   %2860 = getelementptr inbounds i8, ptr %2857, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation39MyPROJStringExportableHorizNullVerticalE, i64 16), ptr %2860, align 8, !noalias !238
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation39MyPROJStringExportableHorizNullVerticalE, i64 16), ptr %2860, align 8, !noalias !238
   %2861 = getelementptr inbounds i8, ptr %2857, i64 24
   %2862 = load ptr, ptr %.sroa.01044.01422, align 8, !noalias !232
   store ptr %2862, ptr %2861, align 8, !noalias !238
@@ -113345,7 +113345,7 @@ define void @_ZNK5osgeo4proj9operation26CoordinateOperationFactory16createOperat
   %7 = load ptr, ptr %4, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
   %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !313
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %8, align 8, !noalias !313
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %8, align 8, !noalias !313
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !313
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
@@ -113434,7 +113434,7 @@ define void @_ZNK5osgeo4proj9operation26CoordinateOperationFactory16createOperat
   %7 = load ptr, ptr %4, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !320)
   %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !323
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %8, align 8, !noalias !323
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %8, align 8, !noalias !323
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !323
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
@@ -113517,7 +113517,7 @@ define void @_ZNK5osgeo4proj9operation26CoordinateOperationFactory16createOperat
   %7 = load ptr, ptr %4, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
   %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !333
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %8, align 8, !noalias !333
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %8, align 8, !noalias !333
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !333
   tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
@@ -113606,7 +113606,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation26CoordinateOperationContextEEclEPS
 define void @_ZN5osgeo4proj9operation26CoordinateOperationFactory6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.530") align 8 %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationFactoryESt14default_deleteIS3_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !340
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationFactoryE, i64 16), ptr %1, align 8, !noalias !340
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationFactoryE, i64 16), ptr %1, align 8, !noalias !340
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %2, align 8, !noalias !340
   %3 = ptrtoint ptr %1 to i64
@@ -119359,9 +119359,9 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation49
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation49MyPROJStringExportableHorizVerticalHorizPROJBasedESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation49MyPROJStringExportableHorizVerticalHorizPROJBasedESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5osgeo4proj9operation49MyPROJStringExportableHorizVerticalHorizPROJBasedE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation49MyPROJStringExportableHorizVerticalHorizPROJBasedE, i64 16), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 24
   %12 = load ptr, ptr %3, align 8
   store ptr %12, ptr %11, align 8
@@ -127498,7 +127498,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj9operation26CoordinateOperationCo
   store i32 1, ptr %12, align 8, !noalias !393
   %13 = getelementptr inbounds i8, ptr %11, i64 12
   store i32 1, ptr %13, align 4, !noalias !393
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj4util8optionalINS1_6common9DataEpochEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8, !noalias !393
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj4util8optionalINS1_6common9DataEpochEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8, !noalias !393
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   store i8 0, ptr %14, align 8, !noalias !393
   %15 = getelementptr inbounds i8, ptr %11, i64 24
@@ -127526,7 +127526,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj4util8optional
   store i32 1, ptr %21, align 8, !noalias !396
   %22 = getelementptr inbounds i8, ptr %20, i64 12
   store i32 1, ptr %22, align 4, !noalias !396
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj4util8optionalINS1_6common9DataEpochEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !noalias !396
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5osgeo4proj4util8optionalINS1_6common9DataEpochEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !noalias !396
   %23 = getelementptr inbounds i8, ptr %20, i64 16
   store i8 0, ptr %23, align 8, !noalias !396
   %24 = getelementptr inbounds i8, ptr %20, i64 24

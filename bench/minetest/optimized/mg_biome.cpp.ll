@@ -446,14 +446,14 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %server, i64 16
   %spec.select = select i1 %0, ptr null, ptr %add.ptr
   tail call void @_ZN13ObjDefManagerC2EP8IGameDef10ObjDefType(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %spec.select, i32 noundef 1)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV12BiomeManager, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12BiomeManager, i64 16), ptr %this, align 8, !tbaa !12
   %m_server = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %server, ptr %m_server, align 8, !tbaa !14
   %call = invoke noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #24
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !12
   %name.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %1 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %1, ptr %name.i.i, align 8, !tbaa !22
@@ -467,7 +467,7 @@ invoke.cont:                                      ; preds = %entry
 lpad.i:                                           ; preds = %invoke.cont
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !12
   %4 = load ptr, ptr %name.i.i, align 8, !tbaa !4
   %cmp.i.i.i.i.i = icmp eq ptr %4, %1
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
@@ -483,8 +483,8 @@ if.then.i.i.i.i:                                  ; preds = %lpad.i
   br label %lpad2.body
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV5Biome, i64 16), ptr %call, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV5Biome, i64 64), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 16), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 64), ptr %2, align 8, !tbaa !12
   %c_cave_liquid.i = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %c_cave_liquid.i, i8 0, i64 24, i1 false)
   %min_pos.i = getelementptr inbounds i8, ptr %call, i64 190
@@ -1111,7 +1111,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
   %m_objects.i.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_objects.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV12BiomeManager, i64 16), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12BiomeManager, i64 16), ptr %call, align 8, !tbaa !12
   tail call void @_ZNK13ObjDefManager7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull %call)
   %m_server = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_server, align 8, !tbaa !14
@@ -1703,7 +1703,7 @@ define dso_local void @_ZN16BiomeGenOriginalC2EP12BiomeManagerPK19BiomeParamsOri
 entry:
   %biomemap.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %biomemap.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV16BiomeGenOriginal, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16BiomeGenOriginal, i64 16), ptr %this, align 8, !tbaa !12
   %m_bmgr = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %biomemgr, ptr %m_bmgr, align 8, !tbaa !69
   %m_params = getelementptr inbounds i8, ptr %this, i64 64
@@ -2175,7 +2175,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16BiomeGenOriginalD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #10 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV16BiomeGenOriginal, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16BiomeGenOriginal, i64 16), ptr %this, align 8, !tbaa !12
   %biomemap = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %biomemap, align 8, !tbaa !88
   %isnull = icmp eq ptr %0, null
@@ -3028,7 +3028,7 @@ define dso_local noundef nonnull ptr @_ZNK5Biome5cloneEv(ptr noundef nonnull ali
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %call, i8 0, i64 216, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !12
   %name.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %0 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %0, ptr %name.i.i, align 8, !tbaa !22
@@ -3040,7 +3040,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !12
   %3 = load ptr, ptr %name.i.i, align 8, !tbaa !4
   %cmp.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
@@ -3056,8 +3056,8 @@ if.then.i.i.i.i:                                  ; preds = %lpad.i
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV5Biome, i64 16), ptr %call, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV5Biome, i64 64), ptr %1, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 16), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 64), ptr %1, align 8, !tbaa !12
   %c_cave_liquid.i = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %c_cave_liquid.i, i8 0, i64 24, i1 false)
   %min_pos.i = getelementptr inbounds i8, ptr %call, i64 190
@@ -3879,9 +3879,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5BiomeD2Ev(ptr noundef nonnull align 8 dereferenceable(214) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV5Biome, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 16), ptr %this, align 8, !tbaa !12
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV5Biome, i64 64), ptr %add.ptr, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 64), ptr %add.ptr, align 8, !tbaa !12
   %c_cave_liquid = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %c_cave_liquid, align 8, !tbaa !126
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3893,7 +3893,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %if.then.i.i.i, %entry
   tail call void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %add.ptr) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !12
   %name.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %name.i, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %this, i64 40
@@ -3918,9 +3918,9 @@ _ZN6ObjDefD2Ev.exit:                              ; preds = %if.then.i.i.i2, %_Z
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5BiomeD0Ev(ptr noundef nonnull align 8 dereferenceable(214) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV5Biome, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 16), ptr %this, align 8, !tbaa !12
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV5Biome, i64 64), ptr %add.ptr.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 64), ptr %add.ptr.i, align 8, !tbaa !12
   %c_cave_liquid.i = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %c_cave_liquid.i, align 8, !tbaa !126
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3932,7 +3932,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
   tail call void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %add.ptr.i) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !12
   %name.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %name.i.i, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %this, i64 40
@@ -3959,8 +3959,8 @@ _ZN5BiomeD2Ev.exit:                               ; preds = %if.then.i.i.i2.i, %
 define linkonce_odr dso_local void @_ZThn56_N5BiomeD1Ev(ptr noundef %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV5Biome, i64 16), ptr %0, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV5Biome, i64 64), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 64), ptr %this, align 8, !tbaa !12
   %c_cave_liquid.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %c_cave_liquid.i, align 8, !tbaa !126
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -3972,7 +3972,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
   tail call void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %this) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %0, align 8, !tbaa !12
   %name.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %2 = load ptr, ptr %name.i.i, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %this, i64 -16
@@ -3998,8 +3998,8 @@ _ZN5BiomeD2Ev.exit:                               ; preds = %if.then.i.i.i2.i, %
 define linkonce_odr dso_local void @_ZThn56_N5BiomeD0Ev(ptr noundef %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV5Biome, i64 16), ptr %0, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV5Biome, i64 64), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV5Biome, i64 64), ptr %this, align 8, !tbaa !12
   %c_cave_liquid.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %c_cave_liquid.i.i, align 8, !tbaa !126
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -4011,7 +4011,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 _ZNSt6vectorItSaItEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i, %entry
   tail call void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %this) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %0, align 8, !tbaa !12
   %name.i.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %2 = load ptr, ptr %name.i.i.i, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %this, i64 -16
@@ -4114,7 +4114,7 @@ declare void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6ObjDefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !12
   %name = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %name, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 40

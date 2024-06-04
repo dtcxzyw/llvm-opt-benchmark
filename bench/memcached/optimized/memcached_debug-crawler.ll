@@ -727,11 +727,11 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.end12.i:                                       ; preds = %if.else.i, %if.then5.i, %if.then3.i
   %items.1.i = phi i32 [ 0, %if.then5.i ], [ %items.0.ph11.i, %if.then3.i ], [ %items.0.ph11.i, %if.else.i ]
-  %cmp13.i = icmp slt i32 %crawls_persleep.0.ph12.i, 1
+  %cmp13.i = icmp sgt i32 %crawls_persleep.0.ph12.i, 0
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 192), align 8
-  %tobool14.i = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %cmp13.i, i1 %tobool14.i, i1 false
-  br i1 %or.cond.i, label %if.then15.i, label %if.else19.i
+  %tobool14.not.i = icmp eq i32 %11, 0
+  %or.cond.i = select i1 %cmp13.i, i1 true, i1 %tobool14.not.i
+  br i1 %or.cond.i, label %if.else19.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end12.i
   %call16.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_crawler_lock) #17
@@ -742,7 +742,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   br label %while.cond.outer.backedge.i
 
 if.else19.i:                                      ; preds = %if.end12.i
-  br i1 %tobool14.i, label %while.cond.outer.backedge.i, label %if.then21.i
+  br i1 %tobool14.not.i, label %if.then21.i, label %while.cond.outer.backedge.i
 
 if.then21.i:                                      ; preds = %if.else19.i
   %call22.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_crawler_lock) #17
@@ -1029,11 +1029,11 @@ if.then94:                                        ; preds = %if.end88
 
 if.end98:                                         ; preds = %if.then94, %if.end88
   %dec99 = add nsw i32 %crawls_persleep.262, -1
-  %cmp100 = icmp slt i32 %crawls_persleep.262, 1
+  %cmp100 = icmp sgt i32 %crawls_persleep.262, 0
   %66 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 192), align 8
-  %tobool103 = icmp ne i32 %66, 0
-  %or.cond = select i1 %cmp100, i1 %tobool103, i1 false
-  br i1 %or.cond, label %if.then104, label %if.else108
+  %tobool103.not = icmp eq i32 %66, 0
+  %or.cond = select i1 %cmp100, i1 true, i1 %tobool103.not
+  br i1 %or.cond, label %if.else108, label %if.then104
 
 if.then104:                                       ; preds = %if.end98
   %call105 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_crawler_lock) #17
@@ -1044,7 +1044,7 @@ if.then104:                                       ; preds = %if.end98
   br label %for.inc
 
 if.else108:                                       ; preds = %if.end98
-  br i1 %tobool103, label %for.inc, label %if.then110
+  br i1 %tobool103.not, label %if.then110, label %for.inc
 
 if.then110:                                       ; preds = %if.else108
   %call111 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_crawler_lock) #17

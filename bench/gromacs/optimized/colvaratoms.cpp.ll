@@ -1006,8 +1006,8 @@ define void @_ZN12colvarmodule10atom_groupC2Ev(ptr noundef nonnull align 8 deref
           to label %3 unwind label %16
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 128), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 128), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 440
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   %5 = getelementptr inbounds i8, ptr %0, i64 472
@@ -1226,8 +1226,8 @@ define void @_ZN12colvarmodule10atom_groupC2EPKc(ptr noundef nonnull align 8 der
           to label %4 unwind label %20
 
 4:                                                ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 128), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 440
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   %6 = getelementptr inbounds i8, ptr %0, i64 472
@@ -1342,8 +1342,8 @@ define void @_ZN12colvarmodule10atom_groupC2ERKSt6vectorINS_4atomESaIS2_EE(ptr n
           to label %4 unwind label %22
 
 4:                                                ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 128), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 128), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 440
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   %6 = getelementptr inbounds i8, ptr %0, i64 472
@@ -2087,9 +2087,9 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12colvarmodule10atom_groupD2Ev(ptr noundef nonnull align 8 dereferenceable(1440) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 128), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 128), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 257

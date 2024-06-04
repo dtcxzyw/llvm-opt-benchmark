@@ -15759,7 +15759,7 @@ define dso_local noundef nonnull ptr @_ZN9V3PreProc13createPreProcEP8FileLine(pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12V3PreProcImpC2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV12V3PreProcImp, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12V3PreProcImp, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

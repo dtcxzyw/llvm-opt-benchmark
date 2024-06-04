@@ -1233,26 +1233,26 @@ define dso_local zeroext i1 @job_is_completing(ptr noundef %0) local_unnamed_add
   %11 = load ptr, ptr @job_list, align 8
   %12 = tail call ptr @list_iterator_create(ptr noundef %11) #16
   %13 = tail call ptr @list_next(ptr noundef %12) #16
-  %.not21 = icmp eq ptr %13, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp eq ptr %13, null
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %.not19 = icmp eq ptr %0, null
-  br i1 %.not19, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not17 = icmp eq ptr %0, null
+  br i1 %.not17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %21
   %14 = phi ptr [ %22, %21 ], [ %13, %.lr.ph ]
   %15 = getelementptr inbounds i8, ptr %14, i64 448
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 32768
-  %.not17.us = icmp eq i32 %17, 0
-  br i1 %.not17.us, label %21, label %18
+  %.not15.us = icmp eq i32 %17, 0
+  br i1 %.not15.us, label %21, label %18
 
 18:                                               ; preds = %.lr.ph.split.us
   %19 = getelementptr inbounds i8, ptr %14, i64 232
   %20 = load i64, ptr %19, align 8
-  %.not18.us = icmp slt i64 %20, %10
-  br i1 %.not18.us, label %21, label %._crit_edge
+  %.not16.us = icmp slt i64 %20, %10
+  br i1 %.not16.us, label %21, label %._crit_edge
 
 21:                                               ; preds = %18, %.lr.ph.split.us
   %22 = tail call ptr @list_next(ptr noundef %12) #16
@@ -1261,24 +1261,24 @@ define dso_local zeroext i1 @job_is_completing(ptr noundef %0) local_unnamed_add
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %36
   %23 = phi ptr [ %37, %36 ], [ %13, %.lr.ph ]
-  %.01322 = phi i1 [ %.1, %36 ], [ false, %.lr.ph ]
+  %.01121 = phi i1 [ %.1, %36 ], [ false, %.lr.ph ]
   %24 = getelementptr inbounds i8, ptr %23, i64 448
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 32768
-  %.not17 = icmp eq i32 %26, 0
-  br i1 %.not17, label %36, label %27
+  %.not15 = icmp eq i32 %26, 0
+  br i1 %.not15, label %36, label %27
 
 27:                                               ; preds = %.lr.ph.split
   %28 = getelementptr inbounds i8, ptr %23, i64 232
   %29 = load i64, ptr %28, align 8
-  %.not18 = icmp slt i64 %29, %10
-  br i1 %.not18, label %36, label %30
+  %.not16 = icmp slt i64 %29, %10
+  br i1 %.not16, label %36, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %23, i64 664
   %32 = load ptr, ptr %31, align 8
-  %.not20 = icmp eq ptr %32, null
-  br i1 %.not20, label %36, label %33
+  %.not18 = icmp eq ptr %32, null
+  br i1 %.not18, label %36, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %32, i64 232
@@ -1287,7 +1287,7 @@ define dso_local zeroext i1 @job_is_completing(ptr noundef %0) local_unnamed_add
   br label %36
 
 36:                                               ; preds = %33, %30, %27, %.lr.ph.split
-  %.1 = phi i1 [ true, %33 ], [ true, %30 ], [ %.01322, %27 ], [ %.01322, %.lr.ph.split ]
+  %.1 = phi i1 [ true, %33 ], [ true, %30 ], [ %.01121, %27 ], [ %.01121, %.lr.ph.split ]
   %37 = tail call ptr @list_next(ptr noundef %12) #16
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
@@ -9688,22 +9688,22 @@ define internal fastcc i32 @_schedule(i1 noundef zeroext %0) unnamed_addr #0 {
   %283 = load ptr, ptr @job_list, align 8
   %284 = tail call ptr @list_iterator_create(ptr noundef %283) #16
   %285 = tail call ptr @list_next(ptr noundef %284) #16
-  %.not21.i = icmp eq ptr %285, null
-  br i1 %.not21.i, label %job_is_completing.exit.thread557, label %.lr.ph.split.us.i
+  %.not20.i = icmp eq ptr %285, null
+  br i1 %.not20.i, label %job_is_completing.exit.thread557, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %278, %293
   %286 = phi ptr [ %294, %293 ], [ %285, %278 ]
   %287 = getelementptr inbounds i8, ptr %286, i64 448
   %288 = load i32, ptr %287, align 8
   %289 = and i32 %288, 32768
-  %.not17.us.i = icmp eq i32 %289, 0
-  br i1 %.not17.us.i, label %293, label %290
+  %.not15.us.i = icmp eq i32 %289, 0
+  br i1 %.not15.us.i, label %293, label %290
 
 290:                                              ; preds = %.lr.ph.split.us.i
   %291 = getelementptr inbounds i8, ptr %286, i64 232
   %292 = load i64, ptr %291, align 8
-  %.not18.us.i = icmp slt i64 %292, %282
-  br i1 %.not18.us.i, label %293, label %295
+  %.not16.us.i = icmp slt i64 %292, %282
+  br i1 %.not16.us.i, label %293, label %295
 
 293:                                              ; preds = %290, %.lr.ph.split.us.i
   %294 = tail call ptr @list_next(ptr noundef %284) #16

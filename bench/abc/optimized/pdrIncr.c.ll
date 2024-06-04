@@ -4893,8 +4893,8 @@ Abc_Clock.exit31:                                 ; preds = %26, %29
 
 47:                                               ; preds = %42
   %48 = getelementptr i8, ptr %46, i64 4
-  %.val15.i.i = load i32, ptr %48, align 4
-  %49 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %48, align 4
+  %49 = icmp sgt i32 %.val16.i.i, 0
   br i1 %49, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %47
@@ -4902,10 +4902,10 @@ Abc_Clock.exit31:                                 ; preds = %26, %29
   br label %51
 
 51:                                               ; preds = %55, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %55 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %55 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %55 ]
-  %.val14.i.i = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %53 = load ptr, ptr %52, align 8
   %switch.i.i = icmp ult ptr %53, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %55, label %54
@@ -4916,7 +4916,7 @@ Abc_Clock.exit31:                                 ; preds = %26, %29
   br label %55
 
 55:                                               ; preds = %54, %51
-  %.val.i.i = phi i32 [ %.val18.i.i, %51 ], [ %.val.pre.i.i, %54 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %51 ], [ %.val.pre.i.i, %54 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %56 = sext i32 %.val.i.i to i64
   %57 = icmp slt i64 %indvars.iv.next.i.i, %56

@@ -173,7 +173,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %12 = getelementptr inbounds i8, ptr %2, i64 24
   %13 = getelementptr inbounds i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx10EnumOptionINS_17ChangeSettingTypeEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx10EnumOptionINS_17ChangeSettingTypeEEE, i64 16), ptr %2, align 8
   %14 = getelementptr inbounds i8, ptr %2, i64 88
   %15 = getelementptr inbounds i8, ptr %2, i64 96
   store ptr @_ZN3gmxL24c_changeSettingTypeNamesE, ptr %14, align 8
@@ -194,7 +194,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %24 = getelementptr inbounds i8, ptr %3, i64 24
   %25 = getelementptr inbounds i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx10EnumOptionINS_17ChangeSettingTypeEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx10EnumOptionINS_17ChangeSettingTypeEEE, i64 16), ptr %3, align 8
   %26 = getelementptr inbounds i8, ptr %3, i64 88
   %27 = getelementptr inbounds i8, ptr %3, i64 96
   store ptr @_ZN3gmxL24c_changeSettingTypeNamesE, ptr %26, align 8
@@ -216,7 +216,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %37 = getelementptr inbounds i8, ptr %4, i64 24
   %38 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx10EnumOptionINS_15ChangeAtomsTypeEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx10EnumOptionINS_15ChangeAtomsTypeEEE, i64 16), ptr %4, align 8
   %39 = getelementptr inbounds i8, ptr %4, i64 88
   %40 = getelementptr inbounds i8, ptr %4, i64 96
   store ptr @_ZN3gmxL22c_changeAtomsTypeNamesE, ptr %39, align 8
@@ -238,7 +238,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %50 = getelementptr inbounds i8, ptr %5, i64 24
   %51 = getelementptr inbounds i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %5, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   %53 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %52, ptr %53, align 8
@@ -261,7 +261,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %64 = getelementptr inbounds i8, ptr %6, i64 24
   %65 = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %65, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %6, align 8
   %66 = getelementptr inbounds i8, ptr %6, i64 88
   %67 = getelementptr inbounds i8, ptr %0, i64 16
   %68 = getelementptr inbounds i8, ptr %6, i64 64
@@ -286,7 +286,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %79 = getelementptr inbounds i8, ptr %7, i64 24
   %80 = getelementptr inbounds i8, ptr %7, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %80, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %7, align 8
   %81 = getelementptr inbounds i8, ptr %7, i64 88
   %82 = getelementptr inbounds i8, ptr %0, i64 20
   %83 = getelementptr inbounds i8, ptr %7, i64 64
@@ -309,7 +309,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %94 = getelementptr inbounds i8, ptr %8, i64 24
   %95 = getelementptr inbounds i8, ptr %8, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %95, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %8, align 8
   %96 = getelementptr inbounds i8, ptr %8, i64 88
   store i8 0, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %8, i64 32
@@ -440,7 +440,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx8internal14EnumIndexStoreINS_17ChangeSettingTypeEEC2EPS2_PSt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_17ChangeSettingTypeEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_17ChangeSettingTypeEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -590,7 +590,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit20:         ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx8internal14EnumIndexStoreINS_17ChangeSettingTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_17ChangeSettingTypeEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_17ChangeSettingTypeEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -606,7 +606,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx8internal14EnumIndexStoreINS_17ChangeSettingTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_17ChangeSettingTypeEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_17ChangeSettingTypeEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -1061,7 +1061,7 @@ _ZNKSt14default_deleteIN3gmx17IOptionValueStoreIiEEEclEPS2_.exit.i7: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx8internal14EnumIndexStoreINS_15ChangeAtomsTypeEEC2EPS2_PSt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_15ChangeAtomsTypeEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_15ChangeAtomsTypeEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1211,7 +1211,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit20:         ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx8internal14EnumIndexStoreINS_15ChangeAtomsTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_15ChangeAtomsTypeEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_15ChangeAtomsTypeEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1227,7 +1227,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx8internal14EnumIndexStoreINS_15ChangeAtomsTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_15ChangeAtomsTypeEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8internal14EnumIndexStoreINS_15ChangeAtomsTypeEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

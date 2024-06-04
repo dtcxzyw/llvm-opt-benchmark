@@ -13902,7 +13902,7 @@ define linkonce_odr dso_local void @_ZN4crow6loggerD2Ev(ptr noundef nonnull alig
   %69 = getelementptr inbounds i8, ptr %0, i64 %68
   store ptr %66, ptr %69, align 8, !tbaa !87
   %70 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %70, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %70, align 8, !tbaa !87
   %71 = getelementptr inbounds i8, ptr %0, i64 80
   %72 = load ptr, ptr %71, align 8, !tbaa !12
   %73 = getelementptr inbounds i8, ptr %0, i64 96
@@ -13921,7 +13921,7 @@ define linkonce_odr dso_local void @_ZN4crow6loggerD2Ev(ptr noundef nonnull alig
   br label %80
 
 80:                                               ; preds = %79, %75
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %70, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %70, align 8, !tbaa !87
   %81 = getelementptr inbounds i8, ptr %0, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #33
   %82 = getelementptr inbounds i8, ptr %0, i64 112
@@ -15417,7 +15417,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(184) ptr @
   store i8 0, ptr %57, align 8, !tbaa !319
   %58 = getelementptr inbounds i8, ptr %7, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow10TaggedRuleIJEEE, i64 16), ptr %7, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10TaggedRuleIJEEE, i64 16), ptr %7, align 8, !tbaa !87
   %59 = getelementptr inbounds i8, ptr %7, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -15457,7 +15457,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(184) ptr @
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow10TaggedRuleIJEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10TaggedRuleIJEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !79
   %4 = icmp eq ptr %3, null
@@ -15476,7 +15476,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJEED2Ev(ptr noundef non
   unreachable
 
 11:                                               ; preds = %5, %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow8BaseRuleE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow8BaseRuleE, i64 16), ptr %0, align 8, !tbaa !87
   %12 = getelementptr inbounds i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8, !tbaa !75
   %14 = icmp eq ptr %13, null
@@ -15560,7 +15560,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJEED2Ev(ptr noundef non
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow10TaggedRuleIJEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10TaggedRuleIJEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !79
   %4 = icmp eq ptr %3, null
@@ -15579,7 +15579,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJEED0Ev(ptr noundef non
   unreachable
 
 11:                                               ; preds = %5, %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow8BaseRuleE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow8BaseRuleE, i64 16), ptr %0, align 8, !tbaa !87
   %12 = getelementptr inbounds i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8, !tbaa !75
   %14 = icmp eq ptr %13, null
@@ -16029,7 +16029,7 @@ define linkonce_odr dso_local void @_ZN4crow8BaseRule14handle_upgradeERKNS_7requ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4crow8BaseRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow8BaseRuleE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow8BaseRuleE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !75
   %4 = icmp eq ptr %3, null
@@ -18654,7 +18654,7 @@ define linkonce_odr dso_local void @_ZN4crow8responseC2EONS_10returnableE(ptr no
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4crow4json6wvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow4json6wvalueE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow4json6wvalueE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !79
   %4 = icmp eq ptr %3, null
@@ -18756,7 +18756,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueD2Ev(ptr noundef nonnull
   br label %54
 
 54:                                               ; preds = %53, %49
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !12
   %57 = getelementptr inbounds i8, ptr %0, i64 24
@@ -18824,7 +18824,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2ESt16initializer_listI
   %14 = getelementptr inbounds i8, ptr %13, i64 %11
   store i8 0, ptr %14, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %16, ptr %15, align 8, !tbaa !5
@@ -18884,7 +18884,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2ESt16initializer_listI
   br label %40
 
 40:                                               ; preds = %39, %36
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow4json6wvalueE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow4json6wvalueE, i64 16), ptr %0, align 8, !tbaa !87
   %41 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 6, ptr %41, align 8, !tbaa !380
   %42 = getelementptr inbounds i8, ptr %0, i64 41
@@ -18965,7 +18965,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2ESt16initializer_listI
   br label %73
 
 73:                                               ; preds = %72, %69
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
   %74 = load ptr, ptr %15, align 8, !tbaa !12
   %75 = icmp eq ptr %74, %16
   br i1 %75, label %76, label %79
@@ -19006,7 +19006,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2EPKc(ptr noundef nonnu
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
   store i8 0, ptr %12, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %14, ptr %13, align 8, !tbaa !5
@@ -19066,7 +19066,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2EPKc(ptr noundef nonnu
   br label %38
 
 38:                                               ; preds = %37, %34
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow4json6wvalueE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow4json6wvalueE, i64 16), ptr %0, align 8, !tbaa !87
   %39 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 4, ptr %39, align 8, !tbaa !380
   %40 = getelementptr inbounds i8, ptr %0, i64 41
@@ -19151,7 +19151,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2EPKc(ptr noundef nonnu
 73:                                               ; preds = %50, %45
   %74 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
   %75 = load ptr, ptr %13, align 8, !tbaa !12
   %76 = icmp eq ptr %75, %14
   br i1 %76, label %77, label %80
@@ -19222,7 +19222,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueD0Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4crow10returnableD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -21414,7 +21414,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2ERKS1_(ptr noundef non
   %13 = getelementptr inbounds i8, ptr %12, i64 %10
   store i8 0, ptr %13, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %15, ptr %14, align 8, !tbaa !5
@@ -21474,7 +21474,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2ERKS1_(ptr noundef non
   br label %39
 
 39:                                               ; preds = %38, %35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow4json6wvalueE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow4json6wvalueE, i64 16), ptr %0, align 8, !tbaa !87
   %40 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %40, align 8, !tbaa !380
   %41 = getelementptr inbounds i8, ptr %0, i64 41
@@ -21783,7 +21783,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2ERKS1_(ptr noundef non
   br label %190
 
 190:                                              ; preds = %189, %186
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10returnableE, i64 16), ptr %0, align 8, !tbaa !87
   %191 = load ptr, ptr %14, align 8, !tbaa !12
   %192 = icmp eq ptr %191, %15
   br i1 %192, label %193, label %196
@@ -24017,7 +24017,7 @@ _ZNSt6vectorISt6futureIvESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norm
           to label %360 unwind label %426
 
 360:                                              ; preds = %358
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4crow6ServerINS3_4CrowIJEEENS3_13SocketAdaptorEJEE3runEvEUlvE0_EEEEEE, i64 16), ptr %359, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4crow6ServerINS3_4CrowIJEEENS3_13SocketAdaptorEJEE3runEvEUlvE0_EEEEEE, i64 16), ptr %359, align 8, !tbaa !87
   %361 = getelementptr inbounds i8, ptr %359, i64 8
   %362 = ptrtoint ptr %0 to i64
   store i64 %362, ptr %361, align 8, !tbaa !27
@@ -24953,7 +24953,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(184) ptr @
   store i8 0, ptr %91, align 8, !tbaa !319
   %92 = getelementptr inbounds i8, ptr %45, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow10TaggedRuleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %45, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10TaggedRuleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %45, align 8, !tbaa !87
   %93 = getelementptr inbounds i8, ptr %45, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -25391,7 +25391,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow10TaggedRuleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10TaggedRuleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !79
   %4 = icmp eq ptr %3, null
@@ -25410,7 +25410,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJNSt7__cxx1112basic_str
   unreachable
 
 11:                                               ; preds = %5, %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow8BaseRuleE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow8BaseRuleE, i64 16), ptr %0, align 8, !tbaa !87
   %12 = getelementptr inbounds i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8, !tbaa !75
   %14 = icmp eq ptr %13, null
@@ -25494,7 +25494,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJNSt7__cxx1112basic_str
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow10TaggedRuleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10TaggedRuleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !79
   %4 = icmp eq ptr %3, null
@@ -25513,7 +25513,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJNSt7__cxx1112basic_str
   unreachable
 
 11:                                               ; preds = %5, %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow8BaseRuleE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow8BaseRuleE, i64 16), ptr %0, align 8, !tbaa !87
   %12 = getelementptr inbounds i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8, !tbaa !75
   %14 = icmp eq ptr %13, null
@@ -31862,7 +31862,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(184) ptr @
   store i8 0, ptr %57, align 8, !tbaa !319
   %58 = getelementptr inbounds i8, ptr %7, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4crow10TaggedRuleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %7, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4crow10TaggedRuleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i64 16), ptr %7, align 8, !tbaa !87
   %59 = getelementptr inbounds i8, ptr %7, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -32621,7 +32621,7 @@ define linkonce_odr dso_local void @_ZN4asio10io_contextC2Ev(ptr noundef nonnull
   store ptr %0, ptr %15, align 8, !tbaa !27
   %16 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr null, ptr %16, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %12, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %12, align 8, !tbaa !87
   %17 = getelementptr inbounds i8, ptr %12, i64 40
   store i8 0, ptr %17, align 8, !tbaa !166
   %18 = getelementptr inbounds i8, ptr %12, i64 56
@@ -32766,7 +32766,7 @@ define linkonce_odr dso_local void @_ZN4asio21basic_socket_acceptorINS_2ip3tcpEN
 41:                                               ; preds = %39
   %42 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %9) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %42, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %42, align 8, !tbaa !87
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = getelementptr inbounds i8, ptr %9, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !633
@@ -32808,7 +32808,7 @@ define linkonce_odr dso_local void @_ZN4asio21basic_socket_acceptorINS_2ip3tcpEN
 57:                                               ; preds = %56
   %58 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %58, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %58, align 8, !tbaa !87
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   %60 = getelementptr inbounds i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !633
@@ -32858,7 +32858,7 @@ define linkonce_odr dso_local void @_ZN4asio21basic_socket_acceptorINS_2ip3tcpEN
 79:                                               ; preds = %77
   %80 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %7) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %80, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %80, align 8, !tbaa !87
   %81 = getelementptr inbounds i8, ptr %80, i64 16
   %82 = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !633
@@ -32894,7 +32894,7 @@ define linkonce_odr dso_local void @_ZN4asio21basic_socket_acceptorINS_2ip3tcpEN
 94:                                               ; preds = %92
   %95 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %6) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %95, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %95, align 8, !tbaa !87
   %96 = getelementptr inbounds i8, ptr %95, i64 16
   %97 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(16) %97, i64 16, i1 false), !tbaa.struct !633
@@ -32932,7 +32932,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail9schedulerC2ERNS_17execution_
   store ptr %1, ptr %8, align 8, !tbaa !27
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %9, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %0, align 8, !tbaa !87
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = icmp eq i32 %2, 1
   %12 = and i32 %2, -65535
@@ -32989,7 +32989,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail9schedulerC2ERNS_17execution_
           to label %42 unwind label %52
 
 42:                                               ; preds = %39
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio6detail12posix_thread4funcINS0_9scheduler15thread_functionEEE, i64 16), ptr %41, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail12posix_thread4funcINS0_9scheduler15thread_functionEEE, i64 16), ptr %41, align 8, !tbaa !87
   %43 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %0, ptr %43, align 8, !tbaa !27
   invoke void @_ZN4asio6detail12posix_thread12start_threadEPNS1_9func_baseE(ptr noundef nonnull align 8 dereferenceable(9) %38, ptr noundef nonnull %41)
@@ -33075,7 +33075,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail11posix_mutexC2Ev(ptr noundef
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %3, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.314)
   %14 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %2) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %14, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %14, align 8, !tbaa !87
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !633
@@ -33239,7 +33239,7 @@ define linkonce_odr dso_local void @_ZNSt12system_errorC2ESt10error_codePKc(ptr 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %0, align 8, !tbaa !87
   %74 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %74, align 8, !tbaa !81
   %75 = getelementptr inbounds i8, ptr %0, i64 24
@@ -33336,10 +33336,10 @@ define linkonce_odr dso_local void @_ZN4asio6detail16service_registry14do_add_se
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #33
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.315)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio21invalid_service_ownerE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio21invalid_service_ownerE, i64 16), ptr %4, align 8, !tbaa !87
   %12 = call ptr @__cxa_allocate_exception(i64 16) #33
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio21invalid_service_ownerE, i64 16), ptr %12, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio21invalid_service_ownerE, i64 16), ptr %12, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN4asio21invalid_service_ownerE, ptr nonnull @_ZNSt11logic_errorD2Ev) #37
           to label %13 unwind label %14
 
@@ -33427,10 +33427,10 @@ define linkonce_odr dso_local void @_ZN4asio6detail16service_registry14do_add_se
           to label %63 unwind label %66
 
 63:                                               ; preds = %.split6.us
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio22service_already_existsE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio22service_already_existsE, i64 16), ptr %5, align 8, !tbaa !87
   %64 = call ptr @__cxa_allocate_exception(i64 16) #33
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %5) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio22service_already_existsE, i64 16), ptr %64, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio22service_already_existsE, i64 16), ptr %64, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %64, ptr nonnull @_ZTIN4asio22service_already_existsE, ptr nonnull @_ZNSt11logic_errorD2Ev) #37
           to label %65 unwind label %68
 
@@ -33507,7 +33507,7 @@ define linkonce_odr dso_local void @_ZN4asio22service_already_existsD0Ev(ptr nou
 define linkonce_odr dso_local void @_ZN4asio6detail9schedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::error_code", align 8
   %3 = alloca %struct.epoll_event, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail9schedulerE, i64 16), ptr %0, align 8, !tbaa !87
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8, !tbaa !632
   %6 = icmp eq ptr %5, null
@@ -33958,7 +33958,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail11posix_eventC2Ev(ptr noundef
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %11, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.317)
   %22 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %2) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %22, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %22, align 8, !tbaa !87
   %23 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !633
@@ -34034,7 +34034,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail12posix_thread12start_threadE
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 %4, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.318)
   %21 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %3) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %21, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %21, align 8, !tbaa !87
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !633
@@ -35822,14 +35822,14 @@ define linkonce_odr dso_local void @_ZN4asio6detail14do_throw_errorERKSt10error_
 
 32:                                               ; preds = %18, %14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %3, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %3, align 8, !tbaa !87
   %33 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %4, ptr %33, align 8, !tbaa !81
   %34 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %6, ptr %34, align 8, !tbaa !27
   %35 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %3) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %35, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %35, align 8, !tbaa !87
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !633
   invoke void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #37
@@ -35866,9 +35866,9 @@ define linkonce_odr dso_local void @_ZN4asio2ip6detail8endpointC2ERKNS0_7address
 
 13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33, !noalias !714
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio2ip16bad_address_castE, i64 16), ptr %5, align 8, !tbaa !87, !noalias !714
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio2ip16bad_address_castE, i64 16), ptr %5, align 8, !tbaa !87, !noalias !714
   %14 = tail call ptr @__cxa_allocate_exception(i64 8) #33, !noalias !714
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio2ip16bad_address_castE, i64 16), ptr %14, align 8, !tbaa !87, !noalias !714
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio2ip16bad_address_castE, i64 16), ptr %14, align 8, !tbaa !87, !noalias !714
   invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIN4asio2ip16bad_address_castE, ptr nonnull @_ZNSt8bad_castD2Ev) #37
           to label %15 unwind label %16, !noalias !714
 
@@ -35898,9 +35898,9 @@ define linkonce_odr dso_local void @_ZN4asio2ip6detail8endpointC2ERKNS0_7address
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33, !noalias !717
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio2ip16bad_address_castE, i64 16), ptr %4, align 8, !tbaa !87, !noalias !717
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio2ip16bad_address_castE, i64 16), ptr %4, align 8, !tbaa !87, !noalias !717
   %26 = tail call ptr @__cxa_allocate_exception(i64 8) #33, !noalias !717
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio2ip16bad_address_castE, i64 16), ptr %26, align 8, !tbaa !87, !noalias !717
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio2ip16bad_address_castE, i64 16), ptr %26, align 8, !tbaa !87, !noalias !717
   invoke void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTIN4asio2ip16bad_address_castE, ptr nonnull @_ZNSt8bad_castD2Ev) #37
           to label %27 unwind label %28, !noalias !717
 
@@ -35963,7 +35963,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4asio6detail16service_registry6cre
   store ptr %0, ptr %5, align 8, !tbaa !27
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %6, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_23reactive_socket_serviceINS_2ip3tcpEEEEE, i64 16), ptr %3, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_23reactive_socket_serviceINS_2ip3tcpEEEEE, i64 16), ptr %3, align 8, !tbaa !87
   %7 = load ptr, ptr %0, align 8, !tbaa !113
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #33
   store ptr @_ZTIN4asio6detail14typeid_wrapperINS0_13epoll_reactorEEE, ptr %2, align 8, !tbaa !457
@@ -35989,7 +35989,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4asio6detail16service_registry6cre
           to label %19 unwind label %20
 
 19:                                               ; preds = %12
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail23reactive_socket_serviceINS_2ip3tcpEEE, i64 16), ptr %3, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail23reactive_socket_serviceINS_2ip3tcpEEE, i64 16), ptr %3, align 8, !tbaa !87
   ret ptr %3
 
 20:                                               ; preds = %12, %1
@@ -36218,7 +36218,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail13epoll_reactorC2ERNS_17execu
   store ptr %1, ptr %7, align 8, !tbaa !27
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %8, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 16), ptr %0, align 8, !tbaa !87
   %9 = load ptr, ptr %1, align 8, !tbaa !113
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #33
   store ptr @_ZTIN4asio6detail14typeid_wrapperINS0_9schedulerEEE, ptr %4, align 8, !tbaa !457
@@ -36400,7 +36400,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4asio6detail13epoll_reactor15do_ep
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %15, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.325)
   %26 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %1) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %26, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %26, align 8, !tbaa !87
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   %28 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !633
@@ -36496,7 +36496,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail26eventfd_select_interrupterD
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail13epoll_reactorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail13epoll_reactorE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8, !tbaa !183
   %4 = icmp eq i32 %3, -1
@@ -37092,7 +37092,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail13epoll_reactor11notify_forkE
 136:                                              ; preds = %135
   %137 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(16) %3) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %137, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %137, align 8, !tbaa !87
   %138 = getelementptr inbounds i8, ptr %137, i64 16
   %139 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) %139, i64 16, i1 false), !tbaa.struct !633
@@ -37230,7 +37230,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail26eventfd_select_interrupter1
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %34, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.324)
   %45 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %2) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %45, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %45, align 8, !tbaa !87
   %46 = getelementptr inbounds i8, ptr %45, i64 16
   %47 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !633
@@ -38085,13 +38085,13 @@ define linkonce_odr dso_local void @_ZN4asio6detail16thread_info_base25capture_c
 
 27:                                               ; preds = %25, %21
   %28 = phi ptr [ null, %21 ], [ %26, %25 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %6, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %6, align 8, !tbaa !87
   %29 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %28, ptr %29, align 8, !tbaa !681
   store ptr null, ptr %7, align 8, !tbaa !681
   %30 = call ptr @__cxa_allocate_exception(i64 noundef 16) #33, !noalias !737
   %31 = call ptr @__cxa_init_primary_exception(ptr noundef %30, ptr noundef nonnull @_ZTIN4asio19multiple_exceptionsE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN4asio19multiple_exceptionsEEEvPv) #33, !noalias !737
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %30, align 8, !tbaa !87, !noalias !737
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %30, align 8, !tbaa !87, !noalias !737
   %32 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %28, ptr %32, align 8, !tbaa !681, !noalias !737
   %33 = icmp eq ptr %28, null
@@ -38128,7 +38128,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail16thread_info_base25capture_c
   br label %44
 
 44:                                               ; preds = %43, %40, %39
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %6, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %6, align 8, !tbaa !87
   br i1 %33, label %46, label %45
 
 45:                                               ; preds = %44
@@ -38158,7 +38158,7 @@ declare void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio19multiple_exceptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !681
   %4 = icmp eq ptr %3, null
@@ -38189,7 +38189,7 @@ declare void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull ali
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio19multiple_exceptionsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio19multiple_exceptionsE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !681
   %4 = icmp eq ptr %3, null
@@ -38690,9 +38690,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4asio9execution6detail17any
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base12execute_voidERKS2_ONS_6detail17executor_functionE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %3, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %3, align 8, !tbaa !87
   %4 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %5 unwind label %6
 
@@ -38711,9 +38711,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base21blocking_execute_voidERKS2_NS_6detail22executor_function_viewE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38747,9 +38747,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK4asio9execution12bad_executor4wha
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base8query_fnIvNS0_12context_as_tIRNS_17execution_contextEEEEEvPvPKvSA_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38768,9 +38768,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base10require_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvS8_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38789,9 +38789,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base9prefer_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvS8_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38810,9 +38810,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base8query_fnIvNS1_8blocking7never_tILi0EEEEEvPvPKvS9_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38831,9 +38831,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base10require_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvSB_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38852,9 +38852,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base9prefer_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvSB_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38873,9 +38873,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base8query_fnIvNS0_11prefer_onlyINS1_8blocking10possibly_tILi0EEEEEEEvPvPKvSB_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38894,9 +38894,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base10require_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvSF_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38915,9 +38915,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base9prefer_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvSF_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38936,9 +38936,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base8query_fnIvNS0_11prefer_onlyINS1_16outstanding_work9tracked_tILi0EEEEEEEvPvPKvSB_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38957,9 +38957,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base10require_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvSJ_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38978,9 +38978,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base9prefer_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvSJ_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -38999,9 +38999,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base8query_fnIvNS0_11prefer_onlyINS1_16outstanding_work11untracked_tILi0EEEEEEEvPvPKvSB_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -39020,9 +39020,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base10require_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvSM_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -39041,9 +39041,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base9prefer_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvSM_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -39062,9 +39062,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base8query_fnIvNS0_11prefer_onlyINS1_12relationship6fork_tILi0EEEEEEEvPvPKvSB_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -39083,9 +39083,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base10require_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvSQ_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -39104,9 +39104,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base9prefer_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvSQ_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -39125,9 +39125,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base8query_fnIvNS0_11prefer_onlyINS1_12relationship14continuation_tILi0EEEEEEEvPvPKvSB_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -39146,9 +39146,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base10require_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvST_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -39167,9 +39167,9 @@ define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base
 define linkonce_odr dso_local void @_ZN4asio9execution6detail17any_executor_base9prefer_fnINS0_12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS1_8blocking7never_tILi0EEENS0_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS1_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS1_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvST_EET_PKvSX_(ptr dead_on_unwind noalias writable sret(%"class.asio::execution::any_executor") align 8 %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asio::execution::bad_executor", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %4, align 8, !tbaa !87
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio9execution12bad_executorE, i64 16), ptr %5, align 8, !tbaa !87
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN4asio9execution12bad_executorE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
           to label %6 unwind label %7
 
@@ -40790,7 +40790,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4asio6detail16service_registry6cre
   store ptr %0, ptr %6, align 8, !tbaa !27
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr null, ptr %7, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail18signal_set_serviceE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail18signal_set_serviceE, i64 16), ptr %4, align 8, !tbaa !87
   %8 = load ptr, ptr %0, align 8, !tbaa !113
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #33
   store ptr @_ZTIN4asio6detail14typeid_wrapperINS0_9schedulerEEE, ptr %3, align 8, !tbaa !457
@@ -41013,7 +41013,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail18signal_set_service11add_ser
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail18signal_set_serviceD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail18signal_set_serviceE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail18signal_set_serviceE, i64 16), ptr %0, align 8, !tbaa !87
   invoke void @_ZN4asio6detail18signal_set_service14remove_serviceEPS1_(ptr noundef nonnull %0)
           to label %2 unwind label %3
 
@@ -41030,7 +41030,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail18signal_set_serviceD2Ev(ptr 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail18signal_set_serviceD0Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail18signal_set_serviceE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail18signal_set_serviceE, i64 16), ptr %0, align 8, !tbaa !87
   invoke void @_ZN4asio6detail18signal_set_service14remove_serviceEPS1_(ptr noundef nonnull %0)
           to label %5 unwind label %2
 
@@ -41529,7 +41529,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail18signal_set_service16open_de
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %17, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.330)
   %28 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %1) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %28, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %28, align 8, !tbaa !87
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !633
@@ -42112,11 +42112,11 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
   store ptr %1, ptr %5, align 8, !tbaa !27
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %6, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr null, ptr %8, align 8, !tbaa !946
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %7, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %7, align 8, !tbaa !87
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 88
@@ -42168,7 +42168,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
 34:                                               ; preds = %16, %2
   %35 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %7, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %7, align 8, !tbaa !87
   %36 = getelementptr inbounds i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !188
   %38 = icmp eq ptr %37, null
@@ -42184,7 +42184,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !188
   %4 = icmp eq ptr %3, null
@@ -42200,7 +42200,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail11timer_queueINS0_18chrono_ti
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !137
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -42256,7 +42256,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
   br label %30
 
 30:                                               ; preds = %27, %.loopexit
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %4, align 8, !tbaa !87
   %31 = getelementptr inbounds i8, ptr %0, i64 64
   %32 = load ptr, ptr %31, align 8, !tbaa !188
   %33 = icmp eq ptr %32, null
@@ -42272,7 +42272,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !137
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -42328,7 +42328,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
   br label %30
 
 30:                                               ; preds = %27, %.loopexit
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %4, align 8, !tbaa !87
   %31 = getelementptr inbounds i8, ptr %0, i64 64
   %32 = load ptr, ptr %31, align 8, !tbaa !188
   %33 = icmp eq ptr %32, null
@@ -42350,7 +42350,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !188
   %4 = icmp eq ptr %3, null
@@ -42625,7 +42625,7 @@ define linkonce_odr dso_local void @_ZN4asio16basic_signal_setINS_9execution12an
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 %10, ptr %13, ptr noundef nonnull @.str.331)
   %14 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %3) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %14, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %14, align 8, !tbaa !87
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !633
@@ -42860,7 +42860,7 @@ define linkonce_odr dso_local void @_ZSt5asyncIZN4crow6ServerINS0_4CrowIJEEENS0_
   store i32 1, ptr %11, align 8, !tbaa !493, !noalias !951
   %12 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 1, ptr %12, align 4, !tbaa !495, !noalias !951
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN4crow6ServerINS5_4CrowIJEEENS5_13SocketAdaptorEJEE3runEvEUlvE_EEEEvEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !tbaa !87, !noalias !951
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN4crow6ServerINS5_4CrowIJEEENS5_13SocketAdaptorEJEE3runEvEUlvE_EEEEvEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !tbaa !87, !noalias !951
   %13 = getelementptr inbounds i8, ptr %9, i64 16
   invoke void @_ZNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN4crow6ServerINS4_4CrowIJEEENS4_13SocketAdaptorEJEE3runEvEUlvE_EEEEvEC2IJSA_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %16 unwind label %14, !noalias !951
@@ -42941,7 +42941,7 @@ define linkonce_odr dso_local void @_ZSt5asyncIZN4crow6ServerINS0_4CrowIJEEENS0_
   store i32 1, ptr %44, align 8, !tbaa !493
   %45 = getelementptr inbounds i8, ptr %43, i64 12
   store i32 1, ptr %45, align 4, !tbaa !495
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN4crow6ServerINS5_4CrowIJEEENS5_13SocketAdaptorEJEE3runEvEUlvE_EEEEvEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN4crow6ServerINS5_4CrowIJEEENS5_13SocketAdaptorEJEE3runEvEUlvE_EEEEvEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !tbaa !87
   %46 = getelementptr inbounds i8, ptr %43, i64 16
   %47 = getelementptr inbounds i8, ptr %43, i64 24
   store ptr null, ptr %47, align 8, !tbaa !954
@@ -42951,7 +42951,7 @@ define linkonce_odr dso_local void @_ZSt5asyncIZN4crow6ServerINS0_4CrowIJEEENS0_
   store i8 0, ptr %49, align 1, !tbaa !958
   %50 = getelementptr inbounds i8, ptr %43, i64 40
   store i32 0, ptr %50, align 4, !tbaa !960
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN4crow6ServerINS4_4CrowIJEEENS4_13SocketAdaptorEJEE3runEvEUlvE_EEEEvEE, i64 16), ptr %46, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN4crow6ServerINS4_4CrowIJEEENS4_13SocketAdaptorEJEE3runEvEUlvE_EEEEvEE, i64 16), ptr %46, align 8, !tbaa !87
   %51 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
           to label %52 unwind label %53
 
@@ -42983,7 +42983,7 @@ define linkonce_odr dso_local void @_ZSt5asyncIZN4crow6ServerINS0_4CrowIJEEENS0_
   br label %.body
 
 61:                                               ; preds = %52
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %51, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %51, align 8, !tbaa !87
   %62 = getelementptr inbounds i8, ptr %43, i64 48
   store ptr %51, ptr %62, align 8, !tbaa !27
   %63 = getelementptr inbounds i8, ptr %43, i64 56
@@ -43185,7 +43185,7 @@ define linkonce_odr dso_local void @_ZNK4asio21basic_socket_acceptorINS_2ip3tcpE
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 %9, ptr %12, ptr noundef nonnull @.str.345)
   %13 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %3) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %13, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %13, align 8, !tbaa !87
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !633
@@ -44165,7 +44165,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base17_Async_state_implINSt6
   store i64 0, ptr %9, align 8, !tbaa !504
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %10, align 8, !tbaa !960
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN4crow6ServerINS4_4CrowIJEEENS4_13SocketAdaptorEJEE3runEvEUlvE_EEEEvEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN4crow6ServerINS4_4CrowIJEEENS4_13SocketAdaptorEJEE3runEvEUlvE_EEEEvEE, i64 16), ptr %0, align 8, !tbaa !87
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
           to label %13 unwind label %42
@@ -44176,7 +44176,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base17_Async_state_implINSt6
           to label %14 unwind label %44
 
 14:                                               ; preds = %13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %12, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %12, align 8, !tbaa !87
   store ptr %12, ptr %11, align 8, !tbaa !27
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !962
@@ -44187,7 +44187,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base17_Async_state_implINSt6
           to label %17 unwind label %46
 
 17:                                               ; preds = %14
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJZN4crow6ServerINS5_4CrowIJEEENS5_13SocketAdaptorEJEE3runEvEUlvE_EEEEvEEFvvEPSE_EEEEEE, i64 16), ptr %16, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJZN4crow6ServerINS5_4CrowIJEEENS5_13SocketAdaptorEJEE3runEvEUlvE_EEEEvEEFvvEPSE_EEEEEE, i64 16), ptr %16, align 8, !tbaa !87
   %18 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %0, ptr %18, align 8, !tbaa !1011
   %19 = getelementptr inbounds i8, ptr %16, i64 16
@@ -44472,7 +44472,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base17_Async_state_implINSt6
 
 16:                                               ; preds = %10, %6
   store ptr null, ptr %7, align 8, !tbaa !27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base21_Async_state_commonV2E, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base21_Async_state_commonV2E, i64 16), ptr %0, align 8, !tbaa !87
   %17 = load i64, ptr %2, align 8, !tbaa !10
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -44482,7 +44482,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base17_Async_state_implINSt6
   unreachable
 
 20:                                               ; preds = %16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !27
   %23 = icmp eq ptr %22, null
@@ -44579,7 +44579,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt13__future_base13_State_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13__future_base21_Async_state_commonV2D2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base21_Async_state_commonV2E, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base21_Async_state_commonV2E, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !tbaa !10
   %4 = icmp eq i64 %3, 0
@@ -44590,7 +44590,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base21_Async_state_commonV2D
   unreachable
 
 6:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = icmp eq ptr %8, null
@@ -44616,7 +44616,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base21_Async_state_commonV2D
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13__future_base21_Async_state_commonV2D0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base21_Async_state_commonV2E, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base21_Async_state_commonV2E, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !tbaa !10
   %4 = icmp eq i64 %3, 0
@@ -44627,7 +44627,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base21_Async_state_commonV2D
   unreachable
 
 6:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = icmp eq ptr %8, null
@@ -44653,7 +44653,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base21_Async_state_commonV2D
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV2D2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !27
   %4 = icmp eq ptr %3, null
@@ -44679,7 +44679,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV2D2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV2D0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !27
   %4 = icmp eq ptr %3, null
@@ -44834,7 +44834,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV216_M_brea
   %10 = call ptr @__cxa_allocate_exception(i64 noundef 32) #33, !noalias !1017
   %11 = call ptr @__cxa_init_primary_exception(ptr noundef %10, ptr noundef nonnull @_ZTISt12future_error, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkISt12future_errorEEvPv) #33, !noalias !1017
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %5) #33, !noalias !1017
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12future_error, i64 16), ptr %10, align 8, !tbaa !87, !noalias !1017
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12future_error, i64 16), ptr %10, align 8, !tbaa !87, !noalias !1017
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !633, !noalias !1017
@@ -45849,11 +45849,11 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
   store ptr %1, ptr %5, align 8, !tbaa !27
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %6, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr null, ptr %8, align 8, !tbaa !946
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %7, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %7, align 8, !tbaa !87
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 88
@@ -45905,7 +45905,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
 34:                                               ; preds = %16, %2
   %35 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %7, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %7, align 8, !tbaa !87
   %36 = getelementptr inbounds i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !1075
   %38 = icmp eq ptr %37, null
@@ -45921,7 +45921,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !1075
   %4 = icmp eq ptr %3, null
@@ -45937,7 +45937,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail11timer_queueINS0_18chrono_ti
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !1049
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -45993,7 +45993,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
   br label %30
 
 30:                                               ; preds = %27, %.loopexit
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %4, align 8, !tbaa !87
   %31 = getelementptr inbounds i8, ptr %0, i64 64
   %32 = load ptr, ptr %31, align 8, !tbaa !1075
   %33 = icmp eq ptr %32, null
@@ -46009,7 +46009,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !1049
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -46065,7 +46065,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
   br label %30
 
 30:                                               ; preds = %27, %.loopexit
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %4, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %4, align 8, !tbaa !87
   %31 = getelementptr inbounds i8, ptr %0, i64 64
   %32 = load ptr, ptr %31, align 8, !tbaa !1075
   %33 = icmp eq ptr %32, null
@@ -46087,7 +46087,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i64 16), ptr %0, align 8, !tbaa !87
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !1075
   %4 = icmp eq ptr %3, null
@@ -48582,7 +48582,7 @@ define linkonce_odr dso_local void @_ZNSt12future_errorC2ESt10error_code(ptr nou
 44:                                               ; preds = %43, %39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12future_error, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12future_error, i64 16), ptr %0, align 8, !tbaa !87
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %45, align 8, !tbaa !81
   %46 = getelementptr inbounds i8, ptr %0, i64 24
@@ -48781,7 +48781,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future
 
 12:                                               ; preds = %6, %1
   store ptr null, ptr %3, align 8, !tbaa !27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %2, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %2, align 8, !tbaa !87
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = icmp eq ptr %14, null
@@ -48864,7 +48864,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base15_Deferred_stateINSt6th
 
 11:                                               ; preds = %5, %1
   store ptr null, ptr %2, align 8, !tbaa !27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = icmp eq ptr %13, null
@@ -48910,7 +48910,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base15_Deferred_stateINSt6th
 
 11:                                               ; preds = %5, %1
   store ptr null, ptr %2, align 8, !tbaa !27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8, !tbaa !87
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = icmp eq ptr %13, null
@@ -52409,7 +52409,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN4crow10ConnectionINS0_1
   store i32 1, ptr %12, align 8, !tbaa !493
   %13 = getelementptr inbounds i8, ptr %11, i64 12
   store i32 1, ptr %13, align 4, !tbaa !495
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4crow10ConnectionINS0_13SocketAdaptorENS0_4CrowIJEEEJEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4crow10ConnectionINS0_13SocketAdaptorENS0_4CrowIJEEEJEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8, !tbaa !87
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   %15 = load ptr, ptr %3, align 8, !tbaa !27
   %16 = load ptr, ptr %5, align 8, !tbaa !27
@@ -55144,7 +55144,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
 
 .loopexit:                                        ; preds = %12, %1
   %20 = tail call ptr @__cxa_allocate_exception(i64 8) #33, !noalias !1287
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %20, align 8, !tbaa !87, !noalias !1287
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %20, align 8, !tbaa !87, !noalias !1287
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #37, !noalias !1287
   unreachable
 
@@ -55515,7 +55515,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
 
 .loopexit:                                        ; preds = %14, %1
   %22 = tail call ptr @__cxa_allocate_exception(i64 8) #33, !noalias !1294
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %22, align 8, !tbaa !87, !noalias !1294
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %22, align 8, !tbaa !87, !noalias !1294
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #37, !noalias !1294
   unreachable
 
@@ -55932,7 +55932,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
 
 .loopexit:                                        ; preds = %12, %1
   %20 = tail call ptr @__cxa_allocate_exception(i64 8) #33, !noalias !1302
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %20, align 8, !tbaa !87, !noalias !1302
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %20, align 8, !tbaa !87, !noalias !1302
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #37, !noalias !1302
   unreachable
 
@@ -75285,7 +75285,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 %17, ptr %20, ptr noundef nonnull @.str.456)
   %21 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %21, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %21, align 8, !tbaa !87
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !633
@@ -75647,7 +75647,7 @@ _ZNSt6vectorIN4asio12const_bufferESaIS1_EE17_M_realloc_insertIJPKcmEEEvN9__gnu_c
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 %75, ptr %78, ptr noundef nonnull @.str.456)
   %79 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %4) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %79, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %79, align 8, !tbaa !87
   %80 = getelementptr inbounds i8, ptr %79, i64 16
   %81 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !633
@@ -77765,7 +77765,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 %11, ptr %14, ptr noundef nonnull @.str.456)
   %15 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %3) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %15, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %15, align 8, !tbaa !87
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !633
@@ -78997,7 +78997,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
 
 .loopexit:                                        ; preds = %13, %1
   %21 = tail call ptr @__cxa_allocate_exception(i64 8) #33, !noalias !1627
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %21, align 8, !tbaa !87, !noalias !1627
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %21, align 8, !tbaa !87, !noalias !1627
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #37, !noalias !1627
   unreachable
 
@@ -82065,7 +82065,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %299 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8, !noalias !1699
   store ptr %299, ptr %280, align 8, !tbaa !87, !noalias !1699
   %300 = getelementptr inbounds i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %300, align 8, !tbaa !87, !noalias !1699
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %300, align 8, !tbaa !87, !noalias !1699
   %301 = getelementptr inbounds i8, ptr %12, i64 96
   %302 = load ptr, ptr %301, align 8, !tbaa !12, !noalias !1699
   %303 = getelementptr inbounds i8, ptr %12, i64 112
@@ -82084,7 +82084,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   br label %310
 
 310:                                              ; preds = %309, %305
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %300, align 8, !tbaa !87, !noalias !1699
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %300, align 8, !tbaa !87, !noalias !1699
   %311 = getelementptr inbounds i8, ptr %12, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %311) #33
   %312 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8, !noalias !1699
@@ -82579,7 +82579,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
 
 .loopexit61:                                      ; preds = %566, %558
   %574 = call ptr @__cxa_allocate_exception(i64 8) #33, !noalias !1705
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %574, align 8, !tbaa !87, !noalias !1705
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %574, align 8, !tbaa !87, !noalias !1705
   call void @__cxa_throw(ptr nonnull %574, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #37, !noalias !1705
   unreachable
 
@@ -82689,7 +82689,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
 
 .loopexit:                                        ; preds = %618, %611
   %626 = call ptr @__cxa_allocate_exception(i64 8) #33, !noalias !1709
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %626, align 8, !tbaa !87, !noalias !1709
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %626, align 8, !tbaa !87, !noalias !1709
   invoke void @__cxa_throw(ptr nonnull %626, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #37
           to label %627 unwind label %729
 
@@ -83507,7 +83507,7 @@ define linkonce_odr dso_local void @_ZNK4asio12basic_socketINS_2ip3tcpENS_9execu
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 %9, ptr %12, ptr noundef nonnull @.str.472)
   %13 = call ptr @__cxa_allocate_exception(i64 32) #33
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %3) #33
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %13, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %13, align 8, !tbaa !87
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !633
@@ -85832,7 +85832,7 @@ define linkonce_odr dso_local void @_ZNK4asio2ip6detail8endpoint9to_stringB5cxx1
   %130 = getelementptr inbounds i8, ptr %6, i64 %129
   store ptr %127, ptr %130, align 8, !tbaa !87
   %131 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %131, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %131, align 8, !tbaa !87
   %132 = getelementptr inbounds i8, ptr %6, i64 80
   %133 = load ptr, ptr %132, align 8, !tbaa !12
   %134 = getelementptr inbounds i8, ptr %6, i64 96
@@ -85851,7 +85851,7 @@ define linkonce_odr dso_local void @_ZNK4asio2ip6detail8endpoint9to_stringB5cxx1
   br label %141
 
 141:                                              ; preds = %140, %136
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %131, align 8, !tbaa !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %131, align 8, !tbaa !87
   %142 = getelementptr inbounds i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %142) #33
   %143 = getelementptr inbounds i8, ptr %6, i64 112

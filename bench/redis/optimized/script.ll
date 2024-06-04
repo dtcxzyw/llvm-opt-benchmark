@@ -250,11 +250,11 @@ cond.end:                                         ; preds = %entry
   %and = and i64 %1, 17592186044416
   %tobool4.not = icmp eq i64 %and, 0
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
-  %tobool9 = icmp ne ptr %2, null
+  %tobool9.not = icmp eq ptr %2, null
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4612), align 4
-  %cmp = icmp ne i32 %3, 12
-  %or.cond = select i1 %tobool9, i1 %cmp, i1 false
-  br i1 %or.cond, label %land.end, label %land.end.thread
+  %cmp.not = icmp eq i32 %3, 12
+  %or.cond42 = select i1 %tobool9.not, i1 true, i1 %cmp.not
+  br i1 %or.cond42, label %land.end.thread, label %land.end
 
 land.end:                                         ; preds = %cond.end
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4672), align 8
@@ -265,20 +265,20 @@ land.end:                                         ; preds = %cond.end
   br i1 %tobool14.not, label %if.then, label %if.else66
 
 land.end.thread:                                  ; preds = %cond.end
-  %call54 = tail call i32 @mustObeyClient(ptr noundef nonnull %caller) #10
-  %and1355 = and i64 %script_flags, 16
-  %tobool14.not56 = icmp eq i64 %and1355, 0
-  br i1 %tobool14.not56, label %if.then, label %if.end70
+  %call52 = tail call i32 @mustObeyClient(ptr noundef nonnull %caller) #10
+  %and1353 = and i64 %script_flags, 16
+  %tobool14.not54 = icmp eq i64 %and1353, 0
+  br i1 %tobool14.not54, label %if.then, label %if.end70
 
 if.then:                                          ; preds = %land.end.thread, %land.end
-  %call57 = phi i32 [ %call54, %land.end.thread ], [ %call, %land.end ]
+  %call55 = phi i32 [ %call52, %land.end.thread ], [ %call, %land.end ]
   %5 = phi i1 [ false, %land.end.thread ], [ %cmp11, %land.end ]
   %and15 = and i64 %script_flags, 8
-  %tobool16 = icmp ne i64 %and15, 0
+  %tobool16.not = icmp eq i64 %and15, 0
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
-  %tobool18 = icmp ne i32 %6, 0
-  %or.cond1 = select i1 %tobool16, i1 %tobool18, i1 false
-  br i1 %or.cond1, label %if.then19, label %if.end
+  %tobool18.not = icmp eq i32 %6, 0
+  %or.cond43 = select i1 %tobool16.not, i1 true, i1 %tobool18.not
+  br i1 %or.cond43, label %if.end, label %if.then19
 
 if.then19:                                        ; preds = %if.then
   tail call void @addReplyError(ptr noundef nonnull %caller, ptr noundef nonnull @.str.11) #10
@@ -287,8 +287,8 @@ if.then19:                                        ; preds = %if.then
 if.end:                                           ; preds = %if.then
   %and22 = and i64 %script_flags, 4
   %tobool23.not = icmp eq i64 %and22, 0
-  %or.cond48 = and i1 %tobool23.not, %5
-  br i1 %or.cond48, label %if.then24, label %if.end25
+  %or.cond44 = and i1 %tobool23.not, %5
+  br i1 %or.cond44, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.end
   tail call void @addReplyError(ptr noundef nonnull %caller, ptr noundef nonnull @.str.12) #10
@@ -301,23 +301,26 @@ if.end25:                                         ; preds = %if.end
 
 if.then28:                                        ; preds = %if.end25
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
-  %tobool29 = icmp eq ptr %7, null
+  %tobool29.not = icmp eq ptr %7, null
+  br i1 %tobool29.not, label %if.end35, label %land.lhs.true30
+
+land.lhs.true30:                                  ; preds = %if.then28
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4676), align 4
   %tobool31 = icmp eq i32 %8, 0
-  %or.cond2.not47 = select i1 %tobool29, i1 true, i1 %tobool31
-  %tobool33 = icmp ne i32 %call57, 0
-  %or.cond3 = select i1 %or.cond2.not47, i1 true, i1 %tobool33
-  br i1 %or.cond3, label %if.end35, label %if.then34
+  %tobool33 = icmp ne i32 %call55, 0
+  %or.cond = select i1 %tobool31, i1 true, i1 %tobool33
+  br i1 %or.cond, label %if.end35, label %if.then34
 
-if.then34:                                        ; preds = %if.then28
+if.then34:                                        ; preds = %land.lhs.true30
   tail call void @addReplyError(ptr noundef nonnull %caller, ptr noundef nonnull @.str.13) #10
   br label %return
 
-if.end35:                                         ; preds = %if.then28
+if.end35:                                         ; preds = %land.lhs.true30, %if.then28
   %call36 = tail call i32 @writeCommandsDeniedByDiskError() #10
   %cmp37 = icmp eq i32 %call36, 0
-  %or.cond4 = select i1 %cmp37, i1 true, i1 %tobool33
-  br i1 %or.cond4, label %if.end47, label %if.then41
+  %tobool40 = icmp ne i32 %call55, 0
+  %or.cond1 = select i1 %cmp37, i1 true, i1 %tobool40
+  br i1 %or.cond1, label %if.end47, label %if.then41
 
 if.then41:                                        ; preds = %if.end35
   %cmp42 = icmp eq i32 %call36, 2
@@ -353,15 +356,15 @@ if.then53:                                        ; preds = %if.end50
 
 if.end55:                                         ; preds = %if.end50, %if.end25
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5320), align 8
-  %tobool58 = icmp ne i32 %11, 0
-  %or.cond5 = select i1 %tobool4.not, i1 %tobool58, i1 false
+  %tobool58.not = icmp ne i32 %11, 0
+  %or.cond45.not = select i1 %tobool4.not, i1 %tobool58.not, i1 false
   %12 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4808), align 8
-  %tobool60 = icmp ne i64 %12, 0
-  %or.cond6 = select i1 %or.cond5, i1 %tobool60, i1 false
+  %tobool60.not = icmp ne i64 %12, 0
+  %or.cond46 = select i1 %or.cond45.not, i1 %tobool60.not, i1 false
   %and62 = and i64 %script_flags, 3
   %tobool63.not = icmp eq i64 %and62, 0
-  %or.cond49 = and i1 %tobool63.not, %or.cond6
-  br i1 %or.cond49, label %if.then64, label %if.end70
+  %or.cond47 = and i1 %tobool63.not, %or.cond46
+  br i1 %or.cond47, label %if.then64, label %if.end70
 
 if.then64:                                        ; preds = %if.end55
   tail call void @addReplyError(ptr noundef nonnull %caller, ptr noundef nonnull @.str.17) #10
@@ -376,7 +379,7 @@ if.then68:                                        ; preds = %if.else66
   br label %return
 
 if.end70:                                         ; preds = %land.end.thread, %if.else66, %if.end55
-  %tobool14.not58 = phi i1 [ false, %if.else66 ], [ true, %if.end55 ], [ false, %land.end.thread ]
+  %tobool14.not56 = phi i1 [ false, %if.else66 ], [ true, %if.end55 ], [ false, %land.end.thread ]
   %c = getelementptr inbounds i8, ptr %run_ctx, i64 8
   store ptr %engine_client, ptr %c, align 8
   %original_client = getelementptr inbounds i8, ptr %run_ctx, i64 16
@@ -416,8 +419,8 @@ if.end80:                                         ; preds = %if.then78, %if.end7
 lor.lhs.false:                                    ; preds = %if.end80
   %and87 = and i64 %script_flags, 1
   %tobool88.not = icmp ne i64 %and87, 0
-  %or.cond50.not = and i1 %tobool88.not, %tobool14.not58
-  br i1 %or.cond50.not, label %if.then89, label %if.end94
+  %or.cond48.not = and i1 %tobool88.not, %tobool14.not56
+  br i1 %or.cond48.not, label %if.then89, label %if.end94
 
 if.then89:                                        ; preds = %lor.lhs.false, %if.end80
   store i32 32, ptr %flags82, align 8
@@ -430,8 +433,8 @@ if.end94:                                         ; preds = %if.then89, %lor.lhs
 lor.lhs.false96:                                  ; preds = %if.end94
   %and100 = and i64 %script_flags, 2
   %tobool101.not = icmp ne i64 %and100, 0
-  %or.cond52.not = and i1 %tobool101.not, %tobool14.not58
-  br i1 %or.cond52.not, label %if.then102, label %if.end107
+  %or.cond50.not = and i1 %tobool101.not, %tobool14.not56
+  br i1 %or.cond50.not, label %if.then102, label %if.end107
 
 if.then102:                                       ; preds = %lor.lhs.false96, %if.end94
   %20 = or disjoint i32 %19, 64
@@ -442,8 +445,8 @@ if.end107:                                        ; preds = %if.then102, %lor.lh
   %21 = phi i32 [ %20, %if.then102 ], [ %19, %lor.lhs.false96 ]
   %and111 = and i64 %script_flags, 32
   %tobool112.not = icmp eq i64 %and111, 0
-  %or.cond53 = and i1 %tobool112.not, %tobool14.not58
-  br i1 %or.cond53, label %if.end118, label %if.then113
+  %or.cond51 = and i1 %tobool112.not, %tobool14.not56
+  br i1 %or.cond51, label %if.end118, label %if.then113
 
 if.then113:                                       ; preds = %if.end107
   %22 = or i32 %21, 256
@@ -517,17 +520,19 @@ cond.end11.i:                                     ; preds = %if.then
   store i32 %6, ptr %flags.i4, align 8
   tail call void @blockingOperationEnds() #10
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
-  %tobool14.i = icmp ne ptr %7, null
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4592), align 8
-  %tobool15.i = icmp ne ptr %8, null
-  %or.cond.i = select i1 %tobool14.i, i1 %tobool15.i, i1 false
-  br i1 %or.cond.i, label %if.then.i, label %exitScriptTimedoutMode.exit
+  %tobool14.not.i = icmp eq ptr %7, null
+  br i1 %tobool14.not.i, label %exitScriptTimedoutMode.exit, label %land.lhs.true.i
 
-if.then.i:                                        ; preds = %cond.end11.i
+land.lhs.true.i:                                  ; preds = %cond.end11.i
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4592), align 8
+  %tobool15.not.i = icmp eq ptr %8, null
+  br i1 %tobool15.not.i, label %exitScriptTimedoutMode.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @queueClientForReprocessing(ptr noundef nonnull %8) #10
   br label %exitScriptTimedoutMode.exit
 
-exitScriptTimedoutMode.exit:                      ; preds = %cond.end11.i, %if.then.i
+exitScriptTimedoutMode.exit:                      ; preds = %cond.end11.i, %land.lhs.true.i, %if.then.i
   %original_client = getelementptr inbounds i8, ptr %run_ctx, i64 16
   %9 = load ptr, ptr %original_client, align 8
   tail call void @unprotectClient(ptr noundef %9) #10
@@ -829,11 +834,11 @@ if.end.i47:                                       ; preds = %if.end17
 if.end16.i:                                       ; preds = %if.end.i47
   %call17.i = call i32 @writeCommandsDeniedByDiskError() #10
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
-  %tobool18.i = icmp ne ptr %23, null
+  %tobool18.not.i = icmp eq ptr %23, null
   %24 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4676), align 4
-  %tobool20.i = icmp ne i32 %24, 0
-  %or.cond.i48 = select i1 %tobool18.i, i1 %tobool20.i, i1 false
-  br i1 %or.cond.i48, label %land.lhs.true21.i, label %if.end26.i
+  %tobool20.not.i = icmp eq i32 %24, 0
+  %or.cond.i48 = select i1 %tobool18.not.i, i1 true, i1 %tobool20.not.i
+  br i1 %or.cond.i48, label %if.end26.i, label %land.lhs.true21.i
 
 land.lhs.true21.i:                                ; preds = %if.end16.i
   %25 = load ptr, ptr %original_client, align 8
@@ -993,11 +998,11 @@ land.lhs.true:                                    ; preds = %entry
 land.lhs.true3:                                   ; preds = %land.lhs.true
   %4 = load i32, ptr %flags, align 8
   %5 = and i32 %4, 1
-  %tobool7 = icmp eq i32 %5, 0
+  %tobool7.not = icmp ne i32 %5, 0
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5320), align 8
-  %tobool9 = icmp ne i32 %6, 0
-  %or.cond = select i1 %tobool7, i1 %tobool9, i1 false
-  br i1 %or.cond, label %land.lhs.true10, label %return
+  %tobool9.not = icmp eq i32 %6, 0
+  %or.cond = select i1 %tobool7.not, i1 true, i1 %tobool9.not
+  br i1 %or.cond, label %return, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %land.lhs.true3
   %c = getelementptr inbounds i8, ptr %run_ctx, i64 8

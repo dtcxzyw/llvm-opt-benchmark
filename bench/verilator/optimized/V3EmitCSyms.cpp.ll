@@ -1867,7 +1867,7 @@ define dso_local void @_ZN9EmitCSyms10emitSymHdrEv(ptr noundef nonnull align 8 d
   store i32 0, ptr %242, align 8
   %243 = getelementptr inbounds i8, ptr %239, i64 204
   store i32 0, ptr %243, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %239, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %239, align 8
   br label %264
 
 244:                                              ; preds = %216
@@ -1941,7 +1941,7 @@ define dso_local void @_ZN9EmitCSyms10emitSymHdrEv(ptr noundef nonnull align 8 d
           to label %259 unwind label %262
 
 259:                                              ; preds = %258
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %257, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %257, align 8
   %260 = getelementptr inbounds i8, ptr %257, i64 200
   store i32 0, ptr %260, align 8
   %261 = getelementptr inbounds i8, ptr %257, i64 204
@@ -1956,7 +1956,7 @@ define dso_local void @_ZN9EmitCSyms10emitSymHdrEv(ptr noundef nonnull align 8 d
 
 264:                                              ; preds = %259, %241
   %.sink = phi ptr [ %257, %259 ], [ %239, %241 ]
-  %265 = phi ptr [ getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), %259 ], [ getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11V3OutScFile, i64 16), %241 ]
+  %265 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), %259 ], [ getelementptr inbounds (i8, ptr @_ZTV11V3OutScFile, i64 16), %241 ]
   %266 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink, ptr %266, align 8
   %267 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7461,7 +7461,7 @@ _ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   store i32 0, ptr %120, align 8
   %121 = getelementptr inbounds i8, ptr %118, i64 204
   store i32 0, ptr %121, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %118, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %118, align 8
   br label %151
 
 122:                                              ; preds = %40
@@ -7545,7 +7545,7 @@ _ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
           to label %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit unwind label %149
 
 _ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit: ; preds = %146
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %145, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr %145, i64 200
   store i32 0, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %145, i64 204
@@ -9863,7 +9863,7 @@ define dso_local void @_ZN9EmitCSyms10emitSymImpEv(ptr noundef nonnull align 8 d
   store i32 0, ptr %327, align 8
   %328 = getelementptr inbounds i8, ptr %324, i64 204
   store i32 0, ptr %328, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %324, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %324, align 8
   br label %349
 
 329:                                              ; preds = %298
@@ -9947,7 +9947,7 @@ define dso_local void @_ZN9EmitCSyms10emitSymImpEv(ptr noundef nonnull align 8 d
           to label %344 unwind label %347
 
 344:                                              ; preds = %343
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %342, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %342, align 8
   %345 = getelementptr inbounds i8, ptr %342, i64 200
   store i32 0, ptr %345, align 8
   %346 = getelementptr inbounds i8, ptr %342, i64 204
@@ -16387,7 +16387,7 @@ define linkonce_odr dso_local void @_ZN7V3Stats7addStatERKNSt7__cxx1112basic_str
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3Statistic, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc9 unwind label %23
@@ -17145,14 +17145,14 @@ _ZN9EmitCBase12topClassNameB5cxx11Ev.exit:        ; preds = %89
           to label %109 unwind label %206
 
 109:                                              ; preds = %105
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %8, align 8
   %110 = getelementptr inbounds i8, ptr %8, i64 200
   store i32 0, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %8, i64 204
   store i32 0, ptr %111, align 4
   %112 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %112, align 8
-  %113 = load ptr, ptr getelementptr inbounds inrange(-48, 32) (i8, ptr @_ZTV10V3OutCFile, i64 48), align 8
+  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 48), align 8
   invoke void %113(ptr noundef nonnull align 8 dereferenceable(208) %8)
           to label %114 unwind label %.loopexit.split-lp
 
@@ -18514,7 +18514,7 @@ _ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 486:                                              ; preds = %_ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit322
   store ptr null, ptr %112, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %8, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %8)
           to label %_ZN10V3OutCFileD2Ev.exit unwind label %487
 
@@ -18683,7 +18683,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8AstCFunc18dpiImportProtot
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10V3OutCFileD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %2 unwind label %3
 
@@ -18862,14 +18862,14 @@ _ZN9EmitCBase12topClassNameB5cxx11Ev.exit:        ; preds = %93
           to label %113 unwind label %312
 
 113:                                              ; preds = %109
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %8, align 8
   %114 = getelementptr inbounds i8, ptr %8, i64 200
   store i32 0, ptr %114, align 8
   %115 = getelementptr inbounds i8, ptr %8, i64 204
   store i32 0, ptr %115, align 4
   %116 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %116, align 8
-  %117 = load ptr, ptr getelementptr inbounds inrange(-48, 32) (i8, ptr @_ZTV10V3OutCFile, i64 48), align 8
+  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 48), align 8
   invoke void %117(ptr noundef nonnull align 8 dereferenceable(208) %8)
           to label %118 unwind label %.loopexit.split-lp
 
@@ -20314,7 +20314,7 @@ _ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 ._crit_edge365:                                   ; preds = %499, %_ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit256
   store ptr null, ptr %116, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %8, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %8)
           to label %_ZN10V3OutCFileD2Ev.exit unwind label %501
 
@@ -20431,7 +20431,7 @@ _ZN12VNUser1InUseC2Ev.exit:
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV9EmitCSyms, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9EmitCSyms, i64 16), ptr %0, align 8
   tail call void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -20734,7 +20734,7 @@ declare void @_ZN10VIdProtect9protectIfERKNSt7__cxx1112basic_stringIcSt11char_tr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11V3OutScFileD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %_ZN10V3OutCFileD2Ev.exit unwind label %2
 
@@ -20752,7 +20752,7 @@ _ZN10V3OutCFileD2Ev.exit:                         ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11V3OutScFileD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %_ZN11V3OutScFileD2Ev.exit unwind label %2
 

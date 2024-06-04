@@ -1110,7 +1110,7 @@ declare void @_Z10OutCommentPKwm(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7ArchiveC2EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4FileC2Ev(ptr noundef nonnull align 8 dereferenceable(8256) %0)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7Archive, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7Archive, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8256
   invoke void @_ZN9CryptDataC1Ev(ptr noundef nonnull align 8 dereferenceable(2516) %3)
           to label %4 unwind label %42
@@ -1370,7 +1370,7 @@ declare void @_ZN4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(8256)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7ArchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(57108) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV7Archive, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7Archive, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 11048
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1

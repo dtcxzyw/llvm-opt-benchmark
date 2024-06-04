@@ -84,8 +84,8 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
 
 27:                                               ; preds = %24
   %28 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %28, 64
-  br i1 %or.cond3, label %29, label %39
+  %or.cond6 = icmp ult i32 %28, 64
+  br i1 %or.cond6, label %29, label %39
 
 29:                                               ; preds = %27
   %30 = zext nneg i32 %28 to i64
@@ -114,8 +114,8 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
 
 45:                                               ; preds = %42
   %46 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
-  %or.cond5 = icmp ult i32 %46, 64
-  br i1 %or.cond5, label %47, label %57
+  %or.cond7 = icmp ult i32 %46, 64
+  br i1 %or.cond7, label %47, label %57
 
 47:                                               ; preds = %45
   %48 = zext nneg i32 %46 to i64
@@ -179,8 +179,8 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
 
 82:                                               ; preds = %79
   %83 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
-  %or.cond3.i = icmp ult i32 %83, 64
-  br i1 %or.cond3.i, label %84, label %set_keepalive.exit
+  %or.cond8.i = icmp ult i32 %83, 64
+  br i1 %or.cond8.i, label %84, label %set_keepalive.exit
 
 84:                                               ; preds = %82
   %85 = zext nneg i32 %83 to i64
@@ -204,8 +204,8 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
 
 97:                                               ; preds = %94
   %98 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
-  %or.cond5.i = icmp ult i32 %98, 64
-  br i1 %or.cond5.i, label %99, label %set_keepalive.exit
+  %or.cond9.i = icmp ult i32 %98, 64
+  br i1 %or.cond9.i, label %99, label %set_keepalive.exit
 
 99:                                               ; preds = %97
   %100 = zext nneg i32 %98 to i64
@@ -229,8 +229,8 @@ define void @prte_oob_tcp_set_socket_options(i32 noundef %0) local_unnamed_addr 
 
 112:                                              ; preds = %109
   %113 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
-  %or.cond7.i = icmp ult i32 %113, 64
-  br i1 %or.cond7.i, label %114, label %set_keepalive.exit
+  %or.cond10.i = icmp ult i32 %113, 64
+  br i1 %or.cond10.i, label %114, label %set_keepalive.exit
 
 114:                                              ; preds = %112
   %115 = zext nneg i32 %113 to i64

@@ -67,7 +67,7 @@ $_ZTIN3gmx19LogTargetCollectionE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx18LogTargetFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx18LogTargetFormatterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18LogTargetFormatterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   tail call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
@@ -76,7 +76,7 @@ define linkonce_odr void @_ZN3gmx18LogTargetFormatterD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx18LogTargetFormatterD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx18LogTargetFormatterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18LogTargetFormatterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   tail call void @_ZN3gmx10ILogTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
@@ -482,7 +482,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS
 define void @_ZN3gmx13LoggerBuilder15addTargetStreamENS_8MDLogger8LogLevelEPNS_16TextOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx18LogTargetFormatterE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18LogTargetFormatterE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   invoke void @_ZN3gmx10TextWriterC1EPNS_16TextOutputStreamE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2)
           to label %_ZN3gmx18LogTargetFormatterC2EPNS_16TextOutputStreamE.exit unwind label %.body
@@ -854,7 +854,7 @@ define void @_ZN3gmx13LoggerBuilder5buildEv(ptr dead_on_unwind noalias writable 
 
 22:                                               ; preds = %15
   %23 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx19LogTargetCollectionE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19LogTargetCollectionE, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   %25 = load ptr, ptr %9, align 8
@@ -1187,7 +1187,7 @@ _ZNSt10unique_ptrIN3gmx19LogTargetCollectionESt14default_deleteIS1_EED2Ev.exit30
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx19LogTargetCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx19LogTargetCollectionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19LogTargetCollectionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1204,7 +1204,7 @@ _ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EED2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx19LogTargetCollectionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx19LogTargetCollectionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19LogTargetCollectionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

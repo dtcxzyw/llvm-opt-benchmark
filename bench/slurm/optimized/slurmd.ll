@@ -3901,96 +3901,96 @@ define dso_local i32 @run_script_health_check() local_unnamed_addr #0 {
   %5 = alloca %struct.run_command_args_t, align 8
   store i32 0, ptr %1, align 4
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 424), align 8
-  %7 = icmp ne ptr %6, null
-  %8 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 420), align 4
-  %9 = icmp ne i16 %8, 0
-  %or.cond = select i1 %7, i1 %9, i1 false
-  br i1 %or.cond, label %10, label %51
+  %.not = icmp eq ptr %6, null
+  %7 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 420), align 4
+  %.not2 = icmp eq i16 %7, 0
+  %or.cond = select i1 %.not, i1 true, i1 %.not2
+  br i1 %or.cond, label %49, label %8
 
-10:                                               ; preds = %0
-  %11 = tail call ptr @env_array_create() #19
-  store ptr %11, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 12
-  store i32 60000, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
-  store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 424), align 8
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr @.str.35, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr %1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %20, i8 0, i64 17, i1 false)
-  store ptr %17, ptr %3, align 16
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr null, ptr %21, align 8
-  %22 = load ptr, ptr @conf, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4272
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %2, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef %24) #19
-  %26 = load ptr, ptr %2, align 8
-  store ptr %26, ptr %5, align 8
-  %27 = call ptr @run_command(ptr noundef nonnull %5) #19
-  store ptr %27, ptr %4, align 8
-  %28 = load i32, ptr %1, align 4
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %44, label %29
+8:                                                ; preds = %0
+  %9 = tail call ptr @env_array_create() #19
+  store ptr %9, ptr %2, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 60000, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  store i8 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %3, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 424), align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr @.str.35, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 48
+  store ptr %1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %18, i8 0, i64 17, i1 false)
+  store ptr %15, ptr %3, align 16
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr null, ptr %19, align 8
+  %20 = load ptr, ptr @conf, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 4272
+  %22 = load ptr, ptr %21, align 8
+  %23 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %2, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef %22) #19
+  %24 = load ptr, ptr %2, align 8
+  store ptr %24, ptr %5, align 8
+  %25 = call ptr @run_command(ptr noundef nonnull %5) #19
+  store ptr %25, ptr %4, align 8
+  %26 = load i32, ptr %1, align 4
+  %.not3 = icmp eq i32 %26, 0
+  br i1 %.not3, label %42, label %27
 
-29:                                               ; preds = %10
-  %30 = and i32 %28, 127
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %36
+27:                                               ; preds = %8
+  %28 = and i32 %26, 127
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %34
 
-32:                                               ; preds = %29
-  %33 = lshr i32 %28, 8
-  %34 = and i32 %33, 255
-  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38, i32 noundef %34, ptr noundef %27) #19
-  br label %43
+30:                                               ; preds = %27
+  %31 = lshr i32 %26, 8
+  %32 = and i32 %31, 255
+  %33 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38, i32 noundef %32, ptr noundef %25) #19
+  br label %41
 
-36:                                               ; preds = %29
-  %37 = shl nuw nsw i32 %30, 24
-  %sext = add nuw i32 %37, 16777216
-  %38 = icmp sgt i32 %sext, 33554431
-  br i1 %38, label %39, label %41
+34:                                               ; preds = %27
+  %35 = shl nuw nsw i32 %28, 24
+  %sext = add nuw i32 %35, 16777216
+  %36 = icmp sgt i32 %sext, 33554431
+  br i1 %36, label %37, label %39
 
-39:                                               ; preds = %36
-  %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, i32 noundef %30, ptr noundef %27) #19
-  br label %43
+37:                                               ; preds = %34
+  %38 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, i32 noundef %28, ptr noundef %25) #19
+  br label %41
 
-41:                                               ; preds = %36
-  %42 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, i32 noundef %28, ptr noundef %27) #19
-  br label %43
+39:                                               ; preds = %34
+  %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, i32 noundef %26, ptr noundef %25) #19
+  br label %41
 
-43:                                               ; preds = %39, %41, %32
+41:                                               ; preds = %37, %39, %30
   store i32 -1, ptr %1, align 4
-  br label %49
+  br label %47
 
-44:                                               ; preds = %10
-  %45 = call i32 @get_log_level() #19
-  %46 = icmp sgt i32 %45, 5
-  br i1 %46, label %47, label %49
+42:                                               ; preds = %8
+  %43 = call i32 @get_log_level() #19
+  %44 = icmp sgt i32 %43, 5
+  br i1 %44, label %45, label %47
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %1, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.41, i32 noundef %48, ptr noundef %27) #19
-  br label %49
+45:                                               ; preds = %42
+  %46 = load i32, ptr %1, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.41, i32 noundef %46, ptr noundef %25) #19
+  br label %47
 
-49:                                               ; preds = %44, %47, %43
-  %50 = load ptr, ptr %2, align 8
-  call void @env_array_free(ptr noundef %50) #19
+47:                                               ; preds = %42, %45, %41
+  %48 = load ptr, ptr %2, align 8
+  call void @env_array_free(ptr noundef %48) #19
   call void @slurm_xfree(ptr noundef nonnull %4) #19
   %.pre = load i32, ptr %1, align 4
-  br label %51
+  br label %49
 
-51:                                               ; preds = %49, %0
-  %52 = phi i32 [ %.pre, %49 ], [ 0, %0 ]
-  ret i32 %52
+49:                                               ; preds = %47, %0
+  %50 = phi i32 [ %.pre, %47 ], [ 0, %0 ]
+  ret i32 %50
 }
 
 declare void @record_launched_jobs() local_unnamed_addr #3

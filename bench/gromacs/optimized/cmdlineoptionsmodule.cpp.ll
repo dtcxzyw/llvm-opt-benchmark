@@ -151,7 +151,7 @@ _ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.
   %4 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
   %5 = load i64, ptr %3, align 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
@@ -177,7 +177,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -215,7 +215,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -364,7 +364,7 @@ define internal noundef i32 @_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModule3run
           to label %16 unwind label %43
 
 16:                                               ; preds = %15
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %8, align 8
   %17 = getelementptr inbounds i8, ptr %8, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
   %18 = getelementptr inbounds i8, ptr %8, i64 40
@@ -408,7 +408,7 @@ define internal noundef i32 @_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModule3run
           to label %34 unwind label %45
 
 34:                                               ; preds = %33
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %8, align 8
   %35 = load ptr, ptr %18, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 48
   %37 = load ptr, ptr %36, align 8
@@ -545,7 +545,7 @@ _ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEaSEOS
           to label %23 unwind label %50
 
 23:                                               ; preds = %22
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %6, align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
   %25 = getelementptr inbounds i8, ptr %6, i64 40
@@ -583,7 +583,7 @@ _ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEaSEOS
 
 41:                                               ; preds = %40
   call void @_ZN3gmx21CommandLineHelpWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %6, align 8
   %42 = load ptr, ptr %25, align 8
   %43 = load ptr, ptr %34, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %42, %43
@@ -710,7 +710,7 @@ declare void @_ZN3gmx25OptionsBehaviorCollection15optionsFinishedEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -867,7 +867,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettings18a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1311,7 +1311,7 @@ define noundef i32 @_ZN3gmx25ICommandLineOptionsModule9runAsMainEiPPcPKcS4_St8fu
   br label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_.exit
 
 _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_.exit: ; preds = %5, %11
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1336,7 +1336,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
           to label %19 unwind label %31
 
 19:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %6, align 8
   %20 = load ptr, ptr %17, align 8
   %.not.i.i5 = icmp eq ptr %20, null
   br i1 %.not.i.i5, label %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN3gmx25ICommandLineOptionsModuleEEclEPS1_.exit.i.i
@@ -1397,7 +1397,7 @@ define void @_ZN3gmx25ICommandLineOptionsModule21registerModuleFactoryEPNS_24Com
   br label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_.exit
 
 _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_.exit: ; preds = %4, %11
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1468,7 +1468,7 @@ define void @_ZN3gmx25ICommandLineOptionsModule20registerModuleDirectEPNS_24Comm
           to label %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.exit unwind label %19
 
 _ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.exit: ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %8, align 8, !noalias !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i64 16), ptr %8, align 8, !noalias !18
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %1, ptr %9, align 8, !noalias !18
   %10 = getelementptr inbounds i8, ptr %8, i64 16

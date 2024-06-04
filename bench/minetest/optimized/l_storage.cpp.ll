@@ -302,7 +302,7 @@ invoke.cont1:                                     ; preds = %if.then
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10StorageRef, i64 16), ptr %call.i10, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10StorageRef, i64 16), ptr %call.i10, align 8, !tbaa !12
   %m_object.i.i = getelementptr inbounds i8, ptr %call.i10, i64 8
   invoke void @_ZN10ModStorageC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP18ModStorageDatabase(ptr noundef nonnull align 8 dereferenceable(48) %m_object.i.i, ptr noundef nonnull align 8 dereferenceable(32) %mod_name, ptr noundef %call2)
           to label %invoke.cont.i unwind label %lpad.i
@@ -387,7 +387,7 @@ declare noundef ptr @_ZN10ModApiBase10getGameDefEP9lua_State(ptr noundef) local_
 define dso_local void @_ZN10StorageRef6createEP9lua_StateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP18ModStorageDatabase(ptr noundef %L, ptr noundef nonnull align 8 dereferenceable(32) %mod_name, ptr noundef %db) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10StorageRef, i64 16), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10StorageRef, i64 16), ptr %call, align 8, !tbaa !12
   %m_object.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN10ModStorageC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP18ModStorageDatabase(ptr noundef nonnull align 8 dereferenceable(48) %m_object.i, ptr noundef nonnull align 8 dereferenceable(32) %mod_name, ptr noundef %db)
           to label %invoke.cont unwind label %lpad
@@ -482,9 +482,9 @@ declare noundef i32 @_ZN11MetaDataRef8l_equalsEP9lua_State(ptr noundef) #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10StorageRefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10StorageRef, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10StorageRef, i64 16), ptr %this, align 8, !tbaa !12
   %m_object = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ModStorage, i64 16), ptr %m_object, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ModStorage, i64 16), ptr %m_object, align 8, !tbaa !12
   %m_mod_name.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_mod_name.i, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 32
@@ -509,9 +509,9 @@ _ZN10ModStorageD2Ev.exit:                         ; preds = %if.then.i.i.i, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10StorageRefD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10StorageRef, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10StorageRef, i64 16), ptr %this, align 8, !tbaa !12
   %m_object.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ModStorage, i64 16), ptr %m_object.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ModStorage, i64 16), ptr %m_object.i, align 8, !tbaa !12
   %m_mod_name.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_mod_name.i.i, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 32

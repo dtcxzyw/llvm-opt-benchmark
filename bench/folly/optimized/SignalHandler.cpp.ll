@@ -542,7 +542,7 @@ lpad7:                                            ; preds = %if.else
   br label %common.resume
 
 if.then11:                                        ; preds = %if.then4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly10symbolizer35UnsafeSelfAllocateStackTracePrinterE, i64 16), ptr %call5, align 8, !tbaa !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10symbolizer35UnsafeSelfAllocateStackTracePrinterE, i64 16), ptr %call5, align 8, !tbaa !25
   %pageSizeUnchecked_.i = getelementptr inbounds i8, ptr %call5, i64 56
   %call.i54 = call i64 @sysconf(i32 noundef 30) #18
   store i64 %call.i54, ptr %pageSizeUnchecked_.i, align 8, !tbaa !27

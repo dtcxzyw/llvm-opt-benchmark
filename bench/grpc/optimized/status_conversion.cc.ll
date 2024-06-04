@@ -47,7 +47,8 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %0, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %0
 
 0:                                                ; preds = %sw.bb1
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()

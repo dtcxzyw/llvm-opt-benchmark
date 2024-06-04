@@ -1231,8 +1231,8 @@ pgstat_snapshot_lookup.exit:                      ; preds = %.lr.ph.i.i
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pgstat_prep_snapshot() unnamed_addr #0 {
-  %.b2 = load i1, ptr @force_stats_snapshot_clear, align 1
-  br i1 %.b2, label %1, label %4
+  %.b3 = load i1, ptr @force_stats_snapshot_clear, align 1
+  br i1 %.b3, label %1, label %4
 
 1:                                                ; preds = %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @pgStatLocal, i64 40), i8 0, i64 12, i1 false)

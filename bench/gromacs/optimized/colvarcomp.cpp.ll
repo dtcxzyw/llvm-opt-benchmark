@@ -3705,8 +3705,8 @@ define void @_ZN6colvar3cvcC2Ev(ptr noundef nonnull align 8 dereferenceable(1648
           to label %3 unwind label %32
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar3cvcE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar3cvcE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar3cvcE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar3cvcE, i64 248), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 440
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   %5 = getelementptr inbounds i8, ptr %0, i64 472
@@ -3991,8 +3991,8 @@ define void @_ZN6colvar3cvcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
           to label %4 unwind label %38
 
 4:                                                ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar3cvcE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar3cvcE, i64 248), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar3cvcE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar3cvcE, i64 248), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 440
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   %6 = getelementptr inbounds i8, ptr %0, i64 472
@@ -5351,9 +5351,9 @@ define noundef i32 @_ZN6colvar3cvc5setupEv(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar3cvcD2Ev(ptr noundef nonnull align 8 dereferenceable(1648) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar3cvcE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar3cvcE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar3cvcE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar3cvcE, i64 248), ptr %2, align 8
   invoke void @_ZN10colvardeps18free_children_depsEv(ptr noundef nonnull align 8 dereferenceable(120) %2)
           to label %3 unwind label %127
 

@@ -391,7 +391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 define dso_local void @_ZN16MapgenCarpathianC2EP22MapgenCarpathianParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(596) %this, ptr noundef %params, ptr noundef %emerge) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN11MapgenBasicC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(474) %this, i32 noundef 2, ptr noundef %params, ptr noundef %emerge)
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV16MapgenCarpathian, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16MapgenCarpathian, i64 16), ptr %this, align 8, !tbaa !12
   %noise_rivers = getelementptr inbounds i8, ptr %this, i64 576
   store ptr null, ptr %noise_rivers, align 8, !tbaa !14
   %base_level = getelementptr inbounds i8, ptr %params, i64 56
@@ -782,7 +782,7 @@ declare void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16MapgenCarpathianD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %this) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV16MapgenCarpathian, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16MapgenCarpathian, i64 16), ptr %this, align 8, !tbaa !12
   %noise_filler_depth = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %noise_filler_depth, align 8, !tbaa !56
   %isnull = icmp eq ptr %0, null
@@ -973,7 +973,7 @@ invoke.cont66:
   store i16 31007, ptr %mapgen_edge_max.i, align 2, !tbaa !78
   %m_mapgen_edges_calculated.i = getelementptr inbounds i8, ptr %this, i64 52
   store i8 0, ptr %m_mapgen_edges_calculated.i, align 4, !tbaa !79
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22MapgenCarpathianParams, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22MapgenCarpathianParams, i64 16), ptr %this, align 8, !tbaa !12
   %base_level = getelementptr inbounds i8, ptr %this, i64 56
   store <4 x float> <float 1.200000e+01, float 0x3FA99999A0000000, float 2.400000e+01, float 2.500000e-01>, ptr %base_level, align 8, !tbaa !35
   %cave_width = getelementptr inbounds i8, ptr %this, i64 72

@@ -1600,7 +1600,7 @@ define noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %0, 
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = icmp eq i64 %10, 0
-  %spec.store.select = select i1 %12, ptr inttoptr (i64 1 to ptr), ptr %11
+  %spec.select = select i1 %12, ptr inttoptr (i64 1 to ptr), ptr %11
   br label %29
 
 13:                                               ; preds = %7
@@ -1613,7 +1613,7 @@ define noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %0, 
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq i64 %16, 0
-  %spec.store.select1 = select i1 %19, ptr inttoptr (i64 1 to ptr), ptr %18
+  %spec.select28 = select i1 %19, ptr inttoptr (i64 1 to ptr), ptr %18
   br label %29
 
 20:                                               ; preds = %13
@@ -1621,16 +1621,16 @@ define noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %0, 
           to label %22 unwind label %32
 
 22:                                               ; preds = %20
-  %.not27 = icmp eq i32 %21, 0
-  br i1 %.not27, label %29, label %23
+  %.not26 = icmp eq i32 %21, 0
+  br i1 %.not26, label %29, label %23
 
 23:                                               ; preds = %22
   %24 = invoke ptr @PySequence_Fast(ptr noundef nonnull %0, ptr noundef nonnull @.str.9)
           to label %25 unwind label %32
 
 25:                                               ; preds = %23
-  %.not28 = icmp eq ptr %24, null
-  br i1 %.not28, label %28, label %26
+  %.not27 = icmp eq ptr %24, null
+  br i1 %.not27, label %28, label %26
 
 26:                                               ; preds = %25
   %27 = call noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef nonnull %24, ptr noundef nonnull %4, ptr noundef %2) #19
@@ -1641,17 +1641,17 @@ define noundef ptr @_ZN8nanobind6detail7seq_getEP7_objectPmPS2_(ptr noundef %0, 
   invoke void @PyErr_Clear()
           to label %29 unwind label %32
 
-29:                                               ; preds = %14, %26, %28, %22, %8
-  %30 = phi i64 [ %10, %8 ], [ %16, %14 ], [ %.pre, %26 ], [ 0, %28 ], [ 0, %22 ]
-  %.021 = phi ptr [ null, %8 ], [ null, %14 ], [ %24, %26 ], [ null, %28 ], [ null, %22 ]
-  %.0 = phi ptr [ %spec.store.select, %8 ], [ %spec.store.select1, %14 ], [ %27, %26 ], [ null, %28 ], [ null, %22 ]
-  store ptr %.021, ptr %2, align 8
+29:                                               ; preds = %14, %8, %26, %28, %22
+  %30 = phi i64 [ %.pre, %26 ], [ 0, %28 ], [ 0, %22 ], [ %10, %8 ], [ %16, %14 ]
+  %.020 = phi ptr [ %24, %26 ], [ null, %28 ], [ null, %22 ], [ null, %8 ], [ null, %14 ]
+  %.0 = phi ptr [ %27, %26 ], [ null, %28 ], [ null, %22 ], [ %spec.select, %8 ], [ %spec.select28, %14 ]
+  store ptr %.020, ptr %2, align 8
   store i64 %30, ptr %1, align 8
   br label %31
 
 31:                                               ; preds = %29, %6
-  %.022 = phi ptr [ null, %6 ], [ %.0, %29 ]
-  ret ptr %.022
+  %.021 = phi ptr [ null, %6 ], [ %.0, %29 ]
+  ret ptr %.021
 
 32:                                               ; preds = %28, %23, %20
   %33 = landingpad { ptr, i32 }
@@ -1681,7 +1681,7 @@ define noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr no
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = icmp eq i64 %1, 0
-  %spec.store.select = select i1 %11, ptr inttoptr (i64 1 to ptr), ptr %10
+  %spec.select = select i1 %11, ptr inttoptr (i64 1 to ptr), ptr %10
   br label %30
 
 12:                                               ; preds = %3
@@ -1698,7 +1698,7 @@ define noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr no
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq i64 %1, 0
-  %spec.store.select1 = select i1 %20, ptr inttoptr (i64 1 to ptr), ptr %19
+  %spec.select25 = select i1 %20, ptr inttoptr (i64 1 to ptr), ptr %19
   br label %30
 
 21:                                               ; preds = %12
@@ -1706,16 +1706,16 @@ define noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr no
           to label %23 unwind label %31
 
 23:                                               ; preds = %21
-  %.not24 = icmp eq i32 %22, 0
-  br i1 %.not24, label %30, label %24
+  %.not23 = icmp eq i32 %22, 0
+  br i1 %.not23, label %30, label %24
 
 24:                                               ; preds = %23
   %25 = invoke ptr @PySequence_Fast(ptr noundef nonnull %0, ptr noundef nonnull @.str.9)
           to label %26 unwind label %31
 
 26:                                               ; preds = %24
-  %.not25 = icmp eq ptr %25, null
-  br i1 %.not25, label %29, label %27
+  %.not24 = icmp eq ptr %25, null
+  br i1 %.not24, label %29, label %27
 
 27:                                               ; preds = %26
   %28 = tail call noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr noundef nonnull %25, i64 noundef %1, ptr noundef %2) #19
@@ -1725,10 +1725,10 @@ define noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr no
   invoke void @PyErr_Clear()
           to label %30 unwind label %31
 
-30:                                               ; preds = %17, %13, %27, %29, %23, %5, %9
-  %.019 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %17 ], [ null, %13 ], [ %25, %27 ], [ null, %29 ], [ null, %23 ]
-  %.0 = phi ptr [ %spec.store.select, %9 ], [ null, %5 ], [ %spec.store.select1, %17 ], [ null, %13 ], [ %28, %27 ], [ null, %29 ], [ null, %23 ]
-  store ptr %.019, ptr %2, align 8
+30:                                               ; preds = %17, %9, %13, %27, %29, %23, %5
+  %.018 = phi ptr [ null, %5 ], [ null, %13 ], [ %25, %27 ], [ null, %29 ], [ null, %23 ], [ null, %9 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %13 ], [ %28, %27 ], [ null, %29 ], [ null, %23 ], [ %spec.select, %9 ], [ %spec.select25, %17 ]
+  store ptr %.018, ptr %2, align 8
   ret ptr %.0
 
 31:                                               ; preds = %29, %24, %21

@@ -928,186 +928,187 @@ define dso_local range(i32 0, 2) i32 @kallsyms_lookup_size_offset(i64 noundef %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #1 align 16 {
-  br i1 icmp eq (ptr @kallsyms_offsets, ptr null), label %4, label %5, !prof !18
+  %4 = icmp eq ptr @kallsyms_offsets, null
+  br i1 %4, label %5, label %6, !prof !18
 
-4:                                                ; preds = %3
+5:                                                ; preds = %3
   tail call void asm sideeffect "634: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 634b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 634) #11, !srcloc !19
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 332, i32 0, i64 12) #11, !srcloc !20
   unreachable
 
-5:                                                ; preds = %3
-  %6 = load i32, ptr @kallsyms_num_syms, align 4
-  %7 = zext i32 %6 to i64
-  %8 = icmp ugt i32 %6, 1
-  br i1 %8, label %.preheader18, label %.thread
+6:                                                ; preds = %3
+  %7 = load i32, ptr @kallsyms_num_syms, align 4
+  %8 = zext i32 %7 to i64
+  %9 = icmp ugt i32 %7, 1
+  br i1 %9, label %.preheader18, label %.thread
 
-9:                                                ; preds = %28
-  %10 = icmp eq i64 %31, 0
-  br i1 %10, label %.thread, label %.preheader
+10:                                               ; preds = %29
+  %11 = icmp eq i64 %32, 0
+  br i1 %11, label %.thread, label %.preheader
 
-.preheader18:                                     ; preds = %5, %28
-  %11 = phi i64 [ %33, %28 ], [ %7, %5 ]
-  %12 = phi i64 [ %32, %28 ], [ %7, %5 ]
-  %13 = phi i64 [ %31, %28 ], [ 0, %5 ]
-  %14 = lshr i64 %11, 1
-  %15 = add i64 %13, %14
-  %16 = shl i64 %15, 32
-  %17 = ashr exact i64 %16, 32
-  %18 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, -1
-  br i1 %20, label %21, label %23
+.preheader18:                                     ; preds = %6, %29
+  %12 = phi i64 [ %34, %29 ], [ %8, %6 ]
+  %13 = phi i64 [ %33, %29 ], [ %8, %6 ]
+  %14 = phi i64 [ %32, %29 ], [ 0, %6 ]
+  %15 = lshr i64 %12, 1
+  %16 = add i64 %14, %15
+  %17 = shl i64 %16, 32
+  %18 = ashr exact i64 %17, 32
+  %19 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %18
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp sgt i32 %20, -1
+  br i1 %21, label %22, label %24
 
-21:                                               ; preds = %.preheader18
-  %22 = zext nneg i32 %19 to i64
-  br label %28
+22:                                               ; preds = %.preheader18
+  %23 = zext nneg i32 %20 to i64
+  br label %29
 
-23:                                               ; preds = %.preheader18
-  %24 = load i64, ptr @kallsyms_relative_base, align 8
-  %25 = xor i32 %19, -1
-  %26 = zext nneg i32 %25 to i64
-  %27 = add i64 %24, %26
-  br label %28
+24:                                               ; preds = %.preheader18
+  %25 = load i64, ptr @kallsyms_relative_base, align 8
+  %26 = xor i32 %20, -1
+  %27 = zext nneg i32 %26 to i64
+  %28 = add i64 %25, %27
+  br label %29
 
-28:                                               ; preds = %23, %21
-  %29 = phi i64 [ %22, %21 ], [ %27, %23 ]
-  %30 = icmp ugt i64 %29, %0
-  %31 = select i1 %30, i64 %13, i64 %15
-  %32 = select i1 %30, i64 %15, i64 %12
-  %33 = sub i64 %32, %31
-  %34 = icmp ugt i64 %33, 1
-  br i1 %34, label %.preheader18, label %9, !llvm.loop !21
+29:                                               ; preds = %24, %22
+  %30 = phi i64 [ %23, %22 ], [ %28, %24 ]
+  %31 = icmp ugt i64 %30, %0
+  %32 = select i1 %31, i64 %14, i64 %16
+  %33 = select i1 %31, i64 %16, i64 %13
+  %34 = sub i64 %33, %32
+  %35 = icmp ugt i64 %34, 1
+  br i1 %35, label %.preheader18, label %10, !llvm.loop !21
 
-.preheader:                                       ; preds = %9, %65
-  %35 = phi i64 [ %66, %65 ], [ %31, %9 ]
-  %36 = shl i64 %35, 32
-  %37 = add i64 %36, -4294967296
-  %38 = ashr exact i64 %37, 32
-  %39 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %38
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %42, label %44
+.preheader:                                       ; preds = %10, %66
+  %36 = phi i64 [ %67, %66 ], [ %32, %10 ]
+  %37 = shl i64 %36, 32
+  %38 = add i64 %37, -4294967296
+  %39 = ashr exact i64 %38, 32
+  %40 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %39
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp sgt i32 %41, -1
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %.preheader
-  %43 = zext nneg i32 %40 to i64
-  br label %49
+43:                                               ; preds = %.preheader
+  %44 = zext nneg i32 %41 to i64
+  br label %50
 
-44:                                               ; preds = %.preheader
-  %45 = load i64, ptr @kallsyms_relative_base, align 8
-  %46 = xor i32 %40, -1
-  %47 = zext nneg i32 %46 to i64
-  %48 = add i64 %45, %47
-  br label %49
+45:                                               ; preds = %.preheader
+  %46 = load i64, ptr @kallsyms_relative_base, align 8
+  %47 = xor i32 %41, -1
+  %48 = zext nneg i32 %47 to i64
+  %49 = add i64 %46, %48
+  br label %50
 
-49:                                               ; preds = %44, %42
-  %50 = phi i64 [ %43, %42 ], [ %48, %44 ]
-  %51 = ashr exact i64 %36, 32
-  %52 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %55, label %57
+50:                                               ; preds = %45, %43
+  %51 = phi i64 [ %44, %43 ], [ %49, %45 ]
+  %52 = ashr exact i64 %37, 32
+  %53 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp sgt i32 %54, -1
+  br i1 %55, label %56, label %58
 
-55:                                               ; preds = %49
-  %56 = zext nneg i32 %53 to i64
-  br label %62
+56:                                               ; preds = %50
+  %57 = zext nneg i32 %54 to i64
+  br label %63
 
-57:                                               ; preds = %49
-  %58 = load i64, ptr @kallsyms_relative_base, align 8
-  %59 = xor i32 %53, -1
-  %60 = zext nneg i32 %59 to i64
-  %61 = add i64 %58, %60
-  br label %62
+58:                                               ; preds = %50
+  %59 = load i64, ptr @kallsyms_relative_base, align 8
+  %60 = xor i32 %54, -1
+  %61 = zext nneg i32 %60 to i64
+  %62 = add i64 %59, %61
+  br label %63
 
-62:                                               ; preds = %57, %55
-  %63 = phi i64 [ %56, %55 ], [ %61, %57 ]
-  %64 = icmp eq i64 %50, %63
-  br i1 %64, label %65, label %.thread
+63:                                               ; preds = %58, %56
+  %64 = phi i64 [ %57, %56 ], [ %62, %58 ]
+  %65 = icmp eq i64 %51, %64
+  br i1 %65, label %66, label %.thread
 
-65:                                               ; preds = %62
-  %66 = add i64 %35, -1
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %.thread, label %.preheader, !llvm.loop !22
+66:                                               ; preds = %63
+  %67 = add i64 %36, -1
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %.thread, label %.preheader, !llvm.loop !22
 
-.thread:                                          ; preds = %65, %62, %5, %9
-  %68 = phi i64 [ 0, %9 ], [ 0, %5 ], [ 0, %65 ], [ %35, %62 ]
-  %69 = shl i64 %68, 32
-  %70 = ashr exact i64 %69, 32
-  %71 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %70
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %74, label %76
+.thread:                                          ; preds = %66, %63, %6, %10
+  %69 = phi i64 [ 0, %10 ], [ 0, %6 ], [ 0, %66 ], [ %36, %63 ]
+  %70 = shl i64 %69, 32
+  %71 = ashr exact i64 %70, 32
+  %72 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %71
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp sgt i32 %73, -1
+  br i1 %74, label %75, label %77
 
-74:                                               ; preds = %.thread
-  %75 = zext nneg i32 %72 to i64
-  br label %81
+75:                                               ; preds = %.thread
+  %76 = zext nneg i32 %73 to i64
+  br label %82
 
-76:                                               ; preds = %.thread
-  %77 = load i64, ptr @kallsyms_relative_base, align 8
-  %78 = xor i32 %72, -1
-  %79 = zext nneg i32 %78 to i64
-  %80 = add i64 %77, %79
-  br label %81
+77:                                               ; preds = %.thread
+  %78 = load i64, ptr @kallsyms_relative_base, align 8
+  %79 = xor i32 %73, -1
+  %80 = zext nneg i32 %79 to i64
+  %81 = add i64 %78, %80
+  br label %82
 
-81:                                               ; preds = %76, %74
-  %82 = phi i64 [ %75, %74 ], [ %80, %76 ]
-  %83 = add i64 %68, 1
-  %84 = icmp ult i64 %83, %7
-  br i1 %84, label %.lr.ph, label %.loopexit
+82:                                               ; preds = %77, %75
+  %83 = phi i64 [ %76, %75 ], [ %81, %77 ]
+  %84 = add i64 %69, 1
+  %85 = icmp ult i64 %84, %8
+  br i1 %85, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %81, %.backedge
-  %85 = phi i64 [ %94, %.backedge ], [ %83, %81 ]
-  %86 = shl nuw i64 %85, 32
-  %87 = ashr exact i64 %86, 32
-  %88 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %87
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp sgt i32 %89, -1
-  br i1 %90, label %91, label %.thread16
+.lr.ph:                                           ; preds = %82, %.backedge
+  %86 = phi i64 [ %95, %.backedge ], [ %84, %82 ]
+  %87 = shl nuw i64 %86, 32
+  %88 = ashr exact i64 %87, 32
+  %89 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %88
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp sgt i32 %90, -1
+  br i1 %91, label %92, label %.thread16
 
-91:                                               ; preds = %.lr.ph
-  %92 = zext nneg i32 %89 to i64
-  %93 = icmp ult i64 %82, %92
-  br i1 %93, label %.loopexit, label %.backedge
+92:                                               ; preds = %.lr.ph
+  %93 = zext nneg i32 %90 to i64
+  %94 = icmp ult i64 %83, %93
+  br i1 %94, label %.loopexit, label %.backedge
 
-.backedge:                                        ; preds = %91, %.thread16
-  %94 = add nuw nsw i64 %85, 1
-  %exitcond.not = icmp eq i64 %94, %7
+.backedge:                                        ; preds = %92, %.thread16
+  %95 = add nuw nsw i64 %86, 1
+  %exitcond.not = icmp eq i64 %95, %8
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .thread16:                                        ; preds = %.lr.ph
-  %95 = load i64, ptr @kallsyms_relative_base, align 8
-  %96 = xor i32 %89, -1
-  %97 = zext nneg i32 %96 to i64
-  %98 = add i64 %95, %97
-  %99 = icmp ugt i64 %98, %82
-  br i1 %99, label %.loopexit, label %.backedge
+  %96 = load i64, ptr @kallsyms_relative_base, align 8
+  %97 = xor i32 %90, -1
+  %98 = zext nneg i32 %97 to i64
+  %99 = add i64 %96, %98
+  %100 = icmp ugt i64 %99, %83
+  br i1 %100, label %.loopexit, label %.backedge
 
-.loopexit:                                        ; preds = %.backedge, %.thread16, %91, %81
-  %100 = phi i64 [ 0, %81 ], [ 0, %.backedge ], [ %98, %.thread16 ], [ %92, %91 ]
-  %101 = icmp eq ptr %1, null
-  br i1 %101, label %110, label %102
+.loopexit:                                        ; preds = %.backedge, %.thread16, %92, %82
+  %101 = phi i64 [ 0, %82 ], [ 0, %.backedge ], [ %99, %.thread16 ], [ %93, %92 ]
+  %102 = icmp eq ptr %1, null
+  br i1 %102, label %111, label %103
 
-102:                                              ; preds = %.loopexit
-  %103 = icmp eq i64 %100, 0
-  %104 = icmp uge i64 %0, ptrtoint (ptr @_sinittext to i64)
-  %105 = icmp ult i64 %0, ptrtoint (ptr @_einittext to i64)
-  %106 = and i1 %104, %105
-  %107 = select i1 %106, i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_end to i64)
-  %108 = select i1 %103, i64 %107, i64 %100
-  %109 = sub i64 %108, %82
-  store i64 %109, ptr %1, align 8
-  br label %110
+103:                                              ; preds = %.loopexit
+  %104 = icmp eq i64 %101, 0
+  %105 = icmp uge i64 %0, ptrtoint (ptr @_sinittext to i64)
+  %106 = icmp ult i64 %0, ptrtoint (ptr @_einittext to i64)
+  %107 = and i1 %105, %106
+  %108 = select i1 %107, i64 ptrtoint (ptr @_einittext to i64), i64 ptrtoint (ptr @_end to i64)
+  %109 = select i1 %104, i64 %108, i64 %101
+  %110 = sub i64 %109, %83
+  store i64 %110, ptr %1, align 8
+  br label %111
 
-110:                                              ; preds = %102, %.loopexit
-  %111 = icmp eq ptr %2, null
-  br i1 %111, label %114, label %112
+111:                                              ; preds = %103, %.loopexit
+  %112 = icmp eq ptr %2, null
+  br i1 %112, label %115, label %113
 
-112:                                              ; preds = %110
-  %113 = sub i64 %0, %82
-  store i64 %113, ptr %2, align 8
-  br label %114
+113:                                              ; preds = %111
+  %114 = sub i64 %0, %83
+  store i64 %114, ptr %2, align 8
+  br label %115
 
-114:                                              ; preds = %112, %110
-  ret i64 %68
+115:                                              ; preds = %113, %111
+  ret i64 %69
 }
 
 ; Function Attrs: null_pointer_is_valid

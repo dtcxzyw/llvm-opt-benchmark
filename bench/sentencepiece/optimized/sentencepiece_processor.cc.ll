@@ -529,7 +529,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN13sentencepiece17SentencePieceText16default_instanceEv()
   store ptr %3, ptr %2, align 8
@@ -542,7 +542,7 @@ declare noundef nonnull align 8 dereferenceable(88) ptr @_ZN13sentencepiece17Sen
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2ERKNS_17SentencePieceTextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -552,7 +552,7 @@ define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2ERKNS_17SentencePie
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13sentencepiece26ImmutableSentencePieceTextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -926,7 +926,7 @@ define noundef ptr @_ZN13sentencepiece26ImmutableSentencePieceText13mutable_prot
   store i32 1, ptr %6, align 8, !noalias !7
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN13sentencepiece17SentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN13sentencepiece17SentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !7
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   invoke void @_ZN13sentencepiece17SentencePieceTextC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef null)
           to label %_ZSt11make_sharedIN13sentencepiece17SentencePieceTextEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN13sentencepiece17SentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !7
@@ -1196,7 +1196,7 @@ declare void @_ZNK6google8protobuf11MessageLite17SerializeAsStringB5cxx11Ev(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -1204,7 +1204,7 @@ define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextC2Ev(ptr nocaptu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1655,7 +1655,7 @@ define noundef ptr @_ZN13sentencepiece31ImmutableNBestSentencePieceText13mutable
   store i32 1, ptr %6, align 8, !noalias !15
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !15
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN13sentencepiece22NBestSentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN13sentencepiece22NBestSentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !15
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   invoke void @_ZN13sentencepiece22NBestSentencePieceTextC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef null)
           to label %_ZSt11make_sharedIN13sentencepiece22NBestSentencePieceTextEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN13sentencepiece22NBestSentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !15
@@ -1836,7 +1836,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN13sentencepiece22SentencePieceProcessorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 584) (i8, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false)
   ret void
@@ -1844,7 +1844,7 @@ define void @_ZN13sentencepiece22SentencePieceProcessorC2Ev(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13sentencepiece22SentencePieceProcessorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 584) (i8, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

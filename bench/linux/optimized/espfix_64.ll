@@ -96,45 +96,46 @@ define dso_local void @init_espfix_bsp() local_unnamed_addr #0 section ".init.te
   %28 = load i64, ptr @phys_base, align 8
   %29 = load i64, ptr @page_offset_base, align 8
   %30 = sub i64 -2147483648, %29
-  %31 = select i1 icmp ugt (i64 ptrtoint (ptr @espfix_pud_page to i64), i64 -2147483649), i64 %28, i64 %30
-  %32 = add i64 %31, add (i64 ptrtoint (ptr @espfix_pud_page to i64), i64 2147483648)
-  %33 = or i64 %32, 103
+  %31 = icmp ugt i64 ptrtoint (ptr @espfix_pud_page to i64), -2147483649
+  %32 = select i1 %31, i64 %28, i64 %30
+  %33 = add i64 %32, add (i64 ptrtoint (ptr @espfix_pud_page to i64), i64 2147483648)
+  %34 = or i64 %33, 103
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  store i64 %33, ptr %1, align 8
+  store i64 %34, ptr %1, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #4
-          to label %35 [label %35, label %34], !srcloc !5
+          to label %36 [label %36, label %35], !srcloc !5
 
-34:                                               ; preds = %26
+35:                                               ; preds = %26
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 235, i32 8, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 69)) #4
-          to label %36 [label %36, label %38], !srcloc !5
+          to label %37 [label %37, label %39], !srcloc !5
 
-35:                                               ; preds = %26, %26
+36:                                               ; preds = %26, %26
   %.0..0..0..0.1 = load volatile i64, ptr %1, align 8
   store volatile i64 %.0..0..0..0.1, ptr %27, align 8
-  br label %40
+  br label %41
 
-36:                                               ; preds = %34, %34
-  %37 = tail call i64 @__pti_set_user_pgtbl(ptr noundef %27, i64 %33) #4
-  br label %38
+37:                                               ; preds = %35, %35
+  %38 = tail call i64 @__pti_set_user_pgtbl(ptr noundef %27, i64 %34) #4
+  br label %39
 
-38:                                               ; preds = %36, %34
-  %39 = phi i64 [ %37, %36 ], [ %33, %34 ]
+39:                                               ; preds = %37, %35
+  %40 = phi i64 [ %38, %37 ], [ %34, %35 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store volatile i64 %39, ptr %2, align 8
+  store volatile i64 %40, ptr %2, align 8
   %.0..0..0..0. = load volatile i64, ptr %2, align 8
   store volatile i64 %.0..0..0..0., ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %38, %35
+41:                                               ; preds = %39, %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  %41 = tail call i64 @get_random_u64() #4
-  %42 = trunc i64 %41 to i32
-  %43 = and i32 %42, 63
-  store i32 %43, ptr @slot_random, align 4
-  %44 = lshr i32 %42, 6
-  %45 = and i32 %44, 2047
-  store i32 %45, ptr @page_random, align 4
+  %42 = tail call i64 @get_random_u64() #4
+  %43 = trunc i64 %42 to i32
+  %44 = and i32 %43, 63
+  store i32 %44, ptr @slot_random, align 4
+  %45 = lshr i32 %43, 6
+  %46 = and i32 %45, 2047
+  store i32 %46, ptr @page_random, align 4
   tail call void @init_espfix_ap(i32 noundef 0)
   ret void
 }

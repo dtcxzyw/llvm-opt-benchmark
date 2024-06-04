@@ -106,7 +106,7 @@ define hidden void @_ZN8rawspeed10FiffParserC2ENS_6BufferE(ptr nocapture noundef
   store ptr %1, ptr %4, align 8, !tbaa !6
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %2, ptr %5, align 8, !tbaa !10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed10FiffParserE, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10FiffParserE, i64 16), ptr %0, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %6, align 8, !tbaa !14
   ret void
@@ -245,7 +245,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
   br i1 %77, label %140, label %78
 
 78:                                               ; preds = %71
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %76, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %76, align 8, !tbaa !12
   %79 = getelementptr inbounds i8, ptr %76, i64 56
   %80 = getelementptr inbounds i8, ptr %76, i64 72
   %81 = load ptr, ptr %80, align 8, !tbaa !16
@@ -306,7 +306,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
   br i1 %109, label %140, label %110
 
 110:                                              ; preds = %107
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %108, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %108, align 8, !tbaa !12
   %111 = getelementptr inbounds i8, ptr %108, i64 56
   %112 = getelementptr inbounds i8, ptr %108, i64 72
   %113 = load ptr, ptr %112, align 8, !tbaa !16
@@ -442,7 +442,7 @@ define hidden void @_ZN8rawspeed10FiffParser9parseDataEv(ptr nocapture noundef n
   br i1 %177, label %208, label %178
 
 178:                                              ; preds = %175
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %176, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %176, align 8, !tbaa !12
   %179 = getelementptr inbounds i8, ptr %176, i64 56
   %180 = getelementptr inbounds i8, ptr %176, i64 72
   %181 = load ptr, ptr %180, align 8, !tbaa !16
@@ -1068,7 +1068,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN8rawspeed11TiffRootIFDESt14d
   br i1 %3, label %34, label %4
 
 4:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %2, align 8, !tbaa !12
   %5 = getelementptr inbounds i8, ptr %2, i64 56
   %6 = getelementptr inbounds i8, ptr %2, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !16
@@ -1257,7 +1257,7 @@ define hidden void @_ZN8rawspeed10FiffParser10getDecoderEPKNS_14CameraMetaDataE(
   %30 = load i64, ptr %4, align 8, !tbaa !6, !noalias !57
   store i64 %30, ptr %29, align 8, !tbaa !6, !noalias !57
   store ptr null, ptr %4, align 8, !tbaa !6, !noalias !57
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8rawspeed10RafDecoderE, i64 16), ptr %22, align 8, !tbaa !12, !noalias !57
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10RafDecoderE, i64 16), ptr %22, align 8, !tbaa !12, !noalias !57
   %31 = getelementptr inbounds i8, ptr %22, i64 104
   store i8 0, ptr %31, align 8, !tbaa !60, !noalias !57
   store ptr %22, ptr %0, align 8, !tbaa !81
@@ -1313,7 +1313,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10FiffParserD2Ev(ptr noundef nonnul
   br i1 %4, label %35, label %5
 
 5:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %3, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   %7 = getelementptr inbounds i8, ptr %3, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !16
@@ -1384,7 +1384,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10FiffParserD0Ev(ptr noundef nonnul
   br i1 %4, label %35, label %5
 
 5:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %3, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   %7 = getelementptr inbounds i8, ptr %3, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !16
@@ -1485,7 +1485,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed11IOExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #25
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed11IOExceptionE, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed11IOExceptionE, i64 16), ptr %0, align 8, !tbaa !12
   ret void
 }
 
@@ -1496,7 +1496,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: cold mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !12
   invoke void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 65536, ptr noundef nonnull @.str.6, ptr noundef %1)
           to label %_ZN8rawspeed17RawspeedException3logEPKc.exit unwind label %3
 
@@ -1560,7 +1560,7 @@ declare i16 @llvm.bswap.i16(i16) #10
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed19FiffParserExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #25
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed19FiffParserExceptionE, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed19FiffParserExceptionE, i64 16), ptr %0, align 8, !tbaa !12
   ret void
 }
 

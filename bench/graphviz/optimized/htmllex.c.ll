@@ -1138,7 +1138,7 @@ define range(i32 1, 0) i32 @htmllex() local_unnamed_addr #0 {
   br label %1
 
 1:                                                ; preds = %155, %0
-  %.018 = phi ptr [ null, %0 ], [ %.1, %155 ]
+  %.019 = phi ptr [ null, %0 ], [ %.1, %155 ]
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 73), align 1
   switch i8 %2, label %4 [
     i8 2, label %158
@@ -1254,11 +1254,11 @@ sub_0.i.i:                                        ; preds = %21
   br i1 %.not23.i, label %33, label %.critedge.thread.i
 
 .critedge.thread.i.loopexit:                      ; preds = %.preheader.i
-  %.01319.i.ptr.i.le63 = getelementptr i8, ptr %5, i64 %.01319.i.idx.i
+  %.01319.i.ptr.i.le64 = getelementptr i8, ptr %5, i64 %.01319.i.idx.i
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.critedge.thread.i.loopexit, %.critedge.i, %.critedge.i.i
-  %.13.i = phi ptr [ %.1.i, %.critedge.i ], [ %.01319.i.ptr.i.le, %.critedge.i.i ], [ %.01319.i.ptr.i.le63, %.critedge.thread.i.loopexit ]
+  %.13.i = phi ptr [ %.1.i, %.critedge.i ], [ %.01319.i.ptr.i.le, %.critedge.i.i ], [ %.01319.i.ptr.i.le64, %.critedge.thread.i.loopexit ]
   %32 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.101) #19
   store i32 1, ptr getelementptr inbounds (i8, ptr @state, i64 64), align 8
   br label %findNext.exit
@@ -1343,22 +1343,22 @@ findNext.exit:                                    ; preds = %.preheader9.i, %.pr
   br label %62
 
 62:                                               ; preds = %7, %findNext.exit, %3
-  %.019 = phi ptr [ @.str.1, %3 ], [ @.str.2, %7 ], [ %5, %findNext.exit ]
-  %.1 = phi ptr [ null, %3 ], [ %.018, %7 ], [ %.4.i, %findNext.exit ]
-  %.017 = phi i64 [ 6, %3 ], [ 7, %7 ], [ %61, %findNext.exit ]
+  %.020 = phi ptr [ @.str.1, %3 ], [ @.str.2, %7 ], [ %5, %findNext.exit ]
+  %.1 = phi ptr [ null, %3 ], [ %.019, %7 ], [ %.4.i, %findNext.exit ]
+  %.018 = phi i64 [ 6, %3 ], [ 7, %7 ], [ %61, %findNext.exit ]
   %.val.i.i = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   switch i8 %.val.i.i, label %agxblen.exit.i.i.i [
     i8 -1, label %agxblen.exit.i
-    i8 0, label %protect_rsqb.exit.thread57
+    i8 0, label %protect_rsqb.exit.thread58
   ]
 
-protect_rsqb.exit.thread57:                       ; preds = %62
+protect_rsqb.exit.thread58:                       ; preds = %62
   %63 = load ptr, ptr getelementptr inbounds (i8, ptr @state, i64 80), align 8
   store ptr %63, ptr getelementptr inbounds (i8, ptr @state, i64 88), align 8
   %64 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
   store i64 %64, ptr getelementptr inbounds (i8, ptr @state, i64 104), align 8
-  store ptr %.019, ptr getelementptr inbounds (i8, ptr @state, i64 80), align 8
-  store i64 %.017, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
+  store ptr %.020, ptr getelementptr inbounds (i8, ptr @state, i64 80), align 8
+  store i64 %.018, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
   br label %136
 
 agxblen.exit.i:                                   ; preds = %62
@@ -1371,8 +1371,8 @@ protect_rsqb.exit.thread:                         ; preds = %agxblen.exit.i
   store ptr %67, ptr getelementptr inbounds (i8, ptr @state, i64 88), align 8
   %68 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
   store i64 %68, ptr getelementptr inbounds (i8, ptr @state, i64 104), align 8
-  store ptr %.019, ptr getelementptr inbounds (i8, ptr @state, i64 80), align 8
-  store i64 %.017, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
+  store ptr %.020, ptr getelementptr inbounds (i8, ptr @state, i64 80), align 8
+  store i64 %.018, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
   br label %agxblen.exit
 
 agxblen.exit.i.i.i:                               ; preds = %62
@@ -1386,8 +1386,8 @@ agxblen.exit.i.i.i:                               ; preds = %62
 agxbsizeof.exit.i.i.i:                            ; preds = %70, %agxblen.exit.i.i.i
   %.0.i20.i.i.i = phi i64 [ %65, %70 ], [ %69, %agxblen.exit.i.i.i ]
   %.0.i14.i.i.i = phi i64 [ %71, %70 ], [ 31, %agxblen.exit.i.i.i ]
-  %.not.i.i.i25 = icmp ult i64 %.0.i20.i.i.i, %.0.i14.i.i.i
-  br i1 %.not.i.i.i25, label %73, label %72
+  %.not.i.i.i26 = icmp ult i64 %.0.i20.i.i.i, %.0.i14.i.i.i
+  br i1 %.not.i.i.i26, label %73, label %72
 
 72:                                               ; preds = %agxbsizeof.exit.i.i.i
   tail call fastcc void @agxbmore(ptr noundef nonnull getelementptr inbounds (i8, ptr @state, i64 32), i64 noundef 1)
@@ -1439,8 +1439,8 @@ agxbuse.exit.i:                                   ; preds = %85, %agxbclear.exit
   %89 = getelementptr i8, ptr %87, i64 %88
   %90 = getelementptr i8, ptr %89, i64 -1
   %91 = load i8, ptr %90, align 1
-  %.not.i26 = icmp eq i8 %91, 93
-  br i1 %.not.i26, label %agxblen.exit.i.i11.i, label %92
+  %.not.i27 = icmp eq i8 %91, 93
+  br i1 %.not.i27, label %agxblen.exit.i.i11.i, label %92
 
 92:                                               ; preds = %agxbuse.exit.i
   tail call fastcc void @agxbput_move(ptr noundef nonnull %87)
@@ -1499,8 +1499,8 @@ protect_rsqb.exit:                                ; preds = %protect_rsqb.exitth
   store ptr %111, ptr getelementptr inbounds (i8, ptr @state, i64 88), align 8
   %112 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
   store i64 %112, ptr getelementptr inbounds (i8, ptr @state, i64 104), align 8
-  store ptr %.019, ptr getelementptr inbounds (i8, ptr @state, i64 80), align 8
-  store i64 %.017, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
+  store ptr %.020, ptr getelementptr inbounds (i8, ptr @state, i64 80), align 8
+  store i64 %.018, ptr getelementptr inbounds (i8, ptr @state, i64 96), align 8
   switch i8 %.val.i, label %agxblen.exit.i.i [
     i8 -1, label %agxblen.exit
     i8 0, label %136
@@ -1513,38 +1513,38 @@ agxblen.exit:                                     ; preds = %protect_rsqb.exit.t
 
 agxblen.exit.i.i:                                 ; preds = %protect_rsqb.exit
   %114 = zext i8 %.val.i to i64
-  br label %agxbsizeof.exit.i.i31
+  br label %agxbsizeof.exit.i.i32
 
 115:                                              ; preds = %agxblen.exit
   %116 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 48), align 8
-  br label %agxbsizeof.exit.i.i31
+  br label %agxbsizeof.exit.i.i32
 
-agxbsizeof.exit.i.i31:                            ; preds = %115, %agxblen.exit.i.i
-  %.val.i55 = phi i8 [ -1, %115 ], [ %.val.i, %agxblen.exit.i.i ]
-  %.0.i284143 = phi i64 [ %113, %115 ], [ %114, %agxblen.exit.i.i ]
-  %.0.i14.i.i33 = phi i64 [ %116, %115 ], [ 31, %agxblen.exit.i.i ]
+agxbsizeof.exit.i.i32:                            ; preds = %115, %agxblen.exit.i.i
+  %.val.i56 = phi i8 [ -1, %115 ], [ %.val.i, %agxblen.exit.i.i ]
+  %.0.i294244 = phi i64 [ %113, %115 ], [ %114, %agxblen.exit.i.i ]
+  %.0.i14.i.i34 = phi i64 [ %116, %115 ], [ 31, %agxblen.exit.i.i ]
   %117 = load ptr, ptr @state, align 8
-  %.not.i.i34 = icmp ult i64 %.0.i284143, %.0.i14.i.i33
-  br i1 %.not.i.i34, label %119, label %118
+  %.not.i.i35 = icmp ult i64 %.0.i294244, %.0.i14.i.i34
+  br i1 %.not.i.i35, label %119, label %118
 
-118:                                              ; preds = %agxbsizeof.exit.i.i31
+118:                                              ; preds = %agxbsizeof.exit.i.i32
   tail call fastcc void @agxbmore(ptr noundef nonnull getelementptr inbounds (i8, ptr @state, i64 32), i64 noundef 1)
-  %.val.i15.pre.i.i35 = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
+  %.val.i15.pre.i.i36 = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   br label %119
 
-119:                                              ; preds = %118, %agxbsizeof.exit.i.i31
-  %.val.i15.i.i36 = phi i8 [ %.val.i15.pre.i.i35, %118 ], [ %.val.i55, %agxbsizeof.exit.i.i31 ]
-  %.not.i16.i.i37 = icmp eq i8 %.val.i15.i.i36, -1
-  br i1 %.not.i16.i.i37, label %125, label %120
+119:                                              ; preds = %118, %agxbsizeof.exit.i.i32
+  %.val.i15.i.i37 = phi i8 [ %.val.i15.pre.i.i36, %118 ], [ %.val.i56, %agxbsizeof.exit.i.i32 ]
+  %.not.i16.i.i38 = icmp eq i8 %.val.i15.i.i37, -1
+  br i1 %.not.i16.i.i38, label %125, label %120
 
 120:                                              ; preds = %119
-  %121 = zext i8 %.val.i15.i.i36 to i64
+  %121 = zext i8 %.val.i15.i.i37 to i64
   %122 = getelementptr inbounds [31 x i8], ptr getelementptr inbounds (i8, ptr @state, i64 32), i64 0, i64 %121
   store i8 0, ptr %122, align 1
   %123 = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   %124 = add i8 %123, 1
   store i8 %124, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
-  br label %agxbputc.exit.i38
+  br label %agxbputc.exit.i39
 
 125:                                              ; preds = %119
   %126 = load i64, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
@@ -1555,34 +1555,34 @@ agxbsizeof.exit.i.i31:                            ; preds = %115, %agxblen.exit.
   %130 = add i64 %129, 1
   store i64 %130, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
   %.val.i.pr.i = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
-  br label %agxbputc.exit.i38
+  br label %agxbputc.exit.i39
 
-agxbputc.exit.i38:                                ; preds = %125, %120
+agxbputc.exit.i39:                                ; preds = %125, %120
   %.val.i4.pr.i = phi i8 [ %124, %120 ], [ %.val.i.pr.i, %125 ]
   %.not.i3.i = icmp eq i8 %.val.i4.pr.i, -1
   br i1 %.not.i3.i, label %131, label %agxbclear.exit.thread.i
 
-agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i38
+agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i39
   store i8 0, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   br label %agxbuse.exit
 
-131:                                              ; preds = %agxbputc.exit.i38
+131:                                              ; preds = %agxbputc.exit.i39
   store i64 0, ptr getelementptr inbounds (i8, ptr @state, i64 40), align 8
   %132 = load ptr, ptr getelementptr inbounds (i8, ptr @state, i64 32), align 8
   br label %agxbuse.exit
 
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %131
   %133 = phi ptr [ %132, %131 ], [ getelementptr inbounds (i8, ptr @state, i64 32), %agxbclear.exit.thread.i ]
-  %134 = trunc i64 %.0.i284143 to i32
+  %134 = trunc i64 %.0.i294244 to i32
   %135 = tail call i32 @XML_Parse(ptr noundef %117, ptr noundef %133, i32 noundef %134, i32 noundef 0) #19
   br label %141
 
-136:                                              ; preds = %protect_rsqb.exit.thread57, %protect_rsqb.exit, %agxblen.exit
+136:                                              ; preds = %protect_rsqb.exit.thread58, %protect_rsqb.exit, %agxblen.exit
   %137 = load ptr, ptr @state, align 8
-  %138 = trunc i64 %.017 to i32
-  %.not23 = icmp eq i64 %.017, 0
-  %139 = zext i1 %.not23 to i32
-  %140 = tail call i32 @XML_Parse(ptr noundef %137, ptr noundef nonnull %.019, i32 noundef %138, i32 noundef %139) #19
+  %138 = trunc i64 %.018 to i32
+  %.not24 = icmp eq i64 %.018, 0
+  %139 = zext i1 %.not24 to i32
+  %140 = tail call i32 @XML_Parse(ptr noundef %137, ptr noundef nonnull %.020, i32 noundef %138, i32 noundef %139) #19
   br label %141
 
 141:                                              ; preds = %136, %agxbuse.exit
@@ -1607,8 +1607,8 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   br label %153
 
 153:                                              ; preds = %145, %141
-  %.not24 = icmp eq ptr %.1, null
-  br i1 %.not24, label %155, label %154
+  %.not25 = icmp eq ptr %.1, null
+  br i1 %.not25, label %155, label %154
 
 154:                                              ; preds = %153
   store ptr %.1, ptr getelementptr inbounds (i8, ptr @state, i64 8), align 8
@@ -1620,8 +1620,8 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   br i1 %157, label %1, label %158
 
 158:                                              ; preds = %155, %1
-  %.016 = phi i32 [ -1, %1 ], [ %156, %155 ]
-  ret i32 %.016
+  %.017 = phi i32 [ -1, %1 ], [ %156, %155 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

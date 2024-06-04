@@ -40,7 +40,7 @@ $_ZTIN3ozz6memory13HeapAllocatorE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz6memory13HeapAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3ozz6memory13HeapAllocatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz6memory13HeapAllocatorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -125,7 +125,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_allocator.cc() #8 section ".text.startup" personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3ozz6memory13HeapAllocatorE, i64 16), ptr @_ZN3ozz6memory12_GLOBAL__N_116g_heap_allocatorE, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz6memory13HeapAllocatorE, i64 16), ptr @_ZN3ozz6memory12_GLOBAL__N_116g_heap_allocatorE, align 8
   store atomic i32 0, ptr getelementptr inbounds (i8, ptr @_ZN3ozz6memory12_GLOBAL__N_116g_heap_allocatorE, i64 8) seq_cst, align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3ozz6memory13HeapAllocatorD2Ev, ptr nonnull @_ZN3ozz6memory12_GLOBAL__N_116g_heap_allocatorE, ptr nonnull @__dso_handle) #11
   ret void

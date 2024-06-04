@@ -399,13 +399,13 @@ define internal fastcc ptr @_job_desc_msg_create_from_opts(ptr noundef %0) unnam
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @slurm_opt_create_job_desc(ptr noundef %0, i1 noundef zeroext true) #9
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %58, label %5
+  br i1 %.not, label %56, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %4, i64 432
   %7 = load ptr, ptr %6, align 8
-  %.not34 = icmp eq ptr %7, null
-  br i1 %.not34, label %8, label %12
+  %.not32 = icmp eq ptr %7, null
+  br i1 %.not32, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %3, i64 40
@@ -442,8 +442,8 @@ define internal fastcc ptr @_job_desc_msg_create_from_opts(ptr noundef %0) unnam
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %3, i64 56
   %31 = load ptr, ptr %30, align 8
-  %.not35 = icmp eq ptr %31, null
-  br i1 %.not35, label %35, label %32
+  %.not33 = icmp eq ptr %31, null
+  br i1 %.not33, label %35, label %32
 
 32:                                               ; preds = %21
   %33 = tail call ptr @xstrdup(ptr noundef nonnull %31) #9
@@ -454,8 +454,8 @@ define internal fastcc ptr @_job_desc_msg_create_from_opts(ptr noundef %0) unnam
 35:                                               ; preds = %32, %21
   %36 = getelementptr inbounds i8, ptr %3, i64 64
   %37 = load i32, ptr %36, align 8
-  %.not36 = icmp eq i32 %37, 0
-  br i1 %.not36, label %41, label %38
+  %.not34 = icmp eq i32 %37, 0
+  br i1 %.not34, label %41, label %38
 
 38:                                               ; preds = %35
   %39 = trunc i32 %37 to i16
@@ -466,32 +466,32 @@ define internal fastcc ptr @_job_desc_msg_create_from_opts(ptr noundef %0) unnam
 41:                                               ; preds = %38, %35
   %42 = getelementptr inbounds i8, ptr %4, i64 872
   %43 = load i16, ptr %42, align 8
-  %44 = icmp eq i16 %43, 0
-  %45 = load i16, ptr getelementptr inbounds (i8, ptr @opt, i64 728), align 8
-  %46 = icmp ne i16 %45, 0
-  %or.cond = select i1 %44, i1 %46, i1 false
-  br i1 %or.cond, label %47, label %56
+  %.not35 = icmp ne i16 %43, 0
+  %44 = load i16, ptr getelementptr inbounds (i8, ptr @opt, i64 728), align 8
+  %.not36 = icmp eq i16 %44, 0
+  %or.cond = select i1 %.not35, i1 true, i1 %.not36
+  br i1 %or.cond, label %54, label %45
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 736), align 8
-  %49 = tail call ptr @xstrdup(ptr noundef %48) #9
-  %50 = getelementptr inbounds i8, ptr %4, i64 880
-  store ptr %49, ptr %50, align 8
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 744), align 8
-  %52 = tail call ptr @xstrdup(ptr noundef %51) #9
-  %53 = getelementptr inbounds i8, ptr %4, i64 888
-  store ptr %52, ptr %53, align 8
-  %54 = load i16, ptr getelementptr inbounds (i8, ptr @opt, i64 752), align 8
-  %55 = getelementptr inbounds i8, ptr %4, i64 896
-  store i16 %54, ptr %55, align 8
+45:                                               ; preds = %41
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 736), align 8
+  %47 = tail call ptr @xstrdup(ptr noundef %46) #9
+  %48 = getelementptr inbounds i8, ptr %4, i64 880
+  store ptr %47, ptr %48, align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 744), align 8
+  %50 = tail call ptr @xstrdup(ptr noundef %49) #9
+  %51 = getelementptr inbounds i8, ptr %4, i64 888
+  store ptr %50, ptr %51, align 8
+  %52 = load i16, ptr getelementptr inbounds (i8, ptr @opt, i64 752), align 8
+  %53 = getelementptr inbounds i8, ptr %4, i64 896
+  store i16 %52, ptr %53, align 8
+  br label %54
+
+54:                                               ; preds = %45, %41
+  %55 = getelementptr inbounds i8, ptr %4, i64 716
+  store i16 1, ptr %55, align 4
   br label %56
 
-56:                                               ; preds = %47, %41
-  %57 = getelementptr inbounds i8, ptr %4, i64 716
-  store i16 1, ptr %57, align 4
-  br label %58
-
-58:                                               ; preds = %1, %56
+56:                                               ; preds = %1, %54
   ret ptr %4
 }
 

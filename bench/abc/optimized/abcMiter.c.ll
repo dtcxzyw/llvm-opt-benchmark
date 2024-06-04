@@ -4661,13 +4661,13 @@ Vec_PtrPush.exit231:                              ; preds = %.Vec_PtrGrow.exit11
 
 402:                                              ; preds = %401, %397
   tail call void @free(ptr noundef nonnull %5) #16
-  %.val15.i.i = load i32, ptr %15, align 4
-  %403 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %15, align 4
+  %403 = icmp sgt i32 %.val16.i.i, 0
   %.pre317 = load ptr, ptr %17, align 8
   br i1 %403, label %.lr.ph.i.i.preheader, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i.preheader:                             ; preds = %402
-  %404 = zext nneg i32 %.val15.i.i to i64
+  %404 = zext nneg i32 %.val16.i.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %408

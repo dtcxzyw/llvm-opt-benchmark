@@ -1022,7 +1022,8 @@ lor.lhs.false:                                    ; preds = %invoke.cont81
   br i1 %cmp87, label %if.then88, label %if.end104
 
 if.then88:                                        ; preds = %lor.lhs.false, %invoke.cont81
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %65, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %65
 
 65:                                               ; preds = %if.then88
   call void @_ZTH11errorstream()

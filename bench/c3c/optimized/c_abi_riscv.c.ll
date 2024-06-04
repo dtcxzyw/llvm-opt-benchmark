@@ -66,7 +66,7 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   %8 = alloca i32, align 4
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %10 = tail call i32 @type_size(ptr noundef %0) #5
-  br i1 %1, label %11, label %riscv_detect_fpcc_struct.exit
+  br i1 %1, label %11, label %.critedge
 
 11:                                               ; preds = %4
   %12 = load i32, ptr %0, align 8
@@ -80,30 +80,30 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   br label %18
 
 18:                                               ; preds = %14, %11
-  %.060 = phi i32 [ %17, %14 ], [ %12, %11 ]
-  %19 = add i32 %.060, -18
+  %.059 = phi i32 [ %17, %14 ], [ %12, %11 ]
+  %19 = add i32 %.059, -18
   %20 = icmp ult i32 %19, -5
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 244), align 4
   %.not = icmp ult i32 %21, %10
-  %or.cond77 = select i1 %20, i1 true, i1 %.not
-  br i1 %or.cond77, label %27, label %22
+  %or.cond = select i1 %20, i1 true, i1 %.not
+  br i1 %or.cond, label %27, label %22
 
 22:                                               ; preds = %18
   %23 = load i32, ptr %3, align 4
-  %.not70 = icmp eq i32 %23, 0
-  br i1 %.not70, label %27, label %24
+  %.not69 = icmp eq i32 %23, 0
+  br i1 %.not69, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = add i32 %23, -1
   store i32 %25, ptr %3, align 4
   %26 = tail call ptr @abi_arg_new_direct() #5
-  br label %riscv_coerce_and_expand_fpcc_struct.exit
+  br label %116
 
 27:                                               ; preds = %22, %18
-  %.not113 = icmp ne i32 %21, 0
+  %.not70 = icmp ne i32 %21, 0
   %28 = icmp eq i32 %12, 26
-  %or.cond115 = and i1 %.not113, %28
-  br i1 %or.cond115, label %29, label %riscv_detect_fpcc_struct.exit
+  %or.cond107 = and i1 %28, %.not70
+  br i1 %or.cond107, label %29, label %.critedge
 
 29:                                               ; preds = %27
   store i32 0, ptr %7, align 4
@@ -115,20 +115,20 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   %.not23.i = icmp ne ptr %31, null
   %32 = load ptr, ptr %6, align 8
   %.not24.i = icmp eq ptr %32, null
-  %or.cond = select i1 %.not23.i, i1 %.not24.i, i1 false
-  br i1 %or.cond, label %33, label %36
+  %or.cond108 = select i1 %.not23.i, i1 %.not24.i, i1 false
+  br i1 %or.cond108, label %33, label %36
 
 33:                                               ; preds = %29
   %34 = call zeroext i1 @abi_type_is_float(ptr nonnull %31) #5
   %35 = select i1 %34, i1 %30, i1 false
-  br i1 %35, label %._crit_edge.i, label %riscv_detect_fpcc_struct.exit
+  br i1 %35, label %._crit_edge.i, label %.critedge
 
 ._crit_edge.i:                                    ; preds = %33
   %.pre.i = load ptr, ptr %5, align 8
   br label %37
 
 36:                                               ; preds = %29
-  br i1 %30, label %37, label %riscv_detect_fpcc_struct.exit
+  br i1 %30, label %37, label %.critedge
 
 37:                                               ; preds = %36, %._crit_edge.i
   %38 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %31, %36 ]
@@ -143,7 +143,7 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   br label %.sink.split.i.cont
 
 .sink.split.i.cont:                               ; preds = %.sink.split.i, %37
-  %.1100 = phi i32 [ 0, %37 ], [ %spec.select109, %.sink.split.i ]
+  %.199 = phi i32 [ 0, %37 ], [ %spec.select109, %.sink.split.i ]
   %.1 = phi i32 [ 0, %37 ], [ %spec.select110, %.sink.split.i ]
   %40 = load ptr, ptr %6, align 8
   %.not25.i = icmp eq ptr %40, null
@@ -151,26 +151,26 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
 
 .sink.split28.i:                                  ; preds = %.sink.split.i.cont
   %41 = call zeroext i1 @abi_type_is_float(ptr nonnull %40) #5
-  %.sroa.speculated = select i1 %41, i32 %.1, i32 %.1100
+  %.sroa.speculated = select i1 %41, i32 %.1, i32 %.199
   %42 = add nuw nsw i32 %.sroa.speculated, 1
-  %spec.select111 = select i1 %41, i32 %.1100, i32 %42
+  %spec.select111 = select i1 %41, i32 %.199, i32 %42
   %spec.select112 = select i1 %41, i32 %42, i32 %.1
   br label %.sink.split28.i.else
 
 .sink.split28.i.else:                             ; preds = %.sink.split28.i, %.sink.split.i.cont
-  %.3102.ph = phi i32 [ %.1100, %.sink.split.i.cont ], [ %spec.select111, %.sink.split28.i ]
+  %.3101.ph = phi i32 [ %.199, %.sink.split.i.cont ], [ %spec.select111, %.sink.split28.i ]
   %.3.ph = phi i32 [ %.1, %.sink.split.i.cont ], [ %spec.select112, %.sink.split28.i ]
   %43 = load i32, ptr %2, align 4
-  %.not71 = icmp ugt i32 %.3102.ph, %43
-  br i1 %.not71, label %riscv_detect_fpcc_struct.exit, label %44
+  %.not71 = icmp ugt i32 %.3101.ph, %43
+  br i1 %.not71, label %.critedge, label %44
 
 44:                                               ; preds = %.sink.split28.i.else
   %45 = load i32, ptr %3, align 4
   %.not72 = icmp ugt i32 %.3.ph, %45
-  br i1 %.not72, label %riscv_detect_fpcc_struct.exit, label %46
+  br i1 %.not72, label %.critedge, label %46
 
 46:                                               ; preds = %44
-  %47 = sub i32 %43, %.3102.ph
+  %47 = sub i32 %43, %.3101.ph
   store i32 %47, ptr %2, align 4
   %48 = load i32, ptr %3, align 4
   %49 = sub i32 %48, %.3.ph
@@ -178,147 +178,128 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   %50 = load i32, ptr %8, align 4
   %51 = load ptr, ptr %5, align 8
   %52 = load ptr, ptr %6, align 8
-  %.not12.i = icmp eq ptr %52, null
-  br i1 %.not12.i, label %53, label %55
+  %53 = call fastcc ptr @riscv_coerce_and_expand_fpcc_struct(ptr %51, ptr %52, i32 noundef %50)
+  br label %116
 
-53:                                               ; preds = %46
-  %54 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %51) #5
-  br label %riscv_coerce_and_expand_fpcc_struct.exit
+.critedge:                                        ; preds = %36, %33, %4, %.sink.split28.i.else, %44, %27
+  %54 = call i32 @type_abi_alignment(ptr noundef %0) #5
+  %55 = shl i32 %9, 1
+  %56 = icmp ne i32 %54, %55
+  %or.cond81.not = select i1 %1, i1 true, i1 %56
+  br i1 %or.cond81.not, label %61, label %57
 
-55:                                               ; preds = %46
-  %56 = call i32 @type_size(ptr noundef nonnull %52) #5
-  %57 = urem i32 %50, %56
-  %58 = udiv i32 %50, %56
-  %.not.i86 = icmp eq i32 %57, 0
-  br i1 %.not.i86, label %61, label %59
+57:                                               ; preds = %.critedge
+  %58 = load i32, ptr %2, align 4
+  %59 = and i32 %58, 1
+  %60 = or disjoint i32 %59, 2
+  br label %63
 
-59:                                               ; preds = %55
-  %60 = call ptr @abi_arg_new_expand_coerce_pair(ptr noundef %51, ptr noundef nonnull %52, i32 noundef %50, i1 noundef zeroext true) #5
-  br label %riscv_coerce_and_expand_fpcc_struct.exit
-
-61:                                               ; preds = %55
-  %62 = call ptr @abi_arg_new_expand_coerce_pair(ptr noundef %51, ptr noundef nonnull %52, i32 noundef %58, i1 noundef zeroext false) #5
-  br label %riscv_coerce_and_expand_fpcc_struct.exit
-
-riscv_detect_fpcc_struct.exit:                    ; preds = %4, %36, %33, %.sink.split28.i.else, %44, %27
-  %63 = call i32 @type_abi_alignment(ptr noundef %0) #5
-  %64 = shl i32 %9, 1
-  %65 = icmp ne i32 %63, %64
-  %or.cond80.not = select i1 %1, i1 true, i1 %65
-  br i1 %or.cond80.not, label %70, label %66
-
-66:                                               ; preds = %riscv_detect_fpcc_struct.exit
-  %67 = load i32, ptr %2, align 4
-  %68 = and i32 %67, 1
-  %69 = or disjoint i32 %68, 2
-  br label %72
-
-70:                                               ; preds = %riscv_detect_fpcc_struct.exit
-  %71 = icmp ule i32 %10, %9
-  %.not73 = icmp ugt i32 %10, %64
-  %or.cond81 = or i1 %71, %.not73
-  %spec.select85 = select i1 %or.cond81, i32 1, i32 2
+61:                                               ; preds = %.critedge
+  %62 = icmp ule i32 %10, %9
+  %.not73 = icmp ugt i32 %10, %55
+  %or.cond82 = or i1 %62, %.not73
+  %spec.select86 = select i1 %or.cond82, i32 1, i32 2
   %.pre = load i32, ptr %2, align 4
-  br label %72
+  br label %63
 
-72:                                               ; preds = %70, %66
-  %73 = phi i32 [ %67, %66 ], [ %.pre, %70 ]
-  %.058 = phi i32 [ %69, %66 ], [ %spec.select85, %70 ]
-  %74 = icmp ugt i32 %.058, %73
-  %75 = call i32 @llvm.usub.sat.i32(i32 %73, i32 %.058)
-  store i32 %75, ptr %2, align 4
-  %76 = call zeroext i1 @type_is_abi_aggregate(ptr noundef %0) #5
-  br i1 %76, label %101, label %77
+63:                                               ; preds = %61, %57
+  %64 = phi i32 [ %58, %57 ], [ %.pre, %61 ]
+  %.057 = phi i32 [ %60, %57 ], [ %spec.select86, %61 ]
+  %65 = icmp ugt i32 %.057, %64
+  %66 = call i32 @llvm.usub.sat.i32(i32 %64, i32 %.057)
+  store i32 %66, ptr %2, align 4
+  %67 = call zeroext i1 @type_is_abi_aggregate(ptr noundef %0) #5
+  br i1 %67, label %92, label %68
 
-77:                                               ; preds = %72
-  %78 = load i32, ptr %0, align 8
-  %.not74 = icmp eq i32 %78, 37
-  br i1 %.not74, label %101, label %79
+68:                                               ; preds = %63
+  %69 = load i32, ptr %0, align 8
+  %.not74 = icmp eq i32 %69, 37
+  br i1 %.not74, label %92, label %70
 
-79:                                               ; preds = %77
-  %80 = icmp ult i32 %10, %9
-  br i1 %80, label %81, label %99
+70:                                               ; preds = %68
+  %71 = icmp ult i32 %10, %9
+  br i1 %71, label %72, label %90
 
-81:                                               ; preds = %79
-  %82 = icmp eq i32 %78, 31
-  br i1 %82, label %83, label %87
+72:                                               ; preds = %70
+  %73 = icmp eq i32 %69, 31
+  br i1 %73, label %74, label %78
 
-83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %0, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = load i32, ptr %85, align 8
-  br label %87
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = load i32, ptr %76, align 8
+  br label %78
 
-87:                                               ; preds = %83, %81
-  %.0 = phi i32 [ %86, %83 ], [ %78, %81 ]
-  %88 = add i32 %.0, -13
-  %89 = icmp ult i32 %88, -11
-  %brmerge = select i1 %89, i1 true, i1 %74
-  br i1 %brmerge, label %99, label %90
+78:                                               ; preds = %74, %72
+  %.0 = phi i32 [ %77, %74 ], [ %69, %72 ]
+  %79 = add i32 %.0, -13
+  %80 = icmp ult i32 %79, -11
+  %brmerge = select i1 %80, i1 true, i1 %65
+  br i1 %brmerge, label %90, label %81
 
-90:                                               ; preds = %87
-  %91 = icmp eq i32 %9, 8
-  %92 = load ptr, ptr @type_uint, align 8
-  %93 = icmp eq ptr %92, %0
-  %or.cond84 = select i1 %91, i1 %93, i1 false
-  br i1 %or.cond84, label %94, label %97
+81:                                               ; preds = %78
+  %82 = icmp eq i32 %9, 8
+  %83 = load ptr, ptr @type_uint, align 8
+  %84 = icmp eq ptr %83, %0
+  %or.cond85 = select i1 %82, i1 %84, i1 false
+  br i1 %or.cond85, label %85, label %88
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr @type_int, align 8
-  %96 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %95) #5
-  br label %riscv_coerce_and_expand_fpcc_struct.exit
+85:                                               ; preds = %81
+  %86 = load ptr, ptr @type_int, align 8
+  %87 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %86) #5
+  br label %116
 
-97:                                               ; preds = %90
-  %98 = call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %0) #5
-  br label %riscv_coerce_and_expand_fpcc_struct.exit
+88:                                               ; preds = %81
+  %89 = call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %0) #5
+  br label %116
 
-99:                                               ; preds = %87, %79
-  %100 = call ptr @abi_arg_new_direct() #5
-  br label %riscv_coerce_and_expand_fpcc_struct.exit
+90:                                               ; preds = %78, %70
+  %91 = call ptr @abi_arg_new_direct() #5
+  br label %116
 
-101:                                              ; preds = %77, %72
-  %.not75 = icmp ugt i32 %10, %64
-  br i1 %.not75, label %123, label %102
+92:                                               ; preds = %68, %63
+  %.not75 = icmp ugt i32 %10, %55
+  br i1 %.not75, label %114, label %93
 
-102:                                              ; preds = %101
+93:                                               ; preds = %92
   %.not76 = icmp ugt i32 %10, %9
-  br i1 %.not76, label %108, label %103
+  br i1 %.not76, label %99, label %94
 
-103:                                              ; preds = %102
-  %104 = shl i32 %9, 3
+94:                                               ; preds = %93
+  %95 = shl i32 %9, 3
+  %96 = zext i32 %95 to i64
+  %97 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %96) #5
+  %98 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %97) #5
+  br label %116
+
+99:                                               ; preds = %93
+  %100 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
+  %101 = shl i32 %100, 1
+  %102 = icmp eq i32 %54, %101
+  br i1 %102, label %103, label %108
+
+103:                                              ; preds = %99
+  %104 = shl i32 %9, 4
   %105 = zext i32 %104 to i64
   %106 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %105) #5
   %107 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %106) #5
-  br label %riscv_coerce_and_expand_fpcc_struct.exit
+  br label %116
 
-108:                                              ; preds = %102
-  %109 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
-  %110 = shl i32 %109, 1
-  %111 = icmp eq i32 %63, %110
-  br i1 %111, label %112, label %117
+108:                                              ; preds = %99
+  %109 = shl i32 %9, 3
+  %110 = zext i32 %109 to i64
+  %111 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %110) #5
+  %112 = call ptr @type_get_array(ptr noundef %111, i32 noundef 2) #5
+  %113 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %112) #5
+  br label %116
 
-112:                                              ; preds = %108
-  %113 = shl i32 %9, 4
-  %114 = zext i32 %113 to i64
-  %115 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %114) #5
-  %116 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %115) #5
-  br label %riscv_coerce_and_expand_fpcc_struct.exit
+114:                                              ; preds = %92
+  %115 = call ptr @abi_arg_new_indirect_not_by_val(ptr noundef %0) #5
+  br label %116
 
-117:                                              ; preds = %108
-  %118 = shl i32 %9, 3
-  %119 = zext i32 %118 to i64
-  %120 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %119) #5
-  %121 = call ptr @type_get_array(ptr noundef %120, i32 noundef 2) #5
-  %122 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %121) #5
-  br label %riscv_coerce_and_expand_fpcc_struct.exit
-
-123:                                              ; preds = %101
-  %124 = call ptr @abi_arg_new_indirect_not_by_val(ptr noundef %0) #5
-  br label %riscv_coerce_and_expand_fpcc_struct.exit
-
-riscv_coerce_and_expand_fpcc_struct.exit:         ; preds = %61, %59, %53, %123, %117, %112, %103, %99, %97, %94, %24
-  %.061 = phi ptr [ %26, %24 ], [ %107, %103 ], [ %116, %112 ], [ %122, %117 ], [ %124, %123 ], [ %100, %99 ], [ %96, %94 ], [ %98, %97 ], [ %60, %59 ], [ %62, %61 ], [ %54, %53 ]
-  ret ptr %.061
+116:                                              ; preds = %114, %108, %103, %94, %90, %88, %85, %46, %24
+  %.060 = phi ptr [ %26, %24 ], [ %53, %46 ], [ %98, %94 ], [ %107, %103 ], [ %113, %108 ], [ %115, %114 ], [ %91, %90 ], [ %87, %85 ], [ %89, %88 ]
+  ret ptr %.060
 }
 
 ; Function Attrs: nounwind uwtable
@@ -606,6 +587,35 @@ declare i32 @type_size(ptr noundef) local_unnamed_addr #1
 declare ptr @type_get_ptr(ptr noundef) local_unnamed_addr #1
 
 declare ptr @abi_arg_new_direct() local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc ptr @riscv_coerce_and_expand_fpcc_struct(ptr %0, ptr %1, i32 noundef %2) unnamed_addr #0 {
+  %.not12 = icmp eq ptr %1, null
+  br i1 %.not12, label %4, label %6
+
+4:                                                ; preds = %3
+  %5 = tail call ptr @abi_arg_new_direct_coerce_type(ptr noundef %0) #5
+  br label %14
+
+6:                                                ; preds = %3
+  %7 = tail call i32 @type_size(ptr noundef nonnull %1) #5
+  %8 = urem i32 %2, %7
+  %9 = udiv i32 %2, %7
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %12, label %10
+
+10:                                               ; preds = %6
+  %11 = tail call ptr @abi_arg_new_expand_coerce_pair(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i1 noundef zeroext true) #5
+  br label %14
+
+12:                                               ; preds = %6
+  %13 = tail call ptr @abi_arg_new_expand_coerce_pair(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %9, i1 noundef zeroext false) #5
+  br label %14
+
+14:                                               ; preds = %12, %10, %4
+  %.0 = phi ptr [ %11, %10 ], [ %13, %12 ], [ %5, %4 ]
+  ret ptr %.0
+}
 
 declare i32 @type_abi_alignment(ptr noundef) local_unnamed_addr #1
 

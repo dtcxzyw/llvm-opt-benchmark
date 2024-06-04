@@ -1506,12 +1506,12 @@ define ptr @Gia_ManCollapseTest(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %38 = load ptr, ptr @stdout, align 8
   tail call void @Dsd_TreePrint(ptr noundef %38, ptr noundef %27, ptr noundef %.val52, ptr noundef %.val53, i32 noundef 0, i32 noundef -1) #13
   %39 = getelementptr i8, ptr %32, i64 4
-  %.val15.i.i = load i32, ptr %39, align 4
-  %40 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %39, align 4
+  %40 = icmp sgt i32 %.val16.i.i, 0
   br i1 %40, label %.lr.ph.i.i.preheader, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i.preheader:                             ; preds = %30
-  %41 = zext nneg i32 %.val15.i.i to i64
+  %41 = zext nneg i32 %.val16.i.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %45
@@ -1546,12 +1546,12 @@ Vec_PtrFreeFree.exit:                             ; preds = %45, %Vec_PtrFreeDat
 
 47:                                               ; preds = %Vec_PtrFreeFree.exit.thread, %Vec_PtrFreeFree.exit
   %48 = getelementptr i8, ptr %35, i64 4
-  %.val15.i.i54 = load i32, ptr %48, align 4
-  %49 = icmp sgt i32 %.val15.i.i54, 0
+  %.val16.i.i54 = load i32, ptr %48, align 4
+  %49 = icmp sgt i32 %.val16.i.i54, 0
   br i1 %49, label %.lr.ph.i.i58.preheader, label %Vec_PtrFreeData.exit.i55
 
 .lr.ph.i.i58.preheader:                           ; preds = %47
-  %50 = zext nneg i32 %.val15.i.i54 to i64
+  %50 = zext nneg i32 %.val16.i.i54 to i64
   br label %.lr.ph.i.i58
 
 .lr.ph.i.i58:                                     ; preds = %.lr.ph.i.i58.preheader, %54

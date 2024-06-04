@@ -848,13 +848,13 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 12:                                               ; preds = %11, %5
   %13 = getelementptr inbounds i8, ptr %0, i64 360
   %14 = load i64, ptr %13, align 8
-  %.not175 = icmp eq i64 %14, 0
-  br i1 %.not175, label %39, label %15
+  %.not173 = icmp eq i64 %14, 0
+  br i1 %.not173, label %39, label %15
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %0, align 8
-  %.not176 = icmp eq ptr %16, null
-  br i1 %.not176, label %39, label %17
+  %.not174 = icmp eq ptr %16, null
+  br i1 %.not174, label %39, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %16, i64 24
@@ -863,8 +863,8 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %21 = tail call ptr @zend_mangle_property_name(ptr noundef nonnull @zend_accel_load_script.haltoff, i64 noundef 24, ptr noundef nonnull %18, i64 noundef %20, i1 noundef zeroext false) #10
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
   %23 = tail call ptr @zend_hash_find(ptr noundef %22, ptr noundef %21) #10
-  %.not177 = icmp eq ptr %23, null
-  br i1 %.not177, label %24, label %29
+  %.not175 = icmp eq ptr %23, null
+  br i1 %.not175, label %24, label %29
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds i8, ptr %21, i64 24
@@ -878,8 +878,8 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %30 = getelementptr inbounds i8, ptr %21, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 64
-  %.not178 = icmp eq i32 %32, 0
-  br i1 %.not178, label %33, label %39
+  %.not176 = icmp eq i32 %32, 0
+  br i1 %.not176, label %33, label %39
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %21, align 4
@@ -897,8 +897,8 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 39:                                               ; preds = %12, %15, %33, %38, %29, %2
   %40 = getelementptr inbounds i8, ptr %0, i64 276
   %41 = load i32, ptr %40, align 4
-  %.not179 = icmp eq i32 %41, 0
-  br i1 %.not179, label %191, label %42
+  %.not177 = icmp eq i32 %41, 0
+  br i1 %.not177, label %191, label %42
 
 42:                                               ; preds = %39
   %43 = load i8, ptr @zend_observer_function_declared_observed, align 1
@@ -928,15 +928,15 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   br label %60
 
 60:                                               ; preds = %.lr.ph, %76
-  %.0171205 = phi ptr [ %52, %.lr.ph ], [ %101, %76 ]
-  %61 = getelementptr inbounds i8, ptr %.0171205, i64 24
+  %.0169202 = phi ptr [ %52, %.lr.ph ], [ %101, %76 ]
+  %61 = getelementptr inbounds i8, ptr %.0169202, i64 24
   %62 = load ptr, ptr %61, align 8, !nonnull !4, !noundef !4
   %63 = tail call ptr @zend_hash_find_known_hash(ptr noundef nonnull %45, ptr noundef nonnull %62) #10
-  %.not191 = icmp eq ptr %63, null
-  br i1 %.not191, label %76, label %64
+  %.not188 = icmp eq ptr %63, null
+  br i1 %.not188, label %76, label %64
 
 64:                                               ; preds = %60
-  %65 = load ptr, ptr %.0171205, align 8
+  %65 = load ptr, ptr %.0169202, align 8
   %66 = load ptr, ptr %63, align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %67 = getelementptr inbounds i8, ptr %65, i64 152
@@ -953,7 +953,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 
 76:                                               ; preds = %60
   %77 = load ptr, ptr %61, align 8
-  %78 = load ptr, ptr %.0171205, align 8
+  %78 = load ptr, ptr %.0169202, align 8
   %79 = load i32, ptr %46, align 8
   %80 = add i32 %79, 1
   store i32 %80, ptr %46, align 8
@@ -984,15 +984,15 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %99 = load i32, ptr %59, align 4
   %100 = add i32 %99, 1
   store i32 %100, ptr %59, align 4
-  %101 = getelementptr inbounds i8, ptr %.0171205, i64 32
-  %.not180 = icmp eq ptr %101, %55
-  br i1 %.not180, label %.sink.split, label %60
+  %101 = getelementptr inbounds i8, ptr %.0169202, i64 32
+  %.not178 = icmp eq ptr %101, %55
+  br i1 %.not178, label %.sink.split, label %60
 
 102:                                              ; preds = %64
   %103 = getelementptr inbounds i8, ptr %66, i64 84
   %104 = load i32, ptr %103, align 4
-  %.not192 = icmp eq i32 %104, 0
-  br i1 %.not192, label %116, label %105
+  %.not189 = icmp eq i32 %104, 0
+  br i1 %.not189, label %116, label %105
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds i8, ptr %65, i64 8
@@ -1132,8 +1132,8 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 191:                                              ; preds = %.sink.split, %39
   %192 = getelementptr inbounds i8, ptr %0, i64 332
   %193 = load i32, ptr %192, align 4
-  %.not181 = icmp eq i32 %193, 0
-  br i1 %.not181, label %369, label %194
+  %.not179 = icmp eq i32 %193, 0
+  br i1 %.not179, label %369, label %194
 
 194:                                              ; preds = %191
   %195 = load i8, ptr @zend_observer_class_linked_observed, align 1
@@ -1150,54 +1150,51 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %205 = load i32, ptr %200, align 8
   %206 = zext i32 %205 to i64
   %207 = getelementptr inbounds %struct._Bucket, ptr %204, i64 %206
-  %.not78.i = icmp eq i32 %205, 0
+  %.not75.i = icmp eq i32 %205, 0
   br i1 %196, label %287, label %208
 
 208:                                              ; preds = %194
-  br i1 %.not78.i, label %.sink.split225, label %.lr.ph209
+  br i1 %.not75.i, label %.sink.split222, label %.lr.ph206
 
-.lr.ph209:                                        ; preds = %208
+.lr.ph206:                                        ; preds = %208
   %209 = getelementptr inbounds i8, ptr %197, i64 16
   %210 = getelementptr inbounds i8, ptr %197, i64 12
   %211 = getelementptr inbounds i8, ptr %197, i64 28
   br label %212
 
-212:                                              ; preds = %.lr.ph209, %285
-  %.0207 = phi ptr [ %204, %.lr.ph209 ], [ %286, %285 ]
-  %213 = getelementptr inbounds i8, ptr %.0207, i64 24
+212:                                              ; preds = %.lr.ph206, %285
+  %.0204 = phi ptr [ %204, %.lr.ph206 ], [ %286, %285 ]
+  %213 = getelementptr inbounds i8, ptr %.0204, i64 24
   %214 = load ptr, ptr %213, align 8, !nonnull !4, !noundef !4
   %215 = tail call ptr @zend_hash_find_known_hash(ptr noundef %197, ptr noundef nonnull %214) #10
-  %.not184 = icmp eq ptr %215, null
-  br i1 %.not184, label %242, label %216
+  %.not182 = icmp eq ptr %215, null
+  br i1 %.not182, label %242, label %216
 
 216:                                              ; preds = %212
   %217 = load ptr, ptr %213, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 16
   %219 = load i64, ptr %218, align 8
-  %.not188 = icmp eq i64 %219, 0
-  br i1 %.not188, label %226, label %220
+  %.not186 = icmp eq i64 %219, 0
+  br i1 %.not186, label %224, label %220
 
 220:                                              ; preds = %216
   %221 = getelementptr inbounds i8, ptr %217, i64 24
   %222 = load i8, ptr %221, align 8
   %223 = icmp eq i8 %222, 0
-  %224 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 49), align 1
-  %225 = trunc i8 %224 to i1
-  %or.cond.not = select i1 %223, i1 true, i1 %225
-  br i1 %or.cond.not, label %285, label %227
+  br i1 %223, label %285, label %224
 
-226:                                              ; preds = %216
-  %.old = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 49), align 1
-  %.old1 = trunc i8 %.old to i1
-  br i1 %.old1, label %285, label %227
+224:                                              ; preds = %220, %216
+  %225 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 49), align 1
+  %226 = trunc i8 %225 to i1
+  br i1 %226, label %285, label %227
 
-227:                                              ; preds = %220, %226
-  %228 = load ptr, ptr %.0207, align 8
+227:                                              ; preds = %224
+  %228 = load ptr, ptr %.0204, align 8
   %229 = getelementptr inbounds i8, ptr %228, i64 28
   %230 = load i32, ptr %229, align 4
   %231 = and i32 %230, 4
-  %.not190 = icmp eq i32 %231, 0
-  br i1 %.not190, label %232, label %285
+  %.not187 = icmp eq i32 %231, 0
+  br i1 %.not187, label %232, label %285
 
 232:                                              ; preds = %227
   store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
@@ -1215,7 +1212,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   unreachable
 
 242:                                              ; preds = %212
-  %243 = load ptr, ptr %.0207, align 8
+  %243 = load ptr, ptr %.0204, align 8
   %244 = load ptr, ptr %213, align 8
   %245 = load i32, ptr %198, align 8
   %246 = add i32 %245, 1
@@ -1250,15 +1247,15 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %267 = getelementptr inbounds i8, ptr %243, i64 28
   %268 = load i32, ptr %267, align 4
   %269 = and i32 %268, 8
-  %.not185 = icmp eq i32 %269, 0
-  br i1 %.not185, label %285, label %270
+  %.not183 = icmp eq i32 %269, 0
+  br i1 %.not183, label %285, label %270
 
 270:                                              ; preds = %242
   %271 = load ptr, ptr %213, align 8
   %272 = getelementptr inbounds i8, ptr %271, i64 24
   %273 = load i8, ptr %272, align 8
-  %.not186 = icmp eq i8 %273, 0
-  br i1 %.not186, label %285, label %274
+  %.not184 = icmp eq i8 %273, 0
+  br i1 %.not184, label %285, label %274
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds i8, ptr %243, i64 8
@@ -1266,8 +1263,8 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %277 = getelementptr inbounds i8, ptr %276, i64 4
   %278 = load i32, ptr %277, align 4
   %279 = and i32 %278, 32
-  %.not187 = icmp eq i32 %279, 0
-  br i1 %.not187, label %285, label %280
+  %.not185 = icmp eq i32 %279, 0
+  br i1 %.not185, label %285, label %280
 
 280:                                              ; preds = %274
   %281 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
@@ -1277,56 +1274,53 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   store ptr %243, ptr %284, align 8
   br label %285
 
-285:                                              ; preds = %274, %280, %226, %270, %242, %227, %220
-  %286 = getelementptr inbounds i8, ptr %.0207, i64 32
-  %.not182 = icmp eq ptr %286, %207
-  br i1 %.not182, label %.sink.split225, label %212
+285:                                              ; preds = %274, %280, %224, %270, %242, %227, %220
+  %286 = getelementptr inbounds i8, ptr %.0204, i64 32
+  %.not180 = icmp eq ptr %286, %207
+  br i1 %.not180, label %.sink.split222, label %212
 
 287:                                              ; preds = %194
-  br i1 %.not78.i, label %.sink.split225, label %.lr.ph.i193
+  br i1 %.not75.i, label %.sink.split222, label %.lr.ph.i190
 
-.lr.ph.i193:                                      ; preds = %287
+.lr.ph.i190:                                      ; preds = %287
   %288 = getelementptr inbounds i8, ptr %197, i64 16
   %289 = getelementptr inbounds i8, ptr %197, i64 12
   %290 = getelementptr inbounds i8, ptr %197, i64 28
   br label %291
 
-291:                                              ; preds = %366, %.lr.ph.i193
-  %.079.i = phi ptr [ %204, %.lr.ph.i193 ], [ %367, %366 ]
-  %292 = getelementptr inbounds i8, ptr %.079.i, i64 24
+291:                                              ; preds = %366, %.lr.ph.i190
+  %.076.i = phi ptr [ %204, %.lr.ph.i190 ], [ %367, %366 ]
+  %292 = getelementptr inbounds i8, ptr %.076.i, i64 24
   %293 = load ptr, ptr %292, align 8, !nonnull !4, !noundef !4
   %294 = tail call ptr @zend_hash_find_known_hash(ptr noundef %197, ptr noundef nonnull %293) #10
-  %.not71.i = icmp eq ptr %294, null
-  br i1 %.not71.i, label %321, label %295
+  %.not69.i = icmp eq ptr %294, null
+  br i1 %.not69.i, label %321, label %295
 
 295:                                              ; preds = %291
   %296 = load ptr, ptr %292, align 8
   %297 = getelementptr inbounds i8, ptr %296, i64 16
   %298 = load i64, ptr %297, align 8
-  %.not75.i = icmp eq i64 %298, 0
-  br i1 %.not75.i, label %305, label %299
+  %.not73.i = icmp eq i64 %298, 0
+  br i1 %.not73.i, label %303, label %299
 
 299:                                              ; preds = %295
   %300 = getelementptr inbounds i8, ptr %296, i64 24
   %301 = load i8, ptr %300, align 8
   %302 = icmp eq i8 %301, 0
-  %303 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 49), align 1
-  %304 = trunc i8 %303 to i1
-  %or.cond.not.i = select i1 %302, i1 true, i1 %304
-  br i1 %or.cond.not.i, label %366, label %306
+  br i1 %302, label %366, label %303
 
-305:                                              ; preds = %295
-  %.old.i = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 49), align 1
-  %.old1.i = trunc i8 %.old.i to i1
-  br i1 %.old1.i, label %366, label %306
+303:                                              ; preds = %299, %295
+  %304 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 49), align 1
+  %305 = trunc i8 %304 to i1
+  br i1 %305, label %366, label %306
 
-306:                                              ; preds = %305, %299
-  %307 = load ptr, ptr %.079.i, align 8
+306:                                              ; preds = %303
+  %307 = load ptr, ptr %.076.i, align 8
   %308 = getelementptr inbounds i8, ptr %307, i64 28
   %309 = load i32, ptr %308, align 4
   %310 = and i32 %309, 4
-  %.not77.i = icmp eq i32 %310, 0
-  br i1 %.not77.i, label %311, label %366
+  %.not74.i = icmp eq i32 %310, 0
+  br i1 %.not74.i, label %311, label %366
 
 311:                                              ; preds = %306
   store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
@@ -1344,7 +1338,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   unreachable
 
 321:                                              ; preds = %291
-  %322 = load ptr, ptr %.079.i, align 8
+  %322 = load ptr, ptr %.076.i, align 8
   %323 = load ptr, ptr %292, align 8
   %324 = load i32, ptr %198, align 8
   %325 = add i32 %324, 1
@@ -1379,15 +1373,15 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %346 = getelementptr inbounds i8, ptr %322, i64 28
   %347 = load i32, ptr %346, align 4
   %348 = and i32 %347, 8
-  %.not72.i = icmp eq i32 %348, 0
-  br i1 %.not72.i, label %366, label %349
+  %.not70.i = icmp eq i32 %348, 0
+  br i1 %.not70.i, label %366, label %349
 
 349:                                              ; preds = %321
   %350 = load ptr, ptr %292, align 8
   %351 = getelementptr inbounds i8, ptr %350, i64 24
   %352 = load i8, ptr %351, align 8
-  %.not73.i = icmp eq i8 %352, 0
-  br i1 %.not73.i, label %366, label %353
+  %.not71.i = icmp eq i8 %352, 0
+  br i1 %.not71.i, label %366, label %353
 
 353:                                              ; preds = %349
   %354 = getelementptr inbounds i8, ptr %322, i64 8
@@ -1395,8 +1389,8 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %356 = getelementptr inbounds i8, ptr %355, i64 4
   %357 = load i32, ptr %356, align 4
   %358 = and i32 %357, 32
-  %.not74.i = icmp eq i32 %358, 0
-  br i1 %.not74.i, label %364, label %359
+  %.not72.i = icmp eq i32 %358, 0
+  br i1 %.not72.i, label %364, label %359
 
 359:                                              ; preds = %353
   %360 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
@@ -1412,27 +1406,27 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   tail call void @_zend_observer_class_linked_notify(ptr noundef nonnull %322, ptr noundef %365) #10
   br label %366
 
-366:                                              ; preds = %364, %349, %321, %306, %305, %299
-  %367 = getelementptr inbounds i8, ptr %.079.i, i64 32
-  %.not.i194 = icmp eq ptr %367, %207
-  br i1 %.not.i194, label %.sink.split225, label %291
+366:                                              ; preds = %364, %349, %321, %306, %303, %299
+  %367 = getelementptr inbounds i8, ptr %.076.i, i64 32
+  %.not.i191 = icmp eq ptr %367, %207
+  br i1 %.not.i191, label %.sink.split222, label %291
 
-.sink.split225:                                   ; preds = %285, %366, %287, %208
+.sink.split222:                                   ; preds = %285, %366, %287, %208
   %368 = getelementptr inbounds i8, ptr %197, i64 36
   store i32 0, ptr %368, align 4
   br label %369
 
-369:                                              ; preds = %.sink.split225, %191
+369:                                              ; preds = %.sink.split222, %191
   %370 = getelementptr inbounds i8, ptr %0, i64 392
   %371 = load i32, ptr %370, align 8
-  %.not183 = icmp eq i32 %371, 0
-  br i1 %.not183, label %426, label %372
+  %.not181 = icmp eq i32 %371, 0
+  br i1 %.not181, label %426, label %372
 
 372:                                              ; preds = %369
   %373 = getelementptr inbounds i8, ptr %3, i64 56
   %374 = load ptr, ptr %373, align 8
-  %.not.i195 = icmp eq ptr %374, null
-  tail call void @llvm.assume(i1 %.not.i195)
+  %.not.i192 = icmp eq ptr %374, null
+  tail call void @llvm.assume(i1 %.not.i192)
   %375 = getelementptr inbounds i8, ptr %3, i64 4
   %376 = load i32, ptr %375, align 4
   %377 = and i32 %376, 67108864
@@ -1452,14 +1446,14 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %387 = load i32, ptr %370, align 8
   %.not116.i = icmp eq i32 %387, 0
-  br i1 %.not116.i, label %zend_accel_do_delayed_early_binding.exit, label %.lr.ph.i196
+  br i1 %.not116.i, label %zend_accel_do_delayed_early_binding.exit, label %.lr.ph.i193
 
-.lr.ph.i196:                                      ; preds = %372
+.lr.ph.i193:                                      ; preds = %372
   %388 = getelementptr inbounds i8, ptr %0, i64 408
   br label %389
 
-389:                                              ; preds = %.thread112.i, %.lr.ph.i196
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i196 ], [ %indvars.iv.next.i, %.thread112.i ]
+389:                                              ; preds = %.thread112.i, %.lr.ph.i193
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i193 ], [ %indvars.iv.next.i, %.thread112.i ]
   %390 = load ptr, ptr %388, align 8
   %391 = getelementptr inbounds %struct._zend_early_binding, ptr %390, i64 %indvars.iv.i
   %392 = load ptr, ptr %391, align 8
@@ -1497,8 +1491,8 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   br label %.thread.i
 
 412:                                              ; preds = %405
-  %.pre.i197 = load i32, ptr %402, align 4
-  %.pre119.i = and i32 %.pre.i197, 8
+  %.pre.i194 = load i32, ptr %402, align 4
+  %.pre119.i = and i32 %.pre.i194, 8
   %.not107.i = icmp eq i32 %.pre119.i, 0
   br i1 %.not107.i, label %.thread112.i, label %.thread.i
 

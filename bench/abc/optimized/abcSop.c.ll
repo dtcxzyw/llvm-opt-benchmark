@@ -1826,8 +1826,8 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %3
 
 .preheader.i:                                     ; preds = %12
   %15 = getelementptr i8, ptr %0, i64 4
-  %.val15.i = load i32, ptr %15, align 4
-  %16 = icmp sgt i32 %.val15.i, 0
+  %.val16.i = load i32, ptr %15, align 4
+  %16 = icmp sgt i32 %.val16.i, 0
   br i1 %16, label %.lr.ph.i28, label %Vec_PtrFreeData.exit
 
 .lr.ph.i28:                                       ; preds = %.preheader.i
@@ -1835,10 +1835,10 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %3
   br label %18
 
 18:                                               ; preds = %22, %.lr.ph.i28
-  %.val18.i = phi i32 [ %.val15.i, %.lr.ph.i28 ], [ %.val.i, %22 ]
+  %.val19.i = phi i32 [ %.val16.i, %.lr.ph.i28 ], [ %.val.i, %22 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i28 ], [ %indvars.iv.next.i, %22 ]
-  %.val14.i = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds ptr, ptr %.val14.i, i64 %indvars.iv.i
+  %.val15.i = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds ptr, ptr %.val15.i, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %switch.i = icmp ult ptr %20, inttoptr (i64 3 to ptr)
   br i1 %switch.i, label %22, label %21
@@ -1849,7 +1849,7 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %3
   br label %22
 
 22:                                               ; preds = %21, %18
-  %.val.i = phi i32 [ %.val18.i, %18 ], [ %.val.pre.i, %21 ]
+  %.val.i = phi i32 [ %.val19.i, %18 ], [ %.val.pre.i, %21 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = sext i32 %.val.i to i64
   %24 = icmp slt i64 %indvars.iv.next.i, %23
@@ -1905,15 +1905,15 @@ Abc_SopGetVarNum.exit:                            ; preds = %32, %36
   br i1 %47, label %.sink.split, label %.preheader.i29
 
 .preheader.i29:                                   ; preds = %44
-  %.val15.i30 = load i32, ptr %27, align 4
-  %48 = icmp sgt i32 %.val15.i30, 0
+  %.val16.i30 = load i32, ptr %27, align 4
+  %48 = icmp sgt i32 %.val16.i30, 0
   br i1 %48, label %.lr.ph.i31, label %.sink.split
 
 .lr.ph.i31:                                       ; preds = %.preheader.i29, %52
-  %.val18.i32 = phi i32 [ %.val.i37, %52 ], [ %.val15.i30, %.preheader.i29 ]
+  %.val19.i32 = phi i32 [ %.val.i37, %52 ], [ %.val16.i30, %.preheader.i29 ]
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i38, %52 ], [ 0, %.preheader.i29 ]
-  %.val14.i34 = load ptr, ptr %30, align 8
-  %49 = getelementptr inbounds ptr, ptr %.val14.i34, i64 %indvars.iv.i33
+  %.val15.i34 = load ptr, ptr %30, align 8
+  %49 = getelementptr inbounds ptr, ptr %.val15.i34, i64 %indvars.iv.i33
   %50 = load ptr, ptr %49, align 8
   %switch.i35 = icmp ult ptr %50, inttoptr (i64 3 to ptr)
   br i1 %switch.i35, label %52, label %51
@@ -1924,7 +1924,7 @@ Abc_SopGetVarNum.exit:                            ; preds = %32, %36
   br label %52
 
 52:                                               ; preds = %51, %.lr.ph.i31
-  %.val.i37 = phi i32 [ %.val18.i32, %.lr.ph.i31 ], [ %.val.pre.i36, %51 ]
+  %.val.i37 = phi i32 [ %.val19.i32, %.lr.ph.i31 ], [ %.val.pre.i36, %51 ]
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i33, 1
   %53 = sext i32 %.val.i37 to i64
   %54 = icmp slt i64 %indvars.iv.next.i38, %53

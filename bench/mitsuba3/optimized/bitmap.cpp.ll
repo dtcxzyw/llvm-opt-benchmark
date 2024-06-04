@@ -964,7 +964,7 @@ $_ZTIZN7mitsuba6detail23get_unserialize_functorINS_6BitmapETnNSt3__19enable_ifIX
 define void @_ZN7mitsuba6BitmapC2ENS0_11PixelFormatENS_6Struct4TypeERKNS_6VectorIjLm2EEEmRKNSt3__16vectorINS8_12basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEENSD_ISF_EEEEPh(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3, i64 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %6, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2179,7 +2179,7 @@ declare void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN7mitsuba6BitmapC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2310,7 +2310,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define void @_ZN7mitsuba6BitmapC2EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -2385,7 +2385,7 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
 define void @_ZN7mitsuba6BitmapC2EPNS_6StreamENS0_10FileFormatE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2515,7 +2515,7 @@ define void @_ZN7mitsuba6Bitmap4readEPNS_6StreamENS0_10FileFormatE(ptr noundef n
 define void @_ZN7mitsuba6BitmapC2ERKNS_10filesystem4pathENS0_10FileFormatE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2598,7 +2598,7 @@ declare void @_ZN7mitsuba10FileStreamC1ERKNS_10filesystem4pathENS0_5EModeE(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7mitsuba6BitmapD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba6BitmapE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 50
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
@@ -3028,7 +3028,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJmEEENSt3__112basic_stri
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   %7 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %5, align 8
@@ -3049,8 +3049,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJmEEENSt3__112basic_stri
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -3075,7 +3075,7 @@ common.resume:                                    ; preds = %38, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 72
   %27 = getelementptr inbounds i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -3106,7 +3106,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 %36
   store ptr %34, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -3130,7 +3130,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   %7 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %5, align 8
@@ -3151,8 +3151,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -3177,7 +3177,7 @@ common.resume:                                    ; preds = %38, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 72
   %27 = getelementptr inbounds i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -3208,7 +3208,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 %36
   store ptr %34, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -3261,7 +3261,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJEEENSt3__112basic_strin
   %4 = getelementptr inbounds i8, ptr %3, i64 112
   %5 = getelementptr inbounds i8, ptr %3, i64 160
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %7, ptr %3, align 8
@@ -3282,8 +3282,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJEEENSt3__112basic_strin
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %15, i64 144
   store i32 -1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %21
 
@@ -3308,7 +3308,7 @@ common.resume:                                    ; preds = %31, %23
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %6, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 72
   %25 = getelementptr inbounds i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
@@ -3328,7 +3328,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %3, i64 %29
   store ptr %27, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %6, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -3349,7 +3349,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJmN7mitsuba6Bitmap11Pixe
   %7 = getelementptr inbounds i8, ptr %6, i64 112
   %8 = getelementptr inbounds i8, ptr %6, i64 160
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %10, ptr %6, align 8
@@ -3370,8 +3370,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJmN7mitsuba6Bitmap11Pixe
   store ptr null, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 144
   store i32 -1, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %24
 
@@ -3396,7 +3396,7 @@ common.resume:                                    ; preds = %42, %26
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %19
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
   %27 = getelementptr inbounds i8, ptr %6, i64 72
   %28 = getelementptr inbounds i8, ptr %6, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
@@ -3433,7 +3433,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %6, i64 %40
   store ptr %38, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -3534,7 +3534,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJN7mitsuba6Struct4TypeEE
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   %7 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %5, align 8
@@ -3555,8 +3555,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJN7mitsuba6Struct4TypeEE
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -3581,7 +3581,7 @@ common.resume:                                    ; preds = %38, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 72
   %27 = getelementptr inbounds i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -3612,7 +3612,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 %36
   store ptr %34, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -8222,7 +8222,7 @@ _ZNK7mitsuba15StructConverter10convert_2dEmmPKvPv.exit: ; preds = %1064
   br label %1093
 
 1085:                                             ; preds = %_ZNK7mitsuba15StructConverter10convert_2dEmmPKvPv.exit
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7mitsuba15StructConverterE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba15StructConverterE, i64 16), ptr %44, align 8
   %1086 = getelementptr inbounds i8, ptr %44, i64 24
   %1087 = load ptr, ptr %1086, align 8
   %.not.i.i569 = icmp eq ptr %1087, null
@@ -8281,7 +8281,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJN7mitsuba6VectorIjLm2EE
   %7 = getelementptr inbounds i8, ptr %6, i64 112
   %8 = getelementptr inbounds i8, ptr %6, i64 160
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %10, ptr %6, align 8
@@ -8302,8 +8302,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJN7mitsuba6VectorIjLm2EE
   store ptr null, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 144
   store i32 -1, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %24
 
@@ -8328,7 +8328,7 @@ common.resume:                                    ; preds = %42, %26
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %19
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
   %27 = getelementptr inbounds i8, ptr %6, i64 72
   %28 = getelementptr inbounds i8, ptr %6, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
@@ -8365,7 +8365,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %6, i64 %40
   store ptr %38, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -8388,7 +8388,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJN7mitsuba3refINS1_6Stru
   %8 = getelementptr inbounds i8, ptr %7, i64 112
   %9 = getelementptr inbounds i8, ptr %7, i64 160
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %11, ptr %7, align 8
@@ -8409,8 +8409,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJN7mitsuba3refINS1_6Stru
   store ptr null, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 144
   store i32 -1, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %25
 
@@ -8435,7 +8435,7 @@ common.resume:                                    ; preds = %46, %27
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
   %28 = getelementptr inbounds i8, ptr %7, i64 72
   %29 = getelementptr inbounds i8, ptr %7, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
@@ -8478,7 +8478,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %7, i64 %44
   store ptr %42, ptr %45, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -8496,7 +8496,7 @@ declare void @_ZN7mitsuba15StructConverterC1EPKNS_6StructES3_b(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7mitsuba15StructConverterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7mitsuba15StructConverterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba15StructConverterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -10469,7 +10469,7 @@ _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
 457:                                              ; preds = %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6BitmapEEEEENS5_ISC_EEE22__construct_one_at_endB8ne190000IJRS7_RSB_EEEvDpOT_.exit.i, %455
   %.0.i144 = phi ptr [ %454, %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6BitmapEEEEENS5_ISC_EEE22__construct_one_at_endB8ne190000IJRS7_RSB_EEEvDpOT_.exit.i ], [ %456, %455 ]
   store ptr %.0.i144, ptr %138, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7mitsuba15StructConverterE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba15StructConverterE, i64 16), ptr %22, align 8
   %458 = load ptr, ptr %140, align 8
   %.not.i.i150 = icmp eq ptr %458, null
   br i1 %.not.i.i150, label %_ZN7mitsuba3refIKNS_6StructEED2Ev.exit.i, label %459
@@ -14281,7 +14281,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit444: ; preds = %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6BitmapEEEEENS5_ISC_EEED2B8ne190000Ev.exit, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i443
   call void @_ZN7Imf_2_59InputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #36
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN7mitsuba10EXRIStreamE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba10EXRIStreamE, i64 16), ptr %14, align 8
   %1364 = getelementptr inbounds i8, ptr %14, i64 32
   %1365 = load ptr, ptr %1364, align 8
   %.not.i.i445 = icmp eq ptr %1365, null
@@ -17729,7 +17729,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
           to label %.noexc unwind label %.loopexit441
 
 .noexc:                                           ; preds = %124
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %13, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %123)
           to label %_ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEC2ERKS7_.exit unwind label %125
 
@@ -17744,7 +17744,7 @@ _ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9all
           to label %127 unwind label %128
 
 127:                                              ; preds = %_ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEC2ERKS7_.exit
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %13, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #36
   call void @_ZN7Imf_2_59AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #36
   br label %219
@@ -17752,7 +17752,7 @@ _ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9all
 128:                                              ; preds = %_ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEC2ERKS7_.exit
   %129 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %13, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #36
   call void @_ZN7Imf_2_59AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #36
   br label %.body
@@ -17773,7 +17773,7 @@ _ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9all
           to label %139 unwind label %.loopexit441
 
 139:                                              ; preds = %138
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIiEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIiEE, i64 16), ptr %14, align 8
   store i32 %137, ptr %81, align 8
   invoke void @_ZN7Imf_2_56Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(25) %10, ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %140 unwind label %141
@@ -17804,7 +17804,7 @@ _ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9all
           to label %152 unwind label %.loopexit441
 
 152:                                              ; preds = %151
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIdEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIdEE, i64 16), ptr %15, align 8
   store double %150, ptr %80, align 8
   invoke void @_ZN7Imf_2_56Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(25) %10, ptr noundef %149, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %153 unwind label %154
@@ -17836,7 +17836,7 @@ _ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9all
   %.not.i.i.i372 = icmp eq i8 %163, 0
   %164 = getelementptr inbounds i8, ptr %.sroa.0412.0465, i64 1
   %165 = select i1 %.not.i.i.i372, ptr %164, ptr %161
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_54Vec3IfEEEE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_54Vec3IfEEEE, i64 16), ptr %16, align 8
   %166 = shufflevector <4 x float> %157, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %166, ptr %78, align 8
   store float %.sroa.0.8.vec.extract, ptr %79, align 8
@@ -17871,7 +17871,7 @@ _ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9all
   %.not.i.i.i374 = icmp eq i8 %177, 0
   %178 = getelementptr inbounds i8, ptr %.sroa.0412.0465, i64 1
   %179 = select i1 %.not.i.i.i374, ptr %178, ptr %175
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix33IfEEEE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix33IfEEEE, i64 16), ptr %18, align 8
   store float %.sroa.0332.0.copyload, ptr %77, align 8
   store <8 x float> %172, ptr %.sroa.2398.0..sroa_idx, align 4
   invoke void @_ZN7Imf_2_56Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(25) %10, ptr noundef %179, ptr noundef nonnull align 8 dereferenceable(8) %18)
@@ -17912,7 +17912,7 @@ _ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9all
   %.not.i.i.i376 = icmp eq i8 %191, 0
   %192 = getelementptr inbounds i8, ptr %.sroa.0412.0465, i64 1
   %193 = select i1 %.not.i.i.i376, ptr %192, ptr %189
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IfEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IfEEEE, i64 16), ptr %20, align 8
   %194 = insertelement <8 x float> %185, float %.sroa.5339.0.copyload, i64 1
   %195 = insertelement <8 x float> %194, float %.sroa.9343.0.copyload, i64 2
   %196 = insertelement <8 x float> %195, float %.sroa.13.0.copyload, i64 3
@@ -17951,7 +17951,7 @@ _ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9all
           to label %.noexc379 unwind label %215
 
 .noexc379:                                        ; preds = %211
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %21, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %22)
           to label %_ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEC2ERKS7_.exit382 unwind label %212
 
@@ -17966,7 +17966,7 @@ _ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9all
           to label %214 unwind label %217
 
 214:                                              ; preds = %_ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEC2ERKS7_.exit382
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %21, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %83) #36
   call void @_ZN7Imf_2_59AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #36
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #36
@@ -17980,7 +17980,7 @@ _ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9all
 217:                                              ; preds = %_ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEC2ERKS7_.exit382
   %218 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %21, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %83) #36
   call void @_ZN7Imf_2_59AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #36
   br label %.body380
@@ -18210,7 +18210,7 @@ _ZN7mitsuba6Struct5FieldD2Ev.exit:                ; preds = %274, %_ZNSt3__16vec
 
 294:                                              ; preds = %.noexc387
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #36
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7mitsuba10EXROStreamE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba10EXROStreamE, i64 16), ptr %33, align 8
   %295 = getelementptr inbounds i8, ptr %33, i64 32
   store ptr %1, ptr %295, align 8
   %296 = getelementptr inbounds i8, ptr %1, i64 8
@@ -18234,7 +18234,7 @@ _ZN7mitsuba6Struct5FieldD2Ev.exit:                ; preds = %274, %_ZNSt3__16vec
 
 303:                                              ; preds = %301
   call void @_ZN7Imf_2_510OutputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #36
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7mitsuba10EXROStreamE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba10EXROStreamE, i64 16), ptr %33, align 8
   %304 = load ptr, ptr %295, align 8
   %.not.i.i390 = icmp eq ptr %304, null
   br i1 %.not.i.i390, label %_ZN7mitsuba10EXROStreamD2Ev.exit, label %305
@@ -19295,7 +19295,7 @@ _ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i: ; preds = 
   %96 = load i64, ptr %49, align 8
   %97 = getelementptr inbounds i8, ptr %12, i64 %96
   store ptr %48, ptr %97, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %50, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %50) #36
   call void @_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -19802,7 +19802,7 @@ define void @_ZNK7mitsuba6Bitmap9write_pfmEPNS_6StreamE(ptr noundef nonnull alig
   %26 = getelementptr inbounds i8, ptr %5, i64 112
   %27 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr null, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 8
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %29, ptr %5, align 8
@@ -19823,8 +19823,8 @@ define void @_ZNK7mitsuba6Bitmap9write_pfmEPNS_6StreamE(ptr noundef nonnull alig
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %37, i64 144
   store i32 -1, ptr %40, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %26, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %28)
           to label %46 unwind label %43
 
@@ -19845,7 +19845,7 @@ define void @_ZNK7mitsuba6Bitmap9write_pfmEPNS_6StreamE(ptr noundef nonnull alig
   br label %.body
 
 46:                                               ; preds = %38
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %28, align 8
   %47 = getelementptr inbounds i8, ptr %5, i64 72
   %48 = getelementptr inbounds i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
@@ -20074,7 +20074,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %150 = load i64, ptr %149, align 8
   %151 = getelementptr inbounds i8, ptr %5, i64 %150
   store ptr %148, ptr %151, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %28, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %28) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -20376,7 +20376,7 @@ define void @_ZNK7mitsuba6Bitmap9to_stringEv(ptr dead_on_unwind noalias writable
   %22 = getelementptr inbounds i8, ptr %16, i64 112
   %23 = getelementptr inbounds i8, ptr %16, i64 160
   store ptr null, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %16, i64 8
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %25, ptr %16, align 8
@@ -20397,8 +20397,8 @@ define void @_ZNK7mitsuba6Bitmap9to_stringEv(ptr dead_on_unwind noalias writable
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %33, i64 144
   store i32 -1, ptr %36, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %22, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %16, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %22, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %24)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %39
 
@@ -20423,7 +20423,7 @@ common.resume:                                    ; preds = %.body, %41
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %34
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %24, align 8
   %42 = getelementptr inbounds i8, ptr %16, i64 72
   %43 = getelementptr inbounds i8, ptr %16, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
@@ -21151,7 +21151,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   %320 = load i64, ptr %319, align 8
   %321 = getelementptr inbounds i8, ptr %16, i64 %320
   store ptr %318, ptr %321, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %24, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %24) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -21260,7 +21260,7 @@ define linkonce_odr hidden void @_ZN7mitsuba6string6indentINS_3refINS_6StructEEE
   %6 = getelementptr inbounds i8, ptr %4, i64 112
   %7 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %4, align 8
@@ -21281,8 +21281,8 @@ define linkonce_odr hidden void @_ZN7mitsuba6string6indentINS_3refINS_6StructEEE
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -21307,7 +21307,7 @@ common.resume:                                    ; preds = %40, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = getelementptr inbounds i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -21333,7 +21333,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %4, i64 %34
   store ptr %32, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -21373,7 +21373,7 @@ define linkonce_odr void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #36
   tail call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #36
@@ -21402,7 +21402,7 @@ define linkonce_odr hidden void @_ZN7mitsuba10EXRIStreamC2EPNS_6StreamE(ptr noun
 
 _ZN7mitsuba3refINS_6StreamEEC2IS1_EEPS1_.exit:    ; preds = %2
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #36
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN7mitsuba10EXRIStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba10EXRIStreamE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
@@ -21938,7 +21938,7 @@ declare void @_ZN7Imf_2_59InputFileD1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7mitsuba10EXRIStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN7mitsuba10EXRIStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba10EXRIStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -21969,7 +21969,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Propertie
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #36
   tail call void @_ZN7Imf_2_59AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #36
@@ -22073,7 +22073,7 @@ declare void @_ZN7Imf_2_510OutputFileD1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7mitsuba10EXROStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7mitsuba10EXROStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba10EXROStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -22315,7 +22315,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJN7mitsuba6Struct4TypeES
   %7 = getelementptr inbounds i8, ptr %6, i64 112
   %8 = getelementptr inbounds i8, ptr %6, i64 160
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %10, ptr %6, align 8
@@ -22336,8 +22336,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJN7mitsuba6Struct4TypeES
   store ptr null, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 144
   store i32 -1, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %24
 
@@ -22362,7 +22362,7 @@ common.resume:                                    ; preds = %42, %26
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %19
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
   %27 = getelementptr inbounds i8, ptr %6, i64 72
   %28 = getelementptr inbounds i8, ptr %6, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
@@ -22399,7 +22399,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %6, i64 %40
   store ptr %38, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -22600,7 +22600,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJiEEENSt3__112basic_stri
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   %7 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %5, align 8
@@ -22621,8 +22621,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJiEEENSt3__112basic_stri
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -22647,7 +22647,7 @@ common.resume:                                    ; preds = %38, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 72
   %27 = getelementptr inbounds i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -22678,7 +22678,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 %36
   store ptr %34, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -22750,7 +22750,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJjjiEEENSt3__112basic_st
   %8 = getelementptr inbounds i8, ptr %7, i64 112
   %9 = getelementptr inbounds i8, ptr %7, i64 160
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %11, ptr %7, align 8
@@ -22771,8 +22771,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJjjiEEENSt3__112basic_st
   store ptr null, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 144
   store i32 -1, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %25
 
@@ -22797,7 +22797,7 @@ common.resume:                                    ; preds = %46, %27
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
   %28 = getelementptr inbounds i8, ptr %7, i64 72
   %29 = getelementptr inbounds i8, ptr %7, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
@@ -22840,7 +22840,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %7, i64 %44
   store ptr %42, ptr %45, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -22863,7 +22863,7 @@ define linkonce_odr hidden void @_ZNSt3__119basic_istringstreamIcNS_11char_trait
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %7, ptr %0, align 8
@@ -22886,14 +22886,14 @@ define linkonce_odr hidden void @_ZNSt3__119basic_istringstreamIcNS_11char_trait
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 144
   store i32 -1, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %4, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %17
   %20 = or i32 %2, 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %6, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   %22 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
@@ -22942,7 +22942,7 @@ define linkonce_odr void @_ZNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #36
   tail call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #36
@@ -22959,7 +22959,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJjjEEENSt3__112basic_str
   %7 = getelementptr inbounds i8, ptr %6, i64 112
   %8 = getelementptr inbounds i8, ptr %6, i64 160
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %10, ptr %6, align 8
@@ -22980,8 +22980,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJjjEEENSt3__112basic_str
   store ptr null, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 144
   store i32 -1, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %7, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %24
 
@@ -23006,7 +23006,7 @@ common.resume:                                    ; preds = %42, %26
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %19
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
   %27 = getelementptr inbounds i8, ptr %6, i64 72
   %28 = getelementptr inbounds i8, ptr %6, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
@@ -23043,7 +23043,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %6, i64 %40
   store ptr %38, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %9, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -23085,7 +23085,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJcEEENSt3__112basic_stri
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   %7 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %5, align 8
@@ -23106,8 +23106,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJcEEENSt3__112basic_stri
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -23132,7 +23132,7 @@ common.resume:                                    ; preds = %38, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 72
   %27 = getelementptr inbounds i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -23163,7 +23163,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 %36
   store ptr %34, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -23186,7 +23186,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJtEEENSt3__112basic_stri
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   %7 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %5, align 8
@@ -23207,8 +23207,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJtEEENSt3__112basic_stri
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -23233,7 +23233,7 @@ common.resume:                                    ; preds = %38, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 72
   %27 = getelementptr inbounds i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -23264,7 +23264,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 %36
   store ptr %34, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -23392,7 +23392,7 @@ define void @_ZN7mitsuba6Bitmap21static_initializationEv() local_unnamed_addr #0
           to label %3 unwind label %4
 
 3:                                                ; preds = %0
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN7mitsuba13EXRThreadPoolE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba13EXRThreadPoolE, i64 16), ptr %2, align 8
   tail call void @_ZN13IlmThread_2_510ThreadPool17setThreadProviderEPNS_18ThreadPoolProviderE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %2)
   ret void
 
@@ -23559,7 +23559,7 @@ declare void @_ZN7Imf_2_57IStreamD2Ev(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7mitsuba10EXRIStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN7mitsuba10EXRIStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba10EXRIStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -23666,7 +23666,7 @@ declare void @_ZN7Imf_2_59AttributeD2Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #36
   tail call void @_ZN7Imf_2_59AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #36
@@ -23688,7 +23688,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_2_514TypedAttributeINSt3__112ba
           to label %3 unwind label %10
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_2_59AttributeE, ptr nonnull @_ZTIN7Imf_2_514TypedAttributeINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEE, i64 0) #36
@@ -23906,7 +23906,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -23938,7 +23938,7 @@ declare void @_ZN7Imf_2_57OStreamD2Ev(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7mitsuba10EXROStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7mitsuba10EXROStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba10EXROStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -23995,7 +23995,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJA200_cEEENSt3__112basic
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   %7 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %5, align 8
@@ -24016,8 +24016,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJA200_cEEENSt3__112basic
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -24042,7 +24042,7 @@ common.resume:                                    ; preds = %38, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 72
   %27 = getelementptr inbounds i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -24073,7 +24073,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 %36
   store ptr %34, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -24226,7 +24226,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 76:                                               ; preds = %66
   store ptr null, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %36, align 8
   store ptr %38, ptr %10, align 8
   %77 = load i64, ptr %40, align 8
   %78 = getelementptr inbounds i8, ptr %10, i64 %77
@@ -24243,8 +24243,8 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
   store ptr null, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %82, i64 144
   store i32 -1, ptr %85, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %36, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %36, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %invariant.gep)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %88
 
@@ -24265,7 +24265,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %83
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %invariant.gep, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %invariant.gep, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false)
   store i32 16, ptr %42, align 8
   %91 = load ptr, ptr %10, align 8
@@ -24365,7 +24365,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %134 = load i64, ptr %48, align 8
   %135 = getelementptr inbounds i8, ptr %10, i64 %134
   store ptr %47, ptr %135, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %invariant.gep, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %invariant.gep, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %invariant.gep) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -25236,7 +25236,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJPKcEEENSt3__112basic_st
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   %7 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %5, align 8
@@ -25257,8 +25257,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJPKcEEENSt3__112basic_st
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -25283,7 +25283,7 @@ common.resume:                                    ; preds = %38, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %5, i64 72
   %27 = getelementptr inbounds i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -25314,7 +25314,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 %36
   store ptr %34, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -26164,7 +26164,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedImEEvRNS
   %6 = getelementptr inbounds i8, ptr %4, i64 112
   %7 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %4, align 8
@@ -26185,8 +26185,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedImEEvRNS
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -26211,7 +26211,7 @@ common.resume:                                    ; preds = %56, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = getelementptr inbounds i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -26252,7 +26252,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 %50
   store ptr %48, ptr %51, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -28461,7 +28461,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedINSt3__1
   %6 = getelementptr inbounds i8, ptr %4, i64 112
   %7 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %4, align 8
@@ -28482,8 +28482,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedINSt3__1
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -28508,7 +28508,7 @@ common.resume:                                    ; preds = %65, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = getelementptr inbounds i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -28560,7 +28560,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %4, i64 %59
   store ptr %57, ptr %60, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -28708,7 +28708,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN7mitsu
   %6 = getelementptr inbounds i8, ptr %4, i64 112
   %7 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %4, align 8
@@ -28729,8 +28729,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN7mitsu
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -28755,7 +28755,7 @@ common.resume:                                    ; preds = %56, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = getelementptr inbounds i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -28796,7 +28796,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 %50
   store ptr %48, ptr %51, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -28852,7 +28852,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN7mitsu
   %6 = getelementptr inbounds i8, ptr %4, i64 112
   %7 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %4, align 8
@@ -28873,8 +28873,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN7mitsu
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -28899,7 +28899,7 @@ common.resume:                                    ; preds = %56, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = getelementptr inbounds i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -28940,7 +28940,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 %50
   store ptr %48, ptr %51, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -35860,7 +35860,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN7mitsu
   %8 = getelementptr inbounds i8, ptr %6, i64 112
   %9 = getelementptr inbounds i8, ptr %6, i64 160
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %11, ptr %6, align 8
@@ -35881,8 +35881,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN7mitsu
   store ptr null, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 144
   store i32 -1, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %8, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %25
 
@@ -35907,7 +35907,7 @@ common.resume:                                    ; preds = %.body, %27
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %20
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
   %28 = getelementptr inbounds i8, ptr %6, i64 72
   %29 = getelementptr inbounds i8, ptr %6, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
@@ -35969,7 +35969,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %58 = load i64, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %6, i64 %58
   store ptr %56, ptr %59, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %10, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -36507,7 +36507,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN7mitsu
   %6 = getelementptr inbounds i8, ptr %4, i64 112
   %7 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %4, align 8
@@ -36528,8 +36528,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN7mitsu
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -36554,7 +36554,7 @@ common.resume:                                    ; preds = %55, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = getelementptr inbounds i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -36595,7 +36595,7 @@ _ZN7mitsubalsINS_6StructEEERNSt3__113basic_ostreamIcNS2_11char_traitsIcEEEES7_RK
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %4, i64 %49
   store ptr %47, ptr %50, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -41263,7 +41263,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJN7mitsuba6Bitmap10FileF
   %11 = getelementptr inbounds i8, ptr %10, i64 112
   %12 = getelementptr inbounds i8, ptr %10, i64 160
   store ptr null, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %14, ptr %10, align 8
@@ -41284,8 +41284,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJN7mitsuba6Bitmap10FileF
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 144
   store i32 -1, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %11, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %28
 
@@ -41310,7 +41310,7 @@ common.resume:                                    ; preds = %58, %30
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %23
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %13, align 8
   %31 = getelementptr inbounds i8, ptr %10, i64 72
   %32 = getelementptr inbounds i8, ptr %10, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
@@ -41371,7 +41371,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %10, i64 %56
   store ptr %54, ptr %57, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %13, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -41415,7 +41415,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN7mitsu
   %6 = getelementptr inbounds i8, ptr %4, i64 112
   %7 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %4, align 8
@@ -41436,8 +41436,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIN7mitsu
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -41462,7 +41462,7 @@ common.resume:                                    ; preds = %56, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = getelementptr inbounds i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -41503,7 +41503,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 %50
   store ptr %48, ptr %51, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -41574,7 +41574,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIjEEvRNS
   %6 = getelementptr inbounds i8, ptr %4, i64 112
   %7 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %4, align 8
@@ -41595,8 +41595,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIjEEvRNS
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -41621,7 +41621,7 @@ common.resume:                                    ; preds = %56, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = getelementptr inbounds i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -41662,7 +41662,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 %50
   store ptr %48, ptr %51, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -43821,7 +43821,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   %10 = getelementptr inbounds i8, ptr %9, i64 112
   %11 = getelementptr inbounds i8, ptr %9, i64 160
   store ptr null, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %13, ptr %9, align 8
@@ -43842,8 +43842,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 144
   store i32 -1, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %10, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %27
 
@@ -43868,7 +43868,7 @@ common.resume:                                    ; preds = %54, %29
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %22
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %12, align 8
   %30 = getelementptr inbounds i8, ptr %9, i64 72
   %31 = getelementptr inbounds i8, ptr %9, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
@@ -43923,7 +43923,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %9, i64 %52
   store ptr %50, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %12, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -44050,7 +44050,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   %10 = getelementptr inbounds i8, ptr %9, i64 112
   %11 = getelementptr inbounds i8, ptr %9, i64 160
   store ptr null, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %13, ptr %9, align 8
@@ -44071,8 +44071,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJNSt3__112basic_stringIc
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 144
   store i32 -1, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %10, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %27
 
@@ -44097,7 +44097,7 @@ common.resume:                                    ; preds = %54, %29
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %22
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %12, align 8
   %30 = getelementptr inbounds i8, ptr %9, i64 72
   %31 = getelementptr inbounds i8, ptr %9, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
@@ -44152,7 +44152,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %9, i64 %52
   store ptr %50, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %12, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -44447,7 +44447,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_2_514TypedAttributeIiE4copyEv(p
           to label %3 unwind label %10
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIiEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIiEE, i64 16), ptr %2, align 8
   %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_2_59AttributeE, ptr nonnull @_ZTIN7Imf_2_514TypedAttributeIiEE, i64 0) #36
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread.i.i.i, label %_ZN7Imf_2_514TypedAttributeIiE13copyValueFromERKNS_9AttributeE.exit
@@ -44558,7 +44558,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_2_514TypedAttributeIdE4copyEv(p
           to label %3 unwind label %10
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIdEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIdEE, i64 16), ptr %2, align 8
   %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_2_59AttributeE, ptr nonnull @_ZTIN7Imf_2_514TypedAttributeIdEE, i64 0) #36
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread.i.i.i, label %_ZN7Imf_2_514TypedAttributeIdE13copyValueFromERKNS_9AttributeE.exit
@@ -44675,7 +44675,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_2_514TypedAttributeIN9Imath_2_5
           to label %3 unwind label %16
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_54Vec3IfEEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_54Vec3IfEEEE, i64 16), ptr %2, align 8
   %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_2_59AttributeE, ptr nonnull @_ZTIN7Imf_2_514TypedAttributeIN9Imath_2_54Vec3IfEEEE, i64 0) #36
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread.i.i.i, label %_ZN7Imf_2_514TypedAttributeIN9Imath_2_54Vec3IfEEE13copyValueFromERKNS_9AttributeE.exit
@@ -44763,7 +44763,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_2_514TypedAttributeIN9Imath_2_5
           to label %3 unwind label %12
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix33IfEEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix33IfEEEE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = getelementptr inbounds i8, ptr %2, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, i8 0, i64 28, i1 false)
@@ -44840,7 +44840,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_2_514TypedAttributeIN9Imath_2_5
           to label %3 unwind label %9
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IfEEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IfEEEE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = getelementptr inbounds i8, ptr %2, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, i8 0, i64 56, i1 false)
@@ -44994,7 +44994,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIiEEvRNS
   %6 = getelementptr inbounds i8, ptr %4, i64 112
   %7 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %4, align 8
@@ -45015,8 +45015,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIiEEvRNS
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -45041,7 +45041,7 @@ common.resume:                                    ; preds = %56, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = getelementptr inbounds i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -45082,7 +45082,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 %50
   store ptr %48, ptr %51, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -45360,7 +45360,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedItEEvRNS
   %6 = getelementptr inbounds i8, ptr %4, i64 112
   %7 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8), align 8
   store ptr %9, ptr %4, align 8
@@ -45381,8 +45381,8 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedItEEvRNS
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 144
   store i32 -1, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 64), ptr %6, align 8
   invoke void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit unwind label %23
 
@@ -45407,7 +45407,7 @@ common.resume:                                    ; preds = %56, %25
   br label %common.resume
 
 _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit: ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = getelementptr inbounds i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
@@ -45448,7 +45448,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 %50
   store ptr %48, ptr %51, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #36
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #36
   call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 8)) #36
@@ -45489,13 +45489,13 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail2
 define linkonce_odr hidden noundef ptr @_ZNKSt3__110__function6__funcIZN7mitsuba6detail23get_unserialize_functorINS2_6BitmapETnNS_9enable_ifIX18is_constructible_vIT_PNS2_6StreamEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectES9_EEEvEUlS9_E_NS_9allocatorISH_EESF_E7__cloneEv(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt3__110unique_ptrINS_10__function6__funcIZN7mitsuba6detail23get_unserialize_functorINS3_6BitmapETnNS_9enable_ifIX18is_constructible_vIT_PNS3_6StreamEEEiE4typeELi0EEENS_8functionIFPNS3_6ObjectESA_EEEvEUlSA_E_NS_9allocatorISI_EESG_EENS_22__allocator_destructorINSJ_ISL_EEEEED2B8ne190000Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail23get_unserialize_functorINS2_6BitmapETnNS_9enable_ifIX18is_constructible_vIT_PNS2_6StreamEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectES9_EEEvEUlS9_E_NS_9allocatorISH_EESF_EE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail23get_unserialize_functorINS2_6BitmapETnNS_9enable_ifIX18is_constructible_vIT_PNS2_6StreamEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectES9_EEEvEUlS9_E_NS_9allocatorISH_EESF_EE, i64 16), ptr %1, align 8
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNKSt3__110__function6__funcIZN7mitsuba6detail23get_unserialize_functorINS2_6BitmapETnNS_9enable_ifIX18is_constructible_vIT_PNS2_6StreamEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectES9_EEEvEUlS9_E_NS_9allocatorISH_EESF_E7__cloneEPNS0_6__baseISF_EE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail23get_unserialize_functorINS2_6BitmapETnNS_9enable_ifIX18is_constructible_vIT_PNS2_6StreamEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectES9_EEEvEUlS9_E_NS_9allocatorISH_EESF_EE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail23get_unserialize_functorINS2_6BitmapETnNS_9enable_ifIX18is_constructible_vIT_PNS2_6StreamEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectES9_EEEvEUlS9_E_NS_9allocatorISH_EESF_EE, i64 16), ptr %1, align 8
   ret void
 }
 
@@ -45572,7 +45572,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %9 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr null, ptr %9, align 16, !alias.scope !530
   %10 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail23get_unserialize_functorINS2_6BitmapETnNS_9enable_ifIX18is_constructible_vIT_PNS2_6StreamEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectES9_EEEvEUlS9_E_NS_9allocatorISH_EESF_EE, i64 16), ptr %5, align 16, !alias.scope !533
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail23get_unserialize_functorINS2_6BitmapETnNS_9enable_ifIX18is_constructible_vIT_PNS2_6StreamEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectES9_EEEvEUlS9_E_NS_9allocatorISH_EESF_EE, i64 16), ptr %5, align 16, !alias.scope !533
   store ptr %5, ptr %10, align 16, !alias.scope !533
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.19, i64 noundef 0)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14.i unwind label %30

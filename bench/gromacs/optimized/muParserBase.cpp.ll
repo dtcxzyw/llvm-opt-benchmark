@@ -576,7 +576,7 @@ declare void @_ZNSt6locale5_ImplD1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2mu10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(596) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2mu10ParserBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu10ParserBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 ptrtoint (ptr @_ZNK2mu10ParserBase11ParseStringEv to i64), ptr %2, align 8
   %.repack2 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1214,7 +1214,7 @@ _ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit: ; preds = %1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2mu10ParserBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(596) %0, ptr noundef nonnull align 8 dereferenceable(596) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2mu10ParserBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu10ParserBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 ptrtoint (ptr @_ZNK2mu10ParserBase11ParseStringEv to i64), ptr %3, align 8
   %.repack4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1469,7 +1469,7 @@ _ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EE5resetEPS1_.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2mu10ParserBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu10ParserBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 568
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -3631,7 +3631,7 @@ _ZSt9use_facetIN2mu10ParserBase14change_dec_sepIcEEERKT_RKSt6locale.exit: ; pred
           to label %22 unwind label %30
 
 22:                                               ; preds = %21
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2mu10ParserBase14change_dec_sepIcEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu10ParserBase14change_dec_sepIcEE, i64 16), ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 24
   store i32 3, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 28
@@ -3725,7 +3725,7 @@ _ZSt9use_facetIN2mu10ParserBase14change_dec_sepIcEEERKT_RKSt6locale.exit: ; pred
           to label %22 unwind label %30
 
 22:                                               ; preds = %21
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2mu10ParserBase14change_dec_sepIcEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu10ParserBase14change_dec_sepIcEE, i64 16), ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 24
   store i32 3, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 28
@@ -3773,7 +3773,7 @@ define void @_ZN2mu10ParserBase11ResetLocaleEv(ptr nocapture noundef nonnull rea
           to label %6 unwind label %16
 
 6:                                                ; preds = %5
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2mu10ParserBase14change_dec_sepIcEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu10ParserBase14change_dec_sepIcEE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 28
@@ -19608,7 +19608,7 @@ __cxx_global_var_init.2.exit:                     ; preds = %__cxx_global_var_in
   br label %common.resume
 
 __cxx_global_var_init.4.exit:                     ; preds = %__cxx_global_var_init.2.exit
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2mu10ParserBase14change_dec_sepIcEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu10ParserBase14change_dec_sepIcEE, i64 16), ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i32 3, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 28

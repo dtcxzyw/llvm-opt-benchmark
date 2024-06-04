@@ -1654,7 +1654,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit25.thread, label %if.then.i27
 
 _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit25.thread: ; preds = %entry
-  %bytes_read_34 = getelementptr inbounds i8, ptr %this, i64 32
+  %bytes_read_35 = getelementptr inbounds i8, ptr %this, i64 32
   br label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit30
 
 if.then.i27:                                      ; preds = %entry
@@ -1696,8 +1696,9 @@ if.then.i27:                                      ; preds = %entry
   br label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit30
 
 _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit30: ; preds = %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit25.thread, %if.then.i27
-  %bytes_read_3538 = phi ptr [ %bytes_read_34, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit25.thread ], [ %bytes_read_, %if.then.i27 ]
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %12, label %_ZTWN7rocksdb10perf_levelE.exit
+  %bytes_read_3639 = phi ptr [ %bytes_read_35, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit25.thread ], [ %bytes_read_, %if.then.i27 ]
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb10perf_levelE.exit, label %12
 
 12:                                               ; preds = %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit30
   tail call void @_ZTHN7rocksdb10perf_levelE()
@@ -1710,8 +1711,9 @@ _ZTWN7rocksdb10perf_levelE.exit:                  ; preds = %_ZN7rocksdb10Record
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZTWN7rocksdb10perf_levelE.exit
-  %15 = load i64, ptr %bytes_read_3538, align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %16, label %_ZTWN7rocksdb12perf_contextE.exit
+  %15 = load i64, ptr %bytes_read_3639, align 8
+  %.not.i31 = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i31, label %_ZTWN7rocksdb12perf_contextE.exit, label %16
 
 16:                                               ; preds = %if.then
   tail call void @_ZTHN7rocksdb12perf_contextE()

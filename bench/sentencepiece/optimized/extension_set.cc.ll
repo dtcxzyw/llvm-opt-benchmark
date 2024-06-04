@@ -12780,7 +12780,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcP
   %7 = alloca %"class.google::protobuf::internal::GeneratedExtensionFinder", align 8
   %8 = alloca i8, align 1
   %9 = alloca %"struct.google::protobuf::internal::ExtensionInfo", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf8internal24GeneratedExtensionFinderE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal24GeneratedExtensionFinderE, i64 16), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %3, ptr %10, align 8
   %11 = lshr i64 %1, 3
@@ -14829,8 +14829,8 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet10ParseFiel
   %5 = alloca %"struct.google::protobuf::internal::ExtensionInfo", align 8
   %6 = alloca %"class.google::protobuf::internal::FieldSkipper", align 8
   %7 = alloca %"class.google::protobuf::internal::GeneratedExtensionFinder", align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6google8protobuf8internal12FieldSkipperE, i64 16), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf8internal24GeneratedExtensionFinderE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal12FieldSkipperE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal24GeneratedExtensionFinderE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %3, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -14841,7 +14841,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet10ParseFiel
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %.noexc
-  %13 = load ptr, ptr getelementptr inbounds inrange(-32, 24) (i8, ptr @_ZTVN6google8protobuf8internal12FieldSkipperE, i64 32), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal12FieldSkipperE, i64 32), align 8
   %14 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2, i32 noundef %1)
   br label %19
 
@@ -14865,10 +14865,10 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet10ParseFiel
   %6 = alloca %"struct.google::protobuf::internal::ExtensionInfo", align 8
   %7 = alloca %"class.google::protobuf::internal::CodedOutputStreamFieldSkipper", align 8
   %8 = alloca %"class.google::protobuf::internal::GeneratedExtensionFinder", align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6google8protobuf8internal29CodedOutputStreamFieldSkipperE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal29CodedOutputStreamFieldSkipperE, i64 16), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %4, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf8internal24GeneratedExtensionFinderE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal24GeneratedExtensionFinderE, i64 16), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %3, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -14879,7 +14879,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet10ParseFiel
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %.noexc
-  %15 = load ptr, ptr getelementptr inbounds inrange(-32, 24) (i8, ptr @_ZTVN6google8protobuf8internal29CodedOutputStreamFieldSkipperE, i64 32), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal29CodedOutputStreamFieldSkipperE, i64 32), align 8
   %16 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %2, i32 noundef %1)
   br label %21
 
@@ -15434,10 +15434,10 @@ _ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputStreamE.exit:
   %7 = alloca %"class.google::protobuf::internal::GeneratedExtensionFinder", align 8
   call void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %3)
   call void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %4, i1 noundef zeroext true)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6google8protobuf8internal29CodedOutputStreamFieldSkipperE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal29CodedOutputStreamFieldSkipperE, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf8internal24GeneratedExtensionFinderE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal24GeneratedExtensionFinderE, i64 16), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %9, align 8
   %10 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet19ParseMessageSetLiteEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %6)

@@ -660,7 +660,8 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %4
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #23
-  br i1 icmp ne (ptr @_ZTH9rawstream, ptr null), label %6, label %_ZTW9rawstream.exit
+  %.not = icmp eq ptr @_ZTH9rawstream, null
+  br i1 %.not, label %_ZTW9rawstream.exit, label %6
 
 6:                                                ; preds = %invoke.cont
   call void @_ZTH9rawstream()

@@ -392,10 +392,10 @@ while.body:                                       ; preds = %entry, %do.end13
 if.then:                                          ; preds = %while.body
   %call1 = tail call ptr @__errno_location() #10
   %0 = load i32, ptr %call1, align 4
-  %cmp2 = icmp eq i32 %0, 11
+  %cmp2.not = icmp eq i32 %0, 11
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp4 = icmp sgt i32 %1, 3
-  %or.cond = select i1 %cmp2, i1 true, i1 %cmp4
+  %or.cond = select i1 %cmp2.not, i1 true, i1 %cmp4
   br i1 %or.cond, label %while.end, label %if.end
 
 if.end:                                           ; preds = %if.then

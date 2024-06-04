@@ -71,7 +71,7 @@ define void @_ZN3gmx15analysismodules14ConvertTrjInfo6createEv(ptr dead_on_unwin
           to label %3 unwind label %13
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN3gmx15analysismodules12_GLOBAL__N_110ConvertTrjE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15analysismodules12_GLOBAL__N_110ConvertTrjE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -118,7 +118,7 @@ declare void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110ConvertTrjD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN3gmx15analysismodules12_GLOBAL__N_110ConvertTrjE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15analysismodules12_GLOBAL__N_110ConvertTrjE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -149,7 +149,7 @@ _ZNSt10unique_ptrIN3gmx21TrajectoryFrameWriterESt14default_deleteIS1_EED2Ev.exit
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110ConvertTrjD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN3gmx15analysismodules12_GLOBAL__N_110ConvertTrjE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15analysismodules12_GLOBAL__N_110ConvertTrjE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -194,7 +194,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_14FileNameOptionEEEPNT_8InfoTypeERKS3_.e
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   %10 = getelementptr inbounds i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx15SelectionOptionE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15SelectionOptionE, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 88
   store ptr @.str.3, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 96
@@ -216,7 +216,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_14FileNameOptionEEEPNT_8InfoTypeERKS3_.e
   %22 = getelementptr inbounds i8, ptr %4, i64 24
   %23 = getelementptr inbounds i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx14FileNameOptionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx14FileNameOptionE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 88
   %25 = getelementptr inbounds i8, ptr %4, i64 92
   store i32 -1, ptr %25, align 4

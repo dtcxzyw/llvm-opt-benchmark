@@ -858,7 +858,7 @@ _ZNSt10shared_ptrIN6gmxapi8WorkflowEEC2IS1_St14default_deleteIS1_EvEEOSt10unique
   store i32 1, ptr %5, align 8, !noalias !10
   %6 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6gmxapi10MDWorkSpecESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6gmxapi10MDWorkSpecESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !10
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   invoke void @_ZN6gmxapi10MDWorkSpecC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %9 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6gmxapi10MDWorkSpecESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !10
@@ -907,7 +907,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN6gmxapi8WorkflowESt14def
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN6gmxapi8WorkflowESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN6gmxapi8WorkflowESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %5, ptr %10, align 8
   %11 = load ptr, ptr %4, align 8

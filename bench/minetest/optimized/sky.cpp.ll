@@ -1324,7 +1324,7 @@ invoke.cont102:                                   ; preds = %invoke.cont98
   %66 = load i32, ptr %material, align 4, !tbaa !117
   %MaterialType = getelementptr inbounds i8, ptr %this, i64 376
   store i32 %66, ptr %MaterialType, align 8, !tbaa !121
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %ref.tmp90, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %ref.tmp90, align 8, !tbaa !20
   %name.i = getelementptr inbounds i8, ptr %ref.tmp90, i64 8
   %67 = load ptr, ptr %name.i, align 8, !tbaa !4
   %68 = getelementptr inbounds i8, ptr %ref.tmp90, i64 24
@@ -2972,7 +2972,7 @@ if.end21.i.3:                                     ; preds = %if.else18.i.3, %inv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ShaderInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %this, align 8, !tbaa !20
   %name = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -3601,7 +3601,7 @@ entry:
   %ref.tmp234 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp247 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 3016
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !20
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 3024
   store ptr null, ptr %DebugName.i, align 8, !tbaa !164
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 3032
@@ -3637,8 +3637,8 @@ entry:
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp11) #30
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp8) #30
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp) #30
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV3Sky, i64 24), ptr %this, align 8, !tbaa !20
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV3Sky, i64 336), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV3Sky, i64 24), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV3Sky, i64 336), ptr %0, align 8, !tbaa !20
   %m_box = getelementptr inbounds i8, ptr %this, i64 224
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %m_box, align 8, !tbaa !22
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -4346,7 +4346,7 @@ invoke.cont115:                                   ; preds = %invoke.cont111
   %63 = load i32, ptr %material, align 4, !tbaa !117
   %MaterialType = getelementptr inbounds i8, ptr %this, i64 376
   store i32 %63, ptr %MaterialType, align 8, !tbaa !121
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %ref.tmp103, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %ref.tmp103, align 8, !tbaa !20
   %name.i = getelementptr inbounds i8, ptr %ref.tmp103, i64 8
   %64 = load ptr, ptr %name.i, align 8, !tbaa !4
   %65 = getelementptr inbounds i8, ptr %ref.tmp103, i64 24
@@ -8990,8 +8990,8 @@ invoke.cont:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !164
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 328
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !138
-  store ptr getelementptr inbounds inrange(-24, 264) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %call, align 8, !tbaa !20
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %call, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %0, align 8, !tbaa !20
   %ChangedID_Vertex.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %ChangedID_Vertex.i, align 8, !tbaa !215
   %ChangedID_Index.i = getelementptr inbounds i8, ptr %call, i64 12
@@ -9103,7 +9103,8 @@ _ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvE5resetEPS5_.exit: 
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvE5resetEPS5_.exit
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %5, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %5
 
 5:                                                ; preds = %if.then
   tail call void @_ZTH13warningstream()
@@ -12377,7 +12378,7 @@ unreachable:                                      ; preds = %invoke.cont3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ShaderInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10ShaderInfo, i64 16), ptr %this, align 8, !tbaa !20
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name.i, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -13880,9 +13881,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 264) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !20
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i, align 8, !tbaa !20
   %Indices.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %Indices.i, align 8, !tbaa !255
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -13949,9 +13950,9 @@ _ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED2Ev.exit: ; preds = %delete.not
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED0Ev(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 264) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !20
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !20
   %Indices.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %Indices.i.i, align 8, !tbaa !255
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -14023,9 +14024,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 264) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !20
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 312
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !20
   %Indices.i.i = getelementptr inbounds i8, ptr %3, i64 248
   %4 = load ptr, ptr %Indices.i.i, align 8, !tbaa !255
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -14096,9 +14097,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 264) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !20
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 312
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i.i, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i.i, align 8, !tbaa !20
   %Indices.i.i.i = getelementptr inbounds i8, ptr %3, i64 248
   %4 = load ptr, ptr %Indices.i.i.i, align 8, !tbaa !255
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %4, null

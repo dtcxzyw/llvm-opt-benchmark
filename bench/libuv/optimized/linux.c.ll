@@ -319,17 +319,17 @@ if.then3:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %call.i57 = call i64 (i64, ...) @syscall(i64 noundef 425, i32 noundef %entries, ptr noundef nonnull %params) #18
-  %conv.i58 = trunc i64 %call.i57 to i32
-  %cmp = icmp eq i32 %conv.i58, -1
+  %call.i58 = call i64 (i64, ...) @syscall(i64 noundef 425, i32 noundef %entries, ptr noundef nonnull %params) #18
+  %conv.i59 = trunc i64 %call.i58 to i32
+  %cmp = icmp eq i32 %conv.i59, -1
   br i1 %cmp, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
   %features = getelementptr inbounds i8, ptr %params, i64 20
   %1 = load i32, ptr %features, align 4
   %2 = and i32 %1, 1027
-  %or.cond56.not = icmp eq i32 %2, 1027
-  br i1 %or.cond56.not, label %if.end21, label %if.end106
+  %or.cond57.not = icmp eq i32 %2, 1027
+  br i1 %or.cond57.not, label %if.end21, label %if.end106
 
 if.end21:                                         ; preds = %if.end7
   %sq_off = getelementptr inbounds i8, ptr %params, i64 40
@@ -351,8 +351,8 @@ if.end21:                                         ; preds = %if.end7
   %add26 = add nuw nsw i64 %mul25, %conv23
   %cond = call i64 @llvm.umax.i64(i64 %add, i64 %add26)
   %mul31 = shl nuw nsw i64 %conv22, 6
-  %call32 = call ptr @mmap64(ptr noundef null, i64 noundef %cond, i32 noundef 3, i32 noundef 32769, i32 noundef %conv.i58, i64 noundef 0) #18
-  %call33 = call ptr @mmap64(ptr noundef null, i64 noundef %mul31, i32 noundef 3, i32 noundef 32769, i32 noundef %conv.i58, i64 noundef 268435456) #18
+  %call32 = call ptr @mmap64(ptr noundef null, i64 noundef %cond, i32 noundef 3, i32 noundef 32769, i32 noundef %conv.i59, i64 noundef 0) #18
+  %call33 = call ptr @mmap64(ptr noundef null, i64 noundef %mul31, i32 noundef 3, i32 noundef 32769, i32 noundef %conv.i59, i64 noundef 268435456) #18
   %cmp34 = icmp eq ptr %call32, inttoptr (i64 -1 to ptr)
   %cmp36 = icmp eq ptr %call33, inttoptr (i64 -1 to ptr)
   %or.cond = select i1 %cmp34, i1 true, i1 %cmp36
@@ -366,8 +366,8 @@ if.then42:                                        ; preds = %if.end39
   store i32 0, ptr %7, align 4
   store i32 1, ptr %e, align 4
   %data = getelementptr inbounds i8, ptr %e, i64 4
-  store i32 %conv.i58, ptr %data, align 4
-  %call43 = call i32 @epoll_ctl(i32 noundef %epollfd, i32 noundef 1, i32 noundef %conv.i58, ptr noundef nonnull %e) #18
+  store i32 %conv.i59, ptr %data, align 4
+  %call43 = call i32 @epoll_ctl(i32 noundef %epollfd, i32 noundef 1, i32 noundef %conv.i59, ptr noundef nonnull %e) #18
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %if.end47, label %if.then99
 
@@ -436,7 +436,7 @@ if.end47:                                         ; preds = %if.then42, %if.end3
   %sqelen84 = getelementptr inbounds i8, ptr %iou, i64 112
   store i64 %mul31, ptr %sqelen84, align 8
   %ringfd85 = getelementptr inbounds i8, ptr %iou, i64 120
-  store i32 %conv.i58, ptr %ringfd85, align 8
+  store i32 %conv.i59, ptr %ringfd85, align 8
   %in_flight = getelementptr inbounds i8, ptr %iou, i64 124
   store i32 0, ptr %in_flight, align 4
   %flags86 = getelementptr inbounds i8, ptr %iou, i64 128
@@ -455,12 +455,12 @@ for.body.preheader:                               ; preds = %if.then90, %if.end4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.079 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %i.080 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %20 = load ptr, ptr %sqarray, align 8
-  %idxprom = zext i32 %i.079 to i64
+  %idxprom = zext i32 %i.080 to i64
   %arrayidx = getelementptr inbounds i32, ptr %20, i64 %idxprom
-  store i32 %i.079, ptr %arrayidx, align 4
-  %inc = add i32 %i.079, 1
+  store i32 %i.080, ptr %arrayidx, align 4
+  %inc = add i32 %i.080, 1
   %21 = load i32, ptr %sqmask, align 8
   %cmp94.not = icmp ugt i32 %inc, %21
   br i1 %cmp94.not, label %return, label %for.body
@@ -480,7 +480,7 @@ if.then104:                                       ; preds = %if.end101
   br label %if.end106
 
 if.end106:                                        ; preds = %if.end7, %if.then104, %if.end101
-  %call107 = call i32 @uv__close(i32 noundef %conv.i58) #18
+  %call107 = call i32 @uv__close(i32 noundef %conv.i59) #18
   br label %return
 
 return:                                           ; preds = %for.body, %if.end4, %uv__use_io_uring.exit, %if.end106

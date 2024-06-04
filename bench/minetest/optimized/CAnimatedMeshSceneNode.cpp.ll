@@ -295,8 +295,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !67
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 424
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !69
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %0, align 8, !tbaa !3
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6
   %AbsoluteTransformation.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -349,12 +349,12 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN3irr5scene22IAnimatedMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_SA_.exit
 
 _ZN3irr5scene22IAnimatedMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_SA_.exit: ; preds = %if.then.i.i, %entry
-  %vtable4.i.i = phi ptr [ getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 24), %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
+  %vtable4.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 24), %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 256
   %3 = load ptr, ptr %vfn5.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(222) %this) #21
-  store ptr getelementptr inbounds inrange(-24, 456) (i8, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 504), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 504), ptr %0, align 8, !tbaa !3
   %Materials = getelementptr inbounds i8, ptr %this, i64 224
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Materials, i8 0, i64 24, i1 false)
@@ -4493,8 +4493,8 @@ _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !67
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 424
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !69
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %4, align 8, !tbaa !3
   %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !tbaa !6
   %AbsoluteTransformation.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
@@ -4539,8 +4539,8 @@ _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   call void @_ZNK3irr5scene10ISceneNode25getRelativeTransformationEv(ptr dead_on_unwind nonnull writable sret(%"class.irr::core::CMatrix4") align 4 %ref.tmp6.i, ptr noundef nonnull align 8 dereferenceable(222) %call) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %AbsoluteTransformation.i.i.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp6.i, i64 64, i1 false), !tbaa.struct !97
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp6.i) #21
-  store ptr getelementptr inbounds inrange(-24, 456) (i8, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 24), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 504), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 504), ptr %4, align 8, !tbaa !3
   %Materials.i = getelementptr inbounds i8, ptr %call, i64 224
   %is_sorted.i.i = getelementptr inbounds i8, ptr %call, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Materials.i, i8 0, i64 24, i1 false)

@@ -7053,23 +7053,23 @@ define internal fastcc noundef zeroext i1 @inzsub(ptr nocapture noundef readonly
 
 ecpyalloc.exit:                                   ; preds = %8, %3
   %storemerge = phi ptr [ null, %3 ], [ %10, %8 ]
-  %.052 = phi i64 [ 0, %3 ], [ 2, %8 ]
-  %.051 = phi i64 [ 1, %3 ], [ 3, %8 ]
-  %.050 = phi i64 [ 2, %3 ], [ 4, %8 ]
-  %.049 = phi i32 [ 3, %3 ], [ 5, %8 ]
-  %.048 = phi i32 [ 4, %3 ], [ 6, %8 ]
-  %.047 = phi i32 [ 5, %3 ], [ 7, %8 ]
-  %.046 = phi i32 [ 6, %3 ], [ 8, %8 ]
+  %.054 = phi i64 [ 0, %3 ], [ 2, %8 ]
+  %.053 = phi i64 [ 1, %3 ], [ 3, %8 ]
+  %.052 = phi i64 [ 2, %3 ], [ 4, %8 ]
+  %.051 = phi i32 [ 3, %3 ], [ 5, %8 ]
+  %.050 = phi i32 [ 4, %3 ], [ 6, %8 ]
+  %.049 = phi i32 [ 5, %3 ], [ 7, %8 ]
+  %.048 = phi i32 [ 6, %3 ], [ 8, %8 ]
   store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @inzsub.z, i64 16), align 8
   %16 = load ptr, ptr @filename, align 8
   store ptr %16, ptr @inzsub.z, align 8
   %17 = load i32, ptr @linenum, align 4
   store i32 %17, ptr getelementptr inbounds (i8, ptr @inzsub.z, i64 8), align 8
-  %18 = getelementptr ptr, ptr %0, i64 %.052
+  %18 = getelementptr ptr, ptr %0, i64 %.054
   %19 = load ptr, ptr %18, align 8
   %20 = tail call fastcc i64 @gethms(ptr noundef %19, ptr noundef nonnull @.str.69)
   store i64 %20, ptr getelementptr inbounds (i8, ptr @inzsub.z, i64 24), align 8
-  %21 = getelementptr ptr, ptr %0, i64 %.050
+  %21 = getelementptr ptr, ptr %0, i64 %.052
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 37) #26
   %.not = icmp eq ptr %23, null
@@ -7085,25 +7085,25 @@ ecpyalloc.exit:                                   ; preds = %8, %3
 
 27:                                               ; preds = %24, %24
   %28 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 37) #26
-  %.not63 = icmp eq ptr %28, null
-  br i1 %.not63, label %29, label %31
+  %.not65 = icmp eq ptr %28, null
+  br i1 %.not65, label %29, label %31
 
 29:                                               ; preds = %27
   %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 47) #26
-  %.not64 = icmp eq ptr %30, null
-  br i1 %.not64, label %32, label %31
+  %.not66 = icmp eq ptr %30, null
+  br i1 %.not66, label %32, label %31
 
 31:                                               ; preds = %24, %29, %27
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.70)
   br label %129
 
 32:                                               ; preds = %29, %ecpyalloc.exit
-  %.053 = phi ptr [ %25, %29 ], [ null, %ecpyalloc.exit ]
-  %33 = getelementptr ptr, ptr %0, i64 %.051
+  %.055 = phi ptr [ %25, %29 ], [ null, %ecpyalloc.exit ]
+  %33 = getelementptr ptr, ptr %0, i64 %.053
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noalias ptr @strdup(ptr noundef readonly %34) #25
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %ecpyalloc.exit71
+  br i1 %36, label %37, label %ecpyalloc.exit73
 
 37:                                               ; preds = %32
   %38 = tail call ptr @__errno_location() #27
@@ -7112,38 +7112,38 @@ ecpyalloc.exit:                                   ; preds = %8, %3
   tail call fastcc void @memory_exhausted(ptr noundef %40) #29
   unreachable
 
-ecpyalloc.exit71:                                 ; preds = %32
+ecpyalloc.exit73:                                 ; preds = %32
   store ptr %35, ptr getelementptr inbounds (i8, ptr @inzsub.z, i64 32), align 8
   %41 = load ptr, ptr %21, align 8
   %42 = tail call noalias ptr @strdup(ptr noundef readonly %41) #25
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %ecpyalloc.exit72
+  br i1 %43, label %44, label %ecpyalloc.exit74
 
-44:                                               ; preds = %ecpyalloc.exit71
+44:                                               ; preds = %ecpyalloc.exit73
   %45 = tail call ptr @__errno_location() #27
   %46 = load i32, ptr %45, align 4
   %47 = tail call ptr @pg_strerror(i32 noundef %46) #25
   tail call fastcc void @memory_exhausted(ptr noundef %47) #29
   unreachable
 
-ecpyalloc.exit72:                                 ; preds = %ecpyalloc.exit71
+ecpyalloc.exit74:                                 ; preds = %ecpyalloc.exit73
   store ptr %42, ptr getelementptr inbounds (i8, ptr @inzsub.z, i64 40), align 8
-  %.not65 = icmp eq ptr %.053, null
-  br i1 %.not65, label %.thread, label %48
+  %.not67 = icmp eq ptr %.055, null
+  br i1 %.not67, label %.thread, label %48
 
-.thread:                                          ; preds = %ecpyalloc.exit72
+.thread:                                          ; preds = %ecpyalloc.exit74
   store i8 0, ptr getelementptr inbounds (i8, ptr @inzsub.z, i64 48), align 8
   br label %59
 
-48:                                               ; preds = %ecpyalloc.exit72
-  %49 = load i8, ptr %.053, align 1
+48:                                               ; preds = %ecpyalloc.exit74
+  %49 = load i8, ptr %.055, align 1
   store i8 %49, ptr getelementptr inbounds (i8, ptr @inzsub.z, i64 48), align 8
   %50 = icmp eq i8 %49, 122
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %48
-  %.b66 = load i1, ptr @noise, align 1
-  br i1 %.b66, label %52, label %53
+  %.b68 = load i1, ptr @noise, align 1
+  br i1 %.b68, label %52, label %53
 
 52:                                               ; preds = %51
   tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.71, ptr noundef nonnull %42)
@@ -7153,7 +7153,7 @@ ecpyalloc.exit72:                                 ; preds = %ecpyalloc.exit71
 53:                                               ; preds = %52, %51
   %.pre = phi ptr [ %.pre.pre, %52 ], [ %42, %51 ]
   %54 = load ptr, ptr %21, align 8
-  %55 = ptrtoint ptr %.053 to i64
+  %55 = ptrtoint ptr %.055 to i64
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
   %58 = getelementptr i8, ptr %42, i64 %57
@@ -7174,12 +7174,12 @@ ecpyalloc.exit72:                                 ; preds = %ecpyalloc.exit71
   br label %67
 
 67:                                               ; preds = %65, %59
-  %68 = icmp slt i32 %.049, %1
+  %68 = icmp slt i32 %.051, %1
   br i1 %68, label %69, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %67
-  %.pre73 = load ptr, ptr @zones, align 8
-  %.pre75 = load i64, ptr @nzones, align 8
+  %.pre75 = load ptr, ptr @zones, align 8
+  %.pre77 = load i64, ptr @nzones, align 8
   br label %107
 
 69:                                               ; preds = %67
@@ -7187,36 +7187,36 @@ ecpyalloc.exit72:                                 ; preds = %ecpyalloc.exit71
   store ptr %70, ptr getelementptr inbounds (i8, ptr @inzsub.z, i64 80), align 8
   %71 = load i32, ptr @linenum, align 4
   store i32 %71, ptr getelementptr inbounds (i8, ptr @inzsub.z, i64 88), align 8
-  %72 = zext nneg i32 %.049 to i64
+  %72 = zext nneg i32 %.051 to i64
   %73 = getelementptr ptr, ptr %0, i64 %72
   %74 = load ptr, ptr %73, align 8
-  %75 = icmp ult i32 %.048, %1
+  %75 = icmp ult i32 %.050, %1
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %69
-  %77 = zext nneg i32 %.048 to i64
+  %77 = zext nneg i32 %.050 to i64
   %78 = getelementptr ptr, ptr %0, i64 %77
   %79 = load ptr, ptr %78, align 8
   br label %80
 
 80:                                               ; preds = %69, %76
   %81 = phi ptr [ %79, %76 ], [ @.str.73, %69 ]
-  %82 = icmp ult i32 %.047, %1
+  %82 = icmp ult i32 %.049, %1
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %80
-  %84 = zext nneg i32 %.047 to i64
+  %84 = zext nneg i32 %.049 to i64
   %85 = getelementptr ptr, ptr %0, i64 %84
   %86 = load ptr, ptr %85, align 8
   br label %87
 
 87:                                               ; preds = %80, %83
   %88 = phi ptr [ %86, %83 ], [ @.str.74, %80 ]
-  %89 = icmp ult i32 %.046, %1
+  %89 = icmp ult i32 %.048, %1
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %87
-  %91 = zext nneg i32 %.046 to i64
+  %91 = zext nneg i32 %.048 to i64
   %92 = getelementptr ptr, ptr %0, i64 %91
   %93 = load ptr, ptr %92, align 8
   br label %94
@@ -7232,27 +7232,27 @@ ecpyalloc.exit72:                                 ; preds = %ecpyalloc.exit71
   %or.cond = select i1 %2, i1 %99, i1 false
   %100 = add i64 %97, 9223372036854775807
   %101 = icmp ult i64 %100, -2
-  %or.cond5 = select i1 %or.cond, i1 %101, i1 false
-  %.pre74 = load ptr, ptr @zones, align 8
-  br i1 %or.cond5, label %102, label %107
+  %or.cond7 = select i1 %or.cond, i1 %101, i1 false
+  %.pre76 = load ptr, ptr @zones, align 8
+  br i1 %or.cond7, label %102, label %107
 
 102:                                              ; preds = %94
-  %103 = getelementptr %struct.zone, ptr %.pre74, i64 %98
+  %103 = getelementptr %struct.zone, ptr %.pre76, i64 %98
   %104 = getelementptr i8, ptr %103, i64 -8
   %105 = load i64, ptr %104, align 8
   %.off = add i64 %105, -9223372036854775807
   %switch = icmp ult i64 %.off, 2
-  %.not69 = icmp slt i64 %105, %97
-  %or.cond70 = select i1 %switch, i1 true, i1 %.not69
-  br i1 %or.cond70, label %107, label %106
+  %.not71 = icmp slt i64 %105, %97
+  %or.cond72 = select i1 %switch, i1 true, i1 %.not71
+  br i1 %or.cond72, label %107, label %106
 
 106:                                              ; preds = %102
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.76)
   br label %129
 
 107:                                              ; preds = %._crit_edge, %102, %94
-  %108 = phi i64 [ %.pre75, %._crit_edge ], [ %98, %102 ], [ %98, %94 ]
-  %109 = phi ptr [ %.pre73, %._crit_edge ], [ %.pre74, %102 ], [ %.pre74, %94 ]
+  %108 = phi i64 [ %.pre77, %._crit_edge ], [ %98, %102 ], [ %98, %94 ]
+  %109 = phi ptr [ %.pre75, %._crit_edge ], [ %.pre76, %102 ], [ %.pre76, %94 ]
   %110 = load i64, ptr @nzones_alloc, align 8
   %111 = icmp sgt i64 %110, %108
   br i1 %111, label %growalloc.exit, label %112

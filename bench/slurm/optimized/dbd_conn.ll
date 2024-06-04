@@ -607,13 +607,13 @@ define i32 @dbd_conn_send_recv_rc_comment_msg(i16 noundef zeroext %0, ptr nounde
 dbd_conn_send_recv.exit:                          ; preds = %11, %13
   %.0.i = phi i32 [ %12, %11 ], [ %14, %13 ]
   %.not = icmp eq i32 %.0.i, 0
-  br i1 %.not, label %15, label %62
+  br i1 %.not, label %15, label %61
 
 15:                                               ; preds = %dbd_conn_send_recv.exit
   %16 = getelementptr inbounds i8, ptr %5, i64 16
   %17 = load i16, ptr %16, align 8
-  %.not39 = icmp eq i16 %17, 1433
-  br i1 %.not39, label %24, label %18
+  %.not37 = icmp eq i16 %17, 1433
+  br i1 %.not37, label %24, label %18
 
 18:                                               ; preds = %15
   %19 = zext i16 %17 to i32
@@ -621,7 +621,7 @@ dbd_conn_send_recv.exit:                          ; preds = %11, %13
   %21 = load i16, ptr %16, align 8
   %22 = zext i16 %21 to i32
   %23 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.8, ptr noundef %20, i32 noundef %22) #6
-  br label %62
+  br label %61
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds i8, ptr %5, i64 8
@@ -630,16 +630,16 @@ dbd_conn_send_recv.exit:                          ; preds = %11, %13
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %2, align 4
   switch i32 %28, label %29 [
-    i32 0, label %58
-    i32 10002, label %58
-    i32 10004, label %58
-    i32 10005, label %58
+    i32 0, label %57
+    i32 10002, label %57
+    i32 10004, label %57
+    i32 10005, label %57
   ]
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %26, align 8
-  %.not44 = icmp eq ptr %30, null
-  br i1 %.not44, label %31, label %33
+  %.not42 = icmp eq ptr %30, null
+  br i1 %.not42, label %31, label %33
 
 31:                                               ; preds = %29
   %32 = call ptr @slurm_strerror(i32 noundef %28) #6
@@ -648,80 +648,80 @@ dbd_conn_send_recv.exit:                          ; preds = %11, %13
 33:                                               ; preds = %31, %29
   %.0 = phi ptr [ %30, %29 ], [ %32, %31 ]
   %34 = load ptr, ptr %1, align 8
-  %.not45 = icmp eq ptr %34, null
-  br i1 %.not45, label %35, label %47
+  %.not43 = icmp eq ptr %34, null
+  br i1 %.not43, label %35, label %46
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %26, i64 16
   %37 = load i16, ptr %36, align 8
-  %38 = icmp eq i16 %37, 1434
+  %38 = icmp ne i16 %37, 1434
   %39 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
-  %40 = icmp ne i16 %39, 0
-  %or.cond = select i1 %38, i1 %40, i1 false
-  br i1 %or.cond, label %41, label %47
+  %.not44 = icmp eq i16 %39, 0
+  %or.cond = select i1 %38, i1 true, i1 %.not44
+  br i1 %or.cond, label %46, label %40
 
-41:                                               ; preds = %35
-  %42 = call ptr @slurmdbd_msg_type_2_str(i32 noundef 1434, i32 noundef 1) #6
-  %43 = load i16, ptr %36, align 8
-  %44 = zext i16 %43 to i32
-  %45 = load i32, ptr %27, align 4
-  %46 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.9, ptr noundef %42, i32 noundef %44, i32 noundef %45, ptr noundef %.0) #6
+40:                                               ; preds = %35
+  %41 = call ptr @slurmdbd_msg_type_2_str(i32 noundef 1434, i32 noundef 1) #6
+  %42 = load i16, ptr %36, align 8
+  %43 = zext i16 %42 to i32
+  %44 = load i32, ptr %27, align 4
+  %45 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.9, ptr noundef %41, i32 noundef %43, i32 noundef %44, ptr noundef %.0) #6
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.10) #8
   unreachable
 
-47:                                               ; preds = %35, %33
-  %48 = call i32 @slurm_get_log_level() #6
-  %49 = icmp sgt i32 %48, 4
-  br i1 %49, label %50, label %58
+46:                                               ; preds = %35, %33
+  %47 = call i32 @slurm_get_log_level() #6
+  %48 = icmp sgt i32 %47, 4
+  br i1 %48, label %49, label %57
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %26, i64 16
-  %52 = load i16, ptr %51, align 8
-  %53 = zext i16 %52 to i32
-  %54 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %53, i32 noundef 1) #6
-  %55 = load i16, ptr %51, align 8
-  %56 = zext i16 %55 to i32
-  %57 = load i32, ptr %27, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.11, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.dbd_conn_send_recv_rc_comment_msg, ptr noundef %54, i32 noundef %56, i32 noundef %57, ptr noundef %.0) #6
-  br label %58
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds i8, ptr %26, i64 16
+  %51 = load i16, ptr %50, align 8
+  %52 = zext i16 %51 to i32
+  %53 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %52, i32 noundef 1) #6
+  %54 = load i16, ptr %50, align 8
+  %55 = zext i16 %54 to i32
+  %56 = load i32, ptr %27, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.11, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.dbd_conn_send_recv_rc_comment_msg, ptr noundef %53, i32 noundef %55, i32 noundef %56, ptr noundef %.0) #6
+  br label %57
 
-58:                                               ; preds = %24, %24, %24, %24, %50, %47
-  %.not46 = icmp eq ptr %3, null
-  br i1 %.not46, label %61, label %59
+57:                                               ; preds = %24, %24, %24, %24, %49, %46
+  %.not45 = icmp eq ptr %3, null
+  br i1 %.not45, label %60, label %58
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr %26, align 8
-  store ptr %60, ptr %3, align 8
+58:                                               ; preds = %57
+  %59 = load ptr, ptr %26, align 8
+  store ptr %59, ptr %3, align 8
   store ptr null, ptr %26, align 8
+  br label %60
+
+60:                                               ; preds = %58, %57
+  call void @slurm_persist_free_rc_msg(ptr noundef nonnull %26) #6
   br label %61
 
-61:                                               ; preds = %59, %58
-  call void @slurm_persist_free_rc_msg(ptr noundef nonnull %26) #6
-  br label %62
+61:                                               ; preds = %dbd_conn_send_recv.exit, %60, %18
+  %.030 = phi i32 [ %.0.i, %dbd_conn_send_recv.exit ], [ -1, %18 ], [ 0, %60 ]
+  %62 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %63 = and i64 %62, 67108864
+  %.not46 = icmp eq i64 %63, 0
+  br i1 %.not46, label %73, label %64
 
-62:                                               ; preds = %dbd_conn_send_recv.exit, %61, %18
-  %.032 = phi i32 [ %.0.i, %dbd_conn_send_recv.exit ], [ -1, %18 ], [ 0, %61 ]
-  %63 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %64 = and i64 %63, 67108864
-  %.not47 = icmp eq i64 %64, 0
-  br i1 %.not47, label %74, label %65
+64:                                               ; preds = %61
+  %65 = call i32 @slurm_get_log_level() #6
+  %66 = icmp sgt i32 %65, 3
+  br i1 %66, label %67, label %73
 
-65:                                               ; preds = %62
-  %66 = call i32 @slurm_get_log_level() #6
-  %67 = icmp sgt i32 %66, 3
-  br i1 %67, label %68, label %74
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds i8, ptr %1, i64 16
+  %69 = load i16, ptr %68, align 8
+  %70 = zext i16 %69 to i32
+  %71 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %70, i32 noundef 1) #6
+  %72 = zext i16 %0 to i32
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.12, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.dbd_conn_send_recv_rc_comment_msg, ptr noundef %71, i32 noundef %72, i32 noundef %.030) #6
+  br label %73
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
-  %70 = load i16, ptr %69, align 8
-  %71 = zext i16 %70 to i32
-  %72 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %71, i32 noundef 1) #6
-  %73 = zext i16 %0 to i32
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.12, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.dbd_conn_send_recv_rc_comment_msg, ptr noundef %72, i32 noundef %73, i32 noundef %.032) #6
-  br label %74
-
-74:                                               ; preds = %62, %65, %68
-  ret i32 %.032
+73:                                               ; preds = %61, %64, %67
+  ret i32 %.030
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

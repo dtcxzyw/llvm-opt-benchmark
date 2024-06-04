@@ -340,7 +340,7 @@ invoke.cont104:                                   ; preds = %delete.notnull, %in
 
 if.then108:                                       ; preds = %invoke.cont104
   %call110 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV20MapGridNodeContainer, i64 16), ptr %call110, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MapGridNodeContainer, i64 16), ptr %call110, align 8, !tbaa !20
   %14 = getelementptr inbounds i8, ptr %call110, i64 24
   store i32 0, ptr %14, align 8, !tbaa !35
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call110, i64 32
@@ -412,7 +412,8 @@ invoke.cont124:                                   ; preds = %cond.false.i.i, %la
   br i1 %tobool.not, label %if.end137, label %if.then126
 
 if.then126:                                       ; preds = %invoke.cont124
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %23, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %23
 
 23:                                               ; preds = %if.then126
   tail call void @_ZTH13verbosestream()
@@ -530,7 +531,8 @@ invoke.cont144:                                   ; preds = %cond.false.i.i395, 
   br i1 %tobool147.not, label %if.end159, label %if.then148
 
 if.then148:                                       ; preds = %invoke.cont144
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %40, label %_ZTW13verbosestream.exit403
+  %.not26 = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not26, label %_ZTW13verbosestream.exit403, label %40
 
 40:                                               ; preds = %if.then148
   tail call void @_ZTH13verbosestream()
@@ -686,7 +688,8 @@ invoke.cont190:                                   ; preds = %invoke.cont186
   br i1 %tobool192.not, label %if.then193, label %if.end214
 
 if.then193:                                       ; preds = %invoke.cont190
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %65, label %_ZTW13verbosestream.exit461
+  %.not30 = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not30, label %_ZTW13verbosestream.exit461, label %65
 
 65:                                               ; preds = %if.then193
   tail call void @_ZTH13verbosestream()
@@ -857,7 +860,8 @@ if.end214:                                        ; preds = %invoke.cont190
   br i1 %tobool216.not, label %if.then217, label %if.end238
 
 if.then217:                                       ; preds = %if.end214
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %85, label %_ZTW13verbosestream.exit505
+  %.not29 = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not29, label %_ZTW13verbosestream.exit505, label %85
 
 85:                                               ; preds = %if.then217
   tail call void @_ZTH13verbosestream()
@@ -1029,7 +1033,8 @@ sw.bb246:                                         ; preds = %if.end238, %if.end2
           to label %sw.epilog unwind label %lpad242
 
 sw.default:                                       ; preds = %if.end238
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %101, label %_ZTW13warningstream.exit
+  %.not27 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not27, label %_ZTW13warningstream.exit, label %101
 
 101:                                              ; preds = %sw.default
   tail call void @_ZTH13warningstream()
@@ -1318,7 +1323,8 @@ _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EED2Ev.exit631: ; preds = %if.then.i.i
   br label %ehcleanup319
 
 if.else305:                                       ; preds = %sw.epilog, %if.then.i564, %invoke.cont254
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %125, label %_ZTW10infostream.exit
+  %.not28 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not28, label %_ZTW10infostream.exit, label %125
 
 125:                                              ; preds = %if.else305
   tail call void @_ZTH10infostream()
@@ -2140,7 +2146,8 @@ if.end:                                           ; preds = %land.lhs.true22.i
   br i1 %cmp, label %if.then6, label %if.end11
 
 if.then6:                                         ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %9, label %_ZTW13verbosestream.exit
+  %.not9 = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not9, label %_ZTW13verbosestream.exit, label %9
 
 9:                                                ; preds = %if.then6
   tail call void @_ZTH13verbosestream()
@@ -2222,7 +2229,8 @@ if.then13:                                        ; preds = %_ZNK14NodeDefManage
   br i1 %cmp21.not, label %if.then22, label %if.end31
 
 if.then22:                                        ; preds = %if.then13
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %22, label %_ZTW13verbosestream.exit249
+  %.not8 = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not8, label %_ZTW13verbosestream.exit249, label %22
 
 22:                                               ; preds = %if.then22
   tail call void @_ZTH13verbosestream()
@@ -2406,7 +2414,8 @@ if.then90:                                        ; preds = %if.then83
   br label %cleanup225
 
 if.else102:                                       ; preds = %if.then83
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %48, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %48
 
 48:                                               ; preds = %if.else102
   tail call void @_ZTH10infostream()
@@ -2645,7 +2654,7 @@ cleanup225:                                       ; preds = %while.body147, %whi
 define dso_local void @_ZN22ArrayGridNodeContainerC2EP10PathfinderN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %pathf, i48 %dimensions.coerce) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dimensions.sroa.0.0.extract.trunc = trunc i48 %dimensions.coerce to i32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV22ArrayGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ArrayGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
   %m_x_stride = getelementptr inbounds i8, ptr %this, i64 16
   %conv = ashr i32 %dimensions.sroa.0.0.extract.trunc, 16
   %sh.diff = lshr i48 %dimensions.coerce, 16
@@ -2671,7 +2680,8 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %entry
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %invoke.cont
   tail call void @_ZTH10infostream()
@@ -2887,7 +2897,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN20MapGridNodeContainerC2EP10Pathfinder(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %pathf) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV20MapGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MapGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %0, align 8, !tbaa !35
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -3252,7 +3262,8 @@ if.then35:                                        ; preds = %if.else
   br label %return
 
 if.else38:                                        ; preds = %if.else
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %12, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %12
 
 12:                                               ; preds = %if.else38
   tail call void @_ZTH13verbosestream()
@@ -3485,6 +3496,7 @@ for.cond.preheader:                               ; preds = %entry
   %m_max_index_z.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_min_target_distance31 = getelementptr inbounds i8, ptr %this, i64 20
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @verbosestream)
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -3581,7 +3593,7 @@ if.end17:                                         ; preds = %land.lhs.true4.i
   br i1 %tobool21.not, label %if.then22, label %if.end30
 
 if.then22:                                        ; preds = %if.end17
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %14, label %_ZTW13verbosestream.exit
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %14
 
 14:                                               ; preds = %if.then22
   call void @_ZTH13verbosestream()
@@ -4241,7 +4253,8 @@ entry:
   br label %if.end
 
 if.then:                                          ; preds = %cleanup
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %0, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %0
 
 0:                                                ; preds = %if.then
   tail call void @_ZTH13warningstream()
@@ -4330,7 +4343,8 @@ if.end:                                           ; preds = %cleanup, %entry
   br i1 %tobool5.not, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %12, label %_ZTW13warningstream.exit29
+  %.not7 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not7, label %_ZTW13warningstream.exit29, label %12
 
 12:                                               ; preds = %if.then6
   tail call void @_ZTH13warningstream()
@@ -4829,7 +4843,7 @@ _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE9push_backERKS3_.exit: ; preds = %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22ArrayGridNodeContainerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV22ArrayGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ArrayGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
   %m_nodes_array = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_nodes_array, align 8, !tbaa !153
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -4846,7 +4860,7 @@ _ZNSt6vectorI12PathGridnodeSaIS0_EED2Ev.exit:     ; preds = %if.then.i.i.i, %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22ArrayGridNodeContainerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV22ArrayGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ArrayGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
   %m_nodes_array.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_nodes_array.i, align 8, !tbaa !153
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -4864,7 +4878,7 @@ _ZN22ArrayGridNodeContainerD2Ev.exit:             ; preds = %if.then.i.i.i.i, %e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20MapGridNodeContainerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV20MapGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MapGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
   %m_nodes = getelementptr inbounds i8, ptr %this, i64 16
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !40
@@ -4885,7 +4899,7 @@ _ZNSt3mapIN3irr4core8vector3dIsEE12PathGridnodeSt4lessIS3_ESaISt4pairIKS3_S4_EEE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20MapGridNodeContainerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV20MapGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20MapGridNodeContainer, i64 16), ptr %this, align 8, !tbaa !20
   %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !40

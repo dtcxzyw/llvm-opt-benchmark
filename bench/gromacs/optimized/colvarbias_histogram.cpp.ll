@@ -2422,9 +2422,9 @@ define void @_ZN20colvarbias_histogramC1EPKc(ptr noundef nonnull align 8 derefer
           to label %7 unwind label %23
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds inrange(-32, 264) (i8, ptr @_ZTV20colvarbias_histogram, i64 32), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV20colvarbias_histogram, i64 368), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV20colvarbias_histogram, i64 488), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20colvarbias_histogram, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20colvarbias_histogram, i64 368), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20colvarbias_histogram, i64 488), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 312
   %9 = getelementptr inbounds i8, ptr %0, i64 320
   %10 = getelementptr inbounds i8, ptr %0, i64 344

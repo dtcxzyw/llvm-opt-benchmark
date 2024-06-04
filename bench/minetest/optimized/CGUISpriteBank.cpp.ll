@@ -146,8 +146,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !34
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !31
-  store ptr getelementptr inbounds inrange(-24, 104) (i8, ptr @_ZTVN3irr3gui14CGUISpriteBankE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr3gui14CGUISpriteBankE, i64 152), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui14CGUISpriteBankE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui14CGUISpriteBankE, i64 152), ptr %0, align 8, !tbaa !3
   %Sprites = getelementptr inbounds i8, ptr %this, i64 8
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Sprites, i8 0, i64 24, i1 false)

@@ -196,18 +196,22 @@ entry:
   %fds.i = alloca %struct.fd_set, align 8
   %call = tail call i64 @ossl_rand_pool_bytes_needed(ptr noundef %pool, i32 noundef 1) #11
   %cmp.not88 = icmp eq i64 %call, 0
-  br i1 %cmp.not88, label %while.end, label %land.rhs
+  br i1 %cmp.not88, label %while.end, label %land.rhs.lr.ph
 
-land.rhs:                                         ; preds = %entry, %if.end10
-  %attempts.090 = phi i32 [ %attempts.1, %if.end10 ], [ 3, %entry ]
-  %bytes_needed.089 = phi i64 [ %bytes_needed.1, %if.end10 ], [ %call, %entry ]
+land.rhs.lr.ph:                                   ; preds = %entry
+  %.not.i = icmp eq ptr @getentropy, null
+  br label %land.rhs
+
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end10
+  %attempts.090 = phi i32 [ 3, %land.rhs.lr.ph ], [ %attempts.1, %if.end10 ]
+  %bytes_needed.089 = phi i64 [ %call, %land.rhs.lr.ph ], [ %bytes_needed.1, %if.end10 ]
   %dec = add nsw i32 %attempts.090, -1
   %cmp1 = icmp sgt i32 %attempts.090, 0
   br i1 %cmp1, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
   %call2 = tail call ptr @ossl_rand_pool_add_begin(ptr noundef %pool, i64 noundef %bytes_needed.089) #11
-  br i1 icmp ne (ptr @getentropy, ptr null), label %if.then.i, label %if.end6.i
+  br i1 %.not.i, label %if.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body
   %call.i = tail call i32 @getentropy(ptr noundef %call2, i64 noundef %bytes_needed.089) #11

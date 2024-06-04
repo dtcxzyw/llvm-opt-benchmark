@@ -14514,7 +14514,8 @@ declare void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj
 define dso_local void @_ZN21MapblockMeshGenerator20errorUnknownDrawtypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(660) %this) local_unnamed_addr #14 align 2 {
 entry:
   %__c.addr.i.i.i = alloca i8, align 1
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  %.not.i = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not.i, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH10infostream()

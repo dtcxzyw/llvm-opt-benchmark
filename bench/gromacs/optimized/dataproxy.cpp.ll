@@ -442,8 +442,8 @@ define void @_ZThn16_N3gmx17AnalysisDataProxy12dataFinishedEv(ptr noundef %0) un
 define void @_ZN3gmx17AnalysisDataProxyC2EiiPNS_20AbstractAnalysisDataE(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN3gmx17AnalysisDataProxyE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN3gmx17AnalysisDataProxyE, i64 136), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17AnalysisDataProxyE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17AnalysisDataProxyE, i64 136), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32

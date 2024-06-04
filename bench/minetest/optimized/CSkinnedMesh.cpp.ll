@@ -338,8 +338,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !40
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 208
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !43
-  store ptr getelementptr inbounds inrange(-24, 304) (i8, ptr @_ZTVN3irr5scene12CSkinnedMeshE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene12CSkinnedMeshE, i64 352), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene12CSkinnedMeshE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene12CSkinnedMeshE, i64 352), ptr %0, align 8, !tbaa !3
   %SkinningBuffers = getelementptr inbounds i8, ptr %this, i64 8
   %LocalBuffers = getelementptr inbounds i8, ptr %this, i64 16
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -7394,8 +7394,8 @@ entry:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !40
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 464
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !43
-  store ptr getelementptr inbounds inrange(-24, 272) (i8, ptr @_ZTVN3irr5scene15SSkinMeshBufferE, i64 24), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene15SSkinMeshBufferE, i64 320), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene15SSkinMeshBufferE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene15SSkinMeshBufferE, i64 320), ptr %0, align 8, !tbaa !3
   %Vertices_Tangents.i = getelementptr inbounds i8, ptr %call, i64 8
   %is_sorted.i.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Vertices_Tangents.i, i8 0, i64 24, i1 false)

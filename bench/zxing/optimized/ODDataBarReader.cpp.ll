@@ -260,7 +260,7 @@ define void @_ZNK5ZXing4OneD13DataBarReader13decodePatternEiRNS_11PatternViewERS
 
 _ZNSt10unique_ptrIN5ZXing4OneD9RowReader13DecodingStateESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %5
   %18 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5ZXing4OneD5StateE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ZXing4OneD5StateE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = getelementptr inbounds i8, ptr %18, i64 56
   store ptr %20, ptr %19, align 8
@@ -1433,7 +1433,7 @@ define linkonce_odr void @_ZN5ZXing4OneD13DataBarReaderD0Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5ZXing4OneD5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5ZXing4OneD5StateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ZXing4OneD5StateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8

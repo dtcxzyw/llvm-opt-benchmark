@@ -192,10 +192,11 @@ define internal noundef i32 @init_zero_pfn() #1 section ".init.text" align 16 {
   %1 = load i64, ptr @phys_base, align 8
   %2 = load i64, ptr @page_offset_base, align 8
   %3 = sub i64 -2147483648, %2
-  %4 = select i1 icmp ugt (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483649), i64 %1, i64 %3
-  %5 = add i64 %4, add (i64 ptrtoint (ptr @empty_zero_page to i64), i64 2147483648)
-  %6 = lshr i64 %5, 12
-  store i64 %6, ptr @zero_pfn, align 8
+  %4 = icmp ugt i64 ptrtoint (ptr @empty_zero_page to i64), -2147483649
+  %5 = select i1 %4, i64 %1, i64 %3
+  %6 = add i64 %5, add (i64 ptrtoint (ptr @empty_zero_page to i64), i64 2147483648)
+  %7 = lshr i64 %6, 12
+  store i64 %7, ptr @zero_pfn, align 8
   ret i32 0
 }
 

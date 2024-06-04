@@ -11484,8 +11484,8 @@ define internal fastcc range(i32 -1, 1) i32 @disable_child_handler_fork_child(pt
   br label %4
 
 4:                                                ; preds = %3, %18
-  %.02429 = phi i32 [ 1, %3 ], [ %19, %18 ]
-  %5 = tail call ptr @signal(i32 noundef %.02429, ptr noundef null) #26
+  %.02530 = phi i32 [ 1, %3 ], [ %19, %18 ]
+  %5 = tail call ptr @signal(i32 noundef %.02530, ptr noundef null) #26
   %6 = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
   br i1 %6, label %7, label %.critedge
 
@@ -11502,17 +11502,17 @@ define internal fastcc range(i32 -1, 1) i32 @disable_child_handler_fork_child(pt
   br i1 %or.cond, label %.sink.split, label %27
 
 .critedge:                                        ; preds = %4
-  %14 = icmp ne i32 %.02429, 13
+  %14 = icmp ne i32 %.02530, 13
   %15 = icmp eq ptr %5, inttoptr (i64 1 to ptr)
-  %or.cond5 = and i1 %14, %15
-  br i1 %or.cond5, label %16, label %18
+  %or.cond6 = and i1 %14, %15
+  br i1 %or.cond6, label %16, label %18
 
 16:                                               ; preds = %.critedge
-  %17 = tail call ptr @signal(i32 noundef %.02429, ptr noundef nonnull inttoptr (i64 1 to ptr)) #26
+  %17 = tail call ptr @signal(i32 noundef %.02530, ptr noundef nonnull inttoptr (i64 1 to ptr)) #26
   br label %18
 
 18:                                               ; preds = %16, %.critedge, %7
-  %19 = add nuw nsw i32 %.02429, 1
+  %19 = add nuw nsw i32 %.02530, 1
   %exitcond.not = icmp eq i32 %19, 65
   br i1 %exitcond.not, label %20, label %4, !llvm.loop !145
 

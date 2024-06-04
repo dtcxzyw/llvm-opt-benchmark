@@ -452,13 +452,13 @@ define void @_ZN3gmx24createSelectionHelpTopicEv(ptr dead_on_unwind noalias noca
           to label %18 unwind label %200
 
 18:                                               ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx18CompositeHelpTopicIN12_GLOBAL__N_114CommonHelpTextEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18CompositeHelpTopicIN12_GLOBAL__N_114CommonHelpTextEEE, i64 16), ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   %19 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16
           to label %.noexc unwind label %202
 
 .noexc:                                           ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_115CmdLineHelpTextEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_115CmdLineHelpTextEEE, i64 16), ptr %19, align 8
   store ptr %19, ptr %16, align 8
   invoke void @_ZN3gmx26AbstractCompositeHelpTopic11addSubTopicESt10unique_ptrINS_10IHelpTopicESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %16)
           to label %20 unwind label %25
@@ -496,7 +496,7 @@ _ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i3.i: ; preds = %25
           to label %.noexc8 unwind label %202
 
 .noexc8:                                          ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_114SyntaxHelpTextEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_114SyntaxHelpTextEEE, i64 16), ptr %32, align 8
   store ptr %32, ptr %15, align 8
   invoke void @_ZN3gmx26AbstractCompositeHelpTopic11addSubTopicESt10unique_ptrINS_10IHelpTopicESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %15)
           to label %33 unwind label %38
@@ -534,7 +534,7 @@ _ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i3.i4: ; preds = %38
           to label %.noexc16 unwind label %202
 
 .noexc16:                                         ; preds = %44
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_117PositionsHelpTextEEE, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_117PositionsHelpTextEEE, i64 16), ptr %45, align 8
   store ptr %45, ptr %14, align 8
   invoke void @_ZN3gmx26AbstractCompositeHelpTopic11addSubTopicESt10unique_ptrINS_10IHelpTopicESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %14)
           to label %46 unwind label %51
@@ -572,7 +572,7 @@ _ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i3.i12: ; preds = %51
           to label %.noexc24 unwind label %202
 
 .noexc24:                                         ; preds = %57
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_118ArithmeticHelpTextEEE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_118ArithmeticHelpTextEEE, i64 16), ptr %58, align 8
   store ptr %58, ptr %13, align 8
   invoke void @_ZN3gmx26AbstractCompositeHelpTopic11addSubTopicESt10unique_ptrINS_10IHelpTopicESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %13)
           to label %59 unwind label %64
@@ -621,7 +621,7 @@ _ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i3.i20: ; preds = %64
           to label %.noexc.i unwind label %153
 
 .noexc.i:                                         ; preds = %.noexc29
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_117KeywordsHelpTopicE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_117KeywordsHelpTopicE, i64 16), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, i8 0, i64 24, i1 false)
   %73 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16
@@ -724,7 +724,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx
           to label %110 unwind label %125
 
 110:                                              ; preds = %108
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicE, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicE, i64 16), ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %109, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %88)
           to label %112 unwind label %134
@@ -898,7 +898,7 @@ _ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i6.i: ; preds = %155
           to label %.noexc37 unwind label %202
 
 .noexc37:                                         ; preds = %161
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_118EvaluationHelpTextEEE, i64 16), ptr %162, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_118EvaluationHelpTextEEE, i64 16), ptr %162, align 8
   store ptr %162, ptr %4, align 8
   invoke void @_ZN3gmx26AbstractCompositeHelpTopic11addSubTopicESt10unique_ptrINS_10IHelpTopicESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %4)
           to label %163 unwind label %168
@@ -936,7 +936,7 @@ _ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i3.i33: ; preds = %168
           to label %.noexc45 unwind label %202
 
 .noexc45:                                         ; preds = %174
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_119LimitationsHelpTextEEE, i64 16), ptr %175, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_119LimitationsHelpTextEEE, i64 16), ptr %175, align 8
   store ptr %175, ptr %3, align 8
   invoke void @_ZN3gmx26AbstractCompositeHelpTopic11addSubTopicESt10unique_ptrINS_10IHelpTopicESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %3)
           to label %176 unwind label %181
@@ -974,7 +974,7 @@ _ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i3.i41: ; preds = %181
           to label %.noexc53 unwind label %202
 
 .noexc53:                                         ; preds = %187
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_116ExamplesHelpTextEEE, i64 16), ptr %188, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_116ExamplesHelpTextEEE, i64 16), ptr %188, align 8
   store ptr %188, ptr %2, align 8
   invoke void @_ZN3gmx26AbstractCompositeHelpTopic11addSubTopicESt10unique_ptrINS_10IHelpTopicESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %2)
           to label %189 unwind label %194
@@ -1524,7 +1524,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_117KeywordsHelpTopicD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_117KeywordsHelpTopicE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_117KeywordsHelpTopicE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1559,7 +1559,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_117KeywordsHelpTopicD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_117KeywordsHelpTopicE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_117KeywordsHelpTopicE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2027,7 +2027,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   ret void
@@ -2035,7 +2035,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicD2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18

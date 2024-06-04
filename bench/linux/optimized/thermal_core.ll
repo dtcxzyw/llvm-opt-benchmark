@@ -3297,19 +3297,20 @@ define internal i32 @thermal_init() #11 section ".init.text" align 16 {
 
 18:                                               ; preds = %11, %3
   %19 = phi i32 [ %9, %11 ], [ -12, %3 ]
-  br i1 icmp ult (ptr @__governor_thermal_table, ptr @__governor_thermal_table_end), label %.preheader, label %.loopexit
+  %20 = icmp ult ptr @__governor_thermal_table, @__governor_thermal_table_end
+  br i1 %20, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %18, %.preheader
-  %20 = phi ptr [ %22, %.preheader ], [ @__governor_thermal_table, %18 ]
-  %21 = load ptr, ptr %20, align 8
-  tail call void @thermal_unregister_governor(ptr noundef %21)
-  %22 = getelementptr i8, ptr %20, i64 8
-  %23 = icmp ult ptr %22, @__governor_thermal_table_end
-  br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !58
+  %21 = phi ptr [ %23, %.preheader ], [ @__governor_thermal_table, %18 ]
+  %22 = load ptr, ptr %21, align 8
+  tail call void @thermal_unregister_governor(ptr noundef %22)
+  %23 = getelementptr i8, ptr %21, i64 8
+  %24 = icmp ult ptr %23, @__governor_thermal_table_end
+  br i1 %24, label %.preheader, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.preheader, %18, %16, %13, %0
-  %24 = phi i32 [ 0, %16 ], [ 0, %13 ], [ %1, %0 ], [ %19, %18 ], [ %19, %.preheader ]
-  ret i32 %24
+  %25 = phi i32 [ 0, %16 ], [ 0, %13 ], [ %1, %0 ], [ %19, %18 ], [ %19, %.preheader ]
+  ret i32 %25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -3564,40 +3565,40 @@ declare dso_local void @delayed_work_timer_fn(ptr noundef) #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i32 -22, 1) i32 @thermal_register_governors() unnamed_addr #11 section ".init.text" align 16 {
-  br i1 icmp ult (ptr @__governor_thermal_table, ptr @__governor_thermal_table_end), label %.preheader2, label %.thread
+  %1 = icmp ult ptr @__governor_thermal_table, @__governor_thermal_table_end
+  br i1 %1, label %.preheader2, label %.thread
 
-.preheader2:                                      ; preds = %0, %6
-  %1 = phi ptr [ %8, %6 ], [ @__governor_thermal_table, %0 ]
-  %2 = load ptr, ptr %1, align 8
-  %3 = tail call i32 @thermal_register_governor(ptr noundef %2), !range !57
-  %4 = icmp eq i32 %3, 0
-  %5 = load ptr, ptr %1, align 8
-  br i1 %4, label %6, label %10
+.preheader2:                                      ; preds = %0, %7
+  %2 = phi ptr [ %9, %7 ], [ @__governor_thermal_table, %0 ]
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call i32 @thermal_register_governor(ptr noundef %3), !range !57
+  %5 = icmp eq i32 %4, 0
+  %6 = load ptr, ptr %2, align 8
+  br i1 %5, label %7, label %11
 
-6:                                                ; preds = %.preheader2
-  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52, ptr noundef %5) #21
-  %8 = getelementptr i8, ptr %1, i64 8
-  %9 = icmp ult ptr %8, @__governor_thermal_table_end
-  br i1 %9, label %.preheader2, label %.thread, !llvm.loop !60
+7:                                                ; preds = %.preheader2
+  %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52, ptr noundef %6) #21
+  %9 = getelementptr i8, ptr %2, i64 8
+  %10 = icmp ult ptr %9, @__governor_thermal_table_end
+  br i1 %10, label %.preheader2, label %.thread, !llvm.loop !60
 
-10:                                               ; preds = %.preheader2
-  %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51, ptr noundef %5) #21
-  %12 = icmp eq ptr %1, @__governor_thermal_table
-  %13 = or i1 %12, icmp uge (ptr @__governor_thermal_table, ptr @__governor_thermal_table_end)
+11:                                               ; preds = %.preheader2
+  %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51, ptr noundef %6) #21
+  %13 = icmp eq ptr %2, @__governor_thermal_table
   br i1 %13, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %10, %.preheader
-  %14 = phi ptr [ %16, %.preheader ], [ @__governor_thermal_table, %10 ]
+.preheader:                                       ; preds = %11, %.preheader
+  %14 = phi ptr [ %16, %.preheader ], [ @__governor_thermal_table, %11 ]
   %15 = load ptr, ptr %14, align 8
   tail call void @thermal_unregister_governor(ptr noundef %15)
   %16 = getelementptr i8, ptr %14, i64 8
   %17 = icmp uge ptr %16, @__governor_thermal_table_end
-  %18 = icmp eq ptr %16, %1
+  %18 = icmp eq ptr %16, %2
   %19 = or i1 %17, %18
   br i1 %19, label %.thread, label %.preheader, !llvm.loop !61
 
-.thread:                                          ; preds = %6, %.preheader, %0, %10
-  %20 = phi i32 [ %3, %10 ], [ 0, %0 ], [ %3, %.preheader ], [ 0, %6 ]
+.thread:                                          ; preds = %7, %.preheader, %0, %11
+  %20 = phi i32 [ %4, %11 ], [ 0, %0 ], [ %4, %.preheader ], [ 0, %7 ]
   ret i32 %20
 }
 

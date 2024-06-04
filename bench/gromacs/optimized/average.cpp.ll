@@ -957,8 +957,8 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule12dataFinishedEv(ptr n
 define void @_ZN3gmx25AnalysisDataAverageModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 120), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 120), ptr %2, align 8
   %3 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
           to label %4 unwind label %6
 
@@ -990,9 +990,9 @@ declare void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx25AnalysisDataAverageModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 120), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 120), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1255,8 +1255,8 @@ define noundef i32 @_ZNK3gmx25AnalysisDataAverageModule11sampleCountEii(ptr noca
 define void @_ZN3gmx30AnalysisDataFrameAverageModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 120), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 120), ptr %2, align 8
   %3 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
           to label %4 unwind label %8
 
@@ -1301,9 +1301,9 @@ declare void @_ZN3gmx19AnalysisDataStorageC1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx30AnalysisDataFrameAverageModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 120), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 120), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null

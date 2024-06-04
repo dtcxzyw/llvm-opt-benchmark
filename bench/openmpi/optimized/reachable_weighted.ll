@@ -203,7 +203,7 @@ define internal ptr @weighted_reachable(ptr noundef %0, ptr noundef %1) #1 {
   br label %101
 
 101:                                              ; preds = %87, %84, %81, %60, %57, %36, %30
-  %.026.i = phi ptr [ @.str, %57 ], [ @.str.1, %60 ], [ @.str.4, %87 ], [ @.str.2, %81 ], [ @.str.3, %84 ], [ @.str.5, %36 ], [ @.str.5, %30 ]
+  %.025.i = phi ptr [ @.str, %57 ], [ @.str.1, %60 ], [ @.str.4, %87 ], [ @.str.2, %81 ], [ @.str.3, %84 ], [ @.str.5, %36 ], [ @.str.5, %30 ]
   %.0.i = phi i32 [ %59, %57 ], [ %62, %60 ], [ %100, %87 ], [ %83, %81 ], [ %86, %84 ], [ 0, %36 ], [ 0, %30 ]
   %102 = load i32, ptr getelementptr inbounds (i8, ptr @prte_prtereachable_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %102, 64
@@ -217,7 +217,7 @@ define internal ptr @weighted_reachable(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %107, label %108, label %get_weights.exit
 
 108:                                              ; preds = %103
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %102, ptr noundef nonnull @.str.6, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %.026.i) #8
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %102, ptr noundef nonnull @.str.6, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %.025.i) #8
   br label %get_weights.exit
 
 get_weights.exit:                                 ; preds = %101, %103, %108

@@ -628,7 +628,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK18colvarproxy_system15accelMD_enable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN18colvarproxy_systemC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV18colvarproxy_system, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18colvarproxy_system, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 112
@@ -667,7 +667,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN18colvarproxy_systemD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV18colvarproxy_system, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18colvarproxy_system, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   ret void

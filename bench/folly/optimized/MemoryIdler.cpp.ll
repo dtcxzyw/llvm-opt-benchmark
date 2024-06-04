@@ -157,22 +157,25 @@ _ZN5folly13usingJEMallocEv.exit:                  ; preds = %init.i.i, %init.che
   br i1 %tobool1.i.i.not, label %if.end117, label %if.end
 
 if.end:                                           ; preds = %_ZN5folly13usingJEMallocEv.exit
-  %brmerge = or i1 icmp eq (ptr @mallctl, ptr null), icmp eq (ptr @mallctlnametomib, ptr null)
-  %brmerge123 = or i1 %brmerge, icmp eq (ptr @mallctlbymib, ptr null)
+  %4 = icmp eq ptr @mallctl, null
+  %5 = icmp eq ptr @mallctlnametomib, null
+  %brmerge = or i1 %4, %5
+  %6 = icmp eq ptr @mallctlbymib, null
+  %brmerge123 = or i1 %6, %brmerge
   br i1 %brmerge123, label %for.body, label %if.end32
 
 for.body:                                         ; preds = %if.end
   %call5 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #20
   %div.i.i = sdiv i64 %call5, 1000000
-  %4 = load atomic i64, ptr @_ZZN5folly6detail11MemoryIdler22flushLocalMallocCachesEvE11FB_LEM_hist acquire, align 8
-  %sub = sub nsw i64 %div.i.i, %4
+  %7 = load atomic i64, ptr @_ZZN5folly6detail11MemoryIdler22flushLocalMallocCachesEvE11FB_LEM_hist acquire, align 8
+  %sub = sub nsw i64 %div.i.i, %7
   %cmp21 = icmp slt i64 %sub, 10000
   br i1 %cmp21, label %if.end117, label %seqcst_fail50.i
 
 seqcst_fail50.i:                                  ; preds = %for.body
-  %5 = cmpxchg ptr @_ZZN5folly6detail11MemoryIdler22flushLocalMallocCachesEvE11FB_LEM_hist, i64 %4, i64 %div.i.i seq_cst seq_cst, align 8
-  %6 = extractvalue { i64, i1 } %5, 1
-  br i1 %6, label %if.else, label %if.end117
+  %8 = cmpxchg ptr @_ZZN5folly6detail11MemoryIdler22flushLocalMallocCachesEvE11FB_LEM_hist, i64 %7, i64 %div.i.i seq_cst seq_cst, align 8
+  %9 = extractvalue { i64, i1 } %8, 1
+  br i1 %9, label %if.else, label %if.end117
 
 if.else:                                          ; preds = %seqcst_fail50.i
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp25) #20
@@ -190,7 +193,7 @@ invoke.cont27:                                    ; preds = %invoke.cont
   br label %if.end117
 
 lpad:                                             ; preds = %invoke.cont, %if.else
-  %7 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp25) #20
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp25) #20
@@ -198,8 +201,8 @@ lpad:                                             ; preds = %invoke.cont, %if.el
 
 if.end32:                                         ; preds = %if.end
   %call33 = call i32 @mallctl(ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0) #20
-  %8 = load i8, ptr @_ZN3fLB37FLAGS_folly_memory_idler_purge_arenasE, align 1, !tbaa !8, !range !12, !noundef !13
-  %tobool34.not = icmp eq i8 %8, 0
+  %11 = load i8, ptr @_ZN3fLB37FLAGS_folly_memory_idler_purge_arenasE, align 1, !tbaa !8, !range !12, !noundef !13
+  %tobool34.not = icmp eq i8 %11, 0
   br i1 %tobool34.not, label %if.end117, label %if.then35
 
 if.then35:                                        ; preds = %if.end32
@@ -216,14 +219,14 @@ invoke.cont37:                                    ; preds = %if.then35
           to label %invoke.cont38 unwind label %lpad36
 
 invoke.cont38:                                    ; preds = %invoke.cont37
-  %9 = load i32, ptr %narenas, align 4, !tbaa !16
+  %12 = load i32, ptr %narenas, align 4, !tbaa !16
   %call41 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN5folly13CacheLocality6systemISt6atomicEERKS0_v()
           to label %invoke.cont40 unwind label %lpad36
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  %conv39 = zext i32 %9 to i64
-  %10 = load i64, ptr %call41, align 8, !tbaa !18
-  %mul = shl i64 %10, 1
+  %conv39 = zext i32 %12 to i64
+  %13 = load i64, ptr %call41, align 8, !tbaa !18
+  %mul = shl i64 %13, 1
   %cmp42 = icmp ult i64 %mul, %conv39
   br i1 %cmp42, label %land.lhs.true43, label %if.end50
 
@@ -233,25 +236,25 @@ land.lhs.true43:                                  ; preds = %invoke.cont40
   br i1 %cmp45, label %if.then46, label %if.end50
 
 if.then46:                                        ; preds = %land.lhs.true43
-  %11 = load i32, ptr %arenaForCurrent, align 4, !tbaa !16
-  %conv47 = zext i32 %11 to i64
+  %14 = load i32, ptr %arenaForCurrent, align 4, !tbaa !16
+  %conv47 = zext i32 %14 to i64
   %arrayidx = getelementptr inbounds i8, ptr %mib, i64 8
   store i64 %conv47, ptr %arrayidx, align 8, !tbaa !14
-  %12 = load i64, ptr %miblen, align 8, !tbaa !14
-  %call49 = call i32 @mallctlbymib(ptr noundef nonnull %mib, i64 noundef %12, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0) #20
+  %15 = load i64, ptr %miblen, align 8, !tbaa !14
+  %call49 = call i32 @mallctlbymib(ptr noundef nonnull %mib, i64 noundef %15, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0) #20
   br label %if.end50
 
 lpad36:                                           ; preds = %invoke.cont38, %invoke.cont37, %if.then35
-  %13 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt13runtime_error
-  %14 = extractvalue { ptr, i32 } %13, 1
+  %17 = extractvalue { ptr, i32 } %16, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %miblen) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %mib) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %arenaForCurrent) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %narenas) #20
-  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #20
-  %matches = icmp eq i32 %14, %15
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #20
+  %matches = icmp eq i32 %17, %18
   br i1 %matches, label %invoke.cont72, label %eh.resume
 
 if.end50:                                         ; preds = %if.then46, %land.lhs.true43, %invoke.cont40
@@ -262,12 +265,12 @@ if.end50:                                         ; preds = %if.then46, %land.lh
   br label %if.end117
 
 invoke.cont72:                                    ; preds = %lpad36
-  %16 = extractvalue { ptr, i32 } %13, 0
-  %17 = call ptr @__cxa_begin_catch(ptr %16) #20
+  %19 = extractvalue { ptr, i32 } %16, 0
+  %20 = call ptr @__cxa_begin_catch(ptr %19) #20
   %call65 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #20
   %div.i.i153 = sdiv i64 %call65, 1000000
-  %18 = load atomic i64, ptr @_ZZN5folly6detail11MemoryIdler22flushLocalMallocCachesEvE11FB_LEM_hist_0 acquire, align 8
-  %sub89 = sub nsw i64 %div.i.i153, %18
+  %21 = load atomic i64, ptr @_ZZN5folly6detail11MemoryIdler22flushLocalMallocCachesEvE11FB_LEM_hist_0 acquire, align 8
+  %sub89 = sub nsw i64 %div.i.i153, %21
   %cmp91 = icmp slt i64 %sub89, 10000
   br i1 %cmp91, label %for.cond.cleanup81, label %seqcst_fail50.i141
 
@@ -276,9 +279,9 @@ for.cond.cleanup81:                               ; preds = %invoke.cont103, %se
   br label %if.end117
 
 seqcst_fail50.i141:                               ; preds = %invoke.cont72
-  %19 = cmpxchg ptr @_ZZN5folly6detail11MemoryIdler22flushLocalMallocCachesEvE11FB_LEM_hist_0, i64 %18, i64 %div.i.i153 seq_cst seq_cst, align 8
-  %20 = extractvalue { i64, i1 } %19, 1
-  br i1 %20, label %if.else95, label %for.cond.cleanup81
+  %22 = cmpxchg ptr @_ZZN5folly6detail11MemoryIdler22flushLocalMallocCachesEvE11FB_LEM_hist_0, i64 %21, i64 %div.i.i153 seq_cst seq_cst, align 8
+  %23 = extractvalue { i64, i1 } %22, 1
+  br i1 %23, label %if.else95, label %for.cond.cleanup81
 
 if.else95:                                        ; preds = %seqcst_fail50.i141
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp96) #20
@@ -290,10 +293,10 @@ invoke.cont98:                                    ; preds = %if.else95
           to label %invoke.cont100 unwind label %lpad99
 
 invoke.cont100:                                   ; preds = %invoke.cont98
-  %vtable = load ptr, ptr %17, align 8, !tbaa !25
+  %vtable = load ptr, ptr %20, align 8, !tbaa !25
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %21 = load ptr, ptr %vfn, align 8
-  %call102 = call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(16) %17) #20
+  %24 = load ptr, ptr %vfn, align 8
+  %call102 = call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %20) #20
   %call104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call101, ptr noundef %call102)
           to label %invoke.cont103 unwind label %lpad99
 
@@ -303,18 +306,18 @@ invoke.cont103:                                   ; preds = %invoke.cont100
   br label %for.cond.cleanup81
 
 lpad97:                                           ; preds = %if.else95
-  %22 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad99:                                           ; preds = %invoke.cont100, %invoke.cont98
-  %23 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp96) #20
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad99, %lpad97
-  %.pn = phi { ptr, i32 } [ %23, %lpad99 ], [ %22, %lpad97 ]
+  %.pn = phi { ptr, i32 } [ %26, %lpad99 ], [ %25, %lpad97 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp96) #20
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -323,14 +326,14 @@ if.end117:                                        ; preds = %for.cond.cleanup81,
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad36, %lpad
-  %lpad.val120.merged = phi { ptr, i32 } [ %7, %lpad ], [ %13, %lpad36 ], [ %.pn, %ehcleanup ]
+  %lpad.val120.merged = phi { ptr, i32 } [ %10, %lpad ], [ %16, %lpad36 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %lpad.val120.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup
-  %24 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #19
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #19
   unreachable
 }
 
@@ -368,16 +371,14 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
 entry:
   %counter = alloca ptr, align 8
   %counterLen = alloca i64, align 8
-  %brmerge = or i1 icmp eq (ptr @mallocx, ptr null), icmp eq (ptr @rallocx, ptr null)
-  %brmerge22 = or i1 %brmerge, icmp eq (ptr @xallocx, ptr null)
-  %brmerge23 = or i1 %brmerge22, icmp eq (ptr @sallocx, ptr null)
-  %brmerge24 = or i1 %brmerge23, icmp eq (ptr @dallocx, ptr null)
-  %brmerge25 = or i1 %brmerge24, icmp eq (ptr @sdallocx, ptr null)
-  %brmerge26 = or i1 %brmerge25, icmp eq (ptr @nallocx, ptr null)
-  %brmerge27 = or i1 %brmerge26, icmp eq (ptr @mallctl, ptr null)
-  %brmerge28 = or i1 %brmerge27, icmp eq (ptr @mallctlnametomib, ptr null)
-  %brmerge29 = or i1 %brmerge28, icmp eq (ptr @mallctlbymib, ptr null)
-  br i1 %brmerge29, label %return, label %if.end
+  %0 = icmp eq <8 x ptr> <ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @mallctl>, <ptr @rallocx, ptr @mallocx, ptr @xallocx, ptr @sallocx, ptr @dallocx, ptr @sdallocx, ptr @nallocx, ptr null>
+  %1 = icmp eq ptr @mallctlnametomib, null
+  %2 = icmp eq ptr @mallctlbymib, null
+  %3 = bitcast <8 x i1> %0 to i8
+  %4 = icmp ne i8 %3, 0
+  %op.rdx = or i1 %4, %1
+  %op.rdx1 = or i1 %op.rdx, %2
+  br i1 %op.rdx1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %counter) #20
@@ -385,21 +386,21 @@ if.end:                                           ; preds = %entry
   store i64 8, ptr %counterLen, align 8, !tbaa !14
   %call = call i32 @mallctl(ptr noundef nonnull @.str.9, ptr noundef nonnull %counter, ptr noundef nonnull %counterLen, ptr noundef null, i64 noundef 0) #20
   %cmp.not = icmp eq i32 %call, 0
-  %0 = load i64, ptr %counterLen, align 8
-  %cmp12.not = icmp eq i64 %0, 8
+  %5 = load i64, ptr %counterLen, align 8
+  %cmp12.not = icmp eq i64 %5, 8
   %or.cond = select i1 %cmp.not, i1 %cmp12.not, i1 false
   br i1 %or.cond, label %if.end14, label %cleanup20
 
 if.end14:                                         ; preds = %if.end
-  %1 = load ptr, ptr %counter, align 8, !tbaa !27
-  %2 = load volatile i64, ptr %1, align 8, !tbaa !14
-  %3 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
-  %guard.uninitialized = icmp eq i8 %3, 0
+  %6 = load ptr, ptr %counter, align 8, !tbaa !27
+  %7 = load volatile i64, ptr %6, align 8, !tbaa !14
+  %8 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
+  %guard.uninitialized = icmp eq i8 %8, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
 
 init.check:                                       ; preds = %if.end14
-  %4 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #20
-  %tobool.not = icmp eq i32 %4, 0
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #20
+  %tobool.not = icmp eq i32 %9, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
@@ -409,16 +410,16 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %if.end14
-  %5 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !27
-  %tobool16.not = icmp eq ptr %5, null
+  %10 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !27
+  %tobool16.not = icmp eq ptr %10, null
   br i1 %tobool16.not, label %cleanup20, label %if.end18
 
 if.end18:                                         ; preds = %init.end
-  %6 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !27
-  call void @free(ptr noundef %6) #20
-  %7 = load ptr, ptr %counter, align 8, !tbaa !27
-  %8 = load volatile i64, ptr %7, align 8, !tbaa !14
-  %cmp19 = icmp ne i64 %2, %8
+  %11 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !27
+  call void @free(ptr noundef %11) #20
+  %12 = load ptr, ptr %counter, align 8, !tbaa !27
+  %13 = load volatile i64, ptr %12, align 8, !tbaa !14
+  %cmp19 = icmp ne i64 %7, %13
   br label %cleanup20
 
 cleanup20:                                        ; preds = %if.end18, %init.end, %if.end

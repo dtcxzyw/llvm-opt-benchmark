@@ -7596,7 +7596,7 @@ define internal fastcc noundef zeroext i1 @update_call_abi_from_string(ptr nocap
   %9 = load i16, ptr %8, align 1
   %10 = and i16 %9, -16321
   store i16 %10, ptr %8, align 1
-  br label %40
+  br label %39
 
 11:                                               ; preds = %2
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.102) #12
@@ -7605,7 +7605,7 @@ define internal fastcc noundef zeroext i1 @update_call_abi_from_string(ptr nocap
 
 14:                                               ; preds = %11
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
-  switch i32 %15, label %40 [
+  switch i32 %15, label %39 [
     i32 32, label %16
     i32 1, label %21
     i32 2, label %21
@@ -7620,7 +7620,7 @@ define internal fastcc noundef zeroext i1 @update_call_abi_from_string(ptr nocap
   %19 = and i16 %18, -16321
   %20 = or disjoint i16 %19, 64
   store i16 %20, ptr %17, align 1
-  br label %40
+  br label %39
 
 21:                                               ; preds = %14, %14, %14, %14, %14
   %22 = getelementptr inbounds i8, ptr %0, i64 89
@@ -7628,35 +7628,35 @@ define internal fastcc noundef zeroext i1 @update_call_abi_from_string(ptr nocap
   %24 = and i16 %23, -16321
   %25 = or disjoint i16 %24, 192
   store i16 %25, ptr %22, align 1
-  br label %40
+  br label %39
 
 26:                                               ; preds = %11
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.103) #12
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %37
+  br i1 %28, label %29, label %36
 
 29:                                               ; preds = %26
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
-  %31 = add i32 %30, -1
-  %or.cond = icmp ult i32 %31, 2
-  br i1 %or.cond, label %32, label %40
+  %.off = add i32 %30, -1
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %31, label %39
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 89
-  %34 = load i16, ptr %33, align 1
-  %35 = and i16 %34, -16321
-  %36 = or disjoint i16 %35, 128
-  store i16 %36, ptr %33, align 1
-  br label %40
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %0, i64 89
+  %33 = load i16, ptr %32, align 1
+  %34 = and i16 %33, -16321
+  %35 = or disjoint i16 %34, 128
+  store i16 %35, ptr %32, align 1
+  br label %39
 
-37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  %39 = load i64, ptr %38, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %39, ptr noundef nonnull @.str.104) #10
-  br label %40
+36:                                               ; preds = %26
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = load i64, ptr %37, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %38, ptr noundef nonnull @.str.104) #10
+  br label %39
 
-40:                                               ; preds = %29, %14, %37, %32, %21, %16, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %21 ], [ true, %16 ], [ true, %32 ], [ false, %37 ], [ true, %14 ], [ true, %29 ]
+39:                                               ; preds = %29, %14, %36, %31, %21, %16, %7
+  %.0 = phi i1 [ true, %7 ], [ true, %21 ], [ true, %16 ], [ true, %31 ], [ false, %36 ], [ true, %14 ], [ true, %29 ]
   ret i1 %.0
 }
 

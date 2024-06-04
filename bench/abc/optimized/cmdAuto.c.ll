@@ -1939,8 +1939,8 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %8
 
 87:                                               ; preds = %Vec_WecFree.exit
   %88 = getelementptr i8, ptr %17, i64 4
-  %.val15.i.i = load i32, ptr %88, align 4
-  %89 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %88, align 4
+  %89 = icmp sgt i32 %.val16.i.i, 0
   br i1 %89, label %.lr.ph.i.i65, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i65:                                     ; preds = %87
@@ -1948,10 +1948,10 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %8
   br label %91
 
 91:                                               ; preds = %95, %.lr.ph.i.i65
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i65 ], [ %.val.i.i, %95 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i65 ], [ %.val.i.i, %95 ]
   %indvars.iv.i.i66 = phi i64 [ 0, %.lr.ph.i.i65 ], [ %indvars.iv.next.i.i67, %95 ]
-  %.val14.i.i = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i66
+  %.val15.i.i = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i66
   %93 = load ptr, ptr %92, align 8
   %switch.i.i = icmp ult ptr %93, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %95, label %94
@@ -1962,7 +1962,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %8
   br label %95
 
 95:                                               ; preds = %94, %91
-  %.val.i.i = phi i32 [ %.val18.i.i, %91 ], [ %.val.pre.i.i, %94 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %91 ], [ %.val.pre.i.i, %94 ]
   %indvars.iv.next.i.i67 = add nuw nsw i64 %indvars.iv.i.i66, 1
   %96 = sext i32 %.val.i.i to i64
   %97 = icmp slt i64 %indvars.iv.next.i.i67, %96

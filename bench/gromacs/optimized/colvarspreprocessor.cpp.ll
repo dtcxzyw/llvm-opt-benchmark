@@ -199,23 +199,23 @@ define void @_ZN3gmx19ColvarsPreProcessorC2ERKNSt7__cxx1112basic_stringIcSt11cha
   unreachable
 
 25:                                               ; preds = %19
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 16), ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 256
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 272), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 272), ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 456
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 368), ptr %27, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 368), ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 648
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 424), ptr %28, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 424), ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 768
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 520), ptr %29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 520), ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 792
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 624), ptr %30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 624), ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 800
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 704), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 704), ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 824
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 760), ptr %32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 760), ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 840
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 800), ptr %33, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19ColvarsPreProcessorE, i64 800), ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 1728
   %35 = load ptr, ptr %8, align 8
   store ptr %35, ptr %34, align 8
@@ -1124,7 +1124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc18 unwind label %64
 
 .noexc18:                                         ; preds = %36
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %37, align 8, !noalias !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %37, align 8, !noalias !16
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %_ZN3gmx19KeyValueTreeBuilder11createValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_17KeyValueTreeValueERKT_.exit.i unwind label %39, !noalias !16
@@ -2025,7 +2025,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   ret void
@@ -2033,7 +2033,7 @@ define linkonce_odr void @_ZN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11cha
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
@@ -2049,7 +2049,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx3An
 define linkonce_odr void @_ZNK3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !36
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %4, align 8, !noalias !36
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %4, align 8, !noalias !36
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNSt10unique_ptrIN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14default_deleteIS9_EED2Ev.exit unwind label %6, !noalias !36

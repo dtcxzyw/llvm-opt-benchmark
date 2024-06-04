@@ -599,8 +599,8 @@ define void @Abc_FrameSetSignalNames(ptr noundef %0) local_unnamed_addr #1 {
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %4, i64 4
-  %.val15.i.i = load i32, ptr %6, align 4
-  %7 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %6, align 4
+  %7 = icmp sgt i32 %.val16.i.i, 0
   br i1 %7, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %5
@@ -608,10 +608,10 @@ define void @Abc_FrameSetSignalNames(ptr noundef %0) local_unnamed_addr #1 {
   br label %9
 
 9:                                                ; preds = %13, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %13 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %13 ]
-  %.val14.i.i = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8
   %switch.i.i = icmp ult ptr %11, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %13, label %12
@@ -622,7 +622,7 @@ define void @Abc_FrameSetSignalNames(ptr noundef %0) local_unnamed_addr #1 {
   br label %13
 
 13:                                               ; preds = %12, %9
-  %.val.i.i = phi i32 [ %.val18.i.i, %9 ], [ %.val.pre.i.i, %12 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %9 ], [ %.val.pre.i.i, %12 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %14 = sext i32 %.val.i.i to i64
   %15 = icmp slt i64 %indvars.iv.next.i.i, %14
@@ -923,8 +923,8 @@ Vec_IntFree.exit:                                 ; preds = %4, %7
 
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %10, i64 4
-  %.val15.i.i = load i32, ptr %12, align 4
-  %13 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %12, align 4
+  %13 = icmp sgt i32 %.val16.i.i, 0
   br i1 %13, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %11
@@ -932,10 +932,10 @@ Vec_IntFree.exit:                                 ; preds = %4, %7
   br label %15
 
 15:                                               ; preds = %19, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %19 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %19 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %19 ]
-  %.val14.i.i = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %17 = load ptr, ptr %16, align 8
   %switch.i.i = icmp ult ptr %17, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %19, label %18
@@ -946,7 +946,7 @@ Vec_IntFree.exit:                                 ; preds = %4, %7
   br label %19
 
 19:                                               ; preds = %18, %15
-  %.val.i.i = phi i32 [ %.val18.i.i, %15 ], [ %.val.pre.i.i, %18 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %15 ], [ %.val.pre.i.i, %18 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %20 = sext i32 %.val.i.i to i64
   %21 = icmp slt i64 %indvars.iv.next.i.i, %20
@@ -1270,8 +1270,8 @@ Vec_PtrFreeP.exit:                                ; preds = %Vec_IntFreeP.exit, 
 
 136:                                              ; preds = %Vec_PtrFreeP.exit
   %137 = getelementptr i8, ptr %135, i64 4
-  %.val15.i.i127 = load i32, ptr %137, align 4
-  %138 = icmp sgt i32 %.val15.i.i127, 0
+  %.val16.i.i127 = load i32, ptr %137, align 4
+  %138 = icmp sgt i32 %.val16.i.i127, 0
   br i1 %138, label %.lr.ph.i.i131, label %Vec_PtrFreeData.exit.i128
 
 .lr.ph.i.i131:                                    ; preds = %136
@@ -1279,10 +1279,10 @@ Vec_PtrFreeP.exit:                                ; preds = %Vec_IntFreeP.exit, 
   br label %140
 
 140:                                              ; preds = %144, %.lr.ph.i.i131
-  %.val18.i.i132 = phi i32 [ %.val15.i.i127, %.lr.ph.i.i131 ], [ %.val.i.i137, %144 ]
+  %.val19.i.i132 = phi i32 [ %.val16.i.i127, %.lr.ph.i.i131 ], [ %.val.i.i137, %144 ]
   %indvars.iv.i.i133 = phi i64 [ 0, %.lr.ph.i.i131 ], [ %indvars.iv.next.i.i138, %144 ]
-  %.val14.i.i134 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds ptr, ptr %.val14.i.i134, i64 %indvars.iv.i.i133
+  %.val15.i.i134 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds ptr, ptr %.val15.i.i134, i64 %indvars.iv.i.i133
   %142 = load ptr, ptr %141, align 8
   %switch.i.i135 = icmp ult ptr %142, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i135, label %144, label %143
@@ -1293,7 +1293,7 @@ Vec_PtrFreeP.exit:                                ; preds = %Vec_IntFreeP.exit, 
   br label %144
 
 144:                                              ; preds = %143, %140
-  %.val.i.i137 = phi i32 [ %.val18.i.i132, %140 ], [ %.val.pre.i.i136, %143 ]
+  %.val.i.i137 = phi i32 [ %.val19.i.i132, %140 ], [ %.val.pre.i.i136, %143 ]
   %indvars.iv.next.i.i138 = add nuw nsw i64 %indvars.iv.i.i133, 1
   %145 = sext i32 %.val.i.i137 to i64
   %146 = icmp slt i64 %indvars.iv.next.i.i138, %145

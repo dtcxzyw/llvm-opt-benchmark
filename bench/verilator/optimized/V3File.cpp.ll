@@ -2910,7 +2910,7 @@ _ZN12VInFilterImp12readContentsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN14V3OutFormatterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8LanguageE(ptr noundef nonnull align 8 dereferenceable(164) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14V3OutFormatter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14V3OutFormatter, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -6000,7 +6000,7 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN9V3OutFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14V3OutFormatter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14V3OutFormatter, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -6042,7 +6042,7 @@ _ZN14V3OutFormatterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8
   %21 = select i1 %20, i32 50, i32 150
   %22 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %21, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9V3OutFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9V3OutFile, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 168
   %24 = getelementptr inbounds i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
@@ -6123,7 +6123,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN9V3OutFileD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9V3OutFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9V3OutFile, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
@@ -6166,7 +6166,7 @@ _ZNKSt14default_deleteISt5arrayIcLm131072EEEclEPS1_.exit.i: ; preds = %18
 
 _ZNSt10unique_ptrISt5arrayIcLm131072EESt14default_deleteIS1_EED2Ev.exit: ; preds = %18, %_ZNKSt14default_deleteISt5arrayIcLm131072EEEclEPS1_.exit.i
   store ptr null, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14V3OutFormatter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14V3OutFormatter, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
@@ -7431,7 +7431,7 @@ define linkonce_odr dso_local void @_ZNK13VIdProtectImp12writeMapFileERKNSt7__cx
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN9V3OutFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext 3)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12V3OutXmlFile, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12V3OutXmlFile, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 44
   store i32 2, ptr %8, align 4
   invoke void @_ZN14V3OutFormatter5putnsEPK7AstNodePKc(ptr noundef nonnull align 8 dereferenceable(164) %3, ptr noundef null, ptr noundef nonnull @.str.124)
@@ -7550,7 +7550,7 @@ _ZN14V3OutFormatter4putsEPKc.exit17:              ; preds = %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10V3OutCFileD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %2 unwind label %3
 
@@ -7568,7 +7568,7 @@ define linkonce_odr dso_local void @_ZN10V3OutCFileD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10V3OutCFileD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %_ZN10V3OutCFileD2Ev.exit unwind label %2
 
@@ -7711,7 +7711,7 @@ define linkonce_odr dso_local void @_ZN10V3OutCFile12putsEndGuardEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14V3OutFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(164) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14V3OutFormatter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14V3OutFormatter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

@@ -1623,7 +1623,7 @@ define linkonce_odr dso_local void @_ZN11EmitCHeaderC2EPK13AstNodeModule(ptr nou
   store i32 0, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV11EmitCHeader, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11EmitCHeader, i64 16), ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #18
   %35 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1766,7 +1766,7 @@ _ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   store i32 0, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %87, i64 204
   store i32 0, ptr %90, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %87, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %87, align 8
   br label %96
 
 91:                                               ; preds = %83
@@ -1778,7 +1778,7 @@ _ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
           to label %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit unwind label %156
 
 _ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit: ; preds = %93
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %92, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %92, i64 200
   store i32 0, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %92, i64 204
@@ -1786,7 +1786,7 @@ _ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3Out
   br label %96
 
 96:                                               ; preds = %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit, %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %97 = phi ptr [ getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11V3OutScFile, i64 16), %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit ]
+  %97 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTV11V3OutScFile, i64 16), %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit ]
   %98 = phi ptr [ %87, %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %92, %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit ]
   store ptr %98, ptr %30, align 8
   %99 = getelementptr inbounds i8, ptr %97, i64 32
@@ -6434,7 +6434,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11V3OutScFileD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %_ZN10V3OutCFileD2Ev.exit unwind label %2
 
@@ -6452,7 +6452,7 @@ _ZN10V3OutCFileD2Ev.exit:                         ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11V3OutScFileD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %_ZN11V3OutScFileD2Ev.exit unwind label %2
 

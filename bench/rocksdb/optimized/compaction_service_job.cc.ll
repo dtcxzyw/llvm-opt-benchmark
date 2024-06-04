@@ -6271,35 +6271,44 @@ declare void @_ZN7rocksdb17MakeTableFileNameERKNSt7__cxx1112basic_stringIcSt11ch
 ; Function Attrs: uwtable
 define void @_ZN7rocksdb30CompactionServiceCompactionJob23RecordCompactionIOStatsEv(ptr noundef nonnull align 8 dereferenceable(1504) %this) unnamed_addr #7 align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTHN7rocksdb15iostats_contextE, ptr null), label %0, label %_ZTWN7rocksdb15iostats_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb15iostats_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit.thread, label %4
 
-0:                                                ; preds = %entry
+_ZTWN7rocksdb15iostats_contextE.exit.thread:      ; preds = %entry
+  %0 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)
+  %bytes_read3 = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = load i64, ptr %bytes_read3, align 8
+  %compaction_result_4 = getelementptr inbounds i8, ptr %this, i64 1496
+  %2 = load ptr, ptr %compaction_result_4, align 8
+  %bytes_read25 = getelementptr inbounds i8, ptr %2, i64 96
+  %3 = load i64, ptr %bytes_read25, align 8
+  %add6 = add i64 %3, %1
+  store i64 %add6, ptr %bytes_read25, align 8
+  br label %_ZTWN7rocksdb15iostats_contextE.exit2
+
+4:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb15iostats_contextE()
-  br label %_ZTWN7rocksdb15iostats_contextE.exit
-
-_ZTWN7rocksdb15iostats_contextE.exit:             ; preds = %entry, %0
-  %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)
-  %bytes_read = getelementptr inbounds i8, ptr %1, i64 16
-  %2 = load i64, ptr %bytes_read, align 8
+  %5 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)
+  %bytes_read = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load i64, ptr %bytes_read, align 8
   %compaction_result_ = getelementptr inbounds i8, ptr %this, i64 1496
-  %3 = load ptr, ptr %compaction_result_, align 8
-  %bytes_read2 = getelementptr inbounds i8, ptr %3, i64 96
-  %4 = load i64, ptr %bytes_read2, align 8
-  %add = add i64 %4, %2
-  store i64 %add, ptr %bytes_read2, align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb15iostats_contextE, ptr null), label %5, label %_ZTWN7rocksdb15iostats_contextE.exit1
-
-5:                                                ; preds = %_ZTWN7rocksdb15iostats_contextE.exit
-  tail call void @_ZTHN7rocksdb15iostats_contextE()
-  br label %_ZTWN7rocksdb15iostats_contextE.exit1
-
-_ZTWN7rocksdb15iostats_contextE.exit1:            ; preds = %_ZTWN7rocksdb15iostats_contextE.exit, %5
-  %bytes_written = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load i64, ptr %bytes_written, align 8
   %7 = load ptr, ptr %compaction_result_, align 8
-  %bytes_written4 = getelementptr inbounds i8, ptr %7, i64 104
-  %8 = load i64, ptr %bytes_written4, align 8
-  %add5 = add i64 %8, %6
+  %bytes_read2 = getelementptr inbounds i8, ptr %7, i64 96
+  %8 = load i64, ptr %bytes_read2, align 8
+  %add = add i64 %8, %6
+  store i64 %add, ptr %bytes_read2, align 8
+  tail call void @_ZTHN7rocksdb15iostats_contextE()
+  br label %_ZTWN7rocksdb15iostats_contextE.exit2
+
+_ZTWN7rocksdb15iostats_contextE.exit2:            ; preds = %_ZTWN7rocksdb15iostats_contextE.exit.thread, %4
+  %compaction_result_7 = phi ptr [ %compaction_result_4, %_ZTWN7rocksdb15iostats_contextE.exit.thread ], [ %compaction_result_, %4 ]
+  %9 = phi ptr [ %0, %_ZTWN7rocksdb15iostats_contextE.exit.thread ], [ %5, %4 ]
+  %bytes_written = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load i64, ptr %bytes_written, align 8
+  %11 = load ptr, ptr %compaction_result_7, align 8
+  %bytes_written4 = getelementptr inbounds i8, ptr %11, i64 104
+  %12 = load i64, ptr %bytes_written4, align 8
+  %add5 = add i64 %12, %10
   store i64 %add5, ptr %bytes_written4, align 8
   tail call void @_ZN7rocksdb13CompactionJob23RecordCompactionIOStatsEv(ptr noundef nonnull align 8 dereferenceable(1456) %this)
   ret void

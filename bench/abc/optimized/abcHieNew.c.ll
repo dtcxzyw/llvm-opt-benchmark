@@ -250,8 +250,8 @@ Au_ManFree.exit:                                  ; preds = %1, %19
 
 23:                                               ; preds = %Au_ManFree.exit
   %24 = getelementptr i8, ptr %21, i64 4
-  %.val15.i.i = load i32, ptr %24, align 4
-  %25 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %24, align 4
+  %25 = icmp sgt i32 %.val16.i.i, 0
   br i1 %25, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %23
@@ -259,10 +259,10 @@ Au_ManFree.exit:                                  ; preds = %1, %19
   br label %27
 
 27:                                               ; preds = %31, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %31 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %31 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %31 ]
-  %.val14.i.i = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %29 = load ptr, ptr %28, align 8
   %switch.i.i = icmp ult ptr %29, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %31, label %30
@@ -273,7 +273,7 @@ Au_ManFree.exit:                                  ; preds = %1, %19
   br label %31
 
 31:                                               ; preds = %30, %27
-  %.val.i.i = phi i32 [ %.val18.i.i, %27 ], [ %.val.pre.i.i, %30 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %27 ], [ %.val.pre.i.i, %30 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %32 = sext i32 %.val.i.i to i64
   %33 = icmp slt i64 %indvars.iv.next.i.i, %32

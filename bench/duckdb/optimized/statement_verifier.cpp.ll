@@ -107,7 +107,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb17StatementVerifierC2ENS_16VerificationTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10unique_ptrINS_12SQLStatementESt14default_deleteIS9_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 noundef zeroext %type, ptr noundef %name, ptr nocapture noundef %statement_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb17StatementVerifierE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17StatementVerifierE, i64 16), ptr %this, align 8, !tbaa !3
   %type2 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %type, ptr %type2, align 8, !tbaa !6
   %name3 = getelementptr inbounds i8, ptr %this, i64 16
@@ -358,7 +358,7 @@ _ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit.i:
   %1 = load i64, ptr %statement_p, align 8, !tbaa !32
   %2 = inttoptr i64 %1 to ptr
   store ptr null, ptr %statement_p, align 8, !tbaa !32
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb17StatementVerifierE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17StatementVerifierE, i64 16), ptr %this, align 8, !tbaa !3
   %type2.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %type2.i, align 8, !tbaa !6
   %name3.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -470,7 +470,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb17StatementVerifierD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6duckdb17StatementVerifierE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17StatementVerifierE, i64 16), ptr %this, align 8, !tbaa !3
   %materialized_result = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %materialized_result, align 8, !tbaa !32
   %cmp.not.i = icmp eq ptr %0, null
@@ -657,7 +657,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !3
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !29
   %1 = getelementptr inbounds i8, ptr %this, i64 64

@@ -3320,7 +3320,9 @@ invoke.cont130:                                   ; preds = %if.then125
   %129 = extractvalue { ptr, i64 } %call131, 1
   %130 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %131 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
+  %.not.i.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
   %132 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  %.not.i1.i.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
   %133 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   br label %for.cond
 
@@ -3356,7 +3358,7 @@ invoke.cont144:                                   ; preds = %for.body
   %sub.i9.i = add i64 %largest.sroa.7.0, -8
   store ptr %largest.sroa.0.0, ptr %ref.tmp2.i, align 8
   store i64 %sub.i9.i, ptr %131, align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %139, label %_ZTWN7rocksdb10perf_levelE.exit.i.i
+  br i1 %.not.i.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i.i, label %139
 
 139:                                              ; preds = %invoke.cont144
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -3368,7 +3370,7 @@ _ZTWN7rocksdb10perf_levelE.exit.i.i:              ; preds = %139, %invoke.cont14
   br i1 %cmp.i.i, label %if.then.i.i218, label %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i
 
 if.then.i.i218:                                   ; preds = %_ZTWN7rocksdb10perf_levelE.exit.i.i
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %141, label %_ZTWN7rocksdb12perf_contextE.exit.i.i
+  br i1 %.not.i1.i.i, label %_ZTWN7rocksdb12perf_contextE.exit.i.i, label %141
 
 141:                                              ; preds = %if.then.i.i218
   invoke void @_ZTHN7rocksdb12perf_contextE()
@@ -4388,7 +4390,8 @@ entry:
   store ptr %call.i.i1, ptr %ref.tmp2.i, align 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   store i64 %sub.i9.i, ptr %1, align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %2, label %_ZTWN7rocksdb10perf_levelE.exit.i.i
+  %.not.i.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i.i, label %2
 
 2:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb10perf_levelE()
@@ -4401,7 +4404,8 @@ _ZTWN7rocksdb10perf_levelE.exit.i.i:              ; preds = %2, %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i
 
 if.then.i.i:                                      ; preds = %_ZTWN7rocksdb10perf_levelE.exit.i.i
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %5, label %_ZTWN7rocksdb12perf_contextE.exit.i.i
+  %.not.i1.i.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i1.i.i, label %_ZTWN7rocksdb12perf_contextE.exit.i.i, label %5
 
 5:                                                ; preds = %if.then.i.i
   tail call void @_ZTHN7rocksdb12perf_contextE()

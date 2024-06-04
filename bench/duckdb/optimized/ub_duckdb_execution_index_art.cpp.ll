@@ -19667,7 +19667,7 @@ if.then.i.i122:                                   ; preds = %invoke.cont4
 
 invoke.cont8:                                     ; preds = %if.then.i.i122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #23
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN6duckdb3ARTE, i64 16), ptr %this, align 8, !tbaa !301
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb3ARTE, i64 16), ptr %this, align 8, !tbaa !301
   %tree = getelementptr inbounds i8, ptr %this, i64 376
   store i64 0, ptr %tree, align 8, !tbaa !27
   %allocators = getelementptr inbounds i8, ptr %this, i64 384
@@ -19824,7 +19824,7 @@ invoke.cont46:                                    ; preds = %invoke.cont35
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !325, !noalias !327
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i149, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !330, !noalias !327
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5arrayIN6duckdb10unique_ptrINS1_18FixedSizeAllocatorESt14default_deleteIS3_ELb1EEELm6EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i16.i.i.i.i149, align 8, !tbaa !301, !noalias !327
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5arrayIN6duckdb10unique_ptrINS1_18FixedSizeAllocatorESt14default_deleteIS3_ELb1EEELm6EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i16.i.i.i.i149, align 8, !tbaa !301, !noalias !327
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i149, i64 16
   %17 = load <2 x i64>, ptr %allocator_array, align 16, !tbaa !10, !noalias !327
   store ptr null, ptr %allocator_array, align 16, !tbaa !10, !noalias !327
@@ -20658,7 +20658,7 @@ declare void @_ZN6duckdb20InvalidTypeExceptionC1ERKNS_11LogicalTypeERKNSt7__cxx1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN6duckdb5IndexE, i64 16), ptr %this, align 8, !tbaa !301
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb5IndexE, i64 16), ptr %this, align 8, !tbaa !301
   %executor = getelementptr inbounds i8, ptr %this, i64 312
   %states.i = getelementptr inbounds i8, ptr %this, i64 352
   %0 = load ptr, ptr %states.i, align 8, !tbaa !356
@@ -28352,7 +28352,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %invoke.cont66
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %ref.tmp58, align 8, !tbaa !301
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %ref.tmp58, align 8, !tbaa !301
   %raw_message_.i = getelementptr inbounds i8, ptr %ref.tmp58, i64 48
   %18 = load ptr, ptr %raw_message_.i, align 8, !tbaa !15
   %19 = getelementptr inbounds i8, ptr %ref.tmp58, i64 64
@@ -29081,7 +29081,7 @@ declare void @_ZN6duckdb14PreservedErrorC1ERKNS_9ExceptionE(ptr noundef nonnull 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !301
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !301
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !15
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -35566,7 +35566,7 @@ return:                                           ; preds = %if.end, %_ZNSt7__cx
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb3ARTD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN6duckdb3ARTE, i64 16), ptr %this, align 8, !tbaa !301
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb3ARTE, i64 16), ptr %this, align 8, !tbaa !301
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !303
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -35624,7 +35624,7 @@ _ZNSt12__shared_ptrISt5arrayIN6duckdb10unique_ptrINS1_18FixedSizeAllocatorESt14d
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb3ARTD0Ev(ptr noundef nonnull align 8 dereferenceable(401) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN6duckdb3ARTE, i64 16), ptr %this, align 8, !tbaa !301
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb3ARTE, i64 16), ptr %this, align 8, !tbaa !301
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !303
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -37688,7 +37688,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 define linkonce_odr void @_ZN6duckdb17ARTIndexScanStateC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %this) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN6duckdb17ARTIndexScanStateE, i64 16), ptr %this, align 8, !tbaa !301
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17ARTIndexScanStateE, i64 16), ptr %this, align 8, !tbaa !301
   invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 1)
           to label %invoke.cont unwind label %lpad
 
@@ -37785,7 +37785,7 @@ declare void @_ZN6duckdb5ValueC1ENS_11LogicalTypeE(ptr noundef nonnull align 8 d
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb17ARTIndexScanStateD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN6duckdb17ARTIndexScanStateE, i64 16), ptr %this, align 8, !tbaa !301
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17ARTIndexScanStateE, i64 16), ptr %this, align 8, !tbaa !301
   %iterator = getelementptr inbounds i8, ptr %this, i64 168
   %nodes.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %nodes.i, align 8, !tbaa !536
@@ -37848,7 +37848,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %if.then.i.i.i, %_ZN
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb17ARTIndexScanStateD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN6duckdb17ARTIndexScanStateE, i64 16), ptr %this, align 8, !tbaa !301
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17ARTIndexScanStateE, i64 16), ptr %this, align 8, !tbaa !301
   %iterator.i = getelementptr inbounds i8, ptr %this, i64 168
   %nodes.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %nodes.i.i, align 8, !tbaa !536

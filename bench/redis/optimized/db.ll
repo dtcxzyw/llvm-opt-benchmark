@@ -2231,7 +2231,7 @@ entry:
   %0 = load i64, ptr %key_count.i, align 8
   %key_count.i13 = getelementptr inbounds i8, ptr %db, i64 128
   %1 = load i64, ptr %key_count.i13, align 8
-  %cmp = icmp eq i64 %0, %1
+  %cmp = icmp ne i64 %0, %1
   %slot_size_index.i.i = getelementptr inbounds i8, ptr %db, i64 112
   %expires.i = getelementptr inbounds i8, ptr %db, i64 8
   br label %while.body
@@ -2406,9 +2406,9 @@ dbFind.exit:                                      ; preds = %land.lhs.true1.i.i,
 
 if.then10:                                        ; preds = %dbFind.exit
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
-  %tobool12 = icmp ne ptr %25, null
-  %or.cond = select i1 %cmp, i1 %tobool12, i1 false
-  br i1 %or.cond, label %land.lhs.true13, label %if.end17
+  %tobool12.not = icmp eq ptr %25, null
+  %or.cond = select i1 %cmp, i1 true, i1 %tobool12.not
+  br i1 %or.cond, label %if.end17, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %if.then10
   %dec = add nsw i32 %maxtries.0, -1
@@ -5120,9 +5120,9 @@ if.then144:                                       ; preds = %lor.lhs.false134, %
   store i64 0, ptr %sampled, align 8
   %or.cond5 = select i1 %cmp, i1 %tobool148, i1 false
   %28 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
-  %tobool158 = icmp ne i32 %28, 0
-  %or.cond6 = select i1 %or.cond5, i1 %tobool158, i1 false
-  br i1 %or.cond6, label %if.end161.thread, label %if.end161
+  %tobool158.not = icmp ne i32 %28, 0
+  %or.cond115.not = select i1 %or.cond5, i1 %tobool158.not, i1 false
+  br i1 %or.cond115.not, label %if.end161.thread, label %if.end161
 
 if.end161.thread:                                 ; preds = %if.then144
   %call160 = call i32 @patternHashSlot(ptr noundef %pat.0.lcssa, i32 noundef %patlen.0.lcssa) #16
@@ -6065,8 +6065,8 @@ define dso_local void @shutdownCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
-  %cmp37 = icmp sgt i32 %0, 1
-  br i1 %cmp37, label %for.body.lr.ph, label %land.lhs.true58
+  %cmp36 = icmp sgt i32 %0, 1
+  br i1 %cmp36, label %for.body.lr.ph, label %land.lhs.true58
 
 for.body.lr.ph:                                   ; preds = %entry
   %argv = getelementptr inbounds i8, ptr %c, i64 96
@@ -6076,8 +6076,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %abort.039 = phi i32 [ 0, %for.body.lr.ph ], [ %abort.1, %for.inc ]
-  %flags.038 = phi i32 [ 0, %for.body.lr.ph ], [ %flags.1, %for.inc ]
+  %abort.038 = phi i32 [ 0, %for.body.lr.ph ], [ %abort.1, %for.inc ]
+  %flags.037 = phi i32 [ 0, %for.body.lr.ph ], [ %flags.1, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %ptr = getelementptr inbounds i8, ptr %2, i64 8
@@ -6087,7 +6087,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %or = or i32 %flags.038, 2
+  %or = or i32 %flags.037, 2
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -6096,7 +6096,7 @@ if.else:                                          ; preds = %for.body
   br i1 %tobool6.not, label %if.then7, label %if.else9
 
 if.then7:                                         ; preds = %if.else
-  %or8 = or i32 %flags.038, 1
+  %or8 = or i32 %flags.037, 1
   br label %for.inc
 
 if.else9:                                         ; preds = %if.else
@@ -6105,7 +6105,7 @@ if.else9:                                         ; preds = %if.else
   br i1 %tobool15.not, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else9
-  %or17 = or i32 %flags.038, 4
+  %or17 = or i32 %flags.037, 4
   br label %for.inc
 
 if.else18:                                        ; preds = %if.else9
@@ -6114,7 +6114,7 @@ if.else18:                                        ; preds = %if.else9
   br i1 %tobool24.not, label %if.then25, label %if.else27
 
 if.then25:                                        ; preds = %if.else18
-  %or26 = or i32 %flags.038, 8
+  %or26 = or i32 %flags.037, 8
   br label %for.inc
 
 if.else27:                                        ; preds = %if.else18
@@ -6128,8 +6128,8 @@ if.else35:                                        ; preds = %if.else27
   br label %if.end89
 
 for.inc:                                          ; preds = %if.else27, %if.then, %if.then16, %if.then25, %if.then7
-  %flags.1 = phi i32 [ %or26, %if.then25 ], [ %or17, %if.then16 ], [ %or8, %if.then7 ], [ %or, %if.then ], [ %flags.038, %if.else27 ]
-  %abort.1 = phi i32 [ %abort.039, %if.then25 ], [ %abort.039, %if.then16 ], [ %abort.039, %if.then7 ], [ %abort.039, %if.then ], [ 1, %if.else27 ]
+  %flags.1 = phi i32 [ %or26, %if.then25 ], [ %or17, %if.then16 ], [ %or8, %if.then7 ], [ %or, %if.then ], [ %flags.037, %if.else27 ]
+  %abort.1 = phi i32 [ %abort.038, %if.then25 ], [ %abort.038, %if.then16 ], [ %abort.038, %if.then7 ], [ %abort.038, %if.then ], [ 1, %if.else27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
@@ -6144,8 +6144,8 @@ lor.lhs.false:                                    ; preds = %for.end
   %and = and i32 %flags.1, 2
   %tobool42.not = icmp eq i32 %and, 0
   %6 = and i32 %flags.1, 3
-  %or.cond34.not = icmp eq i32 %6, 3
-  br i1 %or.cond34.not, label %if.then46, label %if.end47
+  %or.cond33.not = icmp eq i32 %6, 3
+  br i1 %or.cond33.not, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %lor.lhs.false, %for.end
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
@@ -6175,8 +6175,8 @@ if.end55:                                         ; preds = %if.end47
   br i1 %tobool57.not, label %land.lhs.true58, label %if.end63
 
 land.lhs.true58:                                  ; preds = %entry, %if.end55
-  %tobool42.not566069 = phi i1 [ %tobool42.not, %if.end55 ], [ true, %entry ]
-  %flags.0.lcssa47556167 = phi i32 [ %flags.1, %if.end55 ], [ 0, %entry ]
+  %tobool42.not555968 = phi i1 [ %tobool42.not, %if.end55 ], [ true, %entry ]
+  %flags.0.lcssa46546066 = phi i32 [ %flags.1, %if.end55 ], [ 0, %entry ]
   %flags59 = getelementptr inbounds i8, ptr %c, i64 8
   %9 = load i64, ptr %flags59, align 8
   %and60 = and i64 %9, 2199023255552
@@ -6188,9 +6188,9 @@ if.then62:                                        ; preds = %land.lhs.true58
   br label %if.end89
 
 if.end63:                                         ; preds = %land.lhs.true58, %if.end55
-  %tobool42.not566068 = phi i1 [ %tobool42.not566069, %land.lhs.true58 ], [ %tobool42.not, %if.end55 ]
-  %flags.0.lcssa47556166 = phi i32 [ %flags.0.lcssa47556167, %land.lhs.true58 ], [ %flags.1, %if.end55 ]
-  br i1 %tobool42.not566068, label %land.lhs.true66, label %if.end85
+  %tobool42.not555967 = phi i1 [ %tobool42.not555968, %land.lhs.true58 ], [ %tobool42.not, %if.end55 ]
+  %flags.0.lcssa46546065 = phi i32 [ %flags.0.lcssa46546066, %land.lhs.true58 ], [ %flags.1, %if.end55 ]
+  br i1 %tobool42.not555967, label %land.lhs.true66, label %if.end85
 
 land.lhs.true66:                                  ; preds = %if.end63
   %call67 = tail call i32 @isInsideYieldingLongCommand() #16
@@ -6199,25 +6199,24 @@ land.lhs.true66:                                  ; preds = %if.end63
 
 if.then69:                                        ; preds = %land.lhs.true66
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 224), align 8
-  %tobool70 = icmp ne i32 %10, 0
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 232), align 8
-  %tobool72 = icmp ne ptr %11, null
-  %or.cond1 = select i1 %tobool70, i1 %tobool72, i1 false
-  br i1 %or.cond1, label %if.then73, label %if.else74
+  %tobool70.not = icmp eq i32 %10, 0
+  br i1 %tobool70.not, label %if.else77, label %land.lhs.true71
 
-if.then73:                                        ; preds = %if.then69
+land.lhs.true71:                                  ; preds = %if.then69
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 232), align 8
+  %tobool72.not = icmp eq ptr %11, null
+  br i1 %tobool72.not, label %if.then76, label %if.then73
+
+if.then73:                                        ; preds = %land.lhs.true71
   tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.40, ptr noundef nonnull %11) #16
   br label %if.end89
 
-if.else74:                                        ; preds = %if.then69
-  br i1 %tobool70, label %if.then76, label %if.else77
-
-if.then76:                                        ; preds = %if.else74
+if.then76:                                        ; preds = %land.lhs.true71
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 272), align 8
   tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %12) #16
   br label %if.end89
 
-if.else77:                                        ; preds = %if.else74
+if.else77:                                        ; preds = %if.then69
   %call78 = tail call i32 @scriptIsEval() #16
   %tobool79.not = icmp eq i32 %call78, 0
   br i1 %tobool79.not, label %if.else81, label %if.then80
@@ -6234,7 +6233,7 @@ if.else81:                                        ; preds = %if.else77
 
 if.end85:                                         ; preds = %land.lhs.true66, %if.end63
   tail call void @blockClientShutdown(ptr noundef nonnull %c) #16
-  %call86 = tail call i32 @prepareForShutdown(i32 noundef %flags.0.lcssa47556166) #16
+  %call86 = tail call i32 @prepareForShutdown(i32 noundef %flags.0.lcssa46546065) #16
   %cmp87 = icmp eq i32 %call86, 0
   br i1 %cmp87, label %if.then88, label %if.end89
 
@@ -7976,11 +7975,11 @@ if.then7.us.us:                                   ; preds = %for.body.us.us
   %arrayidx.us.us = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv69
   %d.0.us.us = load ptr, ptr %arrayidx.us.us, align 8
   %call16.us.us = tail call i32 @dictExpand(ptr noundef %d.0.us.us, i64 noundef %div) #16
-  %cmp29.us.us = icmp ne i32 %call16.us.us, 1
+  %cmp1829.us.us = icmp eq i32 %call16.us.us, 1
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp33.us.us = icmp sgt i32 %3, 0
-  %or.cond2.us.us = select i1 %cmp29.us.us, i1 true, i1 %cmp33.us.us
-  br i1 %or.cond2.us.us, label %for.inc.us.us, label %if.end36.us.us
+  %cmp33.us.us = icmp slt i32 %3, 1
+  %or.cond27.not.us.us = select i1 %cmp1829.us.us, i1 %cmp33.us.us, i1 false
+  br i1 %or.cond27.not.us.us, label %if.end36.us.us, label %for.inc.us.us
 
 if.end36.us.us:                                   ; preds = %if.then7.us.us
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef nonnull @.str.60, ptr noundef nonnull %cond39, i32 noundef %1) #16
@@ -8004,11 +8003,11 @@ if.then7.us:                                      ; preds = %for.body.us
   %arrayidx12.us = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv65
   %d.0.us = load ptr, ptr %arrayidx12.us, align 8
   %call16.us = tail call i32 @dictExpand(ptr noundef %d.0.us, i64 noundef %div) #16
-  %cmp29.us = icmp ne i32 %call16.us, 1
+  %cmp1829.us = icmp eq i32 %call16.us, 1
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp33.us = icmp sgt i32 %6, 0
-  %or.cond2.us = select i1 %cmp29.us, i1 true, i1 %cmp33.us
-  br i1 %or.cond2.us, label %for.inc.us, label %if.end36.us
+  %cmp33.us = icmp slt i32 %6, 1
+  %or.cond27.not.us = select i1 %cmp1829.us, i1 %cmp33.us, i1 false
+  br i1 %or.cond27.not.us, label %if.end36.us, label %for.inc.us
 
 if.end36.us:                                      ; preds = %if.then7.us
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef nonnull @.str.60, ptr noundef nonnull %cond39, i32 noundef %4) #16

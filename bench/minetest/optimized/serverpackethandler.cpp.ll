@@ -1008,7 +1008,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 ; Function Attrs: uwtable
 define dso_local void @_ZN6Server24handleCommand_DeprecatedEP13NetworkPacket(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1640) %this, ptr nocapture noundef readonly %pkt) local_unnamed_addr #6 align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH10infostream()
@@ -1360,7 +1361,8 @@ catch.dispatch:                                   ; preds = %lpad6, %lpad
 catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #28
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %28, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %28
 
 28:                                               ; preds = %catch
   call void @_ZTH10infostream()
@@ -1410,7 +1412,8 @@ lpad18:                                           ; preds = %invoke.cont16
   br label %ehcleanup678
 
 if.then25:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %34, label %_ZTW13verbosestream.exit
+  %.not98 = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not98, label %_ZTW13verbosestream.exit, label %34
 
 34:                                               ; preds = %if.then25
   call void @_ZTH13verbosestream()
@@ -1528,7 +1531,8 @@ lpad21:                                           ; preds = %if.end83, %call1.i.
 if.end38:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %m_addr.i = getelementptr inbounds i8, ptr %call3, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %m_addr.i, ptr noundef nonnull align 4 dereferenceable(22) %addr, i64 22, i1 false), !tbaa.struct !53
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %46, label %_ZTW13verbosestream.exit809
+  %.not86 = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not86, label %_ZTW13verbosestream.exit809, label %46
 
 46:                                               ; preds = %if.end38
   call void @_ZTH13verbosestream()
@@ -1667,7 +1671,8 @@ cleanup.done59:                                   ; preds = %if.then.i.i.i, %cle
   br i1 %cmp.i.i854.not, label %if.end83, label %if.then64
 
 if.then64:                                        ; preds = %cleanup.done59
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %60, label %_ZTW10infostream.exit855
+  %.not87 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not87, label %_ZTW10infostream.exit855, label %60
 
 60:                                               ; preds = %if.then64
   call void @_ZTH10infostream()
@@ -1876,7 +1881,7 @@ if.end128:                                        ; preds = %invoke.cont95
   %or.cond = select i1 %cmp131, i1 true, i1 %cmp133
   %spec.select = call i16 @llvm.umin.i16(i16 %81, i16 44)
   %net_proto_version.0 = select i1 %or.cond, i16 %spec.select, i16 0
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %83, label %_ZTW13verbosestream.exit962
+  br i1 %.not86, label %_ZTW13verbosestream.exit962, label %83
 
 83:                                               ; preds = %if.end128
   call void @_ZTH13verbosestream()
@@ -2042,7 +2047,8 @@ invoke.cont167:                                   ; preds = %lor.lhs.false165
   br i1 %cmp170, label %if.then171, label %if.end196
 
 if.then171:                                       ; preds = %invoke.cont167, %invoke.cont161
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %95, label %_ZTW12actionstream.exit1026
+  %.not97 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not97, label %_ZTW12actionstream.exit1026, label %95
 
 95:                                               ; preds = %if.then171
   call void @_ZTH12actionstream()
@@ -2222,7 +2228,8 @@ if.end196:                                        ; preds = %invoke.cont167
   br i1 %or.cond694, label %if.then202, label %for.body.i.i.i
 
 if.then202:                                       ; preds = %if.end196
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %118, label %_ZTW12actionstream.exit1088
+  %.not96 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not96, label %_ZTW12actionstream.exit1088, label %118
 
 118:                                              ; preds = %if.then202
   call void @_ZTH12actionstream()
@@ -2344,8 +2351,8 @@ for.body.i.i.i:                                   ; preds = %if.end196, %for.inc
   %133 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !13
   %conv.i.i.i.i = sext i8 %133 to i32
   %call.i.i.i.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %conv.i.i.i.i, i64 noundef 64) #28
-  %tobool.not.i.i.i86 = icmp eq ptr %call.i.i.i.i, null
-  br i1 %tobool.not.i.i.i86, label %if.then233, label %for.inc.i.i.i
+  %tobool.not.i.i.i99 = icmp eq ptr %call.i.i.i.i, null
+  br i1 %tobool.not.i.i.i99, label %if.then233, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   %inc.i.i.i = add nuw nsw i64 %__pos.addr.08.i.i.i, 1
@@ -2353,7 +2360,8 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.end250, label %for.body.i.i.i, !llvm.loop !188
 
 if.then233:                                       ; preds = %for.body.i.i.i
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %134, label %_ZTW12actionstream.exit1116
+  %.not88 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not88, label %_ZTW12actionstream.exit1116, label %134
 
 134:                                              ; preds = %if.then233
   call void @_ZTH12actionstream()
@@ -2463,7 +2471,8 @@ land.lhs.true:                                    ; preds = %invoke.cont252
   br i1 %cmp258.not, label %if.end278, label %if.then259
 
 if.then259:                                       ; preds = %land.lhs.true
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %149, label %_ZTW12actionstream.exit1143
+  %.not89 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not89, label %_ZTW12actionstream.exit1143, label %149
 
 149:                                              ; preds = %if.then259
   call void @_ZTH12actionstream()
@@ -2606,7 +2615,8 @@ land.lhs.true295:                                 ; preds = %invoke.cont291
   br i1 %cmp297, label %if.then298, label %if.end315
 
 if.then298:                                       ; preds = %land.lhs.true295
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %166, label %_ZTW12actionstream.exit1168
+  %.not95 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not95, label %_ZTW12actionstream.exit1168, label %166
 
 166:                                              ; preds = %if.then298
   call void @_ZTH12actionstream()
@@ -2781,7 +2791,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1206: ; preds = %i
   br i1 %call323, label %if.then328, label %cleanup.cont.critedge
 
 if.then328:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1206
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %191, label %_ZTW12actionstream.exit1207
+  %.not94 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not94, label %_ZTW12actionstream.exit1207, label %191
 
 191:                                              ; preds = %if.then328
   call void @_ZTH12actionstream()
@@ -2917,7 +2928,8 @@ if.then.i.i1248:                                  ; preds = %cleanup.cont.crited
 
 cleanup.cont:                                     ; preds = %if.then.i.i1248, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1249
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %reason) #28
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %212, label %_ZTW10infostream.exit1253
+  %.not90 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not90, label %_ZTW10infostream.exit1253, label %212
 
 212:                                              ; preds = %cleanup.cont
   call void @_ZTH10infostream()
@@ -3065,7 +3077,8 @@ cleanup.done450:                                  ; preds = %if.then.i.i1290, %_
   br i1 %229, label %if.then455, label %if.end495
 
 if.then455:                                       ; preds = %cleanup.done450
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %233, label %_ZTW12actionstream.exit1295
+  %.not93 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not93, label %_ZTW12actionstream.exit1295, label %233
 
 233:                                              ; preds = %if.then455
   call void @_ZTH12actionstream()
@@ -3438,7 +3451,8 @@ lpad518:                                          ; preds = %if.then.i1396, %inv
   br label %ehcleanup576
 
 if.else524:                                       ; preds = %if.then516
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %284, label %_ZTW12actionstream.exit1371
+  %.not92 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not92, label %_ZTW12actionstream.exit1371, label %284
 
 284:                                              ; preds = %if.else524
   call void @_ZTH12actionstream()
@@ -3543,7 +3557,8 @@ if.then549:                                       ; preds = %invoke.cont547
           to label %cleanup575 unwind label %lpad518
 
 if.else554:                                       ; preds = %invoke.cont547
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %297, label %_ZTW12actionstream.exit1394
+  %.not91 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not91, label %_ZTW12actionstream.exit1394, label %297
 
 297:                                              ; preds = %if.else554
   call void @_ZTH12actionstream()
@@ -3797,7 +3812,7 @@ ehcleanup608:                                     ; preds = %if.then.i.i1433, %_
 
 if.end609:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1443, %cleanup575
   %auth_mechs.2 = phi i32 [ %auth_mechs.0, %cleanup575 ], [ %auth_mechs.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1443 ]
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %328, label %_ZTW13verbosestream.exit1444
+  br i1 %.not86, label %_ZTW13verbosestream.exit1444, label %328
 
 328:                                              ; preds = %if.end609
   call void @_ZTH13verbosestream()
@@ -4736,7 +4751,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %if.
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %sstr, i64 16
   store ptr %21, ptr %add.ptr3.i.i, align 8, !tbaa !26
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %sstr, i64 24
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %sstr, i64 96
   %22 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %23 = getelementptr inbounds i8, ptr %sstr, i64 112
@@ -4755,7 +4770,7 @@ if.then.i.i.i.i.i18:                              ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %sstr, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
@@ -4916,7 +4931,8 @@ entry:
   %ref.tmp62 = alloca %"class.std::__cxx11::basic_string.439", align 8
   %m_peer_id.i = getelementptr inbounds i8, ptr %pkt, i64 34
   %0 = load i16, ptr %m_peer_id.i, align 2, !tbaa !49
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %1, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %1
 
 1:                                                ; preds = %entry
   tail call void @_ZTH13verbosestream()
@@ -5011,7 +5027,8 @@ lpad:                                             ; preds = %invoke.cont22, %inv
   br label %ehcleanup85
 
 if.end:                                           ; preds = %if.then, %_ZN11StreamProxylsEPFRSoS0_E.exit
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %13, label %_ZTW10infostream.exit
+  %.not17 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not17, label %_ZTW10infostream.exit, label %13
 
 13:                                               ; preds = %if.end
   call void @_ZTH10infostream()
@@ -5718,7 +5735,8 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %m_peer_id.i = getelementptr inbounds i8, ptr %pkt, i64 34
   %0 = load i16, ptr %m_peer_id.i, align 2, !tbaa !49
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %1, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %1
 
 1:                                                ; preds = %invoke.cont
   call void @_ZTH13verbosestream()
@@ -5798,7 +5816,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt7__cxx1112basi
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %14, label %_ZTW13verbosestream.exit53
+  br i1 %.not, label %_ZTW13verbosestream.exit53, label %14
 
 14:                                               ; preds = %for.cond.cleanup
   call void @_ZTH13verbosestream()
@@ -5874,7 +5892,7 @@ invoke.cont16:                                    ; preds = %for.body
           to label %invoke.cont18 unwind label %lpad15
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %25, label %_ZTW13verbosestream.exit71
+  br i1 %.not, label %_ZTW13verbosestream.exit71, label %25
 
 25:                                               ; preds = %invoke.cont18
   call void @_ZTH13verbosestream()
@@ -6161,7 +6179,8 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   br i1 %tobool.not, label %if.then19, label %if.end27
 
 if.then19:                                        ; preds = %invoke.cont17
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %8, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %8
 
 8:                                                ; preds = %if.then19
   call void @_ZTH11errorstream()
@@ -6866,7 +6885,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %4
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %6, ptr %m_s.i, align 8, !tbaa !4
@@ -6934,7 +6953,7 @@ if.then.i.i6:                                     ; preds = %_ZN13BaseExceptionC
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3con28InvalidIncomingDataExceptionE, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3con28InvalidIncomingDataExceptionE, i64 16), ptr %this, align 8, !tbaa !26
   ret void
 }
 
@@ -6943,7 +6962,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -7206,7 +7225,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %2, label %_ZTW11errorstream.exit
+  %.not7 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not7, label %_ZTW11errorstream.exit, label %2
 
 2:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream()
@@ -7293,7 +7313,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %12, label %_ZTW11errorstream.exit35
+  %.not6 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not6, label %_ZTW11errorstream.exit35, label %12
 
 12:                                               ; preds = %if.then9
   tail call void @_ZTH11errorstream()
@@ -7380,7 +7401,8 @@ if.end14:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then16, label %if.end21
 
 if.then16:                                        ; preds = %if.end14
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %22, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %22
 
 22:                                               ; preds = %if.then16
   tail call void @_ZTH13verbosestream()
@@ -7538,7 +7560,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %2, label %_ZTW11errorstream.exit
+  %.not67 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not67, label %_ZTW11errorstream.exit, label %2
 
 2:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream()
@@ -7625,7 +7648,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %12, label %_ZTW11errorstream.exit528
+  %.not66 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not66, label %_ZTW11errorstream.exit528, label %12
 
 12:                                               ; preds = %if.then9
   tail call void @_ZTH11errorstream()
@@ -7759,7 +7783,8 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %27, i64 %26
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #28
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %28, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %28
 
 28:                                               ; preds = %invoke.cont
   call void @_ZTH13verbosestream()
@@ -7862,7 +7887,8 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   br i1 %cmp.i574.not, label %if.then30, label %if.end38
 
 if.then30:                                        ; preds = %invoke.cont27
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %39, label %_ZTW10infostream.exit
+  %.not65 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not65, label %_ZTW10infostream.exit, label %39
 
 39:                                               ; preds = %if.then30
   call void @_ZTH10infostream()
@@ -8508,7 +8534,8 @@ if.end142:                                        ; preds = %invoke.cont139
   br i1 %cmp.i753, label %if.then146, label %if.end190
 
 if.then146:                                       ; preds = %if.end142
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %122, label %_ZTW10infostream.exit754
+  %.not64 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not64, label %_ZTW10infostream.exit754, label %122
 
 122:                                              ; preds = %if.then146
   call void @_ZTH10infostream()
@@ -8728,7 +8755,8 @@ lor.lhs.false195:                                 ; preds = %if.end190
   br i1 %cmp.i822, label %if.then200, label %if.end398
 
 if.then200:                                       ; preds = %lor.lhs.false195, %if.end190
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %155, label %_ZTW10infostream.exit823
+  %.not63 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not63, label %_ZTW10infostream.exit823, label %155
 
 155:                                              ; preds = %if.then200
   call void @_ZTH10infostream()
@@ -9032,7 +9060,8 @@ invoke.cont277:                                   ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i916, label %if.then282, label %if.end309
 
 if.then282:                                       ; preds = %invoke.cont277
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %200, label %_ZTW10infostream.exit917
+  %.not62 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not62, label %_ZTW10infostream.exit917, label %200
 
 200:                                              ; preds = %if.then282
   call void @_ZTH10infostream()
@@ -9222,7 +9251,8 @@ if.end317:                                        ; preds = %invoke.cont314
   br i1 %cmp.i985, label %if.then320, label %if.end398
 
 if.then320:                                       ; preds = %if.end317
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %226, label %_ZTW10infostream.exit986
+  %.not61 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not61, label %_ZTW10infostream.exit986, label %226
 
 226:                                              ; preds = %if.then320
   call void @_ZTH10infostream()
@@ -9423,7 +9453,8 @@ invoke.cont376:                                   ; preds = %_ZNSt7__cxx1112basi
   br i1 %call67, label %if.end385, label %if.then378
 
 if.then378:                                       ; preds = %invoke.cont376
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %255, label %_ZTW10infostream.exit1045
+  %.not60 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not60, label %_ZTW10infostream.exit1045, label %255
 
 255:                                              ; preds = %if.then378
   call void @_ZTH10infostream()
@@ -9555,7 +9586,7 @@ _ZNSt10unique_ptrI15InventoryActionSt14default_deleteIS0_EED2Ev.exit: ; preds = 
   %add.ptr.i.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i
   store ptr %275, ptr %add.ptr.i.i, align 8, !tbaa !26
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %is, i64 16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %is, i64 88
   %276 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %277 = getelementptr inbounds i8, ptr %is, i64 104
@@ -9574,7 +9605,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt10unique_ptrI1
   br label %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %is, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
   %279 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
@@ -9861,7 +9892,8 @@ entry:
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %5, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %5
 
 5:                                                ; preds = %if.then
   tail call void @_ZTH10infostream()
@@ -10296,7 +10328,8 @@ invoke.cont6:                                     ; preds = %invoke.cont
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont6
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %3, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %3
 
 3:                                                ; preds = %if.then
   call void @_ZTH11errorstream()
@@ -10789,7 +10822,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %2, label %_ZTW11errorstream.exit
+  %.not15 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not15, label %_ZTW11errorstream.exit, label %2
 
 2:                                                ; preds = %if.then
   call void @_ZTH11errorstream()
@@ -10876,7 +10910,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp9, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %12, label %_ZTW11errorstream.exit63
+  %.not14 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not14, label %_ZTW11errorstream.exit63, label %12
 
 12:                                               ; preds = %if.then10
   call void @_ZTH11errorstream()
@@ -11034,7 +11069,8 @@ if.then17:                                        ; preds = %_ZNK7UnitSAO10isImm
   br i1 %cmp.i, label %if.then19, label %if.end25
 
 if.then19:                                        ; preds = %if.then17
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %31, label %_ZTW13verbosestream.exit
+  %.not13 = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not13, label %_ZTW13verbosestream.exit, label %31
 
 31:                                               ; preds = %if.then19
   call void @_ZTH13verbosestream()
@@ -11112,7 +11148,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit198: ; preds = %i
   br label %cleanup45
 
 if.end25:                                         ; preds = %if.then17
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %40, label %_ZTW12actionstream.exit
+  %.not = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not, label %_ZTW12actionstream.exit, label %40
 
 40:                                               ; preds = %if.end25
   call void @_ZTH12actionstream()
@@ -11377,7 +11414,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %3, label %_ZTW11errorstream.exit
+  %.not8 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not8, label %_ZTW11errorstream.exit, label %3
 
 3:                                                ; preds = %if.then5
   tail call void @_ZTH11errorstream()
@@ -11464,7 +11502,8 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp12, label %if.then13, label %if.end18
 
 if.then13:                                        ; preds = %if.end10
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %13, label %_ZTW11errorstream.exit51
+  %.not7 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not7, label %_ZTW11errorstream.exit51, label %13
 
 13:                                               ; preds = %if.then13
   tail call void @_ZTH11errorstream()
@@ -11555,7 +11594,8 @@ if.end18:                                         ; preds = %if.end10
   br i1 %cmp21.not, label %if.end34, label %if.then22
 
 if.then22:                                        ; preds = %if.end18
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %24, label %_ZTW12actionstream.exit
+  %.not = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not, label %_ZTW12actionstream.exit, label %24
 
 24:                                               ; preds = %if.then22
   call void @_ZTH12actionstream()
@@ -11687,7 +11727,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %2, label %_ZTW11errorstream.exit
+  %.not4 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not4, label %_ZTW11errorstream.exit, label %2
 
 2:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream()
@@ -11777,7 +11818,8 @@ if.end:                                           ; preds = %entry
 
 if.end10:                                         ; preds = %if.end
   tail call void @_ZN6Server13RespawnPlayerEt(ptr noundef nonnull align 8 dereferenceable(1640) %this, i16 noundef zeroext %0)
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %13, label %_ZTW12actionstream.exit
+  %.not = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not, label %_ZTW12actionstream.exit, label %13
 
 13:                                               ; preds = %if.end10
   tail call void @_ZTH12actionstream()
@@ -11969,7 +12011,8 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   br i1 %cmp, label %cleanup, label %if.then
 
 if.then:                                          ; preds = %invoke.cont5
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %9, label %_ZTW12actionstream.exit
+  %.not = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not, label %_ZTW12actionstream.exit, label %9
 
 9:                                                ; preds = %if.then
   call void @_ZTH12actionstream()
@@ -12457,7 +12500,8 @@ invoke.cont4:                                     ; preds = %if.then.i.i, %_ZNKS
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %3, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %3
 
 3:                                                ; preds = %invoke.cont5
   call void @_ZTH13verbosestream()
@@ -12623,7 +12667,8 @@ invoke.cont31:                                    ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont31
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %22, label %_ZTW11errorstream.exit
+  %.not87 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not87, label %_ZTW11errorstream.exit, label %22
 
 22:                                               ; preds = %if.then
   call void @_ZTH11errorstream()
@@ -12797,7 +12842,8 @@ if.end:                                           ; preds = %invoke.cont31
   br i1 %cmp45, label %if.then46, label %if.end56
 
 if.then46:                                        ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %44, label %_ZTW11errorstream.exit1315
+  %.not86 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not86, label %_ZTW11errorstream.exit1315, label %44
 
 44:                                               ; preds = %if.then46
   call void @_ZTH11errorstream()
@@ -12910,7 +12956,8 @@ if.end56:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then59, label %if.end98
 
 if.then59:                                        ; preds = %if.end56
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %55, label %_ZTW12actionstream.exit
+  %.not85 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not85, label %_ZTW12actionstream.exit, label %55
 
 55:                                               ; preds = %if.then59
   call void @_ZTH12actionstream()
@@ -13154,7 +13201,8 @@ invoke.cont99:                                    ; preds = %if.end98
   br i1 %cmp107.not, label %if.end135, label %if.then108
 
 if.then108:                                       ; preds = %invoke.cont99
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %81, label %_ZTW12actionstream.exit1384
+  %.not73 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not73, label %_ZTW12actionstream.exit1384, label %81
 
 81:                                               ; preds = %if.then108
   call void @_ZTH12actionstream()
@@ -13397,7 +13445,7 @@ invoke.cont143:                                   ; preds = %_ZNKSt3mapItSt10uni
   br i1 %cmp145, label %if.then146, label %if.end152
 
 if.then146:                                       ; preds = %invoke.cont143
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %106, label %_ZTW13verbosestream.exit1445
+  br i1 %.not, label %_ZTW13verbosestream.exit1445, label %106
 
 106:                                              ; preds = %if.then146
   call void @_ZTH13verbosestream()
@@ -13405,32 +13453,32 @@ if.then146:                                       ; preds = %invoke.cont143
 
 _ZTW13verbosestream.exit1445:                     ; preds = %106, %if.then146
   %107 = load ptr, ptr %4, align 8, !tbaa !15
-  %vtable.i73 = load ptr, ptr %107, align 8, !tbaa !26
-  %108 = load ptr, ptr %vtable.i73, align 8
-  %call.i79 = invoke noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(8) %107)
-          to label %call.i.noexc78 unwind label %lpad142
+  %vtable.i88 = load ptr, ptr %107, align 8, !tbaa !26
+  %108 = load ptr, ptr %vtable.i88, align 8
+  %call.i94 = invoke noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(8) %107)
+          to label %call.i.noexc93 unwind label %lpad142
 
-call.i.noexc78:                                   ; preds = %_ZTW13verbosestream.exit1445
-  %cond-lvalue.v.i74 = select i1 %call.i79, i64 976, i64 984
-  %cond-lvalue.i75 = getelementptr inbounds i8, ptr %4, i64 %cond-lvalue.v.i74
-  %109 = load ptr, ptr %cond-lvalue.i75, align 8, !tbaa !28
-  %tobool.not.i.i76 = icmp eq ptr %109, null
-  br i1 %tobool.not.i.i76, label %cleanup1067, label %if.then.i.i77
+call.i.noexc93:                                   ; preds = %_ZTW13verbosestream.exit1445
+  %cond-lvalue.v.i89 = select i1 %call.i94, i64 976, i64 984
+  %cond-lvalue.i90 = getelementptr inbounds i8, ptr %4, i64 %cond-lvalue.v.i89
+  %109 = load ptr, ptr %cond-lvalue.i90, align 8, !tbaa !28
+  %tobool.not.i.i91 = icmp eq ptr %109, null
+  br i1 %tobool.not.i.i91, label %cleanup1067, label %if.then.i.i92
 
-if.then.i.i77:                                    ; preds = %call.i.noexc78
-  %call1.i.i.i80 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull @.str.117, i64 noundef 41)
+if.then.i.i92:                                    ; preds = %call.i.noexc93
+  %call1.i.i.i95 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull @.str.117, i64 noundef 41)
           to label %invoke.cont147 unwind label %lpad142
 
-invoke.cont147:                                   ; preds = %if.then.i.i77
-  %.pr84 = load ptr, ptr %cond-lvalue.i75, align 8, !tbaa !28
-  %tobool.not.i1446 = icmp eq ptr %.pr84, null
+invoke.cont147:                                   ; preds = %if.then.i.i92
+  %.pr99 = load ptr, ptr %cond-lvalue.i90, align 8, !tbaa !28
+  %tobool.not.i1446 = icmp eq ptr %.pr99, null
   br i1 %tobool.not.i1446, label %cleanup1067, label %if.then.i1447
 
 if.then.i1447:                                    ; preds = %invoke.cont147
-  %call.i.i14481449 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %.pr84)
+  %call.i.i14481449 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %.pr99)
           to label %cleanup1067 unwind label %lpad142
 
-lpad142:                                          ; preds = %if.then.i.i77, %_ZTW13verbosestream.exit1445, %if.then.i1447
+lpad142:                                          ; preds = %if.then.i.i92, %_ZTW13verbosestream.exit1445, %if.then.i1447
   %110 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup1072
@@ -13528,7 +13576,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1487: ; preds = %i
   br i1 %call166, label %if.end234, label %if.then175
 
 if.then175:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1487
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %122, label %_ZTW12actionstream.exit1488
+  %.not74 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not74, label %_ZTW12actionstream.exit1488, label %122
 
 122:                                              ; preds = %if.then175
   call void @_ZTH12actionstream()
@@ -13908,7 +13957,8 @@ if.then277:                                       ; preds = %if.then260
   br i1 %cmp285, label %if.then286, label %if.end313
 
 if.then286:                                       ; preds = %if.then277
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %177, label %_ZTW12actionstream.exit1563
+  %.not75 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not75, label %_ZTW12actionstream.exit1563, label %177
 
 177:                                              ; preds = %if.then286
   call void @_ZTH12actionstream()
@@ -14025,12 +14075,12 @@ if.end313:                                        ; preds = %if.then277
 if.end321:                                        ; preds = %if.end313, %invoke.cont269, %if.then260
   %target_pos.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.copyload.i, %if.then260 ], [ %retval.sroa.0.0.copyload.i1582, %if.end313 ], [ %169, %invoke.cont269 ]
   %target_pos.sroa.8.0 = phi float [ %retval.sroa.2.0.copyload.i, %if.then260 ], [ %retval.sroa.2.0.copyload.i1583, %if.end313 ], [ %mul4.i, %invoke.cont269 ]
-  %call.i83 = invoke { <2 x float>, float } @_ZNK9PlayerSAO12getEyeOffsetEv(ptr noundef nonnull align 8 dereferenceable(1089) %43)
+  %call.i98 = invoke { <2 x float>, float } @_ZNK9PlayerSAO12getEyeOffsetEv(ptr noundef nonnull align 8 dereferenceable(1089) %43)
           to label %invoke.cont327 unwind label %lpad323
 
 invoke.cont327:                                   ; preds = %if.end321
-  %m_base_position.i81 = getelementptr inbounds i8, ptr %43, i64 32
-  %191 = load <2 x float>, ptr %m_base_position.i81, align 8, !tbaa !300
+  %m_base_position.i96 = getelementptr inbounds i8, ptr %43, i64 32
+  %191 = load <2 x float>, ptr %m_base_position.i96, align 8, !tbaa !300
   %Z.i.i = getelementptr inbounds i8, ptr %43, i64 40
   %192 = load float, ptr %Z.i.i, align 8, !tbaa !322
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp330) #28
@@ -14038,9 +14088,9 @@ invoke.cont327:                                   ; preds = %if.end321
           to label %invoke.cont332 unwind label %lpad331
 
 invoke.cont332:                                   ; preds = %invoke.cont327
-  %call.fca.1.extract.i = extractvalue { <2 x float>, float } %call.i83, 1
+  %call.fca.1.extract.i = extractvalue { <2 x float>, float } %call.i98, 1
   %add6.i.i = fadd nsz float %call.fca.1.extract.i, %192
-  %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i83, 0
+  %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i98, 0
   %193 = fadd nsz <2 x float> %call.fca.0.extract.i, %191
   %sub6.i = fsub nsz float %add6.i.i, %target_pos.sroa.8.0
   %194 = fsub nsz <2 x float> %193, %target_pos.sroa.0.0
@@ -14311,7 +14361,8 @@ invoke.cont394:                                   ; preds = %invoke.cont391
   br i1 %tobool397.not, label %if.then398, label %if.end413
 
 if.then398:                                       ; preds = %invoke.cont394
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %233, label %_ZTW10infostream.exit
+  %.not83 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not83, label %_ZTW10infostream.exit, label %233
 
 233:                                              ; preds = %if.then398
   call void @_ZTH10infostream()
@@ -14587,7 +14638,8 @@ invoke.cont548:                                   ; preds = %invoke.cont545
   br i1 %tobool550.not, label %if.then551, label %if.end566
 
 if.then551:                                       ; preds = %invoke.cont548
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %265, label %_ZTW10infostream.exit1683
+  %.not79 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not79, label %_ZTW10infostream.exit1683, label %265
 
 265:                                              ; preds = %if.then551
   call void @_ZTH10infostream()
@@ -14666,7 +14718,8 @@ land.lhs.true.i.i:                                ; preds = %invoke.cont580
   br i1 %or.cond2253, label %if.end618, label %if.then583
 
 if.then583:                                       ; preds = %land.lhs.true.i.i, %invoke.cont580
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %282, label %_ZTW10infostream.exit1696
+  %.not80 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not80, label %_ZTW10infostream.exit1696, label %282
 
 282:                                              ; preds = %if.then583
   call void @_ZTH10infostream()
@@ -14943,7 +14996,8 @@ if.end650:                                        ; preds = %if.then.i.i.i1736, 
   br i1 %tobool652.not, label %if.then653, label %if.end685
 
 if.then653:                                       ; preds = %if.end650
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %317, label %_ZTW10infostream.exit1738
+  %.not82 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not82, label %_ZTW10infostream.exit1738, label %317
 
 317:                                              ; preds = %if.then653
   call void @_ZTH10infostream()
@@ -15105,7 +15159,8 @@ if.end4.i1766:                                    ; preds = %if.end.i1762
   br label %if.end742
 
 if.else709:                                       ; preds = %if.end.i1762
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %336, label %_ZTW10infostream.exit1768
+  %.not81 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not81, label %_ZTW10infostream.exit1768, label %336
 
 336:                                              ; preds = %if.else709
   call void @_ZTH10infostream()
@@ -15434,7 +15489,8 @@ lpad828:                                          ; preds = %if.then902, %land.l
   br label %ehcleanup958
 
 if.end841:                                        ; preds = %if.then837
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %374, label %_ZTW12actionstream.exit1815
+  %.not78 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not78, label %_ZTW12actionstream.exit1815, label %374
 
 374:                                              ; preds = %if.end841
   call void @_ZTH12actionstream()
@@ -15713,7 +15769,8 @@ sw.bb961:                                         ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont964 unwind label %lpad963
 
 invoke.cont964:                                   ; preds = %sw.bb961
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %402, label %_ZTW12actionstream.exit1874
+  %.not77 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not77, label %_ZTW12actionstream.exit1874, label %402
 
 402:                                              ; preds = %invoke.cont964
   call void @_ZTH12actionstream()
@@ -15880,7 +15937,8 @@ sw.bb1010:                                        ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont1013 unwind label %lpad1012
 
 invoke.cont1013:                                  ; preds = %sw.bb1010
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %423, label %_ZTW12actionstream.exit1910
+  %.not76 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not76, label %_ZTW12actionstream.exit1910, label %423
 
 423:                                              ; preds = %invoke.cont1013
   call void @_ZTH12actionstream()
@@ -15970,7 +16028,8 @@ ehcleanup1048:                                    ; preds = %lpad1015, %lpad1012
   br label %ehcleanup1058
 
 sw.default:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1633
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %433, label %_ZTW13warningstream.exit
+  %.not84 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not84, label %_ZTW13warningstream.exit, label %433
 
 433:                                              ; preds = %sw.default
   call void @_ZTH13warningstream()
@@ -16039,7 +16098,7 @@ _ZN18RollbackScopeActorD2Ev.exit:                 ; preds = %if.then.i.i.i1939, 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %rollback_scope) #28
   br label %cleanup1067
 
-cleanup1067:                                      ; preds = %call.i.noexc78, %_ZN18RollbackScopeActorD2Ev.exit, %invoke.cont352, %if.then339, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1575, %invoke.cont225, %invoke.cont213, %invoke.cont204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1529, %if.then.i1447, %invoke.cont147, %call1.i.noexc2062, %invoke.cont129, %invoke.cont127, %invoke.cont121, %invoke.cont119, %invoke.cont117, %invoke.cont115, %invoke.cont109, %call.i.noexc1391, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1377, %invoke.cont53, %invoke.cont39
+cleanup1067:                                      ; preds = %call.i.noexc93, %_ZN18RollbackScopeActorD2Ev.exit, %invoke.cont352, %if.then339, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1575, %invoke.cont225, %invoke.cont213, %invoke.cont204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1529, %if.then.i1447, %invoke.cont147, %call1.i.noexc2062, %invoke.cont129, %invoke.cont127, %invoke.cont121, %invoke.cont119, %invoke.cont117, %invoke.cont115, %invoke.cont109, %call.i.noexc1391, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1377, %invoke.cont53, %invoke.cont39
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %pointed) #28
   %444 = load ptr, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %444, ptr %tmp_is, align 8, !tbaa !26
@@ -16049,7 +16108,7 @@ cleanup1067:                                      ; preds = %call.i.noexc78, %_Z
   %add.ptr.i.i1945 = getelementptr inbounds i8, ptr %tmp_is, i64 %vbase.offset.i.i1944
   store ptr %445, ptr %add.ptr.i.i1945, align 8, !tbaa !26
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %tmp_is, i64 16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %tmp_is, i64 88
   %446 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !11
   %447 = getelementptr inbounds i8, ptr %tmp_is, i64 104
@@ -16068,7 +16127,7 @@ if.then.i.i.i.i.i:                                ; preds = %cleanup1067
   br label %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !26
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %tmp_is, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #28
   %449 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
@@ -17121,7 +17180,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %2, label %_ZTW11errorstream.exit
+  %.not31 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not31, label %_ZTW11errorstream.exit, label %2
 
 2:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream()
@@ -17208,7 +17268,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %12, label %_ZTW11errorstream.exit129
+  %.not30 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not30, label %_ZTW11errorstream.exit129, label %12
 
 12:                                               ; preds = %if.then9
   tail call void @_ZTH11errorstream()
@@ -17327,7 +17388,8 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   br i1 %call19, label %if.end34, label %if.then20
 
 if.then20:                                        ; preds = %invoke.cont18
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %22, label %_ZTW13warningstream.exit
+  %.not29 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not29, label %_ZTW13warningstream.exit, label %22
 
 22:                                               ; preds = %if.then20
   call void @_ZTH13warningstream()
@@ -18687,7 +18749,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %2, label %_ZTW11errorstream.exit
+  %.not27 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not27, label %_ZTW11errorstream.exit, label %2
 
 2:                                                ; preds = %if.then
   tail call void @_ZTH11errorstream()
@@ -18774,7 +18837,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %12, label %_ZTW11errorstream.exit172
+  %.not26 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not26, label %_ZTW11errorstream.exit172, label %12
 
 12:                                               ; preds = %if.then9
   tail call void @_ZTH11errorstream()
@@ -18883,7 +18947,8 @@ invoke.cont16:                                    ; preds = %invoke.cont
   br i1 %call17, label %if.end32, label %if.then18
 
 if.then18:                                        ; preds = %invoke.cont16
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %22, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %22
 
 22:                                               ; preds = %if.then18
   call void @_ZTH13warningstream()
@@ -19169,7 +19234,8 @@ if.end83:                                         ; preds = %if.then74, %land.rh
           to label %cleanup133 unwind label %lpad78
 
 if.end89:                                         ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %if.then48
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %59, label %_ZTW12actionstream.exit
+  %.not23 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not23, label %_ZTW12actionstream.exit, label %59
 
 59:                                               ; preds = %if.end89
   call void @_ZTH12actionstream()
@@ -19265,7 +19331,8 @@ lpad94:                                           ; preds = %if.then.i299, %if.t
   br label %ehcleanup134
 
 if.else:                                          ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %70, label %_ZTW12actionstream.exit303
+  %.not24 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not24, label %_ZTW12actionstream.exit303, label %70
 
 70:                                               ; preds = %if.else
   call void @_ZTH12actionstream()
@@ -19336,7 +19403,8 @@ lpad114:                                          ; preds = %if.then.i345, %if.t
   br label %ehcleanup134
 
 if.end126:                                        ; preds = %if.then.i345, %invoke.cont121, %invoke.cont119, %invoke.cont117, %invoke.cont111, %call.i305.noexc, %if.then.i299, %invoke.cont105, %invoke.cont103, %invoke.cont101, %invoke.cont99, %invoke.cont97, %invoke.cont91, %call.i251.noexc
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %78, label %_ZTW12actionstream.exit349
+  %.not25 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not25, label %_ZTW12actionstream.exit349, label %78
 
 78:                                               ; preds = %if.end126
   call void @_ZTH12actionstream()
@@ -19743,7 +19811,8 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad6
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %12, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %12
 
 12:                                               ; preds = %invoke.cont11
   call void @_ZTH13verbosestream()
@@ -19918,7 +19987,8 @@ if.then:                                          ; preds = %cleanup.done58
   br i1 %tobool.i387.not, label %if.then67, label %if.end
 
 if.then67:                                        ; preds = %if.then
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %34, label %_ZTW12actionstream.exit
+  %.not61 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not61, label %_ZTW12actionstream.exit, label %34
 
 34:                                               ; preds = %if.then67
   call void @_ZTH12actionstream()
@@ -20121,7 +20191,8 @@ if.end:                                           ; preds = %if.then
   br i1 %32, label %if.then88, label %if.end109
 
 if.then88:                                        ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %59, label %_ZTW12actionstream.exit449
+  %.not60 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not60, label %_ZTW12actionstream.exit449, label %59
 
 59:                                               ; preds = %if.then88
   call void @_ZTH12actionstream()
@@ -20290,7 +20361,8 @@ invoke.cont114:                                   ; preds = %invoke.cont111
   br i1 %call115, label %if.then116, label %if.end139
 
 if.then116:                                       ; preds = %invoke.cont114
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %79, label %_ZTW12actionstream.exit505
+  %.not59 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not59, label %_ZTW12actionstream.exit505, label %79
 
 79:                                               ; preds = %if.then116
   call void @_ZTH12actionstream()
@@ -20538,7 +20610,8 @@ if.else:                                          ; preds = %cleanup.done58
   br i1 %cmp153, label %if.then154, label %if.end169
 
 if.then154:                                       ; preds = %if.else
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %108, label %_ZTW10infostream.exit
+  %.not58 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not58, label %_ZTW10infostream.exit, label %108
 
 108:                                              ; preds = %if.then154
   call void @_ZTH10infostream()
@@ -20666,7 +20739,8 @@ invoke.cont170:                                   ; preds = %if.end169
   br i1 %32, label %if.then172, label %if.end205
 
 if.then172:                                       ; preds = %invoke.cont170
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %119, label %_ZTW12actionstream.exit620
+  %.not57 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not57, label %_ZTW12actionstream.exit620, label %119
 
 119:                                              ; preds = %if.then172
   call void @_ZTH12actionstream()
@@ -20942,10 +21016,11 @@ invoke.cont208:                                   ; preds = %if.end205
           to label %invoke.cont213 unwind label %lpad212
 
 invoke.cont213:                                   ; preds = %invoke.cont208
+  %.not56 = icmp eq ptr @_ZTH12actionstream, null
   br i1 %call214, label %if.then217, label %if.else251
 
 if.then217:                                       ; preds = %invoke.cont213
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %152, label %_ZTW12actionstream.exit696
+  br i1 %.not56, label %_ZTW12actionstream.exit696, label %152
 
 152:                                              ; preds = %if.then217
   call void @_ZTH12actionstream()
@@ -21204,7 +21279,7 @@ ehcleanup246:                                     ; preds = %if.then.i.i779, %_Z
   br label %ehcleanup285
 
 if.else251:                                       ; preds = %invoke.cont213
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %186, label %_ZTW12actionstream.exit784
+  br i1 %.not56, label %_ZTW12actionstream.exit784, label %186
 
 186:                                              ; preds = %if.else251
   call void @_ZTH12actionstream()
@@ -21694,7 +21769,8 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %2, label %_ZTW12actionstream.exit
+  %.not49 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not49, label %_ZTW12actionstream.exit, label %2
 
 2:                                                ; preds = %if.then
   tail call void @_ZTH12actionstream()
@@ -21859,7 +21935,8 @@ if.end:                                           ; preds = %entry, %entry
   br i1 %cmp15.not, label %if.end44, label %if.then16
 
 if.then16:                                        ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %22, label %_ZTW12actionstream.exit342
+  %.not = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not, label %_ZTW12actionstream.exit342, label %22
 
 22:                                               ; preds = %if.then16
   tail call void @_ZTH12actionstream()
@@ -22105,7 +22182,8 @@ invoke.cont46:                                    ; preds = %if.end44
           to label %invoke.cont48 unwind label %lpad45
 
 invoke.cont48:                                    ; preds = %invoke.cont46
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %49, label %_ZTW10infostream.exit
+  %.not44 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not44, label %_ZTW10infostream.exit, label %49
 
 49:                                               ; preds = %invoke.cont48
   call void @_ZTH10infostream()
@@ -22249,7 +22327,8 @@ if.then74:                                        ; preds = %invoke.cont67
   br i1 %tobool.i.not, label %if.then78, label %if.end143
 
 if.then78:                                        ; preds = %if.then74
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %62, label %_ZTW12actionstream.exit451
+  %.not48 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not48, label %_ZTW12actionstream.exit451, label %62
 
 62:                                               ; preds = %if.then78
   call void @_ZTH12actionstream()
@@ -22474,7 +22553,8 @@ if.else:                                          ; preds = %invoke.cont67
   br i1 %tobool.i.not, label %if.then110, label %if.end143
 
 if.then110:                                       ; preds = %if.else
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %88, label %_ZTW12actionstream.exit514
+  %.not45 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not45, label %_ZTW12actionstream.exit514, label %88
 
 88:                                               ; preds = %if.then110
   call void @_ZTH12actionstream()
@@ -22735,7 +22815,8 @@ invoke.cont154:                                   ; preds = %if.else152
   br i1 %call155, label %if.end178, label %if.then156
 
 if.then156:                                       ; preds = %invoke.cont154
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %117, label %_ZTW12actionstream.exit591
+  %.not46 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not46, label %_ZTW12actionstream.exit591, label %117
 
 117:                                              ; preds = %if.then156
   call void @_ZTH12actionstream()
@@ -22909,7 +22990,8 @@ invoke.cont189:                                   ; preds = %if.end178
   br i1 %tobool191.not, label %if.then192, label %invoke.cont220
 
 if.then192:                                       ; preds = %invoke.cont189
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %142, label %_ZTW12actionstream.exit647
+  %.not47 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not47, label %_ZTW12actionstream.exit647, label %142
 
 142:                                              ; preds = %if.then192
   call void @_ZTH12actionstream()
@@ -23028,8 +23110,8 @@ if.end207:                                        ; preds = %invoke.cont201
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp208) #28
   %154 = getelementptr inbounds i8, ptr %ref.tmp208, i64 16
   store ptr %154, ptr %ref.tmp208, align 8, !tbaa !4
-  %_M_string_length.i.i.i.i45 = getelementptr inbounds i8, ptr %ref.tmp208, i64 8
-  store i64 0, ptr %_M_string_length.i.i.i.i45, align 8, !tbaa !14
+  %_M_string_length.i.i.i.i51 = getelementptr inbounds i8, ptr %ref.tmp208, i64 8
+  store i64 0, ptr %_M_string_length.i.i.i.i51, align 8, !tbaa !14
   store i8 0, ptr %154, align 8, !tbaa !13
   invoke void @_ZN6Server10DenyAccessEt16AccessDeniedCodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(1640) %this, i16 noundef zeroext %0, i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp208, i1 noundef zeroext false)
           to label %invoke.cont213 unwind label %lpad212
@@ -23040,7 +23122,7 @@ invoke.cont213:                                   ; preds = %if.end207
   br i1 %cmp.i.i.i676, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i678, label %if.then.i.i677
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i678: ; preds = %invoke.cont213
-  %156 = load i64, ptr %_M_string_length.i.i.i.i45, align 8, !tbaa !14
+  %156 = load i64, ptr %_M_string_length.i.i.i.i51, align 8, !tbaa !14
   %cmp3.i.i.i680 = icmp ult i64 %156, 16
   call void @llvm.assume(i1 %cmp3.i.i.i680)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit681
@@ -23061,7 +23143,7 @@ lpad212:                                          ; preds = %if.end207
   br i1 %cmp.i.i.i682, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i684, label %if.then.i.i683
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i684: ; preds = %lpad212
-  %159 = load i64, ptr %_M_string_length.i.i.i.i45, align 8, !tbaa !14
+  %159 = load i64, ptr %_M_string_length.i.i.i.i51, align 8, !tbaa !14
   %cmp3.i.i.i686 = icmp ult i64 %159, 16
   call void @llvm.assume(i1 %cmp3.i.i.i686)
   br label %ehcleanup215
@@ -23436,7 +23518,8 @@ invoke.cont6:                                     ; preds = %if.end.i.i.i.i.i, %
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #28
   %cmp = icmp eq i32 %1, 8
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %10, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %10
 
 10:                                               ; preds = %invoke.cont6
   call void @_ZTH13verbosestream()
@@ -23514,7 +23597,8 @@ invoke.cont10:                                    ; preds = %call1.i.noexc, %inv
   ]
 
 if.then:                                          ; preds = %invoke.cont10
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %19, label %_ZTW13warningstream.exit
+  %.not32 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not32, label %_ZTW13warningstream.exit, label %19
 
 19:                                               ; preds = %if.then
   call void @_ZTH13warningstream()
@@ -23642,7 +23726,8 @@ if.end:                                           ; preds = %invoke.cont10, %inv
   br i1 %switch, label %if.end57, label %if.then29
 
 if.then29:                                        ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %33, label %_ZTW13warningstream.exit273
+  %.not27 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not27, label %_ZTW13warningstream.exit273, label %33
 
 33:                                               ; preds = %if.then29
   call void @_ZTH13warningstream()
@@ -23857,7 +23942,8 @@ invoke.cont61:                                    ; preds = %invoke.cont59
   br i1 %cmp64.not, label %if.end94, label %if.then65
 
 if.then65:                                        ; preds = %invoke.cont61
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %54, label %_ZTW12actionstream.exit
+  %.not28 = icmp eq ptr @_ZTH12actionstream, null
+  br i1 %.not28, label %_ZTW12actionstream.exit, label %54
 
 54:                                               ; preds = %if.then65
   call void @_ZTH12actionstream()
@@ -24060,10 +24146,11 @@ invoke.cont98:                                    ; preds = %if.end94
   br i1 %tobool99.not, label %if.then100, label %if.end144
 
 if.then100:                                       ; preds = %invoke.cont98
+  %.not31 = icmp eq ptr @_ZTH12actionstream, null
   br i1 %cmp, label %if.then102, label %if.end119
 
 if.then102:                                       ; preds = %if.then100
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %79, label %_ZTW12actionstream.exit405
+  br i1 %.not31, label %_ZTW12actionstream.exit405, label %79
 
 79:                                               ; preds = %if.then102
   call void @_ZTH12actionstream()
@@ -24198,7 +24285,7 @@ lpad97:                                           ; preds = %invoke.cont181, %if
   br label %ehcleanup184
 
 if.end119:                                        ; preds = %if.then100
-  br i1 icmp ne (ptr @_ZTH12actionstream, ptr null), label %93, label %_ZTW12actionstream.exit450
+  br i1 %.not31, label %_ZTW12actionstream.exit450, label %93
 
 93:                                               ; preds = %if.end119
   call void @_ZTH12actionstream()
@@ -24354,7 +24441,8 @@ invoke.cont154:                                   ; preds = %invoke.cont150
   br i1 %call155, label %if.end175, label %if.then156
 
 if.then156:                                       ; preds = %invoke.cont154
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %112, label %_ZTW11errorstream.exit
+  %.not29 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not29, label %_ZTW11errorstream.exit, label %112
 
 112:                                              ; preds = %if.then156
   call void @_ZTH11errorstream()
@@ -24748,7 +24836,8 @@ if.then:                                          ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %if.then
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %11, label %_ZTW10infostream.exit
+  %.not11 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not11, label %_ZTW10infostream.exit, label %11
 
 11:                                               ; preds = %invoke.cont20
   call void @_ZTH10infostream()
@@ -24901,7 +24990,8 @@ if.else:                                          ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont32 unwind label %lpad19
 
 invoke.cont32:                                    ; preds = %if.else
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %30, label %_ZTW10infostream.exit95
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit95, label %30
 
 30:                                               ; preds = %invoke.cont32
   call void @_ZTH10infostream()
@@ -25200,7 +25290,8 @@ if.then:                                          ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %if.then
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %11, label %_ZTW10infostream.exit
+  %.not11 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not11, label %_ZTW10infostream.exit, label %11
 
 11:                                               ; preds = %invoke.cont20
   call void @_ZTH10infostream()
@@ -25353,7 +25444,8 @@ if.else:                                          ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont32 unwind label %lpad19
 
 invoke.cont32:                                    ; preds = %if.else
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %30, label %_ZTW10infostream.exit95
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit95, label %30
 
 30:                                               ; preds = %invoke.cont32
   call void @_ZTH10infostream()
@@ -25580,7 +25672,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_peer_id.i = getelementptr inbounds i8, ptr %pkt, i64 34
   %2 = load i16, ptr %m_peer_id.i, align 2, !tbaa !49
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %3, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %3
 
 3:                                                ; preds = %invoke.cont2
   call void @_ZTH13verbosestream()
@@ -26390,7 +26483,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3con28InvalidIncomingDataExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -26425,7 +26518,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !26
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -26733,7 +26826,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8, !tbaa !243
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !26
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %toolcaps_overridden, align 8, !tbaa !397
   %toolcaps_override = getelementptr inbounds i8, ptr %this, i64 80
@@ -30628,7 +30721,7 @@ entry:
   store ptr %m_stringvars.i, ptr %__alloc_node_gen.i.i.i, align 8, !tbaa !36
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSL_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %m_stringvars.i, ptr noundef nonnull align 8 dereferenceable(56) %m_stringvars4.i, ptr noundef nonnull align 8 dereferenceable(8) %__alloc_node_gen.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i) #28
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !26
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   %toolcaps_overridden2 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i8, ptr %toolcaps_overridden2, align 8, !tbaa !397, !range !184, !noundef !185

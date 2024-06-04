@@ -196,7 +196,7 @@ define void @_ZN3gmx10TextWriterC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture
   store i32 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 1, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx14TextOutputFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx14TextOutputFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
   %26 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %5, ptr %26, align 8
   store ptr %9, ptr %8, align 8
@@ -524,7 +524,7 @@ define void @_ZN3gmx10TextWriterC2EP8_IO_FILE(ptr nocapture noundef nonnull writ
   store i32 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 1, ptr %25, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx14TextOutputFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx14TextOutputFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
   %26 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %5, ptr %26, align 8
   store ptr %9, ptr %8, align 8
@@ -698,7 +698,7 @@ define void @_ZN3gmx10TextWriterC2EPNS_16TextOutputStreamE(ptr nocapture noundef
   store i32 1, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %19, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN3gmx16TextOutputStreamENS0_9no_deleteIS1_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN3gmx16TextOutputStreamENS0_9no_deleteIS1_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %20 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %1, ptr %20, align 8
   store ptr %6, ptr %5, align 8

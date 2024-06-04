@@ -2459,8 +2459,8 @@ os_is_apple.exit:                                 ; preds = %511, %511, %511, %5
   unreachable
 
 target_setup_arm_abi.exit:                        ; preds = %522, %529, %551, %554, %561
-  %.sink8.i = phi i8 [ %563, %561 ], [ %556, %554 ], [ %553, %551 ], [ %531, %529 ], [ %525, %522 ]
-  store i8 %.sink8.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
+  %.sink11.i = phi i8 [ %563, %561 ], [ %556, %554 ], [ %553, %551 ], [ %531, %529 ], [ %525, %522 ]
+  store i8 %.sink11.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   br label %target_setup_x86_abi.exit
 
 567:                                              ; preds = %os_target_signed_c_char_type.exit.thread
@@ -2702,8 +2702,8 @@ x64_cpu_default.exit.i:                           ; preds = %647, %641, %635, %6
   unreachable
 
 x86_cpu_from_set.exit.i:                          ; preds = %665, %664, %663, %662, %661, %661
-  %.0.i17.i = phi ptr [ %666, %665 ], [ @.str.324, %664 ], [ @.str.323, %663 ], [ @.str.322, %662 ], [ @.str.321, %661 ], [ @.str.321, %661 ]
-  store ptr %.0.i17.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 16), align 8
+  %.0.i18.i = phi ptr [ %666, %665 ], [ @.str.324, %664 ], [ @.str.323, %663 ], [ @.str.322, %662 ], [ @.str.321, %661 ], [ @.str.321, %661 ]
+  store ptr %.0.i18.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 16), align 8
   call fastcc void @x86features_from_cpu(ptr noundef nonnull %5, i32 noundef %.0.i108)
   %668 = load i16, ptr %624, align 8
   %669 = shl i16 %668, 6
@@ -2891,8 +2891,8 @@ x86features_as_diff_to_scratch.exit.i:            ; preds = %724
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %725 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   %726 = and i32 %725, 65536
-  %.not15.i = icmp eq i32 %726, 0
-  br i1 %.not15.i, label %728, label %727
+  %.not16.i = icmp eq i32 %726, 0
+  br i1 %.not16.i, label %728, label %727
 
 727:                                              ; preds = %x86features_as_diff_to_scratch.exit.i
   call void @scratch_buffer_append(ptr noundef nonnull @.str.204) #17
@@ -2900,8 +2900,8 @@ x86features_as_diff_to_scratch.exit.i:            ; preds = %724
 
 728:                                              ; preds = %727, %x86features_as_diff_to_scratch.exit.i
   %729 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
-  %.not16.i = icmp eq i32 %729, 0
-  br i1 %.not16.i, label %732, label %730
+  %.not17.i = icmp eq i32 %729, 0
+  br i1 %.not17.i, label %732, label %730
 
 730:                                              ; preds = %728
   %731 = add i32 %729, -1
@@ -2925,29 +2925,29 @@ x86features_as_diff_to_scratch.exit.i:            ; preds = %724
 
 738:                                              ; preds = %735, %732
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @platform_target, i64 240), ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %.sink.i18.i = load i64, ptr %5, align 8
-  %739 = and i64 %.sink.i18.i, 131072
-  %.0.i19.not.i = icmp eq i64 %739, 0
-  br i1 %.0.i19.not.i, label %740, label %.sink.split.i
+  %.sink.i19.i = load i64, ptr %5, align 8
+  %739 = and i64 %.sink.i19.i, 131072
+  %.0.i20.not.i = icmp eq i64 %739, 0
+  br i1 %.0.i20.not.i, label %740, label %.sink.split.i
 
 740:                                              ; preds = %738
-  %741 = and i64 %.sink.i18.i, 128
-  %.0.i21.not.i = icmp eq i64 %741, 0
-  br i1 %.0.i21.not.i, label %742, label %.sink.split.i
+  %741 = and i64 %.sink.i19.i, 128
+  %.0.i22.not.i = icmp eq i64 %741, 0
+  br i1 %.0.i22.not.i, label %742, label %.sink.split.i
 
 742:                                              ; preds = %740
-  %.sink.i22.i = load i64, ptr %702, align 8
-  %743 = and i64 %.sink.i22.i, 262144
-  %.0.i23.not.i = icmp eq i64 %743, 0
-  br i1 %.0.i23.not.i, label %target_setup_x64_abi.exit, label %.sink.split.i
+  %.sink.i23.i = load i64, ptr %702, align 8
+  %743 = and i64 %.sink.i23.i, 262144
+  %.0.i24.not.i = icmp eq i64 %743, 0
+  br i1 %.0.i24.not.i, label %target_setup_x64_abi.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %742, %740, %738
   %.sink.i109 = phi i32 [ 64, %738 ], [ 32, %740 ], [ 16, %742 ]
-  %.sink25.i = phi i32 [ 512, %738 ], [ 256, %740 ], [ 128, %742 ]
+  %.sink26.i = phi i32 [ 512, %738 ], [ 256, %740 ], [ 128, %742 ]
   store i32 %.sink.i109, ptr getelementptr inbounds (i8, ptr @platform_target, i64 268), align 4
   %744 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   %745 = and i32 %744, -65536
-  %746 = or disjoint i32 %745, %.sink25.i
+  %746 = or disjoint i32 %745, %.sink26.i
   store i32 %746, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
   br label %target_setup_x64_abi.exit
 

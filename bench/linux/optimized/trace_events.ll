@@ -3555,88 +3555,89 @@ define internal fastcc void @event_trace_enable() unnamed_addr #4 section ".init
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %10
-  br i1 icmp ult (ptr @__start_ftrace_events, ptr @__stop_ftrace_events), label %.preheader, label %.loopexit
+  %13 = icmp ult ptr @__start_ftrace_events, @__stop_ftrace_events
+  br i1 %13, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %12, %.thread6
-  %13 = phi ptr [ %52, %.thread6 ], [ @__start_ftrace_events, %12 ]
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 96
-  %16 = load i32, ptr %15, align 8
-  %17 = and i32 %16, 1024
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %21, label %19
+  %14 = phi ptr [ %53, %.thread6 ], [ @__start_ftrace_events, %12 ]
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 96
+  %17 = load i32, ptr %16, align 8
+  %18 = and i32 %17, 1024
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %22, label %20
 
-19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %14, i64 24
-  br label %28
+20:                                               ; preds = %.preheader
+  %21 = getelementptr inbounds i8, ptr %15, i64 24
+  br label %29
 
-21:                                               ; preds = %.preheader
-  %22 = and i32 %16, 16
-  %23 = icmp eq i32 %22, 0
-  %24 = getelementptr inbounds i8, ptr %14, i64 24
-  %25 = load ptr, ptr %24, align 8
-  br i1 %23, label %31, label %26
+22:                                               ; preds = %.preheader
+  %23 = and i32 %17, 16
+  %24 = icmp eq i32 %23, 0
+  %25 = getelementptr inbounds i8, ptr %15, i64 24
+  %26 = load ptr, ptr %25, align 8
+  br i1 %24, label %32, label %27
 
-26:                                               ; preds = %21
-  %27 = icmp eq ptr %25, null
-  br i1 %27, label %.thread5, label %28
+27:                                               ; preds = %22
+  %28 = icmp eq ptr %26, null
+  br i1 %28, label %.thread5, label %29
 
-28:                                               ; preds = %26, %19
-  %29 = phi ptr [ %20, %19 ], [ %25, %26 ]
-  %30 = load ptr, ptr %29, align 8
-  br label %31
+29:                                               ; preds = %27, %20
+  %30 = phi ptr [ %21, %20 ], [ %26, %27 ]
+  %31 = load ptr, ptr %30, align 8
+  br label %32
 
-31:                                               ; preds = %28, %21
-  %32 = phi ptr [ %25, %21 ], [ %30, %28 ]
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread5, label %34, !prof !60
+32:                                               ; preds = %29, %22
+  %33 = phi ptr [ %26, %22 ], [ %31, %29 ]
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %.thread5, label %35, !prof !60
 
-.thread5:                                         ; preds = %26, %31
+.thread5:                                         ; preds = %27, %32
   tail call void asm sideeffect "1013: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1013b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1013) #19, !srcloc !82
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2690, i32 2305, i64 12) #19, !srcloc !83
   tail call void asm sideeffect "1014: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1014b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1014) #19, !srcloc !84
   br label %.thread6
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %14, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 64
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread7, label %40
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %15, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 64
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %.thread7, label %41
 
-40:                                               ; preds = %34
-  %41 = tail call i32 %38(ptr noundef %14) #19
-  %42 = icmp slt i32 %41, 0
-  %43 = icmp ne i32 %41, -38
-  %44 = and i1 %42, %43
-  br i1 %44, label %45, label %47
+41:                                               ; preds = %35
+  %42 = tail call i32 %39(ptr noundef %15) #19
+  %43 = icmp slt i32 %42, 0
+  %44 = icmp ne i32 %42, -38
+  %45 = and i1 %43, %44
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %40
-  %46 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, ptr noundef nonnull %32) #20
+46:                                               ; preds = %41
+  %47 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, ptr noundef nonnull %33) #20
   br label %.thread6
 
-47:                                               ; preds = %40
-  %48 = icmp eq i32 %41, 0
-  br i1 %48, label %.thread7, label %.thread6
+48:                                               ; preds = %41
+  %49 = icmp eq i32 %42, 0
+  br i1 %49, label %.thread7, label %.thread6
 
-.thread7:                                         ; preds = %34, %47
-  %49 = load ptr, ptr @ftrace_events, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
-  store ptr %14, ptr %50, align 8
-  store ptr %49, ptr %14, align 8
-  %51 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr @ftrace_events, ptr %51, align 8
-  store volatile ptr %14, ptr @ftrace_events, align 8
+.thread7:                                         ; preds = %35, %48
+  %50 = load ptr, ptr @ftrace_events, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  store ptr %15, ptr %51, align 8
+  store ptr %50, ptr %15, align 8
+  %52 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr @ftrace_events, ptr %52, align 8
+  store volatile ptr %15, ptr @ftrace_events, align 8
   br label %.thread6
 
-.thread6:                                         ; preds = %45, %.thread5, %.thread7, %47
-  %52 = getelementptr i8, ptr %13, i64 8
-  %53 = icmp ult ptr %52, @__stop_ftrace_events
-  br i1 %53, label %.preheader, label %.loopexit, !llvm.loop !106
+.thread6:                                         ; preds = %46, %.thread5, %.thread7, %48
+  %53 = getelementptr i8, ptr %14, i64 8
+  %54 = icmp ult ptr %53, @__stop_ftrace_events
+  br i1 %54, label %.preheader, label %.loopexit, !llvm.loop !106
 
 .loopexit:                                        ; preds = %.thread6, %12
-  %54 = tail call i32 @register_trigger_cmds() #19
+  %55 = tail call i32 @register_trigger_cmds() #19
   tail call void @__trace_early_add_events(ptr noundef nonnull %4)
   tail call void @early_enable_events(ptr noundef nonnull %4, ptr noundef nonnull @bootup_event_buf, i1 noundef zeroext false) #23
   tail call void @trace_printk_start_comm() #19

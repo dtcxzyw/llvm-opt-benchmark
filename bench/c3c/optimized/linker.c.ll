@@ -315,7 +315,7 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3)
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 320), align 8
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %12)
-  %putchar25 = tail call i32 @putchar(i32 10)
+  %putchar24 = tail call i32 @putchar(i32 10)
   br label %14
 
 14:                                               ; preds = %10, %9
@@ -418,8 +418,8 @@ switch.lookup:                                    ; preds = %29
   br label %71
 
 71:                                               ; preds = %switch.lookup, %29, %59
-  %.021 = phi i32 [ 4, %29 ], [ 4, %59 ], [ %switch.load, %switch.lookup ]
-  call fastcc void @linker_setup(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %.021)
+  %.020 = phi i32 [ 4, %29 ], [ 4, %59 ], [ %switch.load, %switch.lookup ]
+  call fastcc void @linker_setup(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %.020)
   %72 = load ptr, ptr %4, align 8
   %.not.i36 = icmp eq ptr %72, null
   br i1 %.not.i36, label %.thread57.i, label %73
@@ -496,8 +496,8 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
 
 99:                                               ; preds = %97, %concat_string_parts.exit
   %100 = call i32 @system(ptr noundef %93) #11
-  %.not27 = icmp eq i32 %100, 0
-  br i1 %.not27, label %102, label %101
+  %.not26 = icmp eq i32 %100, 0
+  br i1 %.not26, label %102, label %101
 
 101:                                              ; preds = %99
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef %0, ptr noundef %93) #12
@@ -528,8 +528,8 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
 115:                                              ; preds = %112, %107
   %116 = call ptr @scratch_buffer_to_string() #11
   %117 = call i32 @system(ptr noundef %116) #11
-  %.not28 = icmp eq i32 %117, 0
-  br i1 %.not28, label %120, label %118
+  %.not27 = icmp eq i32 %117, 0
+  br i1 %.not27, label %120, label %118
 
 118:                                              ; preds = %115
   %119 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.10)

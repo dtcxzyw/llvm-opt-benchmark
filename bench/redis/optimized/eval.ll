@@ -2171,7 +2171,7 @@ if.then6:                                         ; preds = %if.end
   store i32 1, ptr getelementptr inbounds (i8, ptr @ldb, i64 344), align 8
   %call7 = tail call ptr @sdsnew(ptr noundef nonnull @.str.55) #17
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ldb, i64 16), align 8
-  %call.i4 = tail call ptr @listAddNodeTail(ptr noundef %8, ptr noundef %call7) #17
+  %call.i5 = tail call ptr @listAddNodeTail(ptr noundef %8, ptr noundef %call7) #17
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end
@@ -2752,8 +2752,8 @@ entry:
   %cmp = icmp slt i32 %line, 1
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @ldb, i64 320), align 8
   %cmp1 = icmp slt i32 %0, %line
-  %or.cond4 = select i1 %cmp, i1 true, i1 %cmp1
-  br i1 %or.cond4, label %return, label %if.end
+  %or.cond5 = select i1 %cmp, i1 true, i1 %cmp1
+  br i1 %or.cond5, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @ldb, i64 296), align 8
@@ -4248,8 +4248,8 @@ if.else28:                                        ; preds = %if.then24
   %cmp.i = icmp slt i32 %conv, 1
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @ldb, i64 320), align 8
   %cmp1.i = icmp slt i32 %30, %conv
-  %or.cond4.i = select i1 %cmp.i, i1 true, i1 %cmp1.i
-  br i1 %or.cond4.i, label %if.else33, label %if.end.i
+  %or.cond5.i = select i1 %cmp.i, i1 true, i1 %cmp1.i
+  br i1 %or.cond5.i, label %if.else33, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else28
   %cmp3.i.i12 = icmp sgt i32 %28, 0
@@ -5245,9 +5245,9 @@ if.end:                                           ; preds = %ldbIsBreakpoint.exi
   %cmp10 = icmp ne i32 %5, 3
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @ldb, i64 300), align 4
   %cmp12 = icmp ne i32 %6, 0
-  %or.cond.not18 = select i1 %cmp10, i1 true, i1 %cmp12
-  %or.cond1.not = select i1 %or.cond.not18, i1 true, i1 %4
-  br i1 %or.cond1.not, label %if.end27, label %if.then17
+  %or.cond.not19 = select i1 %cmp10, i1 true, i1 %cmp12
+  %or.cond2.not = select i1 %or.cond.not19, i1 true, i1 %4
+  br i1 %or.cond2.not, label %if.end27, label %if.then17
 
 if.then17:                                        ; preds = %if.end
   %start_time = getelementptr inbounds i8, ptr %call, i64 32
@@ -5264,8 +5264,8 @@ if.then17:                                        ; preds = %if.end
 
 if.end27:                                         ; preds = %if.end
   %tobool28 = icmp ne i32 %6, 0
-  %or.cond2 = select i1 %tobool28, i1 true, i1 %4
-  br i1 %or.cond2, label %if.then30, label %if.end52
+  %or.cond3 = select i1 %tobool28, i1 true, i1 %4
+  br i1 %or.cond3, label %if.then30, label %if.end52
 
 if.then30:                                        ; preds = %if.then17, %if.end27
   %spec.select = phi ptr [ @.str.196, %if.then17 ], [ @.str.193, %if.end27 ]
@@ -5322,12 +5322,12 @@ ldbLogSourceLine.exit:                            ; preds = %for.cond.i.i, %for.
   %call11.i = tail call ptr @sdsempty() #17
   %call12.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11.i, ptr noundef nonnull @.str.74, ptr noundef nonnull %21, i32 noundef %13, ptr noundef %retval.0.i.i) #17
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @ldb, i64 16), align 8
-  %call.i.i19 = tail call ptr @listAddNodeTail(ptr noundef %22, ptr noundef %call12.i) #17
+  %call.i.i20 = tail call ptr @listAddNodeTail(ptr noundef %22, ptr noundef %call12.i) #17
   tail call void @ldbSendLogs()
   %call42 = tail call i32 @ldbRepl(ptr noundef %lua)
   %cmp43 = icmp ne i32 %call42, -1
-  %or.cond3.not = or i1 %or.cond1.not, %cmp43
-  br i1 %or.cond3.not, label %if.end49, label %if.then47
+  %or.cond4.not = or i1 %or.cond2.not, %cmp43
+  br i1 %or.cond4.not, label %if.end49, label %if.then47
 
 if.then47:                                        ; preds = %ldbLogSourceLine.exit
   tail call void @luaPushError(ptr noundef %lua, ptr noundef nonnull @.str.198) #17

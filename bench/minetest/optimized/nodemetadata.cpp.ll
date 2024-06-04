@@ -346,7 +346,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8, !tbaa !20
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV12NodeMetadata, i64 80), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12NodeMetadata, i64 80), ptr %this, align 8, !tbaa !4
   %call = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
           to label %invoke.cont unwind label %lpad
 
@@ -1747,7 +1747,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp6) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %20, label %_ZTW10infostream.exit
+  %.not33 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not33, label %_ZTW10infostream.exit, label %20
 
 20:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128
   call void @_ZTH10infostream()
@@ -1908,6 +1909,7 @@ for.body.lr.ph:                                   ; preds = %if.end36
   %Z.i = getelementptr inbounds i8, ptr %p, i64 4
   %43 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @warningstream)
   %umax = call i16 @llvm.umax.i16(i16 %rev.i.i.i, i16 1)
+  %.not = icmp eq ptr @_ZTH13warningstream, null
   br label %for.body
 
 for.body:                                         ; preds = %cleanup, %for.body.lr.ph
@@ -2038,7 +2040,7 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i: ; preds = %land.lhs.tr
   br i1 %cmp27.i.i.i.i.not, label %if.end73, label %if.then67
 
 if.then67:                                        ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i, %land.lhs.true18.i.i.i.i, %lor.lhs.false.i.i.i.i
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %56, label %_ZTW13warningstream.exit
+  br i1 %.not, label %_ZTW13warningstream.exit, label %56
 
 56:                                               ; preds = %if.then67
   call void @_ZTH13warningstream()
@@ -2131,7 +2133,7 @@ if.end73:                                         ; preds = %_ZNKSt4lessIN3irr4c
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8, !tbaa !20
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds i8, ptr %call74, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV12NodeMetadata, i64 80), ptr %call74, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12NodeMetadata, i64 80), ptr %call74, align 8, !tbaa !4
   %call.i199 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2725,7 +2727,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr dso_local void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i, align 8, !tbaa !90
@@ -2778,14 +2780,14 @@ _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18SerializationError, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SerializationError, i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !29
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -3702,7 +3704,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18SerializationErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !29
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -3737,7 +3739,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !29
   %1 = getelementptr inbounds i8, ptr %this, i64 24

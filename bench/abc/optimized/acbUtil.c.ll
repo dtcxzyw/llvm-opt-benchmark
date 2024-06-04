@@ -10862,19 +10862,19 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %43
 
 45:                                               ; preds = %Vec_IntFree.exit
   %46 = getelementptr i8, ptr %18, i64 4
-  %.val15.i.i = load i32, ptr %46, align 4
-  %47 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %46, align 4
+  %47 = icmp sgt i32 %.val16.i.i, 0
   %48 = getelementptr i8, ptr %18, i64 8
-  %.val14.i.i = load ptr, ptr %48, align 8
+  %.val15.i.i = load ptr, ptr %48, align 8
   br i1 %47, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %45
-  %49 = zext nneg i32 %.val15.i.i to i64
+  %49 = zext nneg i32 %.val16.i.i to i64
   br label %50
 
 50:                                               ; preds = %54, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %54 ]
-  %51 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %52 = load ptr, ptr %51, align 8
   %switch.i.i = icmp ult ptr %52, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %54, label %53
@@ -10889,7 +10889,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %43
   br i1 %exitcond209.not, label %Vec_PtrFreeFree.exit.sink.split.sink.split, label %50, !llvm.loop !94
 
 Vec_PtrFreeData.exit.i:                           ; preds = %45
-  %.not.i.i = icmp eq ptr %.val14.i.i, null
+  %.not.i.i = icmp eq ptr %.val15.i.i, null
   br i1 %.not.i.i, label %Vec_PtrFreeFree.exit.sink.split, label %Vec_PtrFreeFree.exit.sink.split.sink.split
 
 55:                                               ; preds = %16
@@ -10949,7 +10949,7 @@ Vec_PtrFreeData.exit.i:                           ; preds = %45
   br i1 %.not.i160, label %Vec_PtrFreeFree.exit.sink.split, label %Vec_PtrFreeFree.exit.sink.split.sink.split
 
 Vec_PtrFreeFree.exit.sink.split.sink.split:       ; preds = %54, %.critedge2, %Vec_PtrFreeData.exit.i
-  %.sink243 = phi ptr [ %.val14.i.i, %Vec_PtrFreeData.exit.i ], [ %.val143, %.critedge2 ], [ %.val14.i.i, %54 ]
+  %.sink243 = phi ptr [ %.val15.i.i, %Vec_PtrFreeData.exit.i ], [ %.val143, %.critedge2 ], [ %.val15.i.i, %54 ]
   %.sink.ph = phi ptr [ %18, %Vec_PtrFreeData.exit.i ], [ %56, %.critedge2 ], [ %18, %54 ]
   %.2132.ph.ph = phi i32 [ %.0130.lcssa, %Vec_PtrFreeData.exit.i ], [ %.1131.lcssa, %.critedge2 ], [ %.0130.lcssa, %54 ]
   tail call void @free(ptr noundef nonnull %.sink243) #25

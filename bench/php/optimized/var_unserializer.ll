@@ -74,43 +74,45 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @php_var_unserialize_init() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
-  %2 = icmp eq i32 %1, 0
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %2, label %4
+
+2:                                                ; preds = %0
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
-  %4 = icmp ne i32 %3, 0
-  %or.cond = select i1 %2, i1 %4, i1 false
-  br i1 %or.cond, label %13, label %5
+  %.not13 = icmp eq i32 %3, 0
+  br i1 %.not13, label %4, label %12
 
-5:                                                ; preds = %0
-  %6 = tail call noalias dereferenceable_or_null(8216) ptr @_emalloc_large(i64 noundef 8216) #12
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1352), align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 48
-  store i64 %9, ptr %10, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %16
+4:                                                ; preds = %2, %0
+  %5 = tail call noalias dereferenceable_or_null(8216) ptr @_emalloc_large(i64 noundef 8216) #12
+  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1352), align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 48
+  store i64 %8, ptr %9, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
+  %.not14 = icmp eq i32 %10, 0
+  br i1 %.not14, label %11, label %15
 
-12:                                               ; preds = %5
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 872), align 8
+11:                                               ; preds = %4
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 872), align 8
   br label %.sink.split
 
-13:                                               ; preds = %0
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 872), align 8
-  %15 = add i32 %3, 1
+12:                                               ; preds = %2
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 872), align 8
+  %14 = add i32 %3, 1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %13, %12
-  %.sink = phi i32 [ 1, %12 ], [ %15, %13 ]
-  %.0.ph = phi ptr [ %6, %12 ], [ %14, %13 ]
+.sink.split:                                      ; preds = %12, %11
+  %.sink = phi i32 [ 1, %11 ], [ %14, %12 ]
+  %.0.ph = phi ptr [ %5, %11 ], [ %13, %12 ]
   store i32 %.sink, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
-  br label %16
+  br label %15
 
-16:                                               ; preds = %.sink.split, %5
-  %.0 = phi ptr [ %6, %5 ], [ %.0.ph, %.sink.split ]
+15:                                               ; preds = %.sink.split, %4
+  %.0 = phi ptr [ %5, %4 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 
@@ -122,35 +124,35 @@ define void @php_var_unserialize_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
-  %4 = icmp ne i32 %3, 0
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
-  %6 = icmp eq i32 %5, 1
-  %or.cond = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond, label %7, label %.thread
+  %.not = icmp ne i32 %3, 0
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
+  %5 = icmp eq i32 %4, 1
+  %or.cond = select i1 %.not, i1 true, i1 %5
+  br i1 %or.cond, label %6, label %.thread
 
-7:                                                ; preds = %1
+6:                                                ; preds = %1
   call void @var_destroy(ptr noundef nonnull %2)
   tail call void @_efree(ptr noundef %0) #13
   %.pr = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
-  %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %..thread_crit_edge, label %11
+  %.not1 = icmp eq i32 %.pr, 0
+  br i1 %.not1, label %..thread_crit_edge, label %10
 
-..thread_crit_edge:                               ; preds = %7
+..thread_crit_edge:                               ; preds = %6
   %.pre = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %1
-  %8 = phi i32 [ %.pre, %..thread_crit_edge ], [ %5, %1 ]
-  %9 = add i32 %8, -1
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
-  %.not2 = icmp eq i32 %9, 0
-  br i1 %.not2, label %10, label %11
+  %7 = phi i32 [ %.pre, %..thread_crit_edge ], [ %4, %1 ]
+  %8 = add i32 %7, -1
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 880), align 8
+  %.not2 = icmp eq i32 %8, 0
+  br i1 %.not2, label %9, label %10
 
-10:                                               ; preds = %.thread
+9:                                                ; preds = %.thread
   store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 872), align 8
-  br label %11
+  br label %10
 
-11:                                               ; preds = %10, %.thread, %7
+10:                                               ; preds = %9, %.thread, %6
   ret void
 }
 

@@ -116,7 +116,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13sentencepiece9character5ModelC2ERKNS_10ModelProtoE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN13sentencepiece14ModelInterfaceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece14ModelInterfaceE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -159,7 +159,7 @@ common.resume:                                    ; preds = %21, %17
   br label %common.resume
 
 _ZN13sentencepiece14ModelInterfaceC2Ev.exit:      ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN13sentencepiece9character5ModelE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece9character5ModelE, i64 16), ptr %0, align 8
   store ptr %1, ptr %3, align 8
   invoke void @_ZN13sentencepiece14ModelInterface16InitializePiecesEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
           to label %20 unwind label %21

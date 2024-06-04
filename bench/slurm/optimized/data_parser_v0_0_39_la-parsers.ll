@@ -4520,36 +4520,36 @@ define internal noundef i32 @_v39_parse_ALLOCATED_CPUS(ptr nocapture readnone %0
 define internal noundef i32 @_v39_dump_CONTROLLER_PING_MODE(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr %1, align 4
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %10
+  switch i32 %6, label %14 [
+    i32 0, label %7
+    i32 1, label %9
+  ]
 
-8:                                                ; preds = %4
-  %9 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull @.str.408) #16
-  br label %19
+7:                                                ; preds = %4
+  %8 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull @.str.408) #16
+  br label %17
 
-10:                                               ; preds = %4
-  %11 = icmp eq i32 %6, 1
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
-  %13 = icmp eq i32 %12, 2
-  %or.cond = select i1 %11, i1 %13, i1 false
-  br i1 %or.cond, label %14, label %16
+9:                                                ; preds = %4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
+  %11 = icmp eq i32 %10, 2
+  br i1 %11, label %12, label %14
 
-14:                                               ; preds = %10
-  %15 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull @.str.409) #16
-  br label %19
+12:                                               ; preds = %9
+  %13 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull @.str.409) #16
+  br label %17
 
-16:                                               ; preds = %10
+14:                                               ; preds = %4, %9
   store ptr null, ptr %5, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.410, i32 noundef %6) #16
-  %17 = call ptr @_data_set_string_own(ptr noundef %2, ptr noundef nonnull %5) #16
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %18, label %19
+  %15 = call ptr @_data_set_string_own(ptr noundef %2, ptr noundef nonnull %5) #16
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %16, label %17
 
-18:                                               ; preds = %16
+16:                                               ; preds = %14
   call void @slurm_xfree(ptr noundef nonnull %5) #16
-  br label %19
+  br label %17
 
-19:                                               ; preds = %14, %16, %18, %8
+17:                                               ; preds = %12, %14, %16, %7
   ret i32 0
 }
 

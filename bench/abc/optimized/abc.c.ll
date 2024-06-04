@@ -4804,8 +4804,8 @@ define void @Abc_FrameReplaceCex(ptr nocapture noundef %0, ptr nocapture noundef
 
 10:                                               ; preds = %6
   %11 = getelementptr i8, ptr %9, i64 4
-  %.val15.i.i = load i32, ptr %11, align 4
-  %12 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %11, align 4
+  %12 = icmp sgt i32 %.val16.i.i, 0
   br i1 %12, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %10
@@ -4813,10 +4813,10 @@ define void @Abc_FrameReplaceCex(ptr nocapture noundef %0, ptr nocapture noundef
   br label %14
 
 14:                                               ; preds = %18, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %18 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %18 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %18 ]
-  %.val14.i.i = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %16 = load ptr, ptr %15, align 8
   %switch.i.i = icmp ult ptr %16, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %18, label %17
@@ -4827,7 +4827,7 @@ define void @Abc_FrameReplaceCex(ptr nocapture noundef %0, ptr nocapture noundef
   br label %18
 
 18:                                               ; preds = %17, %14
-  %.val.i.i = phi i32 [ %.val18.i.i, %14 ], [ %.val.pre.i.i, %17 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %14 ], [ %.val.pre.i.i, %17 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %19 = sext i32 %.val.i.i to i64
   %20 = icmp slt i64 %indvars.iv.next.i.i, %19
@@ -4864,8 +4864,8 @@ define void @Abc_FrameReplaceCexVec(ptr nocapture noundef %0, ptr nocapture noun
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %4, i64 4
-  %.val15.i.i = load i32, ptr %6, align 4
-  %7 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %6, align 4
+  %7 = icmp sgt i32 %.val16.i.i, 0
   br i1 %7, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %5
@@ -4873,10 +4873,10 @@ define void @Abc_FrameReplaceCexVec(ptr nocapture noundef %0, ptr nocapture noun
   br label %9
 
 9:                                                ; preds = %13, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %13 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %13 ]
-  %.val14.i.i = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8
   %switch.i.i = icmp ult ptr %11, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %13, label %12
@@ -4887,7 +4887,7 @@ define void @Abc_FrameReplaceCexVec(ptr nocapture noundef %0, ptr nocapture noun
   br label %13
 
 13:                                               ; preds = %12, %9
-  %.val.i.i = phi i32 [ %.val18.i.i, %9 ], [ %.val.pre.i.i, %12 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %9 ], [ %.val.pre.i.i, %12 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %14 = sext i32 %.val.i.i to i64
   %15 = icmp slt i64 %indvars.iv.next.i.i, %14
@@ -35669,8 +35669,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandSim(ptr noundef %0, i32 noundef 
 
 77:                                               ; preds = %73
   %78 = getelementptr i8, ptr %76, i64 4
-  %.val15.i.i.i = load i32, ptr %78, align 4
-  %79 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %78, align 4
+  %79 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %79, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %77
@@ -35678,10 +35678,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandSim(ptr noundef %0, i32 noundef 
   br label %81
 
 81:                                               ; preds = %85, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %85 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %85 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %85 ]
-  %.val14.i.i.i = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %83 = load ptr, ptr %82, align 8
   %switch.i.i.i = icmp ult ptr %83, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %85, label %84
@@ -35692,7 +35692,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSim(ptr noundef %0, i32 noundef 
   br label %85
 
 85:                                               ; preds = %84, %81
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %81 ], [ %.val.pre.i.i.i, %84 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %81 ], [ %.val.pre.i.i.i, %84 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %86 = sext i32 %.val.i.i.i to i64
   %87 = icmp slt i64 %indvars.iv.next.i.i.i, %86
@@ -47202,8 +47202,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandReconcile(ptr noundef %0, i32 no
 
 70:                                               ; preds = %67
   %71 = getelementptr i8, ptr %69, i64 4
-  %.val15.i.i.i = load i32, ptr %71, align 4
-  %72 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %71, align 4
+  %72 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %72, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %70
@@ -47211,10 +47211,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandReconcile(ptr noundef %0, i32 no
   br label %74
 
 74:                                               ; preds = %78, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %78 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %78 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %78 ]
-  %.val14.i.i.i = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %76 = load ptr, ptr %75, align 8
   %switch.i.i.i = icmp ult ptr %76, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %78, label %77
@@ -47225,7 +47225,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandReconcile(ptr noundef %0, i32 no
   br label %78
 
 78:                                               ; preds = %77, %74
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %74 ], [ %.val.pre.i.i.i, %77 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %74 ], [ %.val.pre.i.i.i, %77 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %79 = sext i32 %.val.i.i.i to i64
   %80 = icmp slt i64 %indvars.iv.next.i.i.i, %79
@@ -49167,8 +49167,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MoveNames(ptr nocapture noun
 
 33:                                               ; preds = %30
   %34 = getelementptr i8, ptr %32, i64 4
-  %.val15.i.i = load i32, ptr %34, align 4
-  %35 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %34, align 4
+  %35 = icmp sgt i32 %.val16.i.i, 0
   br i1 %35, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %33
@@ -49176,10 +49176,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MoveNames(ptr nocapture noun
   br label %37
 
 37:                                               ; preds = %41, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %41 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %41 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %41 ]
-  %.val14.i.i = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %39 = load ptr, ptr %38, align 8
   %switch.i.i = icmp ult ptr %39, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %41, label %40
@@ -49190,7 +49190,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MoveNames(ptr nocapture noun
   br label %41
 
 41:                                               ; preds = %40, %37
-  %.val.i.i = phi i32 [ %.val18.i.i, %37 ], [ %.val.pre.i.i, %40 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %37 ], [ %.val.pre.i.i, %40 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %42 = sext i32 %.val.i.i to i64
   %43 = icmp slt i64 %indvars.iv.next.i.i, %42
@@ -49220,8 +49220,8 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 
 51:                                               ; preds = %47
   %52 = getelementptr i8, ptr %50, i64 4
-  %.val15.i.i32 = load i32, ptr %52, align 4
-  %53 = icmp sgt i32 %.val15.i.i32, 0
+  %.val16.i.i32 = load i32, ptr %52, align 4
+  %53 = icmp sgt i32 %.val16.i.i32, 0
   br i1 %53, label %.lr.ph.i.i35, label %Vec_PtrFreeData.exit.i33
 
 .lr.ph.i.i35:                                     ; preds = %51
@@ -49229,10 +49229,10 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   br label %55
 
 55:                                               ; preds = %59, %.lr.ph.i.i35
-  %.val18.i.i36 = phi i32 [ %.val15.i.i32, %.lr.ph.i.i35 ], [ %.val.i.i41, %59 ]
+  %.val19.i.i36 = phi i32 [ %.val16.i.i32, %.lr.ph.i.i35 ], [ %.val.i.i41, %59 ]
   %indvars.iv.i.i37 = phi i64 [ 0, %.lr.ph.i.i35 ], [ %indvars.iv.next.i.i42, %59 ]
-  %.val14.i.i38 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds ptr, ptr %.val14.i.i38, i64 %indvars.iv.i.i37
+  %.val15.i.i38 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds ptr, ptr %.val15.i.i38, i64 %indvars.iv.i.i37
   %57 = load ptr, ptr %56, align 8
   %switch.i.i39 = icmp ult ptr %57, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i39, label %59, label %58
@@ -49243,7 +49243,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   br label %59
 
 59:                                               ; preds = %58, %55
-  %.val.i.i41 = phi i32 [ %.val18.i.i36, %55 ], [ %.val.pre.i.i40, %58 ]
+  %.val.i.i41 = phi i32 [ %.val19.i.i36, %55 ], [ %.val.pre.i.i40, %58 ]
   %indvars.iv.next.i.i42 = add nuw nsw i64 %indvars.iv.i.i37, 1
   %60 = sext i32 %.val.i.i41 to i64
   %61 = icmp slt i64 %indvars.iv.next.i.i42, %60
@@ -53701,8 +53701,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim3(ptr nocapture noundef %
 
 115:                                              ; preds = %111
   %116 = getelementptr i8, ptr %114, i64 4
-  %.val15.i.i.i = load i32, ptr %116, align 4
-  %117 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %116, align 4
+  %117 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %117, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %115
@@ -53710,10 +53710,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim3(ptr nocapture noundef %
   br label %119
 
 119:                                              ; preds = %123, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %123 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %123 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %123 ]
-  %.val14.i.i.i = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %121 = load ptr, ptr %120, align 8
   %switch.i.i.i = icmp ult ptr %121, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %123, label %122
@@ -53724,7 +53724,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim3(ptr nocapture noundef %
   br label %123
 
 123:                                              ; preds = %122, %119
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %119 ], [ %.val.pre.i.i.i, %122 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %119 ], [ %.val.pre.i.i.i, %122 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %124 = sext i32 %.val.i.i.i to i64
   %125 = icmp slt i64 %indvars.iv.next.i.i.i, %124
@@ -59999,8 +59999,8 @@ Abc_FrameReplacePoStatuses.exit:                  ; preds = %128, %Vec_IntFree.e
 
 140:                                              ; preds = %Abc_FrameReplacePoStatuses.exit
   %141 = getelementptr i8, ptr %139, i64 4
-  %.val15.i.i.i = load i32, ptr %141, align 4
-  %142 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %141, align 4
+  %142 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %142, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %140
@@ -60008,10 +60008,10 @@ Abc_FrameReplacePoStatuses.exit:                  ; preds = %128, %Vec_IntFree.e
   br label %144
 
 144:                                              ; preds = %148, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %148 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %148 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %148 ]
-  %.val14.i.i.i = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %146 = load ptr, ptr %145, align 8
   %switch.i.i.i = icmp ult ptr %146, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %148, label %147
@@ -60022,7 +60022,7 @@ Abc_FrameReplacePoStatuses.exit:                  ; preds = %128, %Vec_IntFree.e
   br label %148
 
 148:                                              ; preds = %147, %144
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %144 ], [ %.val.pre.i.i.i, %147 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %144 ], [ %.val.pre.i.i.i, %147 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %149 = sext i32 %.val.i.i.i to i64
   %150 = icmp slt i64 %indvars.iv.next.i.i.i, %149
@@ -61900,8 +61900,8 @@ Abc_Clock.exit:                                   ; preds = %82, %85
 
 158:                                              ; preds = %154
   %159 = getelementptr i8, ptr %157, i64 4
-  %.val15.i.i.i = load i32, ptr %159, align 4
-  %160 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %159, align 4
+  %160 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %160, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %158
@@ -61909,10 +61909,10 @@ Abc_Clock.exit:                                   ; preds = %82, %85
   br label %162
 
 162:                                              ; preds = %166, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %166 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %166 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %166 ]
-  %.val14.i.i.i = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %164 = load ptr, ptr %163, align 8
   %switch.i.i.i = icmp ult ptr %164, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %166, label %165
@@ -61923,7 +61923,7 @@ Abc_Clock.exit:                                   ; preds = %82, %85
   br label %166
 
 166:                                              ; preds = %165, %162
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %162 ], [ %.val.pre.i.i.i, %165 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %162 ], [ %.val.pre.i.i.i, %165 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %167 = sext i32 %.val.i.i.i to i64
   %168 = icmp slt i64 %indvars.iv.next.i.i.i, %167
@@ -71161,8 +71161,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Era(ptr nocapture noundef %0
 
 55:                                               ; preds = %51
   %56 = getelementptr i8, ptr %54, i64 4
-  %.val15.i.i.i = load i32, ptr %56, align 4
-  %57 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %56, align 4
+  %57 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %57, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %55
@@ -71170,10 +71170,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Era(ptr nocapture noundef %0
   br label %59
 
 59:                                               ; preds = %63, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %63 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %63 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %63 ]
-  %.val14.i.i.i = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %61 = load ptr, ptr %60, align 8
   %switch.i.i.i = icmp ult ptr %61, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %63, label %62
@@ -71184,7 +71184,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Era(ptr nocapture noundef %0
   br label %63
 
 63:                                               ; preds = %62, %59
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %59 ], [ %.val.pre.i.i.i, %62 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %59 ], [ %.val.pre.i.i.i, %62 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %64 = sext i32 %.val.i.i.i to i64
   %65 = icmp slt i64 %indvars.iv.next.i.i.i, %64
@@ -72749,8 +72749,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachN(ptr nocapture noundef
 
 91:                                               ; preds = %87
   %92 = getelementptr i8, ptr %90, i64 4
-  %.val15.i.i.i = load i32, ptr %92, align 4
-  %93 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %92, align 4
+  %93 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %93, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %91
@@ -72758,10 +72758,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachN(ptr nocapture noundef
   br label %95
 
 95:                                               ; preds = %99, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %99 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %99 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %99 ]
-  %.val14.i.i.i = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %97 = load ptr, ptr %96, align 8
   %switch.i.i.i = icmp ult ptr %97, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %99, label %98
@@ -72772,7 +72772,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachN(ptr nocapture noundef
   br label %99
 
 99:                                               ; preds = %98, %95
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %95 ], [ %.val.pre.i.i.i, %98 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %95 ], [ %.val.pre.i.i.i, %98 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %100 = sext i32 %.val.i.i.i to i64
   %101 = icmp slt i64 %indvars.iv.next.i.i.i, %100
@@ -73063,8 +73063,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachY(ptr nocapture noundef
 
 105:                                              ; preds = %101
   %106 = getelementptr i8, ptr %104, i64 4
-  %.val15.i.i.i = load i32, ptr %106, align 4
-  %107 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %106, align 4
+  %107 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %107, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %105
@@ -73072,10 +73072,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachY(ptr nocapture noundef
   br label %109
 
 109:                                              ; preds = %113, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %113 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %113 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %113 ]
-  %.val14.i.i.i = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %111 = load ptr, ptr %110, align 8
   %switch.i.i.i = icmp ult ptr %111, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %113, label %112
@@ -73086,7 +73086,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachY(ptr nocapture noundef
   br label %113
 
 113:                                              ; preds = %112, %109
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %109 ], [ %.val.pre.i.i.i, %112 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %109 ], [ %.val.pre.i.i.i, %112 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %114 = sext i32 %.val.i.i.i to i64
   %115 = icmp slt i64 %indvars.iv.next.i.i.i, %114
@@ -75285,8 +75285,8 @@ Abc_FrameReplacePoStatuses.exit:                  ; preds = %86, %Vec_IntFree.ex
 
 103:                                              ; preds = %Abc_FrameReplacePoStatuses.exit
   %104 = getelementptr i8, ptr %102, i64 4
-  %.val15.i.i.i = load i32, ptr %104, align 4
-  %105 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %104, align 4
+  %105 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %105, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %103
@@ -75294,10 +75294,10 @@ Abc_FrameReplacePoStatuses.exit:                  ; preds = %86, %Vec_IntFree.ex
   br label %107
 
 107:                                              ; preds = %111, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %111 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %111 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %111 ]
-  %.val14.i.i.i = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %109 = load ptr, ptr %108, align 8
   %switch.i.i.i = icmp ult ptr %109, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %111, label %110
@@ -75308,7 +75308,7 @@ Abc_FrameReplacePoStatuses.exit:                  ; preds = %86, %Vec_IntFree.ex
   br label %111
 
 111:                                              ; preds = %110, %107
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %107 ], [ %.val.pre.i.i.i, %110 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %107 ], [ %.val.pre.i.i.i, %110 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %112 = sext i32 %.val.i.i.i to i64
   %113 = icmp slt i64 %indvars.iv.next.i.i.i, %112
@@ -75780,8 +75780,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SProve(ptr nocapture noundef
 
 69:                                               ; preds = %65
   %70 = getelementptr i8, ptr %68, i64 4
-  %.val15.i.i.i = load i32, ptr %70, align 4
-  %71 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %70, align 4
+  %71 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %71, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %69
@@ -75789,10 +75789,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SProve(ptr nocapture noundef
   br label %73
 
 73:                                               ; preds = %77, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %77 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %77 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %77 ]
-  %.val14.i.i.i = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %75 = load ptr, ptr %74, align 8
   %switch.i.i.i = icmp ult ptr %75, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %77, label %76
@@ -75803,7 +75803,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SProve(ptr nocapture noundef
   br label %77
 
 77:                                               ; preds = %76, %73
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %73 ], [ %.val.pre.i.i.i, %76 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %73 ], [ %.val.pre.i.i.i, %76 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %78 = sext i32 %.val.i.i.i to i64
   %79 = icmp slt i64 %indvars.iv.next.i.i.i, %78
@@ -76346,8 +76346,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmc(ptr nocapture noundef %0
 
 112:                                              ; preds = %108
   %113 = getelementptr i8, ptr %111, i64 4
-  %.val15.i.i.i = load i32, ptr %113, align 4
-  %114 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %113, align 4
+  %114 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %114, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %112
@@ -76355,10 +76355,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmc(ptr nocapture noundef %0
   br label %116
 
 116:                                              ; preds = %120, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %120 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %120 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %120 ]
-  %.val14.i.i.i = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %118 = load ptr, ptr %117, align 8
   %switch.i.i.i = icmp ult ptr %118, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %120, label %119
@@ -76369,7 +76369,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmc(ptr nocapture noundef %0
   br label %120
 
 120:                                              ; preds = %119, %116
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %116 ], [ %.val.pre.i.i.i, %119 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %116 ], [ %.val.pre.i.i.i, %119 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %121 = sext i32 %.val.i.i.i to i64
   %122 = icmp slt i64 %indvars.iv.next.i.i.i, %121
@@ -76704,8 +76704,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SBmc(ptr nocapture noundef %
 
 118:                                              ; preds = %114
   %119 = getelementptr i8, ptr %117, i64 4
-  %.val15.i.i.i = load i32, ptr %119, align 4
-  %120 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %119, align 4
+  %120 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %120, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %118
@@ -76713,10 +76713,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SBmc(ptr nocapture noundef %
   br label %122
 
 122:                                              ; preds = %126, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %126 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %126 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %126 ]
-  %.val14.i.i.i = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %124 = load ptr, ptr %123, align 8
   %switch.i.i.i = icmp ult ptr %124, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %126, label %125
@@ -76727,7 +76727,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SBmc(ptr nocapture noundef %
   br label %126
 
 126:                                              ; preds = %125, %122
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %122 ], [ %.val.pre.i.i.i, %125 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %122 ], [ %.val.pre.i.i.i, %125 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %127 = sext i32 %.val.i.i.i to i64
   %128 = icmp slt i64 %indvars.iv.next.i.i.i, %127
@@ -76897,8 +76897,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ChainBmc(ptr nocapture nound
 
 40:                                               ; preds = %37
   %41 = getelementptr i8, ptr %39, i64 4
-  %.val15.i.i = load i32, ptr %41, align 4
-  %42 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %41, align 4
+  %42 = icmp sgt i32 %.val16.i.i, 0
   br i1 %42, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %40
@@ -76906,10 +76906,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ChainBmc(ptr nocapture nound
   br label %44
 
 44:                                               ; preds = %48, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %48 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %48 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %48 ]
-  %.val14.i.i = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %46 = load ptr, ptr %45, align 8
   %switch.i.i = icmp ult ptr %46, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %48, label %47
@@ -76920,7 +76920,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ChainBmc(ptr nocapture nound
   br label %48
 
 48:                                               ; preds = %47, %44
-  %.val.i.i = phi i32 [ %.val18.i.i, %44 ], [ %.val.pre.i.i, %47 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %44 ], [ %.val.pre.i.i, %47 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %49 = sext i32 %.val.i.i to i64
   %50 = icmp slt i64 %indvars.iv.next.i.i, %49
@@ -82579,8 +82579,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsRefine(ptr nocapture noun
 
 47:                                               ; preds = %43
   %48 = getelementptr i8, ptr %46, i64 4
-  %.val15.i.i.i = load i32, ptr %48, align 4
-  %49 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %48, align 4
+  %49 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %49, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %47
@@ -82588,10 +82588,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsRefine(ptr nocapture noun
   br label %51
 
 51:                                               ; preds = %55, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %55 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %55 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %55 ]
-  %.val14.i.i.i = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %53 = load ptr, ptr %52, align 8
   %switch.i.i.i = icmp ult ptr %53, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %55, label %54
@@ -82602,7 +82602,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsRefine(ptr nocapture noun
   br label %55
 
 55:                                               ; preds = %54, %51
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %51 ], [ %.val.pre.i.i.i, %54 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %51 ], [ %.val.pre.i.i.i, %54 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %56 = sext i32 %.val.i.i.i to i64
   %57 = icmp slt i64 %indvars.iv.next.i.i.i, %56
@@ -82842,8 +82842,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaRefine(ptr nocapture noun
 
 51:                                               ; preds = %47
   %52 = getelementptr i8, ptr %50, i64 4
-  %.val15.i.i.i = load i32, ptr %52, align 4
-  %53 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %52, align 4
+  %53 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %53, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %51
@@ -82851,10 +82851,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaRefine(ptr nocapture noun
   br label %55
 
 55:                                               ; preds = %59, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %59 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %59 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %59 ]
-  %.val14.i.i.i = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %57 = load ptr, ptr %56, align 8
   %switch.i.i.i = icmp ult ptr %57, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %59, label %58
@@ -82865,7 +82865,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaRefine(ptr nocapture noun
   br label %59
 
 59:                                               ; preds = %58, %55
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %55 ], [ %.val.pre.i.i.i, %58 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %55 ], [ %.val.pre.i.i.i, %58 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %60 = sext i32 %.val.i.i.i to i64
   %61 = icmp slt i64 %indvars.iv.next.i.i.i, %60
@@ -86687,8 +86687,8 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9CexMin(ptr nocapture noundef %0, i32 
 
 52:                                               ; preds = %49
   %53 = getelementptr i8, ptr %51, i64 4
-  %.val15.i.i.i = load i32, ptr %53, align 4
-  %54 = icmp sgt i32 %.val15.i.i.i, 0
+  %.val16.i.i.i = load i32, ptr %53, align 4
+  %54 = icmp sgt i32 %.val16.i.i.i, 0
   br i1 %54, label %.lr.ph.i.i.i, label %Vec_PtrFreeData.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %52
@@ -86696,10 +86696,10 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9CexMin(ptr nocapture noundef %0, i32 
   br label %56
 
 56:                                               ; preds = %60, %.lr.ph.i.i.i
-  %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %60 ]
+  %.val19.i.i.i = phi i32 [ %.val16.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %60 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %60 ]
-  %.val14.i.i.i = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %.val15.i.i.i = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds ptr, ptr %.val15.i.i.i, i64 %indvars.iv.i.i.i
   %58 = load ptr, ptr %57, align 8
   %switch.i.i.i = icmp ult ptr %58, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i.i, label %60, label %59
@@ -86710,7 +86710,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9CexMin(ptr nocapture noundef %0, i32 
   br label %60
 
 60:                                               ; preds = %59, %56
-  %.val.i.i.i = phi i32 [ %.val18.i.i.i, %56 ], [ %.val.pre.i.i.i, %59 ]
+  %.val.i.i.i = phi i32 [ %.val19.i.i.i, %56 ], [ %.val.pre.i.i.i, %59 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %61 = sext i32 %.val.i.i.i to i64
   %62 = icmp slt i64 %indvars.iv.next.i.i.i, %61

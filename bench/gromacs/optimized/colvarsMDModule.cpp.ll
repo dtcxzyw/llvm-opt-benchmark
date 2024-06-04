@@ -257,7 +257,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN3gmx17ColvarsModuleInfo6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(736) ptr @_Znwm(i64 noundef 736) #19, !noalias !5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(736) %2, i8 0, i64 736, i1 false), !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_115ColvarsMDModuleE, i64 16), ptr %2, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_115ColvarsMDModuleE, i64 16), ptr %2, align 8, !noalias !5
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZN3gmx14ColvarsOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
           to label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_115ColvarsMDModuleESt14default_deleteIS2_EED2Ev.exit unwind label %4, !noalias !5
@@ -299,7 +299,7 @@ define linkonce_odr void @_ZN3gmx14ColvarsOptionsC2Ev(ptr noundef nonnull align 
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx14ColvarsOptionsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx14ColvarsOptionsE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16

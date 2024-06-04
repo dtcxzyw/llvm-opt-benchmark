@@ -418,381 +418,382 @@ define noundef i32 @load_prereqs_funcname(i32 noundef %0, ptr nocapture noundef 
   %10 = alloca %struct.slurmdb_assoc_cond_t, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 176
   %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, 0
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
-  %15 = icmp ne ptr %14, null
-  %or.cond = select i1 %13, i1 true, i1 %15
-  br i1 %or.cond, label %49, label %16
+  %.not = icmp ne i32 %12, 0
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
+  %.not50 = icmp eq ptr %13, null
+  %or.cond = select i1 %.not, i1 %.not50, i1 false
+  br i1 %or.cond, label %14, label %47
 
-16:                                               ; preds = %4
+14:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %12, ptr %6, align 4
-  %17 = tail call ptr @data_new() #6
-  %18 = tail call ptr @find_parser_by_type(i32 noundef 145) #6
-  %19 = call i32 @dump(ptr noundef nonnull %6, i64 noundef 4, ptr noundef %18, ptr noundef %17, ptr noundef %2) #6
+  %15 = tail call ptr @data_new() #6
+  %16 = tail call ptr @find_parser_by_type(i32 noundef 145) #6
+  %17 = call i32 @dump(ptr noundef nonnull %6, i64 noundef 4, ptr noundef %16, ptr noundef %15, ptr noundef %2) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %20 = call i32 @data_list_for_each(ptr noundef %17, ptr noundef nonnull @_concat_data_to_str, ptr noundef nonnull %5) #6
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
-  %22 = load ptr, ptr %21, align 8
+  %18 = call i32 @data_list_for_each(ptr noundef %15, ptr noundef nonnull @_concat_data_to_str, ptr noundef nonnull %5) #6
+  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_needs_to_string.exit, label %23
+  %.not.i = icmp eq ptr %15, null
+  br i1 %.not.i, label %_needs_to_string.exit, label %21
 
-23:                                               ; preds = %16
-  call void @data_free(ptr noundef nonnull %17) #6
+21:                                               ; preds = %14
+  call void @data_free(ptr noundef nonnull %15) #6
   br label %_needs_to_string.exit
 
-_needs_to_string.exit:                            ; preds = %16, %23
+_needs_to_string.exit:                            ; preds = %14, %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  store ptr %22, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
-  %25 = load i32, ptr %24, align 8
-  call void (i32, i32, ptr, ptr, ptr, ptr, ...) @on_warn(i32 noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef null, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.10, ptr noundef %22) #6
+  store ptr %20, ptr %7, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = load i32, ptr %22, align 8
+  call void (i32, i32, ptr, ptr, ptr, ptr, ...) @on_warn(i32 noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef null, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.10, ptr noundef %20) #6
   call void @slurm_xfree(ptr noundef nonnull %7) #6
-  %26 = getelementptr inbounds i8, ptr %2, i64 88
-  %27 = load ptr, ptr %26, align 8
-  %.not.i65 = icmp eq ptr %27, null
-  br i1 %.not.i65, label %28, label %33
+  %24 = getelementptr inbounds i8, ptr %2, i64 88
+  %25 = load ptr, ptr %24, align 8
+  %.not.i66 = icmp eq ptr %25, null
+  br i1 %.not.i66, label %26, label %31
 
-28:                                               ; preds = %_needs_to_string.exit
-  %29 = load i32, ptr %11, align 8
-  %30 = and i32 %29, 2
-  %.not9.i = icmp eq i32 %30, 0
-  br i1 %.not9.i, label %33, label %31
+26:                                               ; preds = %_needs_to_string.exit
+  %27 = load i32, ptr %11, align 8
+  %28 = and i32 %27, 2
+  %.not9.i = icmp eq i32 %28, 0
+  br i1 %.not9.i, label %31, label %29
 
-31:                                               ; preds = %28
-  %32 = call ptr @list_create(ptr noundef null) #6
-  store ptr %32, ptr %26, align 8
-  br label %33
+29:                                               ; preds = %26
+  %30 = call ptr @list_create(ptr noundef null) #6
+  store ptr %30, ptr %24, align 8
+  br label %31
 
-33:                                               ; preds = %31, %28, %_needs_to_string.exit
-  %34 = getelementptr inbounds i8, ptr %2, i64 104
-  %35 = load ptr, ptr %34, align 8
-  %.not10.i = icmp eq ptr %35, null
-  br i1 %.not10.i, label %36, label %41
+31:                                               ; preds = %29, %26, %_needs_to_string.exit
+  %32 = getelementptr inbounds i8, ptr %2, i64 104
+  %33 = load ptr, ptr %32, align 8
+  %.not10.i = icmp eq ptr %33, null
+  br i1 %.not10.i, label %34, label %39
 
-36:                                               ; preds = %33
-  %37 = load i32, ptr %11, align 8
-  %38 = and i32 %37, 8
-  %.not11.i = icmp eq i32 %38, 0
-  br i1 %.not11.i, label %41, label %39
+34:                                               ; preds = %31
+  %35 = load i32, ptr %11, align 8
+  %36 = and i32 %35, 8
+  %.not11.i = icmp eq i32 %36, 0
+  br i1 %.not11.i, label %39, label %37
 
-39:                                               ; preds = %36
-  %40 = call ptr @list_create(ptr noundef null) #6
-  store ptr %40, ptr %34, align 8
-  br label %41
+37:                                               ; preds = %34
+  %38 = call ptr @list_create(ptr noundef null) #6
+  store ptr %38, ptr %32, align 8
+  br label %39
 
-41:                                               ; preds = %39, %36, %33
-  %42 = getelementptr inbounds i8, ptr %2, i64 96
-  %43 = load ptr, ptr %42, align 8
-  %.not12.i = icmp eq ptr %43, null
-  br i1 %.not12.i, label %44, label %_prereqs_placeholder.exit
+39:                                               ; preds = %37, %34, %31
+  %40 = getelementptr inbounds i8, ptr %2, i64 96
+  %41 = load ptr, ptr %40, align 8
+  %.not12.i = icmp eq ptr %41, null
+  br i1 %.not12.i, label %42, label %_prereqs_placeholder.exit
 
-44:                                               ; preds = %41
-  %45 = load i32, ptr %11, align 8
-  %46 = and i32 %45, 4
-  %.not13.i = icmp eq i32 %46, 0
-  br i1 %.not13.i, label %_prereqs_placeholder.exit, label %47
+42:                                               ; preds = %39
+  %43 = load i32, ptr %11, align 8
+  %44 = and i32 %43, 4
+  %.not13.i = icmp eq i32 %44, 0
+  br i1 %.not13.i, label %_prereqs_placeholder.exit, label %45
 
-47:                                               ; preds = %44
-  %48 = call ptr @list_create(ptr noundef null) #6
-  store ptr %48, ptr %42, align 8
+45:                                               ; preds = %42
+  %46 = call ptr @list_create(ptr noundef null) #6
+  store ptr %46, ptr %40, align 8
   br label %_prereqs_placeholder.exit
 
-49:                                               ; preds = %4
-  br i1 %13, label %.thread, label %50
+47:                                               ; preds = %4
+  %.not51 = icmp eq i32 %12, 0
+  br i1 %.not51, label %.thread, label %48
 
-50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %2, i64 72
-  %52 = load ptr, ptr %51, align 8
-  %.not51 = icmp eq ptr %52, null
-  br i1 %.not51, label %53, label %60
+48:                                               ; preds = %47
+  %49 = getelementptr inbounds i8, ptr %2, i64 72
+  %50 = load ptr, ptr %49, align 8
+  %.not52 = icmp eq ptr %50, null
+  br i1 %.not52, label %51, label %58
 
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #5
-  store i32 -1, ptr %54, align 4
-  %55 = tail call ptr @slurmdb_connection_get(ptr noundef null) #6
-  store ptr %55, ptr %51, align 8
-  %.not52 = icmp eq ptr %55, null
-  br i1 %.not52, label %56, label %58
+51:                                               ; preds = %48
+  %52 = tail call ptr @__errno_location() #5
+  store i32 -1, ptr %52, align 4
+  %53 = tail call ptr @slurmdb_connection_get(ptr noundef null) #6
+  store ptr %53, ptr %49, align 8
+  %.not53 = icmp eq ptr %53, null
+  br i1 %.not53, label %54, label %56
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %54, align 4
-  tail call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %57, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %3)
+54:                                               ; preds = %51
+  %55 = load i32, ptr %52, align 4
+  tail call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %55, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %3)
   br label %_prereqs_placeholder.exit
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %2, i64 80
-  store i8 1, ptr %59, align 8
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds i8, ptr %2, i64 80
+  store i8 1, ptr %57, align 8
   %.pre = load i32, ptr %11, align 8
-  br label %60
+  br label %58
 
-60:                                               ; preds = %58, %50
-  %61 = phi i32 [ %.pre, %58 ], [ %12, %50 ]
-  %62 = and i32 %61, 2
-  %.not53 = icmp eq i32 %62, 0
-  br i1 %.not53, label %.thread, label %63
+58:                                               ; preds = %56, %48
+  %59 = phi i32 [ %.pre, %56 ], [ %12, %48 ]
+  %60 = and i32 %59, 2
+  %.not54 = icmp eq i32 %60, 0
+  br i1 %.not54, label %.thread, label %61
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %2, i64 88
-  %65 = load ptr, ptr %64, align 8
-  %.not54 = icmp eq ptr %65, null
-  br i1 %.not54, label %66, label %.thread
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %2, i64 88
+  %63 = load ptr, ptr %62, align 8
+  %.not55 = icmp eq ptr %63, null
+  br i1 %.not55, label %64, label %.thread
 
-66:                                               ; preds = %63
+64:                                               ; preds = %61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
-  %67 = getelementptr inbounds i8, ptr %8, i64 40
-  store i16 1, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
-  %69 = load i32, ptr %68, align 8
-  %70 = tail call ptr @__errno_location() #5
-  store i32 0, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %2, i64 72
-  %72 = load ptr, ptr %71, align 8
-  %73 = call ptr @slurmdb_tres_get(ptr noundef %72, ptr noundef nonnull %8) #6
-  %74 = load i32, ptr %70, align 4
-  %.not.i66 = icmp eq i32 %74, 0
-  %.not29.i = icmp eq ptr %73, null
-  br i1 %.not.i66, label %80, label %75
+  %65 = getelementptr inbounds i8, ptr %8, i64 40
+  store i16 1, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = load i32, ptr %66, align 8
+  %68 = tail call ptr @__errno_location() #5
+  store i32 0, ptr %68, align 4
+  %69 = getelementptr inbounds i8, ptr %2, i64 72
+  %70 = load ptr, ptr %69, align 8
+  %71 = call ptr @slurmdb_tres_get(ptr noundef %70, ptr noundef nonnull %8) #6
+  %72 = load i32, ptr %68, align 4
+  %.not.i67 = icmp eq i32 %72, 0
+  %.not29.i = icmp eq ptr %71, null
+  br i1 %.not.i67, label %78, label %73
 
-75:                                               ; preds = %66
-  br i1 %.not29.i, label %77, label %76
+73:                                               ; preds = %64
+  br i1 %.not29.i, label %75, label %74
 
-76:                                               ; preds = %75
-  call void @list_destroy(ptr noundef nonnull %73) #6
-  %.pre.i = load i32, ptr %70, align 4
-  br label %77
+74:                                               ; preds = %73
+  call void @list_destroy(ptr noundef nonnull %71) #6
+  %.pre.i = load i32, ptr %68, align 4
+  br label %75
 
-77:                                               ; preds = %76, %75
-  %78 = phi i32 [ %.pre.i, %76 ], [ %74, %75 ]
-  %79 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %69, ptr noundef nonnull %2, i32 noundef %78, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str) #6
-  br label %87
+75:                                               ; preds = %74, %73
+  %76 = phi i32 [ %.pre.i, %74 ], [ %72, %73 ]
+  %77 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %67, ptr noundef nonnull %2, i32 noundef %76, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str) #6
+  br label %85
 
-80:                                               ; preds = %66
-  br i1 %.not29.i, label %81, label %83
+78:                                               ; preds = %64
+  br i1 %.not29.i, label %79, label %81
 
-81:                                               ; preds = %80
-  %82 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %69, ptr noundef nonnull %2, i32 noundef 9000, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.1) #6
-  br label %87
+79:                                               ; preds = %78
+  %80 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %67, ptr noundef nonnull %2, i32 noundef 9000, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.1) #6
+  br label %85
 
-83:                                               ; preds = %80
-  %84 = call i32 @list_count(ptr noundef nonnull %73) #6
-  %.not30.i = icmp eq i32 %84, 0
-  br i1 %.not30.i, label %85, label %89
+81:                                               ; preds = %78
+  %82 = call i32 @list_count(ptr noundef nonnull %71) #6
+  %.not30.i = icmp eq i32 %82, 0
+  br i1 %.not30.i, label %83, label %87
 
-85:                                               ; preds = %83
-  call void @list_destroy(ptr noundef nonnull %73) #6
-  %86 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %69, ptr noundef nonnull %2, i32 noundef 9003, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.2) #6
-  br label %87
+83:                                               ; preds = %81
+  call void @list_destroy(ptr noundef nonnull %71) #6
+  %84 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %67, ptr noundef nonnull %2, i32 noundef 9003, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.2) #6
+  br label %85
 
-87:                                               ; preds = %85, %81, %77
-  %.027.i = phi i32 [ %79, %77 ], [ %86, %85 ], [ %82, %81 ]
+85:                                               ; preds = %83, %79, %75
+  %.027.i = phi i32 [ %77, %75 ], [ %84, %83 ], [ %80, %79 ]
   %.not32.i = icmp eq i32 %.027.i, 0
-  br i1 %.not32.i, label %89, label %db_query_list_funcname.exit
+  br i1 %.not32.i, label %87, label %db_query_list_funcname.exit
 
-db_query_list_funcname.exit:                      ; preds = %87
-  %88 = load i32, ptr %70, align 4
-  call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %88, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %3)
+db_query_list_funcname.exit:                      ; preds = %85
+  %86 = load i32, ptr %68, align 4
+  call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %86, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %3)
   br label %_prereqs_placeholder.exit
 
-89:                                               ; preds = %83, %87
-  %.038.i = phi ptr [ null, %87 ], [ %73, %83 ]
-  store ptr %.038.i, ptr %64, align 8
-  %90 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %91 = and i64 %90, 256
-  %.not56 = icmp eq i64 %91, 0
-  br i1 %.not56, label %.thread, label %92
+87:                                               ; preds = %81, %85
+  %.038.i = phi ptr [ null, %85 ], [ %71, %81 ]
+  store ptr %.038.i, ptr %62, align 8
+  %88 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %89 = and i64 %88, 256
+  %.not57 = icmp eq i64 %89, 0
+  br i1 %.not57, label %.thread, label %90
 
-92:                                               ; preds = %89
-  %93 = call i32 @get_log_level() #6
-  %94 = icmp sgt i32 %93, 3
-  br i1 %94, label %95, label %.thread
+90:                                               ; preds = %87
+  %91 = call i32 @get_log_level() #6
+  %92 = icmp sgt i32 %91, 3
+  br i1 %92, label %93, label %.thread
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %64, align 8
-  %97 = call i32 @list_count(ptr noundef %96) #6
-  %98 = ptrtoint ptr %2 to i64
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.15, i32 noundef %97, i64 noundef %98) #6
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %62, align 8
+  %95 = call i32 @list_count(ptr noundef %94) #6
+  %96 = ptrtoint ptr %2 to i64
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.15, i32 noundef %95, i64 noundef %96) #6
   br label %.thread
 
-.thread:                                          ; preds = %49, %95, %92, %89, %63, %60
-  %99 = load i32, ptr %11, align 8
-  %100 = and i32 %99, 4
-  %.not57 = icmp eq i32 %100, 0
-  br i1 %.not57, label %137, label %101
+.thread:                                          ; preds = %47, %93, %90, %87, %61, %58
+  %97 = load i32, ptr %11, align 8
+  %98 = and i32 %97, 4
+  %.not58 = icmp eq i32 %98, 0
+  br i1 %.not58, label %135, label %99
 
-101:                                              ; preds = %.thread
-  %102 = getelementptr inbounds i8, ptr %2, i64 96
-  %103 = load ptr, ptr %102, align 8
-  %.not58 = icmp eq ptr %103, null
-  br i1 %.not58, label %104, label %137
+99:                                               ; preds = %.thread
+  %100 = getelementptr inbounds i8, ptr %2, i64 96
+  %101 = load ptr, ptr %100, align 8
+  %.not59 = icmp eq ptr %101, null
+  br i1 %.not59, label %102, label %135
 
-104:                                              ; preds = %101
+102:                                              ; preds = %99
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
-  %105 = getelementptr inbounds i8, ptr %9, i64 34
-  store i16 1, ptr %105, align 2
-  %106 = getelementptr inbounds i8, ptr %1, i64 8
-  %107 = load i32, ptr %106, align 8
-  %108 = tail call ptr @__errno_location() #5
-  store i32 0, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %2, i64 72
-  %110 = load ptr, ptr %109, align 8
-  %111 = call ptr @slurmdb_qos_get(ptr noundef %110, ptr noundef nonnull %9) #6
-  %112 = load i32, ptr %108, align 4
-  %.not.i67 = icmp eq i32 %112, 0
-  %.not29.i68 = icmp eq ptr %111, null
-  br i1 %.not.i67, label %118, label %113
+  %103 = getelementptr inbounds i8, ptr %9, i64 34
+  store i16 1, ptr %103, align 2
+  %104 = getelementptr inbounds i8, ptr %1, i64 8
+  %105 = load i32, ptr %104, align 8
+  %106 = tail call ptr @__errno_location() #5
+  store i32 0, ptr %106, align 4
+  %107 = getelementptr inbounds i8, ptr %2, i64 72
+  %108 = load ptr, ptr %107, align 8
+  %109 = call ptr @slurmdb_qos_get(ptr noundef %108, ptr noundef nonnull %9) #6
+  %110 = load i32, ptr %106, align 4
+  %.not.i68 = icmp eq i32 %110, 0
+  %.not29.i69 = icmp eq ptr %109, null
+  br i1 %.not.i68, label %116, label %111
 
-113:                                              ; preds = %104
-  br i1 %.not29.i68, label %115, label %114
+111:                                              ; preds = %102
+  br i1 %.not29.i69, label %113, label %112
 
-114:                                              ; preds = %113
-  call void @list_destroy(ptr noundef nonnull %111) #6
-  %.pre.i69 = load i32, ptr %108, align 4
-  br label %115
+112:                                              ; preds = %111
+  call void @list_destroy(ptr noundef nonnull %109) #6
+  %.pre.i70 = load i32, ptr %106, align 4
+  br label %113
 
-115:                                              ; preds = %114, %113
-  %116 = phi i32 [ %.pre.i69, %114 ], [ %112, %113 ]
-  %117 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %107, ptr noundef nonnull %2, i32 noundef %116, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str) #6
-  br label %125
+113:                                              ; preds = %112, %111
+  %114 = phi i32 [ %.pre.i70, %112 ], [ %110, %111 ]
+  %115 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %105, ptr noundef nonnull %2, i32 noundef %114, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str) #6
+  br label %123
 
-118:                                              ; preds = %104
-  br i1 %.not29.i68, label %119, label %121
+116:                                              ; preds = %102
+  br i1 %.not29.i69, label %117, label %119
 
-119:                                              ; preds = %118
-  %120 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %107, ptr noundef nonnull %2, i32 noundef 9000, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.1) #6
-  br label %125
+117:                                              ; preds = %116
+  %118 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %105, ptr noundef nonnull %2, i32 noundef 9000, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.1) #6
+  br label %123
 
-121:                                              ; preds = %118
-  %122 = call i32 @list_count(ptr noundef nonnull %111) #6
-  %.not30.i75 = icmp eq i32 %122, 0
-  br i1 %.not30.i75, label %123, label %127
+119:                                              ; preds = %116
+  %120 = call i32 @list_count(ptr noundef nonnull %109) #6
+  %.not30.i76 = icmp eq i32 %120, 0
+  br i1 %.not30.i76, label %121, label %125
 
-123:                                              ; preds = %121
-  call void @list_destroy(ptr noundef nonnull %111) #6
-  %124 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %107, ptr noundef nonnull %2, i32 noundef 9003, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.2) #6
-  br label %125
+121:                                              ; preds = %119
+  call void @list_destroy(ptr noundef nonnull %109) #6
+  %122 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %105, ptr noundef nonnull %2, i32 noundef 9003, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.2) #6
+  br label %123
 
-125:                                              ; preds = %123, %119, %115
-  %.027.i70 = phi i32 [ %117, %115 ], [ %124, %123 ], [ %120, %119 ]
-  %.not32.i71 = icmp eq i32 %.027.i70, 0
-  br i1 %.not32.i71, label %127, label %db_query_list_funcname.exit76
+123:                                              ; preds = %121, %117, %113
+  %.027.i71 = phi i32 [ %115, %113 ], [ %122, %121 ], [ %118, %117 ]
+  %.not32.i72 = icmp eq i32 %.027.i71, 0
+  br i1 %.not32.i72, label %125, label %db_query_list_funcname.exit77
 
-db_query_list_funcname.exit76:                    ; preds = %125
-  %126 = load i32, ptr %108, align 4
-  call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %126, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef %3)
+db_query_list_funcname.exit77:                    ; preds = %123
+  %124 = load i32, ptr %106, align 4
+  call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %124, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef %3)
   br label %_prereqs_placeholder.exit
 
-127:                                              ; preds = %121, %125
-  %.038.i74 = phi ptr [ null, %125 ], [ %111, %121 ]
-  store ptr %.038.i74, ptr %102, align 8
-  %128 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %129 = and i64 %128, 256
-  %.not60 = icmp eq i64 %129, 0
-  br i1 %.not60, label %137, label %130
+125:                                              ; preds = %119, %123
+  %.038.i75 = phi ptr [ null, %123 ], [ %109, %119 ]
+  store ptr %.038.i75, ptr %100, align 8
+  %126 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %127 = and i64 %126, 256
+  %.not61 = icmp eq i64 %127, 0
+  br i1 %.not61, label %135, label %128
 
-130:                                              ; preds = %127
-  %131 = call i32 @get_log_level() #6
-  %132 = icmp sgt i32 %131, 3
-  br i1 %132, label %133, label %137
+128:                                              ; preds = %125
+  %129 = call i32 @get_log_level() #6
+  %130 = icmp sgt i32 %129, 3
+  br i1 %130, label %131, label %135
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %102, align 8
-  %135 = call i32 @list_count(ptr noundef %134) #6
-  %136 = ptrtoint ptr %2 to i64
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.18, i32 noundef %135, i64 noundef %136) #6
-  br label %137
+131:                                              ; preds = %128
+  %132 = load ptr, ptr %100, align 8
+  %133 = call i32 @list_count(ptr noundef %132) #6
+  %134 = ptrtoint ptr %2 to i64
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.18, i32 noundef %133, i64 noundef %134) #6
+  br label %135
 
-137:                                              ; preds = %133, %130, %127, %101, %.thread
-  %138 = load i32, ptr %11, align 8
-  %139 = and i32 %138, 8
-  %.not61 = icmp eq i32 %139, 0
-  br i1 %.not61, label %_prereqs_placeholder.exit, label %140
+135:                                              ; preds = %131, %128, %125, %99, %.thread
+  %136 = load i32, ptr %11, align 8
+  %137 = and i32 %136, 8
+  %.not62 = icmp eq i32 %137, 0
+  br i1 %.not62, label %_prereqs_placeholder.exit, label %138
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %2, i64 104
-  %142 = load ptr, ptr %141, align 8
-  %.not62 = icmp eq ptr %142, null
-  br i1 %.not62, label %143, label %_prereqs_placeholder.exit
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds i8, ptr %2, i64 104
+  %140 = load ptr, ptr %139, align 8
+  %.not63 = icmp eq ptr %140, null
+  br i1 %.not63, label %141, label %_prereqs_placeholder.exit
 
-143:                                              ; preds = %140
+141:                                              ; preds = %138
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 112, i1 false)
-  %144 = getelementptr inbounds i8, ptr %10, i64 98
-  store i16 1, ptr %144, align 2
-  %145 = getelementptr inbounds i8, ptr %1, i64 8
-  %146 = load i32, ptr %145, align 8
-  %147 = tail call ptr @__errno_location() #5
-  store i32 0, ptr %147, align 4
-  %148 = getelementptr inbounds i8, ptr %2, i64 72
-  %149 = load ptr, ptr %148, align 8
-  %150 = call ptr @slurmdb_associations_get(ptr noundef %149, ptr noundef nonnull %10) #6
-  %151 = load i32, ptr %147, align 4
-  %.not.i77 = icmp eq i32 %151, 0
-  %.not29.i78 = icmp eq ptr %150, null
-  br i1 %.not.i77, label %157, label %152
+  %142 = getelementptr inbounds i8, ptr %10, i64 98
+  store i16 1, ptr %142, align 2
+  %143 = getelementptr inbounds i8, ptr %1, i64 8
+  %144 = load i32, ptr %143, align 8
+  %145 = tail call ptr @__errno_location() #5
+  store i32 0, ptr %145, align 4
+  %146 = getelementptr inbounds i8, ptr %2, i64 72
+  %147 = load ptr, ptr %146, align 8
+  %148 = call ptr @slurmdb_associations_get(ptr noundef %147, ptr noundef nonnull %10) #6
+  %149 = load i32, ptr %145, align 4
+  %.not.i78 = icmp eq i32 %149, 0
+  %.not29.i79 = icmp eq ptr %148, null
+  br i1 %.not.i78, label %155, label %150
 
-152:                                              ; preds = %143
-  br i1 %.not29.i78, label %154, label %153
+150:                                              ; preds = %141
+  br i1 %.not29.i79, label %152, label %151
 
-153:                                              ; preds = %152
-  call void @list_destroy(ptr noundef nonnull %150) #6
-  %.pre.i79 = load i32, ptr %147, align 4
-  br label %154
+151:                                              ; preds = %150
+  call void @list_destroy(ptr noundef nonnull %148) #6
+  %.pre.i80 = load i32, ptr %145, align 4
+  br label %152
 
-154:                                              ; preds = %153, %152
-  %155 = phi i32 [ %.pre.i79, %153 ], [ %151, %152 ]
-  %156 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %146, ptr noundef nonnull %2, i32 noundef %155, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str) #6
-  br label %164
+152:                                              ; preds = %151, %150
+  %153 = phi i32 [ %.pre.i80, %151 ], [ %149, %150 ]
+  %154 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %144, ptr noundef nonnull %2, i32 noundef %153, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str) #6
+  br label %162
 
-157:                                              ; preds = %143
-  br i1 %.not29.i78, label %158, label %160
+155:                                              ; preds = %141
+  br i1 %.not29.i79, label %156, label %158
 
-158:                                              ; preds = %157
-  %159 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %146, ptr noundef nonnull %2, i32 noundef 9000, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.1) #6
-  br label %164
+156:                                              ; preds = %155
+  %157 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %144, ptr noundef nonnull %2, i32 noundef 9000, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.1) #6
+  br label %162
 
-160:                                              ; preds = %157
-  %161 = call i32 @list_count(ptr noundef nonnull %150) #6
-  %.not30.i85 = icmp eq i32 %161, 0
-  br i1 %.not30.i85, label %162, label %166
+158:                                              ; preds = %155
+  %159 = call i32 @list_count(ptr noundef nonnull %148) #6
+  %.not30.i86 = icmp eq i32 %159, 0
+  br i1 %.not30.i86, label %160, label %164
 
-162:                                              ; preds = %160
-  call void @list_destroy(ptr noundef nonnull %150) #6
-  %163 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %146, ptr noundef nonnull %2, i32 noundef 9003, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.2) #6
-  br label %164
+160:                                              ; preds = %158
+  call void @list_destroy(ptr noundef nonnull %148) #6
+  %161 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 55979, i32 noundef %144, ptr noundef nonnull %2, i32 noundef 9003, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.load_prereqs_funcname, ptr noundef nonnull @.str.2) #6
+  br label %162
 
-164:                                              ; preds = %162, %158, %154
-  %.027.i80 = phi i32 [ %156, %154 ], [ %163, %162 ], [ %159, %158 ]
-  %.not32.i81 = icmp eq i32 %.027.i80, 0
-  br i1 %.not32.i81, label %166, label %db_query_list_funcname.exit86
+162:                                              ; preds = %160, %156, %152
+  %.027.i81 = phi i32 [ %154, %152 ], [ %161, %160 ], [ %157, %156 ]
+  %.not32.i82 = icmp eq i32 %.027.i81, 0
+  br i1 %.not32.i82, label %164, label %db_query_list_funcname.exit87
 
-db_query_list_funcname.exit86:                    ; preds = %164
-  %165 = load i32, ptr %147, align 4
-  call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %165, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef %3)
+db_query_list_funcname.exit87:                    ; preds = %162
+  %163 = load i32, ptr %145, align 4
+  call fastcc void @_slurmdb_query_failed(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %163, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef %3)
   br label %_prereqs_placeholder.exit
 
-166:                                              ; preds = %160, %164
-  %.038.i84 = phi ptr [ null, %164 ], [ %150, %160 ]
-  store ptr %.038.i84, ptr %141, align 8
-  %167 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %168 = and i64 %167, 256
-  %.not64 = icmp eq i64 %168, 0
-  br i1 %.not64, label %_prereqs_placeholder.exit, label %169
+164:                                              ; preds = %158, %162
+  %.038.i85 = phi ptr [ null, %162 ], [ %148, %158 ]
+  store ptr %.038.i85, ptr %139, align 8
+  %165 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %166 = and i64 %165, 256
+  %.not65 = icmp eq i64 %166, 0
+  br i1 %.not65, label %_prereqs_placeholder.exit, label %167
 
-169:                                              ; preds = %166
-  %170 = call i32 @get_log_level() #6
-  %171 = icmp sgt i32 %170, 3
-  br i1 %171, label %172, label %_prereqs_placeholder.exit
+167:                                              ; preds = %164
+  %168 = call i32 @get_log_level() #6
+  %169 = icmp sgt i32 %168, 3
+  br i1 %169, label %170, label %_prereqs_placeholder.exit
 
-172:                                              ; preds = %169
-  %173 = load ptr, ptr %141, align 8
-  %174 = call i32 @list_count(ptr noundef %173) #6
-  %175 = ptrtoint ptr %2 to i64
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.21, i32 noundef %174, i64 noundef %175) #6
+170:                                              ; preds = %167
+  %171 = load ptr, ptr %139, align 8
+  %172 = call i32 @list_count(ptr noundef %171) #6
+  %173 = ptrtoint ptr %2 to i64
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.21, i32 noundef %172, i64 noundef %173) #6
   br label %_prereqs_placeholder.exit
 
-_prereqs_placeholder.exit:                        ; preds = %47, %44, %41, %137, %140, %166, %169, %172, %db_query_list_funcname.exit86, %db_query_list_funcname.exit76, %db_query_list_funcname.exit, %56
+_prereqs_placeholder.exit:                        ; preds = %45, %42, %39, %135, %138, %164, %167, %170, %db_query_list_funcname.exit87, %db_query_list_funcname.exit77, %db_query_list_funcname.exit, %54
   ret i32 0
 }
 

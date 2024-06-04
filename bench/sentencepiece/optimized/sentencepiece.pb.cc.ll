@@ -122,7 +122,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define internal void @_ZL65InitDefaultsscc_info_NBestSentencePieceText_sentencepiece_2eprotov() #3 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3014000, i32 noundef 3014000, ptr noundef nonnull @.str)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN13sentencepiece41_NBestSentencePieceText_default_instance_E, i64 8), align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i64 16), ptr @_ZN13sentencepiece41_NBestSentencePieceText_default_instance_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i64 16), ptr @_ZN13sentencepiece41_NBestSentencePieceText_default_instance_E, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (i8, ptr @_ZN13sentencepiece41_NBestSentencePieceText_default_instance_E, i64 16), i8 0, i64 28, i1 false)
   %1 = load atomic i32, ptr @scc_info_NBestSentencePieceText_sentencepiece_2eproto acquire, align 8
   %.not.i.i.i.i = icmp eq i32 %1, 0
@@ -147,7 +147,7 @@ _ZN13sentencepiece22NBestSentencePieceTextC2Ev.exit: ; preds = %0, %2
 define internal void @_ZL60InitDefaultsscc_info_SentencePieceText_sentencepiece_2eprotov() #3 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3014000, i32 noundef 3014000, ptr noundef nonnull @.str)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN13sentencepiece36_SentencePieceText_default_instance_E, i64 8), align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i64 16), ptr @_ZN13sentencepiece36_SentencePieceText_default_instance_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i64 16), ptr @_ZN13sentencepiece36_SentencePieceText_default_instance_E, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN13sentencepiece36_SentencePieceText_default_instance_E, i64 16), ptr noundef null)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN13sentencepiece36_SentencePieceText_default_instance_E, i64 40), i8 0, i64 32, i1 false)
   %1 = load atomic i32, ptr @scc_info_SentencePieceText_sentencepiece_2eproto acquire, align 8
@@ -176,7 +176,7 @@ _ZN13sentencepiece17SentencePieceTextC2Ev.exit:   ; preds = %0, %2
 define internal void @_ZL74InitDefaultsscc_info_SentencePieceText_SentencePiece_sentencepiece_2eprotov() #3 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3014000, i32 noundef 3014000, ptr noundef nonnull @.str)
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN13sentencepiece50_SentencePieceText_SentencePiece_default_instance_E, i64 8), align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i64 16), ptr @_ZN13sentencepiece50_SentencePieceText_SentencePiece_default_instance_E, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i64 16), ptr @_ZN13sentencepiece50_SentencePieceText_SentencePiece_default_instance_E, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN13sentencepiece50_SentencePieceText_SentencePiece_default_instance_E, i64 16), ptr noundef null)
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN13sentencepiece50_SentencePieceText_SentencePiece_default_instance_E, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN13sentencepiece50_SentencePieceText_SentencePiece_default_instance_E, i64 44), align 4
@@ -206,7 +206,7 @@ _ZN13sentencepiece31SentencePieceText_SentencePieceC2Ev.exit: ; preds = %0, %2
 define void @_ZN13sentencepiece31SentencePieceText_SentencePieceC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %1)
   %.ptr = getelementptr inbounds i8, ptr %0, i64 40
@@ -248,7 +248,7 @@ declare void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull
 define void @_ZN13sentencepiece31SentencePieceText_SentencePieceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1920,7 +1920,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN13sentencepiece17SentencePieceTextC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %1)
   %.ptr = getelementptr inbounds i8, ptr %0, i64 40
@@ -2014,7 +2014,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece31SentencePiece
 define void @_ZN13sentencepiece17SentencePieceTextC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3456,7 +3456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 define void @_ZN13sentencepiece22NBestSentencePieceTextC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3540,7 +3540,7 @@ define void @_ZN13sentencepiece22NBestSentencePieceTextC2ERKS0_(ptr noundef nonn
 _ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece17SentencePieceTextEEC2ERKS4_.exit:
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -4669,7 +4669,7 @@ define noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN13sentencepie
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   invoke void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef null)
           to label %.noexc unwind label %15
@@ -4749,7 +4749,7 @@ define noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN13sentencepie
   %4 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #16
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   invoke void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef null)
           to label %.noexc unwind label %14
@@ -4827,7 +4827,7 @@ define noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN13sentencepie
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   %7 = load atomic i32, ptr @scc_info_NBestSentencePieceText_sentencepiece_2eproto acquire, align 8
@@ -4878,7 +4878,7 @@ define linkonce_odr noundef ptr @_ZNK13sentencepiece31SentencePieceText_Sentence
   %2 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef null)
           to label %.noexc.i unwind label %10
@@ -4947,7 +4947,7 @@ define linkonce_odr noundef ptr @_ZNK13sentencepiece17SentencePieceText3NewEv(pt
   %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #16
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   invoke void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef null)
           to label %.noexc.i unwind label %10
@@ -5007,7 +5007,7 @@ define linkonce_odr noundef ptr @_ZNK13sentencepiece22NBestSentencePieceText3New
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
   %5 = load atomic i32, ptr @scc_info_NBestSentencePieceText_sentencepiece_2eproto acquire, align 8

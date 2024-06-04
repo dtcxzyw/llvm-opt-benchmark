@@ -1618,7 +1618,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV16Version_All_Test, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16Version_All_Test, i64 16), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -1940,7 +1940,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !38, !noalias !71
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19.i.i.i.i58, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !40, !noalias !71
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i19.i.i.i.i58, align 8, !tbaa !4, !noalias !71
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i19.i.i.i.i58, align 8, !tbaa !4, !noalias !71
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i19.i.i.i.i58, i64 16
   %0 = load i32, ptr %this, align 8, !tbaa !75, !noalias !71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.ensured.i.i.i.i), !noalias !71
@@ -3252,7 +3252,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr dso_local void @_ZNSt11regex_errorC2ENSt15regex_constants10error_typeEPKc(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %__ecode, ptr noundef %__what) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__what)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt11regex_error, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt11regex_error, i64 16), ptr %this, align 8, !tbaa !4
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ecode, ptr %_M_code, align 8, !tbaa !160
   ret void
@@ -11569,7 +11569,7 @@ invoke.cont16:                                    ; preds = %if.end13
   %add.ptr.i.i = getelementptr inbounds i8, ptr %__is, i64 %vbase.offset.i.i
   store ptr %12, ptr %add.ptr.i.i, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %__is, i64 16
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %__is, i64 88
   %13 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !29
   %14 = getelementptr inbounds i8, ptr %__is, i64 104
@@ -11592,7 +11592,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %cmp.i.not = icmp eq i32 %and.i.i, 0
   %16 = trunc i64 %10 to i32
   %conv = select i1 %cmp.i.not, i32 %16, i32 -1
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %__is, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #23
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 8), align 8
@@ -32440,7 +32440,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont6.i
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont8.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI16Version_All_TestEE, i64 16), ptr %call11.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI16Version_All_TestEE, i64 16), ptr %call11.i, align 8, !tbaa !4
   %call15.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i, ptr noundef %call.i, ptr noundef %call7.i, ptr noundef %call9.i, ptr noundef nonnull %call11.i)
           to label %invoke.cont14.i unwind label %lpad4.i
 

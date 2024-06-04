@@ -3010,7 +3010,7 @@ _ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i: ; p
           to label %49 unwind label %51
 
 49:                                               ; preds = %.noexc16
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstPragma, i64 16), ptr %47, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 152
   store i8 1, ptr %50, align 8
   invoke void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %47)
@@ -3287,7 +3287,7 @@ define linkonce_odr dso_local void @_ZN14V3ConfigModule10applyBlockEP12AstNodeBl
           to label %20 unwind label %24
 
 20:                                               ; preds = %17
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstPragma, i64 16), ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 152
   store i8 1, ptr %21, align 8
   call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %18)
@@ -3476,7 +3476,7 @@ define linkonce_odr dso_local void @_ZN14V3ConfigModule5applyEP13AstNodeModule(p
 12:                                               ; preds = %6
   %13 = trunc i8 %8 to i1
   %14 = select i1 %13, i8 3, i8 4
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstPragma, i64 16), ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %9, i64 152
   store i8 %14, ptr %15, align 8
   tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %9)
@@ -3508,7 +3508,7 @@ define linkonce_odr dso_local void @_ZN14V3ConfigModule5applyEP13AstNodeModule(p
           to label %27 unwind label %30
 
 27:                                               ; preds = %23
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstPragma, i64 16), ptr %25, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 152
   store i8 %.sroa.0.0.copyload, ptr %28, align 8
   tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %25)
@@ -3820,7 +3820,7 @@ define linkonce_odr dso_local void @_ZNK13V3ConfigFTask5applyEP12AstNodeFTask(pt
           to label %10 unwind label %12
 
 10:                                               ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstPragma, i64 16), ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 152
   store i8 5, ptr %11, align 8
   tail call void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %7)
@@ -3845,7 +3845,7 @@ define linkonce_odr dso_local void @_ZNK13V3ConfigFTask5applyEP12AstNodeFTask(pt
           to label %.thread unwind label %23
 
 .thread:                                          ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstPragma, i64 16), ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 152
   store i8 7, ptr %22, align 8
   tail call void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %19)
@@ -4190,7 +4190,7 @@ define linkonce_odr dso_local void @_ZN11V3ConfigVar5applyEP6AstVar(ptr noundef 
           to label %10 unwind label %23
 
 10:                                               ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV9AstAttrOf, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAttrOf, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 152
   store i8 %.sroa.0.0.copyload, ptr %11, align 8
   tail call void @_ZN7AstNode7addOp4pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %8)
@@ -4212,7 +4212,7 @@ define linkonce_odr dso_local void @_ZN11V3ConfigVar5applyEP6AstVar(ptr noundef 
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %17
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV15AstAlwaysPublic, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15AstAlwaysPublic, i64 16), ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %_ZN15AstAlwaysPublicC2EP8FileLineP10AstSenTreeP7AstNode.exit, label %21
 

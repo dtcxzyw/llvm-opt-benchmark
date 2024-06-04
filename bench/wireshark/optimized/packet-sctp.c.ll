@@ -1396,26 +1396,26 @@ define internal i32 @dissect_sctp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 55:                                               ; preds = %54, %52
   %.0..0..0..0. = load volatile i32, ptr %5, align 4
   %56 = and i32 %.0..0..0..0., 1
-  %.not47 = icmp eq i32 %56, 0
-  br i1 %.not47, label %59, label %57
+  %.not48 = icmp eq i32 %56, 0
+  br i1 %.not48, label %59, label %57
 
 57:                                               ; preds = %55
-  %.0..0..0..0.2 = load volatile i32, ptr %5, align 4
-  %58 = or i32 %.0..0..0..0.2, 2
+  %.0..0..0..0.3 = load volatile i32, ptr %5, align 4
+  %58 = or i32 %.0..0..0..0.3, 2
   store volatile i32 %58, ptr %5, align 4
   br label %59
 
 59:                                               ; preds = %57, %55
-  %.0..0..0..0.3 = load volatile i32, ptr %5, align 4
-  %60 = and i32 %.0..0..0..0.3, -2
-  store volatile i32 %60, ptr %5, align 4
   %.0..0..0..0.4 = load volatile i32, ptr %5, align 4
-  %61 = icmp eq i32 %.0..0..0..0.4, 0
+  %60 = and i32 %.0..0..0..0.4, -2
+  store volatile i32 %60, ptr %5, align 4
+  %.0..0..0..0.5 = load volatile i32, ptr %5, align 4
+  %61 = icmp eq i32 %.0..0..0..0.5, 0
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %59
-  %.0..0..0..0.8 = load volatile ptr, ptr %4, align 8
-  %63 = icmp eq ptr %.0..0..0..0.8, null
+  %.0..0..0..0.9 = load volatile ptr, ptr %4, align 8
+  %63 = icmp eq ptr %.0..0..0..0.9, null
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %62
@@ -1423,14 +1423,14 @@ define internal i32 @dissect_sctp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %65
 
 65:                                               ; preds = %64, %62, %59
-  %.0..0..0..0.5 = load volatile i32, ptr %5, align 4
-  %66 = and i32 %.0..0..0..0.5, 4
-  %.not48 = icmp eq i32 %66, 0
-  br i1 %.not48, label %67, label %77
+  %.0..0..0..0.6 = load volatile i32, ptr %5, align 4
+  %66 = and i32 %.0..0..0..0.6, 4
+  %.not49 = icmp eq i32 %66, 0
+  br i1 %.not49, label %67, label %77
 
 67:                                               ; preds = %65
-  %.0..0..0..0.6 = load volatile i32, ptr %5, align 4
-  %68 = or i32 %.0..0..0..0.6, 4
+  %.0..0..0..0.7 = load volatile i32, ptr %5, align 4
+  %68 = or i32 %.0..0..0..0.7, 4
   store volatile i32 %68, ptr %5, align 4
   %69 = getelementptr inbounds i8, ptr %1, i64 276
   %70 = load i8, ptr %69, align 4
@@ -1447,19 +1447,19 @@ define internal i32 @dissect_sctp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %77
 
 77:                                               ; preds = %67, %75, %65
-  %.0..0..0..0.7 = load volatile i32, ptr %5, align 4
-  %78 = and i32 %.0..0..0..0.7, 1
-  %.not49 = icmp eq i32 %78, 0
-  br i1 %.not49, label %79, label %81
+  %.0..0..0..0.8 = load volatile i32, ptr %5, align 4
+  %78 = and i32 %.0..0..0..0.8, 1
+  %.not50 = icmp eq i32 %78, 0
+  br i1 %.not50, label %79, label %81
 
 79:                                               ; preds = %77
-  %.0..0..0..0.9 = load volatile ptr, ptr %4, align 8
-  %.not50 = icmp eq ptr %.0..0..0..0.9, null
-  br i1 %.not50, label %81, label %80
+  %.0..0..0..0.10 = load volatile ptr, ptr %4, align 8
+  %.not51 = icmp eq ptr %.0..0..0..0.10, null
+  br i1 %.not51, label %81, label %80
 
 80:                                               ; preds = %79
-  %.0..0..0..0.10 = load volatile ptr, ptr %4, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #20
+  %.0..0..0..0.11 = load volatile ptr, ptr %4, align 8
+  call void @except_rethrow(ptr noundef %.0..0..0..0.11) #20
   unreachable
 
 81:                                               ; preds = %79, %77

@@ -1538,136 +1538,128 @@ define zeroext i1 @phpdbg_check_caught_ex(ptr nocapture noundef readonly %0, ptr
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %.not = icmp ult ptr %5, getelementptr inbounds (i8, ptr @executor_globals, i64 888)
-  br i1 %.not, label %10, label %6
+  %6 = icmp uge ptr %5, getelementptr inbounds (i8, ptr @executor_globals, i64 984)
+  %or.cond.not67 = select i1 %.not, i1 true, i1 %6
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
+  %.not56 = icmp eq ptr %7, null
+  %or.cond65 = select i1 %or.cond.not67, i1 true, i1 %.not56
+  %spec.select = select i1 %or.cond65, ptr %5, ptr %7
+  %8 = getelementptr inbounds i8, ptr %4, i64 88
+  %9 = load ptr, ptr %8, align 8
+  %10 = ptrtoint ptr %spec.select to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = lshr exact i64 %12, 5
+  %14 = trunc i64 %13 to i32
+  %15 = getelementptr inbounds i8, ptr %4, i64 132
+  %16 = load i32, ptr %15, align 4
+  %.not71 = icmp eq i32 %16, 0
+  br i1 %.not71, label %.critedge, label %.lr.ph
 
-6:                                                ; preds = %2
-  %7 = icmp ult ptr %5, getelementptr inbounds (i8, ptr @executor_globals, i64 984)
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 880), align 8
-  %9 = icmp ne ptr %8, null
-  %or.cond = select i1 %7, i1 %9, i1 false
-  br i1 %or.cond, label %11, label %10
+.lr.ph:                                           ; preds = %2
+  %17 = getelementptr inbounds i8, ptr %4, i64 144
+  %18 = load ptr, ptr %17, align 8
+  %wide.trip.count = zext i32 %16 to i64
+  br label %20
 
-10:                                               ; preds = %6, %2
-  br label %11
-
-11:                                               ; preds = %6, %10
-  %.049 = phi ptr [ %5, %10 ], [ %8, %6 ]
-  %12 = getelementptr inbounds i8, ptr %4, i64 88
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %.049 to i64
-  %15 = ptrtoint ptr %13 to i64
-  %16 = sub i64 %14, %15
-  %17 = lshr exact i64 %16, 5
-  %18 = trunc i64 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %4, i64 132
-  %20 = load i32, ptr %19, align 4
-  %.not68 = icmp eq i32 %20, 0
-  br i1 %.not68, label %.critedge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %4, i64 144
-  %22 = load ptr, ptr %21, align 8
-  %wide.trip.count = zext i32 %20 to i64
-  br label %24
-
-23:                                               ; preds = %27
+19:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %24
+  br i1 %exitcond.not, label %.critedge, label %20
 
-24:                                               ; preds = %.lr.ph, %23
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %25 = getelementptr inbounds %struct._zend_try_catch_element, ptr %22, i64 %indvars.iv
-  %26 = load i32, ptr %25, align 4
-  %.not57 = icmp ugt i32 %26, %18
-  br i1 %.not57, label %.critedge, label %27
+20:                                               ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %21 = getelementptr inbounds %struct._zend_try_catch_element, ptr %18, i64 %indvars.iv
+  %22 = load i32, ptr %21, align 4
+  %.not57 = icmp ugt i32 %22, %14
+  br i1 %.not57, label %.critedge, label %23
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %25, i64 4
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
-  %31 = load i32, ptr %30, align 4
-  %.not58 = icmp ult i32 %29, %18
-  %.not59 = icmp ult i32 %31, %18
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds i8, ptr %21, i64 4
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %21, i64 8
+  %27 = load i32, ptr %26, align 4
+  %.not58 = icmp ult i32 %25, %14
+  %.not59 = icmp ult i32 %27, %14
   %or.cond64 = select i1 %.not58, i1 %.not59, i1 false
-  br i1 %or.cond64, label %23, label %32
+  br i1 %or.cond64, label %19, label %28
 
-32:                                               ; preds = %27
-  %.not60 = icmp eq i32 %31, 0
-  br i1 %.not60, label %33, label %.critedge3
+28:                                               ; preds = %23
+  %.not60 = icmp eq i32 %27, 0
+  br i1 %.not60, label %29, label %.critedge2
 
-33:                                               ; preds = %32
-  %34 = zext i32 %29 to i64
-  %35 = getelementptr inbounds %struct._zend_op, ptr %13, i64 %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
-  br label %38
+29:                                               ; preds = %28
+  %30 = zext i32 %25 to i64
+  %31 = getelementptr inbounds %struct._zend_op, ptr %9, i64 %30
+  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  br label %34
 
-38:                                               ; preds = %69, %33
-  %.050 = phi ptr [ %35, %33 ], [ %73, %69 ]
-  %39 = load ptr, ptr %36, align 8
-  %40 = getelementptr inbounds i8, ptr %.050, i64 20
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, -2
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %39, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  %.not61 = icmp eq ptr %45, null
-  br i1 %.not61, label %46, label %60
+34:                                               ; preds = %65, %29
+  %.049 = phi ptr [ %31, %29 ], [ %69, %65 ]
+  %35 = load ptr, ptr %32, align 8
+  %36 = getelementptr inbounds i8, ptr %.049, i64 20
+  %37 = load i32, ptr %36, align 4
+  %38 = and i32 %37, -2
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %35, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  %.not61 = icmp eq ptr %41, null
+  br i1 %.not61, label %42, label %56
 
-46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.050, i64 8
-  %48 = load i32, ptr %47, align 8
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %.050, i64 %49
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %50, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr @zend_fetch_class_by_name(ptr noundef %51, ptr noundef %53, i32 noundef 128) #25
-  %55 = load ptr, ptr %36, align 8
-  %56 = load i32, ptr %40, align 4
-  %57 = and i32 %56, -2
-  %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %55, i64 %58
-  store ptr %54, ptr %59, align 8
-  br label %60
+42:                                               ; preds = %34
+  %43 = getelementptr inbounds i8, ptr %.049, i64 8
+  %44 = load i32, ptr %43, align 8
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i8, ptr %.049, i64 %45
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %46, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call ptr @zend_fetch_class_by_name(ptr noundef %47, ptr noundef %49, i32 noundef 128) #25
+  %51 = load ptr, ptr %32, align 8
+  %52 = load i32, ptr %36, align 4
+  %53 = and i32 %52, -2
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  store ptr %50, ptr %55, align 8
+  br label %56
 
-60:                                               ; preds = %46, %38
-  %.0 = phi ptr [ %45, %38 ], [ %54, %46 ]
-  %61 = load ptr, ptr %37, align 8
-  %62 = icmp eq ptr %.0, %61
-  br i1 %62, label %.critedge3, label %63
+56:                                               ; preds = %42, %34
+  %.0 = phi ptr [ %41, %34 ], [ %50, %42 ]
+  %57 = load ptr, ptr %33, align 8
+  %58 = icmp eq ptr %.0, %57
+  br i1 %58, label %.critedge2, label %59
 
-63:                                               ; preds = %60
+59:                                               ; preds = %56
   %.not62 = icmp eq ptr %.0, null
-  br i1 %.not62, label %66, label %64
+  br i1 %.not62, label %62, label %60
 
-64:                                               ; preds = %63
-  %65 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %61, ptr noundef nonnull %.0) #25
-  br i1 %65, label %.critedge3, label %66
+60:                                               ; preds = %59
+  %61 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %57, ptr noundef nonnull %.0) #25
+  br i1 %61, label %.critedge2, label %62
 
-66:                                               ; preds = %64, %63
-  %67 = load i32, ptr %40, align 4
-  %68 = and i32 %67, 1
-  %.not63 = icmp eq i32 %68, 0
-  br i1 %.not63, label %69, label %.critedge3
+62:                                               ; preds = %60, %59
+  %63 = load i32, ptr %36, align 4
+  %64 = and i32 %63, 1
+  %.not63 = icmp eq i32 %64, 0
+  br i1 %.not63, label %65, label %.critedge2
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %.050, i64 12
-  %71 = load i32, ptr %70, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr %.050, i64 %72
-  br label %38
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds i8, ptr %.049, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i8, ptr %.049, i64 %68
+  br label %34
 
-.critedge:                                        ; preds = %24, %23, %11
-  %74 = getelementptr inbounds i8, ptr %.049, i64 28
-  %75 = load i8, ptr %74, align 4
-  %76 = icmp eq i8 %75, 107
-  br label %.critedge3
+.critedge:                                        ; preds = %20, %19, %2
+  %70 = getelementptr inbounds i8, ptr %spec.select, i64 28
+  %71 = load i8, ptr %70, align 4
+  %72 = icmp eq i8 %71, 107
+  br label %.critedge2
 
-.critedge3:                                       ; preds = %66, %60, %64, %32, %.critedge
-  %.048 = phi i1 [ %76, %.critedge ], [ true, %32 ], [ false, %66 ], [ true, %60 ], [ true, %64 ]
-  ret i1 %.048
+.critedge2:                                       ; preds = %62, %56, %60, %28, %.critedge
+  %.047 = phi i1 [ %72, %.critedge ], [ true, %28 ], [ false, %62 ], [ true, %56 ], [ true, %60 ]
+  ret i1 %.047
 }
 
 declare ptr @zend_fetch_class_by_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5

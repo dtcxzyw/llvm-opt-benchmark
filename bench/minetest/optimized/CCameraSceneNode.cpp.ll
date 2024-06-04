@@ -237,7 +237,7 @@ _ZN3irr5scene16ICameraSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4
   %7 = load ptr, ptr %vfn5.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(222) %this) #23
   %8 = getelementptr inbounds i8, ptr %this, i64 224
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %8, align 8, !tbaa !3
   %9 = load ptr, ptr %0, align 8
   store ptr %9, ptr %this, align 8, !tbaa !3
   %10 = getelementptr inbounds i8, ptr %vtt, i64 32
@@ -246,7 +246,7 @@ _ZN3irr5scene16ICameraSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   store ptr %11, ptr %add.ptr.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr5scene16ICameraSceneNodeE, i64 528), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16ICameraSceneNodeE, i64 528), ptr %8, align 8, !tbaa !3
   %IsOrthogonal.i = getelementptr inbounds i8, ptr %this, i64 232
   store i8 0, ptr %IsOrthogonal.i, align 8, !tbaa !43
   %12 = load ptr, ptr %vtt, align 8
@@ -257,7 +257,7 @@ _ZN3irr5scene16ICameraSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %14, ptr %add.ptr, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr5scene16CCameraSceneNodeE, i64 528), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CCameraSceneNodeE, i64 528), ptr %8, align 8, !tbaa !3
   %BoundingBox = getelementptr inbounds i8, ptr %this, i64 236
   %Target = getelementptr inbounds i8, ptr %this, i64 260
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %BoundingBox, i8 0, i64 24, i1 false)
@@ -689,8 +689,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !64
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 664
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !66
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %0, align 8, !tbaa !3
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6
   %AbsoluteTransformation.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -743,16 +743,16 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN3irr5scene16ICameraSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_SA_.exit
 
 _ZN3irr5scene16ICameraSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_SA_.exit: ; preds = %if.then.i.i, %entry
-  %vtable4.i.i = phi ptr [ getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
+  %vtable4.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 256
   %3 = load ptr, ptr %vfn5.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(222) %this) #23
   %4 = getelementptr inbounds i8, ptr %this, i64 224
   %IsOrthogonal.i = getelementptr inbounds i8, ptr %this, i64 232
   store i8 0, ptr %IsOrthogonal.i, align 8, !tbaa !43
-  store ptr getelementptr inbounds inrange(-24, 488) (i8, ptr @_ZTVN3irr5scene16CCameraSceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene16CCameraSceneNodeE, i64 576), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr5scene16CCameraSceneNodeE, i64 528), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CCameraSceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CCameraSceneNodeE, i64 576), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CCameraSceneNodeE, i64 528), ptr %4, align 8, !tbaa !3
   %BoundingBox = getelementptr inbounds i8, ptr %this, i64 236
   %Target = getelementptr inbounds i8, ptr %this, i64 260
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %BoundingBox, i8 0, i64 24, i1 false)
@@ -3336,9 +3336,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene16CCameraSceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(646) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 648
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Children.i = getelementptr inbounds i8, ptr %this, i64 152
   %__begin2.sroa.0.015.i = load ptr, ptr %Children.i, align 8, !tbaa !16
   %cmp.i.not16.i = icmp eq ptr %__begin2.sroa.0.015.i, %Children.i
@@ -3433,9 +3433,9 @@ _ZN3irr5scene16CCameraSceneNodeD2Ev.exit:         ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene16CCameraSceneNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(646) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 648
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %Children.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %__begin2.sroa.0.015.i.i = load ptr, ptr %Children.i.i, align 8, !tbaa !16
   %cmp.i.not16.i.i = icmp eq ptr %__begin2.sroa.0.015.i.i, %Children.i.i
@@ -3538,9 +3538,9 @@ entry:
 define linkonce_odr void @_ZThn224_N3irr5scene16CCameraSceneNodeD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -224
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %0, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %Children.i.i = getelementptr inbounds i8, ptr %this, i64 -72
   %__begin2.sroa.0.015.i.i = load ptr, ptr %Children.i.i, align 8, !tbaa !16
   %cmp.i.not16.i.i = icmp eq ptr %__begin2.sroa.0.015.i.i, %Children.i.i
@@ -3636,9 +3636,9 @@ _ZN3irr5scene16CCameraSceneNodeD1Ev.exit:         ; preds = %if.then.i.i.i.i.i.i
 define linkonce_odr void @_ZThn224_N3irr5scene16CCameraSceneNodeD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -224
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %0, align 8, !tbaa !3
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !3
   %Children.i.i.i = getelementptr inbounds i8, ptr %this, i64 -72
   %__begin2.sroa.0.015.i.i.i = load ptr, ptr %Children.i.i.i, align 8, !tbaa !16
   %cmp.i.not16.i.i.i = icmp eq ptr %__begin2.sroa.0.015.i.i.i, %Children.i.i.i
@@ -3738,9 +3738,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 648
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %Children.i.i = getelementptr inbounds i8, ptr %3, i64 152
   %__begin2.sroa.0.015.i.i = load ptr, ptr %Children.i.i, align 8, !tbaa !16
   %cmp.i.not16.i.i = icmp eq ptr %__begin2.sroa.0.015.i.i, %Children.i.i
@@ -3839,9 +3839,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 648
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene16CCameraSceneNodeE0_NS0_10ISceneNodeE, i64 336), ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !3
   %Children.i.i.i = getelementptr inbounds i8, ptr %3, i64 152
   %__begin2.sroa.0.015.i.i.i = load ptr, ptr %Children.i.i.i, align 8, !tbaa !16
   %cmp.i.not16.i.i.i = icmp eq ptr %__begin2.sroa.0.015.i.i.i, %Children.i.i.i

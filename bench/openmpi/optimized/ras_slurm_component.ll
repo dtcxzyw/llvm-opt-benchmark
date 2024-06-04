@@ -75,10 +75,10 @@ define internal range(i32 -1, 1) i32 @prte_mca_ras_slurm_component_query(ptr noc
   br label %17
 
 17:                                               ; preds = %8, %10, %15, %5
-  %storemerge6 = phi i32 [ 0, %5 ], [ 50, %15 ], [ 50, %10 ], [ 50, %8 ]
+  %storemerge5 = phi i32 [ 0, %5 ], [ 50, %15 ], [ 50, %10 ], [ 50, %8 ]
   %storemerge = phi ptr [ null, %5 ], [ @prte_ras_slurm_module, %15 ], [ @prte_ras_slurm_module, %10 ], [ @prte_ras_slurm_module, %8 ]
   %.0 = phi i32 [ -1, %5 ], [ 0, %15 ], [ 0, %10 ], [ 0, %8 ]
-  store i32 %storemerge6, ptr %1, align 4
+  store i32 %storemerge5, ptr %1, align 4
   store ptr %storemerge, ptr %0, align 8
   ret i32 %.0
 }

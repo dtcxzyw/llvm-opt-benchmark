@@ -1549,9 +1549,9 @@ define void @_ZN6colvar12alpha_anglesC2ERKNSt7__cxx1112basic_stringIcSt11char_tr
   %47 = alloca %"class.std::__cxx11::basic_string", align 8
   %48 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar3cvcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 16), ptr %0, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 248), ptr %49, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 248), ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 1664
   %51 = getelementptr inbounds i8, ptr %0, i64 1688
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %50, i8 0, i64 48, i1 false)
@@ -2924,9 +2924,9 @@ define void @_ZN6colvar12alpha_anglesC2Ev(ptr noundef nonnull align 8 dereferenc
   %3 = alloca %"class.std::allocator.28", align 1
   %4 = alloca i32, align 4
   tail call void @_ZN6colvar3cvcC2Ev(ptr noundef nonnull align 8 dereferenceable(1648) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 248), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 248), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 1664
   %7 = getelementptr inbounds i8, ptr %0, i64 1688
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
@@ -3016,9 +3016,9 @@ declare void @_ZN6colvar3cvcC2Ev(ptr noundef nonnull align 8 dereferenceable(164
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar12alpha_anglesD2Ev(ptr noundef nonnull align 8 dereferenceable(1720) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1664
   %4 = getelementptr inbounds i8, ptr %0, i64 1672
   %5 = load ptr, ptr %4, align 8
@@ -3256,9 +3256,9 @@ define void @_ZN6colvar7dihedPCC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %59 = alloca %"class.std::__cxx11::basic_string", align 8
   %60 = alloca %"class.std::allocator.28", align 1
   tail call void @_ZN6colvar3cvcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar7dihedPCE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar7dihedPCE, i64 16), ptr %0, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar7dihedPCE, i64 248), ptr %61, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar7dihedPCE, i64 248), ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 1648
   %63 = getelementptr inbounds i8, ptr %0, i64 1672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, i8 0, i64 48, i1 false)
@@ -4875,9 +4875,9 @@ define void @_ZN6colvar7dihedPCC2Ev(ptr noundef nonnull align 8 dereferenceable(
   %3 = alloca %"class.std::allocator.28", align 1
   %4 = alloca i32, align 4
   tail call void @_ZN6colvar3cvcC2Ev(ptr noundef nonnull align 8 dereferenceable(1648) %0)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar7dihedPCE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar7dihedPCE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar7dihedPCE, i64 248), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar7dihedPCE, i64 248), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 1648
   %7 = getelementptr inbounds i8, ptr %0, i64 1672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
@@ -4965,9 +4965,9 @@ _ZNSt6vectorIPN6colvar8dihedralESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIdSaId
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar7dihedPCD2Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN6colvar7dihedPCE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar7dihedPCE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar7dihedPCE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar7dihedPCE, i64 248), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1648
   %4 = getelementptr inbounds i8, ptr %0, i64 1656
   %5 = load ptr, ptr %4, align 8

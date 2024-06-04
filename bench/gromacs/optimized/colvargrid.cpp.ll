@@ -1348,7 +1348,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17colvar_grid_countC2Ev(ptr noundef nonnull align 8 dereferenceable(698) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN11colvar_gridImEC2Ev(ptr noundef nonnull align 8 dereferenceable(698) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV17colvar_grid_count, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17colvar_grid_count, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 376
   store i64 1, ptr %2, align 8
   ret void
@@ -1358,7 +1358,7 @@ define void @_ZN17colvar_grid_countC2Ev(ptr noundef nonnull align 8 dereferencea
 define linkonce_odr void @_ZN11colvar_gridImEC2Ev(ptr noundef nonnull align 8 dereferenceable(698) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   tail call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV11colvar_gridImE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvar_gridImE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 328
   %4 = getelementptr inbounds i8, ptr %0, i64 352
   %5 = getelementptr inbounds i8, ptr %0, i64 392
@@ -1765,7 +1765,7 @@ declare void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11colvar_gridImED2Ev(ptr noundef nonnull align 8 dereferenceable(698) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV11colvar_gridImE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvar_gridImE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2964,7 +2964,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17colvar_grid_countC2ERKSt6vectorIiSaIiEERKm(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 align 2 {
   tail call void @_ZN11colvar_gridImEC2ERKSt6vectorIiSaIiEERKmm(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV17colvar_grid_count, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17colvar_grid_count, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -2973,7 +2973,7 @@ define linkonce_odr void @_ZN11colvar_gridImEC2ERKSt6vectorIiSaIiEERKmm(ptr noun
   %5 = alloca i64, align 8
   store i64 %3, ptr %5, align 8
   tail call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV11colvar_gridImE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvar_gridImE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 328
   %7 = getelementptr inbounds i8, ptr %0, i64 352
   %8 = getelementptr inbounds i8, ptr %0, i64 392
@@ -3088,14 +3088,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit10:                  ; preds = %_ZNSt6vectorIiSaIiE
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17colvar_grid_countC2ERSt6vectorIP6colvarSaIS2_EERKmb(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
   tail call void @_ZN11colvar_gridImEC2ERKSt6vectorIP6colvarSaIS3_EERKmmb(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 1, i1 noundef zeroext %3)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV17colvar_grid_count, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17colvar_grid_count, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11colvar_gridImEC2ERKSt6vectorIP6colvarSaIS3_EERKmmb(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV11colvar_gridImE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvar_gridImE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 328
   %7 = getelementptr inbounds i8, ptr %0, i64 352
   %8 = getelementptr inbounds i8, ptr %0, i64 392
@@ -10865,7 +10865,7 @@ define linkonce_odr noundef i32 @_ZNK11colvar_gridImE12write_opendxERKNSt7__cxx1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18colvar_grid_scalarC2Ev(ptr noundef nonnull align 8 dereferenceable(712) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN11colvar_gridIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(698) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV18colvar_grid_scalar, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18colvar_grid_scalar, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr null, ptr %2, align 8
   ret void
@@ -10875,7 +10875,7 @@ define void @_ZN18colvar_grid_scalarC2Ev(ptr noundef nonnull align 8 dereference
 define linkonce_odr void @_ZN11colvar_gridIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(698) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca double, align 8
   tail call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV11colvar_gridIdE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvar_gridIdE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 328
   %4 = getelementptr inbounds i8, ptr %0, i64 352
   %5 = getelementptr inbounds i8, ptr %0, i64 392
@@ -11000,7 +11000,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit8:                   ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11colvar_gridIdED2Ev(ptr noundef nonnull align 8 dereferenceable(698) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV11colvar_gridIdE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvar_gridIdE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -11515,7 +11515,7 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %81, %_ZNSt12_Vector
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18colvar_grid_scalarC2ERKS_(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef nonnull align 8 dereferenceable(712) %1) unnamed_addr #2 align 2 {
   tail call void @_ZN11colvar_gridIdEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(698) %1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV18colvar_grid_scalar, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18colvar_grid_scalar, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr null, ptr %3, align 8
   ret void
@@ -11524,7 +11524,7 @@ define void @_ZN18colvar_grid_scalarC2ERKS_(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11colvar_gridIdEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(698) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV11colvar_gridIdE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvar_gridIdE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 320
   %4 = getelementptr inbounds i8, ptr %1, i64 320
   %5 = load i64, ptr %4, align 8
@@ -11993,7 +11993,7 @@ define void @_ZN18colvar_grid_scalarC2ERKSt6vectorIiSaIiEE(ptr noundef nonnull a
   %3 = alloca double, align 8
   store double 0.000000e+00, ptr %3, align 8
   call void @_ZN11colvar_gridIdEC2ERKSt6vectorIiSaIiEERKdm(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV18colvar_grid_scalar, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18colvar_grid_scalar, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr null, ptr %4, align 8
   ret void
@@ -12004,7 +12004,7 @@ define linkonce_odr void @_ZN11colvar_gridIdEC2ERKSt6vectorIiSaIiEERKdm(ptr noun
   %5 = alloca i64, align 8
   store i64 %3, ptr %5, align 8
   tail call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV11colvar_gridIdE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvar_gridIdE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 328
   %7 = getelementptr inbounds i8, ptr %0, i64 352
   %8 = getelementptr inbounds i8, ptr %0, i64 392
@@ -12121,7 +12121,7 @@ define void @_ZN18colvar_grid_scalarC2ERSt6vectorIP6colvarSaIS2_EEb(ptr noundef 
   %4 = alloca double, align 8
   store double 0.000000e+00, ptr %4, align 8
   call void @_ZN11colvar_gridIdEC2ERKSt6vectorIP6colvarSaIS3_EERKdmb(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1, i1 noundef zeroext %2)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV18colvar_grid_scalar, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18colvar_grid_scalar, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr null, ptr %5, align 8
   ret void
@@ -12130,7 +12130,7 @@ define void @_ZN18colvar_grid_scalarC2ERSt6vectorIP6colvarSaIS2_EEb(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11colvar_gridIdEC2ERKSt6vectorIP6colvarSaIS3_EERKdmb(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV11colvar_gridIdE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvar_gridIdE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 328
   %7 = getelementptr inbounds i8, ptr %0, i64 352
   %8 = getelementptr inbounds i8, ptr %0, i64 392
@@ -18306,7 +18306,7 @@ declare double @log(double noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress uwtable
 define void @_ZN20colvar_grid_gradientC2Ev(ptr noundef nonnull align 8 dereferenceable(720) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN11colvar_gridIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(698) %0)
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTV20colvar_grid_gradient, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20colvar_grid_gradient, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -18324,7 +18324,7 @@ define void @_ZN20colvar_grid_gradientC2ERKSt6vectorIiSaIiEE(ptr noundef nonnull
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   call void @_ZN11colvar_gridIdEC2ERKSt6vectorIiSaIiEERKdm(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %10)
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTV20colvar_grid_gradient, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20colvar_grid_gradient, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 704
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   ret void
@@ -18342,7 +18342,7 @@ define void @_ZN20colvar_grid_gradientC2ERSt6vectorIP6colvarSaIS2_EE(ptr noundef
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   call void @_ZN11colvar_gridIdEC2ERKSt6vectorIP6colvarSaIS3_EERKdmb(ptr noundef nonnull align 8 dereferenceable(698) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %10, i1 noundef zeroext false)
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTV20colvar_grid_gradient, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20colvar_grid_gradient, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 704
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   ret void
@@ -18372,7 +18372,7 @@ define void @_ZN20colvar_grid_gradientC2ERNSt7__cxx1112basic_stringIcSt11char_tr
   %22 = alloca double, align 8
   %23 = alloca %class.colvarvalue, align 8
   tail call void @_ZN11colvar_gridIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(698) %0)
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTV20colvar_grid_gradient, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20colvar_grid_gradient, i64 16), ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 704
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = invoke noundef ptr @_ZN12colvarmodule4mainEv()
@@ -20055,7 +20055,7 @@ define void @_ZN19integrate_potentialC2ERSt6vectorIP6colvarSaIS2_EEP20colvar_gri
   %7 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV19integrate_potential, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19integrate_potential, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 712
   store ptr %2, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 720
@@ -20168,7 +20168,7 @@ declare noundef i32 @_ZN12colvarmodule12cite_featureERKNSt7__cxx1112basic_string
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN19integrate_potentialD2Ev(ptr noundef nonnull align 8 dereferenceable(744) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV19integrate_potential, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19integrate_potential, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 720
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -20185,7 +20185,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN19integrate_potentialD0Ev(ptr noundef nonnull align 8 dereferenceable(744) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV19integrate_potential, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19integrate_potential, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 720
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -20210,7 +20210,7 @@ define void @_ZN19integrate_potentialC2EP20colvar_grid_gradient(ptr noundef nonn
   tail call void @_ZN11colvar_gridIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(698) %0)
   %7 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV19integrate_potential, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19integrate_potential, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 712
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 720

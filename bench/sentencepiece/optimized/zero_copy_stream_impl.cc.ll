@@ -106,7 +106,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io15FileInputStreamC2Eii(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(21) %4, i32 noundef %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -237,7 +237,7 @@ declare noundef i64 @_ZNK6google8protobuf2io25CopyingInputStreamAdaptor9ByteCoun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) %0, i32 noundef %1) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6google8protobuf2io15FileInputStream22CopyingFileInputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStream22CopyingFileInputStreamE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -255,7 +255,7 @@ define void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamC2Ei
 define void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(21) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %3 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6google8protobuf2io15FileInputStream22CopyingFileInputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStream22CopyingFileInputStreamE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
@@ -455,10 +455,10 @@ declare noundef i32 @_ZN6google8protobuf2io18CopyingInputStream4SkipEi(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io16FileOutputStreamC2Eii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC2EPNS1_19CopyingOutputStreamEi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %4, i32 noundef -1)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i64 16), ptr %0, align 8
   invoke void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(20) %4, i32 noundef %1)
           to label %5 unwind label %6
 
@@ -555,7 +555,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.thread: ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -569,7 +569,7 @@ define void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamC2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io16FileOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i64 16), ptr %0, align 8
   %2 = invoke noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %3 unwind label %5
 
@@ -598,7 +598,7 @@ define void @_ZN6google8protobuf2io16FileOutputStreamD0Ev(ptr noundef nonnull al
 define void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %3 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
@@ -731,7 +731,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io18IstreamInputStreamC2EPSii(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamC1EPSi(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -778,7 +778,7 @@ define noundef i64 @_ZNK6google8protobuf2io18IstreamInputStream9ByteCountEv(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamC2EPSi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
@@ -844,7 +844,7 @@ declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io19OstreamOutputStreamC2EPSoi(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6google8protobuf2io19OstreamOutputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io19OstreamOutputStreamE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamC1EPSo(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -865,7 +865,7 @@ declare void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC1EPNS1_19Copyin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io19OstreamOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN6google8protobuf2io19OstreamOutputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io19OstreamOutputStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = invoke noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
           to label %4 unwind label %6
@@ -923,7 +923,7 @@ declare noundef i64 @_ZNK6google8protobuf2io26CopyingOutputStreamAdaptor9ByteCou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamC2EPSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
@@ -962,7 +962,7 @@ declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf2io24ConcatenatingInputStreamC2EPKPNS1_19ZeroCopyInputStreamEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io24ConcatenatingInputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io24ConcatenatingInputStreamE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1144,7 +1144,7 @@ define noundef i64 @_ZNK6google8protobuf2io24ConcatenatingInputStream9ByteCountE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf2io15FileInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %2) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1154,7 +1154,7 @@ define linkonce_odr void @_ZN6google8protobuf2io15FileInputStreamD2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf2io15FileInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %2) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1172,7 +1172,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK6google8protobuf2io26CopyingOutputSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf2io18IstreamInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %2) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1182,7 +1182,7 @@ define linkonce_odr void @_ZN6google8protobuf2io18IstreamInputStreamD2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf2io18IstreamInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %2) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 8

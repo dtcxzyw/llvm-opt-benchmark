@@ -159,8 +159,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %28, %2
   %52 = tail call noalias ptr @strdup(ptr noundef %51) #12
   %53 = getelementptr inbounds i8, ptr %24, i64 448
   store ptr %52, ptr %53, align 8
-  %.not77 = icmp eq i64 %4, 0
-  br i1 %.not77, label %._crit_edge, label %.lr.ph
+  %.not76 = icmp eq i64 %4, 0
+  br i1 %.not76, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44
   %54 = getelementptr inbounds i8, ptr %24, i64 500
@@ -172,8 +172,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %28, %2
   br label %60
 
 60:                                               ; preds = %.lr.ph, %101
-  %.076 = phi i64 [ 0, %.lr.ph ], [ %102, %101 ]
-  %61 = getelementptr inbounds %struct.pmix_info, ptr %3, i64 %.076
+  %.075 = phi i64 [ 0, %.lr.ph ], [ %102, %101 ]
+  %61 = getelementptr inbounds %struct.pmix_info, ptr %3, i64 %.075
   %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(19) @.str.5) #13
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %68
@@ -244,7 +244,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %28, %2
   br label %101
 
 101:                                              ; preds = %64, %78, %91, %98, %95, %85, %71
-  %102 = add nuw i64 %.076, 1
+  %102 = add nuw i64 %.075, 1
   %exitcond.not = icmp eq i64 %102, %4
   br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !6
 
@@ -308,14 +308,14 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %28, %2
   tail call void %135(ptr noundef %24) #12
   %136 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %137 = load ptr, ptr %136, align 8
-  %.not.i74 = icmp eq ptr %137, null
-  br i1 %.not.i74, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
+  %.not.i73 = icmp eq ptr %137, null
+  br i1 %.not.i73, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %129
   %138 = getelementptr inbounds i8, ptr %24, i64 96
   %139 = load ptr, ptr %138, align 8
-  %.not73 = icmp eq ptr %139, null
-  br i1 %.not73, label %142, label %140
+  %.not72 = icmp eq ptr %139, null
+  br i1 %.not72, label %142, label %140
 
 140:                                              ; preds = %pmix_obj_run_destructors.exit
   %141 = getelementptr inbounds i8, ptr %24, i64 56
@@ -335,8 +335,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %129
   br label %147
 
 147:                                              ; preds = %123, %142, %140, %20, %143
-  %.069 = phi i32 [ 0, %143 ], [ -1366, %20 ], [ -27, %140 ], [ -27, %142 ], [ -27, %123 ]
-  ret i32 %.069
+  %.068 = phi i32 [ 0, %143 ], [ -1366, %20 ], [ -27, %140 ], [ -27, %142 ], [ -27, %123 ]
+  ret i32 %.068
 }
 
 ; Function Attrs: nounwind uwtable
@@ -716,8 +716,8 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %5 = alloca %struct.pmix_proc, align 4
   fence acquire
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
-  %or.cond = icmp ult i32 %6, 64
-  br i1 %or.cond, label %7, label %16
+  %or.cond45 = icmp ult i32 %6, 64
+  br i1 %or.cond45, label %7, label %16
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %6 to i64
@@ -739,11 +739,11 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %19 = call i32 @stat(ptr noundef %18, ptr noundef nonnull %4) #12
   %20 = icmp slt i32 %19, 0
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %21, 64
+  %or.cond46 = icmp ult i32 %21, 64
   br i1 %20, label %22, label %35
 
 22:                                               ; preds = %16
-  br i1 %or.cond3, label %23, label %31
+  br i1 %or.cond46, label %23, label %31
 
 23:                                               ; preds = %22
   %24 = zext nneg i32 %21 to i64
@@ -765,7 +765,7 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br label %167
 
 35:                                               ; preds = %16
-  br i1 %or.cond3, label %36, label %49
+  br i1 %or.cond46, label %36, label %49
 
 36:                                               ; preds = %35
   %37 = zext nneg i32 %21 to i64
@@ -865,8 +865,8 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 
 94:                                               ; preds = %78, %75, %90, %93, %79, %60, %63
   %95 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
-  %or.cond7 = icmp ult i32 %95, 64
-  br i1 %or.cond7, label %96, label %106
+  %or.cond48 = icmp ult i32 %95, 64
+  br i1 %or.cond48, label %96, label %106
 
 96:                                               ; preds = %94
   %97 = zext nneg i32 %95 to i64

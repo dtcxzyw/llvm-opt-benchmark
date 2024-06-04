@@ -2695,12 +2695,12 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
   unreachable
 
 9:                                                ; preds = %5
-  %.b32 = load i1, ptr @cleanup, align 1
-  br i1 %.b32, label %57, label %10
+  %.b31 = load i1, ptr @cleanup, align 1
+  br i1 %.b31, label %57, label %10
 
 10:                                               ; preds = %9
-  %.not33 = icmp eq ptr %1, null
-  br i1 %.not33, label %11, label %13
+  %.not32 = icmp eq ptr %1, null
+  br i1 %.not32, label %11, label %13
 
 11:                                               ; preds = %10
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.stepd_cleanup) #13
@@ -2722,8 +2722,8 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
 19:                                               ; preds = %18, %14
   %20 = getelementptr inbounds i8, ptr %1, i64 656
   %21 = load ptr, ptr %20, align 8
-  %.not34 = icmp eq ptr %21, null
-  br i1 %.not34, label %24, label %22
+  %.not33 = icmp eq ptr %21, null
+  br i1 %.not33, label %24, label %22
 
 22:                                               ; preds = %19
   %23 = tail call i32 @eio_signal_shutdown(ptr noundef nonnull %21) #13
@@ -2732,14 +2732,14 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
 24:                                               ; preds = %19, %22
   %25 = getelementptr inbounds i8, ptr %1, i64 648
   %26 = load i64, ptr %25, align 8
-  %.not35 = icmp eq i64 %26, 0
-  br i1 %.not35, label %.thread, label %27
+  %.not34 = icmp eq i64 %26, 0
+  br i1 %.not34, label %.thread, label %27
 
 27:                                               ; preds = %24
   %28 = tail call i32 @pthread_join(i64 noundef %26, ptr noundef null) #13
   store i64 0, ptr %25, align 8
-  %.not36 = icmp eq i32 %28, 0
-  br i1 %.not36, label %.thread, label %29
+  %.not35 = icmp eq i32 %28, 0
+  br i1 %.not35, label %.thread, label %29
 
 29:                                               ; preds = %27
   %30 = tail call ptr @__errno_location() #15
@@ -2755,8 +2755,8 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
   %36 = load ptr, ptr @conf, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 4256
   %38 = load ptr, ptr %37, align 8
-  %.not37 = icmp eq ptr %38, null
-  br i1 %.not37, label %41, label %39
+  %.not36 = icmp eq ptr %38, null
+  br i1 %.not36, label %41, label %39
 
 39:                                               ; preds = %.thread
   %40 = tail call i32 @remove(ptr noundef nonnull %38) #13
@@ -2765,8 +2765,8 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
 41:                                               ; preds = %39, %.thread
   %42 = getelementptr inbounds i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
-  %.not38 = icmp eq ptr %43, null
-  br i1 %.not38, label %45, label %44
+  %.not37 = icmp eq ptr %43, null
+  br i1 %.not37, label %45, label %44
 
 44:                                               ; preds = %41
   tail call void @cleanup_container(ptr noundef nonnull %1) #13
@@ -2783,8 +2783,8 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
 50:                                               ; preds = %45
   %51 = load i32, ptr %46, align 8
   %52 = tail call i32 @container_g_stepd_delete(i32 noundef %51) #13
-  %.not39 = icmp eq i32 %52, 0
-  br i1 %.not39, label %56, label %53
+  %.not38 = icmp eq i32 %52, 0
+  br i1 %.not38, label %56, label %53
 
 53:                                               ; preds = %50
   %54 = load i32, ptr %46, align 8
@@ -2797,8 +2797,8 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
 
 57:                                               ; preds = %11, %56, %9
   %58 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cleanup_mutex) #13
-  %.not40 = icmp eq i32 %58, 0
-  br i1 %.not40, label %61, label %59
+  %.not39 = icmp eq i32 %58, 0
+  br i1 %.not39, label %61, label %59
 
 59:                                               ; preds = %57
   %60 = tail call ptr @__errno_location() #15
@@ -2807,32 +2807,32 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
   unreachable
 
 61:                                               ; preds = %57
-  %62 = icmp ne i32 %3, 0
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
-  %64 = icmp ne i32 %63, 0
-  %or.cond = select i1 %62, i1 true, i1 %64
-  %65 = tail call i32 @get_log_level() #13
-  %66 = icmp sgt i32 %65, 2
-  br i1 %or.cond, label %67, label %72
+  %.not40 = icmp eq i32 %3, 0
+  %62 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
+  %.not41 = icmp eq i32 %62, 0
+  %or.cond = select i1 %.not40, i1 %.not41, i1 false
+  %63 = tail call i32 @get_log_level() #13
+  %64 = icmp sgt i32 %63, 2
+  br i1 %or.cond, label %70, label %65
 
-67:                                               ; preds = %61
-  br i1 %66, label %68, label %74
+65:                                               ; preds = %61
+  br i1 %64, label %66, label %72
 
-68:                                               ; preds = %67
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
-  %70 = tail call ptr @slurm_strerror(i32 noundef %69) #13
-  %71 = tail call ptr @slurm_strerror(i32 noundef %3) #13
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.stepd_cleanup, i32 noundef %69, ptr noundef %70, i32 noundef %3, ptr noundef %71) #13
-  br label %74
+66:                                               ; preds = %65
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 136), align 8
+  %68 = tail call ptr @slurm_strerror(i32 noundef %67) #13
+  %69 = tail call ptr @slurm_strerror(i32 noundef %3) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.stepd_cleanup, i32 noundef %67, ptr noundef %68, i32 noundef %3, ptr noundef %69) #13
+  br label %72
 
-72:                                               ; preds = %61
-  br i1 %66, label %73, label %74
+70:                                               ; preds = %61
+  br i1 %64, label %71, label %72
 
-73:                                               ; preds = %72
+71:                                               ; preds = %70
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.11) #13
-  br label %74
+  br label %72
 
-74:                                               ; preds = %72, %73, %67, %68
+72:                                               ; preds = %70, %71, %65, %66
   ret i32 %3
 }
 

@@ -631,7 +631,7 @@ declare void @_Z12wide_to_utf8B5cxx11St17basic_string_viewIwSt11char_traitsIwEE(
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN17MenuTextureSourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV17MenuTextureSource, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17MenuTextureSource, i64 16), ptr %this, align 8, !tbaa !20
   %m_driver = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_driver, align 8, !tbaa !22
   %vtable = load ptr, ptr %0, align 8, !tbaa !20
@@ -659,7 +659,8 @@ invoke.cont.i.i:                                  ; preds = %for.cond.cleanup
   br label %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE5clearEv.exit
 
 _ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE5clearEv.exit: ; preds = %invoke.cont.i.i, %for.cond.cleanup, %invoke.cont
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %4, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %4
 
 4:                                                ; preds = %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE5clearEv.exit
   tail call void @_ZTH10infostream() #27
@@ -2093,7 +2094,7 @@ entry:
   %ref.tmp121 = alloca i8, align 1
   %ref.tmp175 = alloca ptr, align 8
   store ptr %joystick, ptr %joystick.addr, align 8, !tbaa !15
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9GUIEngine, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9GUIEngine, i64 16), ptr %this, align 8, !tbaa !20
   %m_last_translations_key = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_last_translations_key, align 8, !tbaa !58
@@ -2196,7 +2197,7 @@ invoke.cont15:                                    ; preds = %invoke.cont7
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i240, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !11, !noalias !150
   store i8 0, ptr %10, align 1, !tbaa !53, !noalias !150
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17TextDestGuiEngine, i64 16), ptr %call.i240, align 8, !tbaa !20, !noalias !150
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17TextDestGuiEngine, i64 16), ptr %call.i240, align 8, !tbaa !20, !noalias !150
   %m_engine.i.i = getelementptr inbounds i8, ptr %call.i240, i64 40
   store ptr %this, ptr %m_engine.i.i, align 8, !tbaa !12, !noalias !150
   store ptr %call.i240, ptr %m_buttonhandler, align 8, !tbaa !153
@@ -2229,7 +2230,7 @@ invoke.cont21:                                    ; preds = %cond.end.i
           to label %invoke.cont23 unwind label %lpad20
 
 invoke.cont23:                                    ; preds = %invoke.cont21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV17MenuTextureSource, i64 16), ptr %call.i245, align 8, !tbaa !20, !noalias !154
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17MenuTextureSource, i64 16), ptr %call.i245, align 8, !tbaa !20, !noalias !154
   %m_driver.i.i = getelementptr inbounds i8, ptr %call.i245, i64 8
   store ptr %call.i244, ptr %m_driver.i.i, align 8, !tbaa !22, !noalias !154
   %m_to_delete.i.i = getelementptr inbounds i8, ptr %call.i245, i64 16
@@ -2321,7 +2322,7 @@ invoke.cont44:                                    ; preds = %if.then
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i.i, align 8, !tbaa !94, !noalias !160
   %_M_next_resize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i260, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !160
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16MenuMusicFetcher, i64 16), ptr %call.i260, align 8, !tbaa !20, !noalias !160
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16MenuMusicFetcher, i64 16), ptr %call.i260, align 8, !tbaa !20, !noalias !160
   store ptr null, ptr %ref.tmp42, align 8, !tbaa !15
   store ptr %call.i260, ptr %agg.tmp, align 8, !tbaa !166
   invoke void @_Z24createOpenALSoundManagerPN5sound21SoundManagerSingletonESt10unique_ptrI25SoundFallbackPathProviderSt14default_deleteIS3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.45") align 8 %ref.tmp40, ptr noundef %23, ptr noundef nonnull %agg.tmp)
@@ -2492,7 +2493,7 @@ _ZNSt10unique_ptrI17DummySoundManagerSt14default_deleteIS0_EED2Ev.exit: ; preds 
   store i32 1, ptr %m_next_id.i.i.i, align 8, !tbaa !174, !noalias !168
   %m_removed_sounds.i.i.i = getelementptr inbounds i8, ptr %call.i291, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_removed_sounds.i.i.i, i8 0, i64 24, i1 false), !noalias !168
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV17DummySoundManager, i64 16), ptr %call.i291, align 8, !tbaa !20, !noalias !168
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17DummySoundManager, i64 16), ptr %call.i291, align 8, !tbaa !20, !noalias !168
   store ptr %call.i291, ptr %m_sound_manager, align 8, !tbaa !15
   br label %if.end62
 
@@ -2808,7 +2809,8 @@ _ZN7irr_ptrI15GUIFormSpecMenuvED2Ev.exit:         ; preds = %delete.notnull.i.i.
   store i8 1, ptr %m_lock.i, align 1, !tbaa !321
   %m_lockscreensize.i = getelementptr inbounds i8, ptr %91, i64 2008
   store i64 2576980378400, ptr %m_lockscreensize.i, align 8, !tbaa.struct !322
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %92, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %92
 
 92:                                               ; preds = %_ZN7irr_ptrI15GUIFormSpecMenuvED2Ev.exit
   call void @_ZTH10infostream()
@@ -2935,7 +2937,8 @@ invoke.cont163:                                   ; preds = %invoke.cont160
   br i1 %call164, label %if.end170, label %if.then165
 
 if.then165:                                       ; preds = %invoke.cont163
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %108, label %_ZTW11errorstream.exit
+  %.not30 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not30, label %_ZTW11errorstream.exit, label %108
 
 108:                                              ; preds = %if.then165
   call void @_ZTH11errorstream()
@@ -3061,7 +3064,8 @@ lpad159:                                          ; preds = %if.end170, %if.then
 
 catch:                                            ; preds = %lpad159
   %132 = call ptr @__cxa_begin_catch(ptr %129) #27
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %133, label %_ZTW11errorstream.exit413
+  %.not31 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not31, label %_ZTW11errorstream.exit413, label %133
 
 133:                                              ; preds = %catch
   call void @_ZTH11errorstream()
@@ -3397,7 +3401,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV25SoundFallbackPathProvider, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25SoundFallbackPathProvider, i64 16), ptr %0, align 8, !tbaa !20
   %m_done_names.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8, !tbaa !327
@@ -3508,7 +3512,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %4
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV18FormspecFormSource, i64 16), ptr %call, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18FormspecFormSource, i64 16), ptr %call, align 8, !tbaa !20
   %m_formspec.i = getelementptr inbounds i8, ptr %call, i64 8
   %6 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %6, ptr %m_formspec.i, align 8, !tbaa !58
@@ -4431,7 +4435,8 @@ lpad36:                                           ; preds = %invoke.cont37, %_ZN
 
 catch:                                            ; preds = %lpad36
   %108 = call ptr @__cxa_begin_catch(ptr %105) #27
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %109, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %109
 
 109:                                              ; preds = %catch
   call void @_ZTH11errorstream()
@@ -6911,7 +6916,7 @@ entry:
   %m_shader_source = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %m_shader_source, align 8, !tbaa !15
   %call2 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV30FogShaderConstantSetterFactory, i64 16), ptr %call2, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30FogShaderConstantSetterFactory, i64 16), ptr %call2, align 8, !tbaa !20
   %vtable = load ptr, ptr %0, align 8, !tbaa !20
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
@@ -7699,8 +7704,9 @@ declare void @_ZN15RenderingEngine23autosaveScreensizeAndCoEN3irr4core11dimensio
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN9GUIEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9GUIEngine, i64 16), ptr %this, align 8, !tbaa !20
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9GUIEngine, i64 16), ptr %this, align 8, !tbaa !20
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH10infostream() #27
@@ -9065,7 +9071,7 @@ declare void @_ZN14EnrichedStringC1ERKNSt7__cxx1112basic_stringIwSt11char_traits
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17TextDestGuiEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8TextDest, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TextDest, i64 16), ptr %this, align 8, !tbaa !20
   %m_formname.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_formname.i, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -9091,7 +9097,7 @@ _ZN8TextDestD2Ev.exit:                            ; preds = %if.then.i.i.i, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25SoundFallbackPathProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV25SoundFallbackPathProvider, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25SoundFallbackPathProvider, i64 16), ptr %this, align 8, !tbaa !20
   %m_done_names = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !327
@@ -9146,7 +9152,7 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hash
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16MenuMusicFetcherD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV25SoundFallbackPathProvider, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25SoundFallbackPathProvider, i64 16), ptr %this, align 8, !tbaa !20
   %m_done_names.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8, !tbaa !327
@@ -9640,7 +9646,7 @@ declare ptr @wmemcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TextDestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8TextDest, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TextDest, i64 16), ptr %this, align 8, !tbaa !20
   %m_formname = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_formname, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -9716,7 +9722,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13ISoundManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV13ISoundManager, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13ISoundManager, i64 16), ptr %this, align 8, !tbaa !20
   %m_removed_sounds = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_removed_sounds, align 8, !tbaa !454
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -9763,7 +9769,7 @@ _ZNSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEED2Ev.exit: ; pre
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17DummySoundManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV13ISoundManager, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13ISoundManager, i64 16), ptr %this, align 8, !tbaa !20
   %m_removed_sounds.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_removed_sounds.i, align 8, !tbaa !454
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -9905,7 +9911,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_cr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18FormspecFormSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV18FormspecFormSource, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18FormspecFormSource, i64 16), ptr %this, align 8, !tbaa !20
   %m_formspec = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_formspec, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -9930,7 +9936,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18FormspecFormSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV18FormspecFormSource, i64 16), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18FormspecFormSource, i64 16), ptr %this, align 8, !tbaa !20
   %m_formspec.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_formspec.i, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 24

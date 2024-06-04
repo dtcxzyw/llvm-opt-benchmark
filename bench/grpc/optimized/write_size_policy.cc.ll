@@ -57,7 +57,8 @@ if.then6:                                         ; preds = %if.then4
   br label %return
 
 if.end9:                                          ; preds = %do.end
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %3, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %3
 
 3:                                                ; preds = %if.end9
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -88,7 +89,8 @@ entry:
   br i1 %cmp.i, label %if.end56, label %if.end
 
 if.end:                                           ; preds = %entry
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %1, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %1
 
 1:                                                ; preds = %if.end
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()

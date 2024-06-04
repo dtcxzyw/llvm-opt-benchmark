@@ -927,7 +927,8 @@ if.then:                                          ; preds = %entry
   %sub = add i32 %call, -2
   %spec.select = select i1 %cmp3, i32 %sub, i32 %call
   store i32 %spec.select, ptr %autoscaleMaxWorkers, align 4, !tbaa !82
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %if.then
   tail call void @_ZTH10infostream()
@@ -1494,9 +1495,9 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 144
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %this, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %0, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %1, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %0, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %1, align 8, !tbaa !16
   %jobDispatcher5 = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %jobDispatcher, ptr %jobDispatcher5, align 8, !tbaa !118
   %isErrored = getelementptr inbounds i8, ptr %this, i64 160
@@ -3198,7 +3199,8 @@ _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5clearEv.exit: ; preds = %wh
   %mul.i.i = shl i64 %21, 3
   call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %mul.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %22, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %22
 
 22:                                               ; preds = %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5clearEv.exit
   call void @_ZTH10infostream()
@@ -3923,7 +3925,8 @@ catch.dispatch:                                   ; preds = %lpad28, %ehcleanup2
 catch:                                            ; preds = %catch.dispatch
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn112, 0
   %43 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #26
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %44, label %_ZTW11errorstream.exit
+  %.not20 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not20, label %_ZTW11errorstream.exit, label %44
 
 44:                                               ; preds = %catch
   call void @_ZTH11errorstream()
@@ -4014,7 +4017,8 @@ lpad55:                                           ; preds = %for.body53
 catch67:                                          ; preds = %lpad55
   %56 = extractvalue { ptr, i32 } %53, 0
   %57 = call ptr @__cxa_begin_catch(ptr %56) #26
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %58, label %_ZTW11errorstream.exit194
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit194, label %58
 
 58:                                               ; preds = %catch67
   call void @_ZTH11errorstream()
@@ -4476,11 +4480,11 @@ declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17AsyncWorkerThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(161) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %this, align 8, !tbaa !16
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 168
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i, align 8, !tbaa !16
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 144
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %add.ptr3.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %add.ptr3.i, align 8, !tbaa !16
   %m_running.i.i = getelementptr inbounds i8, ptr %this, i64 50
   %0 = load atomic i8, ptr %m_running.i.i seq_cst, align 2
   %1 = and i8 %0, 1
@@ -4511,10 +4515,10 @@ _ZN17AsyncWorkerThreadD2Ev.exit:                  ; preds = %entry
 define dso_local void @_ZThn144_N17AsyncWorkerThreadD1Ev(ptr noundef %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -144
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %0, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %0, align 8, !tbaa !16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %this, align 8, !tbaa !16
   %m_running.i.i.i = getelementptr inbounds i8, ptr %this, i64 -94
   %1 = load atomic i8, ptr %m_running.i.i.i seq_cst, align 1
   %2 = and i8 %1, 1
@@ -4548,11 +4552,11 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %3, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %3, align 8, !tbaa !16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 168
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !16
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %3, i64 144
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %add.ptr3.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %add.ptr3.i.i, align 8, !tbaa !16
   %m_running.i.i.i = getelementptr inbounds i8, ptr %3, i64 50
   %4 = load atomic i8, ptr %m_running.i.i.i seq_cst, align 1
   %5 = and i8 %4, 1
@@ -4582,11 +4586,11 @@ _ZN17AsyncWorkerThreadD1Ev.exit:                  ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17AsyncWorkerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(161) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %this, align 8, !tbaa !16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !16
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %add.ptr3.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %add.ptr3.i.i, align 8, !tbaa !16
   %m_running.i.i.i = getelementptr inbounds i8, ptr %this, i64 50
   %0 = load atomic i8, ptr %m_running.i.i.i seq_cst, align 2
   %1 = and i8 %0, 1
@@ -4618,10 +4622,10 @@ _ZN17AsyncWorkerThreadD1Ev.exit:                  ; preds = %entry
 define dso_local void @_ZThn144_N17AsyncWorkerThreadD0Ev(ptr noundef %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -144
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %0, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %0, align 8, !tbaa !16
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %this, align 8, !tbaa !16
   %m_running.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -94
   %1 = load atomic i8, ptr %m_running.i.i.i.i seq_cst, align 1
   %2 = and i8 %1, 1
@@ -4656,11 +4660,11 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %3, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %3, align 8, !tbaa !16
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 168
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 112), ptr %add.ptr.i.i.i, align 8, !tbaa !16
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %3, i64 144
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %add.ptr3.i.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 72), ptr %add.ptr3.i.i.i, align 8, !tbaa !16
   %m_running.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 50
   %4 = load atomic i8, ptr %m_running.i.i.i.i seq_cst, align 1
   %5 = and i8 %4, 1
@@ -4755,6 +4759,7 @@ while.body.lr.ph:                                 ; preds = %if.end5
   %jobDispatcher = getelementptr inbounds i8, ptr %this, i64 152
   %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @errorstream)
   %id8.i.i = getelementptr inbounds i8, ptr %j, i64 144
+  %.not = icmp eq ptr @_ZTH11errorstream, null
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.backedge, %while.body.lr.ph
@@ -4833,7 +4838,7 @@ invoke.cont28:                                    ; preds = %invoke.cont24
   br i1 %tobool30.not, label %if.end37, label %if.then31
 
 if.then31:                                        ; preds = %invoke.cont28
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %17, label %_ZTW11errorstream.exit
+  br i1 %.not, label %_ZTW11errorstream.exit, label %17
 
 17:                                               ; preds = %if.then31
   call void @_ZTH11errorstream()
@@ -5486,7 +5491,8 @@ ehcleanup:                                        ; preds = %if.then.i.i22, %_ZN
   resume { ptr, i32 } %eh.lpad-body
 
 if.else:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %13, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %13
 
 13:                                               ; preds = %if.else
   tail call void @_ZTH11errorstream()

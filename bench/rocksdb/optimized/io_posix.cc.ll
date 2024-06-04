@@ -6737,7 +6737,8 @@ entry:
   br i1 %tobool, label %if.then, label %if.end32
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTHN7rocksdb15iostats_contextE, ptr null), label %1, label %_ZTWN7rocksdb15iostats_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb15iostats_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit, label %1
 
 1:                                                ; preds = %if.then
   tail call void @_ZTHN7rocksdb15iostats_contextE()
@@ -6746,7 +6747,8 @@ if.then:                                          ; preds = %entry
 _ZTWN7rocksdb15iostats_contextE.exit:             ; preds = %if.then, %1
   %2 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)
   %allocate_nanos = getelementptr inbounds i8, ptr %2, i64 32
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %3, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %3
 
 3:                                                ; preds = %_ZTWN7rocksdb15iostats_contextE.exit
   tail call void @_ZTHN7rocksdb10perf_levelE()
@@ -8439,7 +8441,8 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp10.not, label %if.end23, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true
-  br i1 icmp ne (ptr @_ZTHN7rocksdb15iostats_contextE, ptr null), label %10, label %_ZTWN7rocksdb15iostats_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb15iostats_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit, label %10
 
 10:                                               ; preds = %if.then11
   call void @_ZTHN7rocksdb15iostats_contextE()
@@ -8448,7 +8451,8 @@ if.then11:                                        ; preds = %land.lhs.true
 _ZTWN7rocksdb15iostats_contextE.exit:             ; preds = %if.then11, %10
   %11 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)
   %allocate_nanos = getelementptr inbounds i8, ptr %11, i64 32
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %12, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %12
 
 12:                                               ; preds = %_ZTWN7rocksdb15iostats_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -9259,7 +9263,8 @@ entry:
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 icmp ne (ptr @_ZTHN7rocksdb15iostats_contextE, ptr null), label %2, label %_ZTWN7rocksdb15iostats_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb15iostats_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit, label %2
 
 2:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb15iostats_contextE()
@@ -9268,7 +9273,8 @@ entry:
 _ZTWN7rocksdb15iostats_contextE.exit:             ; preds = %entry, %2
   %3 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)
   %allocate_nanos = getelementptr inbounds i8, ptr %3, i64 32
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %4, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %4
 
 4:                                                ; preds = %_ZTWN7rocksdb15iostats_contextE.exit
   tail call void @_ZTHN7rocksdb10perf_levelE()
@@ -10782,8 +10788,10 @@ if.then7:                                         ; preds = %if.then
           to label %do.body.preheader unwind label %lpad
 
 do.body.preheader:                                ; preds = %if.then7
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb15iostats_contextE, null
   %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)
   %open_nanos = getelementptr inbounds i8, ptr %4, i64 24
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
   %5 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
   %use_cpu_time_.i = getelementptr inbounds i8, ptr %iostats_step_timer_open_nanos, i64 1
   %ticker_type_.i = getelementptr inbounds i8, ptr %iostats_step_timer_open_nanos, i64 4
@@ -10794,14 +10802,14 @@ do.body.preheader:                                ; preds = %if.then7
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
-  br i1 icmp ne (ptr @_ZTHN7rocksdb15iostats_contextE, ptr null), label %6, label %_ZTWN7rocksdb15iostats_contextE.exit
+  br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit, label %6
 
 6:                                                ; preds = %do.body
   call void @_ZTHN7rocksdb15iostats_contextE()
   br label %_ZTWN7rocksdb15iostats_contextE.exit
 
 _ZTWN7rocksdb15iostats_contextE.exit:             ; preds = %do.body, %6
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %7, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %7
 
 7:                                                ; preds = %_ZTWN7rocksdb15iostats_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()

@@ -76,25 +76,25 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   %23 = call ptr @createPQExpBuffer() #10
   store volatile ptr %23, ptr %3, align 8
   %24 = call ptr @createPQExpBuffer() #10
-  %.0..0..0..0.109 = load volatile ptr, ptr %2, align 8
-  %25 = icmp eq ptr %.0..0..0..0.109, null
+  %.0..0..0..0.107 = load volatile ptr, ptr %2, align 8
+  %25 = icmp eq ptr %.0..0..0..0.107, null
   br i1 %25, label %42, label %26
 
 26:                                               ; preds = %1
-  %.0..0..0..0.110 = load volatile ptr, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %.0..0..0..0.110, i64 16
+  %.0..0..0..0.108 = load volatile ptr, ptr %2, align 8
+  %27 = getelementptr inbounds i8, ptr %.0..0..0..0.108, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %42, label %30
 
 30:                                               ; preds = %26
-  %.0..0..0..0.103 = load volatile ptr, ptr %3, align 8
-  %31 = icmp eq ptr %.0..0..0..0.103, null
+  %.0..0..0..0.101 = load volatile ptr, ptr %3, align 8
+  %31 = icmp eq ptr %.0..0..0..0.101, null
   br i1 %31, label %42, label %32
 
 32:                                               ; preds = %30
-  %.0..0..0..0.104 = load volatile ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %.0..0..0..0.104, i64 16
+  %.0..0..0..0.102 = load volatile ptr, ptr %3, align 8
+  %33 = getelementptr inbounds i8, ptr %.0..0..0..0.102, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
   %36 = icmp eq ptr %24, null
@@ -108,8 +108,8 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %40, label %42, label %.preheader264
 
 .preheader264:                                    ; preds = %37
-  %.0..0..0..0.57272 = load volatile i32, ptr %4, align 4
-  %41 = icmp eq i32 %.0..0..0..0.57272, 0
+  %.0..0..0..0.55272 = load volatile i32, ptr %4, align 4
+  %41 = icmp eq i32 %.0..0..0..0.55272, 0
   br i1 %41, label %.lr.ph273, label %.loopexit
 
 42:                                               ; preds = %1, %26, %30, %32, %37
@@ -137,14 +137,14 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
 
 49:                                               ; preds = %48, %.lr.ph273
   %50 = call i32 @__sigsetjmp(ptr noundef nonnull @sigint_interrupt_jmp, i32 noundef 1) #12
-  %.not200 = icmp eq i32 %50, 0
-  br i1 %.not200, label %61, label %51
+  %.not198 = icmp eq i32 %50, 0
+  br i1 %.not198, label %61, label %51
 
 51:                                               ; preds = %49
   call void @psql_scan_finish(ptr noundef %20) #10
   call void @psql_scan_reset(ptr noundef %20) #10
-  %.0..0..0..0.111 = load volatile ptr, ptr %2, align 8
-  call void @resetPQExpBuffer(ptr noundef %.0..0..0..0.111) #10
+  %.0..0..0..0.109 = load volatile ptr, ptr %2, align 8
+  call void @resetPQExpBuffer(ptr noundef %.0..0..0..0.109) #10
   call void @resetPQExpBuffer(ptr noundef %24) #10
   store volatile i32 0, ptr %8, align 4
   store volatile i32 0, ptr %5, align 4
@@ -179,8 +179,8 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %65, label %66, label %86
 
 66:                                               ; preds = %61
-  %.0..0..0..0.112 = load volatile ptr, ptr %2, align 8
-  %67 = getelementptr inbounds i8, ptr %.0..0..0..0.112, i64 8
+  %.0..0..0..0.110 = load volatile ptr, ptr %2, align 8
+  %67 = getelementptr inbounds i8, ptr %.0..0..0..0.110, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %70, label %71
@@ -190,23 +190,23 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   br label %71
 
 71:                                               ; preds = %70, %66
-  %.0..0..0..0.42 = load volatile i8, ptr %7, align 1
-  %72 = trunc i8 %.0..0..0..0.42 to i1
+  %.0..0..0..0.40 = load volatile i8, ptr %7, align 1
+  %72 = trunc i8 %.0..0..0..0.40 to i1
   br i1 %72, label %73, label %91
 
 73:                                               ; preds = %71
-  %.0..0..0..0.113 = load volatile ptr, ptr %2, align 8
-  %74 = getelementptr inbounds i8, ptr %.0..0..0..0.113, i64 8
+  %.0..0..0..0.111 = load volatile ptr, ptr %2, align 8
+  %74 = getelementptr inbounds i8, ptr %.0..0..0..0.111, i64 8
   %75 = load i64, ptr %74, align 8
-  %.not203 = icmp eq i64 %75, 0
-  br i1 %.not203, label %85, label %76
+  %.not201 = icmp eq i64 %75, 0
+  br i1 %.not201, label %85, label %76
 
 76:                                               ; preds = %73
   %77 = call ptr @get_prompt(i32 noundef 0, ptr noundef %21) #10
   %78 = load ptr, ptr @stdout, align 8
   %79 = call i32 @fputs(ptr noundef %77, ptr noundef %78)
-  %.0..0..0..0.114 = load volatile ptr, ptr %2, align 8
-  %80 = load ptr, ptr %.0..0..0..0.114, align 8
+  %.0..0..0..0.112 = load volatile ptr, ptr %2, align 8
+  %80 = load ptr, ptr %.0..0..0..0.112, align 8
   %81 = load ptr, ptr @stdout, align 8
   %82 = call i32 @fputs(ptr noundef %80, ptr noundef %81)
   %83 = load ptr, ptr @stdout, align 8
@@ -219,23 +219,23 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
 
 86:                                               ; preds = %61
   %87 = call ptr @gets_fromFile(ptr noundef %0) #10
-  %.not201 = icmp eq ptr %87, null
-  br i1 %.not201, label %88, label %.thread229
+  %.not199 = icmp eq ptr %87, null
+  br i1 %.not199, label %88, label %.thread229
 
 88:                                               ; preds = %86
   %89 = call i32 @ferror(ptr noundef %0) #10
-  %.not202 = icmp eq i32 %89, 0
-  br i1 %.not202, label %.thread, label %90
+  %.not200 = icmp eq i32 %89, 0
+  br i1 %.not200, label %.thread, label %90
 
 90:                                               ; preds = %88
   store volatile i32 1, ptr %4, align 4
   br label %.thread
 
 91:                                               ; preds = %71, %85
-  %.0..0..0..0.43 = load volatile i32, ptr %6, align 4
-  %92 = call ptr @get_prompt(i32 noundef %.0..0..0..0.43, ptr noundef %21) #10
-  %.0..0..0..0.115 = load volatile ptr, ptr %2, align 8
-  %93 = call ptr @gets_interactive(ptr noundef %92, ptr noundef %.0..0..0..0.115) #10
+  %.0..0..0..0.41 = load volatile i32, ptr %6, align 4
+  %92 = call ptr @get_prompt(i32 noundef %.0..0..0..0.41, ptr noundef %21) #10
+  %.0..0..0..0.113 = load volatile ptr, ptr %2, align 8
+  %93 = call ptr @gets_interactive(ptr noundef %92, ptr noundef %.0..0..0..0.113) #10
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.thread, label %.thread229
 
@@ -245,12 +245,12 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %96, label %97, label %.loopexit
 
 97:                                               ; preds = %.thread
-  %.0..0..0..0.40 = load volatile i32, ptr %8, align 4
-  %98 = add i32 %.0..0..0..0.40, 1
+  %.0..0..0..0.38 = load volatile i32, ptr %8, align 4
+  %98 = add i32 %.0..0..0..0.38, 1
   store volatile i32 %98, ptr %8, align 4
-  %.0..0..0..0.41 = load volatile i32, ptr %8, align 4
+  %.0..0..0..0.39 = load volatile i32, ptr %8, align 4
   %99 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 400), align 8
-  %100 = icmp slt i32 %.0..0..0..0.41, %99
+  %100 = icmp slt i32 %.0..0..0..0.39, %99
   %101 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
   %102 = trunc i8 %101 to i1
   br i1 %100, label %103, label %108
@@ -264,8 +264,8 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   br label %.backedge
 
 .backedge:                                        ; preds = %368, %376, %378, %375, %103, %104, %149, %201
-  %.0..0..0..0.57 = load volatile i32, ptr %4, align 4
-  %107 = icmp eq i32 %.0..0..0..0.57, 0
+  %.0..0..0..0.55 = load volatile i32, ptr %4, align 4
+  %107 = icmp eq i32 %.0..0..0..0.55, 0
   br i1 %107, label %.lr.ph273, label %.loopexit, !llvm.loop !5
 
 108:                                              ; preds = %97
@@ -282,8 +282,8 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   %113 = icmp eq i64 %111, 0
   %114 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %115 = icmp eq i32 %114, 6
-  %or.cond3 = select i1 %113, i1 %115, i1 false
-  br i1 %or.cond3, label %sub_0, label %thread-pre-split
+  %or.cond221 = select i1 %113, i1 %115, i1 false
+  br i1 %or.cond221, label %sub_0, label %thread-pre-split
 
 sub_0:                                            ; preds = %.thread229
   %116 = load i8, ptr %.0231, align 1
@@ -405,11 +405,11 @@ sub_1262:                                         ; preds = %sub_0261
   br i1 %174, label %select.unfold, label %.thread249
 
 select.unfold:                                    ; preds = %.tail260, %164, %156
-  %.0191 = phi ptr [ %157, %156 ], [ %165, %164 ], [ %175, %.tail260 ]
-  %.0187 = phi i1 [ false, %156 ], [ true, %164 ], [ false, %.tail260 ]
-  %.0186 = phi i1 [ false, %156 ], [ false, %164 ], [ true, %.tail260 ]
-  %.not204 = icmp eq ptr %.0191, null
-  br i1 %.not204, label %195, label %.preheader
+  %.0189 = phi ptr [ %157, %156 ], [ %165, %164 ], [ %175, %.tail260 ]
+  %.0185 = phi i1 [ false, %156 ], [ true, %164 ], [ false, %.tail260 ]
+  %.0184 = phi i1 [ false, %156 ], [ false, %164 ], [ true, %.tail260 ]
+  %.not202 = icmp eq ptr %.0189, null
+  br i1 %.not202, label %195, label %.preheader
 
 .preheader:                                       ; preds = %select.unfold
   %176 = call ptr @__ctype_b_loc() #14
@@ -417,53 +417,53 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %178
 
 178:                                              ; preds = %178, %.preheader
-  %.1192 = phi ptr [ %184, %178 ], [ %.0191, %.preheader ]
-  %179 = load i8, ptr %.1192, align 1
+  %.1190 = phi ptr [ %184, %178 ], [ %.0189, %.preheader ]
+  %179 = load i8, ptr %.1190, align 1
   %180 = zext i8 %179 to i64
   %181 = getelementptr i16, ptr %177, i64 %180
   %182 = load i16, ptr %181, align 2
   %183 = and i16 %182, 8192
-  %.not205 = icmp eq i16 %183, 0
-  %184 = getelementptr i8, ptr %.1192, i64 1
-  br i1 %.not205, label %185, label %178, !llvm.loop !7
+  %.not203 = icmp eq i16 %183, 0
+  %184 = getelementptr i8, ptr %.1190, i64 1
+  br i1 %.not203, label %185, label %178, !llvm.loop !7
 
 185:                                              ; preds = %178
   %186 = icmp eq i8 %179, 59
   %spec.select223.idx = zext i1 %186 to i64
-  %spec.select223 = getelementptr i8, ptr %.1192, i64 %spec.select223.idx
+  %spec.select223 = getelementptr i8, ptr %.1190, i64 %spec.select223.idx
   br label %187
 
 187:                                              ; preds = %187, %185
-  %.3194 = phi ptr [ %spec.select223, %185 ], [ %193, %187 ]
-  %188 = load i8, ptr %.3194, align 1
+  %.3192 = phi ptr [ %spec.select223, %185 ], [ %193, %187 ]
+  %188 = load i8, ptr %.3192, align 1
   %189 = zext i8 %188 to i64
   %190 = getelementptr i16, ptr %177, i64 %189
   %191 = load i16, ptr %190, align 2
   %192 = and i16 %191, 8192
-  %.not206 = icmp eq i16 %192, 0
-  %193 = getelementptr i8, ptr %.3194, i64 1
-  br i1 %.not206, label %194, label %187, !llvm.loop !8
+  %.not204 = icmp eq i16 %192, 0
+  %193 = getelementptr i8, ptr %.3192, i64 1
+  br i1 %.not204, label %194, label %187, !llvm.loop !8
 
 194:                                              ; preds = %187
-  %.not207 = icmp eq i8 %188, 0
-  %spec.select224 = and i1 %.not207, %155
-  %spec.select225 = and i1 %.not207, %.0187
+  %.not205 = icmp eq i8 %188, 0
+  %spec.select224 = and i1 %.not205, %155
+  %spec.select225 = and i1 %.not205, %.0185
   br i1 %spec.select224, label %196, label %206
 
 195:                                              ; preds = %select.unfold
   br i1 %155, label %196, label %206
 
 196:                                              ; preds = %194, %195
-  %.1188283 = phi i1 [ %spec.select225, %194 ], [ %.0187, %195 ]
-  %.0..0..0..0.116 = load volatile ptr, ptr %2, align 8
-  %197 = getelementptr inbounds i8, ptr %.0..0..0..0.116, i64 8
+  %.1186283 = phi i1 [ %spec.select225, %194 ], [ %.0185, %195 ]
+  %.0..0..0..0.114 = load volatile ptr, ptr %2, align 8
+  %197 = getelementptr inbounds i8, ptr %.0..0..0..0.114, i64 8
   %198 = load i64, ptr %197, align 8
-  %.not208 = icmp eq i64 %198, 0
-  br i1 %.not208, label %201, label %199
+  %.not206 = icmp eq i64 %198, 0
+  br i1 %.not206, label %201, label %199
 
 199:                                              ; preds = %196
   %200 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.11)
-  br i1 %.1188283, label %207, label %223
+  br i1 %.1186283, label %207, label %223
 
 201:                                              ; preds = %196
   %202 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.12)
@@ -474,38 +474,38 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %.backedge
 
 206:                                              ; preds = %194, %195
-  %.1188282 = phi i1 [ %spec.select225, %194 ], [ %.0187, %195 ]
-  br i1 %.1188282, label %207, label %223
+  %.1186282 = phi i1 [ %spec.select225, %194 ], [ %.0185, %195 ]
+  br i1 %.1186282, label %207, label %223
 
 207:                                              ; preds = %199, %206
-  %.0..0..0..0.117 = load volatile ptr, ptr %2, align 8
-  %208 = getelementptr inbounds i8, ptr %.0..0..0..0.117, i64 8
+  %.0..0..0..0.115 = load volatile ptr, ptr %2, align 8
+  %208 = getelementptr inbounds i8, ptr %.0..0..0..0.115, i64 8
   %209 = load i64, ptr %208, align 8
-  %.not209 = icmp eq i64 %209, 0
-  br i1 %.not209, label %220, label %210
+  %.not207 = icmp eq i64 %209, 0
+  br i1 %.not207, label %220, label %210
 
 210:                                              ; preds = %207
-  %.0..0..0..0.44 = load volatile i32, ptr %6, align 4
-  %211 = icmp eq i32 %.0..0..0..0.44, 0
+  %.0..0..0..0.42 = load volatile i32, ptr %6, align 4
+  %211 = icmp eq i32 %.0..0..0..0.42, 0
   br i1 %211, label %216, label %212
 
 212:                                              ; preds = %210
-  %.0..0..0..0.45 = load volatile i32, ptr %6, align 4
-  %213 = icmp eq i32 %.0..0..0..0.45, 1
+  %.0..0..0..0.43 = load volatile i32, ptr %6, align 4
+  %213 = icmp eq i32 %.0..0..0..0.43, 1
   br i1 %213, label %216, label %214
 
 214:                                              ; preds = %212
-  %.0..0..0..0.46 = load volatile i32, ptr %6, align 4
-  %215 = icmp eq i32 %.0..0..0..0.46, 6
+  %.0..0..0..0.44 = load volatile i32, ptr %6, align 4
+  %215 = icmp eq i32 %.0..0..0..0.44, 6
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %214, %212, %210
   %217 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.14)
-  br i1 %.0186, label %224, label %.thread249
+  br i1 %.0184, label %224, label %.thread249
 
 218:                                              ; preds = %214
   %219 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.15)
-  br i1 %.0186, label %224, label %.thread249
+  br i1 %.0184, label %224, label %.thread249
 
 220:                                              ; preds = %207
   call void @free(ptr noundef nonnull %.0231) #10
@@ -515,29 +515,29 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %.loopexit
 
 223:                                              ; preds = %199, %206
-  br i1 %.0186, label %224, label %.thread249
+  br i1 %.0184, label %224, label %.thread249
 
 224:                                              ; preds = %216, %218, %223
-  %.0..0..0..0.118 = load volatile ptr, ptr %2, align 8
-  %225 = getelementptr inbounds i8, ptr %.0..0..0..0.118, i64 8
+  %.0..0..0..0.116 = load volatile ptr, ptr %2, align 8
+  %225 = getelementptr inbounds i8, ptr %.0..0..0..0.116, i64 8
   %226 = load i64, ptr %225, align 8
-  %.not210 = icmp eq i64 %226, 0
-  br i1 %.not210, label %.thread249, label %227
+  %.not208 = icmp eq i64 %226, 0
+  br i1 %.not208, label %.thread249, label %227
 
 227:                                              ; preds = %224
-  %.0..0..0..0.47 = load volatile i32, ptr %6, align 4
-  %.not211 = icmp eq i32 %.0..0..0..0.47, 0
-  br i1 %.not211, label %.thread249, label %228
+  %.0..0..0..0.45 = load volatile i32, ptr %6, align 4
+  %.not209 = icmp eq i32 %.0..0..0..0.45, 0
+  br i1 %.not209, label %.thread249, label %228
 
 228:                                              ; preds = %227
-  %.0..0..0..0.48 = load volatile i32, ptr %6, align 4
-  %.not212 = icmp eq i32 %.0..0..0..0.48, 1
-  br i1 %.not212, label %.thread249, label %229
+  %.0..0..0..0.46 = load volatile i32, ptr %6, align 4
+  %.not210 = icmp eq i32 %.0..0..0..0.46, 1
+  br i1 %.not210, label %.thread249, label %229
 
 229:                                              ; preds = %228
-  %.0..0..0..0.49 = load volatile i32, ptr %6, align 4
-  %.not213 = icmp eq i32 %.0..0..0..0.49, 6
-  br i1 %.not213, label %.thread249, label %230
+  %.0..0..0..0.47 = load volatile i32, ptr %6, align 4
+  %.not211 = icmp eq i32 %.0..0..0..0.47, 6
+  br i1 %.not211, label %.thread249, label %230
 
 230:                                              ; preds = %229
   %231 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.15)
@@ -560,23 +560,23 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %241
 
 241:                                              ; preds = %237, %234, %.thread249
-  %.0..0..0..0.119 = load volatile ptr, ptr %2, align 8
-  %242 = getelementptr inbounds i8, ptr %.0..0..0..0.119, i64 8
+  %.0..0..0..0.117 = load volatile ptr, ptr %2, align 8
+  %242 = getelementptr inbounds i8, ptr %.0..0..0..0.117, i64 8
   %243 = load i64, ptr %242, align 8
-  %.not214 = icmp eq i64 %243, 0
-  br i1 %.not214, label %248, label %244
+  %.not212 = icmp eq i64 %243, 0
+  br i1 %.not212, label %248, label %244
 
 244:                                              ; preds = %241
-  %.0..0..0..0.120 = load volatile ptr, ptr %2, align 8
-  call void @appendPQExpBufferChar(ptr noundef %.0..0..0..0.120, i8 noundef signext 10) #10
-  %.0..0..0..0.121 = load volatile ptr, ptr %2, align 8
-  %245 = getelementptr inbounds i8, ptr %.0..0..0..0.121, i64 8
+  %.0..0..0..0.118 = load volatile ptr, ptr %2, align 8
+  call void @appendPQExpBufferChar(ptr noundef %.0..0..0..0.118, i8 noundef signext 10) #10
+  %.0..0..0..0.119 = load volatile ptr, ptr %2, align 8
+  %245 = getelementptr inbounds i8, ptr %.0..0..0..0.119, i64 8
   %246 = load i64, ptr %245, align 8
   %247 = trunc i64 %246 to i32
   br label %248
 
 248:                                              ; preds = %241, %244
-  %.0174 = phi i32 [ %247, %244 ], [ -1, %241 ]
+  %.0172 = phi i32 [ %247, %244 ], [ -1, %241 ]
   %249 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
   %250 = and i8 %249, 1
   store volatile i8 %250, ptr %9, align 1
@@ -588,35 +588,35 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %255
 
 255:                                              ; preds = %353, %248
-  %.0182 = phi i8 [ 0, %248 ], [ %.3185, %353 ]
-  %.0178 = phi i8 [ 1, %248 ], [ %.1179, %353 ]
-  %.1175 = phi i32 [ %.0174, %248 ], [ %.2176, %353 ]
+  %.0180 = phi i8 [ 0, %248 ], [ %.3183, %353 ]
+  %.0176 = phi i8 [ 1, %248 ], [ %.1177, %353 ]
+  %.1173 = phi i32 [ %.0172, %248 ], [ %.2174, %353 ]
   %.1 = phi ptr [ %.0231, %248 ], [ %.2, %353 ]
-  %256 = trunc nuw i8 %.0178 to i1
+  %256 = trunc nuw i8 %.0176 to i1
   br i1 %256, label %.critedge, label %257
 
 257:                                              ; preds = %255
-  %.0..0..0..0.36 = load volatile i8, ptr %9, align 1
-  %258 = trunc i8 %.0..0..0..0.36 to i1
+  %.0..0..0..0.34 = load volatile i8, ptr %9, align 1
+  %258 = trunc i8 %.0..0..0..0.34 to i1
   br i1 %258, label %.thread254, label %.critedge
 
 .critedge:                                        ; preds = %255, %257
-  %.0..0..0..0.50 = load volatile i32, ptr %6, align 4
-  store i32 %.0..0..0..0.50, ptr %10, align 4
-  %.0..0..0..0.122 = load volatile ptr, ptr %2, align 8
-  %259 = getelementptr inbounds i8, ptr %.0..0..0..0.122, i64 8
+  %.0..0..0..0.48 = load volatile i32, ptr %6, align 4
+  store i32 %.0..0..0..0.48, ptr %10, align 4
+  %.0..0..0..0.120 = load volatile ptr, ptr %2, align 8
+  %259 = getelementptr inbounds i8, ptr %.0..0..0..0.120, i64 8
   %260 = load i64, ptr %259, align 8
-  %.0..0..0..0.123 = load volatile ptr, ptr %2, align 8
-  %261 = call i32 @psql_scan(ptr noundef %20, ptr noundef %.0..0..0..0.123, ptr noundef nonnull %10) #10
+  %.0..0..0..0.121 = load volatile ptr, ptr %2, align 8
+  %261 = call i32 @psql_scan(ptr noundef %20, ptr noundef %.0..0..0..0.121, ptr noundef nonnull %10) #10
   %262 = load i32, ptr %10, align 4
   store volatile i32 %262, ptr %6, align 4
-  %.0..0..0..0.124 = load volatile ptr, ptr %2, align 8
-  %263 = icmp eq ptr %.0..0..0..0.124, null
+  %.0..0..0..0.122 = load volatile ptr, ptr %2, align 8
+  %263 = icmp eq ptr %.0..0..0..0.122, null
   br i1 %263, label %268, label %264
 
 264:                                              ; preds = %.critedge
-  %.0..0..0..0.125 = load volatile ptr, ptr %2, align 8
-  %265 = getelementptr inbounds i8, ptr %.0..0..0..0.125, i64 16
+  %.0..0..0..0.123 = load volatile ptr, ptr %2, align 8
+  %265 = getelementptr inbounds i8, ptr %.0..0..0..0.123, i64 16
   %266 = load i64, ptr %265, align 8
   %267 = icmp eq i64 %266, 0
   br i1 %267, label %268, label %269
@@ -627,19 +627,19 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   unreachable
 
 269:                                              ; preds = %264
-  %.0..0..0..0.126 = load volatile ptr, ptr %2, align 8
-  %270 = load ptr, ptr %.0..0..0..0.126, align 8
+  %.0..0..0..0.124 = load volatile ptr, ptr %2, align 8
+  %270 = load ptr, ptr %.0..0..0..0.124, align 8
   %271 = getelementptr i8, ptr %270, i64 %260
   %.promoted = load i64, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
   %272 = load i8, ptr %271, align 1
-  %.not215270 = icmp eq i8 %272, 0
-  br i1 %.not215270, label %._crit_edge, label %.lr.ph
+  %.not213270 = icmp eq i8 %272, 0
+  br i1 %.not213270, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %269, %279
   %273 = phi i8 [ %281, %279 ], [ %272, %269 ]
-  %.0177271 = phi ptr [ %275, %279 ], [ %271, %269 ]
+  %.0175271 = phi ptr [ %275, %279 ], [ %271, %269 ]
   %274 = phi i64 [ %280, %279 ], [ %.promoted, %269 ]
-  %275 = getelementptr i8, ptr %.0177271, i64 1
+  %275 = getelementptr i8, ptr %.0175271, i64 1
   %276 = icmp eq i8 %273, 10
   br i1 %276, label %277, label %279
 
@@ -651,8 +651,8 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
 279:                                              ; preds = %277, %.lr.ph
   %280 = phi i64 [ %278, %277 ], [ %274, %.lr.ph ]
   %281 = load i8, ptr %275, align 1
-  %.not215 = icmp eq i8 %281, 0
-  br i1 %.not215, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  %.not213 = icmp eq i8 %281, 0
+  br i1 %.not213, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %279, %269
   %282 = phi i64 [ %.promoted, %269 ], [ %280, %279 ]
@@ -675,7 +675,7 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br i1 %289, label %290, label %293
 
 290:                                              ; preds = %287
-  %291 = trunc nuw i8 %.0182 to i1
+  %291 = trunc nuw i8 %.0180 to i1
   br i1 %291, label %293, label %292
 
 292:                                              ; preds = %290
@@ -684,24 +684,24 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %293
 
 293:                                              ; preds = %292, %290, %287
-  %.1183 = phi i8 [ %.0182, %290 ], [ 1, %292 ], [ %.0182, %287 ]
+  %.1181 = phi i8 [ %.0180, %290 ], [ 1, %292 ], [ %.0180, %287 ]
   %294 = call zeroext i1 @conditional_active(ptr noundef %21) #10
   br i1 %294, label %295, label %300
 
 295:                                              ; preds = %293
-  %.0..0..0..0.127 = load volatile ptr, ptr %2, align 8
-  %296 = load ptr, ptr %.0..0..0..0.127, align 8
+  %.0..0..0..0.125 = load volatile ptr, ptr %2, align 8
+  %296 = load ptr, ptr %.0..0..0..0.125, align 8
   %297 = call zeroext i1 @SendQuery(ptr noundef %296) #10
   %298 = zext i1 %297 to i8
   %299 = select i1 %297, i32 1, i32 5
   store volatile i32 %299, ptr %5, align 4
   store i64 1, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
-  %.0..0..0..0.105 = load volatile ptr, ptr %3, align 8
-  %.0..0..0..0.128 = load volatile ptr, ptr %2, align 8
-  store volatile ptr %.0..0..0..0.128, ptr %3, align 8
-  store volatile ptr %.0..0..0..0.105, ptr %2, align 8
-  %.0..0..0..0.129 = load volatile ptr, ptr %2, align 8
-  call void @resetPQExpBuffer(ptr noundef %.0..0..0..0.129) #10
+  %.0..0..0..0.103 = load volatile ptr, ptr %3, align 8
+  %.0..0..0..0.126 = load volatile ptr, ptr %2, align 8
+  store volatile ptr %.0..0..0..0.126, ptr %3, align 8
+  store volatile ptr %.0..0..0..0.103, ptr %2, align 8
+  %.0..0..0..0.127 = load volatile ptr, ptr %2, align 8
+  call void @resetPQExpBuffer(ptr noundef %.0..0..0..0.127) #10
   br label %353
 
 300:                                              ; preds = %293
@@ -719,18 +719,18 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %353
 
 305:                                              ; preds = %._crit_edge
-  %.0..0..0..0.130 = load volatile ptr, ptr %2, align 8
-  %306 = getelementptr inbounds i8, ptr %.0..0..0..0.130, i64 8
+  %.0..0..0..0.128 = load volatile ptr, ptr %2, align 8
+  %306 = getelementptr inbounds i8, ptr %.0..0..0..0.128, i64 8
   %307 = load i64, ptr %306, align 8
-  %308 = sext i32 %.1175 to i64
+  %308 = sext i32 %.1173 to i64
   %309 = icmp eq i64 %307, %308
   br i1 %309, label %310, label %316
 
 310:                                              ; preds = %305
-  %.0..0..0..0.131 = load volatile ptr, ptr %2, align 8
-  %311 = load ptr, ptr %.0..0..0..0.131, align 8
-  %.0..0..0..0.132 = load volatile ptr, ptr %2, align 8
-  %312 = getelementptr inbounds i8, ptr %.0..0..0..0.132, i64 8
+  %.0..0..0..0.129 = load volatile ptr, ptr %2, align 8
+  %311 = load ptr, ptr %.0..0..0..0.129, align 8
+  %.0..0..0..0.130 = load volatile ptr, ptr %2, align 8
+  %312 = getelementptr inbounds i8, ptr %.0..0..0..0.130, i64 8
   %313 = load i64, ptr %312, align 8
   %314 = add i64 %313, -1
   store i64 %314, ptr %312, align 8
@@ -745,7 +745,7 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br i1 %318, label %319, label %322
 
 319:                                              ; preds = %316
-  %320 = trunc nuw i8 %.0182 to i1
+  %320 = trunc nuw i8 %.0180 to i1
   br i1 %320, label %322, label %321
 
 321:                                              ; preds = %319
@@ -754,70 +754,70 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %322
 
 322:                                              ; preds = %321, %319, %316
-  %.2184 = phi i8 [ %.0182, %319 ], [ 1, %321 ], [ %.0182, %316 ]
-  %.0..0..0..0.133 = load volatile ptr, ptr %2, align 8
-  %.0..0..0..0.106 = load volatile ptr, ptr %3, align 8
-  %323 = call i32 @HandleSlashCmds(ptr noundef %20, ptr noundef %21, ptr noundef %.0..0..0..0.133, ptr noundef %.0..0..0..0.106) #10
+  %.2182 = phi i8 [ %.0180, %319 ], [ 1, %321 ], [ %.0180, %316 ]
+  %.0..0..0..0.131 = load volatile ptr, ptr %2, align 8
+  %.0..0..0..0.104 = load volatile ptr, ptr %3, align 8
+  %323 = call i32 @HandleSlashCmds(ptr noundef %20, ptr noundef %21, ptr noundef %.0..0..0..0.131, ptr noundef %.0..0..0..0.104) #10
   store volatile i32 %323, ptr %5, align 4
-  %.0..0..0..0.51 = load volatile i32, ptr %5, align 4
-  %324 = icmp ne i32 %.0..0..0..0.51, 5
+  %.0..0..0..0.49 = load volatile i32, ptr %5, align 4
+  %324 = icmp ne i32 %.0..0..0..0.49, 5
   %325 = zext i1 %324 to i8
   store i64 1, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
-  %.0..0..0..0.52 = load volatile i32, ptr %5, align 4
-  %326 = icmp eq i32 %.0..0..0..0.52, 1
+  %.0..0..0..0.50 = load volatile i32, ptr %5, align 4
+  %326 = icmp eq i32 %.0..0..0..0.50, 1
   br i1 %326, label %327, label %331
 
 327:                                              ; preds = %322
-  %.0..0..0..0.134 = load volatile ptr, ptr %2, align 8
-  %328 = load ptr, ptr %.0..0..0..0.134, align 8
+  %.0..0..0..0.132 = load volatile ptr, ptr %2, align 8
+  %328 = load ptr, ptr %.0..0..0..0.132, align 8
   %329 = call zeroext i1 @SendQuery(ptr noundef %328) #10
   %330 = zext i1 %329 to i8
-  %.0..0..0..0.107 = load volatile ptr, ptr %3, align 8
-  %.0..0..0..0.135 = load volatile ptr, ptr %2, align 8
-  store volatile ptr %.0..0..0..0.135, ptr %3, align 8
-  store volatile ptr %.0..0..0..0.107, ptr %2, align 8
-  %.0..0..0..0.136 = load volatile ptr, ptr %2, align 8
-  call void @resetPQExpBuffer(ptr noundef %.0..0..0..0.136) #10
+  %.0..0..0..0.105 = load volatile ptr, ptr %3, align 8
+  %.0..0..0..0.133 = load volatile ptr, ptr %2, align 8
+  store volatile ptr %.0..0..0..0.133, ptr %3, align 8
+  store volatile ptr %.0..0..0..0.105, ptr %2, align 8
+  %.0..0..0..0.134 = load volatile ptr, ptr %2, align 8
+  call void @resetPQExpBuffer(ptr noundef %.0..0..0..0.134) #10
   call void @psql_scan_reset(ptr noundef %20) #10
   br label %353
 
 331:                                              ; preds = %322
-  %.0..0..0..0.53 = load volatile i32, ptr %5, align 4
-  %332 = icmp eq i32 %.0..0..0..0.53, 4
+  %.0..0..0..0.51 = load volatile i32, ptr %5, align 4
+  %332 = icmp eq i32 %.0..0..0..0.51, 4
   br i1 %332, label %333, label %351
 
 333:                                              ; preds = %331
-  %.0..0..0..0.137 = load volatile ptr, ptr %2, align 8
-  %334 = getelementptr inbounds i8, ptr %.0..0..0..0.137, i64 8
+  %.0..0..0..0.135 = load volatile ptr, ptr %2, align 8
+  %334 = getelementptr inbounds i8, ptr %.0..0..0..0.135, i64 8
   %335 = load i64, ptr %334, align 8
-  %.not216 = icmp eq i64 %335, 0
-  br i1 %.not216, label %344, label %336
+  %.not214 = icmp eq i64 %335, 0
+  br i1 %.not214, label %344, label %336
 
 336:                                              ; preds = %333
-  %.0..0..0..0.138 = load volatile ptr, ptr %2, align 8
-  %337 = load ptr, ptr %.0..0..0..0.138, align 8
-  %.0..0..0..0.139 = load volatile ptr, ptr %2, align 8
-  %338 = getelementptr inbounds i8, ptr %.0..0..0..0.139, i64 8
+  %.0..0..0..0.136 = load volatile ptr, ptr %2, align 8
+  %337 = load ptr, ptr %.0..0..0..0.136, align 8
+  %.0..0..0..0.137 = load volatile ptr, ptr %2, align 8
+  %338 = getelementptr inbounds i8, ptr %.0..0..0..0.137, i64 8
   %339 = load i64, ptr %338, align 8
   %340 = getelementptr i8, ptr %337, i64 %339
   %341 = getelementptr i8, ptr %340, i64 -1
   %342 = load i8, ptr %341, align 1
-  %.not217 = icmp eq i8 %342, 10
-  br i1 %.not217, label %344, label %343
+  %.not215 = icmp eq i8 %342, 10
+  br i1 %.not215, label %344, label %343
 
 343:                                              ; preds = %336
-  %.0..0..0..0.140 = load volatile ptr, ptr %2, align 8
-  call void @appendPQExpBufferChar(ptr noundef %.0..0..0..0.140, i8 noundef signext 10) #10
+  %.0..0..0..0.138 = load volatile ptr, ptr %2, align 8
+  call void @appendPQExpBufferChar(ptr noundef %.0..0..0..0.138, i8 noundef signext 10) #10
   br label %344
 
 344:                                              ; preds = %343, %336, %333
   call void @psql_scan_finish(ptr noundef %20) #10
   call void @free(ptr noundef %.1) #10
-  %.0..0..0..0.141 = load volatile ptr, ptr %2, align 8
-  %345 = load ptr, ptr %.0..0..0..0.141, align 8
+  %.0..0..0..0.139 = load volatile ptr, ptr %2, align 8
+  %345 = load ptr, ptr %.0..0..0..0.139, align 8
   %346 = call ptr @pg_strdup(ptr noundef %345) #10
-  %.0..0..0..0.142 = load volatile ptr, ptr %2, align 8
-  call void @resetPQExpBuffer(ptr noundef %.0..0..0..0.142) #10
+  %.0..0..0..0.140 = load volatile ptr, ptr %2, align 8
+  call void @resetPQExpBuffer(ptr noundef %.0..0..0..0.140) #10
   call void @psql_scan_reset(ptr noundef %20) #10
   %347 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %346) #13
   %348 = trunc i64 %347 to i32
@@ -829,22 +829,22 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %353
 
 351:                                              ; preds = %331
-  %.0..0..0..0.54 = load volatile i32, ptr %5, align 4
-  %352 = icmp eq i32 %.0..0..0..0.54, 3
+  %.0..0..0..0.52 = load volatile i32, ptr %5, align 4
+  %352 = icmp eq i32 %.0..0..0..0.52, 3
   br i1 %352, label %.thread254, label %353
 
 353:                                              ; preds = %._crit_edge, %344, %351, %327, %295, %304
-  %.3185 = phi i8 [ %.1183, %295 ], [ %.1183, %304 ], [ %.2184, %327 ], [ 0, %344 ], [ %.2184, %351 ], [ %.0182, %._crit_edge ]
-  %.1179 = phi i8 [ %298, %295 ], [ 1, %304 ], [ %330, %327 ], [ %325, %344 ], [ %325, %351 ], [ %.0178, %._crit_edge ]
-  %.2176 = phi i32 [ -1, %295 ], [ %.1175, %304 ], [ -1, %327 ], [ -1, %344 ], [ -1, %351 ], [ %.1175, %._crit_edge ]
+  %.3183 = phi i8 [ %.1181, %295 ], [ %.1181, %304 ], [ %.2182, %327 ], [ 0, %344 ], [ %.2182, %351 ], [ %.0180, %._crit_edge ]
+  %.1177 = phi i8 [ %298, %295 ], [ 1, %304 ], [ %330, %327 ], [ %325, %344 ], [ %325, %351 ], [ %.0176, %._crit_edge ]
+  %.2174 = phi i32 [ -1, %295 ], [ %.1173, %304 ], [ -1, %327 ], [ -1, %344 ], [ -1, %351 ], [ %.1173, %._crit_edge ]
   %.2 = phi ptr [ %.1, %295 ], [ %.1, %304 ], [ %.1, %327 ], [ %346, %344 ], [ %.1, %351 ], [ %.1, %._crit_edge ]
   %354 = and i32 %261, -2
-  %or.cond5 = icmp eq i32 %354, 2
-  br i1 %or.cond5, label %.thread254, label %255, !llvm.loop !10
+  %or.cond3 = icmp eq i32 %354, 2
+  br i1 %or.cond3, label %.thread254, label %255, !llvm.loop !10
 
 .thread254:                                       ; preds = %283, %353, %351, %257
-  %.4 = phi i8 [ %.3185, %353 ], [ %.2184, %351 ], [ %.0182, %257 ], [ %.0182, %283 ]
-  %.2180 = phi i8 [ %.1179, %353 ], [ %325, %351 ], [ %.0178, %257 ], [ %.0178, %283 ]
+  %.4 = phi i8 [ %.3183, %353 ], [ %.2182, %351 ], [ %.0180, %257 ], [ %.0180, %283 ]
+  %.2178 = phi i8 [ %.1177, %353 ], [ %325, %351 ], [ %.0176, %257 ], [ %.0176, %283 ]
   %.3 = phi ptr [ %.2, %353 ], [ %.1, %351 ], [ %.1, %257 ], [ %.1, %283 ]
   %355 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
   %356 = trunc i8 %355 to i1
@@ -859,8 +859,8 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %360
 
 360:                                              ; preds = %359, %357
-  %.0..0..0..0.143 = load volatile ptr, ptr %2, align 8
-  %361 = getelementptr inbounds i8, ptr %.0..0..0..0.143, i64 8
+  %.0..0..0..0.141 = load volatile ptr, ptr %2, align 8
+  %361 = getelementptr inbounds i8, ptr %.0..0..0..0.141, i64 8
   %362 = load i64, ptr %361, align 8
   %363 = icmp eq i64 %362, 0
   br i1 %363, label %364, label %365
@@ -872,8 +872,8 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
 365:                                              ; preds = %360, %364, %.thread254
   call void @psql_scan_finish(ptr noundef %20) #10
   call void @free(ptr noundef %.3) #10
-  %.0..0..0..0.55 = load volatile i32, ptr %5, align 4
-  %366 = icmp eq i32 %.0..0..0..0.55, 3
+  %.0..0..0..0.53 = load volatile i32, ptr %5, align 4
+  %366 = icmp eq i32 %.0..0..0..0.53, 3
   br i1 %366, label %367, label %368
 
 367:                                              ; preds = %365
@@ -886,12 +886,12 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br i1 %370, label %.backedge, label %371
 
 371:                                              ; preds = %368
-  %372 = trunc nuw i8 %.2180 to i1
+  %372 = trunc nuw i8 %.2178 to i1
   br i1 %372, label %376, label %373
 
 373:                                              ; preds = %371
-  %.0..0..0..0.37 = load volatile i8, ptr %9, align 1
-  %374 = trunc i8 %.0..0..0..0.37 to i1
+  %.0..0..0..0.35 = load volatile i8, ptr %9, align 1
+  %374 = trunc i8 %.0..0..0..0.35 to i1
   br i1 %374, label %375, label %376
 
 375:                                              ; preds = %373
@@ -900,19 +900,19 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
 
 376:                                              ; preds = %373, %371
   %377 = load ptr, ptr @pset, align 8
-  %.not218 = icmp eq ptr %377, null
-  br i1 %.not218, label %378, label %.backedge
+  %.not216 = icmp eq ptr %377, null
+  br i1 %.not216, label %378, label %.backedge
 
 378:                                              ; preds = %376
   store volatile i32 2, ptr %4, align 4
   br label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %.thread, %.preheader264, %108, %367, %220, %140, %60, %47
-  %.0..0..0..0.144 = load volatile ptr, ptr %2, align 8
-  %379 = getelementptr inbounds i8, ptr %.0..0..0..0.144, i64 8
+  %.0..0..0..0.142 = load volatile ptr, ptr %2, align 8
+  %379 = getelementptr inbounds i8, ptr %.0..0..0..0.142, i64 8
   %380 = load i64, ptr %379, align 8
-  %.not219 = icmp eq i64 %380, 0
-  br i1 %.not219, label %401, label %381
+  %.not217 = icmp eq i64 %380, 0
+  br i1 %.not217, label %401, label %381
 
 381:                                              ; preds = %.loopexit
   %382 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
@@ -920,8 +920,8 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br i1 %383, label %401, label %384
 
 384:                                              ; preds = %381
-  %.0..0..0..0.58 = load volatile i32, ptr %4, align 4
-  %385 = icmp eq i32 %.0..0..0..0.58, 0
+  %.0..0..0..0.56 = load volatile i32, ptr %4, align 4
+  %385 = icmp eq i32 %.0..0..0..0.56, 0
   br i1 %385, label %386, label %401
 
 386:                                              ; preds = %384
@@ -929,8 +929,8 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br i1 %387, label %388, label %391
 
 388:                                              ; preds = %386
-  %.0..0..0..0.145 = load volatile ptr, ptr %2, align 8
-  %389 = load ptr, ptr %.0..0..0..0.145, align 8
+  %.0..0..0..0.143 = load volatile ptr, ptr %2, align 8
+  %389 = load ptr, ptr %.0..0..0..0.143, align 8
   %390 = call zeroext i1 @SendQuery(ptr noundef %389) #10
   br i1 %390, label %.critedge227, label %395
 
@@ -944,8 +944,8 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %.critedge227
 
 395:                                              ; preds = %388
-  %.0..0..0..0.38 = load volatile i8, ptr %9, align 1
-  %396 = trunc i8 %.0..0..0..0.38 to i1
+  %.0..0..0..0.36 = load volatile i8, ptr %9, align 1
+  %396 = trunc i8 %.0..0..0..0.36 to i1
   br i1 %396, label %397, label %.critedge227
 
 397:                                              ; preds = %395
@@ -962,14 +962,14 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %401
 
 401:                                              ; preds = %397, %400, %.critedge227, %384, %381, %.loopexit
-  %.0..0..0..0.56 = load volatile i32, ptr %5, align 4
-  %.not220 = icmp eq i32 %.0..0..0..0.56, 3
-  br i1 %.not220, label %411, label %402
+  %.0..0..0..0.54 = load volatile i32, ptr %5, align 4
+  %.not218 = icmp eq i32 %.0..0..0..0.54, 3
+  br i1 %.not218, label %411, label %402
 
 402:                                              ; preds = %401
-  %.0..0..0..0.59 = load volatile i32, ptr %4, align 4
-  %.not221 = icmp eq i32 %.0..0..0..0.59, 3
-  br i1 %.not221, label %411, label %403
+  %.0..0..0..0.57 = load volatile i32, ptr %4, align 4
+  %.not219 = icmp eq i32 %.0..0..0..0.57, 3
+  br i1 %.not219, label %411, label %403
 
 403:                                              ; preds = %402
   %404 = call zeroext i1 @conditional_stack_empty(ptr noundef %21) #10
@@ -977,8 +977,8 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
 
 405:                                              ; preds = %403
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17) #10
-  %.0..0..0..0.39 = load volatile i8, ptr %9, align 1
-  %406 = trunc i8 %.0..0..0..0.39 to i1
+  %.0..0..0..0.37 = load volatile i8, ptr %9, align 1
+  %406 = trunc i8 %.0..0..0..0.37 to i1
   br i1 %406, label %407, label %411
 
 407:                                              ; preds = %405
@@ -993,18 +993,18 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
 411:                                              ; preds = %405, %407, %410, %403, %402, %401
   %412 = and i8 %12, 1
   store volatile i32 0, ptr @sigint_interrupt_enabled, align 4
-  %.0..0..0..0.146 = load volatile ptr, ptr %2, align 8
-  call void @destroyPQExpBuffer(ptr noundef %.0..0..0..0.146) #10
-  %.0..0..0..0.108 = load volatile ptr, ptr %3, align 8
-  call void @destroyPQExpBuffer(ptr noundef %.0..0..0..0.108) #10
+  %.0..0..0..0.144 = load volatile ptr, ptr %2, align 8
+  call void @destroyPQExpBuffer(ptr noundef %.0..0..0..0.144) #10
+  %.0..0..0..0.106 = load volatile ptr, ptr %3, align 8
+  call void @destroyPQExpBuffer(ptr noundef %.0..0..0..0.106) #10
   call void @destroyPQExpBuffer(ptr noundef %24) #10
   call void @psql_scan_destroy(ptr noundef %20) #10
   call void @conditional_stack_destroy(ptr noundef %21) #10
   store ptr %11, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
   store i8 %412, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
   store i64 %13, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
-  %.0..0..0..0.60 = load volatile i32, ptr %4, align 4
-  ret i32 %.0..0..0..0.60
+  %.0..0..0..0.58 = load volatile i32, ptr %4, align 4
+  ret i32 %.0..0..0..0.58
 }
 
 declare ptr @psql_scan_create(ptr noundef) local_unnamed_addr #0

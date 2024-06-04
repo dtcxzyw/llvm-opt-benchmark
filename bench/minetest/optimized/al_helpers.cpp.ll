@@ -133,7 +133,8 @@ entry:
   br i1 %cmp, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %0, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %0
 
 0:                                                ; preds = %if.end
   tail call void @_ZTH13warningstream()

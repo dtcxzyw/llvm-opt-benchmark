@@ -3905,13 +3905,13 @@ for.body.i994:                                    ; preds = %for.inc.i1001, %for
   %cmp2.i.i = icmp eq i8 %436, 0
   %or.cond.i.i998 = select i1 %cmp.i.i997, i1 %cmp2.i.i, i1 false
   %cmp5.i.i = icmp eq i8 %435, 0
-  %or.cond2.i.i = select i1 %or.cond.i.i998, i1 %cmp5.i.i, i1 false
+  %or.cond4.i.i = select i1 %or.cond.i.i998, i1 %cmp5.i.i, i1 false
   %cmp11.i.i999 = icmp eq i8 %434, 0
-  %or.cond3.i.i = select i1 %or.cond2.i.i, i1 %cmp11.i.i999, i1 false
+  %or.cond6.i.i = select i1 %or.cond4.i.i, i1 %cmp11.i.i999, i1 false
   %cmp14.i.i = icmp eq i8 %433, 0
-  %or.cond4.i.i = select i1 %or.cond3.i.i, i1 %cmp14.i.i, i1 false
+  %or.cond8.i.i = select i1 %or.cond6.i.i, i1 %cmp14.i.i, i1 false
   %cmp16.i.i = icmp eq i8 %432, 0
-  %or.cond.i1000 = select i1 %or.cond4.i.i, i1 %cmp16.i.i, i1 false
+  %or.cond.i1000 = select i1 %or.cond8.i.i, i1 %cmp16.i.i, i1 false
   br i1 %or.cond.i1000, label %if.then4.i1015, label %for.inc.i1001
 
 if.then4.i1015:                                   ; preds = %for.body.i994
@@ -3975,13 +3975,13 @@ for.body9.i1006:                                  ; preds = %for.end.i1004, %for
   %cmp2.i30.i = icmp eq i8 %451, 0
   %or.cond.i31.i = select i1 %cmp.i29.i, i1 %cmp2.i30.i, i1 false
   %cmp5.i32.i = icmp eq i8 %450, 0
-  %or.cond2.i33.i = select i1 %or.cond.i31.i, i1 %cmp5.i32.i, i1 false
+  %or.cond4.i33.i = select i1 %or.cond.i31.i, i1 %cmp5.i32.i, i1 false
   %cmp11.i34.i = icmp eq i8 %449, 0
-  %or.cond3.i35.i = select i1 %or.cond2.i33.i, i1 %cmp11.i34.i, i1 false
+  %or.cond6.i35.i = select i1 %or.cond4.i33.i, i1 %cmp11.i34.i, i1 false
   %cmp14.i36.i = icmp eq i8 %448, 0
-  %or.cond4.i37.i = select i1 %or.cond3.i35.i, i1 %cmp14.i36.i, i1 false
+  %or.cond8.i37.i = select i1 %or.cond6.i35.i, i1 %cmp14.i36.i, i1 false
   %cmp16.i39.i = icmp eq i8 %447, 0
-  %or.cond41.i = select i1 %or.cond4.i37.i, i1 %cmp16.i39.i, i1 false
+  %or.cond41.i = select i1 %or.cond8.i37.i, i1 %cmp16.i39.i, i1 false
   br i1 %or.cond41.i, label %if.then12.i1014, label %for.inc14.i1008
 
 if.then12.i1014:                                  ; preds = %for.body9.i1006
@@ -8062,17 +8062,17 @@ entry:
   %cmp = icmp eq i8 %1, 0
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 1), align 1
   %cmp2 = icmp eq i8 %2, 0
-  %or.cond1 = select i1 %cmp, i1 %cmp2, i1 false
+  %or.cond3 = select i1 %cmp, i1 %cmp2, i1 false
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 2), align 2
   %cmp8 = icmp eq i8 %3, 0
-  %or.cond2 = select i1 %or.cond1, i1 %cmp8, i1 false
+  %or.cond5 = select i1 %or.cond3, i1 %cmp8, i1 false
   %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 4), align 4
   %cmp11 = icmp eq i8 %4, 0
-  %or.cond3 = select i1 %or.cond2, i1 %cmp11, i1 false
+  %or.cond7 = select i1 %or.cond5, i1 %cmp11, i1 false
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 5), align 1
   %cmp14 = icmp eq i8 %5, 0
-  %or.cond4 = select i1 %or.cond3, i1 %cmp14, i1 false
-  br i1 %or.cond4, label %if.then, label %if.end20
+  %or.cond9 = select i1 %or.cond7, i1 %cmp14, i1 false
+  br i1 %or.cond9, label %if.then, label %if.end20
 
 if.then:                                          ; preds = %entry
   %6 = load i32, ptr %a, align 4
@@ -13323,13 +13323,13 @@ for.body.i345.i:                                  ; preds = %for.inc.i.i, %for.c
   %cmp2.i.i.i = icmp eq i8 %431, 0
   %or.cond.i.i348.i = select i1 %cmp.i.i347.i, i1 %cmp2.i.i.i, i1 false
   %cmp5.i.i.i = icmp eq i8 %430, 0
-  %or.cond2.i.i.i = select i1 %or.cond.i.i348.i, i1 %cmp5.i.i.i, i1 false
+  %or.cond4.i.i.i = select i1 %or.cond.i.i348.i, i1 %cmp5.i.i.i, i1 false
   %cmp11.i.i.i = icmp eq i8 %429, 0
-  %or.cond3.i.i.i = select i1 %or.cond2.i.i.i, i1 %cmp11.i.i.i, i1 false
+  %or.cond6.i.i.i = select i1 %or.cond4.i.i.i, i1 %cmp11.i.i.i, i1 false
   %cmp14.i.i.i = icmp eq i8 %428, 0
-  %or.cond4.i.i.i = select i1 %or.cond3.i.i.i, i1 %cmp14.i.i.i, i1 false
+  %or.cond8.i.i.i = select i1 %or.cond6.i.i.i, i1 %cmp14.i.i.i, i1 false
   %cmp16.i.i.i = icmp eq i8 %427, 0
-  %or.cond.i349.i = select i1 %or.cond4.i.i.i, i1 %cmp16.i.i.i, i1 false
+  %or.cond.i349.i = select i1 %or.cond8.i.i.i, i1 %cmp16.i.i.i, i1 false
   br i1 %or.cond.i349.i, label %if.then4.i.i172, label %for.inc.i.i
 
 if.then4.i.i172:                                  ; preds = %for.body.i345.i
@@ -13393,13 +13393,13 @@ for.body9.i.i164:                                 ; preds = %for.end.i351.i, %fo
   %cmp2.i30.i.i = icmp eq i8 %446, 0
   %or.cond.i31.i.i = select i1 %cmp.i29.i.i, i1 %cmp2.i30.i.i, i1 false
   %cmp5.i32.i.i = icmp eq i8 %445, 0
-  %or.cond2.i33.i.i = select i1 %or.cond.i31.i.i, i1 %cmp5.i32.i.i, i1 false
+  %or.cond4.i33.i.i = select i1 %or.cond.i31.i.i, i1 %cmp5.i32.i.i, i1 false
   %cmp11.i34.i.i = icmp eq i8 %444, 0
-  %or.cond3.i35.i.i = select i1 %or.cond2.i33.i.i, i1 %cmp11.i34.i.i, i1 false
+  %or.cond6.i35.i.i = select i1 %or.cond4.i33.i.i, i1 %cmp11.i34.i.i, i1 false
   %cmp14.i36.i.i = icmp eq i8 %443, 0
-  %or.cond4.i37.i.i = select i1 %or.cond3.i35.i.i, i1 %cmp14.i36.i.i, i1 false
+  %or.cond8.i37.i.i = select i1 %or.cond6.i35.i.i, i1 %cmp14.i36.i.i, i1 false
   %cmp16.i39.i.i = icmp eq i8 %442, 0
-  %or.cond41.i.i = select i1 %or.cond4.i37.i.i, i1 %cmp16.i39.i.i, i1 false
+  %or.cond41.i.i = select i1 %or.cond8.i37.i.i, i1 %cmp16.i39.i.i, i1 false
   br i1 %or.cond41.i.i, label %if.then12.i.i171, label %for.inc14.i.i166
 
 if.then12.i.i171:                                 ; preds = %for.body9.i.i164
@@ -30087,16 +30087,16 @@ if.then3:                                         ; preds = %if.end
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 1), align 1
   %cmp5.i.i = icmp eq i8 %2, 0
-  %or.cond2.i.i = select i1 %or.cond.i.i, i1 %cmp5.i.i, i1 false
+  %or.cond4.i.i = select i1 %or.cond.i.i, i1 %cmp5.i.i, i1 false
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 2), align 2
   %cmp11.i.i = icmp eq i8 %3, 0
-  %or.cond3.i.i = select i1 %or.cond2.i.i, i1 %cmp11.i.i, i1 false
+  %or.cond6.i.i = select i1 %or.cond4.i.i, i1 %cmp11.i.i, i1 false
   %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 4), align 4
   %cmp14.i.i = icmp eq i8 %4, 0
-  %or.cond4.i.i = select i1 %or.cond3.i.i, i1 %cmp14.i.i, i1 false
+  %or.cond8.i.i = select i1 %or.cond6.i.i, i1 %cmp14.i.i, i1 false
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 5), align 1
   %cmp16.i.i = icmp eq i8 %5, 0
-  %or.cond83 = select i1 %or.cond4.i.i, i1 %cmp16.i.i, i1 false
+  %or.cond83 = select i1 %or.cond8.i.i, i1 %cmp16.i.i, i1 false
   br i1 %or.cond83, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then3
@@ -30143,12 +30143,12 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %inc.i.i.i = add nsw i32 %inc.i.i1416.i, 1
   %cmp.i.i8.i = icmp slt i32 %.val.i, %.val
   %or.cond.i.i9.i = select i1 %cmp.i.i8.i, i1 %cmp2.i.i.i, i1 false
-  %or.cond2.i.i.i = select i1 %or.cond.i.i9.i, i1 %cmp5.i.i.i, i1 false
-  %or.cond3.i.i.i = select i1 %or.cond2.i.i.i, i1 %cmp11.i.i.i, i1 false
+  %or.cond4.i.i.i = select i1 %or.cond.i.i9.i, i1 %cmp5.i.i.i, i1 false
+  %or.cond6.i.i.i = select i1 %or.cond4.i.i.i, i1 %cmp11.i.i.i, i1 false
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %13 = xor i64 %shr.i, -1
   %sub2.i = add nsw i64 %__len.017.i, %13
-  %14 = select i1 %or.cond3.i.i.i, i1 %12, i1 false
+  %14 = select i1 %or.cond6.i.i.i, i1 %12, i1 false
   %15 = select i1 %14, i64 %sub2.i, i64 %shr.i
   %16 = select i1 %14, ptr %incdec.ptr.i, ptr %__first.addr.018.i
   %cmp.i = icmp sgt i64 %15, 0
@@ -30201,10 +30201,10 @@ while.body.i54:                                   ; preds = %while.cond.i, %whil
   %inc.i.i.i62 = add nsw i32 %inc.i.i1214.i, 1
   %cmp.i.i8.i63 = icmp sgt i32 %.val.i61, %.val26
   %or.cond.i.i9.i64 = select i1 %cmp.i.i8.i63, i1 %cmp2.i.i.i50, i1 false
-  %or.cond2.i.i.i65 = select i1 %or.cond.i.i9.i64, i1 %cmp5.i.i.i51, i1 false
-  %or.cond3.i.i.i66 = select i1 %or.cond2.i.i.i65, i1 %cmp11.i.i.i52, i1 false
-  %or.cond4.i.i.i = select i1 %or.cond3.i.i.i66, i1 %cmp14.i.i.i, i1 false
-  br i1 %or.cond4.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEclIKiPiEEbRT_T0_.exit.i, label %.thread.i
+  %or.cond4.i.i.i65 = select i1 %or.cond.i.i9.i64, i1 %cmp5.i.i.i51, i1 false
+  %or.cond6.i.i.i66 = select i1 %or.cond4.i.i.i65, i1 %cmp11.i.i.i52, i1 false
+  %or.cond8.i.i.i = select i1 %or.cond6.i.i.i66, i1 %cmp14.i.i.i, i1 false
+  br i1 %or.cond8.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEclIKiPiEEbRT_T0_.exit.i, label %.thread.i
 
 .thread.i:                                        ; preds = %while.body.i54
   %incdec.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i58, i64 4
@@ -30675,12 +30675,12 @@ while.body.i76:                                   ; preds = %while.body.i76, %wh
   %inc.i.i.i78 = add nsw i32 %inc.i.i1416.i, 1
   %cmp.i.i8.i = icmp slt i32 %.val.i, %.val
   %or.cond.i.i9.i = select i1 %cmp.i.i8.i, i1 %cmp2.i.i.i, i1 false
-  %or.cond2.i.i.i = select i1 %or.cond.i.i9.i, i1 %cmp5.i.i.i, i1 false
-  %or.cond3.i.i.i = select i1 %or.cond2.i.i.i, i1 %cmp11.i.i.i, i1 false
+  %or.cond4.i.i.i = select i1 %or.cond.i.i9.i, i1 %cmp5.i.i.i, i1 false
+  %or.cond6.i.i.i = select i1 %or.cond4.i.i.i, i1 %cmp11.i.i.i, i1 false
   %incdec.ptr.i79 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %29 = xor i64 %shr.i, -1
   %sub2.i = add nsw i64 %__len.017.i, %29
-  %30 = select i1 %or.cond3.i.i.i, i1 %28, i1 false
+  %30 = select i1 %or.cond6.i.i.i, i1 %28, i1 false
   %31 = select i1 %30, i64 %sub2.i, i64 %shr.i
   %32 = select i1 %30, ptr %incdec.ptr.i79, ptr %__first.addr.018.i
   %cmp.i80 = icmp sgt i64 %31, 0
@@ -30733,10 +30733,10 @@ while.body.i107:                                  ; preds = %while.cond.i, %whil
   %inc.i.i.i115 = add nsw i32 %inc.i.i1214.i, 1
   %cmp.i.i8.i116 = icmp sgt i32 %.val.i114, %.val50
   %or.cond.i.i9.i117 = select i1 %cmp.i.i8.i116, i1 %cmp2.i.i.i103, i1 false
-  %or.cond2.i.i.i118 = select i1 %or.cond.i.i9.i117, i1 %cmp5.i.i.i104, i1 false
-  %or.cond3.i.i.i119 = select i1 %or.cond2.i.i.i118, i1 %cmp11.i.i.i105, i1 false
-  %or.cond4.i.i.i = select i1 %or.cond3.i.i.i119, i1 %cmp14.i.i.i, i1 false
-  br i1 %or.cond4.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEclIKiPiEEbRT_T0_.exit.i, label %.thread.i
+  %or.cond4.i.i.i118 = select i1 %or.cond.i.i9.i117, i1 %cmp5.i.i.i104, i1 false
+  %or.cond6.i.i.i119 = select i1 %or.cond4.i.i.i118, i1 %cmp11.i.i.i105, i1 false
+  %or.cond8.i.i.i = select i1 %or.cond6.i.i.i119, i1 %cmp14.i.i.i, i1 false
+  br i1 %or.cond8.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEclIKiPiEEbRT_T0_.exit.i, label %.thread.i
 
 .thread.i:                                        ; preds = %while.body.i107
   %incdec.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i111, i64 4

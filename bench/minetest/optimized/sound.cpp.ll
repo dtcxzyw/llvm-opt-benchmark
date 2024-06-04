@@ -1976,7 +1976,7 @@ declare noundef zeroext i1 @_ZN8Settings8setFloatERKNSt7__cxx1112basic_stringIcS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25SoundFallbackPathProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV25SoundFallbackPathProvider, i64 16), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25SoundFallbackPathProvider, i64 16), ptr %this, align 8, !tbaa !8
   %m_done_names = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !86
@@ -2031,7 +2031,7 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hash
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25SoundFallbackPathProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV25SoundFallbackPathProvider, i64 16), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV25SoundFallbackPathProvider, i64 16), ptr %this, align 8, !tbaa !8
   %m_done_names.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8, !tbaa !86

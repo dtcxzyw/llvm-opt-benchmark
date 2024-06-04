@@ -430,7 +430,8 @@ invoke.cont28:                                    ; preds = %invoke.cont23
   store ptr %header, ptr %hdrs, align 8
   %14 = getelementptr inbounds i8, ptr %uri, i64 8
   call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(200) %agg.tmp27, ptr noundef nonnull align 8 dereferenceable(200) %14) #15
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %15, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i, label %15
 
 15:                                               ; preds = %invoke.cont28
   invoke void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()

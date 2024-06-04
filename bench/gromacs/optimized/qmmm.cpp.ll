@@ -4690,9 +4690,9 @@ define void @_ZN3gmx14QMMMModuleInfo6createEv(ptr dead_on_unwind noalias nocaptu
   %2 = tail call noalias noundef nonnull dereferenceable(880) ptr @_Znwm(i64 noundef 880) #24, !noalias !8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(880) %3, i8 0, i64 864, i1 false), !noalias !8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_14QMMME, i64 16), ptr %2, align 8, !noalias !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_14QMMME, i64 16), ptr %2, align 8, !noalias !8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118QMMMOutputProviderE, i64 16), ptr %4, align 8, !noalias !8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118QMMMOutputProviderE, i64 16), ptr %4, align 8, !noalias !8
   invoke void @_ZN3gmx11QMMMOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(824) %3)
           to label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_14QMMMESt14default_deleteIS2_EED2Ev.exit unwind label %5, !noalias !8
 
@@ -4729,7 +4729,7 @@ define linkonce_odr void @_ZN3gmx11QMMMOptionsC2Ev(ptr noundef nonnull align 8 d
   %14 = alloca %"class.std::allocator.0", align 1
   %15 = alloca %"class.std::allocator.0", align 1
   %16 = alloca %"class.std::allocator.0", align 1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3gmx11QMMMOptionsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx11QMMMOptionsE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #20
   %18 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17)
@@ -5404,8 +5404,8 @@ define internal void @_ZN3gmx12_GLOBAL__N_14QMMM18initForceProvidersEPNS_14Force
           to label %23 unwind label %.thread5.i
 
 23:                                               ; preds = %22
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %14, align 8
   %24 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr @__PRETTY_FUNCTION__._ZNK3gmx12_GLOBAL__N_128QMMMSimulationParameterSetup14localQMAtomSetEv, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 16
@@ -5473,8 +5473,8 @@ _ZNK3gmx12_GLOBAL__N_128QMMMSimulationParameterSetup14localQMAtomSetEv.exit: ; p
           to label %36 unwind label %.thread5.i10
 
 36:                                               ; preds = %35
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %11, align 8
   %37 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr @__PRETTY_FUNCTION__._ZNK3gmx12_GLOBAL__N_128QMMMSimulationParameterSetup14localMMAtomSetEv, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %11, i64 16
@@ -5538,8 +5538,8 @@ _ZNK3gmx12_GLOBAL__N_128QMMMSimulationParameterSetup14localMMAtomSetEv.exit: ; p
           to label %49 unwind label %.thread5.i18
 
 49:                                               ; preds = %48
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
   %50 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx12_GLOBAL__N_128QMMMSimulationParameterSetup29periodicBoundaryConditionTypeEv, ptr %50, align 8
   %.sroa.2.0..sroa_idx.i19 = getelementptr inbounds i8, ptr %8, i64 16
@@ -5604,8 +5604,8 @@ _ZN3gmx12_GLOBAL__N_128QMMMSimulationParameterSetup29periodicBoundaryConditionTy
           to label %64 unwind label %.thread5.i25
 
 64:                                               ; preds = %63
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZNK3gmx12_GLOBAL__N_128QMMMSimulationParameterSetup6loggerEv, ptr %65, align 8
   %.sroa.2.0..sroa_idx.i26 = getelementptr inbounds i8, ptr %5, i64 16
@@ -7107,7 +7107,7 @@ define linkonce_odr void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocatio
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -7155,7 +7155,7 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   store ptr null, ptr %22, align 8
   store <2 x ptr> %23, ptr %20, align 8
   store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -7212,7 +7212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

@@ -6701,9 +6701,9 @@ define void @_ZN14colvarbias_abfC1EPKc(ptr noundef nonnull align 8 dereferenceab
           to label %6 unwind label %53
 
 6:                                                ; preds = %5
-  store ptr getelementptr inbounds inrange(-32, 264) (i8, ptr @_ZTV14colvarbias_abf, i64 32), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV14colvarbias_abf, i64 368), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV14colvarbias_abf, i64 488), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14colvarbias_abf, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14colvarbias_abf, i64 368), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14colvarbias_abf, i64 488), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 376

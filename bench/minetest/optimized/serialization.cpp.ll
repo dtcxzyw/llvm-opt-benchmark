@@ -394,7 +394,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr dso_local void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !21
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !21
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i, align 8, !tbaa !18
@@ -447,14 +447,14 @@ _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18SerializationError, i64 16), ptr %this, align 8, !tbaa !21
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SerializationError, i64 16), ptr %this, align 8, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !21
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !21
   %m_s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -489,7 +489,8 @@ declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #0
 ; Function Attrs: uwtable
 define internal fastcc void @_ZL4zerri(i32 noundef %ret) unnamed_addr #6 {
 entry:
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %0, label %_ZTW7dstream.exit
+  %.not = icmp eq ptr @_ZTH7dstream, null
+  br i1 %.not, label %_ZTW7dstream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH7dstream()
@@ -527,7 +528,7 @@ sw.bb:                                            ; preds = %_ZN9LogStreamlsIRA7
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %6, label %_ZTW7dstream.exit25
+  br i1 %.not, label %_ZTW7dstream.exit25, label %6
 
 6:                                                ; preds = %if.then
   tail call void @_ZTH7dstream()
@@ -596,7 +597,7 @@ if.end:                                           ; preds = %_ZSt4endlIcSt11char
   br i1 %tobool5.not, label %sw.epilog, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %15, label %_ZTW7dstream.exit34
+  br i1 %.not, label %_ZTW7dstream.exit34, label %15
 
 15:                                               ; preds = %if.then6
   tail call void @_ZTH7dstream()
@@ -658,7 +659,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit135: ; preds = %i
   br label %sw.epilog.sink.split
 
 sw.bb10:                                          ; preds = %_ZN9LogStreamlsIRA7_KcEER11StreamProxyOT_.exit
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %23, label %_ZTW7dstream.exit47
+  br i1 %.not, label %_ZTW7dstream.exit47, label %23
 
 23:                                               ; preds = %sw.bb10
   tail call void @_ZTH7dstream()
@@ -720,7 +721,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit155: ; preds = %i
   br label %sw.epilog.sink.split
 
 sw.bb13:                                          ; preds = %_ZN9LogStreamlsIRA7_KcEER11StreamProxyOT_.exit
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %31, label %_ZTW7dstream.exit60
+  br i1 %.not, label %_ZTW7dstream.exit60, label %31
 
 31:                                               ; preds = %sw.bb13
   tail call void @_ZTH7dstream()
@@ -782,7 +783,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit175: ; preds = %i
   br label %sw.epilog.sink.split
 
 sw.bb16:                                          ; preds = %_ZN9LogStreamlsIRA7_KcEER11StreamProxyOT_.exit
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %39, label %_ZTW7dstream.exit73
+  br i1 %.not, label %_ZTW7dstream.exit73, label %39
 
 39:                                               ; preds = %sw.bb16
   tail call void @_ZTH7dstream()
@@ -844,7 +845,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit195: ; preds = %i
   br label %sw.epilog.sink.split
 
 sw.bb19:                                          ; preds = %_ZN9LogStreamlsIRA7_KcEER11StreamProxyOT_.exit
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %47, label %_ZTW7dstream.exit86
+  br i1 %.not, label %_ZTW7dstream.exit86, label %47
 
 47:                                               ; preds = %sw.bb19
   tail call void @_ZTH7dstream()
@@ -906,7 +907,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit215: ; preds = %i
   br label %sw.epilog.sink.split
 
 sw.default:                                       ; preds = %_ZN9LogStreamlsIRA7_KcEER11StreamProxyOT_.exit
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %55, label %_ZTW7dstream.exit99
+  br i1 %.not, label %_ZTW7dstream.exit99, label %55
 
 55:                                               ; preds = %sw.default
   tail call void @_ZTH7dstream()
@@ -1274,7 +1275,8 @@ invoke.cont82:                                    ; preds = %for.body
   br i1 %or.cond.not, label %for.inc, label %if.then91
 
 if.then91:                                        ; preds = %invoke.cont82
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %20, label %_ZTW7dstream.exit
+  %.not = icmp eq ptr @_ZTH7dstream, null
+  br i1 %.not, label %_ZTW7dstream.exit, label %20
 
 20:                                               ; preds = %if.then91
   call void @_ZTH7dstream()
@@ -1309,7 +1311,7 @@ if.then.i210:                                     ; preds = %invoke.cont96
           to label %invoke.cont98 unwind label %lpad75.loopexit.split-lp
 
 invoke.cont98:                                    ; preds = %if.then.i210, %invoke.cont96
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %24, label %_ZTW7dstream.exit213
+  br i1 %.not, label %_ZTW7dstream.exit213, label %24
 
 24:                                               ; preds = %invoke.cont98
   call void @_ZTH7dstream()
@@ -1615,7 +1617,8 @@ while.body:                                       ; preds = %init.end, %if.end27
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %4, label %_ZTW7dstream.exit
+  %.not = icmp eq ptr @_ZTH7dstream, null
+  br i1 %.not, label %_ZTW7dstream.exit, label %4
 
 4:                                                ; preds = %if.then
   call void @_ZTH7dstream()
@@ -1707,7 +1710,8 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %tobool33.not, label %if.end55, label %if.then34
 
 if.then34:                                        ; preds = %do.body
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %16, label %_ZTW7dstream.exit80
+  %.not6 = icmp eq ptr @_ZTH7dstream, null
+  br i1 %.not6, label %_ZTW7dstream.exit80, label %16
 
 16:                                               ; preds = %if.then34
   call void @_ZTH7dstream()
@@ -1945,7 +1949,8 @@ if.end:                                           ; preds = %if.then, %do.body
   br i1 %tobool.not, label %if.end27, label %if.then16
 
 if.then16:                                        ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH7dstream, ptr null), label %7, label %_ZTW7dstream.exit
+  %.not = icmp eq ptr @_ZTH7dstream, null
+  br i1 %.not, label %_ZTW7dstream.exit, label %7
 
 7:                                                ; preds = %if.then16
   call void @_ZTH7dstream()
@@ -2366,7 +2371,7 @@ unreachable:                                      ; preds = %invoke.cont
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18SerializationErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !21
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !21
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2412,7 +2417,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !21
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !21
   %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 24

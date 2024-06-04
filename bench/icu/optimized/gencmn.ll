@@ -54,8 +54,8 @@ if.end4:                                          ; preds = %if.else, %if.then
   %or.cond = select i1 %cmp5, i1 true, i1 %tobool
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 74), align 2
   %tobool8 = icmp ne i8 %3, 0
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %tobool8
-  br i1 %or.cond1, label %if.then9, label %if.end29
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %tobool8
+  br i1 %or.cond3, label %if.then9, label %if.end29
 
 if.then9:                                         ; preds = %if.end4
   %4 = load ptr, ptr @stderr, align 8
@@ -68,8 +68,8 @@ if.then9:                                         ; preds = %if.end4
   %tobool17 = icmp ne i8 %7, 0
   %8 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 74), align 2
   %tobool20 = icmp ne i8 %8, 0
-  %or.cond2 = select i1 %tobool17, i1 true, i1 %tobool20
-  br i1 %or.cond2, label %if.then21, label %if.end25
+  %or.cond5 = select i1 %tobool17, i1 true, i1 %tobool20
+  br i1 %or.cond5, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %if.then9
   %9 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 150, i64 1, ptr %cond)

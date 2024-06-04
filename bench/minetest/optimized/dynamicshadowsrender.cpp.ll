@@ -1409,7 +1409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %if.
 
 if.then:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65
   %call41 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV27ShadowConstantSetterFactory, i64 16), ptr %call41, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27ShadowConstantSetterFactory, i64 16), ptr %call41, align 8, !tbaa !12
   %vtable = load ptr, ptr %shsrc, align 8, !tbaa !12
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %11 = load ptr, ptr %vfn, align 8
@@ -1504,7 +1504,8 @@ lor.lhs.false3:                                   ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false3, %entry
   store i8 0, ptr %m_shadows_supported, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %5, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %5
 
 5:                                                ; preds = %if.then
   tail call void @_ZTH13warningstream()
@@ -1719,7 +1720,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit569: ; preds = %if
 if.then16:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit569
   %m_shadows_supported = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %12, label %_ZTW11errorstream.exit
+  %.not94 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not94, label %_ZTW11errorstream.exit, label %12
 
 12:                                               ; preds = %if.then16
   call void @_ZTH11errorstream()
@@ -1918,7 +1920,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit622: ; preds = %if
 if.then41:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit622
   %m_shadows_supported42 = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported42, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %37, label %_ZTW11errorstream.exit625
+  %.not93 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not93, label %_ZTW11errorstream.exit625, label %37
 
 37:                                               ; preds = %if.then41
   call void @_ZTH11errorstream()
@@ -2030,7 +2033,7 @@ if.end48:                                         ; preds = %_ZNSt7__cxx1112basi
 invoke.cont52:                                    ; preds = %if.end48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %call50, i8 0, i64 272, i1 false)
   %52 = getelementptr inbounds i8, ptr %call50, i64 248
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %52, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %52, align 8, !tbaa !12
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call50, i64 264
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !95
   %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT19ShadowDepthShaderCB, i64 8), align 8
@@ -2040,8 +2043,8 @@ invoke.cont52:                                    ; preds = %if.end48
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call50, i64 %vbase.offset.i.i
   store ptr %54, ptr %add.ptr.i.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 32) (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 24), ptr %call50, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 80), ptr %52, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 24), ptr %call50, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 80), ptr %52, align 8, !tbaa !12
   %MaxFar.i = getelementptr inbounds i8, ptr %call50, i64 8
   store <4 x float> <float 2.048000e+03, float 1.024000e+03, float 0x3FECCCCCC0000000, float 5.000000e-01>, ptr %MaxFar.i, align 8, !tbaa !32
   %CameraPos.i = getelementptr inbounds i8, ptr %call50, i64 24
@@ -2177,7 +2180,8 @@ delete.end:                                       ; preds = %delete.notnull, %if
   store i8 0, ptr %m_shadows_enabled, align 1, !tbaa !36
   %m_shadows_supported78 = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported78, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %68, label %_ZTW11errorstream.exit669
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit669, label %68
 
 68:                                               ; preds = %delete.end
   call void @_ZTH11errorstream()
@@ -2496,7 +2500,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit756: ; preds = %if
 if.then122:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit756
   %m_shadows_supported123 = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported123, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %115, label %_ZTW11errorstream.exit759
+  %.not97 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not97, label %_ZTW11errorstream.exit759, label %115
 
 115:                                              ; preds = %if.then122
   call void @_ZTH11errorstream()
@@ -2695,7 +2700,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit823: ; preds = %if
 if.then150:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit823
   %m_shadows_supported151 = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported151, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %140, label %_ZTW11errorstream.exit826
+  %.not96 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not96, label %_ZTW11errorstream.exit826, label %140
 
 140:                                              ; preds = %if.then150
   call void @_ZTH11errorstream()
@@ -2828,7 +2834,7 @@ if.end157:                                        ; preds = %_ZNSt7__cxx1112basi
 invoke.cont161:                                   ; preds = %if.end157
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %call159, i8 0, i64 272, i1 false)
   %156 = getelementptr inbounds i8, ptr %call159, i64 248
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %156, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %156, align 8, !tbaa !12
   %ReferenceCounter.i.i856 = getelementptr inbounds i8, ptr %call159, i64 264
   store i32 1, ptr %ReferenceCounter.i.i856, align 8, !tbaa !95
   %157 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT19ShadowDepthShaderCB, i64 8), align 8
@@ -2838,8 +2844,8 @@ invoke.cont161:                                   ; preds = %if.end157
   %vbase.offset.i.i858 = load i64, ptr %vbase.offset.ptr.i.i857, align 8
   %add.ptr.i.i859 = getelementptr inbounds i8, ptr %call159, i64 %vbase.offset.i.i858
   store ptr %158, ptr %add.ptr.i.i859, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 32) (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 24), ptr %call159, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 80), ptr %156, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 24), ptr %call159, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 80), ptr %156, align 8, !tbaa !12
   %MaxFar.i860 = getelementptr inbounds i8, ptr %call159, i64 8
   store <4 x float> <float 2.048000e+03, float 1.024000e+03, float 0x3FECCCCCC0000000, float 5.000000e-01>, ptr %MaxFar.i860, align 8, !tbaa !32
   %CameraPos.i864 = getelementptr inbounds i8, ptr %call159, i64 24
@@ -2975,7 +2981,8 @@ delete.end188:                                    ; preds = %delete.notnull185, 
   store i8 0, ptr %m_shadows_enabled190, align 1, !tbaa !36
   %m_shadows_supported191 = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported191, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %172, label %_ZTW11errorstream.exit908
+  %.not95 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not95, label %_ZTW11errorstream.exit908, label %172
 
 172:                                              ; preds = %delete.end188
   call void @_ZTH11errorstream()
@@ -3247,7 +3254,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit997: ; preds = %if
 if.then241:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit997
   %m_shadows_supported242 = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported242, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %211, label %_ZTW11errorstream.exit1000
+  %.not100 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not100, label %_ZTW11errorstream.exit1000, label %211
 
 211:                                              ; preds = %if.then241
   call void @_ZTH11errorstream()
@@ -3446,7 +3454,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1063: ; preds = %i
 if.then269:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1063
   %m_shadows_supported270 = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported270, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %236, label %_ZTW11errorstream.exit1066
+  %.not99 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not99, label %_ZTW11errorstream.exit1066, label %236
 
 236:                                              ; preds = %if.then269
   call void @_ZTH11errorstream()
@@ -3579,7 +3588,7 @@ if.end276:                                        ; preds = %_ZNSt7__cxx1112basi
 invoke.cont280:                                   ; preds = %if.end276
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %call278, i8 0, i64 80, i1 false)
   %252 = getelementptr inbounds i8, ptr %call278, i64 56
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %252, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %252, align 8, !tbaa !12
   %ReferenceCounter.i.i1096 = getelementptr inbounds i8, ptr %call278, i64 72
   store i32 1, ptr %ReferenceCounter.i.i1096, align 8, !tbaa !95
   %253 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT18shadowScreenQuadCB, i64 8), align 8
@@ -3589,8 +3598,8 @@ invoke.cont280:                                   ; preds = %if.end276
   %vbase.offset.i.i1098 = load i64, ptr %vbase.offset.ptr.i.i1097, align 8
   %add.ptr.i.i1099 = getelementptr inbounds i8, ptr %call278, i64 %vbase.offset.i.i1098
   store ptr %254, ptr %add.ptr.i.i1099, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 32) (i8, ptr @_ZTV18shadowScreenQuadCB, i64 24), ptr %call278, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV18shadowScreenQuadCB, i64 80), ptr %252, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18shadowScreenQuadCB, i64 24), ptr %call278, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18shadowScreenQuadCB, i64 80), ptr %252, align 8, !tbaa !12
   %m_sm_client_map_setting.i = getelementptr inbounds i8, ptr %call278, i64 8
   store ptr @.str.64, ptr %m_sm_client_map_setting.i, align 8, !tbaa !105
   %has_been_set.i.i.i1100 = getelementptr inbounds i8, ptr %call278, i64 20
@@ -3703,8 +3712,8 @@ delete.notnull319:                                ; preds = %delete.end316, %if.
   %269 = phi ptr [ %.pre, %delete.end316 ], [ %266, %if.then310 ]
   %TextureMatrix.i.i.i = getelementptr inbounds i8, ptr %269, i64 336
   %270 = load ptr, ptr %TextureMatrix.i.i.i, align 8, !tbaa !121
-  %tobool.not.i.i.i93 = icmp eq ptr %270, null
-  br i1 %tobool.not.i.i.i93, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i, label %delete.notnull.i.i.i
+  %tobool.not.i.i.i104 = icmp eq ptr %270, null
+  br i1 %tobool.not.i.i.i104, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %delete.notnull319
   call void @_ZdlPv(ptr noundef nonnull %270) #26
@@ -3747,7 +3756,8 @@ _ZN16shadowScreenQuadD2Ev.exit:                   ; preds = %_ZN3irr5video14SMat
 delete.end320:                                    ; preds = %_ZN16shadowScreenQuadD2Ev.exit, %delete.end316
   %m_shadows_supported321 = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported321, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %274, label %_ZTW11errorstream.exit1119
+  %.not98 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not98, label %_ZTW11errorstream.exit1119, label %274
 
 274:                                              ; preds = %delete.end320
   call void @_ZTH11errorstream()
@@ -4031,7 +4041,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1208: ; preds = %i
 if.then371:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1208
   %m_shadows_supported372 = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported372, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %315, label %_ZTW11errorstream.exit1211
+  %.not103 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not103, label %_ZTW11errorstream.exit1211, label %315
 
 315:                                              ; preds = %if.then371
   call void @_ZTH11errorstream()
@@ -4230,7 +4241,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1275: ; preds = %i
 if.then399:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1275
   %m_shadows_supported400 = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported400, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %340, label %_ZTW11errorstream.exit1278
+  %.not102 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not102, label %_ZTW11errorstream.exit1278, label %340
 
 340:                                              ; preds = %if.then399
   call void @_ZTH11errorstream()
@@ -4315,7 +4327,7 @@ if.end406:                                        ; preds = %_ZNSt7__cxx1112basi
 invoke.cont410:                                   ; preds = %if.end406
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %call408, i8 0, i64 272, i1 false)
   %352 = getelementptr inbounds i8, ptr %call408, i64 248
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %352, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %352, align 8, !tbaa !12
   %ReferenceCounter.i.i1308 = getelementptr inbounds i8, ptr %call408, i64 264
   store i32 1, ptr %ReferenceCounter.i.i1308, align 8, !tbaa !95
   %353 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT19ShadowDepthShaderCB, i64 8), align 8
@@ -4325,8 +4337,8 @@ invoke.cont410:                                   ; preds = %if.end406
   %vbase.offset.i.i1310 = load i64, ptr %vbase.offset.ptr.i.i1309, align 8
   %add.ptr.i.i1311 = getelementptr inbounds i8, ptr %call408, i64 %vbase.offset.i.i1310
   store ptr %354, ptr %add.ptr.i.i1311, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 32) (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 24), ptr %call408, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 80), ptr %352, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 24), ptr %call408, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19ShadowDepthShaderCB, i64 80), ptr %352, align 8, !tbaa !12
   %MaxFar.i1312 = getelementptr inbounds i8, ptr %call408, i64 8
   store <4 x float> <float 2.048000e+03, float 1.024000e+03, float 0x3FECCCCCC0000000, float 5.000000e-01>, ptr %MaxFar.i1312, align 8, !tbaa !32
   %CameraPos.i1316 = getelementptr inbounds i8, ptr %call408, i64 24
@@ -4461,7 +4473,8 @@ delete.end437:                                    ; preds = %delete.notnull434, 
   store i8 0, ptr %m_shadow_map_colored, align 1, !tbaa !45
   %m_shadows_supported440 = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %m_shadows_supported440, align 2, !tbaa !35
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %368, label %_ZTW11errorstream.exit1360
+  %.not101 = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not101, label %_ZTW11errorstream.exit1360, label %368
 
 368:                                              ; preds = %delete.end437
   call void @_ZTH11errorstream()
@@ -9903,7 +9916,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #29
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %0, i8 0, i64 304, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV20ShadowConstantSetter, i64 16), ptr %call, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV20ShadowConstantSetter, i64 16), ptr %call, align 8, !tbaa !12
   %m_shadow_view_proj.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @.str.48, ptr %m_shadow_view_proj.i, align 8, !tbaa !97
   %is_pixel2.i.i.i = getelementptr inbounds i8, ptr %call, i64 81

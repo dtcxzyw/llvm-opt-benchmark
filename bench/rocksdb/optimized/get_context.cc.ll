@@ -1481,7 +1481,8 @@ _ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit137: ; pre
   %merge_context_6.i135 = getelementptr inbounds i8, ptr %this, i64 424
   %70 = load ptr, ptr %merge_context_6.i135, align 8
   call void @_ZN7rocksdb12MergeContext11PushOperandERKNS_5SliceEb(ptr noundef nonnull align 8 dereferenceable(17) %70, ptr noundef nonnull align 8 dereferenceable(16) %value, i1 noundef zeroext %.sink5.i)
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %71, label %_ZTWN7rocksdb10perf_levelE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb10perf_levelE.exit, label %71
 
 71:                                               ; preds = %_ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit137
   call void @_ZTHN7rocksdb10perf_levelE()
@@ -1494,7 +1495,8 @@ _ZTWN7rocksdb10perf_levelE.exit:                  ; preds = %_ZN7rocksdb10GetCon
   br i1 %cmp276, label %if.then277, label %if.end278
 
 if.then277:                                       ; preds = %_ZTWN7rocksdb10perf_levelE.exit
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %74, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i138 = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i138, label %_ZTWN7rocksdb12perf_contextE.exit, label %74
 
 74:                                               ; preds = %if.then277
   call void @_ZTHN7rocksdb12perf_contextE()

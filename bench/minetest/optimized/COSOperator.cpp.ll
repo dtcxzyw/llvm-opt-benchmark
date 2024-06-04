@@ -79,8 +79,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !14
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !17
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr11COSOperatorE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr11COSOperatorE, i64 112), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr11COSOperatorE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr11COSOperatorE, i64 112), ptr %0, align 8, !tbaa !3
   %OperatingSystem = getelementptr inbounds i8, ptr %this, i64 8
   %1 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %1, ptr %OperatingSystem, align 8, !tbaa !6
@@ -143,9 +143,9 @@ declare void @SDL_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr11COSOperatorD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr11COSOperatorE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr11COSOperatorE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr11COSOperatorE, i64 112), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr11COSOperatorE, i64 112), ptr %add.ptr.i, align 8, !tbaa !3
   %ClipboardSelectionText.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %ClipboardSelectionText.i, align 8, !tbaa !18
   tail call void @SDL_free(ptr noundef %0) #11
@@ -180,9 +180,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr11COSOperatorE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr11COSOperatorE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr11COSOperatorE, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr11COSOperatorE, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !3
   %ClipboardSelectionText.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %ClipboardSelectionText.i.i, align 8, !tbaa !18
   tail call void @SDL_free(ptr noundef %4) #11
@@ -213,9 +213,9 @@ _ZN3irr11COSOperatorD1Ev.exit:                    ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr11COSOperatorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr11COSOperatorE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr11COSOperatorE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr11COSOperatorE, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr11COSOperatorE, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !3
   %ClipboardSelectionText.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %ClipboardSelectionText.i.i, align 8, !tbaa !18
   tail call void @SDL_free(ptr noundef %0) #11
@@ -254,9 +254,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN3irr11COSOperatorE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr11COSOperatorE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr11COSOperatorE, i64 112), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr11COSOperatorE, i64 112), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %ClipboardSelectionText.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %ClipboardSelectionText.i.i.i, align 8, !tbaa !18
   tail call void @SDL_free(ptr noundef %4) #11

@@ -179,7 +179,7 @@ define dso_local void @_ZN7V3EmitC12emitcInlinesEv() #3 align 2 personality ptr 
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %2, i64 16
   store i8 0, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV12EmitCInlines, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12EmitCInlines, i64 16), ptr %2, align 8
   %21 = load ptr, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 288
   %23 = load ptr, ptr %22, align 8

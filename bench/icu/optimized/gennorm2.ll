@@ -583,8 +583,8 @@ if.end:                                           ; preds = %if.then, %entry
   %or.cond = select i1 %cmp4, i1 true, i1 %tobool5
   %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L7optionsE, i64 74), align 2
   %tobool7 = icmp ne i8 %4, 0
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %tobool7
-  br i1 %or.cond1, label %if.then8, label %if.end16
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %tobool7
+  br i1 %or.cond3, label %if.then8, label %if.end16
 
 if.then8:                                         ; preds = %if.end
   %5 = load ptr, ptr @stderr, align 8
@@ -707,7 +707,7 @@ invoke.cont62:                                    ; preds = %if.then59
   %32 = load i32, ptr %len.i, align 8
   br label %for.body.lr.ph
 
-lpad45.loopexit:                                  ; preds = %if.end81, %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit, %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit50, %if.then104, %if.end111, %invoke.cont118, %invoke.cont115
+lpad45.loopexit:                                  ; preds = %if.end81, %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit, %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit52, %if.then104, %if.end111, %invoke.cont118, %invoke.cont115
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -725,8 +725,8 @@ for.body.lr.ph:                                   ; preds = %invoke.cont44, %lan
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %doMinus.081 = phi i8 [ 0, %for.body.lr.ph ], [ %doMinus.1, %for.inc ]
-  %builder.080 = phi ptr [ %call17, %for.body.lr.ph ], [ %builder.1, %for.inc ]
+  %doMinus.083 = phi i8 [ 0, %for.body.lr.ph ], [ %doMinus.1, %for.inc ]
+  %builder.082 = phi ptr [ %call17, %for.body.lr.ph ], [ %builder.1, %for.inc ]
   %arrayidx69 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %34 = load ptr, ptr %arrayidx69, align 8
   %call71 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %34)
@@ -736,7 +736,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp75, label %if.then76, label %if.end111
 
 if.then76:                                        ; preds = %for.body
-  %tobool77 = trunc nuw i8 %doMinus.081 to i1
+  %tobool77 = trunc nuw i8 %doMinus.083 to i1
   br i1 %tobool77, label %if.then78, label %if.end81
 
 if.then78:                                        ; preds = %if.then76
@@ -755,8 +755,8 @@ invoke.cont82:                                    ; preds = %if.end81
 
 invoke.cont87:                                    ; preds = %invoke.cont82
   %38 = load i32, ptr %errorCode.i.i, align 8
-  %cmp.i.i41 = icmp sgt i32 %38, 0
-  br i1 %cmp.i.i41, label %if.else.i, label %if.then.i
+  %cmp.i.i43 = icmp sgt i32 %38, 0
+  br i1 %cmp.i.i43, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont87
   %39 = load ptr, ptr %b2, align 8
@@ -787,33 +787,33 @@ invoke.cont91:                                    ; preds = %_ZN6icu_7512LocalPo
 
 invoke.cont96:                                    ; preds = %invoke.cont91
   %40 = load i32, ptr %errorCode.i.i, align 8
-  %cmp.i.i44 = icmp sgt i32 %40, 0
-  br i1 %cmp.i.i44, label %if.else.i49, label %if.then.i45
+  %cmp.i.i46 = icmp sgt i32 %40, 0
+  br i1 %cmp.i.i46, label %if.else.i51, label %if.then.i47
 
-if.then.i45:                                      ; preds = %invoke.cont96
+if.then.i47:                                      ; preds = %invoke.cont96
   %41 = load ptr, ptr %diff, align 8
-  %isnull.i46 = icmp eq ptr %41, null
-  br i1 %isnull.i46, label %delete.end.i48, label %delete.notnull.i47
+  %isnull.i48 = icmp eq ptr %41, null
+  br i1 %isnull.i48, label %delete.end.i50, label %delete.notnull.i49
 
-delete.notnull.i47:                               ; preds = %if.then.i45
+delete.notnull.i49:                               ; preds = %if.then.i47
   call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %41) #15
   call void @_ZdlPv(ptr noundef nonnull %41) #20
-  br label %delete.end.i48
+  br label %delete.end.i50
 
-delete.end.i48:                                   ; preds = %delete.notnull.i47, %if.then.i45
+delete.end.i50:                                   ; preds = %delete.notnull.i49, %if.then.i47
   store ptr %call92, ptr %diff, align 8
-  br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit50
+  br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit52
 
-if.else.i49:                                      ; preds = %invoke.cont96
+if.else.i51:                                      ; preds = %invoke.cont96
   call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %call92) #15
   call void @_ZdlPv(ptr noundef nonnull %call92) #20
-  br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit50
+  br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit52
 
-_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit50: ; preds = %if.else.i49, %delete.end.i48
+_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit52: ; preds = %if.else.i51, %delete.end.i50
   invoke void @_ZNK6icu_759ErrorCode13assertSuccessEv(ptr noundef nonnull align 8 dereferenceable(12) %errorCode)
           to label %invoke.cont100 unwind label %lpad45.loopexit
 
-invoke.cont100:                                   ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit50
+invoke.cont100:                                   ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit52
   %42 = load ptr, ptr %b2, align 8
   %43 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L7optionsE, i64 274), align 2
   %tobool103.not = icmp eq i8 %43, 0
@@ -842,8 +842,8 @@ if.end106:                                        ; preds = %if.then104, %invoke
   br i1 %tobool107.not, label %for.inc, label %if.then108
 
 if.then108:                                       ; preds = %if.end106
-  %optimization.i51 = getelementptr inbounds i8, ptr %42, i64 432
-  store i32 1, ptr %optimization.i51, align 8
+  %optimization.i53 = getelementptr inbounds i8, ptr %42, i64 432
+  store i32 1, ptr %optimization.i53, align 8
   br label %for.inc
 
 if.end111:                                        ; preds = %for.body
@@ -853,7 +853,7 @@ if.end111:                                        ; preds = %for.body
 invoke.cont115:                                   ; preds = %if.end111
   %48 = load ptr, ptr %agg.tmp112, align 8
   %49 = load i32, ptr %33, align 8
-  %call3.i53 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %filename, ptr noundef %48, i32 noundef %49, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
+  %call3.i55 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %filename, ptr noundef %48, i32 noundef %49, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
           to label %invoke.cont118 unwind label %lpad45.loopexit
 
 invoke.cont118:                                   ; preds = %invoke.cont115
@@ -886,11 +886,11 @@ lpad123:                                          ; preds = %invoke.cont133, %in
   br label %ehcleanup
 
 if.end131:                                        ; preds = %invoke.cont124
-  invoke void @_ZN6icu_7522Normalizer2DataBuilder19setOverrideHandlingENS0_16OverrideHandlingE(ptr noundef nonnull align 8 dereferenceable(860) %builder.080, i32 noundef 2)
+  invoke void @_ZN6icu_7522Normalizer2DataBuilder19setOverrideHandlingENS0_16OverrideHandlingE(ptr noundef nonnull align 8 dereferenceable(860) %builder.082, i32 noundef 2)
           to label %invoke.cont132 unwind label %lpad123
 
 invoke.cont132:                                   ; preds = %if.end131
-  invoke void @_ZN6icu_759parseFileERSt14basic_ifstreamIcSt11char_traitsIcEERNS_22Normalizer2DataBuilderE(ptr noundef nonnull align 8 dereferenceable(256) %f, ptr noundef nonnull align 8 dereferenceable(860) %builder.080)
+  invoke void @_ZN6icu_759parseFileERSt14basic_ifstreamIcSt11char_traitsIcEERNS_22Normalizer2DataBuilderE(ptr noundef nonnull align 8 dereferenceable(256) %f, ptr noundef nonnull align 8 dereferenceable(860) %builder.082)
           to label %invoke.cont133 unwind label %lpad123
 
 invoke.cont133:                                   ; preds = %invoke.cont132
@@ -902,8 +902,8 @@ invoke.cont134:                                   ; preds = %invoke.cont133
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end106, %if.then108, %invoke.cont134
-  %builder.1 = phi ptr [ %builder.080, %invoke.cont134 ], [ %42, %if.then108 ], [ %42, %if.end106 ]
-  %doMinus.1 = phi i8 [ %doMinus.081, %invoke.cont134 ], [ 1, %if.then108 ], [ 1, %if.end106 ]
+  %builder.1 = phi ptr [ %builder.082, %invoke.cont134 ], [ %42, %if.then108 ], [ %42, %if.end106 ]
+  %doMinus.1 = phi i8 [ %doMinus.083, %invoke.cont134 ], [ 1, %if.then108 ], [ 1, %if.end106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -948,35 +948,35 @@ if.end159:                                        ; preds = %invoke.cont144.invo
   %63 = load i32, ptr %errorCode.i.i, align 8
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %filename) #15
   %64 = load ptr, ptr %diff, align 8
-  %isnull.i55 = icmp eq ptr %64, null
-  br i1 %isnull.i55, label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit, label %delete.notnull.i56
+  %isnull.i57 = icmp eq ptr %64, null
+  br i1 %isnull.i57, label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit, label %delete.notnull.i58
 
-delete.notnull.i56:                               ; preds = %if.end159
+delete.notnull.i58:                               ; preds = %if.end159
   call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %64) #15
   call void @_ZdlPv(ptr noundef nonnull %64) #20
   br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit
 
-_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit: ; preds = %if.end159, %delete.notnull.i56
+_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit: ; preds = %if.end159, %delete.notnull.i58
   %65 = load ptr, ptr %b2, align 8
-  %isnull.i58 = icmp eq ptr %65, null
-  br i1 %isnull.i58, label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit61, label %delete.notnull.i59
+  %isnull.i60 = icmp eq ptr %65, null
+  br i1 %isnull.i60, label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit63, label %delete.notnull.i61
 
-delete.notnull.i59:                               ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit
+delete.notnull.i61:                               ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit
   call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %65) #15
   call void @_ZdlPv(ptr noundef nonnull %65) #20
-  br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit61
+  br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit63
 
-_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit61: ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit, %delete.notnull.i59
+_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit63: ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit, %delete.notnull.i61
   %66 = load ptr, ptr %b1, align 8
-  %isnull.i62 = icmp eq ptr %66, null
-  br i1 %isnull.i62, label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65, label %delete.notnull.i63
+  %isnull.i64 = icmp eq ptr %66, null
+  br i1 %isnull.i64, label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit67, label %delete.notnull.i65
 
-delete.notnull.i63:                               ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit61
+delete.notnull.i65:                               ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit63
   call void @_ZN6icu_7522Normalizer2DataBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(860) %66) #15
   call void @_ZdlPv(ptr noundef nonnull %66) #20
-  br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65
+  br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit67
 
-_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65: ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit61, %delete.notnull.i63
+_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit67: ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit63, %delete.notnull.i65
   call void @_ZN6icu_7516IcuToolErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %errorCode) #15
   br label %return
 
@@ -997,8 +997,8 @@ ehcleanup165:                                     ; preds = %ehcleanup162, %lpad
   call void @_ZN6icu_7516IcuToolErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %errorCode) #15
   resume { ptr, i32 } %.pn.pn.pn
 
-return:                                           ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65, %if.then8
-  %retval.0 = phi i32 [ %argc.addr.0.lobit, %if.then8 ], [ %63, %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit65 ]
+return:                                           ; preds = %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit67, %if.then8
+  %retval.0 = phi i32 [ %argc.addr.0.lobit, %if.then8 ], [ %63, %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEED2Ev.exit67 ]
   ret i32 %retval.0
 }
 

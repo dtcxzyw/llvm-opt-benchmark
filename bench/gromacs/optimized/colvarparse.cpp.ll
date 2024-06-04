@@ -356,7 +356,7 @@ define void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(32
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.8", align 1
   tail call void @_ZN12colvarparamsC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11colvarparse, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvarparse, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   %9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -818,7 +818,7 @@ define void @_ZN11colvarparseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.8", align 1
   tail call void @_ZN12colvarparamsC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11colvarparse, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvarparse, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 104
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
   %10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -1049,7 +1049,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11colvarparse, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11colvarparse, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   tail call void @_ZN11colvarparse22clear_keyword_registryEv(ptr noundef nonnull align 8 dereferenceable(320) %0)

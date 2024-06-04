@@ -9589,63 +9589,63 @@ define range(i32 -1, 1) i32 @spl_iterator_apply(ptr noundef %0, ptr nocapture no
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
-  %.not22 = icmp eq ptr %16, null
-  br i1 %.not22, label %.preheader, label %17
+  %.not19 = icmp eq ptr %16, null
+  br i1 %.not19, label %.preheader, label %17
 
 17:                                               ; preds = %11
   tail call void %16(ptr noundef nonnull %9) #10
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not23 = icmp eq ptr %18, null
-  br i1 %.not23, label %.preheader, label %.thread
+  %.not20 = icmp eq ptr %18, null
+  br i1 %.not20, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %17, %11
   br label %19
 
-19:                                               ; preds = %.preheader, %32
+19:                                               ; preds = %.preheader, %30
   %20 = load ptr, ptr %13, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %9) #10
-  %24 = icmp ne i32 %23, 0
+  %24 = icmp eq i32 %23, 0
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %26 = icmp ne ptr %25, null
-  %or.cond3 = select i1 %24, i1 true, i1 %26
-  br i1 %or.cond3, label %.thread, label %27
+  %.not21 = icmp eq ptr %25, null
+  %or.cond = select i1 %24, i1 %.not21, i1 false
+  br i1 %or.cond, label %26, label %.thread
 
-27:                                               ; preds = %19
-  %28 = tail call i32 %1(ptr noundef nonnull %9, ptr noundef %2) #10
-  %29 = icmp eq i32 %28, 2
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %31 = icmp ne ptr %30, null
-  %or.cond = select i1 %29, i1 true, i1 %31
-  br i1 %or.cond, label %.thread, label %32
+26:                                               ; preds = %19
+  %27 = tail call i32 %1(ptr noundef nonnull %9, ptr noundef %2) #10
+  %28 = icmp ne i32 %27, 2
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not22 = icmp eq ptr %29, null
+  %or.cond26 = select i1 %28, i1 %.not22, i1 false
+  br i1 %or.cond26, label %30, label %.thread
 
-32:                                               ; preds = %27
-  %33 = load i64, ptr %12, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %12, align 8
-  %35 = load ptr, ptr %13, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
-  %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull %9) #10
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not24 = icmp eq ptr %38, null
-  br i1 %.not24, label %19, label %.thread
+30:                                               ; preds = %26
+  %31 = load i64, ptr %12, align 8
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %12, align 8
+  %33 = load ptr, ptr %13, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %35 = load ptr, ptr %34, align 8
+  tail call void %35(ptr noundef nonnull %9) #10
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not23 = icmp eq ptr %36, null
+  br i1 %.not23, label %19, label %.thread
 
 .loopexit:                                        ; preds = %3
-  %.not25 = icmp eq ptr %9, null
-  br i1 %.not25, label %41, label %.thread
+  %.not24 = icmp eq ptr %9, null
+  br i1 %.not24, label %39, label %.thread
 
-.thread:                                          ; preds = %27, %32, %19, %17, %.loopexit
+.thread:                                          ; preds = %26, %30, %19, %17, %.loopexit
   tail call void @zend_iterator_dtor(ptr noundef nonnull %9) #10
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %39 = icmp ne ptr %.pre, null
-  %40 = sext i1 %39 to i32
-  br label %41
+  %37 = icmp ne ptr %.pre, null
+  %38 = sext i1 %37 to i32
+  br label %39
 
-41:                                               ; preds = %.thread, %.loopexit
-  %.not26 = phi i32 [ %40, %.thread ], [ -1, %.loopexit ]
-  ret i32 %.not26
+39:                                               ; preds = %.thread, %.loopexit
+  %.not25 = phi i32 [ %38, %.thread ], [ -1, %.loopexit ]
+  ret i32 %.not25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9884,7 +9884,7 @@ define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef wri
   %16 = getelementptr inbounds i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
-  br label %52
+  br label %51
 
 19:                                               ; preds = %10
   %20 = getelementptr inbounds i8, ptr %14, i64 16
@@ -9903,66 +9903,66 @@ define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef wri
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
-  %.not22.i = icmp eq ptr %31, null
-  br i1 %.not22.i, label %.preheader, label %32
+  %.not19.i = icmp eq ptr %31, null
+  br i1 %.not19.i, label %.preheader, label %32
 
 32:                                               ; preds = %26
   tail call void %31(ptr noundef nonnull %24) #10
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not23.i = icmp eq ptr %33, null
-  br i1 %.not23.i, label %.preheader, label %spl_iterator_apply.exit
+  %.not20.i = icmp eq ptr %33, null
+  br i1 %.not20.i, label %.preheader, label %spl_iterator_apply.exit
 
 .preheader:                                       ; preds = %32, %26
   br label %34
 
-34:                                               ; preds = %.preheader, %44
-  %.0 = phi i64 [ %45, %44 ], [ 0, %.preheader ]
+34:                                               ; preds = %.preheader, %43
+  %.0 = phi i64 [ %44, %43 ], [ 0, %.preheader ]
   %35 = load ptr, ptr %28, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 %37(ptr noundef nonnull %24) #10
-  %39 = icmp ne i32 %38, 0
+  %39 = icmp eq i32 %38, 0
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %41 = icmp ne ptr %40, null
-  %or.cond3.i = select i1 %39, i1 true, i1 %41
-  br i1 %or.cond3.i, label %spl_iterator_apply.exit, label %42
+  %.not21.i = icmp eq ptr %40, null
+  %or.cond.i = select i1 %39, i1 %.not21.i, i1 false
+  br i1 %or.cond.i, label %41, label %spl_iterator_apply.exit
 
-42:                                               ; preds = %34
-  %43 = icmp eq i64 %.0, 9223372036854775807
-  br i1 %43, label %spl_iterator_apply.exit, label %44
+41:                                               ; preds = %34
+  %42 = icmp eq i64 %.0, 9223372036854775807
+  br i1 %42, label %spl_iterator_apply.exit, label %43
 
-44:                                               ; preds = %42
-  %45 = add nuw nsw i64 %.0, 1
-  %46 = load i64, ptr %27, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %27, align 8
-  %48 = load ptr, ptr %28, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 32
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull %24) #10
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not24.i = icmp eq ptr %51, null
-  br i1 %.not24.i, label %34, label %spl_iterator_apply.exit
+43:                                               ; preds = %41
+  %44 = add nuw nsw i64 %.0, 1
+  %45 = load i64, ptr %27, align 8
+  %46 = add i64 %45, 1
+  store i64 %46, ptr %27, align 8
+  %47 = load ptr, ptr %28, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull %24) #10
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not23.i = icmp eq ptr %50, null
+  br i1 %.not23.i, label %34, label %spl_iterator_apply.exit
 
 .loopexit.i:                                      ; preds = %19
-  %.not25.i = icmp eq ptr %24, null
-  br i1 %.not25.i, label %spl_iterator_apply.exit.thread, label %spl_iterator_apply.exit
+  %.not24.i = icmp eq ptr %24, null
+  br i1 %.not24.i, label %spl_iterator_apply.exit.thread, label %spl_iterator_apply.exit
 
-spl_iterator_apply.exit:                          ; preds = %42, %34, %44, %32, %.loopexit.i
-  %.2 = phi i64 [ 0, %32 ], [ 0, %.loopexit.i ], [ 9223372036854775807, %42 ], [ %45, %44 ], [ %.0, %34 ]
+spl_iterator_apply.exit:                          ; preds = %34, %43, %41, %32, %.loopexit.i
+  %.2 = phi i64 [ 0, %32 ], [ 0, %.loopexit.i ], [ 9223372036854775807, %41 ], [ %.0, %34 ], [ %44, %43 ]
   tail call void @zend_iterator_dtor(ptr noundef nonnull %24) #10
   %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %.pre.i, null
-  br i1 %.not, label %52, label %spl_iterator_apply.exit.thread
+  br i1 %.not, label %51, label %spl_iterator_apply.exit.thread
 
-52:                                               ; preds = %spl_iterator_apply.exit, %15
+51:                                               ; preds = %spl_iterator_apply.exit, %15
   %.4 = phi i64 [ %18, %15 ], [ %.2, %spl_iterator_apply.exit ]
   store i64 %.4, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 4, ptr %53, align 8
+  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 4, ptr %52, align 8
   br label %spl_iterator_apply.exit.thread
 
-spl_iterator_apply.exit.thread:                   ; preds = %spl_iterator_apply.exit, %.loopexit.i, %52, %9
+spl_iterator_apply.exit.thread:                   ; preds = %spl_iterator_apply.exit, %.loopexit.i, %51, %9
   ret void
 }
 
@@ -10007,76 +10007,76 @@ define hidden void @zif_iterator_apply(ptr nocapture noundef readonly %0, ptr no
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
-  %.not22.i = icmp eq ptr %31, null
-  br i1 %.not22.i, label %34, label %32
+  %.not19.i = icmp eq ptr %31, null
+  br i1 %.not19.i, label %34, label %32
 
 32:                                               ; preds = %26
   call void %31(ptr noundef nonnull %24) #10
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not23.i = icmp eq ptr %33, null
-  br i1 %.not23.i, label %34, label %spl_iterator_apply.exit
+  %.not20.i = icmp eq ptr %33, null
+  br i1 %.not20.i, label %34, label %spl_iterator_apply.exit
 
 34:                                               ; preds = %32, %26
   %35 = getelementptr inbounds i8, ptr %4, i64 40
   br label %36
 
-36:                                               ; preds = %51, %34
+36:                                               ; preds = %49, %34
   %37 = load ptr, ptr %28, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 %39(ptr noundef nonnull %24) #10
-  %41 = icmp ne i32 %40, 0
+  %41 = icmp eq i32 %40, 0
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %43 = icmp ne ptr %42, null
-  %or.cond3.i = select i1 %41, i1 true, i1 %43
-  br i1 %or.cond3.i, label %spl_iterator_apply.exit, label %44
+  %.not21.i = icmp eq ptr %42, null
+  %or.cond.i = select i1 %41, i1 %.not21.i, i1 false
+  br i1 %or.cond.i, label %43, label %spl_iterator_apply.exit
 
-44:                                               ; preds = %36
+43:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %45 = load i64, ptr %17, align 8
-  %46 = add nsw i64 %45, 1
-  store i64 %46, ptr %17, align 8
+  %44 = load i64, ptr %17, align 8
+  %45 = add nsw i64 %44, 1
+  store i64 %45, ptr %17, align 8
   store ptr %3, ptr %35, align 8
-  %47 = call i32 @zend_call_function(ptr noundef nonnull %8, ptr noundef nonnull %9) #10
-  %48 = call i32 @zend_is_true(ptr noundef nonnull %3) #10
-  %.not.i4 = icmp eq i32 %48, 0
+  %46 = call i32 @zend_call_function(ptr noundef nonnull %8, ptr noundef nonnull %9) #10
+  %47 = call i32 @zend_is_true(ptr noundef nonnull %3) #10
+  %.not.i4 = icmp ne i32 %47, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %50 = icmp ne ptr %49, null
-  %or.cond.i = select i1 %.not.i4, i1 true, i1 %50
-  br i1 %or.cond.i, label %spl_iterator_apply.exit, label %51
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not22.i = icmp eq ptr %48, null
+  %or.cond26.i = select i1 %.not.i4, i1 %.not22.i, i1 false
+  br i1 %or.cond26.i, label %49, label %spl_iterator_apply.exit
 
-51:                                               ; preds = %44
-  %52 = load i64, ptr %27, align 8
-  %53 = add i64 %52, 1
-  store i64 %53, ptr %27, align 8
-  %54 = load ptr, ptr %28, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 32
-  %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull %24) #10
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not24.i = icmp eq ptr %57, null
-  br i1 %.not24.i, label %36, label %spl_iterator_apply.exit
+49:                                               ; preds = %43
+  %50 = load i64, ptr %27, align 8
+  %51 = add i64 %50, 1
+  store i64 %51, ptr %27, align 8
+  %52 = load ptr, ptr %28, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  %54 = load ptr, ptr %53, align 8
+  call void %54(ptr noundef nonnull %24) #10
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not23.i = icmp eq ptr %55, null
+  br i1 %.not23.i, label %36, label %spl_iterator_apply.exit
 
 .loopexit.i:                                      ; preds = %16
-  %.not25.i = icmp eq ptr %24, null
-  br i1 %.not25.i, label %spl_iterator_apply.exit.thread, label %spl_iterator_apply.exit
+  %.not24.i = icmp eq ptr %24, null
+  br i1 %.not24.i, label %spl_iterator_apply.exit.thread, label %spl_iterator_apply.exit
 
-spl_iterator_apply.exit:                          ; preds = %36, %44, %51, %32, %.loopexit.i
+spl_iterator_apply.exit:                          ; preds = %36, %43, %49, %32, %.loopexit.i
   call void @zend_iterator_dtor(ptr noundef nonnull %24) #10
   %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %.pre.i, null
-  br i1 %.not, label %58, label %spl_iterator_apply.exit.thread
+  br i1 %.not, label %56, label %spl_iterator_apply.exit.thread
 
-58:                                               ; preds = %spl_iterator_apply.exit
-  %59 = load i64, ptr %17, align 8
-  store i64 %59, ptr %1, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 4, ptr %60, align 8
+56:                                               ; preds = %spl_iterator_apply.exit
+  %57 = load i64, ptr %17, align 8
+  store i64 %57, ptr %1, align 8
+  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 4, ptr %58, align 8
   br label %spl_iterator_apply.exit.thread
 
-spl_iterator_apply.exit.thread:                   ; preds = %.loopexit.i, %spl_iterator_apply.exit, %58, %13
+spl_iterator_apply.exit.thread:                   ; preds = %.loopexit.i, %spl_iterator_apply.exit, %56, %13
   ret void
 }
 

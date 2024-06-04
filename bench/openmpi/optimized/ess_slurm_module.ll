@@ -90,8 +90,8 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
   %27 = add i32 %26, %24
   store i32 %27, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
   %28 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ess_base_framework, i64 76), align 4
-  %or.cond3.i = icmp ult i32 %28, 64
-  br i1 %or.cond3.i, label %29, label %36
+  %or.cond10.i = icmp ult i32 %28, 64
+  br i1 %or.cond10.i, label %29, label %36
 
 29:                                               ; preds = %22
   %30 = zext nneg i32 %28 to i64
@@ -128,8 +128,8 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
   %45 = tail call noalias ptr @strdup(ptr noundef nonnull %40) #7
   store ptr %45, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %46 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ess_base_framework, i64 76), align 4
-  %or.cond5.i = icmp ult i32 %46, 64
-  br i1 %or.cond5.i, label %47, label %55
+  %or.cond11.i = icmp ult i32 %46, 64
+  br i1 %or.cond11.i, label %47, label %55
 
 47:                                               ; preds = %44
   %48 = zext nneg i32 %46 to i64

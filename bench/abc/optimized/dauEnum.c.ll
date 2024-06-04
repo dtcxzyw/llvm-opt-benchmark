@@ -1398,8 +1398,8 @@ Dau_EnumTestDump.exit:                            ; preds = %380, %.critedge.i
   %.val = load i32, ptr %417, align 4
   %418 = trunc nuw nsw i64 %indvars.iv424 to i32
   %419 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %418, i32 noundef %.val)
-  %.val15.i.i = load i32, ptr %417, align 4
-  %420 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %417, align 4
+  %420 = icmp sgt i32 %.val16.i.i, 0
   br i1 %420, label %.lr.ph.i.i327, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i327:                                    ; preds = %414
@@ -1407,10 +1407,10 @@ Dau_EnumTestDump.exit:                            ; preds = %380, %.critedge.i
   br label %422
 
 422:                                              ; preds = %426, %.lr.ph.i.i327
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i327 ], [ %.val.i.i, %426 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i327 ], [ %.val.i.i, %426 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i327 ], [ %indvars.iv.next.i.i, %426 ]
-  %.val14.i.i = load ptr, ptr %421, align 8
-  %423 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %421, align 8
+  %423 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %424 = load ptr, ptr %423, align 8
   %switch.i.i = icmp ult ptr %424, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %426, label %425
@@ -1421,7 +1421,7 @@ Dau_EnumTestDump.exit:                            ; preds = %380, %.critedge.i
   br label %426
 
 426:                                              ; preds = %425, %422
-  %.val.i.i = phi i32 [ %.val18.i.i, %422 ], [ %.val.pre.i.i, %425 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %422 ], [ %.val.pre.i.i, %425 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %427 = sext i32 %.val.i.i to i64
   %428 = icmp slt i64 %indvars.iv.next.i.i, %427

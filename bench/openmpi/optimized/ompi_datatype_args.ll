@@ -1187,8 +1187,8 @@ define i64 @ompi_datatype_pack_description_length(ptr noundef %0) local_unnamed_
 
 11:                                               ; preds = %7
   %12 = call i32 @ompi_datatype_get_pack_description(ptr noundef nonnull %0, ptr noundef nonnull %2)
-  %.not8 = icmp eq i32 %12, 0
-  br i1 %.not8, label %13, label %18
+  %.not9 = icmp eq i32 %12, 0
+  br i1 %.not9, label %13, label %18
 
 13:                                               ; preds = %11, %7
   %14 = getelementptr inbounds i8, ptr %0, i64 216

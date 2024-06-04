@@ -710,7 +710,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8, !tbaa !40
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8, !tbaa !40
   ret void
 }
 
@@ -788,7 +788,7 @@ invoke.cont6:                                     ; preds = %.noexc.i
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly4bser15BserDecodeErrorE, i64 16), ptr %exception, align 8, !tbaa !40
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly4bser15BserDecodeErrorE, i64 16), ptr %exception, align 8, !tbaa !40
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly4bser15BserDecodeErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #19
           to label %unreachable unwind label %lpad7
 
@@ -2431,7 +2431,7 @@ invoke.cont2:                                     ; preds = %.noexc.i
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly4bser15BserDecodeErrorE, i64 16), ptr %exception, align 8, !tbaa !40
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly4bser15BserDecodeErrorE, i64 16), ptr %exception, align 8, !tbaa !40
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly4bser15BserDecodeErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #19
           to label %unreachable unwind label %lpad3
 
@@ -2668,7 +2668,7 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 define linkonce_odr void @_ZN5folly9TypeErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly9TypeErrorE, i64 16), ptr %this, align 8, !tbaa !40
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly9TypeErrorE, i64 16), ptr %this, align 8, !tbaa !40
   ret void
 }
 
@@ -2843,7 +2843,7 @@ invoke.cont2:                                     ; preds = %.noexc.i
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly4bser15BserDecodeErrorE, i64 16), ptr %exception, align 8, !tbaa !40
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly4bser15BserDecodeErrorE, i64 16), ptr %exception, align 8, !tbaa !40
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly4bser15BserDecodeErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #19
           to label %unreachable unwind label %lpad3
 

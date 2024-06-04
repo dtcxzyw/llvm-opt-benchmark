@@ -3719,11 +3719,11 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder5onRetEPNS0_11F
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPassC2Ev(ptr noundef nonnull align 8 dereferenceable(968) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN6asmjit9_abi_1_1010BaseRAPassC2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) #15
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN6asmjit9_abi_1_103x869X86RAPassE, i64 16), ptr %0, align 8, !tbaa !211
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_103x869X86RAPassE, i64 16), ptr %0, align 8, !tbaa !211
   %2 = getelementptr inbounds i8, ptr %0, i64 944
   %3 = getelementptr inbounds i8, ptr %0, i64 952
   store ptr null, ptr %3, align 8, !tbaa !213
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 16), ptr %2, align 8, !tbaa !211
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 16), ptr %2, align 8, !tbaa !211
   %4 = getelementptr inbounds i8, ptr %0, i64 960
   store i8 0, ptr %4, align 8, !tbaa !215
   %5 = getelementptr inbounds i8, ptr %0, i64 961

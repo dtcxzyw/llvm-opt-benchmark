@@ -1749,8 +1749,8 @@ entry:
   %pending1 = getelementptr inbounds i8, ptr %interp, i64 88
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
-  %spec.store.select = select i1 %tobool.not, ptr %pending1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2312)
-  %mutex = getelementptr inbounds i8, ptr %spec.store.select, i64 4
+  %spec.select = select i1 %tobool.not, ptr %pending1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2312)
+  %mutex = getelementptr inbounds i8, ptr %spec.select, i64 4
   %0 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
@@ -1760,17 +1760,17 @@ if.then.i:                                        ; preds = %entry
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
-  %last.i = getelementptr inbounds i8, ptr %spec.store.select, i64 788
+  %last.i = getelementptr inbounds i8, ptr %spec.select, i64 788
   %2 = load i32, ptr %last.i, align 4
   %add.i = add i32 %2, 1
   %rem.i = srem i32 %add.i, 32
-  %first.i = getelementptr inbounds i8, ptr %spec.store.select, i64 784
+  %first.i = getelementptr inbounds i8, ptr %spec.select, i64 784
   %3 = load i32, ptr %first.i, align 8
   %cmp.i = icmp eq i32 %rem.i, %3
   br i1 %cmp.i, label %_push_pending_call.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %PyMutex_Lock.exit
-  %calls.i = getelementptr inbounds i8, ptr %spec.store.select, i64 16
+  %calls.i = getelementptr inbounds i8, ptr %spec.select, i64 16
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr [32 x %struct._pending_call], ptr %calls.i, i64 0, i64 %idxprom.i
   store ptr %func, ptr %arrayidx.i, align 8
@@ -1779,7 +1779,7 @@ if.end.i:                                         ; preds = %PyMutex_Lock.exit
   %flags9.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store i32 %flags, ptr %flags9.i, align 8
   store i32 %rem.i, ptr %last.i, align 4
-  %calls_to_do.i = getelementptr inbounds i8, ptr %spec.store.select, i64 8
+  %calls_to_do.i = getelementptr inbounds i8, ptr %spec.select, i64 8
   %4 = load i32, ptr %calls_to_do.i, align 8
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %calls_to_do.i, align 8

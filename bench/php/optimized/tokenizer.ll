@@ -1700,19 +1700,26 @@ define hidden void @on_event(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr
   ]
 
 7:                                                ; preds = %6
-  %8 = icmp eq i32 %1, 0
-  br i1 %8, label %70, label %9
+  switch i32 %1, label %14 [
+    i32 0, label %70
+    i32 59, label %8
+    i32 291, label %11
+  ]
 
-9:                                                ; preds = %7
-  %10 = icmp eq i32 %1, 59
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
-  %12 = icmp ugt i32 %11, 1
-  %or.cond = select i1 %10, i1 %12, i1 false
-  %13 = icmp eq i32 %1, 291
-  %14 = icmp eq i32 %11, 3
-  %or.cond4 = select i1 %13, i1 %14, i1 false
-  %spec.store.select = select i1 %or.cond4, i32 390, i32 %1
-  %.0 = select i1 %or.cond, i32 391, i32 %spec.store.select
+8:                                                ; preds = %7
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %10 = icmp ugt i32 %9, 1
+  %spec.select47 = select i1 %10, i32 391, i32 59
+  br label %14
+
+11:                                               ; preds = %7
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  %13 = icmp eq i32 %12, 3
+  %spec.select = select i1 %13, i32 390, i32 291
+  br label %14
+
+14:                                               ; preds = %8, %11, %7
+  %.0 = phi i32 [ %1, %7 ], [ %spec.select, %11 ], [ %spec.select47, %8 ]
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -1740,11 +1747,11 @@ define hidden void @on_event(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %35
 
 35:                                               ; preds = %extract_token_id_to_replace.exit.thread, %18
-  %.041 = phi i32 [ %22, %18 ], [ %55, %extract_token_id_to_replace.exit.thread ]
-  %.039 = phi ptr [ %33, %18 ], [ %36, %extract_token_id_to_replace.exit.thread ]
-  %.not47 = icmp ne i32 %.041, 0
-  tail call void @llvm.assume(i1 %.not47)
-  %36 = getelementptr inbounds i8, ptr %.039, i64 %34
+  %.037 = phi i32 [ %22, %18 ], [ %55, %extract_token_id_to_replace.exit.thread ]
+  %.035 = phi ptr [ %33, %18 ], [ %36, %extract_token_id_to_replace.exit.thread ]
+  %.not43 = icmp ne i32 %.037, 0
+  tail call void @llvm.assume(i1 %.not43)
+  %36 = getelementptr inbounds i8, ptr %.035, i64 %34
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load i8, ptr %37, align 8
   switch i8 %38, label %extract_token_id_to_replace.exit.thread [
@@ -1778,12 +1785,12 @@ define hidden void @on_event(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %54 = getelementptr inbounds i8, ptr %49, i64 24
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %54, ptr readonly %3, i64 %4)
   %.not.i = icmp ne i32 %bcmp.i, 0
-  %.not48 = icmp eq ptr %.015.i, null
-  %or.cond51 = select i1 %.not.i, i1 true, i1 %.not48
-  br i1 %or.cond51, label %extract_token_id_to_replace.exit.thread, label %56
+  %.not44 = icmp eq ptr %.015.i, null
+  %or.cond = select i1 %.not.i, i1 true, i1 %.not44
+  br i1 %or.cond, label %extract_token_id_to_replace.exit.thread, label %56
 
 extract_token_id_to_replace.exit.thread:          ; preds = %35, %48, %53
-  %55 = add i32 %.041, -1
+  %55 = add i32 %.037, -1
   br label %35
 
 56:                                               ; preds = %53
@@ -1810,7 +1817,7 @@ extract_token_id_to_replace.exit.thread:          ; preds = %35, %48, %53
   tail call fastcc void @add_token(ptr noundef %63, i32 noundef 267, ptr noundef %60, i64 noundef %66, i32 noundef %67, ptr noundef %69, ptr noundef null)
   br label %70
 
-70:                                               ; preds = %59, %62, %7, %56, %9, %6
+70:                                               ; preds = %7, %59, %62, %56, %14, %6
   ret void
 }
 

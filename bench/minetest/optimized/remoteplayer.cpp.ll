@@ -369,7 +369,7 @@ entry:
   %ref.tmp188 = alloca %struct.SunParams, align 8
   %ref.tmp197 = alloca %struct.MoonParams, align 8
   tail call void @_ZN6PlayerC2EPKcP15IItemDefManager(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef %name, ptr noundef %idef)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV12RemotePlayer, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12RemotePlayer, i64 16), ptr %this, align 8, !tbaa !12
   %protocol_version = getelementptr inbounds i8, ptr %this, i64 432
   store i16 0, ptr %protocol_version, align 8, !tbaa !14
   %formspec_version = getelementptr inbounds i8, ptr %this, i64 434
@@ -2072,7 +2072,7 @@ declare void @_ZN6PlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(432)) u
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12RemotePlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(970) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV12RemotePlayer, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12RemotePlayer, i64 16), ptr %this, align 8, !tbaa !12
   %m_sao = getelementptr inbounds i8, ptr %this, i64 440
   %0 = load ptr, ptr %m_sao, align 8, !tbaa !51
   %tobool.not = icmp eq ptr %0, null
@@ -2342,7 +2342,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp11, label %if.then12, label %if.end23
 
 if.then12:                                        ; preds = %if.end
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %5, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %5
 
 5:                                                ; preds = %if.then12
   tail call void @_ZTH10infostream()

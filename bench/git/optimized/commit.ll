@@ -445,8 +445,8 @@ sub_1:                                            ; preds = %land.lhs.true
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = add nsw i32 %6, -104
-  %.not18 = icmp eq i32 %7, 0
-  br i1 %.not18, label %sub_2, label %land.lhs.true.tail
+  %.not19 = icmp eq i32 %7, 0
+  br i1 %.not19, label %sub_2, label %land.lhs.true.tail
 
 sub_2:                                            ; preds = %sub_1
   %8 = getelementptr inbounds i8, ptr %0, i64 2
@@ -517,8 +517,8 @@ if.end17.sink.split.i:                            ; preds = %if.else8.i, %if.els
 
 handle_untracked_files_arg.exit:                  ; preds = %if.end, %if.end17.sink.split.i
   %22 = load ptr, ptr @ignored_arg, align 8
-  %tobool.not.i7 = icmp eq ptr %22, null
-  br i1 %tobool.not.i7, label %handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge, label %if.else.i
+  %tobool.not.i8 = icmp eq ptr %22, null
+  br i1 %tobool.not.i8, label %handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge, label %if.else.i
 
 handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge: ; preds = %handle_untracked_files_arg.exit
   %.pre = load i32, ptr getelementptr inbounds (i8, ptr @cmd_status.s, i64 92), align 4
@@ -527,43 +527,43 @@ handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge: ; preds = %ha
 if.else.i:                                        ; preds = %handle_untracked_files_arg.exit
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(12) @.str.24) #18
   %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %if.end17.sink.split.i15, label %sub_0.i8
+  br i1 %tobool1.not.i, label %if.end17.sink.split.i16, label %sub_0.i9
 
-sub_0.i8:                                         ; preds = %if.else.i
+sub_0.i9:                                         ; preds = %if.else.i
   %23 = load i8, ptr %22, align 1
-  %.not.i9 = icmp eq i8 %23, 110
-  br i1 %.not.i9, label %sub_1.i17, label %if.else8.i10
+  %.not.i10 = icmp eq i8 %23, 110
+  br i1 %.not.i10, label %sub_1.i18, label %if.else8.i11
 
-sub_1.i17:                                        ; preds = %sub_0.i8
+sub_1.i18:                                        ; preds = %sub_0.i9
   %24 = getelementptr inbounds i8, ptr %22, i64 1
   %25 = load i8, ptr %24, align 1
   %.not1.i = icmp eq i8 %25, 111
-  br i1 %.not1.i, label %if.else3.tail.i, label %if.else8.i10
+  br i1 %.not1.i, label %if.else3.tail.i, label %if.else8.i11
 
-if.else3.tail.i:                                  ; preds = %sub_1.i17
+if.else3.tail.i:                                  ; preds = %sub_1.i18
   %26 = getelementptr inbounds i8, ptr %22, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %if.end17.sink.split.i15, label %if.else8.i10
+  br i1 %28, label %if.end17.sink.split.i16, label %if.else8.i11
 
-if.else8.i10:                                     ; preds = %if.else3.tail.i, %sub_1.i17, %sub_0.i8
-  %call9.i11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(9) @.str.167) #18
-  %tobool10.not.i12 = icmp eq i32 %call9.i11, 0
-  br i1 %tobool10.not.i12, label %if.end17.sink.split.i15, label %if.else13.i13
+if.else8.i11:                                     ; preds = %if.else3.tail.i, %sub_1.i18, %sub_0.i9
+  %call9.i12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(9) @.str.167) #18
+  %tobool10.not.i13 = icmp eq i32 %call9.i12, 0
+  br i1 %tobool10.not.i13, label %if.end17.sink.split.i16, label %if.else13.i14
 
-if.else13.i13:                                    ; preds = %if.else8.i10
-  %call14.i14 = tail call fastcc ptr @_(ptr noundef nonnull @.str.168)
+if.else13.i14:                                    ; preds = %if.else8.i11
+  %call14.i15 = tail call fastcc ptr @_(ptr noundef nonnull @.str.168)
   %29 = load ptr, ptr @ignored_arg, align 8
-  tail call void (ptr, ...) @die(ptr noundef %call14.i14, ptr noundef %29) #17
+  tail call void (ptr, ...) @die(ptr noundef %call14.i15, ptr noundef %29) #17
   unreachable
 
-if.end17.sink.split.i15:                          ; preds = %if.else8.i10, %if.else3.tail.i, %if.else.i
-  %.sink.i16 = phi i32 [ 1, %if.else.i ], [ 0, %if.else3.tail.i ], [ 2, %if.else8.i10 ]
-  store i32 %.sink.i16, ptr getelementptr inbounds (i8, ptr @cmd_status.s, i64 92), align 4
+if.end17.sink.split.i16:                          ; preds = %if.else8.i11, %if.else3.tail.i, %if.else.i
+  %.sink.i17 = phi i32 [ 1, %if.else.i ], [ 0, %if.else3.tail.i ], [ 2, %if.else8.i11 ]
+  store i32 %.sink.i17, ptr getelementptr inbounds (i8, ptr @cmd_status.s, i64 92), align 4
   br label %handle_ignored_arg.exit
 
-handle_ignored_arg.exit:                          ; preds = %handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge, %if.end17.sink.split.i15
-  %30 = phi i32 [ %.pre, %handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge ], [ %.sink.i16, %if.end17.sink.split.i15 ]
+handle_ignored_arg.exit:                          ; preds = %handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge, %if.end17.sink.split.i16
+  %30 = phi i32 [ %.pre, %handle_untracked_files_arg.exit.handle_ignored_arg.exit_crit_edge ], [ %.sink.i17, %if.end17.sink.split.i16 ]
   %cmp3 = icmp eq i32 %30, 2
   %31 = load i32, ptr getelementptr inbounds (i8, ptr @cmd_status.s, i64 96), align 8
   %cmp5 = icmp eq i32 %31, 0
@@ -579,8 +579,8 @@ if.end8:                                          ; preds = %handle_ignored_arg.
   tail call void @parse_pathspec(ptr noundef nonnull getelementptr inbounds (i8, ptr @cmd_status.s, i64 32), i32 noundef 0, i32 noundef 2, ptr noundef %prefix, ptr noundef %argv) #16
   %32 = load i32, ptr @status_format, align 4
   %33 = add i32 %32, -5
-  %or.cond1 = icmp ult i32 %33, -2
-  %spec.select = select i1 %or.cond1, i32 70, i32 6
+  %or.cond2 = icmp ult i32 %33, -2
+  %spec.select = select i1 %or.cond2, i32 70, i32 6
   %34 = load ptr, ptr @the_repository, align 8
   %call14 = tail call i32 @repo_read_index(ptr noundef %34) #16
   %call15 = tail call i32 @refresh_index(ptr noundef nonnull @the_index, i32 noundef %spec.select, ptr noundef nonnull getelementptr inbounds (i8, ptr @cmd_status.s, i64 32), ptr noundef null, ptr noundef null) #16

@@ -1658,13 +1658,13 @@ define internal fastcc range(i32 -2, 1) i32 @mca_bml_r2_add_btls() unnamed_addr 
   br i1 %or.cond, label %41, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.01636 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 32), align 8
-  %.not37 = icmp eq ptr %.01636, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
-  br i1 %.not37, label %._crit_edge.thread, label %.lr.ph39
+  %.01535 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 32), align 8
+  %.not36 = icmp eq ptr %.01535, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
+  br i1 %.not36, label %._crit_edge.thread, label %.lr.ph38
 
-.lr.ph39:                                         ; preds = %.preheader, %32
-  %.01638 = phi ptr [ %.016, %32 ], [ %.01636, %.preheader ]
-  %11 = getelementptr inbounds i8, ptr %.01638, i64 48
+.lr.ph38:                                         ; preds = %.preheader, %32
+  %.01537 = phi ptr [ %.015, %32 ], [ %.01535, %.preheader ]
+  %11 = getelementptr inbounds i8, ptr %.01537, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 88), align 8
   %14 = load i64, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 80), align 8
@@ -1673,22 +1673,22 @@ define internal fastcc range(i32 -2, 1) i32 @mca_bml_r2_add_btls() unnamed_addr 
   %16 = getelementptr inbounds ptr, ptr %13, i64 %14
   store ptr %12, ptr %16, align 8
   %17 = load ptr, ptr %1, align 8
-  %.not23 = icmp eq ptr %17, null
-  br i1 %.not23, label %.critedge, label %.lr.ph.split
+  %.not22 = icmp eq ptr %17, null
+  br i1 %.not22, label %.critedge, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph39
+.lr.ph.split:                                     ; preds = %.lr.ph38
   %18 = load ptr, ptr %17, align 8
-  %.not2429 = icmp eq ptr %18, null
-  br i1 %.not2429, label %.critedge, label %.lr.ph31
+  %.not2328 = icmp eq ptr %18, null
+  br i1 %.not2328, label %.critedge, label %.lr.ph30
 
-.lr.ph31:                                         ; preds = %.lr.ph.split
+.lr.ph30:                                         ; preds = %.lr.ph.split
   %19 = load ptr, ptr %12, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 84
   br label %21
 
-21:                                               ; preds = %.lr.ph31, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next, %25 ]
-  %22 = phi ptr [ %18, %.lr.ph31 ], [ %27, %25 ]
+21:                                               ; preds = %.lr.ph30, %25
+  %indvars.iv = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next, %25 ]
+  %22 = phi ptr [ %18, %.lr.ph30 ], [ %27, %25 ]
   %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %20) #17
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.split, label %25
@@ -1697,36 +1697,36 @@ define internal fastcc range(i32 -2, 1) i32 @mca_bml_r2_add_btls() unnamed_addr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.next
   %27 = load ptr, ptr %26, align 8
-  %.not24 = icmp eq ptr %27, null
-  br i1 %.not24, label %.split, label %21
+  %.not23 = icmp eq ptr %27, null
+  br i1 %.not23, label %.split, label %21
 
 .split:                                           ; preds = %21, %25
-  %.017.lcssa26.ph.in = phi i64 [ %indvars.iv.next, %25 ], [ %indvars.iv, %21 ]
-  %.phi.trans.insert = and i64 %.017.lcssa26.ph.in, 4294967295
-  %.phi.trans.insert41 = getelementptr inbounds ptr, ptr %17, i64 %.phi.trans.insert
-  %.pre = load ptr, ptr %.phi.trans.insert41, align 8
+  %.016.lcssa25.ph.in = phi i64 [ %indvars.iv.next, %25 ], [ %indvars.iv, %21 ]
+  %.phi.trans.insert = and i64 %.016.lcssa25.ph.in, 4294967295
+  %.phi.trans.insert40 = getelementptr inbounds ptr, ptr %17, i64 %.phi.trans.insert
+  %.pre = load ptr, ptr %.phi.trans.insert40, align 8
   %28 = icmp eq ptr %.pre, null
   br i1 %28, label %.critedge, label %32
 
-.critedge:                                        ; preds = %.lr.ph.split, %.lr.ph39, %.split
+.critedge:                                        ; preds = %.lr.ph.split, %.lr.ph38, %.split
   %29 = load ptr, ptr %12, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 84
   %31 = call i32 @opal_argv_append_nosize(ptr noundef nonnull %1, ptr noundef nonnull %30) #15
   br label %32
 
 32:                                               ; preds = %.split, %.critedge
-  %33 = getelementptr inbounds i8, ptr %.01638, i64 16
-  %.016 = load volatile ptr, ptr %33, align 8
-  %.not = icmp eq ptr %.016, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
-  br i1 %.not, label %._crit_edge, label %.lr.ph39, !llvm.loop !33
+  %33 = getelementptr inbounds i8, ptr %.01537, i64 16
+  %.015 = load volatile ptr, ptr %33, align 8
+  %.not = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
+  br i1 %.not, label %._crit_edge, label %.lr.ph38, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %32
-  %.pre42 = load ptr, ptr %1, align 8
-  %.not22 = icmp eq ptr %.pre42, null
-  br i1 %.not22, label %._crit_edge.thread, label %34
+  %.pre41 = load ptr, ptr %1, align 8
+  %.not21 = icmp eq ptr %.pre41, null
+  br i1 %.not21, label %._crit_edge.thread, label %34
 
 34:                                               ; preds = %._crit_edge
-  %35 = call noalias ptr @opal_argv_join(ptr noundef nonnull %.pre42, i32 noundef 32) #15
+  %35 = call noalias ptr @opal_argv_join(ptr noundef nonnull %.pre41, i32 noundef 32) #15
   store ptr %35, ptr @btl_names, align 8
   %36 = load ptr, ptr %1, align 8
   call void @opal_argv_free(ptr noundef %36) #15

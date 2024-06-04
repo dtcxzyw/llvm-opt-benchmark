@@ -44,8 +44,8 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
 
 12:                                               ; preds = %9
   %13 = call i64 @deflateBound(ptr noundef nonnull %5, i64 noundef %1) #8
-  %.not39 = icmp ult i64 %13, %1
-  br i1 %.not39, label %16, label %14
+  %.not37 = icmp ult i64 %13, %1
+  br i1 %.not37, label %16, label %14
 
 14:                                               ; preds = %12
   %15 = call i32 @deflateEnd(ptr noundef nonnull %5) #8
@@ -71,8 +71,8 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
   store ptr %17, ptr %25, align 8
   %26 = call i32 @deflate(ptr noundef nonnull %5, i32 noundef 4) #8
   %27 = call i32 @deflateEnd(ptr noundef nonnull %5) #8
-  %.not40 = icmp eq i32 %26, 1
-  br i1 %.not40, label %29, label %28
+  %.not38 = icmp eq i32 %26, 1
+  br i1 %.not38, label %29, label %28
 
 28:                                               ; preds = %21
   call void @free(ptr noundef nonnull %17) #8
@@ -99,8 +99,8 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %17, i64 %32, i1 false)
   call void @free(ptr noundef nonnull %17) #8
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pcompress_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %39, 64
-  br i1 %or.cond3, label %40, label %46
+  %or.cond39 = icmp ult i32 %39, 64
+  br i1 %or.cond39, label %40, label %46
 
 40:                                               ; preds = %37
   %41 = zext nneg i32 %39 to i64

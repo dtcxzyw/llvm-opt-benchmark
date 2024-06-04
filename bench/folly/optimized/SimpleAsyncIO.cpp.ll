@@ -143,7 +143,7 @@ entry:
   %state.i.i = alloca i32, align 4
   %ref.tmp = alloca %"class.google::LogMessageFatal", align 8
   tail call void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef null, i32 -1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly13SimpleAsyncIOE, i64 16), ptr %this, align 8, !tbaa !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly13SimpleAsyncIOE, i64 16), ptr %this, align 8, !tbaa !13
   %maxRequests_ = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i64, ptr %cfg, align 8, !tbaa !15
   store i64 %0, ptr %maxRequests_, align 8, !tbaa !20
@@ -633,7 +633,7 @@ entry:
   %ctx.i.i.i.i.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
   %deadline.i = alloca %"class.std::chrono::time_point", align 8
   %ref.tmp2 = alloca %"class.folly::WaitOptions", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly13SimpleAsyncIOE, i64 16), ptr %this, align 8, !tbaa !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly13SimpleAsyncIOE, i64 16), ptr %this, align 8, !tbaa !13
   %opsFreeList_ = getelementptr inbounds i8, ptr %this, i64 200
   %mutex_.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i.i) #19, !noalias !90
@@ -1777,7 +1777,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !13
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #25
           to label %invoke.cont unwind label %lpad
 
@@ -1796,7 +1796,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #16 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #23
   unreachable
 }

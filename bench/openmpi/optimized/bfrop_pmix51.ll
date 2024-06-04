@@ -5032,11 +5032,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 35:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %.03249 = phi ptr [ %28, %.lr.ph ], [ %44, %42 ]
+  %.03148 = phi ptr [ %28, %.lr.ph ], [ %44, %42 ]
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psquash, i64 40), align 8
   %37 = mul nuw nsw i64 %switch.load, %indvars.iv
   %38 = getelementptr inbounds i8, ptr %2, i64 %37
-  %39 = call i32 %36(i16 noundef zeroext %4, ptr noundef %38, ptr noundef %.03249, ptr noundef nonnull %7) #12
+  %39 = call i32 %36(i16 noundef zeroext %4, ptr noundef %38, ptr noundef %.03148, ptr noundef nonnull %7) #12
   switch i32 %39, label %40 [
     i32 0, label %42
     i32 -2, label %.loopexit
@@ -5049,7 +5049,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 42:                                               ; preds = %35
   %43 = load i64, ptr %7, align 8
-  %44 = getelementptr inbounds i8, ptr %.03249, i64 %43
+  %44 = getelementptr inbounds i8, ptr %.03148, i64 %43
   %45 = load ptr, ptr %31, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 %43
   store ptr %46, ptr %31, align 8
@@ -5061,8 +5061,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %exitcond.not, label %.loopexit, label %35, !llvm.loop !22
 
 .loopexit:                                        ; preds = %35, %42, %.preheader, %40, %22, %switch.lookup, %33, %17
-  %.035 = phi i32 [ -27, %17 ], [ -29, %33 ], [ %21, %switch.lookup ], [ %21, %22 ], [ %39, %40 ], [ 0, %.preheader ], [ %39, %42 ], [ %39, %35 ]
-  ret i32 %.035
+  %.034 = phi i32 [ -27, %17 ], [ -29, %33 ], [ %21, %switch.lookup ], [ %21, %22 ], [ %39, %40 ], [ 0, %.preheader ], [ %39, %42 ], [ %39, %35 ]
+  ret i32 %.034
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5185,8 +5185,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %54, %.preheader, %42, %31, %switch.lookup, %16, %52, %48, %24
-  %.037 = phi i32 [ -27, %24 ], [ -20, %48 ], [ -63, %52 ], [ -50, %16 ], [ %28, %switch.lookup ], [ %28, %31 ], [ %41, %42 ], [ 0, %.preheader ], [ %41, %54 ], [ %41, %.lr.ph ]
-  ret i32 %.037
+  %.036 = phi i32 [ -27, %24 ], [ -20, %48 ], [ -63, %52 ], [ -50, %16 ], [ %28, %switch.lookup ], [ %28, %31 ], [ %41, %42 ], [ 0, %.preheader ], [ %41, %54 ], [ %41, %.lr.ph ]
+  ret i32 %.036
 }
 
 declare i32 @pmix_bfrops_base_print_int16(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) #1

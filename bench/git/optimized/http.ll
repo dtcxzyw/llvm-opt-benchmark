@@ -3254,14 +3254,14 @@ if.then4.i:                                       ; preds = %normalize_curl_resu
 if.else9.i:                                       ; preds = %normalize_curl_result.exit.i
   %8 = load i64, ptr %http_code.i, align 8
   %conv.i = trunc i64 %8 to i32
-  %cmp.i13.i = icmp eq i32 %7, 37
-  br i1 %cmp.i13.i, label %return, label %lor.lhs.false.i.i
+  %cmp.i14.i = icmp eq i32 %7, 37
+  br i1 %cmp.i14.i, label %return, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.else9.i
-  %cmp1.i14.i = icmp eq i32 %conv.i, 404
+  %cmp1.i15.i = icmp eq i32 %conv.i, 404
   %cmp2.i.i = icmp eq i32 %7, 22
-  %or.cond.i15.i = and i1 %cmp2.i.i, %cmp1.i14.i
-  br i1 %or.cond.i15.i, label %return, label %missing__target.exit.i
+  %or.cond.i16.i = and i1 %cmp2.i.i, %cmp1.i15.i
+  br i1 %or.cond.i16.i, label %return, label %missing__target.exit.i
 
 missing__target.exit.i:                           ; preds = %lor.lhs.false.i.i
   %cmp3.i.i = icmp ne i32 %conv.i, 550

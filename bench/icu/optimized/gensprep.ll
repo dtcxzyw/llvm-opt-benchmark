@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
-  %fields.i57 = alloca [4 x [2 x ptr]], align 16
+  %fields.i59 = alloca [4 x [2 x ptr]], align 16
   %fields.i = alloca [3 x [2 x ptr]], align 16
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
@@ -77,8 +77,8 @@ if.end:                                           ; preds = %entry
   %tobool = icmp ne i8 %2, 0
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 74), align 2
   %tobool6 = icmp ne i8 %3, 0
-  %or.cond1 = select i1 %tobool, i1 true, i1 %tobool6
-  br i1 %or.cond1, label %if.then7, label %if.end9
+  %or.cond3 = select i1 %tobool, i1 true, i1 %tobool6
+  br i1 %or.cond3, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end.thread, %if.end
   %argv.val = load ptr, ptr %argv, align 8
@@ -109,20 +109,20 @@ if.end9:                                          ; preds = %if.end
   %19 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 354), align 2
   %tobool10.not = icmp eq i8 %19, 0
   %.val = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 368), align 16
-  %.val68 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 328), align 8
-  %icuUniDataDir.0 = select i1 %tobool10.not, ptr %.val, ptr %.val68
+  %.val70 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 328), align 8
+  %icuUniDataDir.0 = select i1 %tobool10.not, ptr %.val, ptr %.val70
   %cmp13 = icmp ult i32 %call1, 2
   br i1 %cmp13, label %if.then15, label %if.else17
 
 if.then15:                                        ; preds = %if.end9
-  %argv.val46 = load ptr, ptr %argv, align 8
+  %argv.val48 = load ptr, ptr %argv, align 8
   %20 = load ptr, ptr @stderr, align 8
-  %call.i48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.18, ptr noundef %argv.val46) #12
+  %call.i50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.18, ptr noundef %argv.val48) #12
   %21 = load ptr, ptr @stderr, align 8
   %22 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 151, i64 1, ptr %21) #12
   %23 = load ptr, ptr @stderr, align 8
-  %call2.i49 = tail call ptr @u_getDataDirectory_75() #11
-  %call3.i50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.20, ptr noundef %call2.i49) #12
+  %call2.i51 = tail call ptr @u_getDataDirectory_75() #11
+  %call3.i52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.20, ptr noundef %call2.i51) #12
   %24 = load ptr, ptr @stderr, align 8
   %25 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 226, i64 1, ptr %24) #12
   %26 = load ptr, ptr @stderr, align 8
@@ -139,14 +139,14 @@ if.else17:                                        ; preds = %if.end9
   br i1 %tobool20.not, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.else17
-  %argv.val47 = load ptr, ptr %argv, align 8
+  %argv.val49 = load ptr, ptr %argv, align 8
   %32 = load ptr, ptr @stderr, align 8
-  %call.i52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.18, ptr noundef %argv.val47) #12
+  %call.i54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.18, ptr noundef %argv.val49) #12
   %33 = load ptr, ptr @stderr, align 8
   %34 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 151, i64 1, ptr %33) #12
   %35 = load ptr, ptr @stderr, align 8
-  %call2.i53 = tail call ptr @u_getDataDirectory_75() #11
-  %call3.i54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.20, ptr noundef %call2.i53) #12
+  %call2.i55 = tail call ptr @u_getDataDirectory_75() #11
+  %call3.i56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.20, ptr noundef %call2.i55) #12
   %36 = load ptr, ptr @stderr, align 8
   %37 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 226, i64 1, ptr %36) #12
   %38 = load ptr, ptr @stderr, align 8
@@ -227,8 +227,8 @@ if.end.i:                                         ; preds = %if.end47, %land.lhs
 
 if.then6.i:                                       ; preds = %if.end.i
   %47 = load ptr, ptr @stderr, align 8
-  %call.i56 = call ptr @u_errorName_75(i32 noundef %46) #11
-  %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.24, ptr noundef %call34, ptr noundef %call.i56) #12
+  %call.i58 = call ptr @u_errorName_75(i32 noundef %46) #11
+  %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.24, ptr noundef %call34, ptr noundef %call.i58) #12
   %48 = load i32, ptr %errorCode, align 4
   call void @exit(i32 noundef %48) #15
   unreachable
@@ -255,42 +255,42 @@ if.then67:                                        ; preds = %if.end65
   %call69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call34) #13
   %add.ptr70 = getelementptr inbounds i8, ptr %call34, i64 %call69
   %cmp71 = icmp sgt i64 %call69, 0
-  br i1 %cmp71, label %land.lhs.true73, label %if.end.i59
+  br i1 %cmp71, label %land.lhs.true73, label %if.end.i61
 
 land.lhs.true73:                                  ; preds = %if.then67
   %add.ptr74 = getelementptr inbounds i8, ptr %add.ptr70, i64 -1
   %52 = load i8, ptr %add.ptr74, align 1
   %cmp76.not = icmp eq i8 %52, 47
-  br i1 %cmp76.not, label %if.end.i59, label %if.then78
+  br i1 %cmp76.not, label %if.end.i61, label %if.then78
 
 if.then78:                                        ; preds = %land.lhs.true73
   %incdec.ptr79 = getelementptr inbounds i8, ptr %add.ptr70, i64 1
   store i8 47, ptr %add.ptr70, align 1
-  br label %if.end.i59
+  br label %if.end.i61
 
-if.end.i59:                                       ; preds = %if.then67, %land.lhs.true73, %if.then78
+if.end.i61:                                       ; preds = %if.then67, %land.lhs.true73, %if.then78
   %basename.1 = phi ptr [ %incdec.ptr79, %if.then78 ], [ %add.ptr70, %land.lhs.true73 ], [ %add.ptr70, %if.then67 ]
   %incdec.ptr81 = getelementptr inbounds i8, ptr %basename.1, i64 1
   store i8 47, ptr %basename.1, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %incdec.ptr81, ptr noundef nonnull align 1 dereferenceable(29) @.str.5, i64 29, i1 false) #11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %fields.i57)
-  call void @u_parseDelimitedFile(ptr noundef %call34, i8 noundef signext 59, ptr noundef nonnull %fields.i57, i32 noundef 4, ptr noundef nonnull @normalizationCorrectionsLineFn, ptr noundef null, ptr noundef nonnull %errorCode) #11
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %fields.i59)
+  call void @u_parseDelimitedFile(ptr noundef %call34, i8 noundef signext 59, ptr noundef nonnull %fields.i59, i32 noundef 4, ptr noundef nonnull @normalizationCorrectionsLineFn, ptr noundef null, ptr noundef nonnull %errorCode) #11
   %53 = load i32, ptr %errorCode, align 4
-  %cmp2.i60 = icmp slt i32 %53, 1
+  %cmp2.i62 = icmp slt i32 %53, 1
   %cmp3.not.i = icmp eq i32 %53, 4
-  %or.cond.i61 = or i1 %cmp2.i60, %cmp3.not.i
-  br i1 %or.cond.i61, label %parseNormalizationCorrections.exit, label %if.then4.i
+  %or.cond.i63 = or i1 %cmp2.i62, %cmp3.not.i
+  br i1 %or.cond.i63, label %parseNormalizationCorrections.exit, label %if.then4.i
 
-if.then4.i:                                       ; preds = %if.end.i59
+if.then4.i:                                       ; preds = %if.end.i61
   %54 = load ptr, ptr @stderr, align 8
-  %call.i62 = call ptr @u_errorName_75(i32 noundef %53) #11
-  %call5.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.24, ptr noundef %call34, ptr noundef %call.i62) #12
+  %call.i64 = call ptr @u_errorName_75(i32 noundef %53) #11
+  %call5.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.24, ptr noundef %call34, ptr noundef %call.i64) #12
   %55 = load i32, ptr %errorCode, align 4
   call void @exit(i32 noundef %55) #15
   unreachable
 
-parseNormalizationCorrections.exit:               ; preds = %if.end.i59
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %fields.i57)
+parseNormalizationCorrections.exit:               ; preds = %if.end.i61
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %fields.i59)
   %cmp83 = icmp sgt i32 %53, 0
   br i1 %cmp83, label %if.then85, label %if.end88
 

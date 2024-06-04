@@ -1171,11 +1171,11 @@ declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 define dso_local void @modulePostExecutionUnitOperations() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 1512), align 8
-  %tobool = icmp eq i32 %0, 0
+  %tobool.not = icmp ne i32 %0, 0
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 224), align 8
-  %tobool1 = icmp ne i32 %1, 0
-  %or.cond = select i1 %tobool, i1 %tobool1, i1 false
-  br i1 %or.cond, label %if.then2, label %if.end6
+  %tobool1.not = icmp eq i32 %1, 0
+  %or.cond = select i1 %tobool.not, i1 true, i1 %tobool1.not
+  br i1 %or.cond, label %if.end6, label %if.then2
 
 if.then2:                                         ; preds = %entry
   tail call void @blockingOperationEnds() #32
@@ -2460,11 +2460,11 @@ cond.end:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %cond.end
   %and = and i64 %call, 4194304
-  %tobool4 = icmp ne i64 %and, 0
+  %tobool4.not = icmp eq i64 %and, 0
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
-  %tobool5 = icmp ne i32 %2, 0
-  %or.cond = select i1 %tobool4, i1 %tobool5, i1 false
-  br i1 %or.cond, label %return, label %if.end7
+  %tobool5.not = icmp eq i32 %2, 0
+  %or.cond = select i1 %tobool4.not, i1 true, i1 %tobool5.not
+  br i1 %or.cond, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end, %if.end3
   %cond1723 = phi i64 [ %call, %if.end3 ], [ 0, %if.end ]
@@ -2702,11 +2702,11 @@ cond.end:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %cond.end
   %and = and i64 %call, 4194304
-  %tobool4 = icmp ne i64 %and, 0
+  %tobool4.not = icmp eq i64 %and, 0
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
-  %tobool5 = icmp ne i32 %2, 0
-  %or.cond = select i1 %tobool4, i1 %tobool5, i1 false
-  br i1 %or.cond, label %return, label %if.end7
+  %tobool5.not = icmp eq i32 %2, 0
+  %or.cond = select i1 %tobool4.not, i1 true, i1 %tobool5.not
+  br i1 %or.cond, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end, %if.end3
   %cond1925 = phi i64 [ %call, %if.end3 ], [ 0, %if.end ]
@@ -8386,11 +8386,11 @@ if.then2:                                         ; preds = %if.then
   %6 = load i32, ptr %resp, align 8
   %cmp = icmp eq i32 %6, 3
   %or16 = or disjoint i32 %flags.1, 4194304
-  %spec.select45 = select i1 %cmp, i32 %or16, i32 %flags.1
+  %spec.select44 = select i1 %cmp, i32 %or16, i32 %flags.1
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then2, %if.then
-  %flags.2 = phi i32 [ 0, %if.then ], [ %spec.select45, %if.then2 ]
+  %flags.2 = phi i32 [ 0, %if.then ], [ %spec.select44, %if.then2 ]
   %blocked_client = getelementptr inbounds i8, ptr %ctx, i64 24
   %7 = load ptr, ptr %blocked_client, align 8
   %tobool19.not = icmp eq ptr %7, null
@@ -8405,19 +8405,19 @@ land.lhs.true:                                    ; preds = %if.end18
   %and25 = and i64 %8, 4128
   %tobool26.not = icmp eq i64 %and25, 0
   %or28 = or i32 %flags.2, 524288
-  %spec.select37 = select i1 %tobool26.not, i32 %flags.2, i32 %or28
+  %spec.select36 = select i1 %tobool26.not, i32 %flags.2, i32 %or28
   br label %if.end30
 
 if.end30:                                         ; preds = %land.lhs.true, %if.end18, %entry
-  %flags.3 = phi i32 [ %flags.2, %if.end18 ], [ 0, %entry ], [ %spec.select37, %land.lhs.true ]
+  %flags.3 = phi i32 [ %flags.2, %if.end18 ], [ 0, %entry ], [ %spec.select36, %land.lhs.true ]
   %call = tail call i32 @scriptIsRunning() #32
   %tobool31.not = icmp ne i32 %call, 0
   %or33 = zext i1 %tobool31.not to i32
-  %spec.select38 = or i32 %flags.3, %or33
+  %spec.select37 = or i32 %flags.3, %or33
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 220), align 4
   %tobool35.not = icmp eq i32 %9, 0
-  %or37 = or i32 %spec.select38, 2
-  %flags.5 = select i1 %tobool35.not, i32 %spec.select38, i32 %or37
+  %or37 = or i32 %spec.select37, 2
+  %flags.5 = select i1 %tobool35.not, i32 %spec.select37, i32 %or37
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
   %tobool39.not = icmp eq i32 %10, 0
   %or41 = or i32 %flags.5, 32
@@ -8434,40 +8434,40 @@ if.else:                                          ; preds = %if.end30
   %12 = load volatile i32, ptr getelementptr inbounds (i8, ptr @server, i64 1900), align 4
   %tobool46.not = icmp eq i32 %12, 0
   %or48 = or i32 %flags.6, 8192
-  %spec.select39 = select i1 %tobool46.not, i32 %flags.6, i32 %or48
+  %spec.select38 = select i1 %tobool46.not, i32 %flags.6, i32 %or48
   br label %if.end50
 
 if.end50:                                         ; preds = %if.else, %if.then44
-  %flags.7 = phi i32 [ %or45, %if.then44 ], [ %spec.select39, %if.else ]
+  %flags.7 = phi i32 [ %or45, %if.then44 ], [ %spec.select38, %if.else ]
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4808), align 8
   %cmp51.not = icmp eq i64 %13, 0
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   br i1 %cmp51.not, label %if.end61, label %land.lhs.true52
 
 land.lhs.true52:                                  ; preds = %if.end50
-  %tobool53 = icmp ne ptr %.pre, null
+  %tobool53.not = icmp eq ptr %.pre, null
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4680), align 8
-  %tobool54 = icmp ne i32 %14, 0
-  %or.cond = select i1 %tobool53, i1 %tobool54, i1 false
-  br i1 %or.cond, label %if.end61, label %if.then55
+  %tobool54.not = icmp eq i32 %14, 0
+  %or.cond = select i1 %tobool53.not, i1 true, i1 %tobool54.not
+  br i1 %or.cond, label %if.then55, label %if.end61
 
 if.then55:                                        ; preds = %land.lhs.true52
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4824), align 8
   %cmp57.not = icmp eq i32 %15, 1792
-  %spec.select40.v = select i1 %cmp57.not, i32 256, i32 768
-  %spec.select40 = or i32 %spec.select40.v, %flags.7
+  %spec.select39.v = select i1 %cmp57.not, i32 256, i32 768
+  %spec.select39 = or i32 %spec.select39.v, %flags.7
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then55, %land.lhs.true52, %if.end50
-  %flags.8 = phi i32 [ %flags.7, %land.lhs.true52 ], [ %flags.7, %if.end50 ], [ %spec.select40, %if.then55 ]
+  %flags.8 = phi i32 [ %flags.7, %if.end50 ], [ %flags.7, %land.lhs.true52 ], [ %spec.select39, %if.then55 ]
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3904), align 8
   %cmp62.not = icmp eq i32 %16, 0
   %or64 = or i32 %flags.8, 64
-  %spec.select41 = select i1 %cmp62.not, i32 %flags.8, i32 %or64
+  %spec.select40 = select i1 %cmp62.not, i32 %flags.8, i32 %or64
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4144), align 8
   %cmp66 = icmp sgt i32 %17, 0
-  %or68 = or i32 %spec.select41, 128
-  %flags.10 = select i1 %cmp66, i32 %or68, i32 %spec.select41
+  %or68 = or i32 %spec.select40, 128
+  %flags.10 = select i1 %cmp66, i32 %or68, i32 %spec.select40
   %cmp70 = icmp eq ptr %.pre, null
   br i1 %cmp70, label %if.then71, label %if.else73
 
@@ -8478,60 +8478,57 @@ if.then71:                                        ; preds = %if.end61
 if.else73:                                        ; preds = %if.end61
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4676), align 4
   %tobool75.not = icmp eq i32 %18, 0
-  %spec.select42.v = select i1 %tobool75.not, i32 8, i32 24
-  %spec.select42 = or i32 %spec.select42.v, %flags.10
+  %spec.select41.v = select i1 %tobool75.not, i32 8, i32 24
+  %spec.select41 = or i32 %spec.select41.v, %flags.10
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4612), align 4
-  %20 = add i32 %19, -1
-  %or.cond1 = icmp ult i32 %20, 2
-  br i1 %or.cond1, label %if.then82, label %if.else84
-
-if.then82:                                        ; preds = %if.else73
-  %or83 = or i32 %spec.select42, 32768
-  br label %if.end94
-
-if.else84:                                        ; preds = %if.else73
   switch i32 %19, label %if.end94 [
+    i32 1, label %if.then82
+    i32 2, label %if.then82
     i32 11, label %if.then86
     i32 12, label %if.then90
   ]
 
-if.then86:                                        ; preds = %if.else84
-  %or87 = or i32 %spec.select42, 65536
+if.then82:                                        ; preds = %if.else73, %if.else73
+  %or83 = or i32 %spec.select41, 32768
   br label %if.end94
 
-if.then90:                                        ; preds = %if.else84
-  %or91 = or i32 %spec.select42, 131072
+if.then86:                                        ; preds = %if.else73
+  %or87 = or i32 %spec.select41, 65536
   br label %if.end94
 
-if.end94:                                         ; preds = %if.else84, %if.then86, %if.then90, %if.then82
-  %flags.12 = phi i32 [ %or83, %if.then82 ], [ %or87, %if.then86 ], [ %or91, %if.then90 ], [ %spec.select42, %if.else84 ]
+if.then90:                                        ; preds = %if.else73
+  %or91 = or i32 %spec.select41, 131072
+  br label %if.end94
+
+if.end94:                                         ; preds = %if.else73, %if.then86, %if.then90, %if.then82
+  %flags.12 = phi i32 [ %or83, %if.then82 ], [ %or87, %if.then86 ], [ %or91, %if.then90 ], [ %spec.select41, %if.else73 ]
   %cmp95.not = icmp eq i32 %19, 12
   %or97 = or i32 %flags.12, 16384
-  %spec.select43 = select i1 %cmp95.not, i32 %flags.12, i32 %or97
+  %spec.select42 = select i1 %cmp95.not, i32 %flags.12, i32 %or97
   br label %if.end99
 
 if.end99:                                         ; preds = %if.end94, %if.then71
-  %flags.13 = phi i32 [ %or72, %if.then71 ], [ %spec.select43, %if.end94 ]
+  %flags.13 = phi i32 [ %or72, %if.then71 ], [ %spec.select42, %if.end94 ]
   %call101 = call i32 @getMaxmemoryState(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %level) #32
   %cmp102 = icmp eq i32 %call101, -1
   %or104 = or i32 %flags.13, 1024
-  %spec.select44 = select i1 %cmp102, i32 %or104, i32 %flags.13
-  %21 = load float, ptr %level, align 4
-  %cmp106 = fcmp ogt float %21, 7.500000e-01
-  %or109 = or i32 %spec.select44, 2048
-  %flags.15 = select i1 %cmp106, i32 %or109, i32 %spec.select44
+  %spec.select43 = select i1 %cmp102, i32 %or104, i32 %flags.13
+  %20 = load float, ptr %level, align 4
+  %cmp106 = fcmp ogt float %20, 7.500000e-01
+  %or109 = or i32 %spec.select43, 2048
+  %flags.15 = select i1 %cmp106, i32 %or109, i32 %spec.select43
   %call111 = call i32 @hasActiveChildProcess() #32
   %tobool112.not = icmp eq i32 %call111, 0
   %or114 = or i32 %flags.15, 262144
   %flags.16 = select i1 %tobool112.not, i32 %flags.15, i32 %or114
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 56), align 8
-  %tobool116.not = icmp eq i32 %22, 0
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 56), align 8
+  %tobool116.not = icmp eq i32 %21, 0
   %or118 = or i32 %flags.16, 1048576
   %flags.17 = select i1 %tobool116.not, i32 %flags.16, i32 %or118
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 288), align 8
-  %len = getelementptr inbounds i8, ptr %23, i64 40
-  %24 = load i64, ptr %len, align 8
-  %cmp120.not = icmp eq i64 %24, 0
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 288), align 8
+  %len = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = load i64, ptr %len, align 8
+  %cmp120.not = icmp eq i64 %23, 0
   %or123 = or i32 %flags.17, 16777216
   %flags.18 = select i1 %cmp120.not, i32 %flags.17, i32 %or123
   ret i32 %flags.18
@@ -9129,9 +9126,9 @@ define dso_local void @RM_ResetDataset(i32 noundef %restart_aof, i32 noundef %as
 entry:
   %tobool = icmp ne i32 %restart_aof, 0
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3904), align 8
-  %cmp = icmp ne i32 %0, 0
-  %or.cond = select i1 %tobool, i1 %cmp, i1 false
-  br i1 %or.cond, label %if.then, label %if.end
+  %cmp.not = icmp ne i32 %0, 0
+  %or.cond2.not = select i1 %tobool, i1 %cmp.not, i1 false
+  br i1 %or.cond2.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @stopAppendOnly() #32
@@ -9144,8 +9141,8 @@ if.end:                                           ; preds = %if.then, %entry
   tail call void @flushAllDataAndResetRDB(i32 noundef %or) #32
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3900), align 4
   %tobool2 = icmp ne i32 %1, 0
-  %or.cond1 = and i1 %tobool, %tobool2
-  br i1 %or.cond1, label %if.then5, label %if.end6
+  %or.cond = and i1 %tobool, %tobool2
+  br i1 %or.cond, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
   tail call void @restartAOFAfterSYNC() #32
@@ -13668,8 +13665,8 @@ if.end79:                                         ; preds = %if.end65
   %tobool82.not = icmp eq i32 %and81, 0
   %and84 = and i64 %call80, 64
   %tobool85.not = icmp eq i64 %and84, 0
-  %or.cond127 = select i1 %tobool82.not, i1 true, i1 %tobool85.not
-  br i1 %or.cond127, label %if.end97, label %if.then86
+  %or.cond122 = select i1 %tobool82.not, i1 true, i1 %tobool85.not
+  br i1 %or.cond122, label %if.end97, label %if.then86
 
 if.then86:                                        ; preds = %if.end79
   %call87 = tail call ptr @__errno_location() #37
@@ -13687,11 +13684,11 @@ if.then89:                                        ; preds = %if.then86
 
 if.end97:                                         ; preds = %if.end79
   %and98 = and i32 %21, 512
-  %tobool99 = icmp ne i32 %and98, 0
+  %tobool99.not = icmp eq i32 %and98, 0
   %24 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4808), align 8
-  %tobool100 = icmp ne i64 %24, 0
-  %or.cond = select i1 %tobool99, i1 %tobool100, i1 false
-  br i1 %or.cond, label %if.then101, label %if.else124
+  %tobool100.not = icmp eq i64 %24, 0
+  %or.cond123 = select i1 %tobool99.not, i1 true, i1 %tobool100.not
+  br i1 %or.cond123, label %if.else124, label %if.then101
 
 if.then101:                                       ; preds = %if.end97
   %and102 = and i64 %call80, 4
@@ -13750,8 +13747,8 @@ if.end127:                                        ; preds = %if.end112.if.end127
   %tobool129.not = icmp eq i32 %and128, 0
   %and131 = and i64 %call80, 1
   %tobool132.not = icmp eq i64 %and131, 0
-  %or.cond128 = select i1 %tobool129.not, i1 true, i1 %tobool132.not
-  br i1 %or.cond128, label %if.end145, label %if.then133
+  %or.cond124 = select i1 %tobool129.not, i1 true, i1 %tobool132.not
+  br i1 %or.cond124, label %if.end145, label %if.then133
 
 if.then133:                                       ; preds = %if.end127
   %call134 = tail call ptr @__errno_location() #37
@@ -13776,7 +13773,7 @@ if.then148:                                       ; preds = %if.end145
   br i1 %tobool132.not, label %if.then148.if.end196_crit_edge, label %if.then151
 
 if.then148.if.end196_crit_edge:                   ; preds = %if.then148
-  %.pre138 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
+  %.pre137 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   br label %if.end196
 
 if.then151:                                       ; preds = %if.then148
@@ -13811,8 +13808,8 @@ land.rhs:                                         ; preds = %if.end163
 land.end:                                         ; preds = %land.rhs, %if.end163
   %36 = phi i1 [ false, %if.end163 ], [ %tobool167, %land.rhs ]
   %cmp168 = icmp eq i32 %call164, 0
-  %or.cond2 = select i1 %cmp168, i1 true, i1 %36
-  br i1 %or.cond2, label %if.end180, label %if.then172
+  %or.cond = select i1 %cmp168, i1 true, i1 %36
+  br i1 %or.cond, label %if.end180, label %if.then172
 
 if.then172:                                       ; preds = %land.end
   %call173 = tail call ptr @__errno_location() #37
@@ -13826,14 +13823,16 @@ if.then175:                                       ; preds = %if.then172
 
 if.end180:                                        ; preds = %land.end
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
-  %tobool181 = icmp eq ptr %37, null
+  %tobool181.not = icmp eq ptr %37, null
+  br i1 %tobool181.not, label %if.end196, label %land.lhs.true182
+
+land.lhs.true182:                                 ; preds = %if.end180
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4676), align 4
   %tobool183 = icmp eq i32 %38, 0
-  %or.cond3.not126 = select i1 %tobool181, i1 true, i1 %tobool183
-  %or.cond4 = select i1 %or.cond3.not126, i1 true, i1 %36
-  br i1 %or.cond4, label %if.end196, label %if.then186
+  %or.cond2 = select i1 %tobool183, i1 true, i1 %36
+  br i1 %or.cond2, label %if.end196, label %if.then186
 
-if.then186:                                       ; preds = %if.end180
+if.then186:                                       ; preds = %land.lhs.true182
   %call187 = tail call ptr @__errno_location() #37
   store i32 29, ptr %call187, align 4
   br i1 %tobool52.not, label %if.end400, label %if.then189
@@ -13846,22 +13845,22 @@ if.then189:                                       ; preds = %if.then186
   %call193 = call ptr @callReplyCreateError(ptr noundef %call192, ptr noundef nonnull %ctx) #32
   br label %cleanup
 
-if.end196:                                        ; preds = %if.then148.if.end196_crit_edge, %if.end180
-  %41 = phi ptr [ %.pre138, %if.then148.if.end196_crit_edge ], [ %37, %if.end180 ]
-  %tobool197 = icmp ne ptr %41, null
+if.end196:                                        ; preds = %if.then148.if.end196_crit_edge, %if.end180, %land.lhs.true182
+  %41 = phi ptr [ %.pre137, %if.then148.if.end196_crit_edge ], [ null, %if.end180 ], [ %37, %land.lhs.true182 ]
+  %tobool197.not = icmp ne ptr %41, null
   %42 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4612), align 4
-  %cmp199 = icmp ne i32 %42, 12
-  %or.cond5 = select i1 %tobool197, i1 %cmp199, i1 false
+  %cmp199.not = icmp ne i32 %42, 12
+  %or.cond125.not136 = select i1 %tobool197.not, i1 %cmp199.not, i1 false
   %43 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4672), align 8
   %cmp202 = icmp eq i32 %43, 0
-  %or.cond6 = select i1 %or.cond5, i1 %cmp202, i1 false
+  %or.cond126 = select i1 %or.cond125.not136, i1 %cmp202, i1 false
   %and205 = and i64 %call80, 1024
   %tobool206.not = icmp eq i64 %and205, 0
-  %or.cond129 = select i1 %or.cond6, i1 %tobool206.not, i1 false
-  br i1 %or.cond129, label %if.then207, label %if.end196.if.end217_crit_edge
+  %or.cond127 = select i1 %or.cond126, i1 %tobool206.not, i1 false
+  br i1 %or.cond127, label %if.then207, label %if.end196.if.end217_crit_edge
 
 if.end196.if.end217_crit_edge:                    ; preds = %if.end196
-  %.pre139 = load i32, ptr %flags, align 4
+  %.pre138 = load i32, ptr %flags, align 4
   br label %if.end217
 
 if.then207:                                       ; preds = %if.end196
@@ -13878,7 +13877,7 @@ if.then210:                                       ; preds = %if.then207
   br label %cleanup
 
 if.end217:                                        ; preds = %if.end196.if.end217_crit_edge, %if.end145
-  %46 = phi i32 [ %.pre139, %if.end196.if.end217_crit_edge ], [ %30, %if.end145 ]
+  %46 = phi i32 [ %.pre138, %if.end196.if.end217_crit_edge ], [ %30, %if.end145 ]
   %and218 = and i32 %46, 32
   %tobool219.not = icmp eq i32 %and218, 0
   br i1 %tobool219.not, label %if.end258, label %if.then220
@@ -13902,9 +13901,9 @@ cond.false234:                                    ; preds = %if.then220
 
 cond.end238:                                      ; preds = %if.then220, %cond.false234
   %arrayidx.sink = phi ptr [ %arrayidx, %cond.false234 ], [ %cmd, %if.then220 ]
-  %.sink142 = phi i64 [ 8, %cond.false234 ], [ 216, %if.then220 ]
+  %.sink141 = phi i64 [ 8, %cond.false234 ], [ 216, %if.then220 ]
   %52 = load ptr, ptr %arrayidx.sink, align 8
-  %ptr236 = getelementptr inbounds i8, ptr %52, i64 %.sink142
+  %ptr236 = getelementptr inbounds i8, ptr %52, i64 %.sink141
   %53 = load ptr, ptr %ptr236, align 8
   %call237 = call ptr @sdsdup(ptr noundef %53) #32
   %54 = load ptr, ptr %client, align 8
@@ -14004,10 +14003,10 @@ if.then306:                                       ; preds = %if.else304
   br label %if.end311
 
 if.end311:                                        ; preds = %if.else304, %if.then306, %if.then295, %if.then297, %if.then283, %if.then285
-  %.sink143 = phi i32 [ 30, %if.then285 ], [ 30, %if.then283 ], [ 100, %if.then297 ], [ 100, %if.then295 ], [ 1, %if.then306 ], [ 1, %if.else304 ]
+  %.sink142 = phi i32 [ 30, %if.then285 ], [ 30, %if.then283 ], [ 100, %if.then297 ], [ 100, %if.then295 ], [ 1, %if.then306 ], [ 1, %if.else304 ]
   %msg280.3 = phi ptr [ %call289, %if.then285 ], [ null, %if.then283 ], [ %call301, %if.then297 ], [ null, %if.then295 ], [ %call307, %if.then306 ], [ null, %if.else304 ]
   %call303 = tail call ptr @__errno_location() #37
-  store i32 %.sink143, ptr %call303, align 4
+  store i32 %.sink142, ptr %call303, align 4
   %tobool312.not = icmp eq ptr %msg280.3, null
   br i1 %tobool312.not, label %if.end400, label %if.then313
 
@@ -14037,11 +14036,11 @@ if.then328:                                       ; preds = %if.end321
   %and334 = lshr i32 %76, 1
   %79 = and i32 %and334, 2
   %80 = or disjoint i32 %spec.select, %79
-  %spec.select130 = xor i32 %80, 2
+  %spec.select128 = xor i32 %80, 2
   br label %if.end339
 
 if.end339:                                        ; preds = %if.then328, %if.end321
-  %call_flags.1 = phi i32 [ 8, %if.end321 ], [ %spec.select130, %if.then328 ]
+  %call_flags.1 = phi i32 [ 8, %if.end321 ], [ %spec.select128, %if.then328 ]
   call void @call(ptr noundef nonnull %c.0.i, i32 noundef %call_flags.1) #32
   store i32 %77, ptr getelementptr inbounds (i8, ptr @server, i64 4296), align 8
   %flags340 = getelementptr inbounds i8, ptr %c.0.i, i64 8
@@ -14130,8 +14129,8 @@ cleanup:                                          ; preds = %if.end381, %if.then
   br i1 %tobool398.not, label %if.end400, label %if.then399
 
 if.then399:                                       ; preds = %cleanup
-  %flags.i131 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %89 = load i32, ptr %flags.i131, align 8
+  %flags.i129 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %89 = load i32, ptr %flags.i129, align 8
   %and.i = and i32 %89, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end400, label %if.end.i
@@ -14158,14 +14157,14 @@ if.then1.i:                                       ; preds = %if.end.i
   %92 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i132 = call ptr @zrealloc(ptr noundef %92, i64 noundef %mul9.i) #34
-  store ptr %call.i132, ptr %amqueue.i, align 8
+  %call.i130 = call ptr @zrealloc(ptr noundef %92, i64 noundef %mul9.i) #34
+  store ptr %call.i130, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %93 = phi i32 [ %90, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %94 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i132, %if.then1.i ]
+  %94 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i130, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %93 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %94, i64 %idxprom.i, i32 1
@@ -14181,8 +14180,8 @@ if.end11.i:                                       ; preds = %if.then1.i, %if.end
   br label %if.end400
 
 if.end400:                                        ; preds = %if.then36, %if.then59, %if.then73, %if.then154, %if.then172, %if.then186, %if.then207, %if.end311, %if.end317, %if.then133, %if.then114, %if.then86, %if.then46, %if.end11.i, %if.then399, %cleanup
-  %c.0137 = phi ptr [ %c.0, %cleanup ], [ %c.0, %if.then399 ], [ %c.0, %if.end11.i ], [ %c.0.i, %if.then46 ], [ %c.0.i, %if.then86 ], [ %c.0.i, %if.then114 ], [ %c.0.i, %if.then133 ], [ %c.0.i, %if.end317 ], [ %c.0.i, %if.end311 ], [ %c.0.i, %if.then207 ], [ %c.0.i, %if.then186 ], [ %c.0.i, %if.then172 ], [ %c.0.i, %if.then154 ], [ %c.0.i, %if.then73 ], [ %c.0.i, %if.then59 ], [ %c.0.i, %if.then36 ]
-  %reply.1136 = phi ptr [ null, %cleanup ], [ %reply.1, %if.then399 ], [ %reply.1, %if.end11.i ], [ null, %if.then46 ], [ null, %if.then86 ], [ null, %if.then114 ], [ null, %if.then133 ], [ null, %if.end317 ], [ null, %if.end311 ], [ null, %if.then207 ], [ null, %if.then186 ], [ null, %if.then172 ], [ null, %if.then154 ], [ null, %if.then73 ], [ null, %if.then59 ], [ null, %if.then36 ]
+  %c.0135 = phi ptr [ %c.0, %cleanup ], [ %c.0, %if.then399 ], [ %c.0, %if.end11.i ], [ %c.0.i, %if.then46 ], [ %c.0.i, %if.then86 ], [ %c.0.i, %if.then114 ], [ %c.0.i, %if.then133 ], [ %c.0.i, %if.end317 ], [ %c.0.i, %if.end311 ], [ %c.0.i, %if.then207 ], [ %c.0.i, %if.then186 ], [ %c.0.i, %if.then172 ], [ %c.0.i, %if.then154 ], [ %c.0.i, %if.then73 ], [ %c.0.i, %if.then59 ], [ %c.0.i, %if.then36 ]
+  %reply.1134 = phi ptr [ null, %cleanup ], [ %reply.1, %if.then399 ], [ %reply.1, %if.end11.i ], [ null, %if.then46 ], [ null, %if.then86 ], [ null, %if.then114 ], [ null, %if.then133 ], [ null, %if.end317 ], [ null, %if.end311 ], [ null, %if.then207 ], [ null, %if.then186 ], [ null, %if.then172 ], [ null, %if.then154 ], [ null, %if.then73 ], [ null, %if.then59 ], [ null, %if.then36 ]
   %98 = load ptr, ptr %module, align 8
   %tobool402.not = icmp eq ptr %98, null
   br i1 %tobool402.not, label %if.end406, label %if.then403
@@ -14195,15 +14194,15 @@ if.then403:                                       ; preds = %if.end400
   br label %if.end406
 
 if.end406:                                        ; preds = %if.then403, %if.end400
-  %tobool407.not = icmp eq ptr %c.0137, null
+  %tobool407.not = icmp eq ptr %c.0135, null
   br i1 %tobool407.not, label %if.end409, label %if.then408
 
 if.then408:                                       ; preds = %if.end406
-  call void @moduleReleaseTempClient(ptr noundef nonnull %c.0137)
+  call void @moduleReleaseTempClient(ptr noundef nonnull %c.0135)
   br label %if.end409
 
 if.end409:                                        ; preds = %if.then408, %if.end406
-  ret ptr %reply.1136
+  ret ptr %reply.1134
 }
 
 declare ptr @callReplyCreateError(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -18622,11 +18621,11 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
-  %tobool1 = icmp ne ptr %1, null
+  %tobool1.not = icmp eq ptr %1, null
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4676), align 4
-  %tobool2 = icmp ne i32 %2, 0
-  %or.cond = select i1 %tobool1, i1 %tobool2, i1 false
-  br i1 %or.cond, label %return, label %if.end
+  %tobool2.not = icmp eq i32 %2, 0
+  %or.cond = select i1 %tobool1.not, i1 true, i1 %tobool2.not
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
   %call = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #33

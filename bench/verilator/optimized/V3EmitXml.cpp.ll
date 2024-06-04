@@ -1168,7 +1168,7 @@ _ZNK9V3Options6prefixB5cxx11Ev.exit:              ; preds = %34
           to label %49 unwind label %125
 
 49:                                               ; preds = %.critedge49
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12V3OutXmlFile, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12V3OutXmlFile, i64 16), ptr %8, align 8
   %50 = getelementptr inbounds i8, ptr %8, i64 44
   store i32 2, ptr %50, align 4
   invoke void @_ZN14V3OutFormatter5putnsEPK7AstNodePKc(ptr noundef nonnull align 8 dereferenceable(164) %8, ptr noundef null, ptr noundef nonnull @.str.11)
@@ -1239,7 +1239,7 @@ _ZN14V3OutFormatter4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr @v3Global, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV19HierCellsXmlVisitor, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19HierCellsXmlVisitor, i64 16), ptr %13, align 8
   %69 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %66, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %13, i64 16
@@ -1317,7 +1317,7 @@ _ZNSt5dequeIP8FileLineSaIS1_EED2Ev.exit.i:        ; preds = %_ZNSt11_Deque_baseI
 _ZN21ModuleFilesXmlVisitorD2Ev.exit:              ; preds = %_ZNSt5dequeIP8FileLineSaIS1_EED2Ev.exit.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %11) #18
   %98 = load ptr, ptr @v3Global, align 8
-  store ptr getelementptr inbounds inrange(-16, 3720) (i8, ptr @_ZTV18EmitXmlFileVisitor, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18EmitXmlFileVisitor, i64 16), ptr %15, align 8
   invoke void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
           to label %.noexc65 unwind label %127
 
@@ -1664,7 +1664,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK8V3Global5rootpEv(ptr noundef non
 define linkonce_odr dso_local void @_ZN21ModuleFilesXmlVisitorC2EP10AstNetlistRSo(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV21ModuleFilesXmlVisitor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV21ModuleFilesXmlVisitor, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24

@@ -34,19 +34,19 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
 
 5:                                                ; preds = %0
   store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_psquash_globals, i64 1), align 1
-  %.02739 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 320), align 8
-  %.not40 = icmp eq ptr %.02739, getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 200)
-  br i1 %.not40, label %._crit_edge, label %.lr.ph
+  %.01935 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 320), align 8
+  %.not36 = icmp eq ptr %.01935, getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 200)
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %64
-  %.02743 = phi ptr [ %.027, %64 ], [ %.02739, %5 ]
-  %.042 = phi i1 [ %.1, %64 ], [ false, %5 ]
-  %.02441 = phi i32 [ %.125, %64 ], [ -1, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.02743, i64 144
+  %.01939 = phi ptr [ %.019, %64 ], [ %.01935, %5 ]
+  %.038 = phi i1 [ %.1, %64 ], [ false, %5 ]
+  %.01637 = phi i32 [ %.117, %64 ], [ -1, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01939, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 76), align 4
-  %or.cond = icmp ult i32 %8, 64
-  br i1 %or.cond, label %9, label %16
+  %or.cond31 = icmp ult i32 %8, 64
+  br i1 %or.cond31, label %9, label %16
 
 9:                                                ; preds = %.lr.ph
   %10 = zext nneg i32 %8 to i64
@@ -65,11 +65,11 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %20, 64
+  %or.cond32 = icmp ult i32 %20, 64
   br i1 %19, label %21, label %29
 
 21:                                               ; preds = %16
-  br i1 %or.cond3, label %22, label %64
+  br i1 %or.cond32, label %22, label %64
 
 22:                                               ; preds = %21
   %23 = zext nneg i32 %20 to i64
@@ -84,7 +84,7 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   br label %64
 
 29:                                               ; preds = %16
-  br i1 %or.cond3, label %30, label %37
+  br i1 %or.cond32, label %30, label %37
 
 30:                                               ; preds = %29
   %31 = zext nneg i32 %20 to i64
@@ -105,13 +105,13 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   %40 = icmp ne i32 %39, 0
   %41 = load ptr, ptr %1, align 8
   %42 = icmp eq ptr %41, null
-  %or.cond7 = select i1 %40, i1 true, i1 %42
-  br i1 %or.cond7, label %43, label %52
+  %or.cond = select i1 %40, i1 true, i1 %42
+  br i1 %or.cond, label %43, label %52
 
 43:                                               ; preds = %37
   %44 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 76), align 4
-  %or.cond9 = icmp ult i32 %44, 64
-  br i1 %or.cond9, label %45, label %64
+  %or.cond34 = icmp ult i32 %44, 64
+  br i1 %or.cond34, label %45, label %64
 
 45:                                               ; preds = %43
   %46 = zext nneg i32 %44 to i64
@@ -128,23 +128,23 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
 52:                                               ; preds = %37
   %53 = getelementptr inbounds i8, ptr %41, i64 16
   %54 = load ptr, ptr %53, align 8
-  %.not36 = icmp eq ptr %54, null
-  br i1 %.not36, label %57, label %55
+  %.not28 = icmp eq ptr %54, null
+  br i1 %.not28, label %57, label %55
 
 55:                                               ; preds = %52
   %56 = call i32 %54() #3
-  %.not37 = icmp eq i32 %56, 0
-  br i1 %.not37, label %57, label %64
+  %.not29 = icmp eq i32 %56, 0
+  br i1 %.not29, label %57, label %64
 
 57:                                               ; preds = %55, %52
   %58 = load i32, ptr %2, align 4
-  %59 = icmp slt i32 %.02441, %58
+  %59 = icmp slt i32 %.01637, %58
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psquash, i64 24), align 8
-  %.not38 = icmp eq ptr %61, null
-  br i1 %.not38, label %63, label %62
+  %.not30 = icmp eq ptr %61, null
+  br i1 %.not30, label %63, label %62
 
 62:                                               ; preds = %60
   call void %61() #3
@@ -155,11 +155,11 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   br label %64
 
 64:                                               ; preds = %57, %63, %55, %43, %45, %50, %21, %22, %27
-  %.125 = phi i32 [ %.02441, %27 ], [ %.02441, %22 ], [ %.02441, %21 ], [ %.02441, %50 ], [ %.02441, %45 ], [ %.02441, %43 ], [ %.02441, %55 ], [ %58, %63 ], [ %.02441, %57 ]
-  %.1 = phi i1 [ %.042, %27 ], [ %.042, %22 ], [ %.042, %21 ], [ %.042, %50 ], [ %.042, %45 ], [ %.042, %43 ], [ %.042, %55 ], [ true, %63 ], [ %.042, %57 ]
-  %65 = getelementptr inbounds i8, ptr %.02743, i64 120
-  %.027 = load ptr, ptr %65, align 8
-  %.not = icmp eq ptr %.027, getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 200)
+  %.117 = phi i32 [ %.01637, %27 ], [ %.01637, %22 ], [ %.01637, %21 ], [ %.01637, %50 ], [ %.01637, %45 ], [ %.01637, %43 ], [ %.01637, %55 ], [ %58, %63 ], [ %.01637, %57 ]
+  %.1 = phi i1 [ %.038, %27 ], [ %.038, %22 ], [ %.038, %21 ], [ %.038, %50 ], [ %.038, %45 ], [ %.038, %43 ], [ %.038, %55 ], [ true, %63 ], [ %.038, %57 ]
+  %65 = getelementptr inbounds i8, ptr %.01939, i64 120
+  %.019 = load ptr, ptr %65, align 8
+  %.not = icmp eq ptr %.019, getelementptr inbounds (i8, ptr @pmix_psquash_base_framework, i64 200)
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %64
@@ -167,8 +167,8 @@ define range(i32 -46, 1) i32 @pmix_psquash_base_select() local_unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5, %._crit_edge.loopexit, %0
-  %.026 = phi i32 [ 0, %0 ], [ -46, %5 ], [ %66, %._crit_edge.loopexit ]
-  ret i32 %.026
+  %.018 = phi i32 [ 0, %0 ], [ -46, %5 ], [ %66, %._crit_edge.loopexit ]
+  ret i32 %.018
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

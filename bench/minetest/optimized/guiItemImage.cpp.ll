@@ -564,7 +564,7 @@ lpad:                                             ; preds = %if.then.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !12
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !12
   %1 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -853,14 +853,14 @@ define dso_local void @_ZN12GUIItemImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IG
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 392
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !12
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 400
   store ptr null, ptr %DebugName.i, align 8, !tbaa !67
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 408
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !59
   tail call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT12GUIItemImage, i64 8), i32 noundef 23, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle)
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV12GUIItemImage, i64 24), ptr %this, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV12GUIItemImage, i64 336), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIItemImage, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIItemImage, i64 336), ptr %0, align 8, !tbaa !12
   %m_item_name = getelementptr inbounds i8, ptr %this, i64 312
   %1 = getelementptr inbounds i8, ptr %this, i64 328
   store ptr %1, ptr %m_item_name, align 8, !tbaa !14
@@ -2304,9 +2304,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12GUIItemImageD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV12GUIItemImage, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIItemImage, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 392
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV12GUIItemImage, i64 336), ptr %add.ptr.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIItemImage, i64 336), ptr %add.ptr.i, align 8, !tbaa !12
   %m_label.i = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %m_label.i, align 8, !tbaa !64
   %1 = getelementptr inbounds i8, ptr %this, i64 376
@@ -2350,9 +2350,9 @@ _ZN12GUIItemImageD2Ev.exit:                       ; preds = %if.then.i.i.i, %_ZN
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12GUIItemImageD0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV12GUIItemImage, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIItemImage, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 392
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV12GUIItemImage, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIItemImage, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !12
   %m_label.i.i = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %m_label.i.i, align 8, !tbaa !64
   %1 = getelementptr inbounds i8, ptr %this, i64 376
@@ -2529,9 +2529,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV12GUIItemImage, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIItemImage, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 392
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV12GUIItemImage, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIItemImage, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !12
   %m_label.i.i = getelementptr inbounds i8, ptr %3, i64 360
   %4 = load ptr, ptr %m_label.i.i, align 8, !tbaa !64
   %5 = getelementptr inbounds i8, ptr %3, i64 376
@@ -2579,9 +2579,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV12GUIItemImage, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIItemImage, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 392
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV12GUIItemImage, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIItemImage, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %m_label.i.i.i = getelementptr inbounds i8, ptr %3, i64 360
   %4 = load ptr, ptr %m_label.i.i.i, align 8, !tbaa !64
   %5 = getelementptr inbounds i8, ptr %3, i64 376
@@ -3177,7 +3177,7 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8, !tbaa !143
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !12
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %toolcaps_overridden, align 8, !tbaa !144
   %toolcaps_override = getelementptr inbounds i8, ptr %this, i64 80

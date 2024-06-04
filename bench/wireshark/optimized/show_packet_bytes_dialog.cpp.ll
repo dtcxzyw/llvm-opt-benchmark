@@ -5034,8 +5034,8 @@ _ZN7QStringD2Ev.exit59:                           ; preds = %.body33, %_ZN17QArr
 define noundef zeroext i1 @_ZN21ShowPacketBytesDialog18enableShowSelectedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %0) local_unnamed_addr #7 align 2 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 104), align 8
   switch i32 %2, label %switch.edge [
-    i32 6, label %3
     i32 0, label %3
+    i32 6, label %3
   ]
 
 3:                                                ; preds = %1, %1
@@ -5200,8 +5200,8 @@ _ZNK8QVariant5valueI17bytes_decode_typeEET_v.exit: ; preds = %5
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 104), align 8
   switch i32 %14, label %_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit [
-    i32 6, label %15
     i32 0, label %15
+    i32 6, label %15
   ]
 
 15:                                               ; preds = %_ZNK8QVariant5valueI17bytes_decode_typeEET_v.exit, %_ZNK8QVariant5valueI17bytes_decode_typeEET_v.exit
@@ -5257,8 +5257,8 @@ _ZNK8QVariant5valueI15bytes_show_typeEET_v.exit:  ; preds = %5
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 104), align 8
   switch i32 %14, label %_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit [
-    i32 6, label %15
     i32 0, label %15
+    i32 6, label %15
   ]
 
 15:                                               ; preds = %_ZNK8QVariant5valueI15bytes_show_typeEET_v.exit, %_ZNK8QVariant5valueI15bytes_show_typeEET_v.exit

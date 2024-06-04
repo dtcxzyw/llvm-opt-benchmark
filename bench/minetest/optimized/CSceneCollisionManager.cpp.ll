@@ -85,8 +85,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !15
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %0, align 8, !tbaa !3
   %SceneManager = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %smanager, ptr %SceneManager, align 8, !tbaa !6
   %Driver = getelementptr inbounds i8, ptr %this, i64 16
@@ -151,9 +151,9 @@ if.end:                                           ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5scene22CSceneCollisionManagerD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i, align 8, !tbaa !3
   %Driver.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Driver.i, align 8, !tbaa !11
   %tobool.not.i = icmp eq ptr %0, null
@@ -189,9 +189,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Driver.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %Driver.i.i, align 8, !tbaa !11
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -223,9 +223,9 @@ _ZN3irr5scene22CSceneCollisionManagerD1Ev.exit:   ; preds = %delete.notnull.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5scene22CSceneCollisionManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Driver.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Driver.i.i, align 8, !tbaa !11
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -265,9 +265,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Driver.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %Driver.i.i.i, align 8, !tbaa !11
   %tobool.not.i.i.i = icmp eq ptr %4, null

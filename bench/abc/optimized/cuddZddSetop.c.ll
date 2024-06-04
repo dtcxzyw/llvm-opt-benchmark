@@ -681,7 +681,7 @@ define ptr @cuddZddDiff(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %22
 
 22:                                               ; preds = %13, %16
-  %.076 = phi i32 [ %21, %16 ], [ 2147483647, %13 ]
+  %.077 = phi i32 [ %21, %16 ], [ 2147483647, %13 ]
   %23 = load i32, ptr %2, align 8
   %24 = icmp eq i32 %23, 2147483647
   br i1 %24, label %31, label %25
@@ -695,8 +695,8 @@ define ptr @cuddZddDiff(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %31
 
 31:                                               ; preds = %22, %25
-  %.077 = phi i32 [ %30, %25 ], [ 2147483647, %22 ]
-  %32 = icmp slt i32 %.076, %.077
+  %.078 = phi i32 [ %30, %25 ], [ 2147483647, %22 ]
+  %32 = icmp slt i32 %.077, %.078
   br i1 %32, label %33, label %51
 
 33:                                               ; preds = %31
@@ -726,7 +726,7 @@ define ptr @cuddZddDiff(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %96
 
 51:                                               ; preds = %31
-  %52 = icmp sgt i32 %.076, %.077
+  %52 = icmp sgt i32 %.077, %.078
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %51
@@ -791,19 +791,19 @@ define ptr @cuddZddDiff(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 .sink.split:                                      ; preds = %38, %90
   %.sink = phi ptr [ %83, %90 ], [ %43, %38 ]
-  %.075.ph = phi ptr [ %87, %90 ], [ %48, %38 ]
+  %.076.ph = phi ptr [ %87, %90 ], [ %48, %38 ]
   %93 = load i32, ptr %.sink, align 4
   %94 = add i32 %93, -1
   store i32 %94, ptr %.sink, align 4
   br label %95
 
 95:                                               ; preds = %.sink.split, %53
-  %.075 = phi ptr [ %56, %53 ], [ %.075.ph, %.sink.split ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.075) #3
+  %.076 = phi ptr [ %56, %53 ], [ %.076.ph, %.sink.split ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.076) #3
   br label %96
 
 96:                                               ; preds = %11, %58, %53, %33, %9, %7, %3, %95, %89, %78, %50
-  %.0 = phi ptr [ null, %50 ], [ %.075, %95 ], [ null, %78 ], [ null, %89 ], [ %5, %3 ], [ %1, %7 ], [ %5, %9 ], [ %12, %11 ], [ null, %33 ], [ null, %53 ], [ null, %58 ]
+  %.0 = phi ptr [ null, %50 ], [ %.076, %95 ], [ null, %78 ], [ null, %89 ], [ %5, %3 ], [ %1, %7 ], [ %5, %9 ], [ %12, %11 ], [ null, %33 ], [ null, %53 ], [ null, %58 ]
   ret ptr %.0
 }
 

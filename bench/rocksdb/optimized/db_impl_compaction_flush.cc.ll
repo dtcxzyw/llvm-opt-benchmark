@@ -24684,7 +24684,8 @@ entry:
   %ca.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %arg, i64 8
   %ca.sroa.2.0.copyload = load ptr, ptr %ca.sroa.2.0..sroa_idx, align 8
   tail call void @_ZdlPv(ptr noundef %arg) #25
-  br i1 icmp ne (ptr @_ZTHN7rocksdb15iostats_contextE, ptr null), label %0, label %_ZTWN7rocksdb15iostats_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb15iostats_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb15iostats_contextE()
@@ -24852,7 +24853,8 @@ entry:
   %ca.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %arg, i64 8
   %ca.sroa.2.0.copyload = load ptr, ptr %ca.sroa.2.0..sroa_idx, align 8
   tail call void @_ZdlPv(ptr noundef %arg) #25
-  br i1 icmp ne (ptr @_ZTHN7rocksdb15iostats_contextE, ptr null), label %0, label %_ZTWN7rocksdb15iostats_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb15iostats_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb15iostats_contextE()
@@ -28297,7 +28299,8 @@ entry:
   %fta.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %arg, i64 8
   %fta.sroa.2.0.copyload = load i32, ptr %fta.sroa.2.0..sroa_idx, align 8
   tail call void @_ZdlPv(ptr noundef %arg) #25
-  br i1 icmp ne (ptr @_ZTHN7rocksdb15iostats_contextE, ptr null), label %0, label %_ZTWN7rocksdb15iostats_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb15iostats_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb15iostats_contextE()
@@ -30289,7 +30292,8 @@ ehcleanup138:                                     ; preds = %ehcleanup137, %lpad
 ; Function Attrs: uwtable
 define void @_ZN7rocksdb6DBImpl11BGWorkPurgeEPv(ptr noundef %db) local_unnamed_addr #12 align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTHN7rocksdb15iostats_contextE, ptr null), label %0, label %_ZTWN7rocksdb15iostats_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb15iostats_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN7rocksdb15iostats_contextE()

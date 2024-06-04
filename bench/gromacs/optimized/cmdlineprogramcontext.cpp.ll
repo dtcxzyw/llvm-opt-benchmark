@@ -2040,7 +2040,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25CommandLineProgramContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx25CommandLineProgramContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25CommandLineProgramContextE, i64 16), ptr %0, align 8
   %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #19
   invoke void @_ZN3gmx25CommandLineProgramContext4ImplC1Ev(ptr noundef nonnull align 8 dereferenceable(272) %2)
           to label %3 unwind label %5
@@ -2065,14 +2065,14 @@ define void @_ZN3gmx25CommandLineProgramContextC2EPKc(ptr nocapture noundef nonn
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::unique_ptr.2", align 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx25CommandLineProgramContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25CommandLineProgramContextE, i64 16), ptr %0, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %6 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i64 16), ptr %6, align 8, !noalias !46
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i64 16), ptr %6, align 8, !noalias !46
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZNSt10filesystem12current_pathB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::filesystem::__cxx11::path") align 8 %7)
           to label %10 unwind label %8, !noalias !46
@@ -2138,7 +2138,7 @@ declare void @_ZNSt10filesystem12current_pathB5cxx11Ev(ptr dead_on_unwind writab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2157,7 +2157,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -2205,14 +2205,14 @@ declare void @_ZN3gmx24getSystemExecutablePathsB5cxx11Ev(ptr dead_on_unwind writ
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25CommandLineProgramContextC2EiPKPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.2", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx25CommandLineProgramContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25CommandLineProgramContextE, i64 16), ptr %0, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %6 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i64 16), ptr %6, align 8, !noalias !49
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_128DefaultExecutableEnvironmentE, i64 16), ptr %6, align 8, !noalias !49
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZNSt10filesystem12current_pathB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::filesystem::__cxx11::path") align 8 %7)
           to label %10 unwind label %8, !noalias !49
@@ -2277,7 +2277,7 @@ _ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EED2Ev.exi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25CommandLineProgramContextC2EiPKPKcSt10unique_ptrINS_22IExecutableEnvironmentESt14default_deleteIS6_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr.2", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx25CommandLineProgramContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25CommandLineProgramContextE, i64 16), ptr %0, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #19
   %7 = load i64, ptr %3, align 8
   store i64 %7, ptr %5, align 8
@@ -2324,7 +2324,7 @@ _ZNSt10unique_ptrIN3gmx22IExecutableEnvironmentESt14default_deleteIS1_EED2Ev.exi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx25CommandLineProgramContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3gmx25CommandLineProgramContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25CommandLineProgramContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

@@ -1376,6 +1376,7 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %if.end
   %spec.store.select1.i = select i1 %cmp4.i, ptr %x.i, ptr %dict.addr.0
   %dictEnd2.i = getelementptr inbounds i8, ptr %dctx, i64 29912
   %ddictIsCold.i = getelementptr inbounds i8, ptr %dctx, i64 30204
+  %.not.i.i = icmp eq ptr @ZSTD_trace_decompress_begin, null
   %traceCtx.i.i = getelementptr inbounds i8, ptr %dctx, i64 95984
   %expected.i.i = getelementptr inbounds i8, ptr %dctx, i64 29920
   %processedCSize.i.i = getelementptr inbounds i8, ptr %dctx, i64 29976
@@ -1584,7 +1585,7 @@ do.body5.i:                                       ; preds = %if.end57
   %cmp.i52 = icmp ne ptr %5, %add.ptr.i51
   %conv.i53 = zext i1 %cmp.i52 to i32
   store i32 %conv.i53, ptr %ddictIsCold.i, align 4
-  br i1 icmp ne (ptr @ZSTD_trace_decompress_begin, ptr null), label %cond.true.i.i, label %ZSTD_decompressBegin_usingDDict.exit
+  br i1 %.not.i.i, label %ZSTD_decompressBegin_usingDDict.exit, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %do.body5.i
   %call.i.i = call i64 @ZSTD_trace_decompress_begin(ptr noundef nonnull %dctx) #17
@@ -2178,8 +2179,8 @@ if.end18:                                         ; preds = %if.then12, %sw.bb
   br i1 %cmp.i, label %ZSTD_frameHeaderSize_internal.exit.thread, label %ZSTD_frameHeaderSize_internal.exit
 
 ZSTD_frameHeaderSize_internal.exit.thread:        ; preds = %if.end18
-  %headerSize146 = getelementptr inbounds i8, ptr %dctx, i64 30096
-  store i64 -72, ptr %headerSize146, align 8
+  %headerSize147 = getelementptr inbounds i8, ptr %dctx, i64 30096
+  store i64 -72, ptr %headerSize147, align 8
   br label %sw.epilog284
 
 ZSTD_frameHeaderSize_internal.exit:               ; preds = %if.end18
@@ -2424,19 +2425,19 @@ do.body142:                                       ; preds = %if.end24.i, %if.the
   br i1 %cmp.i140, label %do.body157, label %sw.epilog284
 
 do.body157:                                       ; preds = %do.body142.thread, %do.body142
-  %rSize.0167 = phi i64 [ %srcSize, %do.body142.thread ], [ %rSize.0, %do.body142 ]
+  %rSize.0168 = phi i64 [ %srcSize, %do.body142.thread ], [ %rSize.0, %do.body142 ]
   %32 = phi i64 [ %sub126, %do.body142.thread ], [ 0, %do.body142 ]
   %fParams158 = getelementptr inbounds i8, ptr %dctx, i64 29928
   %blockSizeMax159 = getelementptr inbounds i8, ptr %dctx, i64 29944
   %33 = load i32, ptr %blockSizeMax159, align 8
   %conv160 = zext i32 %33 to i64
-  %cmp161 = icmp ugt i64 %rSize.0167, %conv160
+  %cmp161 = icmp ugt i64 %rSize.0168, %conv160
   br i1 %cmp161, label %sw.epilog284, label %do.end175
 
 do.end175:                                        ; preds = %do.body157
   %decodedSize = getelementptr inbounds i8, ptr %dctx, i64 29984
   %34 = load i64, ptr %decodedSize, align 8
-  %add176 = add i64 %34, %rSize.0167
+  %add176 = add i64 %34, %rSize.0168
   store i64 %add176, ptr %decodedSize, align 8
   %validateChecksum = getelementptr inbounds i8, ptr %dctx, i64 30112
   %35 = load i32, ptr %validateChecksum, align 8
@@ -2445,14 +2446,14 @@ do.end175:                                        ; preds = %do.body157
 
 if.then178:                                       ; preds = %do.end175
   %xxhState = getelementptr inbounds i8, ptr %dctx, i64 30008
-  %call179 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState, ptr nocapture noundef %dst, i64 noundef %rSize.0167) #17
+  %call179 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState, ptr nocapture noundef %dst, i64 noundef %rSize.0168) #17
   %expected182.phi.trans.insert = getelementptr inbounds i8, ptr %dctx, i64 29920
   %.pre = load i64, ptr %expected182.phi.trans.insert, align 8
   br label %if.end180
 
 if.end180:                                        ; preds = %if.then178, %do.end175
   %36 = phi i64 [ %.pre, %if.then178 ], [ %32, %do.end175 ]
-  %add.ptr181 = getelementptr inbounds i8, ptr %dst, i64 %rSize.0167
+  %add.ptr181 = getelementptr inbounds i8, ptr %dst, i64 %rSize.0168
   %previousDstEnd = getelementptr inbounds i8, ptr %dctx, i64 29888
   store ptr %add.ptr181, ptr %previousDstEnd, align 8
   %expected182 = getelementptr inbounds i8, ptr %dctx, i64 29920
@@ -2518,47 +2519,48 @@ if.end253:                                        ; preds = %if.then232, %sw.bb2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %trace.i)
   %traceCtx.i = getelementptr inbounds i8, ptr %dctx, i64 95984
   %45 = load i64, ptr %traceCtx.i, align 8
-  %tobool.not7.i = icmp eq i64 %45, 0
-  %brmerge.i = or i1 %tobool.not7.i, icmp eq (ptr @ZSTD_trace_decompress_end, ptr null)
-  br i1 %brmerge.i, label %ZSTD_DCtx_trace_end.exit, label %if.then.i142
+  %tobool.i142 = icmp ne i64 %45, 0
+  %46 = icmp ne ptr @ZSTD_trace_decompress_end, null
+  %or.cond.i = and i1 %46, %tobool.i142
+  br i1 %or.cond.i, label %if.then.i143, label %ZSTD_DCtx_trace_end.exit
 
-if.then.i142:                                     ; preds = %if.end253
-  %46 = getelementptr inbounds i8, ptr %trace.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %46, i8 0, i64 48, i1 false)
+if.then.i143:                                     ; preds = %if.end253
+  %47 = getelementptr inbounds i8, ptr %trace.i, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %47, i8 0, i64 48, i1 false)
   store i32 10505, ptr %trace.i, align 8
   %streaming1.i = getelementptr inbounds i8, ptr %trace.i, i64 4
   store i32 1, ptr %streaming1.i, align 4
   %ddict.i = getelementptr inbounds i8, ptr %dctx, i64 30192
-  %47 = load ptr, ptr %ddict.i, align 8
-  %tobool2.not.i = icmp eq ptr %47, null
-  br i1 %tobool2.not.i, label %if.end.i144, label %if.then3.i
-
-if.then3.i:                                       ; preds = %if.then.i142
-  %call.i143 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %47) #17
-  store i32 %call.i143, ptr %46, align 8
   %48 = load ptr, ptr %ddict.i, align 8
-  %call6.i = tail call i64 @ZSTD_DDict_dictSize(ptr noundef %48) #17
+  %tobool2.not.i = icmp eq ptr %48, null
+  br i1 %tobool2.not.i, label %if.end.i145, label %if.then3.i
+
+if.then3.i:                                       ; preds = %if.then.i143
+  %call.i144 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %48) #17
+  store i32 %call.i144, ptr %47, align 8
+  %49 = load ptr, ptr %ddict.i, align 8
+  %call6.i = tail call i64 @ZSTD_DDict_dictSize(ptr noundef %49) #17
   %dictionarySize.i = getelementptr inbounds i8, ptr %trace.i, i64 16
   store i64 %call6.i, ptr %dictionarySize.i, align 8
   %ddictIsCold.i = getelementptr inbounds i8, ptr %dctx, i64 30204
-  %49 = load i32, ptr %ddictIsCold.i, align 4
+  %50 = load i32, ptr %ddictIsCold.i, align 4
   %dictionaryIsCold.i = getelementptr inbounds i8, ptr %trace.i, i64 12
-  store i32 %49, ptr %dictionaryIsCold.i, align 4
+  store i32 %50, ptr %dictionaryIsCold.i, align 4
   %.pre.i = load i64, ptr %traceCtx.i, align 8
-  br label %if.end.i144
+  br label %if.end.i145
 
-if.end.i144:                                      ; preds = %if.then3.i, %if.then.i142
-  %50 = phi i64 [ %.pre.i, %if.then3.i ], [ %45, %if.then.i142 ]
+if.end.i145:                                      ; preds = %if.then3.i, %if.then.i143
+  %51 = phi i64 [ %.pre.i, %if.then3.i ], [ %45, %if.then.i143 ]
   %uncompressedSize7.i = getelementptr inbounds i8, ptr %trace.i, i64 24
   store i64 %44, ptr %uncompressedSize7.i, align 8
   %compressedSize8.i = getelementptr inbounds i8, ptr %trace.i, i64 32
   store i64 %add, ptr %compressedSize8.i, align 8
   %dctx9.i = getelementptr inbounds i8, ptr %trace.i, i64 56
   store ptr %dctx, ptr %dctx9.i, align 8
-  call void @ZSTD_trace_decompress_end(i64 noundef %50, ptr noundef nonnull %trace.i) #17
+  call void @ZSTD_trace_decompress_end(i64 noundef %51, ptr noundef nonnull %trace.i) #17
   br label %ZSTD_DCtx_trace_end.exit
 
-ZSTD_DCtx_trace_end.exit:                         ; preds = %if.end253, %if.end.i144
+ZSTD_DCtx_trace_end.exit:                         ; preds = %if.end253, %if.end.i145
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %trace.i)
   %expected256 = getelementptr inbounds i8, ptr %dctx, i64 29920
   store i64 0, ptr %expected256, align 8
@@ -2585,7 +2587,7 @@ sw.bb270:                                         ; preds = %do.end10
   br label %sw.epilog284
 
 sw.epilog284:                                     ; preds = %if.then12.i, %sw.bb108, %land.lhs.true19.i, %do.body.i, %sw.bb32, %ZSTD_frameHeaderSize_internal.exit, %ZSTD_frameHeaderSize_internal.exit.thread, %do.end10, %if.then232, %if.else225, %if.else219, %if.then216, %land.lhs.true, %if.end180, %do.body157, %do.body142, %do.end101, %ZSTD_copyRawBlock.exit, %if.else95, %if.else, %if.then89, %do.body63, %sw.bb57, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit, %sw.bb270, %sw.bb258, %ZSTD_DCtx_trace_end.exit, %if.then80, %do.end54, %if.end25, %if.then15
-  %retval.0 = phi i64 [ 0, %sw.bb270 ], [ 0, %sw.bb258 ], [ 0, %ZSTD_DCtx_trace_end.exit ], [ 0, %if.then80 ], [ 0, %do.end54 ], [ 0, %if.then15 ], [ 0, %if.end25 ], [ -72, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ], [ %call58, %sw.bb57 ], [ -20, %do.body63 ], [ 0, %if.then89 ], [ 0, %if.else ], [ 0, %if.else95 ], [ %srcSize, %ZSTD_copyRawBlock.exit ], [ -20, %do.end101 ], [ %rSize.0, %do.body142 ], [ -20, %do.body157 ], [ %rSize.0167, %if.end180 ], [ -20, %land.lhs.true ], [ %rSize.0167, %if.then216 ], [ %rSize.0167, %if.else219 ], [ %rSize.0167, %if.else225 ], [ -22, %if.then232 ], [ -1, %do.end10 ], [ -72, %ZSTD_frameHeaderSize_internal.exit.thread ], [ %add24.i, %ZSTD_frameHeaderSize_internal.exit ], [ -32, %land.lhs.true19.i ], [ -72, %do.body.i ], [ %call.i, %sw.bb32 ], [ -70, %sw.bb108 ], [ -74, %if.then12.i ]
+  %retval.0 = phi i64 [ 0, %sw.bb270 ], [ 0, %sw.bb258 ], [ 0, %ZSTD_DCtx_trace_end.exit ], [ 0, %if.then80 ], [ 0, %do.end54 ], [ 0, %if.then15 ], [ 0, %if.end25 ], [ -72, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ], [ %call58, %sw.bb57 ], [ -20, %do.body63 ], [ 0, %if.then89 ], [ 0, %if.else ], [ 0, %if.else95 ], [ %srcSize, %ZSTD_copyRawBlock.exit ], [ -20, %do.end101 ], [ %rSize.0, %do.body142 ], [ -20, %do.body157 ], [ %rSize.0168, %if.end180 ], [ -20, %land.lhs.true ], [ %rSize.0168, %if.then216 ], [ %rSize.0168, %if.else219 ], [ %rSize.0168, %if.else225 ], [ -22, %if.then232 ], [ -1, %do.end10 ], [ -72, %ZSTD_frameHeaderSize_internal.exit.thread ], [ %add24.i, %ZSTD_frameHeaderSize_internal.exit ], [ -32, %land.lhs.true19.i ], [ -72, %do.body.i ], [ %call.i, %sw.bb32 ], [ -70, %sw.bb108 ], [ -74, %if.then12.i ]
   ret i64 %retval.0
 }
 
@@ -2601,48 +2603,49 @@ entry:
   %trace = alloca %struct.ZSTD_Trace, align 8
   %traceCtx = getelementptr inbounds i8, ptr %dctx, i64 95984
   %0 = load i64, ptr %traceCtx, align 8
-  %tobool.not7 = icmp eq i64 %0, 0
-  %brmerge = or i1 %tobool.not7, icmp eq (ptr @ZSTD_trace_decompress_end, ptr null)
-  br i1 %brmerge, label %if.end11, label %if.then
+  %tobool = icmp ne i64 %0, 0
+  %1 = icmp ne ptr @ZSTD_trace_decompress_end, null
+  %or.cond = and i1 %1, %tobool
+  br i1 %or.cond, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %trace, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 48, i1 false)
+  %2 = getelementptr inbounds i8, ptr %trace, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 48, i1 false)
   store i32 10505, ptr %trace, align 8
   %streaming1 = getelementptr inbounds i8, ptr %trace, i64 4
   store i32 %streaming, ptr %streaming1, align 4
   %ddict = getelementptr inbounds i8, ptr %dctx, i64 30192
-  %2 = load ptr, ptr %ddict, align 8
-  %tobool2.not = icmp eq ptr %2, null
+  %3 = load ptr, ptr %ddict, align 8
+  %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %call = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %2) #17
+  %call = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %3) #17
   %dictionaryID = getelementptr inbounds i8, ptr %trace, i64 8
   store i32 %call, ptr %dictionaryID, align 8
-  %3 = load ptr, ptr %ddict, align 8
-  %call6 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef %3) #17
+  %4 = load ptr, ptr %ddict, align 8
+  %call6 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef %4) #17
   %dictionarySize = getelementptr inbounds i8, ptr %trace, i64 16
   store i64 %call6, ptr %dictionarySize, align 8
   %ddictIsCold = getelementptr inbounds i8, ptr %dctx, i64 30204
-  %4 = load i32, ptr %ddictIsCold, align 4
+  %5 = load i32, ptr %ddictIsCold, align 4
   %dictionaryIsCold = getelementptr inbounds i8, ptr %trace, i64 12
-  store i32 %4, ptr %dictionaryIsCold, align 4
+  store i32 %5, ptr %dictionaryIsCold, align 4
   %.pre = load i64, ptr %traceCtx, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %5 = phi i64 [ %.pre, %if.then3 ], [ %0, %if.then ]
+  %6 = phi i64 [ %.pre, %if.then3 ], [ %0, %if.then ]
   %uncompressedSize7 = getelementptr inbounds i8, ptr %trace, i64 24
   store i64 %uncompressedSize, ptr %uncompressedSize7, align 8
   %compressedSize8 = getelementptr inbounds i8, ptr %trace, i64 32
   store i64 %compressedSize, ptr %compressedSize8, align 8
   %dctx9 = getelementptr inbounds i8, ptr %trace, i64 56
   store ptr %dctx, ptr %dctx9, align 8
-  call void @ZSTD_trace_decompress_end(i64 noundef %5, ptr noundef nonnull %trace) #17
+  call void @ZSTD_trace_decompress_end(i64 noundef %6, ptr noundef nonnull %trace) #17
   br label %if.end11
 
-if.end11:                                         ; preds = %entry, %if.end
+if.end11:                                         ; preds = %if.end, %entry
   ret void
 }
 
@@ -2787,7 +2790,8 @@ declare void @ZSTD_buildFSETable(ptr noundef, ptr noundef, i32 noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define noundef i64 @ZSTD_decompressBegin(ptr noundef %dctx) local_unnamed_addr #0 {
 entry:
-  br i1 icmp ne (ptr @ZSTD_trace_decompress_begin, ptr null), label %cond.true, label %cond.end
+  %.not = icmp eq ptr @ZSTD_trace_decompress_begin, null
+  br i1 %.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %call = tail call i64 @ZSTD_trace_decompress_begin(ptr noundef %dctx) #17
@@ -2835,7 +2839,8 @@ declare extern_weak i64 @ZSTD_trace_decompress_begin(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define range(i64 -30, 1) i64 @ZSTD_decompressBegin_usingDict(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
 entry:
-  br i1 icmp ne (ptr @ZSTD_trace_decompress_begin, ptr null), label %cond.true.i, label %do.end9
+  %.not.i = icmp eq ptr @ZSTD_trace_decompress_begin, null
+  br i1 %.not.i, label %do.end9, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
   %call.i = tail call i64 @ZSTD_trace_decompress_begin(ptr noundef %dctx) #17
@@ -2960,7 +2965,8 @@ if.then:                                          ; preds = %entry
   br label %do.body5
 
 do.body5:                                         ; preds = %entry, %if.then
-  br i1 icmp ne (ptr @ZSTD_trace_decompress_begin, ptr null), label %cond.true.i, label %ZSTD_decompressBegin.exit
+  %.not.i = icmp eq ptr @ZSTD_trace_decompress_begin, null
+  br i1 %.not.i, label %ZSTD_decompressBegin.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %do.body5
   %call.i = tail call i64 @ZSTD_trace_decompress_begin(ptr noundef %dctx) #17
@@ -4384,6 +4390,7 @@ ZSTD_checkOutBuffer.exit:                         ; preds = %if.end3.i, %do.body
   %dictEnd2.i = getelementptr inbounds i8, ptr %zds, i64 29912
   %ddictIsCold.i = getelementptr inbounds i8, ptr %zds, i64 30204
   %ddictLocal.i.i = getelementptr inbounds i8, ptr %zds, i64 30184
+  %.not.i.i = icmp eq ptr @ZSTD_trace_decompress_begin, null
   %traceCtx.i.i = getelementptr inbounds i8, ptr %zds, i64 95984
   %stage.i.i = getelementptr i8, ptr %zds, i64 29996
   %processedCSize.i.i = getelementptr inbounds i8, ptr %zds, i64 29976
@@ -4680,7 +4687,7 @@ if.then.i:                                        ; preds = %ZSTD_getDDict.exit
 do.body5.i:                                       ; preds = %ZSTD_getDDict.exit.thread, %if.then.i, %ZSTD_getDDict.exit
   %tobool.not.i427 = phi i1 [ true, %ZSTD_getDDict.exit.thread ], [ false, %if.then.i ], [ true, %ZSTD_getDDict.exit ]
   %retval.0.i304426 = phi ptr [ null, %ZSTD_getDDict.exit.thread ], [ %retval.0.i304, %if.then.i ], [ null, %ZSTD_getDDict.exit ]
-  br i1 icmp ne (ptr @ZSTD_trace_decompress_begin, ptr null), label %cond.true.i.i, label %ZSTD_decompressBegin.exit.i
+  br i1 %.not.i.i, label %ZSTD_decompressBegin.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %do.body5.i
   %call.i.i309 = call i64 @ZSTD_trace_decompress_begin(ptr noundef nonnull %zds) #17

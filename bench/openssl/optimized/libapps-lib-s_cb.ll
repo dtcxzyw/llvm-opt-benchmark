@@ -388,11 +388,11 @@ if.then13:                                        ; preds = %if.end11
   %5 = load i32, ptr @verify_args, align 4
   %cmp16 = icmp slt i32 %5, 0
   %cmp19.not = icmp sge i32 %5, %call2
-  %or.cond26.not = select i1 %cmp16, i1 true, i1 %cmp19.not
+  %or.cond23.not = select i1 %cmp16, i1 true, i1 %cmp19.not
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @verify_args, i64 12), align 4
   %tobool22.not = icmp eq i32 %6, 0
-  %call1.sink = select i1 %or.cond26.not, i32 %call1, i32 22
-  %narrow = select i1 %or.cond26.not, i1 %tobool22.not, i1 false
+  %call1.sink = select i1 %or.cond23.not, i32 %call1, i32 22
+  %narrow = select i1 %or.cond23.not, i1 %tobool22.not, i1 false
   %ok.addr.1.ph = zext i1 %narrow to i32
   store i32 %call1.sink, ptr getelementptr inbounds (i8, ptr @verify_args, i64 8), align 4
   br label %if.end27
@@ -461,24 +461,24 @@ if.then57:                                        ; preds = %sw.bb55
   br label %if.end66
 
 sw.epilog:                                        ; preds = %if.end27
-  %cmp59 = icmp ne i32 %call1, 0
-  %cmp61 = icmp ne i32 %ok.addr.1, 2
-  %or.cond1.not25 = or i1 %cmp59, %cmp61
+  %cmp59 = icmp eq i32 %call1, 0
+  %cmp61 = icmp eq i32 %ok.addr.1, 2
+  %or.cond1 = and i1 %cmp59, %cmp61
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
-  %tobool64 = icmp ne i32 %17, 0
-  %or.cond2 = select i1 %or.cond1.not25, i1 true, i1 %tobool64
-  br i1 %or.cond2, label %if.end66, label %if.then65
+  %tobool64.not = icmp eq i32 %17, 0
+  %or.cond24 = select i1 %or.cond1, i1 %tobool64.not, i1 false
+  br i1 %or.cond24, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %sw.epilog
   tail call void @policies_print(ptr noundef %ctx) #6
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then30, %sw.bb, %if.then40, %sw.bb37, %if.then49, %sw.bb46, %if.then57, %sw.bb55, %if.then65, %sw.epilog
-  %tobool67 = icmp eq i32 %ok.addr.1, 0
+  %tobool67.not = icmp ne i32 %ok.addr.1, 0
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
-  %tobool69 = icmp ne i32 %18, 0
-  %or.cond3 = select i1 %tobool67, i1 true, i1 %tobool69
-  br i1 %or.cond3, label %if.end72, label %if.then70
+  %tobool69.not = icmp eq i32 %18, 0
+  %or.cond25 = select i1 %tobool67.not, i1 %tobool69.not, i1 false
+  br i1 %or.cond25, label %if.then70, label %if.end72
 
 if.then70:                                        ; preds = %if.end66
   %19 = load ptr, ptr @bio_err, align 8

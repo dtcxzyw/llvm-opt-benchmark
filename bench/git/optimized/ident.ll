@@ -104,24 +104,24 @@ xgetpwuid_self.exit:                              ; preds = %if.then.xgetpwuid_s
 for.cond.i:                                       ; preds = %for.inc.i, %xgetpwuid_self.exit
   %src.0.i = phi ptr [ %2, %xgetpwuid_self.exit ], [ %incdec.ptr.i, %for.inc.i ]
   %3 = load i8, ptr %src.0.i, align 1
-  switch i8 %3, label %if.then.i1 [
+  switch i8 %3, label %if.then.i2 [
     i8 0, label %copy_gecos.exit
     i8 44, label %copy_gecos.exit
     i8 38, label %if.else.i
   ]
 
-if.then.i1:                                       ; preds = %for.cond.i
+if.then.i2:                                       ; preds = %for.cond.i
   %4 = load i64, ptr @git_default_name, align 8
   %tobool.not.i.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
-strbuf_avail.exit.i.i:                            ; preds = %if.then.i1
+strbuf_avail.exit.i.i:                            ; preds = %if.then.i2
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %.neg.i.i = add i64 %5, 1
   %tobool.not.i.i = icmp eq i64 %4, %.neg.i.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %strbuf_addch.exit.i
 
-if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then.i1
+if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then.i2
   tail call void @strbuf_grow(ptr noundef nonnull @git_default_name, i64 noundef 1) #18
   %.pre.i.i = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
@@ -235,8 +235,8 @@ if.then5:                                         ; preds = %land.lhs.true3
   br label %if.end14
 
 if.else:                                          ; preds = %land.lhs.true3, %if.then
-  %call.i3 = tail call ptr @__errno_location() #17
-  store i32 0, ptr %call.i3, align 4
+  %call.i4 = tail call ptr @__errno_location() #17
+  store i32 0, ptr %call.i4, align 4
   %call1.i = tail call i32 @getuid() #18
   %call2.i = tail call ptr @getpwuid(i32 noundef %call1.i) #18
   %tobool.not.i = icmp eq ptr %call2.i, null
@@ -770,8 +770,8 @@ if.else:                                          ; preds = %if.then
   %cmp11 = icmp eq i32 %whose_ident, 2
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @git_committer_email, i64 8), align 8
   %tobool14 = icmp ne i64 %4, 0
-  %or.cond1 = select i1 %cmp11, i1 %tobool14, i1 false
-  br i1 %or.cond1, label %if.end17, label %if.then19
+  %or.cond3 = select i1 %cmp11, i1 %tobool14, i1 false
+  br i1 %or.cond3, label %if.end17, label %if.then19
 
 if.end17:                                         ; preds = %if.then, %if.else
   %email.addr.0.in = phi ptr [ getelementptr inbounds (i8, ptr @git_committer_email, i64 16), %if.else ], [ getelementptr inbounds (i8, ptr @git_author_email, i64 16), %if.then ]
@@ -783,8 +783,8 @@ if.then19:                                        ; preds = %if.else, %if.end17
   %tobool20 = icmp ne i32 %and, 0
   %5 = load i32, ptr @ident_use_config_only, align 4
   %tobool22 = icmp ne i32 %5, 0
-  %or.cond2 = select i1 %tobool20, i1 %tobool22, i1 false
-  br i1 %or.cond2, label %land.lhs.true23, label %if.end27
+  %or.cond4 = select i1 %tobool20, i1 %tobool22, i1 false
+  br i1 %or.cond4, label %land.lhs.true23, label %if.end27
 
 land.lhs.true23:                                  ; preds = %if.then19
   %6 = load i32, ptr @ident_config_given, align 4
@@ -800,9 +800,9 @@ if.then26:                                        ; preds = %land.lhs.true23
 
 if.end27:                                         ; preds = %land.lhs.true23, %if.then19
   %call28 = tail call ptr @ident_default_email()
-  %.b87 = load i1, ptr @default_email_is_bogus, align 4
-  %or.cond3 = select i1 %tobool20, i1 %.b87, i1 false
-  br i1 %or.cond3, label %if.then32, label %if.end35
+  %.b91 = load i1, ptr @default_email_is_bogus, align 4
+  %or.cond5 = select i1 %tobool20, i1 %.b91, i1 false
+  br i1 %or.cond5, label %if.then32, label %if.end35
 
 if.then32:                                        ; preds = %if.end27
   tail call fastcc void @ident_env_hint(i32 noundef %whose_ident)
@@ -822,15 +822,15 @@ if.then39:                                        ; preds = %if.then37
   %cmp40 = icmp eq i32 %whose_ident, 1
   %7 = load i64, ptr getelementptr inbounds (i8, ptr @git_author_name, i64 8), align 8
   %tobool43 = icmp ne i64 %7, 0
-  %or.cond4 = select i1 %cmp40, i1 %tobool43, i1 false
-  br i1 %or.cond4, label %if.end53, label %if.else45
+  %or.cond7 = select i1 %cmp40, i1 %tobool43, i1 false
+  br i1 %or.cond7, label %if.end53, label %if.else45
 
 if.else45:                                        ; preds = %if.then39
   %cmp46 = icmp eq i32 %whose_ident, 2
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @git_committer_name, i64 8), align 8
   %tobool49 = icmp ne i64 %8, 0
-  %or.cond5 = select i1 %cmp46, i1 %tobool49, i1 false
-  br i1 %or.cond5, label %if.end53, label %if.then55
+  %or.cond9 = select i1 %cmp46, i1 %tobool49, i1 false
+  br i1 %or.cond9, label %if.end53, label %if.then55
 
 if.end53:                                         ; preds = %if.then39, %if.else45
   %name.addr.0.in = phi ptr [ getelementptr inbounds (i8, ptr @git_committer_name, i64 16), %if.else45 ], [ getelementptr inbounds (i8, ptr @git_author_name, i64 16), %if.then39 ]
@@ -842,8 +842,8 @@ if.then55:                                        ; preds = %if.else45, %if.end5
   %tobool56 = icmp ne i32 %and, 0
   %9 = load i32, ptr @ident_use_config_only, align 4
   %tobool58 = icmp ne i32 %9, 0
-  %or.cond6 = select i1 %tobool56, i1 %tobool58, i1 false
-  br i1 %or.cond6, label %land.lhs.true59, label %if.end64
+  %or.cond10 = select i1 %tobool56, i1 %tobool58, i1 false
+  br i1 %or.cond10, label %land.lhs.true59, label %if.end64
 
 land.lhs.true59:                                  ; preds = %if.then55
   %10 = load i32, ptr @ident_config_given, align 4
@@ -860,8 +860,8 @@ if.then62:                                        ; preds = %land.lhs.true59
 if.end64:                                         ; preds = %land.lhs.true59, %if.then55
   %call65 = tail call ptr @ident_default_name()
   %.b = load i1, ptr @default_name_is_bogus, align 4
-  %or.cond7 = select i1 %tobool56, i1 %.b, i1 false
-  br i1 %or.cond7, label %if.then69, label %if.end72
+  %or.cond11 = select i1 %tobool56, i1 %.b, i1 false
+  br i1 %or.cond11, label %if.then69, label %if.end72
 
 if.then69:                                        ; preds = %if.end64
   tail call fastcc void @ident_env_hint(i32 noundef %whose_ident)
@@ -870,7 +870,7 @@ if.then69:                                        ; preds = %if.end64
   unreachable
 
 if.end72:                                         ; preds = %if.then37, %if.end64, %if.end53
-  %tobool54.not.not78 = phi i1 [ false, %if.end53 ], [ true, %if.end64 ], [ false, %if.then37 ]
+  %tobool54.not.not82 = phi i1 [ false, %if.end53 ], [ true, %if.end64 ], [ false, %if.then37 ]
   %name.addr.1 = phi ptr [ %name.addr.0, %if.end53 ], [ %call65, %if.end64 ], [ %name, %if.then37 ]
   %11 = load i8, ptr %name.addr.1, align 1
   %tobool73.not = icmp eq i8 %11, 0
@@ -881,7 +881,7 @@ if.then74:                                        ; preds = %if.end72
   br i1 %tobool75.not, label %if.end81, label %if.then76
 
 if.then76:                                        ; preds = %if.then74
-  br i1 %tobool54.not.not78, label %if.then78, label %if.end79
+  br i1 %tobool54.not.not82, label %if.then78, label %if.end79
 
 if.then78:                                        ; preds = %if.then76
   tail call fastcc void @ident_env_hint(i32 noundef %whose_ident)
@@ -933,8 +933,8 @@ switch.early.test.i.i:                            ; preds = %for.body.i
 for.inc.i:                                        ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.06.i, i64 1
   %13 = load i8, ptr %incdec.ptr.i, align 1
-  %tobool.not.i47 = icmp eq i8 %13, 0
-  br i1 %tobool.not.i47, label %if.then88, label %for.body.i, !llvm.loop !15
+  %tobool.not.i51 = icmp eq i8 %13, 0
+  br i1 %tobool.not.i51, label %if.then88, label %for.body.i, !llvm.loop !15
 
 if.then88:                                        ; preds = %for.inc.i
   %call89 = tail call fastcc ptr @_(ptr noundef nonnull @.str.7)
@@ -963,23 +963,23 @@ if.then93:                                        ; preds = %strbuf_setlen.exit
   tail call fastcc void @strbuf_addstr_without_crud(ptr noundef nonnull %arrayidx, ptr noundef %email.addr.1)
   %15 = load i64, ptr %arrayidx, align 8
   %tobool.not.i.i = icmp eq i64 %15, 0
-  br i1 %tobool.not.i.i, label %if.then.i51, label %strbuf_avail.exit.i
+  br i1 %tobool.not.i.i, label %if.then.i55, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.then93
   %16 = load i64, ptr %len2.i, align 8
   %.neg.i = add i64 %16, 1
-  %tobool.not.i49 = icmp eq i64 %15, %.neg.i
-  br i1 %tobool.not.i49, label %if.then.i51, label %strbuf_addch.exit
+  %tobool.not.i53 = icmp eq i64 %15, %.neg.i
+  br i1 %tobool.not.i53, label %if.then.i55, label %strbuf_addch.exit
 
-if.then.i51:                                      ; preds = %strbuf_avail.exit.i, %if.then93
+if.then.i55:                                      ; preds = %strbuf_avail.exit.i, %if.then93
   tail call void @strbuf_grow(ptr noundef nonnull %arrayidx, i64 noundef 1) #18
   %.pre.i = load i64, ptr %len2.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
 
-strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i51
-  %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i51 ], [ %.neg.i, %strbuf_avail.exit.i ]
-  %17 = phi i64 [ %.pre.i, %if.then.i51 ], [ %16, %strbuf_avail.exit.i ]
+strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i55
+  %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i55 ], [ %.neg.i, %strbuf_avail.exit.i ]
+  %17 = phi i64 [ %.pre.i, %if.then.i55 ], [ %16, %strbuf_avail.exit.i ]
   %18 = load ptr, ptr %buf.i, align 8
   store i64 %inc.pre-phi.i, ptr %len2.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %18, i64 %17
@@ -999,36 +999,36 @@ if.end97:                                         ; preds = %if.end97.critedge, 
 
 if.then99:                                        ; preds = %if.end97
   %21 = load i64, ptr %arrayidx, align 8
-  %tobool.not.i.i52 = icmp eq i64 %21, 0
-  br i1 %tobool.not.i.i52, label %if.then.i62, label %strbuf_avail.exit.i53
+  %tobool.not.i.i56 = icmp eq i64 %21, 0
+  br i1 %tobool.not.i.i56, label %if.then.i66, label %strbuf_avail.exit.i57
 
-strbuf_avail.exit.i53:                            ; preds = %if.then99
+strbuf_avail.exit.i57:                            ; preds = %if.then99
   %22 = load i64, ptr %len2.i, align 8
-  %.neg.i55 = add i64 %22, 1
-  %tobool.not.i56 = icmp eq i64 %21, %.neg.i55
-  br i1 %tobool.not.i56, label %if.then.i62, label %strbuf_addch.exit66
+  %.neg.i59 = add i64 %22, 1
+  %tobool.not.i60 = icmp eq i64 %21, %.neg.i59
+  br i1 %tobool.not.i60, label %if.then.i66, label %strbuf_addch.exit70
 
-if.then.i62:                                      ; preds = %strbuf_avail.exit.i53, %if.then99
+if.then.i66:                                      ; preds = %strbuf_avail.exit.i57, %if.then99
   tail call void @strbuf_grow(ptr noundef nonnull %arrayidx, i64 noundef 1) #18
-  %.pre.i64 = load i64, ptr %len2.i, align 8
-  %.pre8.i65 = add i64 %.pre.i64, 1
-  br label %strbuf_addch.exit66
+  %.pre.i68 = load i64, ptr %len2.i, align 8
+  %.pre8.i69 = add i64 %.pre.i68, 1
+  br label %strbuf_addch.exit70
 
-strbuf_addch.exit66:                              ; preds = %strbuf_avail.exit.i53, %if.then.i62
-  %inc.pre-phi.i57 = phi i64 [ %.pre8.i65, %if.then.i62 ], [ %.neg.i55, %strbuf_avail.exit.i53 ]
-  %23 = phi i64 [ %.pre.i64, %if.then.i62 ], [ %22, %strbuf_avail.exit.i53 ]
+strbuf_addch.exit70:                              ; preds = %strbuf_avail.exit.i57, %if.then.i66
+  %inc.pre-phi.i61 = phi i64 [ %.pre8.i69, %if.then.i66 ], [ %.neg.i59, %strbuf_avail.exit.i57 ]
+  %23 = phi i64 [ %.pre.i68, %if.then.i66 ], [ %22, %strbuf_avail.exit.i57 ]
   %24 = load ptr, ptr %buf.i, align 8
-  store i64 %inc.pre-phi.i57, ptr %len2.i, align 8
-  %arrayidx.i60 = getelementptr inbounds i8, ptr %24, i64 %23
-  store i8 32, ptr %arrayidx.i60, align 1
+  store i64 %inc.pre-phi.i61, ptr %len2.i, align 8
+  %arrayidx.i64 = getelementptr inbounds i8, ptr %24, i64 %23
+  store i8 32, ptr %arrayidx.i64, align 1
   %25 = load ptr, ptr %buf.i, align 8
   %26 = load i64, ptr %len2.i, align 8
-  %arrayidx3.i61 = getelementptr inbounds i8, ptr %25, i64 %26
-  store i8 0, ptr %arrayidx3.i61, align 1
+  %arrayidx3.i65 = getelementptr inbounds i8, ptr %25, i64 %26
+  store i8 0, ptr %arrayidx3.i65, align 1
   %tobool100.not = icmp eq ptr %date_str, null
   br i1 %tobool100.not, label %if.else112, label %land.lhs.true101
 
-land.lhs.true101:                                 ; preds = %strbuf_addch.exit66
+land.lhs.true101:                                 ; preds = %strbuf_addch.exit70
   %27 = load i8, ptr %date_str, align 1
   %tobool104.not = icmp eq i8 %27, 0
   br i1 %tobool104.not, label %if.else112, label %if.then105
@@ -1043,19 +1043,19 @@ if.then109:                                       ; preds = %if.then105
   tail call void (ptr, ...) @die(ptr noundef %call110, ptr noundef nonnull %date_str) #20
   unreachable
 
-if.else112:                                       ; preds = %land.lhs.true101, %strbuf_addch.exit66
+if.else112:                                       ; preds = %land.lhs.true101, %strbuf_addch.exit70
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_date, i64 8), align 8
-  %tobool.not.i67 = icmp eq i64 %28, 0
-  br i1 %tobool.not.i67, label %if.then.i68, label %ident_default_date.exit
+  %tobool.not.i71 = icmp eq i64 %28, 0
+  br i1 %tobool.not.i71, label %if.then.i72, label %ident_default_date.exit
 
-if.then.i68:                                      ; preds = %if.else112
+if.then.i72:                                      ; preds = %if.else112
   tail call void @datestamp(ptr noundef nonnull @git_default_date) #18
   br label %ident_default_date.exit
 
-ident_default_date.exit:                          ; preds = %if.else112, %if.then.i68
+ident_default_date.exit:                          ; preds = %if.else112, %if.then.i72
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_date, i64 16), align 8
-  %call.i69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #19
-  tail call void @strbuf_add(ptr noundef nonnull %arrayidx, ptr noundef %29, i64 noundef %call.i69) #18
+  %call.i73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #19
+  tail call void @strbuf_add(ptr noundef nonnull %arrayidx, ptr noundef %29, i64 noundef %call.i73) #18
   br label %if.end115
 
 if.end115:                                        ; preds = %ident_default_date.exit, %if.then105, %if.end97

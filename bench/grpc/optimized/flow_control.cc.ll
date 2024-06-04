@@ -654,7 +654,8 @@ invoke.cont7:                                     ; preds = %if.then3.i.i, %if.e
   store <2 x double> <double -1.000000e+00, double 2.500000e+01>, ptr %min_control_value_.i, align 16
   store double 1.000000e+01, ptr %integral_range_.i, align 16
   call void @_ZN9grpc_core13PidControllerC1ERKNS0_4ArgsE(ptr noundef nonnull align 8 dereferenceable(88) %pid_controller_, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %5, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i, label %5
 
 5:                                                ; preds = %invoke.cont7
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -931,7 +932,8 @@ declare double @log2(double noundef) local_unnamed_addr #12
 ; Function Attrs: uwtable
 define noundef double @_ZN9grpc_core6chttp220TransportFlowControl12SmoothLogBdpEd(ptr noundef nonnull align 8 dereferenceable(240) %this, double noundef %value) local_unnamed_addr #6 align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %0, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -1265,7 +1267,8 @@ if.then3.i.i:                                     ; preds = %if.else.i.i
 _ZN9grpc_core6chttp220TransportFlowControl12TargetLogBdpEv.exit: ; preds = %if.then.i2.i, %if.else.i.i, %if.then3.i.i
   %target.addr.0.i.i = phi double [ %add.i.i12, %if.then.i2.i ], [ %mul8.i.i, %if.then3.i.i ], [ %add.i, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i4)
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %10, label %_ZN9grpc_core9Timestamp3NowEv.exit.i
+  %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit.i, label %10
 
 10:                                               ; preds = %_ZN9grpc_core6chttp220TransportFlowControl12TargetLogBdpEv.exit
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()

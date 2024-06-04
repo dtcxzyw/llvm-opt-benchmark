@@ -321,38 +321,38 @@ define dso_local ptr @PGSharedMemoryCreate(i64 noundef %0, ptr nocapture noundef
   %.not.i = icmp eq i64 %31, 0
   %32 = sub i64 %30, %31
   %33 = select i1 %.not.i, i64 0, i64 %32
-  %.024.i = add i64 %33, %0
+  %.025.i = add i64 %33, %0
   %34 = load i32, ptr %5, align 4
   %35 = or i32 %34, 33
-  %36 = call ptr @mmap(ptr noundef null, i64 noundef %.024.i, i32 noundef 3, i32 noundef %35, i32 noundef -1, i64 noundef 0) #11
+  %36 = call ptr @mmap(ptr noundef null, i64 noundef %.025.i, i32 noundef 3, i32 noundef %35, i32 noundef -1, i64 noundef 0) #11
   %37 = tail call ptr @__errno_location() #12
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr @huge_pages, align 4
   %40 = icmp eq i32 %39, 2
   %41 = icmp eq ptr %36, inttoptr (i64 -1 to ptr)
-  %or.cond3.i = select i1 %40, i1 %41, i1 false
-  br i1 %or.cond3.i, label %42, label %46
+  %or.cond4.i = select i1 %40, i1 %41, i1 false
+  br i1 %or.cond4.i, label %42, label %46
 
 42:                                               ; preds = %29
   %43 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i64 noundef %.024.i) #11
+  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i64 noundef %.025.i) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__func__.CreateAnonymousSegment) #11
   br label %46
 
 46:                                               ; preds = %44, %42, %29, %27
-  %.125.i = phi i64 [ %.024.i, %44 ], [ %.024.i, %42 ], [ %.024.i, %29 ], [ %0, %27 ]
-  %.022.i = phi ptr [ inttoptr (i64 -1 to ptr), %44 ], [ inttoptr (i64 -1 to ptr), %42 ], [ %36, %29 ], [ inttoptr (i64 -1 to ptr), %27 ]
+  %.126.i = phi i64 [ %.025.i, %44 ], [ %.025.i, %42 ], [ %.025.i, %29 ], [ %0, %27 ]
+  %.023.i = phi ptr [ inttoptr (i64 -1 to ptr), %44 ], [ inttoptr (i64 -1 to ptr), %42 ], [ %36, %29 ], [ inttoptr (i64 -1 to ptr), %27 ]
   %.0.i = phi i32 [ %38, %44 ], [ %38, %42 ], [ %38, %29 ], [ 0, %27 ]
-  %47 = icmp eq ptr %.022.i, inttoptr (i64 -1 to ptr)
+  %47 = icmp eq ptr %.023.i, inttoptr (i64 -1 to ptr)
   %48 = select i1 %47, ptr @.str.8, ptr @.str.14
   call void @SetConfigOption(ptr noundef nonnull @.str.7, ptr noundef nonnull %48, i32 noundef 0, i32 noundef 1) #11
   %49 = load i32, ptr @huge_pages, align 4
   %50 = icmp ne i32 %49, 1
-  %or.cond5.i = select i1 %47, i1 %50, i1 false
-  br i1 %or.cond5.i, label %51, label %55
+  %or.cond6.i = select i1 %47, i1 %50, i1 false
+  br i1 %or.cond6.i, label %51, label %55
 
 51:                                               ; preds = %46
   %52 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #11
@@ -361,10 +361,10 @@ define dso_local ptr @PGSharedMemoryCreate(i64 noundef %0, ptr nocapture noundef
   br label %55
 
 55:                                               ; preds = %51, %46
-  %.2.i = phi i64 [ %0, %51 ], [ %.125.i, %46 ]
-  %.123.i = phi ptr [ %52, %51 ], [ %.022.i, %46 ]
+  %.2.i = phi i64 [ %0, %51 ], [ %.126.i, %46 ]
+  %.124.i = phi ptr [ %52, %51 ], [ %.023.i, %46 ]
   %.1.i = phi i32 [ %54, %51 ], [ %.0.i, %46 ]
-  %56 = icmp eq ptr %.123.i, inttoptr (i64 -1 to ptr)
+  %56 = icmp eq ptr %.124.i, inttoptr (i64 -1 to ptr)
   br i1 %56, label %57, label %CreateAnonymousSegment.exit
 
 57:                                               ; preds = %55
@@ -387,7 +387,7 @@ define dso_local ptr @PGSharedMemoryCreate(i64 noundef %0, ptr nocapture noundef
 CreateAnonymousSegment.exit:                      ; preds = %55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  store ptr %.123.i, ptr @AnonymousShmem, align 8
+  store ptr %.124.i, ptr @AnonymousShmem, align 8
   store i64 %.2.i, ptr @AnonymousShmemSize, align 8
   call void @on_shmem_exit(ptr noundef nonnull @AnonymousShmemDetach, i64 noundef 0) #11
   br label %66

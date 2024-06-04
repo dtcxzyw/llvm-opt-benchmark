@@ -790,7 +790,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN6duckdb12CatalogEntryC2ENS_11CatalogTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 noundef zeroext %type, ptr noundef %name_p, i64 noundef %oid) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6duckdb12CatalogEntryE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12CatalogEntryE, i64 16), ptr %this, align 8, !tbaa !3
   %oid2 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %oid, ptr %oid2, align 8, !tbaa !6
   %type3 = getelementptr inbounds i8, ptr %this, i64 16
@@ -890,7 +890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
   %catalog_version.i.i = getelementptr inbounds i8, ptr %call2.i4, i64 16
   %8 = atomicrmw add ptr %catalog_version.i.i, i64 1 seq_cst, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6duckdb12CatalogEntryE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12CatalogEntryE, i64 16), ptr %this, align 8, !tbaa !3
   %oid2.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %8, ptr %oid2.i, align 8, !tbaa !6
   %type3.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -970,7 +970,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb12CatalogEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6duckdb12CatalogEntryE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12CatalogEntryE, i64 16), ptr %this, align 8, !tbaa !3
   %child = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %child, align 8, !tbaa !62
   %cmp.not.i = icmp eq ptr %0, null
@@ -1925,7 +1925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
 invoke.cont.i:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   %catalog_version.i.i.i = getelementptr inbounds i8, ptr %call2.i4.i, i64 16
   %15 = atomicrmw add ptr %catalog_version.i.i.i, i64 1 seq_cst, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6duckdb12CatalogEntryE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12CatalogEntryE, i64 16), ptr %this, align 8, !tbaa !3
   %oid2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %15, ptr %oid2.i.i, align 8, !tbaa !6
   %type3.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1999,7 +1999,7 @@ if.then.i.i6:                                     ; preds = %invoke.cont
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6duckdb14InCatalogEntryE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14InCatalogEntryE, i64 16), ptr %this, align 8, !tbaa !3
   %catalog2 = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %catalog, ptr %catalog2, align 8, !tbaa !62
   ret void
@@ -2040,7 +2040,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6duckdb7CatalogC2ERNS_16AttachedDatabaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(145) %db) unnamed_addr #12 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN6duckdb7CatalogE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb7CatalogE, i64 16), ptr %this, align 8, !tbaa !3
   %db2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %db, ptr %db2, align 8, !tbaa !62
   ret void
@@ -12469,7 +12469,7 @@ invoke.cont106:                                   ; preds = %if.else103
           to label %invoke.cont113 unwind label %lpad108
 
 invoke.cont113:                                   ; preds = %invoke.cont106
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %except, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %except, align 8, !tbaa !3
   %raw_message_.i = getelementptr inbounds i8, ptr %except, i64 48
   %73 = load ptr, ptr %raw_message_.i, align 8, !tbaa !29
   %74 = getelementptr inbounds i8, ptr %except, i64 64
@@ -12836,7 +12836,7 @@ invoke.cont44:                                    ; preds = %if.else
           to label %invoke.cont51 unwind label %lpad46
 
 invoke.cont51:                                    ; preds = %invoke.cont44
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %except, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %except, align 8, !tbaa !3
   %raw_message_.i = getelementptr inbounds i8, ptr %except, i64 48
   %28 = load ptr, ptr %raw_message_.i, align 8, !tbaa !29
   %29 = getelementptr inbounds i8, ptr %except, i64 64
@@ -22841,14 +22841,14 @@ for.body119:                                      ; preds = %_ZN6duckdb14Depende
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %info) #35
   call void @_ZN6duckdb17DependencyManager19GetLookupPropertiesERNS_12CatalogEntryE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::CatalogEntryInfo") align 8 %info, ptr noundef nonnull align 8 dereferenceable(96) %object)
   store i8 %spec.select, ptr %value.i.i219, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags, align 8, !tbaa !3
   %52 = load ptr, ptr %add.ptr.i218, align 8, !tbaa !402
   invoke void @_ZN6duckdb17DependencyManager19GetLookupPropertiesERNS_12CatalogEntryE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::CatalogEntryInfo") align 8 %subject, ptr noundef nonnull align 8 dereferenceable(96) %52)
           to label %invoke.cont129 unwind label %lpad128
 
 invoke.cont129:                                   ; preds = %for.body119
   store i64 0, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags130, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags130, align 8, !tbaa !3
   invoke void @_ZN6duckdb17DependencyManager16CreateDependencyENS_18CatalogTransactionERNS_14DependencyInfoE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull byval(%"struct.duckdb::CatalogTransaction") align 8 %transaction, ptr noundef nonnull align 8 dereferenceable(176) %info)
           to label %invoke.cont137 unwind label %lpad136
 
@@ -23409,7 +23409,7 @@ invoke.cont31:                                    ; preds = %_ZNSt14_Function_ba
   %flags = getelementptr inbounds i8, ptr %info, i64 72
   %value.i.i120 = getelementptr inbounds i8, ptr %info, i64 80
   store i8 2, ptr %value.i.i120, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags, align 8, !tbaa !3
   %subject = getelementptr inbounds i8, ptr %info, i64 88
   invoke void @_ZN6duckdb17DependencyManager19GetLookupPropertiesERNS_12CatalogEntryE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::CatalogEntryInfo") align 8 %subject, ptr noundef nonnull align 8 dereferenceable(96) %entry1)
           to label %invoke.cont43 unwind label %lpad35
@@ -23418,7 +23418,7 @@ invoke.cont43:                                    ; preds = %invoke.cont31
   %flags37 = getelementptr inbounds i8, ptr %info, i64 160
   %value.i.i123 = getelementptr inbounds i8, ptr %info, i64 168
   store i8 1, ptr %value.i.i123, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags37, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags37, align 8, !tbaa !3
   invoke void @_ZN6duckdb17DependencyManager16CreateDependencyENS_18CatalogTransactionERNS_14DependencyInfoE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull byval(%"struct.duckdb::CatalogTransaction") align 8 %transaction, ptr noundef nonnull align 8 dereferenceable(176) %info)
           to label %invoke.cont59 unwind label %lpad58
 
@@ -25130,7 +25130,7 @@ invoke.cont101:                                   ; preds = %if.then99
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %serializer) #35
   %serialize_enum_as_string.i.i = getelementptr inbounds i8, ptr %serializer, i64 8
   %serialize_default_values.i.i = getelementptr inbounds i8, ptr %serializer, i64 9
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %serializer, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %serializer, align 8, !tbaa !3
   %debug_stack.i = getelementptr inbounds i8, ptr %serializer, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %debug_stack.i, i8 0, i64 24, i1 false)
   %stream2.i = getelementptr inbounds i8, ptr %serializer, i64 40
@@ -25263,7 +25263,7 @@ invoke.cont130:                                   ; preds = %invoke.cont128
           to label %invoke.cont132 unwind label %lpad121
 
 invoke.cont132:                                   ; preds = %invoke.cont130
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %serializer, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %serializer, align 8, !tbaa !3
   %56 = load ptr, ptr %debug_stack.i, align 8, !tbaa !422
   %_M_finish.i.i = getelementptr inbounds i8, ptr %serializer, i64 24
   %57 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !424
@@ -25672,7 +25672,7 @@ declare noundef i64 @_ZNK6duckdb12MemoryStream11GetPositionEv(ptr noundef nonnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb16BinarySerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb16BinarySerializerE, i64 16), ptr %this, align 8, !tbaa !3
   %debug_stack = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %debug_stack, align 8, !tbaa !422
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -25965,13 +25965,13 @@ invoke.cont36:                                    ; preds = %for.body
   %value2.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0258, i64 24
   %33 = load i8, ptr %value2.i.i, align 8, !tbaa !404
   store i8 %33, ptr %value.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags, align 8, !tbaa !3
   invoke void @_ZN6duckdb17DependencyManager19GetLookupPropertiesERNS_12CatalogEntryE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::CatalogEntryInfo") align 8 %subject, ptr noundef nonnull align 8 dereferenceable(96) %32)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont36
   store i64 0, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags44, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags44, align 8, !tbaa !3
   invoke void @_ZN6duckdb17DependencyManager16CreateDependencyENS_18CatalogTransactionERNS_14DependencyInfoE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull byval(%"struct.duckdb::CatalogTransaction") align 8 %transaction, ptr noundef nonnull align 8 dereferenceable(176) %info33)
           to label %invoke.cont51 unwind label %lpad50
 
@@ -26073,13 +26073,13 @@ for.body72:                                       ; preds = %_ZN6duckdb14Depende
 
 invoke.cont86:                                    ; preds = %for.body72
   store i8 2, ptr %value.i.i199, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags82, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags82, align 8, !tbaa !3
   invoke void @_ZN6duckdb17DependencyManager19GetLookupPropertiesERNS_12CatalogEntryE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::CatalogEntryInfo") align 8 %subject89, ptr noundef nonnull align 8 dereferenceable(96) %46)
           to label %invoke.cont99 unwind label %lpad91
 
 invoke.cont99:                                    ; preds = %invoke.cont86
   store i8 1, ptr %value.i.i203, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags93, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags93, align 8, !tbaa !3
   invoke void @_ZN6duckdb17DependencyManager16CreateDependencyENS_18CatalogTransactionERNS_14DependencyInfoE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull byval(%"struct.duckdb::CatalogTransaction") align 8 %transaction, ptr noundef nonnull align 8 dereferenceable(176) %info77)
           to label %invoke.cont115 unwind label %lpad114
 
@@ -28842,7 +28842,7 @@ entry:
   %agg.tmp.i = alloca %"class.duckdb::unique_ptr.895", align 8
   %db2.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %db, ptr %db2.i, align 8, !tbaa !62
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN6duckdb11DuckCatalogE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb11DuckCatalogE, i64 16), ptr %this, align 8, !tbaa !3
   %dependency_manager = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !447)
   %call.i11 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #38
@@ -28963,7 +28963,7 @@ ehcleanup7:                                       ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb11DuckCatalogD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN6duckdb11DuckCatalogE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb11DuckCatalogE, i64 16), ptr %this, align 8, !tbaa !3
   %schemas = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %schemas, align 8, !tbaa !62
   %cmp.not.i = icmp eq ptr %0, null
@@ -29045,7 +29045,7 @@ entry:
   %_M_string_length.i.i.i.i5.i = getelementptr inbounds i8, ptr %info, i64 96
   store i64 0, ptr %_M_string_length.i.i.i.i5.i, align 8, !tbaa !30
   store i8 0, ptr %4, align 8, !tbaa !31
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6duckdb16CreateSchemaInfoE, i64 16), ptr %info, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb16CreateSchemaInfoE, i64 16), ptr %info, align 8, !tbaa !3
   %call3.i.i22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %schema3.i.i, i64 noundef 0, i64 noundef 4, ptr noundef nonnull @.str.9, i64 noundef 4)
           to label %invoke.cont unwind label %lpad
 
@@ -29107,7 +29107,7 @@ if.end:                                           ; preds = %invoke.cont11, %inv
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %if.end
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6duckdb10CreateInfoE, i64 16), ptr %info, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb10CreateInfoE, i64 16), ptr %info, align 8, !tbaa !3
   %10 = load ptr, ptr %sql.i.i, align 8, !tbaa !29
   %cmp.i.i.i.i = icmp eq ptr %10, %4
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
@@ -29177,7 +29177,7 @@ declare void @_ZN6duckdb16BuiltinFunctionsD1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb10CreateInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6duckdb10CreateInfoE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb10CreateInfoE, i64 16), ptr %this, align 8, !tbaa !3
   %sql = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %sql, align 8, !tbaa !29
   %1 = getelementptr inbounds i8, ptr %this, i64 104
@@ -29801,7 +29801,7 @@ cleanup.action47:                                 ; preds = %ehcleanup42, %_ZNKS
   br label %ehcleanup49
 
 if.end:                                           ; preds = %invoke.cont26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb8DropInfoE, i64 16), ptr %drop_info, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb8DropInfoE, i64 16), ptr %drop_info, align 8, !tbaa !3
   %20 = load ptr, ptr %name, align 8, !tbaa !29
   %21 = getelementptr inbounds i8, ptr %drop_info, i64 96
   %cmp.i.i.i.i = icmp eq ptr %20, %21
@@ -30062,7 +30062,7 @@ unreachable:                                      ; preds = %invoke.cont11
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb8DropInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(115) %this) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN6duckdb8DropInfoE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb8DropInfoE, i64 16), ptr %this, align 8, !tbaa !3
   %name = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %name, align 8, !tbaa !29
   %1 = getelementptr inbounds i8, ptr %this, i64 96
@@ -32159,7 +32159,7 @@ entry:
   %value2.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
   %0 = load i8, ptr %value2.i.i.i, align 8, !tbaa !404
   store i8 %0, ptr %value.i.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i, align 8, !tbaa !3
   %call1 = invoke noundef nonnull align 8 dereferenceable(88) ptr @_ZNK6duckdb15DependencyEntry7SubjectEv(ptr noundef nonnull align 8 dereferenceable(345) %dep)
           to label %invoke.cont unwind label %lpad
 
@@ -32174,7 +32174,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %value2.i.i.i7 = getelementptr inbounds i8, ptr %call1, i64 80
   %1 = load i8, ptr %value2.i.i.i7, align 8, !tbaa !404
   store i8 %1, ptr %value.i.i.i6, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i5, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i5, align 8, !tbaa !3
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
@@ -32240,7 +32240,7 @@ entry:
   %value2.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
   %0 = load i8, ptr %value2.i.i.i, align 8, !tbaa !404
   store i8 %0, ptr %value.i.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i, align 8, !tbaa !3
   %call1 = invoke noundef nonnull align 8 dereferenceable(88) ptr @_ZNK6duckdb15DependencyEntry7SubjectEv(ptr noundef nonnull align 8 dereferenceable(345) %dep)
           to label %invoke.cont unwind label %lpad
 
@@ -32255,7 +32255,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %value2.i.i.i7 = getelementptr inbounds i8, ptr %call1, i64 80
   %1 = load i8, ptr %value2.i.i.i7, align 8, !tbaa !404
   store i8 %1, ptr %value.i.i.i6, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i5, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i5, align 8, !tbaa !3
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
@@ -35200,7 +35200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %if
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9ExceptionE, i64 16), ptr %this, align 8, !tbaa !3
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !29
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -52528,7 +52528,7 @@ entry:
   %value2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
   %0 = load i8, ptr %value2.i.i.i.i.i.i.i, align 8, !tbaa !404
   store i8 %0, ptr %value.i.i.i.i.i.i.i, align 8, !tbaa !404, !alias.scope !765
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i.i.i, align 8, !tbaa !3, !alias.scope !765
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i.i.i, align 8, !tbaa !3, !alias.scope !765
   %call1.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(88) ptr @_ZNK6duckdb15DependencyEntry7SubjectEv(ptr noundef nonnull align 8 dereferenceable(345) %__args)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
@@ -52553,7 +52553,7 @@ _ZN6duckdb14DependencyInfo11FromSubjectERNS_15DependencyEntryE.exit.i.i.i: ; pre
   %value2.i.i.i7.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i.i, i64 80
   %2 = load i8, ptr %value2.i.i.i7.i.i.i.i, align 8, !tbaa !404
   store i8 %2, ptr %value.i.i.i6.i.i.i.i, align 8, !tbaa !404, !alias.scope !765
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i5.i.i.i.i, align 8, !tbaa !3, !alias.scope !765
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i5.i.i.i.i, align 8, !tbaa !3, !alias.scope !765
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !62
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 16
@@ -52636,7 +52636,7 @@ _ZN6duckdb19DependencyDependentC2EOS0_.exit.i.i.i.i.i: ; preds = %if.else.i8.i.i
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
   %18 = load i8, ptr %value.i.i.i.i.i.i.i, align 8, !tbaa !404
   store i8 %18, ptr %value.i.i.i.i.i.i.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i.i.i.i, align 8, !tbaa !3
   %subject.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 88
   %19 = load i8, ptr %subject.i.i.i.i, align 8, !tbaa !482
   store i8 %19, ptr %subject.i.i.i.i.i, align 8, !tbaa !482
@@ -52712,7 +52712,7 @@ invoke.cont.thread.i.i.i:                         ; preds = %if.else.i8.i.i16.i.
   %value.i.i.i20.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 168
   %32 = load i8, ptr %value.i.i.i6.i.i.i.i, align 8, !tbaa !404
   store i8 %32, ptr %value.i.i.i20.i.i.i.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i19.i.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i19.i.i.i.i.i, align 8, !tbaa !3
   %33 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !497
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 176
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !497
@@ -53120,7 +53120,7 @@ _ZN6duckdb19DependencyDependentC2EOS0_.exit.i:    ; preds = %if.else.i8.i.i.i, %
   %value2.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 80
   %13 = load i8, ptr %value2.i.i.i.i, align 8, !tbaa !404
   store i8 %13, ptr %value.i.i.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i, align 8, !tbaa !3
   %subject.i = getelementptr inbounds i8, ptr %__p, i64 88
   %subject3.i = getelementptr inbounds i8, ptr %__args, i64 88
   %14 = load i8, ptr %subject3.i, align 8, !tbaa !482
@@ -53194,7 +53194,7 @@ _ZN6duckdb14DependencyInfoC2EOS0_.exit:           ; preds = %if.else.i8.i.i16.i,
   %value2.i.i.i21.i = getelementptr inbounds i8, ptr %__args, i64 168
   %27 = load i8, ptr %value2.i.i.i21.i, align 8, !tbaa !404
   store i8 %27, ptr %value.i.i.i20.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i19.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i19.i, align 8, !tbaa !3
   ret void
 }
 
@@ -53294,7 +53294,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %value2.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.017, i64 80
   %0 = load i8, ptr %value2.i.i.i.i.i, align 8, !tbaa !404
   store i8 %0, ptr %value.i.i.i.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i, align 8, !tbaa !3
   %subject.i.i = getelementptr inbounds i8, ptr %__cur.018, i64 88
   %subject3.i.i = getelementptr inbounds i8, ptr %__first.addr.017, i64 88
   invoke void @_ZN6duckdb16CatalogEntryInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %subject.i.i, ptr noundef nonnull align 8 dereferenceable(72) %subject3.i.i)
@@ -53312,7 +53312,7 @@ for.inc:                                          ; preds = %.noexc
   %value2.i.i.i8.i.i = getelementptr inbounds i8, ptr %__first.addr.017, i64 168
   %2 = load i8, ptr %value2.i.i.i8.i.i, align 8, !tbaa !404
   store i8 %2, ptr %value.i.i.i7.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i6.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i6.i.i, align 8, !tbaa !3
   %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.017, i64 176
   %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.018, i64 176
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
@@ -53372,7 +53372,7 @@ entry:
   %value2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 80
   %0 = load i8, ptr %value2.i.i.i.i.i.i.i, align 8, !tbaa !404
   store i8 %0, ptr %value.i.i.i.i.i.i.i, align 8, !tbaa !404, !alias.scope !772
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i.i.i, align 8, !tbaa !3, !alias.scope !772
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i.i.i, align 8, !tbaa !3, !alias.scope !772
   %call1.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(88) ptr @_ZNK6duckdb15DependencyEntry7SubjectEv(ptr noundef nonnull align 8 dereferenceable(345) %__args)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
@@ -53397,7 +53397,7 @@ _ZN6duckdb14DependencyInfo13FromDependentERNS_15DependencyEntryE.exit.i.i.i: ; p
   %value2.i.i.i7.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i.i, i64 80
   %2 = load i8, ptr %value2.i.i.i7.i.i.i.i, align 8, !tbaa !404
   store i8 %2, ptr %value.i.i.i6.i.i.i.i, align 8, !tbaa !404, !alias.scope !772
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i5.i.i.i.i, align 8, !tbaa !3, !alias.scope !772
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i5.i.i.i.i, align 8, !tbaa !3, !alias.scope !772
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !62
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 16
@@ -53480,7 +53480,7 @@ _ZN6duckdb19DependencyDependentC2EOS0_.exit.i.i.i.i.i: ; preds = %if.else.i8.i.i
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
   %18 = load i8, ptr %value.i.i.i.i.i.i.i, align 8, !tbaa !404
   store i8 %18, ptr %value.i.i.i.i.i.i.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i.i.i.i, align 8, !tbaa !3
   %subject.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 88
   %19 = load i8, ptr %subject.i.i.i.i, align 8, !tbaa !482
   store i8 %19, ptr %subject.i.i.i.i.i, align 8, !tbaa !482
@@ -53556,7 +53556,7 @@ invoke.cont.thread.i.i.i:                         ; preds = %if.else.i8.i.i16.i.
   %value.i.i.i20.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 168
   %32 = load i8, ptr %value.i.i.i6.i.i.i.i, align 8, !tbaa !404
   store i8 %32, ptr %value.i.i.i20.i.i.i.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i19.i.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22DependencySubjectFlagsE, i64 16), ptr %flags.i19.i.i.i.i.i, align 8, !tbaa !3
   %33 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !497
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 176
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !497
@@ -54297,7 +54297,7 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %flags4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
   store i8 %8, ptr %value.i.i.i.i.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags4.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags4.i.i.i.i, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i.i.i.i) #35
   store ptr %6, ptr %__node_gen.i.i.i.i.i, align 8, !tbaa !62
   %call3.i.i.i.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN6duckdb10DependencyES1_SaIS1_ENSt8__detail9_IdentityENS0_18DependencyEqualityENS0_22DependencyHashFunctionENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIS1_S1_NS3_10_AllocNodeISaINS3_10_Hash_nodeIS1_Lb1EEEEEEEESt4pairINS3_14_Node_iteratorIS1_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i.i.i.i)
@@ -54318,7 +54318,7 @@ if.end12.i.i.i:                                   ; preds = %if.end.i.i.i
   %flags4.i26.i.i.i = getelementptr inbounds i8, ptr %ref.tmp13.i.i.i, i64 8
   %value.i.i.i27.i.i.i = getelementptr inbounds i8, ptr %ref.tmp13.i.i.i, i64 16
   store i8 %12, ptr %value.i.i.i27.i.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags4.i26.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags4.i26.i.i.i, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i29.i.i.i) #35
   store ptr %10, ptr %__node_gen.i.i29.i.i.i, align 8, !tbaa !62
   %call3.i.i.i30.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN6duckdb10DependencyES1_SaIS1_ENSt8__detail9_IdentityENS0_18DependencyEqualityENS0_22DependencyHashFunctionENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIS1_S1_NS3_10_AllocNodeISaINS3_10_Hash_nodeIS1_Lb1EEEEEEEESt4pairINS3_14_Node_iteratorIS1_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp13.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp13.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i29.i.i.i)
@@ -54458,7 +54458,7 @@ if.end27:                                         ; preds = %lor.lhs.false.i.i, 
   %value2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__k, i64 16
   %19 = load i8, ptr %value2.i.i.i.i.i.i.i.i, align 8, !tbaa !404
   store i8 %19, ptr %value.i.i.i.i.i.i.i.i, align 8, !tbaa !404
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb24DependencyDependentFlagsE, i64 16), ptr %flags.i.i.i.i.i.i, align 8, !tbaa !3
   %call30 = invoke ptr @_ZNSt10_HashtableIN6duckdb10DependencyES1_SaIS1_ENSt8__detail9_IdentityENS0_18DependencyEqualityENS0_22DependencyHashFunctionENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS3_10_Hash_nodeIS1_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i72, i64 noundef %18, ptr noundef nonnull %call5.i.i.i.i.i, i64 noundef 1)
           to label %return unwind label %_ZNSt10_HashtableIN6duckdb10DependencyES1_SaIS1_ENSt8__detail9_IdentityENS0_18DependencyEqualityENS0_22DependencyHashFunctionENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit62
 

@@ -482,20 +482,20 @@ entry:
   tail call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.3, i32 noundef 1) #13
   %call = tail call noalias noundef nonnull dereferenceable(2944) ptr @_Znwm(i64 noundef 2944) #15
   %0 = getelementptr inbounds i8, ptr %call, i64 2920
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !42
   %DebugName.i.i = getelementptr inbounds i8, ptr %call, i64 2928
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !44
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 2936
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !46
   tail call void @_ZN3irr5video18COpenGL3DriverBaseC2ERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(2920) %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8), ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager) #13
-  store ptr getelementptr inbounds inrange(-24, 1080) (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 24), ptr %call, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1336), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 24), ptr %call, align 8, !tbaa !42
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1336), ptr %0, align 8, !tbaa !42
   %add.ptr4.i = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1120), ptr %add.ptr4.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1120), ptr %add.ptr4.i, align 8, !tbaa !42
   %add.ptr5.i = getelementptr inbounds i8, ptr %call, i64 1168
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1184), ptr %add.ptr5.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1184), ptr %add.ptr5.i, align 8, !tbaa !42
   %add.ptr6.i = getelementptr inbounds i8, ptr %call, i64 1176
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1296), ptr %add.ptr6.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1296), ptr %add.ptr6.i, align 8, !tbaa !42
   %WindowSize = getelementptr inbounds i8, ptr %params, i64 8
   %Stencilbuffer = getelementptr inbounds i8, ptr %params, i64 29
   %1 = load i8, ptr %Stencilbuffer, align 1, !tbaa !47, !range !35, !noundef !36

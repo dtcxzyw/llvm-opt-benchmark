@@ -22,17 +22,17 @@ define i32 @mca_coll_basic_scatterv_intra(ptr noundef %0, ptr nocapture noundef 
   %11 = getelementptr i8, ptr %8, i64 220
   %.val = load i32, ptr %11, align 4
   %12 = getelementptr i8, ptr %8, i64 248
-  %.val58 = load ptr, ptr %12, align 8
-  %13 = getelementptr i8, ptr %.val58, i64 16
-  %.val58.val = load i32, ptr %13, align 8
+  %.val59 = load ptr, ptr %12, align 8
+  %13 = getelementptr i8, ptr %.val59, i64 16
+  %.val59.val = load i32, ptr %13, align 8
   %.not = icmp eq i32 %.val, %7
   br i1 %.not, label %22, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %6, i64 24
-  %.val59 = load i64, ptr %15, align 8
+  %.val60 = load i64, ptr %15, align 8
   %16 = icmp sgt i32 %5, 0
-  %17 = icmp ne i64 %.val59, 0
+  %17 = icmp ne i64 %.val60, 0
   %or.cond = select i1 %16, i1 %17, i1 false
   br i1 %or.cond, label %18, label %.loopexit
 
@@ -44,8 +44,8 @@ define i32 @mca_coll_basic_scatterv_intra(ptr noundef %0, ptr nocapture noundef 
 
 22:                                               ; preds = %10
   %23 = getelementptr i8, ptr %3, i64 24
-  %.val60 = load i64, ptr %23, align 8
-  %24 = icmp eq i64 %.val60, 0
+  %.val61 = load i64, ptr %23, align 8
+  %24 = icmp eq i64 %.val61, 0
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %22
@@ -54,31 +54,31 @@ define i32 @mca_coll_basic_scatterv_intra(ptr noundef %0, ptr nocapture noundef 
   %28 = getelementptr inbounds i8, ptr %3, i64 56
   %29 = load i64, ptr %28, align 8
   %30 = sub nsw i64 %29, %27
-  %31 = icmp sgt i32 %.val58.val, 0
+  %31 = icmp sgt i32 %.val59.val, 0
   br i1 %31, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %25
-  %.not69 = icmp eq ptr %4, inttoptr (i64 1 to ptr)
+  %.not70 = icmp eq ptr %4, inttoptr (i64 1 to ptr)
   %32 = zext i32 %7 to i64
-  %wide.trip.count76 = zext nneg i32 %.val58.val to i64
-  br i1 %.not69, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+  %wide.trip.count77 = zext nneg i32 %.val59.val to i64
+  br i1 %.not70, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %33 = getelementptr inbounds i32, ptr %1, i64 %32
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %49
-  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %49 ], [ 0, %.lr.ph ]
-  %34 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv73
+  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %49 ], [ 0, %.lr.ph ]
+  %34 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv74
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = mul nsw i64 %30, %36
   %38 = getelementptr inbounds i8, ptr %0, i64 %37
-  %39 = icmp eq i64 %indvars.iv73, %32
+  %39 = icmp eq i64 %indvars.iv74, %32
   br i1 %39, label %49, label %40
 
 40:                                               ; preds = %.lr.ph.split.us
-  %41 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv73
+  %41 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv74
   %42 = load i32, ptr %41, align 4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %49
@@ -86,15 +86,15 @@ define i32 @mca_coll_basic_scatterv_intra(ptr noundef %0, ptr nocapture noundef 
 44:                                               ; preds = %40
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %46 = zext nneg i32 %42 to i64
-  %47 = trunc nuw nsw i64 %indvars.iv73 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv74 to i32
   %48 = tail call i32 %45(ptr noundef %38, i64 noundef %46, ptr noundef %3, i32 noundef %47, i32 noundef -26, i32 noundef 4, ptr noundef %8) #2
-  %.not56.us = icmp eq i32 %48, 0
-  br i1 %.not56.us, label %49, label %.loopexit
+  %.not57.us = icmp eq i32 %48, 0
+  br i1 %.not57.us, label %49, label %.loopexit
 
 49:                                               ; preds = %.lr.ph.split.us, %44, %40
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !4
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
+  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %70 ]
@@ -113,8 +113,8 @@ define i32 @mca_coll_basic_scatterv_intra(ptr noundef %0, ptr nocapture noundef 
 
 59:                                               ; preds = %56
   %60 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %54, i32 noundef %57, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) #2
-  %.not57 = icmp eq i32 %60, 0
-  br i1 %.not57, label %70, label %.loopexit
+  %.not58 = icmp eq i32 %60, 0
+  br i1 %.not58, label %70, label %.loopexit
 
 61:                                               ; preds = %.lr.ph.split
   %62 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
@@ -127,12 +127,12 @@ define i32 @mca_coll_basic_scatterv_intra(ptr noundef %0, ptr nocapture noundef 
   %67 = zext nneg i32 %63 to i64
   %68 = trunc nuw nsw i64 %indvars.iv to i32
   %69 = tail call i32 %66(ptr noundef %54, i64 noundef %67, ptr noundef %3, i32 noundef %68, i32 noundef -26, i32 noundef 4, ptr noundef %8) #2
-  %.not56 = icmp eq i32 %69, 0
-  br i1 %.not56, label %70, label %.loopexit
+  %.not57 = icmp eq i32 %69, 0
+  br i1 %.not57, label %70, label %.loopexit
 
 70:                                               ; preds = %59, %56, %65, %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count76
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count77
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
 
 .loopexit:                                        ; preds = %59, %65, %70, %44, %49, %25, %22, %14, %18

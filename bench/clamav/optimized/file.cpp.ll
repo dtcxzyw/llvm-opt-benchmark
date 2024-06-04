@@ -22,7 +22,7 @@ $_ZN4File8IsOpenedEv = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8256) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV4File, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV4File, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 52
@@ -58,7 +58,7 @@ define void @_ZN4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(8256) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV4File, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV4File, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, -1

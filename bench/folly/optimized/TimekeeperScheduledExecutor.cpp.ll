@@ -345,7 +345,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly27TimekeeperScheduledExecutorD1Ev(ptr noundef nonnull align 16 dereferenceable(88) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-72, 72) (i8, ptr @_ZTVN5folly27TimekeeperScheduledExecutorE, i64 72), ptr %this, align 16, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly27TimekeeperScheduledExecutorE, i64 72), ptr %this, align 16, !tbaa !7
   %exec_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %exec_.i.i.i, align 8, !tbaa !10
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -384,7 +384,7 @@ _ZN5folly27TimekeeperScheduledExecutorD2Ev.exit:  ; preds = %if.then5.i.i.i, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly27TimekeeperScheduledExecutorD0Ev(ptr noundef nonnull align 16 dereferenceable(88) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-72, 72) (i8, ptr @_ZTVN5folly27TimekeeperScheduledExecutorE, i64 72), ptr %this, align 16, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly27TimekeeperScheduledExecutorE, i64 72), ptr %this, align 16, !tbaa !7
   %exec_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %exec_.i.i.i.i, align 8, !tbaa !10
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -637,7 +637,7 @@ if.then10:                                        ; preds = %if.then
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly39TimekeeperScheduledExecutorNoTimekeeperE, i64 16), ptr %exception, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly39TimekeeperScheduledExecutorNoTimekeeperE, i64 16), ptr %exception, align 8, !tbaa !7
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly39TimekeeperScheduledExecutorNoTimekeeperE, ptr nonnull @_ZNSt11logic_errorD2Ev) #24
           to label %unreachable unwind label %lpad11
 
@@ -780,7 +780,7 @@ call.i.i.i3.noexc.i:                              ; preds = %"_ZZN5folly27Timeke
   store i32 0, ptr %executor_.i.i.i.i.i.i, align 8, !tbaa !61, !noalias !47
   %17 = getelementptr inbounds i8, ptr %call.i.i.i35.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %17, i8 0, i64 32, i1 false), !noalias !47
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 16), ptr %call.i.i.i35.i, align 16, !tbaa !7, !noalias !47
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 16), ptr %call.i.i.i35.i, align 16, !tbaa !7, !noalias !47
   store ptr %call.i.i.i35.i, ptr %core_.i.i.i, align 8, !tbaa !64, !noalias !47
   %18 = load ptr, ptr %ref.tmp12, align 8, !tbaa !65, !noalias !47
   %tobool.not.i.i.i4.i = icmp eq ptr %18, null
@@ -1458,7 +1458,7 @@ if.end.i.i:                                       ; preds = %entry
 _ZN5folly8FunctionIFSt10shared_ptrINS_10TimekeeperEEvEEC2EOS5_.exit: ; preds = %if.end.i.i, %entry
   %2 = phi ptr [ null, %entry ], [ %.pre9, %if.end.i.i ]
   %3 = phi ptr [ %0, %entry ], [ %.pre, %if.end.i.i ]
-  store ptr getelementptr inbounds inrange(-72, 72) (i8, ptr @_ZTVN5folly27TimekeeperScheduledExecutorE, i64 72), ptr %call, align 16, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly27TimekeeperScheduledExecutorE, i64 72), ptr %call, align 16, !tbaa !7
   %parent_.i = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %parent, align 8, !tbaa !14
   store i64 0, ptr %parent, align 8, !tbaa !14
@@ -1530,7 +1530,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !7
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #20
           to label %invoke.cont unwind label %lpad
 
@@ -1549,7 +1549,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #8 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !7
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #24
   unreachable
 }
@@ -2227,7 +2227,7 @@ _ZN5folly15FutureExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #21
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.2, ptr %msg_.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly13FutureInvalidE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly13FutureInvalidE, i64 16), ptr %this, align 8, !tbaa !7
   ret void
 }
 
@@ -2239,7 +2239,7 @@ entry:
   %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !119
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly13FutureInvalidE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly13FutureInvalidE, i64 16), ptr %this, align 8, !tbaa !7
   ret void
 }
 
@@ -2358,7 +2358,7 @@ _ZN5folly15FutureExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #21
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.3, ptr %msg_.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly16FutureNoExecutorE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly16FutureNoExecutorE, i64 16), ptr %this, align 8, !tbaa !7
   ret void
 }
 
@@ -2370,7 +2370,7 @@ entry:
   %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !119
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly16FutureNoExecutorE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly16FutureNoExecutorE, i64 16), ptr %this, align 8, !tbaa !7
   ret void
 }
 
@@ -2805,7 +2805,7 @@ _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_I
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #21
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.9, ptr %msg_.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly14PromiseInvalidE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14PromiseInvalidE, i64 16), ptr %this, align 8, !tbaa !7
   ret void
 }
 
@@ -2817,7 +2817,7 @@ entry:
   %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !119
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly14PromiseInvalidE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14PromiseInvalidE, i64 16), ptr %this, align 8, !tbaa !7
   ret void
 }
 
@@ -2967,7 +2967,7 @@ _ZN5folly15FutureExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #21
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.10, ptr %msg_.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22FutureAlreadyContinuedE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22FutureAlreadyContinuedE, i64 16), ptr %this, align 8, !tbaa !7
   ret void
 }
 
@@ -2979,7 +2979,7 @@ entry:
   %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !119
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22FutureAlreadyContinuedE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22FutureAlreadyContinuedE, i64 16), ptr %this, align 8, !tbaa !7
   ret void
 }
 
@@ -3174,20 +3174,20 @@ _ZN5folly3TryINS_4UnitEEC2EOS2_.exit.i.i:         ; preds = %if.then.i.i.i.i.i, 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i) #21
   %msg_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   store ptr @_ZZN5folly13BrokenPromise13error_messageINS_4UnitEEEPKcvE3str, ptr %msg_.i.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %ref.tmp1, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %ref.tmp1, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1) #21
   %msg_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   %6 = load ptr, ptr %msg_.i.i.i, align 8, !tbaa !119
   store ptr %6, ptr %msg_.i.i.i.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %agg.tmp.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %agg.tmp.i.i, align 8, !tbaa !7
   %call.i.i.i = call ptr @__cxa_allocate_exception(i64 noundef 24) #21, !noalias !145
   %call1.i.i.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i.i.i, ptr noundef nonnull @_ZTIN5folly13BrokenPromiseE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN5folly13BrokenPromiseEEEvPv) #21, !noalias !145
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #21, !noalias !145
   %msg_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %7 = load ptr, ptr %msg_.i.i.i.i.i, align 8, !tbaa !119, !noalias !145
   store ptr %7, ptr %msg_.i.i.i.i.i.i, align 8, !tbaa !119, !noalias !145
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %call.i.i.i, align 8, !tbaa !7, !noalias !145
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %call.i.i.i, align 8, !tbaa !7, !noalias !145
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull %call.i.i.i) #21
   call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
@@ -3841,7 +3841,7 @@ _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_I
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #21
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.12, ptr %msg_.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 16), ptr %this, align 8, !tbaa !7
   ret void
 }
 
@@ -3853,7 +3853,7 @@ entry:
   %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !119
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !119
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 16), ptr %this, align 8, !tbaa !7
   ret void
 }
 

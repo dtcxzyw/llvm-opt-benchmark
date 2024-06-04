@@ -71,7 +71,7 @@ entry:
 define dso_local void @_ZN13PlayerMetaRef6createEP9lua_StateP9IMetadata(ptr noundef %L, ptr noundef %metadata) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #10
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13PlayerMetaRef, i64 16), ptr %call, align 8, !tbaa !10
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13PlayerMetaRef, i64 16), ptr %call, align 8, !tbaa !10
   %metadata2.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %metadata, ptr %metadata2.i, align 8, !tbaa !4
   %call1 = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 8)

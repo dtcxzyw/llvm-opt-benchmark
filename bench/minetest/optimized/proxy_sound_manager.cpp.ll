@@ -393,7 +393,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIN
 
 _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EED2Ev.exit: ; preds = %if.end.i.i.i.i, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i
   call void @_ZN5sound18OpenALSoundManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(848) %m_sound_manager) #18
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV13ISoundManager, i64 16), ptr %this, align 8, !tbaa !37
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13ISoundManager, i64 16), ptr %this, align 8, !tbaa !37
   %m_removed_sounds.i = getelementptr inbounds i8, ptr %this, i64 72
   %19 = load ptr, ptr %m_removed_sounds.i, align 8, !tbaa !39
   %tobool.not.i.i.i.i21 = icmp eq ptr %19, null
@@ -3091,7 +3091,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13ISoundManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV13ISoundManager, i64 16), ptr %this, align 8, !tbaa !37
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13ISoundManager, i64 16), ptr %this, align 8, !tbaa !37
   %m_removed_sounds = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_removed_sounds, align 8, !tbaa !39
   %tobool.not.i.i.i = icmp eq ptr %0, null

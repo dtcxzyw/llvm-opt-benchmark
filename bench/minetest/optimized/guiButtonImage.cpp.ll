@@ -392,14 +392,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %rectangle, i64 8
   store i64 %rectangle.coerce1, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 7472
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %1, align 8, !tbaa !4
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 7480
   store ptr null, ptr %DebugName.i, align 8, !tbaa !19
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 7488
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !14
   tail call void @_ZN9GUIButtonC2EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEP20ISimpleTextureSourceb(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT14GUIButtonImage, i64 8), ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull byval(%"class.irr::core::rect") align 8 %rectangle, ptr noundef %tsrc, i1 noundef zeroext %noclip)
-  store ptr getelementptr inbounds inrange(-24, 544) (i8, ptr @_ZTV14GUIButtonImage, i64 24), ptr %this, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIButtonImage, i64 592), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIButtonImage, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIButtonImage, i64 592), ptr %1, align 8, !tbaa !4
   %m_foreground_image = getelementptr inbounds i8, ptr %this, i64 7456
   %m_image = getelementptr inbounds i8, ptr %this, i64 7464
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_foreground_image, i8 0, i64 16, i1 false)
@@ -2140,9 +2140,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14GUIButtonImageD1Ev(ptr noundef nonnull align 8 dereferenceable(7472) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 544) (i8, ptr @_ZTV14GUIButtonImage, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIButtonImage, i64 24), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 7472
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIButtonImage, i64 592), ptr %add.ptr.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIButtonImage, i64 592), ptr %add.ptr.i, align 8, !tbaa !4
   %m_image.i = getelementptr inbounds i8, ptr %this, i64 7464
   %0 = load ptr, ptr %m_image.i, align 8, !tbaa !10
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2202,9 +2202,9 @@ _ZN14GUIButtonImageD2Ev.exit:                     ; preds = %delete.notnull.i.i.
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14GUIButtonImageD0Ev(ptr noundef nonnull align 8 dereferenceable(7472) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 544) (i8, ptr @_ZTV14GUIButtonImage, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIButtonImage, i64 24), ptr %this, align 8, !tbaa !4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 7472
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIButtonImage, i64 592), ptr %add.ptr.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIButtonImage, i64 592), ptr %add.ptr.i.i, align 8, !tbaa !4
   %m_image.i.i = getelementptr inbounds i8, ptr %this, i64 7464
   %0 = load ptr, ptr %m_image.i.i, align 8, !tbaa !10
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -2269,9 +2269,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 544) (i8, ptr @_ZTV14GUIButtonImage, i64 24), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIButtonImage, i64 24), ptr %3, align 8, !tbaa !4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 7472
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIButtonImage, i64 592), ptr %add.ptr.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIButtonImage, i64 592), ptr %add.ptr.i.i, align 8, !tbaa !4
   %m_image.i.i = getelementptr inbounds i8, ptr %3, i64 7464
   %4 = load ptr, ptr %m_image.i.i, align 8, !tbaa !10
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
@@ -2335,9 +2335,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 544) (i8, ptr @_ZTV14GUIButtonImage, i64 24), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIButtonImage, i64 24), ptr %3, align 8, !tbaa !4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 7472
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIButtonImage, i64 592), ptr %add.ptr.i.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIButtonImage, i64 592), ptr %add.ptr.i.i.i, align 8, !tbaa !4
   %m_image.i.i.i = getelementptr inbounds i8, ptr %3, i64 7464
   %4 = load ptr, ptr %m_image.i.i.i, align 8, !tbaa !10
   %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -2480,7 +2480,8 @@ if.then39:                                        ; preds = %entry
   br label %if.end73
 
 if.else62:                                        ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %13, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %13
 
 13:                                               ; preds = %if.else62
   call void @_ZTH13warningstream()

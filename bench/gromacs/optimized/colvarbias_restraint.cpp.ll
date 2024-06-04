@@ -18025,15 +18025,15 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %29 = getelementptr inbounds i8, ptr %0, i64 112
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %29, align 8
   store <2 x double> zeroinitializer, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 712), ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-176, 112) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 176), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1104), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1440), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1560), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1752), ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1944), ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-168, 104) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 456), ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 2152), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 712), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 176), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1104), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1440), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1560), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1752), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1944), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 456), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 2152), ptr %21, align 8
   ret void
 
 30:                                               ; preds = %2
@@ -18629,13 +18629,13 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %25, align 8
   store <2 x double> zeroinitializer, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 432), ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-168, 112) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 168), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 824), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1160), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1280), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1472), ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1664), ptr %15, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 432), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 168), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 824), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1160), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1280), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1472), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1664), ptr %15, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 56
   %27 = getelementptr inbounds i8, ptr %0, i64 80
   %28 = getelementptr inbounds i8, ptr %0, i64 104
@@ -19328,15 +19328,15 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %29 = getelementptr inbounds i8, ptr %0, i64 112
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %29, align 8
   store <2 x double> zeroinitializer, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 712), ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-176, 112) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 176), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1104), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1440), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1560), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1752), ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-80, 56) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1944), ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-168, 104) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 456), ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-152, 104) (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 2152), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 712), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 176), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1104), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1440), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1560), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1752), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1944), ptr %14, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 456), ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 2152), ptr %21, align 8
   store i8 0, ptr %23, align 8
   ret void
 
@@ -19771,9 +19771,9 @@ define void @_ZN30colvarbias_restraint_histogramC1EPKc(ptr noundef nonnull align
           to label %_ZN12colvarmodule8vector1dIdEC2Em.exit20 unwind label %9
 
 _ZN12colvarmodule8vector1dIdEC2Em.exit20:         ; preds = %5
-  store ptr getelementptr inbounds inrange(-32, 264) (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 32), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 368), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 488), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 368), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 488), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   ret void

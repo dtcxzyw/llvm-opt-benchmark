@@ -214,7 +214,7 @@ call3.i.noexc:                                    ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %state_.i.i, i8 0, i64 21, i1 false)
   store i8 1, ptr %progressMade_.i.i, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN5folly2io4zlib12_GLOBAL__N_115ZlibStreamCodecE, i64 16), ptr %call, align 8, !tbaa !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly2io4zlib12_GLOBAL__N_115ZlibStreamCodecE, i64 16), ptr %call, align 8, !tbaa !25
   %options_.i = getelementptr inbounds i8, ptr %call, i64 52
   %memLevel.i.i = getelementptr inbounds i8, ptr %call, i64 60
   %strategy.i.i = getelementptr inbounds i8, ptr %call, i64 64
@@ -2708,7 +2708,7 @@ entry:
   %ref.tmp = alloca %"class.folly::OptionalEmptyException", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #21
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.7)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %ref.tmp, align 8, !tbaa !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %ref.tmp, align 8, !tbaa !25
   invoke void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #25
           to label %invoke.cont unwind label %lpad
 
@@ -2739,7 +2739,7 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 define linkonce_odr void @_ZN5folly22OptionalEmptyExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #15 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %this, align 8, !tbaa !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %this, align 8, !tbaa !25
   ret void
 }
 
@@ -4031,7 +4031,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8, !tbaa !25
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8, !tbaa !25
   ret void
 }
 

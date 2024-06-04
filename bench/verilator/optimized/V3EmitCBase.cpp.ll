@@ -1269,13 +1269,13 @@ define dso_local noundef nonnull ptr @_ZN21EmitCBaseVisitorConst11createCFileERK
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeFile, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %11 unwind label %24
 
 11:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstCFile, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCFile, i64 16), ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 184
   %13 = load i8, ptr %12, align 8
   %14 = and i8 %13, -8

@@ -1523,7 +1523,7 @@ define linkonce_odr dso_local noundef zeroext i8 @_ZNK15BrokenCntGlobal3getEv(pt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN18BrokenCheckVisitorC2EP10AstNetlist(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV18BrokenCheckVisitor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18BrokenCheckVisitor, i64 16), ptr %0, align 8
   %3 = load i8, ptr @_ZL17s_brokenCntGlobal.0, align 1
   %spec.select.i = icmp slt i8 %3, 1
   br i1 %spec.select.i, label %.noexc, label %_ZNK15BrokenCntGlobal3getEv.exit
@@ -1832,7 +1832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc15 unwind label %46
 
 .noexc15:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12AstNodeBlock, i64 16), ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %14 unwind label %46
@@ -1843,7 +1843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %17 = getelementptr inbounds i8, ptr %9, i64 184
   %18 = zext i1 %16 to i8
   store i8 %18, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstBegin, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstBegin, i64 16), ptr %9, align 8
   %19 = getelementptr inbounds i8, ptr %9, i64 185
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, -8

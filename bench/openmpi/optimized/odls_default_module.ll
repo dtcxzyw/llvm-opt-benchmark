@@ -221,14 +221,14 @@ define internal i32 @odls_default_kill_local(i32 noundef %0, i32 noundef %1) #1 
   %4 = sub nsw i32 0, %3
   %spec.select = select i1 %.not, i32 %0, i32 %4
   %5 = tail call i32 @kill(i32 noundef %spec.select, i32 noundef %1) #16
-  %.not17 = icmp eq i32 %5, 0
-  br i1 %.not17, label %19, label %6
+  %.not14 = icmp eq i32 %5, 0
+  br i1 %.not14, label %19, label %6
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__errno_location() #18
   %8 = load i32, ptr %7, align 4
-  %.not18 = icmp eq i32 %8, 3
-  br i1 %.not18, label %19, label %9
+  %.not15 = icmp eq i32 %8, 3
+  br i1 %.not15, label %19, label %9
 
 9:                                                ; preds = %6
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @prte_odls_base_framework, i64 76), align 4
@@ -251,8 +251,8 @@ define internal i32 @odls_default_kill_local(i32 noundef %0, i32 noundef %1) #1 
 
 19:                                               ; preds = %6, %2
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @prte_odls_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %20, 64
-  br i1 %or.cond3, label %21, label %28
+  %or.cond16 = icmp ult i32 %20, 64
+  br i1 %or.cond16, label %21, label %28
 
 21:                                               ; preds = %19
   %22 = zext nneg i32 %20 to i64
@@ -454,9 +454,9 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   %99 = load i32, ptr %98, align 8
   %100 = call i64 (i32, ...) @ptrace(i32 noundef 17, i32 noundef %99, i32 noundef 0, i32 noundef 19) #16
   %101 = load i32, ptr %96, align 4
-  %.not106.i = icmp eq i32 %101, 0
+  %.not105.i = icmp eq i32 %101, 0
   %102 = load ptr, ptr %8, align 8
-  br i1 %.not106.i, label %110, label %103
+  br i1 %.not105.i, label %110, label %103
 
 103:                                              ; preds = %95
   %104 = getelementptr inbounds i8, ptr %102, i64 428
@@ -535,8 +535,8 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 .loopexit.i:                                      ; preds = %143, %145
   %147 = call i32 @close(i32 noundef %39) #16
   %148 = load ptr, ptr %8, align 8
-  %.not104.i = icmp eq ptr %148, null
-  br i1 %.not104.i, label %151, label %149
+  %.not103.i = icmp eq ptr %148, null
+  br i1 %.not103.i, label %151, label %149
 
 149:                                              ; preds = %.loopexit.i
   %150 = getelementptr inbounds i8, ptr %148, i64 428
@@ -549,8 +549,8 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 153:                                              ; preds = %143
   %154 = load ptr, ptr %8, align 8
-  %.not96.i = icmp eq ptr %154, null
-  br i1 %.not96.i, label %161, label %.sink.split.i
+  %.not95.i = icmp eq ptr %154, null
+  br i1 %.not95.i, label %161, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %153
   %155 = load i8, ptr %3, align 4
@@ -571,8 +571,8 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 164:                                              ; preds = %161
   %165 = call i32 @pmix_fd_read(i32 noundef %39, i32 noundef %162, ptr noundef nonnull %4) #16
-  %.not97.i = icmp eq i32 %165, 0
-  br i1 %.not97.i, label %178, label %166
+  %.not96.i = icmp eq i32 %165, 0
+  br i1 %.not96.i, label %178, label %166
 
 166:                                              ; preds = %164
   %167 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
@@ -582,8 +582,8 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   %171 = load ptr, ptr %170, align 8
   %172 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %167, ptr noundef %171, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 517) #16
   %173 = load ptr, ptr %8, align 8
-  %.not102.i = icmp eq ptr %173, null
-  br i1 %.not102.i, label %176, label %174
+  %.not101.i = icmp eq ptr %173, null
+  br i1 %.not101.i, label %176, label %174
 
 174:                                              ; preds = %166
   %175 = getelementptr inbounds i8, ptr %173, i64 428
@@ -608,8 +608,8 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 185:                                              ; preds = %182
   %186 = call i32 @pmix_fd_read(i32 noundef %39, i32 noundef %183, ptr noundef nonnull %5) #16
-  %.not98.i = icmp eq i32 %186, 0
-  br i1 %.not98.i, label %199, label %187
+  %.not97.i = icmp eq i32 %186, 0
+  br i1 %.not97.i, label %199, label %187
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
@@ -619,8 +619,8 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   %192 = load ptr, ptr %191, align 8
   %193 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %188, ptr noundef %192, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 531) #16
   %194 = load ptr, ptr %8, align 8
-  %.not101.i = icmp eq ptr %194, null
-  br i1 %.not101.i, label %197, label %195
+  %.not100.i = icmp eq ptr %194, null
+  br i1 %.not100.i, label %197, label %195
 
 195:                                              ; preds = %187
   %196 = getelementptr inbounds i8, ptr %194, i64 428
@@ -658,8 +658,8 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   %216 = load ptr, ptr %215, align 8
   %217 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %212, ptr noundef %216, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 545) #16
   %218 = load ptr, ptr %8, align 8
-  %.not100.i = icmp eq ptr %218, null
-  br i1 %.not100.i, label %221, label %219
+  %.not99.i = icmp eq ptr %218, null
+  br i1 %.not99.i, label %221, label %219
 
 219:                                              ; preds = %211
   %220 = getelementptr inbounds i8, ptr %218, i64 428
@@ -688,8 +688,8 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 230:                                              ; preds = %.thread.i
   %231 = load ptr, ptr %8, align 8
-  %.not99.i = icmp eq ptr %231, null
-  br i1 %.not99.i, label %238, label %232
+  %.not98.i = icmp eq ptr %231, null
+  br i1 %.not98.i, label %238, label %232
 
 232:                                              ; preds = %230
   %233 = getelementptr inbounds i8, ptr %231, i64 428
@@ -707,8 +707,8 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 240:                                              ; preds = %143
   %241 = load ptr, ptr %8, align 8
-  %.not105.i = icmp eq ptr %241, null
-  br i1 %.not105.i, label %248, label %242
+  %.not104.i = icmp eq ptr %241, null
+  br i1 %.not104.i, label %248, label %242
 
 242:                                              ; preds = %240
   %243 = getelementptr inbounds i8, ptr %241, i64 428
@@ -1265,8 +1265,8 @@ define internal range(i32 -17, 1) i32 @send_signal(i32 noundef %0, i32 noundef %
   br label %23
 
 23:                                               ; preds = %20, %21, %22, %17, %15
-  %.08 = phi i32 [ -1, %22 ], [ -17, %21 ], [ 0, %17 ], [ -5, %20 ], [ 0, %15 ]
-  ret i32 %.08
+  %.07 = phi i32 [ -1, %22 ], [ -17, %21 ], [ 0, %17 ], [ -5, %20 ], [ 0, %15 ]
+  ret i32 %.07
 }
 
 declare i32 @prte_odls_base_default_restart_proc(ptr noundef, ptr noundef) local_unnamed_addr #0

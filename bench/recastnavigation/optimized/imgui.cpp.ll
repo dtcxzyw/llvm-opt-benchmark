@@ -259,11 +259,11 @@ _ZL16addGfxCmdScissoriiii.exit:                   ; preds = %0, %3
   %25 = sitofp i32 %24 to float
   %26 = fdiv float %25, %20
   %27 = fcmp olt float %26, 0.000000e+00
-  %.057 = select i1 %27, float 0.000000e+00, float %26
-  %28 = fcmp ogt float %.057, 1.000000e+00
-  %.158 = select i1 %28, float 1.000000e+00, float %.057
+  %.058 = select i1 %27, float 0.000000e+00, float %26
+  %28 = fcmp ogt float %.058, 1.000000e+00
+  %.159 = select i1 %28, float 1.000000e+00, float %.058
   %29 = load i32, ptr @_ZL10g_scrollId, align 4
-  %30 = fmul float %.158, %19
+  %30 = fmul float %.159, %19
   %31 = fptosi float %30 to i32
   %32 = add nsw i32 %13, %31
   %33 = fmul float %21, %19
@@ -293,8 +293,8 @@ _ZL16addGfxCmdScissoriiii.exit:                   ; preds = %0, %3
 _Z6inRectiiiib.exit:                              ; preds = %23, %37, %40, %42
   %45 = phi i1 [ false, %40 ], [ false, %37 ], [ false, %23 ], [ %44, %42 ]
   %46 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  %.not.i66 = icmp eq i32 %46, 0
-  br i1 %.not.i66, label %47, label %55
+  %.not.i67 = icmp eq i32 %46, 0
+  br i1 %.not.i67, label %47, label %55
 
 47:                                               ; preds = %_Z6inRectiiiib.exit
   br i1 %45, label %48, label %49
@@ -362,8 +362,8 @@ _ZL11buttonLogicjb.exit:                          ; preds = %63, %67
   br i1 %68, label %69, label %92
 
 69:                                               ; preds = %_ZL11buttonLogicjb.exit
-  %.neg70 = add i32 %15, 1
-  %70 = sub i32 %.neg70, %34
+  %.neg71 = add i32 %15, 1
+  %70 = sub i32 %.neg71, %34
   %71 = sitofp i32 %70 to float
   %72 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 30), align 2
   %73 = trunc i8 %72 to i1
@@ -379,13 +379,13 @@ _ZL11buttonLogicjb.exit:                          ; preds = %63, %67
 
 77:                                               ; preds = %69
   %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 36), align 4
-  %.pre71 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
-  %.not = icmp eq i32 %.pre, %.pre71
+  %.pre72 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
+  %.not = icmp eq i32 %.pre, %.pre72
   br i1 %.not, label %92, label %78
 
 78:                                               ; preds = %77
   %79 = load float, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 40), align 4
-  %80 = sub nsw i32 %.pre71, %.pre
+  %80 = sub nsw i32 %.pre72, %.pre
   %81 = sitofp i32 %80 to float
   %82 = fdiv float %81, %71
   %83 = fadd float %82, %79
@@ -440,16 +440,16 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %92, %95
   br i1 %68, label %114, label %115
 
 114:                                              ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit
-  br i1 %113, label %_ZL20addGfxCmdRoundedRectfffffj.exit67, label %_ZL20addGfxCmdRoundedRectfffffj.exit67.sink.split
+  br i1 %113, label %_ZL20addGfxCmdRoundedRectfffffj.exit68, label %_ZL20addGfxCmdRoundedRectfffffj.exit68.sink.split
 
 115:                                              ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit
-  br i1 %113, label %_ZL20addGfxCmdRoundedRectfffffj.exit67, label %116
+  br i1 %113, label %_ZL20addGfxCmdRoundedRectfffffj.exit68, label %116
 
 116:                                              ; preds = %115
   %spec.select = select i1 %66, i32 1610663167, i32 1090519039
-  br label %_ZL20addGfxCmdRoundedRectfffffj.exit67.sink.split
+  br label %_ZL20addGfxCmdRoundedRectfffffj.exit68.sink.split
 
-_ZL20addGfxCmdRoundedRectfffffj.exit67.sink.split: ; preds = %114, %116
+_ZL20addGfxCmdRoundedRectfffffj.exit68.sink.split: ; preds = %114, %116
   %spec.select.sink = phi i32 [ %spec.select, %116 ], [ -1006582529, %114 ]
   %117 = sitofp i32 %34 to float
   %118 = sitofp i32 %32 to float
@@ -476,9 +476,9 @@ _ZL20addGfxCmdRoundedRectfffffj.exit67.sink.split: ; preds = %114, %116
   store i16 %131, ptr %132, align 2
   %133 = getelementptr inbounds i8, ptr %121, i64 16
   store i16 40, ptr %133, align 8
-  br label %_ZL20addGfxCmdRoundedRectfffffj.exit67
+  br label %_ZL20addGfxCmdRoundedRectfffffj.exit68
 
-_ZL20addGfxCmdRoundedRectfffffj.exit67:           ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit67.sink.split, %115, %114
+_ZL20addGfxCmdRoundedRectfffffj.exit68:           ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit68.sink.split, %115, %114
   %134 = load i8, ptr @_ZL18g_insideScrollArea, align 1
   %135 = trunc nuw i8 %134 to i1
   %136 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 12), align 4
@@ -486,18 +486,18 @@ _ZL20addGfxCmdRoundedRectfffffj.exit67:           ; preds = %_ZL20addGfxCmdRound
   %or.cond = select i1 %135, i1 %137, i1 false
   br i1 %or.cond, label %138, label %144
 
-138:                                              ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit67
+138:                                              ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit68
   %139 = mul nsw i32 %136, 20
   %140 = load ptr, ptr @_ZL11g_scrollVal, align 8
   %141 = load i32, ptr %140, align 4
   %142 = add nsw i32 %141, %139
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %142, i32 0)
   %143 = sub nsw i32 %18, %15
-  %spec.store.select69 = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 %143)
-  store i32 %spec.store.select69, ptr %140, align 4
+  %spec.store.select70 = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 %143)
+  store i32 %spec.store.select70, ptr %140, align 4
   br label %144
 
-144:                                              ; preds = %138, %_ZL20addGfxCmdRoundedRectfffffj.exit67, %_ZL16addGfxCmdScissoriiii.exit
+144:                                              ; preds = %138, %_ZL20addGfxCmdRoundedRectfffffj.exit68, %_ZL16addGfxCmdScissoriiii.exit
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
   ret void
 }

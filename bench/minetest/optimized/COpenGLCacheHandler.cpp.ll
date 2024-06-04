@@ -40,7 +40,7 @@ $_ZTVN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreT
 define void @_ZN3irr5video19COpenGLCacheHandlerC2EPNS0_13COpenGLDriverE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %driver)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr5video19COpenGLCacheHandlerE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video19COpenGLCacheHandlerE, i64 16), ptr %this, align 8, !tbaa !3
   %AlphaMode = getelementptr inbounds i8, ptr %this, i64 192
   store i32 519, ptr %AlphaMode, align 8, !tbaa !6
   %AlphaRef = getelementptr inbounds i8, ptr %this, i64 196
@@ -80,7 +80,7 @@ _ZN3irr5video23COpenGLExtensionHandler24irrGlClientActiveTextureEj.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %driver) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 16), ptr %this, align 8, !tbaa !3
   %Driver = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %driver, ptr %Driver, align 8, !tbaa !20
   %TextureCache = getelementptr inbounds i8, ptr %this, i64 16
@@ -518,7 +518,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 16), ptr %this, align 8, !tbaa !3
   %BlendEquation = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %BlendEquation, align 8, !tbaa !40
   %isnull = icmp eq ptr %0, null

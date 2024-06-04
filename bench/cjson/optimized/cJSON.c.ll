@@ -128,24 +128,24 @@ define void @cJSON_InitHooks(ptr noundef readonly %0) local_unnamed_addr #4 {
   store ptr @malloc, ptr @global_hooks, align 8
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
-  %spec.store.select9 = select i1 %.not, ptr @malloc, ptr %4
+  %spec.store.select = select i1 %.not, ptr @malloc, ptr %4
   store ptr @free, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %.not8 = icmp eq ptr %6, null
-  %spec.store.select10 = select i1 %.not8, ptr @free, ptr %6
-  %7 = icmp eq ptr %spec.store.select9, @malloc
-  %8 = icmp eq ptr %spec.store.select10, @free
+  %.not9 = icmp eq ptr %6, null
+  %spec.store.select11 = select i1 %.not9, ptr @free, ptr %6
+  %7 = icmp eq ptr %spec.store.select, @malloc
+  %8 = icmp eq ptr %spec.store.select11, @free
   %or.cond = select i1 %7, i1 %8, i1 false
-  %spec.store.select = select i1 %or.cond, ptr @realloc, ptr null
+  %spec.store.select10 = select i1 %or.cond, ptr @realloc, ptr null
   br label %9
 
 9:                                                ; preds = %1, %3
-  %spec.store.select9.sink = phi ptr [ %spec.store.select9, %3 ], [ @malloc, %1 ]
-  %spec.store.select10.sink = phi ptr [ %spec.store.select10, %3 ], [ @free, %1 ]
-  %storemerge = phi ptr [ %spec.store.select, %3 ], [ @realloc, %1 ]
-  store ptr %spec.store.select9.sink, ptr @global_hooks, align 8
-  store ptr %spec.store.select10.sink, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %spec.store.select.sink = phi ptr [ %spec.store.select, %3 ], [ @malloc, %1 ]
+  %spec.store.select11.sink = phi ptr [ %spec.store.select11, %3 ], [ @free, %1 ]
+  %storemerge = phi ptr [ %spec.store.select10, %3 ], [ @realloc, %1 ]
+  store ptr %spec.store.select.sink, ptr @global_hooks, align 8
+  store ptr %spec.store.select11.sink, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
   store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 16), align 8
   ret void
 }

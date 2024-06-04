@@ -98,8 +98,8 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
 27:                                               ; preds = %20, %23, %9
   %28 = phi i32 [ %17, %9 ], [ %22, %20 ], [ %26, %23 ]
   %29 = and i8 %6, 1
-  %.not49 = icmp eq i8 %29, 0
-  %.v = select i1 %.not49, i64 4, i64 1
+  %.not50 = icmp eq i8 %29, 0
+  %.v = select i1 %.not50, i64 4, i64 1
   %30 = getelementptr inbounds i8, ptr %0, i64 %.v
   %31 = load i32, ptr @num_res, align 4
   %32 = icmp sgt i32 %31, 0
@@ -138,8 +138,8 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %47
-  %.not60 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not60, label %105, label %52
+  %.not61 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not61, label %105, label %52
 
 52:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 16 dereferenceable(96) %35, i64 96, i1 false)
@@ -179,8 +179,8 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
   %70 = sext i32 %65 to i64
   %71 = call i32 @pg_regcomp(ptr noundef nonnull %69, ptr noundef %64, i64 noundef %70, i32 noundef %1, i32 noundef %2) #8
   call void @pfree(ptr noundef %64) #8
-  %.not50 = icmp eq i32 %71, 0
-  br i1 %.not50, label %77, label %72
+  %.not51 = icmp eq i32 %71, 0
+  br i1 %.not51, label %77, label %72
 
 72:                                               ; preds = %60
   %73 = call i64 @pg_regerror(i32 noundef %71, ptr noundef nonnull %69, ptr noundef nonnull %5, i64 noundef 100) #8

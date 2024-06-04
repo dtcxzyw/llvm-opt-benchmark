@@ -90,7 +90,8 @@ entry:
 ; Function Attrs: uwtable
 define noundef zeroext i1 @_ZN9grpc_core21Chttp2PingAbusePolicy15ReceivedOnePingEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext %transport_idle) local_unnamed_addr #4 align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %0, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -181,7 +182,8 @@ entry:
   %ref.tmp7 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.grpc_core::Timestamp", align 8
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %0, label %invoke.cont6
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %invoke.cont6, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()

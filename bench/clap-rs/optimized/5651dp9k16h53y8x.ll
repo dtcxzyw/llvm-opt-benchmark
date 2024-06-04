@@ -6923,7 +6923,7 @@ define void @_ZN12clap_builder7builder12value_parser15BoolValueParser3new17h6db6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, ptr } @_ZN12clap_builder7builder12value_parser15BoolValueParser15possible_values17h310570d80e5727edE.llvm.567936041081457991() unnamed_addr #13 {
-  ret { ptr, ptr } { ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, ptr getelementptr inbounds ({ ptr, i64 }, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, i64 2) }
+  ret { ptr, ptr } { ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, ptr getelementptr inbounds (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.82.llvm.567936041081457991, i64 32) }
 }
 
 ; Function Attrs: nonlazybind uwtable

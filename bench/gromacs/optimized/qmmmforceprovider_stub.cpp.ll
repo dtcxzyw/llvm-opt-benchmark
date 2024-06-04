@@ -228,8 +228,8 @@ define void @_ZN3gmx17QMMMForceProvider15calculateForcesERKNS_18ForceProviderInp
           to label %11 unwind label %32
 
 11:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx17QMMMForceProvider15calculateForcesERKNS_18ForceProviderInputEPNS_19ForceProviderOutputE, ptr %12, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
@@ -243,7 +243,7 @@ define void @_ZN3gmx17QMMMForceProvider15calculateForcesERKNS_18ForceProviderInp
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %11
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %13, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %13, align 8, !noalias !5
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !5
   store ptr %13, ptr %4, align 8, !noalias !5
@@ -287,7 +287,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
   store ptr null, ptr %29, align 8, !noalias !5
   store <2 x ptr> %30, ptr %27, align 8, !alias.scope !5
   store ptr null, ptr %28, align 8, !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8, !alias.scope !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8, !alias.scope !5
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #19
           to label %49 unwind label %34
 
@@ -4734,7 +4734,7 @@ define void @_ZN3gmx17QMMMForceProviderC2ERKNS_14QMMMParametersERKNS_12LocalAtom
   %9 = alloca %"class.gmx::InternalError", align 8
   %10 = alloca %"class.gmx::ExceptionInitializer", align 8
   %11 = alloca %"class.gmx::ExceptionInfo", align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN3gmx17QMMMForceProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17QMMMForceProviderE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4758,8 +4758,8 @@ define void @_ZN3gmx17QMMMForceProviderC2ERKNS_14QMMMParametersERKNS_12LocalAtom
           to label %21 unwind label %42
 
 21:                                               ; preds = %20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %11, align 8
   %22 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx17QMMMForceProviderC2ERKNS_14QMMMParametersERKNS_12LocalAtomSetES6_7PbcTypeRKNS_8MDLoggerE, ptr %22, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
@@ -4773,7 +4773,7 @@ define void @_ZN3gmx17QMMMForceProviderC2ERKNS_14QMMMParametersERKNS_12LocalAtom
           to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %21
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %23, align 8, !noalias !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %23, align 8, !noalias !12
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !12
   store ptr %23, ptr %7, align 8, !noalias !12
@@ -4817,7 +4817,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
   store ptr null, ptr %39, align 8, !noalias !12
   store <2 x ptr> %40, ptr %37, align 8, !alias.scope !12
   store ptr null, ptr %38, align 8, !noalias !12
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %19, align 8, !alias.scope !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %19, align 8, !alias.scope !12
   invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #19
           to label %59 unwind label %44
 
@@ -4960,7 +4960,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -5090,8 +5090,8 @@ define noundef zeroext i1 @_ZN3gmx17QMMMForceProvider8isQMAtomEl(ptr nocapture n
           to label %10 unwind label %31
 
 10:                                               ; preds = %9
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx17QMMMForceProvider8isQMAtomEl, ptr %11, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
@@ -5105,7 +5105,7 @@ define noundef zeroext i1 @_ZN3gmx17QMMMForceProvider8isQMAtomEl(ptr nocapture n
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8, !noalias !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8, !noalias !15
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !15
   store ptr %12, ptr %3, align 8, !noalias !15
@@ -5149,7 +5149,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
   store ptr null, ptr %28, align 8, !noalias !15
   store <2 x ptr> %29, ptr %26, align 8, !alias.scope !15
   store ptr null, ptr %27, align 8, !noalias !15
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %8, align 8, !alias.scope !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %8, align 8, !alias.scope !15
   invoke void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #19
           to label %48 unwind label %33
 
@@ -5247,8 +5247,8 @@ define void @_ZN3gmx17QMMMForceProvider9appendLogERKNSt7__cxx1112basic_stringIcS
           to label %10 unwind label %31
 
 10:                                               ; preds = %9
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx17QMMMForceProvider9appendLogERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %11, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
@@ -5262,7 +5262,7 @@ define void @_ZN3gmx17QMMMForceProvider9appendLogERKNSt7__cxx1112basic_stringIcS
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8, !noalias !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8, !noalias !18
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !18
   store ptr %12, ptr %3, align 8, !noalias !18
@@ -5306,7 +5306,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
   store ptr null, ptr %28, align 8, !noalias !18
   store <2 x ptr> %29, ptr %26, align 8, !alias.scope !18
   store ptr null, ptr %27, align 8, !noalias !18
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %8, align 8, !alias.scope !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %8, align 8, !alias.scope !18
   invoke void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #19
           to label %48 unwind label %33
 
@@ -5404,8 +5404,8 @@ define void @_ZN3gmx17QMMMForceProvider24initCP2KForceEnvironmentERK9t_commrec(p
           to label %10 unwind label %31
 
 10:                                               ; preds = %9
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx17QMMMForceProvider24initCP2KForceEnvironmentERK9t_commrec, ptr %11, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
@@ -5419,7 +5419,7 @@ define void @_ZN3gmx17QMMMForceProvider24initCP2KForceEnvironmentERK9t_commrec(p
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8, !noalias !21
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8, !noalias !21
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !21
   store ptr %12, ptr %3, align 8, !noalias !21
@@ -5463,7 +5463,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
   store ptr null, ptr %28, align 8, !noalias !21
   store <2 x ptr> %29, ptr %26, align 8, !alias.scope !21
   store ptr null, ptr %27, align 8, !noalias !21
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %8, align 8, !alias.scope !21
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %8, align 8, !alias.scope !21
   invoke void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #19
           to label %48 unwind label %33
 

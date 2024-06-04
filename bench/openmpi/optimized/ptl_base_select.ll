@@ -46,23 +46,23 @@ define range(i32 -2, 1) i32 @pmix_ptl_base_select() local_unnamed_addr #0 {
 
 5:                                                ; preds = %0
   store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base, i64 1), align 1
-  %.01929 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 320), align 8
-  %.not30 = icmp eq ptr %.01929, getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 200)
-  br i1 %.not30, label %.critedge, label %.lr.ph.outer
+  %.01527 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 320), align 8
+  %.not28 = icmp eq ptr %.01527, getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 200)
+  br i1 %.not28, label %.critedge, label %.lr.ph.outer
 
 .lr.ph.outer:                                     ; preds = %5, %.thread
-  %.01933.ph = phi ptr [ %.01936, %.thread ], [ %.01929, %5 ]
-  %.032.ph = phi i1 [ true, %.thread ], [ false, %5 ]
-  %.01631.ph = phi i32 [ %.lcssa, %.thread ], [ -1, %5 ]
+  %.01531.ph = phi ptr [ %.01534, %.thread ], [ %.01527, %5 ]
+  %.030.ph = phi i1 [ true, %.thread ], [ false, %5 ]
+  %.01229.ph = phi i32 [ %.lcssa, %.thread ], [ -1, %5 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %34
-  %.01933 = phi ptr [ %.019, %34 ], [ %.01933.ph, %.lr.ph.outer ]
-  %6 = getelementptr inbounds i8, ptr %.01933, i64 144
+  %.01531 = phi ptr [ %.015, %34 ], [ %.01531.ph, %.lr.ph.outer ]
+  %6 = getelementptr inbounds i8, ptr %.01531, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
-  %or.cond = icmp ult i32 %8, 64
-  br i1 %or.cond, label %9, label %16
+  %or.cond25 = icmp ult i32 %8, 64
+  br i1 %or.cond25, label %9, label %16
 
 9:                                                ; preds = %.lr.ph
   %10 = zext nneg i32 %8 to i64
@@ -83,53 +83,53 @@ define range(i32 -2, 1) i32 @pmix_ptl_base_select() local_unnamed_addr #0 {
   %20 = icmp ne i32 %19, 0
   %21 = load ptr, ptr %1, align 8
   %22 = icmp eq ptr %21, null
-  %or.cond3 = select i1 %20, i1 true, i1 %22
-  br i1 %or.cond3, label %34, label %23
+  %or.cond = select i1 %20, i1 true, i1 %22
+  br i1 %or.cond, label %34, label %23
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
-  %.not26 = icmp eq ptr %25, null
-  br i1 %.not26, label %30, label %26
+  %.not22 = icmp eq ptr %25, null
+  br i1 %.not22, label %30, label %26
 
 26:                                               ; preds = %23
   %27 = call i32 %25() #3
-  %.not27 = icmp eq i32 %27, 0
+  %.not23 = icmp eq i32 %27, 0
   %28 = load i32, ptr %2, align 4
-  %29 = icmp slt i32 %.01631.ph, %28
-  %or.cond45 = select i1 %.not27, i1 %29, i1 false
-  br i1 %or.cond45, label %31, label %34
+  %29 = icmp slt i32 %.01229.ph, %28
+  %or.cond43 = select i1 %.not23, i1 %29, i1 false
+  br i1 %or.cond43, label %31, label %34
 
 30:                                               ; preds = %23
   %.old = load i32, ptr %2, align 4
-  %.old44 = icmp slt i32 %.01631.ph, %.old
-  br i1 %.old44, label %31, label %34
+  %.old42 = icmp slt i32 %.01229.ph, %.old
+  br i1 %.old42, label %31, label %34
 
 31:                                               ; preds = %26, %30
   %.lcssa = phi i32 [ %.old, %30 ], [ %28, %26 ]
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_ptl, i64 16), align 8
-  %.not28 = icmp eq ptr %32, null
-  br i1 %.not28, label %.thread, label %33
+  %.not24 = icmp eq ptr %32, null
+  br i1 %.not24, label %.thread, label %33
 
 33:                                               ; preds = %31
   call void %32() #3
   br label %.thread
 
 34:                                               ; preds = %30, %26, %16
-  %35 = getelementptr inbounds i8, ptr %.01933, i64 120
-  %.019 = load ptr, ptr %35, align 8
-  %.not = icmp eq ptr %.019, getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 200)
+  %35 = getelementptr inbounds i8, ptr %.01531, i64 120
+  %.015 = load ptr, ptr %35, align 8
+  %.not = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 200)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 .thread:                                          ; preds = %31, %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) @pmix_ptl, ptr noundef nonnull align 8 dereferenceable(72) %21, i64 72, i1 false)
-  %36 = getelementptr inbounds i8, ptr %.01933, i64 120
-  %.01936 = load ptr, ptr %36, align 8
-  %.not37 = icmp eq ptr %.01936, getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 200)
-  br i1 %.not37, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !4
+  %36 = getelementptr inbounds i8, ptr %.01531, i64 120
+  %.01534 = load ptr, ptr %36, align 8
+  %.not35 = icmp eq ptr %.01534, getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 200)
+  br i1 %.not35, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %34
-  br i1 %.032.ph, label %._crit_edge.thread, label %.critedge
+  br i1 %.030.ph, label %._crit_edge.thread, label %.critedge
 
 .critedge:                                        ; preds = %5, %._crit_edge
   %37 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull @.str.3) #3
@@ -137,8 +137,8 @@ define range(i32 -2, 1) i32 @pmix_ptl_base_select() local_unnamed_addr #0 {
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
-  %or.cond5 = icmp ult i32 %38, 64
-  br i1 %or.cond5, label %39, label %46
+  %or.cond26 = icmp ult i32 %38, 64
+  br i1 %or.cond26, label %39, label %46
 
 39:                                               ; preds = %._crit_edge.thread
   %40 = zext nneg i32 %38 to i64
@@ -153,8 +153,8 @@ define range(i32 -2, 1) i32 @pmix_ptl_base_select() local_unnamed_addr #0 {
   br label %46
 
 46:                                               ; preds = %._crit_edge.thread, %39, %44, %0, %.critedge
-  %.018 = phi i32 [ -2, %.critedge ], [ 0, %0 ], [ 0, %44 ], [ 0, %39 ], [ 0, %._crit_edge.thread ]
-  ret i32 %.018
+  %.014 = phi i32 [ -2, %.critedge ], [ 0, %0 ], [ 0, %44 ], [ 0, %39 ], [ 0, %._crit_edge.thread ]
+  ret i32 %.014
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

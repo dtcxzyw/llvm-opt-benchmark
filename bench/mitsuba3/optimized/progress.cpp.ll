@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_ZN7mitsuba16ProgressReporterC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPv(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7mitsuba16ProgressReporterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba16ProgressReporterE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   %6 = tail call i64 @_ZNSt3__16chrono12system_clock3nowEv() #13
@@ -174,7 +174,7 @@ declare void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7mitsuba16ProgressReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7mitsuba16ProgressReporterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba16ProgressReporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
   %3 = getelementptr inbounds i8, ptr %0, i64 24

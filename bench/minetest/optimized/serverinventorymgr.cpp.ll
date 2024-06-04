@@ -342,7 +342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN22ServerInventoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %this, align 8, !tbaa !12
   %m_env = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %m_env, align 8, !tbaa !14
   %m_detached_inventories = getelementptr inbounds i8, ptr %this, i64 16
@@ -667,10 +667,11 @@ entry:
   %m_detached_inventories = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories, ptr noundef nonnull align 8 dereferenceable(32) %name)
   %tobool.not.i.i.not = icmp eq ptr %call.i.i, null
+  %.not8 = icmp eq ptr @_ZTH10infostream, null
   br i1 %tobool.not.i.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  br i1 %.not8, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %if.then
   tail call void @_ZTH10infostream()
@@ -761,7 +762,7 @@ _ZNKSt14default_deleteI9InventoryEclEPS0_.exit.i.i: ; preds = %_ZN11StreamProxyl
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %12, label %_ZTW10infostream.exit82
+  br i1 %.not8, label %_ZTW10infostream.exit82, label %12
 
 12:                                               ; preds = %if.else
   tail call void @_ZTH10infostream()
@@ -1235,7 +1236,7 @@ cleanup24:                                        ; preds = %_ZNKSt8functionIFvR
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22ServerInventoryManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %this, align 8, !tbaa !12
   %m_detached_inventories = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories) #23
   ret void
@@ -1244,7 +1245,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22ServerInventoryManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV22ServerInventoryManager, i64 16), ptr %this, align 8, !tbaa !12
   %m_detached_inventories.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N22ServerInventoryManager17DetachedInventoryEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_detached_inventories.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21

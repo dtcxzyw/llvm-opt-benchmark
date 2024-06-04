@@ -393,7 +393,8 @@ entry:
   br i1 %cmp, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %0, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %0
 
 0:                                                ; preds = %if.end
   tail call void @_ZTH13warningstream()
@@ -707,6 +708,7 @@ for.body.lr.ph:                                   ; preds = %cond.end
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %add.ptr.i.i.i36 = getelementptr inbounds i8, ptr %0, i64 4
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @warningstream)
+  %.not = icmp eq ptr @_ZTH13warningstream, null
   br label %for.body
 
 for.body:                                         ; preds = %if.end32, %for.body.lr.ph
@@ -773,7 +775,7 @@ terminate.lpad.i37:                               ; preds = %if.then24
   unreachable
 
 _ZN5sound12PlayingSound4playEv.exit:              ; preds = %if.then24
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %26, label %_ZTW13warningstream.exit
+  br i1 %.not, label %_ZTW13warningstream.exit, label %26
 
 26:                                               ; preds = %_ZN5sound12PlayingSound4playEv.exit
   call void @_ZTH13warningstream()

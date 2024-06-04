@@ -370,7 +370,7 @@ define weak_odr void @_ZN7mitsuba7EmitterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %3 = alloca %"class.std::__1::basic_string", align 8
   %4 = alloca float, align 4
   tail call void @_ZN7mitsuba8EndpointIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 16 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN7mitsuba7EmitterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba7EmitterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i64 16), ptr %0, align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   store i8 0, ptr %5, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @.str, i64 noundef 15)

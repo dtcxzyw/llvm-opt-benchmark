@@ -1678,7 +1678,7 @@ entry:
   %ref.tmp117 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp129 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 648
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !20
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 656
   store ptr null, ptr %DebugName.i, align 8, !tbaa !123
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 664
@@ -1731,9 +1731,9 @@ invoke.cont33:                                    ; preds = %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp13) #29
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp10) #29
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp) #29
-  store ptr getelementptr inbounds inrange(-24, 128) (i8, ptr @_ZTV9ClientMap, i64 24), ptr %this, align 8, !tbaa !20
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV9ClientMap, i64 176), ptr %2, align 8, !tbaa !20
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV9ClientMap, i64 488), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9ClientMap, i64 24), ptr %this, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9ClientMap, i64 176), ptr %2, align 8, !tbaa !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9ClientMap, i64 488), ptr %0, align 8, !tbaa !20
   %m_client = getelementptr inbounds i8, ptr %this, i64 368
   store ptr %client, ptr %m_client, align 8, !tbaa !26
   %m_rendering_engine = getelementptr inbounds i8, ptr %this, i64 376
@@ -7750,6 +7750,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont31
   %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @errorstream)
   %_M_string_length.i.i.i684 = getelementptr inbounds i8, ptr %ref.tmp185, i64 8
   %23 = getelementptr inbounds i8, ptr %ref.tmp185, i64 16
+  %.not = icmp eq ptr @_ZTH11errorstream, null
   br label %for.body
 
 for.cond246.preheader:                            ; preds = %cleanup222, %invoke.cont31
@@ -8108,7 +8109,7 @@ invoke.cont179.1:                                 ; preds = %if.then176.1
   br i1 %cmp181.1, label %if.then182.1, label %if.end197.1
 
 if.then182.1:                                     ; preds = %invoke.cont179.1
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %77, label %_ZTW11errorstream.exit.1
+  br i1 %.not, label %_ZTW11errorstream.exit.1, label %77
 
 77:                                               ; preds = %if.then182.1
   call void @_ZTH11errorstream()
@@ -8285,7 +8286,7 @@ invoke.cont179:                                   ; preds = %if.then176
   br i1 %cmp181, label %if.then182, label %if.end197
 
 if.then182:                                       ; preds = %invoke.cont179
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %97, label %_ZTW11errorstream.exit
+  br i1 %.not, label %_ZTW11errorstream.exit, label %97
 
 97:                                               ; preds = %if.then182
   call void @_ZTH11errorstream()

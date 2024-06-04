@@ -682,7 +682,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   store i64 0, ptr %__p, align 8, !tbaa !57
   %call.i.i = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEEE", i64 16), ptr %call.i.i, align 16, !tbaa !59
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEEE", i64 16), ptr %call.i.i, align 16, !tbaa !59
   %_M_func.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %0 = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %0, ptr %_M_func.i.i.i, align 8, !tbaa !30
@@ -789,7 +789,7 @@ declare void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEED2Ev"(ptr noundef nonnull align 16 dereferenceable(128) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEEE", i64 16), ptr %this, align 16, !tbaa !59
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEEE", i64 16), ptr %this, align 16, !tbaa !59
   %_M_func = getelementptr inbounds i8, ptr %this, i64 16
   %exec_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %exec_.i.i.i.i.i, align 8, !tbaa !38
@@ -826,7 +826,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly8FunctionI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEED0Ev"(ptr noundef nonnull align 16 dereferenceable(128) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEEE", i64 16), ptr %this, align 16, !tbaa !59
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEEE", i64 16), ptr %this, align 16, !tbaa !59
   %_M_func.i = getelementptr inbounds i8, ptr %this, i64 16
   %exec_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %exec_.i.i.i.i.i.i, align 8, !tbaa !38
@@ -960,7 +960,7 @@ define linkonce_odr void @_ZN5folly6detail15terminate_with_ISt17bad_function_cal
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !59
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !59
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #25
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -979,7 +979,7 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #14 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !59
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !59
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #20
   unreachable
 }

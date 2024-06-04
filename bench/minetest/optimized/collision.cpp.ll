@@ -730,7 +730,7 @@ entry:
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(144) ptr %1(ptr noundef nonnull align 8 dereferenceable(112) %env)
   %vtable1 = load ptr, ptr %env, align 8, !tbaa !23
-  %2 = icmp eq ptr %vtable1, getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV17ServerEnvironment, i64 16)
+  %2 = icmp eq ptr %vtable1, getelementptr inbounds (i8, ptr @_ZTV17ServerEnvironment, i64 16)
   %3 = select i1 %2, ptr %env, ptr null
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %sp) #24
   %4 = load ptr, ptr @g_profiler, align 8, !tbaa !22
@@ -791,7 +791,8 @@ if.then:                                          ; preds = %_ZNSt7__cxx1112basi
 
 if.then8:                                         ; preds = %if.then
   store i1 true, ptr @_ZZ19collisionMoveSimpleP11EnvironmentP8IGameDeffRKN3irr4core8aabbox3dIfEEffPNS4_8vector3dIfEESB_SA_P12ActiveObjectbE22time_notification_done, align 1
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %10, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %10
 
 10:                                               ; preds = %if.then8
   call void @_ZTH13warningstream()
@@ -1401,11 +1402,11 @@ invoke.cont255:                                   ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i1354, label %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge, label %if.then.i.i1355
 
 invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge: ; preds = %invoke.cont255
-  %.pre146 = load i64, ptr %_M_string_length.i.i.i.i1343, align 8, !tbaa !11
+  %.pre147 = load i64, ptr %_M_string_length.i.i.i.i1343, align 8, !tbaa !11
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356: ; preds = %for.inc.i, %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge, %if.then.i1733
-  %139 = phi i64 [ %.pre146, %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge ], [ 6, %if.then.i1733 ], [ 6, %for.inc.i ]
+  %139 = phi i64 [ %.pre147, %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge ], [ 6, %if.then.i1733 ], [ 6, %for.inc.i ]
   %140 = phi i32 [ %138, %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge ], [ 0, %if.then.i1733 ], [ 0, %for.inc.i ]
   %cmp3.i.i.i1358 = icmp ult i64 %139, 16
   call void @llvm.assume(i1 %cmp3.i.i.i1358)
@@ -2478,7 +2479,8 @@ while.body:                                       ; preds = %if.end775, %while.b
 if.then563:                                       ; preds = %while.body
   store i8 %254, ptr %collides.i, align 1, !tbaa !35
   store ptr %255, ptr %collisions.i, align 8, !tbaa !22
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %256, label %_ZTW13warningstream.exit1561
+  %.not67 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not67, label %_ZTW13warningstream.exit1561, label %256
 
 256:                                              ; preds = %if.then563
   call void @_ZTH13warningstream()
@@ -2589,12 +2591,12 @@ if.end569:                                        ; preds = %while.body
   br i1 %cmp5802188.not, label %if.end569.if.end775.thread_crit_edge, label %for.body582
 
 if.end569.if.end775.thread_crit_edge:             ; preds = %if.end569
-  %.pre147 = load float, ptr %Z.i1179, align 4, !tbaa !59
+  %.pre148 = load float, ptr %Z.i1179, align 4, !tbaa !59
   br label %if.end775.thread
 
 for.cond.cleanup581:                              ; preds = %cleanup602
   %cmp611 = icmp eq i32 %nearest_collided.2, -1
-  %.pre148 = load float, ptr %Z.i1179, align 4, !tbaa !59
+  %.pre149 = load float, ptr %Z.i1179, align 4, !tbaa !59
   br i1 %cmp611, label %if.end775.thread, label %if.else626
 
 for.body582:                                      ; preds = %if.end569, %cleanup602
@@ -2644,7 +2646,7 @@ cleanup602:                                       ; preds = %cleanup598, %for.bo
   br i1 %cmp580, label %for.body582, label %for.cond.cleanup581, !llvm.loop !214
 
 if.end775.thread:                                 ; preds = %for.cond.cleanup581, %if.end569.if.end775.thread_crit_edge
-  %280 = phi float [ %.pre147, %if.end569.if.end775.thread_crit_edge ], [ %.pre148, %for.cond.cleanup581 ]
+  %280 = phi float [ %.pre148, %if.end569.if.end775.thread_crit_edge ], [ %.pre149, %for.cond.cleanup581 ]
   %mul3.i1597 = fmul nsz float %dtime.addr.12209, %280
   %mul.i9.i1608 = fmul nsz float %mul3.i1597, 1.000000e+02
   %281 = call nsz float @llvm.trunc.f32(float %mul.i9.i1608)
@@ -2670,10 +2672,10 @@ if.else626:                                       ; preds = %for.cond.cleanup581
   %291 = extractelement <4 x float> %273, i64 0
   %292 = call nsz float @llvm.fmuladd.f32(float %290, float %dtime.addr.12209, float %291)
   %293 = extractelement <4 x float> %273, i64 2
-  %294 = call nsz float @llvm.fmuladd.f32(float %.pre148, float %dtime.addr.12209, float %293)
+  %294 = call nsz float @llvm.fmuladd.f32(float %.pre149, float %dtime.addr.12209, float %293)
   %295 = extractelement <4 x float> %273, i64 3
   %296 = call nsz float @llvm.fmuladd.f32(float %290, float %dtime.addr.12209, float %295)
-  %297 = call nsz float @llvm.fmuladd.f32(float %.pre148, float %dtime.addr.12209, float %add6.i1591)
+  %297 = call nsz float @llvm.fmuladd.f32(float %.pre149, float %dtime.addr.12209, float %add6.i1591)
   %cmp642.not = icmp eq i32 %nearest_collided.2, 1
   br i1 %cmp642.not, label %land.end, label %land.lhs.true643
 
@@ -2739,12 +2741,12 @@ land.end:                                         ; preds = %land.lhs.true27.i, 
   br i1 %cmp663, label %if.then666, label %invoke.cont690
 
 land.end.thread:                                  ; preds = %if.end.i1628
-  %bouncy67 = getelementptr inbounds i8, ptr %add.ptr.i1621, i64 16
-  %306 = load i32, ptr %bouncy67, align 8, !tbaa !123
-  %conv66268 = sitofp i32 %306 to float
-  %div69 = fdiv nsz float %conv66268, -1.000000e+02
-  %cmp66370 = fcmp nsz olt float %nearest_dtime.2, 0.000000e+00
-  br i1 %cmp66370, label %invoke.cont703, label %invoke.cont690
+  %bouncy68 = getelementptr inbounds i8, ptr %add.ptr.i1621, i64 16
+  %306 = load i32, ptr %bouncy68, align 8, !tbaa !123
+  %conv66269 = sitofp i32 %306 to float
+  %div70 = fdiv nsz float %conv66269, -1.000000e+02
+  %cmp66371 = fcmp nsz olt float %nearest_dtime.2, 0.000000e+00
+  br i1 %cmp66371, label %invoke.cont703, label %invoke.cont690
 
 if.then666:                                       ; preds = %land.end
   switch i32 %nearest_collided.2, label %invoke.cont703 [
@@ -2765,15 +2767,15 @@ if.then673:                                       ; preds = %if.then666
   br label %invoke.cont703
 
 if.then678:                                       ; preds = %if.then666
-  %310 = call nsz float @llvm.fmuladd.f32(float %.pre148, float %nearest_dtime.2, float %269)
+  %310 = call nsz float @llvm.fmuladd.f32(float %.pre149, float %nearest_dtime.2, float %269)
   store float %310, ptr %Z.i1197, align 4, !tbaa !59
   br label %invoke.cont703
 
 invoke.cont690:                                   ; preds = %land.end.thread, %land.end
-  %div72 = phi float [ %div69, %land.end.thread ], [ %div, %land.end ]
+  %div73 = phi float [ %div70, %land.end.thread ], [ %div, %land.end ]
   %311 = phi i1 [ true, %land.end.thread ], [ false, %land.end ]
   %312 = load float, ptr %Y.i1178, align 4, !tbaa !60
-  %mul3.i1634 = fmul nsz float %nearest_dtime.2, %.pre148
+  %mul3.i1634 = fmul nsz float %nearest_dtime.2, %.pre149
   %mul.i9.i1645 = fmul nsz float %mul3.i1634, 1.000000e+02
   %313 = call nsz float @llvm.trunc.f32(float %mul.i9.i1645)
   %div.i10.i1646 = fdiv nsz float %313, 1.000000e+02
@@ -2793,7 +2795,7 @@ invoke.cont690:                                   ; preds = %land.end.thread, %l
   br label %invoke.cont703
 
 invoke.cont703:                                   ; preds = %land.end.thread, %invoke.cont690, %if.then678, %if.then673, %if.then668, %if.then666
-  %div71 = phi float [ %div, %if.then678 ], [ %div, %if.then673 ], [ %div72, %invoke.cont690 ], [ %div, %if.then668 ], [ %div, %if.then666 ], [ %div69, %land.end.thread ]
+  %div72 = phi float [ %div, %if.then678 ], [ %div, %if.then673 ], [ %div73, %invoke.cont690 ], [ %div, %if.then668 ], [ %div, %if.then666 ], [ %div70, %land.end.thread ]
   %323 = phi i1 [ false, %if.then678 ], [ false, %if.then673 ], [ %311, %invoke.cont690 ], [ false, %if.then668 ], [ false, %if.then666 ], [ true, %land.end.thread ]
   %dtime.addr.2 = phi float [ %dtime.addr.12209, %if.then678 ], [ %dtime.addr.12209, %if.then673 ], [ %sub697, %invoke.cont690 ], [ %dtime.addr.12209, %if.then668 ], [ %dtime.addr.12209, %if.then666 ], [ %dtime.addr.12209, %land.end.thread ]
   %324 = load i8, ptr %add.ptr.i1621, align 8, !tbaa !118, !range !63, !noundef !64
@@ -2845,7 +2847,7 @@ if.then718:                                       ; preds = %if.else716
   %328 = extractelement <2 x float> %326, i64 0
   %329 = call nsz float @llvm.fabs.f32(float %328)
   %cmp721 = fcmp nsz ogt float %329, 3.000000e+01
-  %mul = fmul nsz float %div71, %328
+  %mul = fmul nsz float %div72, %328
   %storemerge1109 = select i1 %cmp721, float %mul, float 0.000000e+00
   store float %storemerge1109, ptr %speed_f, align 4, !tbaa !58
   %330 = extractelement <2 x float> %326, i64 1
@@ -2855,7 +2857,7 @@ if.then729:                                       ; preds = %if.else716
   %331 = extractelement <2 x float> %326, i64 1
   %332 = call nsz float @llvm.fabs.f32(float %331)
   %cmp732 = fcmp nsz ogt float %332, 3.000000e+01
-  %mul735 = fmul nsz float %div71, %331
+  %mul735 = fmul nsz float %div72, %331
   %storemerge1108 = select i1 %cmp732, float %mul735, float 0.000000e+00
   store float %storemerge1108, ptr %Y.i1178, align 4, !tbaa !60
   br label %invoke.cont759
@@ -2863,7 +2865,7 @@ if.then729:                                       ; preds = %if.else716
 if.then742:                                       ; preds = %if.else716
   %333 = call nsz float @llvm.fabs.f32(float %info.sroa.18.24.copyload)
   %cmp745 = fcmp nsz ogt float %333, 3.000000e+01
-  %mul748 = fmul nsz float %div71, %info.sroa.18.24.copyload
+  %mul748 = fmul nsz float %div72, %info.sroa.18.24.copyload
   %storemerge1107 = select i1 %cmp745, float %mul748, float 0.000000e+00
   store float %storemerge1107, ptr %Z.i1179, align 4, !tbaa !59
   %334 = extractelement <2 x float> %326, i64 1

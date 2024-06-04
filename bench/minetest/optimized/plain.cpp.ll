@@ -767,7 +767,7 @@ entry:
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::unique_ptr.305", align 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV6Draw3D, i64 40), ptr %call, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6Draw3D, i64 40), ptr %call, align 8, !tbaa !15
   %m_target.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %m_target.i, align 8, !tbaa !12
   %0 = load ptr, ptr @g_settings, align 8, !tbaa !199
@@ -858,7 +858,7 @@ invoke.cont44:                                    ; preds = %_ZNSt7__cxx1112basi
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call42, i64 %vbase.offset.i.i
   store ptr %12, ptr %add.ptr.i.i, align 8, !tbaa !15
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV14RenderPipeline, i64 40), ptr %call42, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14RenderPipeline, i64 40), ptr %call42, align 8, !tbaa !15
   %m_pipeline.i = getelementptr inbounds i8, ptr %call42, i64 8
   %m_input.i = getelementptr inbounds i8, ptr %call42, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_pipeline.i, i8 0, i64 48, i1 false)
@@ -869,7 +869,7 @@ invoke.cont44:                                    ; preds = %_ZNSt7__cxx1112basi
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %m_input.i, i64 %vbase.offset.i.i.i
   store ptr %14, ptr %add.ptr.i.i.i, align 8, !tbaa !15
-  store ptr getelementptr inbounds inrange(-40, 40) (i8, ptr @_ZTV13DynamicSource, i64 40), ptr %m_input.i, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13DynamicSource, i64 40), ptr %m_input.i, align 8, !tbaa !15
   %upstream.i.i = getelementptr inbounds i8, ptr %call42, i64 64
   store ptr null, ptr %upstream.i.i, align 8, !tbaa !203
   %m_output.i = getelementptr inbounds i8, ptr %call42, i64 72
@@ -882,7 +882,7 @@ invoke.cont44:                                    ; preds = %_ZNSt7__cxx1112basi
   store ptr %16, ptr %add.ptr.i.i5.i, align 8, !tbaa !15
   %m_clear.i.i.i = getelementptr inbounds i8, ptr %call42, i64 80
   store i8 1, ptr %m_clear.i.i.i, align 8, !tbaa !206
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV13DynamicTarget, i64 40), ptr %m_output.i, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13DynamicTarget, i64 40), ptr %m_output.i, align 8, !tbaa !15
   %upstream.i6.i = getelementptr inbounds i8, ptr %call42, i64 88
   store ptr null, ptr %upstream.i6.i, align 8, !tbaa !208
   %scale.i = getelementptr inbounds i8, ptr %call42, i64 96
@@ -1421,7 +1421,7 @@ if.end43:                                         ; preds = %_ZNSt7__cxx1112basi
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8, !noalias !234
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i109, i64 %vbase.offset.i.i.i.i
   store ptr %20, ptr %add.ptr.i.i.i.i, align 8, !tbaa !15, !noalias !234
-  store ptr getelementptr inbounds inrange(-40, 40) (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i109, align 8, !tbaa !15, !noalias !234
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13TextureBuffer, i64 40), ptr %call.i.i109, align 8, !tbaa !15, !noalias !234
   %m_driver.i.i.i = getelementptr inbounds i8, ptr %call.i.i109, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_driver.i.i.i, i8 0, i64 56, i1 false), !noalias !234
   store ptr %call.i.i109, ptr %ref.tmp.i, align 8, !tbaa !199, !alias.scope !234
@@ -1549,7 +1549,7 @@ _ZN14RenderPipeline11createOwnedI19TextureBufferOutputJRP13TextureBufferRKiEEEPT
   call void @llvm.experimental.noalias.scope.decl(metadata !240)
   %call.i.i138 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i138, i8 0, i64 24, i1 false), !noalias !240
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV11UpscaleStep, i64 40), ptr %call.i.i138, align 8, !tbaa !15, !noalias !240
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11UpscaleStep, i64 40), ptr %call.i.i138, align 8, !tbaa !15, !noalias !240
   store ptr %call.i.i138, ptr %ref.tmp.i137, align 8, !tbaa !199, !alias.scope !240
   %call.i139 = invoke noundef ptr @_ZN14RenderPipeline3ownI11UpscaleStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %pipeline, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i137)
           to label %invoke.cont.i144 unwind label %lpad.i140
@@ -1920,7 +1920,7 @@ _ZN14RenderPipeline7addStepEP10RenderStep.exit:   ; preds = %_ZNSt6vectorIP10Ren
   store ptr %23, ptr %add.ptr.i.i.i.i, align 8, !tbaa !15, !noalias !243
   %m_clear.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 1, ptr %m_clear.i.i.i.i, align 8, !tbaa !206, !noalias !243
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTV12ScreenTarget, i64 40), ptr %call.i.i, align 8, !tbaa !15, !noalias !243
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12ScreenTarget, i64 40), ptr %call.i.i, align 8, !tbaa !15, !noalias !243
   %size.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %size.i.i.i, align 4, !tbaa !246, !noalias !243
   %Height.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
@@ -1994,7 +1994,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !249
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV9DrawWield, i64 40), ptr %call.i, align 8, !tbaa !15, !noalias !249
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9DrawWield, i64 40), ptr %call.i, align 8, !tbaa !15, !noalias !249
   %m_target.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %m_target.i.i, align 8, !tbaa !27, !noalias !249
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !199, !alias.scope !249
@@ -2115,7 +2115,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !252
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call.i, i8 0, i64 16, i1 false), !noalias !252
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV13MapPostFxStep, i64 40), ptr %call.i, align 8, !tbaa !15, !noalias !252
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MapPostFxStep, i64 40), ptr %call.i, align 8, !tbaa !15, !noalias !252
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !199, !alias.scope !252
   %call = invoke noundef ptr @_ZN14RenderPipeline3ownI13MapPostFxStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2233,7 +2233,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23, !noalias !255
-  store ptr getelementptr inbounds inrange(-40, 48) (i8, ptr @_ZTV7DrawHUD, i64 40), ptr %call.i, align 8, !tbaa !15, !noalias !255
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7DrawHUD, i64 40), ptr %call.i, align 8, !tbaa !15, !noalias !255
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !199, !alias.scope !255
   %call = invoke noundef ptr @_ZN14RenderPipeline3ownI7DrawHUDEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad

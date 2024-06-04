@@ -480,7 +480,7 @@ define dso_local void @_ZN10V3Undriven11undrivenAllEP10AstNetlist(ptr noundef %0
   br label %common.resume
 
 20:                                               ; preds = %1, %17
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV15UndrivenVisitor, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15UndrivenVisitor, i64 16), ptr %3, align 8
   call void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
   %21 = getelementptr inbounds i8, ptr %3, i64 9
   invoke void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser2InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser2InUse10s_userBusyE)

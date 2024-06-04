@@ -585,11 +585,11 @@ declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #5
 define dso_local void @replay_fetch_data_kind() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @replay_file, align 8
-  %tobool = icmp eq ptr %0, null
+  %tobool.not = icmp ne ptr %0, null
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 32), align 8
-  %tobool1 = icmp ne i32 %1, 0
-  %or.cond = select i1 %tobool, i1 true, i1 %tobool1
-  br i1 %or.cond, label %if.end11, label %if.then.i
+  %tobool1.not = icmp eq i32 %1, 0
+  %or.cond = select i1 %tobool.not, i1 %tobool1.not, i1 false
+  br i1 %or.cond, label %if.then.i, label %if.end11
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i32 @getc(ptr noundef nonnull %0)

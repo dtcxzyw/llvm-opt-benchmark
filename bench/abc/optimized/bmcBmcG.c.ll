@@ -174,8 +174,8 @@ define void @Bmcg_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Gia_ManStopP(ptr noundef nonnull %3) #17
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr i8, ptr %0, i64 36
-  %.val15.i = load i32, ptr %5, align 4
-  %6 = icmp sgt i32 %.val15.i, 0
+  %.val16.i = load i32, ptr %5, align 4
+  %6 = icmp sgt i32 %.val16.i, 0
   br i1 %6, label %.lr.ph.i, label %Vec_PtrFreeData.exit
 
 .lr.ph.i:                                         ; preds = %1
@@ -183,10 +183,10 @@ define void @Bmcg_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %12, %.lr.ph.i
-  %.val18.i = phi i32 [ %.val15.i, %.lr.ph.i ], [ %.val.i, %12 ]
+  %.val19.i = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i, %12 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %.val14.i = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %.val14.i, i64 %indvars.iv.i
+  %.val15.i = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds ptr, ptr %.val15.i, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %switch.i = icmp ult ptr %10, inttoptr (i64 3 to ptr)
   br i1 %switch.i, label %12, label %11
@@ -197,7 +197,7 @@ define void @Bmcg_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %11, %8
-  %.val.i = phi i32 [ %.val18.i, %8 ], [ %.val.pre.i, %11 ]
+  %.val.i = phi i32 [ %.val19.i, %8 ], [ %.val.pre.i, %11 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %13 = sext i32 %.val.i to i64
   %14 = icmp slt i64 %indvars.iv.next.i, %13

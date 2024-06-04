@@ -1947,7 +1947,7 @@ _ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJiS1_EEbRKSt7variantIJDpT0
 
 .invoke444:                                       ; preds = %696, %700
   %.sink = phi ptr [ %697, %696 ], [ %701, %700 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %.sink, align 8, !noalias !5
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %.sink, align 8, !noalias !5
   %702 = getelementptr inbounds i8, ptr %.sink, i64 8
   store ptr @.str.17, ptr %702, align 8, !noalias !5
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #24
@@ -2160,7 +2160,7 @@ _ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES
 761:                                              ; preds = %760
   %.not.i.i.i12 = icmp eq i8 %749, -1
   %762 = call ptr @__cxa_allocate_exception(i64 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %762, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %762, align 8
   %763 = getelementptr inbounds i8, ptr %762, i64 8
   br i1 %.not.i.i.i12, label %764, label %766
 
@@ -2234,7 +2234,7 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN3gmx17RangePar
 778:                                              ; preds = %777
   %.not.i.i.i17 = icmp eq i8 %749, -1
   %779 = call ptr @__cxa_allocate_exception(i64 16) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %779, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %779, align 8
   %780 = getelementptr inbounds i8, ptr %779, i64 8
   br i1 %.not.i.i.i17, label %781, label %782
 

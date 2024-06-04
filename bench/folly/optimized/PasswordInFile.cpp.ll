@@ -69,7 +69,7 @@ entry:
   %fd.i = alloca i32, align 4
   %SCOPE_EXIT_STATE1.i = alloca %"class.folly::detail::ScopeGuardImpl", align 8
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5folly14PasswordInFileE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14PasswordInFileE, i64 16), ptr %this, align 8, !tbaa !7
   %fileName_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %fileName_, align 8, !tbaa !10
@@ -441,7 +441,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly14PasswordInFileD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5folly14PasswordInFileE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14PasswordInFileE, i64 16), ptr %this, align 8, !tbaa !7
   %password_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %password_, align 8, !tbaa !14
   %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 48

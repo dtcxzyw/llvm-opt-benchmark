@@ -474,7 +474,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %client, i64 16
   %spec.select = select i1 %0, ptr null, ptr %add.ptr
   tail call void @_ZN11EnvironmentC2EP8IGameDef(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %spec.select)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17ClientEnvironment, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ClientEnvironment, i64 16), ptr %this, align 8, !tbaa !12
   %m_map = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %map, ptr %m_map, align 8, !tbaa !14
   %m_local_player = getelementptr inbounds i8, ptr %this, i64 120
@@ -486,7 +486,7 @@ entry:
   %m_script = getelementptr inbounds i8, ptr %this, i64 144
   store ptr null, ptr %m_script, align 8, !tbaa !57
   %m_ao_manager = getelementptr inbounds i8, ptr %this, i64 152
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %m_ao_manager, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %m_ao_manager, align 8, !tbaa !12
   %1 = getelementptr inbounds i8, ptr %this, i64 168
   store i32 0, ptr %1, align 8, !tbaa !58
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
@@ -532,7 +532,7 @@ lpad.i.i.i:                                       ; preds = %cond.false.i.i.i
   br label %ehcleanup7
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN6client15ActiveObjectMgrE, i64 16), ptr %m_ao_manager, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6client15ActiveObjectMgrE, i64 16), ptr %m_ao_manager, align 8, !tbaa !12
   %m_simple_objects = getelementptr inbounds i8, ptr %this, i64 272
   %m_client_event_queue = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %m_simple_objects, i8 0, i64 104, i1 false)
@@ -584,7 +584,7 @@ declare void @_ZN6client15ActiveObjectMgrD1Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17ClientEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17ClientEnvironment, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ClientEnvironment, i64 16), ptr %this, align 8, !tbaa !12
   %m_ao_manager = getelementptr inbounds i8, ptr %this, i64 152
   invoke void @_ZN15ActiveObjectMgrI18ClientActiveObjectE5clearEv(ptr noundef nonnull align 8 dereferenceable(120) %m_ao_manager)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1704,7 +1704,7 @@ invoke.cont291:                                   ; preds = %invoke.cont289
           to label %invoke.cont293 unwind label %lpad288
 
 invoke.cont293:                                   ; preds = %invoke.cont291
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call294, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18SimpleTriggerEvent, i64 16), ptr %call294, align 8, !tbaa !12
   %type2.i = getelementptr inbounds i8, ptr %call294, i64 8
   store i8 3, ptr %type2.i, align 8, !tbaa !225
   %vtable298 = load ptr, ptr %call292, align 8, !tbaa !12
@@ -2413,7 +2413,8 @@ entry:
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %2, label %_ZTW10infostream.exit
+  %.not17 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not17, label %_ZTW10infostream.exit, label %2
 
 2:                                                ; preds = %if.then
   call void @_ZTH10infostream()
@@ -2581,7 +2582,8 @@ lpad18:                                           ; preds = %if.end
 catch:                                            ; preds = %lpad18
   %18 = extractvalue { ptr, i32 } %15, 0
   %19 = call ptr @__cxa_begin_catch(ptr %18) #32
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %20, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %20
 
 20:                                               ; preds = %catch
   call void @_ZTH11errorstream()
@@ -3596,7 +3598,8 @@ _ZN17ClientEnvironment15getActiveObjectEt.exit:   ; preds = %_ZNKSt3mapItSt10uni
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN17ClientEnvironment15getActiveObjectEt.exit
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %8, label %_ZTW10infostream.exit
+  %.not8 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not8, label %_ZTW10infostream.exit, label %8
 
 8:                                                ; preds = %if.then
   tail call void @_ZTH10infostream()
@@ -3697,7 +3700,8 @@ lpad:                                             ; preds = %if.end
 catch:                                            ; preds = %lpad
   %21 = extractvalue { ptr, i32 } %18, 0
   %22 = tail call ptr @__cxa_begin_catch(ptr %21) #32
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %23, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %23
 
 23:                                               ; preds = %catch
   tail call void @_ZTH11errorstream()
@@ -4433,7 +4437,7 @@ init.end:                                         ; preds = %init.check, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15ActiveObjectMgrI18ClientActiveObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %this, align 8, !tbaa !12
   %m_active_objects = getelementptr inbounds i8, ptr %this, i64 8
   %m_iterating.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i32, ptr %m_iterating.i, align 8, !tbaa !63

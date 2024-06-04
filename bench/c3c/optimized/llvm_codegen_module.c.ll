@@ -117,13 +117,13 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1, %35, %53
-  %.sink123 = phi i64 [ 1, %53 ], [ 2, %35 ], [ 2, %1 ]
+  %.sink122 = phi i64 [ 1, %53 ], [ 2, %35 ], [ 2, %1 ]
   %54 = load ptr, ptr @type_uint, align 8
   %55 = load ptr, ptr %19, align 8
   %56 = tail call i32 @type_size(ptr noundef %54) #6
   %57 = shl i32 %56, 3
   %58 = tail call ptr @LLVMIntTypeInContext(ptr noundef %55, i32 noundef %57) #6
-  %59 = tail call ptr @LLVMConstInt(ptr noundef %58, i64 noundef %.sink123, i32 noundef 0) #6
+  %59 = tail call ptr @LLVMConstInt(ptr noundef %58, i64 noundef %.sink122, i32 noundef 0) #6
   %60 = tail call ptr @LLVMValueAsMetadata(ptr noundef %59) #6
   %61 = load ptr, ptr %22, align 8
   tail call void @LLVMAddModuleFlag(ptr noundef %61, i32 noundef 3, ptr noundef nonnull @.str, i64 noundef 9, ptr noundef %60) #6
@@ -145,17 +145,17 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
 69:                                               ; preds = %62
   %70 = getelementptr inbounds i8, ptr %68, i64 -8
   %71 = load i32, ptr %70, align 4
-  %.not108 = icmp eq i32 %71, 0
-  br i1 %.not108, label %._crit_edge, label %.lr.ph107.preheader
+  %.not107 = icmp eq i32 %71, 0
+  br i1 %.not107, label %._crit_edge, label %.lr.ph106.preheader
 
-.lr.ph107.preheader:                              ; preds = %69
-  %wide.trip.count114 = zext i32 %71 to i64
-  br label %.lr.ph107
+.lr.ph106.preheader:                              ; preds = %69
+  %wide.trip.count113 = zext i32 %71 to i64
+  br label %.lr.ph106
 
-.lr.ph107:                                        ; preds = %.lr.ph107.preheader, %91
-  %indvars.iv111 = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next112, %91 ]
+.lr.ph106:                                        ; preds = %.lr.ph106.preheader, %91
+  %indvars.iv110 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next111, %91 ]
   %72 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 40), align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv111
+  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv110
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
@@ -168,19 +168,19 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
     i32 32, label %.loopexit
   ]
 
-77:                                               ; preds = %.lr.ph107, %.lr.ph107
+77:                                               ; preds = %.lr.ph106, %.lr.ph106
   %78 = getelementptr inbounds i8, ptr %74, i64 56
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 96
   %81 = load ptr, ptr %80, align 8
-  %.not104 = icmp eq ptr %81, null
-  br i1 %.not104, label %.loopexit, label %82
+  %.not103 = icmp eq ptr %81, null
+  br i1 %.not103, label %.loopexit, label %82
 
 82:                                               ; preds = %77
   %83 = getelementptr inbounds i8, ptr %81, i64 -8
   %84 = load i32, ptr %83, align 4
-  %.not109 = icmp eq i32 %84, 0
-  br i1 %.not109, label %.loopexit, label %.lr.ph.preheader
+  %.not108 = icmp eq i32 %84, 0
+  br i1 %.not108, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %82
   %wide.trip.count = zext i32 %84 to i64
@@ -196,17 +196,17 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.lr.ph, %77, %82, %.lr.ph107, %.lr.ph107, %.lr.ph107
+.loopexit:                                        ; preds = %.lr.ph, %77, %82, %.lr.ph106, %.lr.ph106, %.lr.ph106
   %88 = getelementptr inbounds i8, ptr %74, i64 56
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 32
   store ptr null, ptr %90, align 8
   br label %91
 
-91:                                               ; preds = %.loopexit, %.lr.ph107
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge, label %.lr.ph107, !llvm.loop !9
+91:                                               ; preds = %.loopexit, %.lr.ph106
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
+  br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %91, %62, %69
   %92 = load ptr, ptr %19, align 8
@@ -300,8 +300,8 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %148 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr %142, ptr %148, align 8
   %149 = load ptr, ptr %12, align 8
-  %.not101 = icmp eq ptr %149, null
-  br i1 %.not101, label %152, label %150
+  %.not99 = icmp eq ptr %149, null
+  br i1 %.not99, label %152, label %150
 
 150:                                              ; preds = %._crit_edge
   %151 = getelementptr inbounds i8, ptr %149, i64 32
@@ -310,8 +310,8 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
 
 152:                                              ; preds = %150, %._crit_edge
   %153 = load ptr, ptr %14, align 8
-  %.not102 = icmp eq ptr %153, null
-  br i1 %.not102, label %156, label %154
+  %.not100 = icmp eq ptr %153, null
+  br i1 %.not100, label %156, label %154
 
 154:                                              ; preds = %152
   %155 = getelementptr inbounds i8, ptr %153, i64 32
@@ -320,99 +320,99 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
 
 156:                                              ; preds = %154, %152
   %157 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
-  %.not103 = icmp eq i32 %157, 0
-  br i1 %.not103, label %222, label %158
+  %.not101 = icmp eq i32 %157, 0
+  br i1 %.not101, label %220, label %158
 
 158:                                              ; preds = %156
   %159 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 224), align 8
-  %160 = add i32 %159, -23
-  %or.cond = icmp ult i32 %160, 2
-  %161 = load ptr, ptr @type_uint, align 8
-  %162 = load ptr, ptr %19, align 8
-  %163 = call i32 @type_size(ptr noundef %161) #6
-  %164 = shl i32 %163, 3
-  %165 = call ptr @LLVMIntTypeInContext(ptr noundef %162, i32 noundef %164) #6
-  br i1 %or.cond, label %166, label %170
+  %.off = add i32 %159, -23
+  %switch = icmp ult i32 %.off, 2
+  %160 = load ptr, ptr @type_uint, align 8
+  %161 = load ptr, ptr %19, align 8
+  %162 = call i32 @type_size(ptr noundef %160) #6
+  %163 = shl i32 %162, 3
+  %164 = call ptr @LLVMIntTypeInContext(ptr noundef %161, i32 noundef %163) #6
+  br i1 %switch, label %165, label %169
 
-166:                                              ; preds = %158
-  %167 = call ptr @LLVMConstInt(ptr noundef %165, i64 noundef 1, i32 noundef 0) #6
-  %168 = call ptr @LLVMValueAsMetadata(ptr noundef %167) #6
-  %169 = load ptr, ptr %22, align 8
-  call void @LLVMAddModuleFlag(ptr noundef %169, i32 noundef 0, ptr noundef nonnull @.str.2, i64 noundef 8, ptr noundef %168) #6
-  br label %193
+165:                                              ; preds = %158
+  %166 = call ptr @LLVMConstInt(ptr noundef %164, i64 noundef 1, i32 noundef 0) #6
+  %167 = call ptr @LLVMValueAsMetadata(ptr noundef %166) #6
+  %168 = load ptr, ptr %22, align 8
+  call void @LLVMAddModuleFlag(ptr noundef %168, i32 noundef 0, ptr noundef nonnull @.str.2, i64 noundef 8, ptr noundef %167) #6
+  br label %192
 
-170:                                              ; preds = %158
-  %171 = call ptr @LLVMConstInt(ptr noundef %165, i64 noundef 4, i32 noundef 0) #6
-  %172 = call ptr @LLVMValueAsMetadata(ptr noundef %171) #6
-  %173 = load ptr, ptr %22, align 8
-  call void @LLVMAddModuleFlag(ptr noundef %173, i32 noundef 1, ptr noundef nonnull @.str.3, i64 noundef 13, ptr noundef %172) #6
-  %174 = load ptr, ptr @type_uint, align 8
-  %175 = load ptr, ptr %19, align 8
-  %176 = call i32 @type_size(ptr noundef %174) #6
-  %177 = shl i32 %176, 3
-  %178 = call ptr @LLVMIntTypeInContext(ptr noundef %175, i32 noundef %177) #6
-  %179 = call ptr @LLVMConstInt(ptr noundef %178, i64 noundef 3, i32 noundef 0) #6
-  %180 = call ptr @LLVMValueAsMetadata(ptr noundef %179) #6
-  %181 = load ptr, ptr %22, align 8
-  call void @LLVMAddModuleFlag(ptr noundef %181, i32 noundef 1, ptr noundef nonnull @.str.4, i64 noundef 18, ptr noundef %180) #6
-  %182 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
-  %183 = icmp eq i32 %182, 3
-  %184 = select i1 %183, i64 1, i64 2
-  %185 = load ptr, ptr @type_uint, align 8
-  %186 = load ptr, ptr %19, align 8
-  %187 = call i32 @type_size(ptr noundef %185) #6
-  %188 = shl i32 %187, 3
-  %189 = call ptr @LLVMIntTypeInContext(ptr noundef %186, i32 noundef %188) #6
-  %190 = call ptr @LLVMConstInt(ptr noundef %189, i64 noundef %184, i32 noundef 0) #6
-  %191 = call ptr @LLVMValueAsMetadata(ptr noundef %190) #6
-  %192 = load ptr, ptr %22, align 8
-  call void @LLVMAddModuleFlag(ptr noundef %192, i32 noundef 1, ptr noundef nonnull @.str.5, i64 noundef 13, ptr noundef %191) #6
-  br label %193
+169:                                              ; preds = %158
+  %170 = call ptr @LLVMConstInt(ptr noundef %164, i64 noundef 4, i32 noundef 0) #6
+  %171 = call ptr @LLVMValueAsMetadata(ptr noundef %170) #6
+  %172 = load ptr, ptr %22, align 8
+  call void @LLVMAddModuleFlag(ptr noundef %172, i32 noundef 1, ptr noundef nonnull @.str.3, i64 noundef 13, ptr noundef %171) #6
+  %173 = load ptr, ptr @type_uint, align 8
+  %174 = load ptr, ptr %19, align 8
+  %175 = call i32 @type_size(ptr noundef %173) #6
+  %176 = shl i32 %175, 3
+  %177 = call ptr @LLVMIntTypeInContext(ptr noundef %174, i32 noundef %176) #6
+  %178 = call ptr @LLVMConstInt(ptr noundef %177, i64 noundef 3, i32 noundef 0) #6
+  %179 = call ptr @LLVMValueAsMetadata(ptr noundef %178) #6
+  %180 = load ptr, ptr %22, align 8
+  call void @LLVMAddModuleFlag(ptr noundef %180, i32 noundef 1, ptr noundef nonnull @.str.4, i64 noundef 18, ptr noundef %179) #6
+  %181 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %182 = icmp eq i32 %181, 3
+  %183 = select i1 %182, i64 1, i64 2
+  %184 = load ptr, ptr @type_uint, align 8
+  %185 = load ptr, ptr %19, align 8
+  %186 = call i32 @type_size(ptr noundef %184) #6
+  %187 = shl i32 %186, 3
+  %188 = call ptr @LLVMIntTypeInContext(ptr noundef %185, i32 noundef %187) #6
+  %189 = call ptr @LLVMConstInt(ptr noundef %188, i64 noundef %183, i32 noundef 0) #6
+  %190 = call ptr @LLVMValueAsMetadata(ptr noundef %189) #6
+  %191 = load ptr, ptr %22, align 8
+  call void @LLVMAddModuleFlag(ptr noundef %191, i32 noundef 1, ptr noundef nonnull @.str.5, i64 noundef 13, ptr noundef %190) #6
+  br label %192
 
-193:                                              ; preds = %170, %166
-  %194 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 224), align 8
-  %195 = icmp eq i32 %194, 13
-  %196 = select i1 %195, i64 1, i64 2
-  %197 = load ptr, ptr @type_uint, align 8
-  %198 = load ptr, ptr %19, align 8
-  %199 = call i32 @type_size(ptr noundef %197) #6
-  %200 = shl i32 %199, 3
-  %201 = call ptr @LLVMIntTypeInContext(ptr noundef %198, i32 noundef %200) #6
-  %202 = call ptr @LLVMConstInt(ptr noundef %201, i64 noundef %196, i32 noundef 0) #6
-  %203 = call ptr @LLVMValueAsMetadata(ptr noundef %202) #6
-  %204 = load ptr, ptr %22, align 8
-  call void @LLVMAddModuleFlag(ptr noundef %204, i32 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef %203) #6
-  %205 = getelementptr inbounds i8, ptr %0, i64 296
-  %206 = load i16, ptr %205, align 8
-  %207 = and i16 %206, -256
-  store i16 %207, ptr %205, align 8
-  %208 = load ptr, ptr %22, align 8
-  %209 = call ptr @LLVMCreateDIBuilder(ptr noundef %208) #6
-  %210 = getelementptr inbounds i8, ptr %0, i64 304
-  store ptr %209, ptr %210, align 8
-  %211 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
-  %212 = icmp eq i32 %211, 2
-  %213 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 336), align 8
-  %214 = icmp ne i32 %213, 0
-  %or.cond3 = select i1 %212, i1 %214, i1 false
-  br i1 %or.cond3, label %215, label %222
+192:                                              ; preds = %169, %165
+  %193 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 224), align 8
+  %194 = icmp eq i32 %193, 13
+  %195 = select i1 %194, i64 1, i64 2
+  %196 = load ptr, ptr @type_uint, align 8
+  %197 = load ptr, ptr %19, align 8
+  %198 = call i32 @type_size(ptr noundef %196) #6
+  %199 = shl i32 %198, 3
+  %200 = call ptr @LLVMIntTypeInContext(ptr noundef %197, i32 noundef %199) #6
+  %201 = call ptr @LLVMConstInt(ptr noundef %200, i64 noundef %195, i32 noundef 0) #6
+  %202 = call ptr @LLVMValueAsMetadata(ptr noundef %201) #6
+  %203 = load ptr, ptr %22, align 8
+  call void @LLVMAddModuleFlag(ptr noundef %203, i32 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef %202) #6
+  %204 = getelementptr inbounds i8, ptr %0, i64 296
+  %205 = load i16, ptr %204, align 8
+  %206 = and i16 %205, -256
+  store i16 %206, ptr %204, align 8
+  %207 = load ptr, ptr %22, align 8
+  %208 = call ptr @LLVMCreateDIBuilder(ptr noundef %207) #6
+  %209 = getelementptr inbounds i8, ptr %0, i64 304
+  store ptr %208, ptr %209, align 8
+  %210 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
+  %211 = icmp ne i32 %210, 2
+  %212 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 336), align 8
+  %.not102 = icmp eq i32 %212, 0
+  %or.cond = select i1 %211, i1 true, i1 %.not102
+  br i1 %or.cond, label %220, label %213
 
-215:                                              ; preds = %193
-  %216 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
-  %217 = call zeroext i1 @os_supports_stacktrace(i32 noundef %216) #6
-  %218 = load i16, ptr %205, align 8
-  %219 = select i1 %217, i16 256, i16 0
-  %220 = and i16 %218, -257
-  %221 = or disjoint i16 %220, %219
-  store i16 %221, ptr %205, align 8
-  br label %222
+213:                                              ; preds = %192
+  %214 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
+  %215 = call zeroext i1 @os_supports_stacktrace(i32 noundef %214) #6
+  %216 = load i16, ptr %204, align 8
+  %217 = select i1 %215, i16 256, i16 0
+  %218 = and i16 %216, -257
+  %219 = or disjoint i16 %218, %217
+  store i16 %219, ptr %204, align 8
+  br label %220
 
-222:                                              ; preds = %193, %215, %156
-  %223 = call ptr @LLVMCreateBuilder() #6
-  %224 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %223, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %223, ptr %225, align 8
+220:                                              ; preds = %192, %213, %156
+  %221 = call ptr @LLVMCreateBuilder() #6
+  %222 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %221, ptr %222, align 8
+  %223 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %221, ptr %223, align 8
   ret void
 }
 

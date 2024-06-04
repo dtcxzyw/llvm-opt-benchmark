@@ -1336,7 +1336,8 @@ define internal i32 @hwloc_linux_set_thread_cpubind(ptr nocapture noundef readon
   br label %49
 
 9:                                                ; preds = %4
-  br i1 icmp ne (ptr @pthread_self, ptr null), label %12, label %10
+  %.not32 = icmp eq ptr @pthread_self, null
+  br i1 %.not32, label %10, label %12
 
 10:                                               ; preds = %9
   %11 = tail call ptr @__errno_location() #30
@@ -1353,7 +1354,8 @@ define internal i32 @hwloc_linux_set_thread_cpubind(ptr nocapture noundef readon
   br label %49
 
 17:                                               ; preds = %12
-  br i1 icmp ne (ptr @pthread_setaffinity_np, ptr null), label %20, label %18
+  %.not33 = icmp eq ptr @pthread_setaffinity_np, null
+  br i1 %.not33, label %18, label %20
 
 18:                                               ; preds = %17
   %19 = tail call ptr @__errno_location() #30
@@ -1377,18 +1379,18 @@ define internal i32 @hwloc_linux_set_thread_cpubind(ptr nocapture noundef readon
   %29 = lshr i64 %28, 3
   %30 = and i64 %29, 2305843009213693944
   %31 = tail call ptr @__sched_cpualloc(i64 noundef %27) #26
-  %.not32 = icmp eq ptr %31, null
-  br i1 %.not32, label %49, label %32
+  %.not34 = icmp eq ptr %31, null
+  br i1 %.not34, label %49, label %32
 
 32:                                               ; preds = %25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %31, i8 0, i64 %30, i1 false)
   %33 = tail call i32 @hwloc_bitmap_first(ptr noundef %2) #29
-  %.not3335 = icmp eq i32 %33, -1
-  br i1 %.not3335, label %._crit_edge, label %.lr.ph
+  %.not3537 = icmp eq i32 %33, -1
+  br i1 %.not3537, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32, %44
-  %.02736 = phi i32 [ %45, %44 ], [ %33, %32 ]
-  %34 = zext i32 %.02736 to i64
+  %.02738 = phi i32 [ %45, %44 ], [ %33, %32 ]
+  %34 = zext i32 %.02738 to i64
   %35 = lshr i64 %34, 3
   %36 = icmp ult i64 %35, %30
   br i1 %36, label %37, label %44
@@ -1404,15 +1406,15 @@ define internal i32 @hwloc_linux_set_thread_cpubind(ptr nocapture noundef readon
   br label %44
 
 44:                                               ; preds = %.lr.ph, %37
-  %45 = tail call i32 @hwloc_bitmap_next(ptr noundef %2, i32 noundef %.02736) #29
-  %.not33 = icmp eq i32 %45, -1
-  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  %45 = tail call i32 @hwloc_bitmap_next(ptr noundef %2, i32 noundef %.02738) #29
+  %.not35 = icmp eq i32 %45, -1
+  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %44, %32
   %46 = tail call i32 @pthread_setaffinity_np(i64 noundef %1, i64 noundef %30, ptr noundef nonnull %31) #26
   tail call void @__sched_cpufree(ptr noundef nonnull %31) #26
-  %.not34 = icmp eq i32 %46, 0
-  br i1 %.not34, label %49, label %47
+  %.not36 = icmp eq i32 %46, 0
+  br i1 %.not36, label %49, label %47
 
 47:                                               ; preds = %._crit_edge
   %48 = tail call ptr @__errno_location() #30
@@ -1437,7 +1439,8 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thread_cpubind(ptr nocaptu
   br label %54
 
 9:                                                ; preds = %4
-  br i1 icmp ne (ptr @pthread_self, ptr null), label %12, label %10
+  %.not32 = icmp eq ptr @pthread_self, null
+  br i1 %.not32, label %10, label %12
 
 10:                                               ; preds = %9
   %11 = tail call ptr @__errno_location() #30
@@ -1454,7 +1457,8 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thread_cpubind(ptr nocaptu
   br label %54
 
 17:                                               ; preds = %12
-  br i1 icmp ne (ptr @pthread_getaffinity_np, ptr null), label %20, label %18
+  %.not33 = icmp eq ptr @pthread_getaffinity_np, null
+  br i1 %.not33, label %18, label %20
 
 18:                                               ; preds = %17
   %19 = tail call ptr @__errno_location() #30
@@ -1475,13 +1479,13 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thread_cpubind(ptr nocaptu
   %31 = lshr i64 %30, 3
   %32 = and i64 %31, 2305843009213693944
   %33 = tail call ptr @__sched_cpualloc(i64 noundef %29) #26
-  %.not32 = icmp eq ptr %33, null
-  br i1 %.not32, label %54, label %34
+  %.not34 = icmp eq ptr %33, null
+  br i1 %.not34, label %54, label %34
 
 34:                                               ; preds = %20
   %35 = tail call i32 @pthread_getaffinity_np(i64 noundef %1, i64 noundef %32, ptr noundef nonnull %33) #26
-  %.not33 = icmp eq i32 %35, 0
-  br i1 %.not33, label %38, label %36
+  %.not35 = icmp eq i32 %35, 0
+  br i1 %.not35, label %38, label %36
 
 36:                                               ; preds = %34
   tail call void @__sched_cpufree(ptr noundef nonnull %33) #26
@@ -1494,8 +1498,8 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thread_cpubind(ptr nocaptu
   br label %39
 
 39:                                               ; preds = %38, %.thread
-  %.02838 = phi i32 [ 0, %38 ], [ %52, %.thread ]
-  %40 = zext i32 %.02838 to i64
+  %.02840 = phi i32 [ 0, %38 ], [ %52, %.thread ]
+  %40 = zext i32 %.02840 to i64
   %41 = lshr i64 %40, 3
   %42 = icmp ult i64 %41, %32
   br i1 %42, label %43, label %.thread
@@ -1507,17 +1511,17 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thread_cpubind(ptr nocaptu
   %47 = and i64 %40, 63
   %48 = shl nuw i64 1, %47
   %49 = and i64 %46, %48
-  %.not37 = icmp eq i64 %49, 0
-  br i1 %.not37, label %.thread, label %50
+  %.not39 = icmp eq i64 %49, 0
+  br i1 %.not39, label %.thread, label %50
 
 50:                                               ; preds = %43
-  %51 = tail call i32 @hwloc_bitmap_set(ptr noundef %2, i32 noundef %.02838) #26
+  %51 = tail call i32 @hwloc_bitmap_set(ptr noundef %2, i32 noundef %.02840) #26
   br label %.thread
 
 .thread:                                          ; preds = %39, %43, %50
-  %52 = add i32 %.02838, 1
-  %.not34 = icmp ugt i32 %52, %27
-  br i1 %.not34, label %53, label %39, !llvm.loop !12
+  %52 = add i32 %.02840, 1
+  %.not36 = icmp ugt i32 %52, %27
+  br i1 %.not36, label %53, label %39, !llvm.loop !12
 
 53:                                               ; preds = %.thread
   tail call void @__sched_cpufree(ptr noundef nonnull %33) #26

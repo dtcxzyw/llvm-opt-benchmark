@@ -166,7 +166,8 @@ if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %if.end9, %if.end.i.i, %if.then.i.i.i, %if.else.i.i.i, %if.end7.i.i.i
   %retval.0.i.i = phi i64 [ 9223372036854775807, %if.end9 ], [ -9223372036854775808, %if.end.i.i ], [ %add.i.i.i, %if.end7.i.i.i ], [ 9223372036854775807, %if.then.i.i.i ], [ -9223372036854775808, %if.else.i.i.i ]
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %3, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %3
 
 3:                                                ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -230,7 +231,8 @@ return:                                           ; preds = %_ZN9grpc_core9Times
 ; Function Attrs: uwtable
 define void @_ZN9grpc_core20Chttp2PingRatePolicy8SentPingEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %0, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()

@@ -167,7 +167,8 @@ _ZNK13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EE
   br i1 %cmp.i.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body.i, %_ZNK13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EEE5emptyEv.exit, %entry
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %5, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %5
 
 5:                                                ; preds = %if.then
   tail call void @_ZTH13warningstream() #24
@@ -844,7 +845,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp5, label %if.then6, label %cleanup
 
 if.then6:                                         ; preds = %if.then
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %2, label %_ZTW10infostream.exit
+  %.not10 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not10, label %_ZTW10infostream.exit, label %2
 
 2:                                                ; preds = %if.then6
   tail call void @_ZTH10infostream()
@@ -996,10 +998,11 @@ _ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit: ; preds = %_ZNKSt3m
   %retval.1.i.i = phi ptr [ %second.i.i, %cleanup.i.i ], [ @_ZN13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EEE10null_valueE, %_ZNKSt8_Rb_treeItSt4pairIKtSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS3_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i35.i.i ], [ @_ZN13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EEE10null_valueE, %if.end8.i.i ], [ %spec.select.i.i, %_ZNKSt3mapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EESt4lessItESaISt4pairIKtS4_EEE4findERS8_.exit42.i.i ]
   %20 = load ptr, ptr %retval.1.i.i, align 8, !tbaa !21
   %cmp.i.not.i = icmp eq ptr %20, null
+  %.not9 = icmp eq ptr @_ZTH10infostream, null
   br i1 %cmp.i.not.i, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %21, label %_ZTW10infostream.exit42
+  br i1 %.not9, label %_ZTW10infostream.exit42, label %21
 
 21:                                               ; preds = %if.then15
   tail call void @_ZTH10infostream()
@@ -1085,7 +1088,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit119: ; preds = %i
   br label %return
 
 if.end23:                                         ; preds = %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %32, label %_ZTW10infostream.exit68
+  br i1 %.not9, label %_ZTW10infostream.exit68, label %32
 
 32:                                               ; preds = %if.end23
   tail call void @_ZTH10infostream()
@@ -1638,7 +1641,8 @@ entry:
   %id.addr = alloca i16, align 2
   %obj = alloca %"class.std::unique_ptr", align 8
   store i16 %id, ptr %id.addr, align 2, !tbaa !58
-  br i1 icmp ne (ptr @_ZTH13verbosestream, ptr null), label %0, label %_ZTW13verbosestream.exit
+  %.not = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not, label %_ZTW13verbosestream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH13verbosestream()
@@ -1723,7 +1727,8 @@ _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZSt4endlIcSt11char
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %10, label %_ZTW10infostream.exit
+  %.not7 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not7, label %_ZTW10infostream.exit, label %10
 
 10:                                               ; preds = %if.then
   call void @_ZTH10infostream()
@@ -2566,7 +2571,7 @@ declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15ActiveObjectMgrI18ClientActiveObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 16), ptr %this, align 8, !tbaa !33
   %m_active_objects = getelementptr inbounds i8, ptr %this, i64 8
   %m_iterating.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i32, ptr %m_iterating.i, align 8, !tbaa !4

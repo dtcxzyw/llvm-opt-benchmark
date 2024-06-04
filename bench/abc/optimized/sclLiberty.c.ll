@@ -11098,12 +11098,12 @@ Scl_LibertyItem.exit674:                          ; preds = %.critedge
 
 ._crit_edge807:                                   ; preds = %._crit_edge807thread-pre-split, %Scl_LibertyItemNum.exit
   %.pre857 = phi ptr [ %.pre857.pr, %._crit_edge807thread-pre-split ], [ %259, %Scl_LibertyItemNum.exit ]
-  %.val15.i.i = load i32, ptr %258, align 4
-  %613 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %258, align 4
+  %613 = icmp sgt i32 %.val16.i.i, 0
   br i1 %613, label %.lr.ph.i.i.preheader, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i.preheader:                             ; preds = %._crit_edge807
-  %614 = zext nneg i32 %.val15.i.i to i64
+  %614 = zext nneg i32 %.val16.i.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %618

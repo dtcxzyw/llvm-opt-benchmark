@@ -688,7 +688,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i10, %_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !12
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !12
   %1 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -981,14 +981,14 @@ entry:
   %__dnew.i.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 472
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !12
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 480
   store ptr null, ptr %DebugName.i, align 8, !tbaa !84
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 488
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !76
   tail call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT16GUIInventoryList, i64 8), i32 noundef 23, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle)
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV16GUIInventoryList, i64 24), ptr %this, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV16GUIInventoryList, i64 336), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIInventoryList, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIInventoryList, i64 336), ptr %0, align 8, !tbaa !12
   %m_invmgr = getelementptr inbounds i8, ptr %this, i64 312
   store ptr %invmgr, ptr %m_invmgr, align 8, !tbaa !14
   %m_inventoryloc = getelementptr inbounds i8, ptr %this, i64 320
@@ -1182,7 +1182,8 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool4.not, label %if.then5, label %cleanup.cont312
 
 if.then5:                                         ; preds = %if.then3
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %4, label %_ZTW13warningstream.exit
+  %.not29 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not29, label %_ZTW13warningstream.exit, label %4
 
 4:                                                ; preds = %if.then5
   tail call void @_ZTH13warningstream()
@@ -1348,7 +1349,8 @@ if.then20:                                        ; preds = %if.end17
   br i1 %tobool22.not, label %if.then23, label %cleanup.cont312
 
 if.then23:                                        ; preds = %if.then20
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %24, label %_ZTW13warningstream.exit405
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit405, label %24
 
 24:                                               ; preds = %if.then23
   tail call void @_ZTH13warningstream()
@@ -3936,9 +3938,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16GUIInventoryListD1Ev(ptr noundef nonnull align 8 dereferenceable(469) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV16GUIInventoryList, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIInventoryList, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 472
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV16GUIInventoryList, i64 336), ptr %add.ptr.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIInventoryList, i64 336), ptr %add.ptr.i, align 8, !tbaa !12
   %m_listname.i = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load ptr, ptr %m_listname.i, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 384
@@ -3982,9 +3984,9 @@ _ZN16GUIInventoryListD2Ev.exit:                   ; preds = %if.then.i.i.i.i, %_
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16GUIInventoryListD0Ev(ptr noundef nonnull align 8 dereferenceable(469) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV16GUIInventoryList, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIInventoryList, i64 24), ptr %this, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 472
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV16GUIInventoryList, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIInventoryList, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !12
   %m_listname.i.i = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load ptr, ptr %m_listname.i.i, align 8, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %this, i64 384
@@ -4033,9 +4035,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV16GUIInventoryList, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIInventoryList, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 472
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV16GUIInventoryList, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIInventoryList, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !12
   %m_listname.i.i = getelementptr inbounds i8, ptr %3, i64 368
   %4 = load ptr, ptr %m_listname.i.i, align 8, !tbaa !4
   %5 = getelementptr inbounds i8, ptr %3, i64 384
@@ -4083,9 +4085,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV16GUIInventoryList, i64 24), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIInventoryList, i64 24), ptr %3, align 8, !tbaa !12
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 472
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV16GUIInventoryList, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIInventoryList, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !12
   %m_listname.i.i.i = getelementptr inbounds i8, ptr %3, i64 368
   %4 = load ptr, ptr %m_listname.i.i.i, align 8, !tbaa !4
   %5 = getelementptr inbounds i8, ptr %3, i64 384
@@ -4694,7 +4696,7 @@ entry:
   store ptr %m_stringvars.i, ptr %__alloc_node_gen.i.i.i, align 8, !tbaa !79
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSL_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %m_stringvars.i, ptr noundef nonnull align 8 dereferenceable(56) %m_stringvars4.i, ptr noundef nonnull align 8 dereferenceable(8) %__alloc_node_gen.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i) #26
-  store ptr getelementptr inbounds inrange(-80, 72) (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17ItemStackMetadata, i64 80), ptr %this, align 8, !tbaa !12
   %toolcaps_overridden = getelementptr inbounds i8, ptr %this, i64 72
   %toolcaps_overridden2 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i8, ptr %toolcaps_overridden2, align 8, !tbaa !285, !range !86, !noundef !87

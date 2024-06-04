@@ -81,7 +81,8 @@ if.then:                                          ; preds = %entry
   store i8 0, ptr %initial_, align 8
   %current_backoff_ = getelementptr inbounds i8, ptr %this, i64 328
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %current_backoff_, align 8
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %1, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %1
 
 1:                                                ; preds = %if.then
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -209,81 +210,82 @@ if.end8.i:                                        ; preds = %if.end.i10
 
 _ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit: ; preds = %_ZN4absl12lts_202308027UniformIdRNS0_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeEOT0_SA_SA_.exit, %if.end.i10, %if.end8.i
   %retval.sroa.0.0.i9 = phi i64 [ %conv9.i, %if.end8.i ], [ 9223372036854775807, %_ZN4absl12lts_202308027UniformIdRNS0_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeEOT0_SA_SA_.exit ], [ -9223372036854775808, %if.end.i10 ]
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %10, label %_ZN9grpc_core9Timestamp3NowEv.exit13
+  %.not.i.i11 = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i11, label %_ZN9grpc_core9Timestamp3NowEv.exit14, label %10
 
 10:                                               ; preds = %_ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
-  br label %_ZN9grpc_core9Timestamp3NowEv.exit13
+  br label %_ZN9grpc_core9Timestamp3NowEv.exit14
 
-_ZN9grpc_core9Timestamp3NowEv.exit13:             ; preds = %_ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit, %10
+_ZN9grpc_core9Timestamp3NowEv.exit14:             ; preds = %_ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit, %10
   %11 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
   %12 = load ptr, ptr %11, align 8
-  %vtable.i11 = load ptr, ptr %12, align 8
-  %13 = load ptr, ptr %vtable.i11, align 8
-  %call.i12 = call i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %vtable.i12 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %vtable.i12, align 8
+  %call.i13 = call i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
   %agg.tmp36.sroa.0.0.copyload = load i64, ptr %current_backoff_9, align 8
-  %cmp.i.i14 = icmp eq i64 %call.i12, 9223372036854775807
+  %cmp.i.i15 = icmp eq i64 %call.i13, 9223372036854775807
   %cmp2.i.i = icmp eq i64 %agg.tmp36.sroa.0.0.copyload, 9223372036854775807
-  %or.cond.i.i = or i1 %cmp.i.i14, %cmp2.i.i
-  br i1 %or.cond.i.i, label %return, label %if.end.i.i15
+  %or.cond.i.i = or i1 %cmp.i.i15, %cmp2.i.i
+  br i1 %or.cond.i.i, label %return, label %if.end.i.i16
 
-if.end.i.i15:                                     ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit13
-  %cmp5.i.i = icmp eq i64 %call.i12, -9223372036854775808
+if.end.i.i16:                                     ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit14
+  %cmp5.i.i = icmp eq i64 %call.i13, -9223372036854775808
   %cmp8.i.i = icmp eq i64 %agg.tmp36.sroa.0.0.copyload, -9223372036854775808
   %or.cond5.i.i = or i1 %cmp5.i.i, %cmp8.i.i
   br i1 %or.cond5.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end11.i.i
 
-if.end11.i.i:                                     ; preds = %if.end.i.i15
-  %cmp.i.i.i16 = icmp sgt i64 %call.i12, 0
-  br i1 %cmp.i.i.i16, label %if.then.i.i.i, label %if.else.i.i.i
+if.end11.i.i:                                     ; preds = %if.end.i.i16
+  %cmp.i.i.i17 = icmp sgt i64 %call.i13, 0
+  br i1 %cmp.i.i.i17, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i12
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i13
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %agg.tmp36.sroa.0.0.copyload
   br i1 %cmp1.i.i.i, label %return, label %if.end7.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub3.i.i.i = sub nsw i64 -9223372036854775808, %call.i12
+  %sub3.i.i.i = sub nsw i64 -9223372036854775808, %call.i13
   %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %agg.tmp36.sroa.0.0.copyload
   br i1 %cmp4.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %add.i.i.i = add nsw i64 %agg.tmp36.sroa.0.0.copyload, %call.i12
+  %add.i.i.i = add nsw i64 %agg.tmp36.sroa.0.0.copyload, %call.i13
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 
-_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %if.end.i.i15, %if.else.i.i.i, %if.end7.i.i.i
-  %retval.0.i.i = phi i64 [ -9223372036854775808, %if.end.i.i15 ], [ %add.i.i.i, %if.end7.i.i.i ], [ -9223372036854775808, %if.else.i.i.i ]
-  %cmp.i.i17 = icmp eq i64 %retval.0.i.i, 9223372036854775807
-  %cmp2.i.i18 = icmp eq i64 %retval.sroa.0.0.i9, 9223372036854775807
-  %or.cond.i.i19 = or i1 %cmp2.i.i18, %cmp.i.i17
-  br i1 %or.cond.i.i19, label %return, label %if.end.i.i20
+_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %if.end.i.i16, %if.else.i.i.i, %if.end7.i.i.i
+  %retval.0.i.i = phi i64 [ -9223372036854775808, %if.end.i.i16 ], [ %add.i.i.i, %if.end7.i.i.i ], [ -9223372036854775808, %if.else.i.i.i ]
+  %cmp.i.i18 = icmp eq i64 %retval.0.i.i, 9223372036854775807
+  %cmp2.i.i19 = icmp eq i64 %retval.sroa.0.0.i9, 9223372036854775807
+  %or.cond.i.i20 = or i1 %cmp2.i.i19, %cmp.i.i18
+  br i1 %or.cond.i.i20, label %return, label %if.end.i.i21
 
-if.end.i.i20:                                     ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
-  %cmp5.i.i21 = icmp eq i64 %retval.0.i.i, -9223372036854775808
-  %cmp8.i.i22 = icmp eq i64 %retval.sroa.0.0.i9, -9223372036854775808
-  %or.cond5.i.i23 = or i1 %cmp8.i.i22, %cmp5.i.i21
-  br i1 %or.cond5.i.i23, label %return, label %if.end11.i.i24
+if.end.i.i21:                                     ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
+  %cmp5.i.i22 = icmp eq i64 %retval.0.i.i, -9223372036854775808
+  %cmp8.i.i23 = icmp eq i64 %retval.sroa.0.0.i9, -9223372036854775808
+  %or.cond5.i.i24 = or i1 %cmp8.i.i23, %cmp5.i.i22
+  br i1 %or.cond5.i.i24, label %return, label %if.end11.i.i25
 
-if.end11.i.i24:                                   ; preds = %if.end.i.i20
-  %cmp.i.i.i25 = icmp sgt i64 %retval.0.i.i, 0
-  br i1 %cmp.i.i.i25, label %if.then.i.i.i32, label %if.else.i.i.i26
+if.end11.i.i25:                                   ; preds = %if.end.i.i21
+  %cmp.i.i.i26 = icmp sgt i64 %retval.0.i.i, 0
+  br i1 %cmp.i.i.i26, label %if.then.i.i.i33, label %if.else.i.i.i27
 
-if.then.i.i.i32:                                  ; preds = %if.end11.i.i24
-  %sub.i.i.i33 = sub nuw nsw i64 9223372036854775807, %retval.0.i.i
-  %cmp1.i.i.i34 = icmp slt i64 %sub.i.i.i33, %retval.sroa.0.0.i9
-  br i1 %cmp1.i.i.i34, label %return, label %if.end7.i.i.i29
+if.then.i.i.i33:                                  ; preds = %if.end11.i.i25
+  %sub.i.i.i34 = sub nuw nsw i64 9223372036854775807, %retval.0.i.i
+  %cmp1.i.i.i35 = icmp slt i64 %sub.i.i.i34, %retval.sroa.0.0.i9
+  br i1 %cmp1.i.i.i35, label %return, label %if.end7.i.i.i30
 
-if.else.i.i.i26:                                  ; preds = %if.end11.i.i24
-  %sub3.i.i.i27 = sub nsw i64 -9223372036854775808, %retval.0.i.i
-  %cmp4.i.i.i28 = icmp sgt i64 %sub3.i.i.i27, %retval.sroa.0.0.i9
-  br i1 %cmp4.i.i.i28, label %return, label %if.end7.i.i.i29
+if.else.i.i.i27:                                  ; preds = %if.end11.i.i25
+  %sub3.i.i.i28 = sub nsw i64 -9223372036854775808, %retval.0.i.i
+  %cmp4.i.i.i29 = icmp sgt i64 %sub3.i.i.i28, %retval.sroa.0.0.i9
+  br i1 %cmp4.i.i.i29, label %return, label %if.end7.i.i.i30
 
-if.end7.i.i.i29:                                  ; preds = %if.else.i.i.i26, %if.then.i.i.i32
-  %add.i.i.i30 = add nsw i64 %retval.0.i.i, %retval.sroa.0.0.i9
+if.end7.i.i.i30:                                  ; preds = %if.else.i.i.i27, %if.then.i.i.i33
+  %add.i.i.i31 = add nsw i64 %retval.0.i.i, %retval.sroa.0.0.i9
   br label %return
 
-return:                                           ; preds = %if.then.i.i.i, %_ZN9grpc_core9Timestamp3NowEv.exit13, %if.end7.i.i.i29, %if.else.i.i.i26, %if.then.i.i.i32, %if.end.i.i20, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, %if.end7.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i.i, %_ZN9grpc_core9Timestamp3NowEv.exit
-  %retval.sroa.0.0 = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %if.end.i.i.i ], [ %add.i.i.i.i, %if.end7.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i ], [ -9223372036854775808, %if.else.i.i.i.i ], [ 9223372036854775807, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit ], [ -9223372036854775808, %if.end.i.i20 ], [ %add.i.i.i30, %if.end7.i.i.i29 ], [ 9223372036854775807, %if.then.i.i.i32 ], [ -9223372036854775808, %if.else.i.i.i26 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit13 ], [ 9223372036854775807, %if.then.i.i.i ]
+return:                                           ; preds = %if.then.i.i.i, %_ZN9grpc_core9Timestamp3NowEv.exit14, %if.end7.i.i.i30, %if.else.i.i.i27, %if.then.i.i.i33, %if.end.i.i21, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, %if.end7.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i.i, %_ZN9grpc_core9Timestamp3NowEv.exit
+  %retval.sroa.0.0 = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %if.end.i.i.i ], [ %add.i.i.i.i, %if.end7.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i ], [ -9223372036854775808, %if.else.i.i.i.i ], [ 9223372036854775807, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit ], [ -9223372036854775808, %if.end.i.i21 ], [ %add.i.i.i31, %if.end7.i.i.i30 ], [ 9223372036854775807, %if.then.i.i.i33 ], [ -9223372036854775808, %if.else.i.i.i27 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit14 ], [ 9223372036854775807, %if.then.i.i.i ]
   ret i64 %retval.sroa.0.0
 }
 

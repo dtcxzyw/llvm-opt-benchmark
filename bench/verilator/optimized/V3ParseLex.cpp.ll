@@ -19466,7 +19466,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN11V3LexerBase18yy_get_next_buff
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11V3LexerBaseC2EPSiPSo(ptr noundef nonnull align 8 dereferenceable(732) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 .invoke:
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV11V3LexerBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3LexerBase, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %.not = icmp eq ptr %1, null
   %_ZSt3cin. = select i1 %.not, ptr @_ZSt3cin, ptr %1
@@ -19545,7 +19545,7 @@ declare void @_ZNSiD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11V3LexerBaseC2ERSiRSo(ptr noundef nonnull align 8 dereferenceable(732) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV11V3LexerBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3LexerBase, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr i8, ptr %5, i64 -24
@@ -19591,7 +19591,7 @@ define dso_local void @_ZN11V3LexerBaseC2ERSiRSo(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11V3LexerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(732) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV11V3LexerBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3LexerBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -20931,7 +20931,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7V3LexerC2Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV11V3LexerBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3LexerBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr @_ZSt3cin, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
@@ -20972,7 +20972,7 @@ _ZN11V3LexerBaseC2EPSiPSo.exit:                   ; preds = %13
   store ptr null, ptr %23, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV7V3Lexer, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7V3Lexer, i64 16), ptr %0, align 8
   ret void
 }
 

@@ -3728,7 +3728,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueIZN7V3EmitC8emitcImpEvE3$_0EEDaO
   store i32 1, ptr %8, align 8, !noalias !20
   %9 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4, !noalias !20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %7, align 8, !noalias !20
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %7, align 8, !noalias !20
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   %11 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr null, ptr %11, align 8, !noalias !20
@@ -3738,7 +3738,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueIZN7V3EmitC8emitcImpEvE3$_0EEDaO
   store i8 0, ptr %13, align 1, !noalias !20
   %14 = getelementptr inbounds i8, ptr %7, i64 40
   store i32 0, ptr %14, align 4, !noalias !20
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %10, align 8, !noalias !20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %10, align 8, !noalias !20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %15 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %18, !noalias !20
@@ -3770,9 +3770,9 @@ common.resume:                                    ; preds = %97, %.body.i.i.i.i.
 
 "_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %15, align 8, !noalias !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %15, align 8, !noalias !26
   store ptr %15, ptr %20, align 8, !alias.scope !23, !noalias !20
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEE", i64 16), ptr %10, align 8, !noalias !20
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEE", i64 16), ptr %10, align 8, !noalias !20
   %21 = getelementptr inbounds i8, ptr %7, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %21, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !20
   store ptr %10, ptr %4, align 16, !alias.scope !17
@@ -3868,7 +3868,7 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
           to label %54 unwind label %82
 
 54:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN16VAnyPackagedTask9PTWrapperIFvvEEE, i64 16), ptr %53, align 8, !noalias !29
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN16VAnyPackagedTask9PTWrapperIFvvEEE, i64 16), ptr %53, align 8, !noalias !29
   %55 = getelementptr inbounds i8, ptr %53, i64 8
   %56 = load <2 x ptr>, ptr %4, align 16, !noalias !29
   store ptr null, ptr %4, align 16, !noalias !29
@@ -4087,7 +4087,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueIZN7V3EmitC8emitcImpEvE3$_1EEDaO
   store i32 1, ptr %8, align 8, !noalias !35
   %9 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4, !noalias !35
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %7, align 8, !noalias !35
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %7, align 8, !noalias !35
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   %11 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr null, ptr %11, align 8, !noalias !35
@@ -4097,7 +4097,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueIZN7V3EmitC8emitcImpEvE3$_1EEDaO
   store i8 0, ptr %13, align 1, !noalias !35
   %14 = getelementptr inbounds i8, ptr %7, i64 40
   store i32 0, ptr %14, align 4, !noalias !35
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %10, align 8, !noalias !35
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %10, align 8, !noalias !35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %15 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %18, !noalias !35
@@ -4129,9 +4129,9 @@ common.resume:                                    ; preds = %97, %.body.i.i.i.i.
 
 "_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %15, align 8, !noalias !41
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %15, align 8, !noalias !41
   store ptr %15, ptr %20, align 8, !alias.scope !38, !noalias !35
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEE", i64 16), ptr %10, align 8, !noalias !35
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEE", i64 16), ptr %10, align 8, !noalias !35
   %21 = getelementptr inbounds i8, ptr %7, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %21, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !35
   store ptr %10, ptr %4, align 16, !alias.scope !32
@@ -4227,7 +4227,7 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
           to label %54 unwind label %82
 
 54:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN16VAnyPackagedTask9PTWrapperIFvvEEE, i64 16), ptr %53, align 8, !noalias !42
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN16VAnyPackagedTask9PTWrapperIFvvEEE, i64 16), ptr %53, align 8, !noalias !42
   %55 = getelementptr inbounds i8, ptr %53, i64 8
   %56 = load <2 x ptr>, ptr %4, align 16, !noalias !42
   store ptr null, ptr %4, align 16, !noalias !42
@@ -4467,7 +4467,7 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
           to label %38 unwind label %67
 
 38:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN16VAnyPackagedTask9PTWrapperIFvvEEE, i64 16), ptr %37, align 8, !noalias !45
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN16VAnyPackagedTask9PTWrapperIFvvEEE, i64 16), ptr %37, align 8, !noalias !45
   %39 = getelementptr inbounds i8, ptr %37, i64 8
   %40 = getelementptr inbounds i8, ptr %4, i64 8
   %41 = load <2 x ptr>, ptr %4, align 16, !noalias !45
@@ -4693,7 +4693,7 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit: ; preds = %_ZN10V3Mutex
           to label %38 unwind label %67
 
 38:                                               ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN16VAnyPackagedTask9PTWrapperIFvvEEE, i64 16), ptr %37, align 8, !noalias !48
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN16VAnyPackagedTask9PTWrapperIFvvEEE, i64 16), ptr %37, align 8, !noalias !48
   %39 = getelementptr inbounds i8, ptr %37, i64 8
   %40 = getelementptr inbounds i8, ptr %4, i64 8
   %41 = load <2 x ptr>, ptr %4, align 16, !noalias !48
@@ -5076,7 +5076,7 @@ _ZN7AstNode11privateCastI8AstCFileP11AstNodeFileEEPT_PS_.exit: ; preds = %77, %_
           to label %56 unwind label %70
 
 56:                                               ; preds = %54
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %2, align 8
   store i32 0, ptr %23, align 8
   store i32 0, ptr %24, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
@@ -5089,7 +5089,7 @@ _ZN7AstNode11privateCastI8AstCFileP11AstNodeFileEEPT_PS_.exit: ; preds = %77, %_
   store i8 0, ptr %26, align 8
   store i32 0, ptr %27, align 4
   store i8 0, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV9EmitCFunc, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9EmitCFunc, i64 16), ptr %4, align 8
   store i32 0, ptr %29, align 8
   store ptr null, ptr %30, align 8
   store ptr %29, ptr %31, align 8
@@ -5106,7 +5106,7 @@ _ZN7AstNode11privateCastI8AstCFileP11AstNodeFileEEPT_PS_.exit: ; preds = %77, %_
   br label %.body
 
 _ZN9EmitCFuncC2Ev.exit.i:                         ; preds = %57
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV14EmitCLazyDecls, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14EmitCLazyDecls, i64 16), ptr %35, align 8
   store ptr %37, ptr %36, align 8
   store i64 1, ptr %38, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
@@ -5137,7 +5137,7 @@ _ZN9EmitCFuncC2Ev.exit.i:                         ; preds = %57
 
 _ZN9EmitCFuncC2EP7AstNodeP10V3OutCFileb.exit:     ; preds = %_ZN9EmitCFuncC2Ev.exit.i
   call void @_ZN9EmitCFuncD2Ev(ptr noundef nonnull align 8 dereferenceable(361) %4) #30
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %2, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
           to label %_ZN10V3OutCFileD2Ev.exit unwind label %67
 
@@ -5243,7 +5243,7 @@ define linkonce_odr dso_local void @_ZNK11AstNodeFile4nameB5cxx11Ev(ptr dead_on_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9EmitCFuncD2Ev(ptr noundef nonnull align 8 dereferenceable(361) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV9EmitCFunc, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9EmitCFunc, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
@@ -5311,7 +5311,7 @@ _ZN10VMemberMapD2Ev.exit:                         ; preds = %_ZN14EmitCLazyDecls
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10V3OutCFileD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %2 unwind label %3
 
@@ -5561,7 +5561,7 @@ define linkonce_odr dso_local void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull al
   store i32 1, ptr %11, align 8, !noalias !52
   %12 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %12, align 4, !noalias !52
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !52
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !52
   %13 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false), !noalias !52
   store ptr %5, ptr %10, align 8, !alias.scope !52
@@ -5594,7 +5594,7 @@ define linkonce_odr dso_local void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull al
   store i32 1, ptr %26, align 8, !noalias !55
   %27 = getelementptr inbounds i8, ptr %20, i64 12
   store i32 1, ptr %27, align 4, !noalias !55
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !noalias !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !noalias !55
   %28 = getelementptr inbounds i8, ptr %20, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false), !noalias !55
   store ptr %20, ptr %25, align 8, !alias.scope !55
@@ -5620,7 +5620,7 @@ define linkonce_odr dso_local void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull al
   store i32 1, ptr %36, align 8, !noalias !58
   %37 = getelementptr inbounds i8, ptr %31, i64 12
   store i32 1, ptr %37, align 4, !noalias !58
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %31, align 8, !noalias !58
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %31, align 8, !noalias !58
   %38 = getelementptr inbounds i8, ptr %31, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, i8 0, i64 40, i1 false), !noalias !58
   store ptr %31, ptr %35, align 8, !alias.scope !58
@@ -7146,7 +7146,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   store i32 1, ptr %4, align 8, !noalias !80
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !80
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %3, align 8, !noalias !80
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %3, align 8, !noalias !80
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr null, ptr %7, align 8, !noalias !80
@@ -7156,7 +7156,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   store i8 0, ptr %9, align 1, !noalias !80
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   store i32 0, ptr %10, align 4, !noalias !80
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %6, align 8, !noalias !80
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %6, align 8, !noalias !80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %11 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
           to label %.noexc.i.i.i.i.i.i.i.i.i unwind label %14, !noalias !80
@@ -7184,9 +7184,9 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
 
 "_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEEED2Ev.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !86
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !86
   store ptr %11, ptr %16, align 8, !alias.scope !83, !noalias !80
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEE", i64 16), ptr %6, align 8, !noalias !80
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEE", i64 16), ptr %6, align 8, !noalias !80
   %17 = getelementptr inbounds i8, ptr %3, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !noalias !80
   store ptr %6, ptr %0, align 8
@@ -7209,7 +7209,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -7230,7 +7230,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i: ; preds = %5, %1
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -7294,7 +7294,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -7315,7 +7315,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i: ; preds = %4, %1
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %11, null
@@ -7341,7 +7341,7 @@ _ZNSt13__future_base16_Task_state_baseIFvvEED2Ev.exit: ; preds = %_ZNSt10unique_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -7362,7 +7362,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i: ; preds = %4, %1
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -7590,7 +7590,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13__future_base16_Task_state_baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -7611,7 +7611,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base16_Task_state_baseIFvvEE
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit: ; preds = %1, %4
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %11, null
@@ -7643,7 +7643,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base16_Task_state_baseIFvvEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV2D2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -7669,7 +7669,7 @@ _ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEED2Ev.exit: ; p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV2D0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -8054,7 +8054,7 @@ define linkonce_odr dso_local void @_ZN8EmitCImpC2EPK13AstNodeModulebRSt5dequeIP
   store i32 0, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV9EmitCFunc, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9EmitCFunc, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 48
@@ -8083,7 +8083,7 @@ common.resume:                                    ; preds = %74, %17
 _ZN9EmitCFuncC2Ev.exit:                           ; preds = %4
   %20 = zext i1 %2 to i8
   %21 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV14EmitCLazyDecls, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14EmitCLazyDecls, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 216
   %23 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %23, ptr %22, align 8
@@ -8113,7 +8113,7 @@ _ZN9EmitCFuncC2Ev.exit:                           ; preds = %4
   store i8 0, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %36, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV8EmitCImp, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8EmitCImp, i64 16), ptr %0, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 368
   store ptr %1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 376
@@ -33046,7 +33046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit154: ;
           to label %.noexc155 unwind label %295
 
 .noexc155:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit154
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV8AstCStmt, i64 16), ptr %266, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCStmt, i64 16), ptr %266, align 8
   %274 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #32
           to label %.noexc156 unwind label %295
 
@@ -33055,7 +33055,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit154: ;
           to label %.noexc.i unwind label %277
 
 .noexc.i:                                         ; preds = %.noexc156
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %274, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstNodeText, i64 16), ptr %274, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %275, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %_ZN8AstCStmt9addExprspEP7AstNode.exit.i unwind label %277
@@ -33063,7 +33063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit154: ;
 _ZN8AstCStmt9addExprspEP7AstNode.exit.i:          ; preds = %.noexc.i
   %276 = getelementptr inbounds i8, ptr %274, i64 184
   store i8 1, ptr %276, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV7AstText, i64 16), ptr %274, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7AstText, i64 16), ptr %274, align 8
   invoke void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %266, ptr noundef nonnull %274)
           to label %_ZN8AstCStmtC2EP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %295
 
@@ -39303,7 +39303,7 @@ _ZNSt5dequeIP8AstCFileSaIS1_EE9push_backEOS1_.exit: ; preds = %63, %66
           to label %69 unwind label %76
 
 69:                                               ; preds = %68
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %67, align 8
   %70 = getelementptr inbounds i8, ptr %67, i64 200
   store i32 0, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %67, i64 204
@@ -39495,7 +39495,7 @@ _ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   store i32 0, ptr %146, align 8
   %147 = getelementptr inbounds i8, ptr %144, i64 204
   store i32 0, ptr %147, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %144, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %144, align 8
   br label %158
 
 148:                                              ; preds = %_ZNSt5dequeIP8AstCFileSaIS1_EE9push_backEOS1_.exit51
@@ -39507,7 +39507,7 @@ _ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
           to label %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit54 unwind label %155
 
 _ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit54: ; preds = %150
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %149, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %149, align 8
   %151 = getelementptr inbounds i8, ptr %149, i64 200
   store i32 0, ptr %151, align 8
   %152 = getelementptr inbounds i8, ptr %149, i64 204
@@ -41002,7 +41002,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11V3OutScFileD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %_ZN10V3OutCFileD2Ev.exit unwind label %2
 
@@ -41020,7 +41020,7 @@ _ZN10V3OutCFileD2Ev.exit:                         ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11V3OutScFileD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %0, align 8
   invoke void @_ZN9V3OutFile17statRecordWrittenEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %_ZN11V3OutScFileD2Ev.exit unwind label %2
 
@@ -48567,7 +48567,7 @@ _ZN23EmitCGatherDependenciesD2Ev.exit:            ; preds = %_ZNSt3setINSt7__cxx
 define linkonce_odr dso_local void @_ZN23EmitCGatherDependenciesC2EP8AstCFunc(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV23EmitCGatherDependencies, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV23EmitCGatherDependencies, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %6, align 8
@@ -54227,7 +54227,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV216_M_brea
   %9 = call ptr @__cxa_allocate_exception(i64 noundef 32) #30, !noalias !463
   %10 = call ptr @__cxa_init_primary_exception(ptr noundef %9, ptr noundef nonnull @_ZTISt12future_error, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkISt12future_errorEEvPv) #30, !noalias !463
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %5) #30, !noalias !463
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12future_error, i64 16), ptr %9, align 8, !noalias !463
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12future_error, i64 16), ptr %9, align 8, !noalias !463
   %11 = getelementptr inbounds i8, ptr %9, i64 16
   %12 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !noalias !463
@@ -54320,7 +54320,7 @@ define linkonce_odr dso_local void @_ZNSt12future_errorC2ESt10error_code(ptr nou
 11:                                               ; preds = %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12future_error, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12future_error, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %12, align 8
   %.sroa.34.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -54356,7 +54356,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   store i32 1, ptr %4, align 8, !noalias !469
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !469
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %3, align 8, !noalias !469
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %3, align 8, !noalias !469
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr null, ptr %7, align 8, !noalias !469
@@ -54366,7 +54366,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   store i8 0, ptr %9, align 1, !noalias !469
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   store i32 0, ptr %10, align 4, !noalias !469
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %6, align 8, !noalias !469
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %6, align 8, !noalias !469
   tail call void @llvm.experimental.noalias.scope.decl(metadata !472)
   %11 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
           to label %.noexc.i.i.i.i.i.i.i.i.i unwind label %14, !noalias !469
@@ -54394,9 +54394,9 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
 
 "_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEEED2Ev.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !475
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !475
   store ptr %11, ptr %16, align 8, !alias.scope !472, !noalias !469
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEE", i64 16), ptr %6, align 8, !noalias !469
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEE", i64 16), ptr %6, align 8, !noalias !469
   %17 = getelementptr inbounds i8, ptr %3, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !noalias !469
   store ptr %6, ptr %0, align 8
@@ -54419,7 +54419,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -54440,7 +54440,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i: ; preds = %5, %1
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -54504,7 +54504,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -54525,7 +54525,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i: ; preds = %4, %1
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %11, null
@@ -54551,7 +54551,7 @@ _ZNSt13__future_base16_Task_state_baseIFvvEED2Ev.exit: ; preds = %_ZNSt10unique_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -54572,7 +54572,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i: ; preds = %4, %1
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -55079,7 +55079,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   store i32 1, ptr %4, align 8, !noalias !494
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !494
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %3, align 8, !noalias !494
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %3, align 8, !noalias !494
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr null, ptr %7, align 8, !noalias !494
@@ -55089,7 +55089,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   store i8 0, ptr %9, align 1, !noalias !494
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   store i32 0, ptr %10, align 4, !noalias !494
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %6, align 8, !noalias !494
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %6, align 8, !noalias !494
   tail call void @llvm.experimental.noalias.scope.decl(metadata !497)
   %11 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
           to label %.noexc.i.i.i.i.i.i.i.i.i unwind label %14, !noalias !494
@@ -55117,9 +55117,9 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
 
 "_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEEED2Ev.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !500
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !500
   store ptr %11, ptr %16, align 8, !alias.scope !497, !noalias !494
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEE", i64 16), ptr %6, align 8, !noalias !494
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEE", i64 16), ptr %6, align 8, !noalias !494
   %17 = getelementptr inbounds i8, ptr %3, i64 56
   %.val.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8, !noalias !494
   store i64 %.val.i.i.i.i.i.i.i.i, ptr %17, align 8, !noalias !494
@@ -55143,7 +55143,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -55164,7 +55164,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i: ; preds = %5, %1
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -55228,7 +55228,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -55249,7 +55249,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i: ; preds = %4, %1
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %11, null
@@ -55275,7 +55275,7 @@ _ZNSt13__future_base16_Task_state_baseIFvvEED2Ev.exit: ; preds = %_ZNSt10unique_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -55296,7 +55296,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i: ; preds = %4, %1
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -55662,7 +55662,7 @@ define linkonce_odr dso_local void @_ZN10EmitCTraceC2EP13AstNodeModulebRSt5deque
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV9EmitCFunc, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9EmitCFunc, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
@@ -55691,7 +55691,7 @@ common.resume:                                    ; preds = %56, %15
 _ZN9EmitCFuncC2Ev.exit:                           ; preds = %4
   %18 = zext i1 %2 to i8
   %19 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV14EmitCLazyDecls, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14EmitCLazyDecls, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 216
   %21 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %21, ptr %20, align 8
@@ -55721,7 +55721,7 @@ _ZN9EmitCFuncC2Ev.exit:                           ; preds = %4
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %34, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV10EmitCTrace, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10EmitCTrace, i64 16), ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 361
   store i8 %18, ptr %35, align 1
   %36 = getelementptr inbounds i8, ptr %0, i64 364
@@ -56201,7 +56201,7 @@ _ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   store i32 0, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %125, i64 204
   store i32 0, ptr %128, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %125, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %125, align 8
   br label %138
 
 129:                                              ; preds = %126
@@ -56219,7 +56219,7 @@ _ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
           to label %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit unwind label %136
 
 _ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit: ; preds = %133
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %132, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %132, i64 200
   store i32 0, ptr %134, align 8
   %135 = getelementptr inbounds i8, ptr %132, i64 204
@@ -56233,7 +56233,7 @@ _ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3Out
   br label %.body58
 
 138:                                              ; preds = %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit, %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %139 = phi ptr [ getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11V3OutScFile, i64 16), %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit ]
+  %139 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTV11V3OutScFile, i64 16), %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit ]
   %storemerge = phi ptr [ %125, %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %132, %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit ]
   store ptr %storemerge, ptr %24, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 32
@@ -56649,7 +56649,7 @@ _ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
   store i32 0, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %94, i64 204
   store i32 0, ptr %97, align 4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %94, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3OutScFile, i64 16), ptr %94, align 8
   br label %127
 
 98:                                               ; preds = %35
@@ -56734,7 +56734,7 @@ _ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: 
           to label %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit unwind label %125
 
 _ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit: ; preds = %122
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %121, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %121, i64 200
   store i32 0, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %121, i64 204
@@ -56748,7 +56748,7 @@ _ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3Out
   br label %.body68
 
 127:                                              ; preds = %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit, %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %128 = phi ptr [ getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV11V3OutScFile, i64 16), %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10V3OutCFile, i64 16), %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit ]
+  %128 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTV11V3OutScFile, i64 16), %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ getelementptr inbounds (i8, ptr @_ZTV10V3OutCFile, i64 16), %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit ]
   %storemerge = phi ptr [ %94, %_ZN11V3OutScFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %121, %_ZN10V3OutCFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14V3OutFormatter8LanguageE.exit ]
   store ptr %storemerge, ptr %29, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 32
@@ -63093,7 +63093,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   store i32 1, ptr %4, align 8, !noalias !640
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !640
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %3, align 8, !noalias !640
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %3, align 8, !noalias !640
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr null, ptr %7, align 8, !noalias !640
@@ -63103,7 +63103,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   store i8 0, ptr %9, align 1, !noalias !640
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   store i32 0, ptr %10, align 4, !noalias !640
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %6, align 8, !noalias !640
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %6, align 8, !noalias !640
   tail call void @llvm.experimental.noalias.scope.decl(metadata !643)
   %11 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
           to label %.noexc.i.i.i.i.i.i.i.i.i unwind label %14, !noalias !640
@@ -63131,9 +63131,9 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
 
 "_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEEED2Ev.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !646
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !646
   store ptr %11, ptr %16, align 8, !alias.scope !643, !noalias !640
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEE", i64 16), ptr %6, align 8, !noalias !640
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEE", i64 16), ptr %6, align 8, !noalias !640
   %17 = getelementptr inbounds i8, ptr %3, i64 56
   %.val.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8, !noalias !640
   store i64 %.val.i.i.i.i.i.i.i.i, ptr %17, align 8, !noalias !640
@@ -63157,7 +63157,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -63178,7 +63178,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i: ; preds = %5, %1
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -63242,7 +63242,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -63263,7 +63263,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i: ; preds = %4, %1
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %11, null
@@ -63289,7 +63289,7 @@ _ZNSt13__future_base16_Task_state_baseIFvvEED2Ev.exit: ; preds = %_ZNSt10unique_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFvvEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -63310,7 +63310,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3
 
 _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i: ; preds = %4, %1
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base13_State_baseV2E, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %11, null

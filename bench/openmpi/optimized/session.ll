@@ -119,8 +119,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %2
   %53 = fdiv double %52, 1.000000e+06
   %54 = fadd double %53, %49
   %55 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 708), align 4
-  %or.cond3 = icmp ult i32 %55, 64
-  br i1 %or.cond3, label %56, label %67
+  %or.cond23 = icmp ult i32 %55, 64
+  br i1 %or.cond23, label %56, label %67
 
 56:                                               ; preds = %46
   %57 = zext nneg i32 %55 to i64
@@ -247,8 +247,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %2
   %53 = fdiv double %52, 1.000000e+06
   %54 = fadd double %53, %49
   %55 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 708), align 4
-  %or.cond3 = icmp ult i32 %55, 64
-  br i1 %or.cond3, label %56, label %67
+  %or.cond23 = icmp ult i32 %55, 64
+  br i1 %or.cond23, label %56, label %67
 
 56:                                               ; preds = %46
   %57 = zext nneg i32 %55 to i64

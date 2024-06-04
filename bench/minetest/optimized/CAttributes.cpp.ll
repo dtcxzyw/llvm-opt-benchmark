@@ -215,8 +215,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !21
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 64
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !18
-  store ptr getelementptr inbounds inrange(-24, 192) (i8, ptr @_ZTVN3irr2io11CAttributesE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io11CAttributesE, i64 240), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io11CAttributesE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io11CAttributesE, i64 240), ptr %0, align 8, !tbaa !3
   %Attributes = getelementptr inbounds i8, ptr %this, i64 8
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Attributes, i8 0, i64 24, i1 false)
@@ -297,9 +297,9 @@ _ZN3irr4core5arrayIPNS_2io10IAttributeEED2Ev.exit: ; preds = %if.then.i.i.i.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io11CAttributesD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 192) (i8, ptr @_ZTVN3irr2io11CAttributesE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io11CAttributesE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io11CAttributesE, i64 240), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io11CAttributesE, i64 240), ptr %add.ptr.i, align 8, !tbaa !3
   %Attributes.i2 = getelementptr inbounds i8, ptr %this, i64 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !23
@@ -734,8 +734,8 @@ entry:
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !35
   store i8 0, ptr %1, align 8, !tbaa !36
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN3irr2io14CBoolAttributeE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io14CBoolAttributeE, i64 120), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io14CBoolAttributeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io14CBoolAttributeE, i64 120), ptr %0, align 8, !tbaa !3
   %tobool.not.i = icmp eq ptr %name, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -1022,8 +1022,8 @@ entry:
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !35
   store i8 0, ptr %1, align 8, !tbaa !36
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN3irr2io13CIntAttributeE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io13CIntAttributeE, i64 120), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io13CIntAttributeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io13CIntAttributeE, i64 120), ptr %0, align 8, !tbaa !3
   %tobool.not.i = icmp eq ptr %name, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -1310,8 +1310,8 @@ entry:
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !35
   store i8 0, ptr %1, align 8, !tbaa !36
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTVN3irr2io15CFloatAttributeE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io15CFloatAttributeE, i64 120), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CFloatAttributeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CFloatAttributeE, i64 120), ptr %0, align 8, !tbaa !3
   %tobool.not.i = icmp eq ptr %name, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -2144,9 +2144,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io14CBoolAttributeD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Name.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Name.i.i, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2171,9 +2171,9 @@ _ZN3irr2io14CBoolAttributeD2Ev.exit:              ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io14CBoolAttributeD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Name.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Name.i.i.i, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2266,9 +2266,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Name.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i.i.i, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2297,9 +2297,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %Name.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i.i.i.i, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2336,9 +2336,9 @@ declare void @llvm.trap() #14
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io13CIntAttributeD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Name.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Name.i.i, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2363,9 +2363,9 @@ _ZN3irr2io13CIntAttributeD2Ev.exit:               ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io13CIntAttributeD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Name.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Name.i.i.i, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2435,9 +2435,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Name.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i.i.i, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2466,9 +2466,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %Name.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i.i.i.i, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2494,9 +2494,9 @@ _ZN3irr2io13CIntAttributeD0Ev.exit:               ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io15CFloatAttributeD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Name.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Name.i.i, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2521,9 +2521,9 @@ _ZN3irr2io15CFloatAttributeD2Ev.exit:             ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io15CFloatAttributeD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Name.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Name.i.i.i, align 8, !tbaa !27
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2593,9 +2593,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Name.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i.i.i, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2624,9 +2624,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 72) (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 120), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %Name.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i.i.i.i, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %3, i64 24

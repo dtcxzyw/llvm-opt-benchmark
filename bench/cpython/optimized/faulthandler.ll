@@ -1700,11 +1700,11 @@ if.end27:                                         ; preds = %if.then21, %if.end1
 if.then29:                                        ; preds = %if.end27
   %call30 = call ptr @PyThread_allocate_lock() #15
   store ptr %call30, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3232), align 8
-  %tobool31 = icmp ne ptr %call30, null
+  %tobool31.not = icmp eq ptr %call30, null
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3240), align 8
-  %tobool33 = icmp ne ptr %10, null
-  %or.cond = select i1 %tobool31, i1 %tobool33, i1 false
-  br i1 %or.cond, label %if.end36, label %if.then34
+  %tobool33.not = icmp eq ptr %10, null
+  %or.cond = select i1 %tobool31.not, i1 true, i1 %tobool33.not
+  br i1 %or.cond, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %if.then29
   %call35 = call ptr @PyErr_NoMemory() #15

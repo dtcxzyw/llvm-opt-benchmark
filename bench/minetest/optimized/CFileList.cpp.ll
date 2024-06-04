@@ -634,8 +634,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !33
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !36
-  store ptr getelementptr inbounds inrange(-24, 104) (i8, ptr @_ZTVN3irr2io9CFileListE, i64 24), ptr %this, align 8, !tbaa !11
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr2io9CFileListE, i64 152), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io9CFileListE, i64 24), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io9CFileListE, i64 152), ptr %0, align 8, !tbaa !11
   %IgnorePaths = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %frombool1, ptr %IgnorePaths, align 8, !tbaa !13
   %IgnoreCase = getelementptr inbounds i8, ptr %this, i64 9

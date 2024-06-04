@@ -95,6 +95,8 @@ $_ZN9grpc_core12experimental4JsonD2Ev = comdat any
 
 $_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEEixEOS5_ = comdat any
 
+$_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv = comdat any
+
 $_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEEC2IRA7_KcS9_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISG_SH_EEEbE4typeELb1EEEOSG_OSH_ = comdat any
 
 $_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev = comdat any
@@ -1286,184 +1288,94 @@ declare { i64, i64 } @_Z25gpr_cycle_counter_to_timed(double noundef) local_unnam
 
 declare void @_Z19gpr_format_timespecB5cxx1112gpr_timespec(ptr sret(%"class.std::__cxx11::basic_string") align 8, i64, i64) local_unnamed_addr #0
 
-; Function Attrs: uwtable
-define void @_ZN9grpc_core8channelz24PerCpuCallCountingHelper17RecordCallStartedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress uwtable
+define void @_ZN9grpc_core8channelz24PerCpuCallCountingHelper17RecordCallStartedEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %0, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-
-0:                                                ; preds = %entry
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i: ; preds = %0, %entry
-  %1 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
-  %uses_until_refresh.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %2 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %cmp.i.i = icmp eq i16 %2, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %call.i.i.i = tail call i32 @gpr_cpu_current_cpu()
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %3, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
-
-3:                                                ; preds = %if.then.i.i
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i: ; preds = %3, %if.then.i.i
-  %ref.tmp.sroa.0.0.insert.insert.i.i = or i32 %call.i.i.i, -65536
-  store i32 %ref.tmp.sroa.0.0.insert.insert.i.i, ptr %1, align 2
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %4 = phi i16 [ -1, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i ], [ %2, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i ]
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i: ; preds = %if.end.i.i
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  %5 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %dec.i.i = add i16 %5, -1
-  store i16 %dec.i.i, ptr %uses_until_refresh.i.i, align 2
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv.exit
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i: ; preds = %if.end.i.i
-  %dec.c.i.i = add i16 %4, -1
-  store i16 %dec.c.i.i, ptr %uses_until_refresh.i.i, align 2
-  br label %_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv.exit
-
-_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i16, ptr %1, align 2
-  %conv4.i.i = zext i16 %6 to i64
-  %shards_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load i64, ptr %shards_.i, align 8
-  %rem.i = urem i64 %conv4.i.i, %7
-  %8 = load ptr, ptr %data_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.grpc_core::channelz::PerCpuCallCountingHelper::PerCpuData", ptr %8, i64 %rem.i
-  %9 = atomicrmw add ptr %arrayidx.i.i, i64 1 monotonic, align 8
-  %last_call_started_cycle = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
+  %call = tail call noundef nonnull align 64 dereferenceable(32) ptr @_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
+  %0 = atomicrmw add ptr %call, i64 1 monotonic, align 8
+  %last_call_started_cycle = getelementptr inbounds i8, ptr %call, i64 24
   %call3 = tail call noundef double @_Z21gpr_get_cycle_counterv()
-  %10 = bitcast double %call3 to i64
-  store atomic i64 %10, ptr %last_call_started_cycle monotonic, align 8
+  %1 = bitcast double %call3 to i64
+  store atomic i64 %1, ptr %last_call_started_cycle monotonic, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core8channelz24PerCpuCallCountingHelper16RecordCallFailedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #9 align 2 {
+define linkonce_odr noundef nonnull align 64 dereferenceable(32) ptr @_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #9 comdat align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %0, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, null
+  br i1 %.not.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
 
-0:                                                ; preds = %entry
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i: ; preds = %entry
+  %0 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
+  %uses_until_refresh.i = getelementptr inbounds i8, ptr %0, i64 2
+  %1 = load i16, ptr %uses_until_refresh.i, align 2
+  %cmp.i = icmp eq i16 %1, 0
+  br i1 %cmp.i, label %if.end.thread26.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i
+
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i: ; preds = %entry
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
+  %2 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
+  %uses_until_refresh7.i = getelementptr inbounds i8, ptr %2, i64 2
+  %3 = load i16, ptr %uses_until_refresh7.i, align 2
+  %cmp8.i = icmp eq i16 %3, 0
+  br i1 %cmp8.i, label %if.end.i, label %if.end.thread.i
 
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i: ; preds = %0, %entry
-  %1 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
-  %uses_until_refresh.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %2 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %cmp.i.i = icmp eq i16 %2, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
+if.end.thread26.i:                                ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i
+  %call.i.i = tail call i32 @gpr_cpu_current_cpu()
+  %ref.tmp.sroa.0.0.insert.insert29.i = or i32 %call.i.i, -65536
+  store i32 %ref.tmp.sroa.0.0.insert.insert29.i, ptr %0, align 2
+  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i
 
-if.then.i.i:                                      ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %call.i.i.i = tail call i32 @gpr_cpu_current_cpu()
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %3, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
-
-3:                                                ; preds = %if.then.i.i
+if.end.i:                                         ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
+  %call.i12.i = tail call i32 @gpr_cpu_current_cpu()
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
+  %ref.tmp.sroa.0.0.insert.insert.i = or i32 %call.i12.i, -65536
+  store i32 %ref.tmp.sroa.0.0.insert.insert.i, ptr %2, align 2
+  br label %if.end.thread.i
 
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i: ; preds = %3, %if.then.i.i
-  %ref.tmp.sroa.0.0.insert.insert.i.i = or i32 %call.i.i.i, -65536
-  store i32 %ref.tmp.sroa.0.0.insert.insert.i.i, ptr %1, align 2
-  br label %if.end.i.i
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i: ; preds = %if.end.thread26.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i
+  %4 = phi i16 [ -1, %if.end.thread26.i ], [ %1, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i ]
+  %dec22.i = add i16 %4, -1
+  store i16 %dec22.i, ptr %uses_until_refresh.i, align 2
+  br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
 
-if.end.i.i:                                       ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %4 = phi i16 [ -1, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i ], [ %2, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i ]
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i: ; preds = %if.end.i.i
+if.end.thread.i:                                  ; preds = %if.end.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  %5 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %dec.i.i = add i16 %5, -1
-  store i16 %dec.i.i, ptr %uses_until_refresh.i.i, align 2
+  %5 = load i16, ptr %uses_until_refresh7.i, align 2
+  %dec.i = add i16 %5, -1
+  store i16 %dec.i, ptr %uses_until_refresh7.i, align 2
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv.exit
+  br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
 
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i: ; preds = %if.end.i.i
-  %dec.c.i.i = add i16 %4, -1
-  store i16 %dec.c.i.i, ptr %uses_until_refresh.i.i, align 2
-  br label %_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv.exit
+_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i, %if.end.thread.i
+  %6 = phi ptr [ %0, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i ], [ %2, %if.end.thread.i ]
+  %data_ = getelementptr inbounds i8, ptr %this, i64 16
+  %7 = load i16, ptr %6, align 2
+  %conv4.i = zext i16 %7 to i64
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 8
+  %8 = load i64, ptr %shards_, align 8
+  %rem = urem i64 %conv4.i, %8
+  %9 = load ptr, ptr %data_, align 8
+  %arrayidx.i = getelementptr inbounds %"struct.grpc_core::channelz::PerCpuCallCountingHelper::PerCpuData", ptr %9, i64 %rem
+  ret ptr %arrayidx.i
+}
 
-_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i16, ptr %1, align 2
-  %conv4.i.i = zext i16 %6 to i64
-  %shards_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load i64, ptr %shards_.i, align 8
-  %rem.i = urem i64 %conv4.i.i, %7
-  %8 = load ptr, ptr %data_.i, align 8
-  %calls_failed = getelementptr inbounds %"struct.grpc_core::channelz::PerCpuCallCountingHelper::PerCpuData", ptr %8, i64 %rem.i, i32 2
-  %9 = atomicrmw add ptr %calls_failed, i64 1 monotonic, align 8
+; Function Attrs: mustprogress uwtable
+define void @_ZN9grpc_core8channelz24PerCpuCallCountingHelper16RecordCallFailedEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+entry:
+  %call = tail call noundef nonnull align 64 dereferenceable(32) ptr @_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
+  %calls_failed = getelementptr inbounds i8, ptr %call, i64 16
+  %0 = atomicrmw add ptr %calls_failed, i64 1 monotonic, align 8
   ret void
 }
 
-; Function Attrs: uwtable
-define void @_ZN9grpc_core8channelz24PerCpuCallCountingHelper19RecordCallSucceededEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress uwtable
+define void @_ZN9grpc_core8channelz24PerCpuCallCountingHelper19RecordCallSucceededEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %0, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-
-0:                                                ; preds = %entry
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i: ; preds = %0, %entry
-  %1 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
-  %uses_until_refresh.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %2 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %cmp.i.i = icmp eq i16 %2, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %call.i.i.i = tail call i32 @gpr_cpu_current_cpu()
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %3, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
-
-3:                                                ; preds = %if.then.i.i
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i: ; preds = %3, %if.then.i.i
-  %ref.tmp.sroa.0.0.insert.insert.i.i = or i32 %call.i.i.i, -65536
-  store i32 %ref.tmp.sroa.0.0.insert.insert.i.i, ptr %1, align 2
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %4 = phi i16 [ -1, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i ], [ %2, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i ]
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i: ; preds = %if.end.i.i
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  %5 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %dec.i.i = add i16 %5, -1
-  store i16 %dec.i.i, ptr %uses_until_refresh.i.i, align 2
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv.exit
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i: ; preds = %if.end.i.i
-  %dec.c.i.i = add i16 %4, -1
-  store i16 %dec.c.i.i, ptr %uses_until_refresh.i.i, align 2
-  br label %_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv.exit
-
-_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load i16, ptr %1, align 2
-  %conv4.i.i = zext i16 %6 to i64
-  %shards_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load i64, ptr %shards_.i, align 8
-  %rem.i = urem i64 %conv4.i.i, %7
-  %8 = load ptr, ptr %data_.i, align 8
-  %calls_succeeded = getelementptr inbounds %"struct.grpc_core::channelz::PerCpuCallCountingHelper::PerCpuData", ptr %8, i64 %rem.i, i32 1
-  %9 = atomicrmw add ptr %calls_succeeded, i64 1 monotonic, align 8
+  %call = tail call noundef nonnull align 64 dereferenceable(32) ptr @_ZN9grpc_core6PerCpuINS_8channelz24PerCpuCallCountingHelper10PerCpuDataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
+  %calls_succeeded = getelementptr inbounds i8, ptr %call, i64 8
+  %0 = atomicrmw add ptr %calls_succeeded, i64 1 monotonic, align 8
   ret void
 }
 

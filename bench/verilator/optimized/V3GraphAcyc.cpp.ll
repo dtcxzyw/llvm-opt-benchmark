@@ -312,7 +312,7 @@ define dso_local void @_ZN9GraphAcyc10buildGraphEP7V3Graph(ptr noundef nonnull a
           to label %13 unwind label %17
 
 13:                                               ; preds = %11
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15GraphAcycVertex, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15GraphAcycVertex, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 80
   store ptr %.sroa.0.058, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 88
@@ -425,14 +425,14 @@ _ZN9GraphAcyc14origFollowEdgeEP11V3GraphEdge.exit: ; preds = %7
   %25 = getelementptr inbounds i8, ptr %.sroa.0.035, i64 60
   %26 = load i8, ptr %25, align 4
   %27 = trunc i8 %26 to i1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %23, align 8
   %28 = getelementptr inbounds i8, ptr %23, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %22, i32 noundef %24, i1 noundef zeroext %27)
           to label %29 unwind label %30
 
 29:                                               ; preds = %20
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV13GraphAcycEdge, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13GraphAcycEdge, i64 16), ptr %23, align 8
   tail call void @_ZN9GraphAcyc12addOrigEdgepEP11V3GraphEdgeS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %23, ptr noundef nonnull %.sroa.0.035)
   br label %_ZN9GraphAcyc14origFollowEdgeEP11V3GraphEdge.exit.thread
 
@@ -1164,7 +1164,7 @@ common.resume:                                    ; preds = %66, %39
   %62 = getelementptr inbounds i8, ptr %57, i64 60
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %58, align 8
   %65 = getelementptr inbounds i8, ptr %58, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %58, ptr noundef nonnull %59, ptr noundef %23, ptr noundef %25, i32 noundef %61, i1 noundef zeroext %64)
@@ -1177,7 +1177,7 @@ common.resume:                                    ; preds = %66, %39
   br label %common.resume
 
 _ZN9GraphAcyc12edgeFromEdgeEP11V3GraphEdgeP13V3GraphVertexS3_.exit: ; preds = %56
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV13GraphAcycEdge, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13GraphAcycEdge, i64 16), ptr %58, align 8
   %68 = getelementptr inbounds i8, ptr %57, i64 64
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %58, i64 64
@@ -1386,7 +1386,7 @@ common.resume:                                    ; preds = %72, %33
   %68 = getelementptr inbounds i8, ptr %.sroa.0.05266, i64 60
   %69 = load i8, ptr %68, align 4
   %70 = trunc i8 %69 to i1
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %65, align 8
   %71 = getelementptr inbounds i8, ptr %65, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %65, ptr noundef nonnull %38, ptr noundef %64, ptr noundef %20, i32 noundef %67, i1 noundef zeroext %70)
@@ -1399,7 +1399,7 @@ common.resume:                                    ; preds = %72, %33
   br label %common.resume
 
 _ZN9GraphAcyc12edgeFromEdgeEP11V3GraphEdgeP13V3GraphVertexS3_.exit: ; preds = %.lr.ph69
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV13GraphAcycEdge, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13GraphAcycEdge, i64 16), ptr %65, align 8
   %74 = getelementptr inbounds i8, ptr %.sroa.0.05266, i64 64
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %65, i64 64
@@ -3763,7 +3763,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK13V3GraphVertex5cloneEP7V3Graph(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15GraphAcycVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4025,7 +4025,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK13V3GraphVertex23isInstanc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13V3GraphVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4114,7 +4114,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK13V3GraphVertex8filelineEv(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   tail call void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5)
@@ -4132,7 +4132,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK13GraphAcycEdge23isInstanc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK11V3GraphEdge5cloneEP7V3GraphP13V3GraphVertexS3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
@@ -4155,7 +4155,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_RKS_.exit: ; preds = %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13GraphAcycEdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4344,7 +4344,7 @@ define linkonce_odr dso_local noundef i64 @_ZN11V3GraphEdge11rttiClassIdEv() #6 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_RKS_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %4, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)

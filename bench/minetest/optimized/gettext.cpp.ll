@@ -107,7 +107,8 @@ for.body.i.preheader:                             ; preds = %if.end
   %10 = load ptr, ptr %name, align 8, !tbaa !11, !alias.scope !13
   %arrayidx.i.i.7 = getelementptr inbounds i8, ptr %10, i64 7
   store i8 %conv4.i.7, ptr %arrayidx.i.i.7, align 1, !tbaa !16
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %14, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %14
 
 lpad.i:                                           ; preds = %if.end
   %11 = landingpad { ptr, i32 }
@@ -266,7 +267,7 @@ invoke.cont14:                                    ; preds = %call1.i.noexc, %inv
   %27 = load ptr, ptr %name, align 8, !tbaa !11
   %call19 = call ptr @textdomain(ptr noundef %27) #12
   %call20 = call ptr @setlocale(i32 noundef 1, ptr noundef nonnull @.str.6) #12
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %28, label %_ZTW10infostream.exit56
+  br i1 %.not, label %_ZTW10infostream.exit56, label %28
 
 28:                                               ; preds = %invoke.cont14
   call void @_ZTH10infostream()

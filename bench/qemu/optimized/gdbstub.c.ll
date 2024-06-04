@@ -2154,8 +2154,8 @@ if.end:                                           ; preds = %if.then, %entry
   %signal.0 = phi i32 [ %3, %if.then ], [ 0, %entry ]
   %call = tail call i32 @gdb_signal_to_target(i32 noundef %signal.0) #17
   %cmp = icmp eq i32 %call, -1
-  %spec.store.select = select i1 %cmp, i32 0, i32 %call
-  store i32 %spec.store.select, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4152), align 8
+  %spec.select = select i1 %cmp, i32 0, i32 %call
+  store i32 %spec.select, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4152), align 8
   tail call void @gdb_continue() #17
   ret void
 }
@@ -5461,17 +5461,17 @@ cleanup.thread:                                   ; preds = %if.else.i.i, %if.th
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %21 = load ptr, ptr %20, align 8
   %call.i = tail call i32 @gdb_put_packet(ptr noundef %21)
-  br label %if.then.i.i10
+  br label %if.then.i.i11
 
 cleanup:                                          ; preds = %if.end, %if.then
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i10
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i11
 
-if.then.i.i10:                                    ; preds = %cleanup.thread, %cleanup
+if.then.i.i11:                                    ; preds = %cleanup.thread, %cleanup
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #17
   br label %glib_autoptr_cleanup_GString.exit
 
-glib_autoptr_cleanup_GString.exit:                ; preds = %cleanup, %if.then.i.i10
+glib_autoptr_cleanup_GString.exit:                ; preds = %cleanup, %if.then.i.i11
   ret void
 }
 

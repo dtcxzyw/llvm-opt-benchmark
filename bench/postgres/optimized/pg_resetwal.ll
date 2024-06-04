@@ -927,16 +927,16 @@ CheckDataVersion.exit:                            ; preds = %278
 318:                                              ; preds = %317, %310
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) @ControlFile, ptr noundef nonnull align 1 dereferenceable(296) %298, i64 296, i1 false)
   %319 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 228), align 4
-  %.not18.i = icmp eq i32 %319, 0
-  br i1 %.not18.i, label %325, label %320
+  %.not20.i = icmp eq i32 %319, 0
+  br i1 %.not20.i, label %325, label %320
 
 320:                                              ; preds = %318
   %321 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %319)
   %322 = icmp ult i32 %321, 2
   %323 = add i32 %319, -1048576
   %324 = icmp ult i32 %323, 1072693249
-  %or.cond3.i = and i1 %322, %324
-  br i1 %or.cond3.i, label %read_controlfile.exit, label %325
+  %or.cond5.i = and i1 %322, %324
+  br i1 %or.cond5.i, label %read_controlfile.exit, label %325
 
 325:                                              ; preds = %320, %318
   %326 = icmp eq i32 %319, 1

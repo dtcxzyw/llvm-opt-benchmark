@@ -1748,8 +1748,8 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 
 51:                                               ; preds = %42
   %52 = tail call ptr @Abc_NtkCreateWithNodes(ptr noundef nonnull %.043) #15
-  %.val15.i.i51 = load i32, ptr %43, align 4
-  %53 = icmp sgt i32 %.val15.i.i51, 0
+  %.val16.i.i51 = load i32, ptr %43, align 4
+  %53 = icmp sgt i32 %.val16.i.i51, 0
   br i1 %53, label %.lr.ph.i.i55, label %Vec_PtrFreeData.exit.i52
 
 .lr.ph.i.i55:                                     ; preds = %51
@@ -1757,10 +1757,10 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   br label %55
 
 55:                                               ; preds = %59, %.lr.ph.i.i55
-  %.val18.i.i56 = phi i32 [ %.val15.i.i51, %.lr.ph.i.i55 ], [ %.val.i.i61, %59 ]
+  %.val19.i.i56 = phi i32 [ %.val16.i.i51, %.lr.ph.i.i55 ], [ %.val.i.i61, %59 ]
   %indvars.iv.i.i57 = phi i64 [ 0, %.lr.ph.i.i55 ], [ %indvars.iv.next.i.i62, %59 ]
-  %.val14.i.i58 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds ptr, ptr %.val14.i.i58, i64 %indvars.iv.i.i57
+  %.val15.i.i58 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds ptr, ptr %.val15.i.i58, i64 %indvars.iv.i.i57
   %57 = load ptr, ptr %56, align 8
   %switch.i.i59 = icmp ult ptr %57, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i59, label %59, label %58
@@ -1771,7 +1771,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   br label %59
 
 59:                                               ; preds = %58, %55
-  %.val.i.i61 = phi i32 [ %.val18.i.i56, %55 ], [ %.val.pre.i.i60, %58 ]
+  %.val.i.i61 = phi i32 [ %.val19.i.i56, %55 ], [ %.val.pre.i.i60, %58 ]
   %indvars.iv.next.i.i62 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %60 = sext i32 %.val.i.i61 to i64
   %61 = icmp slt i64 %indvars.iv.next.i.i62, %60
@@ -1900,8 +1900,8 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 
 38:                                               ; preds = %23
   %39 = tail call ptr @Abc_NtkCreateWithNodes(ptr noundef nonnull %29) #15
-  %.val15.i.i33 = load i32, ptr %30, align 4
-  %40 = icmp sgt i32 %.val15.i.i33, 0
+  %.val16.i.i33 = load i32, ptr %30, align 4
+  %40 = icmp sgt i32 %.val16.i.i33, 0
   br i1 %40, label %.lr.ph.i.i37, label %Vec_PtrFreeData.exit.i34
 
 .lr.ph.i.i37:                                     ; preds = %38
@@ -1909,10 +1909,10 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   br label %42
 
 42:                                               ; preds = %46, %.lr.ph.i.i37
-  %.val18.i.i38 = phi i32 [ %.val15.i.i33, %.lr.ph.i.i37 ], [ %.val.i.i43, %46 ]
+  %.val19.i.i38 = phi i32 [ %.val16.i.i33, %.lr.ph.i.i37 ], [ %.val.i.i43, %46 ]
   %indvars.iv.i.i39 = phi i64 [ 0, %.lr.ph.i.i37 ], [ %indvars.iv.next.i.i44, %46 ]
-  %.val14.i.i40 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %.val14.i.i40, i64 %indvars.iv.i.i39
+  %.val15.i.i40 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds ptr, ptr %.val15.i.i40, i64 %indvars.iv.i.i39
   %44 = load ptr, ptr %43, align 8
   %switch.i.i41 = icmp ult ptr %44, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i41, label %46, label %45
@@ -1923,7 +1923,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   br label %46
 
 46:                                               ; preds = %45, %42
-  %.val.i.i43 = phi i32 [ %.val18.i.i38, %42 ], [ %.val.pre.i.i42, %45 ]
+  %.val.i.i43 = phi i32 [ %.val19.i.i38, %42 ], [ %.val.pre.i.i42, %45 ]
   %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i39, 1
   %47 = sext i32 %.val.i.i43 to i64
   %48 = icmp slt i64 %indvars.iv.next.i.i44, %47

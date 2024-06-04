@@ -453,12 +453,12 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_pack_int16(ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.021 = phi ptr [ %16, %.lr.ph.preheader ], [ %22, %.lr.ph ]
+  %.020 = phi ptr [ %16, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %19 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2
   %21 = tail call zeroext i16 @htons(i16 noundef zeroext %20) #8
-  store i16 %21, ptr %.021, align 1
-  %22 = getelementptr inbounds i8, ptr %.021, i64 2
+  store i16 %21, ptr %.020, align 1
+  %22 = getelementptr inbounds i8, ptr %.020, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -475,8 +475,8 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_pack_int16(ptr nocapture noundef 
   br label %29
 
 29:                                               ; preds = %13, %._crit_edge
-  %.016 = phi i32 [ 0, %._crit_edge ], [ -29, %13 ]
-  ret i32 %.016
+  %.015 = phi i32 [ 0, %._crit_edge ], [ -29, %13 ]
+  ret i32 %.015
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -516,12 +516,12 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_pack_int32(ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.021 = phi ptr [ %16, %.lr.ph.preheader ], [ %22, %.lr.ph ]
+  %.020 = phi ptr [ %16, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %19 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = tail call i32 @htonl(i32 noundef %20) #8
-  store i32 %21, ptr %.021, align 1
-  %22 = getelementptr inbounds i8, ptr %.021, i64 4
+  store i32 %21, ptr %.020, align 1
+  %22 = getelementptr inbounds i8, ptr %.020, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -538,8 +538,8 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_pack_int32(ptr nocapture noundef 
   br label %29
 
 29:                                               ; preds = %13, %._crit_edge
-  %.016 = phi i32 [ 0, %._crit_edge ], [ -29, %13 ]
-  ret i32 %.016
+  %.015 = phi i32 [ 0, %._crit_edge ], [ -29, %13 ]
+  ret i32 %.015
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -576,24 +576,24 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_pack_int64(ptr nocapture noundef 
 .lr.ph:                                           ; preds = %.preheader
   %19 = tail call i32 @htonl(i32 noundef 1) #8
   %20 = icmp eq i32 %19, 1
-  %wide.trip.count29 = zext nneg i32 %3 to i64
+  %wide.trip.count28 = zext nneg i32 %3 to i64
   br i1 %20, label %pmix_hton64.exit.us, label %pmix_hton64.exit
 
 pmix_hton64.exit.us:                              ; preds = %.lr.ph, %pmix_hton64.exit.us
-  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %pmix_hton64.exit.us ], [ 0, %.lr.ph ]
-  %.01823.us = phi ptr [ %23, %pmix_hton64.exit.us ], [ %16, %.lr.ph ]
-  %21 = shl nuw nsw i64 %indvars.iv26, 3
+  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %pmix_hton64.exit.us ], [ 0, %.lr.ph ]
+  %.01722.us = phi ptr [ %23, %pmix_hton64.exit.us ], [ %16, %.lr.ph ]
+  %21 = shl nuw nsw i64 %indvars.iv25, 3
   %22 = getelementptr inbounds i8, ptr %2, i64 %21
   %.0.copyload.us = load i64, ptr %22, align 1
-  store i64 %.0.copyload.us, ptr %.01823.us, align 1
-  %23 = getelementptr inbounds i8, ptr %.01823.us, i64 8
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %._crit_edge, label %pmix_hton64.exit.us, !llvm.loop !8
+  store i64 %.0.copyload.us, ptr %.01722.us, align 1
+  %23 = getelementptr inbounds i8, ptr %.01722.us, i64 8
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
+  br i1 %exitcond29.not, label %._crit_edge, label %pmix_hton64.exit.us, !llvm.loop !8
 
 pmix_hton64.exit:                                 ; preds = %.lr.ph, %pmix_hton64.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %pmix_hton64.exit ], [ 0, %.lr.ph ]
-  %.01823 = phi ptr [ %28, %pmix_hton64.exit ], [ %16, %.lr.ph ]
+  %.01722 = phi ptr [ %28, %pmix_hton64.exit ], [ %16, %.lr.ph ]
   %24 = shl nuw nsw i64 %indvars.iv, 3
   %25 = getelementptr inbounds i8, ptr %2, i64 %24
   %.0.copyload = load i64, ptr %25, align 1
@@ -606,10 +606,10 @@ pmix_hton64.exit:                                 ; preds = %.lr.ph, %pmix_hton6
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %26 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.0.insert.insert.i, ptr %.01823, align 1
-  %28 = getelementptr inbounds i8, ptr %.01823, i64 8
+  store i64 %.sroa.0.0.insert.insert.i, ptr %.01722, align 1
+  %28 = getelementptr inbounds i8, ptr %.01722, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count29
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count28
   br i1 %exitcond.not, label %._crit_edge, label %pmix_hton64.exit, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %pmix_hton64.exit, %pmix_hton64.exit.us, %.preheader

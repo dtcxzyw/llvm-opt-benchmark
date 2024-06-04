@@ -1097,7 +1097,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !80
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !80
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !82
@@ -1256,7 +1256,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !80
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !80
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa !49
   %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
@@ -3282,16 +3282,14 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
 entry:
   %counter = alloca ptr, align 8
   %counterLen = alloca i64, align 8
-  %brmerge = or i1 icmp eq (ptr @mallocx, ptr null), icmp eq (ptr @rallocx, ptr null)
-  %brmerge22 = or i1 %brmerge, icmp eq (ptr @xallocx, ptr null)
-  %brmerge23 = or i1 %brmerge22, icmp eq (ptr @sallocx, ptr null)
-  %brmerge24 = or i1 %brmerge23, icmp eq (ptr @dallocx, ptr null)
-  %brmerge25 = or i1 %brmerge24, icmp eq (ptr @sdallocx, ptr null)
-  %brmerge26 = or i1 %brmerge25, icmp eq (ptr @nallocx, ptr null)
-  %brmerge27 = or i1 %brmerge26, icmp eq (ptr @mallctl, ptr null)
-  %brmerge28 = or i1 %brmerge27, icmp eq (ptr @mallctlnametomib, ptr null)
-  %brmerge29 = or i1 %brmerge28, icmp eq (ptr @mallctlbymib, ptr null)
-  br i1 %brmerge29, label %return, label %if.end
+  %0 = icmp eq <8 x ptr> <ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @mallctl>, <ptr @rallocx, ptr @mallocx, ptr @xallocx, ptr @sallocx, ptr @dallocx, ptr @sdallocx, ptr @nallocx, ptr null>
+  %1 = icmp eq ptr @mallctlnametomib, null
+  %2 = icmp eq ptr @mallctlbymib, null
+  %3 = bitcast <8 x i1> %0 to i8
+  %4 = icmp ne i8 %3, 0
+  %op.rdx = or i1 %4, %1
+  %op.rdx1 = or i1 %op.rdx, %2
+  br i1 %op.rdx1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %counter) #30
@@ -3299,21 +3297,21 @@ if.end:                                           ; preds = %entry
   store i64 8, ptr %counterLen, align 8, !tbaa !114
   %call = call i32 @mallctl(ptr noundef nonnull @.str.13, ptr noundef nonnull %counter, ptr noundef nonnull %counterLen, ptr noundef null, i64 noundef 0) #30
   %cmp.not = icmp eq i32 %call, 0
-  %0 = load i64, ptr %counterLen, align 8
-  %cmp12.not = icmp eq i64 %0, 8
+  %5 = load i64, ptr %counterLen, align 8
+  %cmp12.not = icmp eq i64 %5, 8
   %or.cond = select i1 %cmp.not, i1 %cmp12.not, i1 false
   br i1 %or.cond, label %if.end14, label %cleanup20
 
 if.end14:                                         ; preds = %if.end
-  %1 = load ptr, ptr %counter, align 8, !tbaa !50
-  %2 = load volatile i64, ptr %1, align 8, !tbaa !114
-  %3 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
-  %guard.uninitialized = icmp eq i8 %3, 0
+  %6 = load ptr, ptr %counter, align 8, !tbaa !50
+  %7 = load volatile i64, ptr %6, align 8, !tbaa !114
+  %8 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
+  %guard.uninitialized = icmp eq i8 %8, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !128
 
 init.check:                                       ; preds = %if.end14
-  %4 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #30
-  %tobool.not = icmp eq i32 %4, 0
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #30
+  %tobool.not = icmp eq i32 %9, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
@@ -3323,16 +3321,16 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %if.end14
-  %5 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !50
-  %tobool16.not = icmp eq ptr %5, null
+  %10 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !50
+  %tobool16.not = icmp eq ptr %10, null
   br i1 %tobool16.not, label %cleanup20, label %if.end18
 
 if.end18:                                         ; preds = %init.end
-  %6 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !50
-  call void @free(ptr noundef %6) #30
-  %7 = load ptr, ptr %counter, align 8, !tbaa !50
-  %8 = load volatile i64, ptr %7, align 8, !tbaa !114
-  %cmp19 = icmp ne i64 %2, %8
+  %11 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !50
+  call void @free(ptr noundef %11) #30
+  %12 = load ptr, ptr %counter, align 8, !tbaa !50
+  %13 = load volatile i64, ptr %12, align 8, !tbaa !114
+  %cmp19 = icmp ne i64 %7, %13
   br label %cleanup20
 
 cleanup20:                                        ; preds = %if.end18, %init.end, %if.end
@@ -3381,7 +3379,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDp
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8, !tbaa !80
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8, !tbaa !80
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #35
           to label %invoke.cont unwind label %lpad
 
@@ -3400,7 +3398,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #7 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !80
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !80
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #31
   unreachable
 }

@@ -728,9 +728,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN13ScriptApiBaseC2E13ScriptingType(ptr noundef nonnull align 8 dereferenceable(137) %0, i8 noundef zeroext 4)
   %1 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15EmergeScripting, i64 24), ptr %this, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15EmergeScripting, i64 104), ptr %0, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15EmergeScripting, i64 64), ptr %1, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15EmergeScripting, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15EmergeScripting, i64 104), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15EmergeScripting, i64 64), ptr %1, align 8, !tbaa !12
   %m_server = getelementptr inbounds i8, ptr %parent, i64 152
   %2 = load ptr, ptr %m_server, align 8, !tbaa !14
   %3 = icmp eq ptr %2, null

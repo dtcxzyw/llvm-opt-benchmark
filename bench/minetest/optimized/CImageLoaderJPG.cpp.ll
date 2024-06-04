@@ -80,8 +80,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !6
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !11
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 88), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 88), ptr %0, align 8, !tbaa !3
   ret void
 }
 
@@ -776,8 +776,8 @@ entry:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !6
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !11
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 24), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 88), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 88), ptr %0, align 8, !tbaa !3
   ret ptr %call
 }
 

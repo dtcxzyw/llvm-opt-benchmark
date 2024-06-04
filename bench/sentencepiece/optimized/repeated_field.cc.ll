@@ -12119,7 +12119,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %22
   %38 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr null, ptr %39, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %38, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #15
   br label %56
@@ -12146,7 +12146,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   %53 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %29, i64 noundef 48, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_19ImplicitWeakMessageEEEvPv)
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   store ptr %29, ptr %54, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %53, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #15
   br label %56

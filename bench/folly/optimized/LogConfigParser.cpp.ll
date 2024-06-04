@@ -1126,7 +1126,7 @@ invoke.cont90.i:                                  ; preds = %if.then87.i
           to label %invoke.cont92.i unwind label %lpad91.i
 
 invoke.cont92.i:                                  ; preds = %invoke.cont90.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i unwind label %lpad91.i
 
@@ -1535,7 +1535,7 @@ invoke.cont122.i:                                 ; preds = %catch.i
           to label %invoke.cont124.i unwind label %lpad123.i
 
 invoke.cont124.i:                                 ; preds = %invoke.cont122.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception119.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception119.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception119.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i unwind label %lpad123.i
 
@@ -1683,7 +1683,7 @@ invoke.cont153.i:                                 ; preds = %if.then147.i
           to label %invoke.cont155.i unwind label %lpad154.i
 
 invoke.cont155.i:                                 ; preds = %invoke.cont153.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception148.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception148.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception148.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i unwind label %lpad154.i
 
@@ -2489,7 +2489,7 @@ if.then19.i:                                      ; preds = %if.end17.i
           to label %invoke.cont.i190 unwind label %lpad.i189
 
 invoke.cont.i190:                                 ; preds = %if.then19.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception.i188, align 8, !tbaa !55, !noalias !104
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception.i188, align 8, !tbaa !55, !noalias !104
   invoke void @__cxa_throw(ptr nonnull %exception.i188, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %.noexc unwind label %lpad10.loopexit.split-lp
 
@@ -2525,7 +2525,7 @@ invoke.cont27.i:                                  ; preds = %if.then23.i
           to label %invoke.cont29.i187 unwind label %lpad28.i, !noalias !104
 
 invoke.cont29.i187:                               ; preds = %invoke.cont27.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception24.i, align 8, !tbaa !55, !noalias !104
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception24.i, align 8, !tbaa !55, !noalias !104
   invoke void @__cxa_throw(ptr nonnull %exception24.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i172 unwind label %lpad28.i, !noalias !104
 
@@ -2580,7 +2580,7 @@ invoke.cont40.i:                                  ; preds = %if.then36.i
           to label %invoke.cont42.i unwind label %lpad41.i, !noalias !104
 
 invoke.cont42.i:                                  ; preds = %invoke.cont40.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception37.i, align 8, !tbaa !55, !noalias !104
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception37.i, align 8, !tbaa !55, !noalias !104
   invoke void @__cxa_throw(ptr nonnull %exception37.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i172 unwind label %lpad41.i, !noalias !104
 
@@ -2640,7 +2640,7 @@ invoke.cont60.i:                                  ; preds = %invoke.cont58.i
           to label %invoke.cont62.i unwind label %lpad61.i, !noalias !104
 
 invoke.cont62.i:                                  ; preds = %invoke.cont60.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception55.i, align 8, !tbaa !55, !noalias !104
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception55.i, align 8, !tbaa !55, !noalias !104
   invoke void @__cxa_throw(ptr nonnull %exception55.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i172 unwind label %lpad61.i, !noalias !104
 
@@ -2809,7 +2809,7 @@ invoke.cont99.i:                                  ; preds = %if.then95.i
           to label %invoke.cont101.i unwind label %lpad100.i, !noalias !104
 
 invoke.cont101.i:                                 ; preds = %invoke.cont99.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception96.i, align 8, !tbaa !55, !noalias !104
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception96.i, align 8, !tbaa !55, !noalias !104
   invoke void @__cxa_throw(ptr nonnull %exception96.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i172 unwind label %lpad100.i, !noalias !104
 
@@ -3024,7 +3024,7 @@ invoke.cont127.i:                                 ; preds = %if.then123.i
           to label %invoke.cont129.i unwind label %lpad128.i, !noalias !104
 
 invoke.cont129.i:                                 ; preds = %invoke.cont127.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception124.i, align 8, !tbaa !55, !noalias !104
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception124.i, align 8, !tbaa !55, !noalias !104
   invoke void @__cxa_throw(ptr nonnull %exception124.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i172 unwind label %lpad128.i, !noalias !104
 
@@ -3456,7 +3456,7 @@ invoke.cont20:                                    ; preds = %if.then16
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable unwind label %lpad21
 
@@ -4331,7 +4331,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8, !tbaa !55
   ret void
 }
 
@@ -4711,7 +4711,7 @@ entry:
   %ref.tmp = alloca %"class.folly::OptionalEmptyException", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #25
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.17)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %ref.tmp, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %ref.tmp, align 8, !tbaa !55
   invoke void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #28
           to label %invoke.cont unwind label %lpad
 
@@ -4739,7 +4739,7 @@ entry:
 define linkonce_odr void @_ZN5folly22OptionalEmptyExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %this, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %this, align 8, !tbaa !55
   ret void
 }
 
@@ -6188,7 +6188,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 define linkonce_odr void @_ZN5folly19LogConfigParseErrorCI2St16invalid_argumentEPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0) unnamed_addr #14 comdat align 2 {
 entry:
   tail call void @_ZNSt16invalid_argumentC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %this, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %this, align 8, !tbaa !55
   ret void
 }
 
@@ -8111,7 +8111,7 @@ invoke.cont14:                                    ; preds = %if.then8
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception9, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception9, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception9, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable unwind label %lpad15
 
@@ -8231,7 +8231,7 @@ if.then37:                                        ; preds = %_ZN5folly6detail14I
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %if.then37
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception38, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception38, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception38, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable unwind label %lpad32
 
@@ -8293,7 +8293,7 @@ invoke.cont7.i:                                   ; preds = %if.then2.i
           to label %invoke.cont9.i unwind label %lpad8.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont7.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i unwind label %lpad8.i
 
@@ -8390,7 +8390,7 @@ invoke.cont24.i:                                  ; preds = %if.then20.i
           to label %invoke.cont26.i unwind label %lpad25.i
 
 invoke.cont26.i:                                  ; preds = %invoke.cont24.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception21.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception21.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception21.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i unwind label %lpad25.i
 
@@ -8455,7 +8455,7 @@ invoke.cont46.i:                                  ; preds = %if.then39.i
           to label %invoke.cont48.i unwind label %lpad47.i
 
 invoke.cont48.i:                                  ; preds = %invoke.cont46.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception40.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception40.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception40.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i unwind label %lpad47.i
 
@@ -8555,7 +8555,7 @@ invoke.cont75.i:                                  ; preds = %if.then68.i
           to label %invoke.cont77.i unwind label %lpad76.i
 
 invoke.cont77.i:                                  ; preds = %invoke.cont75.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception69.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception69.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception69.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i unwind label %lpad76.i
 
@@ -8670,7 +8670,7 @@ invoke.cont108.i:                                 ; preds = %if.then101.i
           to label %invoke.cont110.i unwind label %lpad109.i
 
 invoke.cont110.i:                                 ; preds = %invoke.cont108.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception102.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception102.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception102.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i unwind label %lpad109.i
 
@@ -8772,7 +8772,7 @@ invoke.cont135.i:                                 ; preds = %if.then131.i
           to label %invoke.cont137.i unwind label %lpad136.i
 
 invoke.cont137.i:                                 ; preds = %invoke.cont135.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception132.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception132.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception132.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i unwind label %lpad136.i
 
@@ -8905,7 +8905,7 @@ invoke.cont167.i:                                 ; preds = %if.then163.i
           to label %invoke.cont169.i unwind label %lpad168.i
 
 invoke.cont169.i:                                 ; preds = %invoke.cont167.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception164.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception164.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception164.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i unwind label %lpad168.i
 
@@ -9266,7 +9266,7 @@ invoke.cont66:                                    ; preds = %if.then59
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %invoke.cont66
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception60, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception60, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception60, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable unwind label %lpad67
 
@@ -9917,7 +9917,7 @@ invoke.cont111:                                   ; preds = %if.then104
           to label %invoke.cont113 unwind label %lpad112
 
 invoke.cont113:                                   ; preds = %invoke.cont111
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception105, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception105, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception105, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable unwind label %lpad112
 
@@ -10042,7 +10042,7 @@ if.then148:                                       ; preds = %_ZN5folly6detail14I
           to label %invoke.cont151 unwind label %lpad150
 
 invoke.cont151:                                   ; preds = %if.then148
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception149, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception149, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception149, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable unwind label %lpad142
 
@@ -10092,7 +10092,7 @@ invoke.cont3.i:                                   ; preds = %if.then.i350
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont3.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception.i351, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception.i351, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception.i351, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i362 unwind label %lpad4.i
 
@@ -10184,7 +10184,7 @@ invoke.cont14.i:                                  ; preds = %if.then10.i
           to label %invoke.cont16.i unwind label %lpad15.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont14.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception11.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception11.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception11.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i362 unwind label %lpad15.i
 
@@ -10240,7 +10240,7 @@ invoke.cont33.i:                                  ; preds = %if.then26.i
           to label %invoke.cont35.i unwind label %lpad34.i
 
 invoke.cont35.i:                                  ; preds = %invoke.cont33.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception27.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception27.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception27.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i362 unwind label %lpad34.i
 
@@ -10368,7 +10368,7 @@ invoke.cont68.i:                                  ; preds = %if.then61.i
           to label %invoke.cont70.i unwind label %lpad69.i
 
 invoke.cont70.i:                                  ; preds = %invoke.cont68.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception62.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception62.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception62.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i362 unwind label %lpad69.i
 
@@ -10591,7 +10591,7 @@ invoke.cont103.i:                                 ; preds = %.noexc.i
           to label %invoke.cont105.i unwind label %lpad104.i
 
 invoke.cont105.i:                                 ; preds = %invoke.cont103.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception96.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception96.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception96.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i362 unwind label %lpad104.i
 
@@ -10684,7 +10684,7 @@ invoke.cont129.i:                                 ; preds = %invoke.cont123.i
           to label %invoke.cont131.i unwind label %lpad130.i
 
 invoke.cont131.i:                                 ; preds = %invoke.cont129.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception118.i, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception118.i, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception118.i, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable.i362 unwind label %lpad130.i
 
@@ -12278,7 +12278,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !55
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #28
           to label %invoke.cont unwind label %lpad
 
@@ -12297,7 +12297,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #10 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !55
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #29
   unreachable
 }
@@ -12688,7 +12688,7 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 define linkonce_odr void @_ZN5folly9TypeErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly9TypeErrorE, i64 16), ptr %this, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly9TypeErrorE, i64 16), ptr %this, align 8, !tbaa !55
   ret void
 }
 
@@ -13365,7 +13365,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %ref.tmp, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %ref.tmp, align 8, !tbaa !55
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #28
           to label %invoke.cont unwind label %lpad
 
@@ -13384,7 +13384,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %exception, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %exception, align 8, !tbaa !55
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly17BadExpectedAccessIvEE, ptr nonnull @_ZNSt9exceptionD2Ev) #29
   unreachable
 }
@@ -13421,7 +13421,7 @@ declare void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable
 define linkonce_odr void @_ZN5folly15ConversionErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly15ConversionErrorE, i64 16), ptr %this, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15ConversionErrorE, i64 16), ptr %this, align 8, !tbaa !55
   %code_ = getelementptr inbounds i8, ptr %this, i64 16
   %code_2 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %code_2, align 8, !tbaa !309
@@ -13442,7 +13442,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess.107", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 16), ptr %ref.tmp, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 16), ptr %ref.tmp, align 8, !tbaa !55
   %error_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i8 %args, ptr %error_.i, align 8, !tbaa !317
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp) #28
@@ -13463,7 +13463,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ex) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 16), ptr %exception, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 16), ptr %exception, align 8, !tbaa !55
   %error_.i = getelementptr inbounds i8, ptr %exception, i64 8
   %error_2.i = getelementptr inbounds i8, ptr %ex, i64 8
   %0 = load i8, ptr %error_2.i, align 8, !tbaa !317
@@ -13553,7 +13553,7 @@ invoke.cont4:                                     ; preds = %catch
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable unwind label %lpad5
 
@@ -13649,7 +13649,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception19, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19LogConfigParseErrorE, i64 16), ptr %exception19, align 8, !tbaa !55
   invoke void @__cxa_throw(ptr nonnull %exception19, ptr nonnull @_ZTIN5folly19LogConfigParseErrorE, ptr nonnull @_ZNSt16invalid_argumentD2Ev) #29
           to label %unreachable unwind label %lpad26
 
@@ -18715,7 +18715,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDp
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %ref.tmp, align 8, !tbaa !55
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #28
           to label %invoke.cont unwind label %lpad
 
@@ -18734,7 +18734,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #10 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !55
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8, !tbaa !55
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #29
   unreachable
 }

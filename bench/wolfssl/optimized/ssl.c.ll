@@ -8838,17 +8838,17 @@ if.then52:                                        ; preds = %if.then47
   br label %if.then71
 
 if.then71:                                        ; preds = %if.end49, %if.then52, %land.lhs.true36
-  %spec.select1448 = phi ptr [ null, %land.lhs.true36 ], [ null, %if.end49 ], [ %10, %if.then52 ]
+  %spec.select1549 = phi ptr [ null, %land.lhs.true36 ], [ null, %if.end49 ], [ %10, %if.then52 ]
   %call72 = call i32 @wc_UnLockRwLock(ptr noundef nonnull @session_lock) #20
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end29, %.thread, %if.then71
-  %spec.select1449 = phi ptr [ %spec.select1448, %if.then71 ], [ null, %.thread ], [ null, %if.end29 ]
+  %spec.select1550 = phi ptr [ %spec.select1549, %if.then71 ], [ null, %.thread ], [ null, %if.end29 ]
   %call74 = call i32 @wc_UnLockMutex(ptr noundef nonnull @clisession_mutex) #20
   br label %return
 
 return:                                           ; preds = %if.end, %if.then3, %entry, %if.end73
-  %retval.0 = phi ptr [ %spec.select1449, %if.end73 ], [ null, %entry ], [ null, %if.then3 ], [ %session, %if.end ]
+  %retval.0 = phi ptr [ %spec.select1550, %if.end73 ], [ null, %entry ], [ null, %if.then3 ], [ %session, %if.end ]
   ret ptr %retval.0
 }
 

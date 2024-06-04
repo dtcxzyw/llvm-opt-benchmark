@@ -661,7 +661,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   %38 = load ptr, ptr %37, align 8, !tbaa !7
   %39 = getelementptr inbounds i8, ptr %6, i64 16
   %40 = load i32, ptr %39, align 8, !tbaa !31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed9RawParserE, i64 16), ptr %7, align 8, !tbaa !33
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed9RawParserE, i64 16), ptr %7, align 8, !tbaa !33
   %41 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %38, ptr %41, align 8, !tbaa !7
   %42 = getelementptr inbounds i8, ptr %7, i64 16

@@ -851,17 +851,17 @@ while.body:                                       ; preds = %land.rhs
 if.then10:                                        ; preds = %while.body
   %bmds.018.i = load ptr, ptr @block_mig_state, align 8
   %tobool.not19.i = icmp eq ptr %bmds.018.i, null
-  br i1 %tobool.not19.i, label %for.end.i, label %for.body.i13
+  br i1 %tobool.not19.i, label %for.end.i, label %for.body.i14
 
-for.body.i13:                                     ; preds = %if.then10, %if.else.i
-  %bmds.021.i = phi ptr [ %bmds.0.i14, %if.else.i ], [ %bmds.018.i, %if.then10 ]
+for.body.i14:                                     ; preds = %if.then10, %if.else.i
+  %bmds.021.i = phi ptr [ %bmds.0.i15, %if.else.i ], [ %bmds.018.i, %if.then10 ]
   %completed_sector_sum.020.i = phi i64 [ %add5.i, %if.else.i ], [ 0, %if.then10 ]
   %bulk_completed.i = getelementptr inbounds i8, ptr %bmds.021.i, i64 48
   %14 = load i32, ptr %bulk_completed.i, align 8
   %cmp.i = icmp eq i32 %14, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %for.body.i13
+if.then.i:                                        ; preds = %for.body.i14
   %bulk_completed.i.le = getelementptr inbounds i8, ptr %bmds.021.i, i64 48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %count.i.i)
   %total_sectors1.i.i = getelementptr inbounds i8, ptr %bmds.021.i, i64 24
@@ -872,25 +872,25 @@ if.then.i:                                        ; preds = %for.body.i13
   %shared_base.i.i = getelementptr inbounds i8, ptr %bmds.021.i, i64 16
   %18 = load i32, ptr %shared_base.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %18, 0
-  br i1 %tobool.not.i.i, label %if.end10.i.i, label %if.then.i.i16
+  br i1 %tobool.not.i.i, label %if.end10.i.i, label %if.then.i.i17
 
-if.then.i.i16:                                    ; preds = %if.then.i
+if.then.i.i17:                                    ; preds = %if.then.i
   call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str.1, i32 noundef 272) #13
   %call.i.i = call ptr @blk_get_aio_context(ptr noundef %17) #13
   call void @aio_context_acquire(ptr noundef %call.i.i) #13
   %cmp2.i.i = icmp slt i64 %16, %15
   br i1 %cmp2.i.i, label %land.rhs.i.i, label %while.end.i.i
 
-land.rhs.i.i:                                     ; preds = %if.then.i.i16, %if.end.i.i
-  %cur_sector.03.i.i = phi i64 [ %add.i.i, %if.end.i.i ], [ %16, %if.then.i.i16 ]
+land.rhs.i.i:                                     ; preds = %if.then.i.i17, %if.end.i.i
+  %cur_sector.03.i.i = phi i64 [ %add.i.i, %if.end.i.i ], [ %16, %if.then.i.i17 ]
   %call4.i.i = call ptr @blk_bs(ptr noundef %17) #13
   %mul.i.i = shl i64 %cur_sector.03.i.i, 9
   %call5.i.i = call i32 @bdrv_is_allocated(ptr noundef %call4.i.i, i64 noundef %mul.i.i, i64 noundef 33554432, ptr noundef nonnull %count.i.i) #13
   %tobool6.i.i = icmp ne i32 %call5.i.i, 0
   %19 = load i64, ptr %count.i.i, align 8
   %cmp7.i.i = icmp ult i64 %19, 512
-  %or.cond.i.i18 = select i1 %tobool6.i.i, i1 true, i1 %cmp7.i.i
-  br i1 %or.cond.i.i18, label %while.end.i.i, label %if.end.i.i
+  %or.cond.i.i19 = select i1 %tobool6.i.i, i1 true, i1 %cmp7.i.i
+  br i1 %or.cond.i.i19, label %while.end.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.rhs.i.i
   %shr.i.i = ashr i64 %19, 9
@@ -898,10 +898,10 @@ if.end.i.i:                                       ; preds = %land.rhs.i.i
   %cmp.i.i = icmp slt i64 %add.i.i, %15
   br i1 %cmp.i.i, label %land.rhs.i.i, label %while.end.i.i, !llvm.loop !16
 
-while.end.i.i:                                    ; preds = %if.end.i.i, %land.rhs.i.i, %if.then.i.i16
-  %cur_sector.0.lcssa.i.i = phi i64 [ %16, %if.then.i.i16 ], [ %add.i.i, %if.end.i.i ], [ %cur_sector.03.i.i, %land.rhs.i.i ]
-  %call9.i.i17 = call ptr @blk_get_aio_context(ptr noundef %17) #13
-  call void @aio_context_release(ptr noundef %call9.i.i17) #13
+while.end.i.i:                                    ; preds = %if.end.i.i, %land.rhs.i.i, %if.then.i.i17
+  %cur_sector.0.lcssa.i.i = phi i64 [ %16, %if.then.i.i17 ], [ %add.i.i, %if.end.i.i ], [ %cur_sector.03.i.i, %land.rhs.i.i ]
+  %call9.i.i18 = call ptr @blk_get_aio_context(ptr noundef %17) #13
+  call void @aio_context_release(ptr noundef %call9.i.i18) #13
   call void @qemu_mutex_unlock_iothread() #13
   br label %if.end10.i.i
 
@@ -980,14 +980,14 @@ if.end.i:                                         ; preds = %if.then2.i, %mig_sa
   %add.i = add i64 %27, %completed_sector_sum.020.i
   br label %for.end.i
 
-if.else.i:                                        ; preds = %for.body.i13
+if.else.i:                                        ; preds = %for.body.i14
   %completed_sectors4.i = getelementptr inbounds i8, ptr %bmds.021.i, i64 80
   %28 = load i64, ptr %completed_sectors4.i, align 8
   %add5.i = add i64 %28, %completed_sector_sum.020.i
   %entry7.i = getelementptr inbounds i8, ptr %bmds.021.i, i64 32
-  %bmds.0.i14 = load ptr, ptr %entry7.i, align 8
-  %tobool.not.i15 = icmp eq ptr %bmds.0.i14, null
-  br i1 %tobool.not.i15, label %for.end.i, label %for.body.i13, !llvm.loop !17
+  %bmds.0.i15 = load ptr, ptr %entry7.i, align 8
+  %tobool.not.i16 = icmp eq ptr %bmds.0.i15, null
+  br i1 %tobool.not.i16, label %for.end.i, label %for.body.i14, !llvm.loop !17
 
 for.end.i:                                        ; preds = %if.else.i, %if.end.i, %if.then10
   %completed_sector_sum.1.i = phi i64 [ %add.i, %if.end.i ], [ 0, %if.then10 ], [ %add5.i, %if.else.i ]
@@ -1064,11 +1064,11 @@ if.end17:                                         ; preds = %while.body
   br i1 %cmp18, label %return, label %if.end21
 
 if.end21:                                         ; preds = %blk_mig_save_bulked_block.exit, %if.then14, %if.end17
-  %ret.021 = phi i32 [ %call16, %if.end17 ], [ 0, %if.then14 ], [ 0, %blk_mig_save_bulked_block.exit ]
+  %ret.022 = phi i32 [ %call16, %if.end17 ], [ 0, %if.then14 ], [ 0, %blk_mig_save_bulked_block.exit ]
   %37 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %38 = inttoptr i64 %37 to ptr
   call void %38(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
-  %cmp22.not = icmp eq i32 %ret.021, 0
+  %cmp22.not = icmp eq i32 %ret.022, 0
   br i1 %cmp22.not, label %while.cond, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %while.cond, %if.end21, %land.rhs
@@ -1126,8 +1126,8 @@ get_remaining_dirty.exit:                         ; preds = %for.body.i, %entry
   %conv = sext i32 %5 to i64
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
   %conv1 = sext i32 %6 to i64
-  %mul4 = add nsw i64 %conv1, %conv
-  %add = shl nsw i64 %mul4, 20
+  %mul5 = add nsw i64 %conv1, %conv
+  %add = shl nsw i64 %mul5, 20
   %add3 = add i64 %add, %dirty.0.lcssa.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
   %tobool = icmp ne i64 %add3, 0

@@ -4567,7 +4567,7 @@ _ZN8FileLineC2EPS_.exit:                          ; preds = %67, %53
           to label %.noexc unwind label %98
 
 .noexc:                                           ; preds = %83
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeModule, i64 16), ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %82, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc55 unwind label %98
@@ -4598,7 +4598,7 @@ _ZN8FileLineC2EPS_.exit:                          ; preds = %67, %53
   %95 = load i16, ptr %94, align 1
   %96 = and i16 %95, -1024
   store i16 %96, ptr %94, align 1
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV17AstNotFoundModule, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17AstNotFoundModule, i64 16), ptr %82, align 8
   %97 = load ptr, ptr @v3Global, align 8
   invoke void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %97, ptr noundef nonnull %82)
           to label %_ZN10AstNetlist11addModulespEP13AstNodeModule.exit unwind label %47
@@ -8066,7 +8066,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc80 unwind label %167
 
 .noexc80:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV16AstPackageImport, i64 16), ptr %154, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstPackageImport, i64 16), ptr %154, align 8
   %160 = getelementptr inbounds i8, ptr %154, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %161 unwind label %167

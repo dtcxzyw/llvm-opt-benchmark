@@ -154,27 +154,28 @@ define dso_local i32 @__ftrace_vprintk(i64 noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local noundef zeroext i1 @trace_is_tracepoint_string(ptr noundef readnone %0) local_unnamed_addr #5 align 16 {
-  br i1 icmp ult (ptr @__start___tracepoint_str, ptr @__stop___tracepoint_str), label %2, label %.loopexit
+  %2 = icmp ult ptr @__start___tracepoint_str, @__stop___tracepoint_str
+  br i1 %2, label %3, label %.loopexit
 
-2:                                                ; preds = %1
-  %3 = load ptr, ptr @__start___tracepoint_str, align 8
-  %4 = icmp eq ptr %3, %0
-  br i1 %4, label %.loopexit, label %.preheader
+3:                                                ; preds = %1
+  %4 = load ptr, ptr @__start___tracepoint_str, align 8
+  %5 = icmp eq ptr %4, %0
+  br i1 %5, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %2, %8
-  %5 = phi ptr [ %6, %8 ], [ @__start___tracepoint_str, %2 ]
-  %6 = getelementptr i8, ptr %5, i64 8
-  %7 = icmp ult ptr %6, @__stop___tracepoint_str
-  br i1 %7, label %8, label %.loopexit, !llvm.loop !9
+.preheader:                                       ; preds = %3, %9
+  %6 = phi ptr [ %7, %9 ], [ @__start___tracepoint_str, %3 ]
+  %7 = getelementptr i8, ptr %6, i64 8
+  %8 = icmp ult ptr %7, @__stop___tracepoint_str
+  br i1 %8, label %9, label %.loopexit, !llvm.loop !9
 
-8:                                                ; preds = %.preheader
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, %0
-  br i1 %10, label %.loopexit, label %.preheader, !llvm.loop !9
+9:                                                ; preds = %.preheader
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp eq ptr %10, %0
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !9
 
-.loopexit:                                        ; preds = %8, %.preheader, %2, %1
-  %11 = phi i1 [ icmp ult (ptr @__start___tracepoint_str, ptr @__stop___tracepoint_str), %1 ], [ icmp ult (ptr @__start___tracepoint_str, ptr @__stop___tracepoint_str), %2 ], [ %7, %.preheader ], [ %7, %8 ]
-  ret i1 %11
+.loopexit:                                        ; preds = %9, %.preheader, %3, %1
+  %12 = phi i1 [ false, %1 ], [ true, %3 ], [ %8, %.preheader ], [ %8, %9 ]
+  ret i1 %12
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

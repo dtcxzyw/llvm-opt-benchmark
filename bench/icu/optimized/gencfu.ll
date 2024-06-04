@@ -92,9 +92,9 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %6 = load ptr, ptr @_ZL8progName, align 8
-  %call.i22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %6)
-  %call1.i23 = tail call ptr @u_getDataDirectory_75()
-  %call2.i24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %call1.i23)
+  %call.i24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %6)
+  %call1.i25 = tail call ptr @u_getDataDirectory_75()
+  %call2.i26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %call1.i25)
   tail call void @exit(i32 noundef 0) #8
   unreachable
 
@@ -103,16 +103,16 @@ if.end5:                                          ; preds = %if.end
   %tobool6 = icmp ne i8 %7, 0
   %8 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 234), align 2
   %tobool7 = icmp ne i8 %8, 0
-  %or.cond1 = select i1 %tobool6, i1 %tobool7, i1 false
-  br i1 %or.cond1, label %if.end10, label %if.then8
+  %or.cond3 = select i1 %tobool6, i1 %tobool7, i1 false
+  br i1 %or.cond3, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 56, i64 1, ptr %9) #9
   %11 = load ptr, ptr @_ZL8progName, align 8
-  %call.i26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %11)
-  %call1.i27 = tail call ptr @u_getDataDirectory_75()
-  %call2.i28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %call1.i27)
+  %call.i28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %11)
+  %call1.i29 = tail call ptr @u_getDataDirectory_75()
+  %call2.i30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %call1.i29)
   tail call void @exit(i32 noundef 1) #8
   unreachable
 
@@ -154,42 +154,42 @@ if.then25:                                        ; preds = %if.end13
 
 if.end29:                                         ; preds = %if.end13
   store i32 0, ptr %status, align 4
-  %call.i30 = call noalias ptr @fopen(ptr noundef readonly %12, ptr noundef nonnull @.str.22)
-  %cmp.i31 = icmp eq ptr %call.i30, null
-  br i1 %cmp.i31, label %if.then32, label %if.end.i
+  %call.i32 = call noalias ptr @fopen(ptr noundef readonly %12, ptr noundef nonnull @.str.22)
+  %cmp.i33 = icmp eq ptr %call.i32, null
+  br i1 %cmp.i33, label %if.then32, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end29
-  %call1.i32 = call i32 @fseek(ptr noundef nonnull %call.i30, i64 noundef 0, i32 noundef 2)
-  %call2.i33 = call i64 @ftell(ptr noundef nonnull %call.i30)
-  %call3.i = call i32 @fseek(ptr noundef nonnull %call.i30, i64 noundef 0, i32 noundef 0)
-  %add.i = add nsw i64 %call2.i33, 10
+  %call1.i34 = call i32 @fseek(ptr noundef nonnull %call.i32, i64 noundef 0, i32 noundef 2)
+  %call2.i35 = call i64 @ftell(ptr noundef nonnull %call.i32)
+  %call3.i = call i32 @fseek(ptr noundef nonnull %call.i32, i64 noundef 0, i32 noundef 0)
+  %add.i = add nsw i64 %call2.i35, 10
   %call4.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #10
-  %call9.i = call i64 @fread(ptr noundef nonnull %call4.i, i64 noundef 1, i64 noundef %call2.i33, ptr noundef nonnull %call.i30)
-  %cmp10.not.i = icmp eq i64 %call9.i, %call2.i33
-  br i1 %cmp10.not.i, label %if.end34, label %_ZL8readFilePKcPi.exit.thread44
+  %call9.i = call i64 @fread(ptr noundef nonnull %call4.i, i64 noundef 1, i64 noundef %call2.i35, ptr noundef nonnull %call.i32)
+  %cmp10.not.i = icmp eq i64 %call9.i, %call2.i35
+  br i1 %cmp10.not.i, label %if.end34, label %_ZL8readFilePKcPi.exit.thread46
 
-_ZL8readFilePKcPi.exit.thread44:                  ; preds = %if.end.i
+_ZL8readFilePKcPi.exit.thread46:                  ; preds = %if.end.i
   call void @_ZdaPv(ptr noundef nonnull %call4.i) #11
-  %call14.i47 = call i32 @fclose(ptr noundef nonnull %call.i30)
+  %call14.i49 = call i32 @fclose(ptr noundef nonnull %call.i32)
   br label %if.then32
 
-if.then32:                                        ; preds = %if.end29, %_ZL8readFilePKcPi.exit.thread44
+if.then32:                                        ; preds = %if.end29, %_ZL8readFilePKcPi.exit.thread46
   %call33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %12)
   call void @exit(i32 noundef -1) #8
   unreachable
 
 if.end34:                                         ; preds = %if.end.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %call4.i, i64 %call2.i33
+  %arrayidx.i = getelementptr inbounds i8, ptr %call4.i, i64 %call2.i35
   store i8 0, ptr %arrayidx.i, align 1
-  %conv.i34 = trunc i64 %call2.i33 to i32
-  %call14.i = call i32 @fclose(ptr noundef nonnull %call.i30)
+  %conv.i36 = trunc i64 %call2.i35 to i32
+  %call14.i = call i32 @fclose(ptr noundef nonnull %call.i32)
   store i32 0, ptr %parseError, align 4
   %offset = getelementptr inbounds i8, ptr %parseError, i64 4
   store i32 0, ptr %offset, align 4
-  %call35 = call ptr @uspoof_openFromSource_75(ptr noundef nonnull %call4.i, i32 noundef %conv.i34, ptr noundef null, i32 noundef 0, ptr noundef nonnull %errType, ptr noundef nonnull %parseError, ptr noundef nonnull %status)
+  %call35 = call ptr @uspoof_openFromSource_75(ptr noundef nonnull %call4.i, i32 noundef %conv.i36, ptr noundef null, i32 noundef 0, ptr noundef nonnull %errType, ptr noundef nonnull %parseError, ptr noundef nonnull %status)
   %23 = load i32, ptr %status, align 4
-  %cmp.i35 = icmp slt i32 %23, 1
-  br i1 %cmp.i35, label %if.end43, label %if.then38
+  %cmp.i37 = icmp slt i32 %23, 1
+  br i1 %cmp.i37, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %if.end34
   %24 = load ptr, ptr @stderr, align 8
@@ -225,8 +225,8 @@ if.end49:                                         ; preds = %if.end43
   store i32 %31, ptr getelementptr inbounds (i8, ptr @dh, i64 16), align 2
   %call52 = call ptr @udata_create(ptr noundef %spec.select, ptr noundef null, ptr noundef %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @dh, i64 4), ptr noundef %copyright.0, ptr noundef nonnull %status)
   %32 = load i32, ptr %status, align 4
-  %cmp.i37 = icmp slt i32 %32, 1
-  br i1 %cmp.i37, label %if.end58, label %if.then55
+  %cmp.i39 = icmp slt i32 %32, 1
+  br i1 %cmp.i39, label %if.end58, label %if.then55
 
 if.then55:                                        ; preds = %if.end49
   %33 = load ptr, ptr @stderr, align 8
@@ -240,8 +240,8 @@ if.end58:                                         ; preds = %if.end49
   call void @udata_writeBlock(ptr noundef %call52, ptr noundef nonnull %call50, i32 noundef %call44)
   %call59 = call i32 @udata_finish(ptr noundef %call52, ptr noundef nonnull %status)
   %35 = load i32, ptr %status, align 4
-  %cmp.i39 = icmp slt i32 %35, 1
-  br i1 %cmp.i39, label %if.end65, label %if.then63
+  %cmp.i41 = icmp slt i32 %35, 1
+  br i1 %cmp.i41, label %if.end65, label %if.then63
 
 if.then63:                                        ; preds = %if.end58
   %36 = load ptr, ptr @stderr, align 8

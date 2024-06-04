@@ -141,6 +141,8 @@ entry:
   %tobool220.not = icmp eq i32 %and219, 0
   %tobool234.not = icmp ne i32 %and219, 0
   %.pre = load i8, ptr %loopBreak_, align 8, !tbaa !44, !range !45
+  %.not = icmp eq ptr @eb_poll_loop_pre_hook, null
+  %.not1 = icmp eq ptr @eb_poll_loop_post_hook, null
   br label %while.body
 
 while.body:                                       ; preds = %for.cond.cleanup146, %entry
@@ -168,7 +170,7 @@ if.end:                                           ; preds = %while.body
 if.end8:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %call_time) #20
   store i64 0, ptr %call_time, align 8, !tbaa !48
-  br i1 icmp ne (ptr @eb_poll_loop_pre_hook, ptr null), label %if.then9, label %if.end10
+  br i1 %.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end8
   call void @eb_poll_loop_pre_hook(ptr noundef nonnull %call_time)
@@ -184,7 +186,7 @@ if.end10:                                         ; preds = %if.then9, %if.end8
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
   %conv = trunc i64 %sub.ptr.div.i to i32
   %call15 = call i32 @epoll_wait(i32 noundef %6, ptr noundef %7, i32 noundef %conv, i32 noundef %sext)
-  br i1 icmp ne (ptr @eb_poll_loop_post_hook, ptr null), label %if.then16, label %if.end17
+  br i1 %.not1, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end10
   %9 = load i64, ptr %call_time, align 8, !tbaa !48
@@ -793,7 +795,7 @@ define void @_ZN5folly12EpollBackendC2ENS0_7OptionsE(ptr noundef nonnull align 8
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp21 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5folly12EpollBackendE, i64 16), ptr %this, align 8, !tbaa !76
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12EpollBackendE, i64 16), ptr %this, align 8, !tbaa !76
   %options_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %options.coerce, ptr %options_, align 8, !tbaa !48
   %epollFd_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1463,7 +1465,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly12EpollBackendD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5folly12EpollBackendE, i64 16), ptr %this, align 8, !tbaa !76
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12EpollBackendE, i64 16), ptr %this, align 8, !tbaa !76
   %epollFd_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %epollFd_, align 8, !tbaa !7
   %call = invoke i32 @close(i32 noundef %0)

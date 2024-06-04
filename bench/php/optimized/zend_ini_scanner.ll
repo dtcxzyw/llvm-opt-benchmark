@@ -180,55 +180,55 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 56), align 8
   %3 = ptrtoint ptr %2 to i64
-  %.promoted4095 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
-  store ptr %.promoted4095, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 32), align 8
-  %.not4102 = icmp ult ptr %.promoted4095, %2
-  %.pre4500 = load i32, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
-  br i1 %.not4102, label %.lr.ph4103, label %._crit_edge
+  %.promoted4067 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
+  store ptr %.promoted4067, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 32), align 8
+  %.not4074 = icmp ult ptr %.promoted4067, %2
+  %.pre4472 = load i32, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
+  br i1 %.not4074, label %.lr.ph4075, label %._crit_edge
 
-.lr.ph4103:                                       ; preds = %1
+.lr.ph4075:                                       ; preds = %1
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 24), align 8
-  %5 = icmp slt i32 %.pre4500, 4
-  %6 = icmp ult i32 %.pre4500, 6
-  %7 = icmp eq i32 %.pre4500, 6
-  %8 = icmp ult i32 %.pre4500, 8
-  %9 = icmp slt i32 %.pre4500, 2
-  %.not3671 = icmp eq i32 %.pre4500, 1
+  %5 = icmp slt i32 %.pre4472, 4
+  %6 = icmp ult i32 %.pre4472, 6
+  %7 = icmp eq i32 %.pre4472, 6
+  %8 = icmp ult i32 %.pre4472, 8
+  %9 = icmp slt i32 %.pre4472, 2
+  %.not3642 = icmp eq i32 %.pre4472, 1
   br label %11
 
-._crit_edge:                                      ; preds = %.backedge3877, %1
-  switch i32 %.pre4500, label %.loopexit [
-    i32 8, label %10
+._crit_edge:                                      ; preds = %.backedge3849, %1
+  switch i32 %.pre4472, label %.loopexit [
     i32 3, label %10
+    i32 8, label %10
   ]
 
 10:                                               ; preds = %._crit_edge, %._crit_edge
   store i32 0, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
   br label %.loopexit
 
-11:                                               ; preds = %.lr.ph4103, %.backedge3877
-  %.promoted4233 = phi ptr [ %.promoted4095, %.lr.ph4103 ], [ %.promoted4475, %.backedge3877 ]
-  %12 = icmp eq ptr %.promoted4233, %4
+11:                                               ; preds = %.lr.ph4075, %.backedge3849
+  %.promoted4205 = phi ptr [ %.promoted4067, %.lr.ph4075 ], [ %.promoted4447, %.backedge3849 ]
+  %12 = icmp eq ptr %.promoted4205, %4
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %.promoted4233, i64 3
+  %14 = getelementptr inbounds i8, ptr %.promoted4205, i64 3
   %15 = icmp ult ptr %14, %2
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.promoted4233, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.promoted4205, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
   %17 = icmp eq i32 %bcmp, 0
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
   store ptr %14, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
-  br label %.backedge3877
+  br label %.backedge3849
 
-.backedge3877:                                    ; preds = %18, %174, %3188
-  %.promoted4475 = phi ptr [ %14, %18 ], [ %156, %174 ], [ %3179, %3188 ]
-  store ptr %.promoted4475, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 32), align 8
-  %.not = icmp ult ptr %.promoted4475, %2
+.backedge3849:                                    ; preds = %18, %174, %3188
+  %.promoted4447 = phi ptr [ %14, %18 ], [ %156, %174 ], [ %3179, %3188 ]
+  store ptr %.promoted4447, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 32), align 8
+  %.not = icmp ult ptr %.promoted4447, %2
   br i1 %.not, label %11, label %._crit_edge
 
 19:                                               ; preds = %16, %13, %11
@@ -238,32 +238,32 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %9, label %21, label %23
 
 21:                                               ; preds = %20
-  %22 = load i8, ptr %.promoted4233, align 1
-  br i1 %.not3671, label %615, label %32
+  %22 = load i8, ptr %.promoted4205, align 1
+  br i1 %.not3642, label %615, label %32
 
 23:                                               ; preds = %20
-  %.not3579 = icmp eq i32 %.pre4500, 3
-  %24 = load i8, ptr %.promoted4233, align 1
-  br i1 %.not3579, label %1327, label %948
+  %.not3550 = icmp eq i32 %.pre4472, 3
+  %24 = load i8, ptr %.promoted4205, align 1
+  br i1 %.not3550, label %1327, label %948
 
 25:                                               ; preds = %19
   br i1 %6, label %26, label %29
 
 26:                                               ; preds = %25
-  %27 = icmp eq i32 %.pre4500, 4
-  %28 = load i8, ptr %.promoted4233, align 1
+  %27 = icmp eq i32 %.pre4472, 4
+  %28 = load i8, ptr %.promoted4205, align 1
   br i1 %27, label %2546, label %2614
 
 29:                                               ; preds = %25
-  %30 = load i8, ptr %.promoted4233, align 1
+  %30 = load i8, ptr %.promoted4205, align 1
   br i1 %7, label %2667, label %31
 
 31:                                               ; preds = %29
   br i1 %8, label %2953, label %3056
 
 32:                                               ; preds = %21
-  %.not3691.not = icmp eq i8 %22, 32
-  br i1 %.not3691.not, label %.preheader3865, label %33
+  %.not3662.not = icmp eq i8 %22, 32
+  br i1 %.not3662.not, label %.preheader3837, label %33
 
 33:                                               ; preds = %32
   %34 = icmp ult i8 %22, 78
@@ -282,16 +282,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %39
-  %.not3705 = icmp eq i8 %22, 0
-  br i1 %.not3705, label %98, label %.loopexit3762
+  %.not3676 = icmp eq i8 %22, 0
+  br i1 %.not3676, label %98, label %.loopexit3734
 
 42:                                               ; preds = %39
   %43 = icmp eq i8 %22, 9
-  br i1 %43, label %.preheader3862, label %44
+  br i1 %43, label %.preheader3834, label %44
 
 44:                                               ; preds = %42
   %45 = icmp ult i8 %22, 11
-  br i1 %45, label %.loopexit3875, label %.loopexit3762
+  br i1 %45, label %.loopexit3847, label %.loopexit3734
 
 46:                                               ; preds = %37
   %47 = icmp ult i8 %22, 32
@@ -299,11 +299,11 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 48:                                               ; preds = %46
   %49 = icmp eq i8 %22, 13
-  br i1 %49, label %.loopexit3876, label %.loopexit3762
+  br i1 %49, label %.loopexit3848, label %.loopexit3734
 
 50:                                               ; preds = %46
   %51 = icmp eq i8 %22, 35
-  br i1 %51, label %.loopexit3762, label %233
+  br i1 %51, label %.loopexit3734, label %233
 
 52:                                               ; preds = %35
   %53 = icmp ult i8 %22, 59
@@ -315,27 +315,27 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 56:                                               ; preds = %54
   %57 = icmp eq i8 %22, 37
-  br i1 %57, label %.loopexit3762, label %233
+  br i1 %57, label %.loopexit3734, label %233
 
 58:                                               ; preds = %54
   %59 = icmp ne i8 %22, 39
   %60 = icmp ult i8 %22, 42
-  %or.cond72 = and i1 %59, %60
-  br i1 %or.cond72, label %233, label %.loopexit3762
+  %or.cond = and i1 %59, %60
+  br i1 %or.cond, label %233, label %.loopexit3734
 
 61:                                               ; preds = %52
   %62 = icmp ult i8 %22, 62
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %61
-  switch i8 %22, label %.loopexit3762 [
-    i8 59, label %.preheader3751.preheader
-    i8 61, label %.preheader3753
+  switch i8 %22, label %.loopexit3734 [
+    i8 59, label %.preheader3723.preheader
+    i8 61, label %.preheader3725
   ]
 
 64:                                               ; preds = %61
   %65 = icmp eq i8 %22, 70
-  br i1 %65, label %255, label %.loopexit3762
+  br i1 %65, label %255, label %.loopexit3734
 
 66:                                               ; preds = %33
   %67 = icmp ult i8 %22, 102
@@ -355,14 +355,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 74:                                               ; preds = %70
   %75 = icmp eq i8 %22, 84
-  br i1 %75, label %279, label %.loopexit3762
+  br i1 %75, label %279, label %.loopexit3734
 
 76:                                               ; preds = %68
   %77 = icmp ult i8 %22, 92
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %76
-  switch i8 %22, label %.loopexit3762 [
+  switch i8 %22, label %.loopexit3734 [
     i8 89, label %283
     i8 91, label %287
   ]
@@ -370,8 +370,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 79:                                               ; preds = %76
   %80 = icmp ne i8 %22, 92
   %81 = icmp ult i8 %22, 95
-  %or.cond75 = and i1 %80, %81
-  br i1 %or.cond75, label %233, label %.loopexit3762
+  %or.cond19 = and i1 %80, %81
+  br i1 %or.cond19, label %233, label %.loopexit3734
 
 82:                                               ; preds = %66
   %83 = icmp ult i8 %22, 116
@@ -383,7 +383,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 86:                                               ; preds = %84
   %87 = icmp eq i8 %22, 102
-  br i1 %87, label %255, label %.loopexit3762
+  br i1 %87, label %255, label %.loopexit3734
 
 88:                                               ; preds = %84
   %89 = icmp eq i8 %22, 110
@@ -391,14 +391,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 90:                                               ; preds = %88
   %91 = icmp ult i8 %22, 112
-  br i1 %91, label %269, label %.loopexit3762
+  br i1 %91, label %269, label %.loopexit3734
 
 92:                                               ; preds = %82
   %93 = icmp ult i8 %22, 122
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %92
-  switch i8 %22, label %.loopexit3762 [
+  switch i8 %22, label %.loopexit3734 [
     i8 116, label %279
     i8 121, label %283
   ]
@@ -406,127 +406,127 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 95:                                               ; preds = %92
   %96 = icmp ne i8 %22, 122
   %97 = icmp ult i8 %22, 127
-  %or.cond78 = and i1 %96, %97
-  br i1 %or.cond78, label %233, label %.loopexit3762
+  %or.cond22 = and i1 %96, %97
+  br i1 %or.cond22, label %233, label %.loopexit3734
 
 98:                                               ; preds = %41
-  %99 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %99 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %99, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   br label %.loopexit
 
-.loopexit3762:                                    ; preds = %204, %428, %565, %509, %584, %562, %559, %528, %506, %503, %447, %425, %422, %230, %223, %208, %94, %78, %63, %569, %513, %432, %582, %578, %575, %526, %522, %519, %445, %441, %438, %228, %220, %214, %211, %105, %95, %90, %86, %79, %74, %64, %58, %56, %50, %48, %44, %41
-  %.promoted42336065 = phi ptr [ %.promoted4233, %584 ], [ %.promoted4233, %562 ], [ %.promoted4233, %559 ], [ %.promoted4233, %528 ], [ %.promoted4233, %506 ], [ %.promoted4233, %503 ], [ %.promoted4233, %447 ], [ %.promoted4233, %425 ], [ %.promoted4233, %422 ], [ %.promoted4233, %230 ], [ %.promoted4233, %223 ], [ %.promoted4233, %208 ], [ %.promoted4233, %94 ], [ %.promoted4233, %78 ], [ %.promoted4233, %63 ], [ %.promoted4233, %569 ], [ %.promoted4233, %513 ], [ %.promoted4233, %432 ], [ %.promoted4233, %582 ], [ %.promoted4233, %578 ], [ %.promoted4233, %575 ], [ %.promoted4233, %526 ], [ %.promoted4233, %522 ], [ %.promoted4233, %519 ], [ %.promoted4233, %445 ], [ %.promoted4233, %441 ], [ %.promoted4233, %438 ], [ %.promoted4233, %228 ], [ %.promoted4233, %220 ], [ %.promoted4233, %214 ], [ %.promoted4233, %211 ], [ %.promoted42336064, %105 ], [ %.promoted4233, %95 ], [ %.promoted4233, %90 ], [ %.promoted4233, %86 ], [ %.promoted4233, %79 ], [ %.promoted4233, %74 ], [ %.promoted4233, %64 ], [ %.promoted4233, %58 ], [ %.promoted4233, %56 ], [ %.promoted4233, %50 ], [ %.promoted4233, %48 ], [ %.promoted4233, %44 ], [ %.promoted4233, %41 ], [ %.promoted4233, %509 ], [ %.promoted4233, %565 ], [ %.promoted4233, %428 ], [ %.promoted4233, %204 ]
-  %100 = phi ptr [ %550, %584 ], [ %550, %562 ], [ %550, %559 ], [ %494, %528 ], [ %494, %506 ], [ %494, %503 ], [ %413, %447 ], [ %413, %425 ], [ %413, %422 ], [ %194, %230 ], [ %194, %223 ], [ %194, %208 ], [ %.promoted4233, %94 ], [ %.promoted4233, %78 ], [ %.promoted4233, %63 ], [ %550, %569 ], [ %494, %513 ], [ %413, %432 ], [ %550, %582 ], [ %550, %578 ], [ %550, %575 ], [ %494, %526 ], [ %494, %522 ], [ %494, %519 ], [ %413, %445 ], [ %413, %441 ], [ %413, %438 ], [ %194, %228 ], [ %194, %220 ], [ %194, %214 ], [ %194, %211 ], [ %106, %105 ], [ %.promoted4233, %95 ], [ %.promoted4233, %90 ], [ %.promoted4233, %86 ], [ %.promoted4233, %79 ], [ %.promoted4233, %74 ], [ %.promoted4233, %64 ], [ %.promoted4233, %58 ], [ %.promoted4233, %56 ], [ %.promoted4233, %50 ], [ %.promoted4233, %48 ], [ %.promoted4233, %44 ], [ %.promoted4233, %41 ], [ %494, %509 ], [ %550, %565 ], [ %413, %428 ], [ %194, %204 ]
+.loopexit3734:                                    ; preds = %204, %428, %565, %509, %584, %562, %559, %528, %506, %503, %447, %425, %422, %230, %223, %208, %94, %78, %63, %569, %513, %432, %582, %578, %575, %526, %522, %519, %445, %441, %438, %228, %220, %214, %211, %105, %95, %90, %86, %79, %74, %64, %58, %56, %50, %48, %44, %41
+  %.promoted42056037 = phi ptr [ %.promoted4205, %584 ], [ %.promoted4205, %562 ], [ %.promoted4205, %559 ], [ %.promoted4205, %528 ], [ %.promoted4205, %506 ], [ %.promoted4205, %503 ], [ %.promoted4205, %447 ], [ %.promoted4205, %425 ], [ %.promoted4205, %422 ], [ %.promoted4205, %230 ], [ %.promoted4205, %223 ], [ %.promoted4205, %208 ], [ %.promoted4205, %94 ], [ %.promoted4205, %78 ], [ %.promoted4205, %63 ], [ %.promoted4205, %569 ], [ %.promoted4205, %513 ], [ %.promoted4205, %432 ], [ %.promoted4205, %582 ], [ %.promoted4205, %578 ], [ %.promoted4205, %575 ], [ %.promoted4205, %526 ], [ %.promoted4205, %522 ], [ %.promoted4205, %519 ], [ %.promoted4205, %445 ], [ %.promoted4205, %441 ], [ %.promoted4205, %438 ], [ %.promoted4205, %228 ], [ %.promoted4205, %220 ], [ %.promoted4205, %214 ], [ %.promoted4205, %211 ], [ %.promoted42056036, %105 ], [ %.promoted4205, %95 ], [ %.promoted4205, %90 ], [ %.promoted4205, %86 ], [ %.promoted4205, %79 ], [ %.promoted4205, %74 ], [ %.promoted4205, %64 ], [ %.promoted4205, %58 ], [ %.promoted4205, %56 ], [ %.promoted4205, %50 ], [ %.promoted4205, %48 ], [ %.promoted4205, %44 ], [ %.promoted4205, %41 ], [ %.promoted4205, %509 ], [ %.promoted4205, %565 ], [ %.promoted4205, %428 ], [ %.promoted4205, %204 ]
+  %100 = phi ptr [ %550, %584 ], [ %550, %562 ], [ %550, %559 ], [ %494, %528 ], [ %494, %506 ], [ %494, %503 ], [ %413, %447 ], [ %413, %425 ], [ %413, %422 ], [ %194, %230 ], [ %194, %223 ], [ %194, %208 ], [ %.promoted4205, %94 ], [ %.promoted4205, %78 ], [ %.promoted4205, %63 ], [ %550, %569 ], [ %494, %513 ], [ %413, %432 ], [ %550, %582 ], [ %550, %578 ], [ %550, %575 ], [ %494, %526 ], [ %494, %522 ], [ %494, %519 ], [ %413, %445 ], [ %413, %441 ], [ %413, %438 ], [ %194, %228 ], [ %194, %220 ], [ %194, %214 ], [ %194, %211 ], [ %106, %105 ], [ %.promoted4205, %95 ], [ %.promoted4205, %90 ], [ %.promoted4205, %86 ], [ %.promoted4205, %79 ], [ %.promoted4205, %74 ], [ %.promoted4205, %64 ], [ %.promoted4205, %58 ], [ %.promoted4205, %56 ], [ %.promoted4205, %50 ], [ %.promoted4205, %48 ], [ %.promoted4205, %44 ], [ %.promoted4205, %41 ], [ %494, %509 ], [ %550, %565 ], [ %413, %428 ], [ %194, %204 ]
   %101 = getelementptr inbounds i8, ptr %100, i64 1
   store ptr %101, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %102 = icmp ugt ptr %101, %2
   br i1 %102, label %.loopexit, label %103
 
-103:                                              ; preds = %.loopexit3762
+103:                                              ; preds = %.loopexit3734
   %104 = load i8, ptr %101, align 1
   br label %105
 
 105:                                              ; preds = %371, %361, %358, %357, %273, %263, %545, %537, %531, %485, %481, %477, %408, %404, %368, %345, %283, %279, %255, %378, %374, %362, %277, %276, %267, %266, %103
-  %.promoted42336064 = phi ptr [ %.promoted42336065, %103 ], [ %.promoted4233, %531 ], [ %.promoted4233, %485 ], [ %.promoted4233, %345 ], [ %.promoted4233, %255 ], [ %.promoted4233, %358 ], [ %.promoted4233, %362 ], [ %.promoted4233, %368 ], [ %.promoted4233, %374 ], [ %.promoted4233, %378 ], [ %.promoted4233, %537 ], [ %.promoted4233, %404 ], [ %.promoted4233, %266 ], [ %.promoted4233, %267 ], [ %.promoted4233, %408 ], [ %.promoted4233, %276 ], [ %.promoted4233, %277 ], [ %.promoted4233, %545 ], [ %.promoted4233, %477 ], [ %.promoted4233, %279 ], [ %.promoted4233, %481 ], [ %.promoted4233, %283 ], [ %.promoted4233, %263 ], [ %.promoted4233, %273 ], [ %.promoted4233, %357 ], [ %.promoted4233, %361 ], [ %.promoted4233, %371 ]
+  %.promoted42056036 = phi ptr [ %.promoted42056037, %103 ], [ %.promoted4205, %531 ], [ %.promoted4205, %485 ], [ %.promoted4205, %345 ], [ %.promoted4205, %255 ], [ %.promoted4205, %358 ], [ %.promoted4205, %362 ], [ %.promoted4205, %368 ], [ %.promoted4205, %374 ], [ %.promoted4205, %378 ], [ %.promoted4205, %537 ], [ %.promoted4205, %404 ], [ %.promoted4205, %266 ], [ %.promoted4205, %267 ], [ %.promoted4205, %408 ], [ %.promoted4205, %276 ], [ %.promoted4205, %277 ], [ %.promoted4205, %545 ], [ %.promoted4205, %477 ], [ %.promoted4205, %279 ], [ %.promoted4205, %481 ], [ %.promoted4205, %283 ], [ %.promoted4205, %263 ], [ %.promoted4205, %273 ], [ %.promoted4205, %357 ], [ %.promoted4205, %361 ], [ %.promoted4205, %371 ]
   %106 = phi ptr [ %101, %103 ], [ %534, %531 ], [ %486, %485 ], [ %346, %345 ], [ %256, %255 ], [ %350, %358 ], [ %350, %362 ], [ %350, %368 ], [ %350, %374 ], [ %350, %378 ], [ %538, %537 ], [ %405, %404 ], [ %260, %266 ], [ %260, %267 ], [ %409, %408 ], [ %270, %276 ], [ %270, %277 ], [ %546, %545 ], [ %478, %477 ], [ %280, %279 ], [ %482, %481 ], [ %284, %283 ], [ %260, %263 ], [ %270, %273 ], [ %350, %357 ], [ %350, %361 ], [ %350, %371 ]
-  %.03291 = phi i8 [ %104, %103 ], [ %535, %531 ], [ %487, %485 ], [ %347, %345 ], [ %257, %255 ], [ %351, %358 ], [ %351, %362 ], [ %351, %368 ], [ %351, %374 ], [ %351, %378 ], [ %539, %537 ], [ %406, %404 ], [ %261, %266 ], [ %261, %267 ], [ %410, %408 ], [ %271, %276 ], [ %271, %277 ], [ %547, %545 ], [ %479, %477 ], [ %281, %279 ], [ %483, %481 ], [ %285, %283 ], [ %261, %263 ], [ %271, %273 ], [ %351, %357 ], [ %351, %361 ], [ %351, %371 ]
-  %107 = zext i8 %.03291 to i64
+  %.03235 = phi i8 [ %104, %103 ], [ %535, %531 ], [ %487, %485 ], [ %347, %345 ], [ %257, %255 ], [ %351, %358 ], [ %351, %362 ], [ %351, %368 ], [ %351, %374 ], [ %351, %378 ], [ %539, %537 ], [ %406, %404 ], [ %261, %266 ], [ %261, %267 ], [ %410, %408 ], [ %271, %276 ], [ %271, %277 ], [ %547, %545 ], [ %479, %477 ], [ %281, %279 ], [ %483, %481 ], [ %285, %283 ], [ %261, %263 ], [ %271, %273 ], [ %351, %357 ], [ %351, %361 ], [ %351, %371 ]
+  %107 = zext i8 %.03235 to i64
   %108 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm, i64 0, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = and i8 %109, 16
-  %.not3713 = icmp eq i8 %110, 0
-  br i1 %.not3713, label %111, label %.loopexit3762
+  %.not3684 = icmp eq i8 %110, 0
+  br i1 %.not3684, label %111, label %.loopexit3734
 
 111:                                              ; preds = %105
-  %112 = add i8 %.03291, -62
-  %or.cond81 = icmp ult i8 %112, 30
-  br i1 %or.cond81, label %.preheader3748, label %.loopexit3874
+  %112 = add i8 %.03235, -62
+  %or.cond25 = icmp ult i8 %112, 30
+  br i1 %or.cond25, label %.preheader3720, label %.loopexit3846
 
-.preheader3748:                                   ; preds = %228, %445, %526, %582, %111
-  %.promoted42336063 = phi ptr [ %.promoted4233, %228 ], [ %.promoted4233, %445 ], [ %.promoted4233, %526 ], [ %.promoted4233, %582 ], [ %.promoted42336064, %111 ]
-  %.promoted4215 = phi ptr [ %194, %228 ], [ %413, %445 ], [ %494, %526 ], [ %550, %582 ], [ %106, %111 ]
-  %113 = getelementptr inbounds i8, ptr %.promoted4215, i64 1
+.preheader3720:                                   ; preds = %228, %445, %526, %582, %111
+  %.promoted42056035 = phi ptr [ %.promoted4205, %228 ], [ %.promoted4205, %445 ], [ %.promoted4205, %526 ], [ %.promoted4205, %582 ], [ %.promoted42056036, %111 ]
+  %.promoted4187 = phi ptr [ %194, %228 ], [ %413, %445 ], [ %494, %526 ], [ %550, %582 ], [ %106, %111 ]
+  %113 = getelementptr inbounds i8, ptr %.promoted4187, i64 1
   store ptr %113, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %114 = icmp ugt ptr %113, %2
-  br i1 %114, label %.loopexit, label %.lr.ph4216
+  br i1 %114, label %.loopexit, label %.lr.ph4188
 
-.loopexit3874:                                    ; preds = %204, %220, %211, %230, %214, %111
-  %.promoted42336069 = phi ptr [ %.promoted4233, %220 ], [ %.promoted4233, %211 ], [ %.promoted4233, %230 ], [ %.promoted4233, %214 ], [ %.promoted42336064, %111 ], [ %.promoted4233, %204 ]
+.loopexit3846:                                    ; preds = %204, %220, %211, %230, %214, %111
+  %.promoted42056041 = phi ptr [ %.promoted4205, %220 ], [ %.promoted4205, %211 ], [ %.promoted4205, %230 ], [ %.promoted4205, %214 ], [ %.promoted42056036, %111 ], [ %.promoted4205, %204 ]
   %115 = phi ptr [ %194, %220 ], [ %194, %211 ], [ %194, %230 ], [ %194, %214 ], [ %106, %111 ], [ %194, %204 ]
   %116 = ptrtoint ptr %115 to i64
-  %117 = ptrtoint ptr %.promoted42336069 to i64
+  %117 = ptrtoint ptr %.promoted42056041 to i64
   %118 = sub i64 %116, %117
   %119 = trunc i64 %118 to i32
   store i32 %119, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not37184203 = icmp eq i32 %119, 0
-  br i1 %.not37184203, label %.critedge, label %.lr.ph4206
+  %.not36894175 = icmp eq i32 %119, 0
+  br i1 %.not36894175, label %.critedge, label %.lr.ph4178
 
-.lr.ph4206:                                       ; preds = %.loopexit3874, %122
-  %storemerge37174204 = phi i32 [ %124, %122 ], [ %119, %.loopexit3874 ]
-  %120 = phi ptr [ %123, %122 ], [ %.promoted42336069, %.loopexit3874 ]
+.lr.ph4178:                                       ; preds = %.loopexit3846, %122
+  %storemerge36884176 = phi i32 [ %124, %122 ], [ %119, %.loopexit3846 ]
+  %120 = phi ptr [ %123, %122 ], [ %.promoted42056041, %.loopexit3846 ]
   %121 = load i8, ptr %120, align 1
-  switch i8 %121, label %.lr.ph4211 [
+  switch i8 %121, label %.lr.ph4183 [
     i8 32, label %122
     i8 9, label %122
   ]
 
-122:                                              ; preds = %.lr.ph4206, %.lr.ph4206
+122:                                              ; preds = %.lr.ph4178, %.lr.ph4178
   %123 = getelementptr inbounds i8, ptr %120, i64 1
   store ptr %123, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 32), align 8
-  %124 = add i32 %storemerge37174204, -1
+  %124 = add i32 %storemerge36884176, -1
   store i32 %124, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not3718 = icmp eq i32 %124, 0
-  br i1 %.not3718, label %.critedge, label %.lr.ph4206
+  %.not3689 = icmp eq i32 %124, 0
+  br i1 %.not3689, label %.critedge, label %.lr.ph4178
 
-.lr.ph4211:                                       ; preds = %.lr.ph4206
-  %125 = zext i32 %storemerge37174204 to i64
+.lr.ph4183:                                       ; preds = %.lr.ph4178
+  %125 = zext i32 %storemerge36884176 to i64
   br label %126
 
-126:                                              ; preds = %.lr.ph4211, %.critedge3
-  %indvars.iv4465 = phi i64 [ %125, %.lr.ph4211 ], [ %indvars.iv.next4466, %.critedge3 ]
-  %indvars.iv.next4466 = add nsw i64 %indvars.iv4465, -1
-  %127 = and i64 %indvars.iv.next4466, 4294967295
+126:                                              ; preds = %.lr.ph4183, %.critedge2
+  %indvars.iv4437 = phi i64 [ %125, %.lr.ph4183 ], [ %indvars.iv.next4438, %.critedge2 ]
+  %indvars.iv.next4438 = add nsw i64 %indvars.iv4437, -1
+  %127 = and i64 %indvars.iv.next4438, 4294967295
   %128 = getelementptr inbounds i8, ptr %120, i64 %127
   %129 = load i8, ptr %128, align 1
   switch i8 %129, label %.critedge.loopexit.split.loop.exit [
-    i8 10, label %.critedge3
-    i8 13, label %.critedge3
-    i8 9, label %.critedge3
-    i8 32, label %.critedge3
+    i8 10, label %.critedge2
+    i8 13, label %.critedge2
+    i8 9, label %.critedge2
+    i8 32, label %.critedge2
   ]
 
-.critedge3:                                       ; preds = %126, %126, %126, %126
-  %indvars4467 = trunc i64 %indvars.iv.next4466 to i32
-  store i32 %indvars4467, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not3719 = icmp eq i32 %indvars4467, 0
-  br i1 %.not3719, label %.critedge, label %126
+.critedge2:                                       ; preds = %126, %126, %126, %126
+  %indvars4439 = trunc i64 %indvars.iv.next4438 to i32
+  store i32 %indvars4439, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
+  %.not3690 = icmp eq i32 %indvars4439, 0
+  br i1 %.not3690, label %.critedge, label %126
 
 .critedge.loopexit.split.loop.exit:               ; preds = %126
-  %130 = trunc nuw i64 %indvars.iv4465 to i32
+  %130 = trunc nuw i64 %indvars.iv4437 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %122, %.critedge3, %.critedge.loopexit.split.loop.exit, %.loopexit3874
-  %131 = phi ptr [ %.promoted42336069, %.loopexit3874 ], [ %120, %.critedge.loopexit.split.loop.exit ], [ %120, %.critedge3 ], [ %123, %122 ]
-  %.lcssa3888 = phi i32 [ 0, %.loopexit3874 ], [ %130, %.critedge.loopexit.split.loop.exit ], [ 0, %.critedge3 ], [ 0, %122 ]
+.critedge:                                        ; preds = %122, %.critedge2, %.critedge.loopexit.split.loop.exit, %.loopexit3846
+  %131 = phi ptr [ %.promoted42056041, %.loopexit3846 ], [ %120, %.critedge.loopexit.split.loop.exit ], [ %120, %.critedge2 ], [ %123, %122 ]
+  %.lcssa3860 = phi i32 [ 0, %.loopexit3846 ], [ %130, %.critedge.loopexit.split.loop.exit ], [ 0, %.critedge2 ], [ 0, %122 ]
   %132 = load i32, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 108), align 4
   %133 = icmp eq i32 %132, 2
   br i1 %133, label %134, label %137
 
 134:                                              ; preds = %.critedge
-  switch i32 %.pre4500, label %137 [
-    i32 8, label %135
+  switch i32 %.pre4472, label %137 [
     i32 3, label %135
+    i32 8, label %135
   ]
 
 135:                                              ; preds = %134, %134
-  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 264, ptr noundef %131, i32 noundef %.lcssa3888)
+  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 264, ptr noundef %131, i32 noundef %.lcssa3860)
   %136 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %136, align 4
   br label %.loopexit
 
 137:                                              ; preds = %134, %.critedge
-  %138 = zext i32 %.lcssa3888 to i64
+  %138 = zext i32 %.lcssa3860 to i64
   %139 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %140 = trunc i8 %139 to i1
   %141 = add nuw nsw i64 %138, 32
@@ -560,15 +560,15 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 262, ptr %155, align 8
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader3862, %.backedge3864
-  %156 = phi ptr [ %158, %.backedge3864 ], [ %206, %.preheader3862 ]
+.lr.ph:                                           ; preds = %.preheader3834, %.backedge3836
+  %156 = phi ptr [ %158, %.backedge3836 ], [ %206, %.preheader3834 ]
   %157 = load i8, ptr %156, align 1
   switch i8 %157, label %160 [
-    i8 32, label %.backedge3864
-    i8 9, label %.backedge3864
+    i8 32, label %.backedge3836
+    i8 9, label %.backedge3836
   ]
 
-.backedge3864:                                    ; preds = %.lr.ph, %.lr.ph
+.backedge3836:                                    ; preds = %.lr.ph, %.lr.ph
   %158 = getelementptr inbounds i8, ptr %156, i64 1
   store ptr %158, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %159 = icmp ugt ptr %158, %2
@@ -584,11 +584,11 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 164:                                              ; preds = %162
   %165 = icmp ult i8 %157, 11
-  br i1 %165, label %.loopexit3875, label %166
+  br i1 %165, label %.loopexit3847, label %166
 
 166:                                              ; preds = %164
   %167 = icmp eq i8 %157, 13
-  br i1 %167, label %.loopexit3876, label %174
+  br i1 %167, label %.loopexit3848, label %174
 
 168:                                              ; preds = %160
   %169 = icmp ult i8 %157, 60
@@ -596,30 +596,30 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 170:                                              ; preds = %168
   %171 = icmp eq i8 %157, 59
-  br i1 %171, label %.preheader3751.preheader, label %174
+  br i1 %171, label %.preheader3723.preheader, label %174
 
 172:                                              ; preds = %168
   %173 = icmp eq i8 %157, 61
-  br i1 %173, label %.preheader3753, label %174
+  br i1 %173, label %.preheader3725, label %174
 
 174:                                              ; preds = %166, %172, %170, %162
   %175 = ptrtoint ptr %156 to i64
-  %176 = ptrtoint ptr %.promoted4233 to i64
+  %176 = ptrtoint ptr %.promoted4205 to i64
   %177 = sub i64 %175, %176
   %178 = trunc i64 %177 to i32
   store i32 %178, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  br label %.backedge3877
+  br label %.backedge3849
 
-.loopexit3875:                                    ; preds = %164, %208, %.loopexit3876, %44
-  %179 = phi ptr [ %194, %208 ], [ %190, %.loopexit3876 ], [ %.promoted4233, %44 ], [ %156, %164 ]
+.loopexit3847:                                    ; preds = %164, %208, %.loopexit3848, %44
+  %179 = phi ptr [ %194, %208 ], [ %190, %.loopexit3848 ], [ %.promoted4205, %44 ], [ %156, %164 ]
   %180 = getelementptr inbounds i8, ptr %179, i64 1
   store ptr %180, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %181
 
-181:                                              ; preds = %.loopexit3876, %.loopexit3875
-  %182 = phi ptr [ %190, %.loopexit3876 ], [ %180, %.loopexit3875 ]
+181:                                              ; preds = %.loopexit3848, %.loopexit3847
+  %182 = phi ptr [ %190, %.loopexit3848 ], [ %180, %.loopexit3847 ]
   %183 = ptrtoint ptr %182 to i64
-  %184 = ptrtoint ptr %.promoted4233 to i64
+  %184 = ptrtoint ptr %.promoted4205 to i64
   %185 = sub i64 %183, %184
   %186 = trunc i64 %185 to i32
   store i32 %186, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -628,25 +628,25 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %188, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 104), align 8
   br label %.loopexit
 
-.loopexit3876:                                    ; preds = %166, %208, %48
-  %189 = phi ptr [ %194, %208 ], [ %.promoted4233, %48 ], [ %156, %166 ]
+.loopexit3848:                                    ; preds = %166, %208, %48
+  %189 = phi ptr [ %194, %208 ], [ %.promoted4205, %48 ], [ %156, %166 ]
   %190 = getelementptr inbounds i8, ptr %189, i64 1
   store ptr %190, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %191 = load i8, ptr %190, align 1
   %192 = icmp eq i8 %191, 10
-  br i1 %192, label %.loopexit3875, label %181
+  br i1 %192, label %.loopexit3847, label %181
 
-.preheader3865:                                   ; preds = %32, %196
-  %193 = phi ptr [ %194, %196 ], [ %.promoted4233, %32 ]
+.preheader3837:                                   ; preds = %32, %196
+  %193 = phi ptr [ %194, %196 ], [ %.promoted4205, %32 ]
   %194 = getelementptr inbounds i8, ptr %193, i64 1
   store ptr %194, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %195 = icmp ugt ptr %194, %2
   br i1 %195, label %.loopexit, label %196
 
-196:                                              ; preds = %.preheader3865
+196:                                              ; preds = %.preheader3837
   %197 = load i8, ptr %194, align 1
-  %.not3706.not = icmp eq i8 %197, 32
-  br i1 %.not3706.not, label %.preheader3865, label %198
+  %.not3677.not = icmp eq i8 %197, 32
+  br i1 %.not3677.not, label %.preheader3837, label %198
 
 198:                                              ; preds = %196
   %199 = icmp ult i8 %197, 39
@@ -661,22 +661,22 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %203, label %204, label %208
 
 204:                                              ; preds = %202
-  switch i8 %197, label %.loopexit3762 [
-    i8 0, label %.loopexit3874
-    i8 9, label %.preheader3862
+  switch i8 %197, label %.loopexit3734 [
+    i8 0, label %.loopexit3846
+    i8 9, label %.preheader3834
   ]
 
-.preheader3862:                                   ; preds = %42, %204
-  %205 = phi ptr [ %.promoted4233, %42 ], [ %194, %204 ]
+.preheader3834:                                   ; preds = %42, %204
+  %205 = phi ptr [ %.promoted4205, %42 ], [ %194, %204 ]
   %206 = getelementptr inbounds i8, ptr %205, i64 1
   store ptr %206, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %207 = icmp ugt ptr %206, %2
   br i1 %207, label %.loopexit, label %.lr.ph
 
 208:                                              ; preds = %202
-  switch i8 %197, label %.loopexit3762 [
-    i8 10, label %.loopexit3875
-    i8 13, label %.loopexit3876
+  switch i8 %197, label %.loopexit3734 [
+    i8 10, label %.loopexit3847
+    i8 13, label %.loopexit3848
   ]
 
 209:                                              ; preds = %200
@@ -686,12 +686,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 211:                                              ; preds = %209
   %212 = icmp ugt i8 %197, 31
   %213 = icmp ne i8 %197, 35
-  %or.cond84 = and i1 %212, %213
-  br i1 %or.cond84, label %.loopexit3874, label %.loopexit3762
+  %or.cond28 = and i1 %212, %213
+  br i1 %or.cond28, label %.loopexit3846, label %.loopexit3734
 
 214:                                              ; preds = %209
   %215 = icmp eq i8 %197, 37
-  br i1 %215, label %.loopexit3762, label %.loopexit3874
+  br i1 %215, label %.loopexit3734, label %.loopexit3846
 
 216:                                              ; preds = %198
   %217 = icmp ult i8 %197, 62
@@ -704,25 +704,25 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 220:                                              ; preds = %218
   %221 = icmp ne i8 %197, 39
   %222 = icmp ult i8 %197, 42
-  %or.cond87 = and i1 %221, %222
-  br i1 %or.cond87, label %.loopexit3874, label %.loopexit3762
+  %or.cond31 = and i1 %221, %222
+  br i1 %or.cond31, label %.loopexit3846, label %.loopexit3734
 
 223:                                              ; preds = %218
-  switch i8 %197, label %.loopexit3762 [
-    i8 59, label %.preheader3751.preheader
-    i8 61, label %.preheader3753
+  switch i8 %197, label %.loopexit3734 [
+    i8 59, label %.preheader3723.preheader
+    i8 61, label %.preheader3725
   ]
 
-.preheader3751.preheader:                         ; preds = %170, %63, %223
-  %.ph5384 = phi ptr [ %194, %223 ], [ %.promoted4233, %63 ], [ %156, %170 ]
-  br label %.preheader3751
+.preheader3723.preheader:                         ; preds = %170, %63, %223
+  %.ph5356 = phi ptr [ %194, %223 ], [ %.promoted4205, %63 ], [ %156, %170 ]
+  br label %.preheader3723
 
-.preheader3753:                                   ; preds = %172, %63, %223
-  %.promoted4199 = phi ptr [ %.promoted4233, %63 ], [ %194, %223 ], [ %156, %172 ]
-  %224 = getelementptr inbounds i8, ptr %.promoted4199, i64 1
+.preheader3725:                                   ; preds = %172, %63, %223
+  %.promoted4171 = phi ptr [ %.promoted4205, %63 ], [ %194, %223 ], [ %156, %172 ]
+  %224 = getelementptr inbounds i8, ptr %.promoted4171, i64 1
   store ptr %224, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %225 = icmp ugt ptr %224, %2
-  br i1 %225, label %.loopexit, label %.lr.ph4200
+  br i1 %225, label %.loopexit, label %.lr.ph4172
 
 226:                                              ; preds = %216
   %227 = icmp ult i8 %197, 93
@@ -730,33 +730,33 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 228:                                              ; preds = %226
   %229 = icmp eq i8 %197, 91
-  br i1 %229, label %.preheader3748, label %.loopexit3762
+  br i1 %229, label %.preheader3720, label %.loopexit3734
 
 230:                                              ; preds = %226
   %231 = icmp ult i8 %197, 95
   %232 = add i8 %197, -123
-  %or.cond90 = icmp ult i8 %232, 4
-  %or.cond = or i1 %231, %or.cond90
-  br i1 %or.cond, label %.loopexit3874, label %.loopexit3762
+  %or.cond34 = icmp ult i8 %232, 4
+  %or.cond3691 = or i1 %231, %or.cond34
+  br i1 %or.cond3691, label %.loopexit3846, label %.loopexit3734
 
 233:                                              ; preds = %95, %79, %58, %56, %50
-  %234 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %234 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %234, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %235 = load i8, ptr %.promoted4233, align 1
+  %235 = load i8, ptr %.promoted4205, align 1
   %236 = sext i8 %235 to i32
   br label %.loopexit
 
-.preheader3751:                                   ; preds = %.preheader3751.preheader, %240
-  %237 = phi ptr [ %238, %240 ], [ %.ph5384, %.preheader3751.preheader ]
+.preheader3723:                                   ; preds = %.preheader3723.preheader, %240
+  %237 = phi ptr [ %238, %240 ], [ %.ph5356, %.preheader3723.preheader ]
   %238 = getelementptr inbounds i8, ptr %237, i64 1
   store ptr %238, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %239 = icmp ugt ptr %238, %2
   br i1 %239, label %.loopexit, label %240
 
-240:                                              ; preds = %.preheader3751
+240:                                              ; preds = %.preheader3723
   %241 = load i8, ptr %238, align 1
-  switch i8 %241, label %.preheader3751 [
+  switch i8 %241, label %.preheader3723 [
     i8 13, label %242
     i8 10, label %242
   ]
@@ -765,23 +765,23 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %243 = icmp ult i8 %241, 11
   br i1 %243, label %329, label %341
 
-.lr.ph4200:                                       ; preds = %.preheader3753, %.backedge3755
-  %244 = phi ptr [ %246, %.backedge3755 ], [ %224, %.preheader3753 ]
+.lr.ph4172:                                       ; preds = %.preheader3725, %.backedge3727
+  %244 = phi ptr [ %246, %.backedge3727 ], [ %224, %.preheader3725 ]
   %245 = load i8, ptr %244, align 1
   switch i8 %245, label %248 [
-    i8 32, label %.backedge3755
-    i8 9, label %.backedge3755
+    i8 32, label %.backedge3727
+    i8 9, label %.backedge3727
   ]
 
-.backedge3755:                                    ; preds = %.lr.ph4200, %.lr.ph4200
+.backedge3727:                                    ; preds = %.lr.ph4172, %.lr.ph4172
   %246 = getelementptr inbounds i8, ptr %244, i64 1
   store ptr %246, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %247 = icmp ugt ptr %246, %2
-  br i1 %247, label %.loopexit, label %.lr.ph4200
+  br i1 %247, label %.loopexit, label %.lr.ph4172
 
-248:                                              ; preds = %.lr.ph4200
+248:                                              ; preds = %.lr.ph4172
   %249 = ptrtoint ptr %244 to i64
-  %250 = ptrtoint ptr %.promoted4233 to i64
+  %250 = ptrtoint ptr %.promoted4205 to i64
   %251 = sub i64 %249, %250
   %252 = trunc i64 %251 to i32
   store i32 %252, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -792,15 +792,15 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 255:                                              ; preds = %86, %64
-  %256 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %256 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %256, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %257 = load i8, ptr %256, align 1
   %258 = and i8 %257, -33
-  %or.cond96 = icmp eq i8 %258, 65
-  br i1 %or.cond96, label %345, label %105
+  %or.cond40 = icmp eq i8 %258, 65
+  br i1 %or.cond40, label %345, label %105
 
 259:                                              ; preds = %88, %72
-  %260 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %260 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %260, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %261 = load i8, ptr %260, align 1
   %262 = icmp ult i8 %261, 86
@@ -817,15 +817,15 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %265, label %266, label %267
 
 266:                                              ; preds = %264
-  %.not3698 = icmp eq i8 %261, 111
-  br i1 %.not3698, label %349, label %105
+  %.not3669 = icmp eq i8 %261, 111
+  br i1 %.not3669, label %349, label %105
 
 267:                                              ; preds = %264
   %268 = icmp eq i8 %261, 117
   br i1 %268, label %404, label %105
 
 269:                                              ; preds = %90, %72
-  %270 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %270 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %270, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %271 = load i8, ptr %270, align 1
   %272 = icmp ult i8 %271, 79
@@ -834,135 +834,135 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 273:                                              ; preds = %269
   switch i8 %271, label %105 [
     i8 70, label %408
-    i8 78, label %.preheader3776.preheader
+    i8 78, label %.preheader3748.preheader
   ]
 
-.preheader3776.preheader:                         ; preds = %277, %481, %545, %273
-  %.ph5435 = phi ptr [ %270, %273 ], [ %546, %545 ], [ %482, %481 ], [ %270, %277 ]
-  br label %.preheader3776
+.preheader3748.preheader:                         ; preds = %277, %481, %545, %273
+  %.ph5407 = phi ptr [ %270, %273 ], [ %546, %545 ], [ %482, %481 ], [ %270, %277 ]
+  br label %.preheader3748
 
 274:                                              ; preds = %269
   %275 = icmp ult i8 %271, 103
   br i1 %275, label %276, label %277
 
 276:                                              ; preds = %274
-  %.not3695 = icmp eq i8 %271, 102
-  br i1 %.not3695, label %408, label %105
+  %.not3666 = icmp eq i8 %271, 102
+  br i1 %.not3666, label %408, label %105
 
 277:                                              ; preds = %274
   %278 = icmp eq i8 %271, 110
-  br i1 %278, label %.preheader3776.preheader, label %105
+  br i1 %278, label %.preheader3748.preheader, label %105
 
 279:                                              ; preds = %94, %74
-  %280 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %280 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %280, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %281 = load i8, ptr %280, align 1
   %282 = and i8 %281, -33
-  %or.cond99 = icmp eq i8 %282, 82
-  br i1 %or.cond99, label %477, label %105
+  %or.cond43 = icmp eq i8 %282, 82
+  br i1 %or.cond43, label %477, label %105
 
 283:                                              ; preds = %94, %78
-  %284 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %284 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %284, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %285 = load i8, ptr %284, align 1
   %286 = and i8 %285, -33
-  %or.cond102 = icmp eq i8 %286, 69
-  br i1 %or.cond102, label %481, label %105
+  %or.cond46 = icmp eq i8 %286, 69
+  br i1 %or.cond46, label %481, label %105
 
 287:                                              ; preds = %78
-  %288 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %288 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %288, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   %289 = load i32, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 108), align 4
   %290 = icmp eq i32 %289, 1
-  %.3720 = select i1 %290, i32 4, i32 2
-  store i32 %.3720, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
+  %.3692 = select i1 %290, i32 4, i32 2
+  store i32 %.3692, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
   br label %.loopexit
 
-.lr.ph4216:                                       ; preds = %.preheader3748, %.backedge3750
-  %291 = phi ptr [ %293, %.backedge3750 ], [ %113, %.preheader3748 ]
+.lr.ph4188:                                       ; preds = %.preheader3720, %.backedge3722
+  %291 = phi ptr [ %293, %.backedge3722 ], [ %113, %.preheader3720 ]
   %292 = load i8, ptr %291, align 1
   switch i8 %292, label %295 [
-    i8 32, label %.backedge3750
-    i8 9, label %.backedge3750
+    i8 32, label %.backedge3722
+    i8 9, label %.backedge3722
   ]
 
-.backedge3750:                                    ; preds = %.lr.ph4216, %.lr.ph4216
+.backedge3722:                                    ; preds = %.lr.ph4188, %.lr.ph4188
   %293 = getelementptr inbounds i8, ptr %291, i64 1
   store ptr %293, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %294 = icmp ugt ptr %293, %2
-  br i1 %294, label %.loopexit, label %.lr.ph4216
+  br i1 %294, label %.loopexit, label %.lr.ph4188
 
-295:                                              ; preds = %.lr.ph4216
+295:                                              ; preds = %.lr.ph4188
   %296 = ptrtoint ptr %291 to i64
-  %297 = ptrtoint ptr %.promoted42336063 to i64
+  %297 = ptrtoint ptr %.promoted42056035 to i64
   %298 = sub i64 %296, %297
   %299 = trunc i64 %298 to i32
   store i32 %299, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not37154218 = icmp eq i32 %299, 0
-  br i1 %.not37154218, label %.critedge7, label %.lr.ph4221
+  %.not36864190 = icmp eq i32 %299, 0
+  br i1 %.not36864190, label %.critedge4, label %.lr.ph4193
 
-.lr.ph4221:                                       ; preds = %295, %302
-  %storemerge37144219 = phi i32 [ %304, %302 ], [ %299, %295 ]
-  %300 = phi ptr [ %303, %302 ], [ %.promoted42336063, %295 ]
+.lr.ph4193:                                       ; preds = %295, %302
+  %storemerge36854191 = phi i32 [ %304, %302 ], [ %299, %295 ]
+  %300 = phi ptr [ %303, %302 ], [ %.promoted42056035, %295 ]
   %301 = load i8, ptr %300, align 1
-  switch i8 %301, label %.lr.ph4226 [
+  switch i8 %301, label %.lr.ph4198 [
     i8 32, label %302
     i8 9, label %302
   ]
 
-302:                                              ; preds = %.lr.ph4221, %.lr.ph4221
+302:                                              ; preds = %.lr.ph4193, %.lr.ph4193
   %303 = getelementptr inbounds i8, ptr %300, i64 1
   store ptr %303, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 32), align 8
-  %304 = add i32 %storemerge37144219, -1
+  %304 = add i32 %storemerge36854191, -1
   store i32 %304, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not3715 = icmp eq i32 %304, 0
-  br i1 %.not3715, label %.critedge7, label %.lr.ph4221
+  %.not3686 = icmp eq i32 %304, 0
+  br i1 %.not3686, label %.critedge4, label %.lr.ph4193
 
-.lr.ph4226:                                       ; preds = %.lr.ph4221
-  %305 = zext i32 %storemerge37144219 to i64
+.lr.ph4198:                                       ; preds = %.lr.ph4193
+  %305 = zext i32 %storemerge36854191 to i64
   br label %306
 
-306:                                              ; preds = %.lr.ph4226, %.critedge9
-  %indvars.iv4469 = phi i64 [ %305, %.lr.ph4226 ], [ %indvars.iv.next4470, %.critedge9 ]
-  %indvars.iv.next4470 = add nsw i64 %indvars.iv4469, -1
-  %307 = and i64 %indvars.iv.next4470, 4294967295
+306:                                              ; preds = %.lr.ph4198, %.critedge6
+  %indvars.iv4441 = phi i64 [ %305, %.lr.ph4198 ], [ %indvars.iv.next4442, %.critedge6 ]
+  %indvars.iv.next4442 = add nsw i64 %indvars.iv4441, -1
+  %307 = and i64 %indvars.iv.next4442, 4294967295
   %308 = getelementptr inbounds i8, ptr %300, i64 %307
   %309 = load i8, ptr %308, align 1
-  switch i8 %309, label %.critedge7.loopexit [
-    i8 91, label %.critedge9
-    i8 10, label %.critedge9
-    i8 13, label %.critedge9
-    i8 9, label %.critedge9
-    i8 32, label %.critedge9
+  switch i8 %309, label %.critedge4.loopexit [
+    i8 91, label %.critedge6
+    i8 10, label %.critedge6
+    i8 13, label %.critedge6
+    i8 9, label %.critedge6
+    i8 32, label %.critedge6
   ]
 
-.critedge9:                                       ; preds = %306, %306, %306, %306, %306
-  %indvars4471 = trunc i64 %indvars.iv.next4470 to i32
-  store i32 %indvars4471, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not3716 = icmp eq i32 %indvars4471, 0
-  br i1 %.not3716, label %.critedge7.loopexit, label %306
+.critedge6:                                       ; preds = %306, %306, %306, %306, %306
+  %indvars4443 = trunc i64 %indvars.iv.next4442 to i32
+  store i32 %indvars4443, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
+  %.not3687 = icmp eq i32 %indvars4443, 0
+  br i1 %.not3687, label %.critedge4.loopexit, label %306
 
-.critedge7.loopexit:                              ; preds = %306, %.critedge9
-  %.lcssa3885.ph = phi i64 [ 0, %.critedge9 ], [ %indvars.iv4469, %306 ]
-  %310 = and i64 %.lcssa3885.ph, 4294967295
-  br label %.critedge7
+.critedge4.loopexit:                              ; preds = %306, %.critedge6
+  %.lcssa3857.ph = phi i64 [ 0, %.critedge6 ], [ %indvars.iv4441, %306 ]
+  %310 = and i64 %.lcssa3857.ph, 4294967295
+  br label %.critedge4
 
-.critedge7:                                       ; preds = %302, %.critedge7.loopexit, %295
-  %311 = phi ptr [ %.promoted42336063, %295 ], [ %300, %.critedge7.loopexit ], [ %303, %302 ]
-  %.lcssa3885 = phi i64 [ 0, %295 ], [ %310, %.critedge7.loopexit ], [ 0, %302 ]
+.critedge4:                                       ; preds = %302, %.critedge4.loopexit, %295
+  %311 = phi ptr [ %.promoted42056035, %295 ], [ %300, %.critedge4.loopexit ], [ %303, %302 ]
+  %.lcssa3857 = phi i64 [ 0, %295 ], [ %310, %.critedge4.loopexit ], [ 0, %302 ]
   store i32 1, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
   %312 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %313 = trunc i8 %312 to i1
-  %314 = add nuw nsw i64 %.lcssa3885, 32
+  %314 = add nuw nsw i64 %.lcssa3857, 32
   %315 = and i64 %314, 8589934584
   br i1 %313, label %316, label %318
 
-316:                                              ; preds = %.critedge7
+316:                                              ; preds = %.critedge4
   %317 = tail call noalias ptr @__zend_malloc(i64 noundef %315) #12
   br label %320
 
-318:                                              ; preds = %.critedge7
+318:                                              ; preds = %.critedge4
   %319 = tail call noalias ptr @_emalloc(i64 noundef %315) #12
   br label %320
 
@@ -975,10 +975,10 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %324 = getelementptr inbounds i8, ptr %322, i64 8
   store i64 0, ptr %324, align 8
   %325 = getelementptr inbounds i8, ptr %322, i64 16
-  store i64 %.lcssa3885, ptr %325, align 8
+  store i64 %.lcssa3857, ptr %325, align 8
   %326 = getelementptr inbounds i8, ptr %322, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %326, ptr align 1 %311, i64 %.lcssa3885, i1 false)
-  %327 = getelementptr inbounds [1 x i8], ptr %326, i64 0, i64 %.lcssa3885
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %326, ptr align 1 %311, i64 %.lcssa3857, i1 false)
+  %327 = getelementptr inbounds [1 x i8], ptr %326, i64 0, i64 %.lcssa3857
   store i8 0, ptr %327, align 1
   store ptr %322, ptr %0, align 8
   %328 = getelementptr inbounds i8, ptr %0, i64 8
@@ -995,7 +995,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 333:                                              ; preds = %341, %329
   %334 = phi ptr [ %342, %341 ], [ %332, %329 ]
   %335 = ptrtoint ptr %334 to i64
-  %336 = ptrtoint ptr %.promoted4233 to i64
+  %336 = ptrtoint ptr %.promoted4205 to i64
   %337 = sub i64 %335, %336
   %338 = trunc i64 %337 to i32
   store i32 %338, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -1013,15 +1013,15 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %344, label %329, label %333
 
 345:                                              ; preds = %255
-  %346 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %346 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %346, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %347 = load i8, ptr %346, align 1
   %348 = and i8 %347, -33
-  %or.cond108 = icmp eq i8 %348, 76
-  br i1 %or.cond108, label %485, label %105
+  %or.cond52 = icmp eq i8 %348, 76
+  br i1 %or.cond52, label %485, label %105
 
 349:                                              ; preds = %263, %266
-  %350 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %350 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %350, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %351 = load i8, ptr %350, align 1
   %352 = icmp ult i8 %351, 40
@@ -1037,14 +1037,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 357:                                              ; preds = %355
   switch i8 %351, label %105 [
-    i8 0, label %.loopexit3758
-    i8 9, label %.preheader3756
+    i8 0, label %.loopexit3730
+    i8 9, label %.preheader3728
   ]
 
 358:                                              ; preds = %355
   switch i8 %351, label %105 [
-    i8 13, label %.loopexit3758
-    i8 10, label %.loopexit3758
+    i8 13, label %.loopexit3730
+    i8 10, label %.loopexit3730
   ]
 
 359:                                              ; preds = %353
@@ -1052,19 +1052,19 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %360, label %361, label %362
 
 361:                                              ; preds = %359
-  switch i8 %351, label %.loopexit3758 [
-    i8 32, label %.preheader3760.preheader
+  switch i8 %351, label %.loopexit3730 [
+    i8 32, label %.preheader3732.preheader
     i8 35, label %105
   ]
 
-.preheader3760.preheader:                         ; preds = %408, %531, %361
-  %.ph5395 = phi ptr [ %350, %361 ], [ %534, %531 ], [ %409, %408 ]
-  br label %.preheader3760
+.preheader3732.preheader:                         ; preds = %408, %531, %361
+  %.ph5367 = phi ptr [ %350, %361 ], [ %534, %531 ], [ %409, %408 ]
+  br label %.preheader3732
 
 362:                                              ; preds = %359
   %363 = and i8 %351, 61
-  %or.cond114 = icmp eq i8 %363, 37
-  br i1 %or.cond114, label %105, label %.loopexit3758
+  %or.cond58 = icmp eq i8 %363, 37
+  br i1 %or.cond58, label %105, label %.loopexit3730
 
 364:                                              ; preds = %349
   %365 = icmp ult i8 %351, 79
@@ -1077,12 +1077,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 368:                                              ; preds = %366
   %369 = icmp ugt i8 %351, 41
   %370 = icmp ne i8 %351, 59
-  %or.cond117 = and i1 %369, %370
-  br i1 %or.cond117, label %105, label %.loopexit3758
+  %or.cond61 = and i1 %369, %370
+  br i1 %or.cond61, label %105, label %.loopexit3730
 
 371:                                              ; preds = %366
   switch i8 %351, label %105 [
-    i8 61, label %.loopexit3758
+    i8 61, label %.loopexit3730
     i8 78, label %531
   ]
 
@@ -1092,8 +1092,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 374:                                              ; preds = %372
   %375 = add nsw i8 %351, -95
-  %or.cond120 = icmp ult i8 %375, -2
-  br i1 %or.cond120, label %105, label %.loopexit3758
+  %or.cond64 = icmp ult i8 %375, -2
+  br i1 %or.cond64, label %105, label %.loopexit3730
 
 376:                                              ; preds = %372
   %377 = icmp eq i8 %351, 110
@@ -1101,13 +1101,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 378:                                              ; preds = %376
   %379 = add i8 %351, -127
-  %or.cond123 = icmp ult i8 %379, -4
-  br i1 %or.cond123, label %105, label %.loopexit3758
+  %or.cond67 = icmp ult i8 %379, -4
+  br i1 %or.cond67, label %105, label %.loopexit3730
 
-.loopexit3758:                                    ; preds = %511, %.lr.ph4198, %506, %506, %503, %371, %361, %358, %358, %357, %519, %378, %374, %362, %528, %522, %513, %368
-  %380 = phi ptr [ %494, %506 ], [ %494, %506 ], [ %494, %503 ], [ %350, %371 ], [ %350, %361 ], [ %350, %358 ], [ %350, %358 ], [ %350, %357 ], [ %494, %519 ], [ %350, %378 ], [ %350, %374 ], [ %350, %362 ], [ %494, %528 ], [ %494, %522 ], [ %494, %513 ], [ %350, %368 ], [ %489, %.lr.ph4198 ], [ %494, %511 ]
+.loopexit3730:                                    ; preds = %511, %.lr.ph4170, %506, %506, %503, %371, %361, %358, %358, %357, %519, %378, %374, %362, %528, %522, %513, %368
+  %380 = phi ptr [ %494, %506 ], [ %494, %506 ], [ %494, %503 ], [ %350, %371 ], [ %350, %361 ], [ %350, %358 ], [ %350, %358 ], [ %350, %357 ], [ %494, %519 ], [ %350, %378 ], [ %350, %374 ], [ %350, %362 ], [ %494, %528 ], [ %494, %522 ], [ %494, %513 ], [ %350, %368 ], [ %489, %.lr.ph4170 ], [ %494, %511 ]
   %381 = ptrtoint ptr %380 to i64
-  %382 = ptrtoint ptr %.promoted4233 to i64
+  %382 = ptrtoint ptr %.promoted4205 to i64
   %383 = sub i64 %381, %382
   %384 = trunc i64 %383 to i32
   store i32 %384, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -1115,10 +1115,10 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %386 = icmp eq i32 %385, 2
   br i1 %386, label %387, label %391
 
-387:                                              ; preds = %.loopexit3758
-  switch i32 %.pre4500, label %391 [
-    i32 8, label %388
+387:                                              ; preds = %.loopexit3730
+  switch i32 %.pre4472, label %391 [
     i32 3, label %388
+    i32 8, label %388
   ]
 
 388:                                              ; preds = %387, %387
@@ -1128,7 +1128,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %390, align 4
   br label %.loopexit
 
-391:                                              ; preds = %387, %.loopexit3758
+391:                                              ; preds = %387, %.loopexit3730
   %392 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %393 = trunc i8 %392 to i1
   br i1 %393, label %394, label %396
@@ -1155,29 +1155,29 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 404:                                              ; preds = %263, %267
-  %405 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %405 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %405, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %406 = load i8, ptr %405, align 1
   %407 = and i8 %406, -33
-  %or.cond126 = icmp eq i8 %407, 76
-  br i1 %or.cond126, label %537, label %105
+  %or.cond70 = icmp eq i8 %407, 76
+  br i1 %or.cond70, label %537, label %105
 
 408:                                              ; preds = %273, %276
-  %409 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %409 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %409, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %410 = load i8, ptr %409, align 1
   %411 = and i8 %410, -33
-  %or.cond129 = icmp eq i8 %411, 70
-  br i1 %or.cond129, label %.preheader3760.preheader, label %105
+  %or.cond73 = icmp eq i8 %411, 70
+  br i1 %or.cond73, label %.preheader3732.preheader, label %105
 
-.preheader3776:                                   ; preds = %.preheader3776.preheader, %430
-  %412 = phi ptr [ %413, %430 ], [ %.ph5435, %.preheader3776.preheader ]
+.preheader3748:                                   ; preds = %.preheader3748.preheader, %430
+  %412 = phi ptr [ %413, %430 ], [ %.ph5407, %.preheader3748.preheader ]
   %413 = getelementptr inbounds i8, ptr %412, i64 1
   store ptr %413, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %414 = icmp ugt ptr %413, %2
   br i1 %414, label %.loopexit, label %415
 
-415:                                              ; preds = %.preheader3776
+415:                                              ; preds = %.preheader3748
   %416 = load i8, ptr %413, align 1
   %417 = icmp ult i8 %416, 39
   br i1 %417, label %418, label %434
@@ -1191,21 +1191,21 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %421, label %422, label %425
 
 422:                                              ; preds = %420
-  switch i8 %416, label %.loopexit3762 [
-    i8 0, label %.loopexit3774
-    i8 9, label %.preheader3772
+  switch i8 %416, label %.loopexit3734 [
+    i8 0, label %.loopexit3746
+    i8 9, label %.preheader3744
   ]
 
-.preheader3772:                                   ; preds = %422
+.preheader3744:                                   ; preds = %422
   %423 = getelementptr inbounds i8, ptr %412, i64 2
   store ptr %423, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %424 = icmp ugt ptr %423, %2
-  br i1 %424, label %.loopexit, label %.lr.ph4192
+  br i1 %424, label %.loopexit, label %.lr.ph4164
 
 425:                                              ; preds = %420
-  switch i8 %416, label %.loopexit3762 [
-    i8 13, label %.loopexit3774
-    i8 10, label %.loopexit3774
+  switch i8 %416, label %.loopexit3734 [
+    i8 13, label %.loopexit3746
+    i8 10, label %.loopexit3746
   ]
 
 426:                                              ; preds = %418
@@ -1214,16 +1214,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 428:                                              ; preds = %426
   %429 = icmp ult i8 %416, 32
-  br i1 %429, label %.loopexit3762, label %430
+  br i1 %429, label %.loopexit3734, label %430
 
 430:                                              ; preds = %428
   %431 = icmp eq i8 %416, 32
-  br i1 %431, label %.preheader3776, label %.loopexit3774
+  br i1 %431, label %.preheader3748, label %.loopexit3746
 
 432:                                              ; preds = %426
   %433 = and i8 %416, 61
-  %or.cond135.not = icmp eq i8 %433, 36
-  br i1 %or.cond135.not, label %.loopexit3774, label %.loopexit3762
+  %or.cond79.not = icmp eq i8 %433, 36
+  br i1 %or.cond79.not, label %.loopexit3746, label %.loopexit3734
 
 434:                                              ; preds = %415
   %435 = icmp ult i8 %416, 62
@@ -1236,12 +1236,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 438:                                              ; preds = %436
   %439 = icmp eq i8 %416, 39
   %440 = icmp ugt i8 %416, 41
-  %or.cond138 = or i1 %439, %440
-  br i1 %or.cond138, label %.loopexit3762, label %.loopexit3774
+  %or.cond82 = or i1 %439, %440
+  br i1 %or.cond82, label %.loopexit3734, label %.loopexit3746
 
 441:                                              ; preds = %436
   %442 = icmp eq i8 %416, 60
-  br i1 %442, label %.loopexit3762, label %.loopexit3774
+  br i1 %442, label %.loopexit3734, label %.loopexit3746
 
 443:                                              ; preds = %434
   %444 = icmp ult i8 %416, 93
@@ -1249,19 +1249,19 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 445:                                              ; preds = %443
   %446 = icmp eq i8 %416, 91
-  br i1 %446, label %.preheader3748, label %.loopexit3762
+  br i1 %446, label %.preheader3720, label %.loopexit3734
 
 447:                                              ; preds = %443
   %448 = icmp ugt i8 %416, 94
   %449 = add i8 %416, -127
-  %or.cond141 = icmp ult i8 %449, -4
-  %or.cond3721 = and i1 %448, %or.cond141
-  br i1 %or.cond3721, label %.loopexit3762, label %.loopexit3774
+  %or.cond85 = icmp ult i8 %449, -4
+  %or.cond3693 = and i1 %448, %or.cond85
+  br i1 %or.cond3693, label %.loopexit3734, label %.loopexit3746
 
-.loopexit3774:                                    ; preds = %430, %.lr.ph4192, %425, %425, %422, %438, %441, %447, %432
-  %450 = phi ptr [ %413, %425 ], [ %413, %425 ], [ %413, %422 ], [ %413, %438 ], [ %413, %441 ], [ %413, %447 ], [ %413, %432 ], [ %541, %.lr.ph4192 ], [ %413, %430 ]
+.loopexit3746:                                    ; preds = %430, %.lr.ph4164, %425, %425, %422, %438, %441, %447, %432
+  %450 = phi ptr [ %413, %425 ], [ %413, %425 ], [ %413, %422 ], [ %413, %438 ], [ %413, %441 ], [ %413, %447 ], [ %413, %432 ], [ %541, %.lr.ph4164 ], [ %413, %430 ]
   %451 = ptrtoint ptr %450 to i64
-  %452 = ptrtoint ptr %.promoted4233 to i64
+  %452 = ptrtoint ptr %.promoted4205 to i64
   %453 = sub i64 %451, %452
   %454 = trunc i64 %453 to i32
   store i32 %454, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -1269,10 +1269,10 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %456 = icmp eq i32 %455, 2
   br i1 %456, label %457, label %461
 
-457:                                              ; preds = %.loopexit3774
-  switch i32 %.pre4500, label %461 [
-    i32 8, label %458
+457:                                              ; preds = %.loopexit3746
+  switch i32 %.pre4472, label %461 [
     i32 3, label %458
+    i32 8, label %458
   ]
 
 458:                                              ; preds = %457, %457
@@ -1282,7 +1282,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %460, align 4
   br label %.loopexit
 
-461:                                              ; preds = %457, %.loopexit3774
+461:                                              ; preds = %457, %.loopexit3746
   %462 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %463 = trunc i8 %462 to i1
   br i1 %463, label %464, label %466
@@ -1315,51 +1315,51 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 477:                                              ; preds = %279
-  %478 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %478 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %478, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %479 = load i8, ptr %478, align 1
   %480 = and i8 %479, -33
-  %or.cond144 = icmp eq i8 %480, 85
-  br i1 %or.cond144, label %545, label %105
+  %or.cond88 = icmp eq i8 %480, 85
+  br i1 %or.cond88, label %545, label %105
 
 481:                                              ; preds = %283
-  %482 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %482 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %482, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %483 = load i8, ptr %482, align 1
   %484 = and i8 %483, -33
-  %or.cond147 = icmp eq i8 %484, 83
-  br i1 %or.cond147, label %.preheader3776.preheader, label %105
+  %or.cond91 = icmp eq i8 %484, 83
+  br i1 %or.cond91, label %.preheader3748.preheader, label %105
 
 485:                                              ; preds = %345
-  %486 = getelementptr inbounds i8, ptr %.promoted4233, i64 3
+  %486 = getelementptr inbounds i8, ptr %.promoted4205, i64 3
   store ptr %486, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %487 = load i8, ptr %486, align 1
   %488 = and i8 %487, -33
-  %or.cond150 = icmp eq i8 %488, 83
-  br i1 %or.cond150, label %531, label %105
+  %or.cond94 = icmp eq i8 %488, 83
+  br i1 %or.cond94, label %531, label %105
 
-.lr.ph4198:                                       ; preds = %.preheader3756, %.backedge3759
-  %489 = phi ptr [ %491, %.backedge3759 ], [ %504, %.preheader3756 ]
+.lr.ph4170:                                       ; preds = %.preheader3728, %.backedge3731
+  %489 = phi ptr [ %491, %.backedge3731 ], [ %504, %.preheader3728 ]
   %490 = load i8, ptr %489, align 1
-  switch i8 %490, label %.loopexit3758 [
-    i8 32, label %.backedge3759
-    i8 9, label %.backedge3759
+  switch i8 %490, label %.loopexit3730 [
+    i8 32, label %.backedge3731
+    i8 9, label %.backedge3731
   ]
 
-.backedge3759:                                    ; preds = %.lr.ph4198, %.lr.ph4198
+.backedge3731:                                    ; preds = %.lr.ph4170, %.lr.ph4170
   %491 = getelementptr inbounds i8, ptr %489, i64 1
   store ptr %491, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %492 = icmp ugt ptr %491, %2
-  br i1 %492, label %.loopexit, label %.lr.ph4198
+  br i1 %492, label %.loopexit, label %.lr.ph4170
 
-.preheader3760:                                   ; preds = %.preheader3760.preheader, %511
-  %493 = phi ptr [ %494, %511 ], [ %.ph5395, %.preheader3760.preheader ]
+.preheader3732:                                   ; preds = %.preheader3732.preheader, %511
+  %493 = phi ptr [ %494, %511 ], [ %.ph5367, %.preheader3732.preheader ]
   %494 = getelementptr inbounds i8, ptr %493, i64 1
   store ptr %494, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %495 = icmp ugt ptr %494, %2
   br i1 %495, label %.loopexit, label %496
 
-496:                                              ; preds = %.preheader3760
+496:                                              ; preds = %.preheader3732
   %497 = load i8, ptr %494, align 1
   %498 = icmp ult i8 %497, 39
   br i1 %498, label %499, label %515
@@ -1373,22 +1373,22 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %502, label %503, label %506
 
 503:                                              ; preds = %501
-  switch i8 %497, label %.loopexit3762 [
-    i8 0, label %.loopexit3758
-    i8 9, label %.preheader3756
+  switch i8 %497, label %.loopexit3734 [
+    i8 0, label %.loopexit3730
+    i8 9, label %.preheader3728
   ]
 
-.preheader3756:                                   ; preds = %357, %503
-  %.promoted4197 = phi ptr [ %350, %357 ], [ %494, %503 ]
-  %504 = getelementptr inbounds i8, ptr %.promoted4197, i64 1
+.preheader3728:                                   ; preds = %357, %503
+  %.promoted4169 = phi ptr [ %350, %357 ], [ %494, %503 ]
+  %504 = getelementptr inbounds i8, ptr %.promoted4169, i64 1
   store ptr %504, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %505 = icmp ugt ptr %504, %2
-  br i1 %505, label %.loopexit, label %.lr.ph4198
+  br i1 %505, label %.loopexit, label %.lr.ph4170
 
 506:                                              ; preds = %501
-  switch i8 %497, label %.loopexit3762 [
-    i8 13, label %.loopexit3758
-    i8 10, label %.loopexit3758
+  switch i8 %497, label %.loopexit3734 [
+    i8 13, label %.loopexit3730
+    i8 10, label %.loopexit3730
   ]
 
 507:                                              ; preds = %499
@@ -1397,16 +1397,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 509:                                              ; preds = %507
   %510 = icmp ult i8 %497, 32
-  br i1 %510, label %.loopexit3762, label %511
+  br i1 %510, label %.loopexit3734, label %511
 
 511:                                              ; preds = %509
   %512 = icmp eq i8 %497, 32
-  br i1 %512, label %.preheader3760, label %.loopexit3758
+  br i1 %512, label %.preheader3732, label %.loopexit3730
 
 513:                                              ; preds = %507
   %514 = and i8 %497, 61
-  %or.cond159.not = icmp eq i8 %514, 36
-  br i1 %or.cond159.not, label %.loopexit3758, label %.loopexit3762
+  %or.cond103.not = icmp eq i8 %514, 36
+  br i1 %or.cond103.not, label %.loopexit3730, label %.loopexit3734
 
 515:                                              ; preds = %496
   %516 = icmp ult i8 %497, 62
@@ -1419,12 +1419,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 519:                                              ; preds = %517
   %520 = icmp ne i8 %497, 39
   %521 = icmp ult i8 %497, 42
-  %or.cond162 = and i1 %520, %521
-  br i1 %or.cond162, label %.loopexit3758, label %.loopexit3762
+  %or.cond106 = and i1 %520, %521
+  br i1 %or.cond106, label %.loopexit3730, label %.loopexit3734
 
 522:                                              ; preds = %517
   %523 = icmp eq i8 %497, 60
-  br i1 %523, label %.loopexit3762, label %.loopexit3758
+  br i1 %523, label %.loopexit3734, label %.loopexit3730
 
 524:                                              ; preds = %515
   %525 = icmp ult i8 %497, 93
@@ -1432,63 +1432,63 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 526:                                              ; preds = %524
   %527 = icmp eq i8 %497, 91
-  br i1 %527, label %.preheader3748, label %.loopexit3762
+  br i1 %527, label %.preheader3720, label %.loopexit3734
 
 528:                                              ; preds = %524
   %529 = icmp ult i8 %497, 95
   %530 = add i8 %497, -123
-  %or.cond165 = icmp ult i8 %530, 4
-  %or.cond3722 = or i1 %529, %or.cond165
-  br i1 %or.cond3722, label %.loopexit3758, label %.loopexit3762
+  %or.cond109 = icmp ult i8 %530, 4
+  %or.cond3694 = or i1 %529, %or.cond109
+  br i1 %or.cond3694, label %.loopexit3730, label %.loopexit3734
 
 531:                                              ; preds = %371, %485, %376
   %532 = phi i64 [ 2, %371 ], [ 3, %485 ], [ 2, %376 ]
-  %533 = getelementptr inbounds i8, ptr %.promoted4233, i64 %532
+  %533 = getelementptr inbounds i8, ptr %.promoted4205, i64 %532
   %534 = getelementptr inbounds i8, ptr %533, i64 1
   store ptr %534, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %535 = load i8, ptr %534, align 1
   %536 = and i8 %535, -33
-  %or.cond168 = icmp eq i8 %536, 69
-  br i1 %or.cond168, label %.preheader3760.preheader, label %105
+  %or.cond112 = icmp eq i8 %536, 69
+  br i1 %or.cond112, label %.preheader3732.preheader, label %105
 
 537:                                              ; preds = %404
-  %538 = getelementptr inbounds i8, ptr %.promoted4233, i64 3
+  %538 = getelementptr inbounds i8, ptr %.promoted4205, i64 3
   store ptr %538, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %539 = load i8, ptr %538, align 1
   %540 = and i8 %539, -33
-  %or.cond171 = icmp eq i8 %540, 76
-  br i1 %or.cond171, label %.preheader3768, label %105
+  %or.cond115 = icmp eq i8 %540, 76
+  br i1 %or.cond115, label %.preheader3740, label %105
 
-.lr.ph4192:                                       ; preds = %.preheader3772, %.backedge3775
-  %541 = phi ptr [ %543, %.backedge3775 ], [ %423, %.preheader3772 ]
+.lr.ph4164:                                       ; preds = %.preheader3744, %.backedge3747
+  %541 = phi ptr [ %543, %.backedge3747 ], [ %423, %.preheader3744 ]
   %542 = load i8, ptr %541, align 1
-  switch i8 %542, label %.loopexit3774 [
-    i8 32, label %.backedge3775
-    i8 9, label %.backedge3775
+  switch i8 %542, label %.loopexit3746 [
+    i8 32, label %.backedge3747
+    i8 9, label %.backedge3747
   ]
 
-.backedge3775:                                    ; preds = %.lr.ph4192, %.lr.ph4192
+.backedge3747:                                    ; preds = %.lr.ph4164, %.lr.ph4164
   %543 = getelementptr inbounds i8, ptr %541, i64 1
   store ptr %543, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %544 = icmp ugt ptr %543, %2
-  br i1 %544, label %.loopexit, label %.lr.ph4192
+  br i1 %544, label %.loopexit, label %.lr.ph4164
 
 545:                                              ; preds = %477
-  %546 = getelementptr inbounds i8, ptr %.promoted4233, i64 3
+  %546 = getelementptr inbounds i8, ptr %.promoted4205, i64 3
   store ptr %546, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %547 = load i8, ptr %546, align 1
   %548 = and i8 %547, -33
-  %or.cond177 = icmp eq i8 %548, 69
-  br i1 %or.cond177, label %.preheader3776.preheader, label %105
+  %or.cond121 = icmp eq i8 %548, 69
+  br i1 %or.cond121, label %.preheader3748.preheader, label %105
 
-.preheader3768:                                   ; preds = %537, %567
+.preheader3740:                                   ; preds = %537, %567
   %549 = phi ptr [ %550, %567 ], [ %538, %537 ]
   %550 = getelementptr inbounds i8, ptr %549, i64 1
   store ptr %550, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %551 = icmp ugt ptr %550, %2
   br i1 %551, label %.loopexit, label %552
 
-552:                                              ; preds = %.preheader3768
+552:                                              ; preds = %.preheader3740
   %553 = load i8, ptr %550, align 1
   %554 = icmp ult i8 %553, 39
   br i1 %554, label %555, label %571
@@ -1502,21 +1502,21 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %558, label %559, label %562
 
 559:                                              ; preds = %557
-  switch i8 %553, label %.loopexit3762 [
-    i8 0, label %.loopexit3766
-    i8 9, label %.preheader3764
+  switch i8 %553, label %.loopexit3734 [
+    i8 0, label %.loopexit3738
+    i8 9, label %.preheader3736
   ]
 
-.preheader3764:                                   ; preds = %559
+.preheader3736:                                   ; preds = %559
   %560 = getelementptr inbounds i8, ptr %549, i64 2
   store ptr %560, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %561 = icmp ugt ptr %560, %2
-  br i1 %561, label %.loopexit, label %.lr.ph4195
+  br i1 %561, label %.loopexit, label %.lr.ph4167
 
 562:                                              ; preds = %557
-  switch i8 %553, label %.loopexit3762 [
-    i8 13, label %.loopexit3766
-    i8 10, label %.loopexit3766
+  switch i8 %553, label %.loopexit3734 [
+    i8 13, label %.loopexit3738
+    i8 10, label %.loopexit3738
   ]
 
 563:                                              ; preds = %555
@@ -1525,16 +1525,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 565:                                              ; preds = %563
   %566 = icmp ult i8 %553, 32
-  br i1 %566, label %.loopexit3762, label %567
+  br i1 %566, label %.loopexit3734, label %567
 
 567:                                              ; preds = %565
   %568 = icmp eq i8 %553, 32
-  br i1 %568, label %.preheader3768, label %.loopexit3766
+  br i1 %568, label %.preheader3740, label %.loopexit3738
 
 569:                                              ; preds = %563
   %570 = and i8 %553, 61
-  %or.cond183.not = icmp eq i8 %570, 36
-  br i1 %or.cond183.not, label %.loopexit3766, label %.loopexit3762
+  %or.cond127.not = icmp eq i8 %570, 36
+  br i1 %or.cond127.not, label %.loopexit3738, label %.loopexit3734
 
 571:                                              ; preds = %552
   %572 = icmp ult i8 %553, 62
@@ -1547,12 +1547,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 575:                                              ; preds = %573
   %576 = icmp eq i8 %553, 39
   %577 = icmp ugt i8 %553, 41
-  %or.cond186 = or i1 %576, %577
-  br i1 %or.cond186, label %.loopexit3762, label %.loopexit3766
+  %or.cond130 = or i1 %576, %577
+  br i1 %or.cond130, label %.loopexit3734, label %.loopexit3738
 
 578:                                              ; preds = %573
   %579 = icmp eq i8 %553, 60
-  br i1 %579, label %.loopexit3762, label %.loopexit3766
+  br i1 %579, label %.loopexit3734, label %.loopexit3738
 
 580:                                              ; preds = %571
   %581 = icmp ult i8 %553, 93
@@ -1560,19 +1560,19 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 582:                                              ; preds = %580
   %583 = icmp eq i8 %553, 91
-  br i1 %583, label %.preheader3748, label %.loopexit3762
+  br i1 %583, label %.preheader3720, label %.loopexit3734
 
 584:                                              ; preds = %580
   %585 = icmp ugt i8 %553, 94
   %586 = add i8 %553, -127
-  %or.cond189 = icmp ult i8 %586, -4
-  %or.cond3723 = and i1 %585, %or.cond189
-  br i1 %or.cond3723, label %.loopexit3762, label %.loopexit3766
+  %or.cond133 = icmp ult i8 %586, -4
+  %or.cond3695 = and i1 %585, %or.cond133
+  br i1 %or.cond3695, label %.loopexit3734, label %.loopexit3738
 
-.loopexit3766:                                    ; preds = %567, %.lr.ph4195, %562, %562, %559, %575, %578, %584, %569
-  %587 = phi ptr [ %550, %562 ], [ %550, %562 ], [ %550, %559 ], [ %550, %575 ], [ %550, %578 ], [ %550, %584 ], [ %550, %569 ], [ %611, %.lr.ph4195 ], [ %550, %567 ]
+.loopexit3738:                                    ; preds = %567, %.lr.ph4167, %562, %562, %559, %575, %578, %584, %569
+  %587 = phi ptr [ %550, %562 ], [ %550, %562 ], [ %550, %559 ], [ %550, %575 ], [ %550, %578 ], [ %550, %584 ], [ %550, %569 ], [ %611, %.lr.ph4167 ], [ %550, %567 ]
   %588 = ptrtoint ptr %587 to i64
-  %589 = ptrtoint ptr %.promoted4233 to i64
+  %589 = ptrtoint ptr %.promoted4205 to i64
   %590 = sub i64 %588, %589
   %591 = trunc i64 %590 to i32
   store i32 %591, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -1580,10 +1580,10 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %593 = icmp eq i32 %592, 2
   br i1 %593, label %594, label %598
 
-594:                                              ; preds = %.loopexit3766
-  switch i32 %.pre4500, label %598 [
-    i32 8, label %595
+594:                                              ; preds = %.loopexit3738
+  switch i32 %.pre4472, label %598 [
     i32 3, label %595
+    i32 8, label %595
   ]
 
 595:                                              ; preds = %594, %594
@@ -1593,7 +1593,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %597, align 4
   br label %.loopexit
 
-598:                                              ; preds = %594, %.loopexit3766
+598:                                              ; preds = %594, %.loopexit3738
   %599 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %600 = trunc i8 %599 to i1
   br i1 %600, label %601, label %603
@@ -1619,32 +1619,32 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 262, ptr %610, align 8
   br label %.loopexit
 
-.lr.ph4195:                                       ; preds = %.preheader3764, %.backedge3767
-  %611 = phi ptr [ %613, %.backedge3767 ], [ %560, %.preheader3764 ]
+.lr.ph4167:                                       ; preds = %.preheader3736, %.backedge3739
+  %611 = phi ptr [ %613, %.backedge3739 ], [ %560, %.preheader3736 ]
   %612 = load i8, ptr %611, align 1
-  switch i8 %612, label %.loopexit3766 [
-    i8 32, label %.backedge3767
-    i8 9, label %.backedge3767
+  switch i8 %612, label %.loopexit3738 [
+    i8 32, label %.backedge3739
+    i8 9, label %.backedge3739
   ]
 
-.backedge3767:                                    ; preds = %.lr.ph4195, %.lr.ph4195
+.backedge3739:                                    ; preds = %.lr.ph4167, %.lr.ph4167
   %613 = getelementptr inbounds i8, ptr %611, i64 1
   store ptr %613, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %614 = icmp ugt ptr %613, %2
-  br i1 %614, label %.loopexit, label %.lr.ph4195
+  br i1 %614, label %.loopexit, label %.lr.ph4167
 
 615:                                              ; preds = %21
   switch i8 %22, label %618 [
-    i8 32, label %.preheader3745
-    i8 9, label %.preheader3745
+    i8 32, label %.preheader3717
+    i8 9, label %.preheader3717
   ]
 
-.preheader3745:                                   ; preds = %615, %615
-  %616 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+.preheader3717:                                   ; preds = %615, %615
+  %616 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %616, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %616, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %617 = icmp ugt ptr %616, %2
-  br i1 %617, label %.loopexit, label %.lr.ph4231
+  br i1 %617, label %.loopexit, label %.lr.ph4203
 
 618:                                              ; preds = %615
   %619 = icmp ult i8 %22, 48
@@ -1660,11 +1660,11 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 624:                                              ; preds = %622
   %625 = add nsw i8 %22, -9
-  %or.cond5332 = icmp ult i8 %625, 2
-  br i1 %or.cond5332, label %715, label %.loopexit3734
+  %or.cond5304 = icmp ult i8 %625, 2
+  br i1 %or.cond5304, label %715, label %.loopexit3706
 
 626:                                              ; preds = %622
-  switch i8 %22, label %.loopexit3734 [
+  switch i8 %22, label %.loopexit3706 [
     i8 13, label %715
     i8 34, label %723
   ]
@@ -1675,7 +1675,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 629:                                              ; preds = %627
   %630 = icmp eq i8 %22, 36
-  br i1 %630, label %731, label %.loopexit3734
+  br i1 %630, label %731, label %.loopexit3706
 
 631:                                              ; preds = %627
   %632 = icmp eq i8 %22, 39
@@ -1683,9 +1683,9 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 633:                                              ; preds = %631
   %634 = icmp ult i8 %22, 45
-  %.not3680 = icmp eq i8 %22, 47
-  %or.cond5333 = or i1 %634, %.not3680
-  br i1 %or.cond5333, label %.loopexit3734, label %741
+  %.not3651 = icmp eq i8 %22, 47
+  %or.cond5305 = or i1 %634, %.not3651
+  br i1 %or.cond5305, label %.loopexit3706, label %741
 
 635:                                              ; preds = %618
   %636 = icmp ult i8 %22, 92
@@ -1697,17 +1697,17 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 639:                                              ; preds = %637
   %640 = icmp ult i8 %22, 58
-  br i1 %640, label %.preheader3741, label %641
+  br i1 %640, label %.preheader3713, label %641
 
 641:                                              ; preds = %639
   %642 = icmp eq i8 %22, 59
-  br i1 %642, label %715, label %.loopexit3734
+  br i1 %642, label %715, label %.loopexit3706
 
 643:                                              ; preds = %637
   %644 = icmp ult i8 %22, 65
-  %.not3674 = icmp eq i8 %22, 91
-  %or.cond5334 = or i1 %644, %.not3674
-  br i1 %or.cond5334, label %.loopexit3734, label %.preheader3743.preheader
+  %.not3645 = icmp eq i8 %22, 91
+  %or.cond5306 = or i1 %644, %.not3645
+  br i1 %or.cond5306, label %.loopexit3706, label %.preheader3715.preheader
 
 645:                                              ; preds = %635
   %646 = icmp ult i8 %22, 95
@@ -1716,27 +1716,27 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 647:                                              ; preds = %645
   switch i8 %22, label %847 [
     i8 92, label %843
-    i8 94, label %.loopexit3734
+    i8 94, label %.loopexit3706
   ]
 
 648:                                              ; preds = %645
   %649 = icmp ne i8 %22, 96
   %650 = icmp ult i8 %22, 123
-  %or.cond5335 = and i1 %649, %650
-  br i1 %or.cond5335, label %.preheader3743.preheader, label %.loopexit3734
+  %or.cond5307 = and i1 %649, %650
+  br i1 %or.cond5307, label %.preheader3715.preheader, label %.loopexit3706
 
-.preheader3743.preheader:                         ; preds = %643, %648
-  br label %.preheader3743
+.preheader3715.preheader:                         ; preds = %643, %648
+  br label %.preheader3715
 
-.loopexit3734:                                    ; preds = %900, %.lr.ph4237, %629, %641, %626, %647, %890, %863, %812, %809, %808, %764, %756, %735, %708, %705, %702, %909, %905, %894, %893, %867, %843, %817, %813, %770, %767, %760, %759, %736, %713, %709, %700, %656, %648, %643, %633, %624
-  %651 = phi ptr [ %883, %890 ], [ %858, %863 ], [ %796, %812 ], [ %796, %809 ], [ %796, %808 ], [ %746, %764 ], [ %746, %756 ], [ %732, %735 ], [ %692, %708 ], [ %692, %705 ], [ %692, %702 ], [ %883, %909 ], [ %883, %905 ], [ %883, %894 ], [ %883, %893 ], [ %858, %867 ], [ %845, %843 ], [ %796, %817 ], [ %796, %813 ], [ %746, %770 ], [ %746, %767 ], [ %746, %760 ], [ %746, %759 ], [ %732, %736 ], [ %692, %713 ], [ %692, %709 ], [ %692, %700 ], [ %657, %656 ], [ %.promoted4233, %648 ], [ %.promoted4233, %643 ], [ %.promoted4233, %633 ], [ %.promoted4233, %624 ], [ %.promoted4233, %647 ], [ %.promoted4233, %626 ], [ %.promoted4233, %641 ], [ %.promoted4233, %629 ], [ %870, %.lr.ph4237 ], [ %883, %900 ]
+.loopexit3706:                                    ; preds = %900, %.lr.ph4209, %629, %641, %626, %647, %890, %863, %812, %809, %808, %764, %756, %735, %708, %705, %702, %909, %905, %894, %893, %867, %843, %817, %813, %770, %767, %760, %759, %736, %713, %709, %700, %656, %648, %643, %633, %624
+  %651 = phi ptr [ %883, %890 ], [ %858, %863 ], [ %796, %812 ], [ %796, %809 ], [ %796, %808 ], [ %746, %764 ], [ %746, %756 ], [ %732, %735 ], [ %692, %708 ], [ %692, %705 ], [ %692, %702 ], [ %883, %909 ], [ %883, %905 ], [ %883, %894 ], [ %883, %893 ], [ %858, %867 ], [ %845, %843 ], [ %796, %817 ], [ %796, %813 ], [ %746, %770 ], [ %746, %767 ], [ %746, %760 ], [ %746, %759 ], [ %732, %736 ], [ %692, %713 ], [ %692, %709 ], [ %692, %700 ], [ %657, %656 ], [ %.promoted4205, %648 ], [ %.promoted4205, %643 ], [ %.promoted4205, %633 ], [ %.promoted4205, %624 ], [ %.promoted4205, %647 ], [ %.promoted4205, %626 ], [ %.promoted4205, %641 ], [ %.promoted4205, %629 ], [ %870, %.lr.ph4209 ], [ %883, %900 ]
   %652 = getelementptr inbounds i8, ptr %651, i64 1
   store ptr %652, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %652, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %653 = icmp ugt ptr %652, %2
   br i1 %653, label %.loopexit, label %654
 
-654:                                              ; preds = %.loopexit3734
+654:                                              ; preds = %.loopexit3706
   %655 = load i8, ptr %652, align 1
   br label %656
 
@@ -1747,8 +1747,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %659 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.5, i64 0, i64 %658
   %660 = load i8, ptr %659, align 1
   %661 = and i8 %660, 4
-  %.not3687 = icmp eq i8 %661, 0
-  br i1 %.not3687, label %662, label %.loopexit3734
+  %.not3658 = icmp eq i8 %661, 0
+  br i1 %.not3658, label %662, label %.loopexit3706
 
 662:                                              ; preds = %656
   %663 = icmp ult i8 %.1, 35
@@ -1760,13 +1760,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 666:                                              ; preds = %664
   %667 = add i8 %.1, -60
-  %or.cond195 = icmp ult i8 %667, 33
-  br i1 %or.cond195, label %843, label %668
+  %or.cond139 = icmp ult i8 %667, 33
+  br i1 %or.cond139, label %843, label %668
 
 668:                                              ; preds = %708, %708, %869, %702, %666, %662
   %669 = phi ptr [ %692, %708 ], [ %692, %708 ], [ %855, %869 ], [ %692, %702 ], [ %657, %666 ], [ %657, %662 ]
   %670 = ptrtoint ptr %669 to i64
-  %671 = ptrtoint ptr %.promoted4233 to i64
+  %671 = ptrtoint ptr %.promoted4205 to i64
   %672 = sub i64 %670, %671
   %673 = trunc i64 %672 to i32
   store i32 %673, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -1796,7 +1796,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %688 = getelementptr inbounds i8, ptr %685, i64 16
   store i64 %674, ptr %688, align 8
   %689 = getelementptr inbounds i8, ptr %685, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %689, ptr nonnull align 1 %.promoted4233, i64 %674, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %689, ptr nonnull align 1 %.promoted4205, i64 %674, i1 false)
   %690 = getelementptr inbounds [1 x i8], ptr %689, i64 0, i64 %674
   store i8 0, ptr %690, align 1
   store ptr %685, ptr %0, align 8
@@ -1804,22 +1804,22 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 262, ptr %691, align 8
   br label %.loopexit
 
-.lr.ph4231:                                       ; preds = %.preheader3745, %.backedge3747
-  %692 = phi ptr [ %694, %.backedge3747 ], [ %616, %.preheader3745 ]
+.lr.ph4203:                                       ; preds = %.preheader3717, %.backedge3719
+  %692 = phi ptr [ %694, %.backedge3719 ], [ %616, %.preheader3717 ]
   %693 = load i8, ptr %692, align 1
   switch i8 %693, label %696 [
-    i8 32, label %.backedge3747
-    i8 9, label %.backedge3747
+    i8 32, label %.backedge3719
+    i8 9, label %.backedge3719
   ]
 
-.backedge3747:                                    ; preds = %.lr.ph4231, %.lr.ph4231
+.backedge3719:                                    ; preds = %.lr.ph4203, %.lr.ph4203
   %694 = getelementptr inbounds i8, ptr %692, i64 1
   store ptr %694, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %694, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %695 = icmp ugt ptr %694, %2
-  br i1 %695, label %.loopexit, label %.lr.ph4231
+  br i1 %695, label %.loopexit, label %.lr.ph4203
 
-696:                                              ; preds = %.lr.ph4231
+696:                                              ; preds = %.lr.ph4203
   %697 = icmp ult i8 %693, 37
   br i1 %697, label %698, label %706
 
@@ -1829,16 +1829,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 700:                                              ; preds = %698
   %701 = icmp ult i8 %693, 9
-  br i1 %701, label %.loopexit3734, label %702
+  br i1 %701, label %.loopexit3706, label %702
 
 702:                                              ; preds = %700
   %703 = icmp ugt i8 %693, 10
   %704 = icmp ne i8 %693, 13
-  %or.cond198 = and i1 %703, %704
-  br i1 %or.cond198, label %.loopexit3734, label %668
+  %or.cond142 = and i1 %703, %704
+  br i1 %or.cond142, label %.loopexit3706, label %668
 
 705:                                              ; preds = %698
-  switch i8 %693, label %.loopexit3734 [
+  switch i8 %693, label %.loopexit3706 [
     i8 34, label %723
     i8 36, label %854
   ]
@@ -1848,14 +1848,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %707, label %708, label %709
 
 708:                                              ; preds = %706
-  switch i8 %693, label %.loopexit3734 [
+  switch i8 %693, label %.loopexit3706 [
     i8 59, label %668
     i8 39, label %668
   ]
 
 709:                                              ; preds = %706
   %710 = icmp ult i8 %693, 92
-  br i1 %710, label %.loopexit3734, label %711
+  br i1 %710, label %.loopexit3706, label %711
 
 711:                                              ; preds = %709
   %712 = icmp eq i8 %693, 92
@@ -1863,28 +1863,28 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 713:                                              ; preds = %711
   %714 = icmp ult i8 %693, 94
-  br i1 %714, label %847, label %.loopexit3734
+  br i1 %714, label %847, label %.loopexit3706
 
 715:                                              ; preds = %624, %626, %641
-  %716 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %716 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %716, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %717
 
 717:                                              ; preds = %735, %738, %715
   %718 = phi ptr [ %732, %735 ], [ %739, %738 ], [ %716, %715 ]
   %719 = ptrtoint ptr %718 to i64
-  %720 = ptrtoint ptr %.promoted4233 to i64
+  %720 = ptrtoint ptr %.promoted4205 to i64
   %721 = sub i64 %719, %720
   %722 = trunc i64 %721 to i32
   store i32 %722, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   br label %.loopexit
 
 723:                                              ; preds = %705, %626
-  %724 = phi ptr [ %692, %705 ], [ %.promoted4233, %626 ]
+  %724 = phi ptr [ %692, %705 ], [ %.promoted4205, %626 ]
   %725 = getelementptr inbounds i8, ptr %724, i64 1
   store ptr %725, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %726 = ptrtoint ptr %725 to i64
-  %727 = ptrtoint ptr %.promoted4233 to i64
+  %727 = ptrtoint ptr %.promoted4205 to i64
   %728 = sub i64 %726, %727
   %729 = trunc i64 %728 to i32
   store i32 %729, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -1893,52 +1893,52 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 731:                                              ; preds = %629
-  %732 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %732 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %732, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %733 = load i8, ptr %732, align 1
   %734 = icmp ult i8 %733, 93
   br i1 %734, label %735, label %736
 
 735:                                              ; preds = %731
-  switch i8 %733, label %.loopexit3734 [
+  switch i8 %733, label %.loopexit3706 [
     i8 0, label %717
     i8 92, label %.preheader
   ]
 
 736:                                              ; preds = %731
   %737 = icmp eq i8 %733, 123
-  br i1 %737, label %874, label %.loopexit3734
+  br i1 %737, label %874, label %.loopexit3706
 
 738:                                              ; preds = %631
-  %739 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %739 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %739, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %740 = load i8, ptr %739, align 1
-  %.not3682 = icmp eq i8 %740, 39
-  br i1 %.not3682, label %717, label %.preheader3735
+  %.not3653 = icmp eq i8 %740, 39
+  br i1 %.not3653, label %717, label %.preheader3707
 
 741:                                              ; preds = %633
-  %742 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %742 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %742, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %742, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %743 = load i8, ptr %742, align 1
   %744 = add i8 %743, -48
-  %or.cond204 = icmp ult i8 %744, 10
-  br i1 %or.cond204, label %.preheader3737.preheader, label %656
+  %or.cond148 = icmp ult i8 %744, 10
+  br i1 %or.cond148, label %.preheader3709.preheader, label %656
 
-.preheader3741:                                   ; preds = %639, %748
-  %745 = phi ptr [ %746, %748 ], [ %.promoted4233, %639 ]
+.preheader3713:                                   ; preds = %639, %748
+  %745 = phi ptr [ %746, %748 ], [ %.promoted4205, %639 ]
   %746 = getelementptr inbounds i8, ptr %745, i64 1
   store ptr %746, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %746, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %747 = icmp ugt ptr %746, %2
   br i1 %747, label %.loopexit, label %748
 
-748:                                              ; preds = %.preheader3741
+748:                                              ; preds = %.preheader3713
   %749 = load i8, ptr %746, align 1
   %750 = zext i8 %749 to i64
   %751 = add nsw i64 %750, -58
-  %.not3677 = icmp ult i64 %751, -10
-  br i1 %.not3677, label %752, label %.preheader3741
+  %.not3648 = icmp ult i64 %751, -10
+  br i1 %.not3648, label %752, label %.preheader3713
 
 752:                                              ; preds = %748
   %753 = icmp ult i8 %749, 39
@@ -1949,9 +1949,9 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %755, label %756, label %757
 
 756:                                              ; preds = %754
-  switch i8 %749, label %.loopexit3734 [
-    i8 13, label %.loopexit3739
-    i8 10, label %.loopexit3739
+  switch i8 %749, label %.loopexit3706 [
+    i8 13, label %.loopexit3711
+    i8 10, label %.loopexit3711
   ]
 
 757:                                              ; preds = %754
@@ -1959,34 +1959,34 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %758, label %759, label %760
 
 759:                                              ; preds = %757
-  %.not3679 = icmp eq i8 %749, 34
-  br i1 %.not3679, label %.loopexit3739, label %.loopexit3734
+  %.not3650 = icmp eq i8 %749, 34
+  br i1 %.not3650, label %.loopexit3711, label %.loopexit3706
 
 760:                                              ; preds = %757
   %761 = icmp eq i8 %749, 36
-  br i1 %761, label %854, label %.loopexit3734
+  br i1 %761, label %854, label %.loopexit3706
 
 762:                                              ; preds = %752
   %763 = icmp ult i8 %749, 59
   br i1 %763, label %764, label %765
 
 764:                                              ; preds = %762
-  switch i8 %749, label %.loopexit3734 [
-    i8 39, label %.loopexit3739
-    i8 46, label %.preheader3737.preheader
+  switch i8 %749, label %.loopexit3706 [
+    i8 39, label %.loopexit3711
+    i8 46, label %.preheader3709.preheader
   ]
 
-.preheader3737.preheader:                         ; preds = %741, %764
+.preheader3709.preheader:                         ; preds = %741, %764
   %.ph = phi ptr [ %746, %764 ], [ %742, %741 ]
-  br label %.preheader3737
+  br label %.preheader3709
 
 765:                                              ; preds = %762
   %766 = icmp ult i8 %749, 92
   br i1 %766, label %767, label %768
 
 767:                                              ; preds = %765
-  %.not3678 = icmp eq i8 %749, 59
-  br i1 %.not3678, label %.loopexit3739, label %.loopexit3734
+  %.not3649 = icmp eq i8 %749, 59
+  br i1 %.not3649, label %.loopexit3711, label %.loopexit3706
 
 768:                                              ; preds = %765
   %769 = icmp eq i8 %749, 92
@@ -1994,12 +1994,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 770:                                              ; preds = %768
   %771 = icmp ugt i8 %749, 93
-  br i1 %771, label %.loopexit3734, label %.loopexit3739
+  br i1 %771, label %.loopexit3706, label %.loopexit3711
 
-.loopexit3739:                                    ; preds = %898, %890, %890, %764, %756, %756, %909, %905, %893, %869, %759, %767, %770
+.loopexit3711:                                    ; preds = %898, %890, %890, %764, %756, %756, %909, %905, %893, %869, %759, %767, %770
   %772 = phi ptr [ %883, %890 ], [ %883, %890 ], [ %746, %764 ], [ %746, %756 ], [ %746, %756 ], [ %883, %909 ], [ %883, %905 ], [ %883, %893 ], [ %855, %869 ], [ %746, %759 ], [ %746, %767 ], [ %746, %770 ], [ %883, %898 ]
   %773 = ptrtoint ptr %772 to i64
-  %774 = ptrtoint ptr %.promoted4233 to i64
+  %774 = ptrtoint ptr %.promoted4205 to i64
   %775 = sub i64 %773, %774
   %776 = trunc i64 %775 to i32
   store i32 %776, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -2010,11 +2010,11 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %781 = and i64 %780, 8589934584
   br i1 %779, label %782, label %784
 
-782:                                              ; preds = %.loopexit3739
+782:                                              ; preds = %.loopexit3711
   %783 = tail call noalias ptr @__zend_malloc(i64 noundef %781) #12
   br label %786
 
-784:                                              ; preds = %.loopexit3739
+784:                                              ; preds = %.loopexit3711
   %785 = tail call noalias ptr @_emalloc(i64 noundef %781) #12
   br label %786
 
@@ -2029,7 +2029,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %791 = getelementptr inbounds i8, ptr %788, i64 16
   store i64 %777, ptr %791, align 8
   %792 = getelementptr inbounds i8, ptr %788, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %792, ptr nonnull align 1 %.promoted4233, i64 %777, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %792, ptr nonnull align 1 %.promoted4205, i64 %777, i1 false)
   %793 = getelementptr inbounds [1 x i8], ptr %792, i64 0, i64 %777
   store i8 0, ptr %793, align 1
   store ptr %788, ptr %0, align 8
@@ -2037,22 +2037,22 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 262, ptr %794, align 8
   br label %.loopexit
 
-.preheader3743:                                   ; preds = %.preheader3743.preheader, %798
-  %795 = phi ptr [ %796, %798 ], [ %.promoted4233, %.preheader3743.preheader ]
+.preheader3715:                                   ; preds = %.preheader3715.preheader, %798
+  %795 = phi ptr [ %796, %798 ], [ %.promoted4205, %.preheader3715.preheader ]
   %796 = getelementptr inbounds i8, ptr %795, i64 1
   store ptr %796, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %796, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %797 = icmp ugt ptr %796, %2
   br i1 %797, label %.loopexit, label %798
 
-798:                                              ; preds = %.preheader3743
+798:                                              ; preds = %.preheader3715
   %799 = load i8, ptr %796, align 1
   %800 = zext i8 %799 to i64
   %801 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.5, i64 0, i64 %800
   %802 = load i8, ptr %801, align 1
   %803 = and i8 %802, 32
-  %.not3675 = icmp eq i8 %803, 0
-  br i1 %.not3675, label %804, label %.preheader3743
+  %.not3646 = icmp eq i8 %803, 0
+  br i1 %.not3646, label %804, label %.preheader3715
 
 804:                                              ; preds = %798
   %805 = icmp ult i8 %799, 37
@@ -2063,13 +2063,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %807, label %808, label %809
 
 808:                                              ; preds = %806
-  switch i8 %799, label %.loopexit3734 [
+  switch i8 %799, label %.loopexit3706 [
     i8 13, label %819
     i8 10, label %819
   ]
 
 809:                                              ; preds = %806
-  switch i8 %799, label %.loopexit3734 [
+  switch i8 %799, label %.loopexit3706 [
     i8 34, label %819
     i8 36, label %854
   ]
@@ -2079,14 +2079,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %811, label %812, label %813
 
 812:                                              ; preds = %810
-  switch i8 %799, label %.loopexit3734 [
+  switch i8 %799, label %.loopexit3706 [
     i8 59, label %819
     i8 39, label %819
   ]
 
 813:                                              ; preds = %810
   %814 = icmp ult i8 %799, 92
-  br i1 %814, label %.loopexit3734, label %815
+  br i1 %814, label %.loopexit3706, label %815
 
 815:                                              ; preds = %813
   %816 = icmp eq i8 %799, 92
@@ -2094,12 +2094,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 817:                                              ; preds = %815
   %818 = icmp ugt i8 %799, 93
-  br i1 %818, label %.loopexit3734, label %819
+  br i1 %818, label %.loopexit3706, label %819
 
 819:                                              ; preds = %812, %812, %809, %808, %808, %868, %817
   %820 = phi ptr [ %796, %812 ], [ %796, %812 ], [ %796, %809 ], [ %796, %808 ], [ %796, %808 ], [ %855, %868 ], [ %796, %817 ]
   %821 = ptrtoint ptr %820 to i64
-  %822 = ptrtoint ptr %.promoted4233 to i64
+  %822 = ptrtoint ptr %.promoted4205 to i64
   %823 = sub i64 %821, %822
   %824 = trunc i64 %823 to i32
   store i32 %824, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -2129,7 +2129,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %839 = getelementptr inbounds i8, ptr %836, i64 16
   store i64 %825, ptr %839, align 8
   %840 = getelementptr inbounds i8, ptr %836, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %840, ptr nonnull align 1 %.promoted4233, i64 %825, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %840, ptr nonnull align 1 %.promoted4205, i64 %825, i1 false)
   %841 = getelementptr inbounds [1 x i8], ptr %840, i64 0, i64 %825
   store i8 0, ptr %841, align 1
   store ptr %836, ptr %0, align 8
@@ -2138,18 +2138,18 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 843:                                              ; preds = %647, %666, %907, %815, %768, %711
-  %844 = phi ptr [ %.promoted4233, %647 ], [ %657, %666 ], [ %883, %907 ], [ %796, %815 ], [ %746, %768 ], [ %692, %711 ]
+  %844 = phi ptr [ %.promoted4205, %647 ], [ %657, %666 ], [ %883, %907 ], [ %796, %815 ], [ %746, %768 ], [ %692, %711 ]
   %845 = getelementptr inbounds i8, ptr %844, i64 1
   store ptr %845, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %846 = icmp ugt ptr %845, %2
-  br i1 %846, label %.loopexit, label %.loopexit3734
+  br i1 %846, label %.loopexit, label %.loopexit3706
 
 847:                                              ; preds = %647, %713
-  %848 = phi ptr [ %.promoted4233, %647 ], [ %692, %713 ]
+  %848 = phi ptr [ %.promoted4205, %647 ], [ %692, %713 ]
   %849 = getelementptr inbounds i8, ptr %848, i64 1
   store ptr %849, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %850 = ptrtoint ptr %849 to i64
-  %851 = ptrtoint ptr %.promoted4233 to i64
+  %851 = ptrtoint ptr %.promoted4205 to i64
   %852 = sub i64 %850, %851
   %853 = trunc i64 %852 to i32
   store i32 %853, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -2171,72 +2171,72 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %862, label %863, label %867
 
 863:                                              ; preds = %860
-  switch i8 %861, label %.loopexit3734 [
+  switch i8 %861, label %.loopexit3706 [
     i8 0, label %868
     i8 92, label %.preheader
   ]
 
 .preheader:                                       ; preds = %735, %863
-  %864 = phi ptr [ %.promoted4233, %735 ], [ %855, %863 ]
+  %864 = phi ptr [ %.promoted4205, %735 ], [ %855, %863 ]
   %865 = getelementptr inbounds i8, ptr %864, i64 2
   store ptr %865, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %866 = icmp ugt ptr %865, %2
-  br i1 %866, label %.loopexit, label %.lr.ph4237
+  br i1 %866, label %.loopexit, label %.lr.ph4209
 
 867:                                              ; preds = %860
-  %.not3688 = icmp eq i8 %861, 123
-  br i1 %.not3688, label %868, label %.loopexit3734
+  %.not3659 = icmp eq i8 %861, 123
+  br i1 %.not3659, label %868, label %.loopexit3706
 
 868:                                              ; preds = %863, %867
   store ptr %855, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br i1 %856, label %869, label %819
 
 869:                                              ; preds = %868
-  br i1 %857, label %668, label %.loopexit3739
+  br i1 %857, label %668, label %.loopexit3711
 
-.lr.ph4237:                                       ; preds = %.preheader, %.backedge
+.lr.ph4209:                                       ; preds = %.preheader, %.backedge
   %870 = phi ptr [ %872, %.backedge ], [ %865, %.preheader ]
   %871 = load i8, ptr %870, align 1
-  switch i8 %871, label %.loopexit3734 [
+  switch i8 %871, label %.loopexit3706 [
     i8 92, label %.backedge
     i8 36, label %.backedge
   ]
 
-.backedge:                                        ; preds = %.lr.ph4237, %.lr.ph4237
+.backedge:                                        ; preds = %.lr.ph4209, %.lr.ph4209
   %872 = getelementptr inbounds i8, ptr %870, i64 1
   store ptr %872, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %873 = icmp ugt ptr %872, %2
-  br i1 %873, label %.loopexit, label %.lr.ph4237
+  br i1 %873, label %.loopexit, label %.lr.ph4209
 
 874:                                              ; preds = %736
-  %875 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %875 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %875, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   %876 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64)) #10
   store i32 7, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
   br label %.loopexit
 
-.preheader3735:                                   ; preds = %738, %880
+.preheader3707:                                   ; preds = %738, %880
   %877 = phi ptr [ %878, %880 ], [ %739, %738 ]
   %878 = getelementptr inbounds i8, ptr %877, i64 1
   store ptr %878, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %879 = icmp ugt ptr %878, %2
   br i1 %879, label %.loopexit, label %880
 
-880:                                              ; preds = %.preheader3735
+880:                                              ; preds = %.preheader3707
   %881 = load i8, ptr %878, align 1
-  %.not3683 = icmp eq i8 %881, 39
-  br i1 %.not3683, label %911, label %.preheader3735
+  %.not3654 = icmp eq i8 %881, 39
+  br i1 %.not3654, label %911, label %.preheader3707
 
-.preheader3737:                                   ; preds = %.preheader3737.preheader, %900
-  %882 = phi ptr [ %883, %900 ], [ %.ph, %.preheader3737.preheader ]
+.preheader3709:                                   ; preds = %.preheader3709.preheader, %900
+  %882 = phi ptr [ %883, %900 ], [ %.ph, %.preheader3709.preheader ]
   %883 = getelementptr inbounds i8, ptr %882, i64 1
   store ptr %883, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %883, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %884 = icmp ugt ptr %883, %2
   br i1 %884, label %.loopexit, label %885
 
-885:                                              ; preds = %.preheader3737
+885:                                              ; preds = %.preheader3709
   %886 = load i8, ptr %883, align 1
   %887 = icmp ult i8 %886, 39
   br i1 %887, label %888, label %896
@@ -2246,9 +2246,9 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %889, label %890, label %891
 
 890:                                              ; preds = %888
-  switch i8 %886, label %.loopexit3734 [
-    i8 13, label %.loopexit3739
-    i8 10, label %.loopexit3739
+  switch i8 %886, label %.loopexit3706 [
+    i8 13, label %.loopexit3711
+    i8 10, label %.loopexit3711
   ]
 
 891:                                              ; preds = %888
@@ -2256,12 +2256,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %892, label %893, label %894
 
 893:                                              ; preds = %891
-  %.not3681 = icmp eq i8 %886, 34
-  br i1 %.not3681, label %.loopexit3739, label %.loopexit3734
+  %.not3652 = icmp eq i8 %886, 34
+  br i1 %.not3652, label %.loopexit3711, label %.loopexit3706
 
 894:                                              ; preds = %891
   %895 = icmp eq i8 %886, 36
-  br i1 %895, label %854, label %.loopexit3734
+  br i1 %895, label %854, label %.loopexit3706
 
 896:                                              ; preds = %885
   %897 = icmp ult i8 %886, 59
@@ -2269,13 +2269,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 898:                                              ; preds = %896
   %899 = icmp eq i8 %886, 39
-  br i1 %899, label %.loopexit3739, label %900
+  br i1 %899, label %.loopexit3711, label %900
 
 900:                                              ; preds = %898
   %901 = icmp ugt i8 %886, 47
   %902 = icmp ne i8 %886, 58
-  %or.cond219 = and i1 %901, %902
-  br i1 %or.cond219, label %.preheader3737, label %.loopexit3734
+  %or.cond163 = and i1 %901, %902
+  br i1 %or.cond163, label %.preheader3709, label %.loopexit3706
 
 903:                                              ; preds = %896
   %904 = icmp ult i8 %886, 92
@@ -2283,7 +2283,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 905:                                              ; preds = %903
   %906 = icmp eq i8 %886, 59
-  br i1 %906, label %.loopexit3739, label %.loopexit3734
+  br i1 %906, label %.loopexit3711, label %.loopexit3706
 
 907:                                              ; preds = %903
   %908 = icmp eq i8 %886, 92
@@ -2291,24 +2291,24 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 909:                                              ; preds = %907
   %910 = icmp ult i8 %886, 94
-  br i1 %910, label %.loopexit3739, label %.loopexit3734
+  br i1 %910, label %.loopexit3711, label %.loopexit3706
 
 911:                                              ; preds = %880
   %912 = getelementptr inbounds i8, ptr %877, i64 2
   store ptr %912, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %913 = ptrtoint ptr %912 to i64
-  %914 = ptrtoint ptr %.promoted4233 to i64
+  %914 = ptrtoint ptr %.promoted4205 to i64
   %915 = sub i64 %913, %914
   %916 = trunc i64 %915 to i32
   store i32 %916, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %917 = load i8, ptr %.promoted4233, align 1
+  %917 = load i8, ptr %.promoted4205, align 1
   %918 = icmp eq i8 %917, 39
   br i1 %918, label %919, label %927
 
 919:                                              ; preds = %911
   %920 = add i64 %915, 4294967295
   %921 = and i64 %920, 4294967295
-  %922 = getelementptr inbounds i8, ptr %.promoted4233, i64 %921
+  %922 = getelementptr inbounds i8, ptr %.promoted4205, i64 %921
   %923 = load i8, ptr %922, align 1
   %924 = icmp eq i8 %923, 39
   br i1 %924, label %925, label %927
@@ -2321,7 +2321,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 927:                                              ; preds = %925, %919, %911
   %928 = phi i32 [ %926, %925 ], [ %916, %919 ], [ %916, %911 ]
-  %929 = phi ptr [ %739, %925 ], [ %.promoted4233, %919 ], [ %.promoted4233, %911 ]
+  %929 = phi ptr [ %739, %925 ], [ %.promoted4205, %919 ], [ %.promoted4205, %911 ]
   %930 = zext i32 %928 to i64
   %931 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %932 = trunc i8 %931 to i1
@@ -2358,16 +2358,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 948:                                              ; preds = %23
   switch i8 %24, label %951 [
-    i8 32, label %.preheader3832
-    i8 9, label %.preheader3832
+    i8 32, label %.preheader3804
+    i8 9, label %.preheader3804
   ]
 
-.preheader3832:                                   ; preds = %948, %948
-  %949 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+.preheader3804:                                   ; preds = %948, %948
+  %949 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %949, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %949, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %950 = icmp ugt ptr %949, %2
-  br i1 %950, label %.loopexit, label %.lr.ph4157
+  br i1 %950, label %.loopexit, label %.lr.ph4129
 
 951:                                              ; preds = %948
   %952 = icmp ult i8 %24, 48
@@ -2383,11 +2383,11 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 957:                                              ; preds = %955
   %958 = add nsw i8 %24, -9
-  %or.cond5336 = icmp ult i8 %958, 2
-  br i1 %or.cond5336, label %1056, label %.loopexit3816
+  %or.cond5308 = icmp ult i8 %958, 2
+  br i1 %or.cond5308, label %1056, label %.loopexit3788
 
 959:                                              ; preds = %955
-  switch i8 %24, label %.loopexit3816 [
+  switch i8 %24, label %.loopexit3788 [
     i8 13, label %1056
     i8 34, label %1064
   ]
@@ -2398,7 +2398,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 962:                                              ; preds = %960
   %963 = icmp eq i8 %24, 36
-  br i1 %963, label %1072, label %.loopexit3816
+  br i1 %963, label %1072, label %.loopexit3788
 
 964:                                              ; preds = %960
   %965 = icmp eq i8 %24, 39
@@ -2406,9 +2406,9 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 966:                                              ; preds = %964
   %967 = icmp ult i8 %24, 45
-  %.not3660 = icmp eq i8 %24, 47
-  %or.cond5337 = or i1 %967, %.not3660
-  br i1 %or.cond5337, label %.loopexit3816, label %1082
+  %.not3631 = icmp eq i8 %24, 47
+  %or.cond5309 = or i1 %967, %.not3631
+  br i1 %or.cond5309, label %.loopexit3788, label %1082
 
 968:                                              ; preds = %951
   %969 = icmp ult i8 %24, 92
@@ -2420,52 +2420,52 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 972:                                              ; preds = %970
   %973 = icmp ult i8 %24, 58
-  br i1 %973, label %.preheader3824, label %974
+  br i1 %973, label %.preheader3796, label %974
 
 974:                                              ; preds = %972
   %975 = icmp eq i8 %24, 59
-  br i1 %975, label %1056, label %.loopexit3816
+  br i1 %975, label %1056, label %.loopexit3788
 
 976:                                              ; preds = %970
   %977 = icmp ult i8 %24, 65
-  %.not3654 = icmp eq i8 %24, 91
-  %or.cond5338 = or i1 %977, %.not3654
-  br i1 %or.cond5338, label %.loopexit3816, label %.preheader3826.preheader
+  %.not3625 = icmp eq i8 %24, 91
+  %or.cond5310 = or i1 %977, %.not3625
+  br i1 %or.cond5310, label %.loopexit3788, label %.preheader3798.preheader
 
 978:                                              ; preds = %968
   %979 = icmp ult i8 %24, 95
   br i1 %979, label %980, label %983
 
 980:                                              ; preds = %978
-  switch i8 %24, label %.preheader3828 [
+  switch i8 %24, label %.preheader3800 [
     i8 92, label %1196
-    i8 94, label %.loopexit3816
+    i8 94, label %.loopexit3788
   ]
 
-.preheader3828:                                   ; preds = %980
-  %981 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+.preheader3800:                                   ; preds = %980
+  %981 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %981, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %982 = icmp ugt ptr %981, %2
-  br i1 %982, label %.loopexit, label %.lr.ph4159
+  br i1 %982, label %.loopexit, label %.lr.ph4131
 
 983:                                              ; preds = %978
   %984 = icmp ne i8 %24, 96
   %985 = icmp ult i8 %24, 123
-  %or.cond5339 = and i1 %984, %985
-  br i1 %or.cond5339, label %.preheader3826.preheader, label %.loopexit3816
+  %or.cond5311 = and i1 %984, %985
+  br i1 %or.cond5311, label %.preheader3798.preheader, label %.loopexit3788
 
-.preheader3826.preheader:                         ; preds = %976, %983
-  br label %.preheader3826
+.preheader3798.preheader:                         ; preds = %976, %983
+  br label %.preheader3798
 
-.loopexit3816:                                    ; preds = %1266, %.lr.ph4165, %962, %974, %959, %980, %1256, %1229, %1159, %1156, %1155, %1105, %1097, %1076, %1049, %1046, %1043, %1275, %1271, %1260, %1259, %1233, %1196, %1164, %1160, %1111, %1108, %1101, %1100, %1077, %1054, %1050, %1041, %991, %983, %976, %966, %957
-  %986 = phi ptr [ %1249, %1256 ], [ %1224, %1229 ], [ %1143, %1159 ], [ %1143, %1156 ], [ %1143, %1155 ], [ %1087, %1105 ], [ %1087, %1097 ], [ %1073, %1076 ], [ %1033, %1049 ], [ %1033, %1046 ], [ %1033, %1043 ], [ %1249, %1275 ], [ %1249, %1271 ], [ %1249, %1260 ], [ %1249, %1259 ], [ %1224, %1233 ], [ %1198, %1196 ], [ %1143, %1164 ], [ %1143, %1160 ], [ %1087, %1111 ], [ %1087, %1108 ], [ %1087, %1101 ], [ %1087, %1100 ], [ %1073, %1077 ], [ %1033, %1054 ], [ %1033, %1050 ], [ %1033, %1041 ], [ %992, %991 ], [ %.promoted4233, %983 ], [ %.promoted4233, %976 ], [ %.promoted4233, %966 ], [ %.promoted4233, %957 ], [ %.promoted4233, %980 ], [ %.promoted4233, %959 ], [ %.promoted4233, %974 ], [ %.promoted4233, %962 ], [ %1236, %.lr.ph4165 ], [ %1249, %1266 ]
+.loopexit3788:                                    ; preds = %1266, %.lr.ph4137, %962, %974, %959, %980, %1256, %1229, %1159, %1156, %1155, %1105, %1097, %1076, %1049, %1046, %1043, %1275, %1271, %1260, %1259, %1233, %1196, %1164, %1160, %1111, %1108, %1101, %1100, %1077, %1054, %1050, %1041, %991, %983, %976, %966, %957
+  %986 = phi ptr [ %1249, %1256 ], [ %1224, %1229 ], [ %1143, %1159 ], [ %1143, %1156 ], [ %1143, %1155 ], [ %1087, %1105 ], [ %1087, %1097 ], [ %1073, %1076 ], [ %1033, %1049 ], [ %1033, %1046 ], [ %1033, %1043 ], [ %1249, %1275 ], [ %1249, %1271 ], [ %1249, %1260 ], [ %1249, %1259 ], [ %1224, %1233 ], [ %1198, %1196 ], [ %1143, %1164 ], [ %1143, %1160 ], [ %1087, %1111 ], [ %1087, %1108 ], [ %1087, %1101 ], [ %1087, %1100 ], [ %1073, %1077 ], [ %1033, %1054 ], [ %1033, %1050 ], [ %1033, %1041 ], [ %992, %991 ], [ %.promoted4205, %983 ], [ %.promoted4205, %976 ], [ %.promoted4205, %966 ], [ %.promoted4205, %957 ], [ %.promoted4205, %980 ], [ %.promoted4205, %959 ], [ %.promoted4205, %974 ], [ %.promoted4205, %962 ], [ %1236, %.lr.ph4137 ], [ %1249, %1266 ]
   %987 = getelementptr inbounds i8, ptr %986, i64 1
   store ptr %987, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %987, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %988 = icmp ugt ptr %987, %2
   br i1 %988, label %.loopexit, label %989
 
-989:                                              ; preds = %.loopexit3816
+989:                                              ; preds = %.loopexit3788
   %990 = load i8, ptr %987, align 1
   br label %991
 
@@ -2476,8 +2476,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %994 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.5, i64 0, i64 %993
   %995 = load i8, ptr %994, align 1
   %996 = and i8 %995, 4
-  %.not3667 = icmp eq i8 %996, 0
-  br i1 %.not3667, label %997, label %.loopexit3816
+  %.not3638 = icmp eq i8 %996, 0
+  br i1 %.not3638, label %997, label %.loopexit3788
 
 997:                                              ; preds = %991
   %998 = icmp ult i8 %.2, 35
@@ -2489,13 +2489,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1001:                                             ; preds = %999
   %1002 = add i8 %.2, -60
-  %or.cond222 = icmp ult i8 %1002, 33
-  br i1 %or.cond222, label %1196, label %1003
+  %or.cond166 = icmp ult i8 %1002, 33
+  br i1 %or.cond166, label %1196, label %1003
 
 1003:                                             ; preds = %1049, %1049, %1235, %1054, %1043, %1001, %997
   %1004 = phi ptr [ %1033, %1049 ], [ %1033, %1049 ], [ %1221, %1235 ], [ %1033, %1054 ], [ %1033, %1043 ], [ %992, %1001 ], [ %992, %997 ]
   %1005 = ptrtoint ptr %1004 to i64
-  %1006 = ptrtoint ptr %.promoted4233 to i64
+  %1006 = ptrtoint ptr %.promoted4205 to i64
   %1007 = sub i64 %1005, %1006
   %1008 = trunc i64 %1007 to i32
   store i32 %1008, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -2504,13 +2504,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1010, label %1011, label %1014
 
 1011:                                             ; preds = %1003
-  switch i32 %.pre4500, label %1014 [
-    i32 8, label %1012
+  switch i32 %.pre4472, label %1014 [
     i32 3, label %1012
+    i32 8, label %1012
   ]
 
 1012:                                             ; preds = %1011, %1011
-  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 262, ptr noundef nonnull %.promoted4233, i32 noundef %1008)
+  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 262, ptr noundef nonnull %.promoted4205, i32 noundef %1008)
   %1013 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %1013, align 4
   br label %.loopexit
@@ -2542,7 +2542,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1029 = getelementptr inbounds i8, ptr %1026, i64 16
   store i64 %1015, ptr %1029, align 8
   %1030 = getelementptr inbounds i8, ptr %1026, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1030, ptr nonnull align 1 %.promoted4233, i64 %1015, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1030, ptr nonnull align 1 %.promoted4205, i64 %1015, i1 false)
   %1031 = getelementptr inbounds [1 x i8], ptr %1030, i64 0, i64 %1015
   store i8 0, ptr %1031, align 1
   store ptr %1026, ptr %0, align 8
@@ -2550,22 +2550,22 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 262, ptr %1032, align 8
   br label %.loopexit
 
-.lr.ph4157:                                       ; preds = %.preheader3832, %.backedge3834
-  %1033 = phi ptr [ %1035, %.backedge3834 ], [ %949, %.preheader3832 ]
+.lr.ph4129:                                       ; preds = %.preheader3804, %.backedge3806
+  %1033 = phi ptr [ %1035, %.backedge3806 ], [ %949, %.preheader3804 ]
   %1034 = load i8, ptr %1033, align 1
   switch i8 %1034, label %1037 [
-    i8 32, label %.backedge3834
-    i8 9, label %.backedge3834
+    i8 32, label %.backedge3806
+    i8 9, label %.backedge3806
   ]
 
-.backedge3834:                                    ; preds = %.lr.ph4157, %.lr.ph4157
+.backedge3806:                                    ; preds = %.lr.ph4129, %.lr.ph4129
   %1035 = getelementptr inbounds i8, ptr %1033, i64 1
   store ptr %1035, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1035, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1036 = icmp ugt ptr %1035, %2
-  br i1 %1036, label %.loopexit, label %.lr.ph4157
+  br i1 %1036, label %.loopexit, label %.lr.ph4129
 
-1037:                                             ; preds = %.lr.ph4157
+1037:                                             ; preds = %.lr.ph4129
   %1038 = icmp ult i8 %1034, 37
   br i1 %1038, label %1039, label %1047
 
@@ -2575,16 +2575,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1041:                                             ; preds = %1039
   %1042 = icmp ult i8 %1034, 9
-  br i1 %1042, label %.loopexit3816, label %1043
+  br i1 %1042, label %.loopexit3788, label %1043
 
 1043:                                             ; preds = %1041
   %1044 = icmp ugt i8 %1034, 10
   %1045 = icmp ne i8 %1034, 13
-  %or.cond225 = and i1 %1044, %1045
-  br i1 %or.cond225, label %.loopexit3816, label %1003
+  %or.cond169 = and i1 %1044, %1045
+  br i1 %or.cond169, label %.loopexit3788, label %1003
 
 1046:                                             ; preds = %1039
-  switch i8 %1034, label %.loopexit3816 [
+  switch i8 %1034, label %.loopexit3788 [
     i8 34, label %1064
     i8 36, label %1220
   ]
@@ -2594,14 +2594,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1048, label %1049, label %1050
 
 1049:                                             ; preds = %1047
-  switch i8 %1034, label %.loopexit3816 [
+  switch i8 %1034, label %.loopexit3788 [
     i8 59, label %1003
     i8 39, label %1003
   ]
 
 1050:                                             ; preds = %1047
   %1051 = icmp ult i8 %1034, 92
-  br i1 %1051, label %.loopexit3816, label %1052
+  br i1 %1051, label %.loopexit3788, label %1052
 
 1052:                                             ; preds = %1050
   %1053 = icmp eq i8 %1034, 92
@@ -2609,28 +2609,28 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1054:                                             ; preds = %1052
   %1055 = icmp ult i8 %1034, 94
-  br i1 %1055, label %1003, label %.loopexit3816
+  br i1 %1055, label %1003, label %.loopexit3788
 
 1056:                                             ; preds = %957, %959, %974
-  %1057 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1057 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1057, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %1058
 
 1058:                                             ; preds = %1076, %1079, %1056
   %1059 = phi ptr [ %1073, %1076 ], [ %1080, %1079 ], [ %1057, %1056 ]
   %1060 = ptrtoint ptr %1059 to i64
-  %1061 = ptrtoint ptr %.promoted4233 to i64
+  %1061 = ptrtoint ptr %.promoted4205 to i64
   %1062 = sub i64 %1060, %1061
   %1063 = trunc i64 %1062 to i32
   store i32 %1063, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   br label %.loopexit
 
 1064:                                             ; preds = %1046, %959
-  %1065 = phi ptr [ %1033, %1046 ], [ %.promoted4233, %959 ]
+  %1065 = phi ptr [ %1033, %1046 ], [ %.promoted4205, %959 ]
   %1066 = getelementptr inbounds i8, ptr %1065, i64 1
   store ptr %1066, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1067 = ptrtoint ptr %1066 to i64
-  %1068 = ptrtoint ptr %.promoted4233 to i64
+  %1068 = ptrtoint ptr %.promoted4205 to i64
   %1069 = sub i64 %1067, %1068
   %1070 = trunc i64 %1069 to i32
   store i32 %1070, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -2639,52 +2639,52 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 1072:                                             ; preds = %962
-  %1073 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1073 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1073, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1074 = load i8, ptr %1073, align 1
   %1075 = icmp ult i8 %1074, 93
   br i1 %1075, label %1076, label %1077
 
 1076:                                             ; preds = %1072
-  switch i8 %1074, label %.loopexit3816 [
+  switch i8 %1074, label %.loopexit3788 [
     i8 0, label %1058
-    i8 92, label %.preheader3814
+    i8 92, label %.preheader3786
   ]
 
 1077:                                             ; preds = %1072
   %1078 = icmp eq i8 %1074, 123
-  br i1 %1078, label %1240, label %.loopexit3816
+  br i1 %1078, label %1240, label %.loopexit3788
 
 1079:                                             ; preds = %964
-  %1080 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1080 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1080, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1081 = load i8, ptr %1080, align 1
-  %.not3662 = icmp eq i8 %1081, 39
-  br i1 %.not3662, label %1058, label %.preheader3818
+  %.not3633 = icmp eq i8 %1081, 39
+  br i1 %.not3633, label %1058, label %.preheader3790
 
 1082:                                             ; preds = %966
-  %1083 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1083 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1083, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1083, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1084 = load i8, ptr %1083, align 1
   %1085 = add i8 %1084, -48
-  %or.cond231 = icmp ult i8 %1085, 10
-  br i1 %or.cond231, label %.preheader3820.preheader, label %991
+  %or.cond175 = icmp ult i8 %1085, 10
+  br i1 %or.cond175, label %.preheader3792.preheader, label %991
 
-.preheader3824:                                   ; preds = %972, %1089
-  %1086 = phi ptr [ %1087, %1089 ], [ %.promoted4233, %972 ]
+.preheader3796:                                   ; preds = %972, %1089
+  %1086 = phi ptr [ %1087, %1089 ], [ %.promoted4205, %972 ]
   %1087 = getelementptr inbounds i8, ptr %1086, i64 1
   store ptr %1087, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1087, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1088 = icmp ugt ptr %1087, %2
   br i1 %1088, label %.loopexit, label %1089
 
-1089:                                             ; preds = %.preheader3824
+1089:                                             ; preds = %.preheader3796
   %1090 = load i8, ptr %1087, align 1
   %1091 = zext i8 %1090 to i64
   %1092 = add nsw i64 %1091, -58
-  %.not3657 = icmp ult i64 %1092, -10
-  br i1 %.not3657, label %1093, label %.preheader3824
+  %.not3628 = icmp ult i64 %1092, -10
+  br i1 %.not3628, label %1093, label %.preheader3796
 
 1093:                                             ; preds = %1089
   %1094 = icmp ult i8 %1090, 39
@@ -2695,9 +2695,9 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1096, label %1097, label %1098
 
 1097:                                             ; preds = %1095
-  switch i8 %1090, label %.loopexit3816 [
-    i8 13, label %.loopexit3822
-    i8 10, label %.loopexit3822
+  switch i8 %1090, label %.loopexit3788 [
+    i8 13, label %.loopexit3794
+    i8 10, label %.loopexit3794
   ]
 
 1098:                                             ; preds = %1095
@@ -2705,34 +2705,34 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1099, label %1100, label %1101
 
 1100:                                             ; preds = %1098
-  %.not3659 = icmp eq i8 %1090, 34
-  br i1 %.not3659, label %.loopexit3822, label %.loopexit3816
+  %.not3630 = icmp eq i8 %1090, 34
+  br i1 %.not3630, label %.loopexit3794, label %.loopexit3788
 
 1101:                                             ; preds = %1098
   %1102 = icmp eq i8 %1090, 36
-  br i1 %1102, label %1220, label %.loopexit3816
+  br i1 %1102, label %1220, label %.loopexit3788
 
 1103:                                             ; preds = %1093
   %1104 = icmp ult i8 %1090, 59
   br i1 %1104, label %1105, label %1106
 
 1105:                                             ; preds = %1103
-  switch i8 %1090, label %.loopexit3816 [
-    i8 39, label %.loopexit3822
-    i8 46, label %.preheader3820.preheader
+  switch i8 %1090, label %.loopexit3788 [
+    i8 39, label %.loopexit3794
+    i8 46, label %.preheader3792.preheader
   ]
 
-.preheader3820.preheader:                         ; preds = %1082, %1105
-  %.ph5523 = phi ptr [ %1087, %1105 ], [ %1083, %1082 ]
-  br label %.preheader3820
+.preheader3792.preheader:                         ; preds = %1082, %1105
+  %.ph5495 = phi ptr [ %1087, %1105 ], [ %1083, %1082 ]
+  br label %.preheader3792
 
 1106:                                             ; preds = %1103
   %1107 = icmp ult i8 %1090, 92
   br i1 %1107, label %1108, label %1109
 
 1108:                                             ; preds = %1106
-  %.not3658 = icmp eq i8 %1090, 59
-  br i1 %.not3658, label %.loopexit3822, label %.loopexit3816
+  %.not3629 = icmp eq i8 %1090, 59
+  br i1 %.not3629, label %.loopexit3794, label %.loopexit3788
 
 1109:                                             ; preds = %1106
   %1110 = icmp eq i8 %1090, 92
@@ -2740,12 +2740,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1111:                                             ; preds = %1109
   %1112 = icmp ugt i8 %1090, 93
-  br i1 %1112, label %.loopexit3816, label %.loopexit3822
+  br i1 %1112, label %.loopexit3788, label %.loopexit3794
 
-.loopexit3822:                                    ; preds = %1264, %1256, %1256, %1105, %1097, %1097, %1275, %1271, %1259, %1235, %1100, %1108, %1111
+.loopexit3794:                                    ; preds = %1264, %1256, %1256, %1105, %1097, %1097, %1275, %1271, %1259, %1235, %1100, %1108, %1111
   %1113 = phi ptr [ %1249, %1256 ], [ %1249, %1256 ], [ %1087, %1105 ], [ %1087, %1097 ], [ %1087, %1097 ], [ %1249, %1275 ], [ %1249, %1271 ], [ %1249, %1259 ], [ %1221, %1235 ], [ %1087, %1100 ], [ %1087, %1108 ], [ %1087, %1111 ], [ %1249, %1264 ]
   %1114 = ptrtoint ptr %1113 to i64
-  %1115 = ptrtoint ptr %.promoted4233 to i64
+  %1115 = ptrtoint ptr %.promoted4205 to i64
   %1116 = sub i64 %1114, %1115
   %1117 = trunc i64 %1116 to i32
   store i32 %1117, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -2753,19 +2753,19 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1119 = icmp eq i32 %1118, 2
   br i1 %1119, label %1120, label %1123
 
-1120:                                             ; preds = %.loopexit3822
-  switch i32 %.pre4500, label %1123 [
-    i32 8, label %1121
+1120:                                             ; preds = %.loopexit3794
+  switch i32 %.pre4472, label %1123 [
     i32 3, label %1121
+    i32 8, label %1121
   ]
 
 1121:                                             ; preds = %1120, %1120
-  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 261, ptr noundef nonnull %.promoted4233, i32 noundef %1117)
+  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 261, ptr noundef nonnull %.promoted4205, i32 noundef %1117)
   %1122 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %1122, align 4
   br label %.loopexit
 
-1123:                                             ; preds = %1120, %.loopexit3822
+1123:                                             ; preds = %1120, %.loopexit3794
   %1124 = and i64 %1116, 4294967295
   %1125 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %1126 = trunc i8 %1125 to i1
@@ -2792,7 +2792,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1138 = getelementptr inbounds i8, ptr %1135, i64 16
   store i64 %1124, ptr %1138, align 8
   %1139 = getelementptr inbounds i8, ptr %1135, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1139, ptr nonnull align 1 %.promoted4233, i64 %1124, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1139, ptr nonnull align 1 %.promoted4205, i64 %1124, i1 false)
   %1140 = getelementptr inbounds [1 x i8], ptr %1139, i64 0, i64 %1124
   store i8 0, ptr %1140, align 1
   store ptr %1135, ptr %0, align 8
@@ -2800,22 +2800,22 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 262, ptr %1141, align 8
   br label %.loopexit
 
-.preheader3826:                                   ; preds = %.preheader3826.preheader, %1145
-  %1142 = phi ptr [ %1143, %1145 ], [ %.promoted4233, %.preheader3826.preheader ]
+.preheader3798:                                   ; preds = %.preheader3798.preheader, %1145
+  %1142 = phi ptr [ %1143, %1145 ], [ %.promoted4205, %.preheader3798.preheader ]
   %1143 = getelementptr inbounds i8, ptr %1142, i64 1
   store ptr %1143, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1143, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1144 = icmp ugt ptr %1143, %2
   br i1 %1144, label %.loopexit, label %1145
 
-1145:                                             ; preds = %.preheader3826
+1145:                                             ; preds = %.preheader3798
   %1146 = load i8, ptr %1143, align 1
   %1147 = zext i8 %1146 to i64
   %1148 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.5, i64 0, i64 %1147
   %1149 = load i8, ptr %1148, align 1
   %1150 = and i8 %1149, 32
-  %.not3655 = icmp eq i8 %1150, 0
-  br i1 %.not3655, label %1151, label %.preheader3826
+  %.not3626 = icmp eq i8 %1150, 0
+  br i1 %.not3626, label %1151, label %.preheader3798
 
 1151:                                             ; preds = %1145
   %1152 = icmp ult i8 %1146, 37
@@ -2826,13 +2826,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1154, label %1155, label %1156
 
 1155:                                             ; preds = %1153
-  switch i8 %1146, label %.loopexit3816 [
+  switch i8 %1146, label %.loopexit3788 [
     i8 13, label %1166
     i8 10, label %1166
   ]
 
 1156:                                             ; preds = %1153
-  switch i8 %1146, label %.loopexit3816 [
+  switch i8 %1146, label %.loopexit3788 [
     i8 34, label %1166
     i8 36, label %1220
   ]
@@ -2842,14 +2842,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1158, label %1159, label %1160
 
 1159:                                             ; preds = %1157
-  switch i8 %1146, label %.loopexit3816 [
+  switch i8 %1146, label %.loopexit3788 [
     i8 59, label %1166
     i8 39, label %1166
   ]
 
 1160:                                             ; preds = %1157
   %1161 = icmp ult i8 %1146, 92
-  br i1 %1161, label %.loopexit3816, label %1162
+  br i1 %1161, label %.loopexit3788, label %1162
 
 1162:                                             ; preds = %1160
   %1163 = icmp eq i8 %1146, 92
@@ -2857,12 +2857,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1164:                                             ; preds = %1162
   %1165 = icmp ugt i8 %1146, 93
-  br i1 %1165, label %.loopexit3816, label %1166
+  br i1 %1165, label %.loopexit3788, label %1166
 
 1166:                                             ; preds = %1159, %1159, %1156, %1155, %1155, %1234, %1164
   %1167 = phi ptr [ %1143, %1159 ], [ %1143, %1159 ], [ %1143, %1156 ], [ %1143, %1155 ], [ %1143, %1155 ], [ %1221, %1234 ], [ %1143, %1164 ]
   %1168 = ptrtoint ptr %1167 to i64
-  %1169 = ptrtoint ptr %.promoted4233 to i64
+  %1169 = ptrtoint ptr %.promoted4205 to i64
   %1170 = sub i64 %1168, %1169
   %1171 = trunc i64 %1170 to i32
   store i32 %1171, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -2871,13 +2871,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1173, label %1174, label %1177
 
 1174:                                             ; preds = %1166
-  switch i32 %.pre4500, label %1177 [
-    i32 8, label %1175
+  switch i32 %.pre4472, label %1177 [
     i32 3, label %1175
+    i32 8, label %1175
   ]
 
 1175:                                             ; preds = %1174, %1174
-  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 260, ptr noundef nonnull %.promoted4233, i32 noundef %1171)
+  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 260, ptr noundef nonnull %.promoted4205, i32 noundef %1171)
   %1176 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %1176, align 4
   br label %.loopexit
@@ -2909,7 +2909,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1192 = getelementptr inbounds i8, ptr %1189, i64 16
   store i64 %1178, ptr %1192, align 8
   %1193 = getelementptr inbounds i8, ptr %1189, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1193, ptr nonnull align 1 %.promoted4233, i64 %1178, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1193, ptr nonnull align 1 %.promoted4205, i64 %1178, i1 false)
   %1194 = getelementptr inbounds [1 x i8], ptr %1193, i64 0, i64 %1178
   store i8 0, ptr %1194, align 1
   store ptr %1189, ptr %0, align 8
@@ -2918,47 +2918,47 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 1196:                                             ; preds = %980, %1001, %1273, %1162, %1109, %1052
-  %1197 = phi ptr [ %.promoted4233, %980 ], [ %992, %1001 ], [ %1249, %1273 ], [ %1143, %1162 ], [ %1087, %1109 ], [ %1033, %1052 ]
+  %1197 = phi ptr [ %.promoted4205, %980 ], [ %992, %1001 ], [ %1249, %1273 ], [ %1143, %1162 ], [ %1087, %1109 ], [ %1033, %1052 ]
   %1198 = getelementptr inbounds i8, ptr %1197, i64 1
   store ptr %1198, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1199 = icmp ugt ptr %1198, %2
-  br i1 %1199, label %.loopexit, label %.loopexit3816
+  br i1 %1199, label %.loopexit, label %.loopexit3788
 
-.lr.ph4159:                                       ; preds = %.preheader3828, %.backedge3831
-  %1200 = phi ptr [ %1208, %.backedge3831 ], [ %981, %.preheader3828 ]
-  %1201 = phi ptr [ %1200, %.backedge3831 ], [ %.promoted4233, %.preheader3828 ]
+.lr.ph4131:                                       ; preds = %.preheader3800, %.backedge3803
+  %1200 = phi ptr [ %1208, %.backedge3803 ], [ %981, %.preheader3800 ]
+  %1201 = phi ptr [ %1200, %.backedge3803 ], [ %.promoted4205, %.preheader3800 ]
   %1202 = load i8, ptr %1200, align 1
   %1203 = icmp ult i8 %1202, 13
   br i1 %1203, label %1204, label %1212
 
-1204:                                             ; preds = %.lr.ph4159
+1204:                                             ; preds = %.lr.ph4131
   %1205 = icmp ult i8 %1202, 9
-  br i1 %1205, label %.loopexit3830, label %1206
+  br i1 %1205, label %.loopexit3802, label %1206
 
 1206:                                             ; preds = %1204
   %1207 = icmp eq i8 %1202, 9
-  br i1 %1207, label %.backedge3831, label %1210
+  br i1 %1207, label %.backedge3803, label %1210
 
-.backedge3831:                                    ; preds = %1206, %1212
+.backedge3803:                                    ; preds = %1206, %1212
   %1208 = getelementptr inbounds i8, ptr %1200, i64 1
   store ptr %1208, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1209 = icmp ugt ptr %1208, %2
-  br i1 %1209, label %.loopexit, label %.lr.ph4159
+  br i1 %1209, label %.loopexit, label %.lr.ph4131
 
 1210:                                             ; preds = %1206
   %1211 = icmp ult i8 %1202, 11
-  br i1 %1211, label %1277, label %.loopexit3830
+  br i1 %1211, label %1277, label %.loopexit3802
 
-1212:                                             ; preds = %.lr.ph4159
-  switch i8 %1202, label %.loopexit3830 [
+1212:                                             ; preds = %.lr.ph4131
+  switch i8 %1202, label %.loopexit3802 [
     i8 13, label %1280
-    i8 32, label %.backedge3831
+    i8 32, label %.backedge3803
   ]
 
-.loopexit3830:                                    ; preds = %1212, %1204, %1280, %1210, %1277
+.loopexit3802:                                    ; preds = %1212, %1204, %1280, %1210, %1277
   %1213 = phi ptr [ %1281, %1280 ], [ %1200, %1210 ], [ %1279, %1277 ], [ %1200, %1204 ], [ %1200, %1212 ]
   %1214 = ptrtoint ptr %1213 to i64
-  %1215 = ptrtoint ptr %.promoted4233 to i64
+  %1215 = ptrtoint ptr %.promoted4205 to i64
   %1216 = sub i64 %1214, %1215
   %1217 = trunc i64 %1216 to i32
   store i32 %1217, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -2983,72 +2983,72 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1228, label %1229, label %1233
 
 1229:                                             ; preds = %1226
-  switch i8 %1227, label %.loopexit3816 [
+  switch i8 %1227, label %.loopexit3788 [
     i8 0, label %1234
-    i8 92, label %.preheader3814
+    i8 92, label %.preheader3786
   ]
 
-.preheader3814:                                   ; preds = %1076, %1229
-  %1230 = phi ptr [ %.promoted4233, %1076 ], [ %1221, %1229 ]
+.preheader3786:                                   ; preds = %1076, %1229
+  %1230 = phi ptr [ %.promoted4205, %1076 ], [ %1221, %1229 ]
   %1231 = getelementptr inbounds i8, ptr %1230, i64 2
   store ptr %1231, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1232 = icmp ugt ptr %1231, %2
-  br i1 %1232, label %.loopexit, label %.lr.ph4165
+  br i1 %1232, label %.loopexit, label %.lr.ph4137
 
 1233:                                             ; preds = %1226
-  %.not3668 = icmp eq i8 %1227, 123
-  br i1 %.not3668, label %1234, label %.loopexit3816
+  %.not3639 = icmp eq i8 %1227, 123
+  br i1 %.not3639, label %1234, label %.loopexit3788
 
 1234:                                             ; preds = %1229, %1233
   store ptr %1221, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br i1 %1222, label %1235, label %1166
 
 1235:                                             ; preds = %1234
-  br i1 %1223, label %1003, label %.loopexit3822
+  br i1 %1223, label %1003, label %.loopexit3794
 
-.lr.ph4165:                                       ; preds = %.preheader3814, %.backedge3817
-  %1236 = phi ptr [ %1238, %.backedge3817 ], [ %1231, %.preheader3814 ]
+.lr.ph4137:                                       ; preds = %.preheader3786, %.backedge3789
+  %1236 = phi ptr [ %1238, %.backedge3789 ], [ %1231, %.preheader3786 ]
   %1237 = load i8, ptr %1236, align 1
-  switch i8 %1237, label %.loopexit3816 [
-    i8 92, label %.backedge3817
-    i8 36, label %.backedge3817
+  switch i8 %1237, label %.loopexit3788 [
+    i8 92, label %.backedge3789
+    i8 36, label %.backedge3789
   ]
 
-.backedge3817:                                    ; preds = %.lr.ph4165, %.lr.ph4165
+.backedge3789:                                    ; preds = %.lr.ph4137, %.lr.ph4137
   %1238 = getelementptr inbounds i8, ptr %1236, i64 1
   store ptr %1238, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1239 = icmp ugt ptr %1238, %2
-  br i1 %1239, label %.loopexit, label %.lr.ph4165
+  br i1 %1239, label %.loopexit, label %.lr.ph4137
 
 1240:                                             ; preds = %1077
-  %1241 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %1241 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %1241, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   %1242 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64)) #10
   store i32 7, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
   br label %.loopexit
 
-.preheader3818:                                   ; preds = %1079, %1246
+.preheader3790:                                   ; preds = %1079, %1246
   %1243 = phi ptr [ %1244, %1246 ], [ %1080, %1079 ]
   %1244 = getelementptr inbounds i8, ptr %1243, i64 1
   store ptr %1244, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1245 = icmp ugt ptr %1244, %2
   br i1 %1245, label %.loopexit, label %1246
 
-1246:                                             ; preds = %.preheader3818
+1246:                                             ; preds = %.preheader3790
   %1247 = load i8, ptr %1244, align 1
-  %.not3663 = icmp eq i8 %1247, 39
-  br i1 %.not3663, label %1284, label %.preheader3818
+  %.not3634 = icmp eq i8 %1247, 39
+  br i1 %.not3634, label %1284, label %.preheader3790
 
-.preheader3820:                                   ; preds = %.preheader3820.preheader, %1266
-  %1248 = phi ptr [ %1249, %1266 ], [ %.ph5523, %.preheader3820.preheader ]
+.preheader3792:                                   ; preds = %.preheader3792.preheader, %1266
+  %1248 = phi ptr [ %1249, %1266 ], [ %.ph5495, %.preheader3792.preheader ]
   %1249 = getelementptr inbounds i8, ptr %1248, i64 1
   store ptr %1249, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1249, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1250 = icmp ugt ptr %1249, %2
   br i1 %1250, label %.loopexit, label %1251
 
-1251:                                             ; preds = %.preheader3820
+1251:                                             ; preds = %.preheader3792
   %1252 = load i8, ptr %1249, align 1
   %1253 = icmp ult i8 %1252, 39
   br i1 %1253, label %1254, label %1262
@@ -3058,9 +3058,9 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1255, label %1256, label %1257
 
 1256:                                             ; preds = %1254
-  switch i8 %1252, label %.loopexit3816 [
-    i8 13, label %.loopexit3822
-    i8 10, label %.loopexit3822
+  switch i8 %1252, label %.loopexit3788 [
+    i8 13, label %.loopexit3794
+    i8 10, label %.loopexit3794
   ]
 
 1257:                                             ; preds = %1254
@@ -3068,12 +3068,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1258, label %1259, label %1260
 
 1259:                                             ; preds = %1257
-  %.not3661 = icmp eq i8 %1252, 34
-  br i1 %.not3661, label %.loopexit3822, label %.loopexit3816
+  %.not3632 = icmp eq i8 %1252, 34
+  br i1 %.not3632, label %.loopexit3794, label %.loopexit3788
 
 1260:                                             ; preds = %1257
   %1261 = icmp eq i8 %1252, 36
-  br i1 %1261, label %1220, label %.loopexit3816
+  br i1 %1261, label %1220, label %.loopexit3788
 
 1262:                                             ; preds = %1251
   %1263 = icmp ult i8 %1252, 59
@@ -3081,13 +3081,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1264:                                             ; preds = %1262
   %1265 = icmp eq i8 %1252, 39
-  br i1 %1265, label %.loopexit3822, label %1266
+  br i1 %1265, label %.loopexit3794, label %1266
 
 1266:                                             ; preds = %1264
   %1267 = icmp ugt i8 %1252, 47
   %1268 = icmp ne i8 %1252, 58
-  %or.cond246 = and i1 %1267, %1268
-  br i1 %or.cond246, label %.preheader3820, label %.loopexit3816
+  %or.cond190 = and i1 %1267, %1268
+  br i1 %or.cond190, label %.preheader3792, label %.loopexit3788
 
 1269:                                             ; preds = %1262
   %1270 = icmp ult i8 %1252, 92
@@ -3095,7 +3095,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1271:                                             ; preds = %1269
   %1272 = icmp eq i8 %1252, 59
-  br i1 %1272, label %.loopexit3822, label %.loopexit3816
+  br i1 %1272, label %.loopexit3794, label %.loopexit3788
 
 1273:                                             ; preds = %1269
   %1274 = icmp eq i8 %1252, 92
@@ -3103,37 +3103,37 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1275:                                             ; preds = %1273
   %1276 = icmp ult i8 %1252, 94
-  br i1 %1276, label %.loopexit3822, label %.loopexit3816
+  br i1 %1276, label %.loopexit3794, label %.loopexit3788
 
 1277:                                             ; preds = %1280, %1210
   %1278 = phi ptr [ %1281, %1280 ], [ %1200, %1210 ]
   %1279 = getelementptr inbounds i8, ptr %1278, i64 1
   store ptr %1279, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
-  br label %.loopexit3830
+  br label %.loopexit3802
 
 1280:                                             ; preds = %1212
   %1281 = getelementptr inbounds i8, ptr %1201, i64 2
   store ptr %1281, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1282 = load i8, ptr %1281, align 1
   %1283 = icmp eq i8 %1282, 10
-  br i1 %1283, label %1277, label %.loopexit3830
+  br i1 %1283, label %1277, label %.loopexit3802
 
 1284:                                             ; preds = %1246
   %1285 = getelementptr inbounds i8, ptr %1243, i64 2
   store ptr %1285, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1286 = ptrtoint ptr %1285 to i64
-  %1287 = ptrtoint ptr %.promoted4233 to i64
+  %1287 = ptrtoint ptr %.promoted4205 to i64
   %1288 = sub i64 %1286, %1287
   %1289 = trunc i64 %1288 to i32
   store i32 %1289, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %1290 = load i8, ptr %.promoted4233, align 1
+  %1290 = load i8, ptr %.promoted4205, align 1
   %1291 = icmp eq i8 %1290, 39
   br i1 %1291, label %1292, label %1300
 
 1292:                                             ; preds = %1284
   %1293 = add i64 %1288, 4294967295
   %1294 = and i64 %1293, 4294967295
-  %1295 = getelementptr inbounds i8, ptr %.promoted4233, i64 %1294
+  %1295 = getelementptr inbounds i8, ptr %.promoted4205, i64 %1294
   %1296 = load i8, ptr %1295, align 1
   %1297 = icmp eq i8 %1296, 39
   br i1 %1297, label %1298, label %1300
@@ -3146,15 +3146,15 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1300:                                             ; preds = %1298, %1292, %1284
   %1301 = phi i32 [ %1299, %1298 ], [ %1289, %1292 ], [ %1289, %1284 ]
-  %1302 = phi ptr [ %1080, %1298 ], [ %.promoted4233, %1292 ], [ %.promoted4233, %1284 ]
+  %1302 = phi ptr [ %1080, %1298 ], [ %.promoted4205, %1292 ], [ %.promoted4205, %1284 ]
   %1303 = load i32, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 108), align 4
   %1304 = icmp eq i32 %1303, 2
   br i1 %1304, label %1305, label %1308
 
 1305:                                             ; preds = %1300
-  switch i32 %.pre4500, label %1308 [
-    i32 8, label %1306
+  switch i32 %.pre4472, label %1308 [
     i32 3, label %1306
+    i32 8, label %1306
   ]
 
 1306:                                             ; preds = %1305, %1305
@@ -3200,18 +3200,18 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1327:                                             ; preds = %23
   switch i8 %24, label %1330 [
-    i8 32, label %.preheader3811
-    i8 9, label %.preheader3811
+    i8 32, label %.preheader3783
+    i8 9, label %.preheader3783
   ]
 
-.preheader3811:                                   ; preds = %1327, %1327
-  %1328 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+.preheader3783:                                   ; preds = %1327, %1327
+  %1328 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1328, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1329 = icmp ugt ptr %1328, %2
-  br i1 %1329, label %.loopexit, label %.lr.ph4167
+  br i1 %1329, label %.loopexit, label %.lr.ph4139
 
 1330:                                             ; preds = %1327
-  switch i8 %24, label %.loopexit3782 [
+  switch i8 %24, label %.loopexit3754 [
     i8 0, label %1334
     i8 121, label %1785
     i8 10, label %1428
@@ -3229,61 +3229,61 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
     i8 39, label %1470
     i8 45, label %1473
     i8 46, label %1473
-    i8 48, label %.preheader5496
-    i8 49, label %.preheader5496
-    i8 50, label %.preheader5496
-    i8 51, label %.preheader5496
-    i8 52, label %.preheader5496
-    i8 53, label %.preheader5496
-    i8 54, label %.preheader5496
-    i8 55, label %.preheader5496
-    i8 56, label %.preheader5496
-    i8 57, label %.preheader5496
-    i8 59, label %.preheader3801.preheader
+    i8 48, label %.preheader5468
+    i8 49, label %.preheader5468
+    i8 50, label %.preheader5468
+    i8 51, label %.preheader5468
+    i8 52, label %.preheader5468
+    i8 53, label %.preheader5468
+    i8 54, label %.preheader5468
+    i8 55, label %.preheader5468
+    i8 56, label %.preheader5468
+    i8 57, label %.preheader5468
+    i8 59, label %.preheader3773.preheader
     i8 61, label %1548
-    i8 65, label %.preheader3788
-    i8 66, label %.preheader3788
-    i8 67, label %.preheader3788
-    i8 68, label %.preheader3788
-    i8 69, label %.preheader3788
-    i8 71, label %.preheader3788
-    i8 72, label %.preheader3788
-    i8 73, label %.preheader3788
-    i8 74, label %.preheader3788
-    i8 75, label %.preheader3788
-    i8 76, label %.preheader3788
-    i8 77, label %.preheader3788
-    i8 80, label %.preheader3788
-    i8 81, label %.preheader3788
-    i8 82, label %.preheader3788
-    i8 83, label %.preheader3788
-    i8 85, label %.preheader3788
-    i8 86, label %.preheader3788
-    i8 87, label %.preheader3788
-    i8 88, label %.preheader3788
-    i8 90, label %.preheader3788
-    i8 95, label %.preheader3788
-    i8 97, label %.preheader3788
-    i8 98, label %.preheader3788
-    i8 99, label %.preheader3788
-    i8 100, label %.preheader3788
-    i8 101, label %.preheader3788
-    i8 103, label %.preheader3788
-    i8 104, label %.preheader3788
-    i8 105, label %.preheader3788
-    i8 106, label %.preheader3788
-    i8 107, label %.preheader3788
-    i8 108, label %.preheader3788
-    i8 109, label %.preheader3788
-    i8 112, label %.preheader3788
-    i8 113, label %.preheader3788
-    i8 114, label %.preheader3788
-    i8 115, label %.preheader3788
-    i8 117, label %.preheader3788
-    i8 118, label %.preheader3788
-    i8 119, label %.preheader3788
-    i8 120, label %.preheader3788
-    i8 122, label %.preheader3788
+    i8 65, label %.preheader3760
+    i8 66, label %.preheader3760
+    i8 67, label %.preheader3760
+    i8 68, label %.preheader3760
+    i8 69, label %.preheader3760
+    i8 71, label %.preheader3760
+    i8 72, label %.preheader3760
+    i8 73, label %.preheader3760
+    i8 74, label %.preheader3760
+    i8 75, label %.preheader3760
+    i8 76, label %.preheader3760
+    i8 77, label %.preheader3760
+    i8 80, label %.preheader3760
+    i8 81, label %.preheader3760
+    i8 82, label %.preheader3760
+    i8 83, label %.preheader3760
+    i8 85, label %.preheader3760
+    i8 86, label %.preheader3760
+    i8 87, label %.preheader3760
+    i8 88, label %.preheader3760
+    i8 90, label %.preheader3760
+    i8 95, label %.preheader3760
+    i8 97, label %.preheader3760
+    i8 98, label %.preheader3760
+    i8 99, label %.preheader3760
+    i8 100, label %.preheader3760
+    i8 101, label %.preheader3760
+    i8 103, label %.preheader3760
+    i8 104, label %.preheader3760
+    i8 105, label %.preheader3760
+    i8 106, label %.preheader3760
+    i8 107, label %.preheader3760
+    i8 108, label %.preheader3760
+    i8 109, label %.preheader3760
+    i8 112, label %.preheader3760
+    i8 113, label %.preheader3760
+    i8 114, label %.preheader3760
+    i8 115, label %.preheader3760
+    i8 117, label %.preheader3760
+    i8 118, label %.preheader3760
+    i8 119, label %.preheader3760
+    i8 120, label %.preheader3760
+    i8 122, label %.preheader3760
     i8 70, label %1617
     i8 102, label %1617
     i8 78, label %1658
@@ -3295,69 +3295,69 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
     i8 89, label %1785
   ]
 
-.preheader5496:                                   ; preds = %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330
+.preheader5468:                                   ; preds = %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330
   br label %1477
 
 1331:                                             ; preds = %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330
-  %1332 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1332 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1332, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1333 = icmp ugt ptr %1332, %2
-  br i1 %1333, label %.loopexit, label %.lr.ph4178
+  br i1 %1333, label %.loopexit, label %.lr.ph4150
 
 1334:                                             ; preds = %1330
-  %1335 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1335 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1335, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %1336
 
 1336:                                             ; preds = %1467, %1470, %1334
   %1337 = phi ptr [ %1464, %1467 ], [ %1471, %1470 ], [ %1335, %1334 ]
   %1338 = ptrtoint ptr %1337 to i64
-  %1339 = ptrtoint ptr %.promoted4233 to i64
+  %1339 = ptrtoint ptr %.promoted4205 to i64
   %1340 = sub i64 %1338, %1339
   %1341 = trunc i64 %1340 to i32
   store i32 %1341, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
   br label %.loopexit
 
-.loopexit3782:                                    ; preds = %.lr.ph4189, %2236, %..loopexit3782_crit_edge, %1889, %1831, %1586, %1510, %1506, %1467, %1866, %1566, %1491, %1890, %1885, %1884, %1875, %1874, %1868, %1835, %1587, %1583, %1582, %1576, %1571, %1565, %1511, %1507, %1499, %1498, %1493, %1468, %1330
-  %1342 = phi ptr [ %.pre4501, %..loopexit3782_crit_edge ], [ %1857, %1889 ], [ %1826, %1831 ], [ %1551, %1586 ], [ %1479, %1510 ], [ %1479, %1506 ], [ %1464, %1467 ], [ %1857, %1866 ], [ %1551, %1566 ], [ %1479, %1491 ], [ %1857, %1890 ], [ %1857, %1885 ], [ %1857, %1884 ], [ %1857, %1875 ], [ %1857, %1874 ], [ %1857, %1868 ], [ %1826, %1835 ], [ %1551, %1587 ], [ %1551, %1583 ], [ %1551, %1582 ], [ %1551, %1576 ], [ %1551, %1571 ], [ %1551, %1565 ], [ %1479, %1511 ], [ %1479, %1507 ], [ %1479, %1499 ], [ %1479, %1498 ], [ %1479, %1493 ], [ %1464, %1468 ], [ %.promoted4233, %1330 ], [ %2234, %2236 ], [ %1846, %.lr.ph4189 ]
+.loopexit3754:                                    ; preds = %.lr.ph4161, %2236, %..loopexit3754_crit_edge, %1889, %1831, %1586, %1510, %1506, %1467, %1866, %1566, %1491, %1890, %1885, %1884, %1875, %1874, %1868, %1835, %1587, %1583, %1582, %1576, %1571, %1565, %1511, %1507, %1499, %1498, %1493, %1468, %1330
+  %1342 = phi ptr [ %.pre4473, %..loopexit3754_crit_edge ], [ %1857, %1889 ], [ %1826, %1831 ], [ %1551, %1586 ], [ %1479, %1510 ], [ %1479, %1506 ], [ %1464, %1467 ], [ %1857, %1866 ], [ %1551, %1566 ], [ %1479, %1491 ], [ %1857, %1890 ], [ %1857, %1885 ], [ %1857, %1884 ], [ %1857, %1875 ], [ %1857, %1874 ], [ %1857, %1868 ], [ %1826, %1835 ], [ %1551, %1587 ], [ %1551, %1583 ], [ %1551, %1582 ], [ %1551, %1576 ], [ %1551, %1571 ], [ %1551, %1565 ], [ %1479, %1511 ], [ %1479, %1507 ], [ %1479, %1499 ], [ %1479, %1498 ], [ %1479, %1493 ], [ %1464, %1468 ], [ %.promoted4205, %1330 ], [ %2234, %2236 ], [ %1846, %.lr.ph4161 ]
   %1343 = getelementptr inbounds i8, ptr %1342, i64 1
   store ptr %1343, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1343, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1344 = icmp ugt ptr %1343, %2
   br i1 %1344, label %.loopexit, label %1345
 
-1345:                                             ; preds = %.loopexit3782
+1345:                                             ; preds = %.loopexit3754
   %1346 = load i8, ptr %1343, align 1
   br label %1347
 
 1347:                                             ; preds = %1711, %1710, %1667, %1666, %2517, %2504, %2480, %2477, %2466, %2438, %2424, %2398, %2395, %2384, %2359, %2356, %2345, %2315, %2312, %2301, %2229, %2226, %2215, %2190, %2187, %2176, %2127, %2114, %2089, %2086, %2075, %2050, %2047, %2036, %1986, %1963, %1960, %1943, %1940, %1929, %1820, %1817, %1806, %1781, %1778, %1767, %1642, %2507, %2455, %2453, %2427, %2373, %2371, %2334, %2332, %2290, %2288, %2204, %2202, %2165, %2163, %2117, %2064, %2062, %2025, %2023, %1918, %1916, %1795, %1793, %1756, %1754, %1627, %1625, %2518, %2514, %2513, %2500, %2497, %2481, %2475, %2471, %2464, %2460, %2439, %2434, %2433, %2420, %2416, %2399, %2393, %2389, %2382, %2378, %2360, %2354, %2350, %2343, %2339, %2316, %2310, %2306, %2299, %2295, %2230, %2224, %2220, %2213, %2209, %2191, %2185, %2181, %2174, %2170, %2128, %2124, %2123, %2110, %2107, %2090, %2084, %2080, %2073, %2069, %2051, %2045, %2041, %2034, %2030, %1991, %1989, %1980, %1975, %1968, %1957, %1944, %1938, %1934, %1927, %1923, %1821, %1815, %1811, %1804, %1800, %1782, %1776, %1772, %1765, %1761, %1744, %1742, %1735, %1734, %1725, %1721, %1716, %1700, %1698, %1691, %1690, %1681, %1677, %1672, %1655, %1654, %1650, %1645, %1636, %1632, %1473, %1345
-  %.43300 = phi i32 [ 0, %1345 ], [ 2, %1793 ], [ 2, %1795 ], [ 2, %1800 ], [ 2, %1804 ], [ 2, %1806 ], [ 2, %1811 ], [ 2, %2202 ], [ 2, %2204 ], [ 2, %2209 ], [ 2, %2213 ], [ 2, %2215 ], [ 2, %2220 ], [ 4, %2107 ], [ 4, %2110 ], [ 4, %2117 ], [ 4, %2123 ], [ 4, %2124 ], [ 4, %2127 ], [ 4, %2128 ], [ 2, %2224 ], [ 2, %2230 ], [ 2, %1815 ], [ 2, %1821 ], [ 2, %1754 ], [ 2, %1756 ], [ 2, %1761 ], [ 2, %1765 ], [ 2, %1767 ], [ 2, %1772 ], [ 2, %2163 ], [ 2, %2165 ], [ 2, %2170 ], [ 2, %2174 ], [ 2, %2176 ], [ 2, %2181 ], [ 2, %2453 ], [ 2, %2455 ], [ 2, %2460 ], [ 2, %2464 ], [ 2, %2466 ], [ 2, %2471 ], [ 2, %2475 ], [ 2, %2481 ], [ 2, %2185 ], [ 2, %2191 ], [ 2, %1776 ], [ 2, %1782 ], [ 2, %1716 ], [ 2, %1721 ], [ 2, %1725 ], [ 2, %2062 ], [ 2, %2064 ], [ 2, %2069 ], [ 2, %2073 ], [ 2, %2075 ], [ 2, %2080 ], [ 3, %2416 ], [ 3, %2420 ], [ 3, %2427 ], [ 3, %2433 ], [ 3, %2434 ], [ 3, %2438 ], [ 3, %2439 ], [ 2, %2084 ], [ 2, %2090 ], [ 2, %1734 ], [ 2, %1735 ], [ 2, %1742 ], [ 2, %1744 ], [ 2, %1672 ], [ 2, %1677 ], [ 2, %1681 ], [ 3, %1957 ], [ 3, %1968 ], [ 3, %1975 ], [ 2, %2332 ], [ 2, %2334 ], [ 2, %2339 ], [ 2, %2343 ], [ 2, %2345 ], [ 2, %2350 ], [ 2, %2354 ], [ 2, %2360 ], [ 3, %1980 ], [ 3, %1986 ], [ 3, %1989 ], [ 3, %1991 ], [ 2, %2023 ], [ 2, %2025 ], [ 2, %2030 ], [ 2, %2034 ], [ 2, %2036 ], [ 2, %2041 ], [ 2, %2371 ], [ 2, %2373 ], [ 2, %2378 ], [ 2, %2382 ], [ 2, %2384 ], [ 2, %2389 ], [ 5, %2497 ], [ 5, %2500 ], [ 5, %2507 ], [ 5, %2513 ], [ 5, %2514 ], [ 5, %2517 ], [ 5, %2518 ], [ 2, %2393 ], [ 2, %2399 ], [ 2, %2045 ], [ 2, %2051 ], [ 2, %1690 ], [ 2, %1691 ], [ 2, %1698 ], [ 2, %1700 ], [ 2, %1625 ], [ 2, %1627 ], [ 2, %1632 ], [ 2, %1636 ], [ 2, %1916 ], [ 2, %1918 ], [ 2, %1923 ], [ 2, %1927 ], [ 2, %1929 ], [ 2, %1934 ], [ 2, %2288 ], [ 2, %2290 ], [ 2, %2295 ], [ 2, %2299 ], [ 2, %2301 ], [ 2, %2306 ], [ 2, %2310 ], [ 2, %2316 ], [ 2, %1938 ], [ 2, %1944 ], [ 2, %1645 ], [ 2, %1650 ], [ 2, %1654 ], [ 2, %1655 ], [ 0, %1473 ], [ 2, %1642 ], [ 2, %1666 ], [ 2, %1667 ], [ 2, %1710 ], [ 2, %1711 ], [ 2, %1778 ], [ 2, %1781 ], [ 2, %1817 ], [ 2, %1820 ], [ 2, %1940 ], [ 2, %1943 ], [ 3, %1960 ], [ 3, %1963 ], [ 2, %2047 ], [ 2, %2050 ], [ 2, %2086 ], [ 2, %2089 ], [ 4, %2114 ], [ 2, %2187 ], [ 2, %2190 ], [ 2, %2226 ], [ 2, %2229 ], [ 2, %2312 ], [ 2, %2315 ], [ 2, %2356 ], [ 2, %2359 ], [ 2, %2395 ], [ 2, %2398 ], [ 3, %2424 ], [ 2, %2477 ], [ 2, %2480 ], [ 5, %2504 ]
+  %.43244 = phi i32 [ 0, %1345 ], [ 2, %1793 ], [ 2, %1795 ], [ 2, %1800 ], [ 2, %1804 ], [ 2, %1806 ], [ 2, %1811 ], [ 2, %2202 ], [ 2, %2204 ], [ 2, %2209 ], [ 2, %2213 ], [ 2, %2215 ], [ 2, %2220 ], [ 4, %2107 ], [ 4, %2110 ], [ 4, %2117 ], [ 4, %2123 ], [ 4, %2124 ], [ 4, %2127 ], [ 4, %2128 ], [ 2, %2224 ], [ 2, %2230 ], [ 2, %1815 ], [ 2, %1821 ], [ 2, %1754 ], [ 2, %1756 ], [ 2, %1761 ], [ 2, %1765 ], [ 2, %1767 ], [ 2, %1772 ], [ 2, %2163 ], [ 2, %2165 ], [ 2, %2170 ], [ 2, %2174 ], [ 2, %2176 ], [ 2, %2181 ], [ 2, %2453 ], [ 2, %2455 ], [ 2, %2460 ], [ 2, %2464 ], [ 2, %2466 ], [ 2, %2471 ], [ 2, %2475 ], [ 2, %2481 ], [ 2, %2185 ], [ 2, %2191 ], [ 2, %1776 ], [ 2, %1782 ], [ 2, %1716 ], [ 2, %1721 ], [ 2, %1725 ], [ 2, %2062 ], [ 2, %2064 ], [ 2, %2069 ], [ 2, %2073 ], [ 2, %2075 ], [ 2, %2080 ], [ 3, %2416 ], [ 3, %2420 ], [ 3, %2427 ], [ 3, %2433 ], [ 3, %2434 ], [ 3, %2438 ], [ 3, %2439 ], [ 2, %2084 ], [ 2, %2090 ], [ 2, %1734 ], [ 2, %1735 ], [ 2, %1742 ], [ 2, %1744 ], [ 2, %1672 ], [ 2, %1677 ], [ 2, %1681 ], [ 3, %1957 ], [ 3, %1968 ], [ 3, %1975 ], [ 2, %2332 ], [ 2, %2334 ], [ 2, %2339 ], [ 2, %2343 ], [ 2, %2345 ], [ 2, %2350 ], [ 2, %2354 ], [ 2, %2360 ], [ 3, %1980 ], [ 3, %1986 ], [ 3, %1989 ], [ 3, %1991 ], [ 2, %2023 ], [ 2, %2025 ], [ 2, %2030 ], [ 2, %2034 ], [ 2, %2036 ], [ 2, %2041 ], [ 2, %2371 ], [ 2, %2373 ], [ 2, %2378 ], [ 2, %2382 ], [ 2, %2384 ], [ 2, %2389 ], [ 5, %2497 ], [ 5, %2500 ], [ 5, %2507 ], [ 5, %2513 ], [ 5, %2514 ], [ 5, %2517 ], [ 5, %2518 ], [ 2, %2393 ], [ 2, %2399 ], [ 2, %2045 ], [ 2, %2051 ], [ 2, %1690 ], [ 2, %1691 ], [ 2, %1698 ], [ 2, %1700 ], [ 2, %1625 ], [ 2, %1627 ], [ 2, %1632 ], [ 2, %1636 ], [ 2, %1916 ], [ 2, %1918 ], [ 2, %1923 ], [ 2, %1927 ], [ 2, %1929 ], [ 2, %1934 ], [ 2, %2288 ], [ 2, %2290 ], [ 2, %2295 ], [ 2, %2299 ], [ 2, %2301 ], [ 2, %2306 ], [ 2, %2310 ], [ 2, %2316 ], [ 2, %1938 ], [ 2, %1944 ], [ 2, %1645 ], [ 2, %1650 ], [ 2, %1654 ], [ 2, %1655 ], [ 0, %1473 ], [ 2, %1642 ], [ 2, %1666 ], [ 2, %1667 ], [ 2, %1710 ], [ 2, %1711 ], [ 2, %1778 ], [ 2, %1781 ], [ 2, %1817 ], [ 2, %1820 ], [ 2, %1940 ], [ 2, %1943 ], [ 3, %1960 ], [ 3, %1963 ], [ 2, %2047 ], [ 2, %2050 ], [ 2, %2086 ], [ 2, %2089 ], [ 4, %2114 ], [ 2, %2187 ], [ 2, %2190 ], [ 2, %2226 ], [ 2, %2229 ], [ 2, %2312 ], [ 2, %2315 ], [ 2, %2356 ], [ 2, %2359 ], [ 2, %2395 ], [ 2, %2398 ], [ 3, %2424 ], [ 2, %2477 ], [ 2, %2480 ], [ 5, %2504 ]
   %.3 = phi i8 [ %1346, %1345 ], [ %1787, %1793 ], [ %1787, %1795 ], [ %1787, %1800 ], [ %1787, %1804 ], [ %1787, %1806 ], [ %1787, %1811 ], [ %2196, %2202 ], [ %2196, %2204 ], [ %2196, %2209 ], [ %2196, %2213 ], [ %2196, %2215 ], [ %2196, %2220 ], [ %2096, %2107 ], [ %2096, %2110 ], [ %2096, %2117 ], [ %2096, %2123 ], [ %2096, %2124 ], [ %2096, %2127 ], [ %2096, %2128 ], [ %2196, %2224 ], [ %2196, %2230 ], [ %1787, %1815 ], [ %1787, %1821 ], [ %1748, %1754 ], [ %1748, %1756 ], [ %1748, %1761 ], [ %1748, %1765 ], [ %1748, %1767 ], [ %1748, %1772 ], [ %2157, %2163 ], [ %2157, %2165 ], [ %2157, %2170 ], [ %2157, %2174 ], [ %2157, %2176 ], [ %2157, %2181 ], [ %2447, %2453 ], [ %2447, %2455 ], [ %2447, %2460 ], [ %2447, %2464 ], [ %2447, %2466 ], [ %2447, %2471 ], [ %2447, %2475 ], [ %2447, %2481 ], [ %2157, %2185 ], [ %2157, %2191 ], [ %1748, %1776 ], [ %1748, %1782 ], [ %1704, %1716 ], [ 60, %1721 ], [ %1704, %1725 ], [ %2056, %2062 ], [ %2056, %2064 ], [ %2056, %2069 ], [ %2056, %2073 ], [ %2056, %2075 ], [ %2056, %2080 ], [ %2405, %2416 ], [ %2405, %2420 ], [ %2405, %2427 ], [ %2405, %2433 ], [ %2405, %2434 ], [ %2405, %2438 ], [ %2405, %2439 ], [ %2056, %2084 ], [ %2056, %2090 ], [ %1704, %1734 ], [ 96, %1735 ], [ 123, %1742 ], [ %1704, %1744 ], [ %1660, %1672 ], [ 60, %1677 ], [ %1660, %1681 ], [ %1949, %1957 ], [ %1949, %1968 ], [ %1949, %1975 ], [ %2326, %2332 ], [ %2326, %2334 ], [ %2326, %2339 ], [ %2326, %2343 ], [ %2326, %2345 ], [ %2326, %2350 ], [ %2326, %2354 ], [ %2326, %2360 ], [ %1949, %1980 ], [ %1949, %1986 ], [ 123, %1989 ], [ %1949, %1991 ], [ %2017, %2023 ], [ %2017, %2025 ], [ %2017, %2030 ], [ %2017, %2034 ], [ %2017, %2036 ], [ %2017, %2041 ], [ %2365, %2371 ], [ %2365, %2373 ], [ %2365, %2378 ], [ %2365, %2382 ], [ %2365, %2384 ], [ %2365, %2389 ], [ %2486, %2497 ], [ %2486, %2500 ], [ %2486, %2507 ], [ %2486, %2513 ], [ %2486, %2514 ], [ %2486, %2517 ], [ %2486, %2518 ], [ %2365, %2393 ], [ %2365, %2399 ], [ %2017, %2045 ], [ %2017, %2051 ], [ %1660, %1690 ], [ 96, %1691 ], [ 123, %1698 ], [ %1660, %1700 ], [ %1619, %1625 ], [ %1619, %1627 ], [ %1619, %1632 ], [ %1619, %1636 ], [ %1910, %1916 ], [ %1910, %1918 ], [ %1910, %1923 ], [ %1910, %1927 ], [ %1910, %1929 ], [ %1910, %1934 ], [ %2282, %2288 ], [ %2282, %2290 ], [ %2282, %2295 ], [ %2282, %2299 ], [ %2282, %2301 ], [ %2282, %2306 ], [ %2282, %2310 ], [ %2282, %2316 ], [ %1910, %1938 ], [ %1910, %1944 ], [ %1619, %1645 ], [ 96, %1650 ], [ 123, %1654 ], [ %1619, %1655 ], [ %1475, %1473 ], [ %1619, %1642 ], [ %1660, %1666 ], [ %1660, %1667 ], [ %1704, %1710 ], [ %1704, %1711 ], [ %1748, %1778 ], [ %1748, %1781 ], [ %1787, %1817 ], [ %1787, %1820 ], [ %1910, %1940 ], [ %1910, %1943 ], [ %1949, %1960 ], [ %1949, %1963 ], [ %2017, %2047 ], [ %2017, %2050 ], [ %2056, %2086 ], [ %2056, %2089 ], [ %2096, %2114 ], [ %2157, %2187 ], [ %2157, %2190 ], [ %2196, %2226 ], [ %2196, %2229 ], [ %2282, %2312 ], [ %2282, %2315 ], [ %2326, %2356 ], [ %2326, %2359 ], [ %2365, %2395 ], [ %2365, %2398 ], [ %2405, %2424 ], [ %2447, %2477 ], [ %2447, %2480 ], [ %2486, %2504 ]
   %1348 = zext i8 %.3 to i64
   %1349 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %1348
   %1350 = load i8, ptr %1349, align 1
   %1351 = and i8 %1350, 2
-  %.not3644 = icmp eq i8 %1351, 0
-  br i1 %.not3644, label %1352, label %..loopexit3782_crit_edge
+  %.not3615 = icmp eq i8 %1351, 0
+  br i1 %.not3615, label %1352, label %..loopexit3754_crit_edge
 
-..loopexit3782_crit_edge:                         ; preds = %1347
-  %.pre4501 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
-  br label %.loopexit3782
+..loopexit3754_crit_edge:                         ; preds = %1347
+  %.pre4473 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
+  br label %.loopexit3754
 
 1352:                                             ; preds = %1347
   %1353 = add i8 %.3, -35
-  %or.cond249 = icmp ult i8 %1353, 2
-  br i1 %or.cond249, label %._crit_edge4486, label %.loopexit3783
+  %or.cond193 = icmp ult i8 %1353, 2
+  br i1 %or.cond193, label %._crit_edge4458, label %.loopexit3755
 
-._crit_edge4486:                                  ; preds = %1352
+._crit_edge4458:                                  ; preds = %1352
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %1824
 
-.loopexit3783:                                    ; preds = %2236, %1839, %1352
+.loopexit3755:                                    ; preds = %2236, %1839, %1352
   %1354 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1355 = ptrtoint ptr %1354 to i64
-  %1356 = ptrtoint ptr %.promoted4233 to i64
+  %1356 = ptrtoint ptr %.promoted4205 to i64
   %1357 = sub i64 %1355, %1356
   %1358 = trunc i64 %1357 to i32
   store i32 %1358, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -3365,13 +3365,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1360 = icmp eq i32 %1359, 2
   br i1 %1360, label %1361, label %1363
 
-1361:                                             ; preds = %.loopexit3783
-  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 262, ptr noundef %.promoted4233, i32 noundef %1358)
+1361:                                             ; preds = %.loopexit3755
+  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 262, ptr noundef %.promoted4205, i32 noundef %1358)
   %1362 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %1362, align 4
   br label %.loopexit
 
-1363:                                             ; preds = %.loopexit3783
+1363:                                             ; preds = %.loopexit3755
   %1364 = and i64 %1357, 4294967295
   %1365 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %1366 = trunc i8 %1365 to i1
@@ -3398,7 +3398,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1378 = getelementptr inbounds i8, ptr %1375, i64 16
   store i64 %1364, ptr %1378, align 8
   %1379 = getelementptr inbounds i8, ptr %1375, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1379, ptr align 1 %.promoted4233, i64 %1364, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1379, ptr align 1 %.promoted4205, i64 %1364, i1 false)
   %1380 = getelementptr inbounds [1 x i8], ptr %1379, i64 0, i64 %1364
   store i8 0, ptr %1380, align 1
   store ptr %1375, ptr %0, align 8
@@ -3406,21 +3406,21 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 262, ptr %1381, align 8
   br label %.loopexit
 
-.lr.ph4167:                                       ; preds = %.preheader3811, %.backedge3813
-  %1382 = phi ptr [ %1384, %.backedge3813 ], [ %1328, %.preheader3811 ]
+.lr.ph4139:                                       ; preds = %.preheader3783, %.backedge3785
+  %1382 = phi ptr [ %1384, %.backedge3785 ], [ %1328, %.preheader3783 ]
   %1383 = load i8, ptr %1382, align 1
   switch i8 %1383, label %1386 [
-    i8 32, label %.backedge3813
-    i8 9, label %.backedge3813
+    i8 32, label %.backedge3785
+    i8 9, label %.backedge3785
   ]
 
-.backedge3813:                                    ; preds = %.lr.ph4167, %.lr.ph4167
+.backedge3785:                                    ; preds = %.lr.ph4139, %.lr.ph4139
   %1384 = getelementptr inbounds i8, ptr %1382, i64 1
   store ptr %1384, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1385 = icmp ugt ptr %1384, %2
-  br i1 %1385, label %.loopexit, label %.lr.ph4167
+  br i1 %1385, label %.loopexit, label %.lr.ph4139
 
-1386:                                             ; preds = %.lr.ph4167
+1386:                                             ; preds = %.lr.ph4139
   %1387 = icmp ult i8 %1383, 14
   br i1 %1387, label %1388, label %1394
 
@@ -3446,15 +3446,15 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1398:                                             ; preds = %1394
   %1399 = icmp eq i8 %1383, 59
-  br i1 %1399, label %.preheader3801.preheader, label %1400
+  br i1 %1399, label %.preheader3773.preheader, label %1400
 
-.preheader3801.preheader:                         ; preds = %1330, %1398
-  %.ph5501 = phi ptr [ %1382, %1398 ], [ %.promoted4233, %1330 ]
-  br label %.preheader3801
+.preheader3773.preheader:                         ; preds = %1330, %1398
+  %.ph5473 = phi ptr [ %1382, %1398 ], [ %.promoted4205, %1330 ]
+  br label %.preheader3773
 
 1400:                                             ; preds = %1392, %1398, %1396, %1388
   %1401 = ptrtoint ptr %1382 to i64
-  %1402 = ptrtoint ptr %.promoted4233 to i64
+  %1402 = ptrtoint ptr %.promoted4205 to i64
   %1403 = sub i64 %1401, %1402
   %1404 = trunc i64 %1403 to i32
   store i32 %1404, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -3463,7 +3463,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1406, label %1407, label %1409
 
 1407:                                             ; preds = %1400
-  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 263, ptr noundef nonnull %.promoted4233, i32 noundef %1404)
+  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 263, ptr noundef nonnull %.promoted4205, i32 noundef %1404)
   %1408 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %1408, align 4
   br label %.loopexit
@@ -3495,7 +3495,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1424 = getelementptr inbounds i8, ptr %1421, i64 16
   store i64 %1410, ptr %1424, align 8
   %1425 = getelementptr inbounds i8, ptr %1421, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1425, ptr nonnull align 1 %.promoted4233, i64 %1410, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1425, ptr nonnull align 1 %.promoted4205, i64 %1410, i1 false)
   %1426 = getelementptr inbounds [1 x i8], ptr %1425, i64 0, i64 %1410
   store i8 0, ptr %1426, align 1
   store ptr %1421, ptr %0, align 8
@@ -3504,7 +3504,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 1428:                                             ; preds = %1439, %1390, %1330
-  %1429 = phi ptr [ %1441, %1439 ], [ %1382, %1390 ], [ %.promoted4233, %1330 ]
+  %1429 = phi ptr [ %1441, %1439 ], [ %1382, %1390 ], [ %.promoted4205, %1330 ]
   %1430 = getelementptr inbounds i8, ptr %1429, i64 1
   store ptr %1430, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %1431
@@ -3512,7 +3512,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 1431:                                             ; preds = %1439, %1428
   %1432 = phi ptr [ %1441, %1439 ], [ %1430, %1428 ]
   %1433 = ptrtoint ptr %1432 to i64
-  %1434 = ptrtoint ptr %.promoted4233 to i64
+  %1434 = ptrtoint ptr %.promoted4205 to i64
   %1435 = sub i64 %1433, %1434
   %1436 = trunc i64 %1435 to i32
   store i32 %1436, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -3523,43 +3523,43 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 1439:                                             ; preds = %1392, %1330
-  %1440 = phi ptr [ %1382, %1392 ], [ %.promoted4233, %1330 ]
+  %1440 = phi ptr [ %1382, %1392 ], [ %.promoted4205, %1330 ]
   %1441 = getelementptr inbounds i8, ptr %1440, i64 1
   store ptr %1441, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1442 = load i8, ptr %1441, align 1
   %1443 = icmp eq i8 %1442, 10
   br i1 %1443, label %1428, label %1431
 
-.lr.ph4178:                                       ; preds = %1331, %.backedge3795
-  %1444 = phi ptr [ %1446, %.backedge3795 ], [ %1332, %1331 ]
+.lr.ph4150:                                       ; preds = %1331, %.backedge3767
+  %1444 = phi ptr [ %1446, %.backedge3767 ], [ %1332, %1331 ]
   %1445 = load i8, ptr %1444, align 1
   switch i8 %1445, label %1448 [
-    i8 32, label %.backedge3795
-    i8 9, label %.backedge3795
+    i8 32, label %.backedge3767
+    i8 9, label %.backedge3767
   ]
 
-.backedge3795:                                    ; preds = %.lr.ph4178, %.lr.ph4178
+.backedge3767:                                    ; preds = %.lr.ph4150, %.lr.ph4150
   %1446 = getelementptr inbounds i8, ptr %1444, i64 1
   store ptr %1446, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1447 = icmp ugt ptr %1446, %2
-  br i1 %1447, label %.loopexit, label %.lr.ph4178
+  br i1 %1447, label %.loopexit, label %.lr.ph4150
 
-1448:                                             ; preds = %.lr.ph4178
+1448:                                             ; preds = %.lr.ph4150
   %1449 = ptrtoint ptr %1444 to i64
-  %1450 = ptrtoint ptr %.promoted4233 to i64
+  %1450 = ptrtoint ptr %.promoted4205 to i64
   %1451 = sub i64 %1449, %1450
   %1452 = trunc i64 %1451 to i32
   store i32 %1452, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %1453 = load i8, ptr %.promoted4233, align 1
+  %1453 = load i8, ptr %.promoted4205, align 1
   %1454 = sext i8 %1453 to i32
   br label %.loopexit
 
 1455:                                             ; preds = %1396, %1330
-  %1456 = phi ptr [ %1382, %1396 ], [ %.promoted4233, %1330 ]
+  %1456 = phi ptr [ %1382, %1396 ], [ %.promoted4205, %1330 ]
   %1457 = getelementptr inbounds i8, ptr %1456, i64 1
   store ptr %1457, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1458 = ptrtoint ptr %1457 to i64
-  %1459 = ptrtoint ptr %.promoted4233 to i64
+  %1459 = ptrtoint ptr %.promoted4205 to i64
   %1460 = sub i64 %1458, %1459
   %1461 = trunc i64 %1460 to i32
   store i32 %1461, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -3568,40 +3568,40 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 1463:                                             ; preds = %1330
-  %1464 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1464 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1464, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1465 = load i8, ptr %1464, align 1
   %1466 = icmp ult i8 %1465, 93
   br i1 %1466, label %1467, label %1468
 
 1467:                                             ; preds = %1463
-  switch i8 %1465, label %.loopexit3782 [
+  switch i8 %1465, label %.loopexit3754 [
     i8 0, label %1336
-    i8 92, label %.preheader3785
+    i8 92, label %.preheader3757
   ]
 
 1468:                                             ; preds = %1463
   %1469 = icmp eq i8 %1465, 123
-  br i1 %1469, label %1848, label %.loopexit3782
+  br i1 %1469, label %1848, label %.loopexit3754
 
 1470:                                             ; preds = %1330
-  %1471 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1471 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1471, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1472 = load i8, ptr %1471, align 1
-  %.not3641 = icmp eq i8 %1472, 39
-  br i1 %.not3641, label %1336, label %.preheader3796
+  %.not3612 = icmp eq i8 %1472, 39
+  br i1 %.not3612, label %1336, label %.preheader3768
 
 1473:                                             ; preds = %1330, %1330
-  %1474 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1474 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1474, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1474, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1475 = load i8, ptr %1474, align 1
   %1476 = add i8 %1475, -48
-  %or.cond255 = icmp ult i8 %1476, 10
-  br i1 %or.cond255, label %.preheader3798.preheader, label %1347
+  %or.cond199 = icmp ult i8 %1476, 10
+  br i1 %or.cond199, label %.preheader3770.preheader, label %1347
 
-1477:                                             ; preds = %.preheader5496, %1481
-  %1478 = phi ptr [ %1479, %1481 ], [ %.promoted4233, %.preheader5496 ]
+1477:                                             ; preds = %.preheader5468, %1481
+  %1478 = phi ptr [ %1479, %1481 ], [ %.promoted4205, %.preheader5468 ]
   %1479 = getelementptr inbounds i8, ptr %1478, i64 1
   store ptr %1479, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1479, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
@@ -3612,8 +3612,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1482 = load i8, ptr %1479, align 1
   %1483 = zext i8 %1482 to i64
   %1484 = add nsw i64 %1483, -58
-  %.not3633 = icmp ult i64 %1484, -10
-  br i1 %.not3633, label %1485, label %1477
+  %.not3604 = icmp ult i64 %1484, -10
+  br i1 %.not3604, label %1485, label %1477
 
 1485:                                             ; preds = %1481
   %1486 = icmp ult i8 %1482, 46
@@ -3629,12 +3629,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1491:                                             ; preds = %1489
   %1492 = add nsw i8 %1482, -1
-  %or.cond258 = icmp ult i8 %1492, 8
-  br i1 %or.cond258, label %.loopexit3782, label %1512
+  %or.cond202 = icmp ult i8 %1492, 8
+  br i1 %or.cond202, label %.loopexit3754, label %1512
 
 1493:                                             ; preds = %1489
-  %.not3638 = icmp eq i8 %1482, 13
-  br i1 %.not3638, label %1512, label %.loopexit3782
+  %.not3609 = icmp eq i8 %1482, 13
+  br i1 %.not3609, label %1512, label %.loopexit3754
 
 1494:                                             ; preds = %1487
   %1495 = icmp ult i8 %1482, 37
@@ -3645,14 +3645,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1497, label %1512, label %1498
 
 1498:                                             ; preds = %1496
-  %.not3637 = icmp eq i8 %1482, 36
-  br i1 %.not3637, label %1824, label %.loopexit3782
+  %.not3608 = icmp eq i8 %1482, 36
+  br i1 %.not3608, label %1824, label %.loopexit3754
 
 1499:                                             ; preds = %1494
   %1500 = icmp eq i8 %1482, 37
   %1501 = icmp ugt i8 %1482, 41
-  %or.cond261 = or i1 %1500, %1501
-  br i1 %or.cond261, label %.loopexit3782, label %1512
+  %or.cond205 = or i1 %1500, %1501
+  br i1 %or.cond205, label %.loopexit3754, label %1512
 
 1502:                                             ; preds = %1485
   %1503 = icmp ult i8 %1482, 94
@@ -3663,37 +3663,37 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1505, label %1506, label %1507
 
 1506:                                             ; preds = %1504
-  switch i8 %1482, label %.loopexit3782 [
-    i8 46, label %.preheader3798.preheader
+  switch i8 %1482, label %.loopexit3754 [
+    i8 46, label %.preheader3770.preheader
     i8 59, label %1512
   ]
 
-.preheader3798.preheader:                         ; preds = %1473, %1506
-  %.ph5485 = phi ptr [ %1479, %1506 ], [ %1474, %1473 ]
-  br label %.preheader3798
+.preheader3770.preheader:                         ; preds = %1473, %1506
+  %.ph5457 = phi ptr [ %1479, %1506 ], [ %1474, %1473 ]
+  br label %.preheader3770
 
 1507:                                             ; preds = %1504
-  %.not3635 = icmp eq i8 %1482, 61
-  br i1 %.not3635, label %1512, label %.loopexit3782
+  %.not3606 = icmp eq i8 %1482, 61
+  br i1 %.not3606, label %1512, label %.loopexit3754
 
 1508:                                             ; preds = %1502
   %1509 = icmp ult i8 %1482, 125
   br i1 %1509, label %1510, label %1511
 
 1510:                                             ; preds = %1508
-  switch i8 %1482, label %.loopexit3782 [
+  switch i8 %1482, label %.loopexit3754 [
     i8 124, label %1512
     i8 94, label %1512
   ]
 
 1511:                                             ; preds = %1508
-  %.not3634 = icmp eq i8 %1482, 126
-  br i1 %.not3634, label %1512, label %.loopexit3782
+  %.not3605 = icmp eq i8 %1482, 126
+  br i1 %.not3605, label %1512, label %.loopexit3754
 
 1512:                                             ; preds = %1889, %1889, %1839, %1510, %1510, %1506, %1875, %1499, %1890, %1885, %1884, %1872, %1868, %1866, %1493, %1511, %1507, %1496, %1491
   %1513 = phi ptr [ %1857, %1889 ], [ %1857, %1889 ], [ %1837, %1839 ], [ %1479, %1510 ], [ %1479, %1510 ], [ %1479, %1506 ], [ %1857, %1875 ], [ %1479, %1499 ], [ %1857, %1890 ], [ %1857, %1885 ], [ %1857, %1884 ], [ %1857, %1872 ], [ %1857, %1868 ], [ %1857, %1866 ], [ %1479, %1493 ], [ %1479, %1511 ], [ %1479, %1507 ], [ %1479, %1496 ], [ %1479, %1491 ]
   %1514 = ptrtoint ptr %1513 to i64
-  %1515 = ptrtoint ptr %.promoted4233 to i64
+  %1515 = ptrtoint ptr %.promoted4205 to i64
   %1516 = sub i64 %1514, %1515
   %1517 = trunc i64 %1516 to i32
   store i32 %1517, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -3702,7 +3702,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1519, label %1520, label %1522
 
 1520:                                             ; preds = %1512
-  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 261, ptr noundef %.promoted4233, i32 noundef %1517)
+  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 261, ptr noundef %.promoted4205, i32 noundef %1517)
   %1521 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %1521, align 4
   br label %.loopexit
@@ -3734,7 +3734,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1537 = getelementptr inbounds i8, ptr %1534, i64 16
   store i64 %1523, ptr %1537, align 8
   %1538 = getelementptr inbounds i8, ptr %1534, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1538, ptr align 1 %.promoted4233, i64 %1523, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1538, ptr align 1 %.promoted4205, i64 %1523, i1 false)
   %1539 = getelementptr inbounds [1 x i8], ptr %1538, i64 0, i64 %1523
   store i8 0, ptr %1539, align 1
   store ptr %1534, ptr %0, align 8
@@ -3742,16 +3742,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 262, ptr %1540, align 8
   br label %.loopexit
 
-.preheader3801:                                   ; preds = %.preheader3801.preheader, %1544
-  %1541 = phi ptr [ %1542, %1544 ], [ %.ph5501, %.preheader3801.preheader ]
+.preheader3773:                                   ; preds = %.preheader3773.preheader, %1544
+  %1541 = phi ptr [ %1542, %1544 ], [ %.ph5473, %.preheader3773.preheader ]
   %1542 = getelementptr inbounds i8, ptr %1541, i64 1
   store ptr %1542, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1543 = icmp ugt ptr %1542, %2
   br i1 %1543, label %.loopexit, label %1544
 
-1544:                                             ; preds = %.preheader3801
+1544:                                             ; preds = %.preheader3773
   %1545 = load i8, ptr %1542, align 1
-  switch i8 %1545, label %.preheader3801 [
+  switch i8 %1545, label %.preheader3773 [
     i8 13, label %1546
     i8 10, label %1546
   ]
@@ -3761,13 +3761,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1547, label %1892, label %1904
 
 1548:                                             ; preds = %1330
-  store ptr %.promoted4233, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
+  store ptr %.promoted4205, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
   br label %.loopexit
 
-1549:                                             ; preds = %.preheader3788, %1553
-  %1550 = phi ptr [ %.promoted4181, %.preheader3788 ], [ %1551, %1553 ]
+1549:                                             ; preds = %.preheader3760, %1553
+  %1550 = phi ptr [ %.promoted4153, %.preheader3760 ], [ %1551, %1553 ]
   %1551 = getelementptr inbounds i8, ptr %1550, i64 1
   store ptr %1551, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1551, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
@@ -3780,8 +3780,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1556 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %1555
   %1557 = load i8, ptr %1556, align 1
   %1558 = and i8 %1557, 32
-  %.not3628 = icmp eq i8 %1558, 0
-  br i1 %.not3628, label %1559, label %1549
+  %.not3599 = icmp eq i8 %1558, 0
+  br i1 %.not3599, label %1559, label %1549
 
 1559:                                             ; preds = %1553
   %1560 = icmp ult i8 %1554, 42
@@ -3796,14 +3796,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1564, label %1565, label %1566
 
 1565:                                             ; preds = %1563
-  %.not3632 = icmp eq i8 %1554, 0
-  br i1 %.not3632, label %1588, label %.loopexit3782
+  %.not3603 = icmp eq i8 %1554, 0
+  br i1 %.not3603, label %1588, label %.loopexit3754
 
 1566:                                             ; preds = %1563
   %1567 = icmp ugt i8 %1554, 10
   %1568 = icmp ne i8 %1554, 13
-  %or.cond267 = and i1 %1567, %1568
-  br i1 %or.cond267, label %.loopexit3782, label %1588
+  %or.cond211 = and i1 %1567, %1568
+  br i1 %or.cond211, label %.loopexit3754, label %1588
 
 1569:                                             ; preds = %1561
   %1570 = icmp ult i8 %1554, 36
@@ -3812,8 +3812,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 1571:                                             ; preds = %1569
   %1572 = icmp ult i8 %1554, 32
   %1573 = icmp eq i8 %1554, 35
-  %or.cond270 = or i1 %1572, %1573
-  br i1 %or.cond270, label %.loopexit3782, label %1588
+  %or.cond214 = or i1 %1572, %1573
+  br i1 %or.cond214, label %.loopexit3754, label %1588
 
 1574:                                             ; preds = %1569
   %1575 = icmp eq i8 %1554, 36
@@ -3821,7 +3821,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1576:                                             ; preds = %1574
   %1577 = icmp ult i8 %1554, 38
-  br i1 %1577, label %.loopexit3782, label %1588
+  br i1 %1577, label %.loopexit3754, label %1588
 
 1578:                                             ; preds = %1559
   %1579 = icmp ult i8 %1554, 94
@@ -3832,31 +3832,31 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1581, label %1582, label %1583
 
 1582:                                             ; preds = %1580
-  %.not3631 = icmp eq i8 %1554, 59
-  br i1 %.not3631, label %1588, label %.loopexit3782
+  %.not3602 = icmp eq i8 %1554, 59
+  br i1 %.not3602, label %1588, label %.loopexit3754
 
 1583:                                             ; preds = %1580
-  %.not3630 = icmp eq i8 %1554, 61
-  br i1 %.not3630, label %1588, label %.loopexit3782
+  %.not3601 = icmp eq i8 %1554, 61
+  br i1 %.not3601, label %1588, label %.loopexit3754
 
 1584:                                             ; preds = %1578
   %1585 = icmp ult i8 %1554, 125
   br i1 %1585, label %1586, label %1587
 
 1586:                                             ; preds = %1584
-  switch i8 %1554, label %.loopexit3782 [
+  switch i8 %1554, label %.loopexit3754 [
     i8 124, label %1588
     i8 94, label %1588
   ]
 
 1587:                                             ; preds = %1584
-  %.not3629 = icmp eq i8 %1554, 126
-  br i1 %.not3629, label %1588, label %.loopexit3782
+  %.not3600 = icmp eq i8 %1554, 126
+  br i1 %.not3600, label %1588, label %.loopexit3754
 
 1588:                                             ; preds = %1711, %1711, %1711, %1711, %1710, %1710, %1710, %1667, %1667, %1667, %1667, %1666, %1666, %1666, %2477, %2466, %2466, %2395, %2384, %2384, %2356, %2345, %2345, %2312, %2301, %2301, %2226, %2215, %2215, %2187, %2176, %2176, %2086, %2075, %2075, %2047, %2036, %2036, %1940, %1929, %1929, %1839, %1817, %1806, %1806, %1778, %1767, %1767, %1642, %1586, %1586, %2481, %2399, %2360, %2316, %2230, %2191, %2090, %2051, %1944, %1821, %1782, %1655, %1632, %1571, %2462, %2455, %2453, %2380, %2373, %2371, %2341, %2334, %2332, %2297, %2290, %2288, %2211, %2204, %2202, %2172, %2165, %2163, %2071, %2064, %2062, %2032, %2025, %2023, %1925, %1918, %1916, %1802, %1795, %1793, %1763, %1756, %1754, %1744, %1742, %1734, %1723, %1721, %1714, %1700, %1698, %1690, %1679, %1677, %1670, %1647, %1636, %1627, %1625, %1576, %1565, %1587, %1582, %1583, %1566
   %1589 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1590 = ptrtoint ptr %1589 to i64
-  %1591 = ptrtoint ptr %.promoted4233 to i64
+  %1591 = ptrtoint ptr %.promoted4205 to i64
   %1592 = sub i64 %1590, %1591
   %1593 = trunc i64 %1592 to i32
   store i32 %1593, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -3865,7 +3865,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1595, label %1596, label %1598
 
 1596:                                             ; preds = %1588
-  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 260, ptr noundef %.promoted4233, i32 noundef %1593)
+  tail call fastcc void @zend_ini_copy_typed_value(ptr noundef %0, i32 noundef 260, ptr noundef %.promoted4205, i32 noundef %1593)
   %1597 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %1597, align 4
   br label %.loopexit
@@ -3897,7 +3897,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1613 = getelementptr inbounds i8, ptr %1610, i64 16
   store i64 %1599, ptr %1613, align 8
   %1614 = getelementptr inbounds i8, ptr %1610, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1614, ptr align 1 %.promoted4233, i64 %1599, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1614, ptr align 1 %.promoted4205, i64 %1599, i1 false)
   %1615 = getelementptr inbounds [1 x i8], ptr %1614, i64 0, i64 %1599
   store i8 0, ptr %1615, align 1
   store ptr %1610, ptr %0, align 8
@@ -3906,7 +3906,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 1617:                                             ; preds = %1330, %1330
-  %1618 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1618 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1618, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1618, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1619 = load i8, ptr %1618, align 1
@@ -3923,14 +3923,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1625:                                             ; preds = %1623
   %1626 = add nsw i8 %1619, -1
-  %or.cond276 = icmp ult i8 %1626, 8
-  br i1 %or.cond276, label %1347, label %1588
+  %or.cond220 = icmp ult i8 %1626, 8
+  br i1 %or.cond220, label %1347, label %1588
 
 1627:                                             ; preds = %1623
   %1628 = icmp ne i8 %1619, 13
   %1629 = icmp ult i8 %1619, 32
-  %or.cond279 = and i1 %1628, %1629
-  br i1 %or.cond279, label %1347, label %1588
+  %or.cond223 = and i1 %1628, %1629
+  br i1 %or.cond223, label %1347, label %1588
 
 1630:                                             ; preds = %1621
   %1631 = icmp ult i8 %1619, 48
@@ -3938,12 +3938,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1632:                                             ; preds = %1630
   %1633 = add nsw i8 %1619, -38
-  %or.cond282 = icmp ult i8 %1633, 4
-  br i1 %or.cond282, label %1588, label %1347
+  %or.cond226 = icmp ult i8 %1633, 4
+  br i1 %or.cond226, label %1588, label %1347
 
 1634:                                             ; preds = %1630
   %1635 = icmp ult i8 %1619, 58
-  br i1 %1635, label %.preheader3788, label %1636
+  br i1 %1635, label %.preheader3760, label %1636
 
 1636:                                             ; preds = %1634
   %1637 = icmp eq i8 %1619, 59
@@ -3965,15 +3965,15 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1643:                                             ; preds = %1640
   %1644 = icmp ult i8 %1619, 91
-  br i1 %1644, label %.preheader3788, label %1645
+  br i1 %1644, label %.preheader3760, label %1645
 
 1645:                                             ; preds = %1643
   %1646 = icmp ult i8 %1619, 94
   br i1 %1646, label %1347, label %1647
 
 1647:                                             ; preds = %1645
-  %.not3617 = icmp eq i8 %1619, 95
-  br i1 %.not3617, label %.preheader3788, label %1588
+  %.not3588 = icmp eq i8 %1619, 95
+  br i1 %.not3588, label %.preheader3760, label %1588
 
 1648:                                             ; preds = %1638
   %1649 = icmp ult i8 %1619, 124
@@ -3988,17 +3988,17 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1653, label %1908, label %1654
 
 1654:                                             ; preds = %1652
-  %.not3616 = icmp eq i8 %1619, 123
-  br i1 %.not3616, label %1347, label %.preheader3788
+  %.not3587 = icmp eq i8 %1619, 123
+  br i1 %.not3587, label %1347, label %.preheader3760
 
 1655:                                             ; preds = %1648
   %1656 = icmp ne i8 %1619, 125
   %1657 = icmp ult i8 %1619, 127
-  %or.cond285 = and i1 %1656, %1657
-  br i1 %or.cond285, label %1588, label %1347
+  %or.cond229 = and i1 %1656, %1657
+  br i1 %or.cond229, label %1588, label %1347
 
 1658:                                             ; preds = %1330, %1330
-  %1659 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1659 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1659, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1659, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1660 = load i8, ptr %1659, align 1
@@ -4039,8 +4039,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 1672:                                             ; preds = %1670
   %1673 = icmp ugt i8 %1660, 47
   %1674 = icmp ne i8 %1660, 58
-  %or.cond294 = and i1 %1673, %1674
-  br i1 %or.cond294, label %.preheader3788, label %1347
+  %or.cond238 = and i1 %1673, %1674
+  br i1 %or.cond238, label %.preheader3760, label %1347
 
 1675:                                             ; preds = %1668
   %1676 = icmp ult i8 %1660, 61
@@ -4056,7 +4056,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1681:                                             ; preds = %1679
   %1682 = icmp ult i8 %1660, 65
-  br i1 %1682, label %1347, label %.preheader3788
+  br i1 %1682, label %1347, label %.preheader3760
 
 1683:                                             ; preds = %1658
   %1684 = icmp ult i8 %1660, 111
@@ -4067,7 +4067,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1686, label %1687, label %1688
 
 1687:                                             ; preds = %1685
-  switch i8 %1660, label %.preheader3788 [
+  switch i8 %1660, label %.preheader3760 [
     i8 79, label %1947
     i8 85, label %2015
   ]
@@ -4077,19 +4077,19 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1689, label %1690, label %1691
 
 1690:                                             ; preds = %1688
-  %.not3600 = icmp eq i8 %1660, 94
-  br i1 %.not3600, label %1588, label %1347
+  %.not3571 = icmp eq i8 %1660, 94
+  br i1 %.not3571, label %1588, label %1347
 
 1691:                                             ; preds = %1688
   %1692 = icmp eq i8 %1660, 96
-  br i1 %1692, label %1347, label %.preheader3788
+  br i1 %1692, label %1347, label %.preheader3760
 
 1693:                                             ; preds = %1683
   %1694 = icmp ult i8 %1660, 123
   br i1 %1694, label %1695, label %1696
 
 1695:                                             ; preds = %1693
-  switch i8 %1660, label %.preheader3788 [
+  switch i8 %1660, label %.preheader3760 [
     i8 111, label %1947
     i8 117, label %2015
   ]
@@ -4107,7 +4107,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1701, label %1588, label %1347
 
 1702:                                             ; preds = %1330, %1330
-  %1703 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1703 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1703, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1703, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1704 = load i8, ptr %1703, align 1
@@ -4148,8 +4148,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 1716:                                             ; preds = %1714
   %1717 = icmp ugt i8 %1704, 47
   %1718 = icmp ne i8 %1704, 58
-  %or.cond303 = and i1 %1717, %1718
-  br i1 %or.cond303, label %.preheader3788, label %1347
+  %or.cond247 = and i1 %1717, %1718
+  br i1 %or.cond247, label %.preheader3760, label %1347
 
 1719:                                             ; preds = %1712
   %1720 = icmp ult i8 %1704, 61
@@ -4165,7 +4165,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1725:                                             ; preds = %1723
   %1726 = icmp ult i8 %1704, 65
-  br i1 %1726, label %1347, label %.preheader3788
+  br i1 %1726, label %1347, label %.preheader3760
 
 1727:                                             ; preds = %1702
   %1728 = icmp ult i8 %1704, 102
@@ -4176,7 +4176,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1730, label %1731, label %1732
 
 1731:                                             ; preds = %1729
-  switch i8 %1704, label %.preheader3788 [
+  switch i8 %1704, label %.preheader3760 [
     i8 70, label %2054
     i8 78, label %2093
   ]
@@ -4186,19 +4186,19 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1733, label %1734, label %1735
 
 1734:                                             ; preds = %1732
-  %.not3591 = icmp eq i8 %1704, 94
-  br i1 %.not3591, label %1588, label %1347
+  %.not3562 = icmp eq i8 %1704, 94
+  br i1 %.not3562, label %1588, label %1347
 
 1735:                                             ; preds = %1732
   %1736 = icmp eq i8 %1704, 96
-  br i1 %1736, label %1347, label %.preheader3788
+  br i1 %1736, label %1347, label %.preheader3760
 
 1737:                                             ; preds = %1727
   %1738 = icmp ult i8 %1704, 123
   br i1 %1738, label %1739, label %1740
 
 1739:                                             ; preds = %1737
-  switch i8 %1704, label %.preheader3788 [
+  switch i8 %1704, label %.preheader3760 [
     i8 102, label %2054
     i8 110, label %2093
   ]
@@ -4216,7 +4216,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1745, label %1588, label %1347
 
 1746:                                             ; preds = %1330, %1330
-  %1747 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1747 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1747, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1747, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1748 = load i8, ptr %1747, align 1
@@ -4233,14 +4233,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1754:                                             ; preds = %1752
   %1755 = add nsw i8 %1748, -1
-  %or.cond306 = icmp ult i8 %1755, 8
-  br i1 %or.cond306, label %1347, label %1588
+  %or.cond250 = icmp ult i8 %1755, 8
+  br i1 %or.cond250, label %1347, label %1588
 
 1756:                                             ; preds = %1752
   %1757 = icmp ne i8 %1748, 13
   %1758 = icmp ult i8 %1748, 32
-  %or.cond309 = and i1 %1757, %1758
-  br i1 %or.cond309, label %1347, label %1588
+  %or.cond253 = and i1 %1757, %1758
+  br i1 %or.cond253, label %1347, label %1588
 
 1759:                                             ; preds = %1750
   %1760 = icmp ult i8 %1748, 58
@@ -4256,7 +4256,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1765:                                             ; preds = %1763
   %1766 = icmp ult i8 %1748, 48
-  br i1 %1766, label %1347, label %.preheader3788
+  br i1 %1766, label %1347, label %.preheader3760
 
 1767:                                             ; preds = %1759
   switch i8 %1748, label %1347 [
@@ -4278,14 +4278,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1774:                                             ; preds = %1772
   %1775 = icmp eq i8 %1748, 82
-  br i1 %1775, label %2155, label %.preheader3788
+  br i1 %1775, label %2155, label %.preheader3760
 
 1776:                                             ; preds = %1770
   %1777 = icmp ult i8 %1748, 94
   br i1 %1777, label %1347, label %1778
 
 1778:                                             ; preds = %1776
-  switch i8 %1748, label %.preheader3788 [
+  switch i8 %1748, label %.preheader3760 [
     i8 94, label %1588
     i8 96, label %1347
   ]
@@ -4295,7 +4295,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1780, label %1781, label %1782
 
 1781:                                             ; preds = %1779
-  switch i8 %1748, label %.preheader3788 [
+  switch i8 %1748, label %.preheader3760 [
     i8 114, label %2155
     i8 123, label %1347
   ]
@@ -4303,11 +4303,11 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 1782:                                             ; preds = %1779
   %1783 = icmp ne i8 %1748, 125
   %1784 = icmp ult i8 %1748, 127
-  %or.cond315 = and i1 %1783, %1784
-  br i1 %or.cond315, label %1588, label %1347
+  %or.cond259 = and i1 %1783, %1784
+  br i1 %or.cond259, label %1588, label %1347
 
 1785:                                             ; preds = %1330, %1330
-  %1786 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %1786 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %1786, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1786, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1787 = load i8, ptr %1786, align 1
@@ -4324,14 +4324,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1793:                                             ; preds = %1791
   %1794 = add nsw i8 %1787, -1
-  %or.cond318 = icmp ult i8 %1794, 8
-  br i1 %or.cond318, label %1347, label %1588
+  %or.cond262 = icmp ult i8 %1794, 8
+  br i1 %or.cond262, label %1347, label %1588
 
 1795:                                             ; preds = %1791
   %1796 = icmp ne i8 %1787, 13
   %1797 = icmp ult i8 %1787, 32
-  %or.cond321 = and i1 %1796, %1797
-  br i1 %or.cond321, label %1347, label %1588
+  %or.cond265 = and i1 %1796, %1797
+  br i1 %or.cond265, label %1347, label %1588
 
 1798:                                             ; preds = %1789
   %1799 = icmp ult i8 %1787, 58
@@ -4347,7 +4347,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1804:                                             ; preds = %1802
   %1805 = icmp ult i8 %1787, 48
-  br i1 %1805, label %1347, label %.preheader3788
+  br i1 %1805, label %1347, label %.preheader3760
 
 1806:                                             ; preds = %1798
   switch i8 %1787, label %1347 [
@@ -4369,14 +4369,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1813:                                             ; preds = %1811
   %1814 = icmp eq i8 %1787, 69
-  br i1 %1814, label %2194, label %.preheader3788
+  br i1 %1814, label %2194, label %.preheader3760
 
 1815:                                             ; preds = %1809
   %1816 = icmp ult i8 %1787, 94
   br i1 %1816, label %1347, label %1817
 
 1817:                                             ; preds = %1815
-  switch i8 %1787, label %.preheader3788 [
+  switch i8 %1787, label %.preheader3760 [
     i8 94, label %1588
     i8 96, label %1347
   ]
@@ -4386,7 +4386,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1819, label %1820, label %1821
 
 1820:                                             ; preds = %1818
-  switch i8 %1787, label %.preheader3788 [
+  switch i8 %1787, label %.preheader3760 [
     i8 101, label %2194
     i8 123, label %1347
   ]
@@ -4394,12 +4394,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 1821:                                             ; preds = %1818
   %1822 = icmp ne i8 %1787, 125
   %1823 = icmp ult i8 %1787, 127
-  %or.cond327 = and i1 %1822, %1823
-  br i1 %or.cond327, label %1588, label %1347
+  %or.cond271 = and i1 %1822, %1823
+  br i1 %or.cond271, label %1588, label %1347
 
-1824:                                             ; preds = %._crit_edge4486, %1874, %1574, %1498
-  %1825 = phi ptr [ %.pre, %._crit_edge4486 ], [ %1551, %1574 ], [ %1479, %1498 ], [ %1857, %1874 ]
-  %.53301 = phi i32 [ %.43300, %._crit_edge4486 ], [ 2, %1574 ], [ 1, %1498 ], [ 1, %1874 ]
+1824:                                             ; preds = %._crit_edge4458, %1874, %1574, %1498
+  %1825 = phi ptr [ %.pre, %._crit_edge4458 ], [ %1551, %1574 ], [ %1479, %1498 ], [ %1857, %1874 ]
+  %.53245 = phi i32 [ %.43244, %._crit_edge4458 ], [ 2, %1574 ], [ 1, %1498 ], [ 1, %1874 ]
   %1826 = getelementptr inbounds i8, ptr %1825, i64 1
   store ptr %1826, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1827 = icmp ugt ptr %1826, %2
@@ -4411,83 +4411,83 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1830, label %1831, label %1835
 
 1831:                                             ; preds = %1828
-  switch i8 %1829, label %.loopexit3782 [
+  switch i8 %1829, label %.loopexit3754 [
     i8 0, label %1836
-    i8 92, label %.preheader3785
+    i8 92, label %.preheader3757
   ]
 
-.preheader3785:                                   ; preds = %1467, %1831
-  %1832 = phi ptr [ %.promoted4233, %1467 ], [ %1825, %1831 ]
+.preheader3757:                                   ; preds = %1467, %1831
+  %1832 = phi ptr [ %.promoted4205, %1467 ], [ %1825, %1831 ]
   %1833 = getelementptr inbounds i8, ptr %1832, i64 2
   store ptr %1833, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1834 = icmp ugt ptr %1833, %2
-  br i1 %1834, label %.loopexit, label %.lr.ph4189
+  br i1 %1834, label %.loopexit, label %.lr.ph4161
 
 1835:                                             ; preds = %1828
-  %.not3645 = icmp eq i8 %1829, 123
-  br i1 %.not3645, label %1836, label %.loopexit3782
+  %.not3616 = icmp eq i8 %1829, 123
+  br i1 %.not3616, label %1836, label %.loopexit3754
 
 1836:                                             ; preds = %1831, %1835
   %1837 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   store ptr %1837, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
-  %1838 = icmp ult i32 %.53301, 3
+  %1838 = icmp ult i32 %.53245, 3
   br i1 %1838, label %1839, label %1840
 
 1839:                                             ; preds = %1836
-  switch i32 %.53301, label %1512 [
+  switch i32 %.53245, label %1512 [
     i32 2, label %1588
-    i32 0, label %.loopexit3783
+    i32 0, label %.loopexit3755
   ]
 
 1840:                                             ; preds = %1836
-  %1841 = icmp ult i32 %.53301, 5
-  br i1 %1841, label %1842, label %.loopexit3809
+  %1841 = icmp ult i32 %.53245, 5
+  br i1 %1841, label %1842, label %.loopexit3781
 
 1842:                                             ; preds = %1840
-  %1843 = icmp eq i32 %.53301, 3
-  br i1 %1843, label %.loopexit3805, label %.loopexit3792
+  %1843 = icmp eq i32 %.53245, 3
+  br i1 %1843, label %.loopexit3777, label %.loopexit3764
 
-.loopexit3784:                                    ; preds = %2236
+.loopexit3756:                                    ; preds = %2236
   %1844 = getelementptr inbounds i8, ptr %2233, i64 2
   store ptr %1844, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1845 = icmp ugt ptr %1844, %2
-  br i1 %1845, label %.loopexit, label %.lr.ph4189
+  br i1 %1845, label %.loopexit, label %.lr.ph4161
 
-.lr.ph4189:                                       ; preds = %.preheader3785, %.loopexit3784
-  %1846 = phi ptr [ %1844, %.loopexit3784 ], [ %1833, %.preheader3785 ]
+.lr.ph4161:                                       ; preds = %.preheader3757, %.loopexit3756
+  %1846 = phi ptr [ %1844, %.loopexit3756 ], [ %1833, %.preheader3757 ]
   %1847 = load i8, ptr %1846, align 1
-  %.not3647.not = icmp eq i8 %1847, 36
-  br i1 %.not3647.not, label %.preheader3780, label %.loopexit3782
+  %.not3618.not = icmp eq i8 %1847, 36
+  br i1 %.not3618.not, label %.preheader3752, label %.loopexit3754
 
 1848:                                             ; preds = %1468
-  %1849 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %1849 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %1849, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   %1850 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64)) #10
   store i32 7, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
   br label %.loopexit
 
-.preheader3796:                                   ; preds = %1470, %1854
+.preheader3768:                                   ; preds = %1470, %1854
   %1851 = phi ptr [ %1852, %1854 ], [ %1471, %1470 ]
   %1852 = getelementptr inbounds i8, ptr %1851, i64 1
   store ptr %1852, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1853 = icmp ugt ptr %1852, %2
   br i1 %1853, label %.loopexit, label %1854
 
-1854:                                             ; preds = %.preheader3796
+1854:                                             ; preds = %.preheader3768
   %1855 = load i8, ptr %1852, align 1
-  %.not3642 = icmp eq i8 %1855, 39
-  br i1 %.not3642, label %2238, label %.preheader3796
+  %.not3613 = icmp eq i8 %1855, 39
+  br i1 %.not3613, label %2238, label %.preheader3768
 
-.preheader3798:                                   ; preds = %.preheader3798.preheader, %1882
-  %1856 = phi ptr [ %1857, %1882 ], [ %.ph5485, %.preheader3798.preheader ]
+.preheader3770:                                   ; preds = %.preheader3770.preheader, %1882
+  %1856 = phi ptr [ %1857, %1882 ], [ %.ph5457, %.preheader3770.preheader ]
   %1857 = getelementptr inbounds i8, ptr %1856, i64 1
   store ptr %1857, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1857, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1858 = icmp ugt ptr %1857, %2
   br i1 %1858, label %.loopexit, label %1859
 
-1859:                                             ; preds = %.preheader3798
+1859:                                             ; preds = %.preheader3770
   %1860 = load i8, ptr %1857, align 1
   %1861 = icmp ult i8 %1860, 48
   br i1 %1861, label %1862, label %1878
@@ -4502,12 +4502,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1866:                                             ; preds = %1864
   %1867 = add nsw i8 %1860, -1
-  %or.cond330 = icmp ult i8 %1867, 8
-  br i1 %or.cond330, label %.loopexit3782, label %1512
+  %or.cond274 = icmp ult i8 %1867, 8
+  br i1 %or.cond274, label %.loopexit3754, label %1512
 
 1868:                                             ; preds = %1864
   %1869 = icmp eq i8 %1860, 13
-  br i1 %1869, label %1512, label %.loopexit3782
+  br i1 %1869, label %1512, label %.loopexit3754
 
 1870:                                             ; preds = %1862
   %1871 = icmp ult i8 %1860, 37
@@ -4518,14 +4518,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1873, label %1512, label %1874
 
 1874:                                             ; preds = %1872
-  %.not3640 = icmp eq i8 %1860, 36
-  br i1 %.not3640, label %1824, label %.loopexit3782
+  %.not3611 = icmp eq i8 %1860, 36
+  br i1 %.not3611, label %1824, label %.loopexit3754
 
 1875:                                             ; preds = %1870
   %1876 = icmp ne i8 %1860, 37
   %1877 = icmp ult i8 %1860, 42
-  %or.cond333 = and i1 %1876, %1877
-  br i1 %or.cond333, label %1512, label %.loopexit3782
+  %or.cond277 = and i1 %1876, %1877
+  br i1 %or.cond277, label %1512, label %.loopexit3754
 
 1878:                                             ; preds = %1859
   %1879 = icmp ult i8 %1860, 94
@@ -4537,29 +4537,29 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1882:                                             ; preds = %1880
   %1883 = icmp ult i8 %1860, 58
-  br i1 %1883, label %.preheader3798, label %1884
+  br i1 %1883, label %.preheader3770, label %1884
 
 1884:                                             ; preds = %1882
-  %.not3639 = icmp eq i8 %1860, 59
-  br i1 %.not3639, label %1512, label %.loopexit3782
+  %.not3610 = icmp eq i8 %1860, 59
+  br i1 %.not3610, label %1512, label %.loopexit3754
 
 1885:                                             ; preds = %1880
   %1886 = icmp eq i8 %1860, 61
-  br i1 %1886, label %1512, label %.loopexit3782
+  br i1 %1886, label %1512, label %.loopexit3754
 
 1887:                                             ; preds = %1878
   %1888 = icmp ult i8 %1860, 125
   br i1 %1888, label %1889, label %1890
 
 1889:                                             ; preds = %1887
-  switch i8 %1860, label %.loopexit3782 [
+  switch i8 %1860, label %.loopexit3754 [
     i8 124, label %1512
     i8 94, label %1512
   ]
 
 1890:                                             ; preds = %1887
   %1891 = icmp eq i8 %1860, 126
-  br i1 %1891, label %1512, label %.loopexit3782
+  br i1 %1891, label %1512, label %.loopexit3754
 
 1892:                                             ; preds = %1904, %1546
   %1893 = phi i64 [ 2, %1904 ], [ 1, %1546 ]
@@ -4571,7 +4571,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 1896:                                             ; preds = %1904, %1892
   %1897 = phi ptr [ %1905, %1904 ], [ %1895, %1892 ]
   %1898 = ptrtoint ptr %1897 to i64
-  %1899 = ptrtoint ptr %.promoted4233 to i64
+  %1899 = ptrtoint ptr %.promoted4205 to i64
   %1900 = sub i64 %1898, %1899
   %1901 = trunc i64 %1900 to i32
   store i32 %1901, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -4589,7 +4589,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1907, label %1892, label %1896
 
 1908:                                             ; preds = %1642, %1652
-  %1909 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %1909 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %1909, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1909, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1910 = load i8, ptr %1909, align 1
@@ -4606,14 +4606,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1916:                                             ; preds = %1914
   %1917 = add nsw i8 %1910, -1
-  %or.cond339 = icmp ult i8 %1917, 8
-  br i1 %or.cond339, label %1347, label %1588
+  %or.cond283 = icmp ult i8 %1917, 8
+  br i1 %or.cond283, label %1347, label %1588
 
 1918:                                             ; preds = %1914
   %1919 = icmp ne i8 %1910, 13
   %1920 = icmp ult i8 %1910, 32
-  %or.cond342 = and i1 %1919, %1920
-  br i1 %or.cond342, label %1347, label %1588
+  %or.cond286 = and i1 %1919, %1920
+  br i1 %or.cond286, label %1347, label %1588
 
 1921:                                             ; preds = %1912
   %1922 = icmp ult i8 %1910, 58
@@ -4629,7 +4629,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1927:                                             ; preds = %1925
   %1928 = icmp ult i8 %1910, 48
-  br i1 %1928, label %1347, label %.preheader3788
+  br i1 %1928, label %1347, label %.preheader3760
 
 1929:                                             ; preds = %1921
   switch i8 %1910, label %1347 [
@@ -4651,14 +4651,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1936:                                             ; preds = %1934
   %1937 = icmp eq i8 %1910, 76
-  br i1 %1937, label %2280, label %.preheader3788
+  br i1 %1937, label %2280, label %.preheader3760
 
 1938:                                             ; preds = %1932
   %1939 = icmp ult i8 %1910, 94
   br i1 %1939, label %1347, label %1940
 
 1940:                                             ; preds = %1938
-  switch i8 %1910, label %.preheader3788 [
+  switch i8 %1910, label %.preheader3760 [
     i8 94, label %1588
     i8 96, label %1347
   ]
@@ -4668,7 +4668,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %1942, label %1943, label %1944
 
 1943:                                             ; preds = %1941
-  switch i8 %1910, label %.preheader3788 [
+  switch i8 %1910, label %.preheader3760 [
     i8 108, label %2280
     i8 123, label %1347
   ]
@@ -4676,11 +4676,11 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 1944:                                             ; preds = %1941
   %1945 = icmp ne i8 %1910, 125
   %1946 = icmp ult i8 %1910, 127
-  %or.cond348 = and i1 %1945, %1946
-  br i1 %or.cond348, label %1588, label %1347
+  %or.cond292 = and i1 %1945, %1946
+  br i1 %or.cond292, label %1588, label %1347
 
 1947:                                             ; preds = %1695, %1687
-  %1948 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %1948 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %1948, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1948, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %1949 = load i8, ptr %1948, align 1
@@ -4697,20 +4697,20 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1955:                                             ; preds = %1953
   %1956 = icmp eq i8 %1949, 0
-  br i1 %1956, label %.loopexit3805, label %1957
+  br i1 %1956, label %.loopexit3777, label %1957
 
 1957:                                             ; preds = %1955
   %1958 = icmp ult i8 %1949, 9
   br i1 %1958, label %1347, label %1959
 
 1959:                                             ; preds = %1957
-  %.not3615 = icmp eq i8 %1949, 10
-  br i1 %.not3615, label %.loopexit3805, label %.preheader3803
+  %.not3586 = icmp eq i8 %1949, 10
+  br i1 %.not3586, label %.loopexit3777, label %.preheader3775
 
 1960:                                             ; preds = %1953
   switch i8 %1949, label %1347 [
-    i8 13, label %.loopexit3805
-    i8 32, label %.preheader3803
+    i8 13, label %.loopexit3777
+    i8 32, label %.preheader3775
   ]
 
 1961:                                             ; preds = %1951
@@ -4720,17 +4720,17 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 1963:                                             ; preds = %1961
   %1964 = icmp ugt i8 %1949, 34
   %1965 = add nsw i8 %1949, -42
-  %or.cond351 = icmp ult i8 %1965, -4
-  %or.cond3728 = select i1 %1964, i1 %or.cond351, i1 false
-  br i1 %or.cond3728, label %1347, label %.loopexit3805
+  %or.cond295 = icmp ult i8 %1965, -4
+  %or.cond3700 = select i1 %1964, i1 %or.cond295, i1 false
+  br i1 %or.cond3700, label %1347, label %.loopexit3777
 
 1966:                                             ; preds = %1961
   %1967 = icmp ult i8 %1949, 58
-  br i1 %1967, label %.preheader3788, label %1968
+  br i1 %1967, label %.preheader3760, label %1968
 
 1968:                                             ; preds = %1966
-  %.not3613 = icmp eq i8 %1949, 59
-  br i1 %.not3613, label %.loopexit3805, label %1347
+  %.not3584 = icmp eq i8 %1949, 59
+  br i1 %.not3584, label %.loopexit3777, label %1347
 
 1969:                                             ; preds = %1947
   %1970 = icmp ult i8 %1949, 96
@@ -4742,19 +4742,19 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1973:                                             ; preds = %1971
   %1974 = icmp eq i8 %1949, 61
-  br i1 %1974, label %.loopexit3805, label %1975
+  br i1 %1974, label %.loopexit3777, label %1975
 
 1975:                                             ; preds = %1973
   %1976 = icmp ult i8 %1949, 65
   br i1 %1976, label %1347, label %1977
 
 1977:                                             ; preds = %1975
-  %.not3612 = icmp eq i8 %1949, 78
-  br i1 %.not3612, label %2323, label %.preheader3788
+  %.not3583 = icmp eq i8 %1949, 78
+  br i1 %.not3583, label %2323, label %.preheader3760
 
 1978:                                             ; preds = %1971
   %1979 = icmp ult i8 %1949, 91
-  br i1 %1979, label %.preheader3788, label %1980
+  br i1 %1979, label %.preheader3760, label %1980
 
 1980:                                             ; preds = %1978
   %1981 = icmp ult i8 %1949, 94
@@ -4762,14 +4762,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1982:                                             ; preds = %1980
   %1983 = icmp eq i8 %1949, 95
-  br i1 %1983, label %.preheader3788, label %.loopexit3805
+  br i1 %1983, label %.preheader3760, label %.loopexit3777
 
 1984:                                             ; preds = %1969
   %1985 = icmp ult i8 %1949, 123
   br i1 %1985, label %1986, label %1987
 
 1986:                                             ; preds = %1984
-  switch i8 %1949, label %.preheader3788 [
+  switch i8 %1949, label %.preheader3760 [
     i8 96, label %1347
     i8 110, label %2323
   ]
@@ -4780,16 +4780,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 1989:                                             ; preds = %1987
   %1990 = icmp eq i8 %1949, 123
-  br i1 %1990, label %1347, label %.loopexit3805
+  br i1 %1990, label %1347, label %.loopexit3777
 
 1991:                                             ; preds = %1987
-  %.not3611 = icmp eq i8 %1949, 126
-  br i1 %.not3611, label %.loopexit3805, label %1347
+  %.not3582 = icmp eq i8 %1949, 126
+  br i1 %.not3582, label %.loopexit3777, label %1347
 
-.loopexit3805:                                    ; preds = %.lr.ph4171, %2438, %2438, %2424, %1960, %2439, %2434, %2433, %2427, %2420, %2416, %1968, %1959, %1991, %1989, %1982, %1973, %1963, %1955, %1842
-  %1992 = phi ptr [ %2404, %2438 ], [ %2404, %2438 ], [ %2404, %2424 ], [ %1948, %1960 ], [ %2404, %2439 ], [ %2404, %2434 ], [ %2404, %2433 ], [ %2404, %2427 ], [ %2404, %2420 ], [ %2404, %2416 ], [ %1948, %1968 ], [ %1948, %1959 ], [ %1948, %1991 ], [ %1948, %1989 ], [ %1948, %1982 ], [ %1948, %1973 ], [ %1948, %1963 ], [ %1948, %1955 ], [ %1837, %1842 ], [ %2319, %.lr.ph4171 ]
+.loopexit3777:                                    ; preds = %.lr.ph4143, %2438, %2438, %2424, %1960, %2439, %2434, %2433, %2427, %2420, %2416, %1968, %1959, %1991, %1989, %1982, %1973, %1963, %1955, %1842
+  %1992 = phi ptr [ %2404, %2438 ], [ %2404, %2438 ], [ %2404, %2424 ], [ %1948, %1960 ], [ %2404, %2439 ], [ %2404, %2434 ], [ %2404, %2433 ], [ %2404, %2427 ], [ %2404, %2420 ], [ %2404, %2416 ], [ %1948, %1968 ], [ %1948, %1959 ], [ %1948, %1991 ], [ %1948, %1989 ], [ %1948, %1982 ], [ %1948, %1973 ], [ %1948, %1963 ], [ %1948, %1955 ], [ %1837, %1842 ], [ %2319, %.lr.ph4143 ]
   %1993 = ptrtoint ptr %1992 to i64
-  %1994 = ptrtoint ptr %.promoted4233 to i64
+  %1994 = ptrtoint ptr %.promoted4205 to i64
   %1995 = sub i64 %1993, %1994
   %1996 = trunc i64 %1995 to i32
   store i32 %1996, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -4797,14 +4797,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %1998 = icmp eq i32 %1997, 2
   br i1 %1998, label %1999, label %2002
 
-1999:                                             ; preds = %.loopexit3805
+1999:                                             ; preds = %.loopexit3777
   %2000 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 2, ptr %2000, align 8
   %2001 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2001, align 4
   br label %.loopexit
 
-2002:                                             ; preds = %.loopexit3805
+2002:                                             ; preds = %.loopexit3777
   %2003 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %2004 = trunc i8 %2003 to i1
   br i1 %2004, label %2005, label %2007
@@ -4831,7 +4831,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 2015:                                             ; preds = %1695, %1687
-  %2016 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %2016 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %2016, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2016, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2017 = load i8, ptr %2016, align 1
@@ -4848,14 +4848,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2023:                                             ; preds = %2021
   %2024 = add nsw i8 %2017, -1
-  %or.cond354 = icmp ult i8 %2024, 8
-  br i1 %or.cond354, label %1347, label %1588
+  %or.cond298 = icmp ult i8 %2024, 8
+  br i1 %or.cond298, label %1347, label %1588
 
 2025:                                             ; preds = %2021
   %2026 = icmp ne i8 %2017, 13
   %2027 = icmp ult i8 %2017, 32
-  %or.cond357 = and i1 %2026, %2027
-  br i1 %or.cond357, label %1347, label %1588
+  %or.cond301 = and i1 %2026, %2027
+  br i1 %or.cond301, label %1347, label %1588
 
 2028:                                             ; preds = %2019
   %2029 = icmp ult i8 %2017, 58
@@ -4871,7 +4871,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2034:                                             ; preds = %2032
   %2035 = icmp ult i8 %2017, 48
-  br i1 %2035, label %1347, label %.preheader3788
+  br i1 %2035, label %1347, label %.preheader3760
 
 2036:                                             ; preds = %2028
   switch i8 %2017, label %1347 [
@@ -4893,14 +4893,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2043:                                             ; preds = %2041
   %2044 = icmp eq i8 %2017, 76
-  br i1 %2044, label %2363, label %.preheader3788
+  br i1 %2044, label %2363, label %.preheader3760
 
 2045:                                             ; preds = %2039
   %2046 = icmp ult i8 %2017, 94
   br i1 %2046, label %1347, label %2047
 
 2047:                                             ; preds = %2045
-  switch i8 %2017, label %.preheader3788 [
+  switch i8 %2017, label %.preheader3760 [
     i8 94, label %1588
     i8 96, label %1347
   ]
@@ -4910,7 +4910,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2049, label %2050, label %2051
 
 2050:                                             ; preds = %2048
-  switch i8 %2017, label %.preheader3788 [
+  switch i8 %2017, label %.preheader3760 [
     i8 108, label %2363
     i8 123, label %1347
   ]
@@ -4918,11 +4918,11 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 2051:                                             ; preds = %2048
   %2052 = icmp ne i8 %2017, 125
   %2053 = icmp ult i8 %2017, 127
-  %or.cond363 = and i1 %2052, %2053
-  br i1 %or.cond363, label %1588, label %1347
+  %or.cond307 = and i1 %2052, %2053
+  br i1 %or.cond307, label %1588, label %1347
 
 2054:                                             ; preds = %1739, %1731
-  %2055 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %2055 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %2055, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2055, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2056 = load i8, ptr %2055, align 1
@@ -4939,14 +4939,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2062:                                             ; preds = %2060
   %2063 = add nsw i8 %2056, -1
-  %or.cond366 = icmp ult i8 %2063, 8
-  br i1 %or.cond366, label %1347, label %1588
+  %or.cond310 = icmp ult i8 %2063, 8
+  br i1 %or.cond310, label %1347, label %1588
 
 2064:                                             ; preds = %2060
   %2065 = icmp ne i8 %2056, 13
   %2066 = icmp ult i8 %2056, 32
-  %or.cond369 = and i1 %2065, %2066
-  br i1 %or.cond369, label %1347, label %1588
+  %or.cond313 = and i1 %2065, %2066
+  br i1 %or.cond313, label %1347, label %1588
 
 2067:                                             ; preds = %2058
   %2068 = icmp ult i8 %2056, 58
@@ -4962,7 +4962,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2073:                                             ; preds = %2071
   %2074 = icmp ult i8 %2056, 48
-  br i1 %2074, label %1347, label %.preheader3788
+  br i1 %2074, label %1347, label %.preheader3760
 
 2075:                                             ; preds = %2067
   switch i8 %2056, label %1347 [
@@ -4984,14 +4984,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2082:                                             ; preds = %2080
   %2083 = icmp eq i8 %2056, 70
-  br i1 %2083, label %2402, label %.preheader3788
+  br i1 %2083, label %2402, label %.preheader3760
 
 2084:                                             ; preds = %2078
   %2085 = icmp ult i8 %2056, 94
   br i1 %2085, label %1347, label %2086
 
 2086:                                             ; preds = %2084
-  switch i8 %2056, label %.preheader3788 [
+  switch i8 %2056, label %.preheader3760 [
     i8 94, label %1588
     i8 96, label %1347
   ]
@@ -5001,7 +5001,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2088, label %2089, label %2090
 
 2089:                                             ; preds = %2087
-  switch i8 %2056, label %.preheader3788 [
+  switch i8 %2056, label %.preheader3760 [
     i8 102, label %2402
     i8 123, label %1347
   ]
@@ -5009,8 +5009,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 2090:                                             ; preds = %2087
   %2091 = icmp ne i8 %2056, 125
   %2092 = icmp ult i8 %2056, 127
-  %or.cond375 = and i1 %2091, %2092
-  br i1 %or.cond375, label %1588, label %1347
+  %or.cond319 = and i1 %2091, %2092
+  br i1 %or.cond319, label %1588, label %1347
 
 2093:                                             ; preds = %2480, %2229, %1739, %1731, %2473, %2222
   %2094 = phi ptr [ %2446, %2480 ], [ %2195, %2229 ], [ %1703, %1739 ], [ %1703, %1731 ], [ %2446, %2473 ], [ %2195, %2222 ]
@@ -5022,8 +5022,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2098 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %2097
   %2099 = load i8, ptr %2098, align 1
   %2100 = and i8 %2099, 32
-  %.not3592 = icmp eq i8 %2100, 0
-  br i1 %.not3592, label %2101, label %.preheader3788
+  %.not3563 = icmp eq i8 %2100, 0
+  br i1 %.not3563, label %2101, label %.preheader3760
 
 2101:                                             ; preds = %2093
   %2102 = icmp ult i8 %2096, 42
@@ -5038,16 +5038,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2106, label %2107, label %2108
 
 2107:                                             ; preds = %2105
-  %.not3597 = icmp eq i8 %2096, 0
-  br i1 %.not3597, label %.loopexit3792, label %1347
+  %.not3568 = icmp eq i8 %2096, 0
+  br i1 %.not3568, label %.loopexit3764, label %1347
 
 2108:                                             ; preds = %2105
   %2109 = icmp eq i8 %2096, 9
-  br i1 %2109, label %.preheader3790, label %2110
+  br i1 %2109, label %.preheader3762, label %2110
 
 2110:                                             ; preds = %2108
   %2111 = icmp ugt i8 %2096, 10
-  br i1 %2111, label %1347, label %.loopexit3792
+  br i1 %2111, label %1347, label %.loopexit3764
 
 2112:                                             ; preds = %2103
   %2113 = icmp ult i8 %2096, 33
@@ -5055,20 +5055,20 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2114:                                             ; preds = %2112
   switch i8 %2096, label %1347 [
-    i8 13, label %.loopexit3792
-    i8 32, label %.preheader3790
+    i8 13, label %.loopexit3764
+    i8 32, label %.preheader3762
   ]
 
-.preheader3790:                                   ; preds = %2108, %2114
+.preheader3762:                                   ; preds = %2108, %2114
   %2115 = getelementptr inbounds i8, ptr %2094, i64 2
   store ptr %2115, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2116 = icmp ugt ptr %2115, %2
-  br i1 %2116, label %.loopexit, label %.lr.ph4180
+  br i1 %2116, label %.loopexit, label %.lr.ph4152
 
 2117:                                             ; preds = %2112
   %2118 = add nsw i8 %2096, -35
-  %or.cond378 = icmp ult i8 %2118, 3
-  br i1 %or.cond378, label %1347, label %.loopexit3792
+  %or.cond322 = icmp ult i8 %2118, 3
+  br i1 %or.cond322, label %1347, label %.loopexit3764
 
 2119:                                             ; preds = %2101
   %2120 = icmp ult i8 %2096, 94
@@ -5079,12 +5079,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2122, label %2123, label %2124
 
 2123:                                             ; preds = %2121
-  %.not3595 = icmp eq i8 %2096, 59
-  br i1 %.not3595, label %.loopexit3792, label %1347
+  %.not3566 = icmp eq i8 %2096, 59
+  br i1 %.not3566, label %.loopexit3764, label %1347
 
 2124:                                             ; preds = %2121
-  %.not3594 = icmp eq i8 %2096, 61
-  br i1 %.not3594, label %.loopexit3792, label %1347
+  %.not3565 = icmp eq i8 %2096, 61
+  br i1 %.not3565, label %.loopexit3764, label %1347
 
 2125:                                             ; preds = %2119
   %2126 = icmp ult i8 %2096, 125
@@ -5092,18 +5092,18 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2127:                                             ; preds = %2125
   switch i8 %2096, label %1347 [
-    i8 124, label %.loopexit3792
-    i8 94, label %.loopexit3792
+    i8 124, label %.loopexit3764
+    i8 94, label %.loopexit3764
   ]
 
 2128:                                             ; preds = %2125
-  %.not3593 = icmp eq i8 %2096, 126
-  br i1 %.not3593, label %.loopexit3792, label %1347
+  %.not3564 = icmp eq i8 %2096, 126
+  br i1 %.not3564, label %.loopexit3764, label %1347
 
-.loopexit3792:                                    ; preds = %.lr.ph4180, %2127, %2127, %2114, %2107, %2110, %2128, %2123, %2124, %2117, %1842
-  %2129 = phi ptr [ %2095, %2127 ], [ %2095, %2127 ], [ %2095, %2114 ], [ %2095, %2107 ], [ %2095, %2110 ], [ %2095, %2128 ], [ %2095, %2123 ], [ %2095, %2124 ], [ %2095, %2117 ], [ %1837, %1842 ], [ %2441, %.lr.ph4180 ]
+.loopexit3764:                                    ; preds = %.lr.ph4152, %2127, %2127, %2114, %2107, %2110, %2128, %2123, %2124, %2117, %1842
+  %2129 = phi ptr [ %2095, %2127 ], [ %2095, %2127 ], [ %2095, %2114 ], [ %2095, %2107 ], [ %2095, %2110 ], [ %2095, %2128 ], [ %2095, %2123 ], [ %2095, %2124 ], [ %2095, %2117 ], [ %1837, %1842 ], [ %2441, %.lr.ph4152 ]
   %2130 = ptrtoint ptr %2129 to i64
-  %2131 = ptrtoint ptr %.promoted4233 to i64
+  %2131 = ptrtoint ptr %.promoted4205 to i64
   %2132 = sub i64 %2130, %2131
   %2133 = trunc i64 %2132 to i32
   store i32 %2133, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -5111,14 +5111,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2135 = icmp eq i32 %2134, 2
   br i1 %2135, label %2136, label %2139
 
-2136:                                             ; preds = %.loopexit3792
+2136:                                             ; preds = %.loopexit3764
   %2137 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 3, ptr %2137, align 8
   %2138 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2138, align 4
   br label %.loopexit
 
-2139:                                             ; preds = %.loopexit3792
+2139:                                             ; preds = %.loopexit3764
   %2140 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %2141 = trunc i8 %2140 to i1
   br i1 %2141, label %2142, label %2144
@@ -5151,7 +5151,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 2155:                                             ; preds = %1781, %1774
-  %2156 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %2156 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %2156, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2156, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2157 = load i8, ptr %2156, align 1
@@ -5168,14 +5168,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2163:                                             ; preds = %2161
   %2164 = add nsw i8 %2157, -1
-  %or.cond384 = icmp ult i8 %2164, 8
-  br i1 %or.cond384, label %1347, label %1588
+  %or.cond328 = icmp ult i8 %2164, 8
+  br i1 %or.cond328, label %1347, label %1588
 
 2165:                                             ; preds = %2161
   %2166 = icmp ne i8 %2157, 13
   %2167 = icmp ult i8 %2157, 32
-  %or.cond387 = and i1 %2166, %2167
-  br i1 %or.cond387, label %1347, label %1588
+  %or.cond331 = and i1 %2166, %2167
+  br i1 %or.cond331, label %1347, label %1588
 
 2168:                                             ; preds = %2159
   %2169 = icmp ult i8 %2157, 58
@@ -5191,7 +5191,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2174:                                             ; preds = %2172
   %2175 = icmp ult i8 %2157, 48
-  br i1 %2175, label %1347, label %.preheader3788
+  br i1 %2175, label %1347, label %.preheader3760
 
 2176:                                             ; preds = %2168
   switch i8 %2157, label %1347 [
@@ -5213,14 +5213,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2183:                                             ; preds = %2181
   %2184 = icmp eq i8 %2157, 85
-  br i1 %2184, label %2445, label %.preheader3788
+  br i1 %2184, label %2445, label %.preheader3760
 
 2185:                                             ; preds = %2179
   %2186 = icmp ult i8 %2157, 94
   br i1 %2186, label %1347, label %2187
 
 2187:                                             ; preds = %2185
-  switch i8 %2157, label %.preheader3788 [
+  switch i8 %2157, label %.preheader3760 [
     i8 94, label %1588
     i8 96, label %1347
   ]
@@ -5230,7 +5230,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2189, label %2190, label %2191
 
 2190:                                             ; preds = %2188
-  switch i8 %2157, label %.preheader3788 [
+  switch i8 %2157, label %.preheader3760 [
     i8 117, label %2445
     i8 123, label %1347
   ]
@@ -5238,11 +5238,11 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 2191:                                             ; preds = %2188
   %2192 = icmp ne i8 %2157, 125
   %2193 = icmp ult i8 %2157, 127
-  %or.cond393 = and i1 %2192, %2193
-  br i1 %or.cond393, label %1588, label %1347
+  %or.cond337 = and i1 %2192, %2193
+  br i1 %or.cond337, label %1588, label %1347
 
 2194:                                             ; preds = %1820, %1813
-  %2195 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %2195 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %2195, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2195, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2196 = load i8, ptr %2195, align 1
@@ -5259,14 +5259,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2202:                                             ; preds = %2200
   %2203 = add nsw i8 %2196, -1
-  %or.cond396 = icmp ult i8 %2203, 8
-  br i1 %or.cond396, label %1347, label %1588
+  %or.cond340 = icmp ult i8 %2203, 8
+  br i1 %or.cond340, label %1347, label %1588
 
 2204:                                             ; preds = %2200
   %2205 = icmp ne i8 %2196, 13
   %2206 = icmp ult i8 %2196, 32
-  %or.cond399 = and i1 %2205, %2206
-  br i1 %or.cond399, label %1347, label %1588
+  %or.cond343 = and i1 %2205, %2206
+  br i1 %or.cond343, label %1347, label %1588
 
 2207:                                             ; preds = %2198
   %2208 = icmp ult i8 %2196, 58
@@ -5282,7 +5282,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2213:                                             ; preds = %2211
   %2214 = icmp ult i8 %2196, 48
-  br i1 %2214, label %1347, label %.preheader3788
+  br i1 %2214, label %1347, label %.preheader3760
 
 2215:                                             ; preds = %2207
   switch i8 %2196, label %1347 [
@@ -5304,14 +5304,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2222:                                             ; preds = %2220
   %2223 = icmp eq i8 %2196, 83
-  br i1 %2223, label %2093, label %.preheader3788
+  br i1 %2223, label %2093, label %.preheader3760
 
 2224:                                             ; preds = %2218
   %2225 = icmp ult i8 %2196, 94
   br i1 %2225, label %1347, label %2226
 
 2226:                                             ; preds = %2224
-  switch i8 %2196, label %.preheader3788 [
+  switch i8 %2196, label %.preheader3760 [
     i8 94, label %1588
     i8 96, label %1347
   ]
@@ -5321,7 +5321,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2228, label %2229, label %2230
 
 2229:                                             ; preds = %2227
-  switch i8 %2196, label %.preheader3788 [
+  switch i8 %2196, label %.preheader3760 [
     i8 115, label %2093
     i8 123, label %1347
   ]
@@ -5329,40 +5329,40 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 2230:                                             ; preds = %2227
   %2231 = icmp ne i8 %2196, 125
   %2232 = icmp ult i8 %2196, 127
-  %or.cond405 = and i1 %2231, %2232
-  br i1 %or.cond405, label %1588, label %1347
+  %or.cond349 = and i1 %2231, %2232
+  br i1 %or.cond349, label %1588, label %1347
 
-.preheader3780:                                   ; preds = %.lr.ph4189, %2236
-  %2233 = phi ptr [ %2234, %2236 ], [ %1846, %.lr.ph4189 ]
+.preheader3752:                                   ; preds = %.lr.ph4161, %2236
+  %2233 = phi ptr [ %2234, %2236 ], [ %1846, %.lr.ph4161 ]
   %2234 = getelementptr inbounds i8, ptr %2233, i64 1
   store ptr %2234, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2235 = icmp ugt ptr %2234, %2
   br i1 %2235, label %.loopexit, label %2236
 
-2236:                                             ; preds = %.preheader3780
+2236:                                             ; preds = %.preheader3752
   %2237 = load i8, ptr %2234, align 1
-  switch i8 %2237, label %.loopexit3782 [
-    i8 36, label %.preheader3780
-    i8 0, label %.loopexit3783
-    i8 92, label %.loopexit3784
+  switch i8 %2237, label %.loopexit3754 [
+    i8 36, label %.preheader3752
+    i8 0, label %.loopexit3755
+    i8 92, label %.loopexit3756
   ]
 
 2238:                                             ; preds = %1854
   %2239 = getelementptr inbounds i8, ptr %1851, i64 2
   store ptr %2239, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2240 = ptrtoint ptr %2239 to i64
-  %2241 = ptrtoint ptr %.promoted4233 to i64
+  %2241 = ptrtoint ptr %.promoted4205 to i64
   %2242 = sub i64 %2240, %2241
   %2243 = trunc i64 %2242 to i32
   store i32 %2243, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %2244 = load i8, ptr %.promoted4233, align 1
+  %2244 = load i8, ptr %.promoted4205, align 1
   %2245 = icmp eq i8 %2244, 39
   br i1 %2245, label %2246, label %2254
 
 2246:                                             ; preds = %2238
   %2247 = add i64 %2242, 4294967295
   %2248 = and i64 %2247, 4294967295
-  %2249 = getelementptr inbounds i8, ptr %.promoted4233, i64 %2248
+  %2249 = getelementptr inbounds i8, ptr %.promoted4205, i64 %2248
   %2250 = load i8, ptr %2249, align 1
   %2251 = icmp eq i8 %2250, 39
   br i1 %2251, label %2252, label %2254
@@ -5375,7 +5375,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2254:                                             ; preds = %2252, %2246, %2238
   %2255 = phi i32 [ %2253, %2252 ], [ %2243, %2246 ], [ %2243, %2238 ]
-  %2256 = phi ptr [ %1471, %2252 ], [ %.promoted4233, %2246 ], [ %.promoted4233, %2238 ]
+  %2256 = phi ptr [ %1471, %2252 ], [ %.promoted4205, %2246 ], [ %.promoted4205, %2238 ]
   %2257 = load i32, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 108), align 4
   %2258 = icmp eq i32 %2257, 2
   br i1 %2258, label %2259, label %2261
@@ -5422,7 +5422,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 2280:                                             ; preds = %1943, %1936
-  %2281 = getelementptr inbounds i8, ptr %.promoted4233, i64 3
+  %2281 = getelementptr inbounds i8, ptr %.promoted4205, i64 3
   store ptr %2281, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2281, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2282 = load i8, ptr %2281, align 1
@@ -5439,14 +5439,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2288:                                             ; preds = %2286
   %2289 = add nsw i8 %2282, -1
-  %or.cond408 = icmp ult i8 %2289, 8
-  br i1 %or.cond408, label %1347, label %1588
+  %or.cond352 = icmp ult i8 %2289, 8
+  br i1 %or.cond352, label %1347, label %1588
 
 2290:                                             ; preds = %2286
   %2291 = icmp ne i8 %2282, 13
   %2292 = icmp ult i8 %2282, 32
-  %or.cond411 = and i1 %2291, %2292
-  br i1 %or.cond411, label %1347, label %1588
+  %or.cond355 = and i1 %2291, %2292
+  br i1 %or.cond355, label %1347, label %1588
 
 2293:                                             ; preds = %2284
   %2294 = icmp ult i8 %2282, 58
@@ -5462,7 +5462,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2299:                                             ; preds = %2297
   %2300 = icmp ult i8 %2282, 48
-  br i1 %2300, label %1347, label %.preheader3788
+  br i1 %2300, label %1347, label %.preheader3760
 
 2301:                                             ; preds = %2293
   switch i8 %2282, label %1347 [
@@ -5484,14 +5484,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2308:                                             ; preds = %2306
   %2309 = icmp eq i8 %2282, 83
-  br i1 %2309, label %2323, label %.preheader3788
+  br i1 %2309, label %2323, label %.preheader3760
 
 2310:                                             ; preds = %2304
   %2311 = icmp ult i8 %2282, 94
   br i1 %2311, label %1347, label %2312
 
 2312:                                             ; preds = %2310
-  switch i8 %2282, label %.preheader3788 [
+  switch i8 %2282, label %.preheader3760 [
     i8 94, label %1588
     i8 96, label %1347
   ]
@@ -5501,7 +5501,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2314, label %2315, label %2316
 
 2315:                                             ; preds = %2313
-  switch i8 %2282, label %.preheader3788 [
+  switch i8 %2282, label %.preheader3760 [
     i8 115, label %2323
     i8 123, label %1347
   ]
@@ -5509,22 +5509,22 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 2316:                                             ; preds = %2313
   %2317 = icmp ne i8 %2282, 125
   %2318 = icmp ult i8 %2282, 127
-  %or.cond417 = and i1 %2317, %2318
-  br i1 %or.cond417, label %1588, label %1347
+  %or.cond361 = and i1 %2317, %2318
+  br i1 %or.cond361, label %1588, label %1347
 
-.lr.ph4171:                                       ; preds = %.preheader3803, %.backedge3806
-  %2319 = phi ptr [ %2321, %.backedge3806 ], [ %2425, %.preheader3803 ]
+.lr.ph4143:                                       ; preds = %.preheader3775, %.backedge3778
+  %2319 = phi ptr [ %2321, %.backedge3778 ], [ %2425, %.preheader3775 ]
   %2320 = load i8, ptr %2319, align 1
-  switch i8 %2320, label %.loopexit3805 [
-    i8 32, label %.backedge3806
-    i8 9, label %.backedge3806
+  switch i8 %2320, label %.loopexit3777 [
+    i8 32, label %.backedge3778
+    i8 9, label %.backedge3778
   ]
 
-.backedge3806:                                    ; preds = %.lr.ph4171, %.lr.ph4171
+.backedge3778:                                    ; preds = %.lr.ph4143, %.lr.ph4143
   %2321 = getelementptr inbounds i8, ptr %2319, i64 1
   store ptr %2321, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2322 = icmp ugt ptr %2321, %2
-  br i1 %2322, label %.loopexit, label %.lr.ph4171
+  br i1 %2322, label %.loopexit, label %.lr.ph4143
 
 2323:                                             ; preds = %2315, %1986, %2308, %1977
   %2324 = phi ptr [ %2281, %2315 ], [ %1948, %1986 ], [ %2281, %2308 ], [ %1948, %1977 ]
@@ -5545,14 +5545,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2332:                                             ; preds = %2330
   %2333 = add nsw i8 %2326, -1
-  %or.cond423 = icmp ult i8 %2333, 8
-  br i1 %or.cond423, label %1347, label %1588
+  %or.cond367 = icmp ult i8 %2333, 8
+  br i1 %or.cond367, label %1347, label %1588
 
 2334:                                             ; preds = %2330
   %2335 = icmp ne i8 %2326, 13
   %2336 = icmp ult i8 %2326, 32
-  %or.cond426 = and i1 %2335, %2336
-  br i1 %or.cond426, label %1347, label %1588
+  %or.cond370 = and i1 %2335, %2336
+  br i1 %or.cond370, label %1347, label %1588
 
 2337:                                             ; preds = %2328
   %2338 = icmp ult i8 %2326, 58
@@ -5568,7 +5568,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2343:                                             ; preds = %2341
   %2344 = icmp ult i8 %2326, 48
-  br i1 %2344, label %1347, label %.preheader3788
+  br i1 %2344, label %1347, label %.preheader3760
 
 2345:                                             ; preds = %2337
   switch i8 %2326, label %1347 [
@@ -5590,14 +5590,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2352:                                             ; preds = %2350
   %2353 = icmp eq i8 %2326, 69
-  br i1 %2353, label %2402, label %.preheader3788
+  br i1 %2353, label %2402, label %.preheader3760
 
 2354:                                             ; preds = %2348
   %2355 = icmp ult i8 %2326, 94
   br i1 %2355, label %1347, label %2356
 
 2356:                                             ; preds = %2354
-  switch i8 %2326, label %.preheader3788 [
+  switch i8 %2326, label %.preheader3760 [
     i8 94, label %1588
     i8 96, label %1347
   ]
@@ -5607,7 +5607,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2358, label %2359, label %2360
 
 2359:                                             ; preds = %2357
-  switch i8 %2326, label %.preheader3788 [
+  switch i8 %2326, label %.preheader3760 [
     i8 101, label %2402
     i8 123, label %1347
   ]
@@ -5615,11 +5615,11 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 2360:                                             ; preds = %2357
   %2361 = icmp ne i8 %2326, 125
   %2362 = icmp ult i8 %2326, 127
-  %or.cond432 = and i1 %2361, %2362
-  br i1 %or.cond432, label %1588, label %1347
+  %or.cond376 = and i1 %2361, %2362
+  br i1 %or.cond376, label %1588, label %1347
 
 2363:                                             ; preds = %2050, %2043
-  %2364 = getelementptr inbounds i8, ptr %.promoted4233, i64 3
+  %2364 = getelementptr inbounds i8, ptr %.promoted4205, i64 3
   store ptr %2364, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2364, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2365 = load i8, ptr %2364, align 1
@@ -5636,14 +5636,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2371:                                             ; preds = %2369
   %2372 = add nsw i8 %2365, -1
-  %or.cond435 = icmp ult i8 %2372, 8
-  br i1 %or.cond435, label %1347, label %1588
+  %or.cond379 = icmp ult i8 %2372, 8
+  br i1 %or.cond379, label %1347, label %1588
 
 2373:                                             ; preds = %2369
   %2374 = icmp ne i8 %2365, 13
   %2375 = icmp ult i8 %2365, 32
-  %or.cond438 = and i1 %2374, %2375
-  br i1 %or.cond438, label %1347, label %1588
+  %or.cond382 = and i1 %2374, %2375
+  br i1 %or.cond382, label %1347, label %1588
 
 2376:                                             ; preds = %2367
   %2377 = icmp ult i8 %2365, 58
@@ -5659,7 +5659,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2382:                                             ; preds = %2380
   %2383 = icmp ult i8 %2365, 48
-  br i1 %2383, label %1347, label %.preheader3788
+  br i1 %2383, label %1347, label %.preheader3760
 
 2384:                                             ; preds = %2376
   switch i8 %2365, label %1347 [
@@ -5681,14 +5681,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2391:                                             ; preds = %2389
   %2392 = icmp eq i8 %2365, 76
-  br i1 %2392, label %2484, label %.preheader3788
+  br i1 %2392, label %2484, label %.preheader3760
 
 2393:                                             ; preds = %2387
   %2394 = icmp ult i8 %2365, 94
   br i1 %2394, label %1347, label %2395
 
 2395:                                             ; preds = %2393
-  switch i8 %2365, label %.preheader3788 [
+  switch i8 %2365, label %.preheader3760 [
     i8 94, label %1588
     i8 96, label %1347
   ]
@@ -5698,7 +5698,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2397, label %2398, label %2399
 
 2398:                                             ; preds = %2396
-  switch i8 %2365, label %.preheader3788 [
+  switch i8 %2365, label %.preheader3760 [
     i8 108, label %2484
     i8 123, label %1347
   ]
@@ -5706,8 +5706,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 2399:                                             ; preds = %2396
   %2400 = icmp ne i8 %2365, 125
   %2401 = icmp ult i8 %2365, 127
-  %or.cond444 = and i1 %2400, %2401
-  br i1 %or.cond444, label %1588, label %1347
+  %or.cond388 = and i1 %2400, %2401
+  br i1 %or.cond388, label %1588, label %1347
 
 2402:                                             ; preds = %2359, %2089, %2352, %2082
   %2403 = phi ptr [ %2325, %2359 ], [ %2055, %2089 ], [ %2325, %2352 ], [ %2055, %2082 ]
@@ -5719,8 +5719,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2407 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %2406
   %2408 = load i8, ptr %2407, align 1
   %2409 = and i8 %2408, 32
-  %.not3625 = icmp eq i8 %2409, 0
-  br i1 %.not3625, label %2410, label %.preheader3788
+  %.not3596 = icmp eq i8 %2409, 0
+  br i1 %.not3596, label %2410, label %.preheader3760
 
 2410:                                             ; preds = %2402
   %2411 = icmp ult i8 %2405, 42
@@ -5736,15 +5736,15 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2416:                                             ; preds = %2414
   %2417 = icmp eq i8 %2405, 0
-  br i1 %2417, label %.loopexit3805, label %1347
+  br i1 %2417, label %.loopexit3777, label %1347
 
 2418:                                             ; preds = %2414
   %2419 = icmp eq i8 %2405, 9
-  br i1 %2419, label %.preheader3803, label %2420
+  br i1 %2419, label %.preheader3775, label %2420
 
 2420:                                             ; preds = %2418
   %2421 = icmp ult i8 %2405, 11
-  br i1 %2421, label %.loopexit3805, label %1347
+  br i1 %2421, label %.loopexit3777, label %1347
 
 2422:                                             ; preds = %2412
   %2423 = icmp ult i8 %2405, 33
@@ -5752,21 +5752,21 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2424:                                             ; preds = %2422
   switch i8 %2405, label %1347 [
-    i8 13, label %.loopexit3805
-    i8 32, label %.preheader3803
+    i8 13, label %.loopexit3777
+    i8 32, label %.preheader3775
   ]
 
-.preheader3803:                                   ; preds = %1959, %2418, %1960, %2424
-  %.promoted4170 = phi ptr [ %1948, %1959 ], [ %2404, %2418 ], [ %1948, %1960 ], [ %2404, %2424 ]
-  %2425 = getelementptr inbounds i8, ptr %.promoted4170, i64 1
+.preheader3775:                                   ; preds = %1959, %2418, %1960, %2424
+  %.promoted4142 = phi ptr [ %1948, %1959 ], [ %2404, %2418 ], [ %1948, %1960 ], [ %2404, %2424 ]
+  %2425 = getelementptr inbounds i8, ptr %.promoted4142, i64 1
   store ptr %2425, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2426 = icmp ugt ptr %2425, %2
-  br i1 %2426, label %.loopexit, label %.lr.ph4171
+  br i1 %2426, label %.loopexit, label %.lr.ph4143
 
 2427:                                             ; preds = %2422
   %2428 = add nsw i8 %2405, -35
-  %or.cond447 = icmp ult i8 %2428, 3
-  br i1 %or.cond447, label %1347, label %.loopexit3805
+  %or.cond391 = icmp ult i8 %2428, 3
+  br i1 %or.cond391, label %1347, label %.loopexit3777
 
 2429:                                             ; preds = %2410
   %2430 = icmp ult i8 %2405, 94
@@ -5777,12 +5777,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2432, label %2433, label %2434
 
 2433:                                             ; preds = %2431
-  %.not3626 = icmp eq i8 %2405, 59
-  br i1 %.not3626, label %.loopexit3805, label %1347
+  %.not3597 = icmp eq i8 %2405, 59
+  br i1 %.not3597, label %.loopexit3777, label %1347
 
 2434:                                             ; preds = %2431
   %2435 = icmp eq i8 %2405, 61
-  br i1 %2435, label %.loopexit3805, label %1347
+  br i1 %2435, label %.loopexit3777, label %1347
 
 2436:                                             ; preds = %2429
   %2437 = icmp ult i8 %2405, 125
@@ -5790,30 +5790,30 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2438:                                             ; preds = %2436
   switch i8 %2405, label %1347 [
-    i8 124, label %.loopexit3805
-    i8 94, label %.loopexit3805
+    i8 124, label %.loopexit3777
+    i8 94, label %.loopexit3777
   ]
 
 2439:                                             ; preds = %2436
   %2440 = icmp eq i8 %2405, 126
-  br i1 %2440, label %.loopexit3805, label %1347
+  br i1 %2440, label %.loopexit3777, label %1347
 
-.lr.ph4180:                                       ; preds = %.preheader3790, %.backedge3793
-  %2441 = phi ptr [ %2443, %.backedge3793 ], [ %2115, %.preheader3790 ]
+.lr.ph4152:                                       ; preds = %.preheader3762, %.backedge3765
+  %2441 = phi ptr [ %2443, %.backedge3765 ], [ %2115, %.preheader3762 ]
   %2442 = load i8, ptr %2441, align 1
-  switch i8 %2442, label %.loopexit3792 [
-    i8 32, label %.backedge3793
-    i8 9, label %.backedge3793
+  switch i8 %2442, label %.loopexit3764 [
+    i8 32, label %.backedge3765
+    i8 9, label %.backedge3765
   ]
 
-.backedge3793:                                    ; preds = %.lr.ph4180, %.lr.ph4180
+.backedge3765:                                    ; preds = %.lr.ph4152, %.lr.ph4152
   %2443 = getelementptr inbounds i8, ptr %2441, i64 1
   store ptr %2443, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2444 = icmp ugt ptr %2443, %2
-  br i1 %2444, label %.loopexit, label %.lr.ph4180
+  br i1 %2444, label %.loopexit, label %.lr.ph4152
 
 2445:                                             ; preds = %2190, %2183
-  %2446 = getelementptr inbounds i8, ptr %.promoted4233, i64 3
+  %2446 = getelementptr inbounds i8, ptr %.promoted4205, i64 3
   store ptr %2446, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2446, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2447 = load i8, ptr %2446, align 1
@@ -5830,14 +5830,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2453:                                             ; preds = %2451
   %2454 = add nsw i8 %2447, -1
-  %or.cond456 = icmp ult i8 %2454, 8
-  br i1 %or.cond456, label %1347, label %1588
+  %or.cond400 = icmp ult i8 %2454, 8
+  br i1 %or.cond400, label %1347, label %1588
 
 2455:                                             ; preds = %2451
   %2456 = icmp ne i8 %2447, 13
   %2457 = icmp ult i8 %2447, 32
-  %or.cond459 = and i1 %2456, %2457
-  br i1 %or.cond459, label %1347, label %1588
+  %or.cond403 = and i1 %2456, %2457
+  br i1 %or.cond403, label %1347, label %1588
 
 2458:                                             ; preds = %2449
   %2459 = icmp ult i8 %2447, 58
@@ -5853,7 +5853,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2464:                                             ; preds = %2462
   %2465 = icmp ult i8 %2447, 48
-  br i1 %2465, label %1347, label %.preheader3788
+  br i1 %2465, label %1347, label %.preheader3760
 
 2466:                                             ; preds = %2458
   switch i8 %2447, label %1347 [
@@ -5875,14 +5875,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2473:                                             ; preds = %2471
   %2474 = icmp eq i8 %2447, 69
-  br i1 %2474, label %2093, label %.preheader3788
+  br i1 %2474, label %2093, label %.preheader3760
 
 2475:                                             ; preds = %2469
   %2476 = icmp ult i8 %2447, 94
   br i1 %2476, label %1347, label %2477
 
 2477:                                             ; preds = %2475
-  switch i8 %2447, label %.preheader3788 [
+  switch i8 %2447, label %.preheader3760 [
     i8 94, label %1588
     i8 96, label %1347
   ]
@@ -5892,23 +5892,23 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2479, label %2480, label %2481
 
 2480:                                             ; preds = %2478
-  switch i8 %2447, label %.preheader3788 [
+  switch i8 %2447, label %.preheader3760 [
     i8 101, label %2093
     i8 123, label %1347
   ]
 
-.preheader3788:                                   ; preds = %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1634, %1643, %1647, %1654, %1681, %1691, %1725, %1735, %1765, %1774, %1804, %1813, %1927, %1936, %1966, %1977, %1978, %1982, %2034, %2043, %2073, %2082, %2093, %2174, %2183, %2213, %2222, %2299, %2308, %2343, %2352, %2382, %2391, %2402, %2464, %2473, %2484, %1672, %1716, %1687, %1695, %1731, %1739, %1778, %1781, %1817, %1820, %1940, %1943, %1986, %2047, %2050, %2086, %2089, %2187, %2190, %2226, %2229, %2312, %2315, %2356, %2359, %2395, %2398, %2477, %2480
-  %.promoted4181 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
+.preheader3760:                                   ; preds = %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1634, %1643, %1647, %1654, %1681, %1691, %1725, %1735, %1765, %1774, %1804, %1813, %1927, %1936, %1966, %1977, %1978, %1982, %2034, %2043, %2073, %2082, %2093, %2174, %2183, %2213, %2222, %2299, %2308, %2343, %2352, %2382, %2391, %2402, %2464, %2473, %2484, %1672, %1716, %1687, %1695, %1731, %1739, %1778, %1781, %1817, %1820, %1940, %1943, %1986, %2047, %2050, %2086, %2089, %2187, %2190, %2226, %2229, %2312, %2315, %2356, %2359, %2395, %2398, %2477, %2480
+  %.promoted4153 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %1549
 
 2481:                                             ; preds = %2478
   %2482 = icmp ne i8 %2447, 125
   %2483 = icmp ult i8 %2447, 127
-  %or.cond465 = and i1 %2482, %2483
-  br i1 %or.cond465, label %1588, label %1347
+  %or.cond409 = and i1 %2482, %2483
+  br i1 %or.cond409, label %1588, label %1347
 
 2484:                                             ; preds = %2398, %2391
-  %2485 = getelementptr inbounds i8, ptr %.promoted4233, i64 4
+  %2485 = getelementptr inbounds i8, ptr %.promoted4205, i64 4
   store ptr %2485, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2485, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2486 = load i8, ptr %2485, align 1
@@ -5916,8 +5916,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2488 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %2487
   %2489 = load i8, ptr %2488, align 1
   %2490 = and i8 %2489, 32
-  %.not3605 = icmp eq i8 %2490, 0
-  br i1 %.not3605, label %2491, label %.preheader3788
+  %.not3576 = icmp eq i8 %2490, 0
+  br i1 %.not3576, label %2491, label %.preheader3760
 
 2491:                                             ; preds = %2484
   %2492 = icmp ult i8 %2486, 42
@@ -5932,16 +5932,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2496, label %2497, label %2498
 
 2497:                                             ; preds = %2495
-  %.not3610 = icmp eq i8 %2486, 0
-  br i1 %.not3610, label %.loopexit3809, label %1347
+  %.not3581 = icmp eq i8 %2486, 0
+  br i1 %.not3581, label %.loopexit3781, label %1347
 
 2498:                                             ; preds = %2495
   %2499 = icmp eq i8 %2486, 9
-  br i1 %2499, label %.preheader3807, label %2500
+  br i1 %2499, label %.preheader3779, label %2500
 
 2500:                                             ; preds = %2498
   %2501 = icmp ugt i8 %2486, 10
-  br i1 %2501, label %1347, label %.loopexit3809
+  br i1 %2501, label %1347, label %.loopexit3781
 
 2502:                                             ; preds = %2493
   %2503 = icmp ult i8 %2486, 33
@@ -5949,20 +5949,20 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2504:                                             ; preds = %2502
   switch i8 %2486, label %1347 [
-    i8 13, label %.loopexit3809
-    i8 32, label %.preheader3807
+    i8 13, label %.loopexit3781
+    i8 32, label %.preheader3779
   ]
 
-.preheader3807:                                   ; preds = %2498, %2504
-  %2505 = getelementptr inbounds i8, ptr %.promoted4233, i64 5
+.preheader3779:                                   ; preds = %2498, %2504
+  %2505 = getelementptr inbounds i8, ptr %.promoted4205, i64 5
   store ptr %2505, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2506 = icmp ugt ptr %2505, %2
-  br i1 %2506, label %.loopexit, label %.lr.ph4169
+  br i1 %2506, label %.loopexit, label %.lr.ph4141
 
 2507:                                             ; preds = %2502
   %2508 = add nsw i8 %2486, -35
-  %or.cond468 = icmp ult i8 %2508, 3
-  br i1 %or.cond468, label %1347, label %.loopexit3809
+  %or.cond412 = icmp ult i8 %2508, 3
+  br i1 %or.cond412, label %1347, label %.loopexit3781
 
 2509:                                             ; preds = %2491
   %2510 = icmp ult i8 %2486, 94
@@ -5973,12 +5973,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2512, label %2513, label %2514
 
 2513:                                             ; preds = %2511
-  %.not3608 = icmp eq i8 %2486, 59
-  br i1 %.not3608, label %.loopexit3809, label %1347
+  %.not3579 = icmp eq i8 %2486, 59
+  br i1 %.not3579, label %.loopexit3781, label %1347
 
 2514:                                             ; preds = %2511
-  %.not3607 = icmp eq i8 %2486, 61
-  br i1 %.not3607, label %.loopexit3809, label %1347
+  %.not3578 = icmp eq i8 %2486, 61
+  br i1 %.not3578, label %.loopexit3781, label %1347
 
 2515:                                             ; preds = %2509
   %2516 = icmp ult i8 %2486, 125
@@ -5986,18 +5986,18 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2517:                                             ; preds = %2515
   switch i8 %2486, label %1347 [
-    i8 124, label %.loopexit3809
-    i8 94, label %.loopexit3809
+    i8 124, label %.loopexit3781
+    i8 94, label %.loopexit3781
   ]
 
 2518:                                             ; preds = %2515
-  %.not3606 = icmp eq i8 %2486, 126
-  br i1 %.not3606, label %.loopexit3809, label %1347
+  %.not3577 = icmp eq i8 %2486, 126
+  br i1 %.not3577, label %.loopexit3781, label %1347
 
-.loopexit3809:                                    ; preds = %.lr.ph4169, %2517, %2517, %2504, %2497, %2500, %2518, %2513, %2514, %2507, %1840
-  %2519 = phi ptr [ %2485, %2517 ], [ %2485, %2517 ], [ %2485, %2504 ], [ %2485, %2497 ], [ %2485, %2500 ], [ %2485, %2518 ], [ %2485, %2513 ], [ %2485, %2514 ], [ %2485, %2507 ], [ %1837, %1840 ], [ %2542, %.lr.ph4169 ]
+.loopexit3781:                                    ; preds = %.lr.ph4141, %2517, %2517, %2504, %2497, %2500, %2518, %2513, %2514, %2507, %1840
+  %2519 = phi ptr [ %2485, %2517 ], [ %2485, %2517 ], [ %2485, %2504 ], [ %2485, %2497 ], [ %2485, %2500 ], [ %2485, %2518 ], [ %2485, %2513 ], [ %2485, %2514 ], [ %2485, %2507 ], [ %1837, %1840 ], [ %2542, %.lr.ph4141 ]
   %2520 = ptrtoint ptr %2519 to i64
-  %2521 = ptrtoint ptr %.promoted4233 to i64
+  %2521 = ptrtoint ptr %.promoted4205 to i64
   %2522 = sub i64 %2520, %2521
   %2523 = trunc i64 %2522 to i32
   store i32 %2523, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -6005,14 +6005,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2525 = icmp eq i32 %2524, 2
   br i1 %2525, label %2526, label %2529
 
-2526:                                             ; preds = %.loopexit3809
+2526:                                             ; preds = %.loopexit3781
   %2527 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %2527, align 8
   %2528 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2528, align 4
   br label %.loopexit
 
-2529:                                             ; preds = %.loopexit3809
+2529:                                             ; preds = %.loopexit3781
   %2530 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %2531 = trunc i8 %2530 to i1
   br i1 %2531, label %2532, label %2534
@@ -6038,57 +6038,57 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 262, ptr %2541, align 8
   br label %.loopexit
 
-.lr.ph4169:                                       ; preds = %.preheader3807, %.backedge3810
-  %2542 = phi ptr [ %2544, %.backedge3810 ], [ %2505, %.preheader3807 ]
+.lr.ph4141:                                       ; preds = %.preheader3779, %.backedge3782
+  %2542 = phi ptr [ %2544, %.backedge3782 ], [ %2505, %.preheader3779 ]
   %2543 = load i8, ptr %2542, align 1
-  switch i8 %2543, label %.loopexit3809 [
-    i8 32, label %.backedge3810
-    i8 9, label %.backedge3810
+  switch i8 %2543, label %.loopexit3781 [
+    i8 32, label %.backedge3782
+    i8 9, label %.backedge3782
   ]
 
-.backedge3810:                                    ; preds = %.lr.ph4169, %.lr.ph4169
+.backedge3782:                                    ; preds = %.lr.ph4141, %.lr.ph4141
   %2544 = getelementptr inbounds i8, ptr %2542, i64 1
   store ptr %2544, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2545 = icmp ugt ptr %2544, %2
-  br i1 %2545, label %.loopexit, label %.lr.ph4169
+  br i1 %2545, label %.loopexit, label %.lr.ph4141
 
 2546:                                             ; preds = %26
   %2547 = zext i8 %28 to i64
   %2548 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.7, i64 0, i64 %2547
   %2549 = load i8, ptr %2548, align 1
   %2550 = and i8 %2549, 64
-  %.not3576 = icmp eq i8 %2550, 0
-  br i1 %.not3576, label %2551, label %.preheader3838
+  %.not3547 = icmp eq i8 %2550, 0
+  br i1 %.not3547, label %2551, label %.preheader3810
 
 2551:                                             ; preds = %2546
   %2552 = icmp ult i8 %28, 14
-  %2553 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %2553 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %2553, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
-  br i1 %2552, label %2587, label %.preheader3835
+  br i1 %2552, label %2587, label %.preheader3807
 
-.preheader3835:                                   ; preds = %2551
+.preheader3807:                                   ; preds = %2551
   %2554 = icmp ugt ptr %2553, %2
-  br i1 %2554, label %.loopexit, label %.lr.ph4155
+  br i1 %2554, label %.loopexit, label %.lr.ph4127
 
-.preheader3838:                                   ; preds = %2546, %2558
-  %2555 = phi ptr [ %2556, %2558 ], [ %.promoted4233, %2546 ]
+.preheader3810:                                   ; preds = %2546, %2558
+  %2555 = phi ptr [ %2556, %2558 ], [ %.promoted4205, %2546 ]
   %2556 = getelementptr inbounds i8, ptr %2555, i64 1
   store ptr %2556, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2557 = icmp ugt ptr %2556, %2
   br i1 %2557, label %.loopexit, label %2558
 
-2558:                                             ; preds = %.preheader3838
+2558:                                             ; preds = %.preheader3810
   %2559 = load i8, ptr %2556, align 1
   %2560 = zext i8 %2559 to i64
   %2561 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.7, i64 0, i64 %2560
   %2562 = load i8, ptr %2561, align 1
   %2563 = and i8 %2562, 64
-  %.not3578 = icmp eq i8 %2563, 0
-  br i1 %.not3578, label %2564, label %.preheader3838
+  %.not3549 = icmp eq i8 %2563, 0
+  br i1 %.not3549, label %2564, label %.preheader3810
 
 2564:                                             ; preds = %2558
   %2565 = ptrtoint ptr %2556 to i64
-  %2566 = ptrtoint ptr %.promoted4233 to i64
+  %2566 = ptrtoint ptr %.promoted4205 to i64
   %2567 = sub i64 %2565, %2566
   %2568 = trunc i64 %2567 to i32
   store i32 %2568, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -6118,7 +6118,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2583 = getelementptr inbounds i8, ptr %2580, i64 16
   store i64 %2569, ptr %2583, align 8
   %2584 = getelementptr inbounds i8, ptr %2580, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2584, ptr nonnull align 1 %.promoted4233, i64 %2569, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2584, ptr nonnull align 1 %.promoted4205, i64 %2569, i1 false)
   %2585 = getelementptr inbounds [1 x i8], ptr %2584, i64 0, i64 %2569
   store i8 0, ptr %2585, align 1
   store ptr %2580, ptr %0, align 8
@@ -6130,22 +6130,22 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 1, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   br label %.loopexit
 
-.lr.ph4155:                                       ; preds = %.preheader3835, %.backedge3837
-  %2588 = phi ptr [ %2591, %.backedge3837 ], [ %2553, %.preheader3835 ]
-  %2589 = phi ptr [ %2588, %.backedge3837 ], [ %.promoted4233, %.preheader3835 ]
+.lr.ph4127:                                       ; preds = %.preheader3807, %.backedge3809
+  %2588 = phi ptr [ %2591, %.backedge3809 ], [ %2553, %.preheader3807 ]
+  %2589 = phi ptr [ %2588, %.backedge3809 ], [ %.promoted4205, %.preheader3807 ]
   %2590 = load i8, ptr %2588, align 1
   switch i8 %2590, label %2593 [
-    i8 32, label %.backedge3837
-    i8 9, label %.backedge3837
+    i8 32, label %.backedge3809
+    i8 9, label %.backedge3809
   ]
 
-.backedge3837:                                    ; preds = %.lr.ph4155, %.lr.ph4155
+.backedge3809:                                    ; preds = %.lr.ph4127, %.lr.ph4127
   %2591 = getelementptr inbounds i8, ptr %2588, i64 1
   store ptr %2591, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2592 = icmp ugt ptr %2591, %2
-  br i1 %2592, label %.loopexit, label %.lr.ph4155
+  br i1 %2592, label %.loopexit, label %.lr.ph4127
 
-2593:                                             ; preds = %.lr.ph4155
+2593:                                             ; preds = %.lr.ph4127
   %2594 = icmp ult i8 %2590, 9
   br i1 %2594, label %2599, label %2595
 
@@ -6160,7 +6160,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 2599:                                             ; preds = %2610, %2597, %2593, %2607
   %2600 = phi ptr [ %2611, %2610 ], [ %2588, %2597 ], [ %2588, %2593 ], [ %2609, %2607 ]
   %2601 = ptrtoint ptr %2600 to i64
-  %2602 = ptrtoint ptr %.promoted4233 to i64
+  %2602 = ptrtoint ptr %.promoted4205 to i64
   %2603 = sub i64 %2601, %2602
   %2604 = trunc i64 %2603 to i32
   store i32 %2604, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -6185,109 +6185,109 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2614:                                             ; preds = %26
   switch i8 %28, label %2615 [
-    i8 34, label %.preheader3843
+    i8 34, label %.preheader3815
     i8 36, label %2661
   ]
 
 2615:                                             ; preds = %2614
-  %2616 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %2616 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %2616, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %2617
 
 2617:                                             ; preds = %2661, %2615
   %2618 = phi ptr [ %2662, %2661 ], [ %2616, %2615 ]
   %2619 = ptrtoint ptr %2618 to i64
-  %2620 = ptrtoint ptr %.promoted4233 to i64
+  %2620 = ptrtoint ptr %.promoted4205 to i64
   %2621 = sub i64 %2619, %2620
   %2622 = trunc i64 %2621 to i32
   store i32 %2622, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   %2623 = icmp ugt ptr %2618, %2
-  br i1 %2623, label %.loopexit, label %.preheader3840
+  br i1 %2623, label %.loopexit, label %.preheader3812
 
-.preheader3840:                                   ; preds = %2617
-  %2624 = icmp ult ptr %.promoted4233, %2
-  br i1 %2624, label %.lr.ph4151, label %.loopexit3841
+.preheader3812:                                   ; preds = %2617
+  %2624 = icmp ult ptr %.promoted4205, %2
+  br i1 %2624, label %.lr.ph4123, label %.loopexit3813
 
-.lr.ph4151:                                       ; preds = %.preheader3840, %.backedge3842
-  %.033024150 = phi ptr [ %.03302.be, %.backedge3842 ], [ %.promoted4233, %.preheader3840 ]
-  %2625 = getelementptr inbounds i8, ptr %.033024150, i64 1
-  %2626 = load i8, ptr %.033024150, align 1
-  switch i8 %2626, label %.backedge3842 [
+.lr.ph4123:                                       ; preds = %.preheader3812, %.backedge3814
+  %.032464122 = phi ptr [ %.03246.be, %.backedge3814 ], [ %.promoted4205, %.preheader3812 ]
+  %2625 = getelementptr inbounds i8, ptr %.032464122, i64 1
+  %2626 = load i8, ptr %.032464122, align 1
+  switch i8 %2626, label %.backedge3814 [
     i8 34, label %2642
     i8 36, label %2627
     i8 92, label %2633
   ]
 
-2627:                                             ; preds = %.lr.ph4151
+2627:                                             ; preds = %.lr.ph4123
   %2628 = icmp ult ptr %2625, %2
-  br i1 %2628, label %2629, label %.backedge3842
+  br i1 %2628, label %2629, label %.backedge3814
 
 2629:                                             ; preds = %2627
   %2630 = load i8, ptr %2625, align 1
   %2631 = icmp eq i8 %2630, 123
-  br i1 %2631, label %2642, label %.backedge3842
+  br i1 %2631, label %2642, label %.backedge3814
 
-.backedge3842:                                    ; preds = %.lr.ph4151, %2635, %2633, %2640, %2627, %2629
-  %.03302.be = phi ptr [ %2625, %2629 ], [ %2625, %2627 ], [ %2625, %.lr.ph4151 ], [ %2636, %2635 ], [ %2625, %2633 ], [ %2636, %2640 ]
-  %2632 = icmp ult ptr %.03302.be, %2
-  br i1 %2632, label %.lr.ph4151, label %.loopexit3841
+.backedge3814:                                    ; preds = %.lr.ph4123, %2635, %2633, %2640, %2627, %2629
+  %.03246.be = phi ptr [ %2625, %2629 ], [ %2625, %2627 ], [ %2625, %.lr.ph4123 ], [ %2636, %2635 ], [ %2625, %2633 ], [ %2636, %2640 ]
+  %2632 = icmp ult ptr %.03246.be, %2
+  br i1 %2632, label %.lr.ph4123, label %.loopexit3813
 
-2633:                                             ; preds = %.lr.ph4151
+2633:                                             ; preds = %.lr.ph4123
   %2634 = icmp ult ptr %2625, %2
-  br i1 %2634, label %2635, label %.backedge3842
+  br i1 %2634, label %2635, label %.backedge3814
 
 2635:                                             ; preds = %2633
-  %2636 = getelementptr inbounds i8, ptr %.033024150, i64 2
+  %2636 = getelementptr inbounds i8, ptr %.032464122, i64 2
   %2637 = load i8, ptr %2625, align 1
   %2638 = icmp eq i8 %2637, 34
-  br i1 %2638, label %2639, label %.backedge3842
+  br i1 %2638, label %2639, label %.backedge3814
 
 2639:                                             ; preds = %2635
-  %.not3574 = icmp ult ptr %2636, %2
-  br i1 %.not3574, label %2640, label %2642
+  %.not3545 = icmp ult ptr %2636, %2
+  br i1 %.not3545, label %2640, label %2642
 
 2640:                                             ; preds = %2639
   %2641 = load i8, ptr %2636, align 1
-  switch i8 %2641, label %.backedge3842 [
+  switch i8 %2641, label %.backedge3814 [
     i8 10, label %2642
     i8 13, label %2642
   ]
 
-2642:                                             ; preds = %2640, %2640, %2639, %2629, %.lr.ph4151
-  %.23304 = phi ptr [ %2636, %2639 ], [ %2636, %2640 ], [ %2625, %2629 ], [ %2625, %.lr.ph4151 ], [ %2636, %2640 ]
-  %2643 = getelementptr inbounds i8, ptr %.23304, i64 -1
-  br label %.loopexit3841
+2642:                                             ; preds = %2640, %2640, %2639, %2629, %.lr.ph4123
+  %.23248 = phi ptr [ %2636, %2639 ], [ %2636, %2640 ], [ %2625, %2629 ], [ %2625, %.lr.ph4123 ], [ %2636, %2640 ]
+  %2643 = getelementptr inbounds i8, ptr %.23248, i64 -1
+  br label %.loopexit3813
 
-.loopexit3841:                                    ; preds = %.backedge3842, %.preheader3840, %2642
-  %.33305 = phi ptr [ %2643, %2642 ], [ %.promoted4233, %.preheader3840 ], [ %.03302.be, %.backedge3842 ]
-  store ptr %.33305, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
-  %2644 = ptrtoint ptr %.33305 to i64
+.loopexit3813:                                    ; preds = %.backedge3814, %.preheader3812, %2642
+  %.33249 = phi ptr [ %2643, %2642 ], [ %.promoted4205, %.preheader3812 ], [ %.03246.be, %.backedge3814 ]
+  store ptr %.33249, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
+  %2644 = ptrtoint ptr %.33249 to i64
   %2645 = sub i64 %2644, %2620
   %2646 = trunc i64 %2645 to i32
   store i32 %2646, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  tail call fastcc void @zend_ini_escape_string(ptr noundef %0, ptr noundef nonnull %.promoted4233, i32 noundef %2646)
+  tail call fastcc void @zend_ini_escape_string(ptr noundef %0, ptr noundef nonnull %.promoted4205, i32 noundef %2646)
   %2647 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2647, align 4
   br label %.loopexit
 
-.preheader3843:                                   ; preds = %2614, %2651
-  %2648 = phi ptr [ %2649, %2651 ], [ %.promoted4233, %2614 ]
+.preheader3815:                                   ; preds = %2614, %2651
+  %2648 = phi ptr [ %2649, %2651 ], [ %.promoted4205, %2614 ]
   %2649 = getelementptr inbounds i8, ptr %2648, i64 1
   store ptr %2649, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2650 = icmp ugt ptr %2649, %2
   br i1 %2650, label %.loopexit, label %2651
 
-2651:                                             ; preds = %.preheader3843
+2651:                                             ; preds = %.preheader3815
   %2652 = load i8, ptr %2649, align 1
   %2653 = zext i8 %2652 to i64
   %2654 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.8, i64 0, i64 %2653
   %2655 = load i8, ptr %2654, align 1
-  %.not3575 = icmp sgt i8 %2655, -1
-  br i1 %.not3575, label %2656, label %.preheader3843
+  %.not3546 = icmp sgt i8 %2655, -1
+  br i1 %.not3546, label %2656, label %.preheader3815
 
 2656:                                             ; preds = %2651
   %2657 = ptrtoint ptr %2649 to i64
-  %2658 = ptrtoint ptr %.promoted4233 to i64
+  %2658 = ptrtoint ptr %.promoted4205 to i64
   %2659 = sub i64 %2657, %2658
   %2660 = trunc i64 %2659 to i32
   store i32 %2660, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -6295,14 +6295,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 2661:                                             ; preds = %2614
-  %2662 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %2662 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %2662, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2663 = load i8, ptr %2662, align 1
-  %.not3573 = icmp eq i8 %2663, 123
-  br i1 %.not3573, label %2664, label %2617
+  %.not3544 = icmp eq i8 %2663, 123
+  br i1 %.not3544, label %2664, label %2617
 
 2664:                                             ; preds = %2661
-  %2665 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %2665 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %2665, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   %2666 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64)) #10
@@ -6311,16 +6311,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2667:                                             ; preds = %29
   switch i8 %30, label %2670 [
-    i8 32, label %.preheader3855
-    i8 9, label %.preheader3855
+    i8 32, label %.preheader3827
+    i8 9, label %.preheader3827
   ]
 
-.preheader3855:                                   ; preds = %2667, %2667
-  %2668 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+.preheader3827:                                   ; preds = %2667, %2667
+  %2668 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %2668, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2668, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2669 = icmp ugt ptr %2668, %2
-  br i1 %2669, label %.loopexit, label %.lr.ph4143
+  br i1 %2669, label %.loopexit, label %.lr.ph4115
 
 2670:                                             ; preds = %2667
   %2671 = icmp ult i8 %30, 48
@@ -6336,11 +6336,11 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2676:                                             ; preds = %2674
   %2677 = add nsw i8 %30, -9
-  %or.cond5340 = icmp ult i8 %2677, 2
-  br i1 %or.cond5340, label %2772, label %.loopexit3847
+  %or.cond5312 = icmp ult i8 %2677, 2
+  br i1 %or.cond5312, label %2772, label %.loopexit3819
 
 2678:                                             ; preds = %2674
-  switch i8 %30, label %.loopexit3847 [
+  switch i8 %30, label %.loopexit3819 [
     i8 13, label %2772
     i8 34, label %2780
   ]
@@ -6351,7 +6351,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2681:                                             ; preds = %2679
   %2682 = icmp eq i8 %30, 36
-  br i1 %2682, label %2788, label %.loopexit3847
+  br i1 %2682, label %2788, label %.loopexit3819
 
 2683:                                             ; preds = %2679
   %2684 = icmp eq i8 %30, 39
@@ -6359,9 +6359,9 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2685:                                             ; preds = %2683
   %2686 = icmp ult i8 %30, 45
-  %.not3561 = icmp eq i8 %30, 47
-  %or.cond5341 = or i1 %2686, %.not3561
-  br i1 %or.cond5341, label %.loopexit3847, label %2795
+  %.not3532 = icmp eq i8 %30, 47
+  %or.cond5313 = or i1 %2686, %.not3532
+  br i1 %or.cond5313, label %.loopexit3819, label %2795
 
 2687:                                             ; preds = %2670
   %2688 = icmp ult i8 %30, 93
@@ -6373,23 +6373,23 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2691:                                             ; preds = %2689
   %2692 = icmp ult i8 %30, 58
-  br i1 %2692, label %.preheader3851, label %2693
+  br i1 %2692, label %.preheader3823, label %2693
 
 2693:                                             ; preds = %2691
   %2694 = icmp eq i8 %30, 59
-  br i1 %2694, label %2772, label %.loopexit3847
+  br i1 %2694, label %2772, label %.loopexit3819
 
 2695:                                             ; preds = %2689
   %2696 = icmp ult i8 %30, 65
-  br i1 %2696, label %.loopexit3847, label %2697
+  br i1 %2696, label %.loopexit3819, label %2697
 
 2697:                                             ; preds = %2695
   %2698 = icmp ult i8 %30, 91
-  br i1 %2698, label %.preheader3853.preheader, label %2699
+  br i1 %2698, label %.preheader3825.preheader, label %2699
 
 2699:                                             ; preds = %2697
   %2700 = icmp eq i8 %30, 92
-  br i1 %2700, label %2896, label %.loopexit3847
+  br i1 %2700, label %2896, label %.loopexit3819
 
 2701:                                             ; preds = %2687
   %2702 = icmp ult i8 %30, 97
@@ -6397,28 +6397,28 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2703:                                             ; preds = %2701
   %2704 = icmp eq i8 %30, 95
-  br i1 %2704, label %.preheader3853.preheader, label %.loopexit3847
+  br i1 %2704, label %.preheader3825.preheader, label %.loopexit3819
 
 2705:                                             ; preds = %2701
   %2706 = icmp ult i8 %30, 123
-  br i1 %2706, label %.preheader3853.preheader, label %2707
+  br i1 %2706, label %.preheader3825.preheader, label %2707
 
-.preheader3853.preheader:                         ; preds = %2697, %2703, %2705
-  br label %.preheader3853
+.preheader3825.preheader:                         ; preds = %2697, %2703, %2705
+  br label %.preheader3825
 
 2707:                                             ; preds = %2705
   %2708 = icmp eq i8 %30, 125
-  br i1 %2708, label %2900, label %.loopexit3847
+  br i1 %2708, label %2900, label %.loopexit3819
 
-.loopexit3847:                                    ; preds = %.lr.ph4148, %2681, %2703, %2707, %2693, %2699, %2678, %2933, %2911, %2867, %2864, %2863, %2821, %2810, %2792, %2766, %2763, %2760, %2951, %2950, %2947, %2943, %2937, %2936, %2915, %2896, %2871, %2870, %2825, %2824, %2820, %2814, %2813, %2793, %2770, %2769, %2758, %2714, %2695, %2685, %2676
-  %2709 = phi ptr [ %2926, %2933 ], [ %2906, %2911 ], [ %2851, %2867 ], [ %2851, %2864 ], [ %2851, %2863 ], [ %2800, %2821 ], [ %2800, %2810 ], [ %2789, %2792 ], [ %2750, %2766 ], [ %2750, %2763 ], [ %2750, %2760 ], [ %2926, %2951 ], [ %2926, %2950 ], [ %2926, %2947 ], [ %2926, %2943 ], [ %2926, %2937 ], [ %2926, %2936 ], [ %2906, %2915 ], [ %2898, %2896 ], [ %2851, %2871 ], [ %2851, %2870 ], [ %2800, %2825 ], [ %2800, %2824 ], [ %2800, %2820 ], [ %2800, %2814 ], [ %2800, %2813 ], [ %2789, %2793 ], [ %2750, %2770 ], [ %2750, %2769 ], [ %2750, %2758 ], [ %2715, %2714 ], [ %.promoted4233, %2695 ], [ %.promoted4233, %2685 ], [ %.promoted4233, %2676 ], [ %.promoted4233, %2678 ], [ %.promoted4233, %2699 ], [ %.promoted4233, %2693 ], [ %.promoted4233, %2707 ], [ %.promoted4233, %2703 ], [ %.promoted4233, %2681 ], [ %2918, %.lr.ph4148 ]
+.loopexit3819:                                    ; preds = %.lr.ph4120, %2681, %2703, %2707, %2693, %2699, %2678, %2933, %2911, %2867, %2864, %2863, %2821, %2810, %2792, %2766, %2763, %2760, %2951, %2950, %2947, %2943, %2937, %2936, %2915, %2896, %2871, %2870, %2825, %2824, %2820, %2814, %2813, %2793, %2770, %2769, %2758, %2714, %2695, %2685, %2676
+  %2709 = phi ptr [ %2926, %2933 ], [ %2906, %2911 ], [ %2851, %2867 ], [ %2851, %2864 ], [ %2851, %2863 ], [ %2800, %2821 ], [ %2800, %2810 ], [ %2789, %2792 ], [ %2750, %2766 ], [ %2750, %2763 ], [ %2750, %2760 ], [ %2926, %2951 ], [ %2926, %2950 ], [ %2926, %2947 ], [ %2926, %2943 ], [ %2926, %2937 ], [ %2926, %2936 ], [ %2906, %2915 ], [ %2898, %2896 ], [ %2851, %2871 ], [ %2851, %2870 ], [ %2800, %2825 ], [ %2800, %2824 ], [ %2800, %2820 ], [ %2800, %2814 ], [ %2800, %2813 ], [ %2789, %2793 ], [ %2750, %2770 ], [ %2750, %2769 ], [ %2750, %2758 ], [ %2715, %2714 ], [ %.promoted4205, %2695 ], [ %.promoted4205, %2685 ], [ %.promoted4205, %2676 ], [ %.promoted4205, %2678 ], [ %.promoted4205, %2699 ], [ %.promoted4205, %2693 ], [ %.promoted4205, %2707 ], [ %.promoted4205, %2703 ], [ %.promoted4205, %2681 ], [ %2918, %.lr.ph4120 ]
   %2710 = getelementptr inbounds i8, ptr %2709, i64 1
   store ptr %2710, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2710, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2711 = icmp ugt ptr %2710, %2
   br i1 %2711, label %.loopexit, label %2712
 
-2712:                                             ; preds = %.loopexit3847
+2712:                                             ; preds = %.loopexit3819
   %2713 = load i8, ptr %2710, align 1
   br label %2714
 
@@ -6429,8 +6429,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2717 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.9, i64 0, i64 %2716
   %2718 = load i8, ptr %2717, align 1
   %2719 = and i8 %2718, 8
-  %.not3569 = icmp eq i8 %2719, 0
-  br i1 %.not3569, label %2720, label %.loopexit3847
+  %.not3540 = icmp eq i8 %2719, 0
+  br i1 %.not3540, label %2720, label %.loopexit3819
 
 2720:                                             ; preds = %2714
   %2721 = icmp ult i8 %.4, 35
@@ -6442,13 +6442,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2724:                                             ; preds = %2722
   %2725 = add i8 %.4, -60
-  %or.cond477 = icmp ult i8 %2725, 33
-  br i1 %or.cond477, label %2896, label %2726
+  %or.cond421 = icmp ult i8 %2725, 33
+  br i1 %or.cond421, label %2896, label %2726
 
 2726:                                             ; preds = %2766, %2766, %2917, %2770, %2760, %2724, %2720
   %2727 = phi ptr [ %2750, %2766 ], [ %2750, %2766 ], [ %2903, %2917 ], [ %2750, %2770 ], [ %2750, %2760 ], [ %2715, %2724 ], [ %2715, %2720 ]
   %2728 = ptrtoint ptr %2727 to i64
-  %2729 = ptrtoint ptr %.promoted4233 to i64
+  %2729 = ptrtoint ptr %.promoted4205 to i64
   %2730 = sub i64 %2728, %2729
   %2731 = trunc i64 %2730 to i32
   store i32 %2731, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -6478,7 +6478,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2746 = getelementptr inbounds i8, ptr %2743, i64 16
   store i64 %2732, ptr %2746, align 8
   %2747 = getelementptr inbounds i8, ptr %2743, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2747, ptr nonnull align 1 %.promoted4233, i64 %2732, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2747, ptr nonnull align 1 %.promoted4205, i64 %2732, i1 false)
   %2748 = getelementptr inbounds [1 x i8], ptr %2747, i64 0, i64 %2732
   store i8 0, ptr %2748, align 1
   store ptr %2743, ptr %0, align 8
@@ -6486,22 +6486,22 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 262, ptr %2749, align 8
   br label %.loopexit
 
-.lr.ph4143:                                       ; preds = %.preheader3855, %.backedge3857
-  %2750 = phi ptr [ %2752, %.backedge3857 ], [ %2668, %.preheader3855 ]
+.lr.ph4115:                                       ; preds = %.preheader3827, %.backedge3829
+  %2750 = phi ptr [ %2752, %.backedge3829 ], [ %2668, %.preheader3827 ]
   %2751 = load i8, ptr %2750, align 1
   switch i8 %2751, label %2754 [
-    i8 32, label %.backedge3857
-    i8 9, label %.backedge3857
+    i8 32, label %.backedge3829
+    i8 9, label %.backedge3829
   ]
 
-.backedge3857:                                    ; preds = %.lr.ph4143, %.lr.ph4143
+.backedge3829:                                    ; preds = %.lr.ph4115, %.lr.ph4115
   %2752 = getelementptr inbounds i8, ptr %2750, i64 1
   store ptr %2752, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2752, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2753 = icmp ugt ptr %2752, %2
-  br i1 %2753, label %.loopexit, label %.lr.ph4143
+  br i1 %2753, label %.loopexit, label %.lr.ph4115
 
-2754:                                             ; preds = %.lr.ph4143
+2754:                                             ; preds = %.lr.ph4115
   %2755 = icmp ult i8 %2751, 37
   br i1 %2755, label %2756, label %2764
 
@@ -6511,16 +6511,16 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2758:                                             ; preds = %2756
   %2759 = icmp ult i8 %2751, 9
-  br i1 %2759, label %.loopexit3847, label %2760
+  br i1 %2759, label %.loopexit3819, label %2760
 
 2760:                                             ; preds = %2758
   %2761 = icmp ugt i8 %2751, 10
   %2762 = icmp ne i8 %2751, 13
-  %or.cond480 = and i1 %2761, %2762
-  br i1 %or.cond480, label %.loopexit3847, label %2726
+  %or.cond424 = and i1 %2761, %2762
+  br i1 %or.cond424, label %.loopexit3819, label %2726
 
 2763:                                             ; preds = %2756
-  switch i8 %2751, label %.loopexit3847 [
+  switch i8 %2751, label %.loopexit3819 [
     i8 34, label %2780
     i8 36, label %2902
   ]
@@ -6530,7 +6530,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2765, label %2766, label %2767
 
 2766:                                             ; preds = %2764
-  switch i8 %2751, label %.loopexit3847 [
+  switch i8 %2751, label %.loopexit3819 [
     i8 59, label %2726
     i8 39, label %2726
   ]
@@ -6540,33 +6540,33 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2768, label %2769, label %2770
 
 2769:                                             ; preds = %2767
-  %.not3567 = icmp eq i8 %2751, 92
-  br i1 %.not3567, label %2896, label %.loopexit3847
+  %.not3538 = icmp eq i8 %2751, 92
+  br i1 %.not3538, label %2896, label %.loopexit3819
 
 2770:                                             ; preds = %2767
   %2771 = icmp eq i8 %2751, 125
-  br i1 %2771, label %2726, label %.loopexit3847
+  br i1 %2771, label %2726, label %.loopexit3819
 
 2772:                                             ; preds = %2676, %2678, %2693, %2683
-  %2773 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %2773 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %2773, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %2774
 
 2774:                                             ; preds = %2792, %2772
   %2775 = phi ptr [ %2789, %2792 ], [ %2773, %2772 ]
   %2776 = ptrtoint ptr %2775 to i64
-  %2777 = ptrtoint ptr %.promoted4233 to i64
+  %2777 = ptrtoint ptr %.promoted4205 to i64
   %2778 = sub i64 %2776, %2777
   %2779 = trunc i64 %2778 to i32
   store i32 %2779, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   br label %.loopexit
 
 2780:                                             ; preds = %2763, %2678
-  %2781 = phi ptr [ %2750, %2763 ], [ %.promoted4233, %2678 ]
+  %2781 = phi ptr [ %2750, %2763 ], [ %.promoted4205, %2678 ]
   %2782 = getelementptr inbounds i8, ptr %2781, i64 1
   store ptr %2782, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2783 = ptrtoint ptr %2782 to i64
-  %2784 = ptrtoint ptr %.promoted4233 to i64
+  %2784 = ptrtoint ptr %.promoted4205 to i64
   %2785 = sub i64 %2783, %2784
   %2786 = trunc i64 %2785 to i32
   store i32 %2786, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -6575,45 +6575,45 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 2788:                                             ; preds = %2681
-  %2789 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %2789 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %2789, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2790 = load i8, ptr %2789, align 1
   %2791 = icmp ult i8 %2790, 93
   br i1 %2791, label %2792, label %2793
 
 2792:                                             ; preds = %2788
-  switch i8 %2790, label %.loopexit3847 [
+  switch i8 %2790, label %.loopexit3819 [
     i8 0, label %2774
-    i8 92, label %.preheader3845
+    i8 92, label %.preheader3817
   ]
 
 2793:                                             ; preds = %2788
   %2794 = icmp eq i8 %2790, 123
-  br i1 %2794, label %2922, label %.loopexit3847
+  br i1 %2794, label %2922, label %.loopexit3819
 
 2795:                                             ; preds = %2685
-  %2796 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %2796 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %2796, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2796, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2797 = load i8, ptr %2796, align 1
   %2798 = add i8 %2797, -48
-  %or.cond486 = icmp ult i8 %2798, 10
-  br i1 %or.cond486, label %.preheader3849.preheader, label %2714
+  %or.cond430 = icmp ult i8 %2798, 10
+  br i1 %or.cond430, label %.preheader3821.preheader, label %2714
 
-.preheader3851:                                   ; preds = %2691, %2802
-  %2799 = phi ptr [ %2800, %2802 ], [ %.promoted4233, %2691 ]
+.preheader3823:                                   ; preds = %2691, %2802
+  %2799 = phi ptr [ %2800, %2802 ], [ %.promoted4205, %2691 ]
   %2800 = getelementptr inbounds i8, ptr %2799, i64 1
   store ptr %2800, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2800, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2801 = icmp ugt ptr %2800, %2
   br i1 %2801, label %.loopexit, label %2802
 
-2802:                                             ; preds = %.preheader3851
+2802:                                             ; preds = %.preheader3823
   %2803 = load i8, ptr %2800, align 1
   %2804 = zext i8 %2803 to i64
   %2805 = add nsw i64 %2804, -58
-  %.not3555 = icmp ult i64 %2805, -10
-  br i1 %.not3555, label %2806, label %.preheader3851
+  %.not3526 = icmp ult i64 %2805, -10
+  br i1 %.not3526, label %2806, label %.preheader3823
 
 2806:                                             ; preds = %2802
   %2807 = icmp ult i8 %2803, 39
@@ -6624,7 +6624,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2809, label %2810, label %2811
 
 2810:                                             ; preds = %2808
-  switch i8 %2803, label %.loopexit3847 [
+  switch i8 %2803, label %.loopexit3819 [
     i8 13, label %2826
     i8 10, label %2826
   ]
@@ -6634,12 +6634,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2812, label %2813, label %2814
 
 2813:                                             ; preds = %2811
-  %.not3560 = icmp eq i8 %2803, 34
-  br i1 %.not3560, label %2826, label %.loopexit3847
+  %.not3531 = icmp eq i8 %2803, 34
+  br i1 %.not3531, label %2826, label %.loopexit3819
 
 2814:                                             ; preds = %2811
   %2815 = icmp eq i8 %2803, 36
-  br i1 %2815, label %2902, label %.loopexit3847
+  br i1 %2815, label %2902, label %.loopexit3819
 
 2816:                                             ; preds = %2806
   %2817 = icmp ult i8 %2803, 60
@@ -6650,35 +6650,35 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2819, label %2820, label %2821
 
 2820:                                             ; preds = %2818
-  %.not3559 = icmp eq i8 %2803, 39
-  br i1 %.not3559, label %2826, label %.loopexit3847
+  %.not3530 = icmp eq i8 %2803, 39
+  br i1 %.not3530, label %2826, label %.loopexit3819
 
 2821:                                             ; preds = %2818
-  switch i8 %2803, label %.loopexit3847 [
-    i8 46, label %.preheader3849.preheader
+  switch i8 %2803, label %.loopexit3819 [
+    i8 46, label %.preheader3821.preheader
     i8 59, label %2826
   ]
 
-.preheader3849.preheader:                         ; preds = %2795, %2821
-  %.ph5577 = phi ptr [ %2800, %2821 ], [ %2796, %2795 ]
-  br label %.preheader3849
+.preheader3821.preheader:                         ; preds = %2795, %2821
+  %.ph5549 = phi ptr [ %2800, %2821 ], [ %2796, %2795 ]
+  br label %.preheader3821
 
 2822:                                             ; preds = %2816
   %2823 = icmp ult i8 %2803, 93
   br i1 %2823, label %2824, label %2825
 
 2824:                                             ; preds = %2822
-  %.not3557 = icmp eq i8 %2803, 92
-  br i1 %.not3557, label %2896, label %.loopexit3847
+  %.not3528 = icmp eq i8 %2803, 92
+  br i1 %.not3528, label %2896, label %.loopexit3819
 
 2825:                                             ; preds = %2822
-  %.not3556 = icmp eq i8 %2803, 125
-  br i1 %.not3556, label %2826, label %.loopexit3847
+  %.not3527 = icmp eq i8 %2803, 125
+  br i1 %.not3527, label %2826, label %.loopexit3819
 
 2826:                                             ; preds = %2933, %2933, %2821, %2810, %2810, %2951, %2947, %2943, %2936, %2917, %2813, %2825, %2820
   %2827 = phi ptr [ %2926, %2933 ], [ %2926, %2933 ], [ %2800, %2821 ], [ %2800, %2810 ], [ %2800, %2810 ], [ %2926, %2951 ], [ %2926, %2947 ], [ %2926, %2943 ], [ %2926, %2936 ], [ %2903, %2917 ], [ %2800, %2813 ], [ %2800, %2825 ], [ %2800, %2820 ]
   %2828 = ptrtoint ptr %2827 to i64
-  %2829 = ptrtoint ptr %.promoted4233 to i64
+  %2829 = ptrtoint ptr %.promoted4205 to i64
   %2830 = sub i64 %2828, %2829
   %2831 = trunc i64 %2830 to i32
   store i32 %2831, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -6708,7 +6708,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2846 = getelementptr inbounds i8, ptr %2843, i64 16
   store i64 %2832, ptr %2846, align 8
   %2847 = getelementptr inbounds i8, ptr %2843, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2847, ptr nonnull align 1 %.promoted4233, i64 %2832, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2847, ptr nonnull align 1 %.promoted4205, i64 %2832, i1 false)
   %2848 = getelementptr inbounds [1 x i8], ptr %2847, i64 0, i64 %2832
   store i8 0, ptr %2848, align 1
   store ptr %2843, ptr %0, align 8
@@ -6716,22 +6716,22 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 262, ptr %2849, align 8
   br label %.loopexit
 
-.preheader3853:                                   ; preds = %.preheader3853.preheader, %2853
-  %2850 = phi ptr [ %2851, %2853 ], [ %.promoted4233, %.preheader3853.preheader ]
+.preheader3825:                                   ; preds = %.preheader3825.preheader, %2853
+  %2850 = phi ptr [ %2851, %2853 ], [ %.promoted4205, %.preheader3825.preheader ]
   %2851 = getelementptr inbounds i8, ptr %2850, i64 1
   store ptr %2851, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2851, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2852 = icmp ugt ptr %2851, %2
   br i1 %2852, label %.loopexit, label %2853
 
-2853:                                             ; preds = %.preheader3853
+2853:                                             ; preds = %.preheader3825
   %2854 = load i8, ptr %2851, align 1
   %2855 = zext i8 %2854 to i64
   %2856 = getelementptr inbounds [256 x i8], ptr @ini_lex.yybm.9, i64 0, i64 %2855
   %2857 = load i8, ptr %2856, align 1
   %2858 = and i8 %2857, 64
-  %.not3551 = icmp eq i8 %2858, 0
-  br i1 %.not3551, label %2859, label %.preheader3853
+  %.not3522 = icmp eq i8 %2858, 0
+  br i1 %.not3522, label %2859, label %.preheader3825
 
 2859:                                             ; preds = %2853
   %2860 = icmp ult i8 %2854, 37
@@ -6742,13 +6742,13 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2862, label %2863, label %2864
 
 2863:                                             ; preds = %2861
-  switch i8 %2854, label %.loopexit3847 [
+  switch i8 %2854, label %.loopexit3819 [
     i8 13, label %2872
     i8 10, label %2872
   ]
 
 2864:                                             ; preds = %2861
-  switch i8 %2854, label %.loopexit3847 [
+  switch i8 %2854, label %.loopexit3819 [
     i8 34, label %2872
     i8 36, label %2902
   ]
@@ -6758,7 +6758,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2866, label %2867, label %2868
 
 2867:                                             ; preds = %2865
-  switch i8 %2854, label %.loopexit3847 [
+  switch i8 %2854, label %.loopexit3819 [
     i8 59, label %2872
     i8 39, label %2872
   ]
@@ -6768,17 +6768,17 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2869, label %2870, label %2871
 
 2870:                                             ; preds = %2868
-  %.not3553 = icmp eq i8 %2854, 92
-  br i1 %.not3553, label %2896, label %.loopexit3847
+  %.not3524 = icmp eq i8 %2854, 92
+  br i1 %.not3524, label %2896, label %.loopexit3819
 
 2871:                                             ; preds = %2868
-  %.not3552 = icmp eq i8 %2854, 125
-  br i1 %.not3552, label %2872, label %.loopexit3847
+  %.not3523 = icmp eq i8 %2854, 125
+  br i1 %.not3523, label %2872, label %.loopexit3819
 
 2872:                                             ; preds = %2867, %2867, %2864, %2863, %2863, %2916, %2871
   %2873 = phi ptr [ %2851, %2867 ], [ %2851, %2867 ], [ %2851, %2864 ], [ %2851, %2863 ], [ %2851, %2863 ], [ %2903, %2916 ], [ %2851, %2871 ]
   %2874 = ptrtoint ptr %2873 to i64
-  %2875 = ptrtoint ptr %.promoted4233 to i64
+  %2875 = ptrtoint ptr %.promoted4205 to i64
   %2876 = sub i64 %2874, %2875
   %2877 = trunc i64 %2876 to i32
   store i32 %2877, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -6808,7 +6808,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2892 = getelementptr inbounds i8, ptr %2889, i64 16
   store i64 %2878, ptr %2892, align 8
   %2893 = getelementptr inbounds i8, ptr %2889, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2893, ptr nonnull align 1 %.promoted4233, i64 %2878, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2893, ptr nonnull align 1 %.promoted4205, i64 %2878, i1 false)
   %2894 = getelementptr inbounds [1 x i8], ptr %2893, i64 0, i64 %2878
   store i8 0, ptr %2894, align 1
   store ptr %2889, ptr %0, align 8
@@ -6817,14 +6817,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 2896:                                             ; preds = %2724, %2950, %2870, %2824, %2769, %2699
-  %2897 = phi ptr [ %2715, %2724 ], [ %2926, %2950 ], [ %2851, %2870 ], [ %2800, %2824 ], [ %2750, %2769 ], [ %.promoted4233, %2699 ]
+  %2897 = phi ptr [ %2715, %2724 ], [ %2926, %2950 ], [ %2851, %2870 ], [ %2800, %2824 ], [ %2750, %2769 ], [ %.promoted4205, %2699 ]
   %2898 = getelementptr inbounds i8, ptr %2897, i64 1
   store ptr %2898, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2899 = icmp ugt ptr %2898, %2
-  br i1 %2899, label %.loopexit, label %.loopexit3847
+  br i1 %2899, label %.loopexit, label %.loopexit3819
 
 2900:                                             ; preds = %2707
-  %2901 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %2901 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %2901, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   tail call fastcc void @yy_pop_state()
@@ -6845,21 +6845,21 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2910, label %2911, label %2915
 
 2911:                                             ; preds = %2908
-  switch i8 %2909, label %.loopexit3847 [
+  switch i8 %2909, label %.loopexit3819 [
     i8 0, label %2916
-    i8 92, label %.preheader3845
+    i8 92, label %.preheader3817
   ]
 
-.preheader3845:                                   ; preds = %2792, %2911
-  %2912 = phi ptr [ %.promoted4233, %2792 ], [ %2903, %2911 ]
+.preheader3817:                                   ; preds = %2792, %2911
+  %2912 = phi ptr [ %.promoted4205, %2792 ], [ %2903, %2911 ]
   %2913 = getelementptr inbounds i8, ptr %2912, i64 2
   store ptr %2913, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2914 = icmp ugt ptr %2913, %2
-  br i1 %2914, label %.loopexit, label %.lr.ph4148
+  br i1 %2914, label %.loopexit, label %.lr.ph4120
 
 2915:                                             ; preds = %2908
-  %.not3570 = icmp eq i8 %2909, 123
-  br i1 %.not3570, label %2916, label %.loopexit3847
+  %.not3541 = icmp eq i8 %2909, 123
+  br i1 %.not3541, label %2916, label %.loopexit3819
 
 2916:                                             ; preds = %2911, %2915
   store ptr %2903, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
@@ -6868,37 +6868,37 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 2917:                                             ; preds = %2916
   br i1 %2905, label %2726, label %2826
 
-.lr.ph4148:                                       ; preds = %.preheader3845, %.backedge3848
-  %2918 = phi ptr [ %2920, %.backedge3848 ], [ %2913, %.preheader3845 ]
+.lr.ph4120:                                       ; preds = %.preheader3817, %.backedge3820
+  %2918 = phi ptr [ %2920, %.backedge3820 ], [ %2913, %.preheader3817 ]
   %2919 = load i8, ptr %2918, align 1
-  switch i8 %2919, label %.loopexit3847 [
-    i8 92, label %.backedge3848
-    i8 36, label %.backedge3848
+  switch i8 %2919, label %.loopexit3819 [
+    i8 92, label %.backedge3820
+    i8 36, label %.backedge3820
   ]
 
-.backedge3848:                                    ; preds = %.lr.ph4148, %.lr.ph4148
+.backedge3820:                                    ; preds = %.lr.ph4120, %.lr.ph4120
   %2920 = getelementptr inbounds i8, ptr %2918, i64 1
   store ptr %2920, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %2921 = icmp ugt ptr %2920, %2
-  br i1 %2921, label %.loopexit, label %.lr.ph4148
+  br i1 %2921, label %.loopexit, label %.lr.ph4120
 
 2922:                                             ; preds = %2793
-  %2923 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %2923 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %2923, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   %2924 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64)) #10
   store i32 7, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
   br label %.loopexit
 
-.preheader3849:                                   ; preds = %.preheader3849.preheader, %2945
-  %2925 = phi ptr [ %2926, %2945 ], [ %.ph5577, %.preheader3849.preheader ]
+.preheader3821:                                   ; preds = %.preheader3821.preheader, %2945
+  %2925 = phi ptr [ %2926, %2945 ], [ %.ph5549, %.preheader3821.preheader ]
   %2926 = getelementptr inbounds i8, ptr %2925, i64 1
   store ptr %2926, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2926, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   %2927 = icmp ugt ptr %2926, %2
   br i1 %2927, label %.loopexit, label %2928
 
-2928:                                             ; preds = %.preheader3849
+2928:                                             ; preds = %.preheader3821
   %2929 = load i8, ptr %2926, align 1
   %2930 = icmp ult i8 %2929, 39
   br i1 %2930, label %2931, label %2939
@@ -6908,7 +6908,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2932, label %2933, label %2934
 
 2933:                                             ; preds = %2931
-  switch i8 %2929, label %.loopexit3847 [
+  switch i8 %2929, label %.loopexit3819 [
     i8 13, label %2826
     i8 10, label %2826
   ]
@@ -6918,12 +6918,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2935, label %2936, label %2937
 
 2936:                                             ; preds = %2934
-  %.not3564 = icmp eq i8 %2929, 34
-  br i1 %.not3564, label %2826, label %.loopexit3847
+  %.not3535 = icmp eq i8 %2929, 34
+  br i1 %.not3535, label %2826, label %.loopexit3819
 
 2937:                                             ; preds = %2934
   %2938 = icmp eq i8 %2929, 36
-  br i1 %2938, label %2902, label %.loopexit3847
+  br i1 %2938, label %2902, label %.loopexit3819
 
 2939:                                             ; preds = %2928
   %2940 = icmp ult i8 %2929, 60
@@ -6935,27 +6935,27 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2943:                                             ; preds = %2941
   %2944 = icmp eq i8 %2929, 39
-  br i1 %2944, label %2826, label %.loopexit3847
+  br i1 %2944, label %2826, label %.loopexit3819
 
 2945:                                             ; preds = %2941
   %2946 = icmp ult i8 %2929, 58
-  br i1 %2946, label %.preheader3849, label %2947
+  br i1 %2946, label %.preheader3821, label %2947
 
 2947:                                             ; preds = %2945
-  %.not3563 = icmp eq i8 %2929, 59
-  br i1 %.not3563, label %2826, label %.loopexit3847
+  %.not3534 = icmp eq i8 %2929, 59
+  br i1 %.not3534, label %2826, label %.loopexit3819
 
 2948:                                             ; preds = %2939
   %2949 = icmp ult i8 %2929, 93
   br i1 %2949, label %2950, label %2951
 
 2950:                                             ; preds = %2948
-  %.not3562 = icmp eq i8 %2929, 92
-  br i1 %.not3562, label %2896, label %.loopexit3847
+  %.not3533 = icmp eq i8 %2929, 92
+  br i1 %.not3533, label %2896, label %.loopexit3819
 
 2951:                                             ; preds = %2948
   %2952 = icmp eq i8 %2929, 125
-  br i1 %2952, label %2826, label %.loopexit3847
+  br i1 %2952, label %2826, label %.loopexit3819
 
 2953:                                             ; preds = %31
   %2954 = icmp ult i8 %30, 42
@@ -6971,12 +6971,12 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 2959:                                             ; preds = %2957
   %2960 = add nsw i8 %30, -1
-  %or.cond501 = icmp ult i8 %2960, 8
-  br i1 %or.cond501, label %2988, label %2986
+  %or.cond445 = icmp ult i8 %2960, 8
+  br i1 %or.cond445, label %2988, label %2986
 
 2961:                                             ; preds = %2957
-  %.not3547 = icmp eq i8 %30, 13
-  br i1 %.not3547, label %2986, label %2988
+  %.not3518 = icmp eq i8 %30, 13
+  br i1 %.not3518, label %2986, label %2988
 
 2962:                                             ; preds = %2955
   %2963 = icmp ult i8 %30, 37
@@ -6989,8 +6989,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 2966:                                             ; preds = %2962
   %2967 = icmp ne i8 %30, 38
   %2968 = icmp ult i8 %30, 40
-  %or.cond504 = and i1 %2967, %2968
-  br i1 %or.cond504, label %2988, label %2986
+  %or.cond448 = and i1 %2967, %2968
+  br i1 %or.cond448, label %2988, label %2986
 
 2969:                                             ; preds = %2953
   %2970 = icmp ult i8 %30, 92
@@ -7005,8 +7005,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2974, label %2988, label %2975
 
 2975:                                             ; preds = %2973
-  %.not3546 = icmp eq i8 %30, 59
-  br i1 %.not3546, label %2986, label %3046
+  %.not3517 = icmp eq i8 %30, 59
+  br i1 %.not3517, label %2986, label %3046
 
 2976:                                             ; preds = %2971
   switch i8 %30, label %2988 [
@@ -7021,8 +7021,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 2979:                                             ; preds = %2977
   %2980 = icmp eq i8 %30, 92
   %2981 = icmp ugt i8 %30, 94
-  %or.cond510 = or i1 %2980, %2981
-  br i1 %or.cond510, label %2988, label %2986
+  %or.cond454 = or i1 %2980, %2981
+  br i1 %or.cond454, label %2988, label %2986
 
 2982:                                             ; preds = %2977
   %2983 = icmp eq i8 %30, 125
@@ -7033,29 +7033,29 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2985, label %2988, label %2986
 
 2986:                                             ; preds = %2976, %2976, %2979, %2964, %2961, %2984, %2975, %2966, %2959
-  %2987 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %2987 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %2987, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   br label %.loopexit
 
 2988:                                             ; preds = %2976, %2966, %2959, %2984, %2979, %2973, %2964, %2961
-  %2989 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %2989 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %2989, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %2990
 
 2990:                                             ; preds = %3046, %2988
-  %.promoted4127 = phi ptr [ %3047, %3046 ], [ %2989, %2988 ]
-  %2991 = ptrtoint ptr %.promoted4127 to i64
-  %2992 = ptrtoint ptr %.promoted4233 to i64
+  %.promoted4099 = phi ptr [ %3047, %3046 ], [ %2989, %2988 ]
+  %2991 = ptrtoint ptr %.promoted4099 to i64
+  %2992 = ptrtoint ptr %.promoted4205 to i64
   %2993 = sub i64 %2991, %2992
   %2994 = trunc i64 %2993 to i32
   store i32 %2994, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %2995 = load i8, ptr %.promoted4127, align 1
+  %2995 = load i8, ptr %.promoted4099, align 1
   %2996 = icmp eq i8 %2995, 58
   br i1 %2996, label %2997, label %3002
 
 2997:                                             ; preds = %2990
-  %2998 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %2998 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   %2999 = load i8, ptr %2998, align 1
   %3000 = icmp eq i8 %2999, 45
   br i1 %3000, label %3001, label %3002
@@ -7065,21 +7065,21 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %3054
 
 3002:                                             ; preds = %2997, %2990
-  %3003 = icmp ult ptr %.promoted4127, %2
-  br i1 %3003, label %.lr.ph4129.preheader, label %.loopexit3858
+  %3003 = icmp ult ptr %.promoted4099, %2
+  br i1 %3003, label %.lr.ph4101.preheader, label %.loopexit3830
 
-.lr.ph4129.preheader:                             ; preds = %3002
-  %3004 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+.lr.ph4101.preheader:                             ; preds = %3002
+  %3004 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   %3005 = sub i64 %3, %2991
   %scevgep = getelementptr i8, ptr %3004, i64 %3005
-  br label %.lr.ph4129
+  br label %.lr.ph4101
 
-.lr.ph4129:                                       ; preds = %.lr.ph4129.preheader, %.backedge3859
-  %3006 = phi ptr [ %3007, %.backedge3859 ], [ %.promoted4127, %.lr.ph4129.preheader ]
+.lr.ph4101:                                       ; preds = %.lr.ph4101.preheader, %.backedge3831
+  %3006 = phi ptr [ %3007, %.backedge3831 ], [ %.promoted4099, %.lr.ph4101.preheader ]
   %3007 = getelementptr inbounds i8, ptr %3006, i64 1
   store ptr %3007, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %3008 = load i8, ptr %3006, align 1
-  switch i8 %3008, label %.backedge3859 [
+  switch i8 %3008, label %.backedge3831 [
     i8 61, label %3012
     i8 10, label %3012
     i8 13, label %3012
@@ -7101,87 +7101,87 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
     i8 58, label %3009
   ]
 
-3009:                                             ; preds = %.lr.ph4129
+3009:                                             ; preds = %.lr.ph4101
   %3010 = load i8, ptr %3007, align 1
   %3011 = icmp eq i8 %3010, 45
-  br i1 %3011, label %3012, label %.backedge3859
+  br i1 %3011, label %3012, label %.backedge3831
 
-.backedge3859:                                    ; preds = %3009, %.lr.ph4129
+.backedge3831:                                    ; preds = %3009, %.lr.ph4101
   %exitcond.not = icmp eq ptr %3007, %scevgep
-  br i1 %exitcond.not, label %.loopexit3858, label %.lr.ph4129
+  br i1 %exitcond.not, label %.loopexit3830, label %.lr.ph4101
 
-3012:                                             ; preds = %3009, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129, %.lr.ph4129
+3012:                                             ; preds = %3009, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101, %.lr.ph4101
   store ptr %3006, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %3013 = ptrtoint ptr %3006 to i64
   %3014 = sub i64 %3013, %2992
   %3015 = trunc i64 %3014 to i32
   store i32 %3015, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  br label %.loopexit3858
+  br label %.loopexit3830
 
-.loopexit3858:                                    ; preds = %.backedge3859, %3002, %3012
-  %.pr3731 = phi i32 [ %2994, %3002 ], [ %3015, %3012 ], [ %2994, %.backedge3859 ]
-  %.not35484131 = icmp eq i32 %.pr3731, 0
-  br i1 %.not35484131, label %.critedge59, label %.lr.ph4133
+.loopexit3830:                                    ; preds = %.backedge3831, %3002, %3012
+  %.pr3703 = phi i32 [ %2994, %3002 ], [ %3015, %3012 ], [ %2994, %.backedge3831 ]
+  %.not35194103 = icmp eq i32 %.pr3703, 0
+  br i1 %.not35194103, label %.critedge8, label %.lr.ph4105
 
-.lr.ph4133:                                       ; preds = %.loopexit3858, %3019
-  %3016 = phi i32 [ %3021, %3019 ], [ %.pr3731, %.loopexit3858 ]
-  %3017 = phi ptr [ %3020, %3019 ], [ %.promoted4233, %.loopexit3858 ]
+.lr.ph4105:                                       ; preds = %.loopexit3830, %3019
+  %3016 = phi i32 [ %3021, %3019 ], [ %.pr3703, %.loopexit3830 ]
+  %3017 = phi ptr [ %3020, %3019 ], [ %.promoted4205, %.loopexit3830 ]
   %3018 = load i8, ptr %3017, align 1
-  switch i8 %3018, label %.lr.ph4138 [
+  switch i8 %3018, label %.lr.ph4110 [
     i8 32, label %3019
     i8 9, label %3019
   ]
 
-3019:                                             ; preds = %.lr.ph4133, %.lr.ph4133
+3019:                                             ; preds = %.lr.ph4105, %.lr.ph4105
   %3020 = getelementptr inbounds i8, ptr %3017, i64 1
   store ptr %3020, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 32), align 8
   %3021 = add i32 %3016, -1
   store i32 %3021, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not3548 = icmp eq i32 %3021, 0
-  br i1 %.not3548, label %.critedge59, label %.lr.ph4133
+  %.not3519 = icmp eq i32 %3021, 0
+  br i1 %.not3519, label %.critedge8, label %.lr.ph4105
 
-.lr.ph4138:                                       ; preds = %.lr.ph4133
+.lr.ph4110:                                       ; preds = %.lr.ph4105
   %3022 = zext i32 %3016 to i64
   br label %3023
 
-3023:                                             ; preds = %.lr.ph4138, %.critedge61
-  %indvars.iv4461 = phi i64 [ %3022, %.lr.ph4138 ], [ %indvars.iv.next4462, %.critedge61 ]
-  %indvars.iv.next4462 = add nsw i64 %indvars.iv4461, -1
-  %3024 = and i64 %indvars.iv.next4462, 4294967295
+3023:                                             ; preds = %.lr.ph4110, %.critedge10
+  %indvars.iv4433 = phi i64 [ %3022, %.lr.ph4110 ], [ %indvars.iv.next4434, %.critedge10 ]
+  %indvars.iv.next4434 = add nsw i64 %indvars.iv4433, -1
+  %3024 = and i64 %indvars.iv.next4434, 4294967295
   %3025 = getelementptr inbounds i8, ptr %3017, i64 %3024
   %3026 = load i8, ptr %3025, align 1
-  switch i8 %3026, label %.critedge59.loopexit [
-    i8 10, label %.critedge61
-    i8 13, label %.critedge61
-    i8 9, label %.critedge61
-    i8 32, label %.critedge61
+  switch i8 %3026, label %.critedge8.loopexit [
+    i8 10, label %.critedge10
+    i8 13, label %.critedge10
+    i8 9, label %.critedge10
+    i8 32, label %.critedge10
   ]
 
-.critedge61:                                      ; preds = %3023, %3023, %3023, %3023
-  %indvars4463 = trunc i64 %indvars.iv.next4462 to i32
-  store i32 %indvars4463, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not3549 = icmp eq i32 %indvars4463, 0
-  br i1 %.not3549, label %.critedge59.loopexit, label %3023
+.critedge10:                                      ; preds = %3023, %3023, %3023, %3023
+  %indvars4435 = trunc i64 %indvars.iv.next4434 to i32
+  store i32 %indvars4435, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
+  %.not3520 = icmp eq i32 %indvars4435, 0
+  br i1 %.not3520, label %.critedge8.loopexit, label %3023
 
-.critedge59.loopexit:                             ; preds = %.critedge61, %3023
-  %.lcssa3956.ph = phi i64 [ %indvars.iv4461, %3023 ], [ 0, %.critedge61 ]
-  %3027 = and i64 %.lcssa3956.ph, 4294967295
-  br label %.critedge59
+.critedge8.loopexit:                              ; preds = %.critedge10, %3023
+  %.lcssa3928.ph = phi i64 [ %indvars.iv4433, %3023 ], [ 0, %.critedge10 ]
+  %3027 = and i64 %.lcssa3928.ph, 4294967295
+  br label %.critedge8
 
-.critedge59:                                      ; preds = %3019, %.critedge59.loopexit, %.loopexit3858
-  %3028 = phi ptr [ %.promoted4233, %.loopexit3858 ], [ %3017, %.critedge59.loopexit ], [ %3020, %3019 ]
-  %.lcssa3956 = phi i64 [ 0, %.loopexit3858 ], [ %3027, %.critedge59.loopexit ], [ 0, %3019 ]
+.critedge8:                                       ; preds = %3019, %.critedge8.loopexit, %.loopexit3830
+  %3028 = phi ptr [ %.promoted4205, %.loopexit3830 ], [ %3017, %.critedge8.loopexit ], [ %3020, %3019 ]
+  %.lcssa3928 = phi i64 [ 0, %.loopexit3830 ], [ %3027, %.critedge8.loopexit ], [ 0, %3019 ]
   %3029 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %3030 = trunc i8 %3029 to i1
-  %3031 = add nuw nsw i64 %.lcssa3956, 32
+  %3031 = add nuw nsw i64 %.lcssa3928, 32
   %3032 = and i64 %3031, 8589934584
   br i1 %3030, label %3033, label %3035
 
-3033:                                             ; preds = %.critedge59
+3033:                                             ; preds = %.critedge8
   %3034 = tail call noalias ptr @__zend_malloc(i64 noundef %3032) #12
   br label %3037
 
-3035:                                             ; preds = %.critedge59
+3035:                                             ; preds = %.critedge8
   %3036 = tail call noalias ptr @_emalloc(i64 noundef %3032) #12
   br label %3037
 
@@ -7194,10 +7194,10 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %3041 = getelementptr inbounds i8, ptr %3039, i64 8
   store i64 0, ptr %3041, align 8
   %3042 = getelementptr inbounds i8, ptr %3039, i64 16
-  store i64 %.lcssa3956, ptr %3042, align 8
+  store i64 %.lcssa3928, ptr %3042, align 8
   %3043 = getelementptr inbounds i8, ptr %3039, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3043, ptr nonnull align 1 %3028, i64 %.lcssa3956, i1 false)
-  %3044 = getelementptr inbounds [1 x i8], ptr %3043, i64 0, i64 %.lcssa3956
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3043, ptr nonnull align 1 %3028, i64 %.lcssa3928, i1 false)
+  %3044 = getelementptr inbounds [1 x i8], ptr %3043, i64 0, i64 %.lcssa3928
   store i8 0, ptr %3044, align 1
   store ptr %3039, ptr %0, align 8
   %3045 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7205,21 +7205,21 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 3046:                                             ; preds = %2975
-  %3047 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %3047 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %3047, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %3048 = load i8, ptr %3047, align 1
   %3049 = icmp eq i8 %3048, 45
   br i1 %3049, label %3052, label %2990
 
 3050:                                             ; preds = %2982
-  %3051 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %3051 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %3051, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   tail call fastcc void @yy_pop_state()
   br label %.loopexit
 
 3052:                                             ; preds = %3046
-  %3053 = getelementptr inbounds i8, ptr %.promoted4233, i64 2
+  %3053 = getelementptr inbounds i8, ptr %.promoted4205, i64 2
   store ptr %3053, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   br label %3054
@@ -7239,8 +7239,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3059, label %3060, label %3061
 
 3060:                                             ; preds = %3058
-  %.not3540 = icmp eq i8 %30, 0
-  br i1 %.not3540, label %3070, label %.loopexit3870
+  %.not3511 = icmp eq i8 %30, 0
+  br i1 %.not3511, label %3070, label %.loopexit3842
 
 3061:                                             ; preds = %3058
   %3062 = icmp eq i8 %30, 9
@@ -7248,151 +7248,151 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 3063:                                             ; preds = %3061
   %3064 = icmp ult i8 %30, 11
-  br i1 %3064, label %.loopexit3872, label %.loopexit3870
+  br i1 %3064, label %.loopexit3844, label %.loopexit3842
 
 3065:                                             ; preds = %3056
   %3066 = icmp ult i8 %30, 33
   br i1 %3066, label %3067, label %3068
 
 3067:                                             ; preds = %3065
-  switch i8 %30, label %.loopexit3870 [
+  switch i8 %30, label %.loopexit3842 [
     i8 13, label %3165
     i8 32, label %3141
   ]
 
 3068:                                             ; preds = %3065
   %3069 = icmp eq i8 %30, 59
-  br i1 %3069, label %.preheader3860.preheader, label %.loopexit3870
+  br i1 %3069, label %.preheader3832.preheader, label %.loopexit3842
 
-.preheader3860.preheader:                         ; preds = %3187, %3068
-  %.ph5613 = phi ptr [ %.promoted4233, %3068 ], [ %3179, %3187 ]
-  br label %.preheader3860
+.preheader3832.preheader:                         ; preds = %3187, %3068
+  %.ph5585 = phi ptr [ %.promoted4205, %3068 ], [ %3179, %3187 ]
+  br label %.preheader3832
 
 3070:                                             ; preds = %3060
-  %3071 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %3071 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %3071, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
   br label %.loopexit
 
-.loopexit3870:                                    ; preds = %3067, %3068, %3063, %3060
-  %3072 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+.loopexit3842:                                    ; preds = %3067, %3068, %3063, %3060
+  %3072 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %3072, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
-  br label %.loopexit3871
+  br label %.loopexit3843
 
-.loopexit3871:                                    ; preds = %3147, %3153, %3152, %3145, %.loopexit3870
-  %.promoted4111 = phi ptr [ %3072, %.loopexit3870 ], [ %3142, %3145 ], [ %3142, %3152 ], [ %3142, %3153 ], [ %3142, %3147 ]
-  %3073 = ptrtoint ptr %.promoted4111 to i64
-  %3074 = ptrtoint ptr %.promoted4233 to i64
+.loopexit3843:                                    ; preds = %3147, %3153, %3152, %3145, %.loopexit3842
+  %.promoted4083 = phi ptr [ %3072, %.loopexit3842 ], [ %3142, %3145 ], [ %3142, %3152 ], [ %3142, %3153 ], [ %3142, %3147 ]
+  %3073 = ptrtoint ptr %.promoted4083 to i64
+  %3074 = ptrtoint ptr %.promoted4205 to i64
   %3075 = sub i64 %3073, %3074
   %3076 = trunc i64 %3075 to i32
   store i32 %3076, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not35414105 = icmp eq i32 %3076, 0
-  br i1 %.not35414105, label %._crit_edge4109, label %.lr.ph4108
+  %.not35124077 = icmp eq i32 %3076, 0
+  br i1 %.not35124077, label %._crit_edge4081, label %.lr.ph4080
 
-.lr.ph4108:                                       ; preds = %.loopexit3871, %3079
-  %storemerge4106 = phi i32 [ %3081, %3079 ], [ %3076, %.loopexit3871 ]
-  %3077 = phi ptr [ %3080, %3079 ], [ %.promoted4233, %.loopexit3871 ]
+.lr.ph4080:                                       ; preds = %.loopexit3843, %3079
+  %storemerge4078 = phi i32 [ %3081, %3079 ], [ %3076, %.loopexit3843 ]
+  %3077 = phi ptr [ %3080, %3079 ], [ %.promoted4205, %.loopexit3843 ]
   %3078 = load i8, ptr %3077, align 1
-  switch i8 %3078, label %._crit_edge4109 [
+  switch i8 %3078, label %._crit_edge4081 [
     i8 32, label %3079
     i8 9, label %3079
   ]
 
-3079:                                             ; preds = %.lr.ph4108, %.lr.ph4108
+3079:                                             ; preds = %.lr.ph4080, %.lr.ph4080
   %3080 = getelementptr inbounds i8, ptr %3077, i64 1
   store ptr %3080, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 32), align 8
-  %3081 = add i32 %storemerge4106, -1
+  %3081 = add i32 %storemerge4078, -1
   store i32 %3081, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not3541 = icmp eq i32 %3081, 0
-  br i1 %.not3541, label %._crit_edge4109, label %.lr.ph4108
+  %.not3512 = icmp eq i32 %3081, 0
+  br i1 %.not3512, label %._crit_edge4081, label %.lr.ph4080
 
-._crit_edge4109:                                  ; preds = %3079, %.lr.ph4108, %.loopexit3871
-  %3082 = phi ptr [ %.promoted4233, %.loopexit3871 ], [ %3080, %3079 ], [ %3077, %.lr.ph4108 ]
-  %3083 = icmp ult ptr %.promoted4111, %2
-  br i1 %3083, label %.lr.ph4114, label %._crit_edge4115
+._crit_edge4081:                                  ; preds = %3079, %.lr.ph4080, %.loopexit3843
+  %3082 = phi ptr [ %.promoted4205, %.loopexit3843 ], [ %3080, %3079 ], [ %3077, %.lr.ph4080 ]
+  %3083 = icmp ult ptr %.promoted4083, %2
+  br i1 %3083, label %.lr.ph4086, label %._crit_edge4087
 
-.lr.ph4114:                                       ; preds = %._crit_edge4109, %3091
-  %.032924112 = phi ptr [ %.33295, %3091 ], [ null, %._crit_edge4109 ]
-  %3084 = phi ptr [ %3092, %3091 ], [ %.promoted4111, %._crit_edge4109 ]
+.lr.ph4086:                                       ; preds = %._crit_edge4081, %3091
+  %.032364084 = phi ptr [ %.33239, %3091 ], [ null, %._crit_edge4081 ]
+  %3084 = phi ptr [ %3092, %3091 ], [ %.promoted4083, %._crit_edge4081 ]
   %3085 = load i8, ptr %3084, align 1
   switch i8 %3085, label %3091 [
-    i8 10, label %._crit_edge4115.loopexit
-    i8 13, label %._crit_edge4115.loopexit
+    i8 10, label %._crit_edge4087.loopexit
+    i8 13, label %._crit_edge4087.loopexit
     i8 59, label %3086
     i8 34, label %3088
   ]
 
-3086:                                             ; preds = %.lr.ph4114
-  %3087 = icmp eq ptr %.032924112, null
-  %spec.select = select i1 %3087, ptr %3084, ptr %.032924112
+3086:                                             ; preds = %.lr.ph4086
+  %3087 = icmp eq ptr %.032364084, null
+  %spec.select = select i1 %3087, ptr %3084, ptr %.032364084
   br label %3091
 
-3088:                                             ; preds = %.lr.ph4114
+3088:                                             ; preds = %.lr.ph4086
   %3089 = load i8, ptr %3082, align 1
   %3090 = icmp eq i8 %3089, 34
-  %spec.select3729 = select i1 %3090, ptr null, ptr %.032924112
+  %spec.select3701 = select i1 %3090, ptr null, ptr %.032364084
   br label %3091
 
-3091:                                             ; preds = %.lr.ph4114, %3088, %3086
-  %.33295 = phi ptr [ %spec.select3729, %3088 ], [ %spec.select, %3086 ], [ %.032924112, %.lr.ph4114 ]
+3091:                                             ; preds = %.lr.ph4086, %3088, %3086
+  %.33239 = phi ptr [ %spec.select3701, %3088 ], [ %spec.select, %3086 ], [ %.032364084, %.lr.ph4086 ]
   %3092 = getelementptr inbounds i8, ptr %3084, i64 1
   store ptr %3092, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %3093 = icmp ult ptr %3092, %2
-  br i1 %3093, label %.lr.ph4114, label %._crit_edge4115.loopexit
+  br i1 %3093, label %.lr.ph4086, label %._crit_edge4087.loopexit
 
-._crit_edge4115.loopexit:                         ; preds = %3091, %.lr.ph4114, %.lr.ph4114
-  %.03292.lcssa.ph = phi ptr [ %.032924112, %.lr.ph4114 ], [ %.032924112, %.lr.ph4114 ], [ %.33295, %3091 ]
-  %.lcssa3960.ph = phi ptr [ %3084, %.lr.ph4114 ], [ %3084, %.lr.ph4114 ], [ %3092, %3091 ]
-  %.pre4502 = ptrtoint ptr %.lcssa3960.ph to i64
-  br label %._crit_edge4115
+._crit_edge4087.loopexit:                         ; preds = %3091, %.lr.ph4086, %.lr.ph4086
+  %.03236.lcssa.ph = phi ptr [ %.032364084, %.lr.ph4086 ], [ %.032364084, %.lr.ph4086 ], [ %.33239, %3091 ]
+  %.lcssa3932.ph = phi ptr [ %3084, %.lr.ph4086 ], [ %3084, %.lr.ph4086 ], [ %3092, %3091 ]
+  %.pre4474 = ptrtoint ptr %.lcssa3932.ph to i64
+  br label %._crit_edge4087
 
-._crit_edge4115:                                  ; preds = %._crit_edge4115.loopexit, %._crit_edge4109
-  %.pre-phi = phi i64 [ %.pre4502, %._crit_edge4115.loopexit ], [ %3073, %._crit_edge4109 ]
-  %.03292.lcssa = phi ptr [ %.03292.lcssa.ph, %._crit_edge4115.loopexit ], [ null, %._crit_edge4109 ]
-  %.not3542 = icmp eq ptr %.03292.lcssa, null
+._crit_edge4087:                                  ; preds = %._crit_edge4087.loopexit, %._crit_edge4081
+  %.pre-phi = phi i64 [ %.pre4474, %._crit_edge4087.loopexit ], [ %3073, %._crit_edge4081 ]
+  %.03236.lcssa = phi ptr [ %.03236.lcssa.ph, %._crit_edge4087.loopexit ], [ null, %._crit_edge4081 ]
+  %.not3513 = icmp eq ptr %.03236.lcssa, null
   %3094 = ptrtoint ptr %3082 to i64
-  %3095 = ptrtoint ptr %.03292.lcssa to i64
-  %storemerge3543.in.v = select i1 %.not3542, i64 %.pre-phi, i64 %3095
-  %storemerge3543.in = sub i64 %storemerge3543.in.v, %3094
-  %storemerge3543 = trunc i64 %storemerge3543.in to i32
-  store i32 %storemerge3543, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not35454123 = icmp eq i32 %storemerge3543, 0
-  br i1 %.not35454123, label %.critedge65.thread, label %.lr.ph4126
+  %3095 = ptrtoint ptr %.03236.lcssa to i64
+  %storemerge3514.in.v = select i1 %.not3513, i64 %.pre-phi, i64 %3095
+  %storemerge3514.in = sub i64 %storemerge3514.in.v, %3094
+  %storemerge3514 = trunc i64 %storemerge3514.in to i32
+  store i32 %storemerge3514, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
+  %.not35164095 = icmp eq i32 %storemerge3514, 0
+  br i1 %.not35164095, label %.critedge12.thread, label %.lr.ph4098
 
-.lr.ph4126:                                       ; preds = %._crit_edge4115
-  %3096 = and i64 %storemerge3543.in, 4294967295
+.lr.ph4098:                                       ; preds = %._crit_edge4087
+  %3096 = and i64 %storemerge3514.in, 4294967295
   br label %3097
 
-3097:                                             ; preds = %.lr.ph4126, %.critedge67
-  %3098 = phi i32 [ %storemerge3543, %.lr.ph4126 ], [ %indvars, %.critedge67 ]
-  %indvars.iv = phi i64 [ %3096, %.lr.ph4126 ], [ %indvars.iv.next, %.critedge67 ]
+3097:                                             ; preds = %.lr.ph4098, %.critedge14
+  %3098 = phi i32 [ %storemerge3514, %.lr.ph4098 ], [ %indvars, %.critedge14 ]
+  %indvars.iv = phi i64 [ %3096, %.lr.ph4098 ], [ %indvars.iv.next, %.critedge14 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3099 = and i64 %indvars.iv.next, 4294967295
   %3100 = getelementptr inbounds i8, ptr %3082, i64 %3099
   %3101 = load i8, ptr %3100, align 1
-  switch i8 %3101, label %.critedge65 [
-    i8 10, label %.critedge67
-    i8 13, label %.critedge67
-    i8 9, label %.critedge67
-    i8 32, label %.critedge67
+  switch i8 %3101, label %.critedge12 [
+    i8 10, label %.critedge14
+    i8 13, label %.critedge14
+    i8 9, label %.critedge14
+    i8 32, label %.critedge14
   ]
 
-.critedge67:                                      ; preds = %3097, %3097, %3097, %3097
+.critedge14:                                      ; preds = %3097, %3097, %3097, %3097
   %indvars = trunc i64 %indvars.iv.next to i32
   store i32 %indvars, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  %.not3545 = icmp eq i32 %indvars, 0
-  br i1 %.not3545, label %.critedge65.thread, label %3097
+  %.not3516 = icmp eq i32 %indvars, 0
+  br i1 %.not3516, label %.critedge12.thread, label %3097
 
-.critedge65:                                      ; preds = %3097
+.critedge12:                                      ; preds = %3097
   %3102 = trunc nuw i64 %indvars.iv to i32
-  %.not3733 = icmp eq i64 %indvars.iv, 1
-  br i1 %.not3733, label %.critedge65.thread, label %3103
+  %.not3705 = icmp eq i64 %indvars.iv, 1
+  br i1 %.not3705, label %.critedge12.thread, label %3103
 
-3103:                                             ; preds = %.critedge65
+3103:                                             ; preds = %.critedge12
   %3104 = load i8, ptr %3082, align 1
   %3105 = icmp eq i8 %3104, 34
-  br i1 %3105, label %3106, label %.critedge65.thread
+  br i1 %3105, label %3106, label %.critedge12.thread
 
 3106:                                             ; preds = %3103
   %3107 = add i64 %indvars.iv, 4294967295
@@ -7400,26 +7400,26 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %3109 = getelementptr inbounds i8, ptr %3082, i64 %3108
   %3110 = load i8, ptr %3109, align 1
   %3111 = icmp eq i8 %3110, 34
-  br i1 %3111, label %3112, label %.critedge65.thread
+  br i1 %3111, label %3112, label %.critedge12.thread
 
 3112:                                             ; preds = %3106
   %3113 = getelementptr inbounds i8, ptr %3082, i64 1
   store ptr %3113, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 32), align 8
   %3114 = add i32 %3102, -2
   store i32 %3114, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  br label %.critedge65.thread
+  br label %.critedge12.thread
 
-.critedge65.thread:                               ; preds = %.critedge67, %._crit_edge4115, %3112, %3106, %3103, %.critedge65
-  %3115 = phi i32 [ 0, %._crit_edge4115 ], [ %3114, %3112 ], [ %3098, %3106 ], [ %3098, %3103 ], [ %3098, %.critedge65 ], [ 0, %.critedge67 ]
-  %3116 = phi ptr [ %3082, %._crit_edge4115 ], [ %3113, %3112 ], [ %3082, %3106 ], [ %3082, %3103 ], [ %3082, %.critedge65 ], [ %3082, %.critedge67 ]
+.critedge12.thread:                               ; preds = %.critedge14, %._crit_edge4087, %3112, %3106, %3103, %.critedge12
+  %3115 = phi i32 [ 0, %._crit_edge4087 ], [ %3114, %3112 ], [ %3098, %3106 ], [ %3098, %3103 ], [ %3098, %.critedge12 ], [ 0, %.critedge14 ]
+  %3116 = phi ptr [ %3082, %._crit_edge4087 ], [ %3113, %3112 ], [ %3082, %3106 ], [ %3082, %3103 ], [ %3082, %.critedge12 ], [ %3082, %.critedge14 ]
   %3117 = load i32, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 108), align 4
   %3118 = icmp eq i32 %3117, 2
   br i1 %3118, label %3119, label %3122
 
-3119:                                             ; preds = %.critedge65.thread
-  switch i32 %.pre4500, label %3122 [
-    i32 8, label %3120
+3119:                                             ; preds = %.critedge12.thread
+  switch i32 %.pre4472, label %3122 [
     i32 3, label %3120
+    i32 8, label %3120
   ]
 
 3120:                                             ; preds = %3119, %3119
@@ -7428,7 +7428,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %3121, align 4
   br label %.loopexit
 
-3122:                                             ; preds = %3119, %.critedge65.thread
+3122:                                             ; preds = %3119, %.critedge12.thread
   %3123 = zext i32 %3115 to i64
   %3124 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %3125 = trunc i8 %3124 to i1
@@ -7464,7 +7464,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 3141:                                             ; preds = %3067, %3061
-  %3142 = getelementptr inbounds i8, ptr %.promoted4233, i64 1
+  %3142 = getelementptr inbounds i8, ptr %.promoted4205, i64 1
   store ptr %3142, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %3143 = load i8, ptr %3142, align 1
   %3144 = icmp ult i8 %3143, 14
@@ -7472,39 +7472,39 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 3145:                                             ; preds = %3141
   %3146 = icmp ult i8 %3143, 9
-  br i1 %3146, label %.loopexit3871, label %3147
+  br i1 %3146, label %.loopexit3843, label %3147
 
 3147:                                             ; preds = %3145
   %3148 = icmp ugt i8 %3143, 10
   %3149 = icmp ne i8 %3143, 13
-  %or.cond513 = and i1 %3148, %3149
-  br i1 %or.cond513, label %.loopexit3871, label %.preheader3867.preheader
+  %or.cond457 = and i1 %3148, %3149
+  br i1 %or.cond457, label %.loopexit3843, label %.preheader3839.preheader
 
 3150:                                             ; preds = %3141
   %3151 = icmp ult i8 %3143, 33
   br i1 %3151, label %3152, label %3153
 
 3152:                                             ; preds = %3150
-  %.not3537 = icmp eq i8 %3143, 32
-  br i1 %.not3537, label %.preheader3867.preheader, label %.loopexit3871
+  %.not3508 = icmp eq i8 %3143, 32
+  br i1 %.not3508, label %.preheader3839.preheader, label %.loopexit3843
 
 3153:                                             ; preds = %3150
   %3154 = icmp eq i8 %3143, 59
-  br i1 %3154, label %.preheader3867.preheader, label %.loopexit3871
+  br i1 %3154, label %.preheader3839.preheader, label %.loopexit3843
 
-.preheader3867.preheader:                         ; preds = %3147, %3152, %3153
-  br label %.preheader3867
+.preheader3839.preheader:                         ; preds = %3147, %3152, %3153
+  br label %.preheader3839
 
-.loopexit3872:                                    ; preds = %3185, %3165, %3063
-  %3155 = phi ptr [ %3167, %3165 ], [ %.promoted4233, %3063 ], [ %3179, %3185 ]
+.loopexit3844:                                    ; preds = %3185, %3165, %3063
+  %3155 = phi ptr [ %3167, %3165 ], [ %.promoted4205, %3063 ], [ %3179, %3185 ]
   %3156 = getelementptr inbounds i8, ptr %3155, i64 1
   store ptr %3156, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %3157
 
-3157:                                             ; preds = %3165, %.loopexit3872
-  %3158 = phi ptr [ %3167, %3165 ], [ %3156, %.loopexit3872 ]
+3157:                                             ; preds = %3165, %.loopexit3844
+  %3158 = phi ptr [ %3167, %3165 ], [ %3156, %.loopexit3844 ]
   %3159 = ptrtoint ptr %3158 to i64
-  %3160 = ptrtoint ptr %.promoted4233 to i64
+  %3160 = ptrtoint ptr %.promoted4205 to i64
   %3161 = sub i64 %3159, %3160
   %3162 = trunc i64 %3161 to i32
   store i32 %3162, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -7515,23 +7515,23 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 3165:                                             ; preds = %3187, %3067
-  %3166 = phi ptr [ %3179, %3187 ], [ %.promoted4233, %3067 ]
+  %3166 = phi ptr [ %3179, %3187 ], [ %.promoted4205, %3067 ]
   %3167 = getelementptr inbounds i8, ptr %3166, i64 1
   store ptr %3167, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %3168 = load i8, ptr %3167, align 1
   %3169 = icmp eq i8 %3168, 10
-  br i1 %3169, label %.loopexit3872, label %3157
+  br i1 %3169, label %.loopexit3844, label %3157
 
-.preheader3860:                                   ; preds = %.preheader3860.preheader, %3173
-  %3170 = phi ptr [ %3171, %3173 ], [ %.ph5613, %.preheader3860.preheader ]
+.preheader3832:                                   ; preds = %.preheader3832.preheader, %3173
+  %3170 = phi ptr [ %3171, %3173 ], [ %.ph5585, %.preheader3832.preheader ]
   %3171 = getelementptr inbounds i8, ptr %3170, i64 1
   store ptr %3171, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %3172 = icmp ugt ptr %3171, %2
   br i1 %3172, label %.loopexit, label %3173
 
-3173:                                             ; preds = %.preheader3860
+3173:                                             ; preds = %.preheader3832
   %3174 = load i8, ptr %3171, align 1
-  switch i8 %3174, label %.preheader3860 [
+  switch i8 %3174, label %.preheader3832 [
     i8 13, label %3175
     i8 10, label %3175
   ]
@@ -7542,44 +7542,44 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 3177:                                             ; preds = %3180
   %3178 = load i8, ptr %3181, align 1
-  br label %.preheader3867
+  br label %.preheader3839
 
-.preheader3867:                                   ; preds = %.preheader3867.preheader, %3177
-  %3179 = phi ptr [ %3181, %3177 ], [ %3142, %.preheader3867.preheader ]
-  %.5 = phi i8 [ %3178, %3177 ], [ %3143, %.preheader3867.preheader ]
+.preheader3839:                                   ; preds = %.preheader3839.preheader, %3177
+  %3179 = phi ptr [ %3181, %3177 ], [ %3142, %.preheader3839.preheader ]
+  %.5 = phi i8 [ %3178, %3177 ], [ %3143, %.preheader3839.preheader ]
   switch i8 %.5, label %3183 [
     i8 32, label %3180
     i8 9, label %3180
   ]
 
-3180:                                             ; preds = %.preheader3867, %.preheader3867
+3180:                                             ; preds = %.preheader3839, %.preheader3839
   %3181 = getelementptr inbounds i8, ptr %3179, i64 1
   store ptr %3181, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %3182 = icmp ugt ptr %3181, %2
   br i1 %3182, label %.loopexit, label %3177
 
-3183:                                             ; preds = %.preheader3867
+3183:                                             ; preds = %.preheader3839
   %3184 = icmp ult i8 %.5, 13
   br i1 %3184, label %3185, label %3187
 
 3185:                                             ; preds = %3183
   %3186 = add nsw i8 %.5, -9
-  %or.cond516 = icmp ult i8 %3186, 2
-  br i1 %or.cond516, label %.loopexit3872, label %3188
+  %or.cond460 = icmp ult i8 %3186, 2
+  br i1 %or.cond460, label %.loopexit3844, label %3188
 
 3187:                                             ; preds = %3183
   switch i8 %.5, label %3188 [
     i8 13, label %3165
-    i8 59, label %.preheader3860.preheader
+    i8 59, label %.preheader3832.preheader
   ]
 
 3188:                                             ; preds = %3187, %3185
   %3189 = ptrtoint ptr %3179 to i64
-  %3190 = ptrtoint ptr %.promoted4233 to i64
+  %3190 = ptrtoint ptr %.promoted4205 to i64
   %3191 = sub i64 %3189, %3190
   %3192 = trunc i64 %3191 to i32
   store i32 %3192, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
-  br label %.backedge3877
+  br label %.backedge3849
 
 3193:                                             ; preds = %3205, %3175
   %3194 = phi i64 [ 2, %3205 ], [ 1, %3175 ]
@@ -7591,7 +7591,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 3197:                                             ; preds = %3205, %3193
   %3198 = phi ptr [ %3206, %3205 ], [ %3196, %3193 ]
   %3199 = ptrtoint ptr %3198 to i64
-  %3200 = ptrtoint ptr %.promoted4233 to i64
+  %3200 = ptrtoint ptr %.promoted4205 to i64
   %3201 = sub i64 %3199, %3200
   %3202 = trunc i64 %3201 to i32
   store i32 %3202, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -7608,8 +7608,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %3208 = icmp eq i8 %3207, 10
   br i1 %3208, label %3193, label %3197
 
-.loopexit:                                        ; preds = %.preheader3862, %3180, %.preheader3865, %.backedge3864, %.preheader3860, %.backedge3857, %.preheader3853, %.preheader3851, %.preheader3849, %.backedge3848, %.preheader3843, %.preheader3838, %.backedge3837, %.backedge3834, %.backedge3831, %.preheader3826, %.preheader3824, %.preheader3820, %.preheader3818, %.backedge3817, %.backedge3813, %.backedge3810, %.backedge3806, %.preheader3801, %1477, %.preheader3798, %.preheader3796, %.backedge3795, %.backedge3793, %1549, %.loopexit3784, %.preheader3780, %.preheader3776, %.backedge3775, %.preheader3768, %.backedge3767, %.preheader3760, %.backedge3759, %.backedge3755, %.preheader3751, %.backedge3750, %.backedge3747, %.preheader3743, %.preheader3741, %.preheader3737, %.preheader3735, %.backedge, %.preheader3855, %.preheader3845, %.preheader3835, %.preheader3832, %.preheader3828, %.preheader3814, %.preheader3811, %.preheader3807, %.preheader3803, %1331, %.preheader3790, %.preheader3785, %.preheader3772, %.preheader3764, %.preheader3756, %.preheader3753, %.preheader3748, %.preheader3745, %.preheader, %3120, %3132, %3037, %2902, %2896, %2887, %2841, %2741, %.loopexit3847, %2617, %2578, %2526, %2536, %2259, %2271, %2136, %2146, %1999, %2009, %1824, %1596, %1608, %1520, %1532, %1407, %1419, %1361, %1373, %.loopexit3782, %1306, %1318, %1220, %1196, %1175, %1187, %1121, %1133, %1012, %1024, %.loopexit3816, %939, %854, %843, %834, %786, %683, %.loopexit3734, %595, %605, %458, %468, %388, %398, %135, %147, %.loopexit3762, %._crit_edge, %3197, %3157, %3070, %3054, %3050, %2986, %2922, %2900, %2780, %2774, %2664, %2656, %.loopexit3841, %2599, %2587, %1896, %1848, %1548, %1455, %1448, %1431, %1336, %1240, %.loopexit3830, %1064, %1058, %874, %847, %723, %717, %333, %320, %287, %248, %233, %181, %98, %10
-  %.0 = phi i32 [ 273, %10 ], [ 265, %320 ], [ 273, %181 ], [ 273, %333 ], [ 61, %248 ], [ 0, %98 ], [ %236, %233 ], [ 258, %287 ], [ 34, %723 ], [ 93, %847 ], [ 0, %717 ], [ 266, %874 ], [ 34, %1064 ], [ 0, %1058 ], [ 266, %1240 ], [ 93, %.loopexit3830 ], [ 273, %1431 ], [ 34, %1455 ], [ 273, %1896 ], [ 273, %1548 ], [ 273, %1336 ], [ 266, %1848 ], [ %1454, %1448 ], [ 0, %2587 ], [ 93, %2599 ], [ 34, %2656 ], [ 268, %.loopexit3841 ], [ 266, %2664 ], [ 34, %2780 ], [ 0, %2774 ], [ 266, %2922 ], [ 125, %2900 ], [ 269, %3054 ], [ 0, %2986 ], [ 125, %3050 ], [ 273, %3070 ], [ 273, %3157 ], [ 273, %3197 ], [ 0, %._crit_edge ], [ 0, %.loopexit3762 ], [ 264, %147 ], [ 264, %135 ], [ 271, %398 ], [ 271, %388 ], [ 270, %468 ], [ 270, %458 ], [ 272, %605 ], [ 272, %595 ], [ 0, %.loopexit3734 ], [ 262, %683 ], [ 261, %786 ], [ 260, %834 ], [ 0, %843 ], [ 0, %854 ], [ 259, %939 ], [ 0, %.loopexit3816 ], [ 262, %1024 ], [ 262, %1012 ], [ 261, %1133 ], [ 261, %1121 ], [ 260, %1187 ], [ 260, %1175 ], [ 0, %1196 ], [ 0, %1220 ], [ 259, %1318 ], [ 259, %1306 ], [ 0, %.loopexit3782 ], [ 262, %1373 ], [ 262, %1361 ], [ 263, %1419 ], [ 263, %1407 ], [ 261, %1532 ], [ 261, %1520 ], [ 260, %1608 ], [ 260, %1596 ], [ 0, %1824 ], [ 271, %2009 ], [ 271, %1999 ], [ 270, %2146 ], [ 270, %2136 ], [ 259, %2271 ], [ 259, %2259 ], [ 272, %2536 ], [ 272, %2526 ], [ 259, %2578 ], [ 0, %2617 ], [ 0, %.loopexit3847 ], [ 262, %2741 ], [ 261, %2841 ], [ 260, %2887 ], [ 0, %2896 ], [ 0, %2902 ], [ 267, %3037 ], [ 259, %3132 ], [ 259, %3120 ], [ 0, %.preheader ], [ 0, %.preheader3745 ], [ 0, %.preheader3748 ], [ 0, %.preheader3753 ], [ 0, %.preheader3756 ], [ 0, %.preheader3764 ], [ 0, %.preheader3772 ], [ 0, %.preheader3785 ], [ 0, %.preheader3790 ], [ 0, %1331 ], [ 0, %.preheader3803 ], [ 0, %.preheader3807 ], [ 0, %.preheader3811 ], [ 0, %.preheader3814 ], [ 0, %.preheader3828 ], [ 0, %.preheader3832 ], [ 0, %.preheader3835 ], [ 0, %.preheader3845 ], [ 0, %.preheader3855 ], [ 0, %.backedge ], [ 0, %.preheader3735 ], [ 0, %.preheader3737 ], [ 0, %.preheader3741 ], [ 0, %.preheader3743 ], [ 0, %.backedge3747 ], [ 0, %.backedge3750 ], [ 0, %.preheader3751 ], [ 0, %.backedge3755 ], [ 0, %.backedge3759 ], [ 0, %.preheader3760 ], [ 0, %.backedge3767 ], [ 0, %.preheader3768 ], [ 0, %.backedge3775 ], [ 0, %.preheader3776 ], [ 0, %.preheader3780 ], [ 0, %.loopexit3784 ], [ 0, %1549 ], [ 0, %.backedge3793 ], [ 0, %.backedge3795 ], [ 0, %.preheader3796 ], [ 0, %.preheader3798 ], [ 0, %1477 ], [ 0, %.preheader3801 ], [ 0, %.backedge3806 ], [ 0, %.backedge3810 ], [ 0, %.backedge3813 ], [ 0, %.backedge3817 ], [ 0, %.preheader3818 ], [ 0, %.preheader3820 ], [ 0, %.preheader3824 ], [ 0, %.preheader3826 ], [ 0, %.backedge3831 ], [ 0, %.backedge3834 ], [ 0, %.backedge3837 ], [ 0, %.preheader3838 ], [ 0, %.preheader3843 ], [ 0, %.backedge3848 ], [ 0, %.preheader3849 ], [ 0, %.preheader3851 ], [ 0, %.preheader3853 ], [ 0, %.backedge3857 ], [ 0, %.preheader3860 ], [ 0, %.backedge3864 ], [ 0, %.preheader3865 ], [ 0, %3180 ], [ 0, %.preheader3862 ]
+.loopexit:                                        ; preds = %.preheader3834, %3180, %.preheader3837, %.backedge3836, %.preheader3832, %.backedge3829, %.preheader3825, %.preheader3823, %.preheader3821, %.backedge3820, %.preheader3815, %.preheader3810, %.backedge3809, %.backedge3806, %.backedge3803, %.preheader3798, %.preheader3796, %.preheader3792, %.preheader3790, %.backedge3789, %.backedge3785, %.backedge3782, %.backedge3778, %.preheader3773, %1477, %.preheader3770, %.preheader3768, %.backedge3767, %.backedge3765, %1549, %.loopexit3756, %.preheader3752, %.preheader3748, %.backedge3747, %.preheader3740, %.backedge3739, %.preheader3732, %.backedge3731, %.backedge3727, %.preheader3723, %.backedge3722, %.backedge3719, %.preheader3715, %.preheader3713, %.preheader3709, %.preheader3707, %.backedge, %.preheader3827, %.preheader3817, %.preheader3807, %.preheader3804, %.preheader3800, %.preheader3786, %.preheader3783, %.preheader3779, %.preheader3775, %1331, %.preheader3762, %.preheader3757, %.preheader3744, %.preheader3736, %.preheader3728, %.preheader3725, %.preheader3720, %.preheader3717, %.preheader, %3120, %3132, %3037, %2902, %2896, %2887, %2841, %2741, %.loopexit3819, %2617, %2578, %2526, %2536, %2259, %2271, %2136, %2146, %1999, %2009, %1824, %1596, %1608, %1520, %1532, %1407, %1419, %1361, %1373, %.loopexit3754, %1306, %1318, %1220, %1196, %1175, %1187, %1121, %1133, %1012, %1024, %.loopexit3788, %939, %854, %843, %834, %786, %683, %.loopexit3706, %595, %605, %458, %468, %388, %398, %135, %147, %.loopexit3734, %._crit_edge, %3197, %3157, %3070, %3054, %3050, %2986, %2922, %2900, %2780, %2774, %2664, %2656, %.loopexit3813, %2599, %2587, %1896, %1848, %1548, %1455, %1448, %1431, %1336, %1240, %.loopexit3802, %1064, %1058, %874, %847, %723, %717, %333, %320, %287, %248, %233, %181, %98, %10
+  %.0 = phi i32 [ 273, %10 ], [ 265, %320 ], [ 273, %181 ], [ 273, %333 ], [ 61, %248 ], [ 0, %98 ], [ %236, %233 ], [ 258, %287 ], [ 34, %723 ], [ 93, %847 ], [ 0, %717 ], [ 266, %874 ], [ 34, %1064 ], [ 0, %1058 ], [ 266, %1240 ], [ 93, %.loopexit3802 ], [ 273, %1431 ], [ 34, %1455 ], [ 273, %1896 ], [ 273, %1548 ], [ 273, %1336 ], [ 266, %1848 ], [ %1454, %1448 ], [ 0, %2587 ], [ 93, %2599 ], [ 34, %2656 ], [ 268, %.loopexit3813 ], [ 266, %2664 ], [ 34, %2780 ], [ 0, %2774 ], [ 266, %2922 ], [ 125, %2900 ], [ 269, %3054 ], [ 0, %2986 ], [ 125, %3050 ], [ 273, %3070 ], [ 273, %3157 ], [ 273, %3197 ], [ 0, %._crit_edge ], [ 0, %.loopexit3734 ], [ 264, %147 ], [ 264, %135 ], [ 271, %398 ], [ 271, %388 ], [ 270, %468 ], [ 270, %458 ], [ 272, %605 ], [ 272, %595 ], [ 0, %.loopexit3706 ], [ 262, %683 ], [ 261, %786 ], [ 260, %834 ], [ 0, %843 ], [ 0, %854 ], [ 259, %939 ], [ 0, %.loopexit3788 ], [ 262, %1024 ], [ 262, %1012 ], [ 261, %1133 ], [ 261, %1121 ], [ 260, %1187 ], [ 260, %1175 ], [ 0, %1196 ], [ 0, %1220 ], [ 259, %1318 ], [ 259, %1306 ], [ 0, %.loopexit3754 ], [ 262, %1373 ], [ 262, %1361 ], [ 263, %1419 ], [ 263, %1407 ], [ 261, %1532 ], [ 261, %1520 ], [ 260, %1608 ], [ 260, %1596 ], [ 0, %1824 ], [ 271, %2009 ], [ 271, %1999 ], [ 270, %2146 ], [ 270, %2136 ], [ 259, %2271 ], [ 259, %2259 ], [ 272, %2536 ], [ 272, %2526 ], [ 259, %2578 ], [ 0, %2617 ], [ 0, %.loopexit3819 ], [ 262, %2741 ], [ 261, %2841 ], [ 260, %2887 ], [ 0, %2896 ], [ 0, %2902 ], [ 267, %3037 ], [ 259, %3132 ], [ 259, %3120 ], [ 0, %.preheader ], [ 0, %.preheader3717 ], [ 0, %.preheader3720 ], [ 0, %.preheader3725 ], [ 0, %.preheader3728 ], [ 0, %.preheader3736 ], [ 0, %.preheader3744 ], [ 0, %.preheader3757 ], [ 0, %.preheader3762 ], [ 0, %1331 ], [ 0, %.preheader3775 ], [ 0, %.preheader3779 ], [ 0, %.preheader3783 ], [ 0, %.preheader3786 ], [ 0, %.preheader3800 ], [ 0, %.preheader3804 ], [ 0, %.preheader3807 ], [ 0, %.preheader3817 ], [ 0, %.preheader3827 ], [ 0, %.backedge ], [ 0, %.preheader3707 ], [ 0, %.preheader3709 ], [ 0, %.preheader3713 ], [ 0, %.preheader3715 ], [ 0, %.backedge3719 ], [ 0, %.backedge3722 ], [ 0, %.preheader3723 ], [ 0, %.backedge3727 ], [ 0, %.backedge3731 ], [ 0, %.preheader3732 ], [ 0, %.backedge3739 ], [ 0, %.preheader3740 ], [ 0, %.backedge3747 ], [ 0, %.preheader3748 ], [ 0, %.preheader3752 ], [ 0, %.loopexit3756 ], [ 0, %1549 ], [ 0, %.backedge3765 ], [ 0, %.backedge3767 ], [ 0, %.preheader3768 ], [ 0, %.preheader3770 ], [ 0, %1477 ], [ 0, %.preheader3773 ], [ 0, %.backedge3778 ], [ 0, %.backedge3782 ], [ 0, %.backedge3785 ], [ 0, %.backedge3789 ], [ 0, %.preheader3790 ], [ 0, %.preheader3792 ], [ 0, %.preheader3796 ], [ 0, %.preheader3798 ], [ 0, %.backedge3803 ], [ 0, %.backedge3806 ], [ 0, %.backedge3809 ], [ 0, %.preheader3810 ], [ 0, %.preheader3815 ], [ 0, %.backedge3820 ], [ 0, %.preheader3821 ], [ 0, %.preheader3823 ], [ 0, %.preheader3825 ], [ 0, %.backedge3829 ], [ 0, %.preheader3832 ], [ 0, %.backedge3836 ], [ 0, %.preheader3837 ], [ 0, %3180 ], [ 0, %.preheader3834 ]
   ret i32 %.0
 }
 

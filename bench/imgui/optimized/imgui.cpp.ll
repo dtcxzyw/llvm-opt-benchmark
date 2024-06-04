@@ -9177,14 +9177,14 @@ return:                                           ; preds = %entry, %switch.look
 define noundef ptr @_ZN5ImGui19FindRenderedTextEndEPKcS1_(ptr noundef readonly %text, ptr noundef readnone %text_end) local_unnamed_addr #14 {
 entry:
   %tobool.not = icmp eq ptr %text_end, null
-  %spec.store.select = select i1 %tobool.not, ptr inttoptr (i64 -1 to ptr), ptr %text_end
-  %cmp7 = icmp ugt ptr %spec.store.select, %text
+  %spec.select = select i1 %tobool.not, ptr inttoptr (i64 -1 to ptr), ptr %text_end
+  %cmp7 = icmp ugt ptr %spec.select, %text
   br i1 %cmp7, label %land.lhs.true.preheader, label %while.end
 
 land.lhs.true.preheader:                          ; preds = %entry
-  %spec.store.select11 = ptrtoint ptr %spec.store.select to i64
+  %spec.select11 = ptrtoint ptr %spec.select to i64
   %text12 = ptrtoint ptr %text to i64
-  %0 = sub i64 %spec.store.select11, %text12
+  %0 = sub i64 %spec.select11, %text12
   %scevgep = getelementptr i8, ptr %text, i64 %0
   br label %land.lhs.true
 
@@ -9204,7 +9204,7 @@ lor.rhs:                                          ; preds = %land.lhs.true
 
 while.body:                                       ; preds = %land.lhs.true, %lor.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %text_display_end.08, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %spec.store.select
+  %exitcond.not = icmp eq ptr %incdec.ptr, %spec.select
   br i1 %exitcond.not, label %while.end, label %land.lhs.true, !llvm.loop !43
 
 while.end:                                        ; preds = %lor.rhs, %while.body, %land.lhs.true, %entry
@@ -9224,14 +9224,14 @@ entry:
   br i1 %hide_text_after_hash, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %spec.store.select.i = select i1 %tobool.not.i, ptr inttoptr (i64 -1 to ptr), ptr %text_end
-  %cmp7.i = icmp ugt ptr %spec.store.select.i, %text
+  %spec.select.i = select i1 %tobool.not.i, ptr inttoptr (i64 -1 to ptr), ptr %text_end
+  %cmp7.i = icmp ugt ptr %spec.select.i, %text
   br i1 %cmp7.i, label %land.lhs.true.preheader.i, label %if.end10
 
 land.lhs.true.preheader.i:                        ; preds = %if.then
-  %spec.store.select11.i = ptrtoint ptr %spec.store.select.i to i64
+  %spec.select11.i = ptrtoint ptr %spec.select.i to i64
   %text12.i = ptrtoint ptr %text to i64
-  %2 = sub i64 %spec.store.select11.i, %text12.i
+  %2 = sub i64 %spec.select11.i, %text12.i
   %scevgep.i = getelementptr i8, ptr %text, i64 %2
   br label %land.lhs.true.i
 
@@ -9251,7 +9251,7 @@ lor.rhs.i:                                        ; preds = %land.lhs.true.i
 
 while.body.i:                                     ; preds = %lor.rhs.i, %land.lhs.true.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %text_display_end.08.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %spec.store.select.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %spec.select.i
   br i1 %exitcond.not.i, label %if.end4, label %land.lhs.true.i, !llvm.loop !43
 
 if.else:                                          ; preds = %entry
@@ -9778,8 +9778,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %tobool.not.i = icmp eq ptr %text_end, null
-  %spec.store.select.i = select i1 %tobool.not.i, ptr inttoptr (i64 -1 to ptr), ptr %text_end
-  %cmp7.i = icmp ugt ptr %spec.store.select.i, %text
+  %spec.select.i = select i1 %tobool.not.i, ptr inttoptr (i64 -1 to ptr), ptr %text_end
+  %cmp7.i = icmp ugt ptr %spec.select.i, %text
   br i1 %cmp7.i, label %land.lhs.true.preheader.i, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then
@@ -9788,9 +9788,9 @@ if.end.thread:                                    ; preds = %if.then
   br label %if.then1
 
 land.lhs.true.preheader.i:                        ; preds = %if.then
-  %spec.store.select11.i = ptrtoint ptr %spec.store.select.i to i64
+  %spec.select11.i = ptrtoint ptr %spec.select.i to i64
   %text12.i = ptrtoint ptr %text to i64
-  %2 = sub i64 %spec.store.select11.i, %text12.i
+  %2 = sub i64 %spec.select11.i, %text12.i
   %scevgep.i = getelementptr i8, ptr %text, i64 %2
   br label %land.lhs.true.i
 
@@ -9810,7 +9810,7 @@ lor.rhs.i:                                        ; preds = %land.lhs.true.i
 
 while.body.i:                                     ; preds = %lor.rhs.i, %land.lhs.true.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %text_display_end.08.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %spec.store.select.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %spec.select.i
   br i1 %exitcond.not.i, label %if.end, label %land.lhs.true.i, !llvm.loop !43
 
 if.end:                                           ; preds = %while.body.i, %lor.rhs.i, %land.lhs.true.i, %entry
@@ -9845,8 +9845,8 @@ return:                                           ; preds = %if.end2, %if.then1
 define void @_ZN5ImGui17RenderTextClippedERK6ImVec2S2_PKcS4_PS1_S2_PK6ImRect(ptr noundef nonnull align 4 dereferenceable(8) %pos_min, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos_max, ptr noundef %text, ptr noundef %text_end, ptr noundef %text_size_if_known, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %align, ptr noundef %clip_rect) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %text_end, null
-  %spec.store.select.i = select i1 %tobool.not.i, ptr inttoptr (i64 -1 to ptr), ptr %text_end
-  %cmp7.i = icmp ugt ptr %spec.store.select.i, %text
+  %spec.select.i = select i1 %tobool.not.i, ptr inttoptr (i64 -1 to ptr), ptr %text_end
+  %cmp7.i = icmp ugt ptr %spec.select.i, %text
   br i1 %cmp7.i, label %land.lhs.true.preheader.i, label %entry._ZN5ImGui19FindRenderedTextEndEPKcS1_.exit_crit_edge
 
 entry._ZN5ImGui19FindRenderedTextEndEPKcS1_.exit_crit_edge: ; preds = %entry
@@ -9854,9 +9854,9 @@ entry._ZN5ImGui19FindRenderedTextEndEPKcS1_.exit_crit_edge: ; preds = %entry
   br label %_ZN5ImGui19FindRenderedTextEndEPKcS1_.exit
 
 land.lhs.true.preheader.i:                        ; preds = %entry
-  %spec.store.select11.i = ptrtoint ptr %spec.store.select.i to i64
+  %spec.select11.i = ptrtoint ptr %spec.select.i to i64
   %text12.i = ptrtoint ptr %text to i64
-  %0 = sub i64 %spec.store.select11.i, %text12.i
+  %0 = sub i64 %spec.select11.i, %text12.i
   %scevgep.i = getelementptr i8, ptr %text, i64 %0
   br label %land.lhs.true.i
 
@@ -9876,7 +9876,7 @@ lor.rhs.i:                                        ; preds = %land.lhs.true.i
 
 while.body.i:                                     ; preds = %lor.rhs.i, %land.lhs.true.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %text_display_end.08.i, i64 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %spec.store.select.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %spec.select.i
   br i1 %exitcond.not.i, label %_ZN5ImGui19FindRenderedTextEndEPKcS1_.exit.loopexit, label %land.lhs.true.i, !llvm.loop !43
 
 _ZN5ImGui19FindRenderedTextEndEPKcS1_.exit.loopexit: ; preds = %while.body.i, %lor.rhs.i, %land.lhs.true.i

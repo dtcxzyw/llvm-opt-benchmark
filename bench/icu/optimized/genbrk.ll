@@ -103,9 +103,9 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %6 = load ptr, ptr @_ZL8progName, align 8
-  %call.i41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %6)
-  %call1.i42 = tail call ptr @u_getDataDirectory_75()
-  %call2.i43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %call1.i42)
+  %call.i43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %6)
+  %call1.i44 = tail call ptr @u_getDataDirectory_75()
+  %call2.i45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %call1.i44)
   tail call void @exit(i32 noundef 0) #9
   unreachable
 
@@ -114,16 +114,16 @@ if.end5:                                          ; preds = %if.end
   %tobool6 = icmp ne i8 %7, 0
   %8 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 194), align 2
   %tobool7 = icmp ne i8 %8, 0
-  %or.cond1 = select i1 %tobool6, i1 %tobool7, i1 false
-  br i1 %or.cond1, label %if.end10, label %if.then8
+  %or.cond3 = select i1 %tobool6, i1 %tobool7, i1 false
+  br i1 %or.cond3, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 50, i64 1, ptr %9) #10
   %11 = load ptr, ptr @_ZL8progName, align 8
-  %call.i45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %11)
-  %call1.i46 = tail call ptr @u_getDataDirectory_75()
-  %call2.i47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %call1.i46)
+  %call.i47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %11)
+  %call1.i48 = tail call ptr @u_getDataDirectory_75()
+  %call2.i49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %call1.i48)
   tail call void @exit(i32 noundef 1) #9
   unreachable
 
@@ -196,8 +196,8 @@ if.end40:                                         ; preds = %if.end31
   %conv = trunc i64 %call33 to i32
   %call43 = call ptr @ucnv_detectUnicodeSignature_75(ptr noundef nonnull %call35, i32 noundef %conv, ptr noundef nonnull %signatureLength, ptr noundef nonnull %status)
   %24 = load i32, ptr %status, align 4
-  %cmp.i49 = icmp slt i32 %24, 1
-  br i1 %cmp.i49, label %if.end47, label %if.then46
+  %cmp.i51 = icmp slt i32 %24, 1
+  br i1 %cmp.i51, label %if.end47, label %if.then46
 
 if.then46:                                        ; preds = %if.end40
   call void @exit(i32 noundef %24) #9
@@ -212,8 +212,8 @@ if.end47:                                         ; preds = %if.end40
   %ruleSourceC.0 = getelementptr inbounds i8, ptr %call35, i64 %ruleSourceC.0.idx
   %call54 = call ptr @ucnv_open_75(ptr noundef nonnull %encoding.0, ptr noundef nonnull %status)
   %26 = load i32, ptr %status, align 4
-  %cmp.i51 = icmp slt i32 %26, 1
-  br i1 %cmp.i51, label %if.end60, label %if.then57
+  %cmp.i53 = icmp slt i32 %26, 1
+  br i1 %cmp.i53, label %if.end60, label %if.then57
 
 if.then57:                                        ; preds = %if.end47
   %27 = load ptr, ptr @stderr, align 8
@@ -247,8 +247,8 @@ if.end67:                                         ; preds = %if.end60
   %call70 = call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #11
   %call73 = call i32 @ucnv_toUChars_75(ptr noundef %call54, ptr noundef nonnull %call70, i32 noundef %add68, ptr noundef nonnull %ruleSourceC.0, i32 noundef %conv61, ptr noundef nonnull %status)
   %33 = load i32, ptr %status, align 4
-  %cmp.i53 = icmp slt i32 %33, 1
-  br i1 %cmp.i53, label %if.end79, label %if.then76
+  %cmp.i55 = icmp slt i32 %33, 1
+  br i1 %cmp.i55, label %if.end79, label %if.then76
 
 if.then76:                                        ; preds = %if.end67
   %34 = load ptr, ptr @stderr, align 8
@@ -280,8 +280,8 @@ new.notnull:                                      ; preds = %invoke.cont
 
 new.cont:                                         ; preds = %new.notnull, %invoke.cont
   %37 = load i32, ptr %status, align 4
-  %cmp.i55 = icmp slt i32 %37, 1
-  br i1 %cmp.i55, label %if.end94, label %if.then87
+  %cmp.i57 = icmp slt i32 %37, 1
+  br i1 %cmp.i57, label %if.end94, label %if.then87
 
 if.then87:                                        ; preds = %new.cont
   %38 = load ptr, ptr @stderr, align 8
@@ -330,8 +330,8 @@ invoke.cont95:                                    ; preds = %if.end94
 
 invoke.cont97:                                    ; preds = %invoke.cont95
   %48 = load i32, ptr %status, align 4
-  %cmp.i57 = icmp slt i32 %48, 1
-  br i1 %cmp.i57, label %if.end107, label %if.then102
+  %cmp.i59 = icmp slt i32 %48, 1
+  br i1 %cmp.i59, label %if.end107, label %if.then102
 
 if.then102:                                       ; preds = %invoke.cont97
   %49 = load ptr, ptr @stderr, align 8
@@ -355,8 +355,8 @@ invoke.cont108:                                   ; preds = %if.end107
 
 invoke.cont109:                                   ; preds = %invoke.cont108
   %52 = load i32, ptr %status, align 4
-  %cmp.i59 = icmp slt i32 %52, 1
-  br i1 %cmp.i59, label %if.end118, label %if.then115
+  %cmp.i61 = icmp slt i32 %52, 1
+  br i1 %cmp.i61, label %if.end118, label %if.then115
 
 if.then115:                                       ; preds = %invoke.cont109
   %53 = load ptr, ptr @stderr, align 8

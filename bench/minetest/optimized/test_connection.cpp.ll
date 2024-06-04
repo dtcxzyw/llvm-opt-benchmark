@@ -544,7 +544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !15
   %m_test_dir = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !11
   %1 = getelementptr inbounds i8, ptr %this, i64 32
@@ -2130,7 +2130,7 @@ entry:
   %agg.tmp788 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp789 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %hand_server) #24
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV7Handler, i64 16), ptr %hand_server, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7Handler, i64 16), ptr %hand_server, align 8, !tbaa !15
   %count.i = getelementptr inbounds i8, ptr %hand_server, i64 8
   store i32 0, ptr %count.i, align 8, !tbaa !61
   %last_id.i = getelementptr inbounds i8, ptr %hand_server, i64 12
@@ -2138,7 +2138,7 @@ entry:
   %name.i = getelementptr inbounds i8, ptr %hand_server, i64 16
   store ptr @.str.33, ptr %name.i, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %hand_client) #24
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV7Handler, i64 16), ptr %hand_client, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV7Handler, i64 16), ptr %hand_client, align 8, !tbaa !15
   %count.i904 = getelementptr inbounds i8, ptr %hand_client, i64 8
   store i32 0, ptr %count.i904, align 8, !tbaa !61
   %last_id.i905 = getelementptr inbounds i8, ptr %hand_client, i64 12
@@ -2295,7 +2295,8 @@ catch:                                            ; preds = %lpad15
           to label %try.cont unwind label %lpad19
 
 try.cont:                                         ; preds = %catch, %if.then, %invoke.cont16
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %28, label %_ZTW10infostream.exit
+  %.not90 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not90, label %_ZTW10infostream.exit, label %28
 
 28:                                               ; preds = %try.cont
   call void @_ZTH10infostream()
@@ -2383,7 +2384,7 @@ invoke.cont28:                                    ; preds = %invoke.cont25
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont28
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %37, label %_ZTW10infostream.exit929
+  br i1 %.not90, label %_ZTW10infostream.exit929, label %37
 
 37:                                               ; preds = %invoke.cont30
   call void @_ZTH10infostream()
@@ -2676,7 +2677,7 @@ lpad74:                                           ; preds = %invoke.cont75, %inv
   br label %ehcleanup804
 
 if.end80:                                         ; preds = %if.then79, %invoke.cont76
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %80, label %_ZTW10infostream.exit960
+  br i1 %.not90, label %_ZTW10infostream.exit960, label %80
 
 80:                                               ; preds = %if.end80
   call void @_ZTH10infostream()
@@ -2823,7 +2824,7 @@ cleanup.action105:                                ; preds = %ehcleanup101, %_ZNK
 if.end107:                                        ; preds = %invoke.cont87
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %pkt) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %pkt, i8 0, i64 36, i1 false)
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %94, label %_ZTW10infostream.exit982
+  br i1 %.not90, label %_ZTW10infostream.exit982, label %94
 
 94:                                               ; preds = %if.end107
   call void @_ZTH10infostream()
@@ -2905,7 +2906,7 @@ invoke.cont111:                                   ; preds = %call1.i.noexc1733, 
           to label %invoke.cont113 unwind label %lpad108
 
 invoke.cont113:                                   ; preds = %invoke.cont111
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %102, label %_ZTW10infostream.exit999
+  br i1 %.not90, label %_ZTW10infostream.exit999, label %102
 
 102:                                              ; preds = %invoke.cont113
   call void @_ZTH10infostream()
@@ -3260,7 +3261,7 @@ if.end201:                                        ; preds = %if.end182
 invoke.cont202:                                   ; preds = %if.end201
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %pkt204) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %pkt204, i8 0, i64 36, i1 false)
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %140, label %_ZTW10infostream.exit1049
+  br i1 %.not90, label %_ZTW10infostream.exit1049, label %140
 
 140:                                              ; preds = %invoke.cont202
   call void @_ZTH10infostream()
@@ -3342,7 +3343,7 @@ invoke.cont208:                                   ; preds = %call1.i.noexc1785, 
           to label %invoke.cont210 unwind label %lpad205
 
 invoke.cont210:                                   ; preds = %invoke.cont208
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %148, label %_ZTW10infostream.exit1066
+  br i1 %.not90, label %_ZTW10infostream.exit1066, label %148
 
 148:                                              ; preds = %invoke.cont210
   call void @_ZTH10infostream()
@@ -3764,7 +3765,7 @@ invoke.cont321:                                   ; preds = %while.cond
 while.body:                                       ; preds = %invoke.cont321
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %pkt325) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %pkt325, i8 0, i64 36, i1 false)
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %192, label %_ZTW10infostream.exit1133
+  br i1 %.not90, label %_ZTW10infostream.exit1133, label %192
 
 192:                                              ; preds = %while.body
   call void @_ZTH10infostream()
@@ -3846,7 +3847,7 @@ invoke.cont329:                                   ; preds = %call1.i.noexc1837, 
           to label %invoke.cont331 unwind label %lpad326
 
 invoke.cont331:                                   ; preds = %invoke.cont329
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %200, label %_ZTW10infostream.exit1150
+  br i1 %.not90, label %_ZTW10infostream.exit1150, label %200
 
 200:                                              ; preds = %invoke.cont331
   call void @_ZTH10infostream()
@@ -4026,7 +4027,7 @@ while.end:                                        ; preds = %invoke.cont321
 invoke.cont366:                                   ; preds = %while.end
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %pkt368) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %pkt368, i8 0, i64 36, i1 false)
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %220, label %_ZTW10infostream.exit1193
+  br i1 %.not90, label %_ZTW10infostream.exit1193, label %220
 
 220:                                              ; preds = %invoke.cont366
   call void @_ZTH10infostream()
@@ -4108,7 +4109,7 @@ invoke.cont372:                                   ; preds = %call1.i.noexc1889, 
           to label %invoke.cont374 unwind label %lpad369
 
 invoke.cont374:                                   ; preds = %invoke.cont372
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %228, label %_ZTW10infostream.exit1210
+  br i1 %.not90, label %_ZTW10infostream.exit1210, label %228
 
 228:                                              ; preds = %invoke.cont374
   call void @_ZTH10infostream()
@@ -4288,7 +4289,7 @@ invoke.cont411:                                   ; preds = %invoke.cont409
           to label %invoke.cont413 unwind label %lpad412
 
 invoke.cont413:                                   ; preds = %invoke.cont411
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %245, label %_ZTW10infostream.exit1254
+  br i1 %.not90, label %_ZTW10infostream.exit1254, label %245
 
 245:                                              ; preds = %invoke.cont413
   call void @_ZTH10infostream()
@@ -4376,7 +4377,7 @@ invoke.cont419:                                   ; preds = %invoke.cont417
 invoke.cont420:                                   ; preds = %invoke.cont419
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %recvpacket) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %recvpacket, i8 0, i64 36, i1 false)
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %253, label %_ZTW10infostream.exit1270
+  br i1 %.not90, label %_ZTW10infostream.exit1270, label %253
 
 253:                                              ; preds = %invoke.cont420
   call void @_ZTH10infostream()
@@ -4458,7 +4459,7 @@ invoke.cont425:                                   ; preds = %call1.i.noexc1967, 
           to label %invoke.cont427 unwind label %lpad422
 
 invoke.cont427:                                   ; preds = %invoke.cont425
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %261, label %_ZTW10infostream.exit1287
+  br i1 %.not90, label %_ZTW10infostream.exit1287, label %261
 
 261:                                              ; preds = %invoke.cont427
   call void @_ZTH10infostream()
@@ -4775,7 +4776,7 @@ _ZN13NetworkPacketC2Etj.exit:                     ; preds = %_ZN13NetworkPacketD
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.inc
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %297, label %_ZTW10infostream.exit1355
+  br i1 %.not90, label %_ZTW10infostream.exit1355, label %297
 
 297:                                              ; preds = %for.cond.cleanup
   call void @_ZTH10infostream()
@@ -4907,7 +4908,7 @@ if.then.i1383:                                    ; preds = %invoke.cont509
           to label %for.body518.preheader unwind label %lpad506
 
 for.cond.cleanup517:                              ; preds = %invoke.cont531
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %312, label %_ZTW10infostream.exit1387
+  br i1 %.not90, label %_ZTW10infostream.exit1387, label %312
 
 312:                                              ; preds = %for.cond.cleanup517
   call void @_ZTH10infostream()
@@ -4945,7 +4946,7 @@ for.body518:                                      ; preds = %for.body518.prehead
   br i1 %cmp519, label %if.then520, label %if.end524
 
 if.then520:                                       ; preds = %for.body518
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %319, label %_ZTW10infostream.exit1398
+  br i1 %.not90, label %_ZTW10infostream.exit1398, label %319
 
 319:                                              ; preds = %if.then520
   call void @_ZTH10infostream()
@@ -4987,7 +4988,7 @@ invoke.cont526:                                   ; preds = %if.end524
           to label %invoke.cont529 unwind label %lpad525
 
 invoke.cont529:                                   ; preds = %invoke.cont526
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %325, label %_ZTW10infostream.exit1409
+  br i1 %.not90, label %_ZTW10infostream.exit1409, label %325
 
 325:                                              ; preds = %invoke.cont529
   call void @_ZTH10infostream()
@@ -5031,7 +5032,7 @@ ehcleanup536:                                     ; preds = %lpad525, %lpad521
   br label %ehcleanup722
 
 invoke.cont538:                                   ; preds = %if.then.i.i1392, %call.i.noexc1394
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %330, label %_ZTW10infostream.exit1420
+  br i1 %.not90, label %_ZTW10infostream.exit1420, label %330
 
 330:                                              ; preds = %invoke.cont538
   call void @_ZTH10infostream()
@@ -5109,7 +5110,7 @@ invoke.cont544:                                   ; preds = %invoke.cont540
           to label %invoke.cont546 unwind label %lpad545
 
 invoke.cont546:                                   ; preds = %invoke.cont544
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %338, label %_ZTW10infostream.exit1431
+  br i1 %.not90, label %_ZTW10infostream.exit1431, label %338
 
 338:                                              ; preds = %invoke.cont546
   call void @_ZTH10infostream()
@@ -5423,7 +5424,7 @@ cleanup.action610:                                ; preds = %ehcleanup606, %_ZNK
   br label %ehcleanup718
 
 if.end612:                                        ; preds = %for.end594
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %379, label %_ZTW10infostream.exit1476
+  br i1 %.not90, label %_ZTW10infostream.exit1476, label %379
 
 379:                                              ; preds = %if.end612
   call void @_ZTH10infostream()
@@ -5530,7 +5531,7 @@ call1.i.noexc2071:                                ; preds = %_ZNKSt9basic_iosIcS
           to label %invoke.cont621 unwind label %lpad555.loopexit.split-lp
 
 invoke.cont621:                                   ; preds = %call1.i.noexc2071, %invoke.cont619, %invoke.cont617, %invoke.cont615, %invoke.cont613, %call.i.noexc1483
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %387, label %_ZTW10infostream.exit1510
+  br i1 %.not90, label %_ZTW10infostream.exit1510, label %387
 
 387:                                              ; preds = %invoke.cont621
   call void @_ZTH10infostream()
@@ -5593,7 +5594,7 @@ for.body637:                                      ; preds = %invoke.cont654, %fo
   br i1 %cmp639, label %if.then640, label %if.end644
 
 if.then640:                                       ; preds = %for.body637
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %392, label %_ZTW10infostream.exit1532
+  br i1 %.not90, label %_ZTW10infostream.exit1532, label %392
 
 392:                                              ; preds = %if.then640
   call void @_ZTH10infostream()
@@ -5631,7 +5632,7 @@ if.end644:                                        ; preds = %if.then.i.i1537, %c
           to label %invoke.cont652 unwind label %lpad647
 
 invoke.cont652:                                   ; preds = %if.end644
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %398, label %_ZTW10infostream.exit1544
+  br i1 %.not90, label %_ZTW10infostream.exit1544, label %398
 
 398:                                              ; preds = %invoke.cont652
   call void @_ZTH10infostream()
@@ -5675,7 +5676,7 @@ ehcleanup659:                                     ; preds = %lpad647, %lpad641
   br label %ehcleanup718
 
 if.then663:                                       ; preds = %for.cond.cleanup636
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %403, label %_ZTW10infostream.exit1556
+  br i1 %.not90, label %_ZTW10infostream.exit1556, label %403
 
 403:                                              ; preds = %if.then663
   call void @_ZTH10infostream()
@@ -5700,7 +5701,7 @@ if.then.i.i1561:                                  ; preds = %call.i.noexc1563
           to label %if.end666 unwind label %lpad555.loopexit.split-lp
 
 if.end666:                                        ; preds = %if.then.i.i1561, %call.i.noexc1563, %for.cond.cleanup636, %_ZN11StreamProxylsIRA4_KcEERS_OT_.exit
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %407, label %_ZTW10infostream.exit1568
+  br i1 %.not90, label %_ZTW10infostream.exit1568, label %407
 
 407:                                              ; preds = %if.end666
   call void @_ZTH10infostream()
@@ -6523,7 +6524,8 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr dso_local void @_ZN7Handler9peerAddedEPN3con4PeerE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %peer) unnamed_addr #9 comdat align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH10infostream()
@@ -6651,7 +6653,8 @@ _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZSt4endlIcSt11char
 ; Function Attrs: uwtable
 define linkonce_odr dso_local void @_ZN7Handler12deletingPeerEPN3con4PeerEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %peer, i1 noundef zeroext %timeout) unnamed_addr #9 comdat align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %0, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %0
 
 0:                                                ; preds = %entry
   tail call void @_ZTH10infostream()
@@ -7211,14 +7214,14 @@ __cxx_global_var_init.1.exit:                     ; preds = %call2.i11.i.noexc19
   store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !4
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !14
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !13
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV14TestConnection, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14TestConnection, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.14.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %__cxx_global_var_init.1.exit
   %37 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !15
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !11
   %cmp.i.i.i.i.i.i = icmp eq ptr %38, getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32)
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i

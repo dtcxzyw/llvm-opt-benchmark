@@ -908,7 +908,8 @@ invoke.cont111:                                   ; preds = %cond.end108
   br i1 %tobool.not, label %if.then115, label %if.else120
 
 if.then115:                                       ; preds = %invoke.cont111
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %62, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %62
 
 62:                                               ; preds = %if.then115
   call void @_ZTH11errorstream()
@@ -1125,7 +1126,7 @@ ehcleanup177:                                     ; preds = %ehcleanup171, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr14IEventReceiverE, i64 16), ptr %this, align 8, !tbaa !14
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !14
   %1 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -1458,7 +1459,7 @@ invoke.cont:
   %ref.tmp87 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp162 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 432
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !14
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 440
   store ptr null, ptr %DebugName.i, align 8, !tbaa !110
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 448
@@ -1467,8 +1468,8 @@ invoke.cont:
   store <4 x i32> <i32 0, i32 0, i32 100, i32 100>, ptr %ref.tmp, align 16, !tbaa !12
   call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT14GUIChatConsole, i64 8), i32 noundef 23, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #24
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %this, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIChatConsole, i64 336), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 336), ptr %0, align 8, !tbaa !14
   %m_chat_backend = getelementptr inbounds i8, ptr %this, i64 312
   store ptr %backend, ptr %m_chat_backend, align 8, !tbaa !16
   %m_client = getelementptr inbounds i8, ptr %this, i64 320
@@ -1859,7 +1860,8 @@ invoke.cont112:                                   ; preds = %cond.end109
   br i1 %tobool.not, label %if.then116, label %if.else121
 
 if.then116:                                       ; preds = %invoke.cont112
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %59, label %_ZTW11errorstream.exit
+  %.not = icmp eq ptr @_ZTH11errorstream, null
+  br i1 %.not, label %_ZTW11errorstream.exit, label %59
 
 59:                                               ; preds = %if.then116
   call void @_ZTH11errorstream()
@@ -2128,9 +2130,9 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14GUIChatConsoleD1Ev(ptr noundef nonnull align 8 dereferenceable(426) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %this, align 8, !tbaa !14
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 432
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIChatConsole, i64 336), ptr %add.ptr.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 336), ptr %add.ptr.i, align 8, !tbaa !14
   %m_font.i = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load ptr, ptr %m_font.i, align 8, !tbaa !60
   %tobool.not.i = icmp eq ptr %0, null
@@ -2167,9 +2169,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %3, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %3, align 8, !tbaa !14
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 432
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIChatConsole, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !14
   %m_font.i.i = getelementptr inbounds i8, ptr %3, i64 408
   %4 = load ptr, ptr %m_font.i.i, align 8, !tbaa !60
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -2202,9 +2204,9 @@ _ZN14GUIChatConsoleD1Ev.exit:                     ; preds = %delete.notnull.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14GUIChatConsoleD0Ev(ptr noundef nonnull align 8 dereferenceable(426) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %this, align 8, !tbaa !14
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 432
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIChatConsole, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 336), ptr %add.ptr.i.i, align 8, !tbaa !14
   %m_font.i.i = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load ptr, ptr %m_font.i.i, align 8, !tbaa !60
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -2245,9 +2247,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %3, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %3, align 8, !tbaa !14
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 432
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV14GUIChatConsole, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 336), ptr %add.ptr.i.i.i, align 8, !tbaa !14
   %m_font.i.i.i = getelementptr inbounds i8, ptr %3, i64 408
   %4 = load ptr, ptr %m_font.i.i.i, align 8, !tbaa !60
   %tobool.not.i.i.i = icmp eq ptr %4, null
@@ -6102,7 +6104,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %vbase.offset.i.i
   store ptr %33, ptr %add.ptr.i.i, align 8, !tbaa !14
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %msg, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !14
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %msg, i64 80
   %34 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !4
   %35 = getelementptr inbounds i8, ptr %msg, i64 96
@@ -6121,7 +6123,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !14
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %msg, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #24
   %37 = getelementptr inbounds i8, ptr %msg, i64 112

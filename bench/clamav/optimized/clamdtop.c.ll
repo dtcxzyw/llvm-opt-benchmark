@@ -2611,53 +2611,53 @@ detail_is_selected.exit.thread.us.preheader.i.i:  ; preds = %.lr.ph.i.i
   %.not3.i.i13.i = icmp eq i64 %.lcssa17.i, 1
   br i1 %.not3.i.i13.i, label %.lr.ph.split.split.us.i.i, label %detail_is_selected.exit.i14.i
 
-.lr.ph.split.split.us.i.i:                        ; preds = %.lr.ph.split.i.i, %detail_is_selected.exit.thread.us101.i.i
-  %.06498.us99.i.i = phi i64 [ %1219, %detail_is_selected.exit.thread.us101.i.i ], [ 0, %.lr.ph.split.i.i ]
-  %1216 = getelementptr inbounds %struct.task, ptr %1209, i64 %.06498.us99.i.i, i32 2
+.lr.ph.split.split.us.i.i:                        ; preds = %.lr.ph.split.i.i, %detail_is_selected.exit.thread.us103.i.i
+  %.066100.us101.i.i = phi i64 [ %1219, %detail_is_selected.exit.thread.us103.i.i ], [ 0, %.lr.ph.split.i.i ]
+  %1216 = getelementptr inbounds %struct.task, ptr %1209, i64 %.066100.us101.i.i, i32 2
   %1217 = load i32, ptr %1216, align 8
   %1218 = icmp eq i32 %1217, 1
-  br i1 %1218, label %detail_is_selected.exit.thread.us101.i.i, label %.split.us.i.i
+  br i1 %1218, label %detail_is_selected.exit.thread.us103.i.i, label %.split.us.i.i
 
-detail_is_selected.exit.thread.us101.i.i:         ; preds = %.lr.ph.split.split.us.i.i
-  %1219 = add nuw nsw i64 %.06498.us99.i.i, 1
-  %1220 = getelementptr inbounds %struct.task, ptr %1211, i64 %.06498.us99.i.i
-  %1221 = getelementptr inbounds %struct.task, ptr %1209, i64 %.06498.us99.i.i
+detail_is_selected.exit.thread.us103.i.i:         ; preds = %.lr.ph.split.split.us.i.i
+  %1219 = add nuw nsw i64 %.066100.us101.i.i, 1
+  %1220 = getelementptr inbounds %struct.task, ptr %1211, i64 %.066100.us101.i.i
+  %1221 = getelementptr inbounds %struct.task, ptr %1209, i64 %.066100.us101.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1220, ptr noundef nonnull align 8 dereferenceable(24) %1221, i64 24, i1 false)
-  %exitcond118.not.i.i = icmp eq i64 %1219, %1210
-  br i1 %exitcond118.not.i.i, label %._crit_edge.i.i, label %.lr.ph.split.split.us.i.i
+  %exitcond120.not.i.i = icmp eq i64 %1219, %1210
+  br i1 %exitcond120.not.i.i, label %._crit_edge.i.i, label %.lr.ph.split.split.us.i.i
 
 1222:                                             ; preds = %._crit_edge.i54
   call fastcc void @exit_program(i32 noundef 3, ptr noundef nonnull @__PRETTY_FUNCTION__.output_queue, i32 noundef 907) #29
   unreachable
 
 detail_is_selected.exit.i14.i:                    ; preds = %.lr.ph.split.i.i, %1229
-  %.06498.i.i = phi i64 [ %1230, %1229 ], [ 0, %.lr.ph.split.i.i ]
-  %.06697.i.i = phi i64 [ %.167.i.i, %1229 ], [ 0, %.lr.ph.split.i.i ]
-  %1223 = getelementptr inbounds %struct.task, ptr %1209, i64 %.06498.i.i, i32 2
+  %.066100.i.i = phi i64 [ %1230, %1229 ], [ 0, %.lr.ph.split.i.i ]
+  %.06899.i.i = phi i64 [ %.169.i.i, %1229 ], [ 0, %.lr.ph.split.i.i ]
+  %1223 = getelementptr inbounds %struct.task, ptr %1209, i64 %.066100.i.i, i32 2
   %1224 = load i32, ptr %1223, align 8
   %1225 = add nsw i32 %1224, -1
-  %.not93.i.i = icmp eq i32 %1213, %1225
-  br i1 %.not93.i.i, label %detail_is_selected.exit.thread.i.i, label %1229
+  %.not95.i.i = icmp eq i32 %1213, %1225
+  br i1 %.not95.i.i, label %detail_is_selected.exit.thread.i.i, label %1229
 
 .split.us.i.i:                                    ; preds = %.lr.ph.split.split.us.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.11, i32 noundef 150, ptr noundef nonnull @__PRETTY_FUNCTION__.detail_is_selected) #30
   unreachable
 
 detail_is_selected.exit.thread.i.i:               ; preds = %detail_is_selected.exit.i14.i
-  %1226 = add nsw i64 %.06697.i.i, 1
-  %1227 = getelementptr inbounds %struct.task, ptr %1211, i64 %.06697.i.i
-  %1228 = getelementptr inbounds %struct.task, ptr %1209, i64 %.06498.i.i
+  %1226 = add nsw i64 %.06899.i.i, 1
+  %1227 = getelementptr inbounds %struct.task, ptr %1211, i64 %.06899.i.i
+  %1228 = getelementptr inbounds %struct.task, ptr %1209, i64 %.066100.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1227, ptr noundef nonnull align 8 dereferenceable(24) %1228, i64 24, i1 false)
   br label %1229
 
 1229:                                             ; preds = %detail_is_selected.exit.thread.i.i, %detail_is_selected.exit.i14.i
-  %.167.i.i = phi i64 [ %1226, %detail_is_selected.exit.thread.i.i ], [ %.06697.i.i, %detail_is_selected.exit.i14.i ]
-  %1230 = add nuw nsw i64 %.06498.i.i, 1
+  %.169.i.i = phi i64 [ %1226, %detail_is_selected.exit.thread.i.i ], [ %.06899.i.i, %detail_is_selected.exit.i14.i ]
+  %1230 = add nuw nsw i64 %.066100.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %1230, %1210
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %detail_is_selected.exit.i14.i
 
-._crit_edge.i.i:                                  ; preds = %1229, %detail_is_selected.exit.thread.us101.i.i, %detail_is_selected.exit.thread.us.preheader.i.i, %.preheader.i.i
-  %.066.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %1210, %detail_is_selected.exit.thread.us.preheader.i.i ], [ %1210, %detail_is_selected.exit.thread.us101.i.i ], [ %.167.i.i, %1229 ]
+._crit_edge.i.i:                                  ; preds = %1229, %detail_is_selected.exit.thread.us103.i.i, %detail_is_selected.exit.thread.us.preheader.i.i, %.preheader.i.i
+  %.068.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %1210, %detail_is_selected.exit.thread.us.preheader.i.i ], [ %1210, %detail_is_selected.exit.thread.us103.i.i ], [ %.169.i.i, %1229 ]
   %1231 = load ptr, ptr @stats_window, align 8
   %1232 = call i32 @wattr_on(ptr noundef %1231, i32 noundef 1792, ptr noundef null) #25
   %1233 = load i32, ptr @detail_selected, align 4
@@ -2672,35 +2672,35 @@ detail_is_selected.exit.thread.i.i:               ; preds = %detail_is_selected.
   %1239 = call i32 (ptr, i32, i32, ptr, ...) @mvwprintw(ptr noundef %1237, i32 noundef %.09.lcssa.i, i32 noundef 0, ptr noundef nonnull @.str.58, ptr noundef %1238) #25
   %1240 = load ptr, ptr @stats_window, align 8
   %1241 = call i32 @wattr_off(ptr noundef %1240, i32 noundef 1792, ptr noundef null) #25
-  %1242 = icmp sgt i64 %.066.lcssa.i.i, %1208
+  %1242 = icmp sgt i64 %.068.lcssa.i.i, %1208
   %spec.select.i.i = zext i1 %1242 to i32
   %1243 = sext i1 %1242 to i64
-  %spec.select88.i.i = add nsw i64 %1243, %1208
-  %1244 = icmp sgt i64 %.066.lcssa.i.i, 0
-  %1245 = icmp sgt i64 %spec.select88.i.i, 0
+  %spec.select90.i.i = add nsw i64 %1243, %1208
+  %1244 = icmp sgt i64 %.068.lcssa.i.i, 0
+  %1245 = icmp sgt i64 %spec.select90.i.i, 0
   %1246 = select i1 %1244, i1 %1245, i1 false
-  br i1 %1246, label %.lr.ph110.i.i, label %._crit_edge111.i.i
+  br i1 %1246, label %.lr.ph112.i.i, label %._crit_edge113.i.i
 
-.lr.ph110.i.i:                                    ; preds = %._crit_edge.i.i
-  %.not81.i.i = icmp eq ptr %1209, null
-  br i1 %.not81.i.i, label %1250, label %.lr.ph110.split.i.i
+.lr.ph112.i.i:                                    ; preds = %._crit_edge.i.i
+  %.not83.i.i = icmp eq ptr %1209, null
+  br i1 %.not83.i.i, label %1250, label %.lr.ph112.split.i.i
 
-.lr.ph110.split.i.i:                              ; preds = %.lr.ph110.i.i, %1302
-  %.0108.i.i = phi i64 [ %.1.i.i, %1302 ], [ %1204, %.lr.ph110.i.i ]
-  %.163107.i.i = phi i64 [ %.3.i.i, %1302 ], [ %spec.select88.i.i, %.lr.ph110.i.i ]
-  %.165106.i.i = phi i64 [ %1303, %1302 ], [ 0, %.lr.ph110.i.i ]
-  %.169105.i.i = phi i32 [ %.270.i.i, %1302 ], [ %spec.select.i.i, %.lr.ph110.i.i ]
-  %1247 = getelementptr inbounds %struct.task, ptr %1211, i64 %.165106.i.i
+.lr.ph112.split.i.i:                              ; preds = %.lr.ph112.i.i, %1302
+  %.0110.i.i = phi i64 [ %.1.i.i, %1302 ], [ %1204, %.lr.ph112.i.i ]
+  %.165109.i.i = phi i64 [ %.3.i.i, %1302 ], [ %spec.select90.i.i, %.lr.ph112.i.i ]
+  %.167108.i.i = phi i64 [ %1303, %1302 ], [ 0, %.lr.ph112.i.i ]
+  %.171107.i.i = phi i32 [ %.272.i.i, %1302 ], [ %spec.select.i.i, %.lr.ph112.i.i ]
+  %1247 = getelementptr inbounds %struct.task, ptr %1211, i64 %.167108.i.i
   %1248 = load ptr, ptr %1247, align 8
   %1249 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1248, i32 noundef 32) #26
-  %.not82.i.i = icmp eq ptr %1249, null
-  br i1 %.not82.i.i, label %1302, label %1251
+  %.not84.i.i = icmp eq ptr %1249, null
+  br i1 %.not84.i.i, label %1302, label %1251
 
-1250:                                             ; preds = %.lr.ph110.i.i
+1250:                                             ; preds = %.lr.ph112.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.11, i32 noundef 927, ptr noundef nonnull @__PRETTY_FUNCTION__.output_queue) #30
   unreachable
 
-1251:                                             ; preds = %.lr.ph110.split.i.i
+1251:                                             ; preds = %.lr.ph112.split.i.i
   %1252 = getelementptr inbounds i8, ptr %1249, i64 1
   %1253 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1252, i32 noundef 32) #26
   %1254 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %1248, i64 noundef 15) #25
@@ -2718,15 +2718,15 @@ detail_is_selected.exit.thread.i.i:               ; preds = %detail_is_selected.
   br label %1262
 
 1262:                                             ; preds = %1257, %1251
-  %.not83.i.i = icmp eq ptr %1253, null
-  br i1 %.not83.i.i, label %1302, label %1263
+  %.not85.i.i = icmp eq ptr %1253, null
+  br i1 %.not85.i.i, label %1302, label %1263
 
 1263:                                             ; preds = %1262
-  %1264 = add nsw i64 %.0108.i.i, 1
+  %1264 = add nsw i64 %.0110.i.i, 1
   %1265 = getelementptr inbounds i8, ptr %1253, i64 1
   %1266 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1265, i32 noundef 10) #26
-  %.not84.i.i = icmp eq ptr %1266, null
-  br i1 %.not84.i.i, label %1268, label %1267
+  %.not86.i.i = icmp eq ptr %1266, null
+  br i1 %.not86.i.i, label %1268, label %1267
 
 1267:                                             ; preds = %1263
   store i8 0, ptr %1266, align 1
@@ -2739,10 +2739,10 @@ detail_is_selected.exit.thread.i.i:               ; preds = %detail_is_selected.
   %1272 = icmp eq i32 %1271, -1
   %1273 = load i64, ptr getelementptr inbounds (i8, ptr @global, i64 24), align 8
   %1274 = icmp ugt i64 %1273, 1
-  %or.cond3.i.i = select i1 %1272, i1 %1274, i1 false
+  %or.cond5.i.i = select i1 %1272, i1 %1274, i1 false
   %1275 = load ptr, ptr @stats_window, align 8
   %1276 = trunc nsw i64 %1264 to i32
-  br i1 %or.cond3.i.i, label %1277, label %1281
+  br i1 %or.cond5.i.i, label %1277, label %1281
 
 1277:                                             ; preds = %1268
   %1278 = getelementptr inbounds i8, ptr %1247, i64 16
@@ -2764,8 +2764,8 @@ detail_is_selected.exit.thread.i.i:               ; preds = %detail_is_selected.
   %1290 = load ptr, ptr @stats_window, align 8
   %1291 = call i32 (ptr, i32, i32, ptr, ...) @mvwprintw(ptr noundef %1290, i32 noundef %1276, i32 noundef 30, ptr noundef nonnull @.str.58, ptr noundef nonnull %1265) #25
   %1292 = load ptr, ptr @stats_window, align 8
-  %.not85.i.i = icmp eq ptr %1292, null
-  br i1 %.not85.i.i, label %1296, label %1293
+  %.not87.i.i = icmp eq ptr %1292, null
+  br i1 %.not87.i.i, label %1296, label %1293
 
 1293:                                             ; preds = %1283
   %1294 = load i16, ptr %1292, align 8
@@ -2775,47 +2775,47 @@ detail_is_selected.exit.thread.i.i:               ; preds = %detail_is_selected.
 1296:                                             ; preds = %1293, %1283
   %1297 = phi i64 [ %1295, %1293 ], [ -1, %1283 ]
   %1298 = call i64 @llvm.usub.sat.i64(i64 %1297, i64 %1264)
-  %.2.i.i = sub i64 %.163107.i.i, %1298
-  %.not86.i.i = icmp eq i32 %.169105.i.i, 0
-  br i1 %.not86.i.i, label %1299, label %1302
+  %.2.i.i = sub i64 %.165109.i.i, %1298
+  %.not88.i.i = icmp eq i32 %.171107.i.i, 0
+  br i1 %.not88.i.i, label %1299, label %1302
 
 1299:                                             ; preds = %1296
-  %1300 = icmp slt i64 %.2.i.i, %.066.lcssa.i.i
-  %spec.select89.i.i = zext i1 %1300 to i32
+  %1300 = icmp slt i64 %.2.i.i, %.068.lcssa.i.i
+  %spec.select91.i.i = zext i1 %1300 to i32
   %1301 = sext i1 %1300 to i64
-  %spec.select90.i.i = add nsw i64 %.2.i.i, %1301
+  %spec.select92.i.i = add nsw i64 %.2.i.i, %1301
   br label %1302
 
-1302:                                             ; preds = %1299, %1296, %1262, %.lr.ph110.split.i.i
-  %.270.i.i = phi i32 [ 1, %1296 ], [ %.169105.i.i, %1262 ], [ %.169105.i.i, %.lr.ph110.split.i.i ], [ %spec.select89.i.i, %1299 ]
-  %.3.i.i = phi i64 [ %.2.i.i, %1296 ], [ %.163107.i.i, %1262 ], [ %.163107.i.i, %.lr.ph110.split.i.i ], [ %spec.select90.i.i, %1299 ]
-  %.1.i.i = phi i64 [ %1297, %1296 ], [ %.0108.i.i, %1262 ], [ %.0108.i.i, %.lr.ph110.split.i.i ], [ %1297, %1299 ]
-  %1303 = add nuw nsw i64 %.165106.i.i, 1
-  %1304 = icmp slt i64 %1303, %.066.lcssa.i.i
+1302:                                             ; preds = %1299, %1296, %1262, %.lr.ph112.split.i.i
+  %.272.i.i = phi i32 [ 1, %1296 ], [ %.171107.i.i, %1262 ], [ %.171107.i.i, %.lr.ph112.split.i.i ], [ %spec.select91.i.i, %1299 ]
+  %.3.i.i = phi i64 [ %.2.i.i, %1296 ], [ %.165109.i.i, %1262 ], [ %.165109.i.i, %.lr.ph112.split.i.i ], [ %spec.select92.i.i, %1299 ]
+  %.1.i.i = phi i64 [ %1297, %1296 ], [ %.0110.i.i, %1262 ], [ %.0110.i.i, %.lr.ph112.split.i.i ], [ %1297, %1299 ]
+  %1303 = add nuw nsw i64 %.167108.i.i, 1
+  %1304 = icmp slt i64 %1303, %.068.lcssa.i.i
   %1305 = icmp slt i64 %1303, %.3.i.i
   %1306 = select i1 %1304, i1 %1305, i1 false
-  br i1 %1306, label %.lr.ph110.split.i.i, label %._crit_edge111.i.i
+  br i1 %1306, label %.lr.ph112.split.i.i, label %._crit_edge113.i.i
 
-._crit_edge111.i.i:                               ; preds = %1302, %._crit_edge.i.i
-  %.169.lcssa.i.i = phi i32 [ %spec.select.i.i, %._crit_edge.i.i ], [ %.270.i.i, %1302 ]
-  %.165.lcssa.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %1303, %1302 ]
-  %.not80.i.i = icmp eq i32 %.169.lcssa.i.i, 0
-  br i1 %.not80.i.i, label %output_queue.exit.i, label %1307
+._crit_edge113.i.i:                               ; preds = %1302, %._crit_edge.i.i
+  %.171.lcssa.i.i = phi i32 [ %spec.select.i.i, %._crit_edge.i.i ], [ %.272.i.i, %1302 ]
+  %.167.lcssa.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %1303, %1302 ]
+  %.not82.i.i = icmp eq i32 %.171.lcssa.i.i, 0
+  br i1 %.not82.i.i, label %output_queue.exit.i, label %1307
 
-1307:                                             ; preds = %._crit_edge111.i.i
+1307:                                             ; preds = %._crit_edge113.i.i
   %1308 = load ptr, ptr @stats_window, align 8
   %1309 = call i32 @wattr_on(ptr noundef %1308, i32 noundef 1048832, ptr noundef null) #25
   %1310 = load ptr, ptr @stats_window, align 8
   %1311 = load i32, ptr @maxystats, align 4
   %1312 = add nsw i32 %1311, -1
-  %1313 = sub nsw i64 %.066.lcssa.i.i, %.165.lcssa.i.i
+  %1313 = sub nsw i64 %.068.lcssa.i.i, %.167.lcssa.i.i
   %1314 = trunc i64 %1313 to i32
   %1315 = call i32 (ptr, i32, i32, ptr, ...) @mvwprintw(ptr noundef %1310, i32 noundef %1312, i32 noundef 0, ptr noundef nonnull @.str.172, i32 noundef %1314) #25
   %1316 = load ptr, ptr @stats_window, align 8
   %1317 = call i32 @wattr_off(ptr noundef %1316, i32 noundef 1048832, ptr noundef null) #25
   br label %output_queue.exit.i
 
-output_queue.exit.i:                              ; preds = %1307, %._crit_edge111.i.i
+output_queue.exit.i:                              ; preds = %1307, %._crit_edge113.i.i
   call void @free(ptr noundef %1211) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %1318 = load ptr, ptr @stats_head_window, align 8

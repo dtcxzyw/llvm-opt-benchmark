@@ -240,7 +240,8 @@ if.else:                                          ; preds = %_ZN7porting7getTime
   br i1 %quiet, label %if.end12, label %if.then5
 
 if.then5:                                         ; preds = %if.else
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %12, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %12
 
 12:                                               ; preds = %if.then5
   tail call void @_ZTH10infostream()

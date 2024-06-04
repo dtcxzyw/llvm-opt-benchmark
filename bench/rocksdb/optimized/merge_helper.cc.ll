@@ -537,7 +537,8 @@ if.then.i11.i:                                    ; preds = %_ZN7rocksdb13MergeO
 
 invoke.cont.i:                                    ; preds = %if.then.i11.i, %_ZN7rocksdb13MergeOperator21MergeOperationInputV3C2ERKNS_5SliceEOSt7variantIJSt9monostateS2_St6vectorINS_10WideColumnESaIS8_EEEERKS7_IS2_SaIS2_EEPNS_6LoggerE.exit.i
   %timer.sroa.2.0.i = phi i64 [ 0, %_ZN7rocksdb13MergeOperator21MergeOperationInputV3C2ERKNS_5SliceEOSt7variantIJSt9monostateS2_St6vectorINS_10WideColumnESaIS8_EEEERKS7_IS2_SaIS2_EEPNS_6LoggerE.exit.i ], [ %call.i.i12.i, %if.then.i11.i ]
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %7, label %_ZTWN7rocksdb12perf_contextE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb12perf_contextE.exit.i, label %7
 
 7:                                                ; preds = %invoke.cont.i
   call void @_ZTHN7rocksdb12perf_contextE(), !noalias !15
@@ -546,7 +547,8 @@ invoke.cont.i:                                    ; preds = %if.then.i11.i, %_ZN
 _ZTWN7rocksdb12perf_contextE.exit.i:              ; preds = %7, %invoke.cont.i
   %8 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %merge_operator_time_nanos.i = getelementptr inbounds i8, ptr %8, i64 464
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %9, label %_ZTWN7rocksdb10perf_levelE.exit.i.i
+  %.not.i.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i.i, label %9
 
 9:                                                ; preds = %_ZTWN7rocksdb12perf_contextE.exit.i
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -1059,7 +1061,8 @@ if.then.i11.i:                                    ; preds = %_ZN7rocksdb13MergeO
 
 invoke.cont.i:                                    ; preds = %if.then.i11.i, %_ZN7rocksdb13MergeOperator21MergeOperationInputV3C2ERKNS_5SliceEOSt7variantIJSt9monostateS2_St6vectorINS_10WideColumnESaIS8_EEEERKS7_IS2_SaIS2_EEPNS_6LoggerE.exit.i
   %timer.sroa.2.0.i = phi i64 [ 0, %_ZN7rocksdb13MergeOperator21MergeOperationInputV3C2ERKNS_5SliceEOSt7variantIJSt9monostateS2_St6vectorINS_10WideColumnESaIS8_EEEERKS7_IS2_SaIS2_EEPNS_6LoggerE.exit.i ], [ %call.i.i12.i, %if.then.i11.i ]
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %7, label %_ZTWN7rocksdb12perf_contextE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb12perf_contextE.exit.i, label %7
 
 7:                                                ; preds = %invoke.cont.i
   call void @_ZTHN7rocksdb12perf_contextE(), !noalias !71
@@ -1068,7 +1071,8 @@ invoke.cont.i:                                    ; preds = %if.then.i11.i, %_ZN
 _ZTWN7rocksdb12perf_contextE.exit.i:              ; preds = %7, %invoke.cont.i
   %8 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %merge_operator_time_nanos.i = getelementptr inbounds i8, ptr %8, i64 464
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %9, label %_ZTWN7rocksdb10perf_levelE.exit.i.i
+  %.not.i.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i.i, label %9
 
 9:                                                ; preds = %_ZTWN7rocksdb12perf_contextE.exit.i
   invoke void @_ZTHN7rocksdb10perf_levelE()
@@ -3949,7 +3953,8 @@ if.then.i727:                                     ; preds = %if.then457
 
 invoke.cont463:                                   ; preds = %if.then457, %if.then.i727
   %timer.sroa.2.0 = phi i64 [ 0, %if.then457 ], [ %call.i.i728, %if.then.i727 ]
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %335, label %_ZTWN7rocksdb12perf_contextE.exit
+  %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %.not.i, label %_ZTWN7rocksdb12perf_contextE.exit, label %335
 
 335:                                              ; preds = %invoke.cont463
   call void @_ZTHN7rocksdb12perf_contextE()
@@ -3958,7 +3963,8 @@ invoke.cont463:                                   ; preds = %if.then457, %if.the
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %invoke.cont463, %335
   %336 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %merge_operator_time_nanos = getelementptr inbounds i8, ptr %336, i64 464
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %337, label %_ZTWN7rocksdb10perf_levelE.exit.i
+  %.not.i.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i, label %337
 
 337:                                              ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   invoke void @_ZTHN7rocksdb10perf_levelE()

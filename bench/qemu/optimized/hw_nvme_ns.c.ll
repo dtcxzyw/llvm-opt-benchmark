@@ -1966,20 +1966,20 @@ if.end19:                                         ; preds = %if.end15
 
 for.cond.preheader:                               ; preds = %if.end19
   %namespaces.i = getelementptr inbounds i8, ptr %call2, i64 16744
-  %namespaces.i48 = getelementptr inbounds i8, ptr %1, i64 2592
+  %namespaces.i49 = getelementptr inbounds i8, ptr %1, i64 2592
   br i1 %tobool.not, label %nvme_ns.exit.us, label %nvme_ns.exit
 
 nvme_ns.exit.us:                                  ; preds = %for.cond.preheader, %for.inc.us
-  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %for.inc.us ], [ 1, %for.cond.preheader ]
-  %arrayidx.i.us = getelementptr [257 x ptr], ptr %namespaces.i, i64 0, i64 %indvars.iv92
+  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %for.inc.us ], [ 1, %for.cond.preheader ]
+  %arrayidx.i.us = getelementptr [257 x ptr], ptr %namespaces.i, i64 0, i64 %indvars.iv93
   %4 = load ptr, ptr %arrayidx.i.us, align 8
   %tobool23.not.us = icmp eq ptr %4, null
   br i1 %tobool23.not.us, label %for.end, label %for.inc.us
 
 for.inc.us:                                       ; preds = %nvme_ns.exit.us
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond95.not = icmp eq i64 %indvars.iv.next93, 257
-  br i1 %exitcond95.not, label %if.then31, label %nvme_ns.exit.us, !llvm.loop !20
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next94, 257
+  br i1 %exitcond96.not, label %if.then31, label %nvme_ns.exit.us, !llvm.loop !20
 
 nvme_ns.exit:                                     ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %for.cond.preheader ]
@@ -1989,8 +1989,8 @@ nvme_ns.exit:                                     ; preds = %for.cond.preheader,
   br i1 %tobool23.not, label %lor.lhs.false, label %for.inc
 
 lor.lhs.false:                                    ; preds = %nvme_ns.exit
-  %arrayidx.i50 = getelementptr [257 x ptr], ptr %namespaces.i48, i64 0, i64 %indvars.iv
-  %6 = load ptr, ptr %arrayidx.i50, align 8
+  %arrayidx.i51 = getelementptr [257 x ptr], ptr %namespaces.i49, i64 0, i64 %indvars.iv
+  %6 = load ptr, ptr %arrayidx.i51, align 8
   %tobool25.not = icmp eq ptr %6, null
   br i1 %tobool25.not, label %for.end, label %for.inc
 
@@ -2000,7 +2000,7 @@ for.inc:                                          ; preds = %nvme_ns.exit, %lor.
   br i1 %exitcond.not, label %if.then31, label %nvme_ns.exit, !llvm.loop !20
 
 for.end:                                          ; preds = %lor.lhs.false, %nvme_ns.exit.us
-  %.us-phi.in = phi i64 [ %indvars.iv92, %nvme_ns.exit.us ], [ %indvars.iv, %lor.lhs.false ]
+  %.us-phi.in = phi i64 [ %indvars.iv93, %nvme_ns.exit.us ], [ %indvars.iv, %lor.lhs.false ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   store i32 %.us-phi, ptr %nsid4, align 4
   br label %if.end41
@@ -2011,28 +2011,28 @@ if.then31:                                        ; preds = %for.inc, %for.inc.u
 
 if.else33:                                        ; preds = %if.end19
   %7 = add i32 %2, -257
-  %or.cond.i52 = icmp ult i32 %7, -256
-  br i1 %or.cond.i52, label %if.end41, label %nvme_ns.exit58
+  %or.cond.i53 = icmp ult i32 %7, -256
+  br i1 %or.cond.i53, label %if.end41, label %nvme_ns.exit59
 
-nvme_ns.exit58:                                   ; preds = %if.else33
-  %namespaces.i54 = getelementptr inbounds i8, ptr %call2, i64 16744
-  %idxprom.i55 = zext nneg i32 %2 to i64
-  %arrayidx.i56 = getelementptr [257 x ptr], ptr %namespaces.i54, i64 0, i64 %idxprom.i55
-  %8 = load ptr, ptr %arrayidx.i56, align 8
+nvme_ns.exit59:                                   ; preds = %if.else33
+  %namespaces.i55 = getelementptr inbounds i8, ptr %call2, i64 16744
+  %idxprom.i56 = zext nneg i32 %2 to i64
+  %arrayidx.i57 = getelementptr [257 x ptr], ptr %namespaces.i55, i64 0, i64 %idxprom.i56
+  %8 = load ptr, ptr %arrayidx.i57, align 8
   %tobool35.not = icmp eq ptr %8, null
   br i1 %tobool35.not, label %lor.lhs.false36, label %if.then39
 
-lor.lhs.false36:                                  ; preds = %nvme_ns.exit58
-  br i1 %tobool.not, label %if.end69, label %nvme_subsys_ns.exit66
+lor.lhs.false36:                                  ; preds = %nvme_ns.exit59
+  br i1 %tobool.not, label %if.end69, label %nvme_subsys_ns.exit67
 
-nvme_subsys_ns.exit66:                            ; preds = %lor.lhs.false36
-  %namespaces.i62 = getelementptr inbounds i8, ptr %1, i64 2592
-  %arrayidx.i64 = getelementptr [257 x ptr], ptr %namespaces.i62, i64 0, i64 %idxprom.i55
-  %9 = load ptr, ptr %arrayidx.i64, align 8
+nvme_subsys_ns.exit67:                            ; preds = %lor.lhs.false36
+  %namespaces.i63 = getelementptr inbounds i8, ptr %1, i64 2592
+  %arrayidx.i65 = getelementptr [257 x ptr], ptr %namespaces.i63, i64 0, i64 %idxprom.i56
+  %9 = load ptr, ptr %arrayidx.i65, align 8
   %tobool38.not = icmp eq ptr %9, null
   br i1 %tobool38.not, label %if.then43, label %if.then39
 
-if.then39:                                        ; preds = %nvme_subsys_ns.exit66, %nvme_ns.exit58
+if.then39:                                        ; preds = %nvme_subsys_ns.exit67, %nvme_ns.exit59
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 763, ptr noundef nonnull @__func__.nvme_ns_realize, ptr noundef nonnull @.str.51, i32 noundef %2) #13
   br label %return
 
@@ -2044,8 +2044,8 @@ if.end41.if.then43_crit_edge:                     ; preds = %if.end41
   %.pre = zext i32 %nsid.1 to i64
   br label %if.then43
 
-if.then43:                                        ; preds = %if.end41.if.then43_crit_edge, %nvme_subsys_ns.exit66
-  %idxprom.pre-phi = phi i64 [ %.pre, %if.end41.if.then43_crit_edge ], [ %idxprom.i55, %nvme_subsys_ns.exit66 ]
+if.then43:                                        ; preds = %if.end41.if.then43_crit_edge, %nvme_subsys_ns.exit67
+  %idxprom.pre-phi = phi i64 [ %.pre, %if.end41.if.then43_crit_edge ], [ %idxprom.i56, %nvme_subsys_ns.exit67 ]
   %namespaces = getelementptr inbounds i8, ptr %1, i64 2592
   %arrayidx = getelementptr [257 x ptr], ptr %namespaces, i64 0, i64 %idxprom.pre-phi
   store ptr %call, ptr %arrayidx, align 8
@@ -2066,8 +2066,8 @@ for.cond54.preheader:                             ; preds = %if.end49
   br label %for.body57
 
 for.body57:                                       ; preds = %for.cond54.preheader, %for.inc65
-  %indvars.iv96 = phi i64 [ 0, %for.cond54.preheader ], [ %indvars.iv.next97, %for.inc65 ]
-  %arrayidx59 = getelementptr [256 x ptr], ptr %ctrls, i64 0, i64 %indvars.iv96
+  %indvars.iv97 = phi i64 [ 0, %for.cond54.preheader ], [ %indvars.iv.next98, %for.inc65 ]
+  %arrayidx59 = getelementptr [256 x ptr], ptr %ctrls, i64 0, i64 %indvars.iv97
   %12 = load ptr, ptr %arrayidx59, align 8
   %magicptr = ptrtoint ptr %12 to i64
   switch i64 %magicptr, label %if.then63 [
@@ -2080,9 +2080,9 @@ if.then63:                                        ; preds = %for.body57
   br label %for.inc65
 
 for.inc65:                                        ; preds = %for.body57, %for.body57, %if.then63
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next97, 256
-  br i1 %exitcond99.not, label %return, label %for.body57, !llvm.loop !21
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 256
+  br i1 %exitcond100.not, label %return, label %for.body57, !llvm.loop !21
 
 if.end69:                                         ; preds = %lor.lhs.false36, %if.end49, %if.end41
   tail call void @nvme_attach_ns(ptr noundef nonnull %call2, ptr noundef nonnull %call) #13

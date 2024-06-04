@@ -5596,9 +5596,9 @@ define void @_ZN10colvarbiasC1EPKc(ptr noundef nonnull align 8 dereferenceable(3
           to label %10 unwind label %71
 
 10:                                               ; preds = %2
-  store ptr getelementptr inbounds inrange(-32, 264) (i8, ptr @_ZTV10colvarbias, i64 32), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV10colvarbias, i64 368), ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV10colvarbias, i64 488), ptr %9, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10colvarbias, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10colvarbias, i64 368), ptr %8, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10colvarbias, i64 488), ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   %12 = getelementptr inbounds i8, ptr %0, i64 40
@@ -6894,9 +6894,9 @@ define void @_ZN10colvarbiasC1Ev(ptr noundef nonnull align 8 dereferenceable(312
           to label %4 unwind label %12
 
 4:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-32, 264) (i8, ptr @_ZTV10colvarbias, i64 32), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV10colvarbias, i64 368), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV10colvarbias, i64 488), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10colvarbias, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10colvarbias, i64 368), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10colvarbias, i64 488), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -12418,10 +12418,10 @@ define void @_ZN13colvarbias_tiC1EPKc(ptr noundef nonnull align 8 dereferenceabl
           to label %7 unwind label %33
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds inrange(-40, 112) (i8, ptr @_ZTV13colvarbias_ti, i64 40), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTV13colvarbias_ti, i64 440), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTV13colvarbias_ti, i64 776), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-56, 48) (i8, ptr @_ZTV13colvarbias_ti, i64 896), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13colvarbias_ti, i64 40), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13colvarbias_ti, i64 440), ptr %6, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13colvarbias_ti, i64 776), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13colvarbias_ti, i64 896), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 48

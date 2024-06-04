@@ -8869,7 +8869,7 @@ _ZSt8_DestroyIPN3gmx16KeyValueTreePathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %141
   br label %_ZNSt6vectorIN3gmx16KeyValueTreePathESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx16KeyValueTreePathESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gmx16KeyValueTreePathES1_EvT_S3_RSaIT0_E.exit.i, %1429
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115MdpErrorHandlerE, i64 16), ptr %84, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115MdpErrorHandlerE, i64 16), ptr %84, align 8
   %1430 = getelementptr inbounds i8, ptr %84, i64 8
   store ptr %6, ptr %1430, align 8
   %1431 = getelementptr inbounds i8, ptr %84, i64 16

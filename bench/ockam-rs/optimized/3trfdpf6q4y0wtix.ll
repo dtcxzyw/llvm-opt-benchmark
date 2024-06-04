@@ -125199,7 +125199,7 @@ define noundef zeroext i1 @_ZN9ockam_api5nodes7service15default_address14Default
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, ptr } @_ZN9ockam_api5nodes7service15default_address14DefaultAddress4iter17h5deb478eef28d73fE() unnamed_addr #6 {
-  ret { ptr, ptr } { ptr @anon.fbfca8abf0772dc66d1b514120c70946.791, ptr getelementptr inbounds ({ ptr, i64 }, ptr @anon.fbfca8abf0772dc66d1b514120c70946.791, i64 15) }
+  ret { ptr, ptr } { ptr @anon.fbfca8abf0772dc66d1b514120c70946.791, ptr getelementptr inbounds (i8, ptr @anon.fbfca8abf0772dc66d1b514120c70946.791, i64 240) }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

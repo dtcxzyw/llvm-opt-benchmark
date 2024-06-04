@@ -380,7 +380,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 define dso_local void @_ZN13MapgenFractalC2EP19MapgenFractalParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %params, ptr noundef %emerge) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN11MapgenBasicC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(474) %this, i32 noundef 5, ptr noundef %params, ptr noundef %emerge)
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV13MapgenFractal, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MapgenFractal, i64 16), ptr %this, align 8, !tbaa !12
   %scale = getelementptr inbounds i8, ptr %this, i64 484
   %offset = getelementptr inbounds i8, ptr %this, i64 496
   %noise_seabed = getelementptr inbounds i8, ptr %this, i64 528
@@ -536,7 +536,7 @@ declare void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13MapgenFractalD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV13MapgenFractal, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MapgenFractal, i64 16), ptr %this, align 8, !tbaa !12
   %noise_seabed = getelementptr inbounds i8, ptr %this, i64 528
   %0 = load ptr, ptr %noise_seabed, align 8, !tbaa !14
   %isnull = icmp eq ptr %0, null
@@ -569,7 +569,7 @@ declare void @_ZN5NoiseD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unn
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13MapgenFractalD0Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV13MapgenFractal, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13MapgenFractal, i64 16), ptr %this, align 8, !tbaa !12
   %noise_seabed.i = getelementptr inbounds i8, ptr %this, i64 528
   %0 = load ptr, ptr %noise_seabed.i, align 8, !tbaa !14
   %isnull.i = icmp eq ptr %0, null
@@ -622,7 +622,7 @@ invoke.cont21:
   store i16 31007, ptr %mapgen_edge_max.i, align 2, !tbaa !68
   %m_mapgen_edges_calculated.i = getelementptr inbounds i8, ptr %this, i64 52
   store i8 0, ptr %m_mapgen_edges_calculated.i, align 4, !tbaa !69
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV19MapgenFractalParams, i64 16), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19MapgenFractalParams, i64 16), ptr %this, align 8, !tbaa !12
   %cave_width = getelementptr inbounds i8, ptr %this, i64 56
   store float 0x3FB70A3D80000000, ptr %cave_width, align 8, !tbaa !39
   %large_cave_depth = getelementptr inbounds i8, ptr %this, i64 60

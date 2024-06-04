@@ -584,7 +584,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13sentencepiece25MultiFileSentenceIteratorC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN13sentencepiece25MultiFileSentenceIteratorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece25MultiFileSentenceIteratorE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1204,7 +1204,7 @@ define void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14No
   %26 = alloca %"class.sentencepiece::util::StatusBuilder", align 8
   %27 = alloca %"class.sentencepiece::util::Status", align 8
   %28 = alloca %"class.sentencepiece::util::Status", align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN13sentencepiece16TrainerInterfaceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece16TrainerInterfaceE, i64 16), ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %30, ptr %29, align 8
@@ -3192,7 +3192,7 @@ _ZNSt10_HashtableIjSt4pairIKjlESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13sentencepiece16TrainerInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(704) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN13sentencepiece16TrainerInterfaceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece16TrainerInterfaceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 680
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 688
@@ -4195,7 +4195,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA62_cEERS1_RKT_.exit: ; preds = %_ZN13s
 
 .noexc.i:                                         ; preds = %230
   %234 = tail call noalias noundef nonnull dereferenceable(5032) ptr @_Znwm(i64 noundef 5032) #25
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece6random16ReservoirSamplerISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEEE, i64 16), ptr %234, align 8, !noalias !64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece6random16ReservoirSamplerISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEEE, i64 16), ptr %234, align 8, !noalias !64
   %235 = getelementptr inbounds i8, ptr %234, i64 8
   store ptr %77, ptr %235, align 8, !noalias !64
   %236 = getelementptr inbounds i8, ptr %234, i64 16
@@ -4300,7 +4300,7 @@ common.resume:                                    ; preds = %_ZNKSt14default_del
   %282 = getelementptr inbounds i8, ptr %1, i64 344
   %283 = load i32, ptr %282, align 8
   %284 = sext i32 %283 to i64
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece6random16ReservoirSamplerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece6random16ReservoirSamplerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %17, align 8
   %285 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %281, ptr %285, align 8
   %286 = getelementptr inbounds i8, ptr %17, i64 16
@@ -5694,7 +5694,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit438: ; preds = %_ZN1
           to label %860 unwind label %.loopexit.split-lp786
 
 860:                                              ; preds = %857
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), ptr %859, align 8, !noalias !81
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), ptr %859, align 8, !noalias !81
   %861 = getelementptr inbounds i8, ptr %859, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %861, i8 0, i64 24, i1 false), !noalias !81
   %862 = load i32, ptr %858, align 4
@@ -5794,7 +5794,7 @@ _ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit
   br label %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit.loopexit, %860
-  %896 = phi ptr [ %.pre, %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit.loopexit ], [ getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), %860 ]
+  %896 = phi ptr [ %.pre, %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit.loopexit ], [ getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), %860 ]
   %897 = getelementptr inbounds i8, ptr %896, i64 8
   %898 = load ptr, ptr %897, align 8
   call void %898(ptr noundef nonnull align 8 dereferenceable(32) %859) #23
@@ -6155,7 +6155,7 @@ _ZN13sentencepiece10normalizer13PrefixMatcherD2Ev.exit471: ; preds = %986, %_ZNK
           to label %1059 unwind label %.loopexit.split-lp796
 
 1059:                                             ; preds = %1048
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), ptr %1058, align 8, !noalias !86
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), ptr %1058, align 8, !noalias !86
   %1060 = getelementptr inbounds i8, ptr %1058, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1060, i8 0, i64 24, i1 false), !noalias !86
   %.not897 = icmp eq i64 %.sroa.speculated, 0
@@ -6253,7 +6253,7 @@ _ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit
   br label %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit486
 
 _ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit486: ; preds = %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit486.loopexit, %1059
-  %1093 = phi ptr [ %.pre932, %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit486.loopexit ], [ getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), %1059 ]
+  %1093 = phi ptr [ %.pre932, %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit486.loopexit ], [ getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), %1059 ]
   %1094 = getelementptr inbounds i8, ptr %1093, i64 8
   %1095 = load ptr, ptr %1094, align 8
   call void %1095(ptr noundef nonnull align 8 dereferenceable(32) %1058) #23
@@ -13151,7 +13151,7 @@ declare void @_ZN13sentencepiece11ByteToPieceB5cxx11Eh(ptr dead_on_unwind writab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13sentencepiece25MultiFileSentenceIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN13sentencepiece25MultiFileSentenceIteratorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece25MultiFileSentenceIteratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -13206,7 +13206,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13sentencepiece25MultiFileSentenceIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN13sentencepiece25MultiFileSentenceIteratorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece25MultiFileSentenceIteratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -14162,7 +14162,7 @@ define linkonce_odr void @_ZNSt6threadC2IRSt8functionIFvvEEJEvEEOT_DpOT0_(ptr no
   %3 = alloca %"class.std::unique_ptr.226", align 8
   store i64 0, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEEE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   %7 = getelementptr inbounds i8, ptr %1, i64 16
@@ -14249,7 +14249,7 @@ declare void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -14274,7 +14274,7 @@ _ZNSt6thread8_InvokerISt5tupleIJSt8functionIFvvEEEEED2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -15347,7 +15347,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13sentencepiece10ThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -15413,7 +15413,7 @@ _ZNSt6vectorISt6threadSaIS0_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPSt6t
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13sentencepiece10ThreadPoolD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10ThreadPoolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

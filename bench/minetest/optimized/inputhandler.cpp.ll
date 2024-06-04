@@ -7685,7 +7685,7 @@ entry:
   %0 = load ptr, ptr %m_receiver, align 8, !tbaa !57
   %joystick = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %joystick, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
   br label %arraydestroy.body.i.i
 
 arraydestroy.body.i.i:                            ; preds = %_ZN8KeyPressD2Ev.exit.i.i, %entry
@@ -7786,7 +7786,7 @@ entry:
   %0 = load ptr, ptr %m_receiver.i, align 8, !tbaa !57
   %joystick.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %joystick.i, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
   br label %arraydestroy.body.i.i.i
 
 arraydestroy.body.i.i.i:                          ; preds = %_ZN8KeyPressD2Ev.exit.i.i.i, %entry
@@ -8465,7 +8465,7 @@ _ZN15MyEventReceiver14releaseAllKeysEv.exit:      ; preds = %_ZNSt16allocator_tr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15MyEventReceiverD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV15MyEventReceiver, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15MyEventReceiver, i64 16), ptr %this, align 8, !tbaa !26
   %0 = getelementptr inbounds i8, ptr %this, i64 160
   %1 = load ptr, ptr %0, align 8, !tbaa !29
   %cmp.not9.i.i.i = icmp eq ptr %1, %0
@@ -8635,7 +8635,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18RandomInputHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(3640) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV18RandomInputHandler, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV18RandomInputHandler, i64 16), ptr %this, align 8, !tbaa !26
   %0 = getelementptr inbounds i8, ptr %this, i64 3592
   %1 = load ptr, ptr %0, align 8, !tbaa !29
   %cmp.not9.i.i.i = icmp eq ptr %1, %0
@@ -8667,7 +8667,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeI8KeyPressEEE7destroyIS1_EEvRS3_PT_.exi
   br i1 %cmp.not.i.i.i, label %_ZN7KeyListD2Ev.exit, label %while.body.i.i.i, !llvm.loop !135
 
 _ZN7KeyListD2Ev.exit:                             ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeI8KeyPressEEE7destroyIS1_EEvRS3_PT_.exit.i.i.i, %entry
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
   br label %arraydestroy.body.i.i
 
 arraydestroy.body.i.i:                            ; preds = %_ZN8KeyPressD2Ev.exit.i.i, %_ZN7KeyListD2Ev.exit
@@ -8998,7 +8998,7 @@ declare float @atan2f(float noundef, float noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12InputHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(3584) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds (i8, ptr @_ZTV12InputHandler, i64 16), ptr %this, align 8, !tbaa !26
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN8KeyPressD2Ev.exit.i, %entry

@@ -52,8 +52,8 @@ define void @prte_iof_prted_send_xonxoff(i16 noundef zeroext %0) local_unnamed_a
 
 7:                                                ; preds = %1
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
-  %or.cond = icmp ult i32 %8, 64
-  br i1 %or.cond, label %9, label %19
+  %or.cond16 = icmp ult i32 %8, 64
+  br i1 %or.cond16, label %9, label %19
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %8 to i64
@@ -72,8 +72,8 @@ define void @prte_iof_prted_send_xonxoff(i16 noundef zeroext %0) local_unnamed_a
 
 19:                                               ; preds = %7, %9, %14
   %20 = load i32, ptr @prte_rml_base, align 8
-  %or.cond3 = icmp ult i32 %20, 64
-  br i1 %or.cond3, label %21, label %29
+  %or.cond = icmp ult i32 %20, 64
+  br i1 %or.cond, label %21, label %29
 
 21:                                               ; preds = %19
   %22 = zext nneg i32 %20 to i64
@@ -148,8 +148,8 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
 
 14:                                               ; preds = %5
   %15 = load i16, ptr %7, align 2
-  %.not27 = icmp eq i16 %15, 1
-  br i1 %.not27, label %18, label %16
+  %.not24 = icmp eq i16 %15, 1
+  br i1 %.not24, label %18, label %16
 
 16:                                               ; preds = %14
   %17 = call ptr @prte_strerror(i32 noundef -51) #2
@@ -202,31 +202,31 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
   br label %37
 
 37:                                               ; preds = %33, %28, %26
-  %.034 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_prted_component, i64 464), align 8
-  %.not3035 = icmp eq ptr %.034, getelementptr inbounds (i8, ptr @prte_mca_iof_prted_component, i64 344)
-  br i1 %.not3035, label %.loopexit, label %.lr.ph
+  %.032 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_prted_component, i64 464), align 8
+  %.not2733 = icmp eq ptr %.032, getelementptr inbounds (i8, ptr @prte_mca_iof_prted_component, i64 344)
+  br i1 %.not2733, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37
   %38 = getelementptr inbounds i8, ptr %10, i64 256
   br label %39
 
 39:                                               ; preds = %.lr.ph, %72
-  %.036 = phi ptr [ %.034, %.lr.ph ], [ %.0, %72 ]
-  %40 = getelementptr inbounds i8, ptr %.036, i64 144
+  %.034 = phi ptr [ %.032, %.lr.ph ], [ %.0, %72 ]
+  %40 = getelementptr inbounds i8, ptr %.034, i64 144
   %41 = call zeroext i1 @PMIx_Check_nspace(ptr noundef nonnull %10, ptr noundef nonnull %40) #2
   br i1 %41, label %42, label %72
 
 42:                                               ; preds = %39
   %43 = load i32, ptr %38, align 4
-  %44 = getelementptr inbounds i8, ptr %.036, i64 400
+  %44 = getelementptr inbounds i8, ptr %.034, i64 400
   %45 = load i32, ptr %44, align 8
   %46 = call zeroext i1 @PMIx_Check_rank(i32 noundef %43, i32 noundef %45) #2
   br i1 %46, label %47, label %72
 
 47:                                               ; preds = %42
   %48 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
-  %or.cond3 = icmp ult i32 %48, 64
-  br i1 %or.cond3, label %49, label %57
+  %or.cond31 = icmp ult i32 %48, 64
+  br i1 %or.cond31, label %49, label %57
 
 49:                                               ; preds = %47
   %50 = zext nneg i32 %48 to i64
@@ -242,7 +242,7 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
   br label %57
 
 57:                                               ; preds = %54, %49, %47
-  %58 = getelementptr inbounds i8, ptr %.036, i64 408
+  %58 = getelementptr inbounds i8, ptr %.034, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %72, label %61
@@ -267,10 +267,10 @@ define void @prte_iof_prted_recv(i32 noundef %0, ptr nocapture noundef readnone 
   br label %72
 
 72:                                               ; preds = %39, %61, %71, %68, %42, %57
-  %73 = getelementptr inbounds i8, ptr %.036, i64 120
+  %73 = getelementptr inbounds i8, ptr %.034, i64 120
   %.0 = load ptr, ptr %73, align 8
-  %.not30 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_mca_iof_prted_component, i64 344)
-  br i1 %.not30, label %.loopexit, label %39, !llvm.loop !4
+  %.not27 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_mca_iof_prted_component, i64 344)
+  br i1 %.not27, label %.loopexit, label %39, !llvm.loop !4
 
 .loopexit:                                        ; preds = %72, %37, %22, %18, %5, %24, %20, %12, %16
   ret void

@@ -1079,8 +1079,8 @@ Vec_PtrFreeP.exit174:                             ; preds = %Vec_IntFreeP.exit16
 
 208:                                              ; preds = %Vec_PtrFreeP.exit174
   %209 = getelementptr i8, ptr %207, i64 4
-  %.val15.i.i = load i32, ptr %209, align 4
-  %210 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %209, align 4
+  %210 = icmp sgt i32 %.val16.i.i, 0
   br i1 %210, label %.lr.ph.i.i176, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i176:                                    ; preds = %208
@@ -1088,24 +1088,24 @@ Vec_PtrFreeP.exit174:                             ; preds = %Vec_IntFreeP.exit16
   br label %212
 
 212:                                              ; preds = %216, %.lr.ph.i.i176
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i176 ], [ %.val.i.i180, %216 ]
-  %indvars.iv.i.i177 = phi i64 [ 0, %.lr.ph.i.i176 ], [ %indvars.iv.next.i.i181, %216 ]
-  %.val14.i.i178 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds ptr, ptr %.val14.i.i178, i64 %indvars.iv.i.i177
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i176 ], [ %.val.i.i179, %216 ]
+  %indvars.iv.i.i177 = phi i64 [ 0, %.lr.ph.i.i176 ], [ %indvars.iv.next.i.i180, %216 ]
+  %.val15.i.i = load ptr, ptr %211, align 8
+  %213 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i177
   %214 = load ptr, ptr %213, align 8
   %switch.i.i = icmp ult ptr %214, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %216, label %215
 
 215:                                              ; preds = %212
   tail call void @free(ptr noundef %214) #17
-  %.val.pre.i.i179 = load i32, ptr %209, align 4
+  %.val.pre.i.i178 = load i32, ptr %209, align 4
   br label %216
 
 216:                                              ; preds = %215, %212
-  %.val.i.i180 = phi i32 [ %.val18.i.i, %212 ], [ %.val.pre.i.i179, %215 ]
-  %indvars.iv.next.i.i181 = add nuw nsw i64 %indvars.iv.i.i177, 1
-  %217 = sext i32 %.val.i.i180 to i64
-  %218 = icmp slt i64 %indvars.iv.next.i.i181, %217
+  %.val.i.i179 = phi i32 [ %.val19.i.i, %212 ], [ %.val.pre.i.i178, %215 ]
+  %indvars.iv.next.i.i180 = add nuw nsw i64 %indvars.iv.i.i177, 1
+  %217 = sext i32 %.val.i.i179 to i64
+  %218 = icmp slt i64 %indvars.iv.next.i.i180, %217
   br i1 %218, label %212, label %Vec_PtrFreeData.exit.i, !llvm.loop !10
 
 Vec_PtrFreeData.exit.i:                           ; preds = %216, %208

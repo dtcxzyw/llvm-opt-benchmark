@@ -577,7 +577,7 @@ define linkonce_odr dso_local void @_ZN6ShaderC2ERK5Model(ptr noundef nonnull al
   %3 = alloca %struct.vec, align 8
   %4 = alloca %struct.vec.24, align 8
   %5 = alloca %struct.vec.24, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV6Shader, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6Shader, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16

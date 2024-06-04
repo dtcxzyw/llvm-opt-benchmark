@@ -251,7 +251,8 @@ if.then7:                                         ; preds = %invoke.cont2
   br label %if.end21
 
 if.else11:                                        ; preds = %invoke.cont2
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %5, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %5
 
 5:                                                ; preds = %if.else11
   call void @_ZTH13warningstream()
@@ -446,7 +447,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp5.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %0, label %_ZTW13warningstream.exit
+  %.not = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not, label %_ZTW13warningstream.exit, label %0
 
 0:                                                ; preds = %if.then6
   tail call void @_ZTH13warningstream()
@@ -551,7 +553,8 @@ invoke.cont18:                                    ; preds = %while.body
   br i1 %cmp20, label %while.cond, label %if.then21
 
 if.then21:                                        ; preds = %invoke.cont18
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %12, label %_ZTW13warningstream.exit98
+  %.not7 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not7, label %_ZTW13warningstream.exit98, label %12
 
 12:                                               ; preds = %if.then21
   call void @_ZTH13warningstream()
@@ -675,7 +678,8 @@ invoke.cont37:                                    ; preds = %invoke.cont35
   br i1 %cmp39.not, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %if.then40
 
 if.then40:                                        ; preds = %invoke.cont37
-  br i1 icmp ne (ptr @_ZTH13warningstream, ptr null), label %26, label %_ZTW13warningstream.exit120
+  %.not8 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not8, label %_ZTW13warningstream.exit120, label %26
 
 26:                                               ; preds = %if.then40
   call void @_ZTH13warningstream()

@@ -1230,8 +1230,8 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
   %268 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 56), align 8
   %269 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.58, ptr noundef %268) #13
   %270 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 40), align 8
-  %.not76 = icmp eq i32 %270, 0
-  br i1 %.not76, label %.thread72, label %271
+  %.not55 = icmp eq i32 %270, 0
+  br i1 %.not55, label %.thread72, label %271
 
 271:                                              ; preds = %262
   %272 = call i32 @pthread_attr_init(ptr noundef nonnull %6) #13
@@ -1300,12 +1300,12 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
 
 .thread72.sink.split:                             ; preds = %251, %208, %295
   %.str.40.sink = phi ptr [ @.str.5, %295 ], [ @.str.40, %208 ], [ @.str.55, %251 ]
-  %.375.ph = phi i32 [ 0, %295 ], [ -1, %208 ], [ -1, %251 ]
+  %.376.ph = phi i32 [ 0, %295 ], [ -1, %208 ], [ -1, %251 ]
   %297 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull %.str.40.sink) #13
   br label %.thread72
 
 .thread72:                                        ; preds = %.thread72.sink.split, %_get_proc_mapping.exit.i, %259, %262, %293
-  %.375 = phi i32 [ 0, %262 ], [ 0, %293 ], [ %260, %259 ], [ -1, %_get_proc_mapping.exit.i ], [ %.375.ph, %.thread72.sink.split ]
+  %.376 = phi i32 [ 0, %262 ], [ 0, %293 ], [ %260, %259 ], [ -1, %_get_proc_mapping.exit.i ], [ %.376.ph, %.thread72.sink.split ]
   %298 = call i32 @pthread_mutex_lock(ptr noundef nonnull @pmi2_setup_srun.setup_mutex) #13
   %.not62 = icmp eq i32 %298, 0
   br i1 %.not62, label %301, label %299
@@ -1317,7 +1317,7 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
   unreachable
 
 301:                                              ; preds = %.thread72
-  store i32 %.375, ptr @pmi2_setup_srun.global_rc, align 4
+  store i32 %.376, ptr @pmi2_setup_srun.global_rc, align 4
   %302 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @pmi2_setup_srun.setup_cond) #13
   %.not63 = icmp eq i32 %302, 0
   br i1 %.not63, label %306, label %303
@@ -1357,8 +1357,8 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
 
 .lr.ph:                                           ; preds = %.preheader, %320
   %316 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @pmi2_setup_srun.setup_cond, ptr noundef nonnull @pmi2_setup_srun.setup_mutex) #13
-  %.not55 = icmp eq i32 %316, 0
-  br i1 %.not55, label %320, label %317
+  %.not54 = icmp eq i32 %316, 0
+  br i1 %.not54, label %320, label %317
 
 317:                                              ; preds = %.lr.ph
   %318 = tail call ptr @__errno_location() #15
@@ -1374,8 +1374,8 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
 ._crit_edge:                                      ; preds = %320, %.preheader
   %.lcssa96 = phi i32 [ %312, %.preheader ], [ %321, %320 ]
   %323 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @pmi2_setup_srun.setup_mutex) #13
-  %.not54 = icmp eq i32 %323, 0
-  br i1 %.not54, label %326, label %324
+  %.not53 = icmp eq i32 %323, 0
+  br i1 %.not53, label %326, label %324
 
 324:                                              ; preds = %._crit_edge
   %325 = tail call ptr @__errno_location() #15
@@ -1398,7 +1398,7 @@ _get_proc_mapping.exit.i:                         ; preds = %197, %194
   br label %336
 
 336:                                              ; preds = %326, %328, %306
-  %.4 = phi i32 [ %.375, %306 ], [ 0, %328 ], [ %.lcssa96, %326 ]
+  %.4 = phi i32 [ %.376, %306 ], [ 0, %328 ], [ %.lcssa96, %326 ]
   ret i32 %.4
 }
 

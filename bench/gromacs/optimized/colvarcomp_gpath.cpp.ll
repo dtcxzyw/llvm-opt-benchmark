@@ -424,11 +424,11 @@ declare noundef i32 @_ZN6colvar3cvc9set_paramERKNSt7__cxx1112basic_stringIcSt11c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar6gspathD2Ev(ptr noundef nonnull align 8 dereferenceable(2704) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1744
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2136
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   tail call void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %3) #25
@@ -438,11 +438,11 @@ define linkonce_odr void @_ZN6colvar6gspathD2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar6gspathD0Ev(ptr noundef nonnull align 8 dereferenceable(2704) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1744
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2136
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   tail call void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %3) #25
@@ -2525,10 +2525,10 @@ define void @_ZN6colvar6gspath31updateDistanceToReferenceFramesEv(ptr noundef no
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar6gspathD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1424
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1816
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   tail call void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %3) #25
@@ -2539,10 +2539,10 @@ define linkonce_odr void @_ZThn320_N6colvar6gspathD1Ev(ptr noundef %0) unnamed_a
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar6gspathD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1424
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1816
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   tail call void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %3) #25
@@ -2571,10 +2571,10 @@ declare noundef i32 @_ZThn320_N6colvar3cvc17init_dependenciesEv(ptr noundef) unn
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn1744_N6colvar6gspathD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1744
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -1424
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 392
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   tail call void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %0) #25
@@ -2585,10 +2585,10 @@ define linkonce_odr void @_ZThn1744_N6colvar6gspathD1Ev(ptr noundef %0) unnamed_
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn1744_N6colvar6gspathD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1744
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -1424
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 392
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   tail call void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %0) #25
@@ -3639,11 +3639,11 @@ define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar6gzpathD2Ev(ptr noundef nonnull align 8 dereferenceable(3272) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1744
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2704
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   %5 = getelementptr inbounds i8, ptr %0, i64 2136
@@ -3655,11 +3655,11 @@ define linkonce_odr void @_ZN6colvar6gzpathD2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6colvar6gzpathD0Ev(ptr noundef nonnull align 8 dereferenceable(3272) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1744
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2704
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   %5 = getelementptr inbounds i8, ptr %0, i64 2136
@@ -4937,10 +4937,10 @@ define void @_ZN6colvar6gzpath31updateDistanceToReferenceFramesEv(ptr noundef no
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar6gzpathD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1424
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2384
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   %5 = getelementptr inbounds i8, ptr %0, i64 1816
@@ -4953,10 +4953,10 @@ define linkonce_odr void @_ZThn320_N6colvar6gzpathD1Ev(ptr noundef %0) unnamed_a
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn320_N6colvar6gzpathD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -320
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1424
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2384
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   %5 = getelementptr inbounds i8, ptr %0, i64 1816
@@ -4970,10 +4970,10 @@ define linkonce_odr void @_ZThn320_N6colvar6gzpathD0Ev(ptr noundef %0) unnamed_a
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn1744_N6colvar6gzpathD1Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1744
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -1424
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 960
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   %5 = getelementptr inbounds i8, ptr %0, i64 392
@@ -4986,10 +4986,10 @@ define linkonce_odr void @_ZThn1744_N6colvar6gzpathD1Ev(ptr noundef %0) unnamed_
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn1744_N6colvar6gzpathD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1744
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -1424
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 960
   tail call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %4) #25
   %5 = getelementptr inbounds i8, ptr %0, i64 392
@@ -17022,9 +17022,9 @@ define void @_ZN6colvar18CartesianBasedPathC2ERKNSt7__cxx1112basic_stringIcSt11c
   %29 = alloca %"class.std::vector.64", align 8
   %30 = alloca i32, align 4
   tail call void @_ZN6colvar3cvcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar18CartesianBasedPathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar18CartesianBasedPathE, i64 16), ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar18CartesianBasedPathE, i64 264), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar18CartesianBasedPathE, i64 264), ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 1648
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 1664
@@ -18685,9 +18685,9 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit: ; preds = %41, %_ZSt6fil
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar18CartesianBasedPathD2Ev(ptr noundef nonnull align 8 dereferenceable(1744) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar18CartesianBasedPathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar18CartesianBasedPathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar18CartesianBasedPathE, i64 264), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar18CartesianBasedPathE, i64 264), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1712
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1720
@@ -18860,10 +18860,10 @@ define void @_ZN6colvar6gspathC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %29 = getelementptr inbounds i8, ptr %0, i64 1744
   %30 = getelementptr inbounds i8, ptr %0, i64 1840
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %30, i8 0, i64 240, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 16), ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 280), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gspathE, i64 344), ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 2136
   invoke void @_ZN12colvarmodule8rotationC1Ev(ptr noundef nonnull align 8 dereferenceable(568) %32)
           to label %33 unwind label %48
@@ -19412,7 +19412,7 @@ declare void @_ZN12colvarmodule3logERKNSt7__cxx1112basic_stringIcSt11char_traits
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE0EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -20204,10 +20204,10 @@ define void @_ZN6colvar6gzpathC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %33 = getelementptr inbounds i8, ptr %0, i64 1744
   %34 = getelementptr inbounds i8, ptr %0, i64 1840
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %34, i8 0, i64 240, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 16), ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %33, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 280), ptr %35, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6gzpathE, i64 344), ptr %33, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 2136
   invoke void @_ZN12colvarmodule8rotationC1Ev(ptr noundef nonnull align 8 dereferenceable(568) %36)
           to label %37 unwind label %54
@@ -20822,7 +20822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit92: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE1EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS_7path_szE1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -20997,9 +20997,9 @@ define void @_ZN6colvar11CVBasedPathC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   %63 = alloca %"class.std::__cxx11::basic_string", align 8
   %64 = alloca i32, align 4
   tail call void @_ZN6colvar3cvcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar11CVBasedPathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11CVBasedPathE, i64 16), ptr %0, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11CVBasedPathE, i64 264), ptr %65, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11CVBasedPathE, i64 264), ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 1648
   %67 = getelementptr inbounds i8, ptr %0, i64 1672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %66, i8 0, i64 48, i1 false)
@@ -24677,9 +24677,9 @@ define noundef double @_ZNK6colvar11CVBasedPath31getPolynomialFactorOfCVGradient
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6colvar11CVBasedPathD2Ev(ptr noundef nonnull align 8 dereferenceable(1712) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN6colvar11CVBasedPathE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11CVBasedPathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar11CVBasedPathE, i64 264), ptr %2, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11CVBasedPathE, i64 264), ptr %2, align 8
   invoke void @_ZN10colvardeps19remove_all_childrenEv(ptr noundef nonnull align 8 dereferenceable(120) %2)
           to label %3 unwind label %32
 
@@ -24804,10 +24804,10 @@ define void @_ZN6colvar8gspathCVC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %26 = getelementptr inbounds i8, ptr %0, i64 1712
   %27 = getelementptr inbounds i8, ptr %0, i64 1808
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %27, i8 0, i64 240, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar8gspathCVE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8gspathCVE, i64 16), ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar8gspathCVE, i64 280), ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar8gspathCVE, i64 344), ptr %26, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8gspathCVE, i64 280), ptr %28, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8gspathCVE, i64 344), ptr %26, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   %29 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc unwind label %76
@@ -25287,7 +25287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit74: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS_7path_szE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS_7path_szE0EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS_7path_szE0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -25378,10 +25378,10 @@ define void @_ZN6colvar8gzpathCVC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %30 = getelementptr inbounds i8, ptr %0, i64 1712
   %31 = getelementptr inbounds i8, ptr %0, i64 1808
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %31, i8 0, i64 240, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN6colvar8gzpathCVE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8gzpathCVE, i64 16), ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN6colvar8gzpathCVE, i64 280), ptr %32, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN6colvar8gzpathCVE, i64 344), ptr %30, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8gzpathCVE, i64 280), ptr %32, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8gzpathCVE, i64 344), ptr %30, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   %33 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc unwind label %85
@@ -25925,7 +25925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit83: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS_7path_szE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS_7path_szE1EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS_7path_szE1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

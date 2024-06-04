@@ -288,7 +288,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIhLN9__gnu_cxx12_Lock_policy
   store i32 1, ptr %19, align 8, !tbaa !22
   %20 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %20, align 4, !tbaa !24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPh13array_deleterIhESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPh13array_deleterIhESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !18
   %21 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %21, align 8, !tbaa !25
   store ptr %1, ptr %0, align 8, !tbaa !27
@@ -527,7 +527,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
           to label %97 unwind label %186
 
 97:                                               ; preds = %96
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %23, align 8, !tbaa !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %23, align 8, !tbaa !18
   %98 = getelementptr inbounds i8, ptr %23, i64 8
   %99 = load i32, ptr %22, align 8, !tbaa !46
   store i32 %99, ptr %98, align 8, !tbaa !46
@@ -561,7 +561,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
           to label %116 unwind label %188
 
 116:                                              ; preds = %115
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %23, align 8, !tbaa !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %23, align 8, !tbaa !18
   %117 = load ptr, ptr %101, align 8, !tbaa !28
   %118 = icmp eq ptr %117, null
   br i1 %118, label %143, label %119
@@ -2296,7 +2296,7 @@ declare void @_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_tr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %0, align 8, !tbaa !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %0, align 8, !tbaa !18
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %4 = icmp eq ptr %3, null
@@ -2992,7 +2992,7 @@ define linkonce_odr hidden noundef ptr @_ZN7Imf_3_114TypedAttributeINS_4BlobEE16
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7Imf_3_19AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %0, align 8, !tbaa !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %0, align 8, !tbaa !18
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8, !tbaa !46
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3030,7 +3030,7 @@ define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEEC2Ev(ptr 
   store i32 1, ptr %17, align 8, !tbaa !22
   %18 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 1, ptr %18, align 4, !tbaa !24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPhLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPhLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !18
   %19 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %19, align 8, !tbaa !134
   store ptr %4, ptr %16, align 8, !tbaa !28
@@ -3048,7 +3048,7 @@ declare void @_ZN7Imf_3_19AttributeD2Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %0, align 8, !tbaa !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %0, align 8, !tbaa !18
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %4 = icmp eq ptr %3, null

@@ -27438,11 +27438,11 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   store i32 1, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 88), align 8
   store i32 1, ptr @GESTURES, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
-  %.pre61 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre66 = load i64, ptr %.phi.trans.insert, align 8
   br label %31
 
 31:                                               ; preds = %30, %28
-  %32 = phi i64 [ %.pre61, %30 ], [ %29, %28 ]
+  %32 = phi i64 [ %.pre66, %30 ], [ %29, %28 ]
   store i64 %32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
   store i64 %32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 48), align 8
   store i64 %32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 24), align 8
@@ -27461,7 +27461,7 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   ]
 
 ._crit_edge:                                      ; preds = %35
-  %.pre60 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 24), align 8
+  %.pre65 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 24), align 8
   br label %41
 
 37:                                               ; preds = %35, %35
@@ -27472,7 +27472,7 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   br label %41
 
 41:                                               ; preds = %._crit_edge, %37
-  %42 = phi <2 x float> [ %.pre60, %._crit_edge ], [ %40, %37 ]
+  %42 = phi <2 x float> [ %.pre65, %._crit_edge ], [ %40, %37 ]
   %43 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
   %44 = fsub <2 x float> %42, %43
   %45 = extractelement <2 x float> %44, i64 0
@@ -27480,19 +27480,19 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %47 = fmul <2 x float> %46, %46
   %48 = extractelement <2 x float> %47, i64 1
   %49 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %48)
-  %sqrt.i25 = tail call float @llvm.sqrt.f32(float %49)
-  store float %sqrt.i25, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 124), align 4
+  %sqrt.i30 = tail call float @llvm.sqrt.f32(float %49)
+  store float %sqrt.i30, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 124), align 4
   %50 = tail call double @glfwGetTime() #55
   %51 = load double, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 136), align 8
   %52 = fsub double %50, %51
   %53 = fptrunc double %52 to float
-  %54 = fdiv float %sqrt.i25, %53
+  %54 = fdiv float %sqrt.i30, %53
   store float %54, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 128), align 8
   %55 = fcmp ogt float %54, 0x3FC99999A0000000
   %56 = load i32, ptr @GESTURES, align 8
   %57 = icmp ne i32 %56, 8
-  %or.cond5 = select i1 %55, i1 %57, i1 false
-  br i1 %or.cond5, label %58, label %81
+  %or.cond6 = select i1 %55, i1 %57, i1 false
+  br i1 %or.cond6, label %58, label %81
 
 58:                                               ; preds = %41
   %59 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 32), align 8
@@ -27510,26 +27510,26 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   store float %69, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 120), align 8
   %70 = fcmp olt float %69, 3.000000e+01
   %71 = fcmp ogt float %69, 3.300000e+02
-  %or.cond7 = or i1 %70, %71
-  br i1 %or.cond7, label %82, label %72
+  %or.cond9 = or i1 %70, %71
+  br i1 %or.cond9, label %82, label %72
 
 72:                                               ; preds = %58
   %73 = fcmp oge float %69, 3.000000e+01
   %74 = fcmp ole float %69, 1.500000e+02
-  %or.cond9 = and i1 %73, %74
-  br i1 %or.cond9, label %82, label %75
+  %or.cond12 = and i1 %73, %74
+  br i1 %or.cond12, label %82, label %75
 
 75:                                               ; preds = %72
   %76 = fcmp ogt float %69, 1.500000e+02
   %77 = fcmp olt float %69, 2.100000e+02
-  %or.cond11 = and i1 %76, %77
-  br i1 %or.cond11, label %82, label %78
+  %or.cond15 = and i1 %76, %77
+  br i1 %or.cond15, label %82, label %78
 
 78:                                               ; preds = %75
   %79 = fcmp oge float %69, 2.100000e+02
   %80 = fcmp ole float %69, 3.300000e+02
-  %or.cond13 = and i1 %79, %80
-  %. = select i1 %or.cond13, i32 128, i32 0
+  %or.cond18 = and i1 %79, %80
+  %. = select i1 %or.cond18, i32 128, i32 0
   br label %82
 
 81:                                               ; preds = %41
@@ -27627,8 +27627,8 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %129 = fmul <2 x float> %128, %128
   %130 = extractelement <2 x float> %129, i64 1
   %131 = tail call float @llvm.fmuladd.f32(float %127, float %127, float %130)
-  %sqrt.i32 = tail call float @llvm.sqrt.f32(float %131)
-  store float %sqrt.i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 156), align 4
+  %sqrt.i37 = tail call float @llvm.sqrt.f32(float %131)
+  store float %sqrt.i37, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 156), align 4
   %132 = getelementptr inbounds i8, ptr %0, i64 40
   %133 = load i64, ptr %132, align 8
   store i64 %133, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
@@ -27651,59 +27651,59 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   store float %147, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 148), align 4
   %148 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 72), align 8
   %149 = trunc i64 %133 to i32
-  %.sroa.0.0.vec.extract.i33 = bitcast i32 %149 to float
-  %.sroa.05.0.vec.extract.i34 = extractelement <2 x float> %148, i64 0
-  %150 = fsub float %.sroa.0.0.vec.extract.i33, %.sroa.05.0.vec.extract.i34
+  %.sroa.0.0.vec.extract.i38 = bitcast i32 %149 to float
+  %.sroa.05.0.vec.extract.i39 = extractelement <2 x float> %148, i64 0
+  %150 = fsub float %.sroa.0.0.vec.extract.i38, %.sroa.05.0.vec.extract.i39
   %extelt.offset = lshr i64 %133, 32
   %151 = trunc nuw i64 %extelt.offset to i32
-  %.sroa.0.4.vec.extract.i35 = bitcast i32 %151 to float
-  %.sroa.05.4.vec.extract.i36 = extractelement <2 x float> %148, i64 1
-  %152 = fsub float %.sroa.0.4.vec.extract.i35, %.sroa.05.4.vec.extract.i36
+  %.sroa.0.4.vec.extract.i40 = bitcast i32 %151 to float
+  %.sroa.05.4.vec.extract.i41 = extractelement <2 x float> %148, i64 1
+  %152 = fsub float %.sroa.0.4.vec.extract.i40, %.sroa.05.4.vec.extract.i41
   %153 = fmul float %152, %152
   %154 = tail call float @llvm.fmuladd.f32(float %150, float %150, float %153)
-  %sqrt.i37 = tail call float @llvm.sqrt.f32(float %154)
-  %155 = fcmp ult float %sqrt.i37, 0x3F747AE140000000
+  %sqrt.i42 = tail call float @llvm.sqrt.f32(float %154)
+  %155 = fcmp ult float %sqrt.i42, 0x3F747AE140000000
   %.pre = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 80), align 8
-  %extelt.offset74 = lshr i64 %135, 32
-  %156 = trunc nuw i64 %extelt.offset74 to i32
-  %.sroa.0.4.vec.extract.i40 = bitcast i32 %156 to float
-  br i1 %155, label %158, label %._crit_edge69
+  %extelt.offset79 = lshr i64 %135, 32
+  %156 = trunc nuw i64 %extelt.offset79 to i32
+  %.sroa.0.4.vec.extract.i45 = bitcast i32 %156 to float
+  br i1 %155, label %158, label %._crit_edge74
 
-._crit_edge69:                                    ; preds = %123
-  %.pre70 = extractelement <2 x float> %.pre, i64 0
-  %.pre71 = extractelement <2 x float> %.pre, i64 1
+._crit_edge74:                                    ; preds = %123
+  %.pre75 = extractelement <2 x float> %.pre, i64 0
+  %.pre76 = extractelement <2 x float> %.pre, i64 1
   %157 = trunc i64 %135 to i32
-  %.pre72 = bitcast i32 %157 to float
+  %.pre77 = bitcast i32 %157 to float
   br label %165
 
 158:                                              ; preds = %123
   %159 = trunc i64 %135 to i32
-  %.sroa.0.0.vec.extract.i38 = bitcast i32 %159 to float
-  %.sroa.05.0.vec.extract.i39 = extractelement <2 x float> %.pre, i64 0
-  %160 = fsub float %.sroa.0.0.vec.extract.i38, %.sroa.05.0.vec.extract.i39
-  %.sroa.05.4.vec.extract.i41 = extractelement <2 x float> %.pre, i64 1
-  %161 = fsub float %.sroa.0.4.vec.extract.i40, %.sroa.05.4.vec.extract.i41
+  %.sroa.0.0.vec.extract.i43 = bitcast i32 %159 to float
+  %.sroa.05.0.vec.extract.i44 = extractelement <2 x float> %.pre, i64 0
+  %160 = fsub float %.sroa.0.0.vec.extract.i43, %.sroa.05.0.vec.extract.i44
+  %.sroa.05.4.vec.extract.i46 = extractelement <2 x float> %.pre, i64 1
+  %161 = fsub float %.sroa.0.4.vec.extract.i45, %.sroa.05.4.vec.extract.i46
   %162 = fmul float %161, %161
   %163 = tail call float @llvm.fmuladd.f32(float %160, float %160, float %162)
-  %sqrt.i42 = tail call float @llvm.sqrt.f32(float %163)
-  %164 = fcmp ult float %sqrt.i42, 0x3F747AE140000000
+  %sqrt.i47 = tail call float @llvm.sqrt.f32(float %163)
+  %164 = fcmp ult float %sqrt.i47, 0x3F747AE140000000
   br i1 %164, label %177, label %165
 
-165:                                              ; preds = %._crit_edge69, %158
-  %.sroa.0.0.vec.extract.i48.pre-phi = phi float [ %.pre72, %._crit_edge69 ], [ %.sroa.0.0.vec.extract.i38, %158 ]
-  %.sroa.0.4.vec.extract.i45.pre-phi = phi float [ %.pre71, %._crit_edge69 ], [ %.sroa.05.4.vec.extract.i41, %158 ]
-  %.sroa.0.0.vec.extract.i43.pre-phi = phi float [ %.pre70, %._crit_edge69 ], [ %.sroa.05.0.vec.extract.i39, %158 ]
-  %166 = fsub float %.sroa.0.0.vec.extract.i43.pre-phi, %.sroa.05.0.vec.extract.i34
-  %167 = fsub float %.sroa.0.4.vec.extract.i45.pre-phi, %.sroa.05.4.vec.extract.i36
+165:                                              ; preds = %._crit_edge74, %158
+  %.sroa.0.0.vec.extract.i53.pre-phi = phi float [ %.pre77, %._crit_edge74 ], [ %.sroa.0.0.vec.extract.i43, %158 ]
+  %.sroa.0.4.vec.extract.i50.pre-phi = phi float [ %.pre76, %._crit_edge74 ], [ %.sroa.05.4.vec.extract.i46, %158 ]
+  %.sroa.0.0.vec.extract.i48.pre-phi = phi float [ %.pre75, %._crit_edge74 ], [ %.sroa.05.0.vec.extract.i44, %158 ]
+  %166 = fsub float %.sroa.0.0.vec.extract.i48.pre-phi, %.sroa.05.0.vec.extract.i39
+  %167 = fsub float %.sroa.0.4.vec.extract.i50.pre-phi, %.sroa.05.4.vec.extract.i41
   %168 = fmul float %167, %167
   %169 = tail call float @llvm.fmuladd.f32(float %166, float %166, float %168)
-  %sqrt.i47 = tail call float @llvm.sqrt.f32(float %169)
-  %170 = fsub float %.sroa.0.0.vec.extract.i48.pre-phi, %.sroa.0.0.vec.extract.i33
-  %171 = fsub float %.sroa.0.4.vec.extract.i40, %.sroa.0.4.vec.extract.i35
+  %sqrt.i52 = tail call float @llvm.sqrt.f32(float %169)
+  %170 = fsub float %.sroa.0.0.vec.extract.i53.pre-phi, %.sroa.0.0.vec.extract.i38
+  %171 = fsub float %.sroa.0.4.vec.extract.i45, %.sroa.0.4.vec.extract.i40
   %172 = fmul float %171, %171
   %173 = tail call float @llvm.fmuladd.f32(float %170, float %170, float %172)
-  %sqrt.i52 = tail call float @llvm.sqrt.f32(float %173)
-  %174 = fcmp ogt float %sqrt.i47, %sqrt.i52
+  %sqrt.i57 = tail call float @llvm.sqrt.f32(float %173)
+  %174 = fcmp ogt float %sqrt.i52, %sqrt.i57
   br i1 %174, label %175, label %176
 
 175:                                              ; preds = %165
@@ -27718,23 +27718,23 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   store i32 4, ptr @GESTURES, align 8
   %178 = tail call double @glfwGetTime() #55
   store double %178, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
-  %.pre58 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
-  %.pre59 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 64), align 8
-  %179 = fsub <2 x float> %.pre59, %.pre58
-  %.pre64 = extractelement <2 x float> %179, i64 1
-  %180 = fsub <2 x float> %.pre59, %.pre58
-  %.pre67 = extractelement <2 x float> %180, i64 0
+  %.pre63 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
+  %.pre64 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 64), align 8
+  %179 = fsub <2 x float> %.pre64, %.pre63
+  %.pre69 = extractelement <2 x float> %179, i64 1
+  %180 = fsub <2 x float> %.pre64, %.pre63
+  %.pre72 = extractelement <2 x float> %180, i64 0
   br label %181
 
 181:                                              ; preds = %175, %176, %177
-  %.pre-phi68 = phi float [ %170, %175 ], [ %170, %176 ], [ %.pre67, %177 ]
-  %.pre-phi = phi float [ %171, %175 ], [ %171, %176 ], [ %.pre64, %177 ]
-  %182 = tail call float @atan2f(float noundef %.pre-phi, float noundef %.pre-phi68) #55
+  %.pre-phi73 = phi float [ %170, %175 ], [ %170, %176 ], [ %.pre72, %177 ]
+  %.pre-phi = phi float [ %171, %175 ], [ %171, %176 ], [ %.pre69, %177 ]
+  %182 = tail call float @atan2f(float noundef %.pre-phi, float noundef %.pre-phi73) #55
   %183 = fmul float %182, 0x404CA5DC00000000
   %184 = fcmp olt float %183, 0.000000e+00
   %185 = fadd float %183, 3.600000e+02
-  %.0.i57 = select i1 %184, float %185, float %183
-  %186 = fsub float 3.600000e+02, %.0.i57
+  %.0.i62 = select i1 %184, float %185, float %183
+  %186 = fsub float 3.600000e+02, %.0.i62
   store float %186, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 152), align 8
   br label %188
 
@@ -27755,8 +27755,8 @@ define hidden void @UpdateGestures() local_unnamed_addr #0 {
   %or.cond = icmp ult i32 %2, 2
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
   %4 = icmp slt i32 %3, 2
-  %or.cond3 = select i1 %or.cond, i1 %4, i1 false
-  br i1 %or.cond3, label %5, label %7
+  %or.cond4 = select i1 %or.cond, i1 %4, i1 false
+  br i1 %or.cond4, label %5, label %7
 
 5:                                                ; preds = %0
   store i32 4, ptr @GESTURES, align 8
@@ -37502,8 +37502,8 @@ define void @PollInputEvents() local_unnamed_addr #0 {
   %or.cond.i = icmp ult i32 %3, 2
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
   %5 = icmp slt i32 %4, 2
-  %or.cond3.i = select i1 %or.cond.i, i1 %5, i1 false
-  br i1 %or.cond3.i, label %6, label %8
+  %or.cond4.i = select i1 %or.cond.i, i1 %5, i1 false
+  br i1 %or.cond4.i, label %6, label %8
 
 6:                                                ; preds = %0
   store i32 4, ptr @GESTURES, align 8
@@ -37933,14 +37933,14 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   %94 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %95 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
   %96 = icmp ugt i32 %94, %95
-  %.pre23.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
-  %.pre24.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
-  %97 = icmp ugt i32 %.pre23.i, %.pre24.i
-  %or.cond28.i = select i1 %96, i1 true, i1 %97
-  br i1 %or.cond28.i, label %98, label %124
+  %.pre24.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  %.pre25.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
+  %97 = icmp ugt i32 %.pre24.i, %.pre25.i
+  %or.cond29.i = select i1 %96, i1 true, i1 %97
+  br i1 %or.cond29.i, label %98, label %124
 
 98:                                               ; preds = %.loopexit
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.1367, i32 noundef %94, i32 noundef %.pre23.i, i32 noundef %95, i32 noundef %.pre24.i) #55
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.1367, i32 noundef %94, i32 noundef %.pre24.i, i32 noundef %95, i32 noundef %.pre25.i) #55
   %99 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
   %100 = uitofp <2 x i32> %99 to <2 x float>
   %101 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
@@ -37968,19 +37968,19 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   %118 = fptosi float %117 to i32
   %119 = extractelement <2 x i32> %99, i64 0
   %120 = sub i32 %119, %118
-  %.pre25.i = uitofp i32 %118 to float
-  %.pre26.i = fdiv float %.pre25.i, %115
+  %.pre26.i = uitofp i32 %118 to float
+  %.pre27.i = fdiv float %.pre26.i, %115
   br label %121
 
 121:                                              ; preds = %114, %107
-  %.pre-phi27.i = phi float [ %.pre26.i, %114 ], [ %104, %107 ]
+  %.pre-phi28.i = phi float [ %.pre27.i, %114 ], [ %104, %107 ]
   %.sink.i = phi i32 [ %120, %114 ], [ 0, %107 ]
   %storemerge.i = phi i32 [ 0, %114 ], [ %113, %107 ]
   store i32 %.sink.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
   store i32 %storemerge.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
-  store float %.pre-phi27.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
+  store float %.pre-phi28.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 100), align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 104), i8 0, i64 16, i1 false)
-  store float %.pre-phi27.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
+  store float %.pre-phi28.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 120), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 124), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @CORE, i64 140), align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @CORE, i64 144), i8 0, i64 16, i1 false)
@@ -37996,31 +37996,31 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 124:                                              ; preds = %.loopexit
   %125 = icmp ult i32 %94, %95
-  %126 = icmp ult i32 %.pre23.i, %.pre24.i
-  %or.cond17.i = or i1 %125, %126
-  br i1 %or.cond17.i, label %127, label %153
+  %126 = icmp ult i32 %.pre24.i, %.pre25.i
+  %or.cond18.i = or i1 %125, %126
+  br i1 %or.cond18.i, label %127, label %153
 
 127:                                              ; preds = %124
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.1369, i32 noundef %94, i32 noundef %.pre23.i, i32 noundef %95, i32 noundef %.pre24.i) #55
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.1369, i32 noundef %94, i32 noundef %.pre24.i, i32 noundef %95, i32 noundef %.pre25.i) #55
   %128 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
   %129 = icmp eq i32 %128, 0
   %130 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   %131 = icmp eq i32 %130, 0
   %or.cond.i = select i1 %129, i1 true, i1 %131
   %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 36), align 4
-  %.pre22.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
+  %.pre23.i = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 40), align 8
   br i1 %or.cond.i, label %132, label %133
 
 132:                                              ; preds = %127
   store i32 %.pre.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 44), align 4
-  store i32 %.pre22.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
+  store i32 %.pre23.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 48), align 8
   br label %133
 
 133:                                              ; preds = %132, %127
-  %134 = phi i32 [ %130, %127 ], [ %.pre22.i, %132 ]
+  %134 = phi i32 [ %130, %127 ], [ %.pre23.i, %132 ]
   %135 = phi i32 [ %128, %127 ], [ %.pre.i, %132 ]
   %136 = uitofp i32 %.pre.i to float
-  %137 = uitofp i32 %.pre22.i to float
+  %137 = uitofp i32 %.pre23.i to float
   %138 = fdiv float %136, %137
   %139 = uitofp i32 %135 to float
   %140 = uitofp i32 %134 to float
@@ -38052,7 +38052,7 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
 
 153:                                              ; preds = %124
   store i32 %94, ptr getelementptr inbounds (i8, ptr @CORE, i64 68), align 4
-  store i32 %.pre23.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
+  store i32 %.pre24.i, ptr getelementptr inbounds (i8, ptr @CORE, i64 72), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 76), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 80), align 8
   br label %163
@@ -38083,7 +38083,7 @@ define hidden range(i32 -1, 1) i32 @InitPlatform() local_unnamed_addr #0 {
   br label %170
 
 163:                                              ; preds = %153, %148, %143, %121
-  %164 = phi i32 [ %.pre83, %121 ], [ %.pre22.i, %143 ], [ %.pre22.i, %148 ], [ %.pre24.i, %153 ]
+  %164 = phi i32 [ %.pre83, %121 ], [ %.pre23.i, %143 ], [ %.pre23.i, %148 ], [ %.pre25.i, %153 ]
   %165 = phi i32 [ %.pre82, %121 ], [ %.pre.i, %143 ], [ %.pre.i, %148 ], [ %95, %153 ]
   %166 = load ptr, ptr @CORE, align 8
   %.not47 = icmp eq ptr %166, null
@@ -44494,8 +44494,8 @@ define void @StopAutomationEventRecording() local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.AutomationEvent) align 8 %0) local_unnamed_addr #0 {
-  %.b2 = load i1, ptr @automationEventRecording, align 1
-  br i1 %.b2, label %MaximizeWindow.exit, label %2
+  %.b4 = load i1, ptr @automationEventRecording, align 1
+  br i1 %.b4, label %MaximizeWindow.exit, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 4

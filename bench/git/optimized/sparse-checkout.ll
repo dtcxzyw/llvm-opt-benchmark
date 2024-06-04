@@ -486,10 +486,10 @@ if.end:                                           ; preds = %entry
   %tobool3 = icmp eq i32 %1, 0
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @set_opts, i64 12), align 4
   %tobool4 = icmp eq i32 %2, 0
-  %or.cond.not8 = select i1 %tobool3, i1 %tobool4, i1 false
+  %or.cond.not9 = select i1 %tobool3, i1 %tobool4, i1 false
   %cmp = icmp eq i32 %call1, 0
-  %or.cond1 = select i1 %or.cond.not8, i1 %cmp, i1 false
-  br i1 %or.cond1, label %if.end7, label %if.else
+  %or.cond2 = select i1 %or.cond.not9, i1 %cmp, i1 false
+  br i1 %or.cond2, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %if.end
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @set_opts, i64 8), align 4

@@ -492,7 +492,8 @@ invoke.cont55:                                    ; preds = %invoke.cont54
           to label %invoke.cont56 unwind label %lpad47
 
 invoke.cont56:                                    ; preds = %invoke.cont55
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %25, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %25
 
 25:                                               ; preds = %invoke.cont56
   tail call void @_ZTH10infostream()
@@ -672,10 +673,10 @@ entry:
   tail call void @_ZN13ScriptApiBaseC2E13ScriptingType(ptr noundef nonnull align 8 dereferenceable(137) %0, i8 noundef zeroext 1)
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-24, 24) (i8, ptr @_ZTV15ClientScripting, i64 24), ptr %this, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ClientScripting, i64 152), ptr %0, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ClientScripting, i64 72), ptr %1, align 8, !tbaa !12
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTV15ClientScripting, i64 112), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ClientScripting, i64 24), ptr %this, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ClientScripting, i64 152), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ClientScripting, i64 72), ptr %1, align 8, !tbaa !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15ClientScripting, i64 112), ptr %2, align 8, !tbaa !12
   %3 = icmp eq ptr %client, null
   %add.ptr9 = getelementptr inbounds i8, ptr %client, i64 16
   %cast.result = select i1 %3, ptr null, ptr %add.ptr9
@@ -771,7 +772,8 @@ invoke.cont53:                                    ; preds = %invoke.cont52
           to label %invoke.cont54 unwind label %lpad45
 
 invoke.cont54:                                    ; preds = %invoke.cont53
-  br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %7, label %_ZTW10infostream.exit
+  %.not = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not, label %_ZTW10infostream.exit, label %7
 
 7:                                                ; preds = %invoke.cont54
   tail call void @_ZTH10infostream()

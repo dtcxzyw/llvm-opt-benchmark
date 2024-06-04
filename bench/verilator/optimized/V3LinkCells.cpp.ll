@@ -1426,7 +1426,7 @@ define linkonce_odr dso_local void @_ZN16LinkCellsVisitorC2EP10AstNetlistP9VInFi
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV16LinkCellsVisitor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16LinkCellsVisitor, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
           to label %_ZN12VNUser1InUseC2Ev.exit unwind label %40
@@ -1472,7 +1472,7 @@ _ZN12VNUser2InUseC2Ev.exit:                       ; preds = %_ZN12VNUser1InUseC2
           to label %22 unwind label %46
 
 22:                                               ; preds = %20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14LinkCellsGraph, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV14LinkCellsGraph, i64 16), ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 128
@@ -1772,7 +1772,7 @@ _ZN12VNUser2InUseD2Ev.exit:                       ; preds = %_ZN9VSymGraphD2Ev.e
   unreachable
 
 _ZN12VNUser1InUseD2Ev.exit:                       ; preds = %_ZN12VNUser2InUseD2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV9VNVisitor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9VNVisitor, i64 16), ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN9VNDeleter9doDeletesEv(ptr noundef nonnull align 8 dereferenceable(24) %40)
           to label %41 unwind label %44
@@ -3342,7 +3342,7 @@ _ZN10AstNetlist11addModulespEP13AstNodeModule.exit: ; preds = %189
           to label %210 unwind label %217
 
 210:                                              ; preds = %208
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %205, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %205, align 8
   %211 = getelementptr inbounds i8, ptr %205, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %211, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %205, ptr noundef nonnull %206, ptr noundef %207, ptr noundef %209, i32 noundef 1, i1 noundef zeroext false)
@@ -3394,7 +3394,7 @@ _ZN10AstNetlist11addModulespEP13AstNodeModule.exit: ; preds = %189
           to label %231 unwind label %235
 
 231:                                              ; preds = %.noexc267
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %230, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %230, align 8
   %232 = getelementptr inbounds i8, ptr %230, i64 80
   store ptr %222, ptr %232, align 8
   %233 = ptrtoint ptr %230 to i64
@@ -3431,7 +3431,7 @@ _ZN10AstNetlist11addModulespEP13AstNodeModule.exit: ; preds = %189
           to label %248 unwind label %252
 
 248:                                              ; preds = %.noexc270
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %247, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %247, i64 80
   store ptr %131, ptr %249, align 8
   %250 = ptrtoint ptr %247 to i64
@@ -3449,7 +3449,7 @@ _ZN10AstNetlist11addModulespEP13AstNodeModule.exit: ; preds = %189
 254:                                              ; preds = %248, %237
   %255 = phi i64 [ %250, %248 ], [ %245, %237 ]
   %256 = inttoptr i64 %255 to ptr
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %220, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %220, align 8
   %257 = getelementptr inbounds i8, ptr %220, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %257, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %220, ptr noundef nonnull %221, ptr noundef %240, ptr noundef %256, i32 noundef 1, i1 noundef zeroext false)
@@ -4259,7 +4259,7 @@ _ZNK7AstPort4nameB5cxx11Ev.exit342:               ; preds = %537
           to label %.noexc343 unwind label %.thread423
 
 .noexc343:                                        ; preds = %_ZNK7AstPort4nameB5cxx11Ev.exit342
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV11AstParseRef, i64 16), ptr %536, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11AstParseRef, i64 16), ptr %536, align 8
   %539 = getelementptr inbounds i8, ptr %536, i64 152
   store i8 2, ptr %539, align 8
   %540 = getelementptr inbounds i8, ptr %536, i64 160
@@ -4271,7 +4271,7 @@ _ZN11AstParseRefC2EP8FileLine12VParseRefExpRKNSt7__cxx1112basic_stringIcSt11char
           to label %.noexc345 unwind label %554
 
 .noexc345:                                        ; preds = %_ZN11AstParseRefC2EP8FileLine12VParseRefExpRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNodeP15AstNodeFTaskRef.exit
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV6AstPin, i64 16), ptr %533, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstPin, i64 16), ptr %533, align 8
   %541 = getelementptr inbounds i8, ptr %533, i64 152
   store i32 0, ptr %541, align 8
   %542 = getelementptr inbounds i8, ptr %533, i64 160
@@ -4406,7 +4406,7 @@ _ZNK7AstPort4nameB5cxx11Ev.exit356:               ; preds = %575
           to label %.noexc357 unwind label %588
 
 .noexc357:                                        ; preds = %_ZNK7AstPort4nameB5cxx11Ev.exit356
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV6AstPin, i64 16), ptr %574, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstPin, i64 16), ptr %574, align 8
   %577 = getelementptr inbounds i8, ptr %574, i64 152
   store i32 0, ptr %577, align 8
   %578 = getelementptr inbounds i8, ptr %574, i64 160
@@ -4563,7 +4563,7 @@ _ZN8AstRange9cloneTreeEb.exit:                    ; preds = %627
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %630, i8 0, i64 10, i1 false)
   %631 = getelementptr inbounds i8, ptr %626, i64 168
   store ptr null, ptr %631, align 8
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV19AstUnpackArrayDType, i64 16), ptr %626, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19AstUnpackArrayDType, i64 16), ptr %626, align 8
   %632 = getelementptr inbounds i8, ptr %626, i64 176
   store i8 0, ptr %632, align 8
   invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %626, ptr noundef nonnull %611)
@@ -5324,7 +5324,7 @@ _ZN7AstNode9privateIsI8AstIfaceKP13AstNodeModuleEEbPKS_.exit: ; preds = %32
           to label %47 unwind label %51
 
 47:                                               ; preds = %.noexc33
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %46, i64 80
   store ptr %38, ptr %48, align 8
   %49 = ptrtoint ptr %46 to i64
@@ -5361,7 +5361,7 @@ _ZN7AstNode9privateIsI8AstIfaceKP13AstNodeModuleEEbPKS_.exit: ; preds = %32
           to label %64 unwind label %68
 
 64:                                               ; preds = %.noexc36
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %63, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %63, i64 80
   store ptr %31, ptr %65, align 8
   %66 = ptrtoint ptr %63 to i64
@@ -5379,7 +5379,7 @@ _ZN7AstNode9privateIsI8AstIfaceKP13AstNodeModuleEEbPKS_.exit: ; preds = %32
 70:                                               ; preds = %64, %53
   %71 = phi i64 [ %66, %64 ], [ %61, %53 ]
   %72 = inttoptr i64 %71 to ptr
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %35, align 8
   %73 = getelementptr inbounds i8, ptr %35, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %35, ptr noundef nonnull %36, ptr noundef %56, ptr noundef %72, i32 noundef 1, i1 noundef zeroext false)
@@ -6042,7 +6042,7 @@ define linkonce_odr dso_local void @_ZN16LinkCellsVisitor5visitEP13AstNodeModule
           to label %32 unwind label %36
 
 32:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %31, i64 80
   store ptr %19, ptr %33, align 8
   %34 = ptrtoint ptr %31 to i64
@@ -6079,7 +6079,7 @@ define linkonce_odr dso_local void @_ZN16LinkCellsVisitor5visitEP13AstNodeModule
           to label %49 unwind label %53
 
 49:                                               ; preds = %.noexc45
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %48, i64 80
   store ptr %1, ptr %50, align 8
   %51 = ptrtoint ptr %48 to i64
@@ -6097,7 +6097,7 @@ define linkonce_odr dso_local void @_ZN16LinkCellsVisitor5visitEP13AstNodeModule
 55:                                               ; preds = %49, %38
   %56 = phi i64 [ %51, %49 ], [ %46, %38 ]
   %57 = inttoptr i64 %56 to ptr
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %21, align 8
   %58 = getelementptr inbounds i8, ptr %21, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull %23, ptr noundef %41, ptr noundef %57, i32 noundef 1, i1 noundef zeroext false)
@@ -6476,7 +6476,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %196 unwind label %200
 
 196:                                              ; preds = %.noexc72
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %194, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %194, align 8
   %197 = getelementptr inbounds i8, ptr %194, i64 80
   store ptr %1, ptr %197, align 8
   %198 = ptrtoint ptr %194 to i64
@@ -6594,7 +6594,7 @@ _ZNK9V3Options9topModuleB5cxx11Ev.exit81:         ; preds = %230
           to label %245 unwind label %246
 
 245:                                              ; preds = %243
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13LibraryVertex, i64 16), ptr %242, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13LibraryVertex, i64 16), ptr %242, align 8
   store ptr %242, ptr %239, align 8
   br label %248
 
@@ -6630,7 +6630,7 @@ _ZNK9V3Options9topModuleB5cxx11Ev.exit81:         ; preds = %230
           to label %261 unwind label %265
 
 261:                                              ; preds = %.noexc85
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %259, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %259, align 8
   %262 = getelementptr inbounds i8, ptr %259, i64 80
   store ptr %1, ptr %262, align 8
   %263 = ptrtoint ptr %259 to i64
@@ -6649,7 +6649,7 @@ _ZNK9V3Options9topModuleB5cxx11Ev.exit81:         ; preds = %230
   %268 = phi i64 [ %263, %261 ], [ %257, %251 ]
   %269 = inttoptr i64 %268 to ptr
   %270 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %250, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %250, align 8
   %271 = getelementptr inbounds i8, ptr %250, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %271, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %250, ptr noundef nonnull %270, ptr noundef nonnull %249, ptr noundef %269, i32 noundef 1, i1 noundef zeroext false)
@@ -6783,7 +6783,7 @@ define linkonce_odr dso_local void @_ZN16LinkCellsVisitor5visitEP16AstPackageImp
           to label %22 unwind label %26
 
 22:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 80
   store ptr %13, ptr %23, align 8
   %24 = ptrtoint ptr %21 to i64
@@ -6822,7 +6822,7 @@ define linkonce_odr dso_local void @_ZN16LinkCellsVisitor5visitEP16AstPackageImp
           to label %40 unwind label %44
 
 40:                                               ; preds = %.noexc8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %39, i64 80
   store ptr %30, ptr %41, align 8
   %42 = ptrtoint ptr %39 to i64
@@ -6840,7 +6840,7 @@ define linkonce_odr dso_local void @_ZN16LinkCellsVisitor5visitEP16AstPackageImp
 46:                                               ; preds = %40, %28
   %47 = phi i64 [ %42, %40 ], [ %37, %28 ]
   %48 = inttoptr i64 %47 to ptr
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %10, align 8
   %49 = getelementptr inbounds i8, ptr %10, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
   invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull %11, ptr noundef %32, ptr noundef %48, i32 noundef 1, i1 noundef zeroext false)
@@ -7273,7 +7273,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9VNVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 3696) (i8, ptr @_ZTV9VNVisitor, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9VNVisitor, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN9VNDeleter9doDeletesEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %3 unwind label %6
@@ -10026,7 +10026,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16LinkCellsVisitor6vertexEP13AstNo
           to label %12 unwind label %16
 
 12:                                               ; preds = %9
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinkCellsVertex, i64 16), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 80
   store ptr %1, ptr %13, align 8
   %14 = ptrtoint ptr %10 to i64
@@ -10049,7 +10049,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16LinkCellsVisitor6vertexEP13AstNo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   tail call void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5)
@@ -10176,7 +10176,7 @@ define linkonce_odr dso_local void @_ZN16AstIfaceRefDTypeC2EP8FileLineRKNSt7__cx
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 63, ptr noundef %1)
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %6, i8 0, i64 10, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTV16AstIfaceRefDType, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV16AstIfaceRefDType, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 162
   store i8 0, ptr %7, align 2
   %8 = getelementptr inbounds i8, ptr %0, i64 168
@@ -10251,7 +10251,7 @@ define linkonce_odr dso_local void @_ZN8VVarTypeC2ENS_2enE(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6AstVarC2EP8FileLine8VVarTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE15VFlagChildDTypeP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 48, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTV6AstVar, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6AstVar, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %7 = getelementptr inbounds i8, ptr %0, i64 184
@@ -10390,7 +10390,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK13V3GraphVertex5cloneEP7V3Graph(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15LinkCellsVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -10684,7 +10684,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK13V3GraphVertex23isInstanc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13V3GraphVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -12166,7 +12166,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK13LibraryVertex23isInstanc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13LibraryVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
 

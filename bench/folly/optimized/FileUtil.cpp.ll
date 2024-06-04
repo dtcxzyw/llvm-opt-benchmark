@@ -2359,7 +2359,7 @@ if.then.i.i36:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %if.then.i.i36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !81
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !81
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__v, ptr %_M_code, align 8, !tbaa !89
   %_M_cat.i41 = getelementptr inbounds i8, ptr %this, i64 24

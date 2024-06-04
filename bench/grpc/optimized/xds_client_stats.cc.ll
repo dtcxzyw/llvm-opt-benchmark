@@ -60,6 +60,8 @@ $_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEED2Ev = comdat any
 
 $_ZN9grpc_core23XdsClusterLocalityStats8SnapshotD2Ev = comdat any
 
+$_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv = comdat any
+
 $_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core23XdsClusterLocalityStats13BackendMetricESt4lessIS5_ESaISt4pairIKS5_S8_EEEixEOS5_ = comdat any
 
 $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E = comdat any
@@ -1636,165 +1638,126 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core23XdsCl
   ret void
 }
 
-; Function Attrs: uwtable
-define void @_ZN9grpc_core23XdsClusterLocalityStats14AddCallStartedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #10 align 2 {
+; Function Attrs: mustprogress uwtable
+define void @_ZN9grpc_core23XdsClusterLocalityStats14AddCallStartedEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 {
 entry:
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %0, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-
-0:                                                ; preds = %entry
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i: ; preds = %0, %entry
-  %1 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
-  %uses_until_refresh.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %2 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %cmp.i.i = icmp eq i16 %2, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %call.i.i.i = tail call i32 @gpr_cpu_current_cpu()
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %3, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
-
-3:                                                ; preds = %if.then.i.i
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i: ; preds = %3, %if.then.i.i
-  %ref.tmp.sroa.0.0.insert.insert.i.i = or i32 %call.i.i.i, -65536
-  store i32 %ref.tmp.sroa.0.0.insert.insert.i.i, ptr %1, align 2
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %4 = phi i16 [ -1, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i ], [ %2, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i ]
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i: ; preds = %if.end.i.i
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  %5 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %dec.i.i = add i16 %5, -1
-  store i16 %dec.i.i, ptr %uses_until_refresh.i.i, align 2
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv.exit
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i: ; preds = %if.end.i.i
-  %dec.c.i.i = add i16 %4, -1
-  store i16 %dec.c.i.i, ptr %uses_until_refresh.i.i, align 2
-  br label %_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv.exit
-
-_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 88
-  %6 = load i16, ptr %1, align 2
-  %conv4.i.i = zext i16 %6 to i64
-  %shards_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %7 = load i64, ptr %shards_.i, align 8
-  %rem.i = urem i64 %conv4.i.i, %7
-  %8 = load ptr, ptr %data_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.grpc_core::XdsClusterLocalityStats::Stats", ptr %8, i64 %rem.i
-  %total_issued_requests = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
-  %9 = atomicrmw add ptr %total_issued_requests, i64 1 monotonic, align 8
-  %total_requests_in_progress = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %10 = atomicrmw add ptr %total_requests_in_progress, i64 1 monotonic, align 8
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 72
+  %call = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) %stats_)
+  %total_issued_requests = getelementptr inbounds i8, ptr %call, i64 24
+  %0 = atomicrmw add ptr %total_issued_requests, i64 1 monotonic, align 8
+  %total_requests_in_progress = getelementptr inbounds i8, ptr %call, i64 8
+  %1 = atomicrmw add ptr %total_requests_in_progress, i64 1 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core23XdsClusterLocalityStats15AddCallFinishedEPKSt3mapISt17basic_string_viewIcSt11char_traitsIcEEdSt4lessIS5_ESaISt4pairIKS5_dEEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr noundef readonly %named_metrics, i1 noundef zeroext %fail) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(88) ptr @_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #10 comdat align 2 {
+entry:
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, null
+  br i1 %.not.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
+
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i: ; preds = %entry
+  %0 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
+  %uses_until_refresh.i = getelementptr inbounds i8, ptr %0, i64 2
+  %1 = load i16, ptr %uses_until_refresh.i, align 2
+  %cmp.i = icmp eq i16 %1, 0
+  br i1 %cmp.i, label %if.end.thread26.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i
+
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i: ; preds = %entry
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  %2 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
+  %uses_until_refresh7.i = getelementptr inbounds i8, ptr %2, i64 2
+  %3 = load i16, ptr %uses_until_refresh7.i, align 2
+  %cmp8.i = icmp eq i16 %3, 0
+  br i1 %cmp8.i, label %if.end.i, label %if.end.thread.i
+
+if.end.thread26.i:                                ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i
+  %call.i.i = tail call i32 @gpr_cpu_current_cpu()
+  %ref.tmp.sroa.0.0.insert.insert29.i = or i32 %call.i.i, -65536
+  store i32 %ref.tmp.sroa.0.0.insert.insert29.i, ptr %0, align 2
+  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i
+
+if.end.i:                                         ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
+  %call.i12.i = tail call i32 @gpr_cpu_current_cpu()
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  %ref.tmp.sroa.0.0.insert.insert.i = or i32 %call.i12.i, -65536
+  store i32 %ref.tmp.sroa.0.0.insert.insert.i, ptr %2, align 2
+  br label %if.end.thread.i
+
+_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i: ; preds = %if.end.thread26.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i
+  %4 = phi i16 [ -1, %if.end.thread26.i ], [ %1, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i ]
+  %dec22.i = add i16 %4, -1
+  store i16 %dec22.i, ptr %uses_until_refresh.i, align 2
+  br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
+
+if.end.thread.i:                                  ; preds = %if.end.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  %5 = load i16, ptr %uses_until_refresh7.i, align 2
+  %dec.i = add i16 %5, -1
+  store i16 %dec.i, ptr %uses_until_refresh7.i, align 2
+  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
+  br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
+
+_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i, %if.end.thread.i
+  %6 = phi ptr [ %0, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i ], [ %2, %if.end.thread.i ]
+  %data_ = getelementptr inbounds i8, ptr %this, i64 16
+  %7 = load i16, ptr %6, align 2
+  %conv4.i = zext i16 %7 to i64
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 8
+  %8 = load i64, ptr %shards_, align 8
+  %rem = urem i64 %conv4.i, %8
+  %9 = load ptr, ptr %data_, align 8
+  %arrayidx.i = getelementptr inbounds %"struct.grpc_core::XdsClusterLocalityStats::Stats", ptr %9, i64 %rem
+  ret ptr %arrayidx.i
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN9grpc_core23XdsClusterLocalityStats15AddCallFinishedEPKSt3mapISt17basic_string_viewIcSt11char_traitsIcEEdSt4lessIS5_ESaISt4pairIKS5_dEEEb(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readonly %named_metrics, i1 noundef zeroext %fail) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator.4", align 1
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %0, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-
-0:                                                ; preds = %entry
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i: ; preds = %0, %entry
-  %1 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
-  %uses_until_refresh.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %2 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %cmp.i.i = icmp eq i16 %2, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %call.i.i.i = tail call i32 @gpr_cpu_current_cpu()
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %3, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
-
-3:                                                ; preds = %if.then.i.i
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i: ; preds = %3, %if.then.i.i
-  %ref.tmp.sroa.0.0.insert.insert.i.i = or i32 %call.i.i.i, -65536
-  store i32 %ref.tmp.sroa.0.0.insert.insert.i.i, ptr %1, align 2
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i
-  %4 = phi i16 [ -1, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit1.i.i ], [ %2, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i ]
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i: ; preds = %if.end.i.i
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  %5 = load i16, ptr %uses_until_refresh.i.i, align 2
-  %dec.i.i = add i16 %5, -1
-  store i16 %dec.i.i, ptr %uses_until_refresh.i.i, align 2
-  tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv.exit
-
-_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i: ; preds = %if.end.i.i
-  %dec.c.i.i = add i16 %4, -1
-  store i16 %dec.c.i.i, ptr %uses_until_refresh.i.i, align 2
-  br label %_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv.exit
-
-_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit2.i.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit3.critedge.i.i
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 88
-  %6 = load i16, ptr %1, align 2
-  %conv4.i.i = zext i16 %6 to i64
-  %shards_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %7 = load i64, ptr %shards_.i, align 8
-  %rem.i = urem i64 %conv4.i.i, %7
-  %8 = load ptr, ptr %data_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.grpc_core::XdsClusterLocalityStats::Stats", ptr %8, i64 %rem.i
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 72
+  %call = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) %stats_)
   %cond-lvalue.idx = select i1 %fail, i64 16, i64 0
-  %cond-lvalue = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %cond-lvalue.idx
-  %9 = atomicrmw add ptr %cond-lvalue, i64 1 monotonic, align 8
-  %total_requests_in_progress = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %10 = atomicrmw add ptr %total_requests_in_progress, i64 -1 acq_rel, align 8
+  %cond-lvalue = getelementptr inbounds i8, ptr %call, i64 %cond-lvalue.idx
+  %0 = atomicrmw add ptr %cond-lvalue, i64 1 monotonic, align 8
+  %total_requests_in_progress = getelementptr inbounds i8, ptr %call, i64 8
+  %1 = atomicrmw add ptr %total_requests_in_progress, i64 -1 acq_rel, align 8
   %cmp = icmp eq ptr %named_metrics, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv.exit
-  %backend_metrics_mu = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
+if.end:                                           ; preds = %entry
+  %backend_metrics_mu = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %backend_metrics_mu)
   %_M_left.i.i = getelementptr inbounds i8, ptr %named_metrics, i64 24
-  %11 = load ptr, ptr %_M_left.i.i, align 8
+  %2 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %named_metrics, i64 8
-  %cmp.i.not23 = icmp eq ptr %11, %add.ptr.i.i
+  %cmp.i.not23 = icmp eq ptr %2, %add.ptr.i.i
   br i1 %cmp.i.not23, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %12 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %backend_metrics = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %backend_metrics = getelementptr inbounds i8, ptr %call, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont12
-  %__begin1.sroa.0.024 = phi ptr [ %11, %for.body.lr.ph ], [ %call.i17, %invoke.cont12 ]
+  %__begin1.sroa.0.024 = phi ptr [ %2, %for.body.lr.ph ], [ %call.i17, %invoke.cont12 ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 32
   %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 48
-  %13 = load double, ptr %second, align 8
+  %4 = load double, ptr %second, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %agg.tmp3.sroa.0.0.copyload.i = load i64, ptr %_M_storage.i.i, align 8
   %agg.tmp3.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 40
   %agg.tmp3.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp3.sroa.2.0..sroa_idx.i, align 8
   %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload.i, ptr %agg.tmp3.sroa.2.0.copyload.i) #16
-  %14 = extractvalue { i64, ptr } %call.i, 0
-  %15 = extractvalue { i64, ptr } %call.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %14, ptr %15) #16
-  %16 = load i64, ptr %agg.tmp.i, align 8
-  %17 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i64 %16, ptr %17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10)
+  %5 = extractvalue { i64, ptr } %call.i, 0
+  %6 = extractvalue { i64, ptr } %call.i, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %5, ptr %6) #16
+  %7 = load i64, ptr %agg.tmp.i, align 8
+  %8 = load ptr, ptr %3, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i64 %7, ptr %8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
@@ -1803,12 +1766,12 @@ invoke.cont:                                      ; preds = %for.body
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont
-  %18 = load i64, ptr %call13, align 8
-  %add.i = add i64 %18, 1
+  %9 = load i64, ptr %call13, align 8
+  %add.i = add i64 %9, 1
   store i64 %add.i, ptr %call13, align 8
   %total_metric_value3.i = getelementptr inbounds i8, ptr %call13, i64 8
-  %19 = load double, ptr %total_metric_value3.i, align 8
-  %add4.i = fadd double %13, %19
+  %10 = load double, ptr %total_metric_value3.i, align 8
+  %add4.i = fadd double %4, %10
   store double %add4.i, ptr %total_metric_value3.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #16
@@ -1817,27 +1780,27 @@ invoke.cont12:                                    ; preds = %invoke.cont
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 lpad:                                             ; preds = %for.body
-  %20 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont
-  %21 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad
-  %.pn = phi { ptr, i32 } [ %21, %lpad11 ], [ %20, %lpad ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad11 ], [ %11, %lpad ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #16
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %backend_metrics_mu)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %ehcleanup
-  %22 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #17
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #17
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %ehcleanup
@@ -1848,13 +1811,13 @@ for.end:                                          ; preds = %invoke.cont12, %if.
           to label %return unwind label %terminate.lpad.i18
 
 terminate.lpad.i18:                               ; preds = %for.end
-  %24 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #17
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #17
   unreachable
 
-return:                                           ; preds = %for.end, %_ZN9grpc_core6PerCpuINS_23XdsClusterLocalityStats5StatsEE8this_cpuEv.exit
+return:                                           ; preds = %for.end, %entry
   ret void
 }
 

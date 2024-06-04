@@ -1691,20 +1691,22 @@ if.end7:                                          ; preds = %if.then6, %do.end5
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %act.i)
   call void @serverLogRawFromHandler(i32 noundef 1027, ptr noundef nonnull @.str.289) #22
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3788), align 4
-  %tobool.i = icmp ne i32 %2, 0
+  %tobool.not.i = icmp ne i32 %2, 0
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3780), align 4
   %cmp.i = icmp eq i32 %3, 0
-  %or.cond.i = select i1 %tobool.i, i1 %cmp.i, i1 false
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 144), align 8
-  %tobool2.i = icmp ne ptr %4, null
-  %or.cond1.i = select i1 %or.cond.i, i1 %tobool2.i, i1 false
-  br i1 %or.cond1.i, label %if.then.i4, label %if.end.i
+  %or.cond.i = select i1 %tobool.not.i, i1 %cmp.i, i1 false
+  br i1 %or.cond.i, label %land.lhs.true1.i, label %if.end.i
 
-if.then.i4:                                       ; preds = %if.end7
+land.lhs.true1.i:                                 ; preds = %if.end7
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 144), align 8
+  %tobool2.not.i = icmp eq ptr %4, null
+  br i1 %tobool2.not.i, label %if.end.i, label %if.then.i4
+
+if.then.i4:                                       ; preds = %land.lhs.true1.i
   %call.i5 = call i32 @unlink(ptr noundef nonnull %4) #22
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i4, %if.end7
+if.end.i:                                         ; preds = %if.then.i4, %land.lhs.true1.i, %if.end7
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4340), align 4
   %tobool5.not.i = icmp eq i32 %5, 0
   br i1 %tobool5.not.i, label %if.end8.i, label %if.then6.i
@@ -1816,20 +1818,22 @@ if.end16:                                         ; preds = %if.then15, %do.end1
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %act.i)
   call void @serverLogRawFromHandler(i32 noundef 1027, ptr noundef nonnull @.str.289) #22
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3788), align 4
-  %tobool.i = icmp ne i32 %2, 0
+  %tobool.not.i = icmp ne i32 %2, 0
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3780), align 4
   %cmp.i = icmp eq i32 %3, 0
-  %or.cond.i = select i1 %tobool.i, i1 %cmp.i, i1 false
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 144), align 8
-  %tobool2.i = icmp ne ptr %4, null
-  %or.cond1.i = select i1 %or.cond.i, i1 %tobool2.i, i1 false
-  br i1 %or.cond1.i, label %if.then.i4, label %if.end.i
+  %or.cond.i = select i1 %tobool.not.i, i1 %cmp.i, i1 false
+  br i1 %or.cond.i, label %land.lhs.true1.i, label %if.end.i
 
-if.then.i4:                                       ; preds = %if.end16
+land.lhs.true1.i:                                 ; preds = %if.end16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 144), align 8
+  %tobool2.not.i = icmp eq ptr %4, null
+  br i1 %tobool2.not.i, label %if.end.i, label %if.then.i4
+
+if.then.i4:                                       ; preds = %land.lhs.true1.i
   %call.i5 = call i32 @unlink(ptr noundef nonnull %4) #22
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i4, %if.end16
+if.end.i:                                         ; preds = %if.then.i4, %land.lhs.true1.i, %if.end16
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4340), align 4
   %tobool5.not.i = icmp eq i32 %5, 0
   br i1 %tobool5.not.i, label %if.end8.i, label %if.then6.i
@@ -4527,20 +4531,22 @@ entry:
   %act = alloca %struct.sigaction, align 8
   tail call void @serverLogRawFromHandler(i32 noundef 1027, ptr noundef nonnull @.str.289) #22
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3788), align 4
-  %tobool = icmp ne i32 %0, 0
+  %tobool.not = icmp ne i32 %0, 0
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3780), align 4
   %cmp = icmp eq i32 %1, 0
-  %or.cond = select i1 %tobool, i1 %cmp, i1 false
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 144), align 8
-  %tobool2 = icmp ne ptr %2, null
-  %or.cond1 = select i1 %or.cond, i1 %tobool2, i1 false
-  br i1 %or.cond1, label %if.then, label %if.end
+  %or.cond = select i1 %tobool.not, i1 %cmp, i1 false
+  br i1 %or.cond, label %land.lhs.true1, label %if.end
 
-if.then:                                          ; preds = %entry
+land.lhs.true1:                                   ; preds = %entry
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 144), align 8
+  %tobool2.not = icmp eq ptr %2, null
+  br i1 %tobool2.not, label %if.end, label %if.then
+
+if.then:                                          ; preds = %land.lhs.true1
   %call = tail call i32 @unlink(ptr noundef nonnull %2) #22
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %entry
+if.end:                                           ; preds = %if.then, %land.lhs.true1, %entry
   %tobool3.not = icmp eq i32 %killViaSignal, 0
   br i1 %tobool3.not, label %if.then4, label %if.end9
 
@@ -5936,7 +5942,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define internal void @sigsegvHandler(i32 noundef %sig, ptr nocapture noundef readonly %info, ptr nocapture noundef %secret) #0 {
 entry:
-  %act.i32 = alloca %struct.sigaction, align 8
+  %act.i30 = alloca %struct.sigaction, align 8
   %act.i = alloca %struct.sigaction, align 8
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @signal_handler_lock) #22
   %cmp = icmp eq i32 %call, 35
@@ -5947,20 +5953,22 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %act.i)
   tail call void @serverLogRawFromHandler(i32 noundef 1027, ptr noundef nonnull @.str.289) #22
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3788), align 4
-  %tobool.i = icmp ne i32 %0, 0
+  %tobool.not.i = icmp ne i32 %0, 0
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3780), align 4
   %cmp.i = icmp eq i32 %1, 0
-  %or.cond.i = select i1 %tobool.i, i1 %cmp.i, i1 false
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 144), align 8
-  %tobool2.i = icmp ne ptr %2, null
-  %or.cond1.i = select i1 %or.cond.i, i1 %tobool2.i, i1 false
-  br i1 %or.cond1.i, label %if.then.i, label %bugReportEnd.exit
+  %or.cond.i = select i1 %tobool.not.i, i1 %cmp.i, i1 false
+  br i1 %or.cond.i, label %land.lhs.true1.i, label %bugReportEnd.exit
 
-if.then.i:                                        ; preds = %if.then
+land.lhs.true1.i:                                 ; preds = %if.then
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 144), align 8
+  %tobool2.not.i = icmp eq ptr %2, null
+  br i1 %tobool2.not.i, label %bugReportEnd.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %land.lhs.true1.i
   %call.i = tail call i32 @unlink(ptr noundef nonnull %2) #22
   br label %bugReportEnd.exit
 
-bugReportEnd.exit:                                ; preds = %if.then, %if.then.i
+bugReportEnd.exit:                                ; preds = %if.then, %land.lhs.true1.i, %if.then.i
   %sa_mask.i = getelementptr inbounds i8, ptr %act.i, i64 8
   %call10.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #22
   %sa_flags.i = getelementptr inbounds i8, ptr %act.i, i64 136
@@ -5973,81 +5981,85 @@ bugReportEnd.exit:                                ; preds = %if.then, %if.then.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i26 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @bug_report_start_mutex) #22
+  %call.i23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @bug_report_start_mutex) #22
   %.b.i = load i1, ptr @bug_report_start, align 4
-  br i1 %.b.i, label %bugReportStart.exit, label %if.then.i27
+  br i1 %.b.i, label %bugReportStart.exit, label %if.then.i24
 
-if.then.i27:                                      ; preds = %if.end
+if.then.i24:                                      ; preds = %if.end
   tail call void @serverLogRaw(i32 noundef 1027, ptr noundef nonnull @.str.248) #22
   store i1 true, ptr @bug_report_start, align 4
   br label %bugReportStart.exit
 
-bugReportStart.exit:                              ; preds = %if.end, %if.then.i27
+bugReportStart.exit:                              ; preds = %if.end, %if.then.i24
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @bug_report_start_mutex) #22
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp1 = icmp sgt i32 %3, 3
-  br i1 %cmp1, label %if.end12, label %do.end
+  br i1 %cmp1, label %do.end, label %if.end3
 
-do.end:                                           ; preds = %bugReportStart.exit
+if.end3:                                          ; preds = %bugReportStart.exit
   %si_code = getelementptr inbounds i8, ptr %info, i64 8
   %4 = load i32, ptr %si_code, align 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.313, ptr noundef nonnull @.str.314, i32 noundef %sig, i32 noundef %4) #22
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp4 = icmp ne i32 %sig, 11
-  %cmp5 = icmp ne i32 %sig, 7
-  %or.cond.not25 = and i1 %cmp4, %cmp5
-  %cmp8 = icmp sgt i32 %.pre, 3
-  %or.cond1 = select i1 %or.cond.not25, i1 true, i1 %cmp8
-  br i1 %or.cond1, label %if.end12, label %if.end10
+  br label %do.end
 
-if.end10:                                         ; preds = %do.end
+do.end:                                           ; preds = %bugReportStart.exit, %if.end3
+  switch i32 %sig, label %if.end12 [
+    i32 11, label %do.body7
+    i32 7, label %do.body7
+  ]
+
+do.body7:                                         ; preds = %do.end, %do.end
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp8 = icmp sgt i32 %5, 3
+  br i1 %cmp8, label %if.end12, label %if.end10
+
+if.end10:                                         ; preds = %do.body7
   %_sifields = getelementptr inbounds i8, ptr %info, i64 16
-  %5 = load ptr, ptr %_sifields, align 8
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.315, ptr noundef %5) #22
-  %.pre48.pre = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %6 = load ptr, ptr %_sifields, align 8
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.315, ptr noundef %6) #22
   br label %if.end12
 
-if.end12:                                         ; preds = %bugReportStart.exit, %if.end10, %do.end
-  %.pre48 = phi i32 [ %.pre48.pre, %if.end10 ], [ %.pre, %do.end ], [ %3, %bugReportStart.exit ]
+if.end12:                                         ; preds = %do.end, %if.end10, %do.body7
   %si_code13 = getelementptr inbounds i8, ptr %info, i64 8
-  %6 = load i32, ptr %si_code13, align 8
-  %cmp14 = icmp eq i32 %6, 0
+  %7 = load i32, ptr %si_code13, align 8
+  %cmp14 = icmp eq i32 %7, 0
+  %.pre45 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   br i1 %cmp14, label %land.lhs.true, label %if.end26
 
 land.lhs.true:                                    ; preds = %if.end12
   %_sifields15 = getelementptr inbounds i8, ptr %info, i64 16
-  %7 = load i32, ptr %_sifields15, align 8
-  %cmp16 = icmp eq i32 %7, -1
-  %cmp19 = icmp sgt i32 %.pre48, 3
-  %or.cond2 = select i1 %cmp16, i1 true, i1 %cmp19
-  br i1 %or.cond2, label %if.end26, label %if.end21
+  %8 = load i32, ptr %_sifields15, align 8
+  %cmp16.not = icmp eq i32 %8, -1
+  %cmp19 = icmp sgt i32 %.pre45, 3
+  %or.cond = select i1 %cmp16.not, i1 true, i1 %cmp19
+  br i1 %or.cond, label %if.end26, label %if.end21
 
 if.end21:                                         ; preds = %land.lhs.true
-  %conv = sext i32 %7 to i64
+  %conv = sext i32 %8 to i64
   %si_uid = getelementptr inbounds i8, ptr %info, i64 20
-  %8 = load i32, ptr %si_uid, align 4
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.316, i64 noundef %conv, i32 noundef %8) #22
-  %.pre47 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %9 = load i32, ptr %si_uid, align 4
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.316, i64 noundef %conv, i32 noundef %9) #22
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end21, %land.lhs.true, %if.end12
-  %9 = phi i32 [ %.pre47, %if.end21 ], [ %.pre48, %land.lhs.true ], [ %.pre48, %if.end12 ]
+  %10 = phi i32 [ %.pre, %if.end21 ], [ %.pre45, %land.lhs.true ], [ %.pre45, %if.end12 ]
   %arrayidx.i = getelementptr inbounds i8, ptr %secret, i64 168
-  %10 = load i64, ptr %arrayidx.i, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %cmp28 = icmp eq i64 %10, 0
-  %cmp32 = icmp sgt i32 %9, 3
-  %or.cond3 = select i1 %cmp28, i1 true, i1 %cmp32
-  br i1 %or.cond3, label %if.end37, label %if.end35
+  %11 = load i64, ptr %arrayidx.i, align 8
+  %12 = inttoptr i64 %11 to ptr
+  %cmp28.not = icmp eq i64 %11, 0
+  %cmp32 = icmp sgt i32 %10, 3
+  %or.cond22 = select i1 %cmp28.not, i1 true, i1 %cmp32
+  br i1 %or.cond22, label %if.end37, label %if.end35
 
 if.end35:                                         ; preds = %if.end26
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.317, ptr noundef nonnull %11) #22
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.317, ptr noundef nonnull %12) #22
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end35, %if.end26
   %_sifields38 = getelementptr inbounds i8, ptr %info, i64 16
-  %12 = load ptr, ptr %_sifields38, align 8
-  %cmp40 = icmp eq ptr %12, %11
+  %13 = load ptr, ptr %_sifields38, align 8
+  %cmp40 = icmp eq ptr %13, %12
   br i1 %cmp40, label %if.then42, label %if.end44
 
 if.then42:                                        ; preds = %if.end37
@@ -6055,25 +6067,25 @@ if.then42:                                        ; preds = %if.end37
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then42, %if.end37
-  tail call void @logStackTrace(ptr noundef %11, i32 noundef 1)
-  %13 = load ptr, ptr %_sifields38, align 8
-  %cmp47 = icmp eq ptr %13, %11
+  tail call void @logStackTrace(ptr noundef %12, i32 noundef 1)
+  %14 = load ptr, ptr %_sifields38, align 8
+  %cmp47 = icmp eq ptr %14, %12
   br i1 %cmp47, label %if.then49, label %if.end51
 
 if.then49:                                        ; preds = %if.end44
-  br i1 %cmp28, label %if.end55.critedge, label %if.then.i31
+  br i1 %cmp28.not, label %if.end55.critedge, label %if.then.i29
 
-if.then.i31:                                      ; preds = %if.then49
-  store ptr %11, ptr %arrayidx.i, align 8
+if.then.i29:                                      ; preds = %if.then49
+  store ptr %12, ptr %arrayidx.i, align 8
   br label %if.end51
 
-if.end51:                                         ; preds = %if.then.i31, %if.end44
+if.end51:                                         ; preds = %if.then.i29, %if.end44
   tail call void @logRegisters(ptr noundef nonnull %secret)
   tail call void @printCrashReport()
-  br i1 %cmp28, label %if.end55, label %if.then54
+  br i1 %cmp28.not, label %if.end55, label %if.then54
 
 if.then54:                                        ; preds = %if.end51
-  tail call void @dumpCodeAroundEIP(ptr noundef nonnull %11)
+  tail call void @dumpCodeAroundEIP(ptr noundef nonnull %12)
   br label %if.end55
 
 if.end55.critedge:                                ; preds = %if.then49
@@ -6082,35 +6094,37 @@ if.end55.critedge:                                ; preds = %if.then49
   br label %if.end55
 
 if.end55:                                         ; preds = %if.end55.critedge, %if.then54, %if.end51
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %act.i32)
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %act.i30)
   tail call void @serverLogRawFromHandler(i32 noundef 1027, ptr noundef nonnull @.str.289) #22
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3788), align 4
-  %tobool.i33 = icmp ne i32 %14, 0
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3780), align 4
-  %cmp.i34 = icmp eq i32 %15, 0
-  %or.cond.i35 = select i1 %tobool.i33, i1 %cmp.i34, i1 false
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 144), align 8
-  %tobool2.i36 = icmp ne ptr %16, null
-  %or.cond1.i37 = select i1 %or.cond.i35, i1 %tobool2.i36, i1 false
-  br i1 %or.cond1.i37, label %if.then.i44, label %bugReportEnd.exit46
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3788), align 4
+  %tobool.not.i31 = icmp ne i32 %15, 0
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3780), align 4
+  %cmp.i32 = icmp eq i32 %16, 0
+  %or.cond.i33 = select i1 %tobool.not.i31, i1 %cmp.i32, i1 false
+  br i1 %or.cond.i33, label %land.lhs.true1.i40, label %bugReportEnd.exit44
 
-if.then.i44:                                      ; preds = %if.end55
-  %call.i45 = tail call i32 @unlink(ptr noundef nonnull %16) #22
-  br label %bugReportEnd.exit46
+land.lhs.true1.i40:                               ; preds = %if.end55
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 144), align 8
+  %tobool2.not.i41 = icmp eq ptr %17, null
+  br i1 %tobool2.not.i41, label %bugReportEnd.exit44, label %if.then.i42
 
-bugReportEnd.exit46:                              ; preds = %if.end55, %if.then.i44
-  %sa_mask.i38 = getelementptr inbounds i8, ptr %act.i32, i64 8
-  %call10.i39 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i38) #22
-  %sa_flags.i40 = getelementptr inbounds i8, ptr %act.i32, i64 136
-  store i32 0, ptr %sa_flags.i40, align 8
-  store ptr null, ptr %act.i32, align 8
-  %call11.i41 = call i32 @sigaction(i32 noundef %sig, ptr noundef nonnull %act.i32, ptr noundef null) #22
-  %call12.i42 = call i32 @getpid() #22
-  %call13.i43 = call i32 @kill(i32 noundef %call12.i42, i32 noundef %sig) #22
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %act.i32)
+if.then.i42:                                      ; preds = %land.lhs.true1.i40
+  %call.i43 = tail call i32 @unlink(ptr noundef nonnull %17) #22
+  br label %bugReportEnd.exit44
+
+bugReportEnd.exit44:                              ; preds = %if.end55, %land.lhs.true1.i40, %if.then.i42
+  %sa_mask.i34 = getelementptr inbounds i8, ptr %act.i30, i64 8
+  %call10.i35 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i34) #22
+  %sa_flags.i36 = getelementptr inbounds i8, ptr %act.i30, i64 136
+  store i32 0, ptr %sa_flags.i36, align 8
+  store ptr null, ptr %act.i30, align 8
+  %call11.i37 = call i32 @sigaction(i32 noundef %sig, ptr noundef nonnull %act.i30, ptr noundef null) #22
+  %call12.i38 = call i32 @getpid() #22
+  %call13.i39 = call i32 @kill(i32 noundef %call12.i38, i32 noundef %sig) #22
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %act.i30)
   br label %return
 
-return:                                           ; preds = %bugReportEnd.exit46, %bugReportEnd.exit
+return:                                           ; preds = %bugReportEnd.exit44, %bugReportEnd.exit
   ret void
 }
 

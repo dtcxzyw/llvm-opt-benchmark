@@ -202,7 +202,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
   %m_test_dir = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !7
   %1 = getelementptr inbounds i8, ptr %this, i64 32
@@ -1796,7 +1796,7 @@ invoke.cont65:                                    ; preds = %if.end.i839, %land.
   br i1 %exitcond1351.not, label %for.cond.cleanup59, label %for.body60, !llvm.loop !80
 
 invoke.cont76:                                    ; preds = %for.cond.cleanup47
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8MMVManip, i64 16), ptr %vm, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8MMVManip, i64 16), ptr %vm, align 8, !tbaa !4
   %m_loaded_blocks.i = getelementptr inbounds i8, ptr %vm, i64 64
   %_M_parent.i.i.i.i.i855 = getelementptr inbounds i8, ptr %vm, i64 80
   %41 = load ptr, ptr %_M_parent.i.i.i.i.i855, align 8, !tbaa !58
@@ -1957,7 +1957,7 @@ invoke.cont138:                                   ; preds = %invoke.cont136
 
 ehcleanup77:                                      ; preds = %lpad11, %lpad9
   %.pn761.pn = phi { ptr, i32 } [ %7, %lpad9 ], [ %8, %lpad11 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8MMVManip, i64 16), ptr %vm, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8MMVManip, i64 16), ptr %vm, align 8, !tbaa !4
   %m_loaded_blocks.i895 = getelementptr inbounds i8, ptr %vm, i64 64
   %_M_parent.i.i.i.i.i896 = getelementptr inbounds i8, ptr %vm, i64 80
   %58 = load ptr, ptr %_M_parent.i.i.i.i.i896, align 8, !tbaa !58
@@ -3256,7 +3256,7 @@ entry:
   %bpmin.sroa.3.0.extract.shift = lshr i48 %bpmin.coerce, 32
   %bpmin.sroa.3.0.extract.trunc = trunc nuw i48 %bpmin.sroa.3.0.extract.shift to i16
   tail call void @_ZN3MapC2EP8IGameDef(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %gamedef)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTV8DummyMap, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8DummyMap, i64 16), ptr %this, align 8, !tbaa !4
   %sh.diff = lshr i48 %bpmax.coerce, 16
   %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %conv4 = ashr i32 %tr.sh.diff, 16
@@ -3631,7 +3631,7 @@ declare void @_ZN7voxalgo20blit_back_with_lightEP3MapP8MMVManipPSt3mapIN3irr4cor
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8MMVManipD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8MMVManip, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8MMVManip, i64 16), ptr %this, align 8, !tbaa !4
   %m_loaded_blocks = getelementptr inbounds i8, ptr %this, i64 64
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !58
@@ -3918,7 +3918,7 @@ declare void @_ZN16VoxelManipulatorD2Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8MMVManipD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8MMVManip, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8MMVManip, i64 16), ptr %this, align 8, !tbaa !4
   %m_loaded_blocks.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !58
@@ -4111,14 +4111,14 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !48
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !50
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV19TestVoxelAlgorithms, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV19TestVoxelAlgorithms, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !7
   %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32)
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i

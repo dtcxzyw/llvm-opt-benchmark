@@ -81,7 +81,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %3, ptr %add.ptr, align 8, !tbaa !3
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 184), ptr %add.ptr3, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 184), ptr %add.ptr3, align 8, !tbaa !3
   %WithTexture = getelementptr inbounds i8, ptr %this, i64 76
   store i8 %frombool, ptr %WithTexture, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %Temp) #9
@@ -178,16 +178,16 @@ entry:
   %TextureUsage = alloca i32, align 4
   %frombool = zext i1 %withTexture to i8
   %0 = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %DebugName.i, align 8, !tbaa !39
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !41
   tail call void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video18COpenGL3Renderer2DE, i64 8), ptr noundef %driver, ptr noundef null, i32 noundef 0, i32 noundef 0) #9
-  store ptr getelementptr inbounds inrange(-24, 144) (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 304), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 304), ptr %0, align 8, !tbaa !3
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 184), ptr %add.ptr2, align 8, !tbaa !3
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video18COpenGL3Renderer2DE, i64 184), ptr %add.ptr2, align 8, !tbaa !3
   %WithTexture = getelementptr inbounds i8, ptr %this, i64 76
   store i8 %frombool, ptr %WithTexture, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %Temp) #9

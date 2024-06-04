@@ -1227,8 +1227,8 @@ define hidden void @php_filter_validate_regexp(ptr noundef %0, i64 noundef %1, p
 6:                                                ; preds = %4
   %7 = load ptr, ptr %2, align 8
   %8 = tail call ptr @zend_hash_str_find(ptr noundef %7, ptr noundef nonnull @.str.14, i64 noundef 6) #14
-  %.not50 = icmp eq ptr %8, null
-  br i1 %.not50, label %19, label %9
+  %.not49 = icmp eq ptr %8, null
+  br i1 %.not49, label %19, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %8, i64 8
@@ -1253,75 +1253,75 @@ define hidden void @php_filter_validate_regexp(ptr noundef %0, i64 noundef %1, p
   %20 = tail call ptr @get_active_function_name() #14
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.15, ptr noundef %20) #14
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not53 = icmp eq ptr %21, null
-  br i1 %.not53, label %22, label %62
+  %.not52 = icmp eq ptr %21, null
+  br i1 %.not52, label %22, label %61
 
 22:                                               ; preds = %19
   %23 = and i64 %1, 134217728
-  %.not54 = icmp eq i64 %23, 0
+  %.not53 = icmp eq i64 %23, 0
   tail call void @zval_ptr_dtor(ptr noundef %0) #14
   %24 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not54, label %26, label %25
+  br i1 %.not53, label %26, label %25
 
 25:                                               ; preds = %22
   store i32 1, ptr %24, align 8
-  br label %62
+  br label %61
 
 26:                                               ; preds = %22
   store i32 2, ptr %24, align 8
-  br label %62
+  br label %61
 
 27:                                               ; preds = %16
   %28 = load ptr, ptr %.0.ph, align 8
   %29 = call ptr @pcre_get_compiled_regex(ptr noundef %28, ptr noundef nonnull %5) #14
-  %.not55 = icmp eq ptr %29, null
-  br i1 %.not55, label %30, label %37
+  %.not54 = icmp eq ptr %29, null
+  br i1 %.not54, label %30, label %37
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not56 = icmp eq ptr %31, null
-  br i1 %.not56, label %32, label %62
+  %.not55 = icmp eq ptr %31, null
+  br i1 %.not55, label %32, label %61
 
 32:                                               ; preds = %30
   %33 = and i64 %1, 134217728
-  %.not57 = icmp eq i64 %33, 0
+  %.not56 = icmp eq i64 %33, 0
   call void @zval_ptr_dtor(ptr noundef %0) #14
   %34 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not57, label %36, label %35
+  br i1 %.not56, label %36, label %35
 
 35:                                               ; preds = %32
   store i32 1, ptr %34, align 8
-  br label %62
+  br label %61
 
 36:                                               ; preds = %32
   store i32 2, ptr %34, align 8
-  br label %62
+  br label %61
 
 37:                                               ; preds = %27
   %38 = load i32, ptr %5, align 4
   %39 = call ptr @php_pcre_create_match_data(i32 noundef %38, ptr noundef nonnull %29) #14
-  %.not58 = icmp eq ptr %39, null
-  br i1 %.not58, label %40, label %47
+  %.not57 = icmp eq ptr %39, null
+  br i1 %.not57, label %40, label %47
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not59 = icmp eq ptr %41, null
-  br i1 %.not59, label %42, label %62
+  %.not58 = icmp eq ptr %41, null
+  br i1 %.not58, label %42, label %61
 
 42:                                               ; preds = %40
   %43 = and i64 %1, 134217728
-  %.not60 = icmp eq i64 %43, 0
+  %.not59 = icmp eq i64 %43, 0
   call void @zval_ptr_dtor(ptr noundef %0) #14
   %44 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not60, label %46, label %45
+  br i1 %.not59, label %46, label %45
 
 45:                                               ; preds = %42
   store i32 1, ptr %44, align 8
-  br label %62
+  br label %61
 
 46:                                               ; preds = %42
   store i32 2, ptr %44, align 8
-  br label %62
+  br label %61
 
 47:                                               ; preds = %37
   %48 = load ptr, ptr %0, align 8
@@ -1331,28 +1331,28 @@ define hidden void @php_filter_validate_regexp(ptr noundef %0, i64 noundef %1, p
   %52 = call ptr @php_pcre_mctx() #14
   %53 = call i32 @php_pcre2_match(ptr noundef nonnull %29, ptr noundef nonnull %49, i64 noundef %51, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %39, ptr noundef %52) #14
   call void @php_pcre_free_match_data(ptr noundef nonnull %39) #14
-  %54 = icmp sgt i32 %53, -1
+  %54 = icmp slt i32 %53, 0
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %56 = icmp ne ptr %55, null
-  %or.cond = select i1 %54, i1 true, i1 %56
-  br i1 %or.cond, label %62, label %57
+  %.not60 = icmp eq ptr %55, null
+  %or.cond = select i1 %54, i1 %.not60, i1 false
+  br i1 %or.cond, label %56, label %61
 
-57:                                               ; preds = %47
-  %58 = and i64 %1, 134217728
-  %.not61 = icmp eq i64 %58, 0
+56:                                               ; preds = %47
+  %57 = and i64 %1, 134217728
+  %.not61 = icmp eq i64 %57, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not61, label %61, label %60
+  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not61, label %60, label %59
 
-60:                                               ; preds = %57
-  store i32 1, ptr %59, align 8
-  br label %62
+59:                                               ; preds = %56
+  store i32 1, ptr %58, align 8
+  br label %61
 
-61:                                               ; preds = %57
-  store i32 2, ptr %59, align 8
-  br label %62
+60:                                               ; preds = %56
+  store i32 2, ptr %58, align 8
+  br label %61
 
-62:                                               ; preds = %61, %60, %46, %45, %40, %36, %35, %30, %26, %25, %19, %47
+61:                                               ; preds = %60, %59, %46, %45, %40, %36, %35, %30, %26, %25, %19, %47
   ret void
 }
 
@@ -1373,22 +1373,22 @@ define hidden void @php_filter_validate_domain(ptr noundef %0, i64 noundef %1, p
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call fastcc i32 @_php_filter_validate_domain(ptr noundef nonnull %6, i64 noundef %8, i64 noundef %1)
-  %10 = icmp ne i32 %9, 0
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %12 = icmp ne ptr %11, null
-  %or.cond = select i1 %10, i1 true, i1 %12
-  br i1 %or.cond, label %15, label %.sink.split
+  %.not = icmp eq i32 %9, 0
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not7 = icmp eq ptr %10, null
+  %or.cond = select i1 %.not, i1 %.not7, i1 false
+  br i1 %or.cond, label %.sink.split, label %13
 
 .sink.split:                                      ; preds = %4
-  %13 = and i64 %1, 134217728
-  %.not = icmp eq i64 %13, 0
+  %11 = and i64 %1, 134217728
+  %.not8 = icmp eq i64 %11, 0
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %. = select i1 %.not, i32 2, i32 1
-  store i32 %., ptr %14, align 8
-  br label %15
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %. = select i1 %.not8, i32 2, i32 1
+  store i32 %., ptr %12, align 8
+  br label %13
 
-15:                                               ; preds = %.sink.split, %4
+13:                                               ; preds = %.sink.split, %4
   ret void
 }
 
@@ -2288,7 +2288,7 @@ define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, pt
 10:                                               ; preds = %4
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not109 = icmp eq ptr %11, null
-  br i1 %.not109, label %12, label %69
+  br i1 %.not109, label %12, label %68
 
 12:                                               ; preds = %10
   %13 = and i64 %1, 134217728
@@ -2299,11 +2299,11 @@ define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, pt
 
 15:                                               ; preds = %12
   store i32 1, ptr %14, align 8
-  br label %69
+  br label %68
 
 16:                                               ; preds = %12
   store i32 2, ptr %14, align 8
-  br label %69
+  br label %68
 
 17:                                               ; preds = %4
   %18 = and i64 %1, 1048576
@@ -2327,8 +2327,8 @@ define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, pt
   %27 = call ptr @pcre_get_compiled_regex(ptr noundef nonnull %21, ptr noundef nonnull %5) #14
   %28 = load i32, ptr %22, align 4
   %29 = and i32 %28, 64
-  %.not101 = icmp eq i32 %29, 0
-  br i1 %.not101, label %30, label %36
+  %.not100 = icmp eq i32 %29, 0
+  br i1 %.not100, label %30, label %36
 
 30:                                               ; preds = %17
   %31 = load i32, ptr %21, align 4
@@ -2344,54 +2344,54 @@ define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, pt
   br label %36
 
 36:                                               ; preds = %30, %35, %17
-  %.not102 = icmp eq ptr %27, null
-  br i1 %.not102, label %37, label %44
+  %.not101 = icmp eq ptr %27, null
+  br i1 %.not101, label %37, label %44
 
 37:                                               ; preds = %36
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not103 = icmp eq ptr %38, null
-  br i1 %.not103, label %39, label %69
+  %.not102 = icmp eq ptr %38, null
+  br i1 %.not102, label %39, label %68
 
 39:                                               ; preds = %37
   %40 = and i64 %1, 134217728
-  %.not104 = icmp eq i64 %40, 0
+  %.not103 = icmp eq i64 %40, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not104, label %43, label %42
+  br i1 %.not103, label %43, label %42
 
 42:                                               ; preds = %39
   store i32 1, ptr %41, align 8
-  br label %69
+  br label %68
 
 43:                                               ; preds = %39
   store i32 2, ptr %41, align 8
-  br label %69
+  br label %68
 
 44:                                               ; preds = %36
   %45 = load i32, ptr %5, align 4
   %46 = call ptr @php_pcre_create_match_data(i32 noundef %45, ptr noundef nonnull %27) #14
-  %.not105 = icmp eq ptr %46, null
-  br i1 %.not105, label %47, label %54
+  %.not104 = icmp eq ptr %46, null
+  br i1 %.not104, label %47, label %54
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not106 = icmp eq ptr %48, null
-  br i1 %.not106, label %49, label %69
+  %.not105 = icmp eq ptr %48, null
+  br i1 %.not105, label %49, label %68
 
 49:                                               ; preds = %47
   %50 = and i64 %1, 134217728
-  %.not107 = icmp eq i64 %50, 0
+  %.not106 = icmp eq i64 %50, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
   %51 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not107, label %53, label %52
+  br i1 %.not106, label %53, label %52
 
 52:                                               ; preds = %49
   store i32 1, ptr %51, align 8
-  br label %69
+  br label %68
 
 53:                                               ; preds = %49
   store i32 2, ptr %51, align 8
-  br label %69
+  br label %68
 
 54:                                               ; preds = %44
   %55 = load ptr, ptr %0, align 8
@@ -2401,28 +2401,28 @@ define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, pt
   %59 = call ptr @php_pcre_mctx() #14
   %60 = call i32 @php_pcre2_match(ptr noundef nonnull %27, ptr noundef nonnull %56, i64 noundef %58, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %46, ptr noundef %59) #14
   call void @php_pcre_free_match_data(ptr noundef nonnull %46) #14
-  %61 = icmp sgt i32 %60, -1
+  %61 = icmp slt i32 %60, 0
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %63 = icmp ne ptr %62, null
-  %or.cond = select i1 %61, i1 true, i1 %63
-  br i1 %or.cond, label %69, label %64
+  %.not107 = icmp eq ptr %62, null
+  %or.cond = select i1 %61, i1 %.not107, i1 false
+  br i1 %or.cond, label %63, label %68
 
-64:                                               ; preds = %54
-  %65 = and i64 %1, 134217728
-  %.not108 = icmp eq i64 %65, 0
+63:                                               ; preds = %54
+  %64 = and i64 %1, 134217728
+  %.not108 = icmp eq i64 %64, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not108, label %68, label %67
+  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not108, label %67, label %66
 
-67:                                               ; preds = %64
-  store i32 1, ptr %66, align 8
-  br label %69
+66:                                               ; preds = %63
+  store i32 1, ptr %65, align 8
+  br label %68
 
-68:                                               ; preds = %64
-  store i32 2, ptr %66, align 8
-  br label %69
+67:                                               ; preds = %63
+  store i32 2, ptr %65, align 8
+  br label %68
 
-69:                                               ; preds = %68, %67, %53, %52, %47, %43, %42, %37, %16, %15, %10, %54
+68:                                               ; preds = %67, %66, %53, %52, %47, %43, %42, %37, %16, %15, %10, %54
   ret void
 }
 
@@ -2442,20 +2442,20 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
 
 11:                                               ; preds = %4
   %12 = tail call ptr @memchr(ptr noundef nonnull %7, i32 noundef 46, i64 noundef %9) #15
-  %.not235 = icmp eq ptr %12, null
-  br i1 %.not235, label %13, label %20
+  %.not229 = icmp eq ptr %12, null
+  br i1 %.not229, label %13, label %20
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not236 = icmp eq ptr %14, null
-  br i1 %.not236, label %15, label %.thread
+  %.not230 = icmp eq ptr %14, null
+  br i1 %.not230, label %15, label %.thread
 
 15:                                               ; preds = %13
   %16 = and i64 %1, 134217728
-  %.not237 = icmp eq i64 %16, 0
+  %.not231 = icmp eq i64 %16, 0
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
   %17 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not237, label %19, label %18
+  br i1 %.not231, label %19, label %18
 
 18:                                               ; preds = %15
   store i32 1, ptr %17, align 8
@@ -2468,11 +2468,11 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
 20:                                               ; preds = %11, %4
   %21 = and i64 %1, 1048576
   %22 = icmp ne i64 %21, 0
-  %.not270 = xor i1 %22, true
+  %.not266 = xor i1 %22, true
   %23 = and i64 %1, 2097152
-  %.not238 = icmp eq i64 %23, 0
-  %or.cond271 = or i1 %.not238, %.not270
-  br i1 %or.cond271, label %24, label %40
+  %.not232 = icmp eq i64 %23, 0
+  %or.cond267 = or i1 %.not232, %.not266
+  br i1 %or.cond267, label %24, label %40
 
 24:                                               ; preds = %20
   %or.cond = and i1 %22, %.not
@@ -2480,15 +2480,15 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
 
 25:                                               ; preds = %24
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not242 = icmp eq ptr %26, null
-  br i1 %.not242, label %27, label %.thread
+  %.not236 = icmp eq ptr %26, null
+  br i1 %.not236, label %27, label %.thread
 
 27:                                               ; preds = %25
   %28 = and i64 %1, 134217728
-  %.not243 = icmp eq i64 %28, 0
+  %.not237 = icmp eq i64 %28, 0
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not243, label %31, label %30
+  br i1 %.not237, label %31, label %30
 
 30:                                               ; preds = %27
   store i32 1, ptr %29, align 8
@@ -2499,20 +2499,20 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   br label %.thread
 
 32:                                               ; preds = %24
-  %or.cond3.not = or i1 %.not238, %.not
+  %or.cond3.not = or i1 %.not232, %.not
   br i1 %or.cond3.not, label %40, label %33
 
 33:                                               ; preds = %32
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not240 = icmp eq ptr %34, null
-  br i1 %.not240, label %35, label %.thread
+  %.not234 = icmp eq ptr %34, null
+  br i1 %.not234, label %35, label %.thread
 
 35:                                               ; preds = %33
   %36 = and i64 %1, 134217728
-  %.not241 = icmp eq i64 %36, 0
+  %.not235 = icmp eq i64 %36, 0
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
   %37 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not241, label %39, label %38
+  br i1 %.not235, label %39, label %38
 
 38:                                               ; preds = %35
   store i32 1, ptr %37, align 8
@@ -2523,7 +2523,7 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   br label %.thread
 
 40:                                               ; preds = %20, %32
-  br i1 %.not, label %148, label %41
+  br i1 %.not, label %147, label %41
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds i8, ptr %7, i64 %9
@@ -2597,20 +2597,20 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not39.i, label %43, label %_php_filter_validate_ipv4.exit.thread
 
 _php_filter_validate_ipv4.exit:                   ; preds = %66
-  %.not282 = icmp eq ptr %.1.i, %42
-  br i1 %.not282, label %79, label %_php_filter_validate_ipv4.exit.thread
+  %.not286 = icmp eq ptr %.1.i, %42
+  br i1 %.not286, label %79, label %_php_filter_validate_ipv4.exit.thread
 
 _php_filter_validate_ipv4.exit.thread:            ; preds = %43, %69, %70, %63, %45, %56, %_php_filter_validate_ipv4.exit
   %73 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not258 = icmp eq ptr %73, null
-  br i1 %.not258, label %74, label %.thread
+  %.not253 = icmp eq ptr %73, null
+  br i1 %.not253, label %74, label %.thread
 
 74:                                               ; preds = %_php_filter_validate_ipv4.exit.thread
   %75 = and i64 %1, 134217728
-  %.not259 = icmp eq i64 %75, 0
+  %.not254 = icmp eq i64 %75, 0
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
   %76 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not259, label %78, label %77
+  br i1 %.not254, label %78, label %77
 
 77:                                               ; preds = %74
   store i32 1, ptr %76, align 8
@@ -2622,10 +2622,10 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %43, %69, %70, %63, 
 
 79:                                               ; preds = %_php_filter_validate_ipv4.exit
   %80 = and i64 %1, 268435456
-  %.not261 = icmp eq i64 %80, 0
+  %.not256 = icmp eq i64 %80, 0
   %81 = and i64 %1, 276824064
-  %or.cond273 = icmp eq i64 %81, 0
-  br i1 %or.cond273, label %101, label %82
+  %or.cond269 = icmp eq i64 %81, 0
+  br i1 %or.cond269, label %101, label %82
 
 82:                                               ; preds = %79
   %83 = load i32, ptr %5, align 16
@@ -2649,15 +2649,15 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %43, %69, %70, %63, 
 
 94:                                               ; preds = %91, %85, %82
   %95 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not268 = icmp eq ptr %95, null
-  br i1 %.not268, label %96, label %.thread
+  %.not264 = icmp eq ptr %95, null
+  br i1 %.not264, label %96, label %.thread
 
 96:                                               ; preds = %94
   %97 = and i64 %1, 134217728
-  %.not269 = icmp eq i64 %97, 0
+  %.not265 = icmp eq i64 %97, 0
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
   %98 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not269, label %100, label %99
+  br i1 %.not265, label %100, label %99
 
 99:                                               ; preds = %96
   store i32 1, ptr %98, align 8
@@ -2669,8 +2669,8 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %43, %69, %70, %63, 
 
 101:                                              ; preds = %79, %91
   %102 = and i64 %1, 272629760
-  %or.cond274 = icmp eq i64 %102, 0
-  br i1 %or.cond274, label %.thread, label %103
+  %or.cond270 = icmp eq i64 %102, 0
+  br i1 %or.cond270, label %.thread, label %103
 
 103:                                              ; preds = %101
   %104 = load i32, ptr %5, align 16
@@ -2694,15 +2694,15 @@ switch.early.test:                                ; preds = %103
 
 111:                                              ; preds = %switch.early.test, %switch.early.test, %103, %106
   %112 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not266 = icmp eq ptr %112, null
-  br i1 %.not266, label %113, label %.thread
+  %.not262 = icmp eq ptr %112, null
+  br i1 %.not262, label %113, label %.thread
 
 113:                                              ; preds = %111
   %114 = and i64 %1, 134217728
-  %.not267 = icmp eq i64 %114, 0
+  %.not263 = icmp eq i64 %114, 0
   %115 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  br i1 %.not267, label %117, label %116
+  br i1 %.not263, label %117, label %116
 
 116:                                              ; preds = %113
   store i32 1, ptr %115, align 8
@@ -2713,14 +2713,14 @@ switch.early.test:                                ; preds = %103
   br label %.thread
 
 118:                                              ; preds = %106
-  br i1 %.not261, label %.thread, label %119
+  br i1 %.not256, label %.thread, label %119
 
 119:                                              ; preds = %118
   %120 = icmp eq i32 %.fr, 100
   %121 = and i32 %109, -64
   %122 = icmp eq i32 %121, 64
   %or.cond27 = select i1 %120, i1 %122, i1 false
-  br i1 %or.cond27, label %142, label %123
+  br i1 %or.cond27, label %141, label %123
 
 123:                                              ; preds = %119
   %124 = icmp eq i32 %.fr, 192
@@ -2730,248 +2730,245 @@ switch.early.test:                                ; preds = %103
   %127 = load i32, ptr %126, align 8
   %128 = and i32 %127, -3
   %129 = icmp eq i32 %128, 0
-  %or.cond275 = select i1 %or.cond30, i1 %129, i1 false
-  br i1 %or.cond275, label %142, label %130
+  %or.cond271 = select i1 %or.cond30, i1 %129, i1 false
+  br i1 %or.cond271, label %141, label %130
 
 130:                                              ; preds = %123
   %131 = icmp eq i32 %.fr, 198
   %132 = and i32 %109, -2
   %133 = icmp eq i32 %132, 18
   %or.cond45 = select i1 %131, i1 %133, i1 false
-  br i1 %or.cond45, label %142, label %134
+  br i1 %or.cond45, label %141, label %134
 
 134:                                              ; preds = %130
   %135 = icmp eq i32 %109, 51
   %or.cond48 = select i1 %131, i1 %135, i1 false
   %136 = icmp eq i32 %127, 100
   %or.cond51 = select i1 %or.cond48, i1 %136, i1 false
-  br i1 %or.cond51, label %142, label %137
+  br i1 %or.cond51, label %141, label %137
 
 137:                                              ; preds = %134
   %138 = icmp eq i32 %.fr, 203
   %or.cond54 = select i1 %138, i1 %125, i1 false
-  %139 = icmp ne i32 %127, 113
-  %not.or.cond54 = xor i1 %or.cond54, true
-  %or.cond57 = select i1 %not.or.cond54, i1 true, i1 %139
+  %139 = icmp eq i32 %127, 113
+  %or.cond57 = select i1 %or.cond54, i1 %139, i1 false
   %140 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %141 = icmp ne ptr %140, null
-  %or.cond147 = select i1 %or.cond57, i1 true, i1 %141
-  br i1 %or.cond147, label %.thread, label %143
+  %.not260 = icmp eq ptr %140, null
+  %or.cond272 = select i1 %or.cond57, i1 %.not260, i1 false
+  br i1 %or.cond272, label %142, label %.thread
 
-142:                                              ; preds = %134, %130, %123, %119
-  %.old145 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.old146.not = icmp eq ptr %.old145, null
-  br i1 %.old146.not, label %143, label %.thread
+141:                                              ; preds = %134, %130, %123, %119
+  %.old = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not260.old = icmp eq ptr %.old, null
+  br i1 %.not260.old, label %142, label %.thread
 
-143:                                              ; preds = %137, %142
-  %144 = and i64 %1, 134217728
-  %.not265 = icmp eq i64 %144, 0
+142:                                              ; preds = %137, %141
+  %143 = and i64 %1, 134217728
+  %.not261 = icmp eq i64 %143, 0
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %145 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not265, label %147, label %146
+  %144 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not261, label %146, label %145
 
-146:                                              ; preds = %143
-  store i32 1, ptr %145, align 8
+145:                                              ; preds = %142
+  store i32 1, ptr %144, align 8
   br label %.thread
 
-147:                                              ; preds = %143
-  store i32 2, ptr %145, align 8
+146:                                              ; preds = %142
+  store i32 2, ptr %144, align 8
   br label %.thread
 
-148:                                              ; preds = %40
-  %149 = call fastcc i32 @_php_filter_validate_ipv6(ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %5)
-  %.not244.not = icmp eq i32 %149, 0
-  br i1 %.not244.not, label %150, label %157
+147:                                              ; preds = %40
+  %148 = call fastcc i32 @_php_filter_validate_ipv6(ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %5)
+  %.not238.not = icmp eq i32 %148, 0
+  br i1 %.not238.not, label %149, label %156
 
-150:                                              ; preds = %148
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not255 = icmp eq ptr %151, null
-  br i1 %.not255, label %152, label %.thread
+149:                                              ; preds = %147
+  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not250 = icmp eq ptr %150, null
+  br i1 %.not250, label %151, label %.thread
 
-152:                                              ; preds = %150
-  %153 = and i64 %1, 134217728
-  %.not256 = icmp eq i64 %153, 0
+151:                                              ; preds = %149
+  %152 = and i64 %1, 134217728
+  %.not251 = icmp eq i64 %152, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %154 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not256, label %156, label %155
+  %153 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not251, label %155, label %154
 
-155:                                              ; preds = %152
-  store i32 1, ptr %154, align 8
+154:                                              ; preds = %151
+  store i32 1, ptr %153, align 8
   br label %.thread
 
-156:                                              ; preds = %152
-  store i32 2, ptr %154, align 8
+155:                                              ; preds = %151
+  store i32 2, ptr %153, align 8
   br label %.thread
 
-157:                                              ; preds = %148
-  %158 = and i64 %1, 268435456
-  %.not246 = icmp eq i64 %158, 0
-  %159 = and i64 %1, 276824064
-  %or.cond276 = icmp eq i64 %159, 0
-  br i1 %or.cond276, label %170, label %160
+156:                                              ; preds = %147
+  %157 = and i64 %1, 268435456
+  %.not240 = icmp eq i64 %157, 0
+  %158 = and i64 %1, 276824064
+  %or.cond274 = icmp eq i64 %158, 0
+  br i1 %or.cond274, label %169, label %159
 
-160:                                              ; preds = %157
-  %161 = load i32, ptr %5, align 16
-  %162 = and i32 %161, -512
-  %or.cond60 = icmp eq i32 %162, 64512
-  br i1 %or.cond60, label %163, label %170
+159:                                              ; preds = %156
+  %160 = load i32, ptr %5, align 16
+  %161 = and i32 %160, -512
+  %or.cond60 = icmp eq i32 %161, 64512
+  br i1 %or.cond60, label %162, label %169
 
-163:                                              ; preds = %160
-  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not253 = icmp eq ptr %164, null
-  br i1 %.not253, label %165, label %.thread
+162:                                              ; preds = %159
+  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not248 = icmp eq ptr %163, null
+  br i1 %.not248, label %164, label %.thread
 
-165:                                              ; preds = %163
-  %166 = and i64 %1, 134217728
-  %.not254 = icmp eq i64 %166, 0
+164:                                              ; preds = %162
+  %165 = and i64 %1, 134217728
+  %.not249 = icmp eq i64 %165, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %167 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not254, label %169, label %168
+  %166 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not249, label %168, label %167
 
-168:                                              ; preds = %165
-  store i32 1, ptr %167, align 8
+167:                                              ; preds = %164
+  store i32 1, ptr %166, align 8
   br label %.thread
 
-169:                                              ; preds = %165
-  store i32 2, ptr %167, align 8
+168:                                              ; preds = %164
+  store i32 2, ptr %166, align 8
   br label %.thread
 
-170:                                              ; preds = %157, %160
-  %171 = and i64 %1, 272629760
-  %or.cond277 = icmp eq i64 %171, 0
-  br i1 %or.cond277, label %.thread, label %172
+169:                                              ; preds = %156, %159
+  %170 = and i64 %1, 272629760
+  %or.cond276 = icmp eq i64 %170, 0
+  br i1 %or.cond276, label %.thread, label %171
 
-172:                                              ; preds = %170
-  %173 = load <4 x i32>, ptr %5, align 16
-  %.fr307 = freeze <4 x i32> %173
-  %174 = icmp eq <4 x i32> %.fr307, zeroinitializer
-  %175 = getelementptr inbounds i8, ptr %5, i64 16
-  %176 = load i32, ptr %175, align 16
-  %177 = icmp eq i32 %176, 0
-  %178 = bitcast <4 x i1> %174 to i4
-  %179 = icmp eq i4 %178, -1
-  %op.rdx = select i1 %179, i1 %177, i1 false
-  %180 = getelementptr inbounds i8, ptr %5, i64 20
-  %181 = load i32, ptr %180, align 4
-  %182 = icmp eq i32 %181, 0
-  %or.cond75 = select i1 %op.rdx, i1 %182, i1 false
-  %183 = getelementptr inbounds i8, ptr %5, i64 24
-  %184 = load i32, ptr %183, align 8
-  %185 = icmp eq i32 %184, 0
-  %or.cond78 = select i1 %or.cond75, i1 %185, i1 false
-  br i1 %or.cond78, label %186, label %189
+171:                                              ; preds = %169
+  %172 = load <4 x i32>, ptr %5, align 16
+  %.fr311 = freeze <4 x i32> %172
+  %173 = icmp eq <4 x i32> %.fr311, zeroinitializer
+  %174 = getelementptr inbounds i8, ptr %5, i64 16
+  %175 = load i32, ptr %174, align 16
+  %176 = icmp eq i32 %175, 0
+  %177 = bitcast <4 x i1> %173 to i4
+  %178 = icmp eq i4 %177, -1
+  %op.rdx = select i1 %178, i1 %176, i1 false
+  %179 = getelementptr inbounds i8, ptr %5, i64 20
+  %180 = load i32, ptr %179, align 4
+  %181 = icmp eq i32 %180, 0
+  %or.cond75 = select i1 %op.rdx, i1 %181, i1 false
+  %182 = getelementptr inbounds i8, ptr %5, i64 24
+  %183 = load i32, ptr %182, align 8
+  %184 = icmp eq i32 %183, 0
+  %or.cond78 = select i1 %or.cond75, i1 %184, i1 false
+  br i1 %or.cond78, label %185, label %188
 
-186:                                              ; preds = %172
-  %187 = getelementptr inbounds i8, ptr %5, i64 28
-  %188 = load i32, ptr %187, align 4
-  %or.cond81 = icmp ult i32 %188, 2
-  br i1 %or.cond81, label %199, label %191
+185:                                              ; preds = %171
+  %186 = getelementptr inbounds i8, ptr %5, i64 28
+  %187 = load i32, ptr %186, align 4
+  %or.cond81 = icmp ult i32 %187, 2
+  br i1 %or.cond81, label %198, label %190
 
-189:                                              ; preds = %172
-  %190 = extractelement <4 x i32> %.fr307, i64 0
-  %.old83 = icmp eq i32 %190, 95
-  br i1 %.old83, label %199, label %191
+188:                                              ; preds = %171
+  %189 = extractelement <4 x i32> %.fr311, i64 0
+  %.old83 = icmp eq i32 %189, 95
+  br i1 %.old83, label %198, label %190
 
-191:                                              ; preds = %186, %189
-  %192 = extractelement <4 x i32> %.fr307, i64 0
-  %193 = and i32 %192, -64
-  %or.cond88 = icmp eq i32 %193, 65152
-  br i1 %or.cond88, label %199, label %194
+190:                                              ; preds = %185, %188
+  %191 = extractelement <4 x i32> %.fr311, i64 0
+  %192 = and i32 %191, -64
+  %or.cond88 = icmp eq i32 %192, 65152
+  br i1 %or.cond88, label %198, label %193
 
-194:                                              ; preds = %191
-  switch i32 %192, label %206 [
-    i32 8193, label %195
-    i32 16371, label %199
+193:                                              ; preds = %190
+  switch i32 %191, label %205 [
+    i32 8193, label %194
+    i32 16371, label %198
   ]
 
-195:                                              ; preds = %194
-  %196 = extractelement <4 x i32> %.fr307, i64 1
-  %197 = icmp eq i32 %196, 3512
-  %198 = and i32 %196, -16
-  %or.cond92 = icmp eq i32 %198, 16
-  %or.cond278 = or i1 %197, %or.cond92
-  br i1 %or.cond278, label %199, label %206
+194:                                              ; preds = %193
+  %195 = extractelement <4 x i32> %.fr311, i64 1
+  %196 = icmp eq i32 %195, 3512
+  %197 = and i32 %195, -16
+  %or.cond92 = icmp eq i32 %197, 16
+  %or.cond278 = or i1 %196, %or.cond92
+  br i1 %or.cond278, label %198, label %205
 
-199:                                              ; preds = %194, %191, %195, %189, %186
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not251 = icmp eq ptr %200, null
-  br i1 %.not251, label %201, label %.thread
+198:                                              ; preds = %193, %190, %194, %188, %185
+  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not246 = icmp eq ptr %199, null
+  br i1 %.not246, label %200, label %.thread
 
-201:                                              ; preds = %199
-  %202 = and i64 %1, 134217728
-  %.not252 = icmp eq i64 %202, 0
+200:                                              ; preds = %198
+  %201 = and i64 %1, 134217728
+  %.not247 = icmp eq i64 %201, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %203 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not252, label %205, label %204
+  %202 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not247, label %204, label %203
 
-204:                                              ; preds = %201
-  store i32 1, ptr %203, align 8
+203:                                              ; preds = %200
+  store i32 1, ptr %202, align 8
   br label %.thread
 
-205:                                              ; preds = %201
-  store i32 2, ptr %203, align 8
+204:                                              ; preds = %200
+  store i32 2, ptr %202, align 8
   br label %.thread
 
-206:                                              ; preds = %194, %195
-  br i1 %.not246, label %.thread, label %207
+205:                                              ; preds = %193, %194
+  br i1 %.not240, label %.thread, label %206
 
-207:                                              ; preds = %206
-  %208 = icmp eq i32 %181, 65535
-  %or.cond116 = select i1 %op.rdx, i1 %208, i1 false
-  br i1 %or.cond116, label %225, label %209
+206:                                              ; preds = %205
+  %207 = icmp eq i32 %180, 65535
+  %or.cond116 = select i1 %op.rdx, i1 %207, i1 false
+  br i1 %or.cond116, label %222, label %208
 
-209:                                              ; preds = %207
-  %210 = icmp eq i32 %192, 256
-  %211 = extractelement <4 x i1> %174, i64 1
-  %or.cond120 = and i1 %210, %211
-  %212 = extractelement <4 x i1> %174, i64 2
-  %213 = extractelement <4 x i1> %174, i64 3
-  %214 = and i1 %or.cond120, %213
-  %or.cond128 = and i1 %214, %212
-  br i1 %or.cond128, label %225, label %215
+208:                                              ; preds = %206
+  %209 = icmp eq i32 %191, 256
+  %210 = extractelement <4 x i1> %173, i64 1
+  %or.cond120 = and i1 %209, %210
+  %211 = extractelement <4 x i1> %173, i64 2
+  %212 = extractelement <4 x i1> %173, i64 3
+  %213 = and i1 %or.cond120, %212
+  %or.cond128 = and i1 %213, %211
+  br i1 %or.cond128, label %222, label %214
 
-215:                                              ; preds = %209
-  %216 = icmp eq i32 %192, 8193
-  %217 = extractelement <4 x i32> %.fr307, i64 1
-  %218 = icmp slt i32 %217, 512
-  %or.cond132 = and i1 %216, %218
-  br i1 %or.cond132, label %225, label %219
+214:                                              ; preds = %208
+  %215 = icmp eq i32 %191, 8193
+  %216 = extractelement <4 x i32> %.fr311, i64 1
+  %217 = icmp slt i32 %216, 512
+  %or.cond132 = and i1 %215, %217
+  br i1 %or.cond132, label %222, label %218
 
-219:                                              ; preds = %215
-  %220 = icmp eq i32 %217, 2
-  %or.cond136 = and i1 %216, %220
-  %or.cond140 = and i1 %or.cond136, %212
-  br i1 %or.cond140, label %225, label %221
+218:                                              ; preds = %214
+  %219 = icmp eq i32 %216, 2
+  %or.cond136 = and i1 %215, %219
+  %or.cond140 = and i1 %or.cond136, %211
+  %220 = and i32 %191, -512
+  %or.cond144 = icmp eq i32 %220, 64512
+  %or.cond280 = or i1 %or.cond144, %or.cond140
+  %221 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not244 = icmp eq ptr %221, null
+  %or.cond282 = select i1 %or.cond280, i1 %.not244, i1 false
+  br i1 %or.cond282, label %223, label %.thread
 
-221:                                              ; preds = %219
-  %222 = and i32 %192, -512
-  %or.cond144 = icmp ne i32 %222, 64512
-  %223 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %224 = icmp ne ptr %223, null
-  %or.cond150 = select i1 %or.cond144, i1 true, i1 %224
-  br i1 %or.cond150, label %.thread, label %226
+222:                                              ; preds = %214, %208, %206
+  %.old281 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not244.old = icmp eq ptr %.old281, null
+  br i1 %.not244.old, label %223, label %.thread
 
-225:                                              ; preds = %219, %215, %209, %207
-  %.old148 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.old149.not = icmp eq ptr %.old148, null
-  br i1 %.old149.not, label %226, label %.thread
-
-226:                                              ; preds = %221, %225
-  %227 = and i64 %1, 134217728
-  %.not250 = icmp eq i64 %227, 0
+223:                                              ; preds = %218, %222
+  %224 = and i64 %1, 134217728
+  %.not245 = icmp eq i64 %224, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %228 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not250, label %230, label %229
+  %225 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not245, label %227, label %226
 
-229:                                              ; preds = %226
-  store i32 1, ptr %228, align 8
+226:                                              ; preds = %223
+  store i32 1, ptr %225, align 8
   br label %.thread
 
-230:                                              ; preds = %226
-  store i32 2, ptr %228, align 8
+227:                                              ; preds = %223
+  store i32 2, ptr %225, align 8
   br label %.thread
 
-.thread:                                          ; preds = %170, %101, %206, %221, %230, %229, %225, %205, %204, %199, %169, %168, %163, %156, %155, %150, %118, %137, %147, %146, %142, %117, %116, %111, %100, %99, %94, %78, %77, %_php_filter_validate_ipv4.exit.thread, %39, %38, %33, %31, %30, %25, %19, %18, %13
+.thread:                                          ; preds = %169, %101, %218, %205, %227, %226, %222, %204, %203, %198, %168, %167, %162, %155, %154, %149, %118, %137, %146, %145, %141, %117, %116, %111, %100, %99, %94, %78, %77, %_php_filter_validate_ipv4.exit.thread, %39, %38, %33, %31, %30, %25, %19, %18, %13
   ret void
 }
 

@@ -265,14 +265,14 @@ define hidden range(i32 0, 2) i32 @is_down_link(ptr nocapture noundef readonly %
   %10 = getelementptr inbounds i8, ptr %0, i64 208
   %11 = load i32, ptr @bs_address, align 8
   %12 = load i32, ptr %10, align 8
-  %or.cond7.not = icmp eq i32 %11, %12
-  br i1 %or.cond7.not, label %13, label %cmp_address.exit.thread
+  %or.cond8.not = icmp eq i32 %11, %12
+  br i1 %or.cond8.not, label %13, label %cmp_address.exit.thread
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 212
   %15 = load i32, ptr %14, align 4
-  %or.cond8.not = icmp eq i32 %7, %15
-  br i1 %or.cond8.not, label %cmp_address.exit, label %cmp_address.exit.thread
+  %or.cond9.not = icmp eq i32 %7, %15
+  br i1 %or.cond9.not, label %cmp_address.exit, label %cmp_address.exit.thread
 
 cmp_address.exit:                                 ; preds = %13
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @bs_address, i64 8), align 8

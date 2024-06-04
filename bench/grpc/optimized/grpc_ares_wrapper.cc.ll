@@ -427,7 +427,8 @@ _ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit: ; preds = %do.end, %if.
   %error_data.i = getelementptr inbounds i8, ptr %ev_driver, i64 144
   store i64 0, ptr %error_data.i, align 8
   %query_timeout = getelementptr inbounds i8, ptr %ev_driver, i64 64
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %5, label %_ZN9grpc_core9Timestamp3NowEv.exit
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %5
 
 5:                                                ; preds = %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -479,7 +480,7 @@ if.then.i17:                                      ; preds = %_ZN9grpc_coreplENS_
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i17, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %11, label %_ZN9grpc_core9Timestamp3NowEv.exit.i
+  br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit.i, label %11
 
 11:                                               ; preds = %do.end.i
   tail call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -1144,7 +1145,8 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %tobool31, label %if.end44, label %if.then32
 
 if.then32:                                        ; preds = %while.end
-  br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %17, label %invoke.cont33
+  %.not.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
+  br i1 %.not.i.i, label %invoke.cont33, label %17
 
 17:                                               ; preds = %if.then32
   invoke void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E()
@@ -1182,7 +1184,8 @@ if.then.i:                                        ; preds = %invoke.cont35
           to label %do.end.i unwind label %lpad.loopexit.split-lp
 
 do.end.i:                                         ; preds = %if.then.i, %invoke.cont35
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %25, label %_ZN9grpc_core9Timestamp3NowEv.exit.i
+  %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit.i, label %25
 
 25:                                               ; preds = %do.end.i
   invoke void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()

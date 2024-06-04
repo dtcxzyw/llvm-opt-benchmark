@@ -1823,17 +1823,17 @@ if.then.i.i:                                      ; preds = %if.then3.i
   %conv.i = sext i32 %2 to i64
   tail call void @qsort(ptr noundef nonnull %1, i64 noundef %conv.i, i64 noundef 72, ptr noundef nonnull @tipcmp) #16
   %.pre.pre.i = load ptr, ptr @tip_table.0, align 8
-  %.pre3.pre.i = load i32, ptr @tip_table.1, align 8
+  %.pre4.pre.i = load i32, ptr @tip_table.1, align 8
   br label %sane_qsort.exit.i
 
 sane_qsort.exit.i:                                ; preds = %if.then.i.i, %if.then3.i
-  %.pre3.i = phi i32 [ 1, %if.then3.i ], [ %.pre3.pre.i, %if.then.i.i ]
+  %.pre4.i = phi i32 [ 1, %if.then3.i ], [ %.pre4.pre.i, %if.then.i.i ]
   %.pre.i = phi ptr [ %1, %if.then3.i ], [ %.pre.pre.i, %if.then.i.i ]
   store i1 true, ptr @tip_table.3, align 8
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %sane_qsort.exit.i, %if.end.i
-  %3 = phi i32 [ %.pre3.i, %sane_qsort.exit.i ], [ %2, %if.end.i ]
+  %3 = phi i32 [ %.pre4.i, %sane_qsort.exit.i ], [ %2, %if.end.i ]
   %4 = phi ptr [ %.pre.i, %sane_qsort.exit.i ], [ %1, %if.end.i ]
   %oid.i = getelementptr inbounds i8, ptr %o, i64 4
   %conv5.i = sext i32 %3 to i64

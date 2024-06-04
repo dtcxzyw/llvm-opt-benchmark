@@ -457,7 +457,7 @@ _ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLO
           to label %69 unwind label %72
 
 69:                                               ; preds = %67
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx11FileIOErrorE, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx11FileIOErrorE, i64 16), ptr %64, align 8
   invoke void @__cxa_throw(ptr nonnull %64, ptr nonnull @_ZTIN3gmx11FileIOErrorE, ptr nonnull @_ZN3gmx11FileIOErrorD2Ev) #18
           to label %75 unwind label %72
 
@@ -3337,7 +3337,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -4199,7 +4199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc23 unwind label %104
 
 .noexc23:                                         ; preds = %23
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %24, align 8, !noalias !21
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %24, align 8, !noalias !21
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store i32 0, ptr %25, align 8, !noalias !21
   %26 = ptrtoint ptr %24 to i64
@@ -4275,7 +4275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
           to label %.noexc32 unwind label %108
 
 .noexc32:                                         ; preds = %46
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %47, align 8, !noalias !27
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %47, align 8, !noalias !27
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load double, ptr %42, align 8, !noalias !27
   store double %49, ptr %48, align 8, !noalias !27
@@ -4359,7 +4359,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit39: ; 
           to label %.noexc47 unwind label %112
 
 .noexc47:                                         ; preds = %77
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %78, align 8, !noalias !33
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %78, align 8, !noalias !33
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   store i32 %70, ptr %79, align 8, !noalias !33
   %80 = ptrtoint ptr %78 to i64
@@ -4700,7 +4700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc30 unwind label %546
 
 .noexc30:                                         ; preds = %159
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %160, align 8, !noalias !39
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %160, align 8, !noalias !39
   %161 = getelementptr inbounds i8, ptr %160, i64 8
   store i32 %152, ptr %161, align 8, !noalias !39
   %162 = ptrtoint ptr %160 to i64
@@ -4845,7 +4845,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %.noexc52.i unwind label %.loopexit136
 
 .noexc52.i:                                       ; preds = %195
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %196, align 8, !noalias !45
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %196, align 8, !noalias !45
   %197 = getelementptr inbounds i8, ptr %196, i64 8
   %198 = load double, ptr %.sroa.0120.0197, align 8, !noalias !45
   store double %198, ptr %197, align 8, !noalias !45
@@ -4943,7 +4943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59.i: 
           to label %.noexc67.i unwind label %.loopexit141
 
 .noexc67.i:                                       ; preds = %225
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %226, align 8, !noalias !51
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %226, align 8, !noalias !51
   %227 = getelementptr inbounds i8, ptr %226, i64 8
   %228 = load double, ptr %221, align 8, !noalias !51
   store double %228, ptr %227, align 8, !noalias !51
@@ -5041,7 +5041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit75.i: 
           to label %.noexc83.i unwind label %.loopexit146
 
 .noexc83.i:                                       ; preds = %255
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %256, align 8, !noalias !57
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %256, align 8, !noalias !57
   %257 = getelementptr inbounds i8, ptr %256, i64 8
   %258 = load double, ptr %251, align 8, !noalias !57
   store double %258, ptr %257, align 8, !noalias !57
@@ -5118,7 +5118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91.i: 
           to label %.noexc99.i unwind label %.loopexit151
 
 .noexc99.i:                                       ; preds = %279
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %280, align 8, !noalias !63
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %280, align 8, !noalias !63
   %281 = getelementptr inbounds i8, ptr %280, i64 8
   %282 = load double, ptr %275, align 8, !noalias !63
   store double %282, ptr %281, align 8, !noalias !63
@@ -5195,7 +5195,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit107.i:
           to label %.noexc115.i unwind label %.loopexit156
 
 .noexc115.i:                                      ; preds = %303
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %304, align 8, !noalias !69
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %304, align 8, !noalias !69
   %305 = getelementptr inbounds i8, ptr %304, i64 8
   %306 = load double, ptr %299, align 8, !noalias !69
   store double %306, ptr %305, align 8, !noalias !69
@@ -5293,7 +5293,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit123.i:
           to label %.noexc131.i unwind label %.loopexit161
 
 .noexc131.i:                                      ; preds = %333
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %334, align 8, !noalias !75
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %334, align 8, !noalias !75
   %335 = getelementptr inbounds i8, ptr %334, i64 8
   %336 = load double, ptr %329, align 8, !noalias !75
   store double %336, ptr %335, align 8, !noalias !75
@@ -5391,7 +5391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit139.i:
           to label %.noexc147.i unwind label %.loopexit166
 
 .noexc147.i:                                      ; preds = %363
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %364, align 8, !noalias !81
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %364, align 8, !noalias !81
   %365 = getelementptr inbounds i8, ptr %364, i64 8
   %366 = load double, ptr %359, align 8, !noalias !81
   store double %366, ptr %365, align 8, !noalias !81
@@ -5468,7 +5468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit155.i:
           to label %.noexc163.i unwind label %.loopexit171
 
 .noexc163.i:                                      ; preds = %387
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %388, align 8, !noalias !87
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %388, align 8, !noalias !87
   %389 = getelementptr inbounds i8, ptr %388, i64 8
   %390 = load i64, ptr %383, align 8, !noalias !87
   store i64 %390, ptr %389, align 8, !noalias !87
@@ -5566,7 +5566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit170.i:
           to label %.noexc178.i unwind label %.loopexit176
 
 .noexc178.i:                                      ; preds = %417
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %418, align 8, !noalias !93
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %418, align 8, !noalias !93
   %419 = getelementptr inbounds i8, ptr %418, i64 8
   %420 = load double, ptr %413, align 8, !noalias !93
   store double %420, ptr %419, align 8, !noalias !93
@@ -5643,7 +5643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit186.i:
           to label %.noexc194.i unwind label %.loopexit181
 
 .noexc194.i:                                      ; preds = %441
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %442, align 8, !noalias !99
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %442, align 8, !noalias !99
   %443 = getelementptr inbounds i8, ptr %442, i64 8
   %444 = load double, ptr %437, align 8, !noalias !99
   store double %444, ptr %443, align 8, !noalias !99
@@ -5741,7 +5741,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit202.i:
           to label %.noexc210.i unwind label %.loopexit186
 
 .noexc210.i:                                      ; preds = %471
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %472, align 8, !noalias !105
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %472, align 8, !noalias !105
   %473 = getelementptr inbounds i8, ptr %472, i64 8
   %474 = load double, ptr %467, align 8, !noalias !105
   store double %474, ptr %473, align 8, !noalias !105
@@ -5839,7 +5839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit218.i:
           to label %.noexc226.i unwind label %.loopexit191
 
 .noexc226.i:                                      ; preds = %501
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %502, align 8, !noalias !111
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %502, align 8, !noalias !111
   %503 = getelementptr inbounds i8, ptr %502, i64 8
   %504 = load double, ptr %497, align 8, !noalias !111
   store double %504, ptr %503, align 8, !noalias !111
@@ -6280,7 +6280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i49: 
           to label %.noexc40.i unwind label %796
 
 .noexc40.i:                                       ; preds = %566
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %567, align 8, !noalias !117
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %567, align 8, !noalias !117
   %568 = getelementptr inbounds i8, ptr %567, i64 8
   %569 = load i32, ptr %558, align 4, !noalias !117
   store i32 %569, ptr %568, align 8, !noalias !117
@@ -6357,7 +6357,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit47.i: 
           to label %.noexc55.i55 unwind label %800
 
 .noexc55.i55:                                     ; preds = %590
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %591, align 8, !noalias !123
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %591, align 8, !noalias !123
   %592 = getelementptr inbounds i8, ptr %591, i64 8
   %593 = load i32, ptr %586, align 4, !noalias !123
   store i32 %593, ptr %592, align 8, !noalias !123
@@ -6434,7 +6434,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
           to label %.noexc71.i56 unwind label %804
 
 .noexc71.i56:                                     ; preds = %614
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %615, align 8, !noalias !129
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %615, align 8, !noalias !129
   %616 = getelementptr inbounds i8, ptr %615, i64 8
   %617 = load i32, ptr %610, align 4, !noalias !129
   store i32 %617, ptr %616, align 8, !noalias !129
@@ -6532,7 +6532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit79.i: 
           to label %.noexc87.i57 unwind label %808
 
 .noexc87.i57:                                     ; preds = %644
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %645, align 8, !noalias !135
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %645, align 8, !noalias !135
   %646 = getelementptr inbounds i8, ptr %645, i64 8
   %647 = load i8, ptr %640, align 1, !noalias !135
   %648 = and i8 %647, 1
@@ -6610,7 +6610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94.i: 
           to label %.noexc102.i unwind label %812
 
 .noexc102.i:                                      ; preds = %669
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %670, align 8, !noalias !141
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %670, align 8, !noalias !141
   %671 = getelementptr inbounds i8, ptr %670, i64 8
   %672 = load i8, ptr %665, align 1, !noalias !141
   %673 = and i8 %672, 1
@@ -6709,7 +6709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit110.i:
           to label %.noexc118.i unwind label %816
 
 .noexc118.i:                                      ; preds = %700
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %701, align 8, !noalias !147
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %701, align 8, !noalias !147
   %702 = getelementptr inbounds i8, ptr %701, i64 8
   %703 = load double, ptr %696, align 8, !noalias !147
   store double %703, ptr %702, align 8, !noalias !147
@@ -6786,7 +6786,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit125.i:
           to label %.noexc133.i unwind label %820
 
 .noexc133.i:                                      ; preds = %724
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %725, align 8, !noalias !153
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %725, align 8, !noalias !153
   %726 = getelementptr inbounds i8, ptr %725, i64 8
   %727 = load double, ptr %720, align 8, !noalias !153
   store double %727, ptr %726, align 8, !noalias !153
@@ -6863,7 +6863,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit141.i:
           to label %.noexc149.i unwind label %824
 
 .noexc149.i:                                      ; preds = %748
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %749, align 8, !noalias !159
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %749, align 8, !noalias !159
   %750 = getelementptr inbounds i8, ptr %749, i64 8
   %751 = load double, ptr %744, align 8, !noalias !159
   store double %751, ptr %750, align 8, !noalias !159
@@ -6961,7 +6961,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit157.i:
           to label %.noexc165.i unwind label %828
 
 .noexc165.i:                                      ; preds = %778
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %779, align 8, !noalias !165
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %779, align 8, !noalias !165
   %780 = getelementptr inbounds i8, ptr %779, i64 8
   %781 = load i64, ptr %774, align 8, !noalias !165
   store i64 %781, ptr %780, align 8, !noalias !165
@@ -7237,7 +7237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i71: 
           to label %.noexc30.i unwind label %1267
 
 .noexc30.i:                                       ; preds = %844
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %845, align 8, !noalias !171
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %845, align 8, !noalias !171
   %846 = getelementptr inbounds i8, ptr %845, i64 8
   %847 = load i32, ptr %836, align 4, !noalias !171
   store i32 %847, ptr %846, align 8, !noalias !171
@@ -7335,7 +7335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37.i: 
           to label %.noexc45.i unwind label %1271
 
 .noexc45.i:                                       ; preds = %874
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %875, align 8, !noalias !177
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %875, align 8, !noalias !177
   %876 = getelementptr inbounds i8, ptr %875, i64 8
   %877 = load i32, ptr %870, align 4, !noalias !177
   store i32 %877, ptr %876, align 8, !noalias !177
@@ -7412,7 +7412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
           to label %.noexc61.i unwind label %1275
 
 .noexc61.i:                                       ; preds = %898
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %899, align 8, !noalias !183
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %899, align 8, !noalias !183
   %900 = getelementptr inbounds i8, ptr %899, i64 8
   %901 = load i32, ptr %894, align 4, !noalias !183
   store i32 %901, ptr %900, align 8, !noalias !183
@@ -7497,7 +7497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69.i: 
           to label %.noexc77.i unwind label %1279
 
 .noexc77.i:                                       ; preds = %930
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %931, align 8, !noalias !189
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %931, align 8, !noalias !189
   %932 = getelementptr inbounds i8, ptr %931, i64 8
   store i32 %923, ptr %932, align 8, !noalias !189
   %933 = ptrtoint ptr %931 to i64
@@ -7643,7 +7643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: 
           to label %.noexc48.i.i unwind label %.loopexit.i
 
 .noexc48.i.i:                                     ; preds = %966
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %967, align 8, !noalias !195
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %967, align 8, !noalias !195
   %968 = getelementptr inbounds i8, ptr %967, i64 8
   %969 = load double, ptr %.sroa.096.0154.i, align 8, !noalias !195
   store double %969, ptr %968, align 8, !noalias !195
@@ -7720,7 +7720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55.i.i
           to label %.noexc63.i.i unwind label %.loopexit103.i
 
 .noexc63.i.i:                                     ; preds = %990
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %991, align 8, !noalias !201
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %991, align 8, !noalias !201
   %992 = getelementptr inbounds i8, ptr %991, i64 8
   %993 = load double, ptr %986, align 8, !noalias !201
   store double %993, ptr %992, align 8, !noalias !201
@@ -7818,7 +7818,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit71.i.i
           to label %.noexc79.i.i unwind label %.loopexit108.i
 
 .noexc79.i.i:                                     ; preds = %1020
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1021, align 8, !noalias !207
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1021, align 8, !noalias !207
   %1022 = getelementptr inbounds i8, ptr %1021, i64 8
   %1023 = load double, ptr %1016, align 8, !noalias !207
   store double %1023, ptr %1022, align 8, !noalias !207
@@ -7916,7 +7916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit87.i.i
           to label %.noexc95.i.i unwind label %.loopexit113.i
 
 .noexc95.i.i:                                     ; preds = %1050
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1051, align 8, !noalias !213
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1051, align 8, !noalias !213
   %1052 = getelementptr inbounds i8, ptr %1051, i64 8
   %1053 = load double, ptr %1046, align 8, !noalias !213
   store double %1053, ptr %1052, align 8, !noalias !213
@@ -7993,7 +7993,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit103.i.
           to label %.noexc111.i.i unwind label %.loopexit118.i
 
 .noexc111.i.i:                                    ; preds = %1074
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1075, align 8, !noalias !219
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1075, align 8, !noalias !219
   %1076 = getelementptr inbounds i8, ptr %1075, i64 8
   %1077 = load double, ptr %1070, align 8, !noalias !219
   store double %1077, ptr %1076, align 8, !noalias !219
@@ -8070,7 +8070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit119.i.
           to label %.noexc127.i.i unwind label %.loopexit123.i
 
 .noexc127.i.i:                                    ; preds = %1098
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1099, align 8, !noalias !225
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1099, align 8, !noalias !225
   %1100 = getelementptr inbounds i8, ptr %1099, i64 8
   %1101 = load double, ptr %1094, align 8, !noalias !225
   store double %1101, ptr %1100, align 8, !noalias !225
@@ -8147,7 +8147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit135.i.
           to label %.noexc143.i.i unwind label %.loopexit128.i
 
 .noexc143.i.i:                                    ; preds = %1122
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1123, align 8, !noalias !231
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1123, align 8, !noalias !231
   %1124 = getelementptr inbounds i8, ptr %1123, i64 8
   %1125 = load double, ptr %1118, align 8, !noalias !231
   store double %1125, ptr %1124, align 8, !noalias !231
@@ -8224,7 +8224,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit151.i.
           to label %.noexc159.i.i unwind label %.loopexit133.i
 
 .noexc159.i.i:                                    ; preds = %1146
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1147, align 8, !noalias !237
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1147, align 8, !noalias !237
   %1148 = getelementptr inbounds i8, ptr %1147, i64 8
   %1149 = load double, ptr %1142, align 8, !noalias !237
   store double %1149, ptr %1148, align 8, !noalias !237
@@ -8322,7 +8322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit167.i.
           to label %.noexc175.i.i unwind label %.loopexit138.i
 
 .noexc175.i.i:                                    ; preds = %1176
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1177, align 8, !noalias !243
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1177, align 8, !noalias !243
   %1178 = getelementptr inbounds i8, ptr %1177, i64 8
   %1179 = load double, ptr %1172, align 8, !noalias !243
   store double %1179, ptr %1178, align 8, !noalias !243
@@ -8399,7 +8399,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit183.i.
           to label %.noexc191.i.i unwind label %.loopexit143.i
 
 .noexc191.i.i:                                    ; preds = %1200
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %1201, align 8, !noalias !249
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %1201, align 8, !noalias !249
   %1202 = getelementptr inbounds i8, ptr %1201, i64 8
   %1203 = load i32, ptr %1196, align 4, !noalias !249
   store i32 %1203, ptr %1202, align 8, !noalias !249
@@ -8476,7 +8476,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit198.i.
           to label %.noexc206.i.i unwind label %.loopexit148.i
 
 .noexc206.i.i:                                    ; preds = %1224
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1225, align 8, !noalias !255
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %1225, align 8, !noalias !255
   %1226 = getelementptr inbounds i8, ptr %1225, i64 8
   %1227 = load double, ptr %1220, align 8, !noalias !255
   store double %1227, ptr %1226, align 8, !noalias !255
@@ -9700,7 +9700,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIiE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIiEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !274
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %3, align 8, !noalias !274
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIiEE, i64 16), ptr %3, align 8, !noalias !274
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %2, align 8, !noalias !274
   store i32 %5, ptr %4, align 8, !noalias !274
@@ -9729,7 +9729,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIdE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIdEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !277
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %3, align 8, !noalias !277
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIdEE, i64 16), ptr %3, align 8, !noalias !277
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load double, ptr %2, align 8, !noalias !277
   store double %5, ptr %4, align 8, !noalias !277
@@ -9758,7 +9758,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIlE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIlEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !280
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %3, align 8, !noalias !280
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIlEE, i64 16), ptr %3, align 8, !noalias !280
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %2, align 8, !noalias !280
   store i64 %5, ptr %4, align 8, !noalias !280
@@ -9787,7 +9787,7 @@ define linkonce_odr void @_ZNK3gmx3Any7ContentIbE5cloneEv(ptr dead_on_unwind noa
 _ZNSt10unique_ptrIN3gmx3Any7ContentIbEESt14default_deleteIS3_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !283
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %3, align 8, !noalias !283
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentIbEE, i64 16), ptr %3, align 8, !noalias !283
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr %2, align 8, !noalias !283
   %6 = and i8 %5, 1
@@ -9824,7 +9824,7 @@ common.resume:                                    ; preds = %_ZNKSt14default_del
   br label %common.resume
 
 _ZN3gmx19KeyValueTreeBuilder11createValueINS_18KeyValueTreeObjectEEENS_17KeyValueTreeValueEv.exit: ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %9, align 8, !noalias !289
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %9, align 8, !noalias !289
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 0, ptr %12, align 8, !noalias !289
   %13 = getelementptr inbounds i8, ptr %9, i64 24
@@ -9934,7 +9934,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3gmx17KeyValueTre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINS_18KeyValueTreeObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -9964,7 +9964,7 @@ _ZN3gmx18KeyValueTreeObjectD2Ev.exit:             ; preds = %_ZNSt6vectorIN3gmx2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx3Any7ContentINS_18KeyValueTreeObjectEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -10002,7 +10002,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx3An
 define linkonce_odr void @_ZNK3gmx3Any7ContentINS_18KeyValueTreeObjectEE5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #20, !noalias !292
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %4, align 8, !noalias !292
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx3Any7ContentINS_18KeyValueTreeObjectEEE, i64 16), ptr %4, align 8, !noalias !292
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZN3gmx18KeyValueTreeObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZNSt10unique_ptrIN3gmx3Any7ContentINS0_18KeyValueTreeObjectEEESt14default_deleteIS4_EED2Ev.exit unwind label %6, !noalias !292

@@ -2024,19 +2024,19 @@ sub_2165:                                         ; preds = %sub_1164
   %.val145.lcssa = phi i32 [ %.val145212, %.critedge ], [ %.val145, %135 ]
   %138 = tail call i32 @fclose(ptr noundef nonnull %45)
   %139 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.140, ptr noundef %.096, i32 noundef %.val145.lcssa)
-  %.val15.i.i = load i32, ptr %52, align 4
-  %140 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %52, align 4
+  %140 = icmp sgt i32 %.val16.i.i, 0
   %141 = getelementptr i8, ptr %50, i64 8
-  %.val14.i.i = load ptr, ptr %141, align 8
+  %.val15.i.i = load ptr, ptr %141, align 8
   br i1 %140, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge215
-  %142 = zext nneg i32 %.val15.i.i to i64
+  %142 = zext nneg i32 %.val16.i.i to i64
   br label %143
 
 143:                                              ; preds = %147, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %147 ]
-  %144 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %144 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %145 = load ptr, ptr %144, align 8
   %switch.i.i = icmp ult ptr %145, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %147, label %146
@@ -2051,11 +2051,11 @@ sub_2165:                                         ; preds = %sub_1164
   br i1 %exitcond269.not, label %Vec_PtrFreeData.exit.i.thread, label %143, !llvm.loop !25
 
 Vec_PtrFreeData.exit.i:                           ; preds = %._crit_edge215
-  %.not.i.i = icmp eq ptr %.val14.i.i, null
+  %.not.i.i = icmp eq ptr %.val15.i.i, null
   br i1 %.not.i.i, label %Vec_PtrFreeFree.exit, label %Vec_PtrFreeData.exit.i.thread
 
 Vec_PtrFreeData.exit.i.thread:                    ; preds = %147, %Vec_PtrFreeData.exit.i
-  tail call void @free(ptr noundef nonnull %.val14.i.i) #17
+  tail call void @free(ptr noundef nonnull %.val15.i.i) #17
   br label %Vec_PtrFreeFree.exit
 
 Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exit.i, %Vec_PtrFreeData.exit.i.thread
@@ -3374,8 +3374,8 @@ define void @Cmd_End(ptr noundef %0) local_unnamed_addr #0 {
 
 26:                                               ; preds = %._crit_edge27
   %27 = getelementptr i8, ptr %24, i64 4
-  %.val15.i.i = load i32, ptr %27, align 4
-  %28 = icmp sgt i32 %.val15.i.i, 0
+  %.val16.i.i = load i32, ptr %27, align 4
+  %28 = icmp sgt i32 %.val16.i.i, 0
   br i1 %28, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
 
 .lr.ph.i.i:                                       ; preds = %26
@@ -3383,10 +3383,10 @@ define void @Cmd_End(ptr noundef %0) local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %34, %.lr.ph.i.i
-  %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %34 ]
+  %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i ], [ %.val.i.i, %34 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %34 ]
-  %.val14.i.i = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %.val15.i.i = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %32 = load ptr, ptr %31, align 8
   %switch.i.i = icmp ult ptr %32, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %34, label %33
@@ -3397,7 +3397,7 @@ define void @Cmd_End(ptr noundef %0) local_unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %33, %30
-  %.val.i.i = phi i32 [ %.val18.i.i, %30 ], [ %.val.pre.i.i, %33 ]
+  %.val.i.i = phi i32 [ %.val19.i.i, %30 ], [ %.val.pre.i.i, %33 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %35 = sext i32 %.val.i.i to i64
   %36 = icmp slt i64 %indvars.iv.next.i.i, %35

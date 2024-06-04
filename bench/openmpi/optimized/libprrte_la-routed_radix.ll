@@ -44,31 +44,31 @@ define i32 @prte_rml_get_route(i32 noundef %0) local_unnamed_addr #0 {
   %6 = icmp eq i32 %5, %0
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 784), align 8
   %8 = icmp eq i32 %7, %0
-  %or.cond19 = select i1 %6, i1 true, i1 %8
-  %.021 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 808), align 8
-  %.not22 = icmp eq ptr %.021, getelementptr inbounds (i8, ptr @prte_rml_base, i64 688)
-  %or.cond28 = select i1 %or.cond19, i1 true, i1 %.not22
-  br i1 %or.cond28, label %.loopexit, label %.lr.ph
+  %or.cond = select i1 %6, i1 true, i1 %8
+  %.020 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 808), align 8
+  %.not21 = icmp eq ptr %.020, getelementptr inbounds (i8, ptr @prte_rml_base, i64 688)
+  %or.cond27 = select i1 %or.cond, i1 true, i1 %.not21
+  br i1 %or.cond27, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %18
-  %.023 = phi ptr [ %.0, %18 ], [ %.021, %4 ]
-  %9 = getelementptr inbounds i8, ptr %.023, i64 144
+  %.022 = phi ptr [ %.0, %18 ], [ %.020, %4 ]
+  %9 = getelementptr inbounds i8, ptr %.022, i64 144
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.023, i64 152
+  %13 = getelementptr inbounds i8, ptr %.022, i64 152
   %14 = tail call zeroext i1 @pmix_bitmap_is_set_bit(ptr noundef nonnull %13, i32 noundef %0) #9
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.023, i64 144
+  %16 = getelementptr inbounds i8, ptr %.022, i64 144
   %17 = load i32, ptr %16, align 8
   br label %.loopexit
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %.023, i64 120
+  %19 = getelementptr inbounds i8, ptr %.022, i64 120
   %.0 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_rml_base, i64 688)
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
@@ -78,10 +78,10 @@ define i32 @prte_rml_get_route(i32 noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge.loopexit, %4, %1, %15
-  %.015 = phi i32 [ %17, %15 ], [ %0, %1 ], [ %7, %4 ], [ %.pre, %._crit_edge.loopexit ], [ %0, %.lr.ph ]
+  %.014 = phi i32 [ %17, %15 ], [ %0, %1 ], [ %7, %4 ], [ %.pre, %._crit_edge.loopexit ], [ %0, %.lr.ph ]
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 4), align 4
-  %or.cond = icmp ult i32 %20, 64
-  br i1 %or.cond, label %21, label %30
+  %or.cond18 = icmp ult i32 %20, 64
+  br i1 %or.cond18, label %21, label %30
 
 21:                                               ; preds = %.loopexit
   %22 = zext nneg i32 %20 to i64
@@ -93,12 +93,12 @@ define i32 @prte_rml_get_route(i32 noundef %0) local_unnamed_addr #0 {
 26:                                               ; preds = %21
   %27 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #9
   %28 = tail call ptr @prte_util_print_vpids(i32 noundef %0) #9
-  %29 = tail call ptr @prte_util_print_vpids(i32 noundef %.015) #9
+  %29 = tail call ptr @prte_util_print_vpids(i32 noundef %.014) #9
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %20, ptr noundef nonnull @.str, ptr noundef %27, ptr noundef %28, ptr noundef %29) #9
   br label %30
 
 30:                                               ; preds = %26, %21, %.loopexit
-  ret i32 %.015
+  ret i32 %.014
 }
 
 declare zeroext i1 @pmix_bitmap_is_set_bit(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -133,18 +133,18 @@ define range(i32 -6, 1) i32 @prte_rml_route_lost(i32 noundef %0) local_unnamed_a
   %13 = trunc i8 %12 to i1
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 560), align 8
   %15 = icmp ne i32 %14, %0
-  %or.cond31.not = select i1 %13, i1 true, i1 %15
-  br i1 %or.cond31.not, label %.preheader, label %16
+  %or.cond28.not = select i1 %13, i1 true, i1 %15
+  br i1 %or.cond28.not, label %.preheader, label %16
 
 .preheader:                                       ; preds = %11
-  %.035 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 808), align 8
-  %.not36 = icmp eq ptr %.035, getelementptr inbounds (i8, ptr @prte_rml_base, i64 688)
-  br i1 %.not36, label %.loopexit, label %.lr.ph
+  %.033 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 808), align 8
+  %.not34 = icmp eq ptr %.033, getelementptr inbounds (i8, ptr @prte_rml_base, i64 688)
+  br i1 %.not34, label %.loopexit, label %.lr.ph
 
 16:                                               ; preds = %11
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 4), align 4
-  %or.cond3 = icmp ult i32 %17, 64
-  br i1 %or.cond3, label %18, label %.loopexit
+  %or.cond29 = icmp ult i32 %17, 64
+  br i1 %or.cond29, label %18, label %.loopexit
 
 18:                                               ; preds = %16
   %19 = zext nneg i32 %17 to i64
@@ -161,16 +161,16 @@ define range(i32 -6, 1) i32 @prte_rml_route_lost(i32 noundef %0) local_unnamed_a
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %64
-  %.037 = phi ptr [ %31, %64 ], [ %.035, %.preheader ]
-  %27 = getelementptr inbounds i8, ptr %.037, i64 144
+  %.035 = phi ptr [ %31, %64 ], [ %.033, %.preheader ]
+  %27 = getelementptr inbounds i8, ptr %.035, i64 144
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, %0
-  %30 = getelementptr inbounds i8, ptr %.037, i64 120
+  %30 = getelementptr inbounds i8, ptr %.035, i64 120
   %31 = load ptr, ptr %30, align 8
   br i1 %29, label %32, label %64
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds i8, ptr %.037, i64 128
+  %33 = getelementptr inbounds i8, ptr %.035, i64 128
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 120
   store volatile ptr %31, ptr %35, align 8
@@ -180,7 +180,7 @@ define range(i32 -6, 1) i32 @prte_rml_route_lost(i32 noundef %0) local_unnamed_a
   %38 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 832), align 8
   %39 = add i64 %38, -1
   store volatile i64 %39, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 832), align 8
-  %40 = tail call i32 @pthread_mutex_lock(ptr noundef %.037) #9
+  %40 = tail call i32 @pthread_mutex_lock(ptr noundef %.035) #9
   %41 = icmp eq i32 %40, 35
   br i1 %41, label %42, label %44
 
@@ -192,16 +192,16 @@ define range(i32 -6, 1) i32 @prte_rml_route_lost(i32 noundef %0) local_unnamed_a
   unreachable
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %.037, i64 48
+  %45 = getelementptr inbounds i8, ptr %.035, i64 48
   %46 = load i32, ptr %45, align 8
   %47 = add nsw i32 %46, -1
   store i32 %47, ptr %45, align 8
-  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef %.037) #9
+  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef %.035) #9
   %49 = icmp eq i32 %47, 0
   br i1 %49, label %50, label %.loopexit
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %.037, i64 40
+  %51 = getelementptr inbounds i8, ptr %.035, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 48
   %54 = load ptr, ptr %53, align 8
@@ -212,25 +212,25 @@ define range(i32 -6, 1) i32 @prte_rml_route_lost(i32 noundef %0) local_unnamed_a
 .lr.ph.i:                                         ; preds = %50, %.lr.ph.i
   %56 = phi ptr [ %58, %.lr.ph.i ], [ %55, %50 ]
   %.07.i = phi ptr [ %57, %.lr.ph.i ], [ %54, %50 ]
-  tail call void %56(ptr noundef %.037) #9
+  tail call void %56(ptr noundef %.035) #9
   %57 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %50
-  %59 = getelementptr inbounds i8, ptr %.037, i64 96
+  %59 = getelementptr inbounds i8, ptr %.035, i64 96
   %60 = load ptr, ptr %59, align 8
-  %.not28 = icmp eq ptr %60, null
-  br i1 %.not28, label %63, label %61
+  %.not25 = icmp eq ptr %60, null
+  br i1 %.not25, label %63, label %61
 
 61:                                               ; preds = %pmix_obj_run_destructors.exit
-  %62 = getelementptr inbounds i8, ptr %.037, i64 56
-  tail call void %60(ptr noundef nonnull %62, ptr noundef nonnull %.037) #9
+  %62 = getelementptr inbounds i8, ptr %.035, i64 56
+  tail call void %60(ptr noundef nonnull %62, ptr noundef nonnull %.035) #9
   br label %.loopexit
 
 63:                                               ; preds = %pmix_obj_run_destructors.exit
-  tail call void @free(ptr noundef nonnull %.037) #9
+  tail call void @free(ptr noundef nonnull %.035) #9
   br label %.loopexit
 
 64:                                               ; preds = %.lr.ph
@@ -238,8 +238,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %50
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %64, %.preheader, %44, %63, %61, %16, %18, %23
-  %.024 = phi i32 [ -6, %23 ], [ -6, %18 ], [ -6, %16 ], [ 0, %61 ], [ 0, %63 ], [ 0, %44 ], [ 0, %.preheader ], [ 0, %64 ]
-  ret i32 %.024
+  %.021 = phi i32 [ -6, %23 ], [ -6, %18 ], [ -6, %16 ], [ 0, %61 ], [ 0, %63 ], [ 0, %44 ], [ 0, %.preheader ], [ 0, %64 ]
+  ret i32 %.021
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

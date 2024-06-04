@@ -2226,7 +2226,7 @@ _ZN7DfgEdge12unlinkSourceEv.exit:                 ; preds = %2, %20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i16 %2, ptr noundef %3, ptr noundef %4) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -2329,7 +2329,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN9DfgVertexD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #11 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4969,7 +4969,7 @@ define dso_local void @_ZN10DfgVisitor5visitEP6DfgXor(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgVertexVarD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4980,7 +4980,7 @@ define linkonce_odr dso_local void @_ZN12DfgVertexVarD2Ev(ptr noundef nonnull al
   br label %_ZN17DfgVertexVariadicD2Ev.exit
 
 _ZN17DfgVertexVariadicD2Ev.exit:                  ; preds = %1, %5
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -5046,7 +5046,7 @@ define linkonce_odr dso_local void @_ZN8DfgConstD2Ev(ptr noundef nonnull align 8
   br label %_ZN8V3NumberD2Ev.exit
 
 _ZN8V3NumberD2Ev.exit:                            ; preds = %6, %7, %13, %15
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -5110,7 +5110,7 @@ define linkonce_odr dso_local void @_ZNK8DfgConst7srcNameB5cxx11Em(ptr dead_on_u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgSelD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -7399,7 +7399,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17DfgVertexVariadicD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -7410,7 +7410,7 @@ define linkonce_odr dso_local void @_ZN17DfgVertexVariadicD2Ev(ptr noundef nonnu
   br label %6
 
 6:                                                ; preds = %5, %1
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTV9DfgVertex, i64 16), ptr %0, align 8
   ret void
 }
 
